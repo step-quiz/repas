@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exercici — Repàs d'ESO</title>
+<link rel="stylesheet" href="css/estil.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main class="embolcall">
+  <div class="barra-sup">
+    <a href="index.html" class="petit">← Full 1</a>
+    <span class="petit apagat" id="situacio"></span>
+  </div>
+
+  <section class="targeta">
+    <div style="display:flex;gap:.6rem;align-items:center;margin-bottom:.5rem">
+      <span class="codi" id="codi"></span>
+    </div>
+    <p class="encap" id="encap"></p>
+    <div class="enunciat" id="enunciat"></div>
+    <div class="nota" id="nota" hidden></div>
+
+    <div class="pistes" id="pistes"></div>
+
+    <div class="accions">
+      <button class="btn pista" id="pista">Demana una pista</button>
+      <button class="btn" id="mostra">Ja ho tinc, mostra'm les opcions</button>
+    </div>
+
+    <div id="zona-resposta" hidden>
+      <div class="opcions" id="opcions"></div>
+      <div class="accions">
+        <button class="btn" id="comprova" disabled>Comprova la resposta</button>
+      </div>
+    </div>
+
+    <div class="veredicte" id="veredicte" hidden></div>
+    <div class="accions">
+      <button class="btn buit" id="veure" hidden>Mostra la resolució</button>
+    </div>
+    <div class="resolucio" id="resolucio" hidden></div>
+
+    <div class="accions">
+      <button class="btn buit" id="anterior">← Anterior</button>
+      <button class="btn" id="seguent" hidden>Següent exercici →</button>
+    </div>
+  </section>
+</main>
+<script src="data/full1.js"></script>
+<script src="js/nucli.js"></script>
+<script src="js/practica.js"></script>
+</body>
+</html>

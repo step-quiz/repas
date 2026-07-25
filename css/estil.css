@@ -1,0 +1,103 @@
+/* Repàs ESO — full d'exercicis interactiu. Paleta de paper mil·limetrat. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap");
+
+:root{
+  --paper:#F7F8FA; --tinta:#16202E; --graf:#C8D4E3; --blau:#2455A4;
+  --verd:#17795E; --ambre:#B06B00; --vermell:#C4362F; --card:#FFF;
+  --vora:#DDE4EC; --apagat:#5A6B80;
+  --verd-suau:#E4F3EC; --ambre-suau:#FFF6E5; --vermell-suau:#FBEDEC; --blau-suau:#E8EFF9;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --cos:"Figtree",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  --pas:26px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--cos); color:var(--tinta); background:var(--paper);
+  font-size:16.5px; line-height:var(--pas); -webkit-font-smoothing:antialiased;
+  background-image:
+    repeating-linear-gradient(to bottom,transparent 0 calc(var(--pas) - 1px),rgba(200,212,227,.45) calc(var(--pas) - 1px) var(--pas)),
+    repeating-linear-gradient(to right,transparent 0 calc(var(--pas) - 1px),rgba(200,212,227,.28) calc(var(--pas) - 1px) var(--pas));
+}
+.embolcall{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 5rem}
+a{color:var(--blau)}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0}
+h1{font-size:1.72rem;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.06rem;font-weight:700}
+.cimera{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blau)}
+.apagat{color:var(--apagat)}
+.petit{font-size:.86rem}
+.targeta{background:var(--card);border:1px solid var(--vora);border-radius:12px;
+  padding:1.05rem 1.15rem;box-shadow:0 1px 2px rgba(22,32,46,.05)}
+button{font:inherit;font-family:var(--cos)}
+.btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--tinta);
+  background:var(--tinta);color:#fff;border-radius:9px;padding:.62rem 1.05rem;
+  font-weight:600;cursor:pointer;transition:transform .12s,filter .12s}
+.btn:hover{filter:brightness(1.15)} .btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+.btn.buit{background:transparent;color:var(--tinta);border-color:var(--vora)}
+.btn.buit:hover{border-color:var(--tinta);filter:none}
+.btn.pista{background:var(--ambre-suau);color:#6B4200;border-color:#EBD3A3}
+.btn.gran{width:100%;justify-content:center;padding:.8rem;font-size:1.02rem}
+:focus-visible{outline:2.5px solid var(--blau);outline-offset:2px}
+.mapa{display:flex;flex-wrap:wrap;gap:3px;margin:.5rem 0 .1rem}
+.mapa .cel{width:15px;height:15px;border:1px solid var(--graf);border-radius:2px;
+  background:#fff;padding:0;cursor:pointer;transition:transform .12s}
+.mapa .cel:hover{transform:scale(1.35);z-index:2;border-color:var(--tinta)}
+.cel.net{background:var(--verd);border-color:var(--verd)}
+.cel.pista{background:var(--verd-suau);border-color:var(--verd)}
+.cel.segon{background:var(--ambre);border-color:var(--ambre)}
+.cel.fallat{background:var(--vermell);border-color:var(--vermell)}
+.cel.vist{background:var(--graf);border-color:var(--graf)}
+.grup{margin-bottom:.55rem}
+.grup h3{font:600 12px/1.6 var(--mono);color:var(--apagat);letter-spacing:.04em}
+.llegenda{display:flex;flex-wrap:wrap;gap:.15rem 1rem;font-size:.78rem;color:var(--apagat);margin-top:.7rem}
+.llegenda span{display:flex;align-items:center;gap:.32rem}
+.llegenda i{width:11px;height:11px;border-radius:2px;border:1px solid var(--graf);display:inline-block}
+.blocs{display:grid;gap:.6rem;margin:.9rem 0}
+.bloc{display:flex;align-items:center;gap:.9rem;text-align:left;width:100%;
+  background:var(--card);border:1px solid var(--vora);border-radius:11px;
+  padding:.75rem .9rem;cursor:pointer;color:inherit}
+.bloc:hover{border-color:var(--blau)}
+.bloc .num{font:800 1.15rem/1 var(--display);color:var(--blau);min-width:1.4rem}
+.bloc .cos{flex:1;min-width:0}
+.bloc .tit{font-weight:700}
+.barra{height:5px;background:var(--vora);border-radius:3px;overflow:hidden;margin-top:.35rem}
+.barra i{display:block;height:100%;background:var(--verd)}
+.barra-sup{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.codi{font:700 12px/1 var(--mono);background:var(--tinta);color:#fff;padding:.28rem .45rem;border-radius:5px}
+.encap{color:var(--apagat);font-size:.9rem;margin:0 0 .5rem}
+.enunciat{font-size:1.2rem;line-height:1.5;margin:.2rem 0 .3rem}
+.pistes{margin:.85rem 0 0;display:grid;gap:.5rem}
+.pista-txt{background:var(--ambre-suau);border-left:3px solid var(--ambre);
+  border-radius:0 8px 8px 0;padding:.5rem .75rem;font-size:.95rem}
+.opcions{display:grid;gap:.5rem;margin:1rem 0 0}
+.opcio{display:flex;align-items:flex-start;gap:.7rem;text-align:left;width:100%;
+  background:var(--card);border:1.5px solid var(--vora);border-radius:10px;
+  padding:.7rem .85rem;cursor:pointer;color:inherit;font-size:1.02rem}
+.opcio:hover{border-color:var(--blau)}
+.opcio .lletra{font:700 .82rem/1.35 var(--mono);background:var(--blau-suau);color:var(--blau);
+  width:1.5rem;height:1.5rem;border-radius:5px;display:grid;place-items:center;flex:none}
+.opcio.tria{border-color:var(--blau);background:var(--blau-suau)}
+.opcio.bona{border-color:var(--verd);background:var(--verd-suau)}
+.opcio.bona .lletra{background:var(--verd);color:#fff}
+.opcio.dolenta{border-color:var(--vermell);background:var(--vermell-suau)}
+.opcio.dolenta .lletra{background:var(--vermell);color:#fff}
+.opcio[disabled]{cursor:default}
+.accions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+.veredicte{margin-top:1rem;border-radius:10px;padding:.8rem .95rem;border-left:4px solid}
+.veredicte.be{background:var(--verd-suau);border-color:var(--verd)}
+.veredicte.malament{background:var(--vermell-suau);border-color:var(--vermell)}
+.veredicte h2{font-size:1rem;margin-bottom:.2rem}
+.resolucio{margin-top:1rem;background:#FBFCFD;border:1px solid var(--vora);border-radius:10px;padding:.85rem 1rem}
+.resolucio ol{margin:.4rem 0 0;padding-left:1.3rem}
+.resolucio li{margin:.3rem 0}
+.nota{background:var(--ambre-suau);border-left:3px solid var(--ambre);padding:.45rem .7rem;
+  border-radius:0 7px 7px 0;font-size:.88rem;margin-top:.8rem}
+.errades{margin-top:1.4rem}
+.errada{border-left:3px solid var(--vermell);background:var(--card);border-radius:0 9px 9px 0;
+  padding:.55rem .8rem;margin:.45rem 0;font-size:.93rem}
+.katex{font-size:1.02em}
+@media (max-width:520px){ .enunciat{font-size:1.08rem} .embolcall{padding-top:1.1rem} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
