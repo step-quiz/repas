@@ -1,5 +1,5 @@
 /* Generat per tools/build.py — no editeu aquest fitxer a mà. */
-window.FULL1 = {
+window.FULL = {
  "full": 1,
  "titol": "Full 1 — Nombres enters, fraccions i decimals",
  "subtitol": "Operacions amb enters, divisibilitat, fraccions i pas de decimal a fracció generatriu.",

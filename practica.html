@@ -10,9 +10,9 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<main class="embolcall">
+<main class="embolcall" id="main">
   <div class="barra-sup">
-    <a href="index.html" class="petit">← Full 1</a>
+    <a href="index.html" class="petit" id="tornar">← Tots els fulls</a>
     <span class="petit apagat" id="situacio"></span>
   </div>
 
@@ -50,7 +50,17 @@
     </div>
   </section>
 </main>
-<script src="data/full1.js"></script>
+<script>
+  window.RE_FULL_ABSENT = function () {
+    document.getElementById("main").innerHTML =
+      '<p class="cimera">Repàs per començar 1r de batxillerat</p>' +
+      '<h1>Aquest full encara no està preparat</h1>' +
+      '<p class="apagat" style="margin:.6rem 0 1.4rem">Torna al llistat de fulls.</p>' +
+      '<a class="btn" href="index.html">← Tots els fulls</a>';
+  };
+  var FULL_N = new URLSearchParams(location.search).get("full") || "1";
+  document.write('<script src="data/full' + FULL_N + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
+</script>
 <script src="js/nucli.js"></script>
 <script src="js/practica.js"></script>
 </body>

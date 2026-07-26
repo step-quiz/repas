@@ -108,7 +108,7 @@ def compila():
     ruta = os.path.join(ARREL, "data", "full1.js")
     with open(ruta, "w", encoding="utf-8") as f:
         f.write("/* Generat per tools/build.py — no editeu aquest fitxer a mà. */\n")
-        f.write("window.FULL1 = ")
+        f.write("window.FULL = ")  # global genèric: cada pàgina en carrega un full a la vegada
         json.dump(dades, f, ensure_ascii=False, indent=1)
         f.write(";\n")
     print("✓ %s (%.0f kB)" % (ruta, os.path.getsize(ruta) / 1024))

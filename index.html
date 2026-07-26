@@ -3,55 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Repàs d'ESO — Full 1</title>
+<title>Repàs d'ESO</title>
 <meta name="description" content="Autoavaluació de matemàtiques per començar 1r de batxillerat.">
 <link rel="stylesheet" href="css/estil.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <main class="embolcall">
   <p class="cimera">Repàs per començar 1r de batxillerat</p>
-  <h1>Full 1 — Nombres enters, fraccions i decimals</h1>
-  <p class="apagat" style="margin:.35rem 0 1.2rem">
-    140 apartats per trobar què tens fluix abans no comenci el curs.
-    Tries un exercici, demanes pistes si les vols, esculls la resposta i
-    després en mires la resolució.
-  </p>
+  <h1>Tria un full</h1>
+  <p class="apagat petit" id="resum" style="margin:.35rem 0 1.2rem"></p>
 
-  <section class="targeta">
-    <h2>El teu mapa</h2>
-    <p class="petit apagat" style="margin:.1rem 0 .1rem"><strong id="comptador"></strong> · <span id="detall"></span></p>
-    <div id="mapa"></div>
-    <div class="llegenda">
-      <span><i class="cel net"></i>a la primera</span>
-      <span><i class="cel pista"></i>amb pista</span>
-      <span><i class="cel segon"></i>al segon intent</span>
-      <span><i class="cel fallat"></i>fallat</span>
-      <span><i class="cel vist"></i>començat</span>
-      <span><i class="cel"></i>per fer</span>
-    </div>
-  </section>
+  <div class="fulls" id="fulls"></div>
 
-  <div style="margin:1.1rem 0"><button class="btn gran" id="continua">Continua on ho vas deixar</button></div>
-
-  <h2 style="margin-top:1.6rem">Per blocs</h2>
-  <div class="blocs" id="blocs"></div>
-
-  <section id="errades" class="errades" hidden></section>
-
-  <p class="petit apagat" style="margin-top:2.5rem">
-    El progrés es desa només en aquest navegador.
-    <button class="btn buit petit" id="reinicia" style="padding:.3rem .6rem;margin-left:.4rem">Esborra'l</button>
-  </p>
-  <p class="petit apagat">
-    Enunciats del full de repàs del professorat. Respostes calculades amb aritmètica
-    exacta i pendents de revisió: si en trobes una d'equivocada, avisa.
+  <p class="petit apagat" style="margin-top:2.4rem">
+    El progrés de cada full es desa només en aquest navegador.
   </p>
 </main>
-<script src="data/full1.js"></script>
 <script src="js/nucli.js"></script>
-<script src="js/portada.js"></script>
+<script src="js/inici.js"></script>
 </body>
 </html>

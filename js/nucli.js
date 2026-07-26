@@ -1,24 +1,39 @@
-/* nucli.js — estat compartit: progrés, mapa i renderitzat de matemàtiques. */
+/* nucli.js — estat compartit entre pàgines: progrés per full (localStorage),
+   pintat del mapa de llacunes i renderitzat de matemàtiques amb KaTeX.
+
+   El progrés de cada full es desa amb la seva pròpia clau
+   ("repas-eso:full1", "repas-eso:full2"...) perquè cada full té el seu propi
+   recorregut. Per això totes les funcions de progrés reben el número de full
+   com a primer argument — cap altre canvi de comportament respecte abans. */
 window.RE = (function () {
   "use strict";
-  var CLAU = "repas-eso:full1";
 
-  function llegeix() {
-    try { return JSON.parse(localStorage.getItem(CLAU)) || { v: 1, items: {} }; }
-    catch (e) { return { v: 1, items: {} }; }
+  function clauLS(full) { return "repas-eso:full" + full; }
+
+  function llegeix(full) {
+    try {
+      return JSON.parse(localStorage.getItem(clauLS(full))) || { v: 1, items: {} };
+    } catch (e) {
+      return { v: 1, items: {} };
+    }
   }
-  function desa(p) {
-    try { localStorage.setItem(CLAU, JSON.stringify(p)); } catch (e) {}
+
+  function desa(full, p) {
+    try { localStorage.setItem(clauLS(full), JSON.stringify(p)); } catch (e) { /* ple o bloquejat: no fem res */ }
   }
-  function estat(id) { return (llegeix().items[id] || {}).estat || ""; }
-  function apunta(id, dades) {
-    var p = llegeix();
+
+  function estat(full, id) { return (llegeix(full).items[id] || {}).estat || ""; }
+
+  function apunta(full, id, dades) {
+    var p = llegeix(full);
     p.items[id] = Object.assign({}, p.items[id], dades, { ts: Date.now() });
-    desa(p);
+    desa(full, p);
   }
-  function esborra() { desa({ v: 1, items: {} }); }
 
-  /* Desxifra el bloc de solucions (base64 de UTF-8). Ofuscació, no seguretat. */
+  function esborra(full) { desa(full, { v: 1, items: {} }); }
+
+  /* Desxifra el bloc de solucions (base64 de JSON en UTF-8).
+     És un dissuasiu contra el «veure codi font», no una mesura de seguretat. */
   function clau(item) {
     var bin = atob(item.clau), b = new Uint8Array(bin.length);
     for (var i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
@@ -34,17 +49,19 @@ window.RE = (function () {
     "": "per fer"
   };
 
+  /* Pinta el mapa de llacunes d'UN full dins de `contenidor`, agrupat per bloc.
+     `dades` és l'objecte window.FULL sencer (calen dades.full i dades.blocs). */
   function mapa(contenidor, dades, onClic) {
-    var p = llegeix();
+    var p = llegeix(dades.full).items;
     contenidor.innerHTML = "";
     dades.blocs.forEach(function (bloc) {
-      var g = document.createElement("div");
-      g.className = "grup";
-      g.innerHTML = "<h3>" + bloc.titol + " · " + bloc.items.length + "</h3>";
+      var grup = document.createElement("div");
+      grup.className = "grup";
+      grup.innerHTML = "<h3>" + bloc.titol + " · " + bloc.items.length + "</h3>";
       var fila = document.createElement("div");
       fila.className = "mapa";
       bloc.items.forEach(function (id) {
-        var e = (p.items[id] || {}).estat || "";
+        var e = (p[id] || {}).estat || "";
         var b = document.createElement("button");
         b.className = "cel " + e;
         b.type = "button";
@@ -53,8 +70,8 @@ window.RE = (function () {
         b.onclick = function () { onClic(id); };
         fila.appendChild(b);
       });
-      g.appendChild(fila);
-      contenidor.appendChild(g);
+      grup.appendChild(fila);
+      contenidor.appendChild(grup);
     });
   }
 
@@ -65,14 +82,13 @@ window.RE = (function () {
           delimiters: [{ left: "$", right: "$", display: false }],
           throwOnError: false
         });
-      } catch (e) {}
+      } catch (e) { /* KaTeX no ha carregat (sense connexió): es queda el LaTeX en cru, llegible igualment */ }
     }
   }
-  /* KaTeX arriba amb defer: quan estigui, es renderitza tot el que hi ha. */
   window.addEventListener("load", function () { mat(document.body); });
 
   return {
-    llegeix: llegeix, apunta: apunta, estat: estat, esborra: esborra,
+    llegeix: llegeix, desa: desa, apunta: apunta, estat: estat, esborra: esborra,
     clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ
   };
 })();

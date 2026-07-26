@@ -1,7 +1,10 @@
-/* practica.js — el cicle de quatre passos: enunciat, pistes, resposta, resolució. */
+/* practica.js — el cicle de quatre passos: enunciat, pistes, resposta, resolució.
+   Genèric per a qualsevol full (window.FULL); abans estava fixat a full1. */
 (function () {
   "use strict";
-  var D = window.FULL1, $ = function (s) { return document.querySelector(s); };
+  if (!window.FULL) return;   /* practica.html ja mostra "aquest full encara no està preparat" */
+
+  var D = window.FULL, $ = function (s) { return document.querySelector(s); };
   var ids = D.items.map(function (i) { return i.id; });
   var qid = new URLSearchParams(location.search).get("q") || ids[0];
   var idx = Math.max(0, ids.indexOf(qid));
@@ -16,19 +19,21 @@
   var pistes = 0, intents = 0, triada = -1, tancat = false;
 
   function ves(n) {
-    if (n < 0 || n >= ids.length) { location.href = "index.html"; return; }
-    location.href = "practica.html?q=" + ids[n];
+    if (n < 0 || n >= ids.length) { location.href = "full.html?full=" + D.full; return; }
+    location.href = "practica.html?full=" + D.full + "&q=" + ids[n];
   }
 
   /* ---- capçalera ---- */
   var bloc = D.blocs.filter(function (b) { return b.id === item.bloc; })[0];
+  $("#tornar").textContent = "← " + D.titol;
+  $("#tornar").href = "full.html?full=" + D.full;
   $("#codi").textContent = item.id;
   $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
   $("#encap").textContent = item.encapcalament;
   $("#enunciat").innerHTML = item.enunciat;
   if (item.nota) { $("#nota").innerHTML = "<strong>Nota:</strong> " + item.nota; $("#nota").hidden = false; }
   RE.mat(document.body);
-  if (!RE.estat(item.id)) RE.apunta(item.id, { estat: "vist" });
+  if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
 
   /* ---- pistes ---- */
   $("#pista").onclick = function () {
@@ -83,7 +88,7 @@
       tancat = true;
       btn.classList.remove("tria"); btn.classList.add("bona");
       var estat = pistes ? "pista" : (intents > 1 ? "segon" : "net");
-      RE.apunta(item.id, { estat: estat, pistes: pistes, intents: intents, err: "" });
+      RE.apunta(D.full, item.id, { estat: estat, pistes: pistes, intents: intents, err: "" });
       v.className = "veredicte be";
       v.innerHTML = "<h2>Correcte</h2>" + (
         pistes ? "Ho has resolt amb ajuda. Torna-hi d'aquí a uns dies sense demanar pistes."
@@ -92,7 +97,7 @@
     } else {
       btn.classList.remove("tria"); btn.classList.add("dolenta");
       btn.disabled = true;
-      RE.apunta(item.id, { err: k.err[orig] });
+      RE.apunta(D.full, item.id, { err: k.err[orig] });
       v.className = "veredicte malament";
       if (intents === 1) {
         v.innerHTML = "<h2>Encara no</h2>" + k.diag[orig] +
@@ -101,7 +106,7 @@
         $("#comprova").disabled = true;
       } else {
         tancat = true;
-        RE.apunta(item.id, { estat: "fallat", pistes: pistes, intents: intents });
+        RE.apunta(D.full, item.id, { estat: "fallat", pistes: pistes, intents: intents });
         caixa.children[ordre.indexOf(k.ok)].classList.add("bona");
         v.innerHTML = "<h2>La resposta correcta és la " +
           LLETRES[ordre.indexOf(k.ok)] + "</h2>" + k.diag[orig] +
