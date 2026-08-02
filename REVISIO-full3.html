@@ -1,0 +1,598 @@
+<!DOCTYPE html><html lang="ca"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisió — Full 3</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+ onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
+ throwOnError:false})"></script>
+
+<style>
+body{font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#16202E;
+ max-width:60rem;margin:0 auto;padding:2rem 1.2rem 6rem}
+h1{font-size:1.5rem;margin:0 0 .2rem} h2{font-size:1.05rem;margin:2.2rem 0 .6rem;
+ border-bottom:2px solid #16202E;padding-bottom:.25rem}
+.meta{color:#5A6B80;margin:0 0 1.5rem}
+.it{border:1px solid #D8DFE8;border-radius:8px;padding:.8rem 1rem;margin:.7rem 0;
+ page-break-inside:avoid}
+.cap{display:flex;gap:.6rem;align-items:baseline;margin-bottom:.35rem}
+.cod{font:700 13px ui-monospace,monospace;background:#16202E;color:#fff;
+ padding:.1rem .4rem;border-radius:4px}
+.tip{font-size:11px;color:#5A6B80;text-transform:uppercase;letter-spacing:.06em}
+.enun{margin:.2rem 0 .5rem}
+ol.op{margin:.3rem 0;padding-left:1.4rem}
+ol.op li{margin:.15rem 0}
+.ok{background:#E4F3EC;font-weight:600;padding:.05rem .25rem;border-radius:3px}
+.err{font:600 11px ui-monospace,monospace;color:#8C2F28;background:#FBEDEC;
+ padding:.05rem .3rem;border-radius:3px;margin-right:.3rem}
+.fb{color:#43506180}
+.sec{color:#5A6B80;font-size:13px;margin:.4rem 0 0}
+.res li{margin:.1rem 0}
+.nota{background:#FFF6E5;border-left:3px solid #B06B00;padding:.4rem .6rem;
+ margin:.5rem 0 0;font-size:13.5px}
+.avis{background:#FBEDEC;border-left:3px solid #C4362F;padding:.8rem 1rem;
+ margin:1rem 0 2rem;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;font-size:13px;width:100%}
+td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
+@media print{.it{border-color:#bbb}}
+</style>
+<h1>Clau de respostes — Full 3</h1>
+<p class="meta">50 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
+<h2>Termes d'una successió <span class="tip">· 20 preguntes</span></h2>
+<p class="sec"><strong>Exercici 47.</strong> Troba els cinc primers termes de la successió el terme general de la qual és:</p>
+<div class="it"><div class="cap"><span class="cod">47a</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = 2^n$</div>
+<ol class="op"><li><span class="ok">$2, 4, 8, 16, 32$</span> — resposta correcta</li>
+<li>$2, 4, 6, 8, 10$<br><span class="err">EXPONENT_COM_PRODUCTE</span><span class="fb">Has calculat $2\cdot n$ en lloc de $2^n$: aquí l'exponent és $n$, no un factor.</span></li>
+<li>$1, 2, 3, 4, 5$<br><span class="err">BASE_EXPONENT_INTERCANVIATS</span><span class="fb">Has calculat $n^2$ en lloc de $2^n$: la base és $2$ (fixa) i l'exponent és $n$ (variable), no a l'inrevés.</span></li>
+<li>$4, 8, 16, 32, 64$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has començat a $n=2$ en lloc de $n=1$: el primer terme és $a_1$, no $a_2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $n=1,2,3,4,5$ un per un a $a_n=2^n$.</li><li>$a_1=2^1=2$, $a_2=2^2=4$, $a_3=2^3=8$, i així successivament.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=2^n\Rightarrow a_1=2,\;a_2=4,\;a_3=8,\;a_4=16,\;a_5=32$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47b</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = (-3)^{n+2}$</div>
+<ol class="op"><li><span class="ok">$-27, 81, -243, 729, -2187$</span> — resposta correcta</li>
+<li>$-3, 9, -27, 81, -243$<br><span class="err">EXPONENT_SENSE_DESPLACAR</span><span class="fb">Has calculat $(-3)^n$ en lloc de $(-3)^{n+2}$: no t'has quedat l'exponent $+2$ de l'enunciat.</span></li>
+<li>$27, 81, 243, 729, 2187$<br><span class="err">BASE_SIGNE_PERDUT</span><span class="fb">El resultat ha de conservar el signe de la base $-3$: com que l'exponent $n+2$ és a vegades senar, el resultat també ha de ser negatiu en aquests casos.</span></li>
+<li>$-9, 81, -729, 6561, -59049$<br><span class="err">EXPONENT_MULTIPLICAT</span><span class="fb">Has calculat $(-3)^{2n}$ en lloc de $(-3)^{n+2}$: l'exponent és $n+2$ (una suma), no $2n$ (un producte).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Per a cada $n$, l'exponent és $n+2$: per $n=1$ és $3$; per $n=2$ és $4$, etc.</li><li>$a_1=(-3)^3=-27$, $a_2=(-3)^4=81$, $a_3=(-3)^5=-243$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=(-3)^{n+2}\Rightarrow a_1=(-3)^3=-27,\;a_2=(-3)^4=81,\;a_3=(-3)^5=-243,\;a_4=(-3)^6=729,\;a_5=(-3)^7=-2187$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47c</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = 5 - 3n$</div>
+<ol class="op"><li><span class="ok">$2, -1, -4, -7, -10$</span> — resposta correcta</li>
+<li>$2, -1, -3, -4, -5$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Els termes no s'han calculat un per un a partir de $a_n=5-3n$: revisa cada substitució per separat.</span></li>
+<li>$4, 7, 10, 13, 16$<br><span class="err">SIGNE_PRODUCTE</span><span class="fb">Has calculat $5+3n$ en lloc de $5-3n$: el terme $3n$ es resta, no se suma.</span></li>
+<li>$-2, -5, -8, -11, -14$<br><span class="err">SIGNE_FINAL</span><span class="fb">Cada terme té el signe canviat: revisa el càlcul de $5-3n$ per a cada $n$, sobretot quan $3n$ supera $5$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $n=1,2,3,4,5$ a $5-3n$.</li><li>$a_1=5-3=2$, $a_2=5-6=-1$, $a_3=5-9=-4$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=5-3n\Rightarrow a_1=2,\;a_2=-1,\;a_3=-4,\;a_4=-7,\;a_5=-10$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47d</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = 2 + 4(n+1)$</div>
+<ol class="op"><li><span class="ok">$10, 14, 18, 22, 26$</span> — resposta correcta</li>
+<li>$7, 11, 15, 19, 23$<br><span class="err">MENYS_PARENTESI</span><span class="fb">Aquí amb un $+$: has distribuït el $4$ només al primer terme de dins del parèntesi ($4n$) i has deixat el $+1$ sense multiplicar. El signe $-$ davant d'un parèntesi canvia el signe de TOTS els termes de dins, no només del primer.</span></li>
+<li>$6, 10, 14, 18, 22$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has calculat $2+4n$ en lloc de $2+4(n+1)$: t'has deixat pel camí el $+1$ de dins del parèntesi.</span></li>
+<li>$9, 13, 17, 21, 25$<br><span class="err">JERARQUIA</span><span class="fb">Cal multiplicar $4$ per tot el parèntesi $(n+1)$ abans de sumar el $2$: repassa l'ordre de les operacions.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Primer distribueix: $2+4(n+1)=2+4n+4=4n+6$.</li><li>$a_1=4\cdot1+6=10$, $a_2=4\cdot2+6=14$, $a_3=4\cdot3+6=18$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=2+4(n+1)=4n+6\Rightarrow a_1=10,\;a_2=14,\;a_3=18,\;a_4=22,\;a_5=26$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47e</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = 2\cdot\left(\dfrac{1}{3}\right)^{n-1}$</div>
+<ol class="op"><li><span class="ok">$2, \dfrac{2}{3}, \dfrac{2}{9}, \dfrac{2}{27}, \dfrac{2}{81}$</span> — resposta correcta</li>
+<li>$\dfrac{2}{3}, \dfrac{2}{9}, \dfrac{2}{27}, \dfrac{2}{81}, \dfrac{2}{243}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has començat a $n=2$ en lloc de $n=1$: per $n=1$ l'exponent és $n-1=0$, i qualsevol base elevada a $0$ val $1$.</span></li>
+<li>$\dfrac{1}{3}, \dfrac{1}{9}, \dfrac{1}{27}, \dfrac{1}{81}, \dfrac{1}{243}$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">T'has deixat pel camí el factor $2$ de davant: cada terme és $2\cdot\left(\dfrac13\right)^{n-1}$, no només la potència.</span></li>
+<li>$2, 6, 18, 54, 162$<br><span class="err">FRACCIO_NO_INVERTIDA</span><span class="fb">Has multiplicat per $3$ en lloc de per $\dfrac13$ a cada pas: revisa quina és la base de la potència.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Per $n=1$, l'exponent $n-1$ val $0$: $\left(\dfrac13\right)^0=1$.</li><li>$a_1=2\cdot1=2$, $a_2=2\cdot\dfrac13=\dfrac23$, $a_3=2\cdot\dfrac19=\dfrac29$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=2\cdot\left(\dfrac13\right)^{n-1}\Rightarrow a_1=2,\;a_2=\dfrac23,\;a_3=\dfrac29,\;a_4=\dfrac2{27},\;a_5=\dfrac2{81}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47f</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = n^2 + 3n - 2$</div>
+<ol class="op"><li><span class="ok">$2, 8, 16, 26, 38$</span> — resposta correcta</li>
+<li>$2, 5, 10, 17, 26$<br><span class="err">PARENTESI_NO_DISTRIBUIT</span><span class="fb">Has calculat $n^2+3n$ i has restat el $2$ només al primer terme: el $-2$ s'ha de restar a cada terme, no només al primer.</span></li>
+<li>$2, 10, 24, 44, 70$<br><span class="err">JERARQUIA</span><span class="fb">Revisa l'ordre de les operacions: primer $n^2$, després $3n$, i finalment sumes i restes — no multipliquis $n^2$ per $3$.</span></li>
+<li>$0, 4, 10, 18, 28$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has calculat des de $n=0$ en lloc de $n=1$: el primer terme d'una successió és $a_1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $n=1,2,3,4,5$ a $n^2+3n-2$.</li><li>$a_1=1+3-2=2$, $a_2=4+6-2=8$, $a_3=9+9-2=16$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=n^2+3n-2\Rightarrow a_1=2,\;a_2=8,\;a_3=16,\;a_4=26,\;a_5=38$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">47g</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_n = \dfrac{n+3}{n^2}$</div>
+<ol class="op"><li><span class="ok">$4, \dfrac{5}{4}, \dfrac{2}{3}, \dfrac{7}{16}, \dfrac{8}{25}$</span> — resposta correcta</li>
+<li>$4, \dfrac{5}{4}, \dfrac{2}{3}, \dfrac{7}{16}, \dfrac{1}{3}$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Al cinquè terme, $\dfrac{8}{25}$ ja està simplificat del tot: $8$ i $25$ no tenen cap factor comú, no es pot reduir més.</span></li>
+<li>$4, \dfrac{5}{2}, 2, \dfrac{7}{4}, \dfrac{8}{5}$<br><span class="err">ENTER_MULTIPLICA_DENOMINADOR</span><span class="fb">Has dividit $n^2$ entre $n$ en lloc d'elevar-lo al quadrat: el denominador és $n^2$, no $n$.</span></li>
+<li>$4, \dfrac{1}{4}, \dfrac{2}{9}, \dfrac{7}{16}, \dfrac{8}{25}$<br><span class="err">SIGNE_FINAL</span><span class="fb">Revisa el segon terme: $\dfrac{2+3}{2^2}=\dfrac54$, no $\dfrac14$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula per separat numerador ($n+3$) i denominador ($n^2$) per a cada $n$.</li><li>$a_1=\dfrac{1+3}{1}=4$, $a_2=\dfrac{2+3}{4}=\dfrac54$, $a_3=\dfrac{3+3}{9}=\dfrac{6}{9}=\dfrac23$...</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=\dfrac{n+3}{n^2}\Rightarrow a_1=4,\;a_2=\dfrac54,\;a_3=\dfrac23,\;a_4=\dfrac{7}{16},\;a_5=\dfrac{8}{25}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 48.</strong> Busca els cinc primers termes de les successions recurrents següents.</p>
+<div class="it"><div class="cap"><span class="cod">48a</span><span class="tip">tipus A</span></div>
+<div class="enun">$a_1=1,\;a_2=3,\;a_n=a_{n-2}-a_{n-1}$</div>
+<ol class="op"><li><span class="ok">$1, 3, -2, 5, -7$</span> — resposta correcta</li>
+<li>$1, 3, 4, 7, 11$<br><span class="err">REGLA_NOMES_QUOCIENT</span><span class="fb">Has sumat els dos termes anteriors ($a_{n-2}+a_{n-1}$) en lloc de restar-los, tal com diu la fórmula $a_n=a_{n-2}-a_{n-1}$.</span></li>
+<li>$1, 3, 2, -1, 3$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat, $a_{n-1}-a_{n-2}$: la fórmula diu $a_{n-2}-a_{n-1}$ (el terme més antic menys el més recent).</span></li>
+<li>$1, 3, -2, -5, -3$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">A partir del tercer terme, cada nou terme s'ha de calcular amb $a_{n-2}-a_{n-1}$, no seguint cap altre patró.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada terme nou és el terme de fa dues posicions menys el terme immediatament anterior.</li><li>$a_3=a_1-a_2=1-3=-2$. $a_4=a_2-a_3=3-(-2)=5$. $a_5=a_3-a_4=-2-5=-7$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_3=a_1-a_2=1-3=-2$</li><li>$a_4=a_2-a_3=3-(-2)=5$</li><li>$a_5=a_3-a_4=-2-5=-7$</li><li>Els cinc primers termes són $1,\;3,\;-2,\;5,\;-7$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">48b</span><span class="tip">tipus A</span></div>
+<div class="enun">$b_1=2,\;b_2=4,\;b_n=\dfrac{b_{n-1}}{b_{n-2}}$</div>
+<ol class="op"><li><span class="ok">$2, 4, 2, \dfrac{1}{2}, \dfrac{1}{4}$</span> — resposta correcta</li>
+<li>$2, 4, \dfrac{1}{2}, 2, \dfrac{1}{4}$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has invertit quin terme va al numerador: la fórmula diu $\dfrac{b_{n-1}}{b_{n-2}}$, el més recent a dalt.</span></li>
+<li>$2, 4, 6, 10, 16$<br><span class="err">REGLA_NOMES_QUOCIENT</span><span class="fb">Has sumat els dos termes anteriors en lloc de dividir-los, tal com diu la fórmula $b_n=\dfrac{b_{n-1}}{b_{n-2}}$.</span></li>
+<li>$2, 4, 2, \dfrac{1}{4}, \dfrac{1}{8}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">El quart terme no segueix la fórmula: revisa'l fent $b_4=\dfrac{b_3}{b_2}$ amb els valors ja calculats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada terme nou és el terme anterior dividit pel terme de fa dues posicions.</li><li>$b_3=\dfrac{b_2}{b_1}=\dfrac42=2$. $b_4=\dfrac{b_3}{b_2}=\dfrac24=\dfrac12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$b_3=\dfrac{b_2}{b_1}=\dfrac{4}{2}=2$</li><li>$b_4=\dfrac{b_3}{b_2}=\dfrac{2}{4}=\dfrac12$</li><li>$b_5=\dfrac{b_4}{b_3}=\dfrac{1/2}{2}=\dfrac14$</li><li>Els cinc primers termes són $2,\;4,\;2,\;\dfrac12,\;\dfrac14$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">48c</span><span class="tip">tipus A</span></div>
+<div class="enun">$c_1=-1,\;c_2=0,\;c_3=1,\;c_n=c_{n-1}+c_{n-2}+c_{n-3}$</div>
+<ol class="op"><li><span class="ok">$-1, 0, 1, 0, 1$</span> — resposta correcta</li>
+<li>$-1, 0, 1, -2, 2$<br><span class="err">SIGNE_SUMA</span><span class="fb">Revisa els signes en sumar els tres termes anteriors: $c_4=c_3+c_2+c_1=1+0+(-1)$.</span></li>
+<li>$-1, 0, 1, 2, 3$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Falta sumar-hi un dels tres termes anteriors: la fórmula suma TRES termes, $c_{n-1}+c_{n-2}+c_{n-3}$, no només dos.</span></li>
+<li>$-1, 0, 1, 1, 0$<br><span class="err">ORDRE_RESTA</span><span class="fb">Revisa quin terme correspon a cada posició en sumar $c_{n-1}+c_{n-2}+c_{n-3}$: l'ordre de la suma no altera el resultat, però cal agafar els tres termes correctes.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A partir del quart terme, cada nou terme és la suma dels tres anteriors.</li><li>$c_4=c_3+c_2+c_1=1+0+(-1)=0$. $c_5=c_4+c_3+c_2=0+1+0=1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$c_4=c_3+c_2+c_1=1+0+(-1)=0$</li><li>$c_5=c_4+c_3+c_2=0+1+0=1$</li><li>Els cinc primers termes són $-1,\;0,\;1,\;0,\;1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">48d</span><span class="tip">tipus A</span></div>
+<div class="enun">$d_1=2,\;d_n=d_{n-1}+n$</div>
+<ol class="op"><li><span class="ok">$2, 4, 7, 11, 16$</span> — resposta correcta</li>
+<li>$2, 3, 4, 5, 6$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Cada terme s'ha de calcular sumant l'índex $n$ al terme anterior, $d_n=d_{n-1}+n$; no és una llista de nombres consecutius.</span></li>
+<li>$2, 5, 9, 14, 20$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has sumat $n+1$ en lloc de $n$ a cada pas: per calcular $d_2$ cal sumar $n=2$, no $n=3$.</span></li>
+<li>$2, 4, 6, 8, 10$<br><span class="err">EXPONENT_COM_PRODUCTE</span><span class="fb">Els termes no segueixen un patró de sumar sempre el mateix nombre: cada vegada se suma un $n$ diferent, més gran.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada terme nou és el terme anterior més l'índex $n$ que li toca.</li><li>$d_2=d_1+2=2+2=4$. $d_3=d_2+3=4+3=7$. $d_4=d_3+4=7+4=11$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d_2=d_1+2=2+2=4$</li><li>$d_3=d_2+3=4+3=7$</li><li>$d_4=d_3+4=7+4=11$</li><li>$d_5=d_4+5=11+5=16$</li><li>Els cinc primers termes són $2,\;4,\;7,\;11,\;16$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 49.</strong> Troba la diferència i el terme general d&#x27;aquestes progressions aritmètiques.</p>
+<div class="it"><div class="cap"><span class="cod">49a</span><span class="tip">tipus A</span></div>
+<div class="enun">$10,\;7,\;4,\;1,\dots$</div>
+<ol class="op"><li><span class="ok">$d=-3,\;\;a_n=10-(n-1)\cdot3$</span> — resposta correcta</li>
+<li>$d=3,\;\;a_n=10+(n-1)\cdot3$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=-3,\;\;a_n=10-3n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general d'una PA és $a_n=a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+<li>$d=7,\;\;a_n=10-(n-1)\cdot7$<br><span class="err">COMPARA_TERMES</span><span class="fb">La diferència és el que se suma d'un terme AL SEGÜENT ($7-10$), no el primer terme en si.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és qualsevol terme menys l'anterior: $7-10$.</li><li>$d=7-10=-3$. El terme general és $a_n=a_1+(n-1)d=10+(n-1)\cdot(-3)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=7-10=-3$ (es manté igual a la resta: $4-7=-3$, $1-4=-3$)</li><li>$a_n=a_1+(n-1)d=10+(n-1)\cdot(-3)=10-3(n-1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">49b</span><span class="tip">tipus A</span></div>
+<div class="enun">$\sqrt2,\;2\sqrt2,\;3\sqrt2,\;4\sqrt2,\dots$</div>
+<ol class="op"><li><span class="ok">$d=\sqrt2,\;\;a_n=n\sqrt2$</span> — resposta correcta</li>
+<li>$d=2,\;\;a_n=\sqrt2+(n-1)\cdot2$<br><span class="err">COMPARA_TERMES</span><span class="fb">La diferència entre termes consecutius és $\sqrt2$ (el factor que multiplica cada vegada), no el nombre $2$ que acompanya $\sqrt2$.</span></li>
+<li>$d=\sqrt2,\;\;a_n=\sqrt2+(n-1)$<br><span class="err">ENTER_AL_NUMERADOR</span><span class="fb">Al terme general, la diferència $\sqrt2$ ha de multiplicar tot el $(n-1)$, no sumar-s'hi soles.</span></li>
+<li>$d=2\sqrt2,\;\;a_n=n\cdot2\sqrt2$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$2\sqrt2-\sqrt2=\sqrt2$, no $2\sqrt2$: revisa la resta de dos termes consecutius.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $2\sqrt2-\sqrt2$.</li><li>$d=2\sqrt2-\sqrt2=\sqrt2$. Com que $a_1=\sqrt2$, $a_n=\sqrt2+(n-1)\sqrt2=n\sqrt2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=2\sqrt2-\sqrt2=\sqrt2$</li><li>$a_n=a_1+(n-1)d=\sqrt2+(n-1)\sqrt2=\sqrt2\bigl(1+(n-1)\bigr)=n\sqrt2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">49c</span><span class="tip">tipus A</span></div>
+<div class="enun">$7,\;2,\;-3,\;-8,\dots$</div>
+<ol class="op"><li><span class="ok">$d=-5,\;\;a_n=7-(n-1)\cdot5$</span> — resposta correcta</li>
+<li>$d=5,\;\;a_n=7+(n-1)\cdot5$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=-5,\;\;a_n=7-5n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+<li>$d=-9,\;\;a_n=7-(n-1)\cdot9$<br><span class="err">COMPARA_TERMES</span><span class="fb">Has restat $2-11$ o un altre parell no consecutiu: la diferència es calcula entre termes seguits, $2-7$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $2-7$.</li><li>$d=2-7=-5$. El terme general és $a_n=7+(n-1)\cdot(-5)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=2-7=-5$ (es manté igual: $-3-2=-5$, $-8-(-3)=-5$)</li><li>$a_n=a_1+(n-1)d=7+(n-1)\cdot(-5)=7-5(n-1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">49d</span><span class="tip">tipus A</span></div>
+<div class="enun">$16,\;8,\;0,\;-8,\dots$</div>
+<ol class="op"><li><span class="ok">$d=-8,\;\;a_n=16-(n-1)\cdot8$</span> — resposta correcta</li>
+<li>$d=\dfrac12,\;\;a_n=16\cdot\left(\dfrac12\right)^{n-1}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Encara que els primers termes es dividien per $2$, la successió completa no ho compleix: $0:8$ no dona $-8$. Comprova-ho restant termes consecutius, no dividint-los.</span></li>
+<li>$d=8,\;\;a_n=16+(n-1)\cdot8$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=-8,\;\;a_n=16-8n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $8-16$.</li><li>$d=8-16=-8$. El terme general és $a_n=16+(n-1)\cdot(-8)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=8-16=-8$ (es manté igual: $0-8=-8$, $-8-0=-8$)</li><li>$a_n=a_1+(n-1)d=16+(n-1)\cdot(-8)=16-8(n-1)$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 50.</strong> Considera la successió $2,\;4,\;6,\;8,\;10,\dots$</p>
+<div class="it"><div class="cap"><span class="cod">50a</span><span class="tip">tipus B</span></div>
+<div class="enun">És una progressió aritmètica la successió $2,\;4,\;6,\;8,\;10,\dots$?</div>
+<ol class="op"><li><span class="ok">Sí, perquè la diferència entre termes consecutius és sempre la mateixa: $d=2$.</span> — resposta correcta</li>
+<li>No, perquè els termes van augmentant.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes augmentin no impedeix que sigui una PA: el que defineix una PA és que la diferència entre termes consecutius sigui SEMPRE la mateixa, i aquí ho és ($d=2$).</span></li>
+<li>No, perquè els termes són tots parells.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que tots els termes siguin parells és una casualitat d'aquesta successió, no el motiu pel qual és o no és una PA.</span></li>
+<li>Sí, perquè cada terme és el doble de la seva posició.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">Aquesta observació és certa ($a_n=2n$) però no és la definició de progressió aritmètica: cal comprovar que la diferència entre termes consecutius és constant.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre diversos parells de termes consecutius i comprova si sempre és la mateixa.</li><li>$4-2=2$, $6-4=2$, $8-6=2$, $10-8=2$: la diferència és sempre $2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4-2=2$, $6-4=2$, $8-6=2$, $10-8=2$: la diferència és constant, $d=2$, per tant sí que és una progressió aritmètica</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">50b</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme general de $2,\;4,\;6,\;8,\;10,\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=2n$</span> — resposta correcta</li>
+<li>$a_n=2+(n-1)\cdot2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta expressió és correcta però no està simplificada: $2+(n-1)\cdot2=2+2n-2=2n$.</span></li>
+<li>$a_n=2^n$<br><span class="err">EXPONENT_COM_PRODUCTE</span><span class="fb">$2^n$ dona $2,4,8,16,32\dots$: creix massa de pressa. Aquí cada terme suma sempre $2$ a l'anterior, és una progressió ARITMÈTICA, no una potència.</span></li>
+<li>$a_n=n+1$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Aquesta fórmula dona $2,3,4,5,6\dots$, que no coincideix amb la successió de l'enunciat a partir del segon terme.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El primer terme és $a_1=2$ i la diferència és $d=2$.</li><li>$a_n=a_1+(n-1)d=2+(n-1)\cdot2=2+2n-2=2n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=a_1+(n-1)d=2+(n-1)\cdot2=2+2n-2=2n$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">50c</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme $a_{30}$ de $2,\;4,\;6,\;8,\;10,\dots$</div>
+<ol class="op"><li><span class="ok">$60$</span> — resposta correcta</li>
+<li>$58$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Has calculat $2\cdot(30-1)$ en lloc de $2\cdot30$: amb $a_n=2n$ no cal restar $1$ a l'índex.</span></li>
+<li>$62$<br><span class="err">ENTER_AL_NUMERADOR</span><span class="fb">Has sumat el primer terme dues vegades: amb $a_n=2n$ només cal substituir $n=30$.</span></li>
+<li>$900$<br><span class="err">BASE_EXPONENT_INTERCANVIATS</span><span class="fb">Has calculat $n^2$ en lloc de $2n$: el terme general d'aquesta PA és $a_n=2n$, no una potència.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb $a_n=2n$, substitueix $n=30$.</li><li>$a_{30}=2\cdot30$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=2n\Rightarrow a_{30}=2\cdot30=60$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 51.</strong> Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$:</p>
+<div class="it"><div class="cap"><span class="cod">51a</span><span class="tip">tipus B</span></div>
+<div class="enun">Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$ és una progressió aritmètica.</div>
+<ol class="op"><li><span class="ok">Sí, perquè la diferència entre termes consecutius coneguts és sempre la mateixa: $d=-\dfrac13$ (el $0$ que ve després no és el cinquè terme immediat, sinó un terme posterior de la successió).</span> — resposta correcta</li>
+<li>No, perquè els termes van disminuint.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes disminueixin no impedeix que sigui una PA: una diferència negativa i constant també defineix una progressió aritmètica.</span></li>
+<li>Sí, perquè tots els termes són fraccions amb denominador $3$.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">El fet que el denominador sigui $3$ és només una manera d'escriure els termes ($1=\dfrac33$): el que cal comprovar és que la diferència entre termes consecutius sigui constant.</span></li>
+<li>No, perquè $0-\dfrac23=-\dfrac23$, que no coincideix amb la diferència $-\dfrac13$ dels altres termes.<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">És cert que aquesta resta no dona $-\dfrac13$, però és perquè el $0$ NO és el terme immediatament següent a $\dfrac23$ en aquesta successió (hi ha un terme intermedi, $\dfrac13$, que no s'escriu explícitament): els quatre primers termes ja confirmen que sí que és una PA.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre els termes consecutius que coneixes amb seguretat: els quatre primers.</li><li>$\dfrac43-\dfrac53=-\dfrac13$, $1-\dfrac43=-\dfrac13$, $\dfrac23-1=-\dfrac13$: sempre la mateixa.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac43-\dfrac53=-\dfrac13$, $1-\dfrac43=-\dfrac13$, $\dfrac23-1=-\dfrac13$: la diferència entre els quatre primers termes és constant, $d=-\dfrac13$, per tant sí que és una progressió aritmètica</li><li>El $0$ de l'enunciat és un terme posterior (no el cinquè): continuant a restar $\dfrac13$ des de $\dfrac23$ s'obté $\dfrac13$ (el cinquè terme) i després sí, $0$ (el sisè)</li></ol>
+<p class="nota"><strong>Nota:</strong> Els punts suspensius amaguen un terme intermedi: amb $d=-\dfrac13$, el terme que segueix $\dfrac23$ és $\dfrac13$ (cinquè), i el $0$ de l'enunciat és en realitat el sisè terme, no el cinquè. La progressió és consistent igualment, com confirmen els quatre primers termes.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">51b</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme general de $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=\dfrac53-(n-1)\cdot\dfrac13$</span> — resposta correcta</li>
+<li>$a_n=\dfrac53+(n-1)\cdot\dfrac13$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$a_n=\dfrac53-\dfrac{n}{3}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+<li>$a_n=\dfrac53-(n-1)\cdot3$<br><span class="err">INVERTIDA</span><span class="fb">La diferència és $-\dfrac13$, no $-3$: has invertit la fracció en calcular $d$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El primer terme és $a_1=\dfrac53$ i la diferència és $d=-\dfrac13$ (apartat anterior).</li><li>$a_n=a_1+(n-1)d=\dfrac53+(n-1)\cdot\left(-\dfrac13\right)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=a_1+(n-1)d=\dfrac53-(n-1)\cdot\dfrac13$</li></ol>
+</div>
+<h2>Progressions aritmètiques <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 52.</strong> Troba el terme general de les progressions aritmètiques següents.</p>
+<div class="it"><div class="cap"><span class="cod">52a</span><span class="tip">tipus A</span></div>
+<div class="enun">$1{,}73;\;1{,}77;\;1{,}81;\;1{,}85;\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=1{,}73+(n-1)\cdot0{,}04$</span> — resposta correcta</li>
+<li>$a_n=1{,}73+(n-1)\cdot0{,}4$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">En realitat l'error és de posició decimal, no d'índex: Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.</span></li>
+<li>$a_n=1{,}73+n\cdot0{,}04$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+<li>$a_n=1{,}77+(n-1)\cdot0{,}04$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme de la successió és $1{,}73$, no $1{,}77$ (aquest és el segon terme).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $1{,}77-1{,}73$.</li><li>$d=1{,}77-1{,}73=0{,}04$. El primer terme és $a_1=1{,}73$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=1{,}77-1{,}73=0{,}04$ (es manté igual a la resta)</li><li>$a_n=a_1+(n-1)d=1{,}73+(n-1)\cdot0{,}04$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">52b</span><span class="tip">tipus A</span></div>
+<div class="enun">$5,\;2,\;-1,\;-4,\;-7,\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=5-(n-1)\cdot3$</span> — resposta correcta</li>
+<li>$a_n=5+(n-1)\cdot3$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$a_n=5-3n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+<li>$a_n=2-(n-1)\cdot3$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme de la successió és $5$, no $2$ (aquest és el segon terme).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $2-5$.</li><li>$d=2-5=-3$. El primer terme és $a_1=5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=2-5=-3$ (es manté igual: $-1-2=-3$, $-4-(-1)=-3$)</li><li>$a_n=a_1+(n-1)d=5+(n-1)\cdot(-3)=5-3(n-1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">52c</span><span class="tip">tipus A</span></div>
+<div class="enun">$\dfrac12,\;1,\;\dfrac32,\;2,\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=\dfrac12+(n-1)\cdot\dfrac12$</span> — resposta correcta</li>
+<li>$a_n=\dfrac12+(n-1)\cdot2$<br><span class="err">INVERTIDA</span><span class="fb">La diferència és $\dfrac12$, no $2$: has invertit la fracció en calcular $d$.</span></li>
+<li>$a_n=\dfrac12\cdot n$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta expressió dona el mateix valor un cop simplificada ($\dfrac12+(n-1)\cdot\dfrac12=\dfrac{n}2$), però com a resposta d'aquest apartat cal la forma $a_1+(n-1)d$ sense simplificar.</span></li>
+<li>$a_n=1+(n-1)\cdot\dfrac12$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme de la successió és $\dfrac12$, no $1$ (aquest és el segon terme).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $1-\dfrac12$.</li><li>$d=1-\dfrac12=\dfrac12$. El primer terme és $a_1=\dfrac12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=1-\dfrac12=\dfrac12$ (es manté igual: $\dfrac32-1=\dfrac12$)</li><li>$a_n=a_1+(n-1)d=\dfrac12+(n-1)\cdot\dfrac12$</li></ol>
+<p class="nota"><strong>Nota:</strong> La forma $a_n=\dfrac{n}{2}$ (simplificada) també és correcta; es demana com a resposta la forma $a_1+(n-1)d$ perquè és la que l'exercici practica.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">52d</span><span class="tip">tipus A</span></div>
+<div class="enun">$\dfrac1a,\;\dfrac3a,\;\dfrac5a,\;\dfrac7a,\dots$</div>
+<ol class="op"><li><span class="ok">$a_n=\dfrac1a+(n-1)\cdot\dfrac2a$</span> — resposta correcta</li>
+<li>$a_n=\dfrac1a+(n-1)\cdot2a$<br><span class="err">ENTER_MULTIPLICA_DENOMINADOR</span><span class="fb">La diferència és $\dfrac2a$ (una fracció), no $2a$: revisa la resta $\dfrac3a-\dfrac1a$.</span></li>
+<li>$a_n=\dfrac3a+(n-1)\cdot\dfrac2a$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme de la successió és $\dfrac1a$, no $\dfrac3a$ (aquest és el segon terme).</span></li>
+<li>$a_n=\dfrac{1}{a}+n\cdot\dfrac2a$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La diferència és un terme menys l'anterior: $\dfrac3a-\dfrac1a$.</li><li>$d=\dfrac3a-\dfrac1a=\dfrac2a$. El primer terme és $a_1=\dfrac1a$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$d=\dfrac3a-\dfrac1a=\dfrac2a$ (es manté igual a la resta)</li><li>$a_n=a_1+(n-1)d=\dfrac1a+(n-1)\cdot\dfrac2a$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 53.</strong> Sabent que aquestes són progressions aritmètiques, completa a la llibreta els termes que falten.</p>
+<div class="it"><div class="cap"><span class="cod">53a</span><span class="tip">tipus A</span></div>
+<div class="enun">$\square,\;\dfrac12,\;\square,\;\dfrac56,\;\square,\;\square$</div>
+<ol class="op"><li><span class="ok">$\dfrac{1}{3}, \dfrac{1}{2}, \dfrac{2}{3}, \dfrac{5}{6}, 1, \dfrac{7}{6}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{6}, \dfrac{1}{2}, \dfrac{2}{3}, \dfrac{5}{6}, 1, \dfrac{7}{6}$<br><span class="err">ENTER_AL_NUMERADOR</span><span class="fb">El primer terme s'obté restant $d$ al segon terme, $\dfrac12-\dfrac16$, no dividint-lo.</span></li>
+<li>$\dfrac{1}{3}, \dfrac{1}{2}, \dfrac{2}{3}, \dfrac{5}{6}, \dfrac{11}{12}, 1$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Revisa el cinquè terme: $\dfrac56+\dfrac16=\dfrac{6}{6}=1$, no $\dfrac{11}{12}$.</span></li>
+<li>$\dfrac{1}{3}, \dfrac{1}{2}, \dfrac{2}{3}, \dfrac{5}{6}, \dfrac{7}{6}, \dfrac{4}{3}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Revisa la posició del cinquè terme: entre el quart ($\dfrac56$) i el cinquè hi ha d'haver un pas de $d$, no dos.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $4$: la diferència entre ells és $2d$.</li><li>$2d=\dfrac56-\dfrac12=\dfrac13\Rightarrow d=\dfrac16$. A partir d'aquí, suma o resta $\dfrac16$ per completar.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2d=\dfrac56-\dfrac12=\dfrac13\Rightarrow d=\dfrac16$</li><li>$a_1=a_2-d=\dfrac12-\dfrac16=\dfrac13$</li><li>$a_3=a_2+d=\dfrac12+\dfrac16=\dfrac23$</li><li>$a_5=a_4+d=\dfrac56+\dfrac16=1$, $a_6=a_5+d=1+\dfrac16=\dfrac76$</li><li>Els sis termes són $\dfrac13,\;\dfrac12,\;\dfrac23,\;\dfrac56,\;1,\;\dfrac76$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">53b</span><span class="tip">tipus A</span></div>
+<div class="enun">$\square;\;1{,}5;\;\square;\;2{,}5;\;\square$</div>
+<ol class="op"><li><span class="ok">$1, \dfrac{3}{2}, 2, \dfrac{5}{2}, 3$</span> — resposta correcta</li>
+<li>$\dfrac{1}{2}, \dfrac{3}{2}, 2, \dfrac{5}{2}, \dfrac{7}{2}$<br><span class="err">ENTER_AL_NUMERADOR</span><span class="fb">El primer terme s'obté restant $d$ al segon terme, $1{,}5-0{,}5$, no dividint-lo.</span></li>
+<li>$1, \dfrac{3}{2}, 2, \dfrac{5}{2}, \dfrac{7}{2}$<br><span class="err">COMPARA_TERMES</span><span class="fb">Revisa el darrer terme: $2{,}5+0{,}5=3$, no $3{,}5$.</span></li>
+<li>$0, \dfrac{3}{2}, 3, \dfrac{5}{2}, 4$<br><span class="err">SIGNE_FINAL</span><span class="fb">Revisa la diferència entre els dos termes coneguts: $2d=2{,}5-1{,}5=1\Rightarrow d=0{,}5$, no $1{,}5$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $4$: la diferència entre ells és $2d$.</li><li>$2d=2{,}5-1{,}5=1\Rightarrow d=0{,}5$. A partir d'aquí, suma o resta $0{,}5$ per completar.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2d=2{,}5-1{,}5=1\Rightarrow d=0{,}5$</li><li>$a_1=a_2-d=1{,}5-0{,}5=1$</li><li>$a_3=a_2+d=1{,}5+0{,}5=2$</li><li>$a_5=a_4+d=2{,}5+0{,}5=3$</li><li>Els cinc termes són $1,\;1{,}5,\;2,\;2{,}5,\;3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">53c</span><span class="tip">tipus A</span></div>
+<div class="enun">$\square,\;\dfrac14,\;\square,\;\square,\;\dfrac12,\;\square$</div>
+<ol class="op"><li><span class="ok">$\dfrac{1}{6}, \dfrac{1}{4}, \dfrac{1}{3}, \dfrac{5}{12}, \dfrac{1}{2}, \dfrac{7}{12}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{12}, \dfrac{1}{4}, \dfrac{1}{3}, \dfrac{5}{12}, \dfrac{1}{2}, \dfrac{7}{12}$<br><span class="err">ENTER_AL_NUMERADOR</span><span class="fb">El primer terme s'obté restant $d$ al segon terme, $\dfrac14-\dfrac{1}{12}$, no dividint-lo.</span></li>
+<li>$\dfrac{1}{6}, \dfrac{1}{4}, \dfrac{1}{3}, \dfrac{5}{12}, \dfrac{1}{2}, \dfrac{2}{3}$<br><span class="err">SIGNE_FINAL</span><span class="fb">Revisa el darrer terme: $\dfrac12+\dfrac{1}{12}=\dfrac{7}{12}$, no $\dfrac23$.</span></li>
+<li>$\dfrac{1}{6}, \dfrac{1}{4}, \dfrac{3}{8}, \dfrac{1}{2}, \dfrac{1}{2}, \dfrac{7}{12}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Revisa la posició del tercer terme: entre el segon ($\dfrac14$) i el cinquè ($\dfrac12$) hi ha exactament tres passos de $d$, no dos.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $5$: la diferència entre ells és $3d$.</li><li>$3d=\dfrac12-\dfrac14=\dfrac14\Rightarrow d=\dfrac{1}{12}$. A partir d'aquí, suma o resta $\dfrac{1}{12}$ per completar.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3d=\dfrac12-\dfrac14=\dfrac14\Rightarrow d=\dfrac{1}{12}$</li><li>$a_1=a_2-d=\dfrac14-\dfrac{1}{12}=\dfrac16$</li><li>$a_3=a_2+d=\dfrac14+\dfrac{1}{12}=\dfrac13$</li><li>$a_4=a_3+d=\dfrac13+\dfrac{1}{12}=\dfrac{5}{12}$</li><li>$a_6=a_5+d=\dfrac12+\dfrac{1}{12}=\dfrac{7}{12}$</li><li>Els sis termes són $\dfrac16,\;\dfrac14,\;\dfrac13,\;\dfrac{5}{12},\;\dfrac12,\;\dfrac{7}{12}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 54.</strong> Calcula la diferència o la raó de les progressions següents i troba&#x27;n el terme general.</p>
+<div class="it"><div class="cap"><span class="cod">54a</span><span class="tip">tipus A</span></div>
+<div class="enun">$3,\;6,\;12,\;24,\dots$</div>
+<ol class="op"><li><span class="ok">$r=2,\;\;a_n=3\cdot2^{\,n-1}$</span> — resposta correcta</li>
+<li>$d=3,\;\;a_n=3+(n-1)\cdot3$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Els primers dos termes sí que sumarien $3$, però $12-6=6\ne3$: la diferència no és constant, així que no és una progressió ARITMÈTICA. El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.</span></li>
+<li>$r=2,\;\;a_n=3+2^{\,n-1}$<br><span class="err">POTENCIA_DE_SUMA</span><span class="fb">El terme general d'una PG és un PRODUCTE, $a_1\cdot r^{n-1}$, no una suma.</span></li>
+<li>$r=2,\;\;a_n=3\cdot2^{\,n}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent del terme general és $n-1$, no $n$: per $n=1$ l'exponent ha de ser $0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix cada terme entre l'anterior per veure si el quocient és sempre el mateix.</li><li>$6:3=2$, $12:6=2$, $24:12=2$: la raó és constant, $r=2$, és una progressió GEOMÈTRICA.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6:3=2$, $12:6=2$, $24:12=2$: raó constant, $r=2$</li><li>$a_n=a_1\cdot r^{\,n-1}=3\cdot2^{\,n-1}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">54b</span><span class="tip">tipus A</span></div>
+<div class="enun">$10,\;7,\;4,\;1,\dots$</div>
+<ol class="op"><li><span class="ok">$d=-3,\;\;a_n=10-(n-1)\cdot3$</span> — resposta correcta</li>
+<li>$r=\dfrac7{10},\;\;a_n=10\cdot\left(\dfrac7{10}\right)^{n-1}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">El quocient entre termes consecutius no és constant ($4:7\ne7:10$): no és una progressió GEOMÈTRICA. Ho és aritmètica, perquè la diferència sí que és constant.</span></li>
+<li>$d=3,\;\;a_n=10+(n-1)\cdot3$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=-3,\;\;a_n=10-3n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova primer si la diferència entre termes consecutius és constant.</li><li>$7-10=-3$, $4-7=-3$, $1-4=-3$: diferència constant, $d=-3$, és una progressió ARITMÈTICA.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$7-10=-3$, $4-7=-3$, $1-4=-3$: diferència constant, $d=-3$</li><li>$a_n=a_1+(n-1)d=10+(n-1)\cdot(-3)=10-3(n-1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">54c</span><span class="tip">tipus A</span></div>
+<div class="enun">$1,\;1,\;1,\;1,\dots$</div>
+<ol class="op"><li><span class="ok">$d=0,\;\;a_n=1$</span> — resposta correcta</li>
+<li>$r=1,\;\;a_n=1$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">També és certa (aquesta successió és alhora aritmètica amb $d=0$ i geomètrica amb $r=1$); es demana com a resposta la lectura ARITMÈTICA, coherent amb la resta de l'exercici.</span></li>
+<li>$d=1,\;\;a_n=n$<br><span class="err">COMPARA_TERMES</span><span class="fb">El terme general ha de donar sempre $1$: $a_n=n$ dona $1,2,3,4\dots$, que no coincideix amb la successió.</span></li>
+<li>$d=0,\;\;a_n=0$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">El primer terme (i tots els altres) és $1$, no $0$: revisa la substitució a $a_n=a_1+(n-1)\cdot0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre termes consecutius.</li><li>$1-1=0$ sempre: diferència constant, $d=0$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1-1=0$ (i igual per a la resta): diferència constant, $d=0$</li><li>$a_n=a_1+(n-1)d=1+(n-1)\cdot0=1$</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquesta successió constant compleix alhora la definició de progressió aritmètica ($d=0$) i de progressió geomètrica ($r=1$): és un cas límit on totes dues coincideixen. Es demana la lectura aritmètica perquè encaixa amb el 54b, però la geomètrica és igualment vàlida.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">54d</span><span class="tip">tipus A</span></div>
+<div class="enun">$16,\;8,\;4,\;2,\;1,\dots$</div>
+<ol class="op"><li><span class="ok">$r=\dfrac12,\;\;a_n=16\cdot\left(\dfrac12\right)^{n-1}$</span> — resposta correcta</li>
+<li>$d=-8,\;\;a_n=16-(n-1)\cdot8$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">El primer parell de termes sí que resta $8$, però $4-8=-4\ne-8$: la diferència no és constant, així que no és una progressió ARITMÈTICA. El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.</span></li>
+<li>$r=2,\;\;a_n=16\cdot2^{\,n-1}$<br><span class="err">INVERTIDA</span><span class="fb">Has invertit la raó: la successió va disminuint, així que $r$ ha de ser més petita que $1$, no $2$.</span></li>
+<li>$r=\dfrac12,\;\;a_n=16\cdot\left(\dfrac12\right)^{n}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent del terme general és $n-1$, no $n$: per $n=1$ l'exponent ha de ser $0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix cada terme entre l'anterior per veure si el quocient és sempre el mateix.</li><li>$8:16=\dfrac12$, $4:8=\dfrac12$, $2:4=\dfrac12$: raó constant, $r=\dfrac12$, és una progressió GEOMÈTRICA.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$8:16=\dfrac12$, $4:8=\dfrac12$, $2:4=\dfrac12$, $1:2=\dfrac12$: raó constant, $r=\dfrac12$</li><li>$a_n=a_1\cdot r^{\,n-1}=16\cdot\left(\dfrac12\right)^{n-1}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">54e</span><span class="tip">tipus A</span></div>
+<div class="enun">$16,\;8,\;0,\;-8,\dots$</div>
+<ol class="op"><li><span class="ok">$d=-8,\;\;a_n=16-(n-1)\cdot8$</span> — resposta correcta</li>
+<li>$r=\dfrac12,\;\;a_n=16\cdot\left(\dfrac12\right)^{n-1}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">El quocient entre termes consecutius no és constant ($0:8=0$, però $8:16=\dfrac12$): no és una progressió GEOMÈTRICA. Ho és aritmètica, perquè la diferència sí que és constant.</span></li>
+<li>$d=8,\;\;a_n=16+(n-1)\cdot8$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=-8,\;\;a_n=16-8n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova primer si la diferència entre termes consecutius és constant.</li><li>$8-16=-8$, $0-8=-8$, $-8-0=-8$: diferència constant, $d=-8$, és una progressió ARITMÈTICA.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$8-16=-8$, $0-8=-8$, $-8-0=-8$: diferència constant, $d=-8$</li><li>$a_n=a_1+(n-1)d=16+(n-1)\cdot(-8)=16-8(n-1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">54f</span><span class="tip">tipus A</span></div>
+<div class="enun">$3,\;9,\;15,\;21,\dots$</div>
+<ol class="op"><li><span class="ok">$d=6,\;\;a_n=3+(n-1)\cdot6$</span> — resposta correcta</li>
+<li>$r=3,\;\;a_n=3\cdot3^{\,n-1}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">El primer quocient sí que dona $3$, però $15:9\ne3$: el quocient no és constant, així que no és una progressió GEOMÈTRICA. Ho és aritmètica, perquè la diferència sí que és constant.</span></li>
+<li>$d=-6,\;\;a_n=3-(n-1)\cdot6$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
+<li>$d=6,\;\;a_n=3+6n$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova primer si la diferència entre termes consecutius és constant.</li><li>$9-3=6$, $15-9=6$, $21-15=6$: diferència constant, $d=6$, és una progressió ARITMÈTICA.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$9-3=6$, $15-9=6$, $21-15=6$: diferència constant, $d=6$</li><li>$a_n=a_1+(n-1)d=3+(n-1)\cdot6$</li></ol>
+</div>
+<h2>Progressions geomètriques <span class="tip">· 11 preguntes</span></h2>
+<p class="sec"><strong>Exercici 55.</strong> En una progressió geomètrica, $a_1=4$ i $a_2=3$. Busca&#x27;n el terme general i $a_{20}$.</p>
+<div class="it"><div class="cap"><span class="cod">55</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme general i $a_{20}$ d'una progressió geomètrica amb $a_1=4$ i $a_2=3$</div>
+<ol class="op"><li><span class="ok">$a_n=4\cdot\left(\dfrac34\right)^{n-1}\;\;\;\;\dfrac{1162261467}{68719476736}$</span> — resposta correcta</li>
+<li>$a_n=4\cdot\left(\dfrac43\right)^{n-1}\;\;\;\;\dfrac{1099511627776}{1162261467}$<br><span class="err">INVERTIDA</span><span class="fb">La raó és $r=\dfrac{a_2}{a_1}=\dfrac34$, no $\dfrac43$: has invertit el quocient en els dos càlculs.</span></li>
+<li>$a_n=4\cdot\left(\dfrac34\right)^{n}\;\;\;\;\dfrac{3486784401}{274877906944}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent del terme general és $n-1$, no $n$: per $n=1$ l'exponent ha de ser $0$, i per a $a_{20}$ l'exponent ha de ser $19$, no $20$.</span></li>
+<li>$a_n=3\cdot\left(\dfrac34\right)^{n-1}\;\;\;\;\dfrac{3486784401}{274877906944}$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme de la progressió és $a_1=4$, no $3$ (aquest és $a_2$): el factor que va davant de la potència ha de ser $4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó és el segon terme entre el primer: $r=\dfrac{a_2}{a_1}$.</li><li>$r=\dfrac34$. El terme general és $a_n=a_1\cdot r^{\,n-1}=4\cdot\left(\dfrac34\right)^{n-1}$.</li><li>Per a $a_{20}$, fes servir $n=20$: l'exponent és $19$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=\dfrac{a_2}{a_1}=\dfrac34$</li><li>$a_n=a_1\cdot r^{\,n-1}=4\cdot\left(\dfrac34\right)^{n-1}$</li><li>$a_{20}=4\cdot\left(\dfrac34\right)^{19}=\dfrac{1\,162\,261\,467}{68\,719\,476\,736}$</li><li>És un nombre molt petit, més a prop de $0$ que de $1$: té sentit, perquè la raó $\dfrac34$ és menor que $1$ i la successió va disminuint.</li></ol>
+<p class="nota"><strong>Nota:</strong> El valor exacte de $a_{20}$ té un denominador d'onze xifres; es dona en forma de fracció perquè el decimal seria pràcticament $0$ i amagaria la magnitud real.</p>
+</div>
+<p class="sec"><strong>Exercici 56.</strong> Calcula.</p>
+<div class="it"><div class="cap"><span class="cod">56a</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme general d'una PG amb $a_1=3$ i $r=5$</div>
+<ol class="op"><li><span class="ok">$a_n=3\cdot5^{\,n-1}$</span> — resposta correcta</li>
+<li>$a_n=3+(n-1)\cdot5$<br><span class="err">POTENCIA_DE_SUMA</span><span class="fb">El terme general d'una PG és un producte amb una potència, $a_1\cdot r^{n-1}$, no una suma com a una PA.</span></li>
+<li>$a_n=3\cdot5^{\,n}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent del terme general és $n-1$, no $n$: per $n=1$ l'exponent ha de ser $0$.</span></li>
+<li>$a_n=5\cdot3^{\,n-1}$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has intercanviat el primer terme i la raó: la base de la potència és la raó ($5$), i el factor que hi multiplica és $a_1$ ($3$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El terme general d'una PG és $a_n=a_1\cdot r^{\,n-1}$.</li><li>$a_n=3\cdot5^{\,n-1}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=a_1\cdot r^{\,n-1}=3\cdot5^{\,n-1}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">56b</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme que ocupa el lloc $7$ ($a_1=3$, $r=5$)</div>
+<ol class="op"><li><span class="ok">$46875$</span> — resposta correcta</li>
+<li>$234375$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent que cal fer servir per a $a_7$ és $7-1=6$, no $7$.</span></li>
+<li>$105$<br><span class="err">POTENCIA_DE_SUMA</span><span class="fb">Cal calcular una potència, $5^6$, i multiplicar-la per $3$; no es multipliquen directament $3$, $7$ i $5$.</span></li>
+<li>$11390625$<br><span class="err">POTENCIA_PRODUCTE_UN_FACTOR</span><span class="fb">L'exponent afecta només la raó, no el primer terme: és $3\cdot5^6$, no $(3\cdot5)^6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir $a_n=a_1\cdot r^{\,n-1}$ amb $n=7$: l'exponent és $6$.</li><li>$a_7=3\cdot5^6$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_7=a_1\cdot r^{6}=3\cdot5^6=3\cdot15\,625=46\,875$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">56c</span><span class="tip">tipus A</span></div>
+<div class="enun">Termes $a_{10}$ i $a_{11}$ ($a_1=3$, $r=5$)</div>
+<ol class="op"><li><span class="ok">$5859375, 29296875$</span> — resposta correcta</li>
+<li>$29296875, 146484375$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent que cal fer servir per a $a_{10}$ és $10-1=9$, no $10$.</span></li>
+<li>$5859375, 146484375$<br><span class="err">EXPONENTS_MULTIPLICATS</span><span class="fb">Per passar de $a_{10}$ a $a_{11}$ cal multiplicar per $r$ un sol cop, no dos.</span></li>
+<li>$1953128, 9765628$<br><span class="err">POTENCIA_DE_SUMA</span><span class="fb">El terme general d'una PG és un producte amb una potència, no una suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir $a_n=a_1\cdot r^{\,n-1}$ per a $n=10$ i $n=11$.</li><li>$a_{10}=3\cdot5^9$ i $a_{11}=3\cdot5^{10}=a_{10}\cdot5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_{10}=a_1\cdot r^{9}=3\cdot5^9=5\,859\,375$</li><li>$a_{11}=a_{10}\cdot r=5\,859\,375\cdot5=29\,296\,875$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 57.</strong> Donada la successió $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$:</p>
+<div class="it"><div class="cap"><span class="cod">57a</span><span class="tip">tipus B</span></div>
+<div class="enun">Comprova que $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$ és una progressió geomètrica.</div>
+<ol class="op"><li><span class="ok">Sí, perquè el quocient entre termes consecutius és sempre el mateix: $r=\dfrac13$.</span> — resposta correcta</li>
+<li>No, perquè els termes van disminuint.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes disminueixin no impedeix que sigui una PG: una raó menor que $1$ i constant també defineix una progressió geomètrica.</span></li>
+<li>Sí, perquè tots els numeradors són iguals a $2$.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">Que el numerador es mantingui $2$ és una conseqüència d'aquesta successió concreta, no la definició de progressió geomètrica: cal comprovar que el quocient entre termes consecutius és constant.</span></li>
+<li>No, perquè els denominadors no augmenten sempre la mateixa quantitat.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">En una PG els denominadors (o els valors) no han d'augmentar SUMANT sempre el mateix: han de multiplicar-se sempre pel mateix factor, i aquí és així ($\times3$ cada vegada al denominador).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix cada terme entre l'anterior i comprova si el resultat és sempre el mateix.</li><li>$\dfrac{2/9}{2/3}=\dfrac13$, $\dfrac{2/27}{2/9}=\dfrac13$, $\dfrac{2/81}{2/27}=\dfrac13$: sempre la mateixa.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{2/9}{2/3}=\dfrac13$, $\dfrac{2/27}{2/9}=\dfrac13$, $\dfrac{2/81}{2/27}=\dfrac13$: quocient constant, $r=\dfrac13$, per tant sí que és una progressió geomètrica</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">57b</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme $10$ de $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$</div>
+<ol class="op"><li><span class="ok">$\dfrac{2}{59049}$</span> — resposta correcta</li>
+<li>$\dfrac{2}{177147}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent que cal fer servir per a $a_{10}$ és $10-1=9$, no $10$.</span></li>
+<li>$13122$<br><span class="err">INVERTIDA</span><span class="fb">Has fet servir $r=3$ en lloc de $r=\dfrac13$: la successió disminueix, la raó ha de ser menor que $1$.</span></li>
+<li>$\dfrac{1}{19683}$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">T'has deixat pel camí el factor $\dfrac23$ de davant: cada terme és $\dfrac23\cdot\left(\dfrac13\right)^{n-1}$, no només la potència.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir $a_n=a_1\cdot r^{\,n-1}$ amb $n=10$: l'exponent és $9$.</li><li>$a_{10}=\dfrac23\cdot\left(\dfrac13\right)^9$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_{10}=a_1\cdot r^{9}=\dfrac23\cdot\left(\dfrac13\right)^9=\dfrac2{3^{10}}=\dfrac{2}{59\,049}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">57c</span><span class="tip">tipus A</span></div>
+<div class="enun">Termes $a_{100}$ i $a_{101}$ de $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$</div>
+<ol class="op"><li><span class="ok">$a_{100}=\dfrac{2}{3^{100}},\;\;a_{101}=\dfrac{2}{3^{101}}$</span> — resposta correcta</li>
+<li>$a_{100}=\dfrac{2}{3^{101}},\;\;a_{101}=\dfrac{2}{3^{102}}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent que cal fer servir per a $a_{100}$ és $100-1=99$, que és el que dona $3^{100}$ al denominador un cop escrit amb $a_1=\dfrac23$: revisa el desplaçament amb un cas petit abans, com $a_2=\dfrac29=\dfrac2{3^2}$.</span></li>
+<li>$a_{100}=\dfrac{2}{3^{99}},\;\;a_{101}=\dfrac{2}{3^{100}}$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Falta comptar el factor $\dfrac23$ inicial dins de la potència de $3$ del denominador: $a_2=\dfrac23\cdot\dfrac13=\dfrac2{3^2}$, no $\dfrac2{3^1}$.</span></li>
+<li>$a_{100}=3^{99},\;\;a_{101}=3^{100}$<br><span class="err">INVERTIDA</span><span class="fb">Els termes de la successió van fent-se cada vegada més petits (la raó és $\dfrac13$, menor que $1$): no poden valer nombres enters cada vegada més grans.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova primer el patró amb un terme petit: $a_2=\dfrac29=\dfrac2{3^2}$, $a_3=\dfrac2{27}=\dfrac2{3^3}$.</li><li>El patró és $a_n=\dfrac{2}{3^{\,n}}$: substitueix $n=100$ i $n=101$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que $a_1=\dfrac23=\dfrac2{3^1}$, $a_2=\dfrac2{3^2}$... el patró és $a_n=\dfrac{2}{3^{\,n}}$</li><li>$a_{100}=\dfrac{2}{3^{100}}$ i $a_{101}=\dfrac{2}{3^{101}}$</li></ol>
+<p class="nota"><strong>Nota:</strong> El valor exacte de $3^{100}$ té $48$ xifres: es deixa en forma de potència, com ja es feia amb exponents grans a Full 2.</p>
+</div>
+<p class="sec"><strong>Exercici 58.</strong> Troba els termes que falten a les progressions geomètriques següents.</p>
+<div class="it"><div class="cap"><span class="cod">58a</span><span class="tip">tipus A</span></div>
+<div class="enun">$1;\;0{,}1;\;\square;\;0{,}001;\;\square$</div>
+<ol class="op"><li><span class="ok">$1, \dfrac{1}{10}, \dfrac{1}{100}, \dfrac{1}{1000}, \dfrac{1}{10000}$</span> — resposta correcta</li>
+<li>$1, \dfrac{1}{10}, \dfrac{1}{100}, \dfrac{1}{1000}, \dfrac{1}{100}$<br><span class="err">COMPARA_TERMES</span><span class="fb">El cinquè terme ha de continuar el patró de dividir entre $10$: $0{,}001:10=0{,}0001$, no repetir el tercer terme.</span></li>
+<li>$1, \dfrac{1}{10}, \dfrac{9}{100}, \dfrac{1}{1000}, \dfrac{1}{1250}$<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Els termes que falten han de seguir estrictament la raó $r=0{,}1$, no anar disminuint una mica cada vegada de manera aproximada.</span></li>
+<li>$1, \dfrac{1}{10}, \dfrac{1}{20}, \dfrac{1}{1000}, \dfrac{1}{2000}$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">El tercer terme s'obté multiplicant per $r=0{,}1$, no dividint entre $2$: $0{,}1\cdot0{,}1=0{,}01$, no $\dfrac1{20}$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó és el quocient entre dos termes consecutius coneguts: $r=0{,}1:1$.</li><li>$r=0{,}1$. Multiplica cada terme per $0{,}1$ per obtenir el següent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=0{,}1:1=0{,}1$</li><li>$a_3=a_2\cdot r=0{,}1\cdot0{,}1=0{,}01$</li><li>$a_5=a_4\cdot r=0{,}001\cdot0{,}1=0{,}0001$</li><li>Els cinc termes són $1,\;0{,}1,\;0{,}01,\;0{,}001,\;0{,}0001$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">58b</span><span class="tip">tipus A</span></div>
+<div class="enun">$\square,\;\dfrac12,\;\dfrac16,\;\square,\;\dfrac1{54},\;\square$</div>
+<ol class="op"><li><span class="ok">$\dfrac{3}{2}, \dfrac{1}{2}, \dfrac{1}{6}, \dfrac{1}{18}, \dfrac{1}{54}, \dfrac{1}{162}$</span> — resposta correcta</li>
+<li>$\dfrac{3}{2}, \dfrac{1}{2}, \dfrac{1}{6}, \dfrac{1}{18}, \dfrac{1}{54}, \dfrac{1}{108}$<br><span class="err">COMPARA_TERMES</span><span class="fb">El sisè terme s'obté multiplicant el cinquè per $r=\dfrac13$: $\dfrac1{54}\cdot\dfrac13=\dfrac1{162}$, no $\dfrac1{108}$.</span></li>
+<li>$\dfrac{1}{6}, \dfrac{1}{2}, \dfrac{1}{6}, \dfrac{1}{18}, \dfrac{1}{54}, \dfrac{1}{162}$<br><span class="err">INVERTIDA</span><span class="fb">Per anar cap enrere (del segon al primer terme) cal DIVIDIR entre la raó, $\dfrac12:\dfrac13$, no multiplicar-hi.</span></li>
+<li>$\dfrac{3}{2}, \dfrac{1}{2}, \dfrac{1}{6}, \dfrac{1}{12}, \dfrac{1}{54}, \dfrac{1}{162}$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">El quart terme s'obté multiplicant el tercer per $r=\dfrac13$: $\dfrac16\cdot\dfrac13=\dfrac1{18}$, no $\dfrac1{12}$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó és el quocient entre dos termes consecutius coneguts: $r=\dfrac{1/6}{1/2}$.</li><li>$r=\dfrac13$. Multiplica per $\dfrac13$ per avançar; divideix per anar enrere.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=\dfrac{1/6}{1/2}=\dfrac13$</li><li>$a_1=a_2:r=\dfrac12:\dfrac13=\dfrac32$</li><li>$a_4=a_3\cdot r=\dfrac16\cdot\dfrac13=\dfrac1{18}$</li><li>$a_6=a_5\cdot r=\dfrac1{54}\cdot\dfrac13=\dfrac1{162}$</li><li>Els sis termes són $\dfrac32,\;\dfrac12,\;\dfrac16,\;\dfrac1{18},\;\dfrac1{54},\;\dfrac1{162}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">58c</span><span class="tip">tipus A</span></div>
+<div class="enun">$\square,\;\dfrac13,\;\square,\;\dfrac1{12},\;\square$</div>
+<ol class="op"><li><span class="ok">$\dfrac{2}{3}, \dfrac{1}{3}, \dfrac{1}{6}, \dfrac{1}{12}, \dfrac{1}{24}$</span> — resposta correcta</li>
+<li>$-\dfrac{2}{3}, \dfrac{1}{3}, -\dfrac{1}{6}, \dfrac{1}{12}, -\dfrac{1}{24}$<br><span class="err">PARITAT_EXPONENT</span><span class="fb">Amb $r^2=\dfrac14$ hi ha dues raons possibles, $\dfrac12$ i $-\dfrac12$; es demana la solució amb raó positiva, coherent amb que tots els termes coneguts de l'enunciat ja són positius.</span></li>
+<li>$\dfrac{4}{3}, \dfrac{1}{3}, \dfrac{1}{12}, \dfrac{1}{12}, \dfrac{1}{48}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Entre el segon terme ($\dfrac13$) i el quart ($\dfrac1{12}$) hi ha exactament DOS passos de $r$, no un.</span></li>
+<li>$\dfrac{2}{3}, \dfrac{1}{3}, \dfrac{1}{9}, \dfrac{1}{12}, \dfrac{1}{36}$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">El tercer terme s'obté multiplicant el segon per $r=\dfrac12$: $\dfrac13\cdot\dfrac12=\dfrac16$, no $\dfrac19$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $4$: la relació entre ells és $r^2$.</li><li>$r^2=\dfrac{1/12}{1/3}=\dfrac14\Rightarrow r=\dfrac12$ (prenem l'arrel positiva). A partir d'aquí, multiplica o divideix per $\dfrac12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r^2=\dfrac{1/12}{1/3}=\dfrac14\Rightarrow r=\dfrac12$</li><li>$a_1=a_2:r=\dfrac13:\dfrac12=\dfrac23$</li><li>$a_3=a_2\cdot r=\dfrac13\cdot\dfrac12=\dfrac16$</li><li>$a_5=a_4\cdot r=\dfrac1{12}\cdot\dfrac12=\dfrac1{24}$</li><li>Els cinc termes són $\dfrac23,\;\dfrac13,\;\dfrac16,\;\dfrac1{12},\;\dfrac1{24}$</li></ol>
+<p class="nota"><strong>Nota:</strong> De $r^2=\dfrac14$ en surten dues raons possibles, $r=\dfrac12$ i $r=-\dfrac12$; es dona la solució amb raó positiva perquè manté el signe dels termes ja coneguts a l'enunciat.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">58d</span><span class="tip">tipus B</span></div>
+<div class="enun">$\square,\;\dfrac32,\;\square,\;\square,\;\dfrac{81}4$</div>
+<ol class="op"><li><span class="ok">La raó és $r=\sqrt[3]{\dfrac{27}{2}}=\dfrac{3}{\sqrt[3]{2}}$, un nombre irracional; per tant els termes que falten es deixen expressats en funció de $r$: $a_1=\dfrac{3}{2r}$, $a_3=\dfrac32\,r$, $a_4=\dfrac32\,r^2$.</span> — resposta correcta</li>
+<li>La raó és $r=3$ i els termes que falten són $\dfrac12,\;\dfrac92,\;\dfrac{27}2$.<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Amb $r=3$ el cinquè terme donaria $\dfrac32\cdot3^3=\dfrac32\cdot27=\dfrac{81}2$, no $\dfrac{81}4$ (el valor real de l'enunciat): $r=3$ no compleix la relació $r^3=\dfrac{81/4}{3/2}=\dfrac{27}2$.</span></li>
+<li>No es pot resoldre perquè la raó no és un nombre enter.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Sí que es pot resoldre: la raó és $r=\sqrt[3]{\dfrac{27}2}$ (un nombre irracional però perfectament vàlid), i els termes que falten es poden expressar en funció d'aquest valor de $r$.</span></li>
+<li>La raó és $r^3=\dfrac{27}2$ i ja està, no cal continuar.<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">$r^3=\dfrac{27}2$ és un pas intermedi, no la raó: cal encara extreure l'arrel cúbica, $r=\sqrt[3]{\dfrac{27}2}$, i fer servir aquest valor per completar els termes que falten.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $5$: la relació entre ells és $r^3$.</li><li>$r^3=\dfrac{81/4}{3/2}=\dfrac{27}2$. Aquesta vegada $r$ no surt un nombre senzill: cal deixar-lo com una arrel cúbica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r^3=\dfrac{81/4}{3/2}=\dfrac{81}4\cdot\dfrac23=\dfrac{27}2\Rightarrow r=\sqrt[3]{\dfrac{27}2}=\dfrac{3}{\sqrt[3]2}$</li><li>Com que $r$ no és un nombre racional senzill, els termes que falten es deixen indicats en funció de $r$</li><li>$a_1=a_2:r=\dfrac32:r=\dfrac3{2r}$</li><li>$a_3=a_2\cdot r=\dfrac32\,r$</li><li>$a_4=a_3\cdot r=\dfrac32\,r^2$</li></ol>
+<p class="nota"><strong>Nota:</strong> A diferència dels altres apartats d'aquest exercici, la raó d'aquesta progressió no és un nombre racional senzill ($r=\sqrt[3]{27/2}$): és intencionat, per practicar que no totes les progressions geomètriques tenen raons "boniques", i que llavors cal deixar els termes expressats en funció de $r$ en lloc de calcular-los numèricament.</p>
+</div>
+<h2>Aplicacions <span class="tip">· 6 preguntes</span></h2>
+<p class="sec"><strong>Exercici 59.</strong> Donada la progressió $3,\;6,\;12,\;24,\dots$, digues si cada expressió n&#x27;és o no el terme general, i per què.</p>
+<div class="it"><div class="cap"><span class="cod">59a</span><span class="tip">tipus B</span></div>
+<div class="enun">$a_n = 3 + (n-1)\cdot 3$</div>
+<ol class="op"><li><span class="ok">No, perquè aquesta fórmula és la d'una progressió ARITMÈTICA amb $d=3$: donaria $3,6,9,12\dots$, que no coincideix amb la successió a partir del tercer terme.</span> — resposta correcta</li>
+<li>Sí, perquè el primer terme i el pas $3$ coincideixen amb la successió.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Només coincideixen els dos primers termes per casualitat ($3$ i $6$): a partir del tercer terme aquesta fórmula dona $9$, mentre que la successió continua amb $12$.</span></li>
+<li>No, perquè el primer terme hauria de ser $0$, no $3$.<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme, $3$, sí que és correcte. El problema no és el primer terme, sinó que la successió no creix sumant sempre el mateix ($3, 6, 12, 24$ no té diferència constant).</span></li>
+<li>Sí, perquè totes les progressions es poden escriure amb aquesta forma.<br><span class="err">PROGRESSIO_INVENTADA</span><span class="fb">Aquesta forma, $a_1+(n-1)d$, només serveix per a progressions ARITMÈTIQUES (diferència constant). Aquí la successió multiplica sempre pel mateix factor, és GEOMÈTRICA.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si la diferència entre termes consecutius de la successió és realment constant.</li><li>$6-3=3$, però $12-6=6\ne3$: la diferència no és constant, no és una progressió aritmètica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6-3=3$, però $12-6=6$: la diferència no és constant</li><li>Per tant $a_n=3+(n-1)\cdot3$ no és el terme general d'aquesta successió</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">59b</span><span class="tip">tipus B</span></div>
+<div class="enun">$a_n = 3\cdot 3^{\,n-1}$</div>
+<ol class="op"><li><span class="ok">No, perquè fa servir raó $3$: donaria $3,9,27,81\dots$, que no coincideix amb la successió a partir del segon terme.</span> — resposta correcta</li>
+<li>Sí, perquè el primer terme, $3$, coincideix amb l'enunciat.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que coincideixi el primer terme no és suficient: cal que TOTS els termes coincideixin, i des del segon ja no ho fan ($9\ne6$).</span></li>
+<li>Sí, perquè $3$ apareix dues vegades a la fórmula, com pertoca a una progressió geomètrica.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">Que el $3$ aparegui com a factor i com a base no garanteix que la raó sigui la correcta: cal comprovar-la calculant el quocient real entre termes consecutius de la successió.</span></li>
+<li>No, perquè les progressions geomètriques no es poden escriure amb potències.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Les progressions geomètriques SÍ que s'escriuen amb potències, $a_n=a_1\cdot r^{\,n-1}$: el problema no és la forma, és que aquí la raó no és $3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la raó real de la successió dividint termes consecutius.</li><li>$6:3=2$, no $3$: la raó d'aquesta successió és $2$, no $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6:3=2$, $12:6=2$, $24:12=2$: la raó real és $2$, no $3$</li><li>Per tant $a_n=3\cdot3^{\,n-1}$ no és el terme general d'aquesta successió</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">59c</span><span class="tip">tipus B</span></div>
+<div class="enun">$a_n = 3\cdot 2^{\,n-1}$</div>
+<ol class="op"><li><span class="ok">Sí, perquè la successió té raó constant $r=2$ ($6:3=2$, $12:6=2$, $24:12=2$) i primer terme $a_1=3$: coincideix exactament.</span> — resposta correcta</li>
+<li>No, perquè l'exponent hauria de ser $n$, no $n-1$.<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent SÍ que ha de ser $n-1$: per $n=1$ dona $3\cdot2^0=3$, el primer terme correcte. Amb exponent $n$ donaria $3\cdot2^1=6$ per al primer terme, que seria incorrecte.</span></li>
+<li>No, perquè la successió $3,6,12,24$ és aritmètica, no geomètrica.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">La successió és GEOMÈTRICA, no aritmètica: el que es manté constant és el quocient entre termes consecutius ($r=2$), no la diferència.</span></li>
+<li>Sí, però només per als quatre primers termes.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">La fórmula val per a TOTS els termes, no només els quatre primers: un cop comprovada la raó constant, el terme general $a_n=a_1\cdot r^{\,n-1}$ es compleix sempre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova la raó de la successió i compara-la amb l'exponent i el factor de la fórmula.</li><li>$r=2$ i $a_1=3$: la fórmula $a_n=3\cdot2^{\,n-1}$ hi encaixa exactament.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6:3=2$, $12:6=2$, $24:12=2$: raó constant, $r=2$</li><li>$a_n=a_1\cdot r^{\,n-1}=3\cdot2^{\,n-1}$: coincideix amb aquesta expressió</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">59d</span><span class="tip">tipus B</span></div>
+<div class="enun">No es pot calcular.</div>
+<ol class="op"><li><span class="ok">Fals: sí que es pot calcular, perquè la successió té raó constant $r=2$; és una progressió geomètrica amb terme general $a_n=3\cdot2^{\,n-1}$.</span> — resposta correcta</li>
+<li>Cert: com que $3,6,12,24$ no és ni una progressió aritmètica ni geomètrica, no té terme general.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Sí que és una progressió geomètrica: el quocient entre termes consecutius és constant, $r=2$ ($6:3=2$, $12:6=2$, $12:24=2$).</span></li>
+<li>Cert: calen més de quatre termes per determinar el terme general amb seguretat.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Amb quatre termes ja n'hi ha prou per comprovar que la raó és constant les tres vegades possibles: no calen més dades.</span></li>
+<li>Fals: es pot calcular, però només aproximadament.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Es pot calcular de manera EXACTA, no aproximada: el terme general $a_n=3\cdot2^{\,n-1}$ reprodueix tots els termes amb precisió.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si la successió té una diferència o un quocient constant entre termes consecutius.</li><li>$6:3=2$, $12:6=2$, $24:12=2$: raó constant, $r=2$, sí que es pot calcular el terme general.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6:3=2$, $12:6=2$, $24:12=2$: raó constant, $r=2$</li><li>$a_n=a_1\cdot r^{\,n-1}=3\cdot2^{\,n-1}$: sí que es pot calcular</li></ol>
+</div>
+<p class="sec"><strong>Exercici 60.</strong> Un terme d&#x27;una progressió geomètrica val $3\,720\,087$. Si el primer terme és $7$ i la raó és $3$, de quin terme estem parlant?</p>
+<div class="it"><div class="cap"><span class="cod">60</span><span class="tip">tipus A</span></div>
+<div class="enun">Terme d'una PG amb $a_1=7$, $r=3$ que val $3\,720\,087$</div>
+<ol class="op"><li><span class="ok">$13$</span> — resposta correcta</li>
+<li>$12$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$3^{12}=531\,441$ (el resultat de dividir $3\,720\,087$ entre $7$), però l'exponent $12$ correspon a $n-1$, no a $n$: cal sumar-hi $1$ per trobar $n$.</span></li>
+<li>$531441$<br><span class="err">COMPARA_TERMES</span><span class="fb">Aquest és el valor de $r^{n-1}=3^{12}$, un pas intermedi del càlcul; el que es demana és la posició $n$ que ocupa el terme, no aquest valor.</span></li>
+<li>$18$<br><span class="err">ORDRE_RESTA</span><span class="fb">Revisa l'equació: cal aïllar $n$ de $3^{n-1}=531\,441$ trobant quin exponent dona aquest resultat, no sumar exponents arbitraris.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Iguala $a_n=7\cdot3^{\,n-1}$ a $3\,720\,087$ i aïlla la potència de $3$.</li><li>$3^{\,n-1}=3\,720\,087:7=531\,441$. Comprova quina potència de $3$ dona aquest valor.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$7\cdot3^{\,n-1}=3\,720\,087\Rightarrow3^{\,n-1}=3\,720\,087:7=531\,441$</li><li>$531\,441=3^{12}$, per tant $n-1=12$</li><li>$n=13$: és el tretzè terme</li></ol>
+</div>
+<p class="sec"><strong>Exercici 61.</strong> Dos termes consecutius d&#x27;una progressió geomètrica valen $3$ i $4$. Esbrina quin lloc ocupen si $a_1=\dfrac{27}{16}$.</p>
+<div class="it"><div class="cap"><span class="cod">61</span><span class="tip">tipus A</span></div>
+<div class="enun">Posició de dos termes consecutius que valen $3$ i $4$, sabent que $a_1=\dfrac{27}{16}$</div>
+<ol class="op"><li><span class="ok">$a_3=3,\;\;a_4=4$</span> — resposta correcta</li>
+<li>$a_1=3,\;\;a_2=4$<br><span class="err">COMPARA_TERMES</span><span class="fb">El primer terme ja és conegut, $a_1=\dfrac{27}{16}$, que no val $3$: cal buscar en QUINA posició apareixen els valors $3$ i $4$, no assumir que és al principi.</span></li>
+<li>$a_2=3,\;\;a_3=4$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Revisa el càlcul substituint $n=2$: $a_2=\dfrac{27}{16}\cdot\dfrac43=\dfrac94$, que no és $3$.</span></li>
+<li>$a_4=3,\;\;a_5=4$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Revisa el càlcul substituint $n=4$: $a_4=\dfrac{27}{16}\cdot\left(\dfrac43\right)^3=4$, que ja és el valor $4$, no $3$: t'has avançat una posició.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Primer troba la raó amb els dos termes coneguts, $3$ i $4$: $r=\dfrac43$.</li><li>Substitueix $a_n=\dfrac{27}{16}\cdot\left(\dfrac43\right)^{n-1}$ per a $n=2,3,4\dots$ fins trobar quan val $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els dos termes consecutius tenen raó $r=\dfrac43$ (el quocient entre ells)</li><li>$a_2=\dfrac{27}{16}\cdot\dfrac43=\dfrac94$</li><li>$a_3=\dfrac{27}{16}\cdot\left(\dfrac43\right)^2=3$</li><li>$a_4=\dfrac{27}{16}\cdot\left(\dfrac43\right)^3=4$</li><li>Els termes que valen $3$ i $4$ ocupen les posicions $3$ i $4$</li></ol>
+</div>
+<h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>DESPLACAMENT_INDEX</code></td><td>34</td><td>47a, 47d, 47e, 47f, 48d, 49a, 49b, 49c, 49d, 50c, 51a, 51b, 52a, 52a…</td></tr>
+<tr><td><code>COMPARA_TERMES</code></td><td>15</td><td>49a, 49b, 49c, 52a, 52b, 52c, 52d, 53b, 54c, 55, 58a, 58b, 59a, 60…</td></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>15</td><td>50a, 50a, 51a, 54c, 57a, 57a, 58d, 59a, 59b, 59b, 59c, 59c, 59d, 59d…</td></tr>
+<tr><td><code>PROGRESSIO_INVENTADA</code></td><td>13</td><td>47c, 48a, 48b, 48d, 49d, 50b, 54a, 54b, 54d, 54e, 54f, 58a, 59a</td></tr>
+<tr><td><code>SIGNE_FINAL</code></td><td>12</td><td>47c, 47g, 49a, 49c, 49d, 51b, 52b, 53b, 53c, 54b, 54e, 54f</td></tr>
+<tr><td><code>SIMPLIFICACIO_INCOMPLETA</code></td><td>10</td><td>47g, 50b, 52c, 53a, 54c, 58a, 58b, 58c, 58d, 58d</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>7</td><td>51b, 52c, 54d, 55, 57b, 57c, 58b</td></tr>
+<tr><td><code>ORDRE_RESTA</code></td><td>5</td><td>48a, 48b, 48c, 56a, 60</td></tr>
+<tr><td><code>ENTER_AL_NUMERADOR</code></td><td>5</td><td>49b, 50c, 53a, 53b, 53c</td></tr>
+<tr><td><code>FACTOR_OBLIDAT</code></td><td>4</td><td>47e, 48c, 57b, 57c</td></tr>
+<tr><td><code>RAONAMENT_ADDITIU</code></td><td>4</td><td>50a, 51a, 57a, 59b</td></tr>
+<tr><td><code>POTENCIA_DE_SUMA</code></td><td>4</td><td>54a, 56a, 56b, 56c</td></tr>
+<tr><td><code>EXPONENT_COM_PRODUCTE</code></td><td>3</td><td>47a, 48d, 50b</td></tr>
+<tr><td><code>BASE_EXPONENT_INTERCANVIATS</code></td><td>2</td><td>47a, 50c</td></tr>
+<tr><td><code>JERARQUIA</code></td><td>2</td><td>47d, 47f</td></tr>
+<tr><td><code>ENTER_MULTIPLICA_DENOMINADOR</code></td><td>2</td><td>47g, 52d</td></tr>
+<tr><td><code>REGLA_NOMES_QUOCIENT</code></td><td>2</td><td>48a, 48b</td></tr>
+<tr><td><code>EXPONENT_SENSE_DESPLACAR</code></td><td>1</td><td>47b</td></tr>
+<tr><td><code>BASE_SIGNE_PERDUT</code></td><td>1</td><td>47b</td></tr>
+<tr><td><code>EXPONENT_MULTIPLICAT</code></td><td>1</td><td>47b</td></tr>
+<tr><td><code>SIGNE_PRODUCTE</code></td><td>1</td><td>47c</td></tr>
+<tr><td><code>MENYS_PARENTESI</code></td><td>1</td><td>47d</td></tr>
+<tr><td><code>FRACCIO_NO_INVERTIDA</code></td><td>1</td><td>47e</td></tr>
+<tr><td><code>PARENTESI_NO_DISTRIBUIT</code></td><td>1</td><td>47f</td></tr>
+<tr><td><code>SIGNE_SUMA</code></td><td>1</td><td>48c</td></tr>
+<tr><td><code>POTENCIA_PRODUCTE_UN_FACTOR</code></td><td>1</td><td>56b</td></tr>
+<tr><td><code>EXPONENTS_MULTIPLICATS</code></td><td>1</td><td>56c</td></tr>
+<tr><td><code>PARITAT_EXPONENT</code></td><td>1</td><td>58c</td></tr>
+</table></html>

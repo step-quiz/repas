@@ -352,6 +352,32 @@ TAX = {
     "BASES_DIFERENTS_COMBINADES":
         "Les bases són diferents: la regla de combinar exponents (sumar-los o "
         "restar-los) només val quan la base és la mateixa als dos factors.",
+
+    # ---- successions i progressions (Full 3) ----
+    "DESPLACAMENT_INDEX":
+        "Revisa a partir de quin valor de $n$ comences a substituir, o quin "
+        "exponent li correspon: t'has desplaçat una posició.",
+    "EXPONENT_COM_PRODUCTE":
+        "En una expressió com $2^n$, l'exponent $n$ no és un factor que es "
+        "multiplica per la base: cal calcular la potència, no un producte.",
+    "EXPONENT_MULTIPLICAT":
+        "L'exponent que dona l'enunciat s'ha de fer servir tal qual, no "
+        "multiplicat per un altre nombre.",
+    "EXPONENT_SENSE_DESPLACAR":
+        "T'has deixat pel camí una part de l'exponent: si l'enunciat diu "
+        "$n+2$ (o similar), cal fer servir aquest exponent complet, no "
+        "només la $n$.",
+    "BASE_EXPONENT_INTERCANVIATS":
+        "Has canviat de lloc la base i l'exponent: no és el mateix "
+        "$a^b$ que $b^a$.",
+    "PROGRESSIO_INVENTADA":
+        "El terme s'ha de calcular seguint estrictament la regla que "
+        "defineix la successió (el terme general o la relació de "
+        "recurrència), no un patró aproximat o inventat.",
+    "VEREDICTE_INVERTIT":
+        "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del "
+        "correcte: torna a comprovar la condició amb els valors concrets "
+        "de l'enunciat.",
 }
 
 

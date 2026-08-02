@@ -55,6 +55,22 @@ FULLS = {
              "Potència d'una potència i productes de bases diferents."),
         ],
     },
+    3: {
+        "titol": "Full 3 — Successions i progressions",
+        "subtitol": "Terme general, successions recurrents i progressions "
+                    "aritmètiques i geomètriques.",
+        "moduls": ["c_successions"],
+        "blocs": [
+            ("termes", "Termes d'una successió",
+             "Terme general, successions recurrents i comprovar si és una progressió aritmètica."),
+            ("aritmetiques", "Progressions aritmètiques",
+             "Diferència, terme general i termes que falten."),
+            ("geometriques", "Progressions geomètriques",
+             "Raó, terme general i termes que falten."),
+            ("aplicacions", "Aplicacions",
+             "Triar el terme general correcte i trobar la posició d'un terme."),
+        ],
+    },
 }
 
 FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1
