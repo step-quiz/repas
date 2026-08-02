@@ -110,9 +110,10 @@ a.full:hover{border-color:var(--blau)}
 .full .barra{margin-top:.6rem}
 .full .meta{font-size:.78rem;color:var(--apagat);margin-top:.3rem}
 .full.properament{opacity:.55}
-.full .pastilla{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.05em;
+.pastilla{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.05em;
   text-transform:uppercase;background:var(--blau-suau);color:var(--blau);
-  padding:.22rem .45rem;border-radius:5px;margin-top:.55rem}
+  padding:.22rem .45rem;border-radius:5px}
+.full .pastilla{margin-top:.55rem}
 
 /* ---- mapa de llacunes plegat sota demanda ---- */
 .desplegable{margin-top:1.3rem}
@@ -123,3 +124,26 @@ a.full:hover{border-color:var(--blau)}
 .desplegable[open] summary .fletxa{transform:rotate(180deg)}
 @media (max-width:520px){ .enunciat{font-size:1.08rem} .embolcall{padding-top:1.1rem} }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- tutor virtual: targeta d'entrada a index.html ---- */
+.tutor-targeta{display:block;background:var(--blau-suau);border:1px solid #C7D7EE;
+  border-radius:12px;padding:.95rem 1.1rem;color:inherit;text-decoration:none;
+  margin:.9rem 0 2rem;transition:border-color .12s}
+.tutor-targeta:hover{border-color:var(--blau)}
+.tutor-targeta h2{font-size:1.02rem}
+.pastilla-blau{background:var(--blau);color:#fff;margin-bottom:.5rem}
+
+/* ---- diagnostic.html: autopercepció (selecció múltiple, no única) ---- */
+.percepcio-item{cursor:pointer}
+.percepcio-item .marca{width:1.2rem;height:1.2rem;border-radius:5px;flex:none;
+  border:1.5px solid var(--vora);background:#fff;transition:background .12s,border-color .12s}
+.percepcio-item.tria .marca{background:var(--blau);border-color:var(--blau)}
+.percepcio-item.tria .marca::after{content:"✓";display:block;color:#fff;
+  font-size:.85rem;line-height:1.15rem;text-align:center}
+
+/* ---- resultat.html: fals-alarma dins el bloc de desajustos ---- */
+.errada.bona-noticia{border-left-color:var(--verd);background:var(--verd-suau)}
+
+/* ---- full.html: bloc destacat en arribar des d'una recomanació del tutor ---- */
+.bloc.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
+.bloc.destacat .num{color:var(--blau)}

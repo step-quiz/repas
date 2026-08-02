@@ -6,6 +6,7 @@
   if (!window.FULL) return;   /* full.html ja mostra "aquest full encara no està preparat" */
 
   var D = window.FULL, $ = function (s) { return document.querySelector(s); };
+  var blocDestacat = new URLSearchParams(location.search).get("bloc");
 
   document.title = D.titol + " — Repàs d'ESO";
   $("#titol-full").textContent = D.titol;
@@ -44,7 +45,7 @@
         return e === "net" || e === "pista" || e === "segon";
       }).length;
       var el = document.createElement("button");
-      el.className = "bloc";
+      el.className = "bloc" + (b.id === blocDestacat ? " destacat" : "");
       el.type = "button";
       el.innerHTML =
         '<span class="num">' + (i + 1) + "</span>" +
@@ -57,6 +58,10 @@
       el.onclick = function () { ves(primerPendent(b.items)); };
       cont.appendChild(el);
     });
+    if (blocDestacat) {
+      var elDestacat = cont.querySelector(".destacat");
+      if (elDestacat) elDestacat.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   }
 
   function pintaErrors() {

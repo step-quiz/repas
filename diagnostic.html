@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test inicial — Repàs d'ESO</title>
+<meta name="description" content="Test curt per saber quins blocs de matemàtiques et convé repassar primer.">
+<link rel="stylesheet" href="css/estil.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<main class="embolcall" id="main">
+  <div class="barra-sup">
+    <a href="index.html" class="petit">← Tots els fulls</a>
+    <span class="petit apagat">Test inicial</span>
+  </div>
+
+  <p class="cimera">Repàs per començar 1r de batxillerat</p>
+
+  <section id="fase-carrega">
+    <h1>Preparant el test…</h1>
+  </section>
+
+  <section id="fase-percepcio" hidden>
+    <h1>Abans de començar</h1>
+    <p class="apagat" style="margin:.5rem 0 1.1rem">
+      D'aquests blocs, quins creus que et costaran més? No cal encertar-ho:
+      és per comparar-ho després amb com et surt realment.
+    </p>
+    <div id="llista-percepcio" class="opcions"></div>
+    <div class="accions">
+      <button class="btn gran" id="continua-percepcio">Comença el test</button>
+    </div>
+  </section>
+
+  <section id="fase-preguntes" hidden>
+    <p class="petit apagat" id="progres-test" style="margin:0 0 .3rem"></p>
+    <div class="barra" id="barra-test" style="margin-bottom:1.1rem"><i style="width:0%"></i></div>
+
+    <section class="targeta">
+      <p class="encap" id="encap-test"></p>
+      <div class="enunciat" id="enunciat-test"></div>
+      <div class="opcions" id="opcions-test" style="margin-top:1.1rem"></div>
+    </section>
+  </section>
+
+  <section id="fase-final" hidden>
+    <h1>Ja ho tinc tot</h1>
+    <p class="apagat" style="margin-top:.5rem">Preparant el teu resultat…</p>
+  </section>
+</main>
+<script src="js/nucli.js"></script>
+<script src="js/diagnostic-dades.js"></script>
+<script src="js/diagnostic.js"></script>
+</body>
+</html>

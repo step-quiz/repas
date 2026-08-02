@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El teu resultat — Repàs d'ESO</title>
+<link rel="stylesheet" href="css/estil.css">
+</head>
+<body>
+<main class="embolcall" id="main">
+  <div class="barra-sup">
+    <a href="index.html" class="petit">← Tots els fulls</a>
+    <span class="petit apagat">Resultat del test</span>
+  </div>
+
+  <p class="cimera">Repàs per començar 1r de batxillerat</p>
+  <h1>El teu punt de partida</h1>
+  <p class="petit" id="resum-linia" style="margin:.4rem 0 1.2rem"></p>
+
+  <section id="desajust" class="errades"></section>
+
+  <h2 style="margin-top:1.5rem">Per on comencem</h2>
+  <p class="petit apagat" style="margin:.3rem 0 .8rem">
+    Els tres blocs on més et convé posar l'atenció, segons el test.
+  </p>
+  <div class="blocs" id="recorregut"></div>
+
+  <details class="desplegable">
+    <summary>Veure el resultat de tots els blocs <span class="fletxa">▾</span></summary>
+    <div class="fulls" id="taula-blocs" style="margin-top:.7rem"></div>
+  </details>
+
+  <p class="petit apagat" style="margin-top:2.4rem">
+    <button class="btn buit petit" id="refes" style="padding:.3rem .6rem">Refer el test</button>
+  </p>
+</main>
+<script src="js/nucli.js"></script>
+<script src="js/diagnostic-dades.js"></script>
+<script src="js/resultat.js"></script>
+</body>
+</html>
