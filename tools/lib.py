@@ -131,13 +131,6 @@ def den_gen(ante, per):
 
 # ------------------------------------------------------------ model d'ítem
 
-BLOCS = {
-    "enters": "Nombres enters",
-    "divisibilitat": "Divisibilitat: m.c.d. i m.c.m.",
-    "fraccions": "Fraccions",
-    "decimals": "Decimals i fracció generatriu",
-}
-
 _BANC = []
 _ERRORS = {}
 
@@ -286,6 +279,79 @@ TAX = {
     "PRODUCTE_MAL":
         "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la "
         "incògnita amb els productes creuats.",
+
+    # ---- potències (Full 2) ----
+    "EXPONENTS_MULTIPLICATS":
+        "En multiplicar potències de la mateixa base, els exponents se SUMEN, no es "
+        "multipliquen: $a^m\\cdot a^n=a^{m+n}$.",
+    "EXPONENTS_SUMATS_QUOCIENT":
+        "En dividir potències de la mateixa base, els exponents es RESTEN, no se sumen: "
+        "$a^m:a^n=a^{m-n}$.",
+    "EXPONENTS_RESTATS_PRODUCTE":
+        "En multiplicar potències de la mateixa base, els exponents se sumen; restar-los "
+        "és la regla del quocient, no la del producte.",
+    "POTENCIA_POTENCIA_SUMADA":
+        "En una potència d'una potència, els exponents es MULTIPLIQUEN, no se sumen: "
+        "$(a^m)^n=a^{m\\cdot n}$.",
+    "ORDRE_DIVISIONS":
+        "El que hi ha entre claudàtors s'ha de resoldre primer: no es poden restar tots "
+        "els exponents seguits com si no hi hagués claudàtor.",
+    "ORDRE_MULTIPLICACIO_DIVISIO":
+        "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a "
+        "dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+    "BASE_ALTERADA":
+        "En combinar potències de la mateixa base, la base es queda tal qual; només "
+        "canvia l'exponent.",
+    "BASE_SIGNE_PERDUT":
+        "El resultat ha de conservar la base tal com era, amb el seu signe.",
+    "EXPONENT_ZERO":
+        "Qualsevol nombre diferent de zero elevat a $0$ val $1$, no $0$.",
+    "EXPONENT_NEGATIU_SIGNE":
+        "Un exponent negatiu no fa que el resultat sigui negatiu: $a^{-n}=\\dfrac{1}{a^n}$ "
+        "és l'invers del nombre, no el seu oposat.",
+    "FRACCIO_NO_INVERTIDA":
+        "Per elevar una fracció a un exponent negatiu cal INVERTIR la fracció i fer "
+        "l'exponent positiu: $\\left(\\dfrac{a}{b}\\right)^{-n}=\\left(\\dfrac{b}{a}\\right)^n$.",
+    "MENYS_SENSE_PARENTESI":
+        "Sense parèntesi, el signe $-$ no forma part de la base: $-a^n$ és $-(a^n)$, no "
+        "$(-a)^n$.",
+    "PARITAT_EXPONENT":
+        "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna "
+        "resultat positiu; amb exponent senar, el resultat es queda negatiu.",
+    "POTENCIA_PRODUCTE_UN_FACTOR":
+        "L'exponent afecta TOTS els factors del producte, no només un: "
+        "$(a\\cdot b)^n=a^n\\cdot b^n$.",
+    "POTENCIA_QUOCIENT_UN_FACTOR":
+        "L'exponent afecta els dos termes del quocient, no només un: $(a:b)^n=a^n:b^n$.",
+    "SIMPLIFICACIO_ABANS_OBLIDADA":
+        "Simplifica la fracció abans d'elevar-la a la potència; si no, el resultat no "
+        "queda reduït del tot.",
+    "EXPONENT_APLICAT_A_TOT":
+        "L'exponent només afecta el factor que l'acompanya: no es pot repartir cap a un "
+        "altre factor que no en tenia.",
+    "REGLA_NOMES_PRODUCTE":
+        "La regla de sumar exponents només val per MULTIPLICAR potències de la mateixa "
+        "base, no per sumar-les: quan se sumen, cal sumar els valors de cada potència.",
+    "REGLA_NOMES_QUOCIENT":
+        "La regla de restar exponents és per DIVIDIR potències de la mateixa base, no per "
+        "restar-les: quan es resten, cal restar els valors de cada potència.",
+    "EQUACIO_EXPONENT_MULTIPLICAT":
+        "Per aïllar l'exponent en una igualtat de potències de la mateixa base, els "
+        "exponents s'igualen i se sumen o es resten com en qualsevol equació; no es "
+        "multipliquen.",
+    "FACTOR_OBLIDAT":
+        "T'has deixat pel camí un dels factors en combinar els exponents.",
+    "ORDRE_RESTA":
+        "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
+    "POTENCIA_DE_SUMA":
+        "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la "
+        "potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
+    "SIGNE_QUOCIENT":
+        "Revisa la regla dels signes del quocient: signes diferents donen resultat "
+        "negatiu.",
+    "BASES_DIFERENTS_COMBINADES":
+        "Les bases són diferents: la regla de combinar exponents (sumar-los o "
+        "restar-los) només val quan la base és la mateixa als dos factors.",
 }
 
 

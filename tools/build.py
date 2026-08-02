@@ -1,13 +1,21 @@
 # -*- coding: utf-8 -*-
-"""build.py — Compila el banc de preguntes.
+"""build.py — Compila el banc de preguntes d'UN full.
+
+    python3 build.py        compila el full 1 (per defecte)
+    python3 build.py 2      compila el full 2
 
 Sortides:
-  web/data/full1.js      dades del lloc (respostes ofuscades en base64)
-  REVISIO-full1.html     clau de respostes completa, per revisar abans de publicar
+  web/data/fullN.js       dades del lloc (respostes ofuscades en base64)
+  REVISIO-fullN.html      clau de respostes completa, per revisar abans de publicar
+
+Cada full es compila en un procés Python separat a propòsit: lib._BANC és
+una llista de mòdul, i si s'importessin els mòduls de dos fulls al mateix
+procés els ítems es barrejarien en un sol banc.
 """
 
 import base64
 import html
+import importlib
 import json
 import os
 import random
@@ -17,17 +25,46 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import lib
-import c_enters, c_divisibilitat, c_fraccions, c_decimals  # noqa: F401
+
+# ------------------------------------------------------- configuració per full
+FULLS = {
+    1: {
+        "titol": "Full 1 — Nombres enters, fraccions i decimals",
+        "subtitol": "Operacions amb enters, divisibilitat, fraccions i pas de "
+                    "decimal a fracció generatriu.",
+        "moduls": ["c_enters", "c_divisibilitat", "c_fraccions", "c_decimals"],
+        "blocs": [
+            ("enters", "Nombres enters", "Operacions combinades, regla dels signes i jerarquia."),
+            ("divisibilitat", "Divisibilitat", "Descomposició factorial, m.c.d., m.c.m. i problemes."),
+            ("fraccions", "Fraccions", "Equivalència, simplificació i operacions combinades."),
+            ("decimals", "Decimals", "Tipus de decimal i fracció generatriu."),
+        ],
+    },
+    2: {
+        "titol": "Full 2 — Potències",
+        "subtitol": "Propietats de les potències, exponent negatiu i potència d'una potència.",
+        "moduls": ["c_potencies"],
+        "blocs": [
+            ("basiques", "Càlcul de potències",
+             "Potències de la mateixa base i potència d'un producte o un quocient."),
+            ("negatiu", "Exponent negatiu i equacions",
+             "Exponents negatius i aïllar l'exponent en una igualtat."),
+            ("verifica", "Verifica, corregeix i simplifica",
+             "Troba l'error, cert o fals, i expressa-ho com una sola potència."),
+            ("combinades", "Combina potències",
+             "Potència d'una potència i productes de bases diferents."),
+        ],
+    },
+}
+
+FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+CFG = FULLS[FULL_N]
+for _m in CFG["moduls"]:
+    importlib.import_module(_m)
 
 ARREL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 BANC = lib.banc()
-
-BLOCS = [
-    ("enters", "Nombres enters", "Operacions combinades, regla dels signes i jerarquia."),
-    ("divisibilitat", "Divisibilitat", "Descomposició factorial, m.c.d., m.c.m. i problemes."),
-    ("fraccions", "Fraccions", "Equivalència, simplificació i operacions combinades."),
-    ("decimals", "Decimals", "Tipus de decimal i fracció generatriu."),
-]
+BLOCS = CFG["blocs"]
 
 # ------------------------------------------------------ math vs text mixt
 _NETEJA = re.compile(r"\\(dfrac|cdot|overline|operatorname|quad|mathbf|ne|rightarrow)")
@@ -97,15 +134,14 @@ def compila():
     blocs = [{"id": b, "titol": t, "descripcio": d,
               "items": [i["id"] for i in items if i["bloc"] == b]} for b, t, d in BLOCS]
     dades = {
-        "full": 1,
-        "titol": "Full 1 — Nombres enters, fraccions i decimals",
-        "subtitol": "Operacions amb enters, divisibilitat, fraccions i pas de "
-                    "decimal a fracció generatriu.",
+        "full": FULL_N,
+        "titol": CFG["titol"],
+        "subtitol": CFG["subtitol"],
         "blocs": blocs,
         "items": items,
     }
     os.makedirs(os.path.join(ARREL, "data"), exist_ok=True)
-    ruta = os.path.join(ARREL, "data", "full1.js")
+    ruta = os.path.join(ARREL, "data", "full%d.js" % FULL_N)
     with open(ruta, "w", encoding="utf-8") as f:
         f.write("/* Generat per tools/build.py — no editeu aquest fitxer a mà. */\n")
         f.write("window.FULL = ")  # global genèric: cada pàgina en carrega un full a la vegada
@@ -163,8 +199,8 @@ def revisio(dades):
 
     p = ['<!DOCTYPE html><html lang="ca"><meta charset="utf-8">',
          '<meta name="viewport" content="width=device-width,initial-scale=1">',
-         '<title>Revisió — Full 1</title>', KATEX, '<style>%s</style>' % CSS_REV,
-         '<h1>Clau de respostes — Full 1</h1>',
+         '<title>Revisió — Full %d</title>' % FULL_N, KATEX, '<style>%s</style>' % CSS_REV,
+         '<h1>Clau de respostes — Full %d</h1>' % FULL_N,
          '<p class="meta">%d preguntes · generades i verificades amb Python/SymPy · '
          'pendents de revisió humana.</p>' % len(BANC),
          '<div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta '
@@ -209,7 +245,7 @@ def revisio(dades):
                  % (e, len(ids), ", ".join(ids[:14]) + ("…" if len(ids) > 14 else "")))
     p.append('</table></html>')
 
-    ruta = os.path.join(ARREL, "REVISIO-full1.html")
+    ruta = os.path.join(ARREL, "REVISIO-full%d.html" % FULL_N)
     open(ruta, "w", encoding="utf-8").write("\n".join(p))
     print("✓ %s (%d errors diferents al catàleg)" % (ruta, len(errors)))
 
