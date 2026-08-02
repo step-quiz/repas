@@ -22,6 +22,15 @@ window.RE_DIAG = (function () {
   var PREGUNTES_PER_BLOC = 2;
   var TOTAL_TEST = 15;
 
+  /* El test és la primera impressió del tutor: si les primeres preguntes ja
+     són un problema verbal de 200 caràcters o una torre de fraccions
+     imbricades, l'alumne abandona abans d'arribar a veure cap resultat.
+     Triem sempre entre les preguntes MÉS CURTES de cada bloc (per caràcters
+     de l'enunciat, un proxy senzill però prou fiable de "quant costa de
+     llegir i encarar" en aquest banc). No cal que sigui la pregunta més
+     fàcil del bloc, només la més ràpida de llegir. */
+  var CARACTERS_MAX_PREFERITS = 40;
+
   function carregaFull(n, cb) {
     if (window["FULL_" + n]) { cb(window["FULL_" + n]); return; }
     var s = document.createElement("script");
@@ -70,15 +79,31 @@ window.RE_DIAG = (function () {
     return a;
   }
 
+  /* D'un bloc, torna els items amb enunciat curt (<= CARACTERS_MAX_PREFERITS).
+     Si no n'hi ha prou per cobrir `n` (bloc petit o amb enunciats llargs de
+     mena), completa amb els següents més curts disponibles: sempre és
+     millor una pregunta una mica més llarga que quedar-se curt de preguntes
+     en aquell bloc. */
+  function itemsCurts(items, n) {
+    var ordenats = items.slice().sort(function (a, b) {
+      return a.enunciat.length - b.enunciat.length;
+    });
+    var curts = ordenats.filter(function (it) { return it.enunciat.length <= CARACTERS_MAX_PREFERITS; });
+    return curts.length >= n ? curts : ordenats;
+  }
+
   /* Tria les preguntes del test: N per bloc, un bloc en dona N-1 perquè el
      total quadri a TOTAL_TEST. Quin bloc és el curt gira per dia de l'any,
-     no per atzar (vegeu comentari de PREGUNTES_PER_BLOC). */
+     no per atzar (vegeu comentari de PREGUNTES_PER_BLOC). Dins de cada bloc,
+     es tria entre les preguntes curtes (vegeu CARACTERS_MAX_PREFERITS) per
+     no espantar l'alumne amb un problema verbal o una torre de fraccions
+     just al començament. */
   function triaPreguntes(blocs) {
     var curt = new Date().getDate() % blocs.length;
     var seleccio = [];
     blocs.forEach(function (b, i) {
       var n = (i === curt) ? PREGUNTES_PER_BLOC - 1 : PREGUNTES_PER_BLOC;
-      barreja(b.items).slice(0, n).forEach(function (it) {
+      barreja(itemsCurts(b.items, n)).slice(0, n).forEach(function (it) {
         seleccio.push({ full: b.full, bloc: b.id, blocTitol: b.titol, item: it });
       });
     });

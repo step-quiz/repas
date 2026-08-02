@@ -21,6 +21,28 @@
   var totalOk = dades.respostes.filter(function (r) { return r.encert; }).length;
   $("#resum-linia").innerHTML = "<strong>" + totalOk + " de " + dades.respostes.length + "</strong> encertades al test";
 
+  /* Resum compacte de tots els blocs, sempre visible (sense desplegar cap
+     <details>): la manera de comprovar d'una ullada que el "X de 15" de dalt
+     quadra amb el detall, sense haver de sumar targetes a mà. Mateix ordre
+     (pitjor a millor) que la taula completa, per coherència.
+     Nom curt en lloc del títol sencer (alguns títols de bloc no caben en una
+     fila compacta); res que depengui de hover, perquè en mòbil no existeix. */
+  function nomCurt(titol) {
+    return titol.split(/[,.]| i /)[0];
+  }
+  var contResumBlocs = $("#resum-blocs");
+  contResumBlocs.innerHTML = "";
+  analisi.forEach(function (b) {
+    var el = document.createElement("div");
+    el.className = "fila-resum-bloc";
+    el.innerHTML =
+      '<span class="pct" style="color:' +
+        (b.pct >= 80 ? "var(--verd)" : b.pct >= 50 ? "var(--ambre)" : "var(--vermell)") + '">' + b.pct + "%</span>" +
+      '<span class="nom">' + nomCurt(b.titol) + "</span>" +
+      '<span class="apagat">' + b.ok + "/" + b.total + "</span>";
+    contResumBlocs.appendChild(el);
+  });
+
   /* ---- desajustos: el que més val la pena que l'alumne vegi ---- */
   var sorpreses = analisi.filter(function (b) { return b.sorpresa; }).slice(0, RE_DIAG.MAX_DESAJUSTOS);
   var falsesAlarmes = analisi.filter(function (b) { return b.falsAlarma; }).slice(0, RE_DIAG.MAX_DESAJUSTOS);

@@ -57,4 +57,32 @@
     el.innerHTML = cos;
     cont.appendChild(el);
   });
+
+  /* ---- bloc del tutor: targeta per fer el test, o resum si ja s'ha fet ----
+     RE_DIAG ve de diagnostic-dades.js, carregat abans que aquest script. */
+  function pintaTutor() {
+    var d = RE_DIAG.llegeix();
+    var cont = $("#tutor");
+    if (!d) {
+      cont.innerHTML =
+        '<a class="tutor-targeta" href="diagnostic.html">' +
+          '<span class="pastilla pastilla-blau">Nou</span>' +
+          "<h2>No saps per on començar?</h2>" +
+          '<p class="petit apagat" style="margin:.35rem 0 0">Fes un test curt de 15 preguntes ' +
+          "i et diem quins blocs et convé repassar primer.</p>" +
+        "</a>";
+      return;
+    }
+    var analisi = RE_DIAG.analitza(d);
+    var reco = RE_DIAG.recomanacio(analisi);
+    var noms = reco.map(function (b) { return b.titol; }).join(", ");
+    cont.innerHTML =
+      '<a class="tutor-targeta" href="resultat.html">' +
+        "<h2>Segons el teu test inicial</h2>" +
+        '<p class="petit apagat" style="margin:.35rem 0 0">' +
+          (reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.") +
+        "</p>" +
+      "</a>";
+  }
+  pintaTutor();
 })();
