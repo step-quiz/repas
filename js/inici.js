@@ -13,7 +13,7 @@
 
   var FULLS = [
     { n: 1,  titol: "Nombres enters, fraccions i decimals",  total: 140, disponible: true },
-    { n: 2,  titol: "Potències",                             total: null, disponible: false },
+    { n: 2,  titol: "Potències",                             total: 76,   disponible: true },
     { n: 3,  titol: "Successions i progressions",             total: null, disponible: false },
     { n: 4,  titol: "Polinomis",                              total: null, disponible: false },
     { n: 5,  titol: "Equacions i sistemes",                   total: null, disponible: false },
