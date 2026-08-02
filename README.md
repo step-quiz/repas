@@ -4,11 +4,12 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-De moment només **Full 1** té preguntes (140). Els altres 12 fulls hi surten
-llistats com a "Properament" — l'estructura de tres pàgines ja està a punt
-perquè, quan se n'autori un altre, només calgui afegir el seu `data/fullN.js`
-i marcar-lo disponible a `js/inici.js` (vegeu §8.1 i §3 de
-`HANDOVER-repas-eso-v2.md` per a l'inventari i el disseny d'aquesta part).
+De moment **Full 1** (140 preguntes) i **Full 2** (76 preguntes) ja tenen
+preguntes. Els altres 11 fulls hi surten llistats com a "Properament" —
+l'estructura de tres pàgines ja està a punt perquè, quan se n'autori un
+altre, només calgui afegir el seu `data/fullN.js` i marcar-lo disponible a
+`js/inici.js` (vegeu §8.1 i §3 de `HANDOVER-repas-eso-v2.md` per a
+l'inventari i el disseny d'aquesta part).
 
 ## Navegació (tres nivells)
 
@@ -38,8 +39,16 @@ i marcar-lo disponible a `js/inici.js` (vegeu §8.1 i §3 de
     js/hub.js             controlador del Nivell 1 (abans es deia portada.js)
     js/practica.js        controlador del Nivell 2
     data/full1.js        banc de 140 preguntes de Full 1 (generat, no editar a mà)
+    data/full2.js        banc de 76 preguntes de Full 2 (generat, no editar a mà)
     REVISIO-full1.html   clau de respostes completa de Full 1, per revisar
-    tools/               generador del banc (Python + SymPy)
+    REVISIO-full2.html   clau de respostes completa de Full 2, per revisar
+    tools/lib.py          motor comú: Q/D/DT, TAX (catàleg d'errors), validació
+    tools/build.py        compilador (agafa un full de la taula FULLS i el genera)
+    tools/c_enters.py       bloc "enters" de Full 1
+    tools/c_divisibilitat.py bloc "divisibilitat" de Full 1
+    tools/c_fraccions.py     bloc "fraccions" de Full 1
+    tools/c_decimals.py      bloc "decimals" de Full 1
+    tools/c_potencies.py     els 4 blocs de Full 2 sencer (76 ítems, un sol fitxer)
 
 ## Com està fet el banc
 
@@ -58,20 +67,30 @@ El compilador comprova, per a cada pregunta, que hi hagi exactament tres
 distractors, que cap coincideixi amb la resposta correcta ni entre ells, i que
 totes tinguin pistes i resolució. Si algun cop falla, el build s'atura.
 
+Full 1 té un fitxer `c_<bloc>.py` per bloc perquè cada bloc és un domini prou
+diferent (enters, divisibilitat, fraccions, decimals). Full 2 és un sol tema
+(potències) amb 4 blocs que comparteixen molta lògica, així que hi ha un únic
+`c_potencies.py` amb els 4 blocs a dins, separats per capçaleres de secció —
+no cal seguir la convenció d'un fitxer per bloc quan el tema és un de sol.
+
 ## Regenerar el banc
 
-    cd tools && python3 build.py
+    cd tools && python3 build.py      # full 1 (per defecte)
+    cd tools && python3 build.py 2    # full 2
 
-Escriu `data/full1.js` (amb `window.FULL = {...}`, un global genèric perquè
+Escriu `data/fullN.js` (amb `window.FULL = {...}`, un global genèric perquè
 `full.html`/`practica.html` puguin carregar el full que toqui) i
-`REVISIO-full1.html`.
+`REVISIO-fullN.html`. Cada full es compila en un procés Python separat a
+propòsit (vegeu la capçalera de `tools/build.py`): així els ítems de dos
+fulls no es barregen mai al mateix banc.
 
 ## Abans de publicar
 
-Les respostes estan calculades, però **no revisades per una persona**. Repassa
-`REVISIO-full1.html`, sobretot els ítems amb nota (interpretacions d'enunciats
-ambigus, com el `30e` i el `30f`). Quan els validis, treu l'avís del peu de
-`full.html`.
+Les respostes estan calculades, però **no revisades per una persona**.
+Repassa `REVISIO-full1.html` i `REVISIO-full2.html`, sobretot els ítems amb
+nota (per exemple el `30e`/`30f` de Full 1, o el `46b` de Full 2, que són
+interpretacions d'un enunciat ambigu). Quan els validis, treu l'avís del
+peu de `full.html`.
 
 ## Detalls
 
