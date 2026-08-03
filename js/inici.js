@@ -82,7 +82,18 @@
         '<p class="petit apagat" style="margin:.35rem 0 0">' +
           (reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.") +
         "</p>" +
-      "</a>";
+      "</a>" +
+      '<button type="button" class="link-refer-test petit" id="refes-index">Tornar a fer el test</button>';
+
+    /* Oferim sempre l'opció de refer el test des de la pantalla inicial,
+       no només des de resultat.html: mateix comportament (confirmació abans
+       d'esborrar) que el botó equivalent de resultat.js, per coherència. */
+    $("#refes-index").onclick = function () {
+      if (confirm("Vols refer el test inicial? El resultat anterior s'esborrarà.")) {
+        RE_DIAG.esborra();
+        location.href = "diagnostic.html";
+      }
+    };
   }
   pintaTutor();
 })();

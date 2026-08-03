@@ -10,10 +10,10 @@ window.RE_DIAG = (function () {
 
   var CLAU_LS = "repas-eso:diagnostic";
 
-  /* Blocs que entren al test: només dels fulls ja autorats (1 i 2). Quan
-     s'autori un full nou, afegir-hi les seves entrades n'hi ha prou perquè
-     el test les inclogui — la resta d'aquest fitxer no cal tocar-lo. */
-  var FULLS_TEST = [1, 2];
+  /* Blocs que entren al test: només dels fulls ja autorats. Quan s'autori
+     un full nou, afegir-hi el seu número n'hi ha prou perquè el test les
+     inclogui — la resta d'aquest fitxer no cal tocar-lo. */
+  var FULLS_TEST = [1, 2, 3, 4];
 
   /* 15 preguntes repartides en 8 blocs: 7 blocs en donen 2 i 1 en dona 1.
      Quin bloc és el "curt" va rotant per volta (índex fix, no aleatori: així
@@ -21,6 +21,13 @@ window.RE_DIAG = (function () {
      el mateix bloc escapçat). */
   var PREGUNTES_PER_BLOC = 2;
   var TOTAL_TEST = 15;
+
+  /* Quants blocs "hi caben" en un test de TOTAL_TEST preguntes, mantenint
+     PREGUNTES_PER_BLOC com a mínim fiable per bloc (amb 1 sola pregunta,
+     un simple despistament fa caure el bloc a 0% sense dir res real sobre
+     si l'alumne el domina). Amb els valors actuals: 7 blocs complets + 1
+     amb una pregunta menys = 8 blocs, 15 preguntes. */
+  var BLOCS_PER_TEST = Math.floor(TOTAL_TEST / PREGUNTES_PER_BLOC) + 1;
 
   /* El test és la primera impressió del tutor: si les primeres preguntes ja
      són un problema verbal de 200 caràcters o una torre de fraccions
@@ -80,26 +87,73 @@ window.RE_DIAG = (function () {
   }
 
   /* D'un bloc, torna els items amb enunciat curt (<= CARACTERS_MAX_PREFERITS).
-     Si no n'hi ha prou per cobrir `n` (bloc petit o amb enunciats llargs de
-     mena), completa amb els següents més curts disponibles: sempre és
-     millor una pregunta una mica més llarga que quedar-se curt de preguntes
-     en aquell bloc. */
+     Si el bloc no arriba a tenir-ne prou (per exemple "geometriques" de
+     Successions, on cap pregunta baixa de 41 caràcters), NO tornem el bloc
+     sencer sense filtrar: tornem sempre com a molt les `marge` preguntes
+     més curtes que hi hagi, encara que superin el llindar. Així un bloc amb
+     un estil d'enunciat més verbós de mena queda igualment acotat, en lloc
+     de poder acabar triant la pregunta més llarga que tingui. */
   function itemsCurts(items, n) {
     var ordenats = items.slice().sort(function (a, b) {
       return a.enunciat.length - b.enunciat.length;
     });
     var curts = ordenats.filter(function (it) { return it.enunciat.length <= CARACTERS_MAX_PREFERITS; });
-    return curts.length >= n ? curts : ordenats;
+    if (curts.length >= n) return curts;
+    var marge = Math.max(n, PREGUNTES_PER_BLOC + 1);
+    return ordenats.slice(0, marge);
   }
 
-  /* Tria les preguntes del test: N per bloc, un bloc en dona N-1 perquè el
+  /* Generador pseudoaleatori simple amb llavor: permet una "barreja"
+     determinista per dia (mateix dia -> mateix resultat, útil perquè el
+     test roti de manera repartida en lloc de dependre d'atzar pur, que amb
+     mala sort podria deixar sempre el mateix bloc fora). No cal que sigui
+     criptogràficament fort, només repetible. */
+  function pseudoaleatori(llavor) {
+    var x = Math.sin(llavor) * 10000;
+    return x - Math.floor(x);
+  }
+  function barrejaAmbLlavor(a, llavor) {
+    a = a.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(pseudoaleatori(llavor + i) * (i + 1)), t = a[i];
+      a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  /* Diada de l'any (1-366): dona més marge de rotació que el dia del mes
+     (1-31) a mesura que hi hagi més blocs disponibles que dies en un mes. */
+  function diaDeLany() {
+    var ara = new Date();
+    var inici = new Date(ara.getFullYear(), 0, 0);
+    return Math.floor((ara - inici) / 86400000);
+  }
+
+  /* Selecciona quins blocs entren al test d'avui. Si n'hi ha BLOCS_PER_TEST
+     o menys, hi entren tots (comportament actual, sense canvis). Si n'hi ha
+     més, es trien BLOCS_PER_TEST rotant per dia de l'any: amb el pas del
+     temps es van cobrint tots els blocs disponibles, en lloc de sortejar-los
+     cada cop (que podria, per mala sort, deixar sempre el mateix fora). Fa
+     servir una llavor diferent de la del bloc "curt" (vegeu triaPreguntes)
+     perquè totes dues rotacions no vagin sempre lligades. */
+  function seleccionaBlocsDelTest(blocs) {
+    if (blocs.length <= BLOCS_PER_TEST) return blocs;
+    return barrejaAmbLlavor(blocs, diaDeLany() * 7 + 3).slice(0, BLOCS_PER_TEST);
+  }
+
+  /* Tria les preguntes del test a partir dels blocs JA SELECCIONATS (vegeu
+     seleccionaBlocsDelTest — es crida abans, no aquí dins, perquè el mateix
+     subconjunt de blocs també s'ha de fer servir per pintar l'autopercepció:
+     no té sentit preguntar "et costa X?" d'un bloc que el test d'avui no
+     arribarà a avaluar). N preguntes per bloc, un bloc en dona N-1 perquè el
      total quadri a TOTAL_TEST. Quin bloc és el curt gira per dia de l'any,
-     no per atzar (vegeu comentari de PREGUNTES_PER_BLOC). Dins de cada bloc,
-     es tria entre les preguntes curtes (vegeu CARACTERS_MAX_PREFERITS) per
-     no espantar l'alumne amb un problema verbal o una torre de fraccions
-     just al començament. */
+     amb una llavor diferent de la de seleccionaBlocsDelTest perquè totes
+     dues rotacions no vagin sempre lligades. Dins de cada bloc, es tria
+     entre les preguntes curtes (vegeu CARACTERS_MAX_PREFERITS) per no
+     espantar l'alumne amb un problema verbal o una torre de fraccions just
+     al començament. */
   function triaPreguntes(blocs) {
-    var curt = new Date().getDate() % blocs.length;
+    var curt = diaDeLany() % blocs.length;
     var seleccio = [];
     blocs.forEach(function (b, i) {
       var n = (i === curt) ? PREGUNTES_PER_BLOC - 1 : PREGUNTES_PER_BLOC;
@@ -181,7 +235,8 @@ window.RE_DIAG = (function () {
   }
 
   return {
-    blocsDisponibles: blocsDisponibles, triaPreguntes: triaPreguntes,
+    blocsDisponibles: blocsDisponibles, seleccionaBlocsDelTest: seleccionaBlocsDelTest,
+    triaPreguntes: triaPreguntes,
     desa: desa, llegeix: llegeix, esborra: esborra,
     analitza: analitza, recomanacio: recomanacio, MAX_DESAJUSTOS: MAX_DESAJUSTOS
   };

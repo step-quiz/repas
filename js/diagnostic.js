@@ -114,8 +114,13 @@
         '<a class="btn" href="index.html">← Tots els fulls</a>';
       return;
     }
-    blocs = b;
-    preguntes = RE_DIAG.triaPreguntes(b);
+    /* Seleccionem primer quins blocs entren al test d'avui (pot ser un
+       subconjunt, si n'hi ha més de disponibles que els que caben en un
+       test curt): l'autopercepció ha de preguntar exactament sobre aquests
+       blocs, no sobre tots els disponibles, perquè després es puguin
+       comparar de veritat amb el resultat. */
+    blocs = RE_DIAG.seleccionaBlocsDelTest(b);
+    preguntes = RE_DIAG.triaPreguntes(blocs);
     pintaPercepcio();
   });
 })();

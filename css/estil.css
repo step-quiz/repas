@@ -126,12 +126,16 @@ a.full:hover{border-color:var(--blau)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* ---- tutor virtual: targeta d'entrada a index.html ---- */
+#tutor{margin-bottom:2rem}
 .tutor-targeta{display:block;background:var(--blau-suau);border:1px solid #C7D7EE;
   border-radius:12px;padding:.95rem 1.1rem;color:inherit;text-decoration:none;
-  margin:.9rem 0 2rem;transition:border-color .12s}
+  margin:.9rem 0 0;transition:border-color .12s}
 .tutor-targeta:hover{border-color:var(--blau)}
 .tutor-targeta h2{font-size:1.02rem}
 .pastilla-blau{background:var(--blau);color:#fff;margin-bottom:.5rem}
+.link-refer-test{display:block;background:none;border:none;padding:.5rem 0 0;
+  color:var(--apagat);text-decoration:underline;cursor:pointer;font-family:inherit}
+.link-refer-test:hover{color:var(--tinta)}
 
 /* ---- diagnostic.html: autopercepció (selecció múltiple, no única) ---- */
 .percepcio-item{cursor:pointer}
