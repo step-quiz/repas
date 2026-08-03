@@ -1,0 +1,679 @@
+<!DOCTYPE html><html lang="ca"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisió — Full 4</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+ onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
+ throwOnError:false})"></script>
+
+<style>
+body{font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#16202E;
+ max-width:60rem;margin:0 auto;padding:2rem 1.2rem 6rem}
+h1{font-size:1.5rem;margin:0 0 .2rem} h2{font-size:1.05rem;margin:2.2rem 0 .6rem;
+ border-bottom:2px solid #16202E;padding-bottom:.25rem}
+.meta{color:#5A6B80;margin:0 0 1.5rem}
+.it{border:1px solid #D8DFE8;border-radius:8px;padding:.8rem 1rem;margin:.7rem 0;
+ page-break-inside:avoid}
+.cap{display:flex;gap:.6rem;align-items:baseline;margin-bottom:.35rem}
+.cod{font:700 13px ui-monospace,monospace;background:#16202E;color:#fff;
+ padding:.1rem .4rem;border-radius:4px}
+.tip{font-size:11px;color:#5A6B80;text-transform:uppercase;letter-spacing:.06em}
+.enun{margin:.2rem 0 .5rem}
+ol.op{margin:.3rem 0;padding-left:1.4rem}
+ol.op li{margin:.15rem 0}
+.ok{background:#E4F3EC;font-weight:600;padding:.05rem .25rem;border-radius:3px}
+.err{font:600 11px ui-monospace,monospace;color:#8C2F28;background:#FBEDEC;
+ padding:.05rem .3rem;border-radius:3px;margin-right:.3rem}
+.fb{color:#43506180}
+.sec{color:#5A6B80;font-size:13px;margin:.4rem 0 0}
+.res li{margin:.1rem 0}
+.nota{background:#FFF6E5;border-left:3px solid #B06B00;padding:.4rem .6rem;
+ margin:.5rem 0 0;font-size:13.5px}
+.avis{background:#FBEDEC;border-left:3px solid #C4362F;padding:.8rem 1rem;
+ margin:1rem 0 2rem;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;font-size:13px;width:100%}
+td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
+@media print{.it{border-color:#bbb}}
+</style>
+<h1>Clau de respostes — Full 4</h1>
+<p class="meta">59 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
+<h2>Operacions amb polinomis <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 62.</strong> Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.</p>
+<div class="it"><div class="cap"><span class="cod">62a</span><span class="tip">tipus A</span></div>
+<div class="enun">$P(x)+Q(x)+R(x)+S(x)$</div>
+<ol class="op"><li><span class="ok">$2x^{5}+5x^{3}+6x^{2}-3x-3$</span> — resposta correcta</li>
+<li>$2x^{5}-6x^{4}+9x^{3}-4x^{2}+11x-1$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has restat $Q(x)$ en lloc de sumar-lo: revisa l'enunciat, els quatre polinomis se sumen.</span></li>
+<li>$2x^{5}+5x^{3}+6x^{2}-7x-9$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has restat $S(x)$ en lloc de sumar-lo.</span></li>
+<li>$2x^{5}+5x^{3}-x-5$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has restat $R(x)$ en lloc de sumar-lo.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma els quatre polinomis grau a grau: primer els termes de $x^5$, després els de $x^4$, i així successivament.</li><li>Vigila els polinomis que no tenen tots els graus: $R(x)$ no té terme en $x^5$ ni $x^4$ ni $x^3$, i $S(x)$ només té fins a grau $1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(x)+Q(x)+R(x)+S(x)=2x^{5}+5x^{3}+6x^{2}-3x-3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">62b</span><span class="tip">tipus A</span></div>
+<div class="enun">$P(x)-R(x)+S(x)-Q(x)$</div>
+<ol class="op"><li><span class="ok">$2x^{5}-6x^{4}+9x^{3}-10x^{2}+13x-3$</span> — resposta correcta</li>
+<li>$2x^{5}+5x^{3}-x-5$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $Q(x)$ en lloc de restar-lo: revisa l'últim signe de l'enunciat.</span></li>
+<li>$2x^{5}-6x^{4}+9x^{3}-4x^{2}+11x-1$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $R(x)$ en lloc de restar-lo.</span></li>
+<li>$2x^{5}-6x^{4}+9x^{3}-10x^{2}+9x-9$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has restat $S(x)$ en lloc de sumar-lo.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Vigila l'ordre dels signes: $P(x)$ i $S(x)$ sumen, $R(x)$ i $Q(x)$ resten.</li><li>Resta $R(x)$ de $P(x)$ primer, suma-hi $S(x)$, i finalment resta'n $Q(x)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(x)-R(x)+S(x)-Q(x)=2x^{5}-6x^{4}+9x^{3}-10x^{2}+13x-3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">62c</span><span class="tip">tipus A</span></div>
+<div class="enun">$[P(x)+Q(x)]-[R(x)+Q(x)]$</div>
+<ol class="op"><li><span class="ok">$2x^{5}-3x^{4}+7x^{3}-5x^{2}+4x-7$</span> — resposta correcta</li>
+<li>$2x^{5}+3x^{4}+3x^{3}+11x^{2}-12x-7$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat els dos claudàtors en lloc de restar-los.</span></li>
+<li>$2x^{5}-9x^{4}+11x^{3}-15x^{2}+18x-5$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">En restar el segon claudàtor, has canviat el signe només d'un dels dos termes: $-[R(x)+Q(x)]=-R(x)-Q(x)$, els dos amb signe menys.</span></li>
+<li>$2x^{5}+3x^{4}+3x^{3}+5x^{2}-10x-9$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">Al segon claudàtor hi ha $R(x)+Q(x)$, no $R(x)-Q(x)$: revisa l'enunciat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $Q(x)$ apareix als dos claudàtors: en restar-los, es cancel·la. El resultat és, en realitat, $P(x)-R(x)$.</li><li>$[P(x)+Q(x)]-[R(x)+Q(x)]=P(x)+Q(x)-R(x)-Q(x)=P(x)-R(x)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$[P(x)+Q(x)]-[R(x)+Q(x)]=P(x)-R(x)=2x^{5}-3x^{4}+7x^{3}-5x^{2}+4x-7$</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest resultat coincideix amb el de l'apartat d) — no és una casualitat: en tots dos casos el $Q(x)$ es cancel·la i queda $P(x)-R(x)$. És intencionat: conviden a adonar-se que expressions amb aspecte diferent poden donar el mateix resultat.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">62d</span><span class="tip">tipus A</span></div>
+<div class="enun">$[P(x)-Q(x)]-[R(x)-Q(x)]$</div>
+<ol class="op"><li><span class="ok">$2x^{5}-3x^{4}+7x^{3}-5x^{2}+4x-7$</span> — resposta correcta</li>
+<li>$2x^{5}-9x^{4}+11x^{3}-9x^{2}+16x-3$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat els dos claudàtors en lloc de restar-los.</span></li>
+<li>$2x^{5}-9x^{4}+11x^{3}-15x^{2}+18x-5$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">En restar el segon claudàtor, no has canviat el signe del $-Q(x)$ de dins: $-[R(x)-Q(x)]=-R(x)+Q(x)$.</span></li>
+<li>$2x^{5}-6x^{4}+9x^{3}-10x^{2}+11x-6$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">T'has deixat pel camí el $+Q(x)$ final: el segon claudàtor és $-[R(x)-Q(x)]=-R(x)+Q(x)$, no només $-R(x)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $Q(x)$ apareix (amb el mateix signe) als dos claudàtors: en restar-los, es cancel·la igualment.</li><li>$[P(x)-Q(x)]-[R(x)-Q(x)]=P(x)-Q(x)-R(x)+Q(x)=P(x)-R(x)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$[P(x)-Q(x)]-[R(x)-Q(x)]=P(x)-R(x)=2x^{5}-3x^{4}+7x^{3}-5x^{2}+4x-7$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 63.</strong> Troba quin és el polinomi $Q(x)$ que s&#x27;ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.</p>
+<div class="it"><div class="cap"><span class="cod">63a</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=x-1$</div>
+<ol class="op"><li><span class="ok">$-x^{2}-x$</span> — resposta correcta</li>
+<li>$x^{2}+3x-2$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$x^{2}+x$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$-x^{2}-x-2$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=-x^{2}-x$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">63b</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=2x^2-x-6$</div>
+<ol class="op"><li><span class="ok">$x^{2}-3x-5$</span> — resposta correcta</li>
+<li>$3x^{2}+x-7$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$-x^{2}+3x+5$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$x^{2}-3x-7$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=x^{2}-3x-5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">63c</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=5x^2-x+1$</div>
+<ol class="op"><li><span class="ok">$4x^{2}-3x+2$</span> — resposta correcta</li>
+<li>$6x^{2}+x$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$-4x^{2}+3x-2$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$4x^{2}-3x$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=4x^{2}-3x+2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">63d</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=-7x^2-3x$</div>
+<ol class="op"><li><span class="ok">$-8x^{2}-5x+1$</span> — resposta correcta</li>
+<li>$-6x^{2}-x-1$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$8x^{2}+5x-1$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$-8x^{2}-5x-1$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=-8x^{2}-5x+1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">63e</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=x^3-x$</div>
+<ol class="op"><li><span class="ok">$x^{3}-x^{2}-3x+1$</span> — resposta correcta</li>
+<li>$x^{3}+x^{2}+x-1$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$-x^{3}+x^{2}+3x-1$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$x^{3}-x^{2}-3x-1$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=x^{3}-x^{2}-3x+1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">63f</span><span class="tip">tipus A</span></div>
+<div class="enun">$R(x)=x^3-x^2$</div>
+<ol class="op"><li><span class="ok">$x^{3}-2x^{2}-2x+1$</span> — resposta correcta</li>
+<li>$x^{3}+2x-1$<br><span class="err">PARENTESI_NO_DISTRIBUIT_POLI</span><span class="fb">Has sumat $P(x)$ en lloc de restar-lo: si $P(x)+Q(x)=R(x)$, aleshores $Q(x)=R(x)-P(x)$.</span></li>
+<li>$-x^{3}+2x^{2}+2x-1$<br><span class="err">ORDRE_RESTA</span><span class="fb">Has restat en l'ordre equivocat: és $R(x)-P(x)$, no $P(x)-R(x)$.</span></li>
+<li>$x^{3}-2x^{2}-2x-1$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has canviat el signe del terme independent de $P(x)$: és $-1$, no $+1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.</li><li>Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$Q(x)=R(x)-P(x)=x^{3}-2x^{2}-2x+1$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 64.</strong> Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.</p>
+<div class="it"><div class="cap"><span class="cod">64a</span><span class="tip">tipus A</span></div>
+<div class="enun">$[P(x)-Q(x)]\cdot S(x)$</div>
+<ol class="op"><li><span class="ok">$4x^{6}-6x^{5}+13x^{3}-x^{2}+20x-15$</span> — resposta correcta</li>
+<li>$4x^{6}-12x^{5}+18x^{4}-14x^{3}+20x^{2}-10x$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $2x$ de $S(x)$: cal multiplicar també pel terme $3$.</span></li>
+<li>$6x^{5}-18x^{4}+27x^{3}-21x^{2}+30x-15$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $3$ de $S(x)$: cal multiplicar també pel terme $2x$.</span></li>
+<li>$-4x^{6}+6x^{5}-13x^{3}+x^{2}-20x+15$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El resultat té tots els signes canviats: revisa els signes de $[P(x)-Q(x)]$ abans de multiplicar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica cada terme de $[P(x)-Q(x)]$ per CADA terme de $S(x)=2x+3$: pel $2x$ i pel $3$.</li><li>Un cop distribuït, agrupa els termes del mateix grau i suma'ls.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$$[P(x)-Q(x)]$\cdot S(x)=4x^{6}-6x^{5}+13x^{3}-x^{2}+20x-15$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">64b</span><span class="tip">tipus A</span></div>
+<div class="enun">$[R(x)-Q(x)]\cdot S(x)$</div>
+<ol class="op"><li><span class="ok">$-6x^{5}-5x^{4}+2x^{3}+6x^{2}+22x+6$</span> — resposta correcta</li>
+<li>$-6x^{5}+4x^{4}-4x^{3}+12x^{2}+4x$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $2x$ de $S(x)$: cal multiplicar també pel terme $3$.</span></li>
+<li>$-9x^{4}+6x^{3}-6x^{2}+18x+6$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $3$ de $S(x)$: cal multiplicar també pel terme $2x$.</span></li>
+<li>$6x^{5}+5x^{4}-2x^{3}-6x^{2}-22x-6$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El resultat té tots els signes canviats: revisa els signes de $[R(x)-Q(x)]$ abans de multiplicar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica cada terme de $[R(x)-Q(x)]$ per CADA terme de $S(x)=2x+3$: pel $2x$ i pel $3$.</li><li>Un cop distribuït, agrupa els termes del mateix grau i suma'ls.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$$[R(x)-Q(x)]$\cdot S(x)=-6x^{5}-5x^{4}+2x^{3}+6x^{2}+22x+6$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">64c</span><span class="tip">tipus A</span></div>
+<div class="enun">$[P(x)+Q(x)+R(x)]\cdot S(x)$</div>
+<ol class="op"><li><span class="ok">$4x^{6}+6x^{5}+10x^{4}+27x^{3}+8x^{2}-27x-18$</span> — resposta correcta</li>
+<li>$4x^{6}+10x^{4}+12x^{3}-10x^{2}-12x$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $2x$ de $S(x)$: cal multiplicar també pel terme $3$.</span></li>
+<li>$6x^{5}+15x^{3}+18x^{2}-15x-18$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $3$ de $S(x)$: cal multiplicar també pel terme $2x$.</span></li>
+<li>$-4x^{6}-6x^{5}-10x^{4}-27x^{3}-8x^{2}+27x+18$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El resultat té tots els signes canviats: revisa els signes de $[P(x)+Q(x)+R(x)]$ abans de multiplicar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica cada terme de $[P(x)+Q(x)+R(x)]$ per CADA terme de $S(x)=2x+3$: pel $2x$ i pel $3$.</li><li>Un cop distribuït, agrupa els termes del mateix grau i suma'ls.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$$[P(x)+Q(x)+R(x)]$\cdot S(x)=4x^{6}+6x^{5}+10x^{4}+27x^{3}+8x^{2}-27x-18$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">64d</span><span class="tip">tipus A</span></div>
+<div class="enun">$[P(x)+Q(x)-R(x)]\cdot S(x)$</div>
+<ol class="op"><li><span class="ok">$4x^{6}+6x^{5}+10x^{4}+15x^{3}-6x^{2}-25x-24$</span> — resposta correcta</li>
+<li>$4x^{6}+10x^{4}-6x^{2}-16x$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $2x$ de $S(x)$: cal multiplicar també pel terme $3$.</span></li>
+<li>$6x^{5}+15x^{3}-9x-24$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Només has multiplicat pel terme $3$ de $S(x)$: cal multiplicar també pel terme $2x$.</span></li>
+<li>$-4x^{6}-6x^{5}-10x^{4}-15x^{3}+6x^{2}+25x+24$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El resultat té tots els signes canviats: revisa els signes de $[P(x)+Q(x)-R(x)]$ abans de multiplicar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica cada terme de $[P(x)+Q(x)-R(x)]$ per CADA terme de $S(x)=2x+3$: pel $2x$ i pel $3$.</li><li>Un cop distribuït, agrupa els termes del mateix grau i suma'ls.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$$[P(x)+Q(x)-R(x)]$\cdot S(x)=4x^{6}+6x^{5}+10x^{4}+15x^{3}-6x^{2}-25x-24$</li></ol>
+</div>
+<h2>Divisió de polinomis i regla de Ruffini <span class="tip">· 21 preguntes</span></h2>
+<p class="sec"><strong>Exercici 65.</strong> Divideix.</p>
+<div class="it"><div class="cap"><span class="cod">65a</span><span class="tip">tipus A</span></div>
+<div class="enun">$(7x^5+4x^4+3x^3-5x^2+2x-1):(x^2+x)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }7x^{3}-3x^{2}+6x-11\text{; residu: }13x-1$</span> — resposta correcta</li>
+<li>$\text{quocient: }7x^{3}-3x^{2}+6x-11\text{; residu: }-13x+1$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'últim pas de la divisió.</span></li>
+<li>$\text{quocient: }7x^{3}-3x^{2}+6x-10\text{; residu: }13x-1$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">El quocient no és correcte: revisa el terme independent del quocient, sobra un $+1$.</span></li>
+<li>$\text{quocient: }7x^{3}-3x^{2}+5x-11\text{; residu: }13x-1$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">El quocient no és correcte: revisa el terme de grau $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix pas a pas: el primer terme del quocient surt de dividir $7x^5$ entre $x^2$.</li><li>Continua restant i baixant termes fins que el residu tingui grau menor que el divisor (grau $2$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $7x^{3}-3x^{2}+6x-11$ i residu $13x-1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">65b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^4-2x^3+x^2-x+3):(x^2+x+1)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x^{2}-3x+3\text{; residu: }-x$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{2}-3x+3\text{; residu: }x$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'últim pas de la divisió.</span></li>
+<li>$\text{quocient: }x^{2}-2x+3\text{; residu: }-x$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">El quocient no és correcte: revisa el terme del mig.</span></li>
+<li>$\text{quocient: }x^{2}-3x+3\text{; residu: }0$<br><span class="err">RUFFINI_RESIDU_COM_QUOCIENT</span><span class="fb">El residu no és $0$: aquesta divisió no és exacta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix pas a pas: el primer terme del quocient surt de dividir $x^4$ entre $x^2$.</li><li>Continua fins que el residu tingui grau menor que el divisor (grau $2$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $x^{2}-3x+3$ i residu $-x$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 66.</strong> Calcula, aplicant la regla de Ruffini.</p>
+<div class="it"><div class="cap"><span class="cod">66a</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^5-x^3+x^2-x^4+3x-7):(x-2)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x^{4}+x^{3}+x^{2}+3x+9\text{; residu: }11$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{4}-3x^{3}+5x^{2}-9x+21\text{; residu: }-49$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-2$, l'arrel amb què es multiplica a Ruffini és $2$, no $-2$.</span></li>
+<li>$\text{quocient: }x^{4}+x^{3}+x^{2}+3x+9\text{; residu: }-11$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }2x^{4}+x^{3}+x^{2}+3x+9\text{; residu: }11$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per $x-2$ (grau $1$), el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu els coeficients del dividend (amb un $0$ als graus que no hi surten) i aplica Ruffini amb l'arrel $2$.</li><li>Baixa el primer coeficient, multiplica'l per $2$ i suma'l al següent; repeteix fins al final. L'últim número és el residu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $x^{4}+x^{3}+x^{2}+3x+9$ i residu $11$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">66b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^4+2x^2-x-3):(x+1)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x^{3}-x^{2}+3x-4\text{; residu: }1$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{3}+x^{2}+3x+2\text{; residu: }-1$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x+1$, l'arrel amb què es multiplica a Ruffini és $-1$, no $1$.</span></li>
+<li>$\text{quocient: }x^{3}-x^{2}+3x-4\text{; residu: }-1$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }2x^{3}-x^{2}+3x-4\text{; residu: }1$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per $x+1$ (grau $1$), el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu els coeficients del dividend (amb un $0$ als graus que no hi surten) i aplica Ruffini amb l'arrel $-1$.</li><li>Baixa el primer coeficient, multiplica'l per $-1$ i suma'l al següent; repeteix fins al final. L'últim número és el residu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $x^{3}-x^{2}+3x-4$ i residu $1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">66c</span><span class="tip">tipus A</span></div>
+<div class="enun">$(2x^4-x^3+x+3):(x-3)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }2x^{3}+5x^{2}+15x+46\text{; residu: }141$</span> — resposta correcta</li>
+<li>$\text{quocient: }2x^{3}-7x^{2}+21x-62\text{; residu: }189$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-3$, l'arrel amb què es multiplica a Ruffini és $3$, no $-3$.</span></li>
+<li>$\text{quocient: }2x^{3}+5x^{2}+15x+46\text{; residu: }-141$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }3x^{3}+5x^{2}+15x+46\text{; residu: }141$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per $x-3$ (grau $1$), el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu els coeficients del dividend (amb un $0$ als graus que no hi surten) i aplica Ruffini amb l'arrel $3$.</li><li>Baixa el primer coeficient, multiplica'l per $3$ i suma'l al següent; repeteix fins al final. L'últim número és el residu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $2x^{3}+5x^{2}+15x+46$ i residu $141$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">66d</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^3-8x+x^2-7):(x+2)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x^{2}-x-6\text{; residu: }5$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{2}+3x-2\text{; residu: }-11$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x+2$, l'arrel amb què es multiplica a Ruffini és $-2$, no $2$.</span></li>
+<li>$\text{quocient: }x^{2}-x-6\text{; residu: }-5$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }2x^{2}-x-6\text{; residu: }5$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per $x+2$ (grau $1$), el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu els coeficients del dividend (amb un $0$ als graus que no hi surten) i aplica Ruffini amb l'arrel $-2$.</li><li>Baixa el primer coeficient, multiplica'l per $-2$ i suma'l al següent; repeteix fins al final. L'últim número és el residu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $x^{2}-x-6$ i residu $5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">66e</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^3-4x^2+6x-9):(x+4)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x^{2}-8x+38\text{; residu: }-161$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{2}+6\text{; residu: }15$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x+4$, l'arrel amb què es multiplica a Ruffini és $-4$, no $4$.</span></li>
+<li>$\text{quocient: }x^{2}-8x+38\text{; residu: }161$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }2x^{2}-8x+38\text{; residu: }-161$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per $x+4$ (grau $1$), el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu els coeficients del dividend (amb un $0$ als graus que no hi surten) i aplica Ruffini amb l'arrel $-4$.</li><li>Baixa el primer coeficient, multiplica'l per $-4$ i suma'l al següent; repeteix fins al final. L'últim número és el residu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $x^{2}-8x+38$ i residu $-161$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 67.</strong> Fes les divisions següents mitjançant la regla de Ruffini.</p>
+<div class="it"><div class="cap"><span class="cod">67a</span><span class="tip">tipus A</span></div>
+<div class="enun">$(4x^7-2x^3+x^5):(x+2)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }4x^{6}-8x^{5}+17x^{4}-34x^{3}+66x^{2}-132x+264\text{; residu: }-528$</span> — resposta correcta</li>
+<li>$\text{quocient: }4x^{6}+8x^{5}+17x^{4}+34x^{3}+66x^{2}+132x+264\text{; residu: }528$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-(-2)$, l'arrel amb què es multiplica a Ruffini és $-2$, no $2$.</span></li>
+<li>$\text{quocient: }4x^{6}-8x^{5}+17x^{4}-34x^{3}+66x^{2}-132x+264\text{; residu: }528$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }5x^{6}-8x^{5}+17x^{4}-34x^{3}+66x^{2}-132x+264\text{; residu: }-528$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per un binomi de grau $1$, el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu primer el dividend ordenat de grau més gran a més petit, amb un $0$ als graus que no hi surten.</li><li>Aplica Ruffini amb l'arrel $-2$: baixa, multiplica, suma, i repeteix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $4x^{6}-8x^{5}+17x^{4}-34x^{3}+66x^{2}-132x+264$ i residu $-528$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">67b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(1-x^5):(x-1)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }-x^{4}-x^{3}-x^{2}-x-1\text{; residu: }0$</span> — resposta correcta</li>
+<li>$\text{quocient: }-x^{4}+x^{3}-x^{2}+x-1\text{; residu: }2$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-(1)$, l'arrel amb què es multiplica a Ruffini és $1$, no $-1$.</span></li>
+<li>$\text{quocient: }-x^{4}-x^{3}-x^{2}-x-1\text{; residu: }1$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">L'última suma de la taula no és correcta: revisa el darrer pas de Ruffini.</span></li>
+<li>$\text{quocient: }-x^{3}-x^{2}-x-1\text{; residu: }0$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per un binomi de grau $1$, el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu primer el dividend ordenat de grau més gran a més petit, amb un $0$ als graus que no hi surten.</li><li>Aplica Ruffini amb l'arrel $1$: baixa, multiplica, suma, i repeteix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $-x^{4}-x^{3}-x^{2}-x-1$ i residu $0$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">67c</span><span class="tip">tipus A</span></div>
+<div class="enun">$(3x+2x^2-x^5+6x^6):(x+1)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }6x^{5}-7x^{4}+7x^{3}-7x^{2}+9x-6\text{; residu: }6$</span> — resposta correcta</li>
+<li>$\text{quocient: }6x^{5}+5x^{4}+5x^{3}+5x^{2}+7x+10\text{; residu: }10$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-(-1)$, l'arrel amb què es multiplica a Ruffini és $-1$, no $1$.</span></li>
+<li>$\text{quocient: }6x^{5}-7x^{4}+7x^{3}-7x^{2}+9x-6\text{; residu: }-6$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat: revisa l'última suma de la taula.</span></li>
+<li>$\text{quocient: }7x^{5}-7x^{4}+7x^{3}-7x^{2}+9x-6\text{; residu: }6$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient té un grau de més: en dividir per un binomi de grau $1$, el quocient ha de tenir un grau menys que el dividend.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu primer el dividend ordenat de grau més gran a més petit, amb un $0$ als graus que no hi surten.</li><li>Aplica Ruffini amb l'arrel $-1$: baixa, multiplica, suma, i repeteix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $6x^{5}-7x^{4}+7x^{3}-7x^{2}+9x-6$ i residu $6$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">67d</span><span class="tip">tipus A</span></div>
+<div class="enun">$(9-x^2):(3-x)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }x+3\text{; residu: }0$</span> — resposta correcta</li>
+<li>$\text{quocient: }-x-3\text{; residu: }0$<br><span class="err">FACTOR_COMU_SIGNE</span><span class="fb">El divisor és $3-x=-(x-3)$: cal aplicar Ruffini amb l'arrel $3$ sobre $x^2-9$ (l'oposat del dividend) i després tornar a canviar el signe del quocient. T'has deixat aquest segon canvi de signe.</span></li>
+<li>$\text{quocient: }2x+3\text{; residu: }0$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">El terme de grau $1$ del quocient no és correcte: revisa la taula de Ruffini pas a pas.</span></li>
+<li>$\text{quocient: }x+4\text{; residu: }0$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Has aplicat Ruffini amb l'arrel $-3$ en lloc de $3$: el divisor $3-x$ equival a $-(x-3)$, amb arrel $3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El divisor $3-x$ no és de la forma $x-a$ directa: reescriu-lo com $3-x=-(x-3)$.</li><li>$(9-x^2):(3-x)=(x^2-9):(x-3)$ (el signe es cancel·la a numerador i denominador). Aplica Ruffini amb l'arrel $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(9-x^2):(3-x)=(x^2-9):(x-3)$, i per Ruffini amb arrel $3$ surt quocient $x+3$ i residu $0$</li></ol>
+<p class="nota"><strong>Nota:</strong> El divisor $3-x$ té el signe de $x$ canviat respecte a la forma habitual $x-a$: per fer-lo servir amb Ruffini cal reescriure'l primer com $-(x-3)$, dividint $9-x^2$ i $3-x$ pel mateix factor $-1$ (el quocient de la divisió no canvia).</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">67e</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x^3-2x+6):(2x-2)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }\dfrac{1}{2}x^{2}+\dfrac{1}{2}x-\dfrac{1}{2}\text{; residu: }5$</span> — resposta correcta</li>
+<li>$\text{quocient: }x^{2}+x-1\text{; residu: }5$<br><span class="err">RUFFINI_DIVISOR_NO_MONIC</span><span class="fb">Has aplicat Ruffini amb l'arrel $1$ (de $x-1$) però sense tenir en compte que el divisor és $2x-2=2(x-1)$, no $x-1$: el quocient final s'ha de dividir per $2$.</span></li>
+<li>$\text{quocient: }\dfrac{1}{2}x^{2}+\dfrac{1}{2}x-\dfrac{1}{2}\text{; residu: }-5$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }-x^{2}-x+1\text{; residu: }5$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Has aplicat Ruffini amb l'arrel $-1$ en lloc de $1$: el factor és $(x-1)$, no $(x+1)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El divisor $2x-2=2(x-1)$ no té coeficient líder $1$: treu-ne el factor $2$ abans d'aplicar Ruffini.</li><li>Aplica Ruffini a $(x^3-2x+6):(x-1)$ amb arrel $1$, i divideix després el quocient obtingut entre $2$ (el residu no canvia).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(x^3-2x+6):(x-1)$ per Ruffini dona quocient $x^{2}+x-1$ i residu $5$; com que el divisor real és el doble, $2x-2$, el quocient final es divideix entre $2$: $\dfrac{1}{2}x^{2}+\dfrac{1}{2}x-\dfrac{1}{2}$, residu $5$</li></ol>
+<p class="nota"><strong>Nota:</strong> El divisor $2x-2$ té coeficient líder $2$, no $1$: la regla de Ruffini "pura" només s'aplica directament a divisors $x-a$. Es resol traient-ne el factor comú, $2x-2=2(x-1)$, aplicant Ruffini amb $(x-1)$, i dividint el quocient resultant entre $2$ (el residu es manté igual).</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">67f</span><span class="tip">tipus A</span></div>
+<div class="enun">$(-x^4+3x^2-x+1):(3x+6)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }-\dfrac{1}{3}x^{3}+\dfrac{2}{3}x^{2}-\dfrac{1}{3}x+\dfrac{1}{3}\text{; residu: }-1$</span> — resposta correcta</li>
+<li>$\text{quocient: }-x^{3}+2x^{2}-x+1\text{; residu: }-1$<br><span class="err">RUFFINI_DIVISOR_NO_MONIC</span><span class="fb">Has aplicat Ruffini amb l'arrel $-2$ (de $x+2$) però el divisor és $3x+6=3(x+2)$, no $x+2$: el quocient final s'ha de dividir per $3$.</span></li>
+<li>$\text{quocient: }-\dfrac{1}{3}x^{3}+\dfrac{2}{3}x^{2}-\dfrac{1}{3}x+\dfrac{1}{3}\text{; residu: }1$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }x^{3}-2x^{2}+x-1\text{; residu: }-1$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Has aplicat Ruffini amb l'arrel $2$ en lloc de $-2$: el factor és $(x+2)$, no $(x-2)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El divisor $3x+6=3(x+2)$ no té coeficient líder $1$: treu-ne el factor $3$ abans d'aplicar Ruffini.</li><li>Aplica Ruffini amb arrel $-2$ i divideix després el quocient entre $3$ (el residu no canvia).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(-x^4+3x^2-x+1):(x+2)$ per Ruffini dona quocient $-x^{3}+2x^{2}-x+1$ i residu $-1$; dividit el quocient entre $3$ (divisor real $3x+6$): $-\dfrac{1}{3}x^{3}+\dfrac{2}{3}x^{2}-\dfrac{1}{3}x+\dfrac{1}{3}$, residu $-1$</li></ol>
+<p class="nota"><strong>Nota:</strong> Igual que a l'apartat e), el divisor $3x+6$ té coeficient líder $3$: es treu el factor comú, s'aplica Ruffini amb $(x+2)$, i el quocient final es divideix entre $3$.</p>
+</div>
+<p class="sec"><strong>Exercici 68.</strong> Calcula el quocient i el residu de les divisions de polinomis següents.</p>
+<div class="it"><div class="cap"><span class="cod">68a</span><span class="tip">tipus A</span></div>
+<div class="enun">$(7x^4-2x+x^3):(x-3)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }7x^{3}+22x^{2}+66x+196\text{; residu: }588$</span> — resposta correcta</li>
+<li>$\text{quocient: }7x^{3}-20x^{2}+60x-182\text{; residu: }546$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x-3$, l'arrel per Ruffini és $3$, no $-3$.</span></li>
+<li>$\text{quocient: }7x^{3}+22x^{2}+66x+196\text{; residu: }-588$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }7x^{3}+22x^{2}+65x+196\text{; residu: }588$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Revisa el terme de grau $1$ del quocient.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena primer el dividend: $x^4$, $x^3$, $x^2$ (que no hi surt, coeficient $0$), $x$ i terme independent.</li><li>Aplica Ruffini amb l'arrel $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $7x^{3}+22x^{2}+66x+196$ i residu $588$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">68b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(-3-x^5):(x+2)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }-x^{4}+2x^{3}-4x^{2}+8x-16\text{; residu: }29$</span> — resposta correcta</li>
+<li>$\text{quocient: }-x^{4}-2x^{3}-4x^{2}-8x-16\text{; residu: }-35$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si el divisor és $x+2$, l'arrel per Ruffini és $-2$, no $2$.</span></li>
+<li>$\text{quocient: }-x^{4}+2x^{3}-4x^{2}+8x-16\text{; residu: }-29$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }-x^{4}+3x^{3}-4x^{2}+8x-16\text{; residu: }29$<br><span class="err">RUFFINI_QUOCIENT_GRAU</span><span class="fb">El quocient no és correcte: revisa el terme de grau $3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El dividend $-3-x^5$ té molts coeficients $0$ (no hi ha termes en $x^4$, $x^3$, $x^2$, $x$): no te'ls saltis a la taula.</li><li>Aplica Ruffini amb l'arrel $-2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quocient $-x^{4}+2x^{3}-4x^{2}+8x-16$ i residu $29$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">68c</span><span class="tip">tipus A</span></div>
+<div class="enun">$(-3x^6+2x^5-x^4):(-x-1)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }3x^{5}-5x^{4}+6x^{3}-6x^{2}+6x-6\text{; residu: }-6$</span> — resposta correcta</li>
+<li>$\text{quocient: }-3x^{5}+5x^{4}-6x^{3}+6x^{2}-6x+6\text{; residu: }-6$<br><span class="err">FACTOR_COMU_SIGNE</span><span class="fb">Has aplicat Ruffini directament amb l'arrel $-1$ sense reescriure abans el divisor $-x-1$ com $-(x+1)$: cal canviar de signe el dividend i el quocient final.</span></li>
+<li>$\text{quocient: }3x^{5}-5x^{4}+6x^{3}-6x^{2}+6x-6\text{; residu: }6$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }3x^{5}+x^{4}+2x^{3}+2x^{2}+2x+2\text{; residu: }-2$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Has fet servir l'arrel $1$ en lloc de $-1$: el divisor $-x-1$ equival a $-(x+1)$, amb arrel $-1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El divisor $-x-1=-(x+1)$ no és de la forma $x-a$ directa: reescriu-lo com $-(x+1)$.</li><li>Divideix $-3x^6+2x^5-x^4$ i $-x-1$ pel mateix factor $-1$: $(3x^6-2x^5+x^4):(x+1)$, i aplica Ruffini amb l'arrel $-1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(-3x^6+2x^5-x^4):(-x-1)=(3x^6-2x^5+x^4):(x+1)$; per Ruffini amb arrel $-1$: quocient $3x^{5}-5x^{4}+6x^{3}-6x^{2}+6x-6$ i residu $-6$</li></ol>
+<p class="nota"><strong>Nota:</strong> El divisor $-x-1$ té el coeficient de $x$ negatiu: es reescriu com $-(x+1)$, dividint dividend i divisor pel mateix factor $-1$, i s'aplica Ruffini amb l'arrel $-1$.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">68d</span><span class="tip">tipus A</span></div>
+<div class="enun">$(1+3x^3-6x^6-9x^2):(3-x)$</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }6x^{5}+18x^{4}+54x^{3}+159x^{2}+486x+1458\text{; residu: }-4373$</span> — resposta correcta</li>
+<li>$\text{quocient: }-6x^{5}-18x^{4}-54x^{3}-159x^{2}-486x-1458\text{; residu: }-4373$<br><span class="err">FACTOR_COMU_SIGNE</span><span class="fb">El divisor $3-x=-(x-3)$: has dividit directament sense reescriure el divisor, i t'has deixat el canvi de signe del quocient.</span></li>
+<li>$\text{quocient: }6x^{5}+18x^{4}+54x^{3}+159x^{2}+486x+1458\text{; residu: }4373$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El residu té el signe canviat.</span></li>
+<li>$\text{quocient: }6x^{5}+18x^{4}+54x^{3}+159x^{2}+487x+1458\text{; residu: }-4373$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">El terme de grau $1$ del quocient no és correcte: revisa el pas corresponent de la taula de Ruffini.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El divisor $3-x=-(x-3)$: reescriu-lo abans d'aplicar Ruffini.</li><li>$(1+3x^3-6x^6-9x^2):(3-x)=(6x^6-3x^3+9x^2-1):(x-3)$ (dividend i divisor multiplicats per $-1$). Aplica Ruffini amb l'arrel $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Reescrivint el divisor, $(1+3x^3-6x^6-9x^2):(3-x)$ dona per Ruffini quocient $6x^{5}+18x^{4}+54x^{3}+159x^{2}+486x+1458$ i residu $-4373$</li></ol>
+<p class="nota"><strong>Nota:</strong> Igual que a l'apartat c) de l'exercici 67, el divisor $3-x$ té el signe de $x$ canviat: cal reescriure'l com $-(x-3)$ abans d'aplicar Ruffini.</p>
+</div>
+<p class="sec"><strong>Exercici 69.</strong> A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.</p>
+<div class="it"><div class="cap"><span class="cod">69a</span><span class="tip">tipus A</span></div>
+<div class="enun">Dividend $3x^{3}+4x^{2}-1$, divisor $x+1$:</div>
+<ol class="op"><li><span class="ok">$\text{quocient: }3x^{2}+x-1\text{; residu: }0$</span> — resposta correcta</li>
+<li>$\text{quocient: }3x^{2}+7x+7\text{; residu: }6$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Has multiplicat per $1$ a cada pas en lloc de per $-1$: si el divisor és $x+1=x-(-1)$, l'arrel per Ruffini és $-1$.</span></li>
+<li>$\text{quocient: }3x^{2}+4x\text{; residu: }0$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">Alguna suma intermèdia de la taula no és correcta: revisa el tercer pas (producte i suma corresponents).</span></li>
+<li>$\text{quocient: }3x^{2}+x-1\text{; residu: }1$<br><span class="err">RUFFINI_RESIDU_COM_QUOCIENT</span><span class="fb">El residu no és $1$: la divisió és exacta (residu $0$), ja que l'últim pas de la taula dona $-1\cdot(-1)+(-1)=0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Baixa el primer coeficient ($3$), multiplica'l per l'arrel ($-1$) i suma el resultat al següent coeficient; repeteix fins al final.</li><li>L'últim número de la fila inferior és el residu; els altres, en ordre, són els coeficients del quocient.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Amb arrel $-1$: quocient $3x^{2}+x-1$ i residu $0$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">69b</span><span class="tip">tipus A</span></div>
+<div class="enun">Dividend $4x^{3}+3x^{2}+2x+1$, arrel $\square$ (divisor desconegut); a la fila inferior, la segona casella val $-1$:</div>
+<ol class="op"><li><span class="ok">$\square=-1$; $\text{quocient: }4x^{2}-x+3\text{; residu: }-2$</span> — resposta correcta</li>
+<li>$\square=1$; $\text{quocient: }4x^{2}+7x+9\text{; residu: }10$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si $4\cdot\square+3=-1$, aïllant surt $\square=-1$, no $1$: revisa el signe en resoldre l'equació.</span></li>
+<li>$\square=-1$; $\text{quocient: }4x^{2}-x+3\text{; residu: }2$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El valor de $\square$ és correcte, però el residu té el signe canviat.</span></li>
+<li>$\square=-1$; $\text{quocient: }4x^{2}+x+3\text{; residu: }-2$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">El valor de $\square$ és correcte, però algun pas posterior de la taula no s'ha completat bé.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La segona casella de la fila inferior és $4\cdot\square+3$: iguala-la a $-1$ i aïlla $\square$.</li><li>Amb $\square=-1$, completa la resta de la taula de Ruffini com sempre.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>De $4\cdot\square+3=-1$ surt $\square=-1$; amb aquesta arrel, quocient $4x^{2}-x+3$ i residu $-2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">69c</span><span class="tip">tipus A</span></div>
+<div class="enun">Dividend $x^{3}-x+2$, arrel $\square$ (divisor desconegut); el residu de la divisió és $2$:</div>
+<ol class="op"><li><span class="ok">$\square=1$; $\text{quocient: }x^{2}+x\text{; residu: }2$</span> — resposta correcta</li>
+<li>$\square=-1$; $\text{quocient: }x^{2}-x\text{; residu: }2$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">$\square=-1$ també compleix l'equació $\square^3-\square=0$, però no és el valor que es tria aquí (es descarta $\square=0$ per donar una divisió trivial, i entre $1$ i $-1$ es pren $\square=1$).</span></li>
+<li>$\square=0$; $\text{quocient: }x^{2}-1\text{; residu: }2$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">$\square=0$ també anul·la l'equació $\square^3-\square=0$, però donaria una divisió per $x$, un cas trivial poc habitual en aquest tipus d'exercici.</span></li>
+<li>$\square=1$; $\text{quocient: }x^{2}+x\text{; residu: }-2$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El valor de $\square$ és correcte, però el residu té el signe canviat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El residu final és $\square^3-\square$ (arrossegant els termes de la taula): iguala'l a $2$ i resol l'equació de tercer grau.</li><li>$\square^3-\square=0$ té tres solucions: $\square=-1,0,1$. Descarta $\square=0$ (divisió trivial) i tria'n una de les altres dues.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>De $\square^3-\square=0$ surten $\square=-1,0,1$; descartant $0$ i triant $\square=1$, la taula dona quocient $x^{2}+x$ i residu $2$</li></ol>
+<p class="nota"><strong>Nota:</strong> L'equació que determina $\square$ té tres solucions vàlides ($-1$, $0$ i $1$); es descarta $\square=0$ perquè donaria una divisió trivial per $x$, i s'ha triat $\square=1$ per completar la taula, seguint el mateix criteri del solucionari font.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">69d</span><span class="tip">tipus A</span></div>
+<div class="enun">Dividend $\square x^3+0x^2+0x-3$, divisor $x+4$; a la fila inferior, la segona casella val $8$:</div>
+<ol class="op"><li><span class="ok">$\square=-2$; $\text{quocient: }-2x^{2}+8x-32\text{; residu: }125$</span> — resposta correcta</li>
+<li>$\square=2$; $\text{quocient: }2x^{2}-8x+32\text{; residu: }-131$<br><span class="err">RUFFINI_SIGNE_ARREL</span><span class="fb">Si $\square\cdot(-4)=8$, aïllant surt $\square=-2$, no $2$: revisa el signe en resoldre l'equació.</span></li>
+<li>$\square=-2$; $\text{quocient: }-2x^{2}+8x-32\text{; residu: }-125$<br><span class="err">DIVISIO_QUOCIENT_RESIDU_CANVIATS</span><span class="fb">El valor de $\square$ és correcte, però el residu té el signe canviat.</span></li>
+<li>$\square=-2$; $\text{quocient: }-2x^{2}+4x-32\text{; residu: }125$<br><span class="err">RUFFINI_PAS_MAL</span><span class="fb">El valor de $\square$ és correcte, però algun pas posterior de la taula no s'ha completat bé.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La segona casella de la fila inferior és $\square\cdot(-4)$: iguala-la a $8$ i aïlla $\square$.</li><li>Amb $\square=-2$, completa la resta de la taula de Ruffini com sempre.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>De $\square\cdot(-4)=8$ surt $\square=-2$; amb aquesta arrel, quocient $-2x^{2}+8x-32$ i residu $125$</li></ol>
+</div>
+<h2>Igualtats notables <span class="tip">· 12 preguntes</span></h2>
+<p class="sec"><strong>Exercici 70.</strong> Completa les igualtats notables següents, trobant els valors que falten (marcats amb $\square$).</p>
+<div class="it"><div class="cap"><span class="cod">70a</span><span class="tip">tipus A</span></div>
+<div class="enun">$(2x+3)^2=\square+12x+\square$</div>
+<ol class="op"><li><span class="ok">$4x^2$ i $9$</span> — resposta correcta</li>
+<li>$2x^2$ i $9$<br><span class="err">IGUALTAT_NOTABLE_DOBLE_OBLIDAT</span><span class="fb">El primer terme és el quadrat de $2x$, és a dir $(2x)^2=4x^2$, no $2x^2$.</span></li>
+<li>$4x^2$ i $3$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El segon terme és el quadrat de $3$, és a dir $3^2=9$, no $3$.</span></li>
+<li>$2x$ i $9$<br><span class="err">IGUALTAT_NOTABLE_DOBLE_OBLIDAT</span><span class="fb">El primer terme ha de ser el quadrat de $2x$, no $2x$ sense elevar al quadrat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$(2x+3)^2=(2x)^2+2\cdot2x\cdot3+3^2$: el primer $\square$ és $(2x)^2$ i el segon és $3^2$.</li><li>Comprova que el terme del mig, $2\cdot2x\cdot3=12x$, coincideix amb el que ja hi ha a l'enunciat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(2x+3)^2=4x^2+12x+9$: el primer $\square$ és $4x^2$ i el segon és $9$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">70b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(5-3x)^2=25-\square+\square x^2$</div>
+<ol class="op"><li><span class="ok">$30x$ i $9$</span> — resposta correcta</li>
+<li>$15x$ i $9$<br><span class="err">IGUALTAT_NOTABLE_DOBLE_OBLIDAT</span><span class="fb">El terme del mig és el DOBLE producte, $2\cdot5\cdot3x=30x$, no només $5\cdot3x=15x$.</span></li>
+<li>$30x$ i $3$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El coeficient de $x^2$ és el quadrat de $3$, és a dir $3^2=9$, no $3$.</span></li>
+<li>$30x$ i $-9$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme en $x^2$ és sempre positiu (és un quadrat): $(3x)^2=9x^2$, amb signe $+$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$(5-3x)^2=5^2-2\cdot5\cdot3x+(3x)^2$: el primer $\square$ és el doble producte i el segon és el coeficient del quadrat de $3x$.</li><li>Recorda que en un quadrat d'una diferència el terme del mig és negatiu, però el terme en $x^2$ sempre és positiu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(5-3x)^2=25-30x+9x^2$: el primer $\square$ és $30x$ i el segon és $9$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">70c</span><span class="tip">tipus A</span></div>
+<div class="enun">$(9+7x)\cdot(9-7x)=\square-\square$</div>
+<ol class="op"><li><span class="ok">$81$ i $49x^2$</span> — resposta correcta</li>
+<li>$81$ i $7x^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El segon terme és el quadrat de $7x$, és a dir $(7x)^2=49x^2$, no $7x^2$.</span></li>
+<li>$9$ i $49x^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El primer terme és el quadrat de $9$, és a dir $9^2=81$, no $9$.</span></li>
+<li>$81$ i $63x$<br><span class="err">SUMA_PER_DIFERENCIA_MAL</span><span class="fb">En una suma per diferència no queda cap terme en $x$ de grau $1$: el resultat és directament una resta de quadrats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>És una suma per diferència: $(a+b)(a-b)=a^2-b^2$, amb $a=9$ i $b=7x$.</li><li>$(9+7x)(9-7x)=9^2-(7x)^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(9+7x)(9-7x)=81-49x^2$: el primer $\square$ és $81$ i el segon és $49x^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">70d</span><span class="tip">tipus A</span></div>
+<div class="enun">$(\square+\square)^2=x^4+2x^3+x^2$</div>
+<ol class="op"><li><span class="ok">$x^2$ i $x$</span> — resposta correcta</li>
+<li>$x^2$ i $x^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">Amb $(x^2+x^2)^2=(2x^2)^2=4x^4$, no coincideix amb $x^4$: revisa els dos termes per separat.</span></li>
+<li>$x$ i $x$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">Amb $(x+x)^2=(2x)^2=4x^2$, que no té ni grau $4$ ni grau $3$: el primer terme ha de ser de grau més alt.</span></li>
+<li>$x^3$ i $x$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">El quadrat de $x^3$ ja seria $x^6$, de grau massa alt per encaixar amb $x^4+2x^3+x^2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca dos termes $a$ i $b$ tals que $a^2=x^4$, $b^2=x^2$, i $2ab=2x^3$.</li><li>Si $a=x^2$ i $b=x$: $a^2=x^4$ ✓, $b^2=x^2$ ✓, $2ab=2x^2\cdot x=2x^3$ ✓.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^4+2x^3+x^2=(x^2)^2+2\cdot x^2\cdot x+x^2=(x^2+x)^2$: els dos $\square$ són $x^2$ i $x$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 71.</strong> Factoritza, reconeixent-hi una igualtat notable.</p>
+<div class="it"><div class="cap"><span class="cod">71a</span><span class="tip">tipus A</span></div>
+<div class="enun">$x^2-16$</div>
+<ol class="op"><li><span class="ok">$(x-4)(x+4)$</span> — resposta correcta</li>
+<li>$(x-4)^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">No és un quadrat perfecte (no hi ha terme en $x$ de grau $1$ a l'expressió original): és una diferència de quadrats, $x^2-4^2$.</span></li>
+<li>$(x-8)(x+8)$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">El segon nombre ha de ser l'arrel quadrada de $16$, que és $4$, no $8$.</span></li>
+<li>$(x-16)(x+16)$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">No es factoritza el $16$ tal qual: cal trobar-ne l'arrel quadrada, $4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2-16=(x-4)(x+4)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">71b</span><span class="tip">tipus A</span></div>
+<div class="enun">$x^4-36$</div>
+<ol class="op"><li><span class="ok">$(x^2-6)(x^2+6)$</span> — resposta correcta</li>
+<li>$(x^2-36)(x^2+36)$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">El segon nombre ha de ser l'arrel quadrada de $36$, que és $6$, no $36$.</span></li>
+<li>$(x-6)(x+6)$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">El primer terme és $x^4=(x^2)^2$, no $x^2$: el primer factor ha de portar $x^2$, no $x$.</span></li>
+<li>$(x^2-6)^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">No és un quadrat perfecte, sinó una diferència de quadrats: no hi ha terme del mig a l'expressió original.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^4-36=(x^2-6)(x^2+6)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">71c</span><span class="tip">tipus A</span></div>
+<div class="enun">$4x^2-25$</div>
+<ol class="op"><li><span class="ok">$(2x-5)(2x+5)$</span> — resposta correcta</li>
+<li>$(4x-25)(4x+25)$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">El primer terme és $4x^2=(2x)^2$, no $(4x)^2$: revisa l'arrel quadrada de $4x^2$.</span></li>
+<li>$(2x-5)^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">No és un quadrat perfecte: no hi ha terme del mig a l'expressió original, és una diferència de quadrats.</span></li>
+<li>$(2x-25)(2x+25)$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">El segon nombre ha de ser l'arrel quadrada de $25$, que és $5$, no $25$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4x^2-25=(2x-5)(2x+5)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">71d</span><span class="tip">tipus A</span></div>
+<div class="enun">$x^2-4x+4$</div>
+<ol class="op"><li><span class="ok">$(x-2)^2$</span> — resposta correcta</li>
+<li>$(x+2)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $-4x$, és negatiu: correspon a $(x-2)^2$, amb signe $-$ dins del parèntesi.</span></li>
+<li>$(x-4)(x+4)$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">Aquesta expressió té terme del mig ($-4x$): no és una diferència de quadrats, és un quadrat perfecte.</span></li>
+<li>$(x-2)(x+2)$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">Els dos factors han de ser iguals (és un quadrat perfecte, $(x-2)^2$), no un de suma i un de resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2-4x+4=(x-2)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">71e</span><span class="tip">tipus A</span></div>
+<div class="enun">$16x^2-24xy+9y^2$</div>
+<ol class="op"><li><span class="ok">$(4x-3y)^2$</span> — resposta correcta</li>
+<li>$(4x+3y)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $-24xy$, és negatiu: correspon a $(4x-3y)^2$, amb signe $-$ dins del parèntesi.</span></li>
+<li>$(4x-3y)(4x+3y)$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">Aquesta expressió té terme del mig ($-24xy$): no és una diferència de quadrats, és un quadrat perfecte.</span></li>
+<li>$(4x-9y)^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El segon terme del binomi ha de ser l'arrel quadrada de $9y^2$, que és $3y$, no $9y$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$16x^2-24xy+9y^2=(4x-3y)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">71f</span><span class="tip">tipus A</span></div>
+<div class="enun">$16x^4+24x^2+9$</div>
+<ol class="op"><li><span class="ok">$(4x^2+3)^2$</span> — resposta correcta</li>
+<li>$(4x^2-3)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $+24x^2$, és positiu: correspon a $(4x^2+3)^2$, amb signe $+$ dins del parèntesi.</span></li>
+<li>$(4x^2+3)(4x^2-3)$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">Aquesta expressió té terme del mig ($+24x^2$): no és una diferència de quadrats, és un quadrat perfecte.</span></li>
+<li>$(8x^2+3)^2$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El primer terme del binomi ha de ser l'arrel quadrada de $16x^4$, que és $4x^2$, no $8x^2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\pm2ab+b^2$).</li><li>Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$16x^4+24x^2+9=(4x^2+3)^2$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 72.</strong> Segueix el patró $[(x+2)+3]\cdot[(x+2)-3]=(x+2)^2-9$ per escriure el producte com una resta de quadrats, sense necessitat de desenvolupar-ho tot.</p>
+<div class="it"><div class="cap"><span class="cod">72a</span><span class="tip">tipus A</span></div>
+<div class="enun">$[(3x-y)+4]\cdot[(3x-y)-4]$</div>
+<ol class="op"><li><span class="ok">$(3x-y)^2-16$</span> — resposta correcta</li>
+<li>$(3x-y)^2-4$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El segon terme s'ha d'elevar al quadrat: $4^2=16$, no $4$.</span></li>
+<li>(3x-y)^2+16<br><span class="err">SUMA_PER_DIFERENCIA_MAL</span><span class="fb">En una suma per diferència, el segon quadrat sempre resta, mai suma: $(a+b)(a-b)=a^2-b^2$.</span></li>
+<li>9x^2-y^2-16<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">El primer terme s'ha de deixar com el quadrat de tot el binomi $(3x-y)$, no només de la $x$: $(3x-y)^2\neq 9x^2-y^2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Identifica el \"primer terme\" comú als dos factors i el \"segon\" que canvia de signe: aquí és $(3x-y)$ i $4$.</li><li>$[(3x-y)+4]\cdot[(3x-y)-4]=(3x-y)^2-4^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$[(3x-y)+4]\cdot[(3x-y)-4]=(3x-y)^2-16$ (desenvolupat del tot: $9x^2-6xy+y^2-16$)</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">72b</span><span class="tip">tipus A</span></div>
+<div class="enun">$[(a+b)+c]\cdot[(a+b)-c]$</div>
+<ol class="op"><li><span class="ok">$(a+b)^2-c^2$</span> — resposta correcta</li>
+<li>(a+b)^2-c<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">El segon terme s'ha d'elevar al quadrat: és $c^2$, no $c$.</span></li>
+<li>(a+b)^2+c^2<br><span class="err">SUMA_PER_DIFERENCIA_MAL</span><span class="fb">En una suma per diferència, el segon quadrat sempre resta, mai suma.</span></li>
+<li>a^2+b^2-c^2<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">El primer terme s'ha de deixar com el quadrat de tot el binomi $(a+b)$, no desenvolupat ni separat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Identifica el \"primer terme\" comú i el \"segon\" que canvia de signe: aquí són $(a+b)$ i $c$.</li><li>$[(a+b)+c]\cdot[(a+b)-c]=(a+b)^2-c^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$[(a+b)+c]\cdot[(a+b)-c]=(a+b)^2-c^2$ (desenvolupat del tot: $a^2+2ab+b^2-c^2$)</li></ol>
+</div>
+<h2>Factor comú i simplificació <span class="tip">· 12 preguntes</span></h2>
+<p class="sec"><strong>Exercici 73.</strong> Treu factor comú.</p>
+<div class="it"><div class="cap"><span class="cod">73a</span><span class="tip">tipus A</span></div>
+<div class="enun">$3x^2-4x$</div>
+<ol class="op"><li><span class="ok">$x(3x-4)$</span> — resposta correcta</li>
+<li>$x(3x-4x)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">En treure el factor $x$, el segon terme, $-4x$, s'ha de dividir també per $x$: queda $-4$, no $-4x$.</span></li>
+<li>$3x(x-4)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El factor comú dels dos termes és $x$, no $3x$: el $3$ només apareix al primer terme.</span></li>
+<li>$x(3x^2-4x)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">Dins del parèntesi els termes no s'han dividit pel factor comú $x$: haurien de quedar $3x$ i $-4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca què es repeteix als dos termes, $3x^2$ i $-4x$: el factor comú és $x$.</li><li>Divideix cada terme pel factor comú i escriu el resultat dins del parèntesi.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3x^2-4x=x\cdot(3x-4)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">73b</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x+1)+3(x+1)$</div>
+<ol class="op"><li><span class="ok">$4(x+1)$</span> — resposta correcta</li>
+<li>$(x+1)(3x+3)$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">Els dos termes són $(x+1)$ i $3(x+1)$: el factor comú $(x+1)$ es treu un sol cop, i queda $1+3=4$ dins de l'altre parèntesi.</span></li>
+<li>$3(x+1)$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">T'has deixat el primer $(x+1)$ (que compta com $1$ vegada el binomi): el total és $1+3=4$ vegades $(x+1)$, no $3$.</span></li>
+<li>$4x+1$<br><span class="err">DISTRIBUCIO_INCOMPLETA</span><span class="fb">El $4$ ha de multiplicar TOT el binomi $(x+1)$, no només la $x$: és $4(x+1)=4x+4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El binomi $(x+1)$ es repeteix als dos termes: el primer és $1\cdot(x+1)$ i el segon $3\cdot(x+1)$.</li><li>Treu $(x+1)$ com a factor comú: queda $(1+3)\cdot(x+1)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(x+1)+3(x+1)=(1+3)(x+1)=4(x+1)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">73c</span><span class="tip">tipus A</span></div>
+<div class="enun">$xy-6xyz-5xyzt$</div>
+<ol class="op"><li><span class="ok">$xy(1-6z-5zt)$</span> — resposta correcta</li>
+<li>$xy(1-6zt-5zt)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">El segon terme dins del parèntesi ha de quedar $-6z$ (dividint $-6xyz$ per $xy$), no $-6zt$: revisa quin terme porta la $t$.</span></li>
+<li>$xyz(1-6-5t)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El primer terme, $xy$, no té el factor $z$: el factor comú als tres termes és $xy$, no $xyz$.</span></li>
+<li>$xy(-1-6z-5zt)$<br><span class="err">FACTOR_COMU_SIGNE</span><span class="fb">El primer terme dins del parèntesi ha de ser $+1$ (dividint $xy$ per $xy$), no $-1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca el factor que es repeteix als tres termes: $xy$, $-6xyz$ i $-5xyzt$ tenen en comú $xy$.</li><li>Divideix cada terme pel factor comú $xy$: queden $1$, $-6z$ i $-5zt$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$xy-6xyz-5xyzt=xy\cdot(1-6z-5zt)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">73d</span><span class="tip">tipus A</span></div>
+<div class="enun">$3x-4x^2-6x^3$</div>
+<ol class="op"><li><span class="ok">$x(3-4x-6x^2)$</span> — resposta correcta</li>
+<li>$x(3-4x^2-6x^3)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">Els termes de dins del parèntesi s'han de dividir per $x$: $-4x^2:x=-4x$ i $-6x^3:x=-6x^2$, no es queden igual.</span></li>
+<li>$x^3(3-4x-6x^2)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El primer terme, $3x$, només té una $x$: el factor comú és $x$, no $x^3$.</span></li>
+<li>$x(3x-4x^2-6x^3)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">El primer terme dins del parèntesi s'ha de dividir per $x$: $3x:x=3$, no $3x$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca el factor comú als tres termes: $3x$, $-4x^2$ i $-6x^3$ tenen en comú $x$.</li><li>Divideix cada terme per $x$: queden $3$, $-4x$ i $-6x^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3x-4x^2-6x^3=x\cdot(3-4x-6x^2)$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 74.</strong> Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.</p>
+<div class="it"><div class="cap"><span class="cod">74a</span><span class="tip">tipus A</span></div>
+<div class="enun">$7x^2-14x+7$</div>
+<ol class="op"><li><span class="ok">$7(x-1)^2$</span> — resposta correcta</li>
+<li>$7(x-1)$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">Un cop tret el factor $7$, queda $x^2-2x+1$, que és un quadrat perfecte, $(x-1)^2$: no es pot deixar sense el quadrat.</span></li>
+<li>$7(x+1)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $-14x$, és negatiu: correspon a $(x-1)^2$, amb signe $-$.</span></li>
+<li>$(7x-7)^2$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El $7$ s'ha de treure com a factor comú abans de reconèixer el quadrat perfecte, no ficar-lo dins del quadrat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Treu primer el factor comú $7$: $7x^2-14x+7=7(x^2-2x+1)$.</li><li>Un cop tret el $7$, reconeix que $x^2-2x+1$ és un quadrat perfecte, $(x-1)^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$7x^2-14x+7=7(x^2-2x+1)=7(x-1)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74b</span><span class="tip">tipus A</span></div>
+<div class="enun">$16x^2+64x+64$</div>
+<ol class="op"><li><span class="ok">$16(x+2)^2$</span> — resposta correcta</li>
+<li>$16(x+2)$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">Un cop tret el factor $16$, queda $x^2+4x+4$, que és un quadrat perfecte, $(x+2)^2$: no es pot deixar sense el quadrat.</span></li>
+<li>$16(x-2)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $+64x$, és positiu: correspon a $(x+2)^2$, amb signe $+$.</span></li>
+<li>$8(x+2)^2$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El factor comú de $16$, $64$ i $64$ és $16$, no $8$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Treu primer el factor comú $16$: $16x^2+64x+64=16(x^2+4x+4)$.</li><li>Un cop tret el $16$, reconeix que $x^2+4x+4$ és un quadrat perfecte, $(x+2)^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$16x^2+64x+64=16(x^2+4x+4)=16(x+2)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74c</span><span class="tip">tipus A</span></div>
+<div class="enun">$x^3-2x^2+x$</div>
+<ol class="op"><li><span class="ok">$x(x-1)^2$</span> — resposta correcta</li>
+<li>$x(x-1)$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">Un cop tret el factor $x$, queda $x^2-2x+1$, que és un quadrat perfecte, $(x-1)^2$: no es pot deixar sense el quadrat.</span></li>
+<li>$x(x+1)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $-2x^2$ (un cop tret el factor $x$, $-2x$), és negatiu: correspon a $(x-1)^2$, amb signe $-$.</span></li>
+<li>$(x-1)^2$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">T'has deixat el factor comú $x$: els tres termes ($x^3$, $-2x^2$, $x$) el tenen en comú.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Treu primer el factor comú $x$: $x^3-2x^2+x=x(x^2-2x+1)$.</li><li>Un cop tret l'$x$, reconeix que $x^2-2x+1$ és un quadrat perfecte, $(x-1)^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^3-2x^2+x=x(x^2-2x+1)=x(x-1)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74d</span><span class="tip">tipus A</span></div>
+<div class="enun">$18x^4-12x^2+2$</div>
+<ol class="op"><li><span class="ok">$2(3x^2-1)^2$</span> — resposta correcta</li>
+<li>$2(3x^2-1)$<br><span class="err">GRAU_PRODUCTE_MAL</span><span class="fb">Un cop tret el factor $2$, queda $9x^4-6x^2+1$, que és un quadrat perfecte, $(3x^2-1)^2$: no es pot deixar sense el quadrat.</span></li>
+<li>$2(3x^2+1)^2$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El terme del mig, $-6x^2$ (un cop tret el $2$), és negatiu: correspon a $(3x^2-1)^2$, amb signe $-$.</span></li>
+<li>$6(3x^2-1)^2$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El factor comú de $18$, $-12$ i $2$ és $2$, no $6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Treu primer el factor comú $2$: $18x^4-12x^2+2=2(9x^4-6x^2+1)$.</li><li>Un cop tret el $2$, reconeix que $9x^4-6x^2+1$ és un quadrat perfecte, $(3x^2-1)^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$18x^4-12x^2+2=2(9x^4-6x^2+1)=2(3x^2-1)^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74e</span><span class="tip">tipus A</span></div>
+<div class="enun">$(2x+4)(x-2)$</div>
+<ol class="op"><li><span class="ok">$2(x-2)(x+2)$</span> — resposta correcta</li>
+<li>$2x^2-8$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El desenvolupament és correcte, però encara es pot factoritzar més: $2x^2-8=2(x^2-4)=2(x-2)(x+2)$.</span></li>
+<li>$(x-2)(x+2)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">T'has deixat el factor comú $2$: el desenvolupament dona $2x^2-8=2(x^2-4)$, no $x^2-4$.</span></li>
+<li>$2(x+2)^2$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">Un cop desenvolupat i tret el factor $2$, queda $x^2-4$, que és una DIFERÈNCIA de quadrats, $(x-2)(x+2)$, no un quadrat perfecte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Desenvolupa primer el producte: $(2x+4)(x-2)=2x^2-4x+4x-8=2x^2-8$.</li><li>Treu factor comú $2$ i reconeix la diferència de quadrats: $2(x^2-4)=2(x-2)(x+2)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(2x+4)(x-2)=2x^2-8=2(x^2-4)=2(x-2)(x+2)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74f</span><span class="tip">tipus A</span></div>
+<div class="enun">$(x-5)(x^2+5x)$</div>
+<ol class="op"><li><span class="ok">$x(x-5)(x+5)$</span> — resposta correcta</li>
+<li>$x^3-25x$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">El desenvolupament és correcte, però encara es pot factoritzar més: $x^3-25x=x(x^2-25)=x(x-5)(x+5)$.</span></li>
+<li>$(x-5)(x+5)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">T'has deixat el factor comú $x$: el desenvolupament dona $x^3-25x=x(x^2-25)$, no $x^2-25$.</span></li>
+<li>$x(x-5)^2$<br><span class="err">DIFERENCIA_QUADRATS_MAL</span><span class="fb">Un cop tret el factor $x$, queda $x^2-25$, que és una DIFERÈNCIA de quadrats, $(x-5)(x+5)$, no un quadrat perfecte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Desenvolupa primer el producte: $(x-5)(x^2+5x)=x^3+5x^2-5x^2-25x=x^3-25x$.</li><li>Treu factor comú $x$ i reconeix la diferència de quadrats: $x(x^2-25)=x(x-5)(x+5)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(x-5)(x^2+5x)=x^3-25x=x(x^2-25)=x(x-5)(x+5)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74g</span><span class="tip">tipus A</span></div>
+<div class="enun">$(-x-7)(x-7)$</div>
+<ol class="op"><li><span class="ok">$(7-x)(7+x)$</span> — resposta correcta</li>
+<li>$(x-7)(x+7)$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El primer factor és $-x-7=-(x+7)$, no $x-7$: el signe global canvia el resultat final.</span></li>
+<li>$x^2-49$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">El desenvolupament correcte dona $49-x^2$, no $x^2-49$: revisa el signe global en treure el $-1$ comú del primer factor.</span></li>
+<li>$-(x-7)(x+7)$<br><span class="err">FACTOR_COMU_SIGNE</span><span class="fb">És una forma equivalent correcta abans de reorganitzar signes, però no és la manera més simplificada: $-(x-7)(x+7)=(7-x)(x+7)=(7-x)(7+x)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Treu primer el signe menys comú del primer factor: $-x-7=-(x+7)$.</li><li>$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(-x-7)(x-7)=-(x+7)(x-7)=49-x^2=(7-x)(7+x)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">74h</span><span class="tip">tipus A</span></div>
+<div class="enun">$(-x^2+5)(-x^2-5)$</div>
+<ol class="op"><li><span class="ok">$x^4-25$</span> — resposta correcta</li>
+<li>$25-x^4$<br><span class="err">SUMA_PER_DIFERENCIA_MAL</span><span class="fb">És una suma per diferència amb $a=-x^2$ i $b=5$: $a^2-b^2=(-x^2)^2-5^2=x^4-25$, no $25-x^4$.</span></li>
+<li>$x^4+25$<br><span class="err">SUMA_PER_DIFERENCIA_MAL</span><span class="fb">En una suma per diferència, el segon quadrat sempre resta, mai suma.</span></li>
+<li>$(x^2-5)(x^2+5)$<br><span class="err">FACTOR_COMU_INCOMPLET</span><span class="fb">Aquesta factorització també és vàlida, però encara es pot desenvolupar del tot com a diferència de quadrats numèrica: $(x^2-5)(x^2+5)=x^4-25$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>És una suma per diferència amb $a=-x^2$ i $b=5$: $(-x^2+5)(-x^2-5)=(-x^2)^2-5^2$.</li><li>$(-x^2)^2=x^4$, així que el resultat és $x^4-25$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(-x^2+5)(-x^2-5)=(-x^2)^2-5^2=x^4-25$ (equivalent a $(x^2-5)(x^2+5)$, que no es pot factoritzar més amb enters)</li></ol>
+</div>
+<h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>18</td><td>65a, 65b, 66a, 66b, 66c, 66d, 66e, 67a, 67c, 67e, 67f, 68a, 68b, 68c…</td></tr>
+<tr><td><code>RUFFINI_SIGNE_ARREL</code></td><td>17</td><td>66a, 66b, 66c, 66d, 66e, 67a, 67b, 67c, 67d, 67e, 67f, 68a, 68b, 68c…</td></tr>
+<tr><td><code>PARENTESI_NO_DISTRIBUIT_POLI</code></td><td>12</td><td>62b, 62b, 62c, 62c, 62d, 62d, 63a, 63b, 63c, 63d, 63e, 63f</td></tr>
+<tr><td><code>QUADRAT_INCOMPLET</code></td><td>12</td><td>70a, 70b, 70c, 70c, 70d, 71a, 71b, 71c, 71e, 71f, 72a, 72b</td></tr>
+<tr><td><code>FACTOR_COMU_INCOMPLET</code></td><td>12</td><td>73a, 73c, 73d, 74a, 74b, 74c, 74d, 74e, 74e, 74f, 74f, 74h</td></tr>
+<tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>11</td><td>62a, 63a, 63b, 63c, 63d, 63e, 63f, 64a, 64b, 64c, 64d</td></tr>
+<tr><td><code>IGUALTAT_NOTABLE_SIGNE</code></td><td>11</td><td>70b, 71d, 71d, 71e, 71f, 74a, 74b, 74c, 74d, 74g, 74g</td></tr>
+<tr><td><code>DISTRIBUCIO_INCOMPLETA</code></td><td>10</td><td>64a, 64a, 64b, 64b, 64c, 64c, 64d, 64d, 73b, 73b</td></tr>
+<tr><td><code>RUFFINI_QUOCIENT_GRAU</code></td><td>9</td><td>66a, 66b, 66c, 66d, 66e, 67a, 67b, 67c, 68b</td></tr>
+<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>8</td><td>62a, 62a, 62b, 62d, 65a, 65b, 68a, 73b</td></tr>
+<tr><td><code>RUFFINI_PAS_MAL</code></td><td>8</td><td>67b, 67d, 68d, 69a, 69b, 69c, 69c, 69d</td></tr>
+<tr><td><code>GRAUS_MAL_AGRUPATS</code></td><td>7</td><td>62c, 65a, 71d, 71e, 71f, 72a, 72b</td></tr>
+<tr><td><code>GRAU_PRODUCTE_MAL</code></td><td>7</td><td>70d, 70d, 71b, 74a, 74b, 74c, 74d</td></tr>
+<tr><td><code>DIFERENCIA_QUADRATS_MAL</code></td><td>7</td><td>71a, 71a, 71b, 71c, 71c, 74e, 74f</td></tr>
+<tr><td><code>ORDRE_RESTA</code></td><td>6</td><td>63a, 63b, 63c, 63d, 63e, 63f</td></tr>
+<tr><td><code>FACTOR_COMU_SIGNE</code></td><td>5</td><td>67d, 68c, 68d, 73c, 74g</td></tr>
+<tr><td><code>SUMA_PER_DIFERENCIA_MAL</code></td><td>5</td><td>70c, 72a, 72b, 74h, 74h</td></tr>
+<tr><td><code>FACTOR_COMU_MAL_DIVIDIT</code></td><td>5</td><td>73a, 73a, 73c, 73d, 73d</td></tr>
+<tr><td><code>IGUALTAT_NOTABLE_DOBLE_OBLIDAT</code></td><td>3</td><td>70a, 70a, 70b</td></tr>
+<tr><td><code>RUFFINI_RESIDU_COM_QUOCIENT</code></td><td>2</td><td>65b, 69a</td></tr>
+<tr><td><code>RUFFINI_DIVISOR_NO_MONIC</code></td><td>2</td><td>67e, 67f</td></tr>
+</table></html>

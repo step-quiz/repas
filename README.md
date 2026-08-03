@@ -4,12 +4,12 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-De moment **Full 1** (140 preguntes), **Full 2** (76 preguntes) i **Full 3**
-(50 preguntes) ja tenen preguntes. Els altres 10 fulls hi surten llistats com
-a "Properament" — l'estructura de tres pàgines ja està a punt perquè, quan
-se n'autori un altre, només calgui afegir el seu `data/fullN.js` i marcar-lo
-disponible a `js/inici.js` (vegeu §8.1 i §3 de `HANDOVER-repas-eso-v3.md`
-per a l'inventari i el disseny d'aquesta part).
+De moment **Full 1** (140 preguntes), **Full 2** (76 preguntes), **Full 3**
+(50 preguntes) i **Full 4** (59 preguntes) ja tenen preguntes. Els altres 9
+fulls hi surten llistats com a "Properament" — l'estructura de tres pàgines
+ja està a punt perquè, quan se n'autori un altre, només calgui afegir el seu
+`data/fullN.js` i marcar-lo disponible a `js/inici.js` (vegeu §8.1 i §3 de
+`HANDOVER-repas-eso-v3.md` per a l'inventari i el disseny d'aquesta part).
 
 ## Navegació (tres nivells)
 
@@ -41,9 +41,11 @@ per a l'inventari i el disseny d'aquesta part).
     data/full1.js        banc de 140 preguntes de Full 1 (generat, no editar a mà)
     data/full2.js        banc de 76 preguntes de Full 2 (generat, no editar a mà)
     data/full3.js        banc de 50 preguntes de Full 3 (generat, no editar a mà)
+    data/full4.js        banc de 59 preguntes de Full 4 (generat, no editar a mà)
     REVISIO-full1.html   clau de respostes completa de Full 1, per revisar
     REVISIO-full2.html   clau de respostes completa de Full 2, per revisar
     REVISIO-full3.html   clau de respostes completa de Full 3, per revisar
+    REVISIO-full4.html   clau de respostes completa de Full 4, per revisar
     tools/lib.py          motor comú: Q/D/DT, TAX (catàleg d'errors), validació
     tools/build.py        compilador (agafa un full de la taula FULLS i el genera)
     tools/c_enters.py       bloc "enters" de Full 1
@@ -52,6 +54,7 @@ per a l'inventari i el disseny d'aquesta part).
     tools/c_decimals.py      bloc "decimals" de Full 1
     tools/c_potencies.py     els 4 blocs de Full 2 sencer (76 ítems, un sol fitxer)
     tools/c_successions.py   els 4 blocs de Full 3 sencer (50 ítems, un sol fitxer)
+    tools/c_polinomis.py     els 4 blocs de Full 4 sencer (59 ítems, un sol fitxer)
 
 ## Com està fet el banc
 
@@ -71,18 +74,19 @@ distractors, que cap coincideixi amb la resposta correcta ni entre ells, i que
 totes tinguin pistes i resolució. Si algun cop falla, el build s'atura.
 
 Full 1 té un fitxer `c_<bloc>.py` per bloc perquè cada bloc és un domini prou
-diferent (enters, divisibilitat, fraccions, decimals). Full 2 i Full 3 són
-cadascun un sol tema (potències; successions i progressions) amb blocs que
-comparteixen molta lògica, així que cadascun té un únic fitxer
-(`c_potencies.py`, `c_successions.py`) amb tots els seus blocs a dins,
-separats per capçaleres de secció — no cal seguir la convenció d'un fitxer
-per bloc quan el tema és un de sol.
+diferent (enters, divisibilitat, fraccions, decimals). Full 2, Full 3 i
+Full 4 són cadascun un sol tema (potències; successions i progressions;
+polinomis) amb blocs que comparteixen molta lògica, així que cadascun té un
+únic fitxer (`c_potencies.py`, `c_successions.py`, `c_polinomis.py`) amb
+tots els seus blocs a dins, separats per capçaleres de secció — no cal
+seguir la convenció d'un fitxer per bloc quan el tema és un de sol.
 
 ## Regenerar el banc
 
     cd tools && python3 build.py      # full 1 (per defecte)
     cd tools && python3 build.py 2    # full 2
     cd tools && python3 build.py 3    # full 3
+    cd tools && python3 build.py 4    # full 4
 
 Escriu `data/fullN.js` (amb `window.FULL = {...}`, un global genèric perquè
 `full.html`/`practica.html` puguin carregar el full que toqui) i
@@ -93,11 +97,13 @@ fulls no es barregen mai al mateix banc.
 ## Abans de publicar
 
 Les respostes estan calculades, però **no revisades per una persona**.
-Repassa `REVISIO-full1.html`, `REVISIO-full2.html` i `REVISIO-full3.html`,
-sobretot els ítems amb nota (per exemple el `30e`/`30f` de Full 1, el `46b`
-de Full 2, o el `51a`/`54c`/`58c`/`58d` de Full 3, que són interpretacions
-d'un enunciat ambigu o casos on l'enunciat original dona un resultat
-irracional). Quan els validis, treu l'avís del peu de `full.html`.
+Repassa `REVISIO-full1.html`, `REVISIO-full2.html`, `REVISIO-full3.html` i
+`REVISIO-full4.html`, sobretot els ítems amb nota (per exemple el `30e`/`30f`
+de Full 1, el `46b` de Full 2, el `51a`/`54c`/`58c`/`58d` de Full 3, o el
+`62c`/`67d`/`67e`/`67f`/`68c`/`68d`/`69c` de Full 4, que són interpretacions
+d'un enunciat ambigu, casos amb divisor no mònic a Ruffini, o casos on
+l'enunciat original dona un resultat irracional). Quan els validis, treu
+l'avís del peu de `full.html`.
 
 ## Detalls
 

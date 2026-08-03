@@ -378,6 +378,76 @@ TAX = {
         "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del "
         "correcte: torna a comprovar la condició amb els valors concrets "
         "de l'enunciat.",
+
+    # ---- polinomis (Full 4) ----
+    "PARENTESI_NO_DISTRIBUIT_POLI":
+        "Restar un polinomi és restar-ne TOTS els termes, no només el primer. "
+        "Revisa el signe de cada terme del polinomi que restes.",
+    "TERME_OBLIDAT_OPERACIO":
+        "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls "
+        "tots un per un, grau a grau.",
+    "GRAUS_MAL_AGRUPATS":
+        "Només es poden sumar o restar termes del MATEIX grau: $x^3$ amb $x^3$, "
+        "$x^2$ amb $x^2$... Revisa que has agrupat els termes correctes.",
+    "SIGNE_TERME_INDEPENDENT":
+        "Revisa el signe del terme independent (el que no porta $x$): és fàcil "
+        "perdre'l en sumar o restar.",
+    "DISTRIBUCIO_INCOMPLETA":
+        "En multiplicar un polinomi per un altre, cada terme del primer s'ha de "
+        "multiplicar per TOTS els termes del segon, no només per un.",
+    "GRAU_PRODUCTE_MAL":
+        "En multiplicar potències de $x$, els exponents se SUMEN: $x^a\\cdot "
+        "x^b=x^{a+b}$. El grau del producte és la suma dels graus dels factors.",
+    "RUFFINI_TERME_OBLIDAT":
+        "T'has deixat un coeficient $0$ pel camí: cal escriure TOTS els graus "
+        "del dividend, encara que el terme no aparegui a l'enunciat.",
+    "RUFFINI_SIGNE_ARREL":
+        "A la regla de Ruffini es fa servir l'oposat del terme independent del "
+        "divisor: si el divisor és $x-a$, es baixa multiplicant per $a$, no per "
+        "$-a$.",
+    "RUFFINI_PAS_MAL":
+        "A cada columna: multiplica el número de baix per l'arrel, i suma "
+        "aquest producte al coeficient de la columna, no el restis.",
+    "RUFFINI_QUOCIENT_GRAU":
+        "El quocient d'una divisió de Ruffini té un grau menys que el dividend, "
+        "no el mateix grau.",
+    "RUFFINI_DIVISOR_NO_MONIC":
+        "El divisor no és de la forma $x-a$ (el coeficient de $x$ no és $1$): "
+        "cal treure'n el factor comú abans d'aplicar Ruffini directament, i "
+        "dividir el quocient pel mateix factor al final.",
+    "RUFFINI_RESIDU_COM_QUOCIENT":
+        "Has confós el residu amb un terme del quocient: el residu és el darrer "
+        "número de la fila, i és una constant, no un polinomi en $x$.",
+    "DIVISIO_QUOCIENT_RESIDU_CANVIATS":
+        "Has intercanviat el quocient i el residu: el quocient és el polinomi "
+        "que queda a la fila de baix (llevat de l'últim terme), i el residu és "
+        "l'últim número, una constant.",
+    "IGUALTAT_NOTABLE_SIGNE":
+        "Revisa el signe del terme del mig: $(a-b)^2=a^2-2ab+b^2$, amb el terme "
+        "del mig NEGATIU, a diferència de $(a+b)^2$.",
+    "IGUALTAT_NOTABLE_DOBLE_OBLIDAT":
+        "Al quadrat d'una suma o d'una resta, el terme del mig és el DOBLE "
+        "producte, $2ab$, no només $ab$.",
+    "SUMA_PER_DIFERENCIA_MAL":
+        "$(a+b)(a-b)=a^2-b^2$: el terme del mig s'anul·la sempre. No hi ha "
+        "terme en $ab$ al resultat.",
+    "QUADRAT_INCOMPLET":
+        "Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat "
+        "del primer, el doble producte, i el quadrat del segon. Revisa que hi "
+        "són tots.",
+    "FACTOR_COMU_INCOMPLET":
+        "No has tret tot el factor comú possible: revisa si encara hi ha algun "
+        "nombre o alguna $x$ que es repeteixi a tots els termes.",
+    "FACTOR_COMU_SIGNE":
+        "Revisa el signe del factor comú: si tots els termes són negatius, sol "
+        "convenir treure'l amb signe $-$ perquè el que quedi dins comenci en "
+        "positiu.",
+    "FACTOR_COMU_MAL_DIVIDIT":
+        "En treure factor comú, cada terme s'ha de dividir pel factor comú: "
+        "algun terme de dins del parèntesi no s'ha dividit correctament.",
+    "DIFERENCIA_QUADRATS_MAL":
+        "Una diferència de quadrats $a^2-b^2$ es factoritza com $(a-b)(a+b)$: "
+        "revisa que els dos factors tinguin signes diferents.",
 }
 
 

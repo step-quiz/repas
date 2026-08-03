@@ -15,7 +15,7 @@
     { n: 1,  titol: "Nombres enters, fraccions i decimals",  total: 140, disponible: true },
     { n: 2,  titol: "Potències",                             total: 76,   disponible: true },
     { n: 3,  titol: "Successions i progressions",             total: 50,   disponible: true },
-    { n: 4,  titol: "Polinomis",                              total: null, disponible: false },
+    { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
     { n: 5,  titol: "Equacions i sistemes",                   total: null, disponible: false },
     { n: 6,  titol: "Proporcionalitat i percentatges",        total: null, disponible: false },
     { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: null, disponible: false },

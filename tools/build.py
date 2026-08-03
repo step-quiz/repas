@@ -71,6 +71,22 @@ FULLS = {
              "Triar el terme general correcte i trobar la posició d'un terme."),
         ],
     },
+    4: {
+        "titol": "Full 4 — Polinomis",
+        "subtitol": "Operacions, divisió i regla de Ruffini, igualtats notables i "
+                    "factorització de polinomis.",
+        "moduls": ["c_polinomis"],
+        "blocs": [
+            ("operacions", "Operacions amb polinomis",
+             "Suma, resta i producte de polinomis."),
+            ("divisio", "Divisió de polinomis i regla de Ruffini",
+             "Divisió llarga, Ruffini i taules de Ruffini a completar."),
+            ("notables", "Igualtats notables",
+             "Completar i reconèixer quadrats de binomis i sumes per diferències."),
+            ("factor_comu", "Factor comú i simplificació",
+             "Factor comú i combinació amb igualtats notables."),
+        ],
+    },
 }
 
 FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1
