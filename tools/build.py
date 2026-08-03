@@ -87,6 +87,25 @@ FULLS = {
              "Factor comú i combinació amb igualtats notables."),
         ],
     },
+    5: {
+        "titol": "Full 5 — Equacions i sistemes",
+        "subtitol": "Equacions de primer i segon grau, sistemes d'equacions "
+                    "lineals i problemes que es resolen plantejant-los.",
+        "moduls": ["c_equacions"],
+        "blocs": [
+            ("primer_grau", "Equacions de primer grau",
+             "Equacions amb parèntesis i amb un o diversos denominadors."),
+            ("formula_general", "Segon grau: fórmula i discriminant",
+             "Fórmula general i nombre de solucions segons el discriminant."),
+            ("factoritzacio", "Segon grau: factor comú i factorització",
+             "Equacions incompletes, ja factoritzades i que cal reordenar."),
+            ("sistemes", "Sistemes d'equacions",
+             "Substitució, igualació i reducció, amb denominadors i parèntesis."),
+            ("problemes", "Problemes amb equacions i sistemes",
+             "Problemes d'edats, nombres, preus i geometria que es plantegen "
+             "amb una equació o un sistema."),
+        ],
+    },
 }
 
 FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1

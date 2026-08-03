@@ -13,7 +13,7 @@ window.RE_DIAG = (function () {
   /* Blocs que entren al test: només dels fulls ja autorats. Quan s'autori
      un full nou, afegir-hi el seu número n'hi ha prou perquè el test les
      inclogui — la resta d'aquest fitxer no cal tocar-lo. */
-  var FULLS_TEST = [1, 2, 3, 4];
+  var FULLS_TEST = [1, 2, 3, 4, 5];
 
   /* 15 preguntes repartides en 8 blocs: 7 blocs en donen 2 i 1 en dona 1.
      Quin bloc és el "curt" va rotant per volta (índex fix, no aleatori: així
@@ -88,19 +88,21 @@ window.RE_DIAG = (function () {
 
   /* D'un bloc, torna els items amb enunciat curt (<= CARACTERS_MAX_PREFERITS).
      Si el bloc no arriba a tenir-ne prou (per exemple "geometriques" de
-     Successions, on cap pregunta baixa de 41 caràcters), NO tornem el bloc
-     sencer sense filtrar: tornem sempre com a molt les `marge` preguntes
-     més curtes que hi hagi, encara que superin el llindar. Així un bloc amb
-     un estil d'enunciat més verbós de mena queda igualment acotat, en lloc
-     de poder acabar triant la pregunta més llarga que tingui. */
+     Successions, on cap pregunta baixa de 41 caràcters, o "problemes" de
+     Full 5, que va de 82 a bastant més), NO tornem el bloc sencer sense
+     filtrar, ni un marge ampli per barrejar-hi després: tornem SEMPRE
+     exactament les `n` preguntes més curtes que tingui, punt. Un marge més
+     gran (per exemple, les 3 més curtes quan `n` és 1) sembla donar més
+     varietat, però permet que la barreja triï la tercera més curta encara
+     que sigui molt més llarga que la primera — exactament el que li va
+     passar a "problemes" (82, 88, 122 car: amb marge=3 podia sortir la de
+     122). Sense marge, cada bloc queda acotat pel pitjor cas real que té. */
   function itemsCurts(items, n) {
     var ordenats = items.slice().sort(function (a, b) {
       return a.enunciat.length - b.enunciat.length;
     });
     var curts = ordenats.filter(function (it) { return it.enunciat.length <= CARACTERS_MAX_PREFERITS; });
-    if (curts.length >= n) return curts;
-    var marge = Math.max(n, PREGUNTES_PER_BLOC + 1);
-    return ordenats.slice(0, marge);
+    return curts.length >= n ? curts : ordenats.slice(0, n);
   }
 
   /* Generador pseudoaleatori simple amb llavor: permet una "barreja"

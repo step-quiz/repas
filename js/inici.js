@@ -16,7 +16,7 @@
     { n: 2,  titol: "Potències",                             total: 76,   disponible: true },
     { n: 3,  titol: "Successions i progressions",             total: 50,   disponible: true },
     { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
-    { n: 5,  titol: "Equacions i sistemes",                   total: null, disponible: false },
+    { n: 5,  titol: "Equacions i sistemes",                   total: 99,   disponible: true },
     { n: 6,  titol: "Proporcionalitat i percentatges",        total: null, disponible: false },
     { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: null, disponible: false },
     { n: 8,  titol: "Teorema de Tales. Semblança",            total: null, disponible: false },
@@ -91,6 +91,7 @@
     $("#refes-index").onclick = function () {
       if (confirm("Vols refer el test inicial? El resultat anterior s'esborrarà.")) {
         RE_DIAG.esborra();
+        RE_ITI.esborra();
         location.href = "diagnostic.html";
       }
     };
