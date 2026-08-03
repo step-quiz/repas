@@ -17,7 +17,7 @@
     { n: 3,  titol: "Successions i progressions",             total: 50,   disponible: true },
     { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
     { n: 5,  titol: "Equacions i sistemes",                   total: 99,   disponible: true },
-    { n: 6,  titol: "Proporcionalitat i percentatges",        total: null, disponible: false },
+    { n: 6,  titol: "Proporcionalitat i percentatges",        total: 21,   disponible: true },
     { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: null, disponible: false },
     { n: 8,  titol: "Teorema de Tales. Semblança",            total: null, disponible: false },
     { n: 9,  titol: "Cossos geomètrics. Àrea i volum",        total: null, disponible: false },

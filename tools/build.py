@@ -106,6 +106,22 @@ FULLS = {
              "amb una equació o un sistema."),
         ],
     },
+    6: {
+        "titol": "Full 6 — Proporcionalitat i percentatges",
+        "subtitol": "Proporcionalitat directa i inversa, i problemes de "
+                    "percentatges, augments i disminucions encadenats.",
+        "moduls": ["c_proporcionalitat"],
+        "blocs": [
+            ("directa_inversa", "Proporcionalitat directa i inversa",
+             "Regla de tres directa i inversa amb repartiments i problemes."),
+            ("percentatges", "Percentatges",
+             "Percentatge d'una quantitat, i trobar el total o la quantitat "
+             "original a partir d'un percentatge."),
+            ("encadenats", "Augments i disminucions encadenats",
+             "Augments i rebaixes percentuals aplicats seguits, i "
+             "comparacions \"en proporció\"."),
+        ],
+    },
 }
 
 FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1
