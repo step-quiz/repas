@@ -18,7 +18,7 @@
    - DIAGNÒSTIQUES: allà on hi ha un malentès clàssic, la prova el toca de
      ple ($-3^2$ contra $(-3)^2$; pujar i baixar un 20 % no torna al preu de
      partida). Els distractors són el resultat d'aquell error concret, no
-     números a l'atzar.
+     números a l'atzar: qui el tria diu, amb la seva tria, quin error fa.
    - Cobreixen els 12 fulls: 15 proves, una per full i tres de més als dos
      fulls més amples i més prerequisit (Full 1 i Full 5).
 
@@ -40,7 +40,11 @@ window.RE_PROVES = (function () {
   "use strict";
 
   /* Les quatre respostes que l'alumne pot marcar a cada prova. L'ordre és
-     deliberat: de més a menys domini, per llegir-se com una escala. */
+     deliberat: de més a menys domini, per llegir-se com una escala.
+
+     Digui el que digui, tot seguit se li demana la resposta de la pregunta —
+     tret de l'última opció, on no hi ha res a mesurar. Per això cada prova
+     porta sempre les seves quatre opcions i el seu índex correcte. */
   var ESTATS = [
     { id: "domino",
       text: "Crec que sé resoldre aquesta qüestió força bé" },

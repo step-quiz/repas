@@ -13,25 +13,31 @@
      no_entes  "...m'ho van explicar i no ho vaig entendre massa"
      mai       "No recordo haver-ho fet mai, això"
 
-   Quan diu `domino`, i NOMÉS llavors, se li ensenyen quatre opcions i ha de
-   triar la bona. La comprovació va exactament on fa falta: si diu que no
-   se'n recorda no hi ha res a comprovar —ja sabem què li toca—, però si diu
-   que en sap i resulta que no, aquest és el cas que més mal fa, perquè és
-   l'únic tema que no repassaria mai pel seu compte. Comprovar només les
-   respostes segures manté el test en dos minuts i el fa útil igualment.
+   Tret del darrer cas, sempre se li demana la resposta de veritat: quatre
+   opcions, i n'ha de triar una. El que l'alumne creu i el que l'alumne fa
+   són dues dades diferents, i totes dues fan falta — algú que diu "ho vaig
+   entendre però ho he oblidat" i tot seguit ho resol té una mancança molt
+   diferent d'algú que ho diu i falla. Només qui no ho ha vist mai se salta
+   la pregunta: allà no hi ha res a mesurar.
 
-   LES CINC SITUACIONS QUE EN SURTEN, i què implica cadascuna:
+   LES SET SITUACIONS QUE EN SURTEN, creuant el que diu amb el que fa:
 
-     dominat          domino + encert      no cal repassar-ho
-     falsa_seguretat  domino + error       PRIORITAT MÀXIMA: creu que ho sap
-     no_entes         no_entes             mai ho va arribar a construir
-     mai              mai                  llacuna: no ho ha vist
-     oblidat          oblidat              hi era: cal refrescar-ho, no
-                                            reconstruir-ho
+     estat      encert   situació          prioritat  què vol dir
+     domino       sí     dominat               0      no cal repassar-ho
+     domino       no     falsa_seguretat       4      creu que ho sap
+     oblidat      sí     recuperat             1      ho tenia més a mà
+     oblidat      no     oblidat               2      confirmat: refrescar
+     no_entes     sí     infravalorat          2      se'n surt més del que creu
+     no_entes     no     no_entes              3      mai ho va construir
+     mai           —     mai                   3      llacuna
 
-   La distinció entre `oblidat` i els altres dos no és cosmètica: canvia
-   quants exercicis rep l'alumne. Refrescar una destresa que va entendre
-   costa quatre exercicis; construir-ne una que no va entendre mai, el doble.
+   Les dues files on el que diu i el que fa no coincideixen són les que
+   aporten informació que l'alumne no tenia: `falsa_seguretat` (el que més
+   mal fa, perquè és l'únic tema que no repassaria pel seu compte) i
+   `infravalorat`/`recuperat` (que és, sobretot, un problema de confiança).
+
+   El PES decideix quants exercicis rep l'alumne d'aquell tema. Refrescar una
+   destresa que va entendre costa la meitat que construir-ne una que no.
 
    ORDRE DE PRIORITAT. A igualtat de prioritat mana l'ordre del currículum
    (la prova que va abans, primer). Si a algú li fallen alhora les fraccions
@@ -55,42 +61,57 @@ window.RE_DIAG = (function () {
      exercicis de l'itinerari. Prioritat 0 = fora de l'itinerari. */
   var SITUACIONS = {
     falsa_seguretat: {
-      prioritat: 4, pes: 8,
+      prioritat: 4, pes: 8, to: "malament",
       etiqueta: "Ho donaves per sabut",
       explica: "Has dit que ho sabies fer, però la resposta no era la bona. " +
                "És el primer que et convé mirar: és l'únic tema que no " +
                "repassaries pel teu compte."
     },
     no_entes: {
-      prioritat: 3, pes: 8,
+      prioritat: 3, pes: 8, to: "malament",
       etiqueta: "No ho vas acabar d'entendre",
-      explica: "Cal tornar-hi des del principi, amb calma i des dels " +
-               "exercicis més senzills."
+      explica: "Ho havies dit i la resposta ho confirma. Cal tornar-hi des " +
+               "del principi, amb calma i des dels exercicis més senzills."
     },
     mai: {
-      prioritat: 3, pes: 8,
+      prioritat: 3, pes: 8, to: "malament",
       etiqueta: "No ho havies vist",
       explica: "Comencem des de zero. Pot ser que sí que ho hagis fet i no " +
                "en recordis el nom: els primers exercicis t'ho diran."
     },
     oblidat: {
-      prioritat: 2, pes: 4,
+      prioritat: 2, pes: 4, to: "malament",
       etiqueta: "Ho tens rovellat",
-      explica: "Ho vas entendre en el seu moment: amb uns quants exercicis " +
-               "hauria de tornar sol."
+      explica: "Ho vas entendre en el seu moment i ara no t'ha sortit: amb " +
+               "uns quants exercicis hauria de tornar sol."
+    },
+    infravalorat: {
+      prioritat: 2, pes: 4, to: "bo",
+      etiqueta: "Te'n surts més del que et penses",
+      explica: "Deies que no ho havies entès i l'has encertada. Amb una mica " +
+               "de pràctica ho tindràs clar del tot — el que et falta és " +
+               "fiar-te'n."
+    },
+    recuperat: {
+      prioritat: 1, pes: 2, to: "bo",
+      etiqueta: "Ho tenies més a mà del que et pensaves",
+      explica: "Deies que ho havies oblidat i t'ha sortit igualment. Amb un " +
+               "parell d'exercicis ho acabes de recuperar."
     },
     dominat: {
-      prioritat: 0, pes: 0,
+      prioritat: 0, pes: 0, to: "bo",
       etiqueta: "Ho tens",
       explica: "Ho has resolt bé. No cal que hi dediquis temps ara."
     }
   };
 
-  function situacio(resposta) {
-    if (resposta.estat === "domino") {
-      return resposta.encert ? "dominat" : "falsa_seguretat";
-    }
-    return resposta.estat;
+  /* Creua el que l'alumne diu amb el que fa. `mai` no es comprova mai, així
+     que és l'única situació que surt directament de l'estat declarat. */
+  function situacio(r) {
+    if (r.estat === "mai") return "mai";
+    if (r.estat === "domino") return r.encert ? "dominat" : "falsa_seguretat";
+    if (r.estat === "oblidat") return r.encert ? "recuperat" : "oblidat";
+    return r.encert ? "infravalorat" : "no_entes";   /* no_entes */
   }
 
   /* ---- anàlisi ---- */
@@ -121,6 +142,7 @@ window.RE_DIAG = (function () {
         situacio: s,
         prioritat: info.prioritat,
         pes: info.pes,
+        to: info.to,
         etiqueta: info.etiqueta,
         explica: info.explica
       };
@@ -139,7 +161,8 @@ window.RE_DIAG = (function () {
 
   /* Recompte per situació, per al resum de dalt de resultat.html. */
   function resum(analisi) {
-    var r = { dominat: 0, falsa_seguretat: 0, oblidat: 0, no_entes: 0, mai: 0 };
+    var r = {};
+    Object.keys(SITUACIONS).forEach(function (k) { r[k] = 0; });
     analisi.forEach(function (a) { r[a.situacio]++; });
     return r;
   }

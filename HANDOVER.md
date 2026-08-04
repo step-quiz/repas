@@ -214,29 +214,38 @@ totes cobreixen **34 dels 46 blocs**. Amb 15 preguntes no se'n poden cobrir
 46, i el lloc ho diu obertament a la pàgina de resultats: el test serveix per
 decidir per on començar, no per certificar res.
 
-### 5.2 Les cinc situacions: `js/diagnostic-dades.js` → `window.RE_DIAG`
+### 5.2 Les set situacions: `js/diagnostic-dades.js` → `window.RE_DIAG`
 
-A cada prova l'alumne marca una de quatre respostes. Si diu que la sap
-resoldre, i només llavors, apareixen quatre opcions i ha de contestar. La
-comprovació va exactament on fa falta: si diu que no se'n recorda no hi ha
-res a verificar —ja sabem què li toca—, però si diu que en sap i falla,
-aquest és el cas que més mal fa, perquè és l'únic tema que no repassaria pel
-seu compte. Comprovar només les respostes segures manté el test en dos minuts
-i no en perd el valor.
+A cada prova l'alumne fa dues coses: marca una de les quatre respostes i tot
+seguit contesta la pregunta de veritat. L'única resposta que se salta la
+pregunta és "no recordo haver-ho fet mai": allà no hi ha res a mesurar.
 
-De les quatre respostes, més la verificació, en surten cinc situacions:
+Es demanen les dues coses perquè **el que l'alumne creu i el que l'alumne fa
+són dades diferents, i totes dues fan falta**. Algú que diu "ho vaig
+entendre però ho he oblidat" i tot seguit ho resol té una mancança molt
+diferent d'algú que ho diu i falla: al primer li cal un parell d'exercicis,
+al segon un repàs. Creuant les dues dades surten set situacions:
 
-| Situació | Ve de | Prioritat | Pes | Què vol dir |
-|---|---|---:|---:|---|
-| `falsa_seguretat` | "sé fer-ho" + error | 4 | 8 | Creu que ho sap. El primer a mirar. |
-| `no_entes` | "no ho vaig entendre" | 3 | 8 | Mai ho va arribar a construir. |
-| `mai` | "no ho he fet mai" | 3 | 8 | Llacuna: no ho ha vist. |
-| `oblidat` | "ho vaig entendre, però ho he oblidat" | 2 | 4 | Refrescar, no reconstruir. |
-| `dominat` | "sé fer-ho" + encert | 0 | 0 | Fora de l'itinerari. |
+| Estat declarat | Encert | Situació | Prioritat | Pes |
+|---|---|---|---:|---:|
+| sé fer-ho | ✗ | `falsa_seguretat` | 4 | 8 |
+| no ho he fet mai | — | `mai` | 3 | 8 |
+| no ho vaig entendre | ✗ | `no_entes` | 3 | 8 |
+| ho vaig entendre però ho he oblidat | ✗ | `oblidat` | 2 | 4 |
+| no ho vaig entendre | ✓ | `infravalorat` | 2 | 4 |
+| ho vaig entendre però ho he oblidat | ✓ | `recuperat` | 1 | 2 |
+| sé fer-ho | ✓ | `dominat` | 0 | 0 |
 
-La distinció entre `oblidat` i els altres dos no és cosmètica: és el **pes**,
-i el pes decideix quants exercicis rep l'alumne d'aquell tema. Refrescar una
-destresa que va entendre costa la meitat que construir-ne una que no.
+Les files on el que diu i el que fa **no** coincideixen són les que aporten
+informació que l'alumne no tenia abans d'entrar-hi. `falsa_seguretat` és la
+que més mal fa: és l'únic tema que no repassaria pel seu compte, i per això
+encapçala la llista. `infravalorat` i `recuperat` són l'altra cara, i el lloc
+també les diu: sovint el que hi falla no és la destresa sinó la confiança, i
+això canvia com l'alumne s'hi posa.
+
+El **pes** decideix quants exercicis rep d'aquell tema. Refrescar una
+destresa que va entendre costa la meitat que construir-ne una que no, i
+consolidar-ne una que ja li surt, encara menys.
 
 **A igualtat de prioritat mana l'ordre del currículum.** Si a algú li fallen
 alhora les fraccions i les paràboles, les fraccions van abans: són
@@ -260,9 +269,17 @@ si no n'hi hagués cap i el lloc ofereix fer el test.
 
 ### 5.3 `js/diagnostic.js` i `js/resultat.js`
 
-`diagnostic.js` pinta una prova per pantalla i prou: cap fase prèvia,
-cap pista, cap segon intent, cap resolució. Com que les proves no surten del
+`diagnostic.js` pinta una prova per pantalla i prou: cap fase prèvia, cap
+pista, cap segon intent, cap resolució. Com que les proves no surten del
 banc, la pàgina **no carrega cap `data/fullN.js`** i s'obre a l'instant.
+
+Tampoc diu si la resposta era bona. El test no és un examen, i saber-ho
+pregunta a pregunta només hi afegiria pressió al moment en què l'alumne
+encara s'hi està posant; tot ve junt a `resultat.html`. Entre pregunta i
+pregunta hi ha una pausa d'1,5 s amb l'avís "Passem a la següent pregunta…",
+i mentre dura la targeta queda inerta (`.inert`, sense `pointer-events`) per
+si algú clica de pressa: sense això, un doble clic podria menjar-se una
+pregunta.
 L'autopercepció no té pantalla pròpia: va dins de cada prova. Preguntar "et
 costen les potències?" davant d'una llista de títols és molt menys fiable que
 ensenyar $2^5\cdot 2^{-3}:2^2$ i preguntar-ho allà mateix, amb la destresa a
@@ -362,10 +379,11 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
 - **El test cobreix 34 dels 46 blocs.** Els 12 restants no es poden
   recomanar automàticament; s'hi arriba navegant. Ampliar la cobertura vol
   dir escriure més proves, no canviar cap algorisme.
-- **La verificació és d'una sola pregunta.** Qui diu que domina un tema i
-  falla per un badall queda marcat com a `falsa_seguretat`. Es va acceptar a
-  canvi de la brevetat: el cost d'anar a parar a un tema que ja se sap és
-  baix, i el de saltar-se'n un que no se sap, alt.
+- **La verificació és d'una sola pregunta.** Qui domina un tema i falla per
+  un badall queda marcat com a `falsa_seguretat`; qui no en sap i encerta de
+  sort, com a `dominat`. Es va acceptar a canvi de la brevetat: el cost
+  d'anar a parar a un tema que ja se sap és baix, i amb 15 proves la sort no
+  mou gaire el resultat global.
 - **La longitud d'enunciat com a proxy de dificultat** ordena l'itinerari.
   Mesura esforç de lectura, no dificultat matemàtica; per ordenar de més
   senzill a més complet dins d'un bloc fa el fet, però no és una mesura

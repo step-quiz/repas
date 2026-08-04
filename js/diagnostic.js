@@ -1,10 +1,14 @@
 /* diagnostic.js — controlador de diagnostic.html.
 
-   Una prova per pantalla, en ordre de currículum. A cada prova l'alumne
-   marca en quin estat es troba; si diu que la sap resoldre, apareixen les
-   quatre opcions i l'ha de contestar. Res més: no hi ha pistes, ni segon
-   intent, ni resolució. Això és una mesura, no una pràctica — el cicle
-   d'aprenentatge ja el fa practica.html.
+   Una prova per pantalla, en ordre de currículum. A cada prova l'alumne fa
+   dues coses: primer diu en quin estat es troba, i tot seguit contesta la
+   pregunta de veritat. L'única resposta que se salta la pregunta és "no
+   recordo haver-ho fet mai": allà no hi ha res a mesurar.
+
+   Res més: no hi ha pistes, ni segon intent, ni resolució. Això és una
+   mesura, no una pràctica — el cicle d'aprenentatge ja el fa practica.html.
+   Tampoc es diu si la resposta era bona: el test no és un examen i saber-ho
+   pregunta a pregunta només afegiria pressió; tot ve junt a resultat.html.
 
    No es carrega cap data/fullN.js: les proves són a js/proves-inicials.js i
    la pàgina s'obre a l'instant. */
@@ -13,8 +17,22 @@
   var $ = function (s) { return document.querySelector(s); };
   var LLETRES = ["A", "B", "C", "D"];
 
+  /* Pausa entre pregunta i pregunta. Prou perquè el canvi de pantalla no
+     sigui un cop sec i l'alumne noti que ha passat de pregunta, prou curta
+     perquè no faci l'efecte d'estar esperant. */
+  var PAUSA = 1500;
+
   var PROVES = RE_PROVES.PROVES, ESTATS = RE_PROVES.ESTATS;
   var idx = 0, respostes = [];
+
+  /* Com es demana la resposta segons el que l'alumne acaba de dir. La
+     pregunta és la mateixa; el que canvia és que a qui ha dit que no se'n
+     recorda li demanem que ho provi igualment, no que ho demostri. */
+  var DEMANA = {
+    domino: "Doncs va: quina és la resposta?",
+    oblidat: "Prova-ho igualment: quina creus que és la resposta?",
+    no_entes: "Prova-ho igualment: quina creus que és la resposta?"
+  };
 
   function barreja(a) {
     var c = a.slice();
@@ -30,22 +48,37 @@
     $("#barra-test i").style.width = Math.round(100 * idx / PROVES.length) + "%";
   }
 
-  /* Registra la resposta i passa a la següent prova (o al final). */
+  /* Registra la resposta, ensenya l'avís de transició i, després de la
+     pausa, passa a la següent prova (o al final). Durant la pausa la
+     targeta queda inerta: cap botó respon. */
   function respon(prova, estat, encert) {
     respostes.push({ prova: prova.id, estat: estat, encert: encert });
     idx++;
-    if (idx < PROVES.length) pinta();
-    else acaba();
+
+    $("#targeta-test").classList.add("inert");
+    var avis = $("#transicio");
+    avis.hidden = false;
+    avis.textContent = idx < PROVES.length
+      ? "Passem a la següent pregunta…"
+      : "Ja està: preparem el teu resultat…";
+    $("#barra-test i").style.width = Math.round(100 * idx / PROVES.length) + "%";
+
+    setTimeout(function () {
+      avis.hidden = true;
+      $("#targeta-test").classList.remove("inert");
+      if (idx < PROVES.length) pinta();
+      else acaba();
+    }, PAUSA);
   }
 
-  /* Les quatre opcions, només per a qui ha dit que ho sap resoldre. Es
-     pinten barrejades; l'índex original va a data-orig perquè saber quina
-     és la bona no depengui de la posició. */
-  function pintaOpcions(prova) {
+  /* Les quatre opcions de la pregunta de veritat. Es pinten barrejades;
+     l'índex original va a data-orig perquè saber quina és la bona no
+     depengui de la posició. */
+  function pintaOpcions(prova, estat) {
     var cont = $("#comprovacio");
     cont.hidden = false;
     cont.innerHTML = '<p class="petit apagat" style="margin:0 0 .5rem">' +
-      "Doncs va: quina és la resposta?</p>" +
+      DEMANA[estat] + "</p>" +
       '<div class="opcions" id="opcions-test"></div>';
     var caixa = $("#opcions-test");
     barreja(prova.opcions.map(function (o, i) { return { text: o, orig: i }; }))
@@ -53,9 +86,14 @@
         var b = document.createElement("button");
         b.type = "button";
         b.className = "opcio";
+        b.setAttribute("data-orig", o.orig);
         b.innerHTML = '<span class="lletra">' + LLETRES[i] + "</span>" +
                       '<span class="cos">' + o.text + "</span>";
-        b.onclick = function () { respon(prova, "domino", o.orig === prova.ok); };
+        b.onclick = function () {
+          if ($("#targeta-test").classList.contains("inert")) return;
+          b.classList.add("tria");
+          respon(prova, estat, o.orig === prova.ok);
+        };
         caixa.appendChild(b);
       });
     RE.mat(caixa);
@@ -77,15 +115,19 @@
       var b = document.createElement("button");
       b.type = "button";
       b.className = "opcio opcio-estat";
+      b.setAttribute("data-estat", e.id);
       b.innerHTML = '<span class="cos">' + e.text + "</span>";
       b.onclick = function () {
-        if (e.id === "domino") {
-          /* Marquem la tria i demanem la comprovació, sense avançar encara. */
-          [].forEach.call(cont.children, function (x) { x.classList.remove("triada"); });
-          b.classList.add("triada");
-          pintaOpcions(prova);
+        if ($("#targeta-test").classList.contains("inert")) return;
+        [].forEach.call(cont.children, function (x) { x.classList.remove("triada"); });
+        b.classList.add("triada");
+        if (e.id === "mai") {
+          /* No ho ha vist mai: no hi ha res a preguntar. */
+          $("#comprovacio").hidden = true;
+          respon(prova, "mai", null);
         } else {
-          respon(prova, e.id, null);
+          /* Ha dit alguna cosa sobre el seu estat; ara, la pregunta. */
+          pintaOpcions(prova, e.id);
         }
       };
       cont.appendChild(b);
@@ -101,7 +143,7 @@
     $("#fase-final").hidden = false;
     RE_DIAG.desa(respostes);
     RE_ITI.esborra();   /* qualsevol itinerari anterior ja no correspon */
-    setTimeout(function () { location.href = "resultat.html"; }, 500);
+    location.href = "resultat.html";
   }
 
   $("#fase-carrega").hidden = true;

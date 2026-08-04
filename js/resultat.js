@@ -31,12 +31,17 @@
      En comptes d'un "X de 15 encertades", que aquí no voldria dir res (no
      totes les proves es contesten), el resum diu quantes destreses estan en
      cada situació. És el que l'alumne pot fer servir per orientar-se. */
-  var trossos = [];
-  if (comptes.dominat) trossos.push("<strong>" + comptes.dominat + "</strong> les tens");
-  if (comptes.oblidat) trossos.push("<strong>" + comptes.oblidat + "</strong> rovellades");
-  if (comptes.no_entes) trossos.push("<strong>" + comptes.no_entes + "</strong> que no vas entendre");
-  if (comptes.mai) trossos.push("<strong>" + comptes.mai + "</strong> que no havies vist");
-  if (comptes.falsa_seguretat) trossos.push("<strong>" + comptes.falsa_seguretat + "</strong> que donaves per sabudes");
+  var FRASES = [
+    ["dominat", "les tens"],
+    ["recuperat", "que tenies més a mà del que et pensaves"],
+    ["infravalorat", "que et surten millor del que et penses"],
+    ["oblidat", "rovellades"],
+    ["no_entes", "que no vas entendre"],
+    ["mai", "que no havies vist"],
+    ["falsa_seguretat", "que donaves per sabudes"]
+  ];
+  var trossos = FRASES.filter(function (f) { return comptes[f[0]]; })
+    .map(function (f) { return "<strong>" + comptes[f[0]] + "</strong> " + f[1]; });
   $("#resum-linia").innerHTML = "De " + total + " destreses: " + trossos.join(", ") + ".";
 
   /* ---- el que donava per sabut i no ho estava ---- */
@@ -52,6 +57,26 @@
       html += '<div class="errada"><strong>' + a.tema + "</strong></div>";
     });
     contDesajust.innerHTML = html;
+  }
+
+  /* L'altra cara: temes que deia que no dominava i ha encertat. Val la pena
+     dir-ho, perquè el que hi falla sovint no és la destresa sinó la
+     confiança, i això canvia com s'hi posa. */
+  var bones = analisi.filter(function (a) {
+    return a.situacio === "infravalorat" || a.situacio === "recuperat";
+  });
+  var contBones = $("#bones");
+  if (!bones.length) {
+    contBones.hidden = true;
+  } else {
+    var h2 = "<h2>Ho tens més bé del que et penses</h2>" +
+      '<p class="petit apagat" style="margin:.3rem 0 .7rem">Deies que aquests temes ' +
+      "no els dominaves, i els has encertat.</p>";
+    bones.forEach(function (a) {
+      h2 += '<div class="errada bona-noticia"><strong>' + a.tema + "</strong> · " +
+            a.etiqueta + "</div>";
+    });
+    contBones.innerHTML = h2;
   }
 
   /* ---- per on comencem ---- */
@@ -73,9 +98,9 @@
      En ordre de currículum, no per urgència: així l'alumne veu el recorregut
      de l'ESO tal com el va fer i on se li va trencar. */
   var COLOR = {
-    dominat: "var(--verd)", oblidat: "var(--ambre)",
-    no_entes: "var(--vermell)", mai: "var(--vermell)",
-    falsa_seguretat: "var(--vermell)"
+    dominat: "var(--verd)", recuperat: "var(--verd)", infravalorat: "var(--verd)",
+    oblidat: "var(--ambre)",
+    no_entes: "var(--vermell)", mai: "var(--vermell)", falsa_seguretat: "var(--vermell)"
   };
   var contTaula = $("#taula-proves");
   contTaula.innerHTML = "";

@@ -43,8 +43,9 @@ personalitzat d'exercicis.
 
 1. **`diagnostic.html`** — test inicial: 15 destreses clau, una per
    pantalla, en ordre de currículum. A cada una l'alumne diu si la sap fer,
-   si la té oblidada, si no la va entendre o si no l'havia vist mai. Quan diu
-   que la sap fer, i només llavors, ha de contestar-la per confirmar-ho.
+   si la té oblidada, si no la va entendre o si no l'havia vist mai, i tot
+   seguit la contesta. L'única resposta que se salta la pregunta és "no ho he
+   fet mai", perquè allà no hi ha res a mesurar.
 2. **`resultat.html`** — en quina situació està cada destresa, què donava
    per sabut i no ho estava, i l'entrada a l'itinerari.
 3. **`itinerari.html`** — un recorregut d'uns 24 exercicis dels blocs més

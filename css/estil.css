@@ -153,3 +153,9 @@ a.full:hover{border-color:var(--blau)}
 .opcio-estat{align-items:center}
 .opcio-estat .cos{line-height:1.35}
 .opcio-estat.triada{border-color:var(--blau);background:var(--blau-suau)}
+.opcio-estat[data-estat="mai"]{color:var(--apagat)}
+.targeta.inert{pointer-events:none;opacity:.55;transition:opacity .2s}
+.transicio{margin:.9rem 0 0;color:var(--blau);font-weight:600}
+
+/* ---- resultat.html: les situacions on l'alumne se subestimava ---- */
+.errada.bona-noticia{border-left-color:var(--verd);background:var(--verd-suau)}
