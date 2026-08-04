@@ -27,10 +27,34 @@ window.RE_ITI = (function () {
      sistemàticament més senzill d'encarar que un de llarg amb diversos
      passos). No cal que sigui una mesura perfecta de dificultat real, només
      prou bona per ordenar fàcil abans que difícil dins de cada bloc. */
+  /* Nivell d'un exercici: el camp `dif` que hi posa el generador (1 directa,
+     2 encadenada, 3 completa; vegeu tools/lib.py). Si un full compilat abans
+     que existís el camp queda a la memòria cau del navegador, els seus ítems
+     cauen tots al nivell 2 i el desempat per longitud fa la feina, com abans. */
+  function niv(it) { return it.dif || 2; }
+
   function ordenaPerDificultat(items) {
     return items.slice().sort(function (a, b) {
+      if (niv(a) !== niv(b)) return niv(a) - niv(b);
       return a.enunciat.length - b.enunciat.length;
     });
+  }
+
+  function barreja(a) {
+    var c = a.slice();
+    for (var i = c.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = c[i]; c[i] = c[j]; c[j] = t;
+    }
+    return c;
+  }
+
+  /* n exercicis d'entre els més senzills d'un grup, amb una mica de marge
+     perquè dues rutes seguides no siguin calcades. */
+  function mostra(items, n) {
+    if (n >= items.length) return items.slice();
+    var finestra = Math.min(items.length, Math.max(n + 2, Math.ceil(n * 1.6)));
+    return barreja(items.slice(0, finestra)).slice(0, n);
   }
 
   /* Passa dels temes del test als blocs del lloc, amb un pes per bloc.
@@ -120,24 +144,49 @@ window.RE_ITI = (function () {
      estreta perquè els ítems triats segueixin sent dels senzills del bloc, i
      el resultat es torna a ordenar per dificultat abans de retornar-lo. */
   function triaAmbVarietat(items, quota) {
-    if (quota >= items.length) return items.slice();
-    var finestra = Math.min(items.length, Math.max(quota + 2, Math.ceil(quota * 1.6)));
-    var pool = items.slice(0, finestra);
-    for (var i = pool.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    if (quota <= 0) return [];
+    var ordenats = ordenaPerDificultat(items);
+    if (quota >= ordenats.length) return ordenats;
+
+    var grups = [1, 2, 3].map(function (n) {
+      return { niv: n, items: ordenats.filter(function (it) { return niv(it) === n; }) };
+    }).filter(function (g) { return g.items.length; });
+
+    /* Primer un exercici de cada nivell que hi hagi al bloc, i només després
+       es reparteix la resta. Amb les quotes normals (2-4 per bloc) això sol ja
+       fa que la ruta pugi: abans agafava sempre del graó d'entrada i els
+       exercicis substanciosos d'un bloc no sortien mai.
+
+       El sobrant es reparteix pesant cap avall (3-2-1 per als nivells 1-2-3),
+       perquè qui ha de reconstruir un tema necessita més rodatge a baix que a
+       dalt; la divisió per `presos+1` fa que el pes vagi baixant a mesura que
+       un nivell s'omple, i així no se n'emporta tot. */
+    var presos = grups.map(function () { return 0; });
+    var resta = quota, i;
+    for (i = 0; i < grups.length && resta > 0; i++) { presos[i] = 1; resta--; }
+    while (resta > 0) {
+      var millor = -1, punts = -1;
+      for (i = 0; i < grups.length; i++) {
+        if (presos[i] >= grups[i].items.length) continue;
+        var p = (4 - grups[i].niv) / (presos[i] + 1);
+        if (p > punts) { punts = p; millor = i; }
+      }
+      if (millor < 0) break;
+      presos[millor]++; resta--;
     }
-    return pool.slice(0, quota).sort(function (a, b) {
-      return a.enunciat.length - b.enunciat.length;
-    });
+
+    var tria = [];
+    grups.forEach(function (g, k) { tria = tria.concat(mostra(g.items, presos[k])); });
+    return ordenaPerDificultat(tria);
   }
 
-  /* Genera la ruta: de cada bloc, `quota` preguntes d'entre les més
-     senzilles, i després intercala entre blocs (round-robin: un ítem de cada
-     bloc per torn) perquè l'alumne vagi canviant de tema en lloc de fer un
-     bloc sencer abans de passar al següent. Intercalar només es pot fer un
-     cop cada bloc ja està ordenat: barrejar-ho tot junt perdria l'ordre de
-     dificultat.
+  /* Genera la ruta: de cada bloc, `quota` preguntes graduades de més
+     senzilles a més completes, i després intercala entre blocs (round-robin:
+     un ítem de cada bloc per torn) perquè l'alumne vagi canviant de tema en
+     lloc de fer un bloc sencer abans de passar al següent. Com que cada cua
+     ja ve ordenada per dificultat i el round-robin les recorre en paral·lel,
+     la ruta sencera també puja: els primers torns són els graons d'entrada de
+     tots els blocs i els últims, els exercicis complets.
 
      `jaFet(full, id)` és opcional: si es passa, els exercicis que l'alumne ja
      ha resolt queden al final de la cua de cada bloc i, a la pràctica, fora

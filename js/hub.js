@@ -76,11 +76,17 @@
     var cont = $("#errades");
     if (!tops.length) { cont.hidden = true; return; }
 
+    /* El text que es mostra és la descripció genèrica de l'etiqueta (D.errors,
+       que ve del catàleg TAX): aquí s'agreguen errors de diversos exercicis i
+       el que cal és el malentès, no els números d'un exercici concret. Si una
+       etiqueta no és al catàleg, es cau al diagnòstic del primer ítem que la
+       fa servir, que és el que es feia abans. */
     var textos = {};
     D.items.forEach(function (it) {
       var k = RE.clau(it);
       k.err.forEach(function (e, i) { if (e && !textos[e]) textos[e] = k.diag[i]; });
     });
+    Object.keys(D.errors || {}).forEach(function (e) { textos[e] = D.errors[e]; });
 
     cont.hidden = false;
     cont.innerHTML = "<h2>Els errors que repeteixes</h2>" +
