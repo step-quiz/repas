@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analitzador de codis · Repàs d'ESO</title>
+<style>
+:root{
+  --fons:#FBFAF8; --card:#FFF; --tinta:#1F2933; --apagat:#6B7480; --vora:#E4E1DB;
+  --verd:#2E7D5B; --verd-suau:#E8F3ED; --ambre:#B8860B; --ambre-suau:#FBF3DF;
+  --vermell:#B3453C; --vermell-suau:#FBEDEB; --blau:#2C5D82; --blau-suau:#E9F0F6;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--tinta);font:15px/1.6 var(--sans)}
+.embolcall{max-width:1180px;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-size:1.5rem;margin:.2rem 0 .3rem}
+h2{font-size:1.05rem;margin:1.9rem 0 .6rem}
+h3{font-size:.95rem;margin:0 0 .45rem}
+.cimera{font:600 11px/1.6 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--apagat);margin:0}
+.petit{font-size:13px} .apagat{color:var(--apagat)} .mono{font-family:var(--mono)}
+.targeta{background:var(--card);border:1px solid var(--vora);border-radius:12px;padding:1rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--tinta);
+  background:var(--tinta);color:#fff;border-radius:9px;padding:.5rem .85rem;
+  font:600 14px var(--sans);cursor:pointer}
+.btn:hover{filter:brightness(1.15)}
+.btn.buit{background:transparent;color:var(--tinta);border-color:var(--vora)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+textarea{width:100%;min-height:130px;font:13px/1.5 var(--mono);padding:.7rem;
+  border:1px solid var(--vora);border-radius:9px;background:var(--card);color:var(--tinta);resize:vertical}
+input[type=text],select{font:14px var(--sans);padding:.42rem .55rem;border:1px solid var(--vora);
+  border-radius:8px;background:var(--card);color:var(--tinta)}
+.pestanyes{display:flex;gap:.4rem;margin:1rem 0 1.1rem;flex-wrap:wrap}
+.pestanya{border:1px solid var(--vora);background:var(--card);color:var(--apagat);
+  border-radius:9px;padding:.45rem .8rem;font:600 13px var(--sans);cursor:pointer}
+.pestanya.activa{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font:600 11px/1.6 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+  color:var(--apagat);border-bottom:1px solid var(--vora);padding:.45rem .5rem;white-space:nowrap}
+td{padding:.45rem .5rem;border-bottom:1px solid var(--vora);vertical-align:top}
+tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+.taula-env{overflow-x:auto}
+.punts{display:flex;flex-wrap:wrap;gap:2px;max-width:340px}
+.pt{width:9px;height:9px;border-radius:2px;background:#EDEAE4}
+.pt.net{background:var(--verd)} .pt.segon{background:#7FB79B}
+.pt.pista{background:var(--ambre)} .pt.fallat{background:var(--vermell)}
+.pt.vist{background:#C9C4BA}
+.pt-g{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
+  justify-content:center;font:600 11px var(--mono);color:#fff;background:#EDEAE4}
+.llegenda{display:flex;gap:.9rem;flex-wrap:wrap;font-size:12px;color:var(--apagat);margin-top:.5rem}
+.llegenda i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:.3rem;background:#EDEAE4}
+.marca{font-weight:700}
+.ok{color:var(--verd)} .avis{color:var(--ambre)} .mal{color:var(--vermell)}
+.buit{padding:2.4rem 1rem;text-align:center;color:var(--apagat);border:1px dashed var(--vora);border-radius:12px}
+.filtres{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.9rem 0}
+.detall{background:var(--blau-suau);border-radius:0 0 10px 10px}
+.detall td{padding:.9rem 1rem}
+.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.7rem}
+.dada{background:var(--card);border:1px solid var(--vora);border-radius:9px;padding:.55rem .7rem}
+.dada b{display:block;font:600 10px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--apagat)}
+.bloc-fila{margin:.55rem 0}
+.bloc-fila h4{margin:0 0 .25rem;font:600 12px/1.5 var(--mono);color:var(--apagat)}
+.xip{display:inline-block;font:600 11px/1.5 var(--mono);padding:.12rem .4rem;border-radius:5px;
+  background:var(--vermell-suau);color:var(--vermell);margin:1px}
+.xip.ambre{background:var(--ambre-suau);color:#6B4200}
+.nota{font-weight:700;border-radius:6px;padding:.1rem .35rem}
+.n-alta{background:var(--verd-suau);color:var(--verd)}
+.n-mitja{background:var(--ambre-suau);color:#6B4200}
+.n-baixa{background:var(--vermell-suau);color:var(--vermell)}
+.ajuda li{margin-bottom:.45rem}
+</style>
+</head>
+<body>
+<main class="embolcall">
+  <p class="cimera">Repàs per començar 1r de batxillerat</p>
+  <h1>Analitzador de codis</h1>
+  <p class="apagat petit" style="margin:.3rem 0 0">
+    Enganxa aquí el full de respostes del formulari (o un sol codi) i et diu qui ha
+    fet què, què li falla i si el codi és autèntic. Tot passa en aquest navegador:
+    no s'envia res enlloc.
+  </p>
+
+  <div class="pestanyes">
+    <button class="pestanya activa" data-mode="full">Full de respostes</button>
+    <button class="pestanya" data-mode="un">Un sol codi</button>
+    <button class="pestanya" data-mode="ajuda">Com funciona</button>
+  </div>
+
+  <!-- ── FULL DE RESPOSTES ────────────────────────────────────────────── -->
+  <section id="v-full">
+    <div class="targeta">
+      <h3>Enganxa el full</h3>
+      <p class="petit apagat" style="margin:0 0 .6rem">
+        Al Google Sheet: selecciona-ho tot (Ctrl+A) i copia (Ctrl+C). També pots
+        obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
+        marca temporal o grup, també les farà servir.
+      </p>
+      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC1AM-8599X-…"></textarea>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
+        <button class="btn" id="btn-llegeix">Llegeix</button>
+        <label class="btn buit" style="position:relative;overflow:hidden">
+          Obre un CSV
+          <input type="file" id="fitxer" accept=".csv,.tsv,.txt"
+                 style="position:absolute;inset:0;opacity:0;cursor:pointer">
+        </label>
+        <button class="btn buit" id="btn-exemple">Posa-hi un exemple</button>
+        <span class="petit apagat" id="estat-carrega"></span>
+      </div>
+    </div>
+
+    <div id="resultats" hidden>
+      <div class="filtres">
+        <input type="text" id="f-text" placeholder="Filtra per alumne o grup…" style="min-width:220px">
+        <select id="f-full"><option value="">Tots els fulls</option></select>
+        <select id="f-estat">
+          <option value="">Tots els estats</option>
+          <option value="ok">Només els correctes</option>
+          <option value="avis">Amb avís</option>
+          <option value="mal">Amb problema</option>
+        </select>
+        <span class="petit apagat" id="compte"></span>
+        <span style="flex:1"></span>
+        <button class="btn buit petit" id="btn-csv">Baixa el resum (CSV)</button>
+      </div>
+
+      <h2>Per alumne</h2>
+      <div class="taula-env"><table id="t-alumnes"></table></div>
+
+      <h2>Enviaments</h2>
+      <div class="taula-env"><table id="t-env"></table></div>
+      <div class="llegenda">
+        <span><i style="background:var(--verd)"></i>a la primera</span>
+        <span><i style="background:#7FB79B"></i>al segon intent</span>
+        <span><i style="background:var(--ambre)"></i>amb pista</span>
+        <span><i style="background:var(--vermell)"></i>fallat</span>
+        <span><i style="background:#C9C4BA"></i>començat</span>
+        <span><i></i>per fer</span>
+      </div>
+
+      <h2>Què falla més</h2>
+      <div id="agregat"></div>
+    </div>
+  </section>
+
+  <!-- ── UN SOL CODI ──────────────────────────────────────────────────── -->
+  <section id="v-un" hidden>
+    <div class="targeta">
+      <h3>Enganxa un codi</h3>
+      <input type="text" id="codi-un" placeholder="RC1AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+      <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
+    </div>
+    <div id="un-resultat" style="margin-top:1rem"></div>
+  </section>
+
+  <!-- ── AJUDA ────────────────────────────────────────────────────────── -->
+  <section id="v-ajuda" hidden>
+    <div class="targeta">
+      <h3>Com funciona</h3>
+      <ol class="ajuda petit">
+        <li><b>L'alumne fa exercicis</b> a repàs-ESO. El progrés es desa al seu navegador.</li>
+        <li><b>Demana el codi</b> a la pàgina d'un full (només aquell full) o a la portada
+            (tota la feina). El codi és una fotografia completa: quins exercicis ha fet i
+            com li han anat, un per un.</li>
+        <li><b>L'envia per un Google Form</b> amb una pregunta de text curt. Cada codi nou
+            substitueix l'anterior, així que si se n'oblida un cap, el següent ja ho porta tot.</li>
+        <li><b>Enganxes el full aquí.</b> Sense pujar res enlloc: tot el càlcul passa
+            en aquest navegador.</li>
+      </ol>
+
+      <h3 style="margin-top:1.2rem">Què vol dir cada marca</h3>
+      <ul class="ajuda petit">
+        <li><span class="marca ok">✓</span> El codi és íntegre i s'ha enviat poc després de generar-lo.</li>
+        <li><span class="marca avis">!</span> Íntegre, però han passat més de 30 minuts entre
+            generar-lo i enviar-lo. Sol ser innocent (l'alumne el va desar i el va enviar
+            més tard), però és on es veuria un codi passat d'un company.</li>
+        <li><span class="marca mal">✗</span> Els caràcters de control no quadren: o s'ha copiat
+            malament, o s'ha modificat.</li>
+      </ul>
+
+      <h3 style="margin-top:1.2rem">Sobre l'antifrau</h3>
+      <p class="petit apagat" style="margin:0">
+        El codi acaba amb dos caràcters calculats a partir de tots els altres, en l'esperit
+        de la lletra del DNI però amb un mòdul primer i pesos per posició. Detecta
+        <b>totes</b> les substitucions d'un caràcter i <b>totes</b> les transposicions de dos:
+        si l'alumne canvia un "fallat" per un "a la primera", surt. Un canvi a l'atzar
+        s'escaparia una vegada de cada mil.
+      </p>
+      <p class="petit apagat" style="margin:.6rem 0 0">
+        La nota no viatja dins del codi: es calcula aquí a partir del detall exercici a
+        exercici. Així no hi pot haver un codi on la nota i el detall es contradiguin, que és
+        per on s'esmuny la manipulació en aquesta mena de sistemes.
+      </p>
+    </div>
+  </section>
+
+  <p class="petit apagat" style="margin-top:2.6rem">
+    Generat per <span class="mono">tools/build_analitzador.py</span>. Taules de la versió
+    <span class="mono" id="peu-versio"></span>.
+  </p>
+</main>
+
+<script>window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",0,18],["Divisibilitat",19,44],["Fraccions",45,85],["Decimals",86,139]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",0,22],["Exponent negatiu i equacions",23,41],["Verifica, corregeix i simplifica",42,61],["Combina potències",62,75]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",0,19],["Progressions aritmètiques",20,32],["Progressions geomètriques",33,43],["Aplicacions",44,49]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",0,13],["Divisió de polinomis i regla de Ruffini",14,34],["Igualtats notables",35,46],["Factor comú i simplificació",47,58]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",0,26],["Segon grau: fórmula i discriminant",27,40],["Segon grau: factor comú i factorització",41,62],["Sistemes d'equacions",63,87],["Problemes amb equacions i sistemes",88,98]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118"],"blocs":[["Proporcionalitat directa i inversa",0,9],["Percentatges",10,14],["Augments i disminucions encadenats",15,20]],"dif":"122122222311222333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",0,24],["Àrees amb el teorema de Pitàgores",25,33],["Àrees de quadrilàters i polígons regulars",34,47],["Problemes d'aplicació",48,54]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e"],"blocs":[["Teorema de Tales",0,7],["Semblança de triangles",8,31],["Escales",14,19],["Aplicacions de la semblança",20,28]],"dif":"11111222111122112222333333333222"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199"],"blocs":[["Prismes i el cub",0,11],["Piràmides i tetraedres",12,22],["Cilindres, cons i l'esfera",23,33],["Volums i problemes aplicats",34,42]],"dif":"1111122233332222222333221133122233111133333"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b"],"blocs":[["Concepte de funció",0,17],["Funcions lineals i afins",18,31],["Funcions quadràtiques",32,44]],"dif":"222111111112222333111111111122221111223333322"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c"],"blocs":[["Variables estadístiques",0,11],["Taules de freqüències",12,50],["Gràfics estadístics",36,51]],"dif":"1111111111111112222223332222221111221333222222333222"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",0,19],["Combinatòria: principi multiplicatiu",20,30],["Regla de Laplace i freqüència relativa",31,49],["Esdeveniments compostos",50,66]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};</script>
+<script>/* codi.js — codi de verificació de repàs-ESO: generació i lectura.
+
+   Les dues meitats viuen al mateix fitxer a propòsit. Si el generador i el
+   lector són fitxers diferents, tard o d'hora divergeixen i el resultat és el
+   pitjor possible: codis que es llegeixen malament sense que res avisi.
+   L'analitzador carrega aquest mateix fitxer.
+
+   ── QUÈ PORTA EL CODI ──────────────────────────────────────────────────────
+
+   Un codi és una fotografia COMPLETA del progrés de l'alumne en un o més
+   fulls, en el moment de generar-lo. No és un tiquet d'una sessió: és
+   acumulatiu, i cada codi nou substitueix l'anterior. Això encaixa amb com
+   s'usa repàs-ESO —treball propi, a estones, durant setmanes— i té dues
+   conseqüències bones: si l'alumne s'oblida d'enviar-ne un, el següent ja
+   conté tot el que faltava; i el professorat només ha de mirar l'últim.
+
+   ── FORMAT ────────────────────────────────────────────────────────────────
+
+     RC1 SSS DD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
+
+     RC1   3   marca i versió
+     SSS   3   salt aleatori
+     DD    2   dia (dies des de l'1/9/2025)
+     HH    2   hora (minuts/2 des de mitjanit)
+     MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
+     G     1   nombre de grups d'aquest full
+     ····  4   un grup = 7 ítems en base 6
+     DIAG  9   15 destreses del test inicial, en base 8 (si el bit 12 és actiu)
+     EEEE  9   les 3 etiquetes d'error més repetides (índex 2 car. + compte 1)
+     KK    2   dos caràcters de control
+
+   Estat de cada ítem (base 6): 0 per fer · 1 net · 2 al segon intent ·
+   3 amb pista · 4 fallat · 5 començat sense respondre.
+
+   Els grups finals que són tot zeros no s'escriuen: un alumne que ha fet els
+   20 primers exercicis d'un full de 140 no arrossega 120 zeros.
+
+   ── ELS DOS CARÀCTERS DE CONTROL ──────────────────────────────────────────
+
+   La lletra del DNI és una suma mod 23 pensada per a 8 xifres. Aquí la
+   càrrega pot passar dels 400 caràcters i cal alguna cosa més, per dos
+   motius:
+
+   1. Una suma SENSE pesos no detecta mai una transposició. Si en copiar
+      s'intercanvien dos caràcters, la suma no es mou. Amb càrregues llargues
+      això passa sovint, així que la suma va pesada per la posició.
+   2. El mòdul ha de ser més gran que l'alfabet. Amb 32 caràcters i mòdul 31,
+      el "0" i la "Z" valen el mateix (0 i 31 són congruents) i confondre'ls
+      no trencaria res.
+
+   Per això el control és un sol valor de 0 a 1020 escrit en dos caràcters:
+
+     K = ( Σ (i+1)·valor(car_i) )  mod 1021        (1021 és primer)
+     K'= ( 317·K + 613 )           mod 1021        (barreja, com fa el DNI)
+
+   Com que 1021 és primer i més gran que qualsevol valor de caràcter i que la
+   llargada del codi, això detecta **totes** les substitucions d'un caràcter i
+   **totes** les transposicions de dos, sense excepció. Un canvi a l'atzar
+   se n'escapa amb probabilitat 1/1021.
+
+   ── I LA CADENA D'ESTATS? ─────────────────────────────────────────────────
+
+   El forat clàssic d'aquests codis és que el control cobreix la nota però no
+   el detall pregunta a pregunta, i llavors es pot retocar el detall sense
+   trencar res. Aquí no hi ha aquest forat per construcció: el control es
+   calcula sobre TOTS els caràcters del codi, detall inclòs. A més, la nota no
+   s'hi guarda: es deriva dels estats en llegir-lo, de manera que no hi ha dos
+   nombres que puguin contradir-se.
+*/
+window.RE_CODI = (function () {
+  "use strict";
+
+  /* Alfabet sense I, L, O ni U: evita confondre 1/I/L i 0/O en llegir un codi
+     a mà o dictar-lo, i evita que hi surtin paraules per casualitat. */
+  var ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+
+  var EPOCA = Date.UTC(2025, 8, 1);           /* 1 de setembre de 2025 */
+  var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
+  var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
+
+  function val(c) { return ALF.indexOf(c); }
+
+  /* Enter -> n caràcters base32, amb zeros al davant. */
+  function enc(num, n) {
+    var s = "";
+    for (var i = 0; i < n; i++) { s = ALF.charAt(num % 32) + s; num = Math.floor(num / 32); }
+    return s;
+  }
+  function dec(s) {
+    var n = 0;
+    for (var i = 0; i < s.length; i++) n = n * 32 + val(s.charAt(i));
+    return n;
+  }
+
+  /* Normalitza el que ha enganxat una persona: fora espais i guions, i les
+     confusions típiques de teclat cap al caràcter que sí que és a l'alfabet. */
+  function neteja(raw) {
+    return String(raw || "").toUpperCase()
+      .replace(/[\s\-–—_.]/g, "")
+      .replace(/[IL]/g, "1").replace(/O/g, "0").replace(/U/g, "V");
+  }
+
+  var P = 1021, MULT = 317, DESPL = 613;
+
+  function control(cos) {
+    var k = 0;
+    for (var i = 0; i < cos.length; i++) {
+      var v = val(cos.charAt(i));
+      if (v < 0) return null;                 /* caràcter fora de l'alfabet */
+      k = (k + (i + 1) * v) % P;
+    }
+    return enc((MULT * k + DESPL) % P, 2);
+  }
+
+  /* Presentació: grups de 5, que és el que la gent pot comparar d'un cop d'ull. */
+  function formata(s) { return (s.match(/.{1,5}/g) || []).join("-"); }
+
+  // ── GENERACIÓ ────────────────────────────────────────────────────────────
+
+  /* fulls: [{n, estats:[...]}] amb estats en l'ordre de RE_TAULES.fulls[n].items
+     diag:  [{estat, encert}] × 15, o null
+     errs:  [[etiqueta, compte], ...] ja ordenat de més a menys */
+  function genera(opcions) {
+    var T = window.RE_TAULES;
+    var fulls = (opcions.fulls || []).filter(function (f) {
+      return f.estats.some(function (e) { return e; });
+    }).sort(function (a, b) { return a.n - b.n; });
+    var diag = opcions.diag || null;
+    var errs = opcions.errs || [];
+    var ara = opcions.ara ? new Date(opcions.ara) : new Date();
+
+    var salt = "";
+    for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
+
+    var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
+    dia = Math.max(0, Math.min(1023, dia));
+    var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
+
+    var mask = 0;
+    fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
+    if (diag) mask |= (1 << 12);
+
+    var cos = "RC1" + salt + enc(dia, 2) + enc(hora, 2) + enc(mask, 3);
+
+    fulls.forEach(function (f) {
+      var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
+      /* Els grups finals buits no s'escriuen. */
+      var ultim = -1;
+      codis.forEach(function (v, i) { if (v) ultim = i; });
+      var grups = Math.ceil((ultim + 1) / 7);
+      cos += enc(grups, 1);
+      for (var g = 0; g < grups; g++) {
+        var num = 0;
+        for (var k = 0; k < 7; k++) num = num * 6 + (codis[g * 7 + k] || 0);
+        cos += enc(num, 4);
+      }
+    });
+
+    if (diag) {
+      var d = 0;
+      /* 15 destreses en base 8: estat 0-3 (× 2) més encert 0/1. */
+      for (var j = 0; j < 15; j++) {
+        var p = diag[j] || {};
+        var e = Math.max(0, Math.min(3, p.estat | 0));
+        d = d * 8 + (e * 2 + (p.encert ? 1 : 0));
+      }
+      /* 45 bits no caben en un Number sencer amb multiplicacions successives:
+         es parteix en dos trossos de 8 i 7 destreses. */
+      var d1 = 0, d2 = 0;
+      for (var j1 = 0; j1 < 8; j1++) {
+        var p1 = diag[j1] || {};
+        d1 = d1 * 8 + ((Math.max(0, Math.min(3, p1.estat | 0))) * 2 + (p1.encert ? 1 : 0));
+      }
+      for (var j2 = 8; j2 < 15; j2++) {
+        var p2 = diag[j2] || {};
+        d2 = d2 * 8 + ((Math.max(0, Math.min(3, p2.estat | 0))) * 2 + (p2.encert ? 1 : 0));
+      }
+      cos += enc(d1, 5) + enc(d2, 5);
+    }
+
+    for (var m = 0; m < 3; m++) {
+      var par = errs[m];
+      if (par) {
+        var idx = T.etiquetes.indexOf(par[0]);
+        cos += (idx < 0) ? "ZZ0" : enc(idx, 2) + enc(Math.min(31, par[1]), 1);
+      } else {
+        cos += "ZZ0";
+      }
+    }
+
+    return formata(cos + control(cos));
+  }
+
+  // ── LECTURA ──────────────────────────────────────────────────────────────
+
+  function llegeix(raw) {
+    var T = window.RE_TAULES;
+    var s = neteja(raw);
+    if (!s) return { ok: false, error: "Codi buit" };
+    if (s.slice(0, 3) !== "RC1") {
+      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC1)" };
+    }
+    if (s.length < 15) return { ok: false, error: "Codi massa curt" };
+
+    var cos = s.slice(0, -2), kk = s.slice(-2);
+    var esperat = control(cos);
+    if (esperat === null) return { ok: false, error: "El codi porta caràcters que no hi haurien de ser" };
+    var integre = (esperat === kk);
+
+    var p = 3;
+    var salt = s.slice(p, p + 3); p += 3;
+    var dia = dec(s.slice(p, p + 2)); p += 2;
+    var hora = dec(s.slice(p, p + 2)); p += 2;
+    var mask = dec(s.slice(p, p + 3)); p += 3;
+
+    var data = new Date(EPOCA + dia * 86400000);
+    var minuts = hora * 2;
+
+    var fulls = [], r;
+    for (var n = 1; n <= 12; n++) {
+      if (!(mask & (1 << (n - 1)))) continue;
+      if (p >= cos.length) return { ok: false, error: "El codi s'acaba abans d'hora" };
+      var grups = dec(s.charAt(p)); p += 1;
+      var codis = [];
+      for (var g = 0; g < grups; g++) {
+        var num = dec(s.slice(p, p + 4)); p += 4;
+        var tros = [];
+        for (var k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
+        codis = codis.concat(tros);
+      }
+      var taula = T.fulls[n] || T.fulls[String(n)];
+      if (!taula) return { ok: false, error: "El codi parla del full " + n + ", que no conec" };
+      var items = taula.items.map(function (id, i) {
+        return { id: id, estat: ESTATS[codis[i] || 0], dif: +taula.dif.charAt(i) };
+      });
+      fulls.push({ n: n, titol: taula.titol, blocs: taula.blocs, items: items });
+    }
+
+    var diag = null;
+    if (mask & (1 << 12)) {
+      var d1 = dec(s.slice(p, p + 5)); p += 5;
+      var d2 = dec(s.slice(p, p + 5)); p += 5;
+      diag = [];
+      var b1 = [], b2 = [];
+      for (var i1 = 0; i1 < 8; i1++) { b1.unshift(d1 % 8); d1 = Math.floor(d1 / 8); }
+      for (var i2 = 0; i2 < 7; i2++) { b2.unshift(d2 % 8); d2 = Math.floor(d2 / 8); }
+      b1.concat(b2).forEach(function (v, i) {
+        diag.push({
+          prova: (T.proves[i] || {}).id || "?",
+          tema: (T.proves[i] || {}).tema || "?",
+          estat: v >> 1, encert: !!(v & 1)
+        });
+      });
+    }
+
+    var errs = [];
+    for (var m = 0; m < 3 && p + 2 < cos.length + 1; m++) {
+      var tros3 = s.slice(p, p + 3); p += 3;
+      if (tros3.slice(0, 2) === "ZZ") continue;
+      var idx = dec(tros3.slice(0, 2)), cnt = dec(tros3.charAt(2));
+      if (T.etiquetes[idx]) errs.push({ etiqueta: T.etiquetes[idx], compte: cnt });
+    }
+
+    r = {
+      ok: true, integre: integre, salt: salt,
+      data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
+      fulls: fulls, diag: diag, errs: errs,
+      error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
+    };
+    r.resum = resum(r);
+    return r;
+  }
+
+  /* Recompte i nota. La nota NO viatja dins del codi: es deriva aquí dels
+     estats. Així no hi pot haver un codi on la nota i el detall es
+     contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
+  function resum(r) {
+    var c = { net: 0, segon: 0, pista: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
+    var perDif = { 1: 0, 2: 0, 3: 0 };
+    r.fulls.forEach(function (f) {
+      f.items.forEach(function (it) {
+        if (!it.estat) return;
+        c[it.estat]++;
+        if (it.estat !== "vist") { fets++; punts += PES[it.estat]; perDif[it.dif]++; }
+      });
+    });
+    return {
+      comptes: c, fets: fets, perDif: perDif,
+      nota: fets ? Number((punts / (10 * fets) * 10).toFixed(1)) : null
+    };
+  }
+
+  // ── RECOLLIDA DE L'ESTAT DES DEL NAVEGADOR ───────────────────────────────
+
+  /* Munta l'argument de genera() a partir del que hi ha a localStorage.
+     `quins` és una llista de números de full, o null per a tots. */
+  function recull(quins) {
+    var T = window.RE_TAULES, fulls = [], compte = {};
+    var llista = quins || Object.keys(T.fulls).map(Number).sort(function (a, b) { return a - b; });
+
+    llista.forEach(function (n) {
+      var taula = T.fulls[n] || T.fulls[String(n)];
+      if (!taula) return;
+      var p = window.RE.llegeix(n).items || {};
+      var estats = taula.items.map(function (id) {
+        var it = p[id] || {};
+        if (it.err) compte[it.err] = (compte[it.err] || 0) + 1;
+        return it.estat || "";
+      });
+      fulls.push({ n: n, estats: estats });
+    });
+
+    var errs = Object.keys(compte)
+      .map(function (e) { return [e, compte[e]]; })
+      .sort(function (a, b) { return b[1] - a[1] || a[0].localeCompare(b[0]); })
+      .slice(0, 3);
+
+    var diag = null;
+    if (window.RE_DIAG && typeof window.RE_DIAG.llegeix === "function") {
+      var d = window.RE_DIAG.llegeix();
+      if (d && d.situacions) {
+        var ordre = { domino: 0, oblidat: 1, no_entes: 2, mai: 3 };
+        diag = T.proves.map(function (pr) {
+          var s = d.situacions.filter(function (x) { return x.prova === pr.id; })[0];
+          return s ? { estat: ordre[s.estat] || 0, encert: !!s.encert } : { estat: 3, encert: false };
+        });
+      }
+    }
+    return { fulls: fulls, errs: errs, diag: diag };
+  }
+
+  return {
+    genera: genera, llegeix: llegeix, recull: recull,
+    neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES
+  };
+})();
+</script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, d) { return (d || document).querySelector(s); };
+  var $$ = function (s, d) { return Array.prototype.slice.call((d || document).querySelectorAll(s)); };
+  var FORAT = 30;                 /* minuts entre generar i enviar abans d'avisar */
+  var files = [], obert = null;
+
+  $("#peu-versio").textContent = "v" + RE_TAULES.v;
+
+  // ── pestanyes ──────────────────────────────────────────────────────────
+  $$(".pestanya").forEach(function (b) {
+    b.onclick = function () {
+      $$(".pestanya").forEach(function (x) { x.classList.remove("activa"); });
+      b.classList.add("activa");
+      $("#v-full").hidden = b.dataset.mode !== "full";
+      $("#v-un").hidden = b.dataset.mode !== "un";
+      $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
+    };
+  });
+
+  // ── lectura del full enganxat ──────────────────────────────────────────
+  function trencaLinia(l, sep) {
+    var r = [], c = "", q = false;
+    for (var i = 0; i < l.length; i++) {
+      var ch = l.charAt(i);
+      if (ch === '"') q = !q;
+      else if (ch === sep && !q) { r.push(c.trim()); c = ""; }
+      else c += ch;
+    }
+    r.push(c.trim());
+    return r;
+  }
+
+  /* Un codi es reconeix pel seu propi principi, així que no depenem que la
+     columna es digui de cap manera concreta: si les capçaleres no ajuden,
+     es busca la columna que conté un codi. */
+  function buscaCodi(text) {
+    var m = String(text || "").toUpperCase().match(/RC1[0-9A-Z\-\s]{10,}/);
+    return m ? m[0].trim() : null;
+  }
+
+  function llegeixFull(txt) {
+    var linies = txt.replace(/\r\n?/g, "\n").trim().split("\n").filter(function (l) { return l.trim(); });
+    if (!linies.length) return [];
+    var sep = linies[0].indexOf("\t") >= 0 ? "\t" : (linies[0].indexOf(";") >= 0 ? ";" : ",");
+    var caps = trencaLinia(linies[0], sep).map(function (s) { return s.toLowerCase(); });
+
+    var hiHaCap = caps.some(function (c) { return /codi|code|stepquiz|repas|repàs/.test(c); });
+    var iCodi = caps.findIndex(function (c) { return /codi|code|repas|repàs/.test(c); });
+    var iCorreu = caps.findIndex(function (c) { return /correu|electr|email|e-mail/.test(c); });
+    var iData = caps.findIndex(function (c) { return /marca|temps|timestamp|data/.test(c); });
+    var iGrup = caps.findIndex(function (c) { return /grup|classe|curs|nivell/.test(c); });
+
+    var cos = hiHaCap ? linies.slice(1) : linies;
+    var out = [];
+    cos.forEach(function (l) {
+      var c = trencaLinia(l, sep);
+      var codi = (iCodi >= 0 && buscaCodi(c[iCodi])) || buscaCodi(l);
+      if (!codi) return;
+      var correu = iCorreu >= 0 ? c[iCorreu] : (c.filter(function (v) { return v.indexOf("@") > 0; })[0] || "");
+      var quan = iData >= 0 ? c[iData] : (c.filter(function (v) { return /\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4}/.test(v); })[0] || "");
+      out.push({
+        codi: codi,
+        alumne: correu ? correu.split("@")[0] : "—",
+        correu: correu || "",
+        grup: iGrup >= 0 ? (c[iGrup] || "") : "",
+        enviat: quan || ""
+      });
+    });
+    return out;
+  }
+
+  function horaEnviament(ts) {
+    var m = String(ts).match(/(\d{1,2}):(\d{2})/);
+    return m ? (+m[1]) * 60 + (+m[2]) : null;
+  }
+  function dataEnviament(ts) {
+    var s = String(ts), m = s.match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
+    if (m) return m[3] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[1]).slice(-2);
+    m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
+    return m ? m[0] : "";
+  }
+
+  function processa(brut) {
+    return brut.map(function (r, i) {
+      var p = RE_CODI.llegeix(r.codi);
+      var hGen = p.ok ? p.hora * 60 + p.minut : null;
+      var hEnv = horaEnviament(r.enviat);
+      var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
+      var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
+      return { i: i, brut: r, p: p, forat: forat, estat: estat,
+               dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
+               dataEnv: dataEnviament(r.enviat) };
+    });
+  }
+
+  // ── pintat ─────────────────────────────────────────────────────────────
+  function marca(e) {
+    if (e === "ok") return '<span class="marca ok" title="Codi íntegre">✓</span>';
+    if (e === "avis") return '<span class="marca avis" title="Més de ' + FORAT + ' min entre generar-lo i enviar-lo">!</span>';
+    return '<span class="marca mal" title="El control no quadra">✗</span>';
+  }
+  function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
+  function pintaNota(n) {
+    if (n === null || n === undefined) return '<span class="apagat">—</span>';
+    return '<span class="nota ' + classeNota(n) + '">' + n.toFixed(1).replace(".", ",") + "</span>";
+  }
+  function punts(items) {
+    return '<div class="punts">' + items.map(function (it) {
+      return '<div class="pt ' + (it.estat || "") + '" title="' + it.id + (it.estat ? " · " + it.estat : "") + '"></div>';
+    }).join("") + "</div>";
+  }
+
+  function filtra() {
+    var t = $("#f-text").value.trim().toLowerCase();
+    var f = $("#f-full").value, e = $("#f-estat").value;
+    return files.filter(function (r) {
+      if (e && r.estat !== e) return false;
+      if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
+      if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
+      return true;
+    });
+  }
+
+  function pinta() {
+    var fs = filtra();
+    $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
+    pintaEnviaments(fs);
+    pintaAlumnes(fs);
+    pintaAgregat(fs);
+  }
+
+  function pintaEnviaments(fs) {
+    if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
+    var h = "<thead><tr><th></th><th>Alumne</th><th>Grup</th><th>Enviat</th><th>Generat</th>"
+          + "<th>Fulls</th><th>Fets</th><th>Nota</th><th>Detall</th></tr></thead><tbody>";
+    fs.forEach(function (r) {
+      var p = r.p;
+      var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
+      var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
+      h += '<tr class="clic" data-i="' + r.i + '">'
+        + "<td>" + marca(r.estat) + "</td>"
+        + "<td>" + (r.brut.alumne || "—") + "</td>"
+        + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
+        + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
+        + '<td class="mono petit">' + (p.ok ? r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2) : "—")
+        + (r.forat !== null && r.forat > FORAT ? ' <span class="avis">+' + r.forat + "m</span>" : "") + "</td>"
+        + '<td class="mono">' + fulls + "</td>"
+        + "<td>" + (p.ok ? p.resum.fets : "—") + "</td>"
+        + "<td>" + (p.ok ? pintaNota(p.resum.nota) : "—") + "</td>"
+        + "<td>" + (tots.length ? punts(tots) : '<span class="apagat">—</span>') + "</td></tr>";
+      if (obert === r.i) h += detall(r);
+    });
+    $("#t-env").innerHTML = h + "</tbody>";
+    $$("#t-env tr.clic").forEach(function (tr) {
+      tr.onclick = function () { obert = (obert === +tr.dataset.i) ? null : +tr.dataset.i; pinta(); };
+    });
+  }
+
+  function detall(r) {
+    var p = r.p;
+    if (!p.ok) {
+      return '<tr class="detall"><td colspan="9"><b class="mal">' + p.error + "</b>"
+        + '<div class="mono petit apagat" style="margin-top:.4rem;word-break:break-all">' + r.brut.codi + "</div></td></tr>";
+    }
+    var h = '<tr class="detall"><td colspan="9">';
+    if (!p.integre) h += '<p class="mal petit" style="margin:0 0 .8rem"><b>' + p.error + "</b></p>";
+
+    h += '<div class="graella" style="margin-bottom:1rem">'
+      + dada("Exercicis fets", p.resum.fets)
+      + dada("Nota calculada", p.resum.nota === null ? "—" : p.resum.nota.toFixed(1).replace(".", ","))
+      + dada("A la primera", p.resum.comptes.net)
+      + dada("Amb pista", p.resum.comptes.pista)
+      + dada("Al segon intent", p.resum.comptes.segon)
+      + dada("Fallats", p.resum.comptes.fallat)
+      + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
+      + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
+      + "</div>";
+
+    p.fulls.forEach(function (f) {
+      h += '<div class="bloc-fila"><h4>' + f.titol + "</h4>";
+      f.blocs.forEach(function (b) {
+        var dins = f.items.slice(b[1], b[2] + 1);
+        var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+        if (!fets) return;
+        var mal = dins.filter(function (x) { return x.estat === "fallat"; });
+        var pista = dins.filter(function (x) { return x.estat === "pista"; });
+        h += '<div style="margin:.35rem 0 .55rem"><span class="petit"><b>' + b[0] + "</b> "
+          + '<span class="apagat">' + fets + " de " + dins.length + "</span></span> "
+          + punts(dins);
+        if (mal.length) h += '<div style="margin-top:.25rem"><span class="petit apagat">fallats: </span>'
+          + mal.map(function (x) { return '<span class="xip">' + x.id + "</span>"; }).join("") + "</div>";
+        if (pista.length) h += '<div style="margin-top:.15rem"><span class="petit apagat">amb pista: </span>'
+          + pista.map(function (x) { return '<span class="xip ambre">' + x.id + "</span>"; }).join("") + "</div>";
+        h += "</div>";
+      });
+      h += "</div>";
+    });
+
+    if (p.errs.length) {
+      h += '<div style="margin-top:.9rem"><h4 style="font:600 12px var(--mono);color:var(--apagat);margin:0 0 .3rem">'
+        + "ERRORS QUE MÉS REPETEIX</h4>"
+        + p.errs.map(function (e) {
+            return '<div class="petit" style="margin:.15rem 0"><span class="xip">' + e.compte + "×</span> "
+              + '<span class="mono">' + e.etiqueta + "</span></div>";
+          }).join("") + "</div>";
+    }
+
+    if (p.diag) {
+      var noms = ["ho domino", "ho tinc oblidat", "no ho vaig entendre", "no ho he fet mai"];
+      h += '<div style="margin-top:.9rem"><h4 style="font:600 12px var(--mono);color:var(--apagat);margin:0 0 .3rem">'
+        + "TEST INICIAL</h4><table style=\"font-size:12.5px\">";
+      p.diag.forEach(function (d) {
+        var xoc = (d.estat === 0 && !d.encert) ? ' <span class="xip">ho donava per sabut</span>'
+                : (d.estat > 0 && d.encert) ? ' <span class="xip ambre">ho sabia més del que es pensava</span>' : "";
+        h += "<tr><td>" + d.tema + '</td><td class="apagat">' + noms[d.estat] + "</td><td>"
+          + (d.encert ? '<span class="ok">encert</span>' : '<span class="mal">error</span>') + xoc + "</td></tr>";
+      });
+      h += "</table></div>";
+    }
+
+    h += '<div class="mono petit apagat" style="margin-top:1rem;word-break:break-all">' + r.brut.codi + "</div>";
+    return h + "</td></tr>";
+  }
+
+  function dada(k, v) { return '<div class="dada"><b>' + k + "</b>" + v + "</div>"; }
+
+  /* Un alumne pot enviar diverses vegades. Val el codi més recent, que és
+     acumulatiu i ja conté tot el que hi havia als anteriors. */
+  function ultimPerAlumne(fs) {
+    var m = {};
+    fs.forEach(function (r) {
+      if (!r.p.ok) return;
+      var k = r.brut.alumne + "|" + r.brut.grup;
+      var t = r.p.data.getTime() + (r.p.hora * 60 + r.p.minut) * 60000;
+      if (!m[k] || t >= m[k].t) m[k] = { t: t, r: r };
+    });
+    return Object.keys(m).map(function (k) { return m[k].r; })
+      .sort(function (a, b) { return a.brut.alumne.localeCompare(b.brut.alumne); });
+  }
+
+  function pintaAlumnes(fs) {
+    var ult = ultimPerAlumne(fs);
+    if (!ult.length) { $("#t-alumnes").innerHTML = '<tr><td class="buit">Cap codi vàlid amb aquests filtres</td></tr>'; return; }
+    var fullsVistos = [];
+    ult.forEach(function (r) { r.p.fulls.forEach(function (f) { if (fullsVistos.indexOf(f.n) < 0) fullsVistos.push(f.n); }); });
+    fullsVistos.sort(function (a, b) { return a - b; });
+
+    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Fets</th><th>Nota</th>";
+    fullsVistos.forEach(function (n) { h += "<th>F" + n + "</th>"; });
+    h += "<th>Últim codi</th></tr></thead><tbody>";
+    ult.forEach(function (r) {
+      var p = r.p;
+      h += "<tr><td>" + r.brut.alumne + '</td><td class="apagat">' + (r.brut.grup || "—") + "</td>"
+        + "<td>" + p.resum.fets + "</td><td>" + pintaNota(p.resum.nota) + "</td>";
+      fullsVistos.forEach(function (n) {
+        var f = p.fulls.filter(function (x) { return x.n === n; })[0];
+        if (!f) { h += '<td class="apagat">·</td>'; return; }
+        var fets = f.items.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+        h += '<td class="mono petit">' + fets + "/" + f.items.length + "</td>";
+      });
+      h += '<td class="mono petit apagat">' + r.dataGen + "</td></tr>";
+    });
+    $("#t-alumnes").innerHTML = h + "</tbody>";
+  }
+
+  /* Agregat de classe: quins exercicis falla més gent i quins errors es
+     repeteixen. És el que diu al professorat què cal tornar a explicar. */
+  function pintaAgregat(fs) {
+    var ult = ultimPerAlumne(fs);
+    if (!ult.length) { $("#agregat").innerHTML = '<div class="buit">Res a agregar</div>'; return; }
+    var perItem = {}, perErr = {}, perBloc = {};
+    ult.forEach(function (r) {
+      r.p.fulls.forEach(function (f) {
+        f.items.forEach(function (it) {
+          if (it.estat === "fallat" || it.estat === "pista") {
+            var k = f.n + "|" + it.id;
+            perItem[k] = (perItem[k] || 0) + (it.estat === "fallat" ? 2 : 1);
+          }
+        });
+        f.blocs.forEach(function (b) {
+          var dins = f.items.slice(b[1], b[2] + 1);
+          var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+          if (!fets) return;
+          var mal = dins.filter(function (x) { return x.estat === "fallat"; }).length;
+          var k = f.n + " · " + b[0];
+          if (!perBloc[k]) perBloc[k] = { fets: 0, mal: 0, alumnes: 0 };
+          perBloc[k].fets += fets; perBloc[k].mal += mal; perBloc[k].alumnes++;
+        });
+      });
+      r.p.errs.forEach(function (e) { perErr[e.etiqueta] = (perErr[e.etiqueta] || 0) + e.compte; });
+    });
+
+    var itemsMal = Object.keys(perItem).map(function (k) { return [k, perItem[k]]; })
+      .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 20);
+    var errsMal = Object.keys(perErr).map(function (k) { return [k, perErr[k]]; })
+      .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
+    var blocsMal = Object.keys(perBloc).map(function (k) { return [k, perBloc[k]]; })
+      .filter(function (x) { return x[1].fets >= 3; })
+      .sort(function (a, b) { return (b[1].mal / b[1].fets) - (a[1].mal / a[1].fets); }).slice(0, 8);
+
+    var h = '<div class="graella" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">';
+    h += '<div class="targeta"><h3>Blocs on més s\'encalla la classe</h3>'
+      + (blocsMal.length ? blocsMal.map(function (b) {
+          var pc = Math.round(100 * b[1].mal / b[1].fets);
+          return '<div class="petit" style="margin:.3rem 0"><b>' + pc + "%</b> fallats · "
+            + b[0] + ' <span class="apagat">(' + b[1].alumnes + " alumnes)</span></div>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Encara no hi ha prou dades.</p>') + "</div>";
+
+    h += '<div class="targeta"><h3>Exercicis que costen més</h3>'
+      + (itemsMal.length ? itemsMal.map(function (x) {
+          var t = x[0].split("|");
+          return '<span class="xip" title="Full ' + t[0] + '">' + t[0] + "/" + t[1] + "</span>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Cap.</p>') + "</div>";
+
+    h += '<div class="targeta"><h3>Errors que més es repeteixen</h3>'
+      + (errsMal.length ? errsMal.map(function (e) {
+          return '<div class="petit" style="margin:.25rem 0"><span class="xip">' + e[1] + "×</span> "
+            + '<span class="mono">' + e[0] + "</span></div>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Cap.</p>') + "</div>";
+
+    $("#agregat").innerHTML = h + "</div>";
+  }
+
+  // ── accions ────────────────────────────────────────────────────────────
+  function carrega(txt) {
+    var brut = llegeixFull(txt);
+    if (!brut.length) {
+      $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
+        + "Els codis comencen per RC1.</span>";
+      return;
+    }
+    files = processa(brut);
+    obert = null;
+    var sel = $("#f-full");
+    var vistos = [];
+    files.forEach(function (r) { if (r.p.ok) r.p.fulls.forEach(function (f) { if (vistos.indexOf(f.n) < 0) vistos.push(f.n); }); });
+    vistos.sort(function (a, b) { return a - b; });
+    sel.innerHTML = '<option value="">Tots els fulls</option>'
+      + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
+    $("#estat-carrega").innerHTML = '<span class="ok">' + files.length + " codis llegits</span>";
+    $("#resultats").hidden = false;
+    pinta();
+  }
+
+  $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
+  $("#fitxer").onchange = function (e) {
+    var f = e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { $("#entrada").value = r.result; carrega(r.result); };
+    r.readAsText(f, "utf-8");
+  };
+  ["#f-text", "#f-full", "#f-estat"].forEach(function (s) {
+    $(s).oninput = pinta; $(s).onchange = pinta;
+  });
+
+  $("#btn-csv").onclick = function () {
+    var ult = ultimPerAlumne(filtra());
+    var l = ["alumne;grup;exercicis;nota;fulls;data"];
+    ult.forEach(function (r) {
+      l.push([r.brut.alumne, r.brut.grup, r.p.resum.fets,
+              r.p.resum.nota === null ? "" : String(r.p.resum.nota).replace(".", ","),
+              r.p.fulls.map(function (f) { return f.n; }).join(" "), r.dataGen].join(";"));
+    });
+    var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(b); a.download = "repas-eso-resum.csv"; a.click();
+  };
+
+  $("#btn-exemple").onclick = function () {
+    var noms = ["berta", "jordi", "laia", "marc", "nil", "ona"];
+    var opc = ["net", "net", "net", "segon", "pista", "fallat"];
+    var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
+    noms.forEach(function (nom, k) {
+      var quins = [4, 7].slice(0, 1 + (k % 2));
+      var fulls = quins.map(function (n) {
+        var t = RE_TAULES.fulls[n];
+        var quants = 6 + Math.floor(Math.random() * (t.items.length - 6));
+        return { n: n, estats: t.items.map(function (_, i) { return i < quants ? opc[Math.floor(Math.random() * 6)] : ""; }) };
+      });
+      var ara = new Date(); ara.setMinutes(ara.getMinutes() - Math.floor(Math.random() * 90));
+      var codi = RE_CODI.genera({
+        fulls: fulls, ara: ara,
+        errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
+      });
+      if (k === 5) codi = codi.slice(0, 12) + "X" + codi.slice(13);   /* un de manipulat */
+      var d = new Date();
+      l.push([("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear()
+              + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ":00",
+              nom + "@escola.cat", k < 3 ? "4tA" : "4tB", codi].join("\t"));
+    });
+    $("#entrada").value = l.join("\n");
+    carrega($("#entrada").value);
+  };
+
+  // ── un sol codi ────────────────────────────────────────────────────────
+  $("#btn-un").onclick = function () {
+    var raw = $("#codi-un").value.trim();
+    if (!raw) return;
+    files = processa([{ codi: raw, alumne: "—", grup: "", enviat: "" }]);
+    obert = 0;
+    var r = files[0];
+    var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
+                                       : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
+    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat) + " "
+      + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
+      + "</div>" + h;
+  };
+})();
+</script>
+</body>
+</html>

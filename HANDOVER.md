@@ -153,6 +153,38 @@ controladors surten amb un `if (!window.FULL) return;`.
 
 ---
 
+### 3.4 El codi de verificació
+
+`js/codi.js` conté **el generador i el lector al mateix fitxer**, i això és
+deliberat: si viuen separats, tard o d'hora divergeixen, i el símptoma és el
+pitjor possible (codis que es llegeixen malament sense que res avisi).
+`analitzador-repas.html` no en porta una còpia: `tools/build_analitzador.py`
+hi incrusta aquest mateix fitxer.
+
+El format sencer està documentat a la capçalera de `js/codi.js`. Les
+decisions que costen més de reconstruir des del codi:
+
+- **El codi és acumulatiu, no una sessió.** Repàs-ESO és treball propi durant
+  setmanes; un tiquet per estona obligaria l'alumne a no perdre'n cap. Cada
+  codi és la fotografia completa i substitueix l'anterior. L'analitzador es
+  queda l'últim de cada alumne.
+- **La nota no hi viatja.** Es deriva dels estats en llegir el codi. Aquest és
+  el forat clàssic d'aquests sistemes: si el codi porta una nota *i* un detall,
+  i el control només cobreix la nota, es pot retocar el detall. Aquí no hi ha
+  dos nombres que puguin contradir-se, i el control cobreix tots els caràcters.
+- **Dos caràcters de control, no un.** La lletra del DNI és una suma mod 23
+  per a 8 xifres. Amb càrregues de centenars de caràcters cal (a) pesar per
+  posició, o les transposicions no es detecten mai, i (b) un mòdul més gran
+  que l'alfabet, o el "0" i la "Z" valen el mateix. Amb mòdul 1021 i pesos,
+  es detecten **totes** les substitucions d'un caràcter i **totes** les
+  transposicions de dos.
+- **`tools/codi-etiquetes.txt` és append-only.** El codi guarda l'ÍNDEX de
+  l'etiqueta d'error, no el nom. Reordenar el fitxer fa il·legibles tots els
+  codis ja emesos; `build_codi.py` ho vigila.
+- **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
+  a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
+  de 30 min) la precisió al minut no aporta res.
+
 ## 4. La capa de pràctica
 
 ### 4.1 `js/nucli.js` → `window.RE`

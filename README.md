@@ -81,6 +81,12 @@ hi ha comptes ni sincronització entre dispositius.
     REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
 
     tools/lib.py          motor: Q()/D()/DT(), catàleg d'errors TAX, validació
+    tools/build_tot.py    compila fulls + taules del codi + analitzador
+    tools/build_codi.py   taules compartides pel codi de verificació
+    tools/build_analitzador.py  munta analitzador-repas.html (fitxer únic)
+    js/codi.js            codi de verificació: generació I lectura
+    js/codi-ui.js         el panell del codi que veu l'alumne
+    analitzador-repas.html  GENERAT — eina del professorat, autònoma
     tools/build.py        compilador: registre FULLS i generació de sortides
     tools/c_<tema>.py     el contingut d'un full (un fitxer per full)
 
@@ -104,11 +110,44 @@ Cada full es compila en un procés separat (si dos mòduls s'importessin al
 mateix procés, els seus ítems es barrejarien en un sol banc):
 
     cd tools
+    python3 build_tot.py
+
+Això compila els dotze fulls, regenera les taules del codi de verificació i
+torna a muntar l'analitzador, en aquest ordre. Fer-ho a mà també val, però
+llavors cal recordar l'ordre: si es toca un generador i no es refan les
+taules, l'ordre d'ítems que fa servir el codi deixa de coincidir amb el de
+l'app i els codis emesos es llegeixen malament.
+
     for n in $(seq 1 12); do python3 build.py $n; done
+    python3 build_codi.py && python3 build_analitzador.py
 
 Cada crida escriu `data/fullN.js` i `REVISIO-fullN.html` i informa del
 recompte d'ítems i d'etiquetes d'error. La compilació és determinista: si el
 `c_<tema>.py` no canvia, la sortida és byte a byte idèntica.
+
+## El codi per al professorat
+
+L'alumne pot generar un **codi de verificació** que recull tota la seva feina,
+exercici per exercici, i enviar-lo per un Google Form. El professorat enganxa
+el full de respostes a `analitzador-repas.html` i hi veu qui ha fet què, on
+s'encalla la classe i si el codi és autèntic.
+
+- **On es demana:** a la pàgina d'un full (només aquell full) o a la portada
+  (tota la feina feta).
+- **És acumulatiu.** Cada codi conté tot el que s'ha fet fins llavors, no
+  només el d'aquella estona. Si l'alumne s'oblida d'enviar-ne un, el següent
+  ja ho porta tot, i el professorat només ha de mirar l'últim de cadascú.
+- **Antifrau.** Acaba amb dos caràcters calculats sobre tots els altres, en
+  l'esperit de la lletra del DNI però amb mòdul primer i pesos per posició:
+  detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
+  de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
+  de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
+- **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
+  servidor ni connexió. No envia res enlloc.
+
+El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
+el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
+l'analitzador carrega aquest mateix fitxer.
 
 ## Què no hi és
 
