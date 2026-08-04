@@ -122,6 +122,120 @@ FULLS = {
              "comparacions \"en proporció\"."),
         ],
     },
+    7: {
+        "titol": "Full 7 — Teorema de Pitàgores. Àrees",
+        "subtitol": "Triangles i teorema de Pitàgores, àrees de triangles, "
+                    "quadrilàters i polígons regulars, i problemes "
+                    "d'aplicació.",
+        "moduls": ["c_geometria"],
+        "blocs": [
+            ("triangles", "Triangles i teorema de Pitàgores",
+             "Angles, desigualtat triangular, triangles rectangles i "
+             "teorema de Pitàgores en quadrats, rectangles i polígons."),
+            ("arees_pit", "Àrees amb el teorema de Pitàgores",
+             "Àrees de triangles i rectangles combinades amb Pitàgores per "
+             "trobar un costat, una alçada o una hipotenusa."),
+            ("arees_poli", "Àrees de quadrilàters i polígons regulars",
+             "Trapezis, hexàgons, octàgons i figures amb superfícies "
+             "circulars."),
+            ("problemes", "Problemes d'aplicació",
+             "Ombres, escales, camps, senyals, edificis i altres problemes "
+             "que combinen Pitàgores i àrees."),
+        ],
+    },
+    8: {
+        "titol": "Full 8 — Teorema de Tales. Semblança",
+        "subtitol": "Teorema de Tales, triangles semblants, escales i "
+                    "aplicacions de la semblança a problemes d'altures i "
+                    "distàncies inaccessibles.",
+        "moduls": ["c_semblanca"],
+        "blocs": [
+            ("tales", "Teorema de Tales",
+             "Segments proporcionals entre rectes paral·leles i triangles "
+             "en posició de Tales."),
+            ("semblanca", "Semblança de triangles",
+             "Raó de semblança i els tres criteris per determinar si dos "
+             "triangles són semblants."),
+            ("escales", "Escales",
+             "Escala numèrica i problemes de mapes i plànols."),
+            ("aplicacions", "Aplicacions de la semblança",
+             "Ombres, reflexos i alçades o distàncies inaccessibles."),
+        ],
+    },
+    9: {
+        "titol": "Full 9 — Cossos geomètrics. Àrea i volum",
+        "subtitol": "Àrea total de prismes, piràmides, cilindres, cons i "
+                    "l'esfera, i càlcul de volums en problemes aplicats.",
+        "moduls": ["c_cossos"],
+        "blocs": [
+            ("prismes", "Prismes i el cub",
+             "Àrea total de prismes rectes i del cub, incloent-hi la "
+             "diagonal a partir de l'àrea."),
+            ("piramides", "Piràmides i tetraedres",
+             "Àrea total de piràmides regulars i tetraedres, amb "
+             "Pitàgores per trobar l'apotema quan cal."),
+            ("cossos_rodons", "Cilindres, cons i l'esfera",
+             "Àrea total de cossos de revolució i problemes inversos "
+             "per trobar radi, altura o generatriu."),
+            ("volums_aplicacions", "Volums i problemes aplicats",
+             "Volum de prismes, piràmides, cilindres, cons, l'esfera i "
+             "el cub, i problemes de la vida real."),
+        ],
+    },
+    10: {
+        "titol": "Full 10 — Funcions",
+        "subtitol": "Concepte de funció, domini i recorregut, creixement, "
+                    "i funcions lineals i quadràtiques.",
+        "moduls": ["c_funcions"],
+        "blocs": [
+            ("concepte_funcio", "Concepte de funció",
+             "Relacions que són o no funcions, càlcul d'imatges, i "
+             "domini, recorregut i creixement llegits d'una gràfica."),
+            ("funcions_lineals", "Funcions lineals",
+             "Pendent i ordenada a l'origen, creixement sense "
+             "representar, i equació de la recta a partir de dos punts."),
+            ("funcions_quadratiques", "Funcions quadràtiques",
+             "Obertura i amplada de la paràbola, vèrtex, talls amb els "
+             "eixos i eix de simetria."),
+        ],
+    },
+    11: {
+        "titol": "Full 11 — Estadística",
+        "subtitol": "Variables estadístiques, taules de freqüències i "
+                    "representacions gràfiques.",
+        "moduls": ["c_estadistica"],
+        "blocs": [
+            ("variables", "Variables estadístiques",
+             "Tipus de variable (qualitativa/quantitativa, discreta/"
+             "contínua) i mostra o població."),
+            ("frequencies", "Taules de freqüències",
+             "Recompte de dades i freqüències absolutes, acumulades, "
+             "relatives i percentatges."),
+            ("grafics", "Gràfics estadístics",
+             "Diagrames de barres, histogrames, polígons de freqüències "
+             "i gràfics de sectors."),
+        ],
+    },
+    12: {
+        "titol": "Full 12 — Combinatòria i probabilitat",
+        "subtitol": "Espais mostrals, diagrames d'arbre, freqüència "
+                    "relativa i regla de Laplace.",
+        "moduls": ["c_probabilitat"],
+        "blocs": [
+            ("espais_mostrals", "Espais mostrals i esdeveniments",
+             "Espai mostral d'un experiment aleatori, esdeveniments "
+             "elementals i impossibles, i comparació de probabilitats."),
+            ("combinatoria", "Combinatòria: principi multiplicatiu",
+             "Diagrames d'arbre, mètode del producte, i variacions "
+             "sense repetició."),
+            ("laplace", "Regla de Laplace i freqüència relativa",
+             "Probabilitat d'un esdeveniment, freqüència relativa i "
+             "llei dels grans nombres."),
+            ("esdeveniments", "Esdeveniments compostos",
+             "Esdeveniments compatibles, incompatibles i contraris, "
+             "unió i intersecció, i probabilitat condicionada senzilla."),
+        ],
+    },
 }
 
 FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1

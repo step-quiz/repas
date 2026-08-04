@@ -6,7 +6,24 @@
    surt marcada "Properament" i no és clicable.
 
    Quan s'autori un full nou: canvieu el seu `disponible` a true i poseu-hi
-   el `total` real (el que doni tools/build.py en compilar). Res més. */
+   el `total` real (el que doni tools/build.py en compilar). Res més.
+
+   NUMERACIÓ — llegiu això abans de tocar res. El lloc té 12 fulls, i el seu
+   número NO coincideix amb el nom del fitxer LaTeX font. La correspondència
+   definitiva és:
+
+     Full  1 = im1.tex   (ex. 1-34)      Full  7 = im8.tex   (ex. 119-151)
+     Full  2 = im2.tex   (ex. 35-46)     Full  8 = im9.tex   (ex. 152-169)
+     Full  3 = im3.tex   (ex. 47-61)     Full  9 = im10.tex  (ex. 170-199)
+     Full  4 = im4.tex   (ex. 62-74)     Full 10 = im11.tex  (ex. 200-217)
+     Full  5 = im5 + im6 (ex. 75-100)    Full 11 = im12.tex  (ex. 218-235)
+     Full  6 = im7.tex   (ex. 101-118)   Full 12 = im13.tex  (ex. 236-259)
+
+   La fusió d'im5+im6 en un sol Full 5 és el que desplaça tota la resta un
+   número avall a partir del Full 6. L'inventari del HANDOVER v2 encara
+   partia im11.tex en dos fulls ("Funcions" i "Funcions lineals i
+   quadràtiques") i llistava 13 fulls: aquesta llista de 12 el substitueix.
+   Els 13 fitxers im*.tex estan tots coberts; no en queda cap de pendent. */
 (function () {
   "use strict";
   var $ = function (s) { return document.querySelector(s); };
@@ -18,13 +35,12 @@
     { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
     { n: 5,  titol: "Equacions i sistemes",                   total: 99,   disponible: true },
     { n: 6,  titol: "Proporcionalitat i percentatges",        total: 21,   disponible: true },
-    { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: null, disponible: false },
-    { n: 8,  titol: "Teorema de Tales. Semblança",            total: null, disponible: false },
-    { n: 9,  titol: "Cossos geomètrics. Àrea i volum",        total: null, disponible: false },
-    { n: 10, titol: "Funcions",                               total: null, disponible: false },
-    { n: 11, titol: "Funcions lineals i quadràtiques",        total: null, disponible: false },
-    { n: 12, titol: "Estadística",                            total: null, disponible: false },
-    { n: 13, titol: "Probabilitat",                           total: null, disponible: false }
+    { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: 55,   disponible: true },
+    { n: 8,  titol: "Teorema de Tales. Semblança",            total: 32,   disponible: true },
+    { n: 9,  titol: "Cossos geomètrics. Àrea i volum",        total: 43,   disponible: true },
+    { n: 10, titol: "Funcions",                               total: 45,   disponible: true },
+    { n: 11, titol: "Estadística",                            total: 52,   disponible: true },
+    { n: 12, titol: "Combinatòria i probabilitat",            total: 67,   disponible: true }
   ];
 
   function fets(n) {

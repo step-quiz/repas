@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El teu itinerari — Repàs d'ESO</title>
+<meta name="description" content="Recorregut personalitzat segons el teu test inicial.">
+<link rel="stylesheet" href="css/estil.css">
+</head>
+<body>
+<main class="embolcall" id="main">
+  <div class="barra-sup">
+    <a href="index.html" class="petit">← Tots els fulls</a>
+    <span class="petit apagat">El teu itinerari</span>
+  </div>
+
+  <p class="cimera">Repàs per començar 1r de batxillerat</p>
+  <h1>El teu itinerari</h1>
+  <p class="apagat petit" id="subtitol" style="margin:.35rem 0 1rem"></p>
+  <p class="petit" id="comptador-linia" style="margin:0 0 1.1rem"></p>
+
+  <div style="margin:0 0 1.15rem">
+    <button class="btn gran" id="continua">Continua l'itinerari</button>
+  </div>
+
+  <h2 style="margin-top:1.4rem">El recorregut</h2>
+  <p class="petit apagat" style="margin:.3rem 0 .8rem">
+    Comença pels exercicis més senzills de cada bloc i va alternant de tema.
+  </p>
+  <div class="itinerari-passos" id="passos"></div>
+
+  <p class="petit apagat" style="margin-top:2.4rem">
+    Aquest itinerari es desa només en aquest navegador.
+    <button class="btn buit petit" id="refes" style="padding:.3rem .6rem;margin-left:.35rem">Genera'n un de nou</button>
+  </p>
+</main>
+<script src="js/nucli.js"></script>
+<script src="js/diagnostic-dades.js"></script>
+<script src="js/itinerari-dades.js"></script>
+<script src="js/itinerari.js"></script>
+</body>
+</html>

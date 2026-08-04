@@ -157,3 +157,10 @@ a.full:hover{border-color:var(--blau)}
 /* ---- full.html: bloc destacat en arribar des d'una recomanació del tutor ---- */
 .bloc.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
 .bloc.destacat .num{color:var(--blau)}
+
+/* ---- itinerari.html: llista de passos del recorregut personalitzat ---- */
+.itinerari-passos{display:grid;gap:.5rem;margin:.9rem 0}
+.pas-itinerari.fet{opacity:.6}
+.pas-itinerari.fet .num{color:var(--verd);font-size:1rem}
+.pas-itinerari.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
+.pas-itinerari.destacat .num{color:var(--blau)}

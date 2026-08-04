@@ -1,0 +1,548 @@
+<!DOCTYPE html><html lang="ca"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisió — Full 10</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+ onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
+ throwOnError:false})"></script>
+
+<style>
+body{font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#16202E;
+ max-width:60rem;margin:0 auto;padding:2rem 1.2rem 6rem}
+h1{font-size:1.5rem;margin:0 0 .2rem} h2{font-size:1.05rem;margin:2.2rem 0 .6rem;
+ border-bottom:2px solid #16202E;padding-bottom:.25rem}
+.meta{color:#5A6B80;margin:0 0 1.5rem}
+.it{border:1px solid #D8DFE8;border-radius:8px;padding:.8rem 1rem;margin:.7rem 0;
+ page-break-inside:avoid}
+.cap{display:flex;gap:.6rem;align-items:baseline;margin-bottom:.35rem}
+.cod{font:700 13px ui-monospace,monospace;background:#16202E;color:#fff;
+ padding:.1rem .4rem;border-radius:4px}
+.tip{font-size:11px;color:#5A6B80;text-transform:uppercase;letter-spacing:.06em}
+.enun{margin:.2rem 0 .5rem}
+ol.op{margin:.3rem 0;padding-left:1.4rem}
+ol.op li{margin:.15rem 0}
+.ok{background:#E4F3EC;font-weight:600;padding:.05rem .25rem;border-radius:3px}
+.err{font:600 11px ui-monospace,monospace;color:#8C2F28;background:#FBEDEC;
+ padding:.05rem .3rem;border-radius:3px;margin-right:.3rem}
+.fb{color:#43506180}
+.sec{color:#5A6B80;font-size:13px;margin:.4rem 0 0}
+.res li{margin:.1rem 0}
+.nota{background:#FFF6E5;border-left:3px solid #B06B00;padding:.4rem .6rem;
+ margin:.5rem 0 0;font-size:13.5px}
+.avis{background:#FBEDEC;border-left:3px solid #C4362F;padding:.8rem 1rem;
+ margin:1rem 0 2rem;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;font-size:13px;width:100%}
+td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
+@media print{.it{border-color:#bbb}}
+</style>
+<h1>Clau de respostes — Full 10</h1>
+<p class="meta">45 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
+<h2>Concepte de funció <span class="tip">· 18 preguntes</span></h2>
+<p class="sec"><strong>Exercici 200.</strong> Raona quines de les relacions següents corresponen a funcions.</p>
+<div class="it"><div class="cap"><span class="cod">200a</span><span class="tip">tipus B</span></div>
+<div class="enun">La mida d'una paret i la quantitat de pintura necessària per pintar-la.</div>
+<ol class="op"><li><span class="ok">SÍ és una funció: per a cada mida de paret (suposant un gruix de pintura fix) hi ha una única quantitat de pintura necessària.</span> — resposta correcta</li>
+<li>NO és una funció: la mateixa mida de paret podria necessitar quantitats de pintura diferents segons qui la pinti.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Fixant el gruix de la pintura (com se sobreentén en un exercici d'aquest tipus), cada mida determina una única quantitat: SÍ és una funció, encara que a la pràctica hi puguin haver petites variacions per qui pinta.</span></li>
+<li>NO és una funció: hi pot haver parets de la mateixa mida que necessitin diferent quantitat de pintura segons el color.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El que fa que una relació sigui funció és que a cada mida li correspongui un únic valor de pintura sota les mateixes condicions (mateix gruix de capa): amb això fixat, SÍ és una funció.</span></li>
+<li>Depèn: només és una funció si la paret és rectangular.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">La forma concreta de la paret no afecta si la relació és una funció: el que importa és que cada mida (àrea) determini una única quantitat de pintura, sigui quina sigui la forma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una relació és una funció quan a cada valor de la primera magnitud li correspon un ÚNIC valor de la segona, mai més d'un.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Fixat el gruix de la pintura, cada mida de paret determina una única quantitat necessària: és una funció.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">200b</span><span class="tip">tipus B</span></div>
+<div class="enun">Cada mes de l'any i el seu nombre de dies.</div>
+<ol class="op"><li><span class="ok">SÍ és una funció: cada mes concret té sempre el mateix nombre de dies (els anys de traspàs només afegeixen un dia al febrer d'alguns anys, però per a un mes fixat el nombre de dies és sempre el mateix o varia de manera predictible).</span> — resposta correcta</li>
+<li>NO és una funció: el febrer no sempre té el mateix nombre de dies (28 o 29, segons l'any), així que un mateix mes té més d'un valor possible.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Encara que el febrer variï segons l'any, per a CADA any concret el nombre de dies de febrer és un únic valor determinat (per la regla dels anys de traspàs): no hi ha ambigüitat real, la relació segueix sent una funció.</span></li>
+<li>NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen 30 tots dos).<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que dos mesos DIFERENTS comparteixin el mateix nombre de dies no trenca que sigui una funció: el que cal comprovar és que un mateix mes no tingui mai dos valors diferents, i això sí es compleix.</span></li>
+<li>Depèn: només és una funció si no hi ha anys de traspàs.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Els anys de traspàs no trenquen que sigui una funció: fins i tot amb ells, cada mes té un nombre de dies determinat per la regla del calendari, mai ambigu.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si algun mes concret podria tenir dos nombres de dies diferents alhora (no d'un any a l'altre, sinó simultàniament).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada mes té sempre un únic nombre de dies determinat: és una funció.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">200c</span><span class="tip">tipus B</span></div>
+<div class="enun">El radi d'una circumferència i la longitud del seu perímetre.</div>
+<ol class="op"><li><span class="ok">SÍ és una funció: cada radi determina una única longitud de perímetre, mitjançant la fórmula $L=2\pi r$.</span> — resposta correcta</li>
+<li>NO és una funció: circumferències de radis diferents poden tenir perímetres semblants, així que no es pot saber amb certesa.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que dos perímetres siguin \emph{semblants} no és el mateix que iguals: la fórmula $L=2\pi r$ dona, per a cada radi concret, un únic valor exacte de perímetre, sense ambigüitat.</span></li>
+<li>NO és una funció: el perímetre depèn també del diàmetre, no només del radi.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El diàmetre és sempre el doble del radi ($d=2r$), així que no és una magnitud independent: fixat el radi, el perímetre $L=2\pi r$ queda completament determinat.</span></li>
+<li>Depèn: només és una funció si es fa servir un valor aproximat de $\pi$.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">L'aproximació de $\pi$ que es faci servir no canvia que la relació sigui una funció: per a cada radi hi ha un únic perímetre corresponent, exacte o aproximat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La fórmula del perímetre, $L=2\pi r$, assigna a cada radi un únic valor de $L$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada radi $r$ hi ha un únic perímetre $L=2\pi r$: és una funció.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 201.</strong> Calcula la imatge dels valors $x=2,\ -2,\ 3,\ -3,\ 1,\ -1$ per a cada funció.</p>
+<div class="it"><div class="cap"><span class="cod">201a</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=5x^2-1$</div>
+<ol class="op"><li><span class="ok">$f(2)=19,\ f(-2)=19,\ f(3)=44,\ f(-3)=44,\ f(1)=4,\ f(-1)=4$</span> — resposta correcta</li>
+<li>$f(2)=19,\ f(-2)=-21,\ f(3)=29,\ f(-3)=-31,\ f(1)=9,\ f(-1)=-11$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$x^2$ no és $2x$: per exemple, per $x=2$, $x^2=4$ (no $2\cdot 2=4$... prova-ho amb $x=3$: $x^2=9\neq 6$).</span></li>
+<li>$f(2)=20,\ f(-2)=20,\ f(3)=45,\ f(-3)=45,\ f(1)=5,\ f(-1)=5$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta restar l'$1$ final a cada imatge.</span></li>
+<li>$f(2)=19,\ f(-2)=-21,\ f(3)=44,\ f(-3)=-46,\ f(1)=4,\ f(-1)=-6$<br><span class="err">SIGNE_FINAL</span><span class="fb">$x^2$ sempre és positiu, tant si $x$ és positiu com negatiu: $(-2)^2=4$, igual que $2^2=4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant primer el quadrat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula primer $x^2$ i després multiplica per $5$ i resta $1$.</li><li>$f(2)=5\cdot 4-1=19$, $f(-2)=5\cdot 4-1=19$ (el quadrat elimina el signe).</li><li>$f(3)=5\cdot 9-1=44$, $f(-3)=44$, $f(1)=4$, $f(-1)=4$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">201b</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=2x^2-x$</div>
+<ol class="op"><li><span class="ok">$f(2)=6,\ f(-2)=10,\ f(3)=15,\ f(-3)=21,\ f(1)=1,\ f(-1)=3$</span> — resposta correcta</li>
+<li>$f(2)=10,\ f(-2)=6,\ f(3)=21,\ f(-3)=15,\ f(1)=3,\ f(-1)=1$<br><span class="err">SUMA_EN_LLOC_RESTA</span><span class="fb">Cal RESTAR $x$, no sumar-lo: $f(x)=2x^2-x$.</span></li>
+<li>$f(2)=6,\ f(-2)=-6,\ f(3)=9,\ f(-3)=-9,\ f(1)=3,\ f(-1)=-3$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no $2\cdot 3=6$.</span></li>
+<li>$f(2)=14,\ f(-2)=18,\ f(3)=33,\ f(-3)=39,\ f(1)=3,\ f(-1)=5$<br><span class="err">POTENCIA_APLICADA_MALAMENT</span><span class="fb">El quadrat només afecta la $x$, no el $2x$ sencer: és $2\cdot x^2$, no $(2x)^2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: primer el quadrat, després la resta.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $x^2$, multiplica per $2$ i resta $x$.</li><li>$f(2)=2\cdot 4-2=6$, $f(-2)=2\cdot 4-(-2)=10$.</li><li>$f(3)=2\cdot 9-3=15$, $f(-3)=2\cdot 9-(-3)=21$, $f(1)=1$, $f(-1)=3$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">201c</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=x^2-x-1$</div>
+<ol class="op"><li><span class="ok">$f(2)=1,\ f(-2)=5,\ f(3)=5,\ f(-3)=11,\ f(1)=-1,\ f(-1)=1$</span> — resposta correcta</li>
+<li>$f(2)=5,\ f(-2)=1,\ f(3)=11,\ f(-3)=5,\ f(1)=1,\ f(-1)=-1$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El terme $-x$ té signe negatiu: cal RESTAR $x$, no sumar-lo.</span></li>
+<li>$f(2)=2,\ f(-2)=6,\ f(3)=6,\ f(-3)=12,\ f(1)=0,\ f(-1)=2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta restar l'$1$ final a cada imatge.</span></li>
+<li>$f(2)=1,\ f(-2)=-3,\ f(3)=2,\ f(-3)=-4,\ f(1)=0,\ f(-1)=-2$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no $2\cdot 3=6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor de $x$ a $x^2-x-1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $x^2$, resta $x$ i resta $1$.</li><li>$f(2)=4-2-1=1$, $f(-2)=4-(-2)-1=5$.</li><li>$f(3)=9-3-1=5$, $f(-3)=9-(-3)-1=11$, $f(1)=-1$, $f(-1)=1$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">201d</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=-x^2+1$</div>
+<ol class="op"><li><span class="ok">$f(2)=-3,\ f(-2)=-3,\ f(3)=-8,\ f(-3)=-8,\ f(1)=0,\ f(-1)=0$</span> — resposta correcta</li>
+<li>$f(2)=5,\ f(-2)=5,\ f(3)=10,\ f(-3)=10,\ f(1)=2,\ f(-1)=2$<br><span class="err">SIGNE_FINAL</span><span class="fb">El signe $-$ davant $x^2$ afecta sempre, també quan $x$ és negatiu: $-(-2)^2=-4$, no $+4$.</span></li>
+<li>$f(2)=-3,\ f(-2)=5,\ f(3)=-5,\ f(-3)=7,\ f(1)=-1,\ f(-1)=3$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no $2\cdot 3=6$.</span></li>
+<li>$f(2)=-5,\ f(-2)=-5,\ f(3)=-10,\ f(-3)=-10,\ f(1)=-2,\ f(-1)=-2$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El $+1$ final és positiu: cal SUMAR-lo, no restar-lo.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ (sempre positiu) i després canvia'n el signe.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $x^2$, canvia'n el signe i suma $1$.</li><li>$f(2)=-4+1=-3$, $f(-2)=-4+1=-3$ (el quadrat elimina el signe de $x$ abans de canviar-lo).</li><li>$f(3)=-8$, $f(-3)=-8$, $f(1)=0$, $f(-1)=0$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 202.</strong> Calcula la imatge dels valors $x=-2,\ -1,\ 0,\ 1,\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.</p>
+<div class="it"><div class="cap"><span class="cod">202a</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=x^3-1$</div>
+<ol class="op"><li><span class="ok">$f(-2)=-9,\ f(-1)=-2,\ f(0)=-1,\ f(1)=0,\ f(2)=7$</span> — resposta correcta</li>
+<li>$f(-2)=-7,\ f(-1)=-4,\ f(0)=-1,\ f(1)=2,\ f(2)=5$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$x^3$ no és $3x$: per exemple, per $x=2$, $x^3=8$ (no $3\cdot 2=6$).</span></li>
+<li>$f(-2)=-8,\ f(-1)=-1,\ f(0)=0,\ f(1)=1,\ f(2)=8$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta restar l'$1$ final a cada imatge.</span></li>
+<li>$f(-2)=7,\ f(-1)=0,\ f(0)=-1,\ f(1)=0,\ f(2)=7$<br><span class="err">POTENCIA_APLICADA_MALAMENT</span><span class="fb">El cub d'un nombre negatiu és negatiu: $(-2)^3=-8$, no $8$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor a $x^3-1$, calculant primer el cub (recorda que el cub d'un negatiu és negatiu).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $x^3$ i resta $1$.</li><li>$f(-2)=(-2)^3-1=-8-1=-9$, $f(-1)=-1-1=-2$, $f(0)=-1$, $f(1)=0$, $f(2)=8-1=7$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">202b</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=\dfrac{1}{x^2+2}$</div>
+<ol class="op"><li><span class="ok">$f(-2)=\dfrac{1}{6},\ f(-1)=\dfrac{1}{3},\ f(0)=\dfrac{1}{2},\ f(1)=\dfrac{1}{3},\ f(2)=\dfrac{1}{6}$</span> — resposta correcta</li>
+<li>$f(-2)=6,\ f(-1)=3,\ f(0)=2,\ f(1)=3,\ f(2)=6$<br><span class="err">INVERTIDA</span><span class="fb">La fracció ha quedat invertida: la $f(x)$ correcta és $\dfrac{1}{x^2+2}$, no $x^2+2$.</span></li>
+<li>$f(-2)=4,\ f(-1)=1,\ f(0)=0,\ f(1)=1,\ f(2)=4$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta sumar el $2$ del denominador i, sobretot, invertir la fracció: el resultat és $\dfrac{1}{x^2+2}$, no $x^2$.</span></li>
+<li>$f(-2)=-\dfrac{1}{2},\ f(-1)=1,\ f(0)=\dfrac{1}{2},\ f(1)=1,\ f(2)=-\dfrac{1}{2}$<br><span class="err">SIGNE_FINAL</span><span class="fb">El $x^2$ del denominador és sempre positiu i se suma (no es resta): és $x^2+2$, no $-x^2+2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer $x^2+2$ per a cada valor i després inverteix el resultat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $x^2+2$ i fes-ne la fracció inversa.</li><li>$f(-2)=\dfrac{1}{4+2}=\dfrac{1}{6}$, $f(-1)=\dfrac{1}{3}$, $f(0)=\dfrac{1}{2}$, $f(1)=\dfrac{1}{3}$, $f(2)=\dfrac{1}{6}$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">202c</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=\sqrt{\dfrac{x}{2}+5}$</div>
+<ol class="op"><li><span class="ok">$f(-2)=2{,}00,\ f(-1)=2{,}12,\ f(0)=2{,}24,\ f(1)=2{,}35,\ f(2)=2{,}45$</span> — resposta correcta</li>
+<li>$f(-2)=1{,}73,\ f(-1)=2{,}00,\ f(0)=2{,}24,\ f(1)=2{,}45,\ f(2)=2{,}65$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta dividir la $x$ entre $2$ abans de sumar $5$: dins de l'arrel hi ha $\dfrac{x}{2}+5$, no $x+5$.</span></li>
+<li>$f(-2)=16{,}00,\ f(-1)=20{,}25,\ f(0)=25{,}00,\ f(1)=30{,}25,\ f(2)=36{,}00$<br><span class="err">OPERACIO_INVERSA</span><span class="fb">S'ha elevat al quadrat en lloc de fer l'arrel: per desfer una arrel es calcula l'arrel, no el quadrat.</span></li>
+<li>$f(-2)=-2{,}00,\ f(-1)=-2{,}12,\ f(0)=-2{,}24,\ f(1)=-2{,}35,\ f(2)=-2{,}45$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'arrel quadrada d'un nombre positiu és sempre positiva.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer el que hi ha dins l'arrel ($\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $\dfrac{x}{2}+5$ i fes-ne l'arrel quadrada, arrodonint a les centèsimes.</li><li>$f(-2)=\sqrt{4}=2{,}00$, $f(-1)=\sqrt{4{,}5}\approx 2{,}12$, $f(0)=\sqrt{5}\approx 2{,}24$, $f(1)=\sqrt{5{,}5}\approx 2{,}35$, $f(2)=\sqrt{6}\approx 2{,}45$.</li></ol>
+<p class="nota"><strong>Nota:</strong> Les imatges no són exactes: s'han arrodonit a les centèsimes, igual que fa el solucionari original.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">202d</span><span class="tip">tipus A</span></div>
+<div class="enun">$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$</div>
+<ol class="op"><li><span class="ok">$f(-2)=\dfrac{89}{15},\ f(-1)=\dfrac{44}{15},\ f(0)=\dfrac{3}{5},\ f(1)=-\dfrac{16}{15},\ f(2)=-\dfrac{31}{15}$</span> — resposta correcta</li>
+<li>$f(-2)=-\dfrac{31}{15},\ f(-1)=-\dfrac{16}{15},\ f(0)=\dfrac{3}{5},\ f(1)=\dfrac{44}{15},\ f(2)=\dfrac{89}{15}$<br><span class="err">SUMA_EN_LLOC_RESTA</span><span class="fb">El terme $2x$ se RESTA, no se suma: és $-2x$.</span></li>
+<li>$f(-2)=\dfrac{43}{5},\ f(-1)=\dfrac{18}{5},\ f(0)=\dfrac{3}{5},\ f(1)=-\dfrac{2}{5},\ f(2)=\dfrac{3}{5}$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta dividir $x^2$ entre $3$: el primer terme és $\dfrac{x^2}{3}$, no $x^2$.</span></li>
+<li>$f(-2)=\dfrac{71}{15},\ f(-1)=\dfrac{26}{15},\ f(0)=-\dfrac{3}{5},\ f(1)=-\dfrac{34}{15},\ f(2)=-\dfrac{49}{15}$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El terme $\dfrac{3}{5}$ és positiu i se suma, no se resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix cada valor a $\dfrac{x^2}{3}-2x+\dfrac{3}{5}$ i opera amb fraccions, buscant denominador comú (15) al final.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Calcula per separat $\dfrac{x^2}{3}$, $-2x$ i $\dfrac{3}{5}$, i suma-ho tot amb denominador comú $15$.</li><li>$f(-2)=\dfrac{4}{3}+4+\dfrac{3}{5}=\dfrac{20+60+9}{15}=\dfrac{89}{15}$.</li><li>$f(-1)=\dfrac{44}{15}$, $f(0)=\dfrac{3}{5}$, $f(1)=-\dfrac{16}{15}$, $f(2)=-\dfrac{31}{15}$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 203.</strong> Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.</p>
+<div class="it"><div class="cap"><span class="cod">203a</span><span class="tip">tipus B</span></div>
+<div class="enun">Una gràfica formada per dues branques de corba que s'apropen sense arribar mai a la recta vertical $x=2$ ni a la recta horitzontal $y=0$.</div>
+<ol class="op"><li><span class="ok">Domini: $\mathbb{R}-\{2\}$ (tots els reals excepte $2$). Recorregut: $\mathbb{R}-\{0\}$ (tots els reals excepte $0$).</span> — resposta correcta</li>
+<li>Domini: $\mathbb{R}-\{0\}$. Recorregut: $\mathbb{R}-\{2\}$.<br><span class="err">DOMINI_RECORREGUT_INTERCANVIATS</span><span class="fb">El domini és el conjunt de valors de $x$ (l'asímptota vertical és $x=2$) i el recorregut el de $y$ (l'asímptota horitzontal és $y=0$): estan intercanviats.</span></li>
+<li>Domini: $[2,+\infty)$. Recorregut: $[0,+\infty)$.<br><span class="err">ASIMPTOTA_COM_LIMIT</span><span class="fb">$x=2$ i $y=0$ no són els extrems d'un interval, són valors que la gràfica no arriba a tocar mai (asímptotes): el domini i el recorregut són tots els reals excepte aquests dos valors, no un interval que hi comenci.</span></li>
+<li>Domini: $\mathbb{R}$. Recorregut: $\mathbb{R}-\{0\}$.<br><span class="err">RESTRICCIO_OBLIDADA</span><span class="fb">La gràfica tampoc arriba a tocar la recta $x=2$: cal excloure aquest valor del domini, igual que s'exclou el $0$ del recorregut.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a tocar (les asímptotes): aquests són els que cal excloure.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La gràfica no toca mai la recta vertical $x=2$: el domini és $\mathbb{R}-\{2\}$.</li><li>Tampoc toca mai la recta horitzontal $y=0$: el recorregut és $\mathbb{R}-\{0\}$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">203b</span><span class="tip">tipus B</span></div>
+<div class="enun">Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems inclosos), i que oscil·la entre una alçada mínima de $-2$ i una màxima de $3$.</div>
+<ol class="op"><li><span class="ok">Domini: $[-3,4]$. Recorregut: $[-2,3]$.</span> — resposta correcta</li>
+<li>Domini: $[-2,3]$. Recorregut: $[-3,4]$.<br><span class="err">DOMINI_RECORREGUT_INTERCANVIATS</span><span class="fb">El domini és l'interval de valors de $x$ ($-3$ a $4$) i el recorregut el de $y$ ($-2$ a $3$): estan intercanviats.</span></li>
+<li>Domini: $(-3,4)$. Recorregut: $(-2,3)$.<br><span class="err">EXTREMS_OBLIDATS</span><span class="fb">Els extrems $-3$, $4$, $-2$ i $3$ estan inclosos (la gràfica hi arriba), així que els intervals són tancats, amb claudàtors $[\ ]$, no oberts amb parèntesis.</span></li>
+<li>Domini: $[-3,4]$. Recorregut: $[0,3]$.<br><span class="err">SIGNE_FINAL</span><span class="fb">L'alçada mínima de la gràfica és $-2$ (per sota de l'eix horitzontal), no $0$: el recorregut comença a $-2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El domini és l'interval de valors de $x$ on existeix la gràfica; el recorregut, l'interval d'alçades ($y$) que arriba a assolir.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La gràfica va de $x=-3$ a $x=4$, amb els extrems inclosos: domini $[-3,4]$.</li><li>L'alçada oscil·la entre $-2$ i $3$, també inclosos: recorregut $[-2,3]$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">203c</span><span class="tip">tipus B</span></div>
+<div class="enun">Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense límit, amb un punt més baix a alçada $-1$ i que a partir d'aquí puja indefinidament cap als dos costats.</div>
+<ol class="op"><li><span class="ok">Domini: $\mathbb{R}$ (tots els reals). Recorregut: $[-1,+\infty)$.</span> — resposta correcta</li>
+<li>Domini: $[-1,+\infty)$. Recorregut: $\mathbb{R}$.<br><span class="err">DOMINI_RECORREGUT_INTERCANVIATS</span><span class="fb">Que la gràfica s'estengui sense límit cap a l'esquerra i la dreta descriu el domini (valors de $x$); que tingui un punt més baix a alçada $-1$ descriu el recorregut (valors de $y$): estan intercanviats.</span></li>
+<li>Domini: $\mathbb{R}$. Recorregut: $(-\infty,-1]$.<br><span class="err">SIGNE_FINAL</span><span class="fb">La gràfica puja a partir del punt més baix, no baixa: els valors de $y$ van des de $-1$ cap AMUNT, no cap avall.</span></li>
+<li>Domini: $\mathbb{R}$. Recorregut: $(-1,+\infty)$.<br><span class="err">EXTREMS_OBLIDATS</span><span class="fb">El punt més baix, a alçada $-1$, sí forma part de la gràfica (hi ha un mínim, no una asímptota): l'interval és tancat per aquest costat, $[-1,+\infty)$, no obert.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la gràfica s'estén sense límit cap als dos costats horitzontalment, el domini és tot $\mathbb{R}$; fixa't en si el punt més baix forma part o no de la gràfica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La gràfica existeix per a qualsevol valor de $x$: domini $\mathbb{R}$.</li><li>El valor més baix que assoleix $y$ és $-1$ (inclòs), i puja sense límit: recorregut $[-1,+\infty)$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">203d</span><span class="tip">tipus B</span></div>
+<div class="enun">Una gràfica que només existeix per a valors de $x$ fins a $5$ (inclòs, cap a l'esquerra sense límit), i que en alçada s'estén indefinidament tant cap amunt com cap avall.</div>
+<ol class="op"><li><span class="ok">Domini: $(-\infty,5]$. Recorregut: $\mathbb{R}$.</span> — resposta correcta</li>
+<li>Domini: $\mathbb{R}$. Recorregut: $(-\infty,5]$.<br><span class="err">DOMINI_RECORREGUT_INTERCANVIATS</span><span class="fb">Que existeixi fins a $x=5$ descriu el domini (valors de $x$); que s'estengui indefinidament en alçada descriu el recorregut (valors de $y$): estan intercanviats.</span></li>
+<li>Domini: $(-\infty,5)$. Recorregut: $\mathbb{R}$.<br><span class="err">EXTREMS_OBLIDATS</span><span class="fb">El $5$ està inclòs (la gràfica hi arriba): l'interval és $(-\infty,5]$, tancat per aquest costat, no obert.</span></li>
+<li>Domini: $[5,+\infty)$. Recorregut: $\mathbb{R}$.<br><span class="err">SIGNE_FINAL</span><span class="fb">La gràfica existeix cap a l'ESQUERRA de $x=5$ (sense límit cap a l'esquerra), no cap a la dreta: és $(-\infty,5]$, no $[5,+\infty)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fixa't cap a quin costat s'estén sense límit horitzontalment, i si l'extrem $x=5$ forma part o no de la gràfica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La gràfica existeix per a $x\leq 5$, amb el $5$ inclòs: domini $(-\infty,5]$.</li><li>En alçada no hi ha cap límit, ni per amunt ni per avall: recorregut $\mathbb{R}$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 206.</strong> Fes l&#x27;estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.</p>
+<div class="it"><div class="cap"><span class="cod">206a</span><span class="tip">tipus B</span></div>
+<div class="enun">Una recta que travessa tot el pla, pujant sempre de manera constant, sense cap tram pla ni cap màxim o mínim.</div>
+<ol class="op"><li><span class="ok">Domini i recorregut: $\mathbb{R}$. És creixent a tot el domini. No té cap màxim ni mínim.</span> — resposta correcta</li>
+<li>Domini i recorregut: $\mathbb{R}$. És decreixent a tot el domini. No té cap màxim ni mínim.<br><span class="err">SIGNE_FINAL</span><span class="fb">Que pugi sempre vol dir que és CREIXENT, no decreixent: com més gran és $x$, més gran és $y$.</span></li>
+<li>Domini i recorregut: $\mathbb{R}$. És creixent a tot el domini. Té un màxim on la recta talla l'eix vertical.<br><span class="err">TALL_COM_EXTREM</span><span class="fb">El punt on la recta talla un eix no és un màxim ni un mínim: una recta que puja sempre no té cap punt on canviï de pujar a baixar, per tant no té cap extrem.</span></li>
+<li>Domini: $\mathbb{R}$. Recorregut: $[0,+\infty)$. És creixent a tot el domini. No té cap màxim ni mínim.<br><span class="err">RESTRICCIO_INVENTADA</span><span class="fb">Una recta que travessa tot el pla sense cap límit arriba a qualsevol valor de $y$, també als negatius: el recorregut és tot $\mathbb{R}$, no només els positius.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una recta que puja sempre sense cap tram pla és creixent a tot arreu i no té cap punt on deixi de pujar (cap extrem).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La recta travessa tot el pla en totes direccions: domini i recorregut $\mathbb{R}$.</li><li>Puja de manera constant, sense cap tram on baixi: és creixent a tot el domini.</li><li>Com que no canvia mai de pujar a baixar, no té cap màxim ni mínim.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">206b</span><span class="tip">tipus B</span></div>
+<div class="enun">Una paràbola oberta cap amunt, amb el punt més baix al $(1,-3)$, que baixa fins a aquest punt i després torna a pujar, estenent-se sense límit cap als dos costats.</div>
+<ol class="op"><li><span class="ok">Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És decreixent a $(-\infty,1)$ i creixent a $(1,+\infty)$. Té un mínim absolut al punt $(1,-3)$.</span> — resposta correcta</li>
+<li>Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És creixent a $(-\infty,1)$ i decreixent a $(1,+\infty)$. Té un mínim absolut al punt $(1,-3)$.<br><span class="err">CREIXEMENT_INVERTIT</span><span class="fb">Abans d'arribar al punt més baix la funció BAIXA (decreix), i només torna a pujar (creix) després: els dos trams estan intercanviats.</span></li>
+<li>Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És decreixent a $(-\infty,1)$ i creixent a $(1,+\infty)$. Té un màxim absolut al punt $(1,-3)$.<br><span class="err">EXTREM_INVERTIT</span><span class="fb">El punt $(1,-3)$ és el punt més BAIX de la gràfica (la paràbola és oberta cap amunt): és un mínim, no un màxim.</span></li>
+<li>Domini: $[-3,+\infty)$. Recorregut: $\mathbb{R}$. És decreixent a $(-\infty,1)$ i creixent a $(1,+\infty)$. Té un mínim absolut al punt $(1,-3)$.<br><span class="err">DOMINI_RECORREGUT_INTERCANVIATS</span><span class="fb">La paràbola s'estén sense límit horitzontalment (domini $\mathbb{R}$) però només arriba a $y=-3$ per avall (recorregut $[-3,+\infty)$): estan intercanviats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El punt més baix d'una paràbola oberta cap amunt és sempre un mínim; abans d'arribar-hi, la funció decreix, i després creix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La paràbola s'estén sense límit horitzontalment: domini $\mathbb{R}$.</li><li>Mai baixa de $y=-3$ (és el punt més baix): recorregut $[-3,+\infty)$.</li><li>Decreix fins arribar al punt $(1,-3)$ i, a partir d'aquí, creix: decreixent a $(-\infty,1)$, creixent a $(1,+\infty)$.</li><li>El punt $(1,-3)$, on canvia de decréixer a créixer, és un mínim absolut.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">206c</span><span class="tip">tipus B</span></div>
+<div class="enun">Una gràfica que puja fins a un punt més alt en $(0,2)$, després baixa fins a un punt més baix en $(3,-1)$, i a partir d'aquí torna a pujar indefinidament.</div>
+<ol class="op"><li><span class="ok">És creixent a $(-\infty,0)$, decreixent a $(0,3)$ i creixent a $(3,+\infty)$. Té un màxim relatiu al punt $(0,2)$ i un mínim relatiu al punt $(3,-1)$.</span> — resposta correcta</li>
+<li>És decreixent a $(-\infty,0)$, creixent a $(0,3)$ i decreixent a $(3,+\infty)$. Té un mínim relatiu al punt $(0,2)$ i un màxim relatiu al punt $(3,-1)$.<br><span class="err">CREIXEMENT_INVERTIT</span><span class="fb">Cada tram de creixement i decreixement, i cada màxim i mínim, estan invertits respecte a la descripció: la funció PUJA abans de $(0,2)$ (és un màxim, no un mínim) i torna a pujar després de $(3,-1)$ (és un mínim, no un màxim).</span></li>
+<li>És creixent a $(-\infty,0)$, decreixent a $(0,3)$ i creixent a $(3,+\infty)$. Té un màxim absolut al punt $(0,2)$ i un mínim absolut al punt $(3,-1)$.<br><span class="err">RELATIU_COM_ABSOLUT</span><span class="fb">Com que la gràfica torna a pujar sense límit després de $(3,+\infty)$, hi ha valors de $y$ més grans que $2$ més endavant: $(0,2)$ no és el punt més alt de TOTA la gràfica (no és absolut), només ho és comparat amb els punts del voltant (és relatiu). El mateix passa amb el mínim.</span></li>
+<li>És creixent a $(-\infty,0)$, decreixent a $(0,3)$ i creixent a $(3,+\infty)$. Té un màxim relatiu al punt $(2,0)$ i un mínim relatiu al punt $(-1,3)$.<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">A cada punt, la primera coordenada és el valor de $x$ i la segona el de $y$: els màxims i mínims són als punts $(0,2)$ i $(3,-1)$, no $(2,0)$ i $(-1,3)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a superar-lo més endavant o més enrere; és absolut només si és el punt més alt (o baix) de TOTA la gràfica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Puja fins al punt $(0,2)$: creixent a $(-\infty,0)$; aquest punt és un màxim.</li><li>Després baixa fins al punt $(3,-1)$: decreixent a $(0,3)$; aquest punt és un mínim.</li><li>A partir d'aquí torna a pujar sense límit: creixent a $(3,+\infty)$.</li><li>Com que a la dreta la gràfica puja sense límit, en algun moment torna a superar $y=2$: el màxim $(0,2)$ no és el punt més alt de tota la gràfica, només ho és localment (relatiu). I com que a l'esquerra la gràfica ve creixent des de $-\infty$, abans d'arribar a $(0,2)$ ja havia passat per valors per sota de $y=-1$: el mínim $(3,-1)$ tampoc és el punt més baix de tota la gràfica (també és relatiu).</li></ol>
+</div>
+<h2>Funcions lineals <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 207.</strong> Indica el pendent i l&#x27;ordenada a l&#x27;origen de cada funció lineal, donada per la seva expressió.</p>
+<div class="it"><div class="cap"><span class="cod">207a</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-3x+6$</div>
+<ol class="op"><li><span class="ok">$m=-3,\ n=6$</span> — resposta correcta</li>
+<li>$m=6,\ n=-3$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$, i l'ordenada a l'origen és el terme independent (sense $x$): estan intercanviats.</span></li>
+<li>$m=3,\ n=6$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el seu signe tal com apareix a l'expressió: no cal canviar-lo.</span></li>
+<li>$m=-3,\ n=-6$<br><span class="err">SIGNE_ORDENADA_INVERTIT</span><span class="fb">L'ordenada a l'origen és el terme independent tal com apareix a l'expressió (amb el seu signe): no cal canviar-lo.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.</li><li>$y=-3x+6$ té $m=-3$ i $n=6$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">207b</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=10x$</div>
+<ol class="op"><li><span class="ok">$m=10,\ n=0$</span> — resposta correcta</li>
+<li>$m=0,\ n=10$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$, i l'ordenada a l'origen és el terme independent (sense $x$): estan intercanviats.</span></li>
+<li>$m=-10,\ n=0$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el seu signe tal com apareix a l'expressió: no cal canviar-lo.</span></li>
+<li>$m=10,\ n=1$<br><span class="err">ORDENADA_NULA_OBLIDADA</span><span class="fb">Quan l'expressió no té cap terme independent escrit (com $y=10x$), l'ordenada a l'origen és $0$, no $1$: no hi ha cap terme que sumar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.</li><li>$y=10x$ té $m=10$ i $n=0$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">207c</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-2x-5$</div>
+<ol class="op"><li><span class="ok">$m=-2,\ n=-5$</span> — resposta correcta</li>
+<li>$m=-5,\ n=-2$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$, i l'ordenada a l'origen és el terme independent (sense $x$): estan intercanviats.</span></li>
+<li>$m=2,\ n=-5$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el seu signe tal com apareix a l'expressió: no cal canviar-lo.</span></li>
+<li>$m=-2,\ n=5$<br><span class="err">SIGNE_ORDENADA_INVERTIT</span><span class="fb">L'ordenada a l'origen és el terme independent tal com apareix a l'expressió (amb el seu signe): no cal canviar-lo.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.</li><li>$y=-2x-5$ té $m=-2$ i $n=-5$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">207d</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-9x$</div>
+<ol class="op"><li><span class="ok">$m=-9,\ n=0$</span> — resposta correcta</li>
+<li>$m=0,\ n=-9$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$, i l'ordenada a l'origen és el terme independent (sense $x$): estan intercanviats.</span></li>
+<li>$m=9,\ n=0$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el seu signe tal com apareix a l'expressió: no cal canviar-lo.</span></li>
+<li>$m=-9,\ n=1$<br><span class="err">ORDENADA_NULA_OBLIDADA</span><span class="fb">Quan l'expressió no té cap terme independent escrit (com $y=-9x$), l'ordenada a l'origen és $0$, no $1$: no hi ha cap terme que sumar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.</li><li>$y=-9x$ té $m=-9$ i $n=0$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 208.</strong> Indica, sense representar-la, si la funció lineal és creixent o decreixent.</p>
+<div class="it"><div class="cap"><span class="cod">208a</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=12x-1$</div>
+<ol class="op"><li><span class="ok">Creixent</span> — resposta correcta</li>
+<li>Decreixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $12$ (positiu): la funció és creixent, no decreixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $12$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=12x-1$ és $m=12$.</li><li>Com que $m$ és positiu, la funció és creixent.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">208b</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x/6+3$</div>
+<ol class="op"><li><span class="ok">Creixent</span> — resposta correcta</li>
+<li>Decreixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $\dfrac{1}{6}$ (positiu): la funció és creixent, no decreixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $\dfrac{1}{6}$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=x/6+3$ és $m=\dfrac{1}{6}$.</li><li>Com que $m$ és positiu, la funció és creixent.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">208c</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x/4-2$</div>
+<ol class="op"><li><span class="ok">Creixent</span> — resposta correcta</li>
+<li>Decreixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $\dfrac{1}{4}$ (positiu): la funció és creixent, no decreixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $\dfrac{1}{4}$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=x/4-2$ és $m=\dfrac{1}{4}$.</li><li>Com que $m$ és positiu, la funció és creixent.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">208d</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-7x+5$</div>
+<ol class="op"><li><span class="ok">Decreixent</span> — resposta correcta</li>
+<li>Creixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $-7$ (negatiu): la funció és decreixent, no creixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $-7$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=-7x+5$ és $m=-7$.</li><li>Com que $m$ és negatiu, la funció és decreixent.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">208e</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-12x/5+1$</div>
+<ol class="op"><li><span class="ok">Decreixent</span> — resposta correcta</li>
+<li>Creixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $-\dfrac{12}{5}$ (negatiu): la funció és decreixent, no creixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $-\dfrac{12}{5}$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=-12x/5+1$ és $m=-\dfrac{12}{5}$.</li><li>Com que $m$ és negatiu, la funció és decreixent.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">208f</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=7x/10$</div>
+<ol class="op"><li><span class="ok">Creixent</span> — resposta correcta</li>
+<li>Decreixent<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent és $\dfrac{7}{10}$ (positiu): la funció és creixent, no decreixent.</span></li>
+<li>Constant<br><span class="err">PENDENT_COM_NUL</span><span class="fb">El pendent $\dfrac{7}{10}$ no és $0$: una funció lineal només és constant quan el pendent és nul, i aquí no ho és.</span></li>
+<li>No es pot saber sense representar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">El signe del pendent ja determina si la funció és creixent o decreixent, sense necessitat de representar-la.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent de $y=7x/10$ és $m=\dfrac{7}{10}$.</li><li>Com que $m$ és positiu, la funció és creixent.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 209.</strong> Calcula l&#x27;expressió algebraica de la funció lineal que passa pels dos punts donats.</p>
+<div class="it"><div class="cap"><span class="cod">209a</span><span class="tip">tipus A</span></div>
+<div class="enun">Passa pels punts $(0,\ -1)$ i $(1,\ 1)$.</div>
+<ol class="op"><li><span class="ok">$y=2x-1$</span> — resposta correcta</li>
+<li>$y=2x+1$<br><span class="err">PUNT_ORDENADA_CONFOS</span><span class="fb">L'ordenada a l'origen és el valor de $y$ del punt on $x=0$, és a dir, del punt $(0,\ -1)$ (que dona $n=-1$), no del punt $(1,\ 1)$.</span></li>
+<li>$y=-2x-1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent es calcula com $m=\dfrac{y_2-y_1}{x_2-x_1}$, restant sempre en el mateix ordre al numerador i al denominador: si s'inverteix l'ordre en un dels dos, el signe surt canviat.</span></li>
+<li>$y=-x+2$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme independent: estan intercanviats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{1-(-1)}{1-(0)}=2$.</li><li>Com que el punt $(0,\ -1)$ té $x=0$, la seva $y$ ja és l'ordenada a l'origen: $n=-1$.</li><li>L'expressió és $y=2x-1$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">209b</span><span class="tip">tipus A</span></div>
+<div class="enun">Passa pels punts $(0,\ 1)$ i $(1,\ 3)$.</div>
+<ol class="op"><li><span class="ok">$y=2x+1$</span> — resposta correcta</li>
+<li>$y=2x+3$<br><span class="err">PUNT_ORDENADA_CONFOS</span><span class="fb">L'ordenada a l'origen és el valor de $y$ del punt on $x=0$, és a dir, del punt $(0,\ 1)$ (que dona $n=1$), no del punt $(1,\ 3)$.</span></li>
+<li>$y=-2x+1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent es calcula com $m=\dfrac{y_2-y_1}{x_2-x_1}$, restant sempre en el mateix ordre al numerador i al denominador: si s'inverteix l'ordre en un dels dos, el signe surt canviat.</span></li>
+<li>$y=x+2$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme independent: estan intercanviats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{3-(1)}{1-(0)}=2$.</li><li>Com que el punt $(0,\ 1)$ té $x=0$, la seva $y$ ja és l'ordenada a l'origen: $n=1$.</li><li>L'expressió és $y=2x+1$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">209c</span><span class="tip">tipus A</span></div>
+<div class="enun">Passa pels punts $(0,\ 1)$ i $(2,\ 2)$.</div>
+<ol class="op"><li><span class="ok">$y=\dfrac{1}{2}x+1$</span> — resposta correcta</li>
+<li>$y=\dfrac{1}{2}x+2$<br><span class="err">PUNT_ORDENADA_CONFOS</span><span class="fb">L'ordenada a l'origen és el valor de $y$ del punt on $x=0$, és a dir, del punt $(0,\ 1)$ (que dona $n=1$), no del punt $(2,\ 2)$.</span></li>
+<li>$y=-\dfrac{1}{2}x+1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent es calcula com $m=\dfrac{y_2-y_1}{x_2-x_1}$, restant sempre en el mateix ordre al numerador i al denominador: si s'inverteix l'ordre en un dels dos, el signe surt canviat.</span></li>
+<li>$y=x+\dfrac{1}{2}$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme independent: estan intercanviats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{2-(1)}{2-(0)}=\dfrac{1}{2}$.</li><li>Com que el punt $(0,\ 1)$ té $x=0$, la seva $y$ ja és l'ordenada a l'origen: $n=1$.</li><li>L'expressió és $y=\dfrac{1}{2}x+1$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">209d</span><span class="tip">tipus A</span></div>
+<div class="enun">Passa pels punts $(0,\ -1)$ i $(1,\ -3)$.</div>
+<ol class="op"><li><span class="ok">$y=-2x-1$</span> — resposta correcta</li>
+<li>$y=-2x-3$<br><span class="err">PUNT_ORDENADA_CONFOS</span><span class="fb">L'ordenada a l'origen és el valor de $y$ del punt on $x=0$, és a dir, del punt $(0,\ -1)$ (que dona $n=-1$), no del punt $(1,\ -3)$.</span></li>
+<li>$y=2x-1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent es calcula com $m=\dfrac{y_2-y_1}{x_2-x_1}$, restant sempre en el mateix ordre al numerador i al denominador: si s'inverteix l'ordre en un dels dos, el signe surt canviat.</span></li>
+<li>$y=-x-2$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme independent: estan intercanviats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{-3-(-1)}{1-(0)}=-2$.</li><li>Com que el punt $(0,\ -1)$ té $x=0$, la seva $y$ ja és l'ordenada a l'origen: $n=-1$.</li><li>L'expressió és $y=-2x-1$.</li></ol>
+</div>
+<h2>Funcions quadràtiques <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 212.</strong> Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.</p>
+<div class="it"><div class="cap"><span class="cod">212a</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=2x^2$</div>
+<ol class="op"><li><span class="ok">Oberta cap amunt i més estreta que $y=x^2$.</span> — resposta correcta</li>
+<li>Oberta cap avall i més estreta que $y=x^2$.<br><span class="err">OBERTURA_INVERTIDA</span><span class="fb">El signe de $a$ determina l'obertura: positiu és cap amunt, negatiu cap avall. Aquí $a=2$.</span></li>
+<li>Oberta cap amunt i més ampla que $y=x^2$.<br><span class="err">AMPLADA_INVERTIDA</span><span class="fb">Com més gran és $|a|$, més ESTRETA és la paràbola (no més ampla): aquí $|a|=2$, que és més gran que $1$.</span></li>
+<li>Oberta cap avall i més ampla que $y=x^2$.<br><span class="err">OBERTURA_I_AMPLADA_INVERTIDES</span><span class="fb">Tant l'obertura com l'amplada estan invertides respecte a $a=2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=2x^2$, $a=2$.</li><li>Com que $a$ és positiu, la paràbola és oberta cap amunt.</li><li>Com que $|a|=2$ és més gran que $1$, la paràbola és més estreta que $y=x^2$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">212b</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x^2/2$</div>
+<ol class="op"><li><span class="ok">Oberta cap amunt i més ampla que $y=x^2$.</span> — resposta correcta</li>
+<li>Oberta cap avall i més ampla que $y=x^2$.<br><span class="err">OBERTURA_INVERTIDA</span><span class="fb">El signe de $a$ determina l'obertura: positiu és cap amunt, negatiu cap avall. Aquí $a=\dfrac{1}{2}$.</span></li>
+<li>Oberta cap amunt i més estreta que $y=x^2$.<br><span class="err">AMPLADA_INVERTIDA</span><span class="fb">Com més gran és $|a|$, més ESTRETA és la paràbola (no més ampla): aquí $|a|=\dfrac{1}{2}$, que és més petit que $1$.</span></li>
+<li>Oberta cap avall i més estreta que $y=x^2$.<br><span class="err">OBERTURA_I_AMPLADA_INVERTIDES</span><span class="fb">Tant l'obertura com l'amplada estan invertides respecte a $a=\dfrac{1}{2}$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=x^2/2$, $a=\dfrac{1}{2}$.</li><li>Com que $a$ és positiu, la paràbola és oberta cap amunt.</li><li>Com que $|a|=\dfrac{1}{2}$ és més petit que $1$, la paràbola és més ampla que $y=x^2$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">212c</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-2x^2$</div>
+<ol class="op"><li><span class="ok">Oberta cap avall i més estreta que $y=x^2$.</span> — resposta correcta</li>
+<li>Oberta cap amunt i més estreta que $y=x^2$.<br><span class="err">OBERTURA_INVERTIDA</span><span class="fb">El signe de $a$ determina l'obertura: positiu és cap amunt, negatiu cap avall. Aquí $a=-2$.</span></li>
+<li>Oberta cap avall i més ampla que $y=x^2$.<br><span class="err">AMPLADA_INVERTIDA</span><span class="fb">Com més gran és $|a|$, més ESTRETA és la paràbola (no més ampla): aquí $|a|=2$, que és més gran que $1$.</span></li>
+<li>Oberta cap amunt i més ampla que $y=x^2$.<br><span class="err">OBERTURA_I_AMPLADA_INVERTIDES</span><span class="fb">Tant l'obertura com l'amplada estan invertides respecte a $a=-2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=-2x^2$, $a=-2$.</li><li>Com que $a$ és negatiu, la paràbola és oberta cap avall.</li><li>Com que $|a|=2$ és més gran que $1$, la paràbola és més estreta que $y=x^2$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">212d</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x^2/4$</div>
+<ol class="op"><li><span class="ok">Oberta cap amunt i més ampla que $y=x^2$.</span> — resposta correcta</li>
+<li>Oberta cap avall i més ampla que $y=x^2$.<br><span class="err">OBERTURA_INVERTIDA</span><span class="fb">El signe de $a$ determina l'obertura: positiu és cap amunt, negatiu cap avall. Aquí $a=\dfrac{1}{4}$.</span></li>
+<li>Oberta cap amunt i més estreta que $y=x^2$.<br><span class="err">AMPLADA_INVERTIDA</span><span class="fb">Com més gran és $|a|$, més ESTRETA és la paràbola (no més ampla): aquí $|a|=\dfrac{1}{4}$, que és més petit que $1$.</span></li>
+<li>Oberta cap avall i més estreta que $y=x^2$.<br><span class="err">OBERTURA_I_AMPLADA_INVERTIDES</span><span class="fb">Tant l'obertura com l'amplada estan invertides respecte a $a=\dfrac{1}{4}$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>A $y=x^2/4$, $a=\dfrac{1}{4}$.</li><li>Com que $a$ és positiu, la paràbola és oberta cap amunt.</li><li>Com que $|a|=\dfrac{1}{4}$ és més petit que $1$, la paràbola és més ampla que $y=x^2$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 214.</strong> Calcula quin és el valor de la constant $c$ en l&#x27;expressió $y=x^2+c$ d&#x27;aquestes paràboles.</p>
+<div class="it"><div class="cap"><span class="cod">214a</span><span class="tip">tipus A</span></div>
+<div class="enun">Paràbola oberta cap amunt amb vèrtex en el punt $(0,\ -1)$.</div>
+<ol class="op"><li><span class="ok">$c=-1$</span> — resposta correcta</li>
+<li>$c=1$<br><span class="err">SIGNE_FINAL</span><span class="fb">El vèrtex de $y=x^2+c$ és sempre el punt $(0,c)$: si el vèrtex donat és $(0,\ -1)$, el valor de $c$ és $-1$, amb el mateix signe.</span></li>
+<li>$c=0$<br><span class="err">TERME_INDEPENDENT_IGNORAT</span><span class="fb">$c$ no és $0$: el vèrtex de $y=x^2$ (sense sumar res) seria $(0,0)$, i aquí el vèrtex donat és $(0,\ -1)$, no l'origen.</span></li>
+<li>$c=-2$<br><span class="err">VALOR_DUPLICAT</span><span class="fb">El vèrtex $(0,\ -1)$ dona directament $c=-1$, sense necessitat de multiplicar-lo per cap altre nombre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Comparant $y=x^2+c$ amb $y=x^2$, sumar $c$ desplaça tota la paràbola $c$ unitats amunt (si $c>0$) o avall (si $c<0$), sense moure-la horitzontalment.</li><li>Per això el vèrtex passa de $(0,0)$ a $(0,c)$: si el vèrtex donat és $(0,\ -1)$, aleshores $c=-1$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">214b</span><span class="tip">tipus A</span></div>
+<div class="enun">Paràbola oberta cap amunt amb vèrtex en el punt $(0,\ 2)$.</div>
+<ol class="op"><li><span class="ok">$c=2$</span> — resposta correcta</li>
+<li>$c=-2$<br><span class="err">SIGNE_FINAL</span><span class="fb">El vèrtex de $y=x^2+c$ és sempre el punt $(0,c)$: si el vèrtex donat és $(0,\ 2)$, el valor de $c$ és $2$, amb el mateix signe.</span></li>
+<li>$c=0$<br><span class="err">TERME_INDEPENDENT_IGNORAT</span><span class="fb">$c$ no és $0$: el vèrtex de $y=x^2$ (sense sumar res) seria $(0,0)$, i aquí el vèrtex donat és $(0,\ 2)$, no l'origen.</span></li>
+<li>$c=4$<br><span class="err">VALOR_DUPLICAT</span><span class="fb">El vèrtex $(0,\ 2)$ dona directament $c=2$, sense necessitat de multiplicar-lo per cap altre nombre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Comparant $y=x^2+c$ amb $y=x^2$, sumar $c$ desplaça tota la paràbola $c$ unitats amunt (si $c>0$) o avall (si $c<0$), sense moure-la horitzontalment.</li><li>Per això el vèrtex passa de $(0,0)$ a $(0,c)$: si el vèrtex donat és $(0,\ 2)$, aleshores $c=2$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 215.</strong> Calcula l&#x27;expressió algebraica de la paràbola.</p>
+<div class="it"><div class="cap"><span class="cod">215</span><span class="tip">tipus A</span></div>
+<div class="enun">Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que passa pel punt $(1,2)$.</div>
+<ol class="op"><li><span class="ok">$y=x^2+1$</span> — resposta correcta</li>
+<li>$y=x^2+2$<br><span class="err">VALOR_C_CONFOS</span><span class="fb">El vèrtex $(0,1)$ ja diu directament que $c=1$: el $2$ és la $y$ del punt $(1,2)$, no el valor de $c$.</span></li>
+<li>$y=2x^2+1$<br><span class="err">COEFICIENT_A_MAL_CALCULAT</span><span class="fb">Substituint el punt $(1,2)$ a $y=ax^2+1$: $2=a\cdot 1^2+1$, que dona $a=1$, no $a=2$.</span></li>
+<li>$y=x^2-1$<br><span class="err">SIGNE_FINAL</span><span class="fb">El vèrtex $(0,1)$ té la segona coordenada positiva: $c=1$, no $c=-1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix l'altre punt a $y=ax^2+c$ per trobar $a$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El vèrtex $(0,1)$ dona $c=1$: l'expressió és $y=ax^2+1$.</li><li>Substituint el punt $(1,2)$: $2=a\cdot 1^2+1$, per tant $a=1$.</li><li>L'expressió és $y=x^2+1$.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 216.</strong> Troba els talls amb els eixos, el vèrtex i l&#x27;equació de l&#x27;eix de simetria d&#x27;aquestes paràboles.</p>
+<div class="it"><div class="cap"><span class="cod">216a</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=-x^2-3x$</div>
+<ol class="op"><li><span class="ok">$\text{talls: }(0,\ 0),\ (-3,\ 0);\ \text{eix }x=-\dfrac{3}{2};\ \text{vèrtex }(-\dfrac{3}{2},\ \dfrac{9}{4})$</span> — resposta correcta</li>
+<li>$\text{talls: }(-3,\ 0);\ \text{eix }x=-\dfrac{3}{2};\ \text{vèrtex }(-\dfrac{3}{2},\ \dfrac{9}{4})$<br><span class="err">TALL_ORIGEN_OBLIDAT</span><span class="fb">Com que l'expressió no té terme independent (no hi ha $+c$), la paràbola sempre passa per l'origen: $(0,0)$ també és un tall amb els eixos, no només l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (-3,\ 0);\ \text{eix }x=-3;\ \text{vèrtex }(-3,\ 0)$<br><span class="err">EIX_SIMETRIA_MAL_CALCULAT</span><span class="fb">L'eix de simetria passa pel PUNT MIG entre les dues arrels, no per una de les arrels: com que una arrel és $0$, el punt mig és la meitat de l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (-3,\ 0);\ \text{eix }x=-\dfrac{3}{2};\ \text{vèrtex }(-\dfrac{3}{2},\ -\dfrac{9}{4})$<br><span class="err">SIGNE_FINAL</span><span class="fb">La $y$ del vèrtex s'obté substituint la $x$ del vèrtex a l'expressió original: cal calcular-la, no només canviar-ne el signe.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Traient factor comú: $-x^2-3x=x(-x-3)$, que dona $x=0$ i $x=-3$.</li><li>Talls amb els eixos: $(0,\ 0)$ i $(-3,\ 0)$.</li><li>L'eix de simetria passa pel punt mig de les arrels: $x=-\dfrac{3}{2}$.</li><li>El vèrtex és $(-\dfrac{3}{2},\ \dfrac{9}{4})$, substituint $x=-\dfrac{3}{2}$ a l'expressió.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">216b</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x^2-\dfrac23x$</div>
+<ol class="op"><li><span class="ok">$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ -\dfrac{1}{9})$</span> — resposta correcta</li>
+<li>$\text{talls: }(\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ -\dfrac{1}{9})$<br><span class="err">TALL_ORIGEN_OBLIDAT</span><span class="fb">Com que l'expressió no té terme independent (no hi ha $+c$), la paràbola sempre passa per l'origen: $(0,0)$ també és un tall amb els eixos, no només l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{2}{3};\ \text{vèrtex }(\dfrac{2}{3},\ 0)$<br><span class="err">EIX_SIMETRIA_MAL_CALCULAT</span><span class="fb">L'eix de simetria passa pel PUNT MIG entre les dues arrels, no per una de les arrels: com que una arrel és $0$, el punt mig és la meitat de l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ \dfrac{1}{9})$<br><span class="err">SIGNE_FINAL</span><span class="fb">La $y$ del vèrtex s'obté substituint la $x$ del vèrtex a l'expressió original: cal calcular-la, no només canviar-ne el signe.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Traient factor comú: $x^2-\dfrac23x=x(x-\dfrac{2}{3})$, que dona $x=0$ i $x=\dfrac{2}{3}$.</li><li>Talls amb els eixos: $(0,\ 0)$ i $(\dfrac{2}{3},\ 0)$.</li><li>L'eix de simetria passa pel punt mig de les arrels: $x=\dfrac{1}{3}$.</li><li>El vèrtex és $(\dfrac{1}{3},\ -\dfrac{1}{9})$, substituint $x=\dfrac{1}{3}$ a l'expressió.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">216c</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=\dfrac32x^2-x$</div>
+<ol class="op"><li><span class="ok">$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ -\dfrac{1}{6})$</span> — resposta correcta</li>
+<li>$\text{talls: }(\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ -\dfrac{1}{6})$<br><span class="err">TALL_ORIGEN_OBLIDAT</span><span class="fb">Com que l'expressió no té terme independent (no hi ha $+c$), la paràbola sempre passa per l'origen: $(0,0)$ també és un tall amb els eixos, no només l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{2}{3};\ \text{vèrtex }(\dfrac{2}{3},\ 0)$<br><span class="err">EIX_SIMETRIA_MAL_CALCULAT</span><span class="fb">L'eix de simetria passa pel PUNT MIG entre les dues arrels, no per una de les arrels: com que una arrel és $0$, el punt mig és la meitat de l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (\dfrac{2}{3},\ 0);\ \text{eix }x=\dfrac{1}{3};\ \text{vèrtex }(\dfrac{1}{3},\ \dfrac{1}{6})$<br><span class="err">SIGNE_FINAL</span><span class="fb">La $y$ del vèrtex s'obté substituint la $x$ del vèrtex a l'expressió original: cal calcular-la, no només canviar-ne el signe.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Traient factor comú: $\dfrac32x^2-x=x(\dfrac{3}{2}x-1)$, que dona $x=0$ i $x=\dfrac{2}{3}$.</li><li>Talls amb els eixos: $(0,\ 0)$ i $(\dfrac{2}{3},\ 0)$.</li><li>L'eix de simetria passa pel punt mig de les arrels: $x=\dfrac{1}{3}$.</li><li>El vèrtex és $(\dfrac{1}{3},\ -\dfrac{1}{6})$, substituint $x=\dfrac{1}{3}$ a l'expressió.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">216d</span><span class="tip">tipus A</span></div>
+<div class="enun">$y=x^2+2x$</div>
+<ol class="op"><li><span class="ok">$\text{talls: }(0,\ 0),\ (-2,\ 0);\ \text{eix }x=-1;\ \text{vèrtex }(-1,\ -1)$</span> — resposta correcta</li>
+<li>$\text{talls: }(-2,\ 0);\ \text{eix }x=-1;\ \text{vèrtex }(-1,\ -1)$<br><span class="err">TALL_ORIGEN_OBLIDAT</span><span class="fb">Com que l'expressió no té terme independent (no hi ha $+c$), la paràbola sempre passa per l'origen: $(0,0)$ també és un tall amb els eixos, no només l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (-2,\ 0);\ \text{eix }x=-2;\ \text{vèrtex }(-2,\ 0)$<br><span class="err">EIX_SIMETRIA_MAL_CALCULAT</span><span class="fb">L'eix de simetria passa pel PUNT MIG entre les dues arrels, no per una de les arrels: com que una arrel és $0$, el punt mig és la meitat de l'altra arrel.</span></li>
+<li>$\text{talls: }(0,\ 0),\ (-2,\ 0);\ \text{eix }x=-1;\ \text{vèrtex }(-1,\ 1)$<br><span class="err">SIGNE_FINAL</span><span class="fb">La $y$ del vèrtex s'obté substituint la $x$ del vèrtex a l'expressió original: cal calcular-la, no només canviar-ne el signe.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Traient factor comú: $x^2+2x=x(x+2)$, que dona $x=0$ i $x=-2$.</li><li>Talls amb els eixos: $(0,\ 0)$ i $(-2,\ 0)$.</li><li>L'eix de simetria passa pel punt mig de les arrels: $x=-1$.</li><li>El vèrtex és $(-1,\ -1)$, substituint $x=-1$ a l'expressió.</li></ol>
+</div>
+<p class="sec"><strong>Exercici 217.</strong> Analitza com serà la gràfica d&#x27;aquestes funcions polinòmiques sense representar-les.</p>
+<div class="it"><div class="cap"><span class="cod">217a</span><span class="tip">tipus B</span></div>
+<div class="enun">$y=x^2-3x^2+4$</div>
+<ol class="op"><li><span class="ok">Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.</span> — resposta correcta</li>
+<li>És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex fora de l'eix $Y$.<br><span class="err">TERMES_NO_REDUITS</span><span class="fb">Els dos termes $x^2$ i $-3x^2$ són termes SEMBLANTS (tots dos en $x^2$) i s'han de reduir junts, com un sol terme $-2x^2$; a l'expressió original no hi ha cap terme en $x$ (a la primera potència), així que no en pot quedar cap després de reduir.</span></li>
+<li>Reduint termes semblants, $x^2-3x^2=2x^2$: és la paràbola $y=2x^2+4$, oberta cap amunt, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.<br><span class="err">SIGNE_FINAL</span><span class="fb">$x^2-3x^2$ és una resta on el segon terme és més gran: el resultat és negatiu, $-2x^2$, no $2x^2$.</span></li>
+<li>Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més AMPLA que $y=x^2$, amb vèrtex a $(0,4)$.<br><span class="err">AMPLADA_INVERTIDA</span><span class="fb">El coeficient de $x^2$ és $-2$, i $|-2|=2>1$: la paràbola és més ESTRETA que $y=x^2$, no més ampla.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Abans de decidir de quin tipus de funció es tracta, redueix els termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Reduint termes semblants: $x^2-3x^2=-2x^2$, així que l'expressió és $y=-2x^2+4$.</li><li>És una paràbola (té terme en $x^2$), sense terme en $x$ (per tant simètrica respecte a l'eix $Y$).</li><li>El coeficient de $x^2$ és $-2$: negatiu, oberta cap avall; $|-2|>1$, més estreta que $y=x^2$.</li><li>El vèrtex és $(0,4)$, ja que no hi ha terme en $x$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">217b</span><span class="tip">tipus B</span></div>
+<div class="enun">$y=-x-3$</div>
+<ol class="op"><li><span class="ok">No té cap terme en $x^2$: és una recta (no una paràbola), amb pendent $-1$ (decreixent) i ordenada a l'origen $-3$.</span> — resposta correcta</li>
+<li>No té cap terme en $x^2$ escrit, però és una paràbola amb $a=0$: oberta cap avall, decreixent.<br><span class="err">PARABOLA_AMB_A_ZERO</span><span class="fb">Si el coeficient de $x^2$ és $0$, l'expressió deixa de ser una paràbola: sense terme en $x^2$, és una recta (funció lineal), no una paràbola extremament oberta.</span></li>
+<li>És una recta amb pendent $-1$, però creixent, i ordenada a l'origen $-3$.<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent $-1$ és negatiu: la recta és decreixent, no creixent.</span></li>
+<li>És una recta amb pendent $-1$ (decreixent) i ordenada a l'origen $3$.<br><span class="err">SIGNE_ORDENADA_INVERTIT</span><span class="fb">El terme independent de $-x-3$ és $-3$ (negatiu), no $3$: la recta talla l'eix $Y$ en $(0,-3)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=-x-3$ no té terme en $x^2$: és una funció lineal (recta), no una paràbola.</li><li>El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a l'origen és $-3$.</li></ol>
+</div>
+<h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>SIGNE_FINAL</code></td><td>16</td><td>201a, 201d, 202b, 202c, 203b, 203c, 203d, 206a, 214a, 214b, 215, 216a, 216b, 216c…</td></tr>
+<tr><td><code>SIGNE_PENDENT_INVERTIT</code></td><td>15</td><td>207a, 207b, 207c, 207d, 208a, 208b, 208c, 208d, 208e, 208f, 209a, 209b, 209c, 209d…</td></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>9</td><td>200a, 200a, 200a, 200b, 200b, 200b, 200c, 200c, 200c</td></tr>
+<tr><td><code>PENDENT_ORDENADA_INTERCANVIATS</code></td><td>8</td><td>207a, 207b, 207c, 207d, 209a, 209b, 209c, 209d</td></tr>
+<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>6</td><td>201a, 201c, 202a, 202b, 202c, 202d</td></tr>
+<tr><td><code>PENDENT_COM_NUL</code></td><td>6</td><td>208a, 208b, 208c, 208d, 208e, 208f</td></tr>
+<tr><td><code>REPRESENTACIO_INNECESSARIA</code></td><td>6</td><td>208a, 208b, 208c, 208d, 208e, 208f</td></tr>
+<tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>5</td><td>201a, 201b, 201c, 201d, 202a</td></tr>
+<tr><td><code>DOMINI_RECORREGUT_INTERCANVIATS</code></td><td>5</td><td>203a, 203b, 203c, 203d, 206b</td></tr>
+<tr><td><code>AMPLADA_INVERTIDA</code></td><td>5</td><td>212a, 212b, 212c, 212d, 217a</td></tr>
+<tr><td><code>PUNT_ORDENADA_CONFOS</code></td><td>4</td><td>209a, 209b, 209c, 209d</td></tr>
+<tr><td><code>OBERTURA_INVERTIDA</code></td><td>4</td><td>212a, 212b, 212c, 212d</td></tr>
+<tr><td><code>OBERTURA_I_AMPLADA_INVERTIDES</code></td><td>4</td><td>212a, 212b, 212c, 212d</td></tr>
+<tr><td><code>TALL_ORIGEN_OBLIDAT</code></td><td>4</td><td>216a, 216b, 216c, 216d</td></tr>
+<tr><td><code>EIX_SIMETRIA_MAL_CALCULAT</code></td><td>4</td><td>216a, 216b, 216c, 216d</td></tr>
+<tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>3</td><td>201c, 201d, 202d</td></tr>
+<tr><td><code>EXTREMS_OBLIDATS</code></td><td>3</td><td>203b, 203c, 203d</td></tr>
+<tr><td><code>SIGNE_ORDENADA_INVERTIT</code></td><td>3</td><td>207a, 207c, 217b</td></tr>
+<tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>201b, 202d</td></tr>
+<tr><td><code>POTENCIA_APLICADA_MALAMENT</code></td><td>2</td><td>201b, 202a</td></tr>
+<tr><td><code>CREIXEMENT_INVERTIT</code></td><td>2</td><td>206b, 206c</td></tr>
+<tr><td><code>ORDENADA_NULA_OBLIDADA</code></td><td>2</td><td>207b, 207d</td></tr>
+<tr><td><code>TERME_INDEPENDENT_IGNORAT</code></td><td>2</td><td>214a, 214b</td></tr>
+<tr><td><code>VALOR_DUPLICAT</code></td><td>2</td><td>214a, 214b</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>1</td><td>202b</td></tr>
+<tr><td><code>OPERACIO_INVERSA</code></td><td>1</td><td>202c</td></tr>
+<tr><td><code>ASIMPTOTA_COM_LIMIT</code></td><td>1</td><td>203a</td></tr>
+<tr><td><code>RESTRICCIO_OBLIDADA</code></td><td>1</td><td>203a</td></tr>
+<tr><td><code>TALL_COM_EXTREM</code></td><td>1</td><td>206a</td></tr>
+<tr><td><code>RESTRICCIO_INVENTADA</code></td><td>1</td><td>206a</td></tr>
+<tr><td><code>EXTREM_INVERTIT</code></td><td>1</td><td>206b</td></tr>
+<tr><td><code>RELATIU_COM_ABSOLUT</code></td><td>1</td><td>206c</td></tr>
+<tr><td><code>COORDENADES_INTERCANVIADES</code></td><td>1</td><td>206c</td></tr>
+<tr><td><code>VALOR_C_CONFOS</code></td><td>1</td><td>215</td></tr>
+<tr><td><code>COEFICIENT_A_MAL_CALCULAT</code></td><td>1</td><td>215</td></tr>
+<tr><td><code>TERMES_NO_REDUITS</code></td><td>1</td><td>217a</td></tr>
+<tr><td><code>PARABOLA_AMB_A_ZERO</code></td><td>1</td><td>217b</td></tr>
+</table></html>

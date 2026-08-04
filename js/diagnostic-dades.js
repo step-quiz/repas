@@ -13,7 +13,7 @@ window.RE_DIAG = (function () {
   /* Blocs que entren al test: només dels fulls ja autorats. Quan s'autori
      un full nou, afegir-hi el seu número n'hi ha prou perquè el test les
      inclogui — la resta d'aquest fitxer no cal tocar-lo. */
-  var FULLS_TEST = [1, 2, 3, 4, 5, 6];
+  var FULLS_TEST = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
   /* 15 preguntes repartides en 8 blocs: 7 blocs en donen 2 i 1 en dona 1.
      Quin bloc és el "curt" va rotant per volta (índex fix, no aleatori: així

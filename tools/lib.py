@@ -448,8 +448,144 @@ TAX = {
     "DIFERENCIA_QUADRATS_MAL":
         "Una diferència de quadrats $a^2-b^2$ es factoritza com $(a-b)(a+b)$: "
         "revisa que els dos factors tinguin signes diferents.",
-}
 
+    # ---- estadística (Full 11) ----
+    "QUALITATIVA_QUANTITATIVA_CONFOSES":
+        "Una variable és quantitativa quan s'expressa amb un nombre "
+        "(encara que no porti unitats), i qualitativa quan expressa una "
+        "categoria o qualitat que no es mesura numèricament.",
+    "DISCRETA_CONTINUA_CONFOSES":
+        "Una variable quantitativa és discreta quan només pot prendre "
+        "valors aïllats (típicament un recompte), i contínua quan pot "
+        "prendre qualsevol valor decimal dins d'un interval.",
+    "MOSTRA_POBLACIO_INVERTIDES":
+        "Convé estudiar tota la població quan aquesta és petita i "
+        "accessible; convé estudiar-ne una mostra quan és molt gran o "
+        "inabastable en la seva totalitat.",
+    "FREQ_ABSOLUTA_ACUMULADA_CONFOSES":
+        "La freqüència absoluta $f_i$ és el recompte d'un valor concret; "
+        "la freqüència absoluta acumulada $F_i$ és la suma de totes les "
+        "freqüències fins a aquell valor, inclòs.",
+    "FREQ_RELATIVA_MAL_CALCULADA":
+        "La freqüència relativa d'un valor s'obté dividint la seva "
+        "freqüència absoluta pel nombre TOTAL de dades, no per cap altre "
+        "nombre.",
+    "PERCENTATGE_MAL_CALCULAT":
+        "El percentatge d'un valor s'obté multiplicant la seva freqüència "
+        "relativa per $100$ (o, equivalentment, $\\frac{f_i}{N}\\cdot100$).",
+    "F_ACUMULADA_NO_CREIXENT":
+        "La freqüència absoluta acumulada $F_i$ mai pot disminuir a "
+        "mesura que $i$ creix: cada $F_i$ inclou totes les dades fins "
+        "aquell punt, així que com a mínim es queda igual.",
+    "TOTAL_DADES_MAL_CALCULAT":
+        "El nombre total de dades $N$ és la suma de totes les "
+        "freqüències absolutes (o, equivalentment, l'última freqüència "
+        "absoluta acumulada).",
+    "RECOMPTE_MAL_FET":
+        "Torna a comptar les dades una per una: és fàcil saltar-se'n "
+        "alguna o comptar-ne alguna dues vegades en un recompte llarg.",
+    "DIAGRAMA_HISTOGRAMA_CONFOSOS":
+        "El diagrama de barres (amb separació entre barres) s'utilitza "
+        "per a variables discretes o qualitatives; l'histograma (sense "
+        "separació) s'utilitza per a variables contínues agrupades en "
+        "intervals.",
+    "POLIGON_MAL_CONSTRUIT":
+        "El polígon de freqüències s'obté unint amb segments els punts "
+        "que marquen l'alçada de cada barra, en l'ordre dels valors de "
+        "la variable.",
+    "SECTOR_ANGLE_MAL_CALCULAT":
+        "L'angle de cada sector s'obté multiplicant la seva freqüència "
+        "relativa pels $360^\\circ$ totals de la circumferència, no per "
+        "cap altre nombre.",
+    "INTERVAL_LIMIT_MAL_ASSIGNAT":
+        "Revisa a quin interval pertany cada dada: amb intervals "
+        "$[a,b)$, el límit inferior $a$ hi pertany però el superior $b$ "
+        "no (pertany al següent interval).",
+
+    # ---- combinatòria i probabilitat (Full 12) ----
+    "ESPAI_MOSTRAL_MAL_COMPTAT":
+        "L'espai mostral és el conjunt de resultats DIFERENTS i "
+        "DISTINGIBLES d'un experiment aleatori: revisa que no en "
+        "falti cap ni que n'hi hagi cap de sobrant o repetit.",
+    "PARELLS_VALORS_CONFOSOS":
+        "No confonguis el nombre de PARELLS de resultats (per "
+        "exemple, dels dos daus) amb el nombre de VALORS diferents "
+        "que en resulten (com la seva suma o el seu producte): "
+        "diversos parells poden donar el mateix valor final.",
+    "ORDRE_NO_CONSIDERAT":
+        "Quan els dos elements combinats es poden distingir (per "
+        "exemple, per color), l'ordre importa: el parell $(a,b)$ és "
+        "un resultat diferent del $(b,a)$.",
+    "PRINCIPI_MULTIPLICATIU_MAL_APLICAT":
+        "Quan es combinen diverses eleccions independents, el nombre "
+        "total de resultats es MULTIPLICA (no se suma): si la "
+        "primera elecció té $m$ opcions i la segona en té $n$, en "
+        "total hi ha $m\\cdot n$ combinacions.",
+    "ELEMENTAL_NO_ELEMENTAL_CONFOSOS":
+        "Un esdeveniment elemental és un ÚNIC resultat de l'espai "
+        "mostral; un esdeveniment NO elemental n'agrupa diversos.",
+    "CARTES_REPETIDES_CONFOSES":
+        "Revisa quantes cartes (o elements) diferents compleixen "
+        "exactament la condició demanada: un esdeveniment és "
+        "impossible només quan CAP resultat de l'espai mostral el "
+        "compleix, no quan sembla poc habitual.",
+    "CASOS_FAVORABLES_MAL_COMPTATS":
+        "Revisa un per un quins resultats de l'espai mostral "
+        "compleixen la condició de l'esdeveniment: és fàcil oblidar "
+        "un límit inclòs (\"igual o més gran que\") o comptar-ne un "
+        "de més.",
+    "VARIACIONS_SENSE_REPETICIO_MAL":
+        "Quan un element ja s'ha fet servir, no es pot tornar a "
+        "triar: el nombre d'opcions disponibles disminueix a cada "
+        "posició que es va omplint.",
+    "FACTORIAL_MAL_APLICAT":
+        "El nombre de maneres d'ordenar $n$ elements diferents és "
+        "$n!$ ($n$ factorial): revisa que estàs calculant "
+        "permutacions dels elements correctes.",
+    "FREQ_RELATIVA_PROBABILITAT_CONFOSES":
+        "La freqüència relativa és el resultat observat en repetir "
+        "un experiment un nombre concret de vegades; la probabilitat "
+        "teòrica és el valor que s'espera a llarg termini. Quan hi "
+        "ha moltes repeticions, la freqüència relativa s'aproxima a "
+        "la probabilitat, però es calculen amb les dades donades a "
+        "cada cas.",
+    "CASOS_POSSIBLES_MAL_COMPTATS":
+        "Revisa quants resultats TOTALS té l'experiment (els casos "
+        "possibles): ha de ser el denominador de la probabilitat, no "
+        "un altre nombre de l'enunciat.",
+    "COMBINACIONS_MAL_COMPTADES":
+        "Per triar quins $k$ elements d'entre $n$ compleixen una "
+        "condició (sense importar l'ordre en què es trien), cal fer "
+        "servir combinacions, $\\binom{n}{k}$, no una simple "
+        "multiplicació o suma.",
+    "ESDEVENIMENT_CONTRARI_MAL_CALCULAT":
+        "La probabilitat de l'esdeveniment contrari és $1$ menys la "
+        "probabilitat de l'esdeveniment: $P(\\text{no }A)=1-P(A)$.",
+    "COMPATIBLE_INCOMPATIBLE_CONFOSOS":
+        "Dos esdeveniments són incompatibles quan no tenen CAP "
+        "resultat en comú (la seva intersecció és buida); si "
+        "comparteixen encara que sigui un sol resultat, són "
+        "compatibles.",
+    "UNIO_INTERSECCIO_CONFOSES":
+        "La unió ($A\\cup B$) inclou els resultats que compleixen "
+        "A, B, o totes dues alhora; la intersecció ($A\\cap B$) "
+        "inclou només els que compleixen totes dues coses a la "
+        "vegada.",
+    "UNIO_DOBLE_COMPTADA":
+        "En calcular la probabilitat d'una unió, els resultats que "
+        "compleixen totes dues condicions a la vegada s'han comptat "
+        "dues vegades si simplement se sumen les probabilitats "
+        "individuals: cal restar la intersecció un cop, "
+        "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$.",
+    "PROBABILITAT_CONDICIONADA_MAL":
+        "Quan es demana la probabilitat DINS d'un grup concret (no "
+        "de tota la població), el denominador ha de ser la mida "
+        "d'aquell grup, no el total de tots els casos.",
+    "ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS":
+        "Per combinar dos esdeveniments independents (per exemple, "
+        "dos sortejos separats), el nombre de combinacions "
+        "possibles es multiplica, no se suma.",
+}
 
 def DT(valor, tag, extra=""):
     """Distractor a partir d'una etiqueta de la taxonomia."""

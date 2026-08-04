@@ -1,0 +1,766 @@
+<!DOCTYPE html><html lang="ca"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisió — Full 12</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+ onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
+ throwOnError:false})"></script>
+
+<style>
+body{font:15px/1.55 -apple-system,Segoe UI,Roboto,sans-serif;color:#16202E;
+ max-width:60rem;margin:0 auto;padding:2rem 1.2rem 6rem}
+h1{font-size:1.5rem;margin:0 0 .2rem} h2{font-size:1.05rem;margin:2.2rem 0 .6rem;
+ border-bottom:2px solid #16202E;padding-bottom:.25rem}
+.meta{color:#5A6B80;margin:0 0 1.5rem}
+.it{border:1px solid #D8DFE8;border-radius:8px;padding:.8rem 1rem;margin:.7rem 0;
+ page-break-inside:avoid}
+.cap{display:flex;gap:.6rem;align-items:baseline;margin-bottom:.35rem}
+.cod{font:700 13px ui-monospace,monospace;background:#16202E;color:#fff;
+ padding:.1rem .4rem;border-radius:4px}
+.tip{font-size:11px;color:#5A6B80;text-transform:uppercase;letter-spacing:.06em}
+.enun{margin:.2rem 0 .5rem}
+ol.op{margin:.3rem 0;padding-left:1.4rem}
+ol.op li{margin:.15rem 0}
+.ok{background:#E4F3EC;font-weight:600;padding:.05rem .25rem;border-radius:3px}
+.err{font:600 11px ui-monospace,monospace;color:#8C2F28;background:#FBEDEC;
+ padding:.05rem .3rem;border-radius:3px;margin-right:.3rem}
+.fb{color:#43506180}
+.sec{color:#5A6B80;font-size:13px;margin:.4rem 0 0}
+.res li{margin:.1rem 0}
+.nota{background:#FFF6E5;border-left:3px solid #B06B00;padding:.4rem .6rem;
+ margin:.5rem 0 0;font-size:13.5px}
+.avis{background:#FBEDEC;border-left:3px solid #C4362F;padding:.8rem 1rem;
+ margin:1rem 0 2rem;border-radius:0 6px 6px 0}
+table{border-collapse:collapse;font-size:13px;width:100%}
+td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
+@media print{.it{border-color:#bbb}}
+</style>
+<h1>Clau de respostes — Full 12</h1>
+<p class="meta">67 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
+<h2>Espais mostrals i esdeveniments <span class="tip">· 20 preguntes</span></h2>
+<p class="sec"><strong>Exercici 236.</strong> Escriu l&#x27;espai mostral dels experiments aleatoris següents.</p>
+<div class="it"><div class="cap"><span class="cod">236a</span><span class="tip">tipus A</span></div>
+<div class="enun">Treure una carta de la baralla espanyola.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $40$ resultats (una carta per a cada combinació de coll i valor)</span> — resposta correcta</li>
+<li>L'espai mostral té $4$ resultats (un per cada coll: ors, copes, espases i bastos)<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$4$ compta només els colls, no les cartes individuals: cada coll té $10$ cartes diferents ($1$ al $9$ i una figura), així que l'espai mostral inclou totes les cartes concretes, no només el coll.</span></li>
+<li>L'espai mostral té $48$ resultats, com en una baralla francesa<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$48$ no és el nombre de cartes d'una baralla espanyola: aquesta en té $40$ (quatre colls de $10$ cartes cadascun), no $48$.</span></li>
+<li>L'espai mostral té $10$ resultats, un per cada valor de l'$1$ al $9$ i la figura<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$10$ compta els valors possibles d'UN sol coll, però l'espai mostral de "treure una carta" ha d'incloure les cartes de TOTS els colls, no només d'un.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una baralla espanyola té $4$ colls (ors, copes, espases, bastos), cadascun amb $10$ cartes.</li><li>L'espai mostral és el conjunt de totes les cartes possibles, no només els colls.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La baralla espanyola té $4$ colls de $10$ cartes cadascun: $4\cdot10=40$ resultats possibles</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236b</span><span class="tip">tipus A</span></div>
+<div class="enun">Llançar una xinxeta i anotar la posició de caiguda.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $2$ resultats: $\{\text{punta amunt, de costat}\}$</span> — resposta correcta</li>
+<li>L'espai mostral té $6$ resultats, com un dau<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Una xinxeta no és un dau: només té dues maneres físiques de caure, no sis.</span></li>
+<li>L'espai mostral té $1$ resultat, perquè sempre cau de la mateixa manera<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Una xinxeta pot caure de dues maneres diferents (de punta cap amunt o de costat): el resultat no és sempre el mateix, per això és un experiment aleatori.</span></li>
+<li>L'espai mostral és infinit, perquè pot caure en qualsevol angle<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">El que es demana anotar no és l'angle exacte de caiguda, sinó la posició (de punta o de costat): amb aquest criteri només hi ha dos resultats possibles.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en les dues úniques maneres físiques en què pot quedar una xinxeta en caure a terra.</li><li>No confonguis "totes les posicions possibles" amb "totes les categories que es demana anotar".</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Una xinxeta pot caure de dues maneres: de punta cap amunt o de costat. $E=\{\text{punta amunt, de costat}\}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236c</span><span class="tip">tipus A</span></div>
+<div class="enun">Treure una bola d'una urna amb 5 boles vermelles, 3 de blaves i 2 de verdes.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $3$ resultats: $\{\text{vermella, blava, verda}\}$ (un per cada color possible)</span> — resposta correcta</li>
+<li>L'espai mostral té $10$ resultats, un per cada bola física de l'urna<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'espai mostral es descriu pels resultats DISTINGIBLES de l'experiment (el color observat), no per cada bola física: encara que hi hagi $10$ boles, només hi ha $3$ colors diferents possibles com a resultat.</span></li>
+<li>L'espai mostral té $5$ resultats, el nombre de boles del color més freqüent<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">El nombre de boles d'un color concret no és el nombre de resultats possibles de l'experiment: l'espai mostral té un resultat per cada color diferent que es pot obtenir, i n'hi ha $3$.</span></li>
+<li>L'espai mostral té $2$ resultats, perquè normalment es distingeix només "vermella" o "no vermella"<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'enunciat no demana distingir només si és vermella o no: demana el color de la bola, i hi ha $3$ colors diferents a l'urna.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en els resultats DIFERENTS que es poden distingir en treure una bola, no en el nombre total de boles.</li><li>Hi ha $3$ colors a l'urna: vermell, blau i verd.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>L'urna té $5+3+2=10$ boles, però només $3$ colors diferents: $E=\{\text{vermella, blava, verda}\}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236d</span><span class="tip">tipus A</span></div>
+<div class="enun">Llançar 2 daus i restar les cares superiors.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $11$ resultats: $\{-5,-4,-3,-2,-1,0,1,2,3,4,5\}$</span> — resposta correcta</li>
+<li>L'espai mostral té $6$ resultats, com un sol dau<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Amb dos daus i una resta, els resultats possibles no es limiten a l'$1$-$6$ d'un sol dau: poden sortir valors negatius i el $0$.</span></li>
+<li>L'espai mostral té $36$ resultats, un per cada parell de cares<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$36$ és el nombre de PARELLS de resultats dels dos daus, no el nombre de valors DIFERENTS que pot prendre la seva resta: diversos parells donen la mateixa resta (per exemple, $(3,1)$ i $(4,2)$ donen tots dos $2$).</span></li>
+<li>L'espai mostral té $5$ resultats, només els positius<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">La resta de dues cares també pot donar $0$ o valors negatius (si la segona cara és més gran que la primera): no es pot descartar aquesta part de l'espai mostral.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La resta de les cares superiors pot anar des de $1-6$ fins a $6-1$.</li><li>Calcula el valor mínim i el màxim, i compta tots els enters entremig, incloent-hi el $0$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La resta va de $1-6=-5$ fins a $6-1=5$: $E=\{-5,-4,-3,-2,-1,0,1,2,3,4,5\}$, $11$ resultats</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236e</span><span class="tip">tipus A</span></div>
+<div class="enun">Llançar 2 daus i multiplicar les cares superiors.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $18$ resultats: $\{1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36\}$</span> — resposta correcta</li>
+<li>L'espai mostral té $36$ resultats, un per cada parell de cares<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$36$ és el nombre de PARELLS de resultats dels dos daus, no el nombre de valors DIFERENTS del seu producte: diversos parells donen el mateix producte (per exemple, $2\cdot3=6$ i $3\cdot2=6$, o $2\cdot6=12$ i $3\cdot4=12$).</span></li>
+<li>L'espai mostral té $6$ resultats, un per cada valor d'un sol dau<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">El producte de dos daus dona valors molt més grans que els d'un sol dau (fins a $6\cdot6=36$): l'espai mostral és molt més ampli que el d'un únic dau.</span></li>
+<li>L'espai mostral té $30$ resultats, tots els valors de $1$ a $30$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">No tots els nombres de $1$ a $30$ (ni fins a $36$) s'obtenen com a producte de dues cares d'un dau: per exemple, l'$11$, el $13$, el $14$ o el $17$ no es poden obtenir. Cal llistar només els que realment s'obtenen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El producte de les cares pot anar d'$1\cdot1=1$ fins a $6\cdot6=36$, però no tots els valors intermedis s'obtenen.</li><li>Llista tots els productes possibles de $i\cdot j$ amb $i,j\in\{1,\ldots,6\}$ i queda't només amb els valors diferents.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els productes possibles, sense repetir valors, són $\{1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36\}$: $18$ resultats</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236f</span><span class="tip">tipus A</span></div>
+<div class="enun">Considerar les espases de la baralla espanyola i treure una carta d'aquest grup.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $10$ resultats (les $10$ cartes del coll d'espases)</span> — resposta correcta</li>
+<li>L'espai mostral té $40$ resultats, com tota la baralla<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'enunciat restringeix l'experiment a UN sol coll (espases), no a la baralla sencera: només compten les $10$ cartes d'espases.</span></li>
+<li>L'espai mostral té $4$ resultats, un per cada coll<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'experiment ja fixa el coll (espases): el que varia és quina carta concreta d'espases surt, i n'hi ha $10$, no $4$.</span></li>
+<li>L'espai mostral té $9$ resultats, de l'$1$ al $9$, sense comptar la figura<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Cada coll d'una baralla espanyola també inclou una figura a més dels valors numèrics de l'$1$ al $9$: en total, $10$ cartes per coll, no $9$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada coll d'una baralla espanyola té el mateix nombre de cartes.</li><li>Un coll té les cartes de l'$1$ al $9$ més una figura.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El coll d'espases té $10$ cartes: $E=\{1\text{ d'espases}, \ldots,\text{rei d'espases}\}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">236g</span><span class="tip">tipus A</span></div>
+<div class="enun">Escollir a l'atzar un país de la Unió Europea.</div>
+<ol class="op"><li><span class="ok">L'espai mostral té $27$ resultats (els $27$ estats membres de la Unió Europea)</span> — resposta correcta</li>
+<li>L'espai mostral té $28$ resultats, incloent-hi el Regne Unit<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">El Regne Unit ja no és estat membre de la Unió Europea: l'espai mostral d'aquest experiment té $27$ països, no $28$.</span></li>
+<li>L'espai mostral és infinit, perquè un país té molts habitants diferents<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'experiment no és "triar un habitant", és "triar un país": els països membres de la Unió Europea són un nombre finit i concret.</span></li>
+<li>L'espai mostral té $50$ resultats, com els estats dels EUA<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'enunciat parla de la Unió Europea, no dels Estats Units: cal el nombre d'estats membres de la UE, que és $27$, no $50$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en quants estats formen actualment la Unió Europea.</li><li>No confonguis "país" amb "habitant": l'experiment tria un país sencer.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La Unió Europea té $27$ estats membres: $E=\{$els $27$ països membres de la UE$\}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 237.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">237</span><span class="tip">tipus A</span></div>
+<div class="enun">Llancem 2 daus, un de vermell i un de blau. Quin és l'espai mostral d'aquest experiment?</div>
+<ol class="op"><li><span class="ok">$E=\{(v,b):v,b\in\{1,\ldots,6\}\}$, amb $36$ parells ordenats, ja que $(3,5)$ i $(5,3)$ són resultats diferents</span> — resposta correcta</li>
+<li>$E$ té $21$ resultats, perquè no importa l'ordre dels daus<br><span class="err">ORDRE_NO_CONSIDERAT</span><span class="fb">Els dos daus són diferents (un vermell, un blau): el parell $(3,5)$ (vermell $3$, blau $5$) és un resultat diferent del $(5,3)$ (vermell $5$, blau $3$). Com que sí que importa l'ordre, l'espai mostral té $36$ resultats, no $21$.</span></li>
+<li>$E$ té $12$ resultats, la suma de les possibilitats de cada dau per separat<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Quan dos experiments independents es combinen (aquí, dos daus), el nombre de resultats es MULTIPLICA, no se suma: $6\cdot6=36$, no $6+6=12$.</span></li>
+<li>$E$ té $6$ resultats, perquè els dos daus donen el mateix conjunt de valors<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Encara que els dos daus tinguin les mateixes cares possibles ($1$ a $6$), el resultat de l'experiment és el PARELL de valors (un de cada dau), no un únic valor: cal combinar-los.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que els daus són de colors diferents, es pot distingir quin resultat prové de cada un: l'ordre importa.</li><li>Per cada un dels $6$ resultats del dau vermell, el dau blau pot donar $6$ resultats més: aplica el principi multiplicatiu.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada parell $(v,b)$ amb $v,b\in\{1,\ldots,6\}$ és un resultat diferent</li><li>Pel principi multiplicatiu: $6\cdot6=36$ parells ordenats possibles</li></ol>
+</div>
+<p class="sec"><strong>Exercici 238.</strong> Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.</p>
+<div class="it"><div class="cap"><span class="cod">238a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quants resultats DIFERENTS es poden obtenir com a producte de les dues cares?</div>
+<ol class="op"><li><span class="ok">$18$ resultats diferents</span> — resposta correcta</li>
+<li>$36$ resultats diferents<br><span class="err">PARELLS_VALORS_CONFOSOS</span><span class="fb">$36$ és el nombre de PARELLS de resultats possibles dels dos daus, no el nombre de PRODUCTES diferents: diversos parells donen el mateix producte (per exemple, $2\cdot3=6$ i $3\cdot2=6$).</span></li>
+<li>$11$ resultats diferents<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$11$ és el nombre de resultats diferents de RESTAR les dues cares (exercici anterior), no de multiplicar-les: amb el producte s'obtenen més valors diferents, $18$.</span></li>
+<li>$6$ resultats diferents<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">El producte de dos daus pot donar valors molt més grans que els d'un sol dau (fins a $36$): l'espai mostral té més de $6$ resultats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Llista tots els productes possibles $i\cdot j$ amb $i,j\in\{1,\ldots,6\}$ i queda't només amb els valors diferents.</li><li>Recorda que diversos parells poden donar el mateix producte: no els comptis dues vegades.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els productes diferents que s'obtenen són $1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36$: en total, $18$ resultats</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">238b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quin d'aquests és un exemple d'esdeveniment NO elemental (format per més d'un resultat) de l'espai mostral del producte de les dues cares?</div>
+<ol class="op"><li><span class="ok">«Obtenir un producte més petit que $5$» (el formen els resultats $1,2,3,4$, quatre resultats de l'espai mostral)</span> — resposta correcta</li>
+<li>«Obtenir un producte igual a $12$» (un únic resultat de l'espai mostral)<br><span class="err">ELEMENTAL_NO_ELEMENTAL_CONFOSOS</span><span class="fb">Encara que hi hagi diversos PARELLS de daus que donen producte $12$ (com $(2,6)$ i $(3,4)$), dins de l'ESPAI MOSTRAL DEL PRODUCTE el valor $12$ és un únic resultat: aquest esdeveniment és elemental, no compost per diversos resultats de l'espai mostral del producte.</span></li>
+<li>«Obtenir el producte $36$» (un únic resultat de l'espai mostral)<br><span class="err">ELEMENTAL_NO_ELEMENTAL_CONFOSOS</span><span class="fb">$36$ és un únic valor de l'espai mostral del producte ($\{1,2,\ldots,36\}$ amb els valors que s'hi poden obtenir): aquest esdeveniment és elemental, no format per diversos resultats.</span></li>
+<li>«Obtenir un producte que no sigui múltiple de cap número» (no correspon a cap resultat de l'espai mostral)<br><span class="err">ELEMENTAL_NO_ELEMENTAL_CONFOSOS</span><span class="fb">Tot número és múltiple de si mateix i d'$1$: aquest esdeveniment no correspon a cap resultat vàlid de l'espai mostral, ni elemental ni compost.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un esdeveniment elemental és un ÚNIC resultat de l'espai mostral; un esdeveniment NO elemental n'agrupa diversos.</li><li>Pensa quins resultats de l'espai mostral del producte $\{1,2,3,4,5,6,8,\ldots\}$ compleixen "ser més petit que $5$".</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Obtenir un producte més petit que $5$» agrupa els resultats $1,2,3,4$ de l'espai mostral: és un esdeveniment NO elemental, format per $4$ resultats diferents</li></ol>
+</div>
+<p class="sec"><strong>Exercici 239.</strong> Traiem dues cartes d&#x27;una baralla espanyola. Un esdeveniment impossible és:</p>
+<div class="it"><div class="cap"><span class="cod">239a</span><span class="tip">tipus A</span></div>
+<div class="enun">«Treure dos ors»</div>
+<ol class="op"><li><span class="ok">Aquest esdeveniment és POSSIBLE: la baralla té $10$ ors, així que es poden treure dos</span> — resposta correcta</li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un exemplar de cada carta<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que hi hagi un únic exemplar de CADA CARTA CONCRETA (com el rei d'ors) no vol dir que hi hagi un únic exemplar de CADA COLL: el coll d'ors té $10$ cartes diferents, així que se'n poden treure dues. Revisa quantes cartes (o elements) diferents compleixen exactament la condició demanada: un esdeveniment és impossible només quan CAP resultat de l'espai mostral el compleix, no quan sembla poc habitual.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè només es pot treure una carta d'ors per jugada<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">L'enunciat parla de treure DUES cartes en total, no d'una jugada limitada a una carta per coll: és perfectament possible que totes dues siguin d'ors.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè un cop treta una carta d'ors, no en queda cap altra<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">El coll d'ors té $10$ cartes diferents (de l'$1$ al $9$ i una figura): després de treure'n una, encara en queden $9$ més per treure com a segona carta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes cartes té el coll d'ors a una baralla espanyola.</li><li>Un esdeveniment és impossible quan no hi ha CAP manera que passi, no quan és poc probable.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Hi ha $10$ ors a la baralla, així que és perfectament possible treure'n dos: aquest esdeveniment NO és impossible</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">239b</span><span class="tip">tipus A</span></div>
+<div class="enun">«Treure dos cavalls de copes»</div>
+<ol class="op"><li><span class="ok">Aquest esdeveniment és IMPOSSIBLE: només hi ha un cavall de copes a tota la baralla</span> — resposta correcta</li>
+<li>Aquest esdeveniment és POSSIBLE, perquè hi ha diversos cavalls a la baralla<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Hi ha diversos cavalls a la baralla (un per coll), però el "cavall de copes" concret és una única carta: no se'n poden treure dues exemplars iguals.</span></li>
+<li>Aquest esdeveniment és POSSIBLE, perquè les cartes es tornen a barrejar entre extracció i extracció<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">L'enunciat parla de treure dues cartes (sense indicar que es retornin i es barregin entre mig): amb un únic cavall de copes a la baralla, no se'n poden treure dos exemplars diferents en la mateixa extracció.</span></li>
+<li>Aquest esdeveniment és POSSIBLE, perquè hi ha $4$ colls i cadascun té un cavall<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que hi hagi un cavall per coll no ajuda aquí: l'esdeveniment demana el cavall D'UN SOL coll (copes) DOS cops, i només n'hi ha un exemplar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quants "cavalls de copes" (exactament aquesta carta) hi ha a la baralla.</li><li>Un cop treta l'única carta d'aquest tipus, no en queda cap altra igual per treure una segona vegada.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Només hi ha un cavall de copes a tota la baralla: un cop l'hem tret, no en queda cap altre igual. Aquest esdeveniment és IMPOSSIBLE</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">239c</span><span class="tip">tipus A</span></div>
+<div class="enun">«Treure dues cartes de coll diferent»</div>
+<ol class="op"><li><span class="ok">Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure, per exemple, un or i una copa</span> — resposta correcta</li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè cada coll té les seves pròpies cartes<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que cada coll tingui les seves pròpies cartes no impedeix treure'n una de cada: precisament per això és fàcil aconseguir dues cartes de colls diferents.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè la baralla només té un exemplar de cada carta<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que cada carta concreta sigui única no fa impossible aquest esdeveniment: no es demana repetir cap carta, només que provinguin de colls diferents.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè les dues cartes sempre acaben sent del mateix coll<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">No hi ha cap raó perquè dues cartes triades a l'atzar hagin de coincidir de coll: és, de fet, el resultat més fàcil d'aconseguir.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en un exemple concret: pots treure un or i, després, una copa?</li><li>Un esdeveniment és impossible només si no hi ha CAP manera que passi.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>És possible: n'hi ha prou en treure, per exemple, un or i una copa. Aquest esdeveniment NO és impossible</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">239d</span><span class="tip">tipus A</span></div>
+<div class="enun">«Treure dues figures iguals del mateix coll»</div>
+<ol class="op"><li><span class="ok">Aquest esdeveniment és IMPOSSIBLE: cada figura (sota, cavall, rei) només té un exemplar per coll</span> — resposta correcta</li>
+<li>Aquest esdeveniment és POSSIBLE, perquè cada coll té tres figures (sota, cavall, rei)<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que cada coll tingui tres figures DIFERENTS no vol dir que en tingui dues d'IGUALS: per exemple, no hi ha dos reis d'ors diferents a la mateixa baralla.</span></li>
+<li>Aquest esdeveniment és POSSIBLE, perquè hi ha $4$ colls amb figures cadascun<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que hi hagi figures a cada coll no ajuda: l'esdeveniment demana DUES figures IGUALS (com dos reis d'ors) DINS DEL MATEIX coll, i cada figura només hi apareix una vegada.</span></li>
+<li>Aquest esdeveniment és POSSIBLE, perquè les figures es poden confondre entre elles<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Les figures no es confonen: cada carta és única i distingible. El rei d'ors és una única carta a tota la baralla, no n'hi ha cap altra igual.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quants "reis d'ors" (exactament aquesta carta) hi ha a la baralla.</li><li>Cada figura concreta (sota, cavall o rei d'un coll determinat) és una única carta a tota la baralla.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada figura (sota, cavall, rei) només té un exemplar per coll: no hi ha, per exemple, dos reis d'ors diferents. Aquest esdeveniment és IMPOSSIBLE</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">239e</span><span class="tip">tipus A</span></div>
+<div class="enun">«Treure un or i una copa»</div>
+<ol class="op"><li><span class="ok">Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure un or seguit d'una copa</span> — resposta correcta</li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè l'or i la copa mai es poden treure juntes<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">No hi ha cap impediment per treure una carta d'ors i una de copes en la mateixa extracció de dues cartes: són colls diferents amb les seves pròpies cartes.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un or i una copa a tota la baralla<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Cada coll (ors, copes) té $10$ cartes diferents a la baralla, no una de sola: hi ha $10$ ors i $10$ copes possibles per triar.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, pel mateix motiu que "dos cavalls de copes"<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Aquí no es demana repetir cap carta ni cap figura concreta: es demana una carta d'ors i una de copes, colls diferents amb moltes cartes cadascun.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en un exemple concret: pots treure un or i, després, una copa?</li><li>Compara-ho amb l'apartat c): també és un cas de "colls diferents", que sí que és possible.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>És possible: n'hi ha prou en treure un or seguit d'una copa. Aquest esdeveniment NO és impossible</li></ol>
+</div>
+<p class="sec"><strong>Exercici 240.</strong> En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.</p>
+<div class="it"><div class="cap"><span class="cod">240a</span><span class="tip">tipus A</span></div>
+<div class="enun">«Nombre imparell»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{3}{6}=\dfrac12$ ($1$, $3$ i $5$ són $3$ casos favorables d'entre $6$ possibles)</span> — resposta correcta</li>
+<li>$P=\dfrac{1}{6}$, perquè només compta un nombre imparell concret<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment "nombre imparell" agrupa TOTS els resultats imparells del dau ($1$, $3$ i $5$), no un de sol: són $3$ casos favorables, no $1$.</span></li>
+<li>$P=\dfrac{4}{6}=\dfrac23$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Un dau numerat de l'$1$ al $6$ té exactament $3$ resultats imparells ($1,3,5$), no $4$: revisa el recompte.</span></li>
+<li>$P=1$, perquè sempre surt un nombre imparell o parell<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Aquest raonament confondria l'esdeveniment "imparell o parell" (que sí és segur) amb "imparell" tot sol, que només compleixen la meitat dels resultats.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els casos possibles en un dau són sempre $6$.</li><li>Compta quants resultats del $1$ al $6$ són imparells: $1$, $3$ i $5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre imparell»: $1,3,5$ són $3$ casos favorables. $P=\dfrac{3}{6}=\dfrac12$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">240b</span><span class="tip">tipus A</span></div>
+<div class="enun">«Nombre igual o més gran que $5$»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{2}{6}=\dfrac13$ ($5$ i $6$ són $2$ casos favorables d'entre $6$ possibles)</span> — resposta correcta</li>
+<li>$P=\dfrac{1}{6}$, comptant només el $6$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Igual o més gran que $5$" inclou el propi $5$, no només els valors estrictament més grans: cal comptar tant el $5$ com el $6$.</span></li>
+<li>$P=\dfrac{5}{6}$, comptant tots els valors fins al $5$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Aquest recompte respon a "més petit o igual que $5$", l'esdeveniment contrari (aproximadament) del que es demana: aquí cal "igual o més gran que $5$", és a dir, només $5$ i $6$.</span></li>
+<li>$P=\dfrac{3}{6}=\dfrac12$, comptant $4$, $5$ i $6$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $4$ no compleix "igual o més gran que $5$": només el $5$ i el $6$ ho compleixen, $2$ casos, no $3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Igual o més gran que $5$" inclou el mateix $5$: quins valors del $1$ al $6$ ho compleixen?</li><li>Compta'ls: només en queden dos.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre igual o més gran que $5$»: $5,6$ són $2$ casos favorables. $P=\dfrac{2}{6}=\dfrac13$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">240c</span><span class="tip">tipus A</span></div>
+<div class="enun">«Nombre més petit que $7$»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho compleixen: és un esdeveniment segur)</span> — resposta correcta</li>
+<li>$P=\dfrac{5}{6}$, perquè el $6$ no compta<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $6$ SÍ és més petit que $7$: també compta com a cas favorable. Tots els resultats del dau ($1$ a $6$) compleixen aquesta condició.</span></li>
+<li>$P=\dfrac{1}{6}$, comptant només el valor $6$ com a límit<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment no demana "ser exactament $6$": demana "ser més petit que $7$", que compleixen tots els $6$ resultats possibles del dau.</span></li>
+<li>Aquest esdeveniment és impossible, $P=0$, perquè el dau no arriba a $7$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que el dau no arribi a $7$ és exactament el motiu pel qual TOTS els seus resultats són més petits que $7$: aquest esdeveniment és segur ($P=1$), no impossible.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins valors del $1$ al $6$ són més petits que $7$?</li><li>Compara-ho amb els casos possibles totals del dau.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho compleixen, $6$ casos favorables. $P=\dfrac{6}{6}=1$ (esdeveniment segur)</li></ol>
+<p class="nota"><strong>Nota:</strong> Al full original, els apartats c) i d) repeteixen literalment el mateix text, «Nombre més petit que 7» (molt probablement una errata editorial, ja que un dau numerat de l'1 al 6 no permet cap altre matís interessant amb aquest enunciat). Es couen tots dos apartats amb el mateix esdeveniment, seguint el criteri del solucionari original.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">240d</span><span class="tip">tipus A</span></div>
+<div class="enun">«Nombre més petit que $7$»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho compleixen: és un esdeveniment segur)</span> — resposta correcta</li>
+<li>$P=\dfrac{5}{6}$, perquè el $6$ no compta<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $6$ SÍ és més petit que $7$: també compta com a cas favorable. Tots els resultats del dau ($1$ a $6$) compleixen aquesta condició.</span></li>
+<li>$P=\dfrac{1}{6}$, comptant només el valor $6$ com a límit<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment no demana "ser exactament $6$": demana "ser més petit que $7$", que compleixen tots els $6$ resultats possibles del dau.</span></li>
+<li>Aquest esdeveniment és impossible, $P=0$, perquè el dau no arriba a $7$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que el dau no arribi a $7$ és exactament el motiu pel qual TOTS els seus resultats són més petits que $7$: aquest esdeveniment és segur ($P=1$), no impossible.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquest apartat repeteix literalment el mateix enunciat que l'anterior: el raonament és idèntic.</li><li>Quins valors del $1$ al $6$ són més petits que $7$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho compleixen, $6$ casos favorables. $P=\dfrac{6}{6}=1$ (esdeveniment segur)</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest apartat repeteix literalment el text de l'apartat c) al full original («Nombre més petit que 7», dues vegades: molt probablement una errata editorial). Es cou tal com apareix, amb el mateix esdeveniment i la mateixa resposta que el 240c, seguint el criteri del solucionari original.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">240e</span><span class="tip">tipus A</span></div>
+<div class="enun">«Nombre més gran o igual que $2$»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{5}{6}$ ($2,3,4,5,6$ són $5$ casos favorables d'entre $6$ possibles)</span> — resposta correcta</li>
+<li>$P=\dfrac{4}{6}=\dfrac23$, sense comptar el propi $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Més gran o igual que $2$" inclou el propi $2$, no només els valors estrictament més grans: cal comptar-lo com a cas favorable.</span></li>
+<li>$P=\dfrac{1}{6}$, comptant només el $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment no es limita al valor $2$ exacte: inclou també el $3$, el $4$, el $5$ i el $6$, tots ells més grans que $2$.</span></li>
+<li>$P=\dfrac{6}{6}=1$, perquè gairebé tots els valors ho compleixen<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $1$ NO compleix "més gran o igual que $2$": no tots els $6$ resultats del dau ho fan, només $5$ d'ells.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Més gran o igual que $2$" inclou el propi $2$: quins valors del $1$ al $6$ ho compleixen?</li><li>Descarta només el $1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més gran o igual que $2$»: $2,3,4,5,6$ són $5$ casos favorables. $P=\dfrac{5}{6}$</li></ol>
+</div>
+<h2>Combinatòria: principi multiplicatiu <span class="tip">· 11 preguntes</span></h2>
+<p class="sec"><strong>Exercici 242.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">242</span><span class="tip">tipus A</span></div>
+<div class="enun">Llancem un dau a l'aire i sumem els punts de totes les cares MENYS la de dalt. Calcula la probabilitat d'obtenir un nombre múltiple de $3$.</div>
+<ol class="op"><li><span class="ok">$P=\dfrac13$ ($18$ i $15$ són $2$ casos favorables d'entre $6$)</span> — resposta correcta</li>
+<li>$P=\dfrac16$, comptant només un cas favorable<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Hi ha DOS valors múltiples de $3$ entre les sis sumes possibles ($15$ i $18$), no només un: revisa la taula de sumes per a cada cara de dalt.</span></li>
+<li>$P=\dfrac12$, comptant $3$ casos favorables<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">De les sis sumes possibles ($15,16,17,18,19,20$), només $15$ i $18$ són múltiples de $3$: $2$ casos, no $3$.</span></li>
+<li>$P=\dfrac{3}{21}=\dfrac17$, dividint pels punts totals del dau<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El denominador de la probabilitat ha de ser el nombre de resultats POSSIBLES de l'experiment (les $6$ cares que poden quedar de dalt), no la suma total de punts del dau ($1+2+\cdots+6=21$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La suma de totes les cares d'un dau és $21$. Si la cara de dalt és $i$, la resta de cares suma $21-i$.</li><li>Calcula aquesta suma per a cada valor de $i$ de l'$1$ al $6$, i mira quins resultats són múltiples de $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Si la cara de dalt és $i$, la suma de la resta és $21-i$: per $i=1,\ldots,6$ s'obté $20,19,18,17,16,15$</li><li>L'espai mostral d'aquesta suma és $\{15,16,17,18,19,20\}$, un resultat per cada cara, cadascun amb probabilitat $\frac16$</li><li>Múltiples de $3$: $18$ (cara $3$ de dalt) i $15$ (cara $6$ de dalt): $2$ casos de $6$, $P=\dfrac{2}{6}=\dfrac13$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 243.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">243</span><span class="tip">tipus A</span></div>
+<div class="enun">La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de diferents colors, 2 bruses, 3 samarretes i 3 barrets. Quantes combinacions diferents pot fer (una peça de la part de baix, una de la part de dalt i un barret)?</div>
+<ol class="op"><li><span class="ok">$75$ combinacions</span> — resposta correcta</li>
+<li>$10$ combinacions, sumant totes les peces ($2+3+2+3+3$)<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Quan es combinen diverses eleccions independents (part de baix, part de dalt, barret), el nombre de combinacions es MULTIPLICA, no se suma.</span></li>
+<li>$45$ combinacions, multiplicant $5\cdot3\cdot3$ sense agrupar bé la part de baix i la de dalt<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Revisa quantes opcions hi ha a cada nivell de l'arbre: la part de baix ($2+3=5$ opcions) i la part de dalt ($2+3=5$ opcions) no tenen el mateix nombre d'opcions per casualitat, cal calcular-les per separat.</span></li>
+<li>$18$ combinacions, comptant només faldilles, bruses i barrets (sense pantalons ni samarretes)<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">L'armari també inclou pantalons (part de baix) i samarretes (part de dalt) com a alternatives: cal sumar-los a les seves categories respectives, no ignorar-los.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Agrupa la roba en tres nivells: peça de baix (faldilla o pantalons), peça de dalt (brusa o samarreta) i barret.</li><li>Compta les opcions de cada nivell per separat: $2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Peça de baix: $2$ faldilles $+3$ pantalons $=5$ opcions</li><li>Peça de dalt: $2$ bruses $+3$ samarretes $=5$ opcions</li><li>Barret: $3$ opcions</li><li>Pel principi multiplicatiu: $5\cdot5\cdot3=75$ combinacions</li></ol>
+<p class="nota"><strong>Nota:</strong> L'enunciat original no precisa com s'agrupen les peces en una "combinació" de roba. S'adopta el criteri més natural per a un diagrama d'arbre de tres nivells (una peça de la part de baix, una de la part de dalt i un barret), seguint el mateix criteri que el solucionari original.</p>
+</div>
+<p class="sec"><strong>Exercici 244.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">244</span><span class="tip">tipus A</span></div>
+<div class="enun">Quants resultats possibles s'obtenen en llançar una moneda a l'aire i anotar el resultat de $10$ tirades?</div>
+<ol class="op"><li><span class="ok">$2^{10}=1\,024$ resultats possibles</span> — resposta correcta</li>
+<li>$10\cdot2=20$ resultats possibles<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Quan es combinen $10$ tirades independents, cadascuna amb $2$ resultats possibles, el total es multiplica $10$ vegades seguides ($2^{10}$), no es multiplica només un cop pel nombre de tirades.</span></li>
+<li>$2\cdot10=20$ resultats possibles<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Cada tirada dobla el nombre de resultats possibles respecte a l'anterior: amb $10$ tirades independents, cal multiplicar $2$ per si mateix $10$ vegades, $2^{10}$, no fer un simple producte $2\cdot10$.</span></li>
+<li>$100$ resultats possibles, per coincidència amb el nombre de vegades que apareix a altres exercicis del full<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">El nombre de resultats depèn del nombre de tirades i d'opcions per tirada d'AQUEST experiment concret ($2^{10}$), no de xifres que apareguin en altres exercicis diferents.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada tirada té $2$ resultats (cara o creu). Amb $10$ tirades independents, el nombre de resultats es multiplica $10$ vegades.</li><li>Calcula $2^{10}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada tirada dobla el nombre de resultats possibles respecte a l'anterior: amb $10$ tirades, $2^{10}=1\,024$ resultats possibles</li></ol>
+</div>
+<p class="sec"><strong>Exercici 245.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">245</span><span class="tip">tipus A</span></div>
+<div class="enun">En un restaurant, el menú del dia té $3$ primers plats, $3$ segons i $4$ postres. Quants menús diferents es poden confeccionar, triant un primer, un segon i unes postres?</div>
+<ol class="op"><li><span class="ok">$36$ menús diferents</span> — resposta correcta</li>
+<li>$10$ menús diferents, sumant $3+3+4$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Quan cada client tria un plat de cada categoria de manera independent, el nombre de combinacions es MULTIPLICA, no se suma: $3\cdot3\cdot4$, no $3+3+4$.</span></li>
+<li>$9$ menús diferents, multiplicant només primers i segons ($3\cdot3$)<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">T'has deixat les postres pel camí: cada menú també inclou una elecció de postres (4 opcions), que cal multiplicar també.</span></li>
+<li>$4$ menús diferents, un per cada opció de postres<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Cada opció de postres es pot combinar amb qualsevol primer i qualsevol segon: no n'hi ha prou en comptar només les postres, cal combinar-les amb totes les altres opcions.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada client tria un plat de cada categoria de manera independent: primer, segon i postres.</li><li>Aplica el mètode del producte: $3\cdot3\cdot4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada client tria un primer ($3$ opcions), un segon ($3$ opcions) i unes postres ($4$ opcions), de manera independent</li><li>Pel mètode del producte: $3\cdot3\cdot4=36$ menús diferents</li></ol>
+</div>
+<p class="sec"><strong>Exercici 246.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">246</span><span class="tip">tipus A</span></div>
+<div class="enun">La clau d'accés d'un ordinador consta de $4$ caràcters (només lletres o nombres) i distingeix entre lletres majúscules i minúscules. Calcula el nombre de possibilitats diferents que hi ha per escriure la clau.</div>
+<ol class="op"><li><span class="ok">$62^4=14\,776\,336$ claus diferents possibles</span> — resposta correcta</li>
+<li>$36^4$ claus diferents, sense distingir majúscules de minúscules<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">L'enunciat diu explícitament que es distingeixen majúscules i minúscules: cal comptar-les per separat ($26+26=52$ lletres), no com un sol grup de $26$.</span></li>
+<li>$62\cdot4=248$ claus diferents<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb $4$ posicions independents, cadascuna amb $62$ opcions, el nombre de claus es multiplica $4$ vegades seguides ($62^4$), no es multiplica només un cop pel nombre de posicions.</span></li>
+<li>$62\cdot61\cdot60\cdot59$ claus diferents, sense poder repetir cap caràcter<br><span class="err">VARIACIONS_SENSE_REPETICIO_MAL</span><span class="fb">L'enunciat no prohibeix repetir caràcters dins de la clau (no diu que hagin de ser tots diferents): a cada posició hi ha sempre $62$ opcions disponibles, encara que ja s'hagi fet servir algun caràcter en una posició anterior.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quants caràcters diferents hi ha disponibles per a cada posició: $26$ majúscules $+26$ minúscules $+10$ dígits.</li><li>Amb $4$ posicions independents (es poden repetir caràcters), aplica el principi multiplicatiu: $62^4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Caràcters possibles per posició: $26$ majúscules $+26$ minúscules $+10$ dígits $=62$</li><li>Amb $4$ posicions independents: $62\cdot62\cdot62\cdot62=62^4=14\,776\,336$ claus diferents</li></ol>
+</div>
+<p class="sec"><strong>Exercici 247.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">247</span><span class="tip">tipus A</span></div>
+<div class="enun">El codi PIN d'un telèfon mòbil està format per $4$ dígits. Troba el nombre de codis diferents que podem posar al telèfon.</div>
+<ol class="op"><li><span class="ok">$10^4=10\,000$ codis diferents</span> — resposta correcta</li>
+<li>$10\cdot4=40$ codis diferents<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb $4$ posicions independents, cadascuna amb $10$ opcions (dígits del $0$ al $9$), el nombre de codis es multiplica $4$ vegades seguides ($10^4$), no es multiplica només un cop pel nombre de posicions.</span></li>
+<li>$10\cdot9\cdot8\cdot7$ codis diferents, sense poder repetir cap dígit<br><span class="err">VARIACIONS_SENSE_REPETICIO_MAL</span><span class="fb">L'enunciat no prohibeix repetir dígits dins del PIN: a cada posició hi ha sempre $10$ opcions disponibles, encara que ja s'hagi fet servir aquell dígit en una posició anterior.</span></li>
+<li>$4!=24$ codis diferents, com si es tractés d'ordenar $4$ dígits fixos<br><span class="err">FACTORIAL_MAL_APLICAT</span><span class="fb">No es tracta d'ordenar $4$ dígits ja triats: a cada una de les $4$ posicions es pot triar QUALSEVOL dels $10$ dígits possibles, independentment de les altres posicions.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada posició del PIN es tria de manera independent, entre $10$ dígits possibles (del $0$ al $9$), i es poden repetir.</li><li>Amb $4$ posicions: aplica el principi multiplicatiu, $10^4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada dígit del PIN pot prendre $10$ valors diferents, i es poden repetir: amb $4$ xifres, $10\cdot10\cdot10\cdot10=10^4=10\,000$ codis diferents</li></ol>
+</div>
+<p class="sec"><strong>Exercici 248.</strong> Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).</p>
+<div class="it"><div class="cap"><span class="cod">248a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quantes paraules de $3$ lletres es poden formar en total?</div>
+<ol class="op"><li><span class="ok">$24$ paraules</span> — resposta correcta</li>
+<li>$12$ paraules, la meitat per error de comptar només la meitat dels ordres<br><span class="err">VARIACIONS_SENSE_REPETICIO_MAL</span><span class="fb">Per a cada tria de $3$ lletres de les $4$, cal comptar TOTS els ordres possibles en què es poden col·locar, no només la meitat.</span></li>
+<li>$4^3=64$ paraules, permetent repetir lletres<br><span class="err">VARIACIONS_SENSE_REPETICIO_MAL</span><span class="fb">Cada lletra de HOLA només apareix una vegada a la paraula original: no es pot repetir cap lletra dins de la mateixa paraula de 3 lletres, així que les opcions disminueixen a cada posició en comptes de mantenir-se sempre en $4$.</span></li>
+<li>$4!=24$... però calculat com $4\cdot4\cdot4$ per error<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">El resultat final, $24$, és correcte, però no s'obté multiplicant $4$ tres vegades seguides ($4^3=64$): cal anar reduint les opcions disponibles a cada posició, $4\cdot3\cdot2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>HOLA té $4$ lletres totes diferents. Per a la primera posició hi ha $4$ opcions; per a la segona, com que ja se n'ha fet servir una, en queden $3$; per a la tercera, $2$.</li><li>Multiplica $4\cdot3\cdot2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Primera posició: $4$ lletres possibles; segona: $3$ (ja n'hem fet servir una); tercera: $2$</li><li>$4\cdot3\cdot2=24$ paraules de $3$ lletres diferents</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">248b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quantes d'aquestes paraules comencen amb la lletra H?</div>
+<ol class="op"><li><span class="ok">$6$ paraules</span> — resposta correcta</li>
+<li>$24$ paraules, totes, perquè qualsevol ordre és vàlid<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">No totes les $24$ paraules comencen per H: fixar la primera lletra com a H redueix les opcions per a les altres dues posicions.</span></li>
+<li>$3$ paraules, oblidant multiplicar les opcions de les dues últimes posicions<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb la H fixada a la primera posició, encara calen $2$ posicions més per triar (entre O, L, A): cal multiplicar les seves opcions, $3\cdot2$, no comptar-ne només una.</span></li>
+<li>$2$ paraules, com si només restés una posició per triar<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb la H fixada, encara queden DUES posicions per omplir (segona i tercera lletra), no només una: cal $3\cdot2=6$, no només l'opció de l'última posició.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la paraula comença per H, la primera posició ja està fixada (1 opció).</li><li>Per a la segona posició queden $3$ lletres (O, L, A), i per a la tercera, $2$: multiplica-les.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Primera posició fixada en H (1 opció); segona: $3$ lletres restants; tercera: $2$</li><li>$1\cdot3\cdot2=6$ paraules que comencen per H</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">248c</span><span class="tip">tipus A</span></div>
+<div class="enun">I quantes paraules contenen alhora les lletres L i A (en qualsevol ordre)?</div>
+<ol class="op"><li><span class="ok">$12$ paraules</span> — resposta correcta</li>
+<li>$6$ paraules, oblidant que la tercera lletra pot ser H o O (2 opcions)<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">La tercera lletra de la paraula (a més de L i A) pot ser H o O: dues opcions diferents, no només una. Cal multiplicar-ho pel nombre d'ordenacions possibles.</span></li>
+<li>$3$ paraules, un ordre per cada tercera lletra possible<br><span class="err">FACTORIAL_MAL_APLICAT</span><span class="fb">Un cop triades les $3$ lletres (L, A i la tercera), es poden ordenar de $3!=6$ maneres diferents, no d'una sola: cal multiplicar les $2$ opcions de tercera lletra per aquestes $6$ ordenacions.</span></li>
+<li>$24$ paraules, totes, perquè L i A hi són sempre<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">No totes les $24$ paraules contenen alhora L i A: moltes combinacions no inclouen totes dues lletres a la vegada (per exemple, H-O-L no té la A).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La tercera lletra (a més de L i A) ha de ser H o O: $2$ opcions.</li><li>Un cop triades les $3$ lletres, es poden ordenar de $3!=6$ maneres. Multiplica $2\cdot6$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La tercera lletra ha de ser H o O ($2$ opcions). Un cop triades les $3$ lletres, hi ha $3!=6$ ordenacions possibles</li><li>En total: $2\cdot6=12$ paraules</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">248d</span><span class="tip">tipus A</span></div>
+<div class="enun">Quantes paraules acabaran amb la lletra O?</div>
+<ol class="op"><li><span class="ok">$6$ paraules</span> — resposta correcta</li>
+<li>$24$ paraules, totes, perquè qualsevol ordre és vàlid<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">No totes les $24$ paraules acaben en O: fixar l'última lletra com a O redueix les opcions per a les altres dues posicions.</span></li>
+<li>$3$ paraules, oblidant multiplicar les opcions de les dues primeres posicions<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb la O fixada a l'última posició, encara calen $2$ posicions més per triar (entre H, L, A): cal multiplicar les seves opcions, $3\cdot2$, no comptar-ne només una.</span></li>
+<li>$2$ paraules, com si només restés una posició per triar<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb la O fixada, encara queden DUES posicions per omplir (primera i segona lletra), no només una: cal $3\cdot2=6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la paraula acaba en O, l'última posició ja està fixada (1 opció).</li><li>Per a la primera posició queden $3$ lletres (H, L, A), i per a la segona, $2$: multiplica-les.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Última posició fixada en O (1 opció); primera: $3$ lletres restants; segona: $2$</li><li>$3\cdot2\cdot1=6$ paraules que acaben en O</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">248e</span><span class="tip">tipus A</span></div>
+<div class="enun">Quantes paraules acabaran amb les lletres "LO" (penúltima L, última O)?</div>
+<ol class="op"><li><span class="ok">$2$ paraules</span> — resposta correcta</li>
+<li>$6$ paraules, com si només es fixés l'última lletra<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Aquí es fixen DUES posicions (penúltima L, última O), no només una: només queda per triar la primera lletra, entre H i A.</span></li>
+<li>$1$ paraula, oblidant que la primera lletra pot ser H o A (2 opcions)<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Un cop fixades L i O a les seves posicions, encara queden dues lletres possibles per a la primera posició: H o A, no només una.</span></li>
+<li>$3$ paraules, comptant també la O com a possible primera lletra<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">La lletra O ja s'ha fet servir a l'última posició: no es pot tornar a fer servir a la primera. Només queden H i A disponibles.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb la L i la O ja fixades a les seves posicions, només queda triar la primera lletra.</li><li>Quines lletres queden disponibles (sense repetir L ni O)?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Amb "LO" fixat al final, només cal triar la primera lletra entre H i A: $2$ opcions</li></ol>
+</div>
+<h2>Regla de Laplace i freqüència relativa <span class="tip">· 19 preguntes</span></h2>
+<p class="sec"><strong>Exercici 241.</strong> D&#x27;una baralla de 40 cartes traiem una carta. Calcula les probabilitats d&#x27;aquests esdeveniments.</p>
+<div class="it"><div class="cap"><span class="cod">241a</span><span class="tip">tipus A</span></div>
+<div class="enun">$A=$ «Obtenir ors»</div>
+<ol class="op"><li><span class="ok">$P(A)=\dfrac{10}{40}=\dfrac14$</span> — resposta correcta</li>
+<li>$P(A)=\dfrac{1}{40}$, comptant només una carta d'ors<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Obtenir ors" inclou QUALSEVOL carta del coll d'ors, no només una en concret: n'hi ha $10$ cartes d'ors a la baralla.</span></li>
+<li>$P(A)=\dfrac{4}{40}=\dfrac1{10}$, comptant els $4$ colls<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">$4$ és el nombre de colls DIFERENTS, no el nombre de cartes d'ors: el coll d'ors té $10$ cartes, no $4$.</span></li>
+<li>$P(A)=\dfrac{10}{4}$, invertint numerador i denominador<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Una probabilitat mai pot ser més gran que $1$: el nombre de casos favorables va al numerador, i el de casos possibles (el total de cartes) al denominador.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Hi ha $10$ ors a la baralla de $40$ cartes.</li><li>Aplica la regla de Laplace: casos favorables entre casos possibles.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Hi ha $10$ ors. $P(A)=\dfrac{10}{40}=\dfrac14$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">241b</span><span class="tip">tipus A</span></div>
+<div class="enun">$B=$ «Obtenir el rei d'ors»</div>
+<ol class="op"><li><span class="ok">$P(B)=\dfrac{1}{40}$</span> — resposta correcta</li>
+<li>$P(B)=\dfrac{10}{40}=\dfrac14$, com si fos "obtenir un or qualsevol"<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"El rei d'ors" és UNA única carta concreta, no qualsevol carta del coll d'ors: només hi ha $1$ cas favorable, no $10$.</span></li>
+<li>$P(B)=\dfrac{4}{40}=\dfrac1{10}$, comptant els $4$ reis de la baralla<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment demana EXACTAMENT el rei d'ors, no qualsevol rei de qualsevol coll: només compta la carta concreta "rei d'ors", $1$ cas favorable.</span></li>
+<li>$P(B)=\dfrac{3}{40}$, comptant les $3$ figures d'ors<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment no és "obtenir alguna figura d'ors": és obtenir EXACTAMENT el rei d'ors, una única carta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El rei d'ors és una única carta a tota la baralla.</li><li>Aplica la regla de Laplace amb $1$ cas favorable.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El rei d'ors és una única carta. $P(B)=\dfrac{1}{40}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">241c</span><span class="tip">tipus A</span></div>
+<div class="enun">$C=$ «Obtenir espases o copes»</div>
+<ol class="op"><li><span class="ok">$P(C)=\dfrac{20}{40}=\dfrac12$</span> — resposta correcta</li>
+<li>$P(C)=\dfrac{10}{40}=\dfrac14$, comptant només un coll<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment inclou DOS colls (espases I copes), no només un: cal sumar les cartes de tots dos, $10+10=20$.</span></li>
+<li>$P(C)=\dfrac{40}{40}=1$, comptant tota la baralla<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">No totes les cartes de la baralla són d'espases o copes: també n'hi ha d'ors i de bastos, que no compleixen l'esdeveniment.</span></li>
+<li>$P(C)=\dfrac{20}{40\cdot2}=\dfrac14$, dividint el denominador per error<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El denominador de la probabilitat és sempre el nombre TOTAL de cartes de la baralla, $40$, no cap múltiple d'aquest nombre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Espases i copes sumen quantes cartes en total?</li><li>$10+10=20$ cartes favorables d'entre $40$ possibles.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Espases i copes sumen $10+10=20$ cartes. $P(C)=\dfrac{20}{40}=\dfrac12$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">241d</span><span class="tip">tipus A</span></div>
+<div class="enun">$D=$ «Obtenir una figura»</div>
+<ol class="op"><li><span class="ok">$P(D)=\dfrac{12}{40}=\dfrac{3}{10}$</span> — resposta correcta</li>
+<li>$P(D)=\dfrac{3}{40}$, comptant només les figures d'un coll<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Cada coll té $3$ figures (sota, cavall, rei), però hi ha $4$ colls diferents: cal multiplicar $3\cdot4=12$ figures en total, no comptar només un coll.</span></li>
+<li>$P(D)=\dfrac{4}{40}=\dfrac1{10}$, comptant només els reis<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Figura" inclou sotes, cavalls I reis, no només els reis: cal comptar les tres figures de cada coll, $3\cdot4=12$.</span></li>
+<li>$P(D)=\dfrac{12}{4}$, invertint numerador i denominador<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Una probabilitat mai pot ser més gran que $1$: el nombre de cartes favorables va al numerador, i el total de la baralla al denominador.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada coll té $3$ figures (sota, cavall, rei), i hi ha $4$ colls.</li><li>Multiplica $3\cdot4$ per obtenir el total de figures.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Les figures (sota, cavall, rei), $3$ per coll i $4$ colls: $3\cdot4=12$ figures. $P(D)=\dfrac{12}{40}=\dfrac{3}{10}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">241e</span><span class="tip">tipus A</span></div>
+<div class="enun">$E=$ «Obtenir un as»</div>
+<ol class="op"><li><span class="ok">$P(E)=\dfrac{4}{40}=\dfrac1{10}$</span> — resposta correcta</li>
+<li>$P(E)=\dfrac{1}{40}$, comptant només un as<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Hi ha un as per coll, i $4$ colls diferents: en total, $4$ asos a la baralla, no només $1$.</span></li>
+<li>$P(E)=\dfrac{10}{40}=\dfrac14$, com si fos "obtenir un or"<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment és "obtenir un as" (de qualsevol coll), no "obtenir un or": només compten els $4$ asos, un per coll, no les $10$ cartes d'un coll sencer.</span></li>
+<li>$P(E)=\dfrac{3}{40}$, comptant només $3$ colls<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Hi ha $4$ colls a la baralla espanyola (ors, copes, espases, bastos), no $3$: cada un té el seu propi as.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Hi ha un as per coll, i quatre colls diferents.</li><li>Suma els asos: $1+1+1+1=4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Hi ha un as per coll: $4$ asos en total. $P(E)=\dfrac{4}{40}=\dfrac1{10}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 249.</strong> En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l&#x27;experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0-&gt;7, 1-&gt;13, 2-&gt;11, 3-&gt;12, 4-&gt;8, 5-&gt;10, 6-&gt;12, 7-&gt;6, 8-&gt;10, 9-&gt;11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».</p>
+<div class="it"><div class="cap"><span class="cod">249a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de l'esdeveniment $A=$«Múltiple de $3$»?</div>
+<ol class="op"><li><span class="ok">$\dfrac{42}{100}=\dfrac{21}{50}$</span> — resposta correcta</li>
+<li>$\dfrac{4}{100}$, comptant només els valors de $A$ ($0,3,6,9$) com a $4$ boles<br><span class="err">FREQ_RELATIVA_PROBABILITAT_CONFOSES</span><span class="fb">$A$ està format per $4$ valors DIFERENTS ($0,3,6,9$), però la freqüència relativa suma les vegades que ha SORTIT cadascun d'ells ($7+12+12+11=42$), no només compta quants valors diferents formen l'esdeveniment.</span></li>
+<li>$\dfrac{30}{100}$, comptant només un subconjunt dels valors de $A$<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">$A=$«Múltiple de $3$» inclou el $0$, el $3$, el $6$ i el $9$: revisa que has sumat les freqüències dels quatre valors, no només d'alguns.</span></li>
+<li>$\dfrac{9}{100}$, prenent només el valor $9$ com a representant de $A$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">"Múltiple de $3$" no és només el valor $9$: també inclou el $0$, el $3$ i el $6$. Cal sumar les freqüències de tots quatre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Múltiple de $3$" agrupa les boles $0$, $3$, $6$ i $9$.</li><li>Suma les seves freqüències: $7+12+12+11$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=\{0,3,6,9\}$: $f_A=7+12+12+11=42$</li><li>$\dfrac{f_A}{100}=\dfrac{42}{100}=\dfrac{21}{50}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">249b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de $A\cup B$ (múltiple de $3$ o nombre senar)?</div>
+<ol class="op"><li><span class="ok">$\dfrac{71}{100}$</span> — resposta correcta</li>
+<li>$\dfrac{94}{100}$, sumant directament les freqüències de $A$ i de $B$ sense ajustar res<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Sumar directament $f_A+f_B$ compta DUES vegades les boles que compleixen totes dues condicions alhora (el $3$ i el $9$, que són múltiples de $3$ i senars): cal no repetir-les en la unió.</span></li>
+<li>$\dfrac{23}{100}$, calculant en realitat la intersecció $A\cap B$<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$23$ és la freqüència de la INTERSECCIÓ ($A\cap B$, boles que compleixen totes dues condicions), no de la unió (boles que compleixen almenys una de les dues).</span></li>
+<li>$\dfrac{52}{100}$, agafant només la freqüència de $B$<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$52$ és la freqüència relativa de $B$ tot sol, no de la unió $A\cup B$: cal combinar-la amb els valors que només compleixen $A$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$A\cup B$ inclou totes les boles que compleixen $A$, $B$, o totes dues alhora: $\{0,1,3,5,6,7,9\}$, sense repetir el $3$ i el $9$.</li><li>Suma les freqüències d'aquests $7$ valors, un sol cop cadascun.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A\cup B=\{0,1,3,5,6,7,9\}$ (unint $A$ i $B$, sense repetir el $3$ i el $9$, que ja hi són a totes dues)</li><li>$f=7+13+12+10+12+6+11=71\Rightarrow\dfrac{71}{100}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">249c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de $A\cap B$ (múltiple de $3$ i, alhora, senar)?</div>
+<ol class="op"><li><span class="ok">$\dfrac{23}{100}$</span> — resposta correcta</li>
+<li>$\dfrac{71}{100}$, calculant en realitat la unió $A\cup B$<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$71$ és la freqüència de la UNIÓ ($A\cup B$, boles que compleixen almenys una condició), no de la intersecció (boles que compleixen totes dues alhora).</span></li>
+<li>$\dfrac{94}{100}$, sumant les freqüències de $A$ i $B$ sense ajustar res<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">Sumar directament $f_A+f_B$ no dona la intersecció: cal identificar quins valors compleixen TOTES DUES condicions alhora ($3$ i $9$), i sumar només les seves freqüències.</span></li>
+<li>$\dfrac{42}{100}$, agafant només la freqüència de $A$<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$42$ és la freqüència relativa de $A$ tot sol, no de la intersecció $A\cap B$: cal identificar quins valors de $A$ són TAMBÉ senars.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$A\cap B$ inclou només les boles que són múltiple de $3$ I senars alhora: revisa quins valors de $\{0,3,6,9\}$ són senars.</li><li>Només el $3$ i el $9$ compleixen totes dues condicions.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A\cap B=\{3,9\}$ (boles que compleixen alhora ser múltiple de $3$ i senars)</li><li>$f=12+11=23\Rightarrow\dfrac{23}{100}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">249d</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de $A\cup C$ (múltiple de $3$ o divisor de $6$)?</div>
+<ol class="op"><li><span class="ok">$\dfrac{66}{100}=\dfrac{33}{50}$</span> — resposta correcta</li>
+<li>$\dfrac{90}{100}$, sumant directament les freqüències de $A$ i de $C$ sense ajustar res<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Sumar directament $f_A+f_C$ compta DUES vegades les boles que compleixen totes dues condicions alhora ($3$ i $6$, que són múltiples de $3$ i alhora divisors de $6$): cal no repetir-les en la unió.</span></li>
+<li>$\dfrac{24}{100}$, calculant la intersecció en comptes de la unió<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">Aquest valor correspondria, si de cas, a la intersecció $A\cap C$ (boles múltiples de $3$ i divisors de $6$ alhora), no a la unió, que inclou totes les boles que compleixen almenys una de les dues condicions.</span></li>
+<li>$\dfrac{48}{100}$, agafant només la freqüència de $C$<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$48$ és la freqüència relativa de $C$ tot sol, no de la unió $A\cup C$: cal combinar-la amb els valors que només compleixen $A$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$A\cup C$ inclou totes les boles que compleixen $A=\{0,3,6,9\}$, $C=\{1,2,3,6\}$, o totes dues alhora, sense repetir el $3$ i el $6$.</li><li>Suma les freqüències d'aquests valors, un sol cop cadascun.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A\cup C=\{0,1,2,3,6,9\}$ (sense repetir el $3$ i el $6$, que ja hi són a totes dues)</li><li>$f=7+13+11+12+12+11=66\Rightarrow\dfrac{66}{100}=\dfrac{33}{50}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 250.</strong> Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1-&gt;28, cara 2-&gt;22, cara 3-&gt;30, cara 4-&gt;20.</p>
+<div class="it"><div class="cap"><span class="cod">250a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de l'esdeveniment «Múltiple de $3$»?</div>
+<ol class="op"><li><span class="ok">$\dfrac{30}{100}=\dfrac{3}{10}$</span> — resposta correcta</li>
+<li>$\dfrac{3}{100}$, confonent el valor de la cara amb la seva freqüència<br><span class="err">FREQ_RELATIVA_PROBABILITAT_CONFOSES</span><span class="fb">"Múltiple de $3$" en aquest dau (cares $1$ a $4$) només l'és la cara $3$: la freqüència relativa és la seva freqüència observada ($30$) entre el total ($100$), no el propi valor $3$.</span></li>
+<li>$\dfrac{50}{100}$, comptant també la cara $6$ com si el dau en tingués<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Aquest és un dau TETRAÈDRIC: només té $4$ cares (de l'$1$ al $4$), no $6$ com un dau normal. Només la cara $3$ és múltiple de $3$.</span></li>
+<li>$\dfrac{100}{100}=1$, com si totes les cares fossin múltiples de $3$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Només la cara $3$ és múltiple de $3$ entre les $4$ possibles ($1,2,3,4$): no totes les tirades compleixen aquesta condició.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquest dau té només $4$ cares. Quina d'elles és múltiple de $3$?</li><li>Només la cara $3$: la seva freqüència relativa és $\frac{30}{100}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Múltiple de $3$ (només la cara $3$): $\dfrac{30}{100}=\dfrac{3}{10}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">250b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de l'esdeveniment «Múltiple de $2$»?</div>
+<ol class="op"><li><span class="ok">$\dfrac{42}{100}=\dfrac{21}{50}$</span> — resposta correcta</li>
+<li>$\dfrac{22}{100}$, comptant només la cara $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Múltiple de $2$" no és només la cara $2$: la cara $4$ també ho és. Cal sumar les freqüències de totes dues.</span></li>
+<li>$\dfrac{20}{100}$, comptant només la cara $4$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Múltiple de $2$" no és només la cara $4$: la cara $2$ també ho és. Cal sumar les freqüències de totes dues.</span></li>
+<li>$\dfrac{72}{100}$, calculant en realitat "més gran que $1$"<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Aquest valor correspon a les cares $2$, $3$ i $4$ (més grans que $1$), no a les que són múltiples de $2$: entre aquestes, el $3$ no és múltiple de $2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quines cares del $1$ al $4$ són múltiples de $2$?</li><li>Les cares $2$ i $4$: suma les seves freqüències.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Múltiple de $2$ (cares $2$ i $4$): $\dfrac{22+20}{100}=\dfrac{42}{100}=\dfrac{21}{50}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">250c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de l'esdeveniment «Cara més gran que $1$»?</div>
+<ol class="op"><li><span class="ok">$\dfrac{72}{100}=\dfrac{18}{25}$</span> — resposta correcta</li>
+<li>$\dfrac{28}{100}$, calculant en realitat el contrari (cara igual a $1$)<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">$28$ és la freqüència de la cara $1$ (l'esdeveniment CONTRARI), no de les cares més grans que $1$: cal sumar les freqüències de $2$, $3$ i $4$, o bé restar $28$ de $100$.</span></li>
+<li>$\dfrac{42}{100}$, comptant només les cares $2$ i $4$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Més gran que $1$" inclou també la cara $3$, no només $2$ i $4$: cal sumar les freqüències de les tres cares.</span></li>
+<li>$\dfrac{100}{100}=1$, com si totes les cares complissin la condició<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">La cara $1$ NO és més gran que $1$: no totes les $4$ cares compleixen aquesta condició, només $3$ d'elles.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Més gran que $1$" inclou les cares $2$, $3$ i $4$.</li><li>Suma les seves freqüències: $22+30+20$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Més gran que $1$ (cares $2$, $3$ i $4$): $\dfrac{22+30+20}{100}=\dfrac{72}{100}=\dfrac{18}{25}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">250d</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la freqüència relativa de l'esdeveniment «Cara més petita que $1$»?</div>
+<ol class="op"><li><span class="ok">$0$ (esdeveniment impossible: cap cara del dau tetraèdric és més petita que $1$)</span> — resposta correcta</li>
+<li>$\dfrac{28}{100}$, confonent-lo amb la freqüència de la cara $1$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">"Més petita que $1$" NO inclou la pròpia cara $1$ (que és IGUAL a $1$, no MÉS PETITA): cap cara del dau (numerades de l'$1$ al $4$) compleix aquesta condició.</span></li>
+<li>$\dfrac{1}{100}$, com si hi hagués un únic cas favorable<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">No hi ha cap cas favorable, ni tan sols un: el dau tetraèdric només té cares numerades de l'$1$ al $4$, i cap d'elles és més petita que $1$.</span></li>
+<li>Aquest esdeveniment no es pot calcular perquè no té sentit<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Sí que té sentit calcular-lo, i dona una freqüència relativa de $0$: un esdeveniment impossible també té una probabilitat ben definida, que és $0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha alguna més petita que $1$?</li><li>Cap cara compleix aquesta condició: la freqüència és $0$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que el tetraedre només té cares de l'$1$ al $4$, no hi ha cap resultat més petit que $1$. $\dfrac{0}{100}=0$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 251.</strong> Llancem 4 monedes iguals.</p>
+<div class="it"><div class="cap"><span class="cod">251a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat d'obtenir $4$ cares?</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{1}{16}$</span> — resposta correcta</li>
+<li>$P=\dfrac14$, com si cada moneda es tractés per separat i es multipliquessin per $4$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Amb $4$ monedes hi ha $2^4=16$ resultats possibles en total, no $4$: cal comptar tots els resultats possibles, no només el nombre de monedes.</span></li>
+<li>$P=\dfrac{4}{16}=\dfrac14$, com si hi haguessin $4$ maneres diferents d'obtenir $4$ cares<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Només hi ha UNA manera d'obtenir $4$ cares (CCCC): les $4$ monedes han de sortir totes cara alhora, no hi ha cap altra combinació que doni aquest resultat.</span></li>
+<li>$P=\dfrac12$, com si cada moneda contribuís independentment amb probabilitat $\frac12$ sense combinar-les<br><span class="err">ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS</span><span class="fb">La probabilitat de CADA moneda per separat és $\frac12$, però per combinar-les en un sol esdeveniment (les $4$ cares alhora) cal multiplicar-les totes, no quedar-se amb la probabilitat d'una sola moneda.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb $4$ monedes hi ha $2^4=16$ resultats possibles en total, tots igualment probables.</li><li>Només hi ha UNA manera d'obtenir $4$ cares (CCCC).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Amb $4$ monedes: $2^4=16$ resultats possibles</li><li>Només hi ha una manera d'obtenir $4$ cares (CCCC): $P=\dfrac{1}{16}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">251b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat de NO obtenir cap cara (és a dir, totes creus)?</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{1}{16}$</span> — resposta correcta</li>
+<li>$P=0$, perquè sempre surt alguna cara amb $4$ monedes<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">No és impossible que surtin $4$ creus seguides: és poc probable, però perfectament possible. La probabilitat és $\frac{1}{16}$, no $0$.</span></li>
+<li>$P=\dfrac{4}{16}=\dfrac14$, com si hi haguessin diverses maneres d'obtenir totes creus<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Només hi ha UNA manera d'obtenir $4$ creus (XXXX): les $4$ monedes han de sortir totes creu alhora, no hi ha cap altra combinació que doni aquest resultat.</span></li>
+<li>$P=\dfrac{15}{16}$, calculant en realitat "almenys una cara"<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Aquest valor correspon a l'esdeveniment CONTRARI, "obtenir almenys una cara": la pregunta demana "cap cara", que és l'esdeveniment complementari.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"No obtenir cap cara" equival a obtenir $4$ creus (XXXX).</li><li>Igual que amb $4$ cares, només hi ha un resultat possible d'entre els $16$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>"No obtenir cap cara" equival a obtenir $4$ creus (XXXX), també un únic resultat: $P=\dfrac{1}{16}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">251c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quin esdeveniment és més probable: obtenir $2$ cares, o obtenir almenys $3$ creus?</div>
+<ol class="op"><li><span class="ok">És més probable obtenir $2$ cares ($P=\frac{6}{16}=\frac38$) que almenys $3$ creus ($P=\frac{5}{16}$)</span> — resposta correcta</li>
+<li>És més probable obtenir almenys $3$ creus, perquè "almenys" sona a més casos possibles<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">"Sonar a més casos" no és un càlcul: comptant amb cura, "almenys $3$ creus" té $5$ casos favorables ($\binom{4}{3}+\binom{4}{4}=4+1$), mentre que "exactament $2$ cares" en té $6$ ($\binom{4}{2}$): el segon és més probable.</span></li>
+<li>Els dos esdeveniments són igual de probables, amb $P=\dfrac{5}{16}$ cadascun<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">No tenen la mateixa probabilitat: "exactament $2$ cares" té $\binom{4}{2}=6$ casos favorables, mentre que "almenys $3$ creus" en té $5$. Els denominadors coincideixen ($16$), però els numeradors no.</span></li>
+<li>Els dos esdeveniments són igual de probables, amb $P=\dfrac{6}{16}$ cadascun<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">$\frac{6}{16}$ és la probabilitat d'"exactament $2$ cares", però "almenys $3$ creus" té una probabilitat diferent, $\frac{5}{16}$: no coincideixen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta els casos favorables de cada esdeveniment amb combinacions: $\binom{4}{2}$ per a $2$ cares exactes, i $\binom{4}{3}+\binom{4}{4}$ per a almenys $3$ creus.</li><li>Compara els dos numeradors sobre el mateix denominador, $16$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2$ cares exactes: $\binom{4}{2}=6$ resultats, $P=\dfrac{6}{16}=\dfrac38$</li><li>Almenys $3$ creus: $\binom{4}{3}+\binom{4}{4}=4+1=5$ resultats, $P=\dfrac{5}{16}$</li><li>Com que $\dfrac{6}{16}>\dfrac{5}{16}$, és més probable obtenir $2$ cares</li></ol>
+</div>
+<p class="sec"><strong>Exercici 252.</strong> Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.</p>
+<div class="it"><div class="cap"><span class="cod">252a</span><span class="tip">tipus A</span></div>
+<div class="enun">Calcula la probabilitat d'encertar exactament $3$ preguntes si contestes a l'atzar.</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{40}{243}$</span> — resposta correcta</li>
+<li>$P=\dfrac{10}{243}$, oblidant multiplicar les maneres de fallar les $2$ preguntes restants<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">Un cop triades les $3$ preguntes que s'encerten ($\binom{5}{3}=10$ maneres), per a les $2$ preguntes restants (que s'han de FALLAR) hi ha $2$ respostes incorrectes possibles a cadascuna: cal multiplicar per $2\cdot2=4$.</span></li>
+<li>$P=\dfrac{1}{243}$, com si només hi hagués una manera d'encertar exactament $3$ preguntes<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">Hi ha diverses maneres de triar QUINES $3$ preguntes s'encerten ($\binom{5}{3}=10$ maneres), i per cadascuna cal considerar també com es fallen les altres $2$: no és un únic cas.</span></li>
+<li>$P=\dfrac{3}{5}$, dividint preguntes correctes entre preguntes totals<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El denominador de la probabilitat ha de ser el nombre TOTAL de maneres de contestar l'examen sencer ($3^5=243$), no el nombre de preguntes.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El total de maneres de contestar l'examen és $3^5=243$.</li><li>Per als casos favorables: tria quines $3$ preguntes s'encerten ($\binom{5}{3}$), i per a les altres $2$, compta les maneres de fallar-les ($2$ cadascuna).</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Total de maneres de contestar: $3^5=243$</li><li>Casos favorables: $\binom{5}{3}=10$ maneres de triar quines $3$ s'encerten, i $2\cdot2=4$ maneres de fallar les altres $2$: $10\cdot1\cdot4=40$</li><li>$P(\text{exactament }3\text{ encerts})=\dfrac{40}{243}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">252b</span><span class="tip">tipus A</span></div>
+<div class="enun">Si per aprovar l'examen s'han de contestar almenys $3$ preguntes correctament, quina és la probabilitat d'aprovar?</div>
+<ol class="op"><li><span class="ok">$P(\text{aprovar})=\dfrac{51}{243}=\dfrac{17}{81}$</span> — resposta correcta</li>
+<li>$P(\text{aprovar})=\dfrac{40}{243}$, comptant només els casos d'encertar exactament $3$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Almenys $3$" inclou també encertar exactament $4$ o exactament $5$ preguntes, no només $3$: cal sumar els casos favorables dels tres escenaris.</span></li>
+<li>$P(\text{aprovar})=\dfrac{55}{243}$, sumant malament els casos de $3$, $4$ i $5$ encerts<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">Revisa el recompte de cada escenari per separat: exactament $3$ encerts ($40$ casos), exactament $4$ ($10$ casos) i exactament $5$ ($1$ cas). La suma correcta és $51$, no $55$.</span></li>
+<li>$P(\text{aprovar})=\dfrac{3}{5}$, com si cada pregunta aportés $\frac35$ de possibilitat d'aprovar<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">Aprovar depèn del resultat CONJUNT de les $5$ preguntes, no d'una fracció fixa per pregunta: cal comptar tots els casos favorables sobre el total de $243$ maneres de contestar l'examen sencer.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Almenys $3$" inclou $3$, $4$ i $5$ encerts. Calcula els casos favorables de cada escenari per separat i suma'ls.</li><li>Exactament $4$: $\binom{5}{4}\cdot1\cdot2=10$. Exactament $5$: $\binom{5}{5}=1$. Suma-ho amb els $40$ d'exactament $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Exactament $3$ encerts: $40$ casos (apartat anterior)</li><li>Exactament $4$ encerts: $\binom{5}{4}\cdot1\cdot2=10$ casos</li><li>Exactament $5$ encerts: $\binom{5}{5}=1$ cas</li><li>Casos favorables per aprovar: $40+10+1=51$</li><li>$P(\text{aprovar})=\dfrac{51}{243}=\dfrac{17}{81}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">252c</span><span class="tip">tipus A</span></div>
+<div class="enun">I quina és la probabilitat de suspendre l'examen?</div>
+<ol class="op"><li><span class="ok">$P(\text{suspendre})=1-\dfrac{17}{81}=\dfrac{64}{81}$</span> — resposta correcta</li>
+<li>$P(\text{suspendre})=\dfrac{17}{81}$, confonent-la amb la d'aprovar<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Aquest és el valor de $P(\text{aprovar})$, no de $P(\text{suspendre})$: com que suspendre és l'esdeveniment CONTRARI d'aprovar, cal restar-lo d'$1$, no repetir-lo.</span></li>
+<li>$P(\text{suspendre})=1-51=-50$, restant els casos favorables en comptes de la probabilitat<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Cal restar la PROBABILITAT ($\frac{17}{81}$, un valor entre $0$ i $1$) de $1$, no el nombre de casos favorables (que és $51$, un enter): una probabilitat mai pot ser negativa.</span></li>
+<li>$P(\text{suspendre})=\dfrac{192}{243}$, sense simplificar ni verificar contra $1-P(\text{aprovar})$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">$\frac{192}{243}$ no coincideix amb $1-\frac{51}{243}=\frac{192}{243}$... torna a fer la resta amb cura: el numerador correcte de $1-\frac{51}{243}$ és $243-51=192$, que simplificat dona $\frac{64}{81}$, no un altre valor.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suspendre és l'esdeveniment CONTRARI d'aprovar.</li><li>$P(\text{suspendre})=1-P(\text{aprovar})$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que suspendre és el contrari d'aprovar: $P(\text{suspendre})=1-\dfrac{17}{81}=\dfrac{64}{81}$</li></ol>
+</div>
+<h2>Esdeveniments compostos <span class="tip">· 17 preguntes</span></h2>
+<p class="sec"><strong>Exercici 253.</strong> En una urna hi ha 100 boles numerades de l&#x27;1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».</p>
+<div class="it"><div class="cap"><span class="cod">253a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quants esdeveniments elementals componen $B=$«múltiple de $3$», i quina és la seva probabilitat?</div>
+<ol class="op"><li><span class="ok">$33$ esdeveniments elementals; $P(B)=\dfrac{33}{100}$</span> — resposta correcta</li>
+<li>$33$ esdeveniments elementals; $P(B)=\dfrac{100}{33}$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Una probabilitat mai pot ser més gran que $1$: el nombre de múltiples de $3$ va al numerador, i el total de boles ($100$) al denominador, no al revés.</span></li>
+<li>$34$ esdeveniments elementals (comptant l'"$1$" com a múltiple)<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'$1$ no és múltiple de $3$: el nombre de múltiples de $3$ entre $1$ i $100$ és $\left\lfloor\frac{100}{3}\right\rfloor=33$, no $34$.</span></li>
+<li>$30$ esdeveniments elementals, comptant només fins a $90$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">T'has deixat pel camí els múltiples de $3$ entre $91$ i $100$ (com el $93$, el $96$ i el $99$): el recompte correcte des d'$1$ fins a $100$ és $33$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix $100$ entre $3$ i queda't amb la part entera: aquest és el nombre de múltiples de $3$ entre $1$ i $100$.</li><li>$\left\lfloor\frac{100}{3}\right\rfloor=33$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$B$: múltiples de $3$, des de $3$ fins a $99$: $33$ esdeveniments elementals ($\lfloor100/3\rfloor=33$). $P(B)=\dfrac{33}{100}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">253b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat de $D=$«divisible per $10$»?</div>
+<ol class="op"><li><span class="ok">$P(D)=\dfrac{10}{100}=\dfrac1{10}$</span> — resposta correcta</li>
+<li>$P(D)=\dfrac{100}{100}=1$, com si tots els números ho complissin<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">No tots els números de l'$1$ al $100$ són divisibles per $10$: només ho són $10, 20, 30,\ldots,100$, en total $10$ d'ells.</span></li>
+<li>$P(D)=\dfrac{50}{100}=\dfrac12$, confonent-lo amb divisible per $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Divisible per $10$" és més restrictiu que "divisible per $2$": només compleixen la condició $10, 20, \ldots, 100$, no tots els parells.</span></li>
+<li>$P(D)=\dfrac{20}{100}=\dfrac15$, confonent-lo amb múltiple de $5$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Divisible per $10$" és més restrictiu que "múltiple de $5$": tots els múltiples de $10$ ho són també de $5$, però no al revés (el $5$, el $15$... són múltiples de $5$ però no de $10$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta els múltiples de $10$ entre $1$ i $100$: $10,20,\ldots,100$.</li><li>Divideix $100$ entre $10$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$D$: divisibles per $10$, des de $10$ fins a $100$: $10$ esdeveniments elementals. $P(D)=\dfrac{10}{100}=\dfrac1{10}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">253c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat de $F=$«divisible per $1$»?</div>
+<ol class="op"><li><span class="ok">$P(F)=1$ (és l'esdeveniment segur: tots els números són divisibles per $1$)</span> — resposta correcta</li>
+<li>$P(F)=\dfrac{1}{100}$, com si només un número ho complís<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">TOTS els nombres enters són divisibles per $1$, no només un: els $100$ nombres de l'urna compleixen aquesta condició.</span></li>
+<li>$P(F)=0$, perquè "divisible per $1$" no és una condició real<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">És una condició real, i la compleixen absolutament tots els nombres: per això la seva probabilitat és $1$ (esdeveniment segur), no $0$ (impossible).</span></li>
+<li>$P(F)=\dfrac{50}{100}=\dfrac12$, confonent-lo amb divisible per $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Divisible per $1$" no és el mateix que "divisible per $2$": absolutament tots els nombres compleixen la primera condició, no només la meitat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins nombres NO són divisibles per $1$?</li><li>Cap: tot nombre enter és divisible per $1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$F$: divisibles per $1$, és a dir, tots els números de l'$1$ al $100$: $100$ esdeveniments elementals. $P(F)=\dfrac{100}{100}=1$ (l'esdeveniment segur)</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">253d</span><span class="tip">tipus B</span></div>
+<div class="enun">«Hi ha algun parell d'esdeveniments incompatibles entre $A$, $B$, $C$, $D$ i $F$»</div>
+<ol class="op"><li><span class="ok">Fals: cap parell d'aquests cinc esdeveniments és incompatible, perquè sempre hi ha algun número que compleix totes dues condicions alhora (per exemple, el $30$ compleix totes cinc condicions a la vegada)</span> — resposta correcta</li>
+<li>Cert: $D$ i $C$ són incompatibles, perquè un múltiple de $10$ no pot ser parell<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">Un múltiple de $10$ SEMPRE és parell (tot múltiple de $10$ ho és també de $2$): $D$ i $C$ comparteixen molts elements, no en tenen zero en comú.</span></li>
+<li>Cert: $A$ i $B$ són incompatibles, perquè cap número és alhora múltiple de $5$ i de $3$<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">Sí que n'hi ha: per exemple, el $15$ i el $30$ són múltiples de $5$ i de $3$ alhora. $A$ i $B$ comparteixen elements, no són incompatibles.</span></li>
+<li>Cert: $F$ és incompatible amb tots els altres, perquè conté tots els números<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">Que $F$ contingui tots els números fa precisament que COMPARTEIXI elements amb qualsevol altre esdeveniment (tots els d'aquell altre esdeveniment): això el fa compatible amb tots, no incompatible.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Dos esdeveniments són incompatibles quan no comparteixen CAP número en comú.</li><li>Prova amb un número com el $30$: compleix múltiples condicions alhora?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El $30$ és múltiple de $5$, de $3$, parell, múltiple de $10$ i divisible per $1$, tot a la vegada: cap parell d'aquests esdeveniments és incompatible</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">253e</span><span class="tip">tipus B</span></div>
+<div class="enun">«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, $C$, $D$ i $F$»</div>
+<ol class="op"><li><span class="ok">Fals: cap parell d'$A$, $B$, $C$, $D$, $F$ és contrari, ja que dos esdeveniments contraris han d'esgotar l'espai mostral sense superposar-se, i aquí tots els parells són compatibles (es superposen)</span> — resposta correcta</li>
+<li>Cert: $C$ (divisible per $2$) i $F$ (divisible per $1$) són contraris<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">$C$ i $F$ no són contraris: de fet, $C$ està CONTINGUT dins de $F$ (tot múltiple de $2$ també és divisible per $1$), i dos esdeveniments contraris no poden compartir cap element.</span></li>
+<li>Cert: $A$ (múltiple de $5$) i $D$ (divisible per $10$) són contraris<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">$A$ i $D$ no són contraris: de fet, $D$ està CONTINGUT dins de $A$ (tot múltiple de $10$ també ho és de $5$), i dos esdeveniments contraris no poden compartir cap element.</span></li>
+<li>Cert: $B$ (múltiple de $3$) i $C$ (divisible per $2$) són contraris<br><span class="err">COMPATIBLE_INCOMPATIBLE_CONFOSOS</span><span class="fb">$B$ i $C$ comparteixen elements (com el $6$, múltiple de $3$ i divisible per $2$ alhora): dos esdeveniments contraris no poden tenir cap element en comú, així que no ho són.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Dos esdeveniments contraris no comparteixen cap element I, junts, inclouen tots els resultats possibles.</li><li>Comprova si cada parell comparteix algun número: si en comparteixen, no poden ser contraris.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Tots els parells d'aquests esdeveniments comparteixen algun número (són compatibles): per tant, cap parell és contrari, ja que els contraris mai comparteixen elements</li></ol>
+</div>
+<p class="sec"><strong>Exercici 254.</strong> En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.</p>
+<div class="it"><div class="cap"><span class="cod">254a</span><span class="tip">tipus A</span></div>
+<div class="enun">Si escollim una persona a l'atzar, quina és la probabilitat que sigui home?</div>
+<ol class="op"><li><span class="ok">$P(\text{home})=\dfrac{28}{60}=\dfrac{7}{15}$</span> — resposta correcta</li>
+<li>$P(\text{home})=\dfrac{16}{60}$, comptant només els homes que han menjat carn<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">La pregunta demana la probabilitat de ser home EN GENERAL, no d'entre els que han menjat carn: cal el total d'homes ($28$), no només els $16$ que han menjat carn.</span></li>
+<li>$P(\text{home})=\dfrac{28}{32}$, comparant-lo amb el nombre de dones<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El denominador de la probabilitat ha de ser el TOTAL de persones al dinar ($28+32=60$), no el nombre de dones.</span></li>
+<li>$P(\text{home})=\dfrac12$, com si hi haguessin el mateix nombre d'homes i dones<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Hi ha $28$ homes i $32$ dones: no són el mateix nombre, així que la probabilitat no és exactament $\frac12$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El total de persones al dinar és $28+32=60$.</li><li>La probabilitat de ser home és $\dfrac{28}{60}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Hi ha $28$ homes d'entre $60$ persones: $P(\text{home})=\dfrac{28}{60}=\dfrac{7}{15}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">254b</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat que hagi menjat peix?</div>
+<ol class="op"><li><span class="ok">$P(\text{peix})=\dfrac{24}{60}=\dfrac25$</span> — resposta correcta</li>
+<li>$P(\text{peix})=\dfrac{36}{60}$, calculant en realitat la probabilitat de menjar carn<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">$36$ és el total de persones que han menjat CARN ($16+20$), no peix: la resta, $60-36=24$, és qui ha menjat peix.</span></li>
+<li>$P(\text{peix})=\dfrac{16}{60}$, comptant només els homes que han menjat peix<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">La pregunta demana la probabilitat de menjar peix EN GENERAL, no només entre els homes: cal comptar homes I dones que han menjat peix.</span></li>
+<li>$P(\text{peix})=\dfrac{20}{60}$, comptant només les dones que han menjat peix<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">$20$ és el nombre de dones que han menjat CARN, no peix: cal calcular primer qui ha menjat peix (la resta, $60-36=24$ persones en total).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer quantes persones han menjat carn en total: $16+20=36$.</li><li>Les que han menjat peix són la resta: $60-36$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Han menjat carn $16+20=36$ persones, i per tant peix, $60-36=24$ persones: $P(\text{peix})=\dfrac{24}{60}=\dfrac25$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">254c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat que sigui home I hagi menjat peix?</div>
+<ol class="op"><li><span class="ok">$P(\text{home i peix})=\dfrac{12}{60}=\dfrac15$</span> — resposta correcta</li>
+<li>$P(\text{home i peix})=\dfrac{28}{60}$, agafant només la probabilitat de ser home<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">"Home i peix" demana totes dues condicions ALHORA, no només "ser home": cal comptar quants homes concretament han menjat peix, no tots els homes.</span></li>
+<li>$P(\text{home i peix})=\dfrac{16}{60}$, comptant els homes que han menjat CARN<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$16$ homes van menjar carn, no peix: dels $28$ homes, els que han menjat peix són $28-16=12$.</span></li>
+<li>$P(\text{home i peix})=\dfrac{28+24}{60}$, sumant les probabilitats individuals com si fos una unió<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">"Home I peix" (amb la I) és una INTERSECCIÓ, no una unió: no es couen sumant les probabilitats individuals, cal comptar directament quantes persones compleixen totes dues condicions alhora.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Dels $28$ homes, quants han menjat peix (no carn)?</li><li>$28-16=12$ homes han menjat peix: aquest és el numerador.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Han menjat peix i, a més, són homes, $12$ persones ($28-16=12$) d'entre $60$: $P(\text{home i peix})=\dfrac{12}{60}=\dfrac15$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 255.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">255</span><span class="tip">tipus A</span></div>
+<div class="enun">En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i tres quartes parts de les nenes tenen els cabells negres, i la resta, rossos. Quina és la probabilitat que, si n'escollim un a l'atzar, sigui nen o tingui els cabells negres?</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{32}{36}=\dfrac89$</span> — resposta correcta</li>
+<li>$P=\dfrac{20}{36}+\dfrac{22}{36}$, sumant "ser nen" i "tenir cabells negres" sense evitar la doble comptabilitat<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Tots els nens amb cabells negres ($10$) ja estan comptats dins de "ser nen": sumar directament les dues probabilitats els compta dues vegades. Cal restar la intersecció, o bé sumar només les nenes de cabells negres als nens (que ja inclouen tots els colors).</span></li>
+<li>$P=\dfrac{10}{36}$, comptant només els nens amb cabells negres<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$10$ és la INTERSECCIÓ (nens I cabells negres alhora), però la pregunta demana la UNIÓ ("nen O cabells negres"), que inclou molta més gent: tots els nens (siguin rossos o no) i totes les nenes de cabells negres.</span></li>
+<li>$P=\dfrac{20}{36}=\dfrac59$, comptant només "ser nen"<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">"Nen o cabells negres" inclou més gent que només "ser nen": també hi entren les nenes que tenen els cabells negres, encara que no siguin nens.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Tots els nens (siguin del color de cabells que siguin) ja compleixen "ser nen": només cal afegir-hi les nenes de cabells negres, que encara no comptaves.</li><li>Nenes de cabells negres: $16\cdot\frac34=12$. Suma-les als $20$ nens.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cabells negres: $20\cdot\frac12=10$ nens i $16\cdot\frac34=12$ nenes</li><li>Casos favorables: tots els nens ($20$) més les nenes de cabells negres ($12$), sense superposició entre "nen" i "nena": $20+12=32$</li><li>$P(\text{nen o cabells negres})=\dfrac{32}{36}=\dfrac89$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 256.</strong> En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.</p>
+<div class="it"><div class="cap"><span class="cod">256a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina probabilitat hi ha que, si n'escollim un a l'atzar, llegeixi algun dels dos diaris?</div>
+<ol class="op"><li><span class="ok">$P(A\cup B)=0{,}43$</span> — resposta correcta</li>
+<li>$P(A\cup B)=0{,}50$, sumant directament $0{,}30+0{,}20$ sense restar res<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Sumar directament $P(A)+P(B)$ compta dues vegades les persones que llegeixen tots dos diaris: cal restar-los un cop, $P(A)+P(B)-P(A\cap B)$.</span></li>
+<li>$P(A\cup B)=0{,}07$, agafant només la intersecció<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$0{,}07$ és la probabilitat de llegir TOTS DOS diaris (intersecció), no d'algun dels dos (unió), que és més gran.</span></li>
+<li>$P(A\cup B)=0{,}57$, calculant en realitat "cap diari"<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">$0{,}57$ correspondria, si de cas, a la probabilitat contrària ("no llegir cap diari"), no a la de "llegir algun dels dos".</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Sumar les probabilitats individuals compta dues vegades les persones que llegeixen els dos diaris.</li><li>$P(A\cup B)=P(A)+P(B)-P(A\cap B)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(A\cup B)=P(A)+P(B)-P(A\cap B)=0{,}30+0{,}20-0{,}07=0{,}43$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">256b</span><span class="tip">tipus A</span></div>
+<div class="enun">I quina probabilitat hi ha que no llegeixi cap dels dos diaris?</div>
+<ol class="op"><li><span class="ok">$P(\text{cap diari})=1-0{,}43=0{,}57$</span> — resposta correcta</li>
+<li>$P(\text{cap diari})=0{,}43$, confonent-la amb "llegir algun dels dos"<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Aquest és el valor de $P(A\cup B)$ (llegir algun diari), no de "no llegir cap": cal restar-lo d'$1$, no repetir-lo.</span></li>
+<li>$P(\text{cap diari})=1-0{,}30-0{,}20=0{,}50$, sense tenir en compte la intersecció<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Cal restar la probabilitat de la UNIÓ ($P(A\cup B)=0{,}43$) d'$1$, no restar directament $P(A)$ i $P(B)$ per separat (això no compensa correctament la intersecció).</span></li>
+<li>$P(\text{cap diari})=0{,}07$, confonent-la amb la intersecció<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$0{,}07$ és la probabilitat de llegir TOTS DOS diaris alhora, no de no llegir-ne cap: són esdeveniments completament diferents.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"No llegir cap diari" és l'esdeveniment contrari de "llegir algun dels dos".</li><li>$P(\text{cap})=1-P(A\cup B)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>No llegir cap diari és l'esdeveniment contrari de "llegir algun dels dos": $P(\text{cap diari})=1-P(A\cup B)=1-0{,}43=0{,}57$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">256c</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina probabilitat hi ha que llegeixi exactament UN dels dos diaris (no els dos)?</div>
+<ol class="op"><li><span class="ok">$P(\text{exactament un})=0{,}36$</span> — resposta correcta</li>
+<li>$P(\text{exactament un})=0{,}43$, confonent-la amb "algun dels dos"<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$0{,}43$ inclou també els que en llegeixen els DOS: "exactament un" ha d'excloure aquest grup, restant-lo de cada diari per separat.</span></li>
+<li>$P(\text{exactament un})=0{,}50$, sumant $P(A)+P(B)$ sense restar la intersecció enlloc<br><span class="err">UNIO_DOBLE_COMPTADA</span><span class="fb">Sumar $0{,}30+0{,}20$ directament inclou dues vegades qui llegeix els dos diaris: cal restar-los de cada probabilitat abans de sumar-les, $(0{,}30-0{,}07)+(0{,}20-0{,}07)$.</span></li>
+<li>$P(\text{exactament un})=0{,}07$, agafant la intersecció en comptes de la resta<br><span class="err">UNIO_INTERSECCIO_CONFOSES</span><span class="fb">$0{,}07$ és la probabilitat de llegir els DOS diaris, que és precisament el que cal EXCLOURE per calcular "exactament un".</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Resta la intersecció de cada probabilitat individual per obtenir "només A" i "només B" per separat.</li><li>Suma els dos resultats: $(0{,}30-0{,}07)+(0{,}20-0{,}07)$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Només A: $P(A)-P(A\cap B)=0{,}30-0{,}07=0{,}23$</li><li>Només B: $P(B)-P(A\cap B)=0{,}20-0{,}07=0{,}13$</li><li>Exactament un: $0{,}23+0{,}13=0{,}36$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 257.</strong> En Lluís i en Joan han de recollir l&#x27;habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure&#x27;n una: si és vermella, recull en Joan; si és blava, recull ell.</p>
+<div class="it"><div class="cap"><span class="cod">257a</span><span class="tip">tipus A</span></div>
+<div class="enun">Quina és la probabilitat de cada color de bola?</div>
+<ol class="op"><li><span class="ok">$P(\text{vermella})=\dfrac12$, $P(\text{verda})=\dfrac13$, $P(\text{blava})=\dfrac16$</span> — resposta correcta</li>
+<li>$P(\text{vermella})=\dfrac36$, sense simplificar, i les altres tampoc simplificades ($\frac26$, $\frac16$)<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">$\frac36$ i $\frac26$ es poden simplificar més: divideix numerador i denominador pel seu m.c.d. per obtenir $\frac12$ i $\frac13$.</span></li>
+<li>$P(\text{vermella})=\dfrac13$, $P(\text{verda})=\dfrac12$, intercanviant vermella i verda<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">Revisa quin color té més boles: n'hi ha $3$ vermelles i només $2$ verdes, així que la vermella ha de tenir la probabilitat més alta, no la verda.</span></li>
+<li>Totes les boles tenen la mateixa probabilitat, $\dfrac13$ cadascuna, perquè hi ha $3$ colors<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El nombre de COLORS diferents ($3$) no determina la probabilitat: cal comptar quantes boles té cada color, i no en té el mateix nombre cadascun.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La bossa té $3+2+1=6$ boles en total.</li><li>Aplica la regla de Laplace a cada color per separat, i simplifica el resultat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{vermella})=\dfrac36=\dfrac12$, $P(\text{verda})=\dfrac26=\dfrac13$, $P(\text{blava})=\dfrac16$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">257b</span><span class="tip">tipus A</span></div>
+<div class="enun">És just el tracte que proposa en Lluís (vermella: recull en Joan; blava: recull en Lluís)?</div>
+<ol class="op"><li><span class="ok">No és just: en Joan tindria una probabilitat de recollir molt més alta ($\frac12$) que en Lluís ($\frac16$)</span> — resposta correcta</li>
+<li>Sí, és just, perquè cada germà té assignat un color diferent<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Tenir un color assignat no fa el tracte just per si sol: cal que la PROBABILITAT de sortir aquell color sigui igual per a tots dos, i aquí no ho és ($\frac12$ per la vermella enfront de $\frac16$ per la blava).</span></li>
+<li>Sí, és just, perquè només hi ha un color assignat a cada germà i no es repeteix cap<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Que els colors no es repeteixin entre germans no garanteix que el tracte sigui just: el que ho determina és si les probabilitats de sortir cada color assignat són iguals, i no ho són.</span></li>
+<li>No es pot saber si és just sense conèixer el color favorit de cadascú<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">La justícia del tracte no depèn de preferències personals pels colors: depèn únicament de si les probabilitats assignades a cada germà són iguals o no.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compara la probabilitat que li toca a en Joan (vermella) amb la que li toca a en Lluís (blava).</li><li>$P(\text{vermella})=\frac12$ enfront de $P(\text{blava})=\frac16$: són iguals?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>En Joan recull si surt vermella ($P=\frac12$), en Lluís si surt blava ($P=\frac16$). Com que les probabilitats no són iguals, el tracte NO és just</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">257c</span><span class="tip">tipus A</span></div>
+<div class="enun">En Joan proposa un nou tracte: si surt vermell, recollirà ell; si surt blau o verd, recollirà en Lluís. És just aquest tracte?</div>
+<ol class="op"><li><span class="ok">Sí, és just: totes dues probabilitats són $\frac12$ ($P(\text{vermella})=\frac12$, $P(\text{blava o verda})=\frac16+\frac13=\frac12$)</span> — resposta correcta</li>
+<li>No és just, perquè en Joan té assignat un sol color i en Lluís dos colors diferents<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">El nombre de colors assignats a cadascú no determina la justícia del tracte: el que importa és la probabilitat total de cada combinació, i sumant blava i verda ($\frac16+\frac13$) s'obté exactament $\frac12$, igual que la vermella.</span></li>
+<li>No és just, perquè la vermella té més boles que qualsevol altre color per separat<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Encara que la vermella tingui més boles que el blau o el verd per SEPARAT, el que compta és la probabilitat COMBINADA de "blau o verd", que sumada arriba als mateixos $\frac12$ que la vermella.</span></li>
+<li>Sí, és just, però només per casualitat, ja que no es pot comprovar amb exactitud<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Sí que es pot comprovar amb exactitud, sumant les fraccions corresponents: $\frac16+\frac13=\frac12$, exactament igual que $P(\text{vermella})=\frac12$: no és casualitat, és un càlcul exacte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma les probabilitats de "blau o verd": $\frac16+\frac13$.</li><li>Compara aquest resultat amb $P(\text{vermella})=\frac12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recull en Joan si surt vermell ($P=\frac12$), i en Lluís si surt blau o verd ($P=\frac16+\frac13=\frac12$). Com que totes dues probabilitats són $\frac12$, aquest tracte SÍ és just</li></ol>
+</div>
+<p class="sec"><strong>Exercici 258.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">258</span><span class="tip">tipus A</span></div>
+<div class="enun">Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat que encerti la combinació al primer intent? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?</div>
+<ol class="op"><li><span class="ok">En tots dos casos, $P(\text{encertar})=\dfrac13$</span> — resposta correcta</li>
+<li>Amb $3$ claus i $3$ panys, $P=\dfrac13$; però amb $3$ claus i $2$ panys, $P=\dfrac12$, perquè hi ha menys panys<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El que compta no és quants panys hi ha, sinó quantes CLAUS tens per triar (sempre $3$) i quantes d'elles obren el pany concret que proves (sempre només $1$): el resultat no canvia encara que hi hagi menys panys.</span></li>
+<li>Amb $3$ claus i $3$ panys, $P=\dfrac33=1$, perquè totes les claus obren algun pany<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Que totes les claus obrin ALGUN pany no vol dir que qualsevol clau obri EL pany concret que estàs provant: només $1$ de les $3$ claus obre aquell pany en particular.</span></li>
+<li>No es pot calcular sense saber en quin ordre es proven les claus<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">Sí que es pot calcular sense conèixer l'ordre: la probabilitat d'encertar al primer intent només depèn de quantes claus tens per triar i quantes són vàlides per al pany que proves.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>En tots dos casos, tens $3$ claus per triar a l'atzar.</li><li>En tots dos casos, només $1$ de les $3$ claus obre el pany concret que proves.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Amb $3$ claus, cadascuna obrint un pany diferent dels $3$: $P(\text{encertar})=\dfrac13$</li><li>Amb $3$ claus però només $2$ panys (una no obre res): segueixes tenint $3$ claus, i només $1$ obre el pany concret: $P(\text{encertar})=\dfrac13$ igualment</li></ol>
+</div>
+<p class="sec"><strong>Exercici 259.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">259</span><span class="tip">tipus A</span></div>
+<div class="enun">La Paula va a una botiga 2 vegades per setmana, i en Robert hi treballa 4 dies a la setmana. Si el divendres és l'únic dia en què no hi va cap dels dos (i la botiga tanca els diumenges), quina és la probabilitat que coincideixin dos dies?</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{30}{50}=\dfrac35$</span> — resposta correcta</li>
+<li>$P=\dfrac{2}{4}=\dfrac12$, comparant directament els dies de cadascú sense combinatòria<br><span class="err">COMBINACIONS_MAL_COMPTADES</span><span class="fb">El càlcul no és una simple comparació de $2$ contra $4$: cal comptar de quantes maneres es poden triar els dies de cadascú ($\binom{5}{2}$ i $\binom{5}{4}$) i, d'entre totes aquestes combinacions, quantes fan que coincideixin exactament els $2$ dies de la Paula.</span></li>
+<li>$P=\dfrac{6}{10}=\dfrac35$, calculant-ho correctament però sobre un total mal comptat ($10$ en comptes de $50$)<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El total de combinacions possibles és $\binom{5}{2}\cdot\binom{5}{4}=10\cdot5=50$, no $10$: aquest darrer valor és només el nombre de tries de la Paula, sense combinar-lo amb les d'en Robert.</span></li>
+<li>$P=1$, perquè en Robert treballa gairebé tots els dies i sempre hi hauria de coincidir<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Encara que en Robert treballi $4$ dels $5$ dies, no és segur que els $2$ dies concrets de la Paula hi coincideixin tots dos: si un d'ells és justament el dia lliure d'en Robert, només hi coincidirà $1$ dia, no $2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos trien dies d'entre els mateixos $5$ dies (tots menys divendres i diumenge). Compta les combinacions possibles per a cadascun amb $\binom{5}{2}$ i $\binom{5}{4}$.</li><li>Després, compta en quantes d'aquestes combinacions els $2$ dies de la Paula cauen tots dos dins dels $4$ dies d'en Robert.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La Paula tria $2$ dies d'entre $5$: $\binom{5}{2}=10$ maneres. En Robert en treballa $4$ (li'n falta triar $1$ de lliure): $\binom{5}{4}=5$ maneres</li><li>Total de combinacions possibles: $10\cdot5=50$</li><li>Coincidència completa (els $2$ dies de la Paula són dels $4$ d'en Robert) quan els dies de la Paula no inclouen el dia lliure d'en Robert: per a cada un dels $5$ possibles dies lliures, hi ha $\binom{4}{2}=6$ parells de la Paula que no l'inclouen: $5\cdot6=30$ casos</li><li>$P(\text{coincidir }2\text{ dies})=\dfrac{30}{50}=\dfrac35$</li></ol>
+</div>
+<h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>CASOS_FAVORABLES_MAL_COMPTATS</code></td><td>54</td><td>240a, 240a, 240b, 240b, 240b, 240c, 240c, 240d, 240d, 240e, 240e, 240e, 242, 242…</td></tr>
+<tr><td><code>ESPAI_MOSTRAL_MAL_COMPTAT</code></td><td>27</td><td>236a, 236a, 236a, 236b, 236b, 236b, 236c, 236c, 236c, 236d, 236d, 236d, 236e, 236e…</td></tr>
+<tr><td><code>PRINCIPI_MULTIPLICATIU_MAL_APLICAT</code></td><td>22</td><td>237, 237, 243, 243, 243, 244, 244, 244, 245, 245, 245, 246, 247, 248a…</td></tr>
+<tr><td><code>UNIO_INTERSECCIO_CONFOSES</code></td><td>16</td><td>249b, 249b, 249c, 249c, 249c, 249d, 249d, 254c, 254c, 254c, 255, 255, 256a, 256b…</td></tr>
+<tr><td><code>CARTES_REPETIDES_CONFOSES</code></td><td>15</td><td>239a, 239a, 239a, 239b, 239b, 239b, 239c, 239c, 239c, 239d, 239d, 239d, 239e, 239e…</td></tr>
+<tr><td><code>CASOS_POSSIBLES_MAL_COMPTATS</code></td><td>9</td><td>242, 246, 241c, 252a, 252b, 254a, 258, 258, 259</td></tr>
+<tr><td><code>ESDEVENIMENT_CONTRARI_MAL_CALCULAT</code></td><td>9</td><td>250c, 250d, 251b, 252c, 252c, 252c, 254b, 256a, 256b</td></tr>
+<tr><td><code>PROBABILITAT_CONDICIONADA_MAL</code></td><td>9</td><td>254a, 254b, 254b, 257b, 257b, 257b, 257c, 257c, 257c</td></tr>
+<tr><td><code>UNIO_DOBLE_COMPTADA</code></td><td>6</td><td>249b, 249d, 255, 256a, 256b, 256c</td></tr>
+<tr><td><code>COMBINACIONS_MAL_COMPTADES</code></td><td>6</td><td>251c, 251c, 252a, 252a, 252b, 259</td></tr>
+<tr><td><code>COMPATIBLE_INCOMPATIBLE_CONFOSOS</code></td><td>6</td><td>253d, 253d, 253d, 253e, 253e, 253e</td></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>5</td><td>240a, 240c, 240d, 251b, 251c</td></tr>
+<tr><td><code>VARIACIONS_SENSE_REPETICIO_MAL</code></td><td>4</td><td>246, 247, 248a, 248a</td></tr>
+<tr><td><code>ELEMENTAL_NO_ELEMENTAL_CONFOSOS</code></td><td>3</td><td>238b, 238b, 238b</td></tr>
+<tr><td><code>FACTORIAL_MAL_APLICAT</code></td><td>2</td><td>247, 248c</td></tr>
+<tr><td><code>FREQ_RELATIVA_PROBABILITAT_CONFOSES</code></td><td>2</td><td>249a, 250a</td></tr>
+<tr><td><code>RECOMPTE_MAL_FET</code></td><td>2</td><td>249a, 257a</td></tr>
+<tr><td><code>ORDRE_NO_CONSIDERAT</code></td><td>1</td><td>237</td></tr>
+<tr><td><code>PARELLS_VALORS_CONFOSOS</code></td><td>1</td><td>238a</td></tr>
+<tr><td><code>ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS</code></td><td>1</td><td>251a</td></tr>
+<tr><td><code>SIMPLIFICACIO_INCOMPLETA</code></td><td>1</td><td>257a</td></tr>
+</table></html>

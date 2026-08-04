@@ -6,7 +6,9 @@
 
   var D = window.FULL, $ = function (s) { return document.querySelector(s); };
   var ids = D.items.map(function (i) { return i.id; });
-  var qid = new URLSearchParams(location.search).get("q") || ids[0];
+  var params = new URLSearchParams(location.search);
+  var qid = params.get("q") || ids[0];
+  var deLitinerari = params.get("origen") === "itinerari";
   var idx = Math.max(0, ids.indexOf(qid));
   var item = D.items[idx], k = RE.clau(item);
 
@@ -18,15 +20,22 @@
   var LLETRES = ["A", "B", "C", "D"];
   var pistes = 0, intents = 0, triada = -1, tancat = false;
 
+  /* Si s'ha arribat des de l'itinerari (?origen=itinerari), TOTA la
+     navegació de sortida (Següent, Anterior, i el "← Full X" de dalt) torna
+     a itinerari.html en lloc de continuar amb l'ordre normal del full:
+     l'itinerari és una llista de passos, no una seqüència que es navegui
+     endavant/enrere des de dins l'exercici — allà l'alumne ja veu tot el
+     recorregut i tria on continuar. */
   function ves(n) {
+    if (deLitinerari) { location.href = "itinerari.html"; return; }
     if (n < 0 || n >= ids.length) { location.href = "full.html?full=" + D.full; return; }
     location.href = "practica.html?full=" + D.full + "&q=" + ids[n];
   }
 
   /* ---- capçalera ---- */
   var bloc = D.blocs.filter(function (b) { return b.id === item.bloc; })[0];
-  $("#tornar").textContent = "← " + D.titol;
-  $("#tornar").href = "full.html?full=" + D.full;
+  $("#tornar").textContent = deLitinerari ? "← El teu itinerari" : "← " + D.titol;
+  $("#tornar").href = deLitinerari ? "itinerari.html" : "full.html?full=" + D.full;
   $("#codi").textContent = item.id;
   $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
   $("#encap").textContent = item.encapcalament;

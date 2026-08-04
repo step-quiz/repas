@@ -80,28 +80,27 @@
     contTaula.appendChild(el);
   });
 
-  /* ---- recorregut recomanat ---- */
+  /* ---- recorregut recomanat: ara porta a l'itinerari personalitzat,
+     no a cada bloc per separat (l'itinerari és la nova capa que ordena
+     els exercicis fàcil->difícil i els intercala entre blocs). ---- */
   var contReco = $("#recorregut");
   if (!recomanats.length) {
     contReco.innerHTML = "<p class='apagat'>Segons el test, dominaves prou bé tots els blocs que hem provat. " +
       "Pots repassar igualment el que vulguis des del llistat de fulls.</p>";
   } else {
-    contReco.innerHTML = "";
-    recomanats.forEach(function (b, i) {
-      var el = document.createElement("a");
-      el.className = "bloc";
-      el.href = "full.html?full=" + b.full + "&bloc=" + encodeURIComponent(b.bloc);
-      el.innerHTML =
-        '<span class="num">' + (i + 1) + "</span>" +
-        '<span class="cos"><span class="tit">' + b.titol + "</span>" +
-        '<div class="petit apagat">' + b.pct + "% al test · Full " + b.full + "</div></span>";
-      contReco.appendChild(el);
-    });
+    var noms = recomanats.map(function (b) { return b.titol; }).join(", ");
+    contReco.innerHTML =
+      '<a class="tutor-targeta" href="itinerari.html">' +
+        "<h2>El teu itinerari personalitzat</h2>" +
+        '<p class="petit apagat" style="margin:.35rem 0 0">Exercicis de ' + noms +
+          ", ordenats de més senzills a més complets i alternant de tema.</p>" +
+      "</a>";
   }
 
   $("#refes").onclick = function () {
     if (confirm("Vols refer el test inicial? El resultat anterior s'esborrarà.")) {
       RE_DIAG.esborra();
+      RE_ITI.esborra();
       location.href = "diagnostic.html";
     }
   };
