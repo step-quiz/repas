@@ -4,148 +4,136 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-De moment **Full 1** (140 preguntes), **Full 2** (76 preguntes), **Full 3**
-(50 preguntes), **Full 4** (59 preguntes), **Full 5** (99 preguntes) i
-**Full 6** (21 preguntes) ja tenen preguntes. Els altres 7 fulls hi surten
-llistats com a "Properament" — l'estructura de tres pàgines ja està a punt
-perquè, quan se n'autori un altre, només calgui afegir el seu
-`data/fullN.js` i marcar-lo disponible a `js/inici.js` (vegeu §8.1 i §3 de
-`HANDOVER-repas-eso-v3.md` per a l'inventari i el disseny d'aquesta part).
+**Els 12 fulls tenen banc de preguntes: 739 preguntes en total**, cobrint els
+259 exercicis del material original. A sobre hi ha un tutor: un test inicial
+de 15 preguntes que diagnostica quins blocs costen més i genera un itinerari
+personalitzat d'exercicis.
 
-## Navegació (tres nivells)
+## Contingut
 
-1. **`index.html`** — tria un full. Una targeta per full, amb el seu progrés
-   si ja té preguntes.
+| Full | Tema | Blocs | Preguntes |
+|---|---|---:|---:|
+| 1 | Nombres enters, fraccions i decimals | 4 | 140 |
+| 2 | Potències | 4 | 76 |
+| 3 | Successions i progressions | 4 | 50 |
+| 4 | Polinomis | 4 | 59 |
+| 5 | Equacions i sistemes | 5 | 99 |
+| 6 | Proporcionalitat i percentatges | 3 | 21 |
+| 7 | Teorema de Pitàgores. Àrees | 4 | 55 |
+| 8 | Teorema de Tales. Semblança | 4 | 32 |
+| 9 | Cossos geomètrics. Àrea i volum | 4 | 43 |
+| 10 | Funcions | 3 | 45 |
+| 11 | Estadística | 3 | 52 |
+| 12 | Combinatòria i probabilitat | 4 | 67 |
+
+## Navegació
+
+**Recorregut normal**, tres nivells:
+
+1. **`index.html`** — tria un full. Una targeta per full amb el seu progrés.
 2. **`full.html?full=N`** — la pàgina d'un full: botó "Continua on ho vas
-   deixar" a dalt de tot, els errors que es repeteixen, els blocs (la manera
-   normal de triar per on continuar) i, plegat sota "Veure el mapa complet",
-   el mapa de totes les caselles per a qui vulgui triar-ne una en concret.
-3. **`practica.html?full=N&q=ID`** — el cicle de quatre passos.
+   deixar" a dalt, els errors que es repeteixen, les targetes de bloc, i el
+   mapa complet de caselles plegat dins d'un `<details>`. Amb `?bloc=<id>`
+   aquell bloc surt destacat.
+3. **`practica.html?full=N&q=<id>`** — el cicle d'un exercici: enunciat →
+   pistes → opcions → veredicte amb diagnòstic de l'error triat → resolució
+   pas a pas.
 
-## El cicle de l'alumne
+**Recorregut del tutor**, per a qui no sap per on començar:
 
-1. Tria un bloc o una casella (o continua on ho va deixar).
-2. Pot demanar fins a dues pistes graduades.
-3. Tria la resposta entre quatre opcions. Si falla, rep un diagnòstic del seu
-   error concret i té un segon intent.
-4. Consulta la resolució pas a pas.
+1. **`diagnostic.html`** — test de 15 preguntes, precedit d'una tria
+   d'autopercepció ("quins temes creus que et costen?").
+2. **`resultat.html`** — encerts per bloc, els desajustos entre el que
+   l'alumne creia i el que ha demostrat, i l'entrada a l'itinerari.
+3. **`itinerari.html`** — un recorregut d'uns 24 exercicis dels blocs més
+   fluixos, de més senzills a més complets i alternant de tema. Els
+   exercicis s'obren amb `?origen=itinerari`, i llavors tota la navegació de
+   sortida torna a l'itinerari.
 
-## Què hi ha
+El progrés es desa al navegador (`localStorage`), amb una clau per full. No
+hi ha comptes ni sincronització entre dispositius.
 
-    index.html          Nivell 0: selector de fulls
-    full.html            Nivell 1: la pàgina d'un full (llegeix ?full=N)
-    practica.html        Nivell 2: el cicle de quatre passos (?full=N&q=ID)
-    js/nucli.js          progrés (localStorage, per full), mapa, KaTeX
-    js/inici.js          controlador del Nivell 0
-    js/hub.js             controlador del Nivell 1 (abans es deia portada.js)
+## Estructura de fitxers
+
+    index.html            Nivell 0: tria de full + targeta del tutor
+    full.html             Nivell 1: la pàgina d'un full (genèrica, ?full=N)
+    practica.html         Nivell 2: el cicle d'un exercici
+    diagnostic.html       test inicial del tutor
+    resultat.html         diagnosi del test
+    itinerari.html        recorregut personalitzat
+
+    js/nucli.js           progrés a localStorage, mapa de caselles, KaTeX
+    js/inici.js           controlador del Nivell 0 (taula FULLS)
+    js/hub.js             controlador del Nivell 1
     js/practica.js        controlador del Nivell 2
-    data/full1.js        banc de 140 preguntes de Full 1 (generat, no editar a mà)
-    data/full2.js        banc de 76 preguntes de Full 2 (generat, no editar a mà)
-    data/full3.js        banc de 50 preguntes de Full 3 (generat, no editar a mà)
-    data/full4.js        banc de 59 preguntes de Full 4 (generat, no editar a mà)
-    data/full5.js        banc de 99 preguntes de Full 5 (generat, no editar a mà)
-    data/full6.js        banc de 21 preguntes de Full 6 (generat, no editar a mà)
-    REVISIO-full1.html   clau de respostes completa de Full 1, per revisar
-    REVISIO-full2.html   clau de respostes completa de Full 2, per revisar
-    REVISIO-full3.html   clau de respostes completa de Full 3, per revisar
-    REVISIO-full4.html   clau de respostes completa de Full 4, per revisar
-    REVISIO-full5.html   clau de respostes completa de Full 5, per revisar
-    REVISIO-full6.html   clau de respostes completa de Full 6, per revisar
-    tools/lib.py          motor comú: Q/D/DT, TAX (catàleg d'errors), validació
-    tools/build.py        compilador (agafa un full de la taula FULLS i el genera)
-    tools/c_enters.py       bloc "enters" de Full 1
-    tools/c_divisibilitat.py bloc "divisibilitat" de Full 1
-    tools/c_fraccions.py     bloc "fraccions" de Full 1
-    tools/c_decimals.py      bloc "decimals" de Full 1
-    tools/c_potencies.py     els 4 blocs de Full 2 sencer (76 ítems, un sol fitxer)
-    tools/c_successions.py   els 4 blocs de Full 3 sencer (50 ítems, un sol fitxer)
-    tools/c_polinomis.py     els 4 blocs de Full 4 sencer (59 ítems, un sol fitxer)
-    tools/c_equacions.py     els 5 blocs de Full 5 sencer (99 ítems, un sol fitxer)
-    tools/c_proporcionalitat.py els 3 blocs de Full 6 sencer (21 ítems, un sol fitxer)
+    js/diagnostic-dades.js  regles del test: quins blocs, quines preguntes
+    js/diagnostic.js      controlador del test
+    js/resultat.js        controlador de la diagnosi
+    js/itinerari-dades.js generació i estat de la ruta
+    js/itinerari.js       controlador de l'itinerari
+    css/estil.css         tot l'estil del lloc
 
-## Com està fet el banc
+    data/fullN.js         banc de preguntes d'un full — GENERAT, no editar
+    REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
 
-Cap resposta s'ha escrit a mà. Cada opció, correcta o falsa, surt d'avaluar una
-expressió amb aritmètica exacta de fraccions:
+    tools/lib.py          motor: Q()/D()/DT(), catàleg d'errors TAX, validació
+    tools/build.py        compilador: registre FULLS i generació de sortides
+    tools/c_<tema>.py     el contingut d'un full (un fitxer per full)
 
-    ev("(-13)*3 - (-12)*7")        ->  45     resposta correcta
-    ev("(-13)*3 - 12*7")           -> -123    distractor RESTA_PRODUCTE_NEGATIU
+## Com es construeix el banc
 
-Els distractors **simulen un error amb nom**. Quan l'alumne en tria un, el web
-li diu quin malentès ha tingut, no només que ha fallat. El feedback de cada
-error s'escriu un sol cop a `tools/lib.py` (`TAX`) i es reutilitza a tot el
-lloc, de manera que el mateix malentès rep sempre la mateixa explicació.
+Cap resposta s'escriu a mà. Cada opció —la correcta i els tres distractors—
+és el resultat d'un càlcul exacte (`fractions.Fraction` o SymPy) fet al
+`tools/c_<tema>.py` corresponent. Els distractors es construeixen simulant un
+error concret amb nom, de manera que triar-ne un diu a l'alumne **quin** error
+ha comès; aquests noms viuen al catàleg `TAX` de `tools/lib.py`.
 
-El compilador comprova, per a cada pregunta, que hi hagi exactament tres
-distractors, que cap coincideixi amb la resposta correcta ni entre ells, i que
-totes tinguin pistes i resolució. Si algun cop falla, el build s'atura.
+Cada full té un sol fitxer `c_<tema>.py` amb tots els seus blocs a dins. L'únic
+que en queda fora és el Full 1, que reparteix quatre temes sense relació entre
+`c_enters.py`, `c_divisibilitat.py`, `c_fraccions.py` i `c_decimals.py`.
 
-Full 1 té un fitxer `c_<bloc>.py` per bloc perquè cada bloc és un domini prou
-diferent (enters, divisibilitat, fraccions, decimals). Full 2, Full 3,
-Full 4, Full 5 i Full 6 són cadascun un sol tema (potències; successions i
-progressions; polinomis; equacions i sistemes; proporcionalitat i
-percentatges) amb blocs que comparteixen molta lògica, així que cadascun té
-un únic fitxer (`c_potencies.py`, `c_successions.py`, `c_polinomis.py`,
-`c_equacions.py`, `c_proporcionalitat.py`) amb tots els seus blocs a dins,
-separats per capçaleres de secció — no cal seguir la convenció d'un fitxer
-per bloc quan el tema és un de sol.
-
-**Nota sobre Full 5**: al paquet LaTeX font, "equacions" i "sistemes
-d'equacions i problemes" són dos fitxers separats (`im5.tex` i `im6.tex`),
-mentre que aquest projecte els tracta com un sol full (Full 5, 99
-preguntes), seguint la numeració original d'aquest repositori. Vegeu
-`HANDOVER-repas-eso-v3.md` §1.2 per a la correspondència exacta entre la
-numeració dels fitxers LaTeX i la dels fulls d'aquest lloc.
-
-**Nota sobre Full 6**: pel mateix motiu, el contingut d'aquest full
-("Proporcionalitat i percentatges") prové d'`im7.tex` del paquet LaTeX
-font, no d'`im6.tex` (que ja s'ha incorporat a Full 5). La numeració dels
-fulls d'aquest lloc és, doncs, la del repositori, no la dels noms de
-fitxer LaTeX originals.
+Per escriure el contingut d'un full nou, vegeu `AUTHORING-GUIDE.md`.
 
 ## Regenerar el banc
 
-    cd tools && python3 build.py      # full 1 (per defecte)
-    cd tools && python3 build.py 2    # full 2
-    cd tools && python3 build.py 3    # full 3
-    cd tools && python3 build.py 4    # full 4
-    cd tools && python3 build.py 5    # full 5
-    cd tools && python3 build.py 6    # full 6
+Cada full es compila en un procés separat (si dos mòduls s'importessin al
+mateix procés, els seus ítems es barrejarien en un sol banc):
 
-Escriu `data/fullN.js` (amb `window.FULL = {...}`, un global genèric perquè
-`full.html`/`practica.html` puguin carregar el full que toqui) i
-`REVISIO-fullN.html`. Cada full es compila en un procés Python separat a
-propòsit (vegeu la capçalera de `tools/build.py`): així els ítems de dos
-fulls no es barregen mai al mateix banc.
+    cd tools
+    for n in $(seq 1 12); do python3 build.py $n; done
+
+Cada crida escriu `data/fullN.js` i `REVISIO-fullN.html` i informa del
+recompte d'ítems i d'etiquetes d'error. La compilació és determinista: si el
+`c_<tema>.py` no canvia, la sortida és byte a byte idèntica.
 
 ## Abans de publicar
 
-Les respostes estan calculades, però **no revisades per una persona**.
-Repassa `REVISIO-full1.html`, `REVISIO-full2.html`, `REVISIO-full3.html`,
-`REVISIO-full4.html`, `REVISIO-full5.html` i `REVISIO-full6.html`, sobretot
-els ítems amb nota (per exemple el `30e`/`30f` de Full 1, el `46b` de
-Full 2, el `51a`/`54c`/`58c`/`58d` de Full 3, o el
-`62c`/`67d`/`67e`/`67f`/`68c`/`68d`/`69c` de Full 4, que són interpretacions
-d'un enunciat ambigu, casos amb divisor no mònic a Ruffini, o casos on
-l'enunciat original dona un resultat irracional). Full 5 no té cap ítem amb
-nota: els 99 resultats s'han verificat de manera independent (SymPy,
-`Eq`/`solve`) contra `r-im5.tex`/`r-im6.tex` sense trobar-hi cap
-discrepància. Full 6 tampoc en té cap: els 21 resultats s'han verificat de
-manera independent amb aritmètica exacta de fraccions contra `r-im7.tex`
-sense trobar-hi cap discrepància (incloent-hi els ítems `105a` i `106b`,
-que el mateix solucionari presenta com a valors arrodonits). Quan validis
-els altres fulls, treu l'avís del peu de `full.html`.
+- **Repassa els `REVISIO-fullN.html`.** És la clau de respostes completa:
+  enunciat, opcions, quina és correcta, el diagnòstic de cada distractor i la
+  resolució. Un build net només garanteix que les regles de validació es
+  compleixin, no que les matemàtiques i la redacció siguin bones.
+- **Mira especialment els ítems amb `nota`.** Són els que han necessitat una
+  decisió d'interpretació perquè la font era ambigua; la nota surt al
+  fitxer de revisió i explica què s'ha assumit:
 
-## Detalls
+  | Full | Ítems amb nota |
+  |---|---|
+  | 1 | 6a-c, 7a-c, 8, 9a-d, 10a-d, 11, 12a-b, 17, 26a-f, 28c, 29e, 30e, 30f, 34 |
+  | 2 | 46b |
+  | 3 | 51a, 52c, 54c, 55, 57c, 58c, 58d |
+  | 4 | 62c, 67d-f, 68c, 68d, 69c |
+  | 7 | 144a, 144b, 145c, 151 |
+  | 8 | 152a-c, 152e, 152f, 154a-d, 165 |
+  | 10 | 202c |
+  | 12 | 240c, 240d, 243 |
 
-- El progrés de cada full es desa a `localStorage` amb clau pròpia
-  (`repas-eso:full1`, `repas-eso:full2`...), per navegador.
-- Les respostes van ofuscades en base64 dins del camp `clau` de cada ítem: és
-  un dissuasiu contra el «veure codi font», no una mesura de seguretat.
-- Les opcions es barregen a cada sessió, o sigui que «la B» no es pot compartir.
-- Les matemàtiques es renderitzen amb KaTeX per CDN. Sense connexió es veu el
-  LaTeX en cru, que continua sent llegible.
-- `full.html` i `practica.html` carreguen `data/fullN.js` dinàmicament segons
-  el paràmetre `?full=N` de la URL (amb `document.write`, per mantenir-ho
-  síncron i sense build step). Si el fitxer no existeix (full encara no
-  autorat), es mostra un avís en lloc de trencar la pàgina.
+- **Obre el lloc en un navegador de veritat.** El `<details>` del mapa, el
+  comportament tàctil al mòbil i el renderitzat de KaTeX no es poden
+  comprovar llegint el codi.
+
+## Documentació
+
+- **`HANDOVER.md`** — arquitectura: format de dades, motor, tutor,
+  itinerari, claus de `localStorage`, i on tocar cada cosa.
+- **`AUTHORING-GUIDE.md`** — com escriure el contingut d'un full nou a
+  partir del material LaTeX font.
