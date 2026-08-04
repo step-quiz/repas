@@ -43,7 +43,7 @@ window.RE_ITI = (function () {
      es reparteix entre els seus blocs: el principal se'n queda la meitat i
      la resta van baixant. Així un tema que cal reconstruir aporta el doble
      d'exercicis que un que només cal refrescar. */
-  function blocsAmbPes(temes, blocsDisponibles) {
+  function blocsAmbPes(temes, blocsDisponibles, jaFet) {
     var llista = [];
     temes.forEach(function (t, itema) {
       t.blocs.forEach(function (ref, rang) {
@@ -51,12 +51,22 @@ window.RE_ITI = (function () {
           return b.full === ref.full && b.id === ref.bloc;
         })[0];
         if (!complet || !complet.items.length) return;
+
+        /* Els exercicis que l'alumne ja ha fet van al final de la cua, no
+           fora: així una ruta nova li dona material que no ha vist, però si
+           un bloc se li ha quedat curt encara pot completar els 24. */
+        var ordenats = ordenaPerDificultat(complet.items);
+        var frescos = ordenats, repetits = [];
+        if (jaFet) {
+          frescos = ordenats.filter(function (it) { return !jaFet(ref.full, it.id); });
+          repetits = ordenats.filter(function (it) { return jaFet(ref.full, it.id); });
+        }
         llista.push({
           k: ref.full + ":" + ref.bloc,
           full: ref.full, bloc: ref.bloc, titol: complet.titol,
           tema: t.tema, itema: itema, rang: rang,
           pes: t.pes / (rang + 1),
-          items: ordenaPerDificultat(complet.items)
+          items: frescos.concat(repetits)
         });
       });
     });
@@ -103,20 +113,43 @@ window.RE_ITI = (function () {
     return quota;
   }
 
-  /* Genera la ruta: de cada bloc, les seves `quota` preguntes més senzilles
-     (ordenades de menys a més), i després intercala entre blocs
-     (round-robin: un ítem de cada bloc per torn) perquè l'alumne vagi
-     canviant de tema en lloc de fer un bloc sencer abans de passar al
-     següent. Intercalar només es pot fer un cop cada bloc ja està ordenat:
-     barrejar-ho tot junt perdria l'ordre de dificultat. */
-  function generaRuta(temesRecomanats, blocsDisponibles) {
-    var blocs = blocsAmbPes(temesRecomanats, blocsDisponibles);
+  /* Tria `quota` ítems d'entre els més senzills d'un bloc, però no
+     exactament els `quota` primers: els agafa a l'atzar d'una finestra una
+     mica més ampla. És el que fa que "Genera'n un de nou" doni de veritat un
+     itinerari diferent i no el mateix una altra vegada. La finestra es manté
+     estreta perquè els ítems triats segueixin sent dels senzills del bloc, i
+     el resultat es torna a ordenar per dificultat abans de retornar-lo. */
+  function triaAmbVarietat(items, quota) {
+    if (quota >= items.length) return items.slice();
+    var finestra = Math.min(items.length, Math.max(quota + 2, Math.ceil(quota * 1.6)));
+    var pool = items.slice(0, finestra);
+    for (var i = pool.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
+    }
+    return pool.slice(0, quota).sort(function (a, b) {
+      return a.enunciat.length - b.enunciat.length;
+    });
+  }
+
+  /* Genera la ruta: de cada bloc, `quota` preguntes d'entre les més
+     senzilles, i després intercala entre blocs (round-robin: un ítem de cada
+     bloc per torn) perquè l'alumne vagi canviant de tema en lloc de fer un
+     bloc sencer abans de passar al següent. Intercalar només es pot fer un
+     cop cada bloc ja està ordenat: barrejar-ho tot junt perdria l'ordre de
+     dificultat.
+
+     `jaFet(full, id)` és opcional: si es passa, els exercicis que l'alumne ja
+     ha resolt queden al final de la cua de cada bloc i, a la pràctica, fora
+     de la ruta mentre hi hagi material nou. */
+  function generaRuta(temesRecomanats, blocsDisponibles, jaFet) {
+    var blocs = blocsAmbPes(temesRecomanats, blocsDisponibles, jaFet);
     if (!blocs.length) return [];
 
     var quota = repartimentPerBloc(blocs, OBJECTIU_TOTAL);
     var cues = blocs.map(function (b) {
       return { full: b.full, bloc: b.bloc, titol: b.titol, tema: b.tema,
-               items: b.items.slice(0, quota[b.k] || 0) };
+               items: triaAmbVarietat(b.items, quota[b.k] || 0) };
     }).filter(function (c) { return c.items.length; });
 
     var ruta = [], hiHaMes = true;
@@ -164,7 +197,9 @@ window.RE_ITI = (function () {
     if (!recomanats.length) { cb([]); return; }
 
     window.RE_DIAG.blocsDisponibles(function (blocs) {
-      var ruta = generaRuta(recomanats, blocs);
+      var ruta = generaRuta(recomanats, blocs, function (full, id) {
+        return pasFet({ full: full, id: id });
+      });
       desa(ruta);
       cb(ruta);
     });

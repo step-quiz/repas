@@ -334,6 +334,16 @@ Com es genera la ruta:
    redistribueix als altres començant pels de més pes. Per això un tema que
    cal reconstruir aporta el doble d'exercicis que un que només cal
    refrescar.
+4. De cada bloc no s'agafen exactament els `quota` primers, sinó `quota`
+   triats a l'atzar d'una finestra una mica més ampla (`triaAmbVarietat`), i
+   després es tornen a ordenar per dificultat. Sense això, generar un
+   itinerari nou tornava a donar exactament el mateix i el botó semblava
+   avariat.
+5. Els exercicis que l'alumne **ja ha resolt** van al final de la cua de cada
+   bloc, no fora: una ruta nova li dona material que no ha vist, però si un
+   bloc se li ha quedat curt encara pot completar els 24. Aquest filtre és el
+   paràmetre opcional `jaFet(full, id)` de `generaRuta`; sense passar-lo, la
+   funció segueix sent pura i determinista tret de la varietat del punt 4.
 4. Es prenen **un de cada bloc per torns**, no bloc a bloc: la ruta va
    canviant de tema a cada pas.
 5. Si el material disponible no arriba a `MIN_TOTAL`, la ruta és més curta i
@@ -342,7 +352,9 @@ Com es genera la ruta:
 
 La ruta és un pla estable, no una recomanació que es refresca. `obtenIGenera`
 reutilitza la que hi hagi desada. Només es torna a generar amb el botó
-explícit (amb confirmació) o quan es refà el test.
+explícit (amb confirmació) o quan es refà el test — i quan es regenera, dona
+exercicis nous dels mateixos temes (punts 4 i 5 de dalt), que és el que
+l'alumne espera del botó.
 
 ### 5.5 Claus de `localStorage`
 

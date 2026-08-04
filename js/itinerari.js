@@ -61,8 +61,12 @@
     });
   }
 
+  /* L'itinerari nou es construeix amb els mateixos temes que va dir el test,
+     però amb exercicis que l'alumne encara no ha fet (i, si el bloc s'ha
+     quedat curt, amb els que ja hagi fet). El progrés dels fulls no es toca:
+     el que es perd és la llista d'aquesta pàgina, no la feina. */
   $("#refes").onclick = function () {
-    if (confirm("Vols generar un itinerari nou? L'actual (i el seu progrés visible aquí) es perdrà de la llista, tot i que els exercicis ja fets seguiran comptant com a fets als seus fulls.")) {
+    if (confirm("Vols generar un itinerari nou? Et prepararem un recorregut amb exercicis que encara no has fet, dels mateixos temes. La llista d'ara es perdrà, però tota la feina feta segueix comptant als seus fulls.")) {
       RE_ITI.esborra();
       carregaIPinta();
     }
