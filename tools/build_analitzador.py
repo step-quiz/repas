@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""build_analitzador.py — munta `analitzador-repas.html`, un fitxer únic que
+el professorat pot desar i obrir sense servidor ni connexió.
+
+Hi injecta les mateixes taules i el mateix `js/codi.js` que fa servir l'app.
+No és una còpia paral·lela: és literalment el mateix codi, de manera que un
+canvi al format no pot deixar l'analitzador enrere.
+
+Executeu build_codi.py abans (o feu `python3 build_tot.py`, que ho encadena).
+"""
+
+import os
+import sys
+
+AQUI = os.path.dirname(os.path.abspath(__file__))
+ARREL = os.path.join(AQUI, "..")
+
+
+def main():
+    plantilla = open(os.path.join(AQUI, "analitzador-plantilla.html"),
+                     encoding="utf-8").read()
+
+    ruta_taules = os.path.join(AQUI, "_taules.json")
+    if not os.path.exists(ruta_taules):
+        sys.exit("✗ falta tools/_taules.json: executeu abans `python3 "
+                 "build_codi.py` (o directament `python3 build_tot.py`, que "
+                 "ho encadena tot en l'ordre correcte).")
+    taules = open(ruta_taules, encoding="utf-8").read()
+    codi = open(os.path.join(ARREL, "js", "codi.js"), encoding="utf-8").read()
+
+    assert plantilla.count("/*__TAULES__*/") == 1
+    assert plantilla.count("/*__CODI__*/") == 1
+
+    html = plantilla.replace(
+        "/*__TAULES__*/", "window.RE_TAULES = " + taules + ";"
+    ).replace("/*__CODI__*/", codi)
+
+    ruta = os.path.join(ARREL, "analitzador-repas.html")
+    with open(ruta, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("✓ %s (%.0f kB)" % (ruta, os.path.getsize(ruta) / 1024))
+
+
+if __name__ == "__main__":
+    main()

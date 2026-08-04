@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Analitzador de codis · Repàs d'ESO</title>
+<style>
+:root{
+  --fons:#FBFAF8; --card:#FFF; --tinta:#1F2933; --apagat:#6B7480; --vora:#E4E1DB;
+  --verd:#2E7D5B; --verd-suau:#E8F3ED; --ambre:#B8860B; --ambre-suau:#FBF3DF;
+  --vermell:#B3453C; --vermell-suau:#FBEDEB; --blau:#2C5D82; --blau-suau:#E9F0F6;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fons);color:var(--tinta);font:15px/1.6 var(--sans)}
+.embolcall{max-width:1180px;margin:0 auto;padding:1.6rem 1.1rem 4rem}
+h1{font-size:1.5rem;margin:.2rem 0 .3rem}
+h2{font-size:1.05rem;margin:1.9rem 0 .6rem}
+h3{font-size:.95rem;margin:0 0 .45rem}
+.cimera{font:600 11px/1.6 var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--apagat);margin:0}
+.petit{font-size:13px} .apagat{color:var(--apagat)} .mono{font-family:var(--mono)}
+.targeta{background:var(--card);border:1px solid var(--vora);border-radius:12px;padding:1rem}
+.btn{display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--tinta);
+  background:var(--tinta);color:#fff;border-radius:9px;padding:.5rem .85rem;
+  font:600 14px var(--sans);cursor:pointer}
+.btn:hover{filter:brightness(1.15)}
+.btn.buit{background:transparent;color:var(--tinta);border-color:var(--vora)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+textarea{width:100%;min-height:130px;font:13px/1.5 var(--mono);padding:.7rem;
+  border:1px solid var(--vora);border-radius:9px;background:var(--card);color:var(--tinta);resize:vertical}
+input[type=text],select{font:14px var(--sans);padding:.42rem .55rem;border:1px solid var(--vora);
+  border-radius:8px;background:var(--card);color:var(--tinta)}
+.pestanyes{display:flex;gap:.4rem;margin:1rem 0 1.1rem;flex-wrap:wrap}
+.pestanya{border:1px solid var(--vora);background:var(--card);color:var(--apagat);
+  border-radius:9px;padding:.45rem .8rem;font:600 13px var(--sans);cursor:pointer}
+.pestanya.activa{background:var(--tinta);color:#fff;border-color:var(--tinta)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{text-align:left;font:600 11px/1.6 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+  color:var(--apagat);border-bottom:1px solid var(--vora);padding:.45rem .5rem;white-space:nowrap}
+td{padding:.45rem .5rem;border-bottom:1px solid var(--vora);vertical-align:top}
+tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+.taula-env{overflow-x:auto}
+.punts{display:flex;flex-wrap:wrap;gap:2px;max-width:340px}
+.pt{width:9px;height:9px;border-radius:2px;background:#EDEAE4}
+.pt.net{background:var(--verd)} .pt.segon{background:#7FB79B}
+.pt.pista{background:var(--ambre)} .pt.fallat{background:var(--vermell)}
+.pt.vist{background:#C9C4BA}
+.pt-g{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
+  justify-content:center;font:600 11px var(--mono);color:#fff;background:#EDEAE4}
+.llegenda{display:flex;gap:.9rem;flex-wrap:wrap;font-size:12px;color:var(--apagat);margin-top:.5rem}
+.llegenda i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:.3rem;background:#EDEAE4}
+.marca{font-weight:700}
+.ok{color:var(--verd)} .avis{color:var(--ambre)} .mal{color:var(--vermell)}
+.buit{padding:2.4rem 1rem;text-align:center;color:var(--apagat);border:1px dashed var(--vora);border-radius:12px}
+.filtres{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.9rem 0}
+.detall{background:var(--blau-suau);border-radius:0 0 10px 10px}
+.detall td{padding:.9rem 1rem}
+.graella{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.7rem}
+.dada{background:var(--card);border:1px solid var(--vora);border-radius:9px;padding:.55rem .7rem}
+.dada b{display:block;font:600 10px/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--apagat)}
+.bloc-fila{margin:.55rem 0}
+.bloc-fila h4{margin:0 0 .25rem;font:600 12px/1.5 var(--mono);color:var(--apagat)}
+.xip{display:inline-block;font:600 11px/1.5 var(--mono);padding:.12rem .4rem;border-radius:5px;
+  background:var(--vermell-suau);color:var(--vermell);margin:1px}
+.xip.ambre{background:var(--ambre-suau);color:#6B4200}
+.nota{font-weight:700;border-radius:6px;padding:.1rem .35rem}
+.n-alta{background:var(--verd-suau);color:var(--verd)}
+.n-mitja{background:var(--ambre-suau);color:#6B4200}
+.n-baixa{background:var(--vermell-suau);color:var(--vermell)}
+.ajuda li{margin-bottom:.45rem}
+</style>
+</head>
+<body>
+<main class="embolcall">
+  <p class="cimera">Repàs per començar 1r de batxillerat</p>
+  <h1>Analitzador de codis</h1>
+  <p class="apagat petit" style="margin:.3rem 0 0">
+    Enganxa aquí el full de respostes del formulari (o un sol codi) i et diu qui ha
+    fet què, què li falla i si el codi és autèntic. Tot passa en aquest navegador:
+    no s'envia res enlloc.
+  </p>
+
+  <div class="pestanyes">
+    <button class="pestanya activa" data-mode="full">Full de respostes</button>
+    <button class="pestanya" data-mode="un">Un sol codi</button>
+    <button class="pestanya" data-mode="ajuda">Com funciona</button>
+  </div>
+
+  <!-- ── FULL DE RESPOSTES ────────────────────────────────────────────── -->
+  <section id="v-full">
+    <div class="targeta">
+      <h3>Enganxa el full</h3>
+      <p class="petit apagat" style="margin:0 0 .6rem">
+        Al Google Sheet: selecciona-ho tot (Ctrl+A) i copia (Ctrl+C). També pots
+        obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
+        marca temporal o grup, també les farà servir.
+      </p>
+      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC1AM-8599X-…"></textarea>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
+        <button class="btn" id="btn-llegeix">Llegeix</button>
+        <label class="btn buit" style="position:relative;overflow:hidden">
+          Obre un CSV
+          <input type="file" id="fitxer" accept=".csv,.tsv,.txt"
+                 style="position:absolute;inset:0;opacity:0;cursor:pointer">
+        </label>
+        <button class="btn buit" id="btn-exemple">Posa-hi un exemple</button>
+        <span class="petit apagat" id="estat-carrega"></span>
+      </div>
+    </div>
+
+    <div id="resultats" hidden>
+      <div class="filtres">
+        <input type="text" id="f-text" placeholder="Filtra per alumne o grup…" style="min-width:220px">
+        <select id="f-full"><option value="">Tots els fulls</option></select>
+        <select id="f-estat">
+          <option value="">Tots els estats</option>
+          <option value="ok">Només els correctes</option>
+          <option value="avis">Amb avís</option>
+          <option value="mal">Amb problema</option>
+        </select>
+        <span class="petit apagat" id="compte"></span>
+        <span style="flex:1"></span>
+        <button class="btn buit petit" id="btn-csv">Baixa el resum (CSV)</button>
+      </div>
+
+      <h2>Per alumne</h2>
+      <div class="taula-env"><table id="t-alumnes"></table></div>
+
+      <h2>Enviaments</h2>
+      <div class="taula-env"><table id="t-env"></table></div>
+      <div class="llegenda">
+        <span><i style="background:var(--verd)"></i>a la primera</span>
+        <span><i style="background:#7FB79B"></i>al segon intent</span>
+        <span><i style="background:var(--ambre)"></i>amb pista</span>
+        <span><i style="background:var(--vermell)"></i>fallat</span>
+        <span><i style="background:#C9C4BA"></i>començat</span>
+        <span><i></i>per fer</span>
+      </div>
+
+      <h2>Què falla més</h2>
+      <div id="agregat"></div>
+    </div>
+  </section>
+
+  <!-- ── UN SOL CODI ──────────────────────────────────────────────────── -->
+  <section id="v-un" hidden>
+    <div class="targeta">
+      <h3>Enganxa un codi</h3>
+      <input type="text" id="codi-un" placeholder="RC1AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+      <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
+    </div>
+    <div id="un-resultat" style="margin-top:1rem"></div>
+  </section>
+
+  <!-- ── AJUDA ────────────────────────────────────────────────────────── -->
+  <section id="v-ajuda" hidden>
+    <div class="targeta">
+      <h3>Com funciona</h3>
+      <ol class="ajuda petit">
+        <li><b>L'alumne fa exercicis</b> a repàs-ESO. El progrés es desa al seu navegador.</li>
+        <li><b>Demana el codi</b> a la pàgina d'un full (només aquell full) o a la portada
+            (tota la feina). El codi és una fotografia completa: quins exercicis ha fet i
+            com li han anat, un per un.</li>
+        <li><b>L'envia per un Google Form</b> amb una pregunta de text curt. Cada codi nou
+            substitueix l'anterior, així que si se n'oblida un cap, el següent ja ho porta tot.</li>
+        <li><b>Enganxes el full aquí.</b> Sense pujar res enlloc: tot el càlcul passa
+            en aquest navegador.</li>
+      </ol>
+
+      <h3 style="margin-top:1.2rem">Què vol dir cada marca</h3>
+      <ul class="ajuda petit">
+        <li><span class="marca ok">✓</span> El codi és íntegre i s'ha enviat poc després de generar-lo.</li>
+        <li><span class="marca avis">!</span> Íntegre, però han passat més de 30 minuts entre
+            generar-lo i enviar-lo. Sol ser innocent (l'alumne el va desar i el va enviar
+            més tard), però és on es veuria un codi passat d'un company.</li>
+        <li><span class="marca mal">✗</span> Els caràcters de control no quadren: o s'ha copiat
+            malament, o s'ha modificat.</li>
+      </ul>
+
+      <h3 style="margin-top:1.2rem">Sobre l'antifrau</h3>
+      <p class="petit apagat" style="margin:0">
+        El codi acaba amb dos caràcters calculats a partir de tots els altres, en l'esperit
+        de la lletra del DNI però amb un mòdul primer i pesos per posició. Detecta
+        <b>totes</b> les substitucions d'un caràcter i <b>totes</b> les transposicions de dos:
+        si l'alumne canvia un "fallat" per un "a la primera", surt. Un canvi a l'atzar
+        s'escaparia una vegada de cada mil.
+      </p>
+      <p class="petit apagat" style="margin:.6rem 0 0">
+        La nota no viatja dins del codi: es calcula aquí a partir del detall exercici a
+        exercici. Així no hi pot haver un codi on la nota i el detall es contradiguin, que és
+        per on s'esmuny la manipulació en aquesta mena de sistemes.
+      </p>
+    </div>
+  </section>
+
+  <p class="petit apagat" style="margin-top:2.6rem">
+    Generat per <span class="mono">tools/build_analitzador.py</span>. Taules de la versió
+    <span class="mono" id="peu-versio"></span>.
+  </p>
+</main>
+
+<script>/*__TAULES__*/</script>
+<script>/*__CODI__*/</script>
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, d) { return (d || document).querySelector(s); };
+  var $$ = function (s, d) { return Array.prototype.slice.call((d || document).querySelectorAll(s)); };
+  var FORAT = 30;                 /* minuts entre generar i enviar abans d'avisar */
+  var files = [], obert = null;
+
+  $("#peu-versio").textContent = "v" + RE_TAULES.v;
+
+  // ── pestanyes ──────────────────────────────────────────────────────────
+  $$(".pestanya").forEach(function (b) {
+    b.onclick = function () {
+      $$(".pestanya").forEach(function (x) { x.classList.remove("activa"); });
+      b.classList.add("activa");
+      $("#v-full").hidden = b.dataset.mode !== "full";
+      $("#v-un").hidden = b.dataset.mode !== "un";
+      $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
+    };
+  });
+
+  // ── lectura del full enganxat ──────────────────────────────────────────
+  function trencaLinia(l, sep) {
+    var r = [], c = "", q = false;
+    for (var i = 0; i < l.length; i++) {
+      var ch = l.charAt(i);
+      if (ch === '"') q = !q;
+      else if (ch === sep && !q) { r.push(c.trim()); c = ""; }
+      else c += ch;
+    }
+    r.push(c.trim());
+    return r;
+  }
+
+  /* Un codi es reconeix pel seu propi principi, així que no depenem que la
+     columna es digui de cap manera concreta: si les capçaleres no ajuden,
+     es busca la columna que conté un codi. */
+  function buscaCodi(text) {
+    var m = String(text || "").toUpperCase().match(/RC1[0-9A-Z\-\s]{10,}/);
+    return m ? m[0].trim() : null;
+  }
+
+  function llegeixFull(txt) {
+    var linies = txt.replace(/\r\n?/g, "\n").trim().split("\n").filter(function (l) { return l.trim(); });
+    if (!linies.length) return [];
+    var sep = linies[0].indexOf("\t") >= 0 ? "\t" : (linies[0].indexOf(";") >= 0 ? ";" : ",");
+    var caps = trencaLinia(linies[0], sep).map(function (s) { return s.toLowerCase(); });
+
+    var hiHaCap = caps.some(function (c) { return /codi|code|stepquiz|repas|repàs/.test(c); });
+    var iCodi = caps.findIndex(function (c) { return /codi|code|repas|repàs/.test(c); });
+    var iCorreu = caps.findIndex(function (c) { return /correu|electr|email|e-mail/.test(c); });
+    var iData = caps.findIndex(function (c) { return /marca|temps|timestamp|data/.test(c); });
+    var iGrup = caps.findIndex(function (c) { return /grup|classe|curs|nivell/.test(c); });
+
+    var cos = hiHaCap ? linies.slice(1) : linies;
+    var out = [];
+    cos.forEach(function (l) {
+      var c = trencaLinia(l, sep);
+      var codi = (iCodi >= 0 && buscaCodi(c[iCodi])) || buscaCodi(l);
+      if (!codi) return;
+      var correu = iCorreu >= 0 ? c[iCorreu] : (c.filter(function (v) { return v.indexOf("@") > 0; })[0] || "");
+      var quan = iData >= 0 ? c[iData] : (c.filter(function (v) { return /\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4}/.test(v); })[0] || "");
+      out.push({
+        codi: codi,
+        alumne: correu ? correu.split("@")[0] : "—",
+        correu: correu || "",
+        grup: iGrup >= 0 ? (c[iGrup] || "") : "",
+        enviat: quan || ""
+      });
+    });
+    return out;
+  }
+
+  function horaEnviament(ts) {
+    var m = String(ts).match(/(\d{1,2}):(\d{2})/);
+    return m ? (+m[1]) * 60 + (+m[2]) : null;
+  }
+  function dataEnviament(ts) {
+    var s = String(ts), m = s.match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
+    if (m) return m[3] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[1]).slice(-2);
+    m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
+    return m ? m[0] : "";
+  }
+
+  function processa(brut) {
+    return brut.map(function (r, i) {
+      var p = RE_CODI.llegeix(r.codi);
+      var hGen = p.ok ? p.hora * 60 + p.minut : null;
+      var hEnv = horaEnviament(r.enviat);
+      var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
+      var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
+      return { i: i, brut: r, p: p, forat: forat, estat: estat,
+               dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
+               dataEnv: dataEnviament(r.enviat) };
+    });
+  }
+
+  // ── pintat ─────────────────────────────────────────────────────────────
+  function marca(e) {
+    if (e === "ok") return '<span class="marca ok" title="Codi íntegre">✓</span>';
+    if (e === "avis") return '<span class="marca avis" title="Més de ' + FORAT + ' min entre generar-lo i enviar-lo">!</span>';
+    return '<span class="marca mal" title="El control no quadra">✗</span>';
+  }
+  function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
+  function pintaNota(n) {
+    if (n === null || n === undefined) return '<span class="apagat">—</span>';
+    return '<span class="nota ' + classeNota(n) + '">' + n.toFixed(1).replace(".", ",") + "</span>";
+  }
+  function punts(items) {
+    return '<div class="punts">' + items.map(function (it) {
+      return '<div class="pt ' + (it.estat || "") + '" title="' + it.id + (it.estat ? " · " + it.estat : "") + '"></div>';
+    }).join("") + "</div>";
+  }
+
+  function filtra() {
+    var t = $("#f-text").value.trim().toLowerCase();
+    var f = $("#f-full").value, e = $("#f-estat").value;
+    return files.filter(function (r) {
+      if (e && r.estat !== e) return false;
+      if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
+      if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
+      return true;
+    });
+  }
+
+  function pinta() {
+    var fs = filtra();
+    $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
+    pintaEnviaments(fs);
+    pintaAlumnes(fs);
+    pintaAgregat(fs);
+  }
+
+  function pintaEnviaments(fs) {
+    if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
+    var h = "<thead><tr><th></th><th>Alumne</th><th>Grup</th><th>Enviat</th><th>Generat</th>"
+          + "<th>Fulls</th><th>Fets</th><th>Nota</th><th>Detall</th></tr></thead><tbody>";
+    fs.forEach(function (r) {
+      var p = r.p;
+      var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
+      var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
+      h += '<tr class="clic" data-i="' + r.i + '">'
+        + "<td>" + marca(r.estat) + "</td>"
+        + "<td>" + (r.brut.alumne || "—") + "</td>"
+        + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
+        + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
+        + '<td class="mono petit">' + (p.ok ? r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2) : "—")
+        + (r.forat !== null && r.forat > FORAT ? ' <span class="avis">+' + r.forat + "m</span>" : "") + "</td>"
+        + '<td class="mono">' + fulls + "</td>"
+        + "<td>" + (p.ok ? p.resum.fets : "—") + "</td>"
+        + "<td>" + (p.ok ? pintaNota(p.resum.nota) : "—") + "</td>"
+        + "<td>" + (tots.length ? punts(tots) : '<span class="apagat">—</span>') + "</td></tr>";
+      if (obert === r.i) h += detall(r);
+    });
+    $("#t-env").innerHTML = h + "</tbody>";
+    $$("#t-env tr.clic").forEach(function (tr) {
+      tr.onclick = function () { obert = (obert === +tr.dataset.i) ? null : +tr.dataset.i; pinta(); };
+    });
+  }
+
+  function detall(r) {
+    var p = r.p;
+    if (!p.ok) {
+      return '<tr class="detall"><td colspan="9"><b class="mal">' + p.error + "</b>"
+        + '<div class="mono petit apagat" style="margin-top:.4rem;word-break:break-all">' + r.brut.codi + "</div></td></tr>";
+    }
+    var h = '<tr class="detall"><td colspan="9">';
+    if (!p.integre) h += '<p class="mal petit" style="margin:0 0 .8rem"><b>' + p.error + "</b></p>";
+
+    h += '<div class="graella" style="margin-bottom:1rem">'
+      + dada("Exercicis fets", p.resum.fets)
+      + dada("Nota calculada", p.resum.nota === null ? "—" : p.resum.nota.toFixed(1).replace(".", ","))
+      + dada("A la primera", p.resum.comptes.net)
+      + dada("Amb pista", p.resum.comptes.pista)
+      + dada("Al segon intent", p.resum.comptes.segon)
+      + dada("Fallats", p.resum.comptes.fallat)
+      + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
+      + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
+      + "</div>";
+
+    p.fulls.forEach(function (f) {
+      h += '<div class="bloc-fila"><h4>' + f.titol + "</h4>";
+      f.blocs.forEach(function (b) {
+        var dins = f.items.slice(b[1], b[2] + 1);
+        var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+        if (!fets) return;
+        var mal = dins.filter(function (x) { return x.estat === "fallat"; });
+        var pista = dins.filter(function (x) { return x.estat === "pista"; });
+        h += '<div style="margin:.35rem 0 .55rem"><span class="petit"><b>' + b[0] + "</b> "
+          + '<span class="apagat">' + fets + " de " + dins.length + "</span></span> "
+          + punts(dins);
+        if (mal.length) h += '<div style="margin-top:.25rem"><span class="petit apagat">fallats: </span>'
+          + mal.map(function (x) { return '<span class="xip">' + x.id + "</span>"; }).join("") + "</div>";
+        if (pista.length) h += '<div style="margin-top:.15rem"><span class="petit apagat">amb pista: </span>'
+          + pista.map(function (x) { return '<span class="xip ambre">' + x.id + "</span>"; }).join("") + "</div>";
+        h += "</div>";
+      });
+      h += "</div>";
+    });
+
+    if (p.errs.length) {
+      h += '<div style="margin-top:.9rem"><h4 style="font:600 12px var(--mono);color:var(--apagat);margin:0 0 .3rem">'
+        + "ERRORS QUE MÉS REPETEIX</h4>"
+        + p.errs.map(function (e) {
+            return '<div class="petit" style="margin:.15rem 0"><span class="xip">' + e.compte + "×</span> "
+              + '<span class="mono">' + e.etiqueta + "</span></div>";
+          }).join("") + "</div>";
+    }
+
+    if (p.diag) {
+      var noms = ["ho domino", "ho tinc oblidat", "no ho vaig entendre", "no ho he fet mai"];
+      h += '<div style="margin-top:.9rem"><h4 style="font:600 12px var(--mono);color:var(--apagat);margin:0 0 .3rem">'
+        + "TEST INICIAL</h4><table style=\"font-size:12.5px\">";
+      p.diag.forEach(function (d) {
+        var xoc = (d.estat === 0 && !d.encert) ? ' <span class="xip">ho donava per sabut</span>'
+                : (d.estat > 0 && d.encert) ? ' <span class="xip ambre">ho sabia més del que es pensava</span>' : "";
+        h += "<tr><td>" + d.tema + '</td><td class="apagat">' + noms[d.estat] + "</td><td>"
+          + (d.encert ? '<span class="ok">encert</span>' : '<span class="mal">error</span>') + xoc + "</td></tr>";
+      });
+      h += "</table></div>";
+    }
+
+    h += '<div class="mono petit apagat" style="margin-top:1rem;word-break:break-all">' + r.brut.codi + "</div>";
+    return h + "</td></tr>";
+  }
+
+  function dada(k, v) { return '<div class="dada"><b>' + k + "</b>" + v + "</div>"; }
+
+  /* Un alumne pot enviar diverses vegades. Val el codi més recent, que és
+     acumulatiu i ja conté tot el que hi havia als anteriors. */
+  function ultimPerAlumne(fs) {
+    var m = {};
+    fs.forEach(function (r) {
+      if (!r.p.ok) return;
+      var k = r.brut.alumne + "|" + r.brut.grup;
+      var t = r.p.data.getTime() + (r.p.hora * 60 + r.p.minut) * 60000;
+      if (!m[k] || t >= m[k].t) m[k] = { t: t, r: r };
+    });
+    return Object.keys(m).map(function (k) { return m[k].r; })
+      .sort(function (a, b) { return a.brut.alumne.localeCompare(b.brut.alumne); });
+  }
+
+  function pintaAlumnes(fs) {
+    var ult = ultimPerAlumne(fs);
+    if (!ult.length) { $("#t-alumnes").innerHTML = '<tr><td class="buit">Cap codi vàlid amb aquests filtres</td></tr>'; return; }
+    var fullsVistos = [];
+    ult.forEach(function (r) { r.p.fulls.forEach(function (f) { if (fullsVistos.indexOf(f.n) < 0) fullsVistos.push(f.n); }); });
+    fullsVistos.sort(function (a, b) { return a - b; });
+
+    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Fets</th><th>Nota</th>";
+    fullsVistos.forEach(function (n) { h += "<th>F" + n + "</th>"; });
+    h += "<th>Últim codi</th></tr></thead><tbody>";
+    ult.forEach(function (r) {
+      var p = r.p;
+      h += "<tr><td>" + r.brut.alumne + '</td><td class="apagat">' + (r.brut.grup || "—") + "</td>"
+        + "<td>" + p.resum.fets + "</td><td>" + pintaNota(p.resum.nota) + "</td>";
+      fullsVistos.forEach(function (n) {
+        var f = p.fulls.filter(function (x) { return x.n === n; })[0];
+        if (!f) { h += '<td class="apagat">·</td>'; return; }
+        var fets = f.items.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+        h += '<td class="mono petit">' + fets + "/" + f.items.length + "</td>";
+      });
+      h += '<td class="mono petit apagat">' + r.dataGen + "</td></tr>";
+    });
+    $("#t-alumnes").innerHTML = h + "</tbody>";
+  }
+
+  /* Agregat de classe: quins exercicis falla més gent i quins errors es
+     repeteixen. És el que diu al professorat què cal tornar a explicar. */
+  function pintaAgregat(fs) {
+    var ult = ultimPerAlumne(fs);
+    if (!ult.length) { $("#agregat").innerHTML = '<div class="buit">Res a agregar</div>'; return; }
+    var perItem = {}, perErr = {}, perBloc = {};
+    ult.forEach(function (r) {
+      r.p.fulls.forEach(function (f) {
+        f.items.forEach(function (it) {
+          if (it.estat === "fallat" || it.estat === "pista") {
+            var k = f.n + "|" + it.id;
+            perItem[k] = (perItem[k] || 0) + (it.estat === "fallat" ? 2 : 1);
+          }
+        });
+        f.blocs.forEach(function (b) {
+          var dins = f.items.slice(b[1], b[2] + 1);
+          var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+          if (!fets) return;
+          var mal = dins.filter(function (x) { return x.estat === "fallat"; }).length;
+          var k = f.n + " · " + b[0];
+          if (!perBloc[k]) perBloc[k] = { fets: 0, mal: 0, alumnes: 0 };
+          perBloc[k].fets += fets; perBloc[k].mal += mal; perBloc[k].alumnes++;
+        });
+      });
+      r.p.errs.forEach(function (e) { perErr[e.etiqueta] = (perErr[e.etiqueta] || 0) + e.compte; });
+    });
+
+    var itemsMal = Object.keys(perItem).map(function (k) { return [k, perItem[k]]; })
+      .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 20);
+    var errsMal = Object.keys(perErr).map(function (k) { return [k, perErr[k]]; })
+      .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 10);
+    var blocsMal = Object.keys(perBloc).map(function (k) { return [k, perBloc[k]]; })
+      .filter(function (x) { return x[1].fets >= 3; })
+      .sort(function (a, b) { return (b[1].mal / b[1].fets) - (a[1].mal / a[1].fets); }).slice(0, 8);
+
+    var h = '<div class="graella" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">';
+    h += '<div class="targeta"><h3>Blocs on més s\'encalla la classe</h3>'
+      + (blocsMal.length ? blocsMal.map(function (b) {
+          var pc = Math.round(100 * b[1].mal / b[1].fets);
+          return '<div class="petit" style="margin:.3rem 0"><b>' + pc + "%</b> fallats · "
+            + b[0] + ' <span class="apagat">(' + b[1].alumnes + " alumnes)</span></div>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Encara no hi ha prou dades.</p>') + "</div>";
+
+    h += '<div class="targeta"><h3>Exercicis que costen més</h3>'
+      + (itemsMal.length ? itemsMal.map(function (x) {
+          var t = x[0].split("|");
+          return '<span class="xip" title="Full ' + t[0] + '">' + t[0] + "/" + t[1] + "</span>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Cap.</p>') + "</div>";
+
+    h += '<div class="targeta"><h3>Errors que més es repeteixen</h3>'
+      + (errsMal.length ? errsMal.map(function (e) {
+          return '<div class="petit" style="margin:.25rem 0"><span class="xip">' + e[1] + "×</span> "
+            + '<span class="mono">' + e[0] + "</span></div>";
+        }).join("") : '<p class="petit apagat" style="margin:0">Cap.</p>') + "</div>";
+
+    $("#agregat").innerHTML = h + "</div>";
+  }
+
+  // ── accions ────────────────────────────────────────────────────────────
+  function carrega(txt) {
+    var brut = llegeixFull(txt);
+    if (!brut.length) {
+      $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
+        + "Els codis comencen per RC1.</span>";
+      return;
+    }
+    files = processa(brut);
+    obert = null;
+    var sel = $("#f-full");
+    var vistos = [];
+    files.forEach(function (r) { if (r.p.ok) r.p.fulls.forEach(function (f) { if (vistos.indexOf(f.n) < 0) vistos.push(f.n); }); });
+    vistos.sort(function (a, b) { return a - b; });
+    sel.innerHTML = '<option value="">Tots els fulls</option>'
+      + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
+    $("#estat-carrega").innerHTML = '<span class="ok">' + files.length + " codis llegits</span>";
+    $("#resultats").hidden = false;
+    pinta();
+  }
+
+  $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
+  $("#fitxer").onchange = function (e) {
+    var f = e.target.files[0];
+    if (!f) return;
+    var r = new FileReader();
+    r.onload = function () { $("#entrada").value = r.result; carrega(r.result); };
+    r.readAsText(f, "utf-8");
+  };
+  ["#f-text", "#f-full", "#f-estat"].forEach(function (s) {
+    $(s).oninput = pinta; $(s).onchange = pinta;
+  });
+
+  $("#btn-csv").onclick = function () {
+    var ult = ultimPerAlumne(filtra());
+    var l = ["alumne;grup;exercicis;nota;fulls;data"];
+    ult.forEach(function (r) {
+      l.push([r.brut.alumne, r.brut.grup, r.p.resum.fets,
+              r.p.resum.nota === null ? "" : String(r.p.resum.nota).replace(".", ","),
+              r.p.fulls.map(function (f) { return f.n; }).join(" "), r.dataGen].join(";"));
+    });
+    var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(b); a.download = "repas-eso-resum.csv"; a.click();
+  };
+
+  $("#btn-exemple").onclick = function () {
+    var noms = ["berta", "jordi", "laia", "marc", "nil", "ona"];
+    var opc = ["net", "net", "net", "segon", "pista", "fallat"];
+    var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
+    noms.forEach(function (nom, k) {
+      var quins = [4, 7].slice(0, 1 + (k % 2));
+      var fulls = quins.map(function (n) {
+        var t = RE_TAULES.fulls[n];
+        var quants = 6 + Math.floor(Math.random() * (t.items.length - 6));
+        return { n: n, estats: t.items.map(function (_, i) { return i < quants ? opc[Math.floor(Math.random() * 6)] : ""; }) };
+      });
+      var ara = new Date(); ara.setMinutes(ara.getMinutes() - Math.floor(Math.random() * 90));
+      var codi = RE_CODI.genera({
+        fulls: fulls, ara: ara,
+        errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
+      });
+      if (k === 5) codi = codi.slice(0, 12) + "X" + codi.slice(13);   /* un de manipulat */
+      var d = new Date();
+      l.push([("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear()
+              + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ":00",
+              nom + "@escola.cat", k < 3 ? "4tA" : "4tB", codi].join("\t"));
+    });
+    $("#entrada").value = l.join("\n");
+    carrega($("#entrada").value);
+  };
+
+  // ── un sol codi ────────────────────────────────────────────────────────
+  $("#btn-un").onclick = function () {
+    var raw = $("#codi-un").value.trim();
+    if (!raw) return;
+    files = processa([{ codi: raw, alumne: "—", grup: "", enviat: "" }]);
+    obert = 0;
+    var r = files[0];
+    var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
+                                       : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
+    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat) + " "
+      + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
+      + "</div>" + h;
+  };
+})();
+</script>
+</body>
+</html>
