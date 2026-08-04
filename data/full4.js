@@ -92,6 +92,29 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "DIFERENCIA_QUADRATS_MAL": "Una diferència de quadrats $a^2-b^2$ es factoritza com $(a-b)(a+b)$: revisa que els dos factors tinguin signes diferents.",
+  "DISTRIBUCIO_INCOMPLETA": "En multiplicar un polinomi per un altre, cada terme del primer s'ha de multiplicar per TOTS els termes del segon, no només per un.",
+  "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
+  "FACTOR_COMU_INCOMPLET": "No has tret tot el factor comú possible: revisa si encara hi ha algun nombre o alguna $x$ que es repeteixi a tots els termes.",
+  "FACTOR_COMU_MAL_DIVIDIT": "En treure factor comú, cada terme s'ha de dividir pel factor comú: algun terme de dins del parèntesi no s'ha dividit correctament.",
+  "FACTOR_COMU_SIGNE": "Revisa el signe del factor comú: si tots els termes són negatius, sol convenir treure'l amb signe $-$ perquè el que quedi dins comenci en positiu.",
+  "GRAUS_MAL_AGRUPATS": "Només es poden sumar o restar termes del MATEIX grau: $x^3$ amb $x^3$, $x^2$ amb $x^2$... Revisa que has agrupat els termes correctes.",
+  "GRAU_PRODUCTE_MAL": "En multiplicar potències de $x$, els exponents se SUMEN: $x^a\\cdot x^b=x^{a+b}$. El grau del producte és la suma dels graus dels factors.",
+  "IGUALTAT_NOTABLE_DOBLE_OBLIDAT": "Al quadrat d'una suma o d'una resta, el terme del mig és el DOBLE producte, $2ab$, no només $ab$.",
+  "IGUALTAT_NOTABLE_SIGNE": "Revisa el signe del terme del mig: $(a-b)^2=a^2-2ab+b^2$, amb el terme del mig NEGATIU, a diferència de $(a+b)^2$.",
+  "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
+  "PARENTESI_NO_DISTRIBUIT_POLI": "Restar un polinomi és restar-ne TOTS els termes, no només el primer. Revisa el signe de cada terme del polinomi que restes.",
+  "QUADRAT_INCOMPLET": "Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat del primer, el doble producte, i el quadrat del segon. Revisa que hi són tots.",
+  "RUFFINI_DIVISOR_NO_MONIC": "El divisor no és de la forma $x-a$ (el coeficient de $x$ no és $1$): cal treure'n el factor comú abans d'aplicar Ruffini directament, i dividir el quocient pel mateix factor al final.",
+  "RUFFINI_PAS_MAL": "A cada columna: multiplica el número de baix per l'arrel, i suma aquest producte al coeficient de la columna, no el restis.",
+  "RUFFINI_QUOCIENT_GRAU": "El quocient d'una divisió de Ruffini té un grau menys que el dividend, no el mateix grau.",
+  "RUFFINI_RESIDU_COM_QUOCIENT": "Has confós el residu amb un terme del quocient: el residu és el darrer número de la fila, i és una constant, no un polinomi en $x$.",
+  "RUFFINI_SIGNE_ARREL": "A la regla de Ruffini es fa servir l'oposat del terme independent del divisor: si el divisor és $x-a$, es baixa multiplicant per $a$, no per $-a$.",
+  "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
+  "SUMA_PER_DIFERENCIA_MAL": "$(a+b)(a-b)=a^2-b^2$: el terme del mig s'anul·la sempre. No hi ha terme en $ab$ al resultat.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau."
+ },
  "items": [
   {
    "id": "62a",
@@ -99,6 +122,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$P(x)+Q(x)+R(x)+S(x)$",
    "opcions": [
@@ -120,6 +144,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$P(x)-R(x)+S(x)-Q(x)$",
    "opcions": [
@@ -141,6 +166,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[P(x)+Q(x)]-[R(x)+Q(x)]$",
    "opcions": [
@@ -162,6 +188,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[P(x)-Q(x)]-[R(x)-Q(x)]$",
    "opcions": [
@@ -183,6 +210,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=x-1$",
    "opcions": [
@@ -204,6 +232,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=2x^2-x-6$",
    "opcions": [
@@ -225,6 +254,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=5x^2-x+1$",
    "opcions": [
@@ -246,6 +276,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=-7x^2-3x$",
    "opcions": [
@@ -267,6 +298,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=x^3-x$",
    "opcions": [
@@ -288,6 +320,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba quin és el polinomi $Q(x)$ que s'ha de sumar a $P(x)=x^2+2x-1$ per obtenir com a resultat $R(x)$.",
    "enunciat": "$R(x)=x^3-x^2$",
    "opcions": [
@@ -309,6 +342,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[P(x)-Q(x)]\\cdot S(x)$",
    "opcions": [
@@ -322,7 +356,7 @@ window.FULL = {
     "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDJ4JCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQzJC4iLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDMkIGRlICRTKHgpJDogY2FsIG11bHRpcGxpY2FyIHRhbWLDqSBwZWwgdGVybWUgJDJ4JC4iLCAiRWwgcmVzdWx0YXQgdMOpIHRvdHMgZWxzIHNpZ25lcyBjYW52aWF0czogcmV2aXNhIGVscyBzaWduZXMgZGUgJFtQKHgpLVEoeCldJCBhYmFucyBkZSBtdWx0aXBsaWNhci4iXSwgImVyciI6IFsiIiwgIkRJU1RSSUJVQ0lPX0lOQ09NUExFVEEiLCAiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCJdLCAicmVzIjogWyIkJFtQKHgpLVEoeCldJFxcY2RvdCBTKHgpPTR4Xns2fS02eF57NX0rMTN4XnszfS14XnsyfSsyMHgtMTUkIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDJ4JCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQzJC4iLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDMkIGRlICRTKHgpJDogY2FsIG11bHRpcGxpY2FyIHRhbWLDqSBwZWwgdGVybWUgJDJ4JC4iLCAiRWwgcmVzdWx0YXQgdMOpIHRvdHMgZWxzIHNpZ25lcyBjYW52aWF0czogcmV2aXNhIGVscyBzaWduZXMgZGUgJFtQKHgpLVEoeCldJCBhYmFucyBkZSBtdWx0aXBsaWNhci4iXSwgImVyciI6IFsiIiwgIkRJU1RSSUJVQ0lPX0lOQ09NUExFVEEiLCAiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCJdLCAicmVzIjogWyIkW1AoeCktUSh4KV1cXGNkb3QgUyh4KT00eF57Nn0tNnheezV9KzEzeF57M30teF57Mn0rMjB4LTE1JCJdfQ=="
   },
   {
    "id": "64b",
@@ -330,6 +364,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[R(x)-Q(x)]\\cdot S(x)$",
    "opcions": [
@@ -343,7 +378,7 @@ window.FULL = {
     "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMyQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMngkLiIsICJFbCByZXN1bHRhdCB0w6kgdG90cyBlbHMgc2lnbmVzIGNhbnZpYXRzOiByZXZpc2EgZWxzIHNpZ25lcyBkZSAkW1IoeCktUSh4KV0kIGFiYW5zIGRlIG11bHRpcGxpY2FyLiIsICJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMngkIGRlICRTKHgpJDogY2FsIG11bHRpcGxpY2FyIHRhbWLDqSBwZWwgdGVybWUgJDMkLiIsICIiXSwgImVyciI6IFsiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIiwgIiJdLCAicmVzIjogWyIkJFtSKHgpLVEoeCldJFxcY2RvdCBTKHgpPS02eF57NX0tNXheezR9KzJ4XnszfSs2eF57Mn0rMjJ4KzYkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMyQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMngkLiIsICJFbCByZXN1bHRhdCB0w6kgdG90cyBlbHMgc2lnbmVzIGNhbnZpYXRzOiByZXZpc2EgZWxzIHNpZ25lcyBkZSAkW1IoeCktUSh4KV0kIGFiYW5zIGRlIG11bHRpcGxpY2FyLiIsICJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMngkIGRlICRTKHgpJDogY2FsIG11bHRpcGxpY2FyIHRhbWLDqSBwZWwgdGVybWUgJDMkLiIsICIiXSwgImVyciI6IFsiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIiwgIiJdLCAicmVzIjogWyIkW1IoeCktUSh4KV1cXGNkb3QgUyh4KT0tNnheezV9LTV4Xns0fSsyeF57M30rNnheezJ9KzIyeCs2JCJdfQ=="
   },
   {
    "id": "64c",
@@ -351,6 +386,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[P(x)+Q(x)+R(x)]\\cdot S(x)$",
    "opcions": [
@@ -364,7 +400,7 @@ window.FULL = {
     "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDJ4JCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQzJC4iLCAiRWwgcmVzdWx0YXQgdMOpIHRvdHMgZWxzIHNpZ25lcyBjYW52aWF0czogcmV2aXNhIGVscyBzaWduZXMgZGUgJFtQKHgpK1EoeCkrUih4KV0kIGFiYW5zIGRlIG11bHRpcGxpY2FyLiIsICJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMyQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMngkLiJdLCAiZXJyIjogWyIiLCAiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiQkW1AoeCkrUSh4KStSKHgpXSRcXGNkb3QgUyh4KT00eF57Nn0rNnheezV9KzEweF57NH0rMjd4XnszfSs4eF57Mn0tMjd4LTE4JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm9tw6lzIGhhcyBtdWx0aXBsaWNhdCBwZWwgdGVybWUgJDJ4JCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQzJC4iLCAiRWwgcmVzdWx0YXQgdMOpIHRvdHMgZWxzIHNpZ25lcyBjYW52aWF0czogcmV2aXNhIGVscyBzaWduZXMgZGUgJFtQKHgpK1EoeCkrUih4KV0kIGFiYW5zIGRlIG11bHRpcGxpY2FyLiIsICJOb23DqXMgaGFzIG11bHRpcGxpY2F0IHBlbCB0ZXJtZSAkMyQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMngkLiJdLCAiZXJyIjogWyIiLCAiRElTVFJJQlVDSU9fSU5DT01QTEVUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRbUCh4KStRKHgpK1IoeCldXFxjZG90IFMoeCk9NHheezZ9KzZ4Xns1fSsxMHheezR9KzI3eF57M30rOHheezJ9LTI3eC0xOCQiXX0="
   },
   {
    "id": "64d",
@@ -372,6 +408,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "operacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Donats els polinomis $P(x)=2x^5-3x^4+7x^3-2x^2+3x-6$, $Q(x)=3x^4-2x^3+5x^2-7x-1$, $R(x)=3x^2-x+1$ i $S(x)=2x+3$, calcula.",
    "enunciat": "$[P(x)+Q(x)-R(x)]\\cdot S(x)$",
    "opcions": [
@@ -385,7 +422,7 @@ window.FULL = {
     "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgdG90cyBlbHMgc2lnbmVzIGNhbnZpYXRzOiByZXZpc2EgZWxzIHNpZ25lcyBkZSAkW1AoeCkrUSh4KS1SKHgpXSQgYWJhbnMgZGUgbXVsdGlwbGljYXIuIiwgIk5vbcOpcyBoYXMgbXVsdGlwbGljYXQgcGVsIHRlcm1lICQzJCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQyeCQuIiwgIk5vbcOpcyBoYXMgbXVsdGlwbGljYXQgcGVsIHRlcm1lICQyeCQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMyQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIiwgIkRJU1RSSUJVQ0lPX0lOQ09NUExFVEEiLCAiIl0sICJyZXMiOiBbIiQkW1AoeCkrUSh4KS1SKHgpXSRcXGNkb3QgUyh4KT00eF57Nn0rNnheezV9KzEweF57NH0rMTV4XnszfS02eF57Mn0tMjV4LTI0JCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgdG90cyBlbHMgc2lnbmVzIGNhbnZpYXRzOiByZXZpc2EgZWxzIHNpZ25lcyBkZSAkW1AoeCkrUSh4KS1SKHgpXSQgYWJhbnMgZGUgbXVsdGlwbGljYXIuIiwgIk5vbcOpcyBoYXMgbXVsdGlwbGljYXQgcGVsIHRlcm1lICQzJCBkZSAkUyh4KSQ6IGNhbCBtdWx0aXBsaWNhciB0YW1iw6kgcGVsIHRlcm1lICQyeCQuIiwgIk5vbcOpcyBoYXMgbXVsdGlwbGljYXQgcGVsIHRlcm1lICQyeCQgZGUgJFMoeCkkOiBjYWwgbXVsdGlwbGljYXIgdGFtYsOpIHBlbCB0ZXJtZSAkMyQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJESVNUUklCVUNJT19JTkNPTVBMRVRBIiwgIkRJU1RSSUJVQ0lPX0lOQ09NUExFVEEiLCAiIl0sICJyZXMiOiBbIiRbUCh4KStRKHgpLVIoeCldXFxjZG90IFMoeCk9NHheezZ9KzZ4Xns1fSsxMHheezR9KzE1eF57M30tNnheezJ9LTI1eC0yNCQiXX0="
   },
   {
    "id": "65a",
@@ -393,6 +430,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Divideix.",
    "enunciat": "$(7x^5+4x^4+3x^3-5x^2+2x-1):(x^2+x)$",
    "opcions": [
@@ -414,6 +452,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Divideix.",
    "enunciat": "$(x^4-2x^3+x^2-x+3):(x^2+x+1)$",
    "opcions": [
@@ -435,6 +474,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula, aplicant la regla de Ruffini.",
    "enunciat": "$(x^5-x^3+x^2-x^4+3x-7):(x-2)$",
    "opcions": [
@@ -456,6 +496,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula, aplicant la regla de Ruffini.",
    "enunciat": "$(x^4+2x^2-x-3):(x+1)$",
    "opcions": [
@@ -477,6 +518,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula, aplicant la regla de Ruffini.",
    "enunciat": "$(2x^4-x^3+x+3):(x-3)$",
    "opcions": [
@@ -498,6 +540,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula, aplicant la regla de Ruffini.",
    "enunciat": "$(x^3-8x+x^2-7):(x+2)$",
    "opcions": [
@@ -519,6 +562,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula, aplicant la regla de Ruffini.",
    "enunciat": "$(x^3-4x^2+6x-9):(x+4)$",
    "opcions": [
@@ -540,6 +584,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(4x^7-2x^3+x^5):(x+2)$",
    "opcions": [
@@ -561,6 +606,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(1-x^5):(x-1)$",
    "opcions": [
@@ -582,6 +628,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(3x+2x^2-x^5+6x^6):(x+1)$",
    "opcions": [
@@ -603,6 +650,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(9-x^2):(3-x)$",
    "opcions": [
@@ -624,6 +672,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(x^3-2x+6):(2x-2)$",
    "opcions": [
@@ -645,6 +694,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Fes les divisions següents mitjançant la regla de Ruffini.",
    "enunciat": "$(-x^4+3x^2-x+1):(3x+6)$",
    "opcions": [
@@ -666,6 +716,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el quocient i el residu de les divisions de polinomis següents.",
    "enunciat": "$(7x^4-2x+x^3):(x-3)$",
    "opcions": [
@@ -687,6 +738,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el quocient i el residu de les divisions de polinomis següents.",
    "enunciat": "$(-3-x^5):(x+2)$",
    "opcions": [
@@ -708,6 +760,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el quocient i el residu de les divisions de polinomis següents.",
    "enunciat": "$(-3x^6+2x^5-x^4):(-x-1)$",
    "opcions": [
@@ -729,6 +782,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el quocient i el residu de les divisions de polinomis següents.",
    "enunciat": "$(1+3x^3-6x^6-9x^2):(3-x)$",
    "opcions": [
@@ -750,6 +804,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.",
    "enunciat": "Dividend $3x^{3}+4x^{2}-1$, divisor $x+1$:",
    "opcions": [
@@ -771,6 +826,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.",
    "enunciat": "Dividend $4x^{3}+3x^{2}+2x+1$, arrel $\\square$ (divisor desconegut); a la fila inferior, la segona casella val $-1$:",
    "opcions": [
@@ -792,6 +848,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.",
    "enunciat": "Dividend $x^{3}-x+2$, arrel $\\square$ (divisor desconegut); el residu de la divisió és $2$:",
    "opcions": [
@@ -804,7 +861,7 @@ window.FULL = {
     "El residu final és $\\square^3-\\square$ (arrossegant els termes de la taula): iguala'l a $2$ i resol l'equació de tercer grau.",
     "$\\square^3-\\square=0$ té tres solucions: $\\square=-1,0,1$. Descarta $\\square=0$ (divisió trivial) i tria'n una de les altres dues."
    ],
-   "nota": "L'equació que determina $\\square$ té tres solucions vàlides ($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una divisió trivial per $x$, i s'ha triat $\\square=1$ per completar la taula, seguint el mateix criteri del solucionari font.",
+   "nota": "L'equació que determina $\\square$ té tres solucions vàlides ($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una divisió trivial per $x$, i s'ha triat $\\square=1$ per completar la taula amb signe positiu.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJFxcc3F1YXJlPS0xJCB0YW1iw6kgY29tcGxlaXggbCdlcXVhY2nDsyAkXFxzcXVhcmVeMy1cXHNxdWFyZT0wJCwgcGVyw7Igbm8gw6lzIGVsIHZhbG9yIHF1ZSBlcyB0cmlhIGFxdcOtIChlcyBkZXNjYXJ0YSAkXFxzcXVhcmU9MCQgcGVyIGRvbmFyIHVuYSBkaXZpc2nDsyB0cml2aWFsLCBpIGVudHJlICQxJCBpICQtMSQgZXMgcHJlbiAkXFxzcXVhcmU9MSQpLiIsICIkXFxzcXVhcmU9MCQgdGFtYsOpIGFudWzCt2xhIGwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQsIHBlcsOyIGRvbmFyaWEgdW5hIGRpdmlzacOzIHBlciAkeCQsIHVuIGNhcyB0cml2aWFsIHBvYyBoYWJpdHVhbCBlbiBhcXVlc3QgdGlwdXMgZCdleGVyY2ljaS4iLCAiRWwgdmFsb3IgZGUgJFxcc3F1YXJlJCDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHJlc2lkdSB0w6kgZWwgc2lnbmUgY2FudmlhdC4iXSwgImVyciI6IFsiIiwgIlJVRkZJTklfUEFTX01BTCIsICJSVUZGSU5JX1BBU19NQUwiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiRGUgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgc3VydGVuICRcXHNxdWFyZT0tMSwwLDEkOyBkZXNjYXJ0YW50ICQwJCBpIHRyaWFudCAkXFxzcXVhcmU9MSQsIGxhIHRhdWxhIGRvbmEgcXVvY2llbnQgJHheezJ9K3gkIGkgcmVzaWR1ICQyJCJdfQ=="
   },
   {
@@ -813,6 +870,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisio",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.",
    "enunciat": "Dividend $\\square x^3+0x^2+0x-3$, divisor $x+4$; a la fila inferior, la segona casella val $8$:",
    "opcions": [
@@ -834,6 +892,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa les igualtats notables següents, trobant els valors que falten (marcats amb $\\square$).",
    "enunciat": "$(2x+3)^2=\\square+12x+\\square$",
    "opcions": [
@@ -855,6 +914,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa les igualtats notables següents, trobant els valors que falten (marcats amb $\\square$).",
    "enunciat": "$(5-3x)^2=25-\\square+\\square x^2$",
    "opcions": [
@@ -876,6 +936,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa les igualtats notables següents, trobant els valors que falten (marcats amb $\\square$).",
    "enunciat": "$(9+7x)\\cdot(9-7x)=\\square-\\square$",
    "opcions": [
@@ -897,6 +958,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa les igualtats notables següents, trobant els valors que falten (marcats amb $\\square$).",
    "enunciat": "$(\\square+\\square)^2=x^4+2x^3+x^2$",
    "opcions": [
@@ -918,6 +980,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$x^2-16$",
    "opcions": [
@@ -939,6 +1002,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$x^4-36$",
    "opcions": [
@@ -960,6 +1024,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$4x^2-25$",
    "opcions": [
@@ -981,6 +1046,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$x^2-4x+4$",
    "opcions": [
@@ -1002,6 +1068,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$16x^2-24xy+9y^2$",
    "opcions": [
@@ -1023,6 +1090,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Factoritza, reconeixent-hi una igualtat notable.",
    "enunciat": "$16x^4+24x^2+9$",
    "opcions": [
@@ -1044,11 +1112,12 @@ window.FULL = {
    "ap": "a",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Segueix el patró $[(x+2)+3]\\cdot[(x+2)-3]=(x+2)^2-9$ per escriure el producte com una resta de quadrats, sense necessitat de desenvolupar-ho tot.",
    "enunciat": "$[(3x-y)+4]\\cdot[(3x-y)-4]$",
    "opcions": [
-    "9x^2-y^2-16",
-    "(3x-y)^2+16",
+    "$9x^2-y^2-16$",
+    "$(3x-y)^2+16$",
     "$(3x-y)^2-4$",
     "$(3x-y)^2-16$"
    ],
@@ -1065,13 +1134,14 @@ window.FULL = {
    "ap": "b",
    "bloc": "notables",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Segueix el patró $[(x+2)+3]\\cdot[(x+2)-3]=(x+2)^2-9$ per escriure el producte com una resta de quadrats, sense necessitat de desenvolupar-ho tot.",
    "enunciat": "$[(a+b)+c]\\cdot[(a+b)-c]$",
    "opcions": [
-    "(a+b)^2+c^2",
-    "(a+b)^2-c",
+    "$(a+b)^2+c^2$",
+    "$(a+b)^2-c$",
     "$(a+b)^2-c^2$",
-    "a^2+b^2-c^2"
+    "$a^2+b^2-c^2$"
    ],
    "pistes": [
     "Identifica el \\\"primer terme\\\" comú i el \\\"segon\\\" que canvia de signe: aquí són $(a+b)$ i $c$.",
@@ -1086,6 +1156,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Treu factor comú.",
    "enunciat": "$3x^2-4x$",
    "opcions": [
@@ -1107,6 +1178,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Treu factor comú.",
    "enunciat": "$(x+1)+3(x+1)$",
    "opcions": [
@@ -1128,6 +1200,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Treu factor comú.",
    "enunciat": "$xy-6xyz-5xyzt$",
    "opcions": [
@@ -1149,6 +1222,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Treu factor comú.",
    "enunciat": "$3x-4x^2-6x^3$",
    "opcions": [
@@ -1170,6 +1244,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$7x^2-14x+7$",
    "opcions": [
@@ -1191,6 +1266,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$16x^2+64x+64$",
    "opcions": [
@@ -1212,6 +1288,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$x^3-2x^2+x$",
    "opcions": [
@@ -1233,6 +1310,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$18x^4-12x^2+2$",
    "opcions": [
@@ -1254,6 +1332,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(2x+4)(x-2)$",
    "opcions": [
@@ -1275,6 +1354,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(x-5)(x^2+5x)$",
    "opcions": [
@@ -1296,20 +1376,21 @@ window.FULL = {
    "ap": "g",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(-x-7)(x-7)$",
    "opcions": [
     "$(7-x)(7+x)$",
     "$(x-7)(x+7)$",
     "$x^2-49$",
-    "$-(x-7)(x+7)$"
+    "$-(7-x)(7+x)$"
    ],
    "pistes": [
     "Treu primer el signe menys comú del primer factor: $-x-7=-(x+7)$.",
     "$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcHJpbWVyIGZhY3RvciDDqXMgJC14LTc9LSh4KzcpJCwgbm8gJHgtNyQ6IGVsIHNpZ25lIGdsb2JhbCBjYW52aWEgZWwgcmVzdWx0YXQgZmluYWwuIiwgIkVsIGRlc2Vudm9sdXBhbWVudCBjb3JyZWN0ZSBkb25hICQ0OS14XjIkLCBubyAkeF4yLTQ5JDogcmV2aXNhIGVsIHNpZ25lIGdsb2JhbCBlbiB0cmV1cmUgZWwgJC0xJCBjb23DuiBkZWwgcHJpbWVyIGZhY3Rvci4iLCAiw4lzIHVuYSBmb3JtYSBlcXVpdmFsZW50IGNvcnJlY3RhIGFiYW5zIGRlIHJlb3JnYW5pdHphciBzaWduZXMsIHBlcsOyIG5vIMOpcyBsYSBtYW5lcmEgbcOpcyBzaW1wbGlmaWNhZGE6ICQtKHgtNykoeCs3KT0oNy14KSh4KzcpPSg3LXgpKDcreCkkLiJdLCAiZXJyIjogWyIiLCAiSUdVQUxUQVRfTk9UQUJMRV9TSUdORSIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIkZBQ1RPUl9DT01VX1NJR05FIl0sICJyZXMiOiBbIiQoLXgtNykoeC03KT0tKHgrNykoeC03KT00OS14XjI9KDcteCkoNyt4KSQiXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcHJpbWVyIGZhY3RvciDDqXMgJC14LTc9LSh4KzcpJCwgbm8gJHgtNyQ6IGVsIHNpZ25lIGdsb2JhbCBjYW52aWEgZWwgcmVzdWx0YXQgZmluYWwuIiwgIkVsIGRlc2Vudm9sdXBhbWVudCBjb3JyZWN0ZSBkb25hICQ0OS14XjIkLCBubyAkeF4yLTQ5JDogcmV2aXNhIGVsIHNpZ25lIGdsb2JhbCBlbiB0cmV1cmUgZWwgJC0xJCBjb23DuiBkZWwgcHJpbWVyIGZhY3Rvci4iLCAiSGkgc29icmEgdW4gc2lnbmUgbWVueXM6IGVuIHRyZXVyZSBlbCAkLTEkIGNvbcO6IGRlICQteC03JCBpIHJlb3JkZW5hci1obyBhICQoNy14KSg3K3gpJCwgYXF1ZXN0IG1lbnlzIGphIHMnaGEgZmV0IHNlcnZpci4gQ29tcHJvdmEtaG8gYW1iICR4PTAkOiBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWwgdmFsICQrNDkkLiJdLCAiZXJyIjogWyIiLCAiSUdVQUxUQVRfTk9UQUJMRV9TSUdORSIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIkZBQ1RPUl9DT01VX1NJR05FIl0sICJyZXMiOiBbIiQoLXgtNykoeC03KT0tKHgrNykoeC03KT00OS14XjI9KDcteCkoNyt4KSQiXX0="
   },
   {
    "id": "74h",
@@ -1317,6 +1398,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "factor_comu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(-x^2+5)(-x^2-5)$",
    "opcions": [

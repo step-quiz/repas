@@ -83,6 +83,39 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "BASE_EXPONENT_INTERCANVIATS": "Has canviat de lloc la base i l'exponent: no és el mateix $a^b$ que $b^a$.",
+  "BASE_SIGNE_PERDUT": "El resultat ha de conservar la base tal com era, amb el seu signe.",
+  "COMPARA_TERMES": "Dues fraccions equivalents gairebé mai tenen els mateixos termes: el que ha de coincidir és el valor, no les xifres.",
+  "DESPLACAMENT_INDEX": "Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.",
+  "ENTER_AL_NUMERADOR": "Has sumat l'enter directament al numerador. Un enter és una fracció de denominador $1$: cal reduir-lo a denominador comú abans de sumar.",
+  "ENTER_MULTIPLICA_DENOMINADOR": "En multiplicar un enter per una fracció, l'enter multiplica NOMÉS el numerador; el denominador no canvia.",
+  "EXPONENTS_MULTIPLICATS": "En multiplicar potències de la mateixa base, els exponents se SUMEN, no es multipliquen: $a^m\\cdot a^n=a^{m+n}$.",
+  "EXPONENT_COM_PRODUCTE": "En una expressió com $2^n$, l'exponent $n$ no és un factor que es multiplica per la base: cal calcular la potència, no un producte.",
+  "EXPONENT_MULTIPLICAT": "L'exponent que dona l'enunciat s'ha de fer servir tal qual, no multiplicat per un altre nombre.",
+  "EXPONENT_SENSE_DESPLACAR": "T'has deixat pel camí una part de l'exponent: si l'enunciat diu $n+2$ (o similar), cal fer servir aquest exponent complet, no només la $n$.",
+  "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
+  "FRACCIO_NO_INVERTIDA": "Per elevar una fracció a un exponent negatiu cal INVERTIR la fracció i fer l'exponent positiu: $\\left(\\dfrac{a}{b}\\right)^{-n}=\\left(\\dfrac{b}{a}\\right)^n$.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "JERARQUIA": "Primer les multiplicacions i divisions; després, les sumes i restes.",
+  "MENYS_PARENTESI": "El signe $-$ davant d'un parèntesi canvia el signe de TOTS els termes de dins, no només del primer.",
+  "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
+  "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
+  "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
+  "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
+  "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
+  "RAONAMENT_ADDITIU": "Has passat d'una fracció a l'altra sumant. Dues fraccions són equivalents quan es passa d'una a l'altra MULTIPLICANT els dos termes pel mateix nombre.",
+  "RAO_MAL_APLICADA": "Per passar d'un terme al següent s'ha de MULTIPLICAR per la raó. Comprova la raó amb dos termes consecutius que ja tinguis i aplica-la sempre igual.",
+  "REGLA_NOMES_QUOCIENT": "La regla de restar exponents és per DIVIDIR potències de la mateixa base, no per restar-les: quan es resten, cal restar els valors de cada potència.",
+  "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
+  "SIGNE_PRODUCTE": "Revisa la regla dels signes del producte: signes diferents donen resultat negatiu.",
+  "SIGNE_SUMA": "Revisa el signe del terme que se suma: sumar un negatiu fa disminuir.",
+  "SIMPLIFICACIO_INVENTADA": "Has simplificat una fracció que ja era irreductible. Comprova que el numerador i el denominador tinguin algun factor comú abans de tocar-la.",
+  "TERME_MAL_CALCULAT": "Un dels termes no surt: comprova'l substituint-lo al terme general o sumant-hi la diferència des de l'anterior.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "47a",
@@ -90,6 +123,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = 2^n$",
    "opcions": [
@@ -111,6 +145,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = (-3)^{n+2}$",
    "opcions": [
@@ -132,6 +167,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = 5 - 3n$",
    "opcions": [
@@ -153,6 +189,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = 2 + 4(n+1)$",
    "opcions": [
@@ -174,6 +211,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = 2\\cdot\\left(\\dfrac{1}{3}\\right)^{n-1}$",
    "opcions": [
@@ -195,6 +233,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = n^2 + 3n - 2$",
    "opcions": [
@@ -216,6 +255,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba els cinc primers termes de la successió el terme general de la qual és:",
    "enunciat": "$a_n = \\dfrac{n+3}{n^2}$",
    "opcions": [
@@ -229,7 +269,7 @@ window.FULL = {
     "$a_1=\\dfrac{1+3}{1}=4$, $a_2=\\dfrac{2+3}{4}=\\dfrac54$, $a_3=\\dfrac{3+3}{9}=\\dfrac{6}{9}=\\dfrac23$..."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2Vnb24gdGVybWU6ICRcXGRmcmFjezIrM317Ml4yfT1cXGRmcmFjNTQkLCBubyAkXFxkZnJhYzE0JC4iLCAiIiwgIkhhcyBkaXZpZGl0ICRuXjIkIGVudHJlICRuJCBlbiBsbG9jIGQnZWxldmFyLWxvIGFsIHF1YWRyYXQ6IGVsIGRlbm9taW5hZG9yIMOpcyAkbl4yJCwgbm8gJG4kLiIsICJBbCBjaW5xdcOoIHRlcm1lLCAkXFxkZnJhY3s4fXsyNX0kIGphIGVzdMOgIHNpbXBsaWZpY2F0IGRlbCB0b3Q6ICQ4JCBpICQyNSQgbm8gdGVuZW4gY2FwIGZhY3RvciBjb23Duiwgbm8gZXMgcG90IHJlZHVpciBtw6lzLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiXSwgInJlcyI6IFsiJGFfbj1cXGRmcmFje24rM317bl4yfVxcUmlnaHRhcnJvdyBhXzE9NCxcXDthXzI9XFxkZnJhYzU0LFxcO2FfMz1cXGRmcmFjMjMsXFw7YV80PVxcZGZyYWN7N317MTZ9LFxcO2FfNT1cXGRmcmFjezh9ezI1fSQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2Vnb24gdGVybWU6ICRcXGRmcmFjezIrM317Ml4yfT1cXGRmcmFjNTQkLCBubyAkXFxkZnJhYzE0JC4iLCAiIiwgIkhhcyBkaXZpZGl0ICRuXjIkIGVudHJlICRuJCBlbiBsbG9jIGQnZWxldmFyLWxvIGFsIHF1YWRyYXQ6IGVsIGRlbm9taW5hZG9yIMOpcyAkbl4yJCwgbm8gJG4kLiIsICJBbCBjaW5xdcOoIHRlcm1lLCAkXFxkZnJhY3s4fXsyNX0kIGphIGVzdMOgIHNpbXBsaWZpY2F0IGRlbCB0b3Q6ICQ4JCBpICQyNSQgbm8gdGVuZW4gY2FwIGZhY3RvciBjb23Duiwgbm8gZXMgcG90IHJlZHVpciBtw6lzLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSU1QTElGSUNBQ0lPX0lOVkVOVEFEQSJdLCAicmVzIjogWyIkYV9uPVxcZGZyYWN7biszfXtuXjJ9XFxSaWdodGFycm93IGFfMT00LFxcO2FfMj1cXGRmcmFjNTQsXFw7YV8zPVxcZGZyYWMyMyxcXDthXzQ9XFxkZnJhY3s3fXsxNn0sXFw7YV81PVxcZGZyYWN7OH17MjV9JCJdfQ=="
   },
   {
    "id": "48a",
@@ -237,6 +277,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Busca els cinc primers termes de les successions recurrents següents.",
    "enunciat": "$a_1=1,\\;a_2=3,\\;a_n=a_{n-2}-a_{n-1}$",
    "opcions": [
@@ -258,6 +299,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Busca els cinc primers termes de les successions recurrents següents.",
    "enunciat": "$b_1=2,\\;b_2=4,\\;b_n=\\dfrac{b_{n-1}}{b_{n-2}}$",
    "opcions": [
@@ -279,6 +321,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Busca els cinc primers termes de les successions recurrents següents.",
    "enunciat": "$c_1=-1,\\;c_2=0,\\;c_3=1,\\;c_n=c_{n-1}+c_{n-2}+c_{n-3}$",
    "opcions": [
@@ -300,6 +343,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Busca els cinc primers termes de les successions recurrents següents.",
    "enunciat": "$d_1=2,\\;d_n=d_{n-1}+n$",
    "opcions": [
@@ -321,6 +365,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba la diferència i el terme general d'aquestes progressions aritmètiques.",
    "enunciat": "$10,\\;7,\\;4,\\;1,\\dots$",
    "opcions": [
@@ -342,6 +387,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba la diferència i el terme general d'aquestes progressions aritmètiques.",
    "enunciat": "$\\sqrt2,\\;2\\sqrt2,\\;3\\sqrt2,\\;4\\sqrt2,\\dots$",
    "opcions": [
@@ -363,6 +409,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba la diferència i el terme general d'aquestes progressions aritmètiques.",
    "enunciat": "$7,\\;2,\\;-3,\\;-8,\\dots$",
    "opcions": [
@@ -384,6 +431,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba la diferència i el terme general d'aquestes progressions aritmètiques.",
    "enunciat": "$16,\\;8,\\;0,\\;-8,\\dots$",
    "opcions": [
@@ -405,6 +453,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "termes",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Considera la successió $2,\\;4,\\;6,\\;8,\\;10,\\dots$",
    "enunciat": "És una progressió aritmètica la successió $2,\\;4,\\;6,\\;8,\\;10,\\dots$?",
    "opcions": [
@@ -426,12 +475,13 @@ window.FULL = {
    "ap": "b",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Considera la successió $2,\\;4,\\;6,\\;8,\\;10,\\dots$",
    "enunciat": "Terme general de $2,\\;4,\\;6,\\;8,\\;10,\\dots$",
    "opcions": [
     "$a_n=2n$",
     "$a_n=n+1$",
-    "$a_n=2+(n-1)\\cdot2$",
+    "$a_n=2n-2$",
     "$a_n=2^n$"
    ],
    "pistes": [
@@ -439,7 +489,7 @@ window.FULL = {
     "$a_n=a_1+(n-1)d=2+(n-1)\\cdot2=2+2n-2=2n$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSBmw7NybXVsYSBkb25hICQyLDMsNCw1LDZcXGRvdHMkLCBxdWUgbm8gY29pbmNpZGVpeCBhbWIgbGEgc3VjY2Vzc2nDsyBkZSBsJ2VudW5jaWF0IGEgcGFydGlyIGRlbCBzZWdvbiB0ZXJtZS4iLCAiQXF1ZXN0YSBleHByZXNzacOzIMOpcyBjb3JyZWN0YSBwZXLDsiBubyBlc3TDoCBzaW1wbGlmaWNhZGE6ICQyKyhuLTEpXFxjZG90Mj0yKzJuLTI9Mm4kLiIsICIkMl5uJCBkb25hICQyLDQsOCwxNiwzMlxcZG90cyQ6IGNyZWl4IG1hc3NhIGRlIHByZXNzYS4gQXF1w60gY2FkYSB0ZXJtZSBzdW1hIHNlbXByZSAkMiQgYSBsJ2FudGVyaW9yLCDDqXMgdW5hIHByb2dyZXNzacOzIEFSSVRNw4hUSUNBLCBubyB1bmEgcG90w6huY2lhLiJdLCAiZXJyIjogWyIiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkVYUE9ORU5UX0NPTV9QUk9EVUNURSJdLCAicmVzIjogWyIkYV9uPWFfMSsobi0xKWQ9Misobi0xKVxcY2RvdDI9Misybi0yPTJuJCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSBmw7NybXVsYSBkb25hICQyLDMsNCw1LDZcXGRvdHMkLCBxdWUgbm8gY29pbmNpZGVpeCBhbWIgbGEgc3VjY2Vzc2nDsyBkZSBsJ2VudW5jaWF0IGEgcGFydGlyIGRlbCBzZWdvbiB0ZXJtZS4iLCAiQXF1ZXN0YSBmw7NybXVsYSBkb25hICQwLDIsNCw2LDhcXGRvdHMkOiB2YSB1biBsbG9jIGVuZGFycmVyaWRhLiBDb21wcm92YS1sYSBzZW1wcmUgYW1iICRuPTEkLCBxdWUgaGEgZGUgdG9ybmFyIGVsIHByaW1lciB0ZXJtZSAoJDIkKSwgaSBubyAkMCQuIiwgIiQyXm4kIGRvbmEgJDIsNCw4LDE2LDMyXFxkb3RzJDogY3JlaXggbWFzc2EgZGUgcHJlc3NhLiBBcXXDrSBjYWRhIHRlcm1lIHN1bWEgc2VtcHJlICQyJCBhIGwnYW50ZXJpb3IsIMOpcyB1bmEgcHJvZ3Jlc3Npw7MgQVJJVE3DiFRJQ0EsIG5vIHVuYSBwb3TDqG5jaWEuIl0sICJlcnIiOiBbIiIsICJQUk9HUkVTU0lPX0lOVkVOVEFEQSIsICJERVNQTEFDQU1FTlRfSU5ERVgiLCAiRVhQT05FTlRfQ09NX1BST0RVQ1RFIl0sICJyZXMiOiBbIiRhX249YV8xKyhuLTEpZD0yKyhuLTEpXFxjZG90Mj0yKzJuLTI9Mm4kIl19"
   },
   {
    "id": "50c",
@@ -447,6 +497,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Considera la successió $2,\\;4,\\;6,\\;8,\\;10,\\dots$",
    "enunciat": "Terme $a_{30}$ de $2,\\;4,\\;6,\\;8,\\;10,\\dots$",
    "opcions": [
@@ -468,6 +519,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "termes",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$:",
    "enunciat": "Comprova que $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$ és una progressió aritmètica.",
    "opcions": [
@@ -489,6 +541,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "termes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$:",
    "enunciat": "Terme general de $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$",
    "opcions": [
@@ -510,6 +563,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba el terme general de les progressions aritmètiques següents.",
    "enunciat": "$1{,}73;\\;1{,}77;\\;1{,}81;\\;1{,}85;\\dots$",
    "opcions": [
@@ -531,6 +585,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba el terme general de les progressions aritmètiques següents.",
    "enunciat": "$5,\\;2,\\;-1,\\;-4,\\;-7,\\dots$",
    "opcions": [
@@ -552,11 +607,12 @@ window.FULL = {
    "ap": "c",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba el terme general de les progressions aritmètiques següents.",
    "enunciat": "$\\dfrac12,\\;1,\\;\\dfrac32,\\;2,\\dots$",
    "opcions": [
     "$a_n=\\dfrac12+(n-1)\\cdot2$",
-    "$a_n=\\dfrac12\\cdot n$",
+    "$a_n=\\dfrac12+n\\cdot\\dfrac12$",
     "$a_n=1+(n-1)\\cdot\\dfrac12$",
     "$a_n=\\dfrac12+(n-1)\\cdot\\dfrac12$"
    ],
@@ -564,8 +620,8 @@ window.FULL = {
     "La diferència és un terme menys l'anterior: $1-\\dfrac12$.",
     "$d=1-\\dfrac12=\\dfrac12$. El primer terme és $a_1=\\dfrac12$."
    ],
-   "nota": "La forma $a_n=\\dfrac{n}{2}$ (simplificada) també és correcta; es demana com a resposta la forma $a_1+(n-1)d$ perquè és la que l'exercici practica.",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBkaWZlcsOobmNpYSDDqXMgJFxcZGZyYWMxMiQsIG5vICQyJDogaGFzIGludmVydGl0IGxhIGZyYWNjacOzIGVuIGNhbGN1bGFyICRkJC4iLCAiQXF1ZXN0YSBleHByZXNzacOzIGRvbmEgZWwgbWF0ZWl4IHZhbG9yIHVuIGNvcCBzaW1wbGlmaWNhZGEgKCRcXGRmcmFjMTIrKG4tMSlcXGNkb3RcXGRmcmFjMTI9XFxkZnJhY3tufTIkKSwgcGVyw7IgY29tIGEgcmVzcG9zdGEgZCdhcXVlc3QgYXBhcnRhdCBjYWwgbGEgZm9ybWEgJGFfMSsobi0xKWQkIHNlbnNlIHNpbXBsaWZpY2FyLiIsICJFbCBwcmltZXIgdGVybWUgZGUgbGEgc3VjY2Vzc2nDsyDDqXMgJFxcZGZyYWMxMiQsIG5vICQxJCAoYXF1ZXN0IMOpcyBlbCBzZWdvbiB0ZXJtZSkuIiwgIiJdLCAiZXJyIjogWyJJTlZFUlRJREEiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkNPTVBBUkFfVEVSTUVTIiwgIiJdLCAicmVzIjogWyIkZD0xLVxcZGZyYWMxMj1cXGRmcmFjMTIkIChlcyBtYW50w6kgaWd1YWw6ICRcXGRmcmFjMzItMT1cXGRmcmFjMTIkKSIsICIkYV9uPWFfMSsobi0xKWQ9XFxkZnJhYzEyKyhuLTEpXFxjZG90XFxkZnJhYzEyJCJdfQ=="
+   "nota": "Si simplifiques et queda $a_n=\\dfrac{n}{2}$, que és igual de correcta i no la trobaràs entre les opcions: aquest exercici practica la forma $a_1+(n-1)d$, i és aquesta la que has de reconèixer.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBkaWZlcsOobmNpYSDDqXMgJFxcZGZyYWMxMiQsIG5vICQyJDogaGFzIGludmVydGl0IGxhIGZyYWNjacOzIGVuIGNhbGN1bGFyICRkJC4iLCAiRmFsdGEgZWwgJC0xJCBkZSBsJ2V4cG9uZW50IGQnb3JkcmU6IGFxdWVzdGEgZsOzcm11bGEgZG9uYSAkMSxcXGRmcmFjMzIsMlxcZG90cyQsIHVuIGxsb2MgYXZhbsOnYWRhLiBDb21wcm92YS1sYSBzZW1wcmUgYW1iICRuPTEkLCBxdWUgaGEgZGUgdG9ybmFyIGVsIHByaW1lciB0ZXJtZSAoJFxcZGZyYWMxMiQpLiIsICJFbCBwcmltZXIgdGVybWUgZGUgbGEgc3VjY2Vzc2nDsyDDqXMgJFxcZGZyYWMxMiQsIG5vICQxJCAoYXF1ZXN0IMOpcyBlbCBzZWdvbiB0ZXJtZSkuIiwgIiJdLCAiZXJyIjogWyJJTlZFUlRJREEiLCAiREVTUExBQ0FNRU5UX0lOREVYIiwgIkNPTVBBUkFfVEVSTUVTIiwgIiJdLCAicmVzIjogWyIkZD0xLVxcZGZyYWMxMj1cXGRmcmFjMTIkIChlcyBtYW50w6kgaWd1YWw6ICRcXGRmcmFjMzItMT1cXGRmcmFjMTIkKSIsICIkYV9uPWFfMSsobi0xKWQ9XFxkZnJhYzEyKyhuLTEpXFxjZG90XFxkZnJhYzEyJCJdfQ=="
   },
   {
    "id": "52d",
@@ -573,6 +629,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Troba el terme general de les progressions aritmètiques següents.",
    "enunciat": "$\\dfrac1a,\\;\\dfrac3a,\\;\\dfrac5a,\\;\\dfrac7a,\\dots$",
    "opcions": [
@@ -594,6 +651,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Sabent que aquestes són progressions aritmètiques, completa a la llibreta els termes que falten.",
    "enunciat": "$\\square,\\;\\dfrac12,\\;\\square,\\;\\dfrac56,\\;\\square,\\;\\square$",
    "opcions": [
@@ -607,7 +665,7 @@ window.FULL = {
     "$2d=\\dfrac56-\\dfrac12=\\dfrac13\\Rightarrow d=\\dfrac16$. A partir d'aquí, suma o resta $\\dfrac16$ per completar."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcHJpbWVyIHRlcm1lIHMnb2J0w6kgcmVzdGFudCAkZCQgYWwgc2Vnb24gdGVybWUsICRcXGRmcmFjMTItXFxkZnJhYzE2JCwgbm8gZGl2aWRpbnQtbG8uIiwgIlJldmlzYSBsYSBwb3NpY2nDsyBkZWwgY2lucXXDqCB0ZXJtZTogZW50cmUgZWwgcXVhcnQgKCRcXGRmcmFjNTYkKSBpIGVsIGNpbnF1w6ggaGkgaGEgZCdoYXZlciB1biBwYXMgZGUgJGQkLCBubyBkb3MuIiwgIlJldmlzYSBlbCBjaW5xdcOoIHRlcm1lOiAkXFxkZnJhYzU2K1xcZGZyYWMxNj1cXGRmcmFjezZ9ezZ9PTEkLCBubyAkXFxkZnJhY3sxMX17MTJ9JC4iXSwgImVyciI6IFsiIiwgIkVOVEVSX0FMX05VTUVSQURPUiIsICJERVNQTEFDQU1FTlRfSU5ERVgiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiQyZD1cXGRmcmFjNTYtXFxkZnJhYzEyPVxcZGZyYWMxM1xcUmlnaHRhcnJvdyBkPVxcZGZyYWMxNiQiLCAiJGFfMT1hXzItZD1cXGRmcmFjMTItXFxkZnJhYzE2PVxcZGZyYWMxMyQiLCAiJGFfMz1hXzIrZD1cXGRmcmFjMTIrXFxkZnJhYzE2PVxcZGZyYWMyMyQiLCAiJGFfNT1hXzQrZD1cXGRmcmFjNTYrXFxkZnJhYzE2PTEkLCAkYV82PWFfNStkPTErXFxkZnJhYzE2PVxcZGZyYWM3NiQiLCAiRWxzIHNpcyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzEzLFxcO1xcZGZyYWMxMixcXDtcXGRmcmFjMjMsXFw7XFxkZnJhYzU2LFxcOzEsXFw7XFxkZnJhYzc2JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcHJpbWVyIHRlcm1lIHMnb2J0w6kgcmVzdGFudCAkZCQgYWwgc2Vnb24gdGVybWUsICRcXGRmcmFjMTItXFxkZnJhYzE2JCwgbm8gZGl2aWRpbnQtbG8uIiwgIlJldmlzYSBsYSBwb3NpY2nDsyBkZWwgY2lucXXDqCB0ZXJtZTogZW50cmUgZWwgcXVhcnQgKCRcXGRmcmFjNTYkKSBpIGVsIGNpbnF1w6ggaGkgaGEgZCdoYXZlciB1biBwYXMgZGUgJGQkLCBubyBkb3MuIiwgIlJldmlzYSBlbCBjaW5xdcOoIHRlcm1lOiAkXFxkZnJhYzU2K1xcZGZyYWMxNj1cXGRmcmFjezZ9ezZ9PTEkLCBubyAkXFxkZnJhY3sxMX17MTJ9JC4iXSwgImVyciI6IFsiIiwgIkVOVEVSX0FMX05VTUVSQURPUiIsICJERVNQTEFDQU1FTlRfSU5ERVgiLCAiVEVSTUVfTUFMX0NBTENVTEFUIl0sICJyZXMiOiBbIiQyZD1cXGRmcmFjNTYtXFxkZnJhYzEyPVxcZGZyYWMxM1xcUmlnaHRhcnJvdyBkPVxcZGZyYWMxNiQiLCAiJGFfMT1hXzItZD1cXGRmcmFjMTItXFxkZnJhYzE2PVxcZGZyYWMxMyQiLCAiJGFfMz1hXzIrZD1cXGRmcmFjMTIrXFxkZnJhYzE2PVxcZGZyYWMyMyQiLCAiJGFfNT1hXzQrZD1cXGRmcmFjNTYrXFxkZnJhYzE2PTEkLCAkYV82PWFfNStkPTErXFxkZnJhYzE2PVxcZGZyYWM3NiQiLCAiRWxzIHNpcyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzEzLFxcO1xcZGZyYWMxMixcXDtcXGRmcmFjMjMsXFw7XFxkZnJhYzU2LFxcOzEsXFw7XFxkZnJhYzc2JCJdfQ=="
   },
   {
    "id": "53b",
@@ -615,6 +673,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Sabent que aquestes són progressions aritmètiques, completa a la llibreta els termes que falten.",
    "enunciat": "$\\square;\\;1{,}5;\\;\\square;\\;2{,}5;\\;\\square$",
    "opcions": [
@@ -636,6 +695,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Sabent que aquestes són progressions aritmètiques, completa a la llibreta els termes que falten.",
    "enunciat": "$\\square,\\;\\dfrac14,\\;\\square,\\;\\square,\\;\\dfrac12,\\;\\square$",
    "opcions": [
@@ -657,6 +717,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$3,\\;6,\\;12,\\;24,\\dots$",
    "opcions": [
@@ -678,6 +739,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$10,\\;7,\\;4,\\;1,\\dots$",
    "opcions": [
@@ -699,20 +761,21 @@ window.FULL = {
    "ap": "c",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$1,\\;1,\\;1,\\;1,\\dots$",
    "opcions": [
     "$d=1,\\;\\;a_n=n$",
     "$d=0,\\;\\;a_n=0$",
     "$d=0,\\;\\;a_n=1$",
-    "$r=1,\\;\\;a_n=1$"
+    "$d=0,\\;\\;a_n=n$"
    ],
    "pistes": [
     "Calcula la diferència entre termes consecutius.",
     "$1-1=0$ sempre: diferència constant, $d=0$."
    ],
-   "nota": "Aquesta successió constant compleix alhora la definició de progressió aritmètica ($d=0$) i de progressió geomètrica ($r=1$): és un cas límit on totes dues coincideixen. Es demana la lectura aritmètica perquè encaixa amb el 54b, però la geomètrica és igualment vàlida.",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJtZSBnZW5lcmFsIGhhIGRlIGRvbmFyIHNlbXByZSAkMSQ6ICRhX249biQgZG9uYSAkMSwyLDMsNFxcZG90cyQsIHF1ZSBubyBjb2luY2lkZWl4IGFtYiBsYSBzdWNjZXNzacOzLiIsICJFbCBwcmltZXIgdGVybWUgKGkgdG90cyBlbHMgYWx0cmVzKSDDqXMgJDEkLCBubyAkMCQ6IHJldmlzYSBsYSBzdWJzdGl0dWNpw7MgYSAkYV9uPWFfMSsobi0xKVxcY2RvdDAkLiIsICIiLCAiVGFtYsOpIMOpcyBjZXJ0YSAoYXF1ZXN0YSBzdWNjZXNzacOzIMOpcyBhbGhvcmEgYXJpdG3DqHRpY2EgYW1iICRkPTAkIGkgZ2VvbcOodHJpY2EgYW1iICRyPTEkKTsgZXMgZGVtYW5hIGNvbSBhIHJlc3Bvc3RhIGxhIGxlY3R1cmEgQVJJVE3DiFRJQ0EsIGNvaGVyZW50IGFtYiBsYSByZXN0YSBkZSBsJ2V4ZXJjaWNpLiJdLCAiZXJyIjogWyJDT01QQVJBX1RFUk1FUyIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkMS0xPTAkIChpIGlndWFsIHBlciBhIGxhIHJlc3RhKTogZGlmZXLDqG5jaWEgY29uc3RhbnQsICRkPTAkIiwgIiRhX249YV8xKyhuLTEpZD0xKyhuLTEpXFxjZG90MD0xJCJdfQ=="
+   "nota": "Aquesta successió constant compleix alhora la definició de progressió aritmètica ($d=0$) i de progressió geomètrica ($r=1$): és un cas límit on totes dues coincideixen. Aquí es demana la lectura aritmètica, que és la de la resta de l'exercici; la geomètrica seria igual de vàlida.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJtZSBnZW5lcmFsIGhhIGRlIGRvbmFyIHNlbXByZSAkMSQ6ICRhX249biQgZG9uYSAkMSwyLDMsNFxcZG90cyQsIHF1ZSBubyBjb2luY2lkZWl4IGFtYiBsYSBzdWNjZXNzacOzLiIsICJFbCBwcmltZXIgdGVybWUgKGkgdG90cyBlbHMgYWx0cmVzKSDDqXMgJDEkLCBubyAkMCQ6IHJldmlzYSBsYSBzdWJzdGl0dWNpw7MgYSAkYV9uPWFfMSsobi0xKVxcY2RvdDAkLiIsICIiLCAiTGEgZGlmZXLDqG5jaWEgc8OtIHF1ZSDDqXMgJDAkLCBwZXLDsiBsbGF2b3JzIGVsIHRlcm1lIGdlbmVyYWwgbm8gcG90IGRlcGVuZHJlIGRlICRuJDogJGFfbj1hXzErKG4tMSlcXGNkb3QwPWFfMSQsIHNlbXByZSBlbCBtYXRlaXggdmFsb3IuIl0sICJlcnIiOiBbIkNPTVBBUkFfVEVSTUVTIiwgIlRFUk1FX01BTF9DQUxDVUxBVCIsICIiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiXSwgInJlcyI6IFsiJDEtMT0wJCAoaSBpZ3VhbCBwZXIgYSBsYSByZXN0YSk6IGRpZmVyw6huY2lhIGNvbnN0YW50LCAkZD0wJCIsICIkYV9uPWFfMSsobi0xKWQ9MSsobi0xKVxcY2RvdDA9MSQiXX0="
   },
   {
    "id": "54d",
@@ -720,6 +783,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$16,\\;8,\\;4,\\;2,\\;1,\\dots$",
    "opcions": [
@@ -741,6 +805,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$16,\\;8,\\;0,\\;-8,\\dots$",
    "opcions": [
@@ -762,6 +827,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "aritmetiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula la diferència o la raó de les progressions següents i troba'n el terme general.",
    "enunciat": "$3,\\;9,\\;15,\\;21,\\dots$",
    "opcions": [
@@ -783,6 +849,7 @@ window.FULL = {
    "ap": "",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una progressió geomètrica, $a_1=4$ i $a_2=3$. Busca'n el terme general i $a_{20}$.",
    "enunciat": "Terme general i $a_{20}$ d'una progressió geomètrica amb $a_1=4$ i $a_2=3$",
    "opcions": [
@@ -805,6 +872,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula.",
    "enunciat": "Terme general d'una PG amb $a_1=3$ i $r=5$",
    "opcions": [
@@ -826,6 +894,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula.",
    "enunciat": "Terme que ocupa el lloc $7$ ($a_1=3$, $r=5$)",
    "opcions": [
@@ -847,6 +916,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula.",
    "enunciat": "Termes $a_{10}$ i $a_{11}$ ($a_1=3$, $r=5$)",
    "opcions": [
@@ -868,6 +938,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "geometriques",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$:",
    "enunciat": "Comprova que $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$ és una progressió geomètrica.",
    "opcions": [
@@ -889,6 +960,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$:",
    "enunciat": "Terme $10$ de $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$",
    "opcions": [
@@ -910,6 +982,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$:",
    "enunciat": "Termes $a_{100}$ i $a_{101}$ de $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$",
    "opcions": [
@@ -931,6 +1004,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els termes que falten a les progressions geomètriques següents.",
    "enunciat": "$1;\\;0{,}1;\\;\\square;\\;0{,}001;\\;\\square$",
    "opcions": [
@@ -944,7 +1018,7 @@ window.FULL = {
     "$r=0{,}1$. Multiplica cada terme per $0{,}1$ per obtenir el següent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgcGVyICRyPTB7LH0xJCwgbm8gZGl2aWRpbnQgZW50cmUgJDIkOiAkMHssfTFcXGNkb3Qweyx9MT0weyx9MDEkLCBubyAkXFxkZnJhYzF7MjB9JC4iLCAiRWxzIHRlcm1lcyBxdWUgZmFsdGVuIGhhbiBkZSBzZWd1aXIgZXN0cmljdGFtZW50IGxhIHJhw7MgJHI9MHssfTEkLCBubyBhbmFyIGRpc21pbnVpbnQgdW5hIG1pY2EgY2FkYSB2ZWdhZGEgZGUgbWFuZXJhIGFwcm94aW1hZGEuIiwgIiIsICJFbCBjaW5xdcOoIHRlcm1lIGhhIGRlIGNvbnRpbnVhciBlbCBwYXRyw7MgZGUgZGl2aWRpciBlbnRyZSAkMTAkOiAkMHssfTAwMToxMD0weyx9MDAwMSQsIG5vIHJlcGV0aXIgZWwgdGVyY2VyIHRlcm1lLiJdLCAiZXJyIjogWyJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiIiwgIkNPTVBBUkFfVEVSTUVTIl0sICJyZXMiOiBbIiRyPTB7LH0xOjE9MHssfTEkIiwgIiRhXzM9YV8yXFxjZG90IHI9MHssfTFcXGNkb3Qweyx9MT0weyx9MDEkIiwgIiRhXzU9YV80XFxjZG90IHI9MHssfTAwMVxcY2RvdDB7LH0xPTB7LH0wMDAxJCIsICJFbHMgY2luYyB0ZXJtZXMgc8OzbiAkMSxcXDsweyx9MSxcXDsweyx9MDEsXFw7MHssfTAwMSxcXDsweyx9MDAwMSQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgcGVyICRyPTB7LH0xJCwgbm8gZGl2aWRpbnQgZW50cmUgJDIkOiAkMHssfTFcXGNkb3Qweyx9MT0weyx9MDEkLCBubyAkXFxkZnJhYzF7MjB9JC4iLCAiRWxzIHRlcm1lcyBxdWUgZmFsdGVuIGhhbiBkZSBzZWd1aXIgZXN0cmljdGFtZW50IGxhIHJhw7MgJHI9MHssfTEkLCBubyBhbmFyIGRpc21pbnVpbnQgdW5hIG1pY2EgY2FkYSB2ZWdhZGEgZGUgbWFuZXJhIGFwcm94aW1hZGEuIiwgIiIsICJFbCBjaW5xdcOoIHRlcm1lIGhhIGRlIGNvbnRpbnVhciBlbCBwYXRyw7MgZGUgZGl2aWRpciBlbnRyZSAkMTAkOiAkMHssfTAwMToxMD0weyx9MDAwMSQsIG5vIHJlcGV0aXIgZWwgdGVyY2VyIHRlcm1lLiJdLCAiZXJyIjogWyJSQU9fTUFMX0FQTElDQURBIiwgIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIiIsICJDT01QQVJBX1RFUk1FUyJdLCAicmVzIjogWyIkcj0weyx9MToxPTB7LH0xJCIsICIkYV8zPWFfMlxcY2RvdCByPTB7LH0xXFxjZG90MHssfTE9MHssfTAxJCIsICIkYV81PWFfNFxcY2RvdCByPTB7LH0wMDFcXGNkb3Qweyx9MT0weyx9MDAwMSQiLCAiRWxzIGNpbmMgdGVybWVzIHPDs24gJDEsXFw7MHssfTEsXFw7MHssfTAxLFxcOzB7LH0wMDEsXFw7MHssfTAwMDEkIl19"
   },
   {
    "id": "58b",
@@ -952,6 +1026,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els termes que falten a les progressions geomètriques següents.",
    "enunciat": "$\\square,\\;\\dfrac12,\\;\\dfrac16,\\;\\square,\\;\\dfrac1{54},\\;\\square$",
    "opcions": [
@@ -965,7 +1040,7 @@ window.FULL = {
     "$r=\\dfrac13$. Multiplica per $\\dfrac13$ per avançar; divideix per anar enrere."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBxdWFydCB0ZXJtZSBzJ29idMOpIG11bHRpcGxpY2FudCBlbCB0ZXJjZXIgcGVyICRyPVxcZGZyYWMxMyQ6ICRcXGRmcmFjMTZcXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTh9JCwgbm8gJFxcZGZyYWMxezEyfSQuIiwgIkVsIHNpc8OoIHRlcm1lIHMnb2J0w6kgbXVsdGlwbGljYW50IGVsIGNpbnF1w6ggcGVyICRyPVxcZGZyYWMxMyQ6ICRcXGRmcmFjMXs1NH1cXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTYyfSQsIG5vICRcXGRmcmFjMXsxMDh9JC4iLCAiIiwgIlBlciBhbmFyIGNhcCBlbnJlcmUgKGRlbCBzZWdvbiBhbCBwcmltZXIgdGVybWUpIGNhbCBESVZJRElSIGVudHJlIGxhIHJhw7MsICRcXGRmcmFjMTI6XFxkZnJhYzEzJCwgbm8gbXVsdGlwbGljYXItaGkuIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJDT01QQVJBX1RFUk1FUyIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRyPVxcZGZyYWN7MS82fXsxLzJ9PVxcZGZyYWMxMyQiLCAiJGFfMT1hXzI6cj1cXGRmcmFjMTI6XFxkZnJhYzEzPVxcZGZyYWMzMiQiLCAiJGFfND1hXzNcXGNkb3Qgcj1cXGRmcmFjMTZcXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTh9JCIsICIkYV82PWFfNVxcY2RvdCByPVxcZGZyYWMxezU0fVxcY2RvdFxcZGZyYWMxMz1cXGRmcmFjMXsxNjJ9JCIsICJFbHMgc2lzIHRlcm1lcyBzw7NuICRcXGRmcmFjMzIsXFw7XFxkZnJhYzEyLFxcO1xcZGZyYWMxNixcXDtcXGRmcmFjMXsxOH0sXFw7XFxkZnJhYzF7NTR9LFxcO1xcZGZyYWMxezE2Mn0kIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBxdWFydCB0ZXJtZSBzJ29idMOpIG11bHRpcGxpY2FudCBlbCB0ZXJjZXIgcGVyICRyPVxcZGZyYWMxMyQ6ICRcXGRmcmFjMTZcXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTh9JCwgbm8gJFxcZGZyYWMxezEyfSQuIiwgIkVsIHNpc8OoIHRlcm1lIHMnb2J0w6kgbXVsdGlwbGljYW50IGVsIGNpbnF1w6ggcGVyICRyPVxcZGZyYWMxMyQ6ICRcXGRmcmFjMXs1NH1cXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTYyfSQsIG5vICRcXGRmcmFjMXsxMDh9JC4iLCAiIiwgIlBlciBhbmFyIGNhcCBlbnJlcmUgKGRlbCBzZWdvbiBhbCBwcmltZXIgdGVybWUpIGNhbCBESVZJRElSIGVudHJlIGxhIHJhw7MsICRcXGRmcmFjMTI6XFxkZnJhYzEzJCwgbm8gbXVsdGlwbGljYXItaGkuIl0sICJlcnIiOiBbIlJBT19NQUxfQVBMSUNBREEiLCAiQ09NUEFSQV9URVJNRVMiLCAiIiwgIklOVkVSVElEQSJdLCAicmVzIjogWyIkcj1cXGRmcmFjezEvNn17MS8yfT1cXGRmcmFjMTMkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzEyOlxcZGZyYWMxMz1cXGRmcmFjMzIkIiwgIiRhXzQ9YV8zXFxjZG90IHI9XFxkZnJhYzE2XFxjZG90XFxkZnJhYzEzPVxcZGZyYWMxezE4fSQiLCAiJGFfNj1hXzVcXGNkb3Qgcj1cXGRmcmFjMXs1NH1cXGNkb3RcXGRmcmFjMTM9XFxkZnJhYzF7MTYyfSQiLCAiRWxzIHNpcyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzMyLFxcO1xcZGZyYWMxMixcXDtcXGRmcmFjMTYsXFw7XFxkZnJhYzF7MTh9LFxcO1xcZGZyYWMxezU0fSxcXDtcXGRmcmFjMXsxNjJ9JCJdfQ=="
   },
   {
    "id": "58c",
@@ -973,6 +1048,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "geometriques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els termes que falten a les progressions geomètriques següents.",
    "enunciat": "$\\square,\\;\\dfrac13,\\;\\square,\\;\\dfrac1{12},\\;\\square$",
    "opcions": [
@@ -986,7 +1062,7 @@ window.FULL = {
     "$r^2=\\dfrac{1/12}{1/3}=\\dfrac14\\Rightarrow r=\\dfrac12$ (prenem l'arrel positiva). A partir d'aquí, multiplica o divideix per $\\dfrac12$."
    ],
    "nota": "De $r^2=\\dfrac14$ en surten dues raons possibles, $r=\\dfrac12$ i $r=-\\dfrac12$; es dona la solució amb raó positiva perquè manté el signe dels termes ja coneguts a l'enunciat.",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iICRyXjI9XFxkZnJhYzE0JCBoaSBoYSBkdWVzIHJhb25zIHBvc3NpYmxlcywgJFxcZGZyYWMxMiQgaSAkLVxcZGZyYWMxMiQ7IGVzIGRlbWFuYSBsYSBzb2x1Y2nDsyBhbWIgcmHDsyBwb3NpdGl2YSwgY29oZXJlbnQgYW1iIHF1ZSB0b3RzIGVscyB0ZXJtZXMgY29uZWd1dHMgZGUgbCdlbnVuY2lhdCBqYSBzw7NuIHBvc2l0aXVzLiIsICJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgZWwgc2Vnb24gcGVyICRyPVxcZGZyYWMxMiQ6ICRcXGRmcmFjMTNcXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzE2JCwgbm8gJFxcZGZyYWMxOSQuIiwgIkVudHJlIGVsIHNlZ29uIHRlcm1lICgkXFxkZnJhYzEzJCkgaSBlbCBxdWFydCAoJFxcZGZyYWMxezEyfSQpIGhpIGhhIGV4YWN0YW1lbnQgRE9TIHBhc3NvcyBkZSAkciQsIG5vIHVuLiJdLCAiZXJyIjogWyIiLCAiUEFSSVRBVF9FWFBPTkVOVCIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiREVTUExBQ0FNRU5UX0lOREVYIl0sICJyZXMiOiBbIiRyXjI9XFxkZnJhY3sxLzEyfXsxLzN9PVxcZGZyYWMxNFxcUmlnaHRhcnJvdyByPVxcZGZyYWMxMiQiLCAiJGFfMT1hXzI6cj1cXGRmcmFjMTM6XFxkZnJhYzEyPVxcZGZyYWMyMyQiLCAiJGFfMz1hXzJcXGNkb3Qgcj1cXGRmcmFjMTNcXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzE2JCIsICIkYV81PWFfNFxcY2RvdCByPVxcZGZyYWMxezEyfVxcY2RvdFxcZGZyYWMxMj1cXGRmcmFjMXsyNH0kIiwgIkVscyBjaW5jIHRlcm1lcyBzw7NuICRcXGRmcmFjMjMsXFw7XFxkZnJhYzEzLFxcO1xcZGZyYWMxNixcXDtcXGRmcmFjMXsxMn0sXFw7XFxkZnJhYzF7MjR9JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iICRyXjI9XFxkZnJhYzE0JCBoaSBoYSBkdWVzIHJhb25zIHBvc3NpYmxlcywgJFxcZGZyYWMxMiQgaSAkLVxcZGZyYWMxMiQ7IGVzIGRlbWFuYSBsYSBzb2x1Y2nDsyBhbWIgcmHDsyBwb3NpdGl2YSwgY29oZXJlbnQgYW1iIHF1ZSB0b3RzIGVscyB0ZXJtZXMgY29uZWd1dHMgZGUgbCdlbnVuY2lhdCBqYSBzw7NuIHBvc2l0aXVzLiIsICJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgZWwgc2Vnb24gcGVyICRyPVxcZGZyYWMxMiQ6ICRcXGRmcmFjMTNcXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzE2JCwgbm8gJFxcZGZyYWMxOSQuIiwgIkVudHJlIGVsIHNlZ29uIHRlcm1lICgkXFxkZnJhYzEzJCkgaSBlbCBxdWFydCAoJFxcZGZyYWMxezEyfSQpIGhpIGhhIGV4YWN0YW1lbnQgRE9TIHBhc3NvcyBkZSAkciQsIG5vIHVuLiJdLCAiZXJyIjogWyIiLCAiUEFSSVRBVF9FWFBPTkVOVCIsICJSQU9fTUFMX0FQTElDQURBIiwgIkRFU1BMQUNBTUVOVF9JTkRFWCJdLCAicmVzIjogWyIkcl4yPVxcZGZyYWN7MS8xMn17MS8zfT1cXGRmcmFjMTRcXFJpZ2h0YXJyb3cgcj1cXGRmcmFjMTIkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzEzOlxcZGZyYWMxMj1cXGRmcmFjMjMkIiwgIiRhXzM9YV8yXFxjZG90IHI9XFxkZnJhYzEzXFxjZG90XFxkZnJhYzEyPVxcZGZyYWMxNiQiLCAiJGFfNT1hXzRcXGNkb3Qgcj1cXGRmcmFjMXsxMn1cXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzF7MjR9JCIsICJFbHMgY2luYyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzIzLFxcO1xcZGZyYWMxMyxcXDtcXGRmcmFjMTYsXFw7XFxkZnJhYzF7MTJ9LFxcO1xcZGZyYWMxezI0fSQiXX0="
   },
   {
    "id": "58d",
@@ -994,6 +1070,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "geometriques",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Troba els termes que falten a les progressions geomètriques següents.",
    "enunciat": "$\\square,\\;\\dfrac32,\\;\\square,\\;\\square,\\;\\dfrac{81}4$",
    "opcions": [
@@ -1007,7 +1084,7 @@ window.FULL = {
     "$r^3=\\dfrac{81/4}{3/2}=\\dfrac{27}2$. Aquesta vegada $r$ no surt un nombre senzill: cal deixar-lo com una arrel cúbica."
    ],
    "nota": "A diferència dels altres apartats d'aquest exercici, la raó d'aquesta progressió no és un nombre racional senzill ($r=\\sqrt[3]{27/2}$): és intencionat, per practicar que no totes les progressions geomètriques tenen raons \"boniques\", i que llavors cal deixar els termes expressats en funció de $r$ en lloc de calcular-los numèricament.",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkcl4zPVxcZGZyYWN7Mjd9MiQgw6lzIHVuIHBhcyBpbnRlcm1lZGksIG5vIGxhIHJhw7M6IGNhbCBlbmNhcmEgZXh0cmV1cmUgbCdhcnJlbCBjw7piaWNhLCAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQsIGkgZmVyIHNlcnZpciBhcXVlc3QgdmFsb3IgcGVyIGNvbXBsZXRhciBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4uIiwgIiIsICJBbWIgJHI9MyQgZWwgY2lucXXDqCB0ZXJtZSBkb25hcmlhICRcXGRmcmFjMzJcXGNkb3QzXjM9XFxkZnJhYzMyXFxjZG90Mjc9XFxkZnJhY3s4MX0yJCwgbm8gJFxcZGZyYWN7ODF9NCQgKGVsIHZhbG9yIHJlYWwgZGUgbCdlbnVuY2lhdCk6ICRyPTMkIG5vIGNvbXBsZWl4IGxhIHJlbGFjacOzICRyXjM9XFxkZnJhY3s4MS80fXszLzJ9PVxcZGZyYWN7Mjd9MiQuIiwgIlPDrSBxdWUgZXMgcG90IHJlc29sZHJlOiBsYSByYcOzIMOpcyAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQgKHVuIG5vbWJyZSBpcnJhY2lvbmFsIHBlcsOyIHBlcmZlY3RhbWVudCB2w6BsaWQpLCBpIGVscyB0ZXJtZXMgcXVlIGZhbHRlbiBlcyBwb2RlbiBleHByZXNzYXIgZW4gZnVuY2nDsyBkJ2FxdWVzdCB2YWxvciBkZSAkciQuIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkcl4zPVxcZGZyYWN7ODEvNH17My8yfT1cXGRmcmFjezgxfTRcXGNkb3RcXGRmcmFjMjM9XFxkZnJhY3syN30yXFxSaWdodGFycm93IHI9XFxzcXJ0WzNde1xcZGZyYWN7Mjd9Mn09XFxkZnJhY3szfXtcXHNxcnRbM10yfSQiLCAiQ29tIHF1ZSAkciQgbm8gw6lzIHVuIG5vbWJyZSByYWNpb25hbCBzZW56aWxsLCBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4gZXMgZGVpeGVuIGluZGljYXRzIGVuIGZ1bmNpw7MgZGUgJHIkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzMyOnI9XFxkZnJhYzN7MnJ9JCIsICIkYV8zPWFfMlxcY2RvdCByPVxcZGZyYWMzMlxcLHIkIiwgIiRhXzQ9YV8zXFxjZG90IHI9XFxkZnJhYzMyXFwscl4yJCJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkcl4zPVxcZGZyYWN7Mjd9MiQgw6lzIHVuIHBhcyBpbnRlcm1lZGksIG5vIGxhIHJhw7M6IGNhbCBlbmNhcmEgZXh0cmV1cmUgbCdhcnJlbCBjw7piaWNhLCAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQsIGkgZmVyIHNlcnZpciBhcXVlc3QgdmFsb3IgcGVyIGNvbXBsZXRhciBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4uIiwgIiIsICJBbWIgJHI9MyQgZWwgY2lucXXDqCB0ZXJtZSBkb25hcmlhICRcXGRmcmFjMzJcXGNkb3QzXjM9XFxkZnJhYzMyXFxjZG90Mjc9XFxkZnJhY3s4MX0yJCwgbm8gJFxcZGZyYWN7ODF9NCQgKGVsIHZhbG9yIHJlYWwgZGUgbCdlbnVuY2lhdCk6ICRyPTMkIG5vIGNvbXBsZWl4IGxhIHJlbGFjacOzICRyXjM9XFxkZnJhY3s4MS80fXszLzJ9PVxcZGZyYWN7Mjd9MiQuIiwgIlPDrSBxdWUgZXMgcG90IHJlc29sZHJlOiBsYSByYcOzIMOpcyAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQgKHVuIG5vbWJyZSBpcnJhY2lvbmFsIHBlcsOyIHBlcmZlY3RhbWVudCB2w6BsaWQpLCBpIGVscyB0ZXJtZXMgcXVlIGZhbHRlbiBlcyBwb2RlbiBleHByZXNzYXIgZW4gZnVuY2nDsyBkJ2FxdWVzdCB2YWxvciBkZSAkciQuIl0sICJlcnIiOiBbIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIiIsICJSQU9fTUFMX0FQTElDQURBIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkcl4zPVxcZGZyYWN7ODEvNH17My8yfT1cXGRmcmFjezgxfTRcXGNkb3RcXGRmcmFjMjM9XFxkZnJhY3syN30yXFxSaWdodGFycm93IHI9XFxzcXJ0WzNde1xcZGZyYWN7Mjd9Mn09XFxkZnJhY3szfXtcXHNxcnRbM10yfSQiLCAiQ29tIHF1ZSAkciQgbm8gw6lzIHVuIG5vbWJyZSByYWNpb25hbCBzZW56aWxsLCBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4gZXMgZGVpeGVuIGluZGljYXRzIGVuIGZ1bmNpw7MgZGUgJHIkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzMyOnI9XFxkZnJhYzN7MnJ9JCIsICIkYV8zPWFfMlxcY2RvdCByPVxcZGZyYWMzMlxcLHIkIiwgIiRhXzQ9YV8zXFxjZG90IHI9XFxkZnJhYzMyXFwscl4yJCJdfQ=="
   },
   {
    "id": "59a",
@@ -1015,7 +1092,8 @@ window.FULL = {
    "ap": "a",
    "bloc": "aplicacions",
    "tipus": "B",
-   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general, i per què.",
+   "dif": 3,
+   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general (o si l'afirmació és certa), i per què.",
    "enunciat": "$a_n = 3 + (n-1)\\cdot 3$",
    "opcions": [
     "No, perquè el primer terme hauria de ser $0$, no $3$.",
@@ -1036,7 +1114,8 @@ window.FULL = {
    "ap": "b",
    "bloc": "aplicacions",
    "tipus": "B",
-   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general, i per què.",
+   "dif": 3,
+   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general (o si l'afirmació és certa), i per què.",
    "enunciat": "$a_n = 3\\cdot 3^{\\,n-1}$",
    "opcions": [
     "No, perquè les progressions geomètriques no es poden escriure amb potències.",
@@ -1057,7 +1136,8 @@ window.FULL = {
    "ap": "c",
    "bloc": "aplicacions",
    "tipus": "B",
-   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general, i per què.",
+   "dif": 3,
+   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general (o si l'afirmació és certa), i per què.",
    "enunciat": "$a_n = 3\\cdot 2^{\\,n-1}$",
    "opcions": [
     "No, perquè l'exponent hauria de ser $n$, no $n-1$.",
@@ -1078,8 +1158,9 @@ window.FULL = {
    "ap": "d",
    "bloc": "aplicacions",
    "tipus": "B",
-   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general, i per què.",
-   "enunciat": "No es pot calcular.",
+   "dif": 3,
+   "encapcalament": "Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada expressió n'és o no el terme general (o si l'afirmació és certa), i per què.",
+   "enunciat": "Algú afirma: «d'aquesta successió no se'n pot calcular el terme general». És cert?",
    "opcions": [
     "Cert: calen més de quatre termes per determinar el terme general amb seguretat.",
     "Fals: sí que es pot calcular, perquè la successió té raó constant $r=2$; és una progressió geomètrica amb terme general $a_n=3\\cdot2^{\\,n-1}$.",
@@ -1099,6 +1180,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un terme d'una progressió geomètrica val $3\\,720\\,087$. Si el primer terme és $7$ i la raó és $3$, de quin terme estem parlant?",
    "enunciat": "Terme d'una PG amb $a_1=7$, $r=3$ que val $3\\,720\\,087$",
    "opcions": [
@@ -1120,6 +1202,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Dos termes consecutius d'una progressió geomètrica valen $3$ i $4$. Esbrina quin lloc ocupen si $a_1=\\dfrac{27}{16}$.",
    "enunciat": "Posició de dos termes consecutius que valen $3$ i $4$, sabent que $a_1=\\dfrac{27}{16}$",
    "opcions": [

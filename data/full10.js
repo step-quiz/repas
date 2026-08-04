@@ -31,7 +31,7 @@ window.FULL = {
   },
   {
    "id": "funcions_lineals",
-   "titol": "Funcions lineals",
+   "titol": "Funcions lineals i afins",
    "descripcio": "Pendent i ordenada a l'origen, creixement sense representar, i equació de la recta a partir de dos punts.",
    "items": [
     "207a",
@@ -71,6 +71,22 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "AMPLADA_INVERTIDA": "Com més gran és $|a|$, més ESTRETA és la paràbola, no més ampla: el coeficient estira la corba cap amunt.",
+  "DOMINI_MAL_LLEGIT": "Has decidit sense mirar bé quin és el conjunt de partida. Si una relació és funció o no depèn del domini: canviar-lo pot canviar la resposta, així que el primer que cal fixar és de què parteixes.",
+  "DOMINI_RECORREGUT_INTERCANVIATS": "El domini són els valors de $x$ i el recorregut els de $y$. Els has intercanviat: mira l'eix horitzontal per al domini i el vertical per al recorregut.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "PENDENT_COM_NUL": "Una funció afí només és constant si el pendent és $0$. Si el pendent és qualsevol altre nombre, la funció puja o baixa sempre.",
+  "PENDENT_ORDENADA_INTERCANVIATS": "El pendent és el nombre que MULTIPLICA la $x$; l'ordenada a l'origen és el terme independent, el que va sol. Els has intercanviat.",
+  "POTENCIA_COM_PRODUCTE": "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.",
+  "REPRESENTACIO_INNECESSARIA": "No cal dibuixar la gràfica: el signe del pendent ja diu si la funció creix o decreix, i el de $a$ si la paràbola s'obre amunt o avall.",
+  "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
+  "SIGNE_PENDENT_INVERTIT": "El pendent conserva el signe amb què apareix a l'expressió: no cal canviar-l'hi en llegir-lo.",
+  "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
+  "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "200a",
@@ -78,6 +94,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
    "enunciat": "La mida d'una paret i la quantitat de pintura necessària per pintar-la.",
    "opcions": [
@@ -98,19 +115,21 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
-   "enunciat": "Cada mes de l'any i el seu nombre de dies.",
+   "enunciat": "Cada mes d'un any concret (per exemple, el 2025) i el seu nombre de dies.",
    "opcions": [
-    "Depèn: només és una funció si no hi ha anys de traspàs.",
+    "Depèn: només és una funció si l'any no és de traspàs.",
     "NO és una funció: el febrer no sempre té el mateix nombre de dies (28 o 29, segons l'any), així que un mateix mes té més d'un valor possible.",
-    "SÍ és una funció: cada mes concret té sempre el mateix nombre de dies (els anys de traspàs només afegeixen un dia al febrer d'alguns anys, però per a un mes fixat el nombre de dies és sempre el mateix o varia de manera predictible).",
+    "SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, determinat pel calendari.",
     "NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen 30 tots dos)."
    ],
    "pistes": [
-    "Comprova si algun mes concret podria tenir dos nombres de dies diferents alhora (no d'un any a l'altre, sinó simultàniament)."
+    "Comprova si algun mes d'aquell any podria tenir dos nombres de dies diferents alhora.",
+    "Fixa't en què és exactament el conjunt de partida: els mesos d'un any determinat, no \"els mesos\" en abstracte."
    ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbHMgYW55cyBkZSB0cmFzcMOgcyBubyB0cmVucXVlbiBxdWUgc2lndWkgdW5hIGZ1bmNpw7M6IGZpbnMgaSB0b3QgYW1iIGVsbHMsIGNhZGEgbWVzIHTDqSB1biBub21icmUgZGUgZGllcyBkZXRlcm1pbmF0IHBlciBsYSByZWdsYSBkZWwgY2FsZW5kYXJpLCBtYWkgYW1iaWd1LiIsICJFbmNhcmEgcXVlIGVsIGZlYnJlciB2YXJpw68gc2Vnb25zIGwnYW55LCBwZXIgYSBDQURBIGFueSBjb25jcmV0IGVsIG5vbWJyZSBkZSBkaWVzIGRlIGZlYnJlciDDqXMgdW4gw7puaWMgdmFsb3IgZGV0ZXJtaW5hdCAocGVyIGxhIHJlZ2xhIGRlbHMgYW55cyBkZSB0cmFzcMOgcyk6IG5vIGhpIGhhIGFtYmlnw7xpdGF0IHJlYWwsIGxhIHJlbGFjacOzIHNlZ3VlaXggc2VudCB1bmEgZnVuY2nDsy4iLCAiIiwgIlF1ZSBkb3MgbWVzb3MgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBlbCBtYXRlaXggbm9tYnJlIGRlIGRpZXMgbm8gdHJlbmNhIHF1ZSBzaWd1aSB1bmEgZnVuY2nDszogZWwgcXVlIGNhbCBjb21wcm92YXIgw6lzIHF1ZSB1biBtYXRlaXggbWVzIG5vIHRpbmd1aSBtYWkgZG9zIHZhbG9ycyBkaWZlcmVudHMsIGkgYWl4w7Igc8OtIGVzIGNvbXBsZWl4LiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiQ2FkYSBtZXMgdMOpIHNlbXByZSB1biDDum5pYyBub21icmUgZGUgZGllcyBkZXRlcm1pbmF0OiDDqXMgdW5hIGZ1bmNpw7MuIl19"
+   "nota": "L'enunciat original diu només \"cada mes de l'any\". Aquí s'hi ha afegit \"d'un any concret\" perquè, sense fixar l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) i la relació NO seria una funció: tal com estava, l'exercici no tenia una resposta única.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJUYW50IHNpIGwnYW55IMOpcyBkZSB0cmFzcMOgcyBjb20gc2kgbm8sIHVuIGNvcCBmaXhhdCBsJ2FueSBlbCBmZWJyZXIgdMOpIHVuIG5vbWJyZSBkZSBkaWVzIGkgbm9tw6lzIHVuICgkMjkkIG8gJDI4JCk6IGVuIHRvdHMgZG9zIGNhc29zIGxhIHJlbGFjacOzIMOpcyB1bmEgZnVuY2nDsy4iLCAiQWl4w7Igc2VyaWEgY2VydCBzaSBlbCBjb25qdW50IGRlIHBhcnRpZGEgZm9zc2luIGVscyBkb3R6ZSBtZXNvcyBTRU5TRSBkaXIgZGUgcXVpbiBhbnk6IGxsYXZvcnMgZWwgZmVicmVyIHRpbmRyaWEgZHVlcyBpbWF0Z2VzIHBvc3NpYmxlcyBpIE5PIHNlcmlhIHVuYSBmdW5jacOzLiBQZXLDsiBhcXXDrSBsJ2FueSBlc3TDoCBmaXhhdCwgaSBhbWIgbCdhbnkgZml4YXQgZWwgZmVicmVyIHTDqSB1biDDum5pYyBub21icmUgZGUgZGllcy4iLCAiIiwgIlF1ZSBkb3MgbWVzb3MgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBlbCBtYXRlaXggbm9tYnJlIGRlIGRpZXMgbm8gdHJlbmNhIHF1ZSBzaWd1aSB1bmEgZnVuY2nDszogZWwgcXVlIGNhbCBjb21wcm92YXIgw6lzIHF1ZSB1biBtYXRlaXggbWVzIG5vIHRpbmd1aSBtYWkgZG9zIHZhbG9ycyBhbGhvcmEsIGkgYWl4w7IgZXMgY29tcGxlaXguIl0sICJlcnIiOiBbIkRPTUlOSV9NQUxfTExFR0lUIiwgIkRPTUlOSV9NQUxfTExFR0lUIiwgIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiRml4YXQgbCdhbnksIGNhZGEgbWVzIHTDqSB1biDDum5pYyBub21icmUgZGUgZGllczogw6lzIHVuYSBmdW5jacOzLiIsICJDb21wdGUgYW1iIGVsIGNvbmp1bnQgZGUgcGFydGlkYTogc2kgZm9zc2luIFwiZWxzIG1lc29zXCIgc2Vuc2UgY29uY3JldGFyIGwnYW55LCBlbCBmZWJyZXIgdGluZHJpYSBkdWVzIGltYXRnZXMgKCQyOCQgaSAkMjkkKSBpIGxhIHJlbGFjacOzIE5PIHNlcmlhIHVuYSBmdW5jacOzLiBRdWluYSDDqXMgbGEgcmVzcG9zdGEgZGVww6huIGRlIGNvbSBlcyBkZWZpbmVpeCBlbCBkb21pbmkuIl19"
   },
   {
    "id": "200c",
@@ -118,6 +137,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
    "enunciat": "El radi d'una circumferència i la longitud del seu perímetre.",
    "opcions": [
@@ -138,6 +158,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=5x^2-1$",
    "opcions": [
@@ -158,6 +179,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=2x^2-x$",
    "opcions": [
@@ -178,6 +200,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=x^2-x-1$",
    "opcions": [
@@ -198,6 +221,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=-x^2+1$",
    "opcions": [
@@ -218,6 +242,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=x^3-1$",
    "opcions": [
@@ -238,6 +263,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\dfrac{1}{x^2+2}$",
    "opcions": [
@@ -258,6 +284,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\sqrt{\\dfrac{x}{2}+5}$",
    "opcions": [
@@ -269,7 +296,7 @@ window.FULL = {
    "pistes": [
     "Calcula primer el que hi ha dins l'arrel ($\\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora."
    ],
-   "nota": "Les imatges no són exactes: s'han arrodonit a les centèsimes, igual que fa el solucionari original.",
+   "nota": "Les imatges no són exactes: s'han arrodonit a les centèsimes, com demana l'encapçalament de l'exercici.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2FycmVsIHF1YWRyYWRhIGQndW4gbm9tYnJlIHBvc2l0aXUgw6lzIHNlbXByZSBwb3NpdGl2YS4iLCAiUydoYSBlbGV2YXQgYWwgcXVhZHJhdCBlbiBsbG9jIGRlIGZlciBsJ2FycmVsOiBwZXIgZGVzZmVyIHVuYSBhcnJlbCBlcyBjYWxjdWxhIGwnYXJyZWwsIG5vIGVsIHF1YWRyYXQuIiwgIiIsICJGYWx0YSBkaXZpZGlyIGxhICR4JCBlbnRyZSAkMiQgYWJhbnMgZGUgc3VtYXIgJDUkOiBkaW5zIGRlIGwnYXJyZWwgaGkgaGEgJFxcZGZyYWN7eH17Mn0rNSQsIG5vICR4KzUkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJPUEVSQUNJT19JTlZFUlNBIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIlBlciBhIGNhZGEgdmFsb3IsIGNhbGN1bGEgJFxcZGZyYWN7eH17Mn0rNSQgaSBmZXMtbmUgbCdhcnJlbCBxdWFkcmFkYSwgYXJyb2RvbmludCBhIGxlcyBjZW50w6hzaW1lcy4iLCAiJGYoLTIpPVxcc3FydHs0fT0yeyx9MDAkLCAkZigtMSk9XFxzcXJ0ezR7LH01fVxcYXBwcm94IDJ7LH0xMiQsICRmKDApPVxcc3FydHs1fVxcYXBwcm94IDJ7LH0yNCQsICRmKDEpPVxcc3FydHs1eyx9NX1cXGFwcHJveCAyeyx9MzUkLCAkZigyKT1cXHNxcnR7Nn1cXGFwcHJveCAyeyx9NDUkLiJdfQ=="
   },
   {
@@ -278,6 +305,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\dfrac{x^2}{3}-2x+\\dfrac{3}{5}$",
    "opcions": [
@@ -298,6 +326,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica formada per dues branques de corba que s'apropen sense arribar mai a la recta vertical $x=2$ ni a la recta horitzontal $y=0$.",
    "opcions": [
@@ -318,6 +347,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems inclosos), i que oscil·la entre una alçada mínima de $-2$ i una màxima de $3$.",
    "opcions": [
@@ -338,6 +368,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense límit, amb un punt més baix a alçada $-1$ i que a partir d'aquí puja indefinidament cap als dos costats.",
    "opcions": [
@@ -358,6 +389,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que només existeix per a valors de $x$ fins a $5$ (inclòs, cap a l'esquerra sense límit), i que en alçada s'estén indefinidament tant cap amunt com cap avall.",
    "opcions": [
@@ -378,6 +410,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una recta que travessa tot el pla, pujant sempre de manera constant, sense cap tram pla ni cap màxim o mínim.",
    "opcions": [
@@ -398,6 +431,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una paràbola oberta cap amunt, amb el punt més baix al $(1,-3)$, que baixa fins a aquest punt i després torna a pujar, estenent-se sense límit cap als dos costats.",
    "opcions": [
@@ -418,6 +452,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que puja fins a un punt més alt en $(0,2)$, després baixa fins a un punt més baix en $(3,-1)$, i a partir d'aquí torna a pujar indefinidament.",
    "opcions": [
@@ -438,7 +473,8 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció lineal, donada per la seva expressió.",
+   "dif": 1,
+   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-3x+6$",
    "opcions": [
     "$m=-3,\\ n=-6$",
@@ -458,7 +494,8 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció lineal, donada per la seva expressió.",
+   "dif": 1,
+   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=10x$",
    "opcions": [
     "$m=10,\\ n=1$",
@@ -478,7 +515,8 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció lineal, donada per la seva expressió.",
+   "dif": 1,
+   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-2x-5$",
    "opcions": [
     "$m=-2,\\ n=-5$",
@@ -498,7 +536,8 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció lineal, donada per la seva expressió.",
+   "dif": 1,
+   "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-9x$",
    "opcions": [
     "$m=-9,\\ n=1$",
@@ -518,7 +557,8 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=12x-1$",
    "opcions": [
     "No es pot saber sense representar-la",
@@ -530,7 +570,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50ICQxMiQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgbGluZWFsIG5vbcOpcyDDqXMgY29uc3RhbnQgcXVhbiBlbCBwZW5kZW50IMOpcyBudWwsIGkgYXF1w60gbm8gaG8gw6lzLiIsICIiLCAiRWwgcGVuZGVudCDDqXMgJDEyJCAocG9zaXRpdSk6IGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LCBubyBkZWNyZWl4ZW50LiJdLCAiZXJyIjogWyJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSIsICJQRU5ERU5UX0NPTV9OVUwiLCAiIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiRWwgcGVuZGVudCBkZSAkeT0xMngtMSQgw6lzICRtPTEyJC4iLCAiQ29tIHF1ZSAkbSQgw6lzIHBvc2l0aXUsIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LiJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50ICQxMiQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iLCAiIiwgIkVsIHBlbmRlbnQgw6lzICQxMiQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iXSwgImVyciI6IFsiUkVQUkVTRU5UQUNJT19JTk5FQ0VTU0FSSUEiLCAiUEVOREVOVF9DT01fTlVMIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9MTJ4LTEkIMOpcyAkbT0xMiQuIiwgIkNvbSBxdWUgJG0kIMOpcyBwb3NpdGl1LCBsYSBmdW5jacOzIMOpcyBjcmVpeGVudC4iXX0="
   },
   {
    "id": "208b",
@@ -538,8 +578,9 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
-   "enunciat": "$y=x/6+3$",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
+   "enunciat": "$y=\\dfrac{x}{6}+3$",
    "opcions": [
     "No es pot saber sense representar-la",
     "Decreixent",
@@ -550,7 +591,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50IMOpcyAkXFxkZnJhY3sxfXs2fSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iLCAiIiwgIkVsIHBlbmRlbnQgJFxcZGZyYWN7MX17Nn0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGxpbmVhbCBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iXSwgImVyciI6IFsiUkVQUkVTRU5UQUNJT19JTk5FQ0VTU0FSSUEiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICIiLCAiUEVOREVOVF9DT01fTlVMIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9eC82KzMkIMOpcyAkbT1cXGRmcmFjezF9ezZ9JC4iLCAiQ29tIHF1ZSAkbSQgw6lzIHBvc2l0aXUsIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LiJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50IMOpcyAkXFxkZnJhY3sxfXs2fSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iLCAiIiwgIkVsIHBlbmRlbnQgJFxcZGZyYWN7MX17Nn0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGFmw60gbm9tw6lzIMOpcyBjb25zdGFudCBxdWFuIGVsIHBlbmRlbnQgw6lzIG51bCwgaSBhcXXDrSBubyBobyDDqXMuIl0sICJlcnIiOiBbIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiIiwgIlBFTkRFTlRfQ09NX05VTCJdLCAicmVzIjogWyJFbCBwZW5kZW50IGRlICR5PVxcZGZyYWN7eH17Nn0rMyQgw6lzICRtPVxcZGZyYWN7MX17Nn0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
   },
   {
    "id": "208c",
@@ -558,8 +599,9 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
-   "enunciat": "$y=x/4-2$",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
+   "enunciat": "$y=\\dfrac{x}{4}-2$",
    "opcions": [
     "Constant",
     "Creixent",
@@ -570,7 +612,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezF9ezR9JCBubyDDqXMgJDAkOiB1bmEgZnVuY2nDsyBsaW5lYWwgbm9tw6lzIMOpcyBjb25zdGFudCBxdWFuIGVsIHBlbmRlbnQgw6lzIG51bCwgaSBhcXXDrSBubyBobyDDqXMuIiwgIiIsICJFbCBwZW5kZW50IMOpcyAkXFxkZnJhY3sxfXs0fSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iLCAiRWwgc2lnbmUgZGVsIHBlbmRlbnQgamEgZGV0ZXJtaW5hIHNpIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50IG8gZGVjcmVpeGVudCwgc2Vuc2UgbmVjZXNzaXRhdCBkZSByZXByZXNlbnRhci1sYS4iXSwgImVyciI6IFsiUEVOREVOVF9DT01fTlVMIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9eC80LTIkIMOpcyAkbT1cXGRmcmFjezF9ezR9JC4iLCAiQ29tIHF1ZSAkbSQgw6lzIHBvc2l0aXUsIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LiJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezF9ezR9JCBubyDDqXMgJDAkOiB1bmEgZnVuY2nDsyBhZsOtIG5vbcOpcyDDqXMgY29uc3RhbnQgcXVhbiBlbCBwZW5kZW50IMOpcyBudWwsIGkgYXF1w60gbm8gaG8gw6lzLiIsICIiLCAiRWwgcGVuZGVudCDDqXMgJFxcZGZyYWN7MX17NH0kIChwb3NpdGl1KTogbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQsIG5vIGRlY3JlaXhlbnQuIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIl0sICJlcnIiOiBbIlBFTkRFTlRfQ09NX05VTCIsICIiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSJdLCAicmVzIjogWyJFbCBwZW5kZW50IGRlICR5PVxcZGZyYWN7eH17NH0tMiQgw6lzICRtPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
   },
   {
    "id": "208d",
@@ -578,7 +620,8 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=-7x+5$",
    "opcions": [
     "Creixent",
@@ -590,7 +633,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyAkLTckIChuZWdhdGl1KTogbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudCwgbm8gY3JlaXhlbnQuIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIiIsICJFbCBwZW5kZW50ICQtNyQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgbGluZWFsIG5vbcOpcyDDqXMgY29uc3RhbnQgcXVhbiBlbCBwZW5kZW50IMOpcyBudWwsIGkgYXF1w60gbm8gaG8gw6lzLiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIiIsICJQRU5ERU5UX0NPTV9OVUwiXSwgInJlcyI6IFsiRWwgcGVuZGVudCBkZSAkeT0tN3grNSQgw6lzICRtPS03JC4iLCAiQ29tIHF1ZSAkbSQgw6lzIG5lZ2F0aXUsIGxhIGZ1bmNpw7Mgw6lzIGRlY3JlaXhlbnQuIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyAkLTckIChuZWdhdGl1KTogbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudCwgbm8gY3JlaXhlbnQuIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIiIsICJFbCBwZW5kZW50ICQtNyQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iXSwgImVyciI6IFsiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSIsICIiLCAiUEVOREVOVF9DT01fTlVMIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9LTd4KzUkIMOpcyAkbT0tNyQuIiwgIkNvbSBxdWUgJG0kIMOpcyBuZWdhdGl1LCBsYSBmdW5jacOzIMOpcyBkZWNyZWl4ZW50LiJdfQ=="
   },
   {
    "id": "208e",
@@ -598,8 +641,9 @@ window.FULL = {
    "ap": "e",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
-   "enunciat": "$y=-12x/5+1$",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
+   "enunciat": "$y=-\\dfrac{12x}{5}+1$",
    "opcions": [
     "Constant",
     "Decreixent",
@@ -610,7 +654,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtXFxkZnJhY3sxMn17NX0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGxpbmVhbCBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iLCAiIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIkVsIHBlbmRlbnQgw6lzICQtXFxkZnJhY3sxMn17NX0kIChuZWdhdGl1KTogbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudCwgbm8gY3JlaXhlbnQuIl0sICJlcnIiOiBbIlBFTkRFTlRfQ09NX05VTCIsICIiLCAiUkVQUkVTRU5UQUNJT19JTk5FQ0VTU0FSSUEiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCJdLCAicmVzIjogWyJFbCBwZW5kZW50IGRlICR5PS0xMngvNSsxJCDDqXMgJG09LVxcZGZyYWN7MTJ9ezV9JC4iLCAiQ29tIHF1ZSAkbSQgw6lzIG5lZ2F0aXUsIGxhIGZ1bmNpw7Mgw6lzIGRlY3JlaXhlbnQuIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtXFxkZnJhY3sxMn17NX0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGFmw60gbm9tw6lzIMOpcyBjb25zdGFudCBxdWFuIGVsIHBlbmRlbnQgw6lzIG51bCwgaSBhcXXDrSBubyBobyDDqXMuIiwgIiIsICJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50IMOpcyAkLVxcZGZyYWN7MTJ9ezV9JCAobmVnYXRpdSk6IGxhIGZ1bmNpw7Mgw6lzIGRlY3JlaXhlbnQsIG5vIGNyZWl4ZW50LiJdLCAiZXJyIjogWyJQRU5ERU5UX0NPTV9OVUwiLCAiIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiRWwgcGVuZGVudCBkZSAkeT0tXFxkZnJhY3sxMnh9ezV9KzEkIMOpcyAkbT0tXFxkZnJhY3sxMn17NX0kLiIsICJDb20gcXVlICRtJCDDqXMgbmVnYXRpdSwgbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudC4iXX0="
   },
   {
    "id": "208f",
@@ -618,8 +662,9 @@ window.FULL = {
    "ap": "f",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Indica, sense representar-la, si la funció lineal és creixent o decreixent.",
-   "enunciat": "$y=7x/10$",
+   "dif": 1,
+   "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
+   "enunciat": "$y=\\dfrac{7x}{10}$",
    "opcions": [
     "Constant",
     "Creixent",
@@ -630,7 +675,7 @@ window.FULL = {
     "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezd9ezEwfSQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgbGluZWFsIG5vbcOpcyDDqXMgY29uc3RhbnQgcXVhbiBlbCBwZW5kZW50IMOpcyBudWwsIGkgYXF1w60gbm8gaG8gw6lzLiIsICIiLCAiRWwgc2lnbmUgZGVsIHBlbmRlbnQgamEgZGV0ZXJtaW5hIHNpIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50IG8gZGVjcmVpeGVudCwgc2Vuc2UgbmVjZXNzaXRhdCBkZSByZXByZXNlbnRhci1sYS4iLCAiRWwgcGVuZGVudCDDqXMgJFxcZGZyYWN7N317MTB9JCAocG9zaXRpdSk6IGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LCBubyBkZWNyZWl4ZW50LiJdLCAiZXJyIjogWyJQRU5ERU5UX0NPTV9OVUwiLCAiIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiRWwgcGVuZGVudCBkZSAkeT03eC8xMCQgw6lzICRtPVxcZGZyYWN7N317MTB9JC4iLCAiQ29tIHF1ZSAkbSQgw6lzIHBvc2l0aXUsIGxhIGZ1bmNpw7Mgw6lzIGNyZWl4ZW50LiJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezd9ezEwfSQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iLCAiIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIkVsIHBlbmRlbnQgw6lzICRcXGRmcmFjezd9ezEwfSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iXSwgImVyciI6IFsiUEVOREVOVF9DT01fTlVMIiwgIiIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9XFxkZnJhY3s3eH17MTB9JCDDqXMgJG09XFxkZnJhY3s3fXsxMH0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
   },
   {
    "id": "209a",
@@ -638,7 +683,8 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Calcula l'expressió algebraica de la funció lineal que passa pels dos punts donats.",
+   "dif": 2,
+   "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ -1)$ i $(1,\\ 1)$.",
    "opcions": [
     "$y=-x+2$",
@@ -658,7 +704,8 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Calcula l'expressió algebraica de la funció lineal que passa pels dos punts donats.",
+   "dif": 2,
+   "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ 1)$ i $(1,\\ 3)$.",
    "opcions": [
     "$y=2x+1$",
@@ -678,7 +725,8 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Calcula l'expressió algebraica de la funció lineal que passa pels dos punts donats.",
+   "dif": 2,
+   "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ 1)$ i $(2,\\ 2)$.",
    "opcions": [
     "$y=\\dfrac{1}{2}x+2$",
@@ -698,7 +746,8 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "encapcalament": "Calcula l'expressió algebraica de la funció lineal que passa pels dos punts donats.",
+   "dif": 2,
+   "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ -1)$ i $(1,\\ -3)$.",
    "opcions": [
     "$y=-x-2$",
@@ -718,6 +767,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
    "enunciat": "$y=2x^2$",
    "opcions": [
@@ -738,8 +788,9 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=x^2/2$",
+   "enunciat": "$y=\\dfrac{x^2}{2}$",
    "opcions": [
     "Oberta cap amunt i més ampla que $y=x^2$.",
     "Oberta cap avall i més estreta que $y=x^2$.",
@@ -750,7 +801,7 @@ window.FULL = {
     "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVGFudCBsJ29iZXJ0dXJhIGNvbSBsJ2FtcGxhZGEgZXN0YW4gaW52ZXJ0aWRlcyByZXNwZWN0ZSBhICRhPVxcZGZyYWN7MX17Mn0kLiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17Mn0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PXheMi8yJCwgJGE9XFxkZnJhY3sxfXsyfSQuIiwgIkNvbSBxdWUgJGEkIMOpcyBwb3NpdGl1LCBsYSBwYXLDoGJvbGEgw6lzIG9iZXJ0YSBjYXAgYW11bnQuIiwgIkNvbSBxdWUgJHxhfD1cXGRmcmFjezF9ezJ9JCDDqXMgbcOpcyBwZXRpdCBxdWUgJDEkLCBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgYW1wbGEgcXVlICR5PXheMiQuIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVGFudCBsJ29iZXJ0dXJhIGNvbSBsJ2FtcGxhZGEgZXN0YW4gaW52ZXJ0aWRlcyByZXNwZWN0ZSBhICRhPVxcZGZyYWN7MX17Mn0kLiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17Mn0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXsyfSQsICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXsyfSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
   },
   {
    "id": "212c",
@@ -758,6 +809,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
    "enunciat": "$y=-2x^2$",
    "opcions": [
@@ -778,8 +830,9 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=x^2/4$",
+   "enunciat": "$y=\\dfrac{x^2}{4}$",
    "opcions": [
     "Oberta cap avall i més estreta que $y=x^2$.",
     "Oberta cap amunt i més ampla que $y=x^2$.",
@@ -790,7 +843,7 @@ window.FULL = {
     "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17NH0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiT0JFUlRVUkFfSV9BTVBMQURBX0lOVkVSVElERVMiLCAiIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PXheMi80JCwgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIkNvbSBxdWUgJGEkIMOpcyBwb3NpdGl1LCBsYSBwYXLDoGJvbGEgw6lzIG9iZXJ0YSBjYXAgYW11bnQuIiwgIkNvbSBxdWUgJHxhfD1cXGRmcmFjezF9ezR9JCDDqXMgbcOpcyBwZXRpdCBxdWUgJDEkLCBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgYW1wbGEgcXVlICR5PXheMiQuIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17NH0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiT0JFUlRVUkFfSV9BTVBMQURBX0lOVkVSVElERVMiLCAiIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXs0fSQsICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXs0fSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
   },
   {
    "id": "214a",
@@ -798,6 +851,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
    "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ -1)$.",
    "opcions": [
@@ -818,6 +872,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
    "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ 2)$.",
    "opcions": [
@@ -838,6 +893,7 @@ window.FULL = {
    "ap": "",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Calcula l'expressió algebraica de la paràbola.",
    "enunciat": "Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que passa pel punt $(1,2)$.",
    "opcions": [
@@ -858,6 +914,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
    "enunciat": "$y=-x^2-3x$",
    "opcions": [
@@ -878,6 +935,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
    "enunciat": "$y=x^2-\\dfrac23x$",
    "opcions": [
@@ -898,6 +956,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
    "enunciat": "$y=\\dfrac32x^2-x$",
    "opcions": [
@@ -918,6 +977,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_quadratiques",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
    "enunciat": "$y=x^2+2x$",
    "opcions": [
@@ -938,6 +998,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_quadratiques",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
    "enunciat": "$y=x^2-3x^2+4$",
    "opcions": [
@@ -958,6 +1019,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_quadratiques",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
    "enunciat": "$y=-x-3$",
    "opcions": [
@@ -970,7 +1032,7 @@ window.FULL = {
     "Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtMSQgw6lzIG5lZ2F0aXU6IGxhIHJlY3RhIMOpcyBkZWNyZWl4ZW50LCBubyBjcmVpeGVudC4iLCAiIiwgIkVsIHRlcm1lIGluZGVwZW5kZW50IGRlICQteC0zJCDDqXMgJC0zJCAobmVnYXRpdSksIG5vICQzJDogbGEgcmVjdGEgdGFsbGEgbCdlaXggJFkkIGVuICQoMCwtMykkLiIsICJTaSBlbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkMCQsIGwnZXhwcmVzc2nDsyBkZWl4YSBkZSBzZXIgdW5hIHBhcsOgYm9sYTogc2Vuc2UgdGVybWUgZW4gJHheMiQsIMOpcyB1bmEgcmVjdGEgKGZ1bmNpw7MgbGluZWFsKSwgbm8gdW5hIHBhcsOgYm9sYSBleHRyZW1hbWVudCBvYmVydGEuIl0sICJlcnIiOiBbIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiIiwgIlNJR05FX09SREVOQURBX0lOVkVSVElUIiwgIlBBUkFCT0xBX0FNQl9BX1pFUk8iXSwgInJlcyI6IFsiJHk9LXgtMyQgbm8gdMOpIHRlcm1lIGVuICR4XjIkOiDDqXMgdW5hIGZ1bmNpw7MgbGluZWFsIChyZWN0YSksIG5vIHVuYSBwYXLDoGJvbGEuIiwgIkVsIHBlbmRlbnQgw6lzICQtMSQgKG5lZ2F0aXUsIHBlciB0YW50IGRlY3JlaXhlbnQpIGkgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyAkLTMkLiJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtMSQgw6lzIG5lZ2F0aXU6IGxhIHJlY3RhIMOpcyBkZWNyZWl4ZW50LCBubyBjcmVpeGVudC4iLCAiIiwgIkVsIHRlcm1lIGluZGVwZW5kZW50IGRlICQteC0zJCDDqXMgJC0zJCAobmVnYXRpdSksIG5vICQzJDogbGEgcmVjdGEgdGFsbGEgbCdlaXggJFkkIGVuICQoMCwtMykkLiIsICJTaSBlbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkMCQsIGwnZXhwcmVzc2nDsyBkZWl4YSBkZSBzZXIgdW5hIHBhcsOgYm9sYTogc2Vuc2UgdGVybWUgZW4gJHheMiQsIMOpcyB1bmEgcmVjdGEgKGZ1bmNpw7MgYWbDrSksIG5vIHVuYSBwYXLDoGJvbGEgZXh0cmVtYW1lbnQgb2JlcnRhLiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIiIsICJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQQVJBQk9MQV9BTUJfQV9aRVJPIl0sICJyZXMiOiBbIiR5PS14LTMkIG5vIHTDqSB0ZXJtZSBlbiAkeF4yJDogw6lzIHVuYSBmdW5jacOzIGFmw60gKHJlY3RhKSwgbm8gdW5hIHBhcsOgYm9sYS4iLCAiRWwgcGVuZGVudCDDqXMgJC0xJCAobmVnYXRpdSwgcGVyIHRhbnQgZGVjcmVpeGVudCkgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQtMyQuIl19"
   }
  ]
 };

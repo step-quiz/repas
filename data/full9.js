@@ -76,6 +76,24 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "ARREL_MAL_APLICADA": "L'arrel no s'ha aplicat on tocava. Aïlla primer la quantitat que va sota l'arrel i fes-la al final, sobre el valor ja aïllat.",
+  "ARREL_OBLIDADA": "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.",
+  "ARRODONIMENT_CONTEXT": "El resultat exacte és aquest, però el context demana un nombre enter. Pensa si cal arrodonir cap amunt (pots de pintura, autocars, caixes) o cap avall (quantes peces senceres en surten).",
+  "DIMENSIO_EXPONENT_MAL": "L'exponent no correspon a la dimensió: les àrees van al quadrat i els volums, al cub. Comprova també les unitats del resultat.",
+  "DIVISIO_REPETIDA": "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula ja porta la divisió incorporada i se li torna a aplicar al final: escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
+  "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
+  "FACTOR_TRES_VOLUM": "El terç del volum va només amb piràmides i cons. Prismes, cilindres i cubs són base per altura, sense dividir.",
+  "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "PI_OBLIDAT": "Falta $\\pi$: qualsevol longitud, àrea o volum que surti d'un cercle en porta. La circumferència és $2\\pi r$ i el cercle, $\\pi r^2$.",
+  "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
+  "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
+  "SUMA_DE_PARTS_INCOMPLETA": "L'àrea total d'un cos és la suma de TOTES les seves cares. Has calculat bé una part (la base, o la lateral) però encara falta sumar-hi l'altra.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau."
+ },
  "items": [
   {
    "id": "170a",
@@ -83,8 +101,9 @@ window.FULL = {
    "ap": "a",
    "bloc": "prismes",
    "tipus": "A",
-   "encapcalament": "Calcula l'àrea total d'aquests prismes rectes.",
-   "enunciat": "Calcula l'àrea total d'aquests prismes rectes.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un ortoedre (prisma recte de base rectangular) d'arestes $7$ cm, $2$ cm i $4$ cm.",
    "opcions": [
     "$50$ cm$^2$",
     "$56$ cm$^2$",
@@ -104,8 +123,9 @@ window.FULL = {
    "ap": "b",
    "bloc": "prismes",
    "tipus": "A",
-   "encapcalament": "Calcula l'àrea total d'aquests prismes rectes.",
-   "enunciat": "Calcula l'àrea total d'aquests prismes rectes.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base triangular equilàtera de $5$ cm de costat i $9$ cm d'altura.",
    "opcions": [
     "$\\approx67{,}5$ cm$^2$",
     "$\\approx175{,}95$ cm$^2$",
@@ -117,7 +137,7 @@ window.FULL = {
     "El perímetre de la base és $3\\cdot5=15$ cm; l'àrea lateral és $15\\cdot9=135$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJQUk9EVUNURV9NQUwiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s1XjJcXHNxcnQzfXs0fVxcYXBwcm94MTB7LH04MyQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTE1XFxjZG90OT0xMzUkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDEweyx9ODMrMTM1XFxhcHByb3gxNTZ7LH02NSQgY20kXjIkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ=="
   },
   {
    "id": "170c",
@@ -125,8 +145,9 @@ window.FULL = {
    "ap": "c",
    "bloc": "prismes",
    "tipus": "A",
-   "encapcalament": "Calcula l'àrea total d'aquests prismes rectes.",
-   "enunciat": "Calcula l'àrea total d'aquests prismes rectes.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
    "opcions": [
     "$374{,}4$ cm$^2$",
     "$288$ cm$^2$",
@@ -146,8 +167,9 @@ window.FULL = {
    "ap": "d",
    "bloc": "prismes",
    "tipus": "A",
-   "encapcalament": "Calcula l'àrea total d'aquests prismes rectes.",
-   "enunciat": "Calcula l'àrea total d'aquests prismes rectes.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base pentagonal regular de $5$ cm de costat i $3{,}44$ cm d'apotema, amb $12$ cm d'altura.",
    "opcions": [
     "$300$ cm$^2$",
     "$343$ cm$^2$",
@@ -167,8 +189,9 @@ window.FULL = {
    "ap": "e",
    "bloc": "prismes",
    "tipus": "A",
-   "encapcalament": "Calcula l'àrea total d'aquests prismes rectes.",
-   "enunciat": "Calcula l'àrea total d'aquests prismes rectes.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de $5$ cm d'altura amb la base en forma de triangle rectangle de catets $6$ cm i $8$ cm.",
    "opcions": [
     "$168$ cm$^2$",
     "$158$ cm$^2$",
@@ -188,6 +211,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma recte de base triangular equilàtera de costat $2$ cm i altura $3$ cm.",
    "opcions": [
@@ -209,6 +233,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma hexagonal regular de costat $8$ cm i altura $10$ cm.",
    "opcions": [
@@ -230,6 +255,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma hexagonal regular de costat $6$ cm i altura $10$ cm.",
    "opcions": [
@@ -251,6 +277,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea total d'un cub és $24$ cm$^2$. Calcula la longitud de la seva diagonal.",
    "opcions": [
@@ -264,7 +291,7 @@ window.FULL = {
     "La diagonal del cub és $d=L\\sqrt3$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBkaWFnb25hbCBkJ3VuYSBDQVJBIGRlbCBjdWIgKCRMXFxzcXJ0MiQpLCBubyBsYSBkaWFnb25hbCBkZWwgY3ViIHNlbmNlciwgcXVlIHRyYXZlc3NhIGwnaW50ZXJpb3IgaSDDqXMgbcOpcyBsbGFyZ2E6ICRkPUxcXHNxcnQzJC4iLCAiIiwgIkFxdWVzdGEgw6lzIGwnYXJlc3RhIGRlbCBjdWIsIG5vIGxhIGRpYWdvbmFsOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICRcXHNxcnQzJC4iLCAiU2VtYmxhIHF1ZSBoYXMgY29uZsOzcyBsYSBkaWFnb25hbCBkZWwgY3ViIGFtYiBsJ2FyZXN0YSBkZSBjYXJhIGFsIHF1YWRyYXQsIG8gaGFzIGZldCB1bmEgYXJyZWwgbWFsYW1lbnQ6IGNvbXByb3ZhIHByaW1lciAkTD1cXHNxcnR7MjQ6Nn09MiQgY20gaSBkZXNwcsOpcyBhcGxpY2EgJGQ9TFxcc3FydDMkLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiQVJSRUxfTUFMX0FQTElDQURBIl0sICJyZXMiOiBbIiRMPVxcc3FydHsyNDo2fT1cXHNxcnQ0PTIkIGNtIiwgIiRkPUxcXHNxcnQzPTJcXHNxcnQzXFxhcHByb3gzeyx9NDYkIGNtIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBkaWFnb25hbCBkJ3VuYSBDQVJBIGRlbCBjdWIgKCRMXFxzcXJ0MiQpLCBubyBsYSBkaWFnb25hbCBkZWwgY3ViIHNlbmNlciwgcXVlIHRyYXZlc3NhIGwnaW50ZXJpb3IgaSDDqXMgbcOpcyBsbGFyZ2E6ICRkPUxcXHNxcnQzJC4iLCAiIiwgIkFxdWVzdGEgw6lzIGwnYXJlc3RhIGRlbCBjdWIsIG5vIGxhIGRpYWdvbmFsOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICRcXHNxcnQzJC4iLCAiU2VtYmxhIHF1ZSBoYXMgY29uZsOzcyBsYSBkaWFnb25hbCBkZWwgY3ViIGFtYiBsJ2FyZXN0YSBkZSBjYXJhIGFsIHF1YWRyYXQsIG8gaGFzIGZldCB1bmEgYXJyZWwgbWFsYW1lbnQ6IGNvbXByb3ZhIHByaW1lciAkTD1cXHNxcnR7MjQ6Nn09MiQgY20gaSBkZXNwcsOpcyBhcGxpY2EgJGQ9TFxcc3FydDMkLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiXSwgInJlcyI6IFsiJEw9XFxzcXJ0ezI0OjZ9PVxcc3FydDQ9MiQgY20iLCAiJGQ9TFxcc3FydDM9Mlxcc3FydDNcXGFwcHJveDN7LH00NiQgY20iXX0="
   },
   {
    "id": "175",
@@ -272,6 +299,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la seva diagonal.",
    "opcions": [
@@ -285,7 +313,7 @@ window.FULL = {
     "Diagonal: $d=L\\sqrt3$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBkaWFnb25hbCBkJ3VuYSBDQVJBIGRlbCBjdWIgKCRMXFxzcXJ0MiQpLCBubyBsYSBkaWFnb25hbCBkZWwgY3ViIHNlbmNlcjogY2FsICRkPUxcXHNxcnQzJC4iLCAiIiwgIk5vIGhhcyBmZXQgbCdhcnJlbCBxdWFkcmFkYSBkZSAkMTUwOjY9MjUkOiBsJ2FyZXN0YSDDqXMgJEw9XFxzcXJ0ezI1fT01JCBtLCBubyAkMjUkIG0uIiwgIkFxdWVzdGEgw6lzIGwnYXJlc3RhIGRlbCBjdWIsIG5vIGxhIGRpYWdvbmFsOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICRcXHNxcnQzJC4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyIkTD1cXHNxcnR7MTUwOjZ9PVxcc3FydHsyNX09NSQgbSIsICIkZD1MXFxzcXJ0Mz01XFxzcXJ0M1xcYXBwcm94OHssfTY2JCBtIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBkaWFnb25hbCBkJ3VuYSBDQVJBIGRlbCBjdWIgKCRMXFxzcXJ0MiQpLCBubyBsYSBkaWFnb25hbCBkZWwgY3ViIHNlbmNlcjogY2FsICRkPUxcXHNxcnQzJC4iLCAiIiwgIk5vIGhhcyBmZXQgbCdhcnJlbCBxdWFkcmFkYSBkZSAkMTUwOjY9MjUkOiBsJ2FyZXN0YSDDqXMgJEw9XFxzcXJ0ezI1fT01JCBtLCBubyAkMjUkIG0uIiwgIkFxdWVzdGEgw6lzIGwnYXJlc3RhIGRlbCBjdWIsIG5vIGxhIGRpYWdvbmFsOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICRcXHNxcnQzJC4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIl0sICJyZXMiOiBbIiRMPVxcc3FydHsxNTA6Nn09XFxzcXJ0ezI1fT01JCBtIiwgIiRkPUxcXHNxcnQzPTVcXHNxcnQzXFxhcHByb3g4eyx9NjYkIG0iXX0="
   },
   {
    "id": "176a",
@@ -293,6 +321,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat.",
    "enunciat": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea lateral de l'edifici?",
    "opcions": [
@@ -306,7 +335,7 @@ window.FULL = {
     "Àrea lateral d'un prisma: perímetre de la base per l'altura."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkMThcXGNkb3QyMCQ6IGNvbXByb3ZhIHF1ZSBlbCBwZXLDrW1ldHJlIGRlIGxhIGJhc2UgKCQzXFxjZG90Nj0xOCQgbSkgw6lzIGNvcnJlY3RlIGFiYW5zIGRlIG11bHRpcGxpY2FyLWxvIHBlciBsJ2FsdHVyYS4iLCAiQXF1ZXN0YSDDqXMgbCfDoHJlYSBkJ3VuYSBiYXNlIHRyaWFuZ3VsYXIsIG5vIGwnw6ByZWEgbGF0ZXJhbDogbCfDoHJlYSBsYXRlcmFsIMOpcyBwZXLDrW1ldHJlIHBlciBhbHR1cmEsIG5vIGRlcMOobiBkZSBsYSBmw7NybXVsYSBkZWwgdHJpYW5nbGUgZXF1aWzDoHRlci4iLCAiIiwgIkFxdWVzdCB2YWxvciBqYSBpbmNsb3UgbGVzIGR1ZXMgYmFzZXMgdHJpYW5ndWxhcnM6IGFxdcOtIG5vbcOpcyBlcyBkZW1hbmEgbCfDoHJlYSBMQVRFUkFMLCBzZW5zZSBsZXMgYmFzZXMuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xOFxcY2RvdDIwJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0zNjAkIG0kXjIkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkMThcXGNkb3QyMCQ6IGNvbXByb3ZhIHF1ZSBlbCBwZXLDrW1ldHJlIGRlIGxhIGJhc2UgKCQzXFxjZG90Nj0xOCQgbSkgw6lzIGNvcnJlY3RlIGFiYW5zIGRlIG11bHRpcGxpY2FyLWxvIHBlciBsJ2FsdHVyYS4iLCAiQXF1ZXN0YSDDqXMgbCfDoHJlYSBkJ3VuYSBiYXNlIHRyaWFuZ3VsYXIsIG5vIGwnw6ByZWEgbGF0ZXJhbDogbCfDoHJlYSBsYXRlcmFsIMOpcyBwZXLDrW1ldHJlIHBlciBhbHR1cmEsIG5vIGRlcMOobiBkZSBsYSBmw7NybXVsYSBkZWwgdHJpYW5nbGUgZXF1aWzDoHRlci4iLCAiIiwgIkFxdWVzdCB2YWxvciBqYSBpbmNsb3UgbGVzIGR1ZXMgYmFzZXMgdHJpYW5ndWxhcnM6IGFxdcOtIG5vbcOpcyBlcyBkZW1hbmEgbCfDoHJlYSBMQVRFUkFMLCBzZW5zZSBsZXMgYmFzZXMuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7bGF0ZXJhbH19PTE4XFxjZG90MjAkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTM2MCQgbSReMiQiXX0="
   },
   {
    "id": "176b",
@@ -314,6 +343,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "prismes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat.",
    "enunciat": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea total de l'edifici?",
    "opcions": [
@@ -335,6 +365,7 @@ window.FULL = {
    "ap": "",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Una piràmide pentagonal regular té la base de costat $4$ cm i apotema $2{,}75$ cm; l'apotema de la piràmide és $11{,}83$ cm. Calcula la seva àrea total.",
    "opcions": [
@@ -348,7 +379,7 @@ window.FULL = {
     "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}=118{,}3$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWw6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGRlIGxhIGJhc2UgcGVudGFnb25hbC4iLCAiIiwgIkFxdWVzdGEgw6lzIG5vbcOpcyBsJ8OgcmVhIGRlIGxhIGJhc2U6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIlNlbWJsYSBxdWUgbm8gaGFzIGRpdmlkaXQgcGVyICQyJCBsJ8OgcmVhIGxhdGVyYWw6ICRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7XFx0ZXh0e3BlcsOtbWV0cmV9XFxjZG90XFx0ZXh0e2Fwb3RlbWEgcGlyw6BtaWRlfX17Mn0kLCBubyBzZW5zZSBkaXZpZGlyLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syMFxcY2RvdDJ7LH03NX17Mn09Mjd7LH01JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3syMFxcY2RvdDExeyx9ODN9ezJ9PTExOHssfTMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09Mjd7LH01KzExOHssfTM9MTQ1eyx9OCQgY20kXjIkIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWw6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGRlIGxhIGJhc2UgcGVudGFnb25hbC4iLCAiIiwgIkFxdWVzdGEgw6lzIG5vbcOpcyBsJ8OgcmVhIGRlIGxhIGJhc2U6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIlNlbWJsYSBxdWUgbm8gaGFzIGRpdmlkaXQgcGVyICQyJCBsJ8OgcmVhIGxhdGVyYWw6ICRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7XFx0ZXh0e3BlcsOtbWV0cmV9XFxjZG90XFx0ZXh0e2Fwb3RlbWEgcGlyw6BtaWRlfX17Mn0kLCBubyBzZW5zZSBkaXZpZGlyLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJTVU1BX0RFX1BBUlRTX0lOQ09NUExFVEEiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syMFxcY2RvdDJ7LH03NX17Mn09Mjd7LH01JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3syMFxcY2RvdDExeyx9ODN9ezJ9PTExOHssfTMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09Mjd7LH01KzExOHssfTM9MTQ1eyx9OCQgY20kXjIkIl19"
   },
   {
    "id": "179a",
@@ -356,6 +387,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide quadrangular regular té la base de costat $25$ m i l'apotema de la piràmide fa $34$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -369,7 +401,7 @@ window.FULL = {
     "Perímetre $=4\\cdot25=100$ m; $A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}=1700$ m$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vIGhhcyBkaXZpZGl0IHBlciAkMiQgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PTI1XjI9NjI1JCBtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT1cXGRmcmFjezEwMFxcY2RvdDM0fXsyfT0xNzAwJCBtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NjI1KzE3MDA9MjMyNSQgbSReMiQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vIGhhcyBkaXZpZGl0IHBlciAkMiQgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiIiwgIlNVTUFfREVfUEFSVFNfSU5DT01QTEVUQSIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PTI1XjI9NjI1JCBtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT1cXGRmcmFjezEwMFxcY2RvdDM0fXsyfT0xNzAwJCBtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NjI1KzE3MDA9MjMyNSQgbSReMiQiXX0="
   },
   {
    "id": "179b",
@@ -377,6 +409,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide hexagonal regular té la base de costat $6$ m i l'altura de la piràmide (no l'apotema) fa $9$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -390,7 +423,7 @@ window.FULL = {
     "Apotema de la piràmide (Pitàgores, amb l'altura $9$ m i $a_{\\text{base}}$): $\\sqrt{9^2+5{,}2^2}\\approx10{,}39$ m."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBmZXQgc2VydmlyIGRpcmVjdGFtZW50IGwnYWx0dXJhIGRlIGxhIHBpcsOgbWlkZSAoJDkkIG0pIGNvbSBzaSBmb3MgbCdhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSBlbiBjb21wdGVzIGRlIGNhbGN1bGFyLWxhIGFtYiBQaXTDoGdvcmVzIGEgcGFydGlyIGRlIGwnYWx0dXJhIGkgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwuIiwgIiIsICJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRhX3tcXHRleHR7YmFzZX19XFxhcHByb3g1eyx9MiQgbSIsICIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9XFxhcHByb3g5M3ssfTUzJCBtJF4yJCIsICIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHs5XjIrNXssfTJeMn1cXGFwcHJveDEweyx9MzkkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szNlxcY2RvdDEweyx9Mzl9ezJ9XFxhcHByb3gxODd7LH0wNiQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE4N3ssfTA2XFxhcHByb3gyODB7LH01OSQgbSReMiQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBmZXQgc2VydmlyIGRpcmVjdGFtZW50IGwnYWx0dXJhIGRlIGxhIHBpcsOgbWlkZSAoJDkkIG0pIGNvbSBzaSBmb3MgbCdhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSBlbiBjb21wdGVzIGRlIGNhbGN1bGFyLWxhIGFtYiBQaXTDoGdvcmVzIGEgcGFydGlyIGRlIGwnYWx0dXJhIGkgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwuIiwgIiIsICJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiU1VNQV9ERV9QQVJUU19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRhX3tcXHRleHR7YmFzZX19XFxhcHByb3g1eyx9MiQgbSIsICIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9XFxhcHByb3g5M3ssfTUzJCBtJF4yJCIsICIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHs5XjIrNXssfTJeMn1cXGFwcHJveDEweyx9MzkkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szNlxcY2RvdDEweyx9Mzl9ezJ9XFxhcHByb3gxODd7LH0wNiQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE4N3ssfTA2XFxhcHByb3gyODB7LH01OSQgbSReMiQiXX0="
   },
   {
    "id": "180a",
@@ -398,6 +431,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $3$ cm.",
    "opcions": [
@@ -419,6 +453,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $5$ cm.",
    "opcions": [
@@ -440,6 +475,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $9$ cm.",
    "opcions": [
@@ -461,6 +497,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $6{,}2$ cm.",
    "opcions": [
@@ -482,6 +519,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide quadrangular regular té la base de costat $8$ m i l'altura (no l'apotema) fa $10$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -495,7 +533,7 @@ window.FULL = {
     "$A_{\\text{base}}=8^2=64$ m$^2$; $A_{\\text{lateral}}=\\dfrac{32\\cdot10{,}77}{2}\\approx172{,}33$ m$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQxMCQgbSkgY29tIGEgYXBvdGVtYSBkZSBsYSBwaXLDoG1pZGUsIHNlbnNlIGFwbGljYXIgUGl0w6Bnb3JlcyBhbWIgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHsxMF4yKzReMn1cXGFwcHJveDEweyx9NzckIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szMlxcY2RvdDEweyx9Nzd9ezJ9XFxhcHByb3gxNzJ7LH0zMyQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g2NCsxNzJ7LH0zM1xcYXBwcm94MjM2eyx9MzMkIG0kXjIkIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQxMCQgbSkgY29tIGEgYXBvdGVtYSBkZSBsYSBwaXLDoG1pZGUsIHNlbnNlIGFwbGljYXIgUGl0w6Bnb3JlcyBhbWIgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iXSwgImVyciI6IFsiU1VNQV9ERV9QQVJUU19JTkNPTVBMRVRBIiwgIiIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHsxMF4yKzReMn1cXGFwcHJveDEweyx9NzckIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szMlxcY2RvdDEweyx9Nzd9ezJ9XFxhcHByb3gxNzJ7LH0zMyQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g2NCsxNzJ7LH0zM1xcYXBwcm94MjM2eyx9MzMkIG0kXjIkIl19"
   },
   {
    "id": "181b",
@@ -503,6 +541,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide hexagonal regular té la base de costat $6$ m i l'altura (no l'apotema) fa $8$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -516,7 +555,7 @@ window.FULL = {
     "$A_{\\text{base}}\\approx93{,}53$ m$^2$; $A_{\\text{lateral}}\\approx\\dfrac{36\\cdot9{,}54}{2}\\approx171{,}71$ m$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQ4JCBtKSBjb20gYSBhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSwgc2Vuc2UgYXBsaWNhciBQaXTDoGdvcmVzIGFtYiBsJ2Fwb3RlbWEgZGUgbGEgYmFzZS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBkZSBsYSBiYXNlIGhleGFnb25hbC4iXSwgImVyciI6IFsiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94NXssfTIkIG0iLCAiJGFfe1xcdGV4dHtwaXLDoG1pZGV9fT1cXHNxcnR7OF4yKzV7LH0yXjJ9XFxhcHByb3g5eyx9NTQkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX1cXGFwcHJveFxcZGZyYWN7MzZcXGNkb3Q5eyx9NTR9ezJ9XFxhcHByb3gxNzF7LH03MSQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE3MXssfTcxXFxhcHByb3gyNjV7LH0yNCQgbSReMiQiXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQ4JCBtKSBjb20gYSBhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSwgc2Vuc2UgYXBsaWNhciBQaXTDoGdvcmVzIGFtYiBsJ2Fwb3RlbWEgZGUgbGEgYmFzZS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBkZSBsYSBiYXNlIGhleGFnb25hbC4iXSwgImVyciI6IFsiIiwgIlNVTUFfREVfUEFSVFNfSU5DT01QTEVUQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94NXssfTIkIG0iLCAiJGFfe1xcdGV4dHtwaXLDoG1pZGV9fT1cXHNxcnR7OF4yKzV7LH0yXjJ9XFxhcHByb3g5eyx9NTQkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX1cXGFwcHJveFxcZGZyYWN7MzZcXGNkb3Q5eyx9NTR9ezJ9XFxhcHByb3gxNzF7LH03MSQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE3MXssfTcxXFxhcHByb3gyNjV7LH0yNCQgbSReMiQiXX0="
   },
   {
    "id": "182",
@@ -524,6 +563,7 @@ window.FULL = {
    "ap": "",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Quina aresta té un cub que té la mateixa àrea total que una piràmide d'àrea total $4$ cm$^2$?",
    "opcions": [
@@ -537,7 +577,7 @@ window.FULL = {
     "Aïlla $L$: $L^2=4:6$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDoHJlYSB0b3RhbCBkZWwgY3ViIG5vIMOpcyBkaXJlY3RhbWVudCBsJ2FyZXN0YTogY2FsIGHDr2xsYXIgJEwkIGRlICQ2TF4yPTQkLCBubyBmZXIgc2VydmlyICQ0JCBkaXJlY3RhbWVudCBjb20gYSBhcmVzdGEuIiwgIk5vIGNvaW5jaWRlaXggYW1iICRcXHNxcnR7NDo2fSQ6IGNvbXByb3ZhIHF1ZSBkaXZpZGVpeGVzIGwnw6ByZWEgZW50cmUgJDYkIGNhcmVzIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJTZW1ibGEgcXVlIGhhcyBtdWx0aXBsaWNhdCAkNFxcY2RvdDYkIGVuIGxsb2MgZGUgZGl2aWRpciAkNDo2JDogbGEgcmVsYWNpw7Mgw6lzICQ2TF4yPTQkLCBwZXIgdGFudCAkTF4yPTQ6NiQuIl0sICJlcnIiOiBbIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyJdLCAicmVzIjogWyIkNkxeMj00IFxcUmlnaHRhcnJvdyBMXjI9NDo2XFxhcHByb3gweyx9NjckIiwgIiRMPVxcc3FydHsweyx9Njd9XFxhcHByb3gweyx9ODIkIGNtIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDoHJlYSB0b3RhbCBkZWwgY3ViIG5vIMOpcyBkaXJlY3RhbWVudCBsJ2FyZXN0YTogY2FsIGHDr2xsYXIgJEwkIGRlICQ2TF4yPTQkLCBubyBmZXIgc2VydmlyICQ0JCBkaXJlY3RhbWVudCBjb20gYSBhcmVzdGEuIiwgIk5vIGNvaW5jaWRlaXggYW1iICRcXHNxcnR7NDo2fSQ6IGNvbXByb3ZhIHF1ZSBkaXZpZGVpeGVzIGwnw6ByZWEgZW50cmUgJDYkIGNhcmVzIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJTZW1ibGEgcXVlIGhhcyBtdWx0aXBsaWNhdCAkNFxcY2RvdDYkIGVuIGxsb2MgZGUgZGl2aWRpciAkNDo2JDogbGEgcmVsYWNpw7Mgw6lzICQ2TF4yPTQkLCBwZXIgdGFudCAkTF4yPTQ6NiQuIl0sICJlcnIiOiBbIiIsICJBUlJFTF9PQkxJREFEQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIl0sICJyZXMiOiBbIiQ2TF4yPTQgXFxSaWdodGFycm93IExeMj00OjZcXGFwcHJveDB7LH02NyQiLCAiJEw9XFxzcXJ0ezB7LH02N31cXGFwcHJveDB7LH04MiQgY20iXX0="
   },
   {
    "id": "183",
@@ -545,6 +585,7 @@ window.FULL = {
    "ap": "",
    "bloc": "piramides",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Una piràmide hexagonal regular té la base de costat $3$ cm i l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un tetraedre regular perquè la seva àrea total sigui la mateixa?",
    "opcions": [
@@ -559,7 +600,7 @@ window.FULL = {
     "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxzcXJ0ezExM3ssfTM4Olxcc3FydDN9JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICRcXHNxcnQzJCAobm8gcGVyICQzJCkgYWJhbnMgZGUgZmVyIGwnYXJyZWwuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgdG90YWwgZGUgbGEgcGlyw6BtaWRlIChlbiBjbSReMiQpLCBubyBsJ2FyZXN0YSBkZWwgdGV0cmFlZHJlOiBlbmNhcmEgZmFsdGEgYcOvbGxhciAkTCQgZGUgJExeMlxcc3FydDNcXGFwcHJveDExM3ssfTM4JC4iLCAiIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJExeMiQgKCQxMTN7LH0zODpcXHNxcnQzJCksIG5vIGRlICRMJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJBUlJFTF9NQUxfQVBMSUNBREEiXSwgInJlcyI6IFsiJGFfe1xcdGV4dHtiYXNlfX1cXGFwcHJveDJ7LH02JCBjbTsgJEFfe1xcdGV4dHtiYXNlfX1cXGFwcHJveDIzeyx9MzgkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT1cXGRmcmFjezE4XFxjZG90MTB9ezJ9PTkwJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbCxwaXLDoG1pZGV9fVxcYXBwcm94MjN7LH0zOCs5MFxcYXBwcm94MTEzeyx9MzgkIGNtJF4yJCIsICIkTF4yXFxzcXJ0M1xcYXBwcm94MTEzeyx9MzggXFxSaWdodGFycm93IExeMlxcYXBwcm94NjV7LH00NiQiLCAiJExcXGFwcHJveDh7LH0wOSQgY20iXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxzcXJ0ezExM3ssfTM4Olxcc3FydDN9JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICRcXHNxcnQzJCAobm8gcGVyICQzJCkgYWJhbnMgZGUgZmVyIGwnYXJyZWwuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgdG90YWwgZGUgbGEgcGlyw6BtaWRlIChlbiBjbSReMiQpLCBubyBsJ2FyZXN0YSBkZWwgdGV0cmFlZHJlOiBlbmNhcmEgZmFsdGEgYcOvbGxhciAkTCQgZGUgJExeMlxcc3FydDNcXGFwcHJveDExM3ssfTM4JC4iLCAiIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJExeMiQgKCQxMTN7LH0zODpcXHNxcnQzJCksIG5vIGRlICRMJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiQVJSRUxfT0JMSURBREEiLCAiIiwgIkFSUkVMX01BTF9BUExJQ0FEQSJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MnssfTYkIGNtOyAkQV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MjN7LH0zOCQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7MThcXGNkb3QxMH17Mn09OTAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsLHBpcsOgbWlkZX19XFxhcHByb3gyM3ssfTM4KzkwXFxhcHByb3gxMTN7LH0zOCQgY20kXjIkIiwgIiRMXjJcXHNxcnQzXFxhcHByb3gxMTN7LH0zOCBcXFJpZ2h0YXJyb3cgTF4yXFxhcHByb3g2NXssfTQ2JCIsICIkTFxcYXBwcm94OHssfTA5JCBjbSJdfQ=="
   },
   {
    "id": "184",
@@ -567,6 +608,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. En dibuixar-ne el desenvolupament pla, el rectangle lateral té una amplada igual a la longitud de la circumferència de la base. Calcula aquesta longitud.",
    "opcions": [
@@ -580,7 +622,7 @@ window.FULL = {
     "La longitud de la circumferència és $L=2\\pi r$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLCBubyB1biBzaW1wbGUgcHJvZHVjdGUgZGUgbm9tYnJlcyBlbnRlcnMuIiwgIkhhcyBmZXQgc2VydmlyIGVsIHJhZGkgKCQzJCBjbSkgZW4gbGxvYyBkZWwgZGnDoG1ldHJlIGEgbGEgZsOzcm11bGE6IGxhIGxvbmdpdHVkIMOpcyAkTD0yXFxwaSByPVxccGkgZCQsIGNvbXByb3ZhIHF1ZSBtdWx0aXBsaXF1ZXMgcGVyICQyJCBlbCByYWRpLCBvIGRpcmVjdGFtZW50IHBlbCBkacOgbWV0cmUuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxwaVxcY2RvdDMkOiByZXZpc2EgZWwgcHJvZHVjdGUgcGFzIGEgcGFzIGFtYiAkXFxwaVxcYXBwcm94M3ssfTE0JC4iLCAiIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJGQUNUT1JfT0JMSURBVCIsICJQUk9EVUNURV9NQUwiLCAiIl0sICJyZXMiOiBbIiRMPTJcXHBpIHI9MlxcY2RvdDN7LH0xNFxcY2RvdDMkIiwgIiRMXFxhcHByb3gxOHssfTg0JCBjbSJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLCBubyB1biBzaW1wbGUgcHJvZHVjdGUgZGUgbm9tYnJlcyBlbnRlcnMuIiwgIkhhcyBmZXQgc2VydmlyIGVsIHJhZGkgKCQzJCBjbSkgZW4gbGxvYyBkZWwgZGnDoG1ldHJlIGEgbGEgZsOzcm11bGE6IGxhIGxvbmdpdHVkIMOpcyAkTD0yXFxwaSByPVxccGkgZCQsIGNvbXByb3ZhIHF1ZSBtdWx0aXBsaXF1ZXMgcGVyICQyJCBlbCByYWRpLCBvIGRpcmVjdGFtZW50IHBlbCBkacOgbWV0cmUuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxwaVxcY2RvdDMkOiByZXZpc2EgZWwgcHJvZHVjdGUgcGFzIGEgcGFzIGFtYiAkXFxwaVxcYXBwcm94M3ssfTE0JC4iLCAiIl0sICJlcnIiOiBbIlBJX09CTElEQVQiLCAiRkFDVE9SX09CTElEQVQiLCAiUFJPRFVDVEVfTUFMIiwgIiJdLCAicmVzIjogWyIkTD0yXFxwaSByPTJcXGNkb3Qzeyx9MTRcXGNkb3QzJCIsICIkTFxcYXBwcm94MTh7LH04NCQgY20iXX0="
   },
   {
    "id": "185a",
@@ -588,6 +630,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un cilindre de radi $7$ m i altura $10$ m.",
    "opcions": [
@@ -609,6 +652,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un cilindre de diàmetre de la base $12$ m i altura $5$ m.",
    "opcions": [
@@ -631,6 +675,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. Calcula la seva altura.",
    "opcions": [
@@ -652,6 +697,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és el doble del radi. Calcula el radi i l'altura del cilindre.",
    "opcions": [
@@ -665,7 +711,7 @@ window.FULL = {
     "Aïlla $r^2=\\dfrac{471}{6\\pi}$ i fes l'arrel quadrada."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIHQnaGFzIGRlaXhhdCBhbGd1biBmYWN0b3IgZW4gc3Vic3RpdHVpciAkaD0yciQgZGlucyAkQV97XFx0ZXh0e3RvdGFsfX09MlxccGkgcl4yKzJcXHBpIHJoJDogcmV2aXNhIHF1ZSBxdWVkaSAkQV97XFx0ZXh0e3RvdGFsfX09NlxccGkgcl4yJC4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iIGHDr2xsYXIgJHIkIGRlICQ2XFxwaSByXjI9NDcxJDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICQ2XFxwaSQgKG5vIHBlciB1biBhbHRyZSBmYWN0b3IpIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJIYXMgaW50ZXJjYW52aWF0IGVscyBwYXBlcnMgZGVsIHJhZGkgaSBsJ2FsdHVyYTogbCdlbnVuY2lhdCBkaXUgcXVlIGwnYWx0dXJhIMOpcyBlbCBET0JMRSBkZWwgcmFkaSwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiXSwgInJlcyI6IFsiJDZcXHBpIHJeMj00NzEgXFxSaWdodGFycm93IHJeMj1cXGRmcmFjezQ3MX17NlxcY2RvdDN7LH0xNH09MjUkIiwgIiRyPVxcc3FydHsyNX09NSQgY20gJFxcUmlnaHRhcnJvdyBoPTJcXGNkb3Q1PTEwJCBjbSJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIHQnaGFzIGRlaXhhdCBhbGd1biBmYWN0b3IgZW4gc3Vic3RpdHVpciAkaD0yciQgZGlucyAkQV97XFx0ZXh0e3RvdGFsfX09MlxccGkgcl4yKzJcXHBpIHJoJDogcmV2aXNhIHF1ZSBxdWVkaSAkQV97XFx0ZXh0e3RvdGFsfX09NlxccGkgcl4yJC4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iIGHDr2xsYXIgJHIkIGRlICQ2XFxwaSByXjI9NDcxJDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICQ2XFxwaSQgKG5vIHBlciB1biBhbHRyZSBmYWN0b3IpIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJIYXMgaW50ZXJjYW52aWF0IGVscyBwYXBlcnMgZGVsIHJhZGkgaSBsJ2FsdHVyYTogbCdlbnVuY2lhdCBkaXUgcXVlIGwnYWx0dXJhIMOpcyBlbCBET0JMRSBkZWwgcmFkaSwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJQQVBFUlNfSU5URVJDQU5WSUFUUyJdLCAicmVzIjogWyIkNlxccGkgcl4yPTQ3MSBcXFJpZ2h0YXJyb3cgcl4yPVxcZGZyYWN7NDcxfXs2XFxjZG90M3ssfTE0fT0yNSQiLCAiJHI9XFxzcXJ0ezI1fT01JCBjbSAkXFxSaWdodGFycm93IGg9MlxcY2RvdDU9MTAkIGNtIl19"
   },
   {
    "id": "188",
@@ -673,6 +719,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Un con té $4$ cm de radi de la base i $15$ cm de generatriu. Calcula la longitud de l'arc que descriu la base en desplegar la superfície lateral del con (és a dir, la longitud de la circumferència de la base).",
    "opcions": [
@@ -686,7 +733,7 @@ window.FULL = {
     "Longitud: $L=2\\pi r$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3IgZmEgc2VydmlyIGxhIGdlbmVyYXRyaXUgKCQxNSQgY20pIGNvbSBhIHJhZGk6IGxhIGxvbmdpdHVkIGRlIGxhIGNpcmN1bWZlcsOobmNpYSBkZSBsYSBiYXNlIGRlcMOobiBkZWwgcmFkaSBkZSBsYSBiYXNlICgkNCQgY20pLCBubyBkZSBsYSBnZW5lcmF0cml1LiIsICJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXHBpXFxjZG90NCQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBhbWIgJFxccGlcXGFwcHJveDN7LH0xNCQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiUFJPRFVDVEVfTUFMIl0sICJyZXMiOiBbIiRMPTJcXHBpIHI9MlxcY2RvdDN7LH0xNFxcY2RvdDQkIiwgIiRMXFxhcHByb3gyNXssfTEyJCBjbSJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3IgZmEgc2VydmlyIGxhIGdlbmVyYXRyaXUgKCQxNSQgY20pIGNvbSBhIHJhZGk6IGxhIGxvbmdpdHVkIGRlIGxhIGNpcmN1bWZlcsOobmNpYSBkZSBsYSBiYXNlIGRlcMOobiBkZWwgcmFkaSBkZSBsYSBiYXNlICgkNCQgY20pLCBubyBkZSBsYSBnZW5lcmF0cml1LiIsICJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXHBpXFxjZG90NCQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBhbWIgJFxccGlcXGFwcHJveDN7LH0xNCQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlBJX09CTElEQVQiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkTD0yXFxwaSByPTJcXGNkb3Qzeyx9MTRcXGNkb3Q0JCIsICIkTFxcYXBwcm94MjV7LH0xMiQgY20iXX0="
   },
   {
    "id": "189",
@@ -694,6 +741,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un con de $8$ cm de diàmetre de la base i $12$ cm de generatriu.",
    "opcions": [
@@ -707,7 +755,7 @@ window.FULL = {
     "$A_{\\text{base}}=\\pi r^2\\approx50{,}24$ cm$^2$; $A_{\\text{lateral}}=\\pi rg\\approx150{,}72$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBlbCBkacOgbWV0cmUgKCQ4JCBjbSkgZGlyZWN0YW1lbnQgY29tIGEgcmFkaTogZWwgcmFkaSBkZSBsYSBiYXNlIMOpcyBsYSBtZWl0YXQgZGVsIGRpw6BtZXRyZSwgJDQkIGNtLiIsICJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWw6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGRlIGxhIGJhc2UgY2lyY3VsYXIuIl0sICJlcnIiOiBbIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiRkFDVE9SX09CTElEQVQiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkcj04OjI9NCQgY20iLCAiJEFfe1xcdGV4dHtiYXNlfX09XFxwaVxcY2RvdDReMlxcYXBwcm94NTB7LH0yNCQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PVxccGlcXGNkb3Q0XFxjZG90MTJcXGFwcHJveDE1MHssfTcyJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g1MHssfTI0KzE1MHssfTcyXFxhcHByb3gyMDB7LH05NiQgY20kXjIkIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBlbCBkacOgbWV0cmUgKCQ4JCBjbSkgZGlyZWN0YW1lbnQgY29tIGEgcmFkaTogZWwgcmFkaSBkZSBsYSBiYXNlIMOpcyBsYSBtZWl0YXQgZGVsIGRpw6BtZXRyZSwgJDQkIGNtLiIsICJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWw6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGRlIGxhIGJhc2UgY2lyY3VsYXIuIl0sICJlcnIiOiBbIiIsICJTVU1BX0RFX1BBUlRTX0lOQ09NUExFVEEiLCAiRkFDVE9SX09CTElEQVQiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkcj04OjI9NCQgY20iLCAiJEFfe1xcdGV4dHtiYXNlfX09XFxwaVxcY2RvdDReMlxcYXBwcm94NTB7LH0yNCQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PVxccGlcXGNkb3Q0XFxjZG90MTJcXGFwcHJveDE1MHssfTcyJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g1MHssfTI0KzE1MHssfTcyXFxhcHByb3gyMDB7LH05NiQgY20kXjIkIl19"
   },
   {
    "id": "190",
@@ -715,6 +763,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Un con té $13$ cm de generatriu i $5$ cm de radi de la base. Calcula la seva altura.",
    "opcions": [
@@ -736,6 +785,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.",
    "opcions": [
@@ -749,7 +799,7 @@ window.FULL = {
     "Aïlla $r^2=\\dfrac{A}{4\\pi}$ i fes l'arrel quadrada."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiBkaXZpZGlyIGVudHJlICQ0XFxwaSQ6IHNlbWJsYSBxdWUgbm9tw6lzIGhhcyBkaXZpZGl0IGVudHJlICRcXHBpJCwgc2Vuc2UgZWwgZmFjdG9yICQ0JCBkZSBsYSBmw7NybXVsYSBkZSBsJ8OgcmVhIGRlIGwnZXNmZXJhLiIsICIiLCAiQXF1ZXN0IMOpcyBlbCB2YWxvciBkZSAkcl4yJCAoJDgwM3ssfTg0OjRcXHBpJCksIG5vIGRlICRyJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJObyBjb2luY2lkZWl4IGFtYiBhw69sbGFyICRyJCBkZSAkNFxccGkgcl4yPTgwM3ssfTg0JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgKG5vIG11bHRpcGxpcXVlcykgcGVyICQ0XFxwaSQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIl0sICJyZXMiOiBbIiRyXjI9XFxkZnJhY3s4MDN7LH04NH17NFxcY2RvdDN7LH0xNH09NjQkIiwgIiRyPVxcc3FydHs2NH09OCQgY20iXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiBkaXZpZGlyIGVudHJlICQ0XFxwaSQ6IHNlbWJsYSBxdWUgbm9tw6lzIGhhcyBkaXZpZGl0IGVudHJlICRcXHBpJCwgc2Vuc2UgZWwgZmFjdG9yICQ0JCBkZSBsYSBmw7NybXVsYSBkZSBsJ8OgcmVhIGRlIGwnZXNmZXJhLiIsICIiLCAiQXF1ZXN0IMOpcyBlbCB2YWxvciBkZSAkcl4yJCAoJDgwM3ssfTg0OjRcXHBpJCksIG5vIGRlICRyJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJObyBjb2luY2lkZWl4IGFtYiBhw69sbGFyICRyJCBkZSAkNFxccGkgcl4yPTgwM3ssfTg0JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgKG5vIG11bHRpcGxpcXVlcykgcGVyICQ0XFxwaSQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIiIsICJBUlJFTF9PQkxJREFEQSIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iXSwgInJlcyI6IFsiJHJeMj1cXGRmcmFjezgwM3ssfTg0fXs0XFxjZG90M3ssfTE0fT02NCQiLCAiJHI9XFxzcXJ0ezY0fT04JCBjbSJdfQ=="
   },
   {
    "id": "193a",
@@ -757,6 +807,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base.",
    "enunciat": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea lateral coincideixi amb l'àrea lateral del cilindre?",
    "opcions": [
@@ -770,7 +821,7 @@ window.FULL = {
     "Iguala-la a l'àrea lateral del con, $\\pi rg$, i aïlla $g$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogcmV2aXNhIHF1ZSwgZW4gaWd1YWxhciAkMlxccGlcXGNkb3QxMFxcY2RvdDEwPVxccGlcXGNkb3QxMFxcY2RvdCBnJCwgZWwgZmFjdG9yICQyJCBkJ3VuIGNvc3RhdCBlcyBjYW5jZWzCt2xhIGNvcnJlY3RhbWVudCBhbWIgbCdhbHRyZS4iLCAiQXF1ZXN0IGV4ZXJjaWNpIG5vIG5lY2Vzc2l0YSBjYXAgYXJyZWwgcXVhZHJhZGE6IGwnw6ByZWEgbGF0ZXJhbCBkZWwgY29uIMOpcyBsaW5lYWwgZW4gJGckLCBubyBoaSBpbnRlcnbDqSBjYXAgUGl0w6Bnb3JlcyBlbiBhcXVlc3QgYXBhcnRhdC4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBlbCByYWRpLCBubyBsYSBnZW5lcmF0cml1IHF1ZSBmYSBxdWUgY29pbmNpZGVpeGluIGxlcyDDoHJlZXMgbGF0ZXJhbHM6IGNhbCBpZ3VhbGFyICQyXFxwaSByaF97XFx0ZXh0e2NpbH19PVxccGkgcmckIGkgYcOvbGxhciAkZyQuIl0sICJlcnIiOiBbIiIsICJQUk9EVUNURV9NQUwiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyIkMlxccGlcXGNkb3QxMFxcY2RvdDEwPVxccGlcXGNkb3QxMFxcY2RvdCBnJCIsICIkZz1cXGRmcmFjezJcXGNkb3QxMFxcY2RvdDEwfXsxMH09MjAkIGNtIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogcmV2aXNhIHF1ZSwgZW4gaWd1YWxhciAkMlxccGlcXGNkb3QxMFxcY2RvdDEwPVxccGlcXGNkb3QxMFxcY2RvdCBnJCwgZWwgZmFjdG9yICQyJCBkJ3VuIGNvc3RhdCBlcyBjYW5jZWzCt2xhIGNvcnJlY3RhbWVudCBhbWIgbCdhbHRyZS4iLCAiQXF1ZXN0IGV4ZXJjaWNpIG5vIG5lY2Vzc2l0YSBjYXAgYXJyZWwgcXVhZHJhZGE6IGwnw6ByZWEgbGF0ZXJhbCBkZWwgY29uIMOpcyBsaW5lYWwgZW4gJGckLCBubyBoaSBpbnRlcnbDqSBjYXAgUGl0w6Bnb3JlcyBlbiBhcXVlc3QgYXBhcnRhdC4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBlbCByYWRpLCBubyBsYSBnZW5lcmF0cml1IHF1ZSBmYSBxdWUgY29pbmNpZGVpeGluIGxlcyDDoHJlZXMgbGF0ZXJhbHM6IGNhbCBpZ3VhbGFyICQyXFxwaSByaF97XFx0ZXh0e2NpbH19PVxccGkgcmckIGkgYcOvbGxhciAkZyQuIl0sICJlcnIiOiBbIiIsICJQUk9EVUNURV9NQUwiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIl0sICJyZXMiOiBbIiQyXFxwaVxcY2RvdDEwXFxjZG90MTA9XFxwaVxcY2RvdDEwXFxjZG90IGckIiwgIiRnPVxcZGZyYWN7MlxcY2RvdDEwXFxjZG90MTB9ezEwfT0yMCQgY20iXX0="
   },
   {
    "id": "193b",
@@ -778,6 +829,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "cossos_rodons",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base.",
    "enunciat": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea total coincideixi amb l'àrea total del cilindre?",
    "opcions": [
@@ -799,6 +851,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: una piràmide quadrangular regular de costat de base $4$ cm i altura $2$ cm.",
    "opcions": [
@@ -811,8 +864,8 @@ window.FULL = {
     "Àrea de la base: $A_{\\text{base}}=4^2=16$ cm$^2$.",
     "Volum d'una piràmide: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."
    ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3sxNlxcY2RvdDJ9ezN9JDogc2VtYmxhIHF1ZSBoYXMgZGl2aWRpdCBwZXIgJDF7LH01JCBlbiBsbG9jIGRlIHBlciAkMyQuIiwgIk5vIGhhcyBkaXZpZGl0IGVudHJlICQzJDogZWwgdm9sdW0gZCd1bmEgcGlyw6BtaWRlIMOpcyAkVj1cXGRmcmFje0Ffe1xcdGV4dHtiYXNlfX1cXGNkb3QgaH17M30kLCBubyAkQV97XFx0ZXh0e2Jhc2V9fVxcY2RvdCBoJCBzZW5zZSBkaXZpZGlyLiIsICJMJ8OgcmVhIGRlIGxhIGJhc2UgZCd1biBxdWFkcmF0IGRlIGNvc3RhdCAkNCQgY20gw6lzICQxNiQgY20kXjIkLCBubyAkNCQgY20kXjIkOiBjb21wcm92YSBxdWUgaGFzIGVsZXZhdCBlbCBjb3N0YXQgYWwgcXVhZHJhdC4iLCAiIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiRkFDVE9SX09CTElEQVQiLCAiIl0sICJyZXMiOiBbIiRWPVxcZGZyYWN7MTZcXGNkb3QyfXszfSQiLCAiJFZcXGFwcHJveDEweyx9NjckIGNtJF4zJCJdfQ=="
+   "nota": "D'aquest exercici hi ha els apartats a, c, e i f: els altres eren cossos que no es poden identificar amb seguretat sense la figura.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3sxNlxcY2RvdDJ9ezN9JDogc2VtYmxhIHF1ZSBoYXMgZGl2aWRpdCBwZXIgJDF7LH01JCBlbiBsbG9jIGRlIHBlciAkMyQuIiwgIk5vIGhhcyBkaXZpZGl0IGVudHJlICQzJDogZWwgdm9sdW0gZCd1bmEgcGlyw6BtaWRlIMOpcyAkVj1cXGRmcmFje0Ffe1xcdGV4dHtiYXNlfX1cXGNkb3QgaH17M30kLCBubyAkQV97XFx0ZXh0e2Jhc2V9fVxcY2RvdCBoJCBzZW5zZSBkaXZpZGlyLiIsICJMJ8OgcmVhIGRlIGxhIGJhc2UgZCd1biBxdWFkcmF0IGRlIGNvc3RhdCAkNCQgY20gw6lzICQxNiQgY20kXjIkLCBubyAkNCQgY20kXjIkOiBjb21wcm92YSBxdWUgaGFzIGVsZXZhdCBlbCBjb3N0YXQgYWwgcXVhZHJhdC4iLCAiIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJGQUNUT1JfVFJFU19WT0xVTSIsICJGQUNUT1JfT0JMSURBVCIsICIiXSwgInJlcyI6IFsiJFY9XFxkZnJhY3sxNlxcY2RvdDJ9ezN9JCIsICIkVlxcYXBwcm94MTB7LH02NyQgY20kXjMkIl19"
   },
   {
    "id": "195c",
@@ -820,6 +873,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un cilindre de radi $4$ cm i altura $4$ cm.",
    "opcions": [
@@ -833,7 +887,7 @@ window.FULL = {
     "Volum d'un cilindre: $V=A_{\\text{base}}\\cdot h$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogcmV2aXNhIGVsIHByb2R1Y3RlICRcXHBpXFxjZG90NF4yXFxjZG90NCQgcGFzIGEgcGFzLiIsICJIYXMgZGl2aWRpdCBlbnRyZSAkMyQ6IGVsIHZvbHVtIGQndW4gQ0lMSU5EUkUgbm8gZXMgZGl2aWRlaXggZW50cmUgJDMkIChhaXjDsiBub23DqXMgcGFzc2EgYW1iIHBpcsOgbWlkZXMgaSBjb25zKS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBsJ8OgcmVhIGRlIGxhIGJhc2UsIG5vIGVsIHZvbHVtOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXItbGEgcGVyIGwnYWx0dXJhLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfTUFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJGQUNUT1JfT0JMSURBVCJdLCAicmVzIjogWyIkVj1cXHBpXFxjZG90NF4yXFxjZG90NCQiLCAiJFZcXGFwcHJveDIwMHssfTk2JCBjbSReMyQiXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogcmV2aXNhIGVsIHByb2R1Y3RlICRcXHBpXFxjZG90NF4yXFxjZG90NCQgcGFzIGEgcGFzLiIsICJIYXMgZGl2aWRpdCBlbnRyZSAkMyQ6IGVsIHZvbHVtIGQndW4gQ0lMSU5EUkUgbm8gZXMgZGl2aWRlaXggZW50cmUgJDMkIChhaXjDsiBub23DqXMgcGFzc2EgYW1iIHBpcsOgbWlkZXMgaSBjb25zKS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBsJ8OgcmVhIGRlIGxhIGJhc2UsIG5vIGVsIHZvbHVtOiBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXItbGEgcGVyIGwnYWx0dXJhLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfTUFMIiwgIkZBQ1RPUl9UUkVTX1ZPTFVNIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRWPVxccGlcXGNkb3Q0XjJcXGNkb3Q0JCIsICIkVlxcYXBwcm94MjAweyx9OTYkIGNtJF4zJCJdfQ=="
   },
   {
    "id": "195e",
@@ -841,6 +895,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un con de radi $1{,}5$ cm i altura $5$ cm.",
    "opcions": [
@@ -854,7 +909,7 @@ window.FULL = {
     "Volum d'un con: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3tcXHBpXFxjZG90MXssfTVeMlxcY2RvdDV9ezN9JDogc2VtYmxhIHF1ZSB0J2hhcyBkZWl4YXQgZWwgZmFjdG9yICQzJCBkZWwgZGVub21pbmFkb3IgYSBtaXRnZXMuIiwgIkwnw6ByZWEgZGUgbGEgYmFzZSDDqXMgJFxccGlcXGNkb3Qxeyx9NV4yXFxhcHByb3g3eyx9MDckIGNtJF4yJCwgbm8gJFxccGlcXGNkb3Qxeyx9NVxcYXBwcm94NHssfTcxJCBjbSReMiQ6IGNvbXByb3ZhIHF1ZSBoYXMgZWxldmF0IGVsIHJhZGkgYWwgcXVhZHJhdC4iLCAiTm8gaGFzIGRpdmlkaXQgZW50cmUgJDMkOiBlbCB2b2x1bSBkJ3VuIGNvbiDDqXMgJFY9XFxkZnJhY3tBX3tcXHRleHR7YmFzZX19XFxjZG90IGh9ezN9JCwgbm8gJEFfe1xcdGV4dHtiYXNlfX1cXGNkb3QgaCQgc2Vuc2UgZGl2aWRpci4iLCAiIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJGQUNUT1JfT0JMSURBVCIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIl0sICJyZXMiOiBbIiRWPVxcZGZyYWN7XFxwaVxcY2RvdDF7LH01XjJcXGNkb3Q1fXszfSQiLCAiJFZcXGFwcHJveDExeyx9NzgkIGNtJF4zJCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3tcXHBpXFxjZG90MXssfTVeMlxcY2RvdDV9ezN9JDogc2VtYmxhIHF1ZSB0J2hhcyBkZWl4YXQgZWwgZmFjdG9yICQzJCBkZWwgZGVub21pbmFkb3IgYSBtaXRnZXMuIiwgIkwnw6ByZWEgZGUgbGEgYmFzZSDDqXMgJFxccGlcXGNkb3Qxeyx9NV4yXFxhcHByb3g3eyx9MDckIGNtJF4yJCwgbm8gJFxccGlcXGNkb3Qxeyx9NVxcYXBwcm94NHssfTcxJCBjbSReMiQ6IGNvbXByb3ZhIHF1ZSBoYXMgZWxldmF0IGVsIHJhZGkgYWwgcXVhZHJhdC4iLCAiTm8gaGFzIGRpdmlkaXQgZW50cmUgJDMkOiBlbCB2b2x1bSBkJ3VuIGNvbiDDqXMgJFY9XFxkZnJhY3tBX3tcXHRleHR7YmFzZX19XFxjZG90IGh9ezN9JCwgbm8gJEFfe1xcdGV4dHtiYXNlfX1cXGNkb3QgaCQgc2Vuc2UgZGl2aWRpci4iLCAiIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJGQUNUT1JfT0JMSURBVCIsICJGQUNUT1JfVFJFU19WT0xVTSIsICIiXSwgInJlcyI6IFsiJFY9XFxkZnJhY3tcXHBpXFxjZG90MXssfTVeMlxcY2RvdDV9ezN9JCIsICIkVlxcYXBwcm94MTF7LH03OCQgY20kXjMkIl19"
   },
   {
    "id": "195f",
@@ -862,6 +917,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un cub d'aresta $4$ cm.",
    "opcions": [
@@ -874,7 +930,7 @@ window.FULL = {
     "El volum d'un cub d'aresta $L$ és $V=L^3$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkNF4zJDogY29tcHJvdmEgZWwgY8OgbGN1bCBkZSBsYSBwb3TDqG5jaWEgcGFzIGEgcGFzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDRcXGNkb3Q0XFxjZG90NCQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZWxzIHRyZXMgZmFjdG9ycy4iLCAiQXF1ZXN0IHZhbG9yIMOpcyAkNF4yJCwgbm8gJDReMyQ6IGVsIHZvbHVtIGQndW4gY3ViIMOpcyAkVj1MXjMkLCBubyAkTF4yJC4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIiIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRWPTReMz00XFxjZG90NFxcY2RvdDQkIiwgIiRWPTY0JCBjbSReMyQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkNF4zJDogY29tcHJvdmEgZWwgY8OgbGN1bCBkZSBsYSBwb3TDqG5jaWEgcGFzIGEgcGFzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDRcXGNkb3Q0XFxjZG90NCQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZWxzIHRyZXMgZmFjdG9ycy4iLCAiQXF1ZXN0IHZhbG9yIMOpcyAkNF4yJCwgbm8gJDReMyQ6IGVsIHZvbHVtIGQndW4gY3ViIMOpcyAkVj1MXjMkLCBubyAkTF4yJC4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIiIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiRElNRU5TSU9fRVhQT05FTlRfTUFMIl0sICJyZXMiOiBbIiRWPTReMz00XFxjZG90NFxcY2RvdDQkIiwgIiRWPTY0JCBjbSReMyQiXX0="
   },
   {
    "id": "196a",
@@ -882,6 +938,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$.",
    "enunciat": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Quants pots de pintura calen com a mínim?",
    "opcions": [
@@ -896,7 +953,7 @@ window.FULL = {
     "Nombre de pots: $84:30=2{,}8$, i com que amb $2$ pots no n'hi ha prou, cal arrodonir cap amunt."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBub21icmUgZGUgcG90cyBoYSBkZSBzZXIgdW4gbm9tYnJlIGVudGVyOiBjb20gcXVlICQyeyx9OCQgcG90cyBubyBiYXN0ZW4gcGVyIGNvYnJpciB0b3RhIGxhIHN1cGVyZsOtY2llLCBjYWwgYXJyb2RvbmlyIGNhcCBBTVVOVCwgYSAkMyQuIiwgIiIsICJBbWIgJDIkIHBvdHMgbm9tw6lzIGVzIGNvYnJlaXhlbiAkNjAkIG0kXjIkLCBpIGxhIHN1cGVyZsOtY2llIGEgcGludGFyIMOpcyBtw6lzIGdyYW4gcXVlIGFpeMOyOiB0b3JuYSBhIGNhbGN1bGFyIGwnw6ByZWEgdG90YWwgYWJhbnMgZGUgZGl2aWRpciBlbnRyZSAkMzAkLiIsICJTZW1ibGEgcXVlIGhhcyBjb21wdGF0IGFsZ3VuYSBzdXBlcmbDrWNpZSBkZSBtw6lzIChwZXIgZXhlbXBsZSwgZWwgdGVycmEsIHF1ZSBsJ2VudW5jaWF0IGV4Y2xvdSBleHBsw61jaXRhbWVudCk6IHJldmlzYSBxdWluZXMgY2FyZXMgcydoYW4gZGUgcGludGFyLiJdLCAiZXJyIjogWyJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIiwgIkFSUkVMX01BTF9BUExJQ0FEQSIsICJGQUNUT1JfT0JMSURBVCJdLCAicmVzIjogWyIkQV97XFx0ZXh0e3BhcmV0c319PTIoNFxcY2RvdDMpKzIoNlxcY2RvdDMpPTYwJCBtJF4yJCIsICIkQV97XFx0ZXh0e3Nvc3RyZX19PTRcXGNkb3Q2PTI0JCBtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NjArMjQ9ODQkIG0kXjIkIiwgIiQ4NDozMD0yeyx9OCBcXFJpZ2h0YXJyb3ckIGNhbGVuICQzJCBwb3RzIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBub21icmUgZGUgcG90cyBoYSBkZSBzZXIgdW4gbm9tYnJlIGVudGVyOiBjb20gcXVlICQyeyx9OCQgcG90cyBubyBiYXN0ZW4gcGVyIGNvYnJpciB0b3RhIGxhIHN1cGVyZsOtY2llLCBjYWwgYXJyb2RvbmlyIGNhcCBBTVVOVCwgYSAkMyQuIiwgIiIsICJBbWIgJDIkIHBvdHMgbm9tw6lzIGVzIGNvYnJlaXhlbiAkNjAkIG0kXjIkLCBpIGxhIHN1cGVyZsOtY2llIGEgcGludGFyIMOpcyBtw6lzIGdyYW4gcXVlIGFpeMOyOiB0b3JuYSBhIGNhbGN1bGFyIGwnw6ByZWEgdG90YWwgYWJhbnMgZGUgZGl2aWRpciBlbnRyZSAkMzAkLiIsICJTZW1ibGEgcXVlIGhhcyBjb21wdGF0IGFsZ3VuYSBzdXBlcmbDrWNpZSBkZSBtw6lzIChwZXIgZXhlbXBsZSwgZWwgdGVycmEsIHF1ZSBsJ2VudW5jaWF0IGV4Y2xvdSBleHBsw61jaXRhbWVudCk6IHJldmlzYSBxdWluZXMgY2FyZXMgcydoYW4gZGUgcGludGFyLiJdLCAiZXJyIjogWyJBUlJPRE9OSU1FTlRfQ09OVEVYVCIsICIiLCAiQVJSRUxfTUFMX0FQTElDQURBIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7cGFyZXRzfX09Mig0XFxjZG90MykrMig2XFxjZG90Myk9NjAkIG0kXjIkIiwgIiRBX3tcXHRleHR7c29zdHJlfX09NFxcY2RvdDY9MjQkIG0kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT02MCsyND04NCQgbSReMiQiLCAiJDg0OjMwPTJ7LH04IFxcUmlnaHRhcnJvdyQgY2FsZW4gJDMkIHBvdHMiXX0="
   },
   {
    "id": "196b",
@@ -904,6 +961,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$.",
    "enunciat": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Si finalment es fan servir $4$ pots per repartir-hi tota la superfície a parts iguals, quants metres quadrats cobrirà cada pot?",
    "opcions": [
@@ -917,7 +975,7 @@ window.FULL = {
     "Reparteix-la entre els $4$ pots: $84:4$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkODQ6NCQ6IGNvbXByb3ZhIHF1ZSBmYXMgc2VydmlyIGxhIHN1cGVyZsOtY2llIHRvdGFsICgkODQkIG0kXjIkKSwgbm8gbm9tw6lzIGxhIGRlIGxlcyBwYXJldHMgKCQ2MCQgbSReMiQpLiIsICJObyBjb2luY2lkZWl4IGFtYiAkODQ6NCQ6IHJldmlzYSBsYSBkaXZpc2nDsyBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3RhIMOpcyBsYSBjb2JlcnR1cmEgZXN0w6BuZGFyZCBkJ3VuIHBvdCAoJDMwJCBtJF4yJCksIG5vIGVsIHJlc3VsdGF0IGRlIHJlcGFydGlyIGVscyAkODQkIG0kXjIkIHRvdGFscyBlbnRyZSAkNCQgcG90cy4iXSwgImVyciI6IFsiRkFDVE9SX09CTElEQVQiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiXSwgInJlcyI6IFsiJDg0OjQ9MjEkIiwgIiQyMSQgbSReMiQgcGVyIHBvdCJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkODQ6NCQ6IGNvbXByb3ZhIHF1ZSBmYXMgc2VydmlyIGxhIHN1cGVyZsOtY2llIHRvdGFsICgkODQkIG0kXjIkKSwgbm8gbm9tw6lzIGxhIGRlIGxlcyBwYXJldHMgKCQ2MCQgbSReMiQpLiIsICJObyBjb2luY2lkZWl4IGFtYiAkODQ6NCQ6IHJldmlzYSBsYSBkaXZpc2nDsyBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3RhIMOpcyBsYSBjb2JlcnR1cmEgZXN0w6BuZGFyZCBkJ3VuIHBvdCAoJDMwJCBtJF4yJCksIG5vIGVsIHJlc3VsdGF0IGRlIHJlcGFydGlyIGVscyAkODQkIG0kXjIkIHRvdGFscyBlbnRyZSAkNCQgcG90cy4iXSwgImVyciI6IFsiRkFDVE9SX09CTElEQVQiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyIkODQ6ND0yMSQiLCAiJDIxJCBtJF4yJCBwZXIgcG90Il19"
   },
   {
    "id": "197",
@@ -925,6 +983,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "La piràmide de Kheops té una base quadrada d'aresta $215{,}25$ m i una apotema (de la piràmide) de $179{,}37$ m. Calcula la seva altura.",
    "opcions": [
@@ -946,6 +1005,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Una torre té la forma d'un cub de $10$ m d'aresta (sense la cara de dalt, que fa de base de la teulada) coronat per una teulada piramidal de base quadrada igual a la del cub i $12$ m d'altura. Calcula l'àrea total de la superfície exterior de la torre (parets del cub, terra del cub i teulada, sense la cara compartida entre cub i teulada).",
    "opcions": [
@@ -967,6 +1027,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un cub i una esfera tenen el mateix volum, $125$ cm$^3$. Es vol saber quin dels dos té l'àrea total més petita (és a dir, amb quina forma caldria menys material per construir un dipòsit d'aquest volum). Calcula l'àrea total del cub per començar a comparar-ho.",
    "opcions": [
@@ -980,7 +1041,7 @@ window.FULL = {
     "Àrea total del cub: $A=6L^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkNlxcY2RvdDVeMiQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3Qgw6lzIGVsIHZvbHVtLCBubyBsJ8OgcmVhIHRvdGFsOiBwcmltZXIgY2FsIGHDr2xsYXIgbCdhcmVzdGEgJEw9XFxzcXJ0WzNdezEyNX09NSQgY20gaSBkZXNwcsOpcyBjYWxjdWxhciAkNkxeMiQuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgZCdVTkEgc29sYSBjYXJhICgkNV4yJCksIG5vIGRlIGxlcyAkNiQgY2FyZXMgZGVsIGN1Yi4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJEw9XFxzcXJ0WzNdezEyNX09NSQgY20iLCAiJEE9NlxcY2RvdDVeMiQiLCAiJEE9MTUwJCBjbSReMiQiLCAiKFBlciBjb21wYXJhcjogbCdlc2ZlcmEgZGVsIG1hdGVpeCB2b2x1bSB0w6kgcmFkaSAkcj1cXHNxcnRbM117XFxmcmFjezNcXGNkb3QxMjV9ezRcXHBpfX1cXGFwcHJveDN7LH0xMCQgY20gaSDDoHJlYSAkNFxccGkgcl4yXFxhcHByb3gxMjB7LH04OCQgY20kXjIkLCBtZW5vciBxdWUgbGEgZGVsIGN1YjogYSBpZ3VhbHRhdCBkZSB2b2x1bSwgbCdlc2ZlcmEgbmVjZXNzaXRhIG1lbnlzIG1hdGVyaWFsLikiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkNlxcY2RvdDVeMiQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3Qgw6lzIGVsIHZvbHVtLCBubyBsJ8OgcmVhIHRvdGFsOiBwcmltZXIgY2FsIGHDr2xsYXIgbCdhcmVzdGEgJEw9XFxzcXJ0WzNdezEyNX09NSQgY20gaSBkZXNwcsOpcyBjYWxjdWxhciAkNkxeMiQuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgZCdVTkEgc29sYSBjYXJhICgkNV4yJCksIG5vIGRlIGxlcyAkNiQgY2FyZXMgZGVsIGN1Yi4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIiIsICJBUlJFTF9PQkxJREFEQSIsICJGQUNUT1JfT0JMSURBVCJdLCAicmVzIjogWyIkTD1cXHNxcnRbM117MTI1fT01JCBjbSIsICIkQT02XFxjZG90NV4yJCIsICIkQT0xNTAkIGNtJF4yJCIsICIoUGVyIGNvbXBhcmFyOiBsJ2VzZmVyYSBkZWwgbWF0ZWl4IHZvbHVtIHTDqSByYWRpICRyPVxcc3FydFszXXtcXGZyYWN7M1xcY2RvdDEyNX17NFxccGl9fVxcYXBwcm94M3ssfTEwJCBjbSBpIMOgcmVhICQ0XFxwaSByXjJcXGFwcHJveDEyMHssfTg4JCBjbSReMiQsIG1lbm9yIHF1ZSBsYSBkZWwgY3ViOiBhIGlndWFsdGF0IGRlIHZvbHVtLCBsJ2VzZmVyYSBuZWNlc3NpdGEgbWVueXMgbWF0ZXJpYWwuKSJdfQ=="
   }
  ]
 };

@@ -47,6 +47,21 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "COMPARA_TERMES": "Dues fraccions equivalents gairebé mai tenen els mateixos termes: el que ha de coincidir és el valor, no les xifres.",
+  "CREUAMENT_INVERTIT": "Has creuat els termes al revés en aïllar la incògnita.",
+  "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
+  "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
+  "FRACCIO_COM_PERCENTATGE": "Has pres el numerador de la fracció com si ja fos el percentatge. Per arribar-hi cal portar la fracció sencera a denominador $100$.",
+  "MAGNITUD_NO_CONVERTIDA": "Has donat el mateix número per a dues magnituds diferents. Fes servir la constant que les relaciona (densitat, preu unitari, velocitat) per passar d'una a l'altra.",
+  "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "PERCENTATGE_DECIMAL_MAL": "El pas de tant per cent a decimal no és correcte: es divideix per $100$, així que $0{,}8\\,\\%=0{,}008$ i $8\\,\\%=0{,}08$. Compta les xifres.",
+  "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
+  "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "101",
@@ -54,6 +69,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Per elaborar una recepta per a 6 persones es necessiten 240 g de salmó. Esbrina quina quantitat de salmó necessito per a 8 persones.",
    "opcions": [
@@ -75,6 +91,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "En Carles va pintar la seva habitació amb 6 pots, de 4 kg de pintura cada un, però ara només venen pots de 3 kg. Quants pots de pintura necessita per tornar-la a pintar?",
    "opcions": [
@@ -96,6 +113,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Amb els diners que tinc puc gastar 15 € diaris durant 6 dies. Si vull que em durin 9 dies, quant puc gastar cada dia?",
    "opcions": [
@@ -117,6 +135,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Un coet espacial tarda 2 minuts a assolir una velocitat de 30\\,000 km/h. A aquest mateix ritme, quina velocitat pot assolir en 5 minuts?",
    "opcions": [
@@ -138,6 +157,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "La densitat mitjana del cos humà és d'1,15 kg/ℓ.",
    "enunciat": "Quin és el volum d'una persona que pesa 65 kg?",
    "opcions": [
@@ -151,7 +171,7 @@ window.FULL = {
     "Aïlla el volum: $V=\\dfrac{m}{d}$, i substitueix $m=65$ kg."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsYSBkZW5zaXRhdCBwZXIgY29udmVydGlyIGxhIG1hc3NhIGVuIHZvbHVtOiAkNjUkIGtnIGkgJDY1JCDihJMgbm8gcmVwcmVzZW50ZW4gZWwgbWF0ZWl4IGEgbWVueXMgcXVlIGxhIGRlbnNpdGF0IGZvcyBleGFjdGFtZW50ICQxJCBrZy/ihJMuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciAkNjVcXGNkb3Qxeyx9MTUkIGVuIGNvbXB0ZXMgZGUgZGl2aWRpcjogcGVyIGHDr2xsYXIgZWwgdm9sdW0gZGUgJGQ9XFxmcmFje219e1Z9JCBjYWwgZmVyICRWPVxcZnJhY3ttfXtkfSQsIG5vICRtXFxjZG90IGQkLiIsICJTZW1ibGEgcXVlIGhhcyBjYWxjdWxhdCAkMXssfTE1OjY1JCBlbiBjb21wdGVzIGRlICQ2NToxeyx9MTUkOiBsYSBtYXNzYSBlcyBkaXZpZGVpeCBlbnRyZSBsYSBkZW5zaXRhdCwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyJdLCAicmVzIjogWyIkVj1cXGRmcmFje219e2R9PVxcZGZyYWN7NjV9ezF7LH0xNX0kIiwgIiRWXFxhcHByb3g1NnssfTUyJCDihJMiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsYSBkZW5zaXRhdCBwZXIgY29udmVydGlyIGxhIG1hc3NhIGVuIHZvbHVtOiAkNjUkIGtnIGkgJDY1JCDihJMgbm8gcmVwcmVzZW50ZW4gZWwgbWF0ZWl4IGEgbWVueXMgcXVlIGxhIGRlbnNpdGF0IGZvcyBleGFjdGFtZW50ICQxJCBrZy/ihJMuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciAkNjVcXGNkb3Qxeyx9MTUkIGVuIGNvbXB0ZXMgZGUgZGl2aWRpcjogcGVyIGHDr2xsYXIgZWwgdm9sdW0gZGUgJGQ9XFxmcmFje219e1Z9JCBjYWwgZmVyICRWPVxcZnJhY3ttfXtkfSQsIG5vICRtXFxjZG90IGQkLiIsICJTZW1ibGEgcXVlIGhhcyBjYWxjdWxhdCAkMXssfTE1OjY1JCBlbiBjb21wdGVzIGRlICQ2NToxeyx9MTUkOiBsYSBtYXNzYSBlcyBkaXZpZGVpeCBlbnRyZSBsYSBkZW5zaXRhdCwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJNQUdOSVRVRF9OT19DT05WRVJUSURBIiwgIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiJFY9XFxkZnJhY3ttfXtkfT1cXGRmcmFjezY1fXsxeyx9MTV9JCIsICIkVlxcYXBwcm94NTZ7LH01MiQg4oSTIl19"
   },
   {
    "id": "105b",
@@ -159,6 +179,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "La densitat mitjana del cos humà és d'1,15 kg/ℓ.",
    "enunciat": "Quant pesarà una persona que té un volum de 42 ℓ?",
    "opcions": [
@@ -172,7 +193,7 @@ window.FULL = {
     "Substitueix $d=1{,}15$ kg/ℓ i $V=42$ ℓ."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkMXssfTE1XFxjZG90NDIkOiB0b3JuYSBhIGZlciBlbCBwcm9kdWN0ZSB4aWZyYSBhIHhpZnJhLiIsICJObyBoYXMgZmV0IHNlcnZpciBsYSBkZW5zaXRhdCBwZXIgY29udmVydGlyIGVsIHZvbHVtIGVuIG1hc3NhOiAkNDIkIOKEkyBpICQ0MiQga2cgbm8gcmVwcmVzZW50ZW4gZWwgbWF0ZWl4IGEgbWVueXMgcXVlIGxhIGRlbnNpdGF0IGZvcyBleGFjdGFtZW50ICQxJCBrZy/ihJMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGRpdmlkaXIgJDQyOjF7LH0xNSQgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhcjogcGVyIHRyb2JhciBsYSBtYXNzYSBhIHBhcnRpciBkZWwgdm9sdW0gY2FsICRtPWRcXGNkb3QgViQsIG5vICRcXGZyYWN7Vn17ZH0kLiIsICIiXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkbT1kXFxjZG90IFY9MXssfTE1XFxjZG90NDIkIiwgIiRtPTQ4eyx9MyQga2ciXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkMXssfTE1XFxjZG90NDIkOiB0b3JuYSBhIGZlciBlbCBwcm9kdWN0ZSB4aWZyYSBhIHhpZnJhLiIsICJObyBoYXMgZmV0IHNlcnZpciBsYSBkZW5zaXRhdCBwZXIgY29udmVydGlyIGVsIHZvbHVtIGVuIG1hc3NhOiAkNDIkIOKEkyBpICQ0MiQga2cgbm8gcmVwcmVzZW50ZW4gZWwgbWF0ZWl4IGEgbWVueXMgcXVlIGxhIGRlbnNpdGF0IGZvcyBleGFjdGFtZW50ICQxJCBrZy/ihJMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGRpdmlkaXIgJDQyOjF7LH0xNSQgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhcjogcGVyIHRyb2JhciBsYSBtYXNzYSBhIHBhcnRpciBkZWwgdm9sdW0gY2FsICRtPWRcXGNkb3QgViQsIG5vICRcXGZyYWN7Vn17ZH0kLiIsICIiXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJNQUdOSVRVRF9OT19DT05WRVJUSURBIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiXSwgInJlcyI6IFsiJG09ZFxcY2RvdCBWPTF7LH0xNVxcY2RvdDQyJCIsICIkbT00OHssfTMkIGtnIl19"
   },
   {
    "id": "106a",
@@ -180,6 +201,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Una persona està situada a 50 m d'una paret i rep l'eco de la seva veu 3 dècimes de segon després d'haver cridat.",
    "enunciat": "Si es col·loca a 80 m de distància, quant de temps tardarà a sentir l'eco?",
    "opcions": [
@@ -201,6 +223,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Una persona està situada a 50 m d'una paret i rep l'eco de la seva veu 3 dècimes de segon després d'haver cridat.",
    "enunciat": "A quina distància s'haurà de col·locar per sentir l'eco després d'1 segon?",
    "opcions": [
@@ -222,6 +245,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Un camió pot transportar 9 caixes que pesen 200 kg cada una. Si es carreguen caixes de 150 kg, quantes caixes pot portar?",
    "opcions": [
@@ -243,6 +267,7 @@ window.FULL = {
    "ap": "",
    "bloc": "directa_inversa",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "La propietària d'una pensió disposa de menjar per alimentar els seus 18 hostes durant 12 dies. A última hora, el nombre d'hostes ha augmentat en 6 persones. Per a quants dies tindrà menjar?",
    "opcions": [
@@ -264,6 +289,7 @@ window.FULL = {
    "ap": "",
    "bloc": "percentatges",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Tres de cada cinc alumnes han tingut la grip durant el mes de gener. Expressa aquesta dada en forma de percentatge.",
    "opcions": [
@@ -277,7 +303,7 @@ window.FULL = {
     "Converteix-la a una fracció equivalent de denominador $100$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IG5vbcOpcyBlbCBudW1lcmFkb3IgZGUgbGEgZnJhY2Npw7MgY29tIHNpIGphIGZvcyBlbCBwZXJjZW50YXRnZTogY2FsIGNvbnZlcnRpciBsYSBmcmFjY2nDsyBzZW5jZXJhIGEgZGVub21pbmFkb3IgJDEwMCQuIiwgIlNlbWJsYSBxdWUgaGFzIGFqdW50YXQgbGVzIHhpZnJlcyAkMyQgaSAkNSQgZW4gY29tcHRlcyBkZSBjb252ZXJ0aXIgbGEgZnJhY2Npw7MgJFxcZnJhY3szfXs1fSQgYSBkZW5vbWluYWRvciAkMTAwJC4iLCAiVG9ybmEgYSBjb252ZXJ0aXIgbGEgZnJhY2Npw7M6ICRcXGZyYWN7M317NX09XFxmcmFjezNcXGNkb3QyMH17NVxcY2RvdDIwfT1cXGZyYWN7NjB9ezEwMH0kLCBubyB1bmEgY29tYmluYWNpw7MgZGlyZWN0YSBkZSBsZXMgeGlmcmVzICQ1JCBpICQzJC4iLCAiIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJQUk9EVUNURV9NQUwiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3szfXs1fT1cXGRmcmFjezNcXGNkb3QyMH17NVxcY2RvdDIwfT1cXGRmcmFjezYwfXsxMDB9JCIsICIkXFxkZnJhY3s2MH17MTAwfT02MFxcLFxcJSQiXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IG5vbcOpcyBlbCBudW1lcmFkb3IgZGUgbGEgZnJhY2Npw7MgY29tIHNpIGphIGZvcyBlbCBwZXJjZW50YXRnZTogY2FsIGNvbnZlcnRpciBsYSBmcmFjY2nDsyBzZW5jZXJhIGEgZGVub21pbmFkb3IgJDEwMCQuIiwgIlNlbWJsYSBxdWUgaGFzIGFqdW50YXQgbGVzIHhpZnJlcyAkMyQgaSAkNSQgZW4gY29tcHRlcyBkZSBjb252ZXJ0aXIgbGEgZnJhY2Npw7MgJFxcZnJhY3szfXs1fSQgYSBkZW5vbWluYWRvciAkMTAwJC4iLCAiVG9ybmEgYSBjb252ZXJ0aXIgbGEgZnJhY2Npw7M6ICRcXGZyYWN7M317NX09XFxmcmFjezNcXGNkb3QyMH17NVxcY2RvdDIwfT1cXGZyYWN7NjB9ezEwMH0kLCBubyB1bmEgY29tYmluYWNpw7MgZGlyZWN0YSBkZSBsZXMgeGlmcmVzICQ1JCBpICQzJC4iLCAiIl0sICJlcnIiOiBbIkZSQUNDSU9fQ09NX1BFUkNFTlRBVEdFIiwgIlBST0RVQ1RFX01BTCIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezN9ezV9PVxcZGZyYWN7M1xcY2RvdDIwfXs1XFxjZG90MjB9PVxcZGZyYWN7NjB9ezEwMH0kIiwgIiRcXGRmcmFjezYwfXsxMDB9PTYwXFwsXFwlJCJdfQ=="
   },
   {
    "id": "110",
@@ -285,6 +311,7 @@ window.FULL = {
    "ap": "",
    "bloc": "percentatges",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Per un CD que costa 21 € em fan un 15\\,\\% de descompte. Quants diners m'estalvio?",
    "opcions": [
@@ -306,6 +333,7 @@ window.FULL = {
    "ap": "",
    "bloc": "percentatges",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "En un institut, 63 alumnes, que són el 15\\,\\% del total, han viatjat a l'estranger. Quants alumnes té l'institut?",
    "opcions": [
@@ -327,6 +355,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "percentatges",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Un venedor de cotxes rep com a comissió el 0,8\\,\\% de les vendes que fa.",
    "enunciat": "Si en un mes va rebre 300 € de comissió, quines vendes va fer?",
    "opcions": [
@@ -340,7 +369,7 @@ window.FULL = {
     "Aïlla $V$ dividint: $V=\\dfrac{300}{0{,}008}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3szMDB9ezB7LH0wMDh9JDogcmV2aXNhIHF1ZSBoYXMgcGFzc2F0IGNvcnJlY3RhbWVudCBlbCAkMHssfThcXCxcXCUkIGEgbGEgc2V2YSBmb3JtYSBkZWNpbWFsICgkMHssfTAwOCQsIG5vICQweyx9MDgkKS4iLCAiIiwgIlQnaGFzIGRlaXhhdCB1bmEgeGlmcmEgcGVsIGNhbcOtIGVuIGNvbnZlcnRpciBlbCAkMHssfThcXCxcXCUkIGEgZGVjaW1hbDogJDB7LH04XFwsXFwlPTB7LH0wMDgkLCBubyAkMHssfTA4JDsgcmV2aXNhIGxhIGRpdmlzacOzICQzMDA6MHssfTAwOCQgYW1iIGFxdWVzdCB2YWxvci4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgbXVsdGlwbGljYXIgJDMwMFxcY2RvdDB7LH0wMDgkIGVuIGNvbXB0ZXMgZGUgZGl2aWRpcjogY29tIHF1ZSAkMzAwJCDDqXMgZWwgcmVzdWx0YXQgZCdhcGxpY2FyIGVsICQweyx9OFxcLFxcJSQgYSBsZXMgdmVuZGVzLCBjYWwgZGl2aWRpciAkMzAwJCBlbnRyZSAkMHssfTAwOCQuIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCJdLCAicmVzIjogWyIkMHssfTAwOFxcY2RvdCBWPTMwMCBcXDtcXExvbmdyaWdodGFycm93XFw7IFY9XFxkZnJhY3szMDB9ezB7LH0wMDh9JCIsICIkVj0zN1xcLDUwMCQg4oKsIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxkZnJhY3szMDB9ezB7LH0wMDh9JDogcmV2aXNhIHF1ZSBoYXMgcGFzc2F0IGNvcnJlY3RhbWVudCBlbCAkMHssfThcXCxcXCUkIGEgbGEgc2V2YSBmb3JtYSBkZWNpbWFsICgkMHssfTAwOCQsIG5vICQweyx9MDgkKS4iLCAiIiwgIlQnaGFzIGRlaXhhdCB1bmEgeGlmcmEgcGVsIGNhbcOtIGVuIGNvbnZlcnRpciBlbCAkMHssfThcXCxcXCUkIGEgZGVjaW1hbDogJDB7LH04XFwsXFwlPTB7LH0wMDgkLCBubyAkMHssfTA4JDsgcmV2aXNhIGxhIGRpdmlzacOzICQzMDA6MHssfTAwOCQgYW1iIGFxdWVzdCB2YWxvci4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgbXVsdGlwbGljYXIgJDMwMFxcY2RvdDB7LH0wMDgkIGVuIGNvbXB0ZXMgZGUgZGl2aWRpcjogY29tIHF1ZSAkMzAwJCDDqXMgZWwgcmVzdWx0YXQgZCdhcGxpY2FyIGVsICQweyx9OFxcLFxcJSQgYSBsZXMgdmVuZGVzLCBjYWwgZGl2aWRpciAkMzAwJCBlbnRyZSAkMHssfTAwOCQuIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIiIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICJDUkVVQU1FTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDB7LH0wMDhcXGNkb3QgVj0zMDAgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyBWPVxcZGZyYWN7MzAwfXsweyx9MDA4fSQiLCAiJFY9MzdcXCw1MDAkIOKCrCJdfQ=="
   },
   {
    "id": "112b",
@@ -348,6 +377,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "percentatges",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Un venedor de cotxes rep com a comissió el 0,8\\,\\% de les vendes que fa.",
    "enunciat": "Si el mes següent va vendre per valor de 45\\,000 €, quina comissió va obtenir?",
    "opcions": [
@@ -361,7 +391,7 @@ window.FULL = {
     "Multiplica amb cura la posició de la coma decimal."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgdW5hIHhpZnJhIHBlbCBjYW3DrSBlbiBjb252ZXJ0aXIgZWwgJDB7LH04XFwsXFwlJCBhIGRlY2ltYWw6IHJldmlzYSBxdWUgJDB7LH04XFwsXFwlPTB7LH0wMDgkLCBpIG11bHRpcGxpY2EgZGUgbm91LiIsICIiLCAiVCdoYXMgZGVpeGF0IHVuYSB4aWZyYSBwZWwgY2Ftw60gZW4gY29udmVydGlyIGVsICQweyx9OFxcLFxcJSQgYSBkZWNpbWFsOiAkMHssfThcXCxcXCU9MHssfTAwOCQsIG5vICQweyx9MDgkOyBtdWx0aXBsaWNhIGRlIG5vdSAkNDVcXCwwMDBcXGNkb3Qweyx9MDA4JC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgZGl2aWRpciAkNDVcXCwwMDA6MHssfTAwOCQgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhcjogYXF1w60gZXMgZGVtYW5hIGxhIGNvbWlzc2nDsyBhIHBhcnRpciBkZSBsZXMgdmVuZGVzLCBhaXjDrSBxdWUgY2FsICQweyx9MDA4XFxjZG90NDVcXCwwMDAkLiJdLCAiZXJyIjogWyJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJDUkVVQU1FTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDB7LH0wMDhcXGNkb3Q0NVxcLDAwMCQiLCAiJDM2MCQg4oKsIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgdW5hIHhpZnJhIHBlbCBjYW3DrSBlbiBjb252ZXJ0aXIgZWwgJDB7LH04XFwsXFwlJCBhIGRlY2ltYWw6IHJldmlzYSBxdWUgJDB7LH04XFwsXFwlPTB7LH0wMDgkLCBpIG11bHRpcGxpY2EgZGUgbm91LiIsICIiLCAiVCdoYXMgZGVpeGF0IHVuYSB4aWZyYSBwZWwgY2Ftw60gZW4gY29udmVydGlyIGVsICQweyx9OFxcLFxcJSQgYSBkZWNpbWFsOiAkMHssfThcXCxcXCU9MHssfTAwOCQsIG5vICQweyx9MDgkOyBtdWx0aXBsaWNhIGRlIG5vdSAkNDVcXCwwMDBcXGNkb3Qweyx9MDA4JC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgZGl2aWRpciAkNDVcXCwwMDA6MHssfTAwOCQgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhcjogYXF1w60gZXMgZGVtYW5hIGxhIGNvbWlzc2nDsyBhIHBhcnRpciBkZSBsZXMgdmVuZGVzLCBhaXjDrSBxdWUgY2FsICQweyx9MDA4XFxjZG90NDVcXCwwMDAkLiJdLCAiZXJyIjogWyJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQweyx9MDA4XFxjZG90NDVcXCwwMDAkIiwgIiQzNjAkIOKCrCJdfQ=="
   },
   {
    "id": "113",
@@ -369,12 +399,13 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un comerciant decideix apujar el preu d'una mercaderia, que era de 72 €, un 3\\,\\%, i a la setmana següent, un 3\\,\\% més sobre l'últim preu. Quin és el preu final de venda?",
    "opcions": [
     "$74{,}16$ €",
     "$78{,}48$ €",
-    "$76{,}3848$ €",
+    "$76{,}38$ €",
     "$76{,}32$ €"
    ],
    "pistes": [
@@ -382,7 +413,7 @@ window.FULL = {
     "El segon augment es calcula sobre el preu JA apujat: cal multiplicar per $1{,}03$ una segona vegada, no sobre el preu original."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHByZXUgZGVzcHLDqXMgTk9Nw4lTIGRlbCBwcmltZXIgYXVnbWVudDogZW5jYXJhIGZhbHRhIGFwbGljYXIgZWwgc2Vnb24gJDNcXCxcXCUkIHNvYnJlIGFxdWVzdCBub3UgcHJldSwgbm8gYXR1cmFyLXNlIGFxdcOtLiIsICJObyBjb2luY2lkZWl4IGFtYiBhcGxpY2FyIGVsIGZhY3RvciAkMXssfTAzJCBkdWVzIHZlZ2FkZXMgc2VndWlkZXMgc29icmUgJDcyJDogdG9ybmEgYSBmZXIgZWwgY8OgbGN1bCBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBzdW1hciBlbHMgZG9zIGF1Z21lbnRzICgkNlxcLFxcJSQgZGUgY29wKSBlbiBjb21wdGVzIGQnYXBsaWNhci1sb3Mgc2VndWl0czogZWwgc2Vnb24gJDNcXCxcXCUkIHMnaGEgZGUgY2FsY3VsYXIgc29icmUgZWwgcHJldSBKQSBhcHVqYXQsIG5vIHNvYnJlIGVsIHByZXUgb3JpZ2luYWwuIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiIiwgIlNVTUFfRU5fTExPQ19SRVNUQSJdLCAicmVzIjogWyJQcmV1IGRlc3Byw6lzIGRlbCBwcmltZXIgYXVnbWVudDogJDcyXFxjZG90MXssfTAzPTc0eyx9MTYkIOKCrCIsICJQcmV1IGRlc3Byw6lzIGRlbCBzZWdvbiBhdWdtZW50IChzb2JyZSAkNzR7LH0xNiQg4oKsKTogJDc0eyx9MTZcXGNkb3Qxeyx9MDM9NzZ7LH0zODQ4JCDigqwiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHByZXUgZGVzcHLDqXMgTk9Nw4lTIGRlbCBwcmltZXIgYXVnbWVudDogZW5jYXJhIGZhbHRhIGFwbGljYXIgZWwgc2Vnb24gJDNcXCxcXCUkIHNvYnJlIGFxdWVzdCBub3UgcHJldSwgbm8gYXR1cmFyLXNlIGFxdcOtLiIsICJObyBjb2luY2lkZWl4IGFtYiBhcGxpY2FyIGVsIGZhY3RvciAkMXssfTAzJCBkdWVzIHZlZ2FkZXMgc2VndWlkZXMgc29icmUgJDcyJDogdG9ybmEgYSBmZXIgZWwgY8OgbGN1bCBwYXMgYSBwYXMuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBzdW1hciBlbHMgZG9zIGF1Z21lbnRzICgkNlxcLFxcJSQgZGUgY29wKSBlbiBjb21wdGVzIGQnYXBsaWNhci1sb3Mgc2VndWl0czogZWwgc2Vnb24gJDNcXCxcXCUkIHMnaGEgZGUgY2FsY3VsYXIgc29icmUgZWwgcHJldSBKQSBhcHVqYXQsIG5vIHNvYnJlIGVsIHByZXUgb3JpZ2luYWwuIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiIiwgIlNVTUFfRU5fTExPQ19SRVNUQSJdLCAicmVzIjogWyJQcmV1IGRlc3Byw6lzIGRlbCBwcmltZXIgYXVnbWVudDogJDcyXFxjZG90MXssfTAzPTc0eyx9MTYkIOKCrCIsICJQcmV1IGRlc3Byw6lzIGRlbCBzZWdvbiBhdWdtZW50IChzb2JyZSAkNzR7LH0xNiQg4oKsKTogJDc0eyx9MTZcXGNkb3Qxeyx9MDM9NzZ7LH0zODQ4JCDigqwiLCAiQXJyb2Rvbml0IGEgY8OobnRpbXMsIHF1ZSDDqXMgY29tIHMnZXhwcmVzc2VuIGVscyBwcmV1czogJDc2eyx9MzgkIOKCrCJdfQ=="
   },
   {
    "id": "114",
@@ -390,6 +421,7 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En dues setmanes consecutives s'han aplicat al preu d'un article augments del 2\\,\\% i del 5\\,\\%. En quin percentatge s'ha incrementat l'article sobre el seu preu original?",
    "opcions": [
@@ -411,6 +443,7 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En una botiga apugen el preu d'un producte de 200 € un 10\\,\\%. A la setmana següent decideixen rebaixar-lo un 10\\,\\% del preu que té en aquell moment. Què ha passat amb el preu?",
    "opcions": [
@@ -432,6 +465,7 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "La carn de xai, durant el Nadal, va augmentar el seu preu de 8,85 €/kg a 11,55 €/kg. Un altre producte que s'ha encarit ha estat el raïm, de 2,10 €/kg a 3,95 €/kg. Quin producte s'ha incrementat més en proporció?",
    "opcions": [
@@ -453,6 +487,7 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En escalfar una barra de metall d'1 m a $200\\,^\\circ$C, s'ha dilatat fins a mesurar 1,04 m. Una barra de 60 cm d'un altre metall, en escalfar-la a la mateixa temperatura, s'ha dilatat fins a mesurar 61,9 cm. Quin metall es dilata menys?",
    "opcions": [
@@ -466,7 +501,7 @@ window.FULL = {
     "Calcula per separat $\\frac{1{,}04}{1}$ i $\\frac{61{,}9}{60}$, cadascun en les seves pròpies unitats."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDb21wYXJhIGVscyBmYWN0b3JzIGRlIGRpbGF0YWNpw7MgZXhhY3RlcyAoJDF7LH0wNCQgaSAkXFxhcHByb3gxeyx9MDMxNyQpLCBubyB1bmEgaW1wcmVzc2nDsyBhcHJveGltYWRhIGRlIGxhIGRpZmVyw6huY2lhIGFic29sdXRhLiIsICIkNjF7LH05JCBubyDDqXMgdW4gZmFjdG9yIGRlIGRpbGF0YWNpw7M6IGNhbCBkaXZpZGlyIGxhIGxvbmdpdHVkIGZpbmFsIGVudHJlIGxhIGluaWNpYWwgRU4gTEVTIE1BVEVJWEVTIFVOSVRBVFMgKCRcXGZyYWN7NjF7LH05fXs2MH1cXGFwcHJveDF7LH0wMzE3JCkgcGVyIG9idGVuaXItbmUgdW4sIGkgY29tcGFyYXItbG8gYW1iICQxeyx9MDQkLiIsICIiLCAiRWwgZmFjdG9yIGRlIGRpbGF0YWNpw7MgKGxvbmdpdHVkIGZpbmFsIGVudHJlIGluaWNpYWwpIG5vIGRlcMOobiBkZSBsYSB1bml0YXQgcXVlIGZhY2lzIHNlcnZpciwgbWVudHJlIHNpZ3VpcyBjb25zaXN0ZW50IGVuIGNhZGEgYmFycmEgcGVyIHNlcGFyYXQ6IGVzIHBvdCBjb21wYXJhciBwZXJmZWN0YW1lbnQuIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIkNPTVBBUkFfVEVSTUVTIiwgIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiXSwgInJlcyI6IFsiUHJpbWVyIG1ldGFsbDogZmFjdG9yICRcXGRmcmFjezF7LH0wNH17MX09MXssfTA0JCIsICJTZWdvbiBtZXRhbGw6IGZhY3RvciAkXFxkZnJhY3s2MXssfTl9ezYwfVxcYXBwcm94MXssfTAzMTckIiwgIkNvbSBxdWUgJDF7LH0wMzE3PDF7LH0wNCQsIGVsIHNlZ29uIG1ldGFsbCBzJ2hhIGRpbGF0YXQgcHJvcG9yY2lvbmFsbWVudCBtZW55cyJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDb21wYXJhIGVscyBmYWN0b3JzIGRlIGRpbGF0YWNpw7MgZXhhY3RlcyAoJDF7LH0wNCQgaSAkXFxhcHByb3gxeyx9MDMxNyQpLCBubyB1bmEgaW1wcmVzc2nDsyBhcHJveGltYWRhIGRlIGxhIGRpZmVyw6huY2lhIGFic29sdXRhLiIsICIkNjF7LH05JCBubyDDqXMgdW4gZmFjdG9yIGRlIGRpbGF0YWNpw7M6IGNhbCBkaXZpZGlyIGxhIGxvbmdpdHVkIGZpbmFsIGVudHJlIGxhIGluaWNpYWwgRU4gTEVTIE1BVEVJWEVTIFVOSVRBVFMgKCRcXGZyYWN7NjF7LH05fXs2MH1cXGFwcHJveDF7LH0wMzE3JCkgcGVyIG9idGVuaXItbmUgdW4sIGkgY29tcGFyYXItbG8gYW1iICQxeyx9MDQkLiIsICIiLCAiRWwgZmFjdG9yIGRlIGRpbGF0YWNpw7MgKGxvbmdpdHVkIGZpbmFsIGVudHJlIGluaWNpYWwpIG5vIGRlcMOobiBkZSBsYSB1bml0YXQgcXVlIGZhY2lzIHNlcnZpciwgbWVudHJlIHNpZ3VpcyBjb25zaXN0ZW50IGVuIGNhZGEgYmFycmEgcGVyIHNlcGFyYXQ6IGVzIHBvdCBjb21wYXJhciBwZXJmZWN0YW1lbnQuIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIkNPTVBBUkFfVEVSTUVTIiwgIiIsICJFU19QT1RfREVURVJNSU5BUiJdLCAicmVzIjogWyJQcmltZXIgbWV0YWxsOiBmYWN0b3IgJFxcZGZyYWN7MXssfTA0fXsxfT0xeyx9MDQkIiwgIlNlZ29uIG1ldGFsbDogZmFjdG9yICRcXGRmcmFjezYxeyx9OX17NjB9XFxhcHByb3gxeyx9MDMxNyQiLCAiQ29tIHF1ZSAkMXssfTAzMTc8MXssfTA0JCwgZWwgc2Vnb24gbWV0YWxsIHMnaGEgZGlsYXRhdCBwcm9wb3JjaW9uYWxtZW50IG1lbnlzIl19"
   },
   {
    "id": "118",
@@ -474,6 +509,7 @@ window.FULL = {
    "ap": "",
    "bloc": "encadenats",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En un envàs de galetes anuncien que conté un 25\\,\\% més de galetes pel mateix preu. Els envasos antics pesaven 1 kg i l'envàs actual amb l'oferta pesa 1,2 kg. És certa la publicitat?",
    "opcions": [
@@ -487,7 +523,7 @@ window.FULL = {
     "Comprova quin percentatge d'augment dona realment el pes: $\\frac{1{,}2-1}{1}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obyBhbWIgdW4gJDI1XFwsXFwlJCByZWFsOiAkMVxcY2RvdDF7LH0yNT0xeyx9MjUkIGtnLCBubyAkMXssfTIkIGtnLiBFbCBwZXMgYW51bmNpYXQgbm8gY29pbmNpZGVpeCBhbWIgdW4gaW5jcmVtZW50IGRlbCAkMjVcXCxcXCUkLiIsICJTaSBlbCBwZXMgZGUgY2FkYSBnYWxldGEgZXMgbWFudMOpIGNvbnN0YW50IChjb20gZG9uYSBhIGVudGVuZHJlIGwnZW51bmNpYXQpLCBlbCBwZXJjZW50YXRnZSBkJ2F1Z21lbnQgZGUgUEVTIGkgZWwgZGUgTk9NQlJFIGRlIGdhbGV0ZXMgY29pbmNpZGVpeGVuOiBubyBjYWwgY29uw6hpeGVyIGVsIHBlcyBkJ3VuYSBnYWxldGEgcGVyIHJlc3BvbmRyZS4iLCAiJDB7LH0yXFxjZG90MTAwPTIwJCwgbm8gJDI1JDogcmV2aXNhIGFxdWVzdCBkYXJyZXIgcGFzIGRlbCBjw6BsY3VsIGRlbCBwZXJjZW50YXRnZSByZWFsIGQnaW5jcmVtZW50LiIsICIiXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiIl0sICJyZXMiOiBbIlVuICQyNVxcLFxcJSQgcmVhbCBkb25hcmlhICQxXFxjZG90MXssfTI1PTF7LH0yNSQga2csIHBlcsOyIGwnZW52w6BzIGFjdHVhbCBwZXNhIG5vbcOpcyAkMXssfTIkIGtnIiwgIkluY3JlbWVudCByZWFsOiAkXFxkZnJhY3sxeyx9Mi0xfXsxfT0weyx9MjBcXFJpZ2h0YXJyb3cyMFxcLFxcJSQiLCAiUGVyIHRhbnQgZWwgcGVzIChpIGVsIG5vbWJyZSBkZSBnYWxldGVzLCBzaSBjYWRhIHVuYSBwZXNhIGlndWFsKSBub23DqXMgaGEgYXVnbWVudGF0IHVuICQyMFxcLFxcJSQsIG5vIHVuICQyNVxcLFxcJSQiXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obyBhbWIgdW4gJDI1XFwsXFwlJCByZWFsOiAkMVxcY2RvdDF7LH0yNT0xeyx9MjUkIGtnLCBubyAkMXssfTIkIGtnLiBFbCBwZXMgYW51bmNpYXQgbm8gY29pbmNpZGVpeCBhbWIgdW4gaW5jcmVtZW50IGRlbCAkMjVcXCxcXCUkLiIsICJTaSBlbCBwZXMgZGUgY2FkYSBnYWxldGEgZXMgbWFudMOpIGNvbnN0YW50IChjb20gZG9uYSBhIGVudGVuZHJlIGwnZW51bmNpYXQpLCBlbCBwZXJjZW50YXRnZSBkJ2F1Z21lbnQgZGUgUEVTIGkgZWwgZGUgTk9NQlJFIGRlIGdhbGV0ZXMgY29pbmNpZGVpeGVuOiBubyBjYWwgY29uw6hpeGVyIGVsIHBlcyBkJ3VuYSBnYWxldGEgcGVyIHJlc3BvbmRyZS4iLCAiJDB7LH0yXFxjZG90MTAwPTIwJCwgbm8gJDI1JDogcmV2aXNhIGFxdWVzdCBkYXJyZXIgcGFzIGRlbCBjw6BsY3VsIGRlbCBwZXJjZW50YXRnZSByZWFsIGQnaW5jcmVtZW50LiIsICIiXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIkVTX1BPVF9ERVRFUk1JTkFSIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICIiXSwgInJlcyI6IFsiVW4gJDI1XFwsXFwlJCByZWFsIGRvbmFyaWEgJDFcXGNkb3Qxeyx9MjU9MXssfTI1JCBrZywgcGVyw7IgbCdlbnbDoHMgYWN0dWFsIHBlc2Egbm9tw6lzICQxeyx9MiQga2ciLCAiSW5jcmVtZW50IHJlYWw6ICRcXGRmcmFjezF7LH0yLTF9ezF9PTB7LH0yMFxcUmlnaHRhcnJvdzIwXFwsXFwlJCIsICJQZXIgdGFudCBlbCBwZXMgKGkgZWwgbm9tYnJlIGRlIGdhbGV0ZXMsIHNpIGNhZGEgdW5hIHBlc2EgaWd1YWwpIG5vbcOpcyBoYSBhdWdtZW50YXQgdW4gJDIwXFwsXFwlJCwgbm8gdW4gJDI1XFwsXFwlJCJdfQ=="
   }
  ]
 };

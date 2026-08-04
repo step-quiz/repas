@@ -109,6 +109,35 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "BASES_DIFERENTS_COMBINADES": "Les bases són diferents: la regla de combinar exponents (sumar-los o restar-los) només val quan la base és la mateixa als dos factors.",
+  "BASE_ALTERADA": "En combinar potències de la mateixa base, la base es queda tal qual; només canvia l'exponent.",
+  "BASE_EXPONENT_INTERCANVIATS": "Has canviat de lloc la base i l'exponent: no és el mateix $a^b$ que $b^a$.",
+  "BASE_SIGNE_PERDUT": "El resultat ha de conservar la base tal com era, amb el seu signe.",
+  "CAP_ERROR": "Has dit que la cadena és correcta, però hi ha un pas equivocat. Que el resultat final surti bé no ho garanteix: dos errors es poden compensar. Comprova cada igualtat per separat.",
+  "EQUACIO_EXPONENT_MULTIPLICAT": "Per aïllar l'exponent en una igualtat de potències de la mateixa base, els exponents s'igualen i se sumen o es resten com en qualsevol equació; no es multipliquen.",
+  "EXPONENTS_MULTIPLICATS": "En multiplicar potències de la mateixa base, els exponents se SUMEN, no es multipliquen: $a^m\\cdot a^n=a^{m+n}$.",
+  "EXPONENTS_RESTATS_PRODUCTE": "En multiplicar potències de la mateixa base, els exponents se sumen; restar-los és la regla del quocient, no la del producte.",
+  "EXPONENTS_SUMATS_QUOCIENT": "En dividir potències de la mateixa base, els exponents es RESTEN, no se sumen: $a^m:a^n=a^{m-n}$.",
+  "EXPONENT_NEGATIU_SIGNE": "Un exponent negatiu no fa que el resultat sigui negatiu: $a^{-n}=\\dfrac{1}{a^n}$ és l'invers del nombre, no el seu oposat.",
+  "EXPONENT_ZERO": "Qualsevol nombre diferent de zero elevat a $0$ val $1$, no $0$.",
+  "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "MENYS_SENSE_PARENTESI": "Sense parèntesi, el signe $-$ no forma part de la base: $-a^n$ és $-(a^n)$, no $(-a)^n$.",
+  "ORDRE_DIVISIONS": "El que hi ha entre claudàtors s'ha de resoldre primer: no es poden restar tots els exponents seguits com si no hi hagués claudàtor.",
+  "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
+  "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
+  "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
+  "POTENCIA_POTENCIA_SUMADA": "En una potència d'una potència, els exponents es MULTIPLIQUEN, no se sumen: $(a^m)^n=a^{m\\cdot n}$.",
+  "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
+  "POTENCIA_QUOCIENT_UN_FACTOR": "L'exponent afecta els dos termes del quocient, no només un: $(a:b)^n=a^n:b^n$.",
+  "REGLA_NOMES_PRODUCTE": "La regla de sumar exponents només val per MULTIPLICAR potències de la mateixa base, no per sumar-les: quan se sumen, cal sumar els valors de cada potència.",
+  "REGLA_NOMES_QUOCIENT": "La regla de restar exponents és per DIVIDIR potències de la mateixa base, no per restar-les: quan es resten, cal restar els valors de cada potència.",
+  "SIGNE_PRODUCTE": "Revisa la regla dels signes del producte: signes diferents donen resultat negatiu.",
+  "SIGNE_QUOCIENT": "Revisa la regla dels signes del quocient: signes diferents donen resultat negatiu.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "35a",
@@ -116,6 +145,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$2^5\\cdot 2^3$",
    "opcions": [
@@ -137,6 +167,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$2^5:2^3$",
    "opcions": [
@@ -158,6 +189,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$3^7\\cdot 3^2\\cdot 3^4$",
    "opcions": [
@@ -179,6 +211,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$(-4)^9\\cdot(-4)^5\\cdot(-4)$",
    "opcions": [
@@ -200,6 +233,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$(-4)^9:(-4)^5:(-4)$",
    "opcions": [
@@ -221,6 +255,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Troba el valor d'aquestes potències.",
    "enunciat": "$(7\\cdot 4)^0$",
    "opcions": [
@@ -242,6 +277,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$(3^3\\cdot 3^4\\cdot 3^9):3^6$",
    "opcions": [
@@ -263,6 +299,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$(-2)^4\\cdot(-2)^6\\cdot(-2)^5$",
    "opcions": [
@@ -284,6 +321,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$(-7)^8:(-7)^4\\cdot(-7)^2$",
    "opcions": [
@@ -305,6 +343,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$\\left(\\dfrac{5}{2}\\right)^4\\cdot\\left(\\dfrac{5}{2}\\right)^3:\\left(\\dfrac{5}{2}\\right)^6$",
    "opcions": [
@@ -326,6 +365,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$\\left[\\left(-\\dfrac{1}{9}\\right)^2\\cdot\\left(-\\dfrac{1}{9}\\right)^3\\right]:\\left[\\left(-\\dfrac{1}{9}\\right)^4:\\left(-\\dfrac{1}{9}\\right)\\right]$",
    "opcions": [
@@ -347,6 +387,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$(-5)^8:\\left[(-5)^3:(-5)^2\\right]$",
    "opcions": [
@@ -368,6 +409,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Expressa el resultat amb una sola potència.",
    "enunciat": "$\\left[6^9\\cdot 6^5\\right]:\\left[6^4\\cdot 6^7\\right]$",
    "opcions": [
@@ -389,6 +431,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$(7\\cdot 3)^4$",
    "opcions": [
@@ -410,6 +453,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left[(-5)\\cdot 3\\right]^5$",
    "opcions": [
@@ -431,6 +475,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left[\\dfrac{4}{3}\\cdot\\left(-\\dfrac{8}{6}\\right)\\right]^3$",
    "opcions": [
@@ -452,6 +497,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left[(-8):5\\right]^3$",
    "opcions": [
@@ -473,6 +519,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left[(0{,}16):(-3)\\right]^2$",
    "opcions": [
@@ -494,6 +541,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left[\\dfrac{4}{6}\\cdot\\left(-\\dfrac{7}{3}\\right)\\right]^5$",
    "opcions": [
@@ -515,6 +563,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$(-6)^2\\cdot(-6)^4\\cdot(-6)^{12}$",
    "opcions": [
@@ -536,6 +585,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$(0{,}3)^2\\cdot(0{,}3)^4$",
    "opcions": [
@@ -557,6 +607,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$(-0{,}5)^6\\cdot(-0{,}5)^{13}\\cdot(-0{,}5)^{11}$",
    "opcions": [
@@ -578,6 +629,7 @@ window.FULL = {
    "ap": "j",
    "bloc": "basiques",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Aplica les propietats de les potències per resoldre les expressions.",
    "enunciat": "$\\left(-\\dfrac{3}{6}\\right)^3\\cdot\\left(-\\dfrac{3}{6}\\right)^2$",
    "opcions": [
@@ -599,6 +651,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$2^4\\cdot 2^{-2}\\cdot 2^3$",
    "opcions": [
@@ -620,6 +673,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$(2^{-2})^3\\cdot 2^{-4}$",
    "opcions": [
@@ -641,6 +695,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$(-3)^{-5}:(-3)^2\\cdot(-3)^4$",
    "opcions": [
@@ -662,6 +717,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$\\left[(-3)^{-2}\\right]^{-4}:(-3)^5$",
    "opcions": [
@@ -683,6 +739,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$\\left(\\dfrac{1}{3}\\right)^{-2}\\cdot\\left(\\dfrac{1}{3}\\right)^5:\\left(\\dfrac{1}{3}\\right)^{-6}$",
    "opcions": [
@@ -704,6 +761,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$\\left(-\\dfrac{1}{4}\\right)^{-6}:\\left[\\left(-\\dfrac{1}{4}\\right)^2\\right]^{-3}$",
    "opcions": [
@@ -725,6 +783,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$3^{-6}:3^{-7}\\cdot 3^2$",
    "opcions": [
@@ -746,6 +805,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$(-5)^6:(-5)^{-2}:(-5)^{-1}$",
    "opcions": [
@@ -767,6 +827,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$\\left[(-6)^3\\right]^{-5}\\cdot\\left[(-6)^{-5}\\right]^4$",
    "opcions": [
@@ -788,6 +849,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$2^3\\cdot\\square=2^8$",
    "opcions": [
@@ -809,6 +871,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$(-4)^5\\cdot\\square=(-4)^{10}$",
    "opcions": [
@@ -830,6 +893,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$\\left(\\dfrac{7}{2}\\right)^6\\cdot\\square=\\left(\\dfrac{7}{2}\\right)^7$",
    "opcions": [
@@ -851,6 +915,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$(-3)^{12}:\\square=(-3)^6$",
    "opcions": [
@@ -872,6 +937,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$\\square:5^6=5$",
    "opcions": [
@@ -893,6 +959,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Completa amb la potència que falta perquè la igualtat sigui certa.",
    "enunciat": "$\\square:\\left(-\\dfrac{1}{3}\\right)^6=\\left(-\\dfrac{1}{3}\\right)^3$",
    "opcions": [
@@ -914,6 +981,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Esbrina el valor de $a$ perquè cada igualtat sigui certa.",
    "enunciat": "$5^a\\cdot 5^3=5^6$",
    "opcions": [
@@ -935,6 +1003,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Esbrina el valor de $a$ perquè cada igualtat sigui certa.",
    "enunciat": "$(-2)^{5a}:(-2)^{2a}=(-2)^6$",
    "opcions": [
@@ -956,6 +1025,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Esbrina el valor de $a$ perquè cada igualtat sigui certa.",
    "enunciat": "$(-6)^a:(-6)^8=(-6)^0$",
    "opcions": [
@@ -977,6 +1047,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "negatiu",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Esbrina el valor de $a$ perquè cada igualtat sigui certa.",
    "enunciat": "$\\left(\\dfrac{5}{3}\\right)^3\\cdot\\left(\\dfrac{5}{3}\\right)^{2a}=\\left(\\dfrac{5}{3}\\right)^9$",
    "opcions": [
@@ -998,6 +1069,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$3^2+3^3+3^5=3^{2+3+5}=3^{10}$",
    "opcions": [
@@ -1019,6 +1091,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$3^2\\cdot 3^3-3^5=3^{2+3}-3^5=3^5-3^5=3^0=1$",
    "opcions": [
@@ -1040,6 +1113,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$4^9:4^2\\cdot 4^4=4^9:4^{2+4}=4^9:4^6=4^{9-6}=4^3$",
    "opcions": [
@@ -1061,6 +1135,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$(-2)^6\\cdot(-2)^3=\\left[(-2)\\cdot(-2)\\right]^{6+3}=4^9$",
    "opcions": [
@@ -1082,6 +1157,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$-3^2\\cdot 3^2=(-3)^{2+2}=(-3)^4=3^4$",
    "opcions": [
@@ -1103,6 +1179,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$2\\cdot(-3)^2=\\left[2\\cdot(-3)\\right]^2=(-6)^2=6^2$",
    "opcions": [
@@ -1124,6 +1201,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$8^5\\cdot 8^7=(8+8)^{5+7}=16^{12}$",
    "opcions": [
@@ -1145,6 +1223,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "Cada igualtat amaga un error. Troba'l i digues quin hauria de ser el resultat correcte.",
    "enunciat": "$3^1\\cdot 3^0=3^{1\\cdot 0}=3^0=1$",
    "opcions": [
@@ -1166,6 +1245,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$9^{-1}=-9$",
    "opcions": [
@@ -1187,6 +1267,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$(-2)^{-4}=2^4$",
    "opcions": [
@@ -1208,6 +1289,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$(-3)^{-6}=3^{-6}$",
    "opcions": [
@@ -1229,6 +1311,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$(-3)^{-3}=(-3)^{-2}\\cdot 3^{-1}$",
    "opcions": [
@@ -1250,6 +1333,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$4^{-3}=(-4)^{-1}\\cdot(-4)^4$",
    "opcions": [
@@ -1271,6 +1355,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "verifica",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Digues si cada igualtat és certa o falsa, i per què.",
    "enunciat": "$(2^{-5})^{-1}=2^{-6}$",
    "opcions": [
@@ -1292,6 +1377,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$(2^3)^4$",
    "opcions": [
@@ -1313,6 +1399,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$\\left[(-3)^3\\right]^2$",
    "opcions": [
@@ -1334,6 +1421,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$\\left[-6^4\\right]^3$",
    "opcions": [
@@ -1355,6 +1443,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$\\left[\\left(\\dfrac{1}{3}\\right)^2\\right]^4$",
    "opcions": [
@@ -1376,6 +1465,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$\\left[\\left(-\\dfrac{3}{5}\\right)^3\\right]^5$",
    "opcions": [
@@ -1397,6 +1487,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "verifica",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa com a potència única.",
    "enunciat": "$\\left[-5^2\\right]^4$",
    "opcions": [
@@ -1418,6 +1509,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de cada expressió.",
    "enunciat": "$\\left[(-3)^2\\right]^2\\cdot\\left[(-3)^3\\right]^3$",
    "opcions": [
@@ -1439,6 +1531,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de cada expressió.",
    "enunciat": "$\\left[5^8\\right]^2:\\left[(-5)^4\\right]^3$",
    "opcions": [
@@ -1460,6 +1553,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$(-2)^{-4}\\cdot\\left[(-2)^2\\right]^3$",
    "opcions": [
@@ -1481,6 +1575,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$3^4\\cdot\\left[(-3)^2\\right]^{-2}$",
    "opcions": [
@@ -1502,6 +1597,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$(-8)^3\\cdot 2^{-4}$",
    "opcions": [
@@ -1523,6 +1619,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$(-2)^{-3}\\cdot 2^{-3}$",
    "opcions": [
@@ -1544,6 +1641,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$-2^{-3}\\cdot\\left(-2^{-4}\\right)$",
    "opcions": [
@@ -1565,6 +1663,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$\\left(-2^6\\right)\\cdot\\left(-2^{-6}\\right)$",
    "opcions": [
@@ -1586,6 +1685,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$(-3)^4\\cdot\\left(-3^4\\right)$",
    "opcions": [
@@ -1607,6 +1707,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol.",
    "enunciat": "$4^{-3}\\cdot 2^{-2}$",
    "opcions": [
@@ -1628,6 +1729,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Completa les igualtats.",
    "enunciat": "$\\left[(-5)^3\\right]^{\\square}:(-5)^7=(-5)^5$",
    "opcions": [
@@ -1649,6 +1751,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Completa les igualtats.",
    "enunciat": "$(\\square^2)^5\\cdot\\square^4=(-3)^{14}$",
    "opcions": [
@@ -1670,6 +1773,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Completa les igualtats.",
    "enunciat": "$\\left(7^3\\right)^5:7^{\\square}=1$",
    "opcions": [
@@ -1691,6 +1795,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "combinades",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Completa les igualtats.",
    "enunciat": "$11^9\\cdot\\left(11^2\\right)^3=11^{\\square}$",
    "opcions": [

@@ -78,6 +78,26 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "CRITERI_AGRUPACIO_MAL": "El criteri per agrupar en intervals no és el nombre de dades sinó com estan repartides: si els valors són molt dispersos i gairebé no es repeteixen, una taula valor a valor no resumeix res.",
+  "DIAGRAMA_HISTOGRAMA_CONFOSOS": "El diagrama de barres (amb separació entre barres) s'utilitza per a variables discretes o qualitatives; l'histograma (sense separació) s'utilitza per a variables contínues agrupades en intervals.",
+  "DISCRETA_CONTINUA_CONFOSES": "Una variable quantitativa és discreta quan només pot prendre valors aïllats (típicament un recompte), i contínua quan pot prendre qualsevol valor decimal dins d'un interval.",
+  "ESCALA_ALTERA_DADES": "Canviar l'escala vertical d'un gràfic no crea ni elimina cap dada: la forma es manté, només canvien els números de l'eix.",
+  "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
+  "FREQ_ABSOLUTA_ACUMULADA_CONFOSES": "La freqüència absoluta $f_i$ és el recompte d'un valor concret; la freqüència absoluta acumulada $F_i$ és la suma de totes les freqüències fins a aquell valor, inclòs.",
+  "FREQ_RELATIVA_MAL_CALCULADA": "La freqüència relativa d'un valor s'obté dividint la seva freqüència absoluta pel nombre TOTAL de dades, no per cap altre nombre.",
+  "F_ACUMULADA_NO_CREIXENT": "La freqüència absoluta acumulada $F_i$ mai pot disminuir a mesura que $i$ creix: cada $F_i$ inclou totes les dades fins aquell punt, així que com a mínim es queda igual.",
+  "INTERVAL_LIMIT_MAL_ASSIGNAT": "Revisa a quin interval pertany cada dada: amb intervals $[a,b)$, el límit inferior $a$ hi pertany però el superior $b$ no (pertany al següent interval).",
+  "MOSTRA_POBLACIO_INVERTIDES": "Convé estudiar tota la població quan aquesta és petita i accessible; convé estudiar-ne una mostra quan és molt gran o inabastable en la seva totalitat.",
+  "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "PERCENTATGE_MAL_CALCULAT": "El percentatge d'un valor s'obté multiplicant la seva freqüència relativa per $100$ (o, equivalentment, $\\frac{f_i}{N}\\cdot100$).",
+  "POLIGON_MAL_CONSTRUIT": "El polígon de freqüències s'obté unint amb segments els punts que marquen l'alçada de cada barra, en l'ordre dels valors de la variable.",
+  "QUALITATIVA_QUANTITATIVA_CONFOSES": "Una variable és quantitativa quan s'expressa amb un nombre (encara que no porti unitats), i qualitativa quan expressa una categoria o qualitat que no es mesura numèricament.",
+  "RECOMPTE_MAL_FET": "Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.",
+  "SECTOR_ANGLE_MAL_CALCULAT": "L'angle de cada sector s'obté multiplicant la seva freqüència relativa pels $360^\\circ$ totals de la circumferència, no per cap altre nombre.",
+  "TOTAL_DADES_MAL_CALCULAT": "El nombre total de dades $N$ és la suma de totes les freqüències absolutes (o, equivalentment, l'última freqüència absoluta acumulada).",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "218a",
@@ -85,6 +105,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "La talla de l'alumnat d'un IES.",
    "opcions": [
@@ -106,6 +127,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "La temperatura de la teva província.",
    "opcions": [
@@ -127,6 +149,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "L'edat dels habitants d'un país.",
    "opcions": [
@@ -148,6 +171,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "El sexe dels habitants d'un poble.",
    "opcions": [
@@ -169,6 +193,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "Els diners gastats a la setmana pels teus amics.",
    "opcions": [
@@ -190,6 +215,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "Els efectes d'un nou medicament en l'ésser humà.",
    "opcions": [
@@ -211,6 +237,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
    "enunciat": "El color de cabells dels teus companys de classe.",
    "opcions": [
@@ -232,6 +259,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "De les variables següents, quines són discretes?",
    "enunciat": "Nombre de mascotes.",
    "opcions": [
@@ -253,6 +281,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "De les variables següents, quines són discretes?",
    "enunciat": "Talla de calçat.",
    "opcions": [
@@ -266,7 +295,7 @@ window.FULL = {
     "Encara que hi hagi mitges talles, els valors possibles són un conjunt finit i aïllat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUXVlIGhpIGhhZ2kgbWl0Z2VzIHRhbGxlcyBubyBsYSBjb252ZXJ0ZWl4IGVuIGNvbnTDrW51YTogY29udGludWEgc2VudCB1biBjb25qdW50IGZpbml0IGRlIHZhbG9ycyBhw69sbGF0cyAoJDM3LCAzN3ssfTUsIDM4LCAzOHssfTUsXFxsZG90cyQpLCBubyBxdWFsc2V2b2wgdmFsb3IgcG9zc2libGUgZW50cmUgZWxscy4iLCAiRWwgdGlwdXMgZGUgdmFyaWFibGUgKGRpc2NyZXRhKSBubyBkZXDDqG4gZGUgbGEgbWFyY2E6IHRvdGVzIGxlcyBlc2NhbGVzIGRlIHRhbGxlcyBmdW5jaW9uZW4gYW1iIHVuIGNvbmp1bnQgZmluaXQgZGUgdmFsb3JzIGHDr2xsYXRzLiIsICJFbmNhcmEgcXVlIHNlbWJsaSB1bmEgbWVzdXJhIGNvbSBlbCBwZXMgbyBsJ2Fsw6dhZGEsIGxhIHRhbGxhIGRlIGNhbMOnYXQgbm9tw6lzIHBvdCBwcmVuZHJlIHVuIGNvbmp1bnQgZmluaXQgZGUgdmFsb3JzIGHDr2xsYXRzIChsZXMgdGFsbGVzIHF1ZSBmYWJyaXF1ZW4gbGVzIG1hcnF1ZXMpLCBubyBxdWFsc2V2b2wgZGVjaW1hbC4gVW5hIHZhcmlhYmxlIHF1YW50aXRhdGl2YSDDqXMgZGlzY3JldGEgcXVhbiBub23DqXMgcG90IHByZW5kcmUgdmFsb3JzIGHDr2xsYXRzICh0w61waWNhbWVudCB1biByZWNvbXB0ZSksIGkgY29udMOtbnVhIHF1YW4gcG90IHByZW5kcmUgcXVhbHNldm9sIHZhbG9yIGRlY2ltYWwgZGlucyBkJ3VuIGludGVydmFsLiJdLCAiZXJyIjogWyIiLCAiRElTQ1JFVEFfQ09OVElOVUFfQ09ORk9TRVMiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkRJU0NSRVRBX0NPTlRJTlVBX0NPTkZPU0VTIl0sICJyZXMiOiBbIkVuY2FyYSBxdWUgaW5jbG9ndWkgbWl0Z2VzIHRhbGxlcywgbGEgdGFsbGEgZGUgY2Fsw6dhdCBwcmVuIHVuIGNvbmp1bnQgZmluaXQgZGUgdmFsb3JzIGHDr2xsYXRzLCBubyBxdWFsc2V2b2wgZGVjaW1hbC4gw4lzIERJU0NSRVRBLiJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUXVlIGhpIGhhZ2kgbWl0Z2VzIHRhbGxlcyBubyBsYSBjb252ZXJ0ZWl4IGVuIGNvbnTDrW51YTogY29udGludWEgc2VudCB1biBjb25qdW50IGZpbml0IGRlIHZhbG9ycyBhw69sbGF0cyAoJDM3LCAzN3ssfTUsIDM4LCAzOHssfTUsXFxsZG90cyQpLCBubyBxdWFsc2V2b2wgdmFsb3IgcG9zc2libGUgZW50cmUgZWxscy4iLCAiRWwgdGlwdXMgZGUgdmFyaWFibGUgKGRpc2NyZXRhKSBubyBkZXDDqG4gZGUgbGEgbWFyY2E6IHRvdGVzIGxlcyBlc2NhbGVzIGRlIHRhbGxlcyBmdW5jaW9uZW4gYW1iIHVuIGNvbmp1bnQgZmluaXQgZGUgdmFsb3JzIGHDr2xsYXRzLiIsICJFbmNhcmEgcXVlIHNlbWJsaSB1bmEgbWVzdXJhIGNvbSBlbCBwZXMgbyBsJ2Fsw6dhZGEsIGxhIHRhbGxhIGRlIGNhbMOnYXQgbm9tw6lzIHBvdCBwcmVuZHJlIHVuIGNvbmp1bnQgZmluaXQgZGUgdmFsb3JzIGHDr2xsYXRzIChsZXMgdGFsbGVzIHF1ZSBmYWJyaXF1ZW4gbGVzIG1hcnF1ZXMpLCBubyBxdWFsc2V2b2wgZGVjaW1hbC4gVW5hIHZhcmlhYmxlIHF1YW50aXRhdGl2YSDDqXMgZGlzY3JldGEgcXVhbiBub23DqXMgcG90IHByZW5kcmUgdmFsb3JzIGHDr2xsYXRzICh0w61waWNhbWVudCB1biByZWNvbXB0ZSksIGkgY29udMOtbnVhIHF1YW4gcG90IHByZW5kcmUgcXVhbHNldm9sIHZhbG9yIGRlY2ltYWwgZGlucyBkJ3VuIGludGVydmFsLiJdLCAiZXJyIjogWyIiLCAiRElTQ1JFVEFfQ09OVElOVUFfQ09ORk9TRVMiLCAiRVNfUE9UX0RFVEVSTUlOQVIiLCAiRElTQ1JFVEFfQ09OVElOVUFfQ09ORk9TRVMiXSwgInJlcyI6IFsiRW5jYXJhIHF1ZSBpbmNsb2d1aSBtaXRnZXMgdGFsbGVzLCBsYSB0YWxsYSBkZSBjYWzDp2F0IHByZW4gdW4gY29uanVudCBmaW5pdCBkZSB2YWxvcnMgYcOvbGxhdHMsIG5vIHF1YWxzZXZvbCBkZWNpbWFsLiDDiXMgRElTQ1JFVEEuIl19"
   },
   {
    "id": "219c",
@@ -274,6 +303,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "De les variables següents, quines són discretes?",
    "enunciat": "Perímetre cranial.",
    "opcions": [
@@ -295,6 +325,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "De les variables següents, quines són discretes?",
    "enunciat": "Ingressos diaris en una fruiteria.",
    "opcions": [
@@ -316,6 +347,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "variables",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "De les variables següents, quines són discretes?",
    "enunciat": "Quilograms de carn consumits al menjador d'un institut durant una setmana.",
    "opcions": [
@@ -337,6 +369,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
    "enunciat": "Quina és la freqüència absoluta del valor $x_i=1$ hora?",
    "opcions": [
@@ -358,6 +391,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
    "enunciat": "Quina és la freqüència absoluta acumulada $F_i$ del valor $x_i=2$ hores?",
    "opcions": [
@@ -379,6 +413,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
    "enunciat": "Què signifiquen les freqüències absolutes acumulades ($F_i$) d'aquesta taula?",
    "opcions": [
@@ -400,6 +435,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Copia i completa aquesta taula de freqüències: $x_i=10,20,30,40,50,60$; dades donades $F(10)=4$, $f(20)=5$, percentatge de $20$ és $10\\,\\%$, $F(30)=16$, $f(40)=10$, $F(50)=41$, percentatge de $60$ és $18\\,\\%$.",
    "enunciat": "Quant val el total de dades $N$ d'aquesta taula?",
    "opcions": [
@@ -421,6 +457,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Copia i completa aquesta taula de freqüències: $x_i=10,20,30,40,50,60$; dades donades $F(10)=4$, $f(20)=5$, percentatge de $20$ és $10\\,\\%$, $F(30)=16$, $f(40)=10$, $F(50)=41$, percentatge de $60$ és $18\\,\\%$.",
    "enunciat": "Quant val $f_i$ (freqüència absoluta) del valor $x_i=30$?",
    "opcions": [
@@ -442,6 +479,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Copia i completa aquesta taula de freqüències: $x_i=10,20,30,40,50,60$; dades donades $F(10)=4$, $f(20)=5$, percentatge de $20$ és $10\\,\\%$, $F(30)=16$, $f(40)=10$, $F(50)=41$, percentatge de $60$ és $18\\,\\%$.",
    "enunciat": "Quant val $f_i$ (freqüència absoluta) del valor $x_i=50$?",
    "opcions": [
@@ -463,6 +501,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Copia i completa aquesta taula de freqüències: $x_i=10,20,30,40,50,60$; dades donades $F(10)=4$, $f(20)=5$, percentatge de $20$ és $10\\,\\%$, $F(30)=16$, $f(40)=10$, $F(50)=41$, percentatge de $60$ és $18\\,\\%$.",
    "enunciat": "Quant val $f_i$ (freqüència absoluta) del valor $x_i=60$?",
    "opcions": [
@@ -484,6 +523,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En preguntar a 20 persones sobre el nombre de vegades que havien viatjat a l'estranger, el resultat va ser: $3,5,4,4,2,6,1,2,3,3,3,3,3,5,2,6,5,4,4,3$.",
    "enunciat": "Fent el recompte de les $20$ dades, quantes persones han viatjat exactament $3$ vegades a l'estranger?",
    "opcions": [
@@ -505,6 +545,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En preguntar a 20 persones sobre el nombre de vegades que havien viatjat a l'estranger, el resultat va ser: $3,5,4,4,2,6,1,2,3,3,3,3,3,5,2,6,5,4,4,3$.",
    "enunciat": "Quina és la freqüència absoluta acumulada $F_i$ del valor $x_i=4$?",
    "opcions": [
@@ -526,6 +567,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una avaluació, dels 30 alumnes d'una classe, el $10\\,\\%$ ho va aprovar tot, el $20\\,\\%$ va suspendre una assignatura, el $50\\,\\%$ en va suspendre dues, la resta, més de dues assignatures.",
    "enunciat": "Quants alumnes van suspendre exactament dues assignatures?",
    "opcions": [
@@ -547,6 +589,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una avaluació, dels 30 alumnes d'una classe, el $10\\,\\%$ ho va aprovar tot, el $20\\,\\%$ va suspendre una assignatura, el $50\\,\\%$ en va suspendre dues, la resta, més de dues assignatures.",
    "enunciat": "Quants alumnes van suspendre MÉS de dues assignatures?",
    "opcions": [
@@ -568,6 +611,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una avaluació, dels 30 alumnes d'una classe, el $10\\,\\%$ ho va aprovar tot, el $20\\,\\%$ va suspendre una assignatura, el $50\\,\\%$ en va suspendre dues, la resta, més de dues assignatures.",
    "enunciat": "Hi ha algun tipus de freqüència que respongui directament a la pregunta de quants alumnes van suspendre MENYS de dues assignatures?",
    "opcions": [
@@ -581,7 +625,7 @@ window.FULL = {
     "La freqüència absoluta ACUMULADA d'un valor inclou tots els valors anteriors, fins aquell inclòs."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBmcmVxw7zDqG5jaWEgcmVsYXRpdmEgZGUgXCIkMiRcIiBub23DqXMgcGFybGEgZGVscyBhbHVtbmVzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIGV4YWN0YW1lbnQgJDIkLCBubyBkZWxzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIG1lbnlzIGRlICQyJC4iLCAiTGEgZnJlccO8w6huY2lhIGFjdW11bGFkYSBkZSBcIiQyJFwiICgkRl8yJCkgaW5jbG91IHRhbWLDqSBlbHMgcXVlIGVuIHZhbiBzdXNwZW5kcmUgZXhhY3RhbWVudCAkMiQsIGkgbGEgcHJlZ3VudGEgZGVtYW5hIE1FTllTIGRlIGR1ZXMsIMOpcyBhIGRpciwgbm9tw6lzICQwJCBvICQxJDogY2FsIGwnYWN1bXVsYWRhIGRlIFwiJDEkXCIsIG5vIGxhIGRlIFwiJDIkXCIuIiwgIiIsICJTw60gcXVlIG4naGkgaGEgdW5hOiBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgQUNVTVVMQURBIGQndW4gdmFsb3Igc3VtYSB0b3RlcyBsZXMgcXVlIGVsIHByZWNlZGVpeGVuLCBxdWUgw6lzIGV4YWN0YW1lbnQgZWwgcXVlIGRlbWFuYSBcIm1lbnlzIGRlIGR1ZXNcIi4iXSwgImVyciI6IFsiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyIkRl8xPWZfMCtmXzE9Mys2PTkkOiBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgYWN1bXVsYWRhIGRlbCB2YWxvciBcIiQxJFwiIHJlc3BvbiBleGFjdGFtZW50IGEgbGEgcHJlZ3VudGEiLCAiUGVyIHRhbnQsIHPDrSwgJDkkIGFsdW1uZXMgdmFuIHN1c3BlbmRyZSBtZW55cyBkZSBkdWVzIGFzc2lnbmF0dXJlcyJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBmcmVxw7zDqG5jaWEgcmVsYXRpdmEgZGUgXCIkMiRcIiBub23DqXMgcGFybGEgZGVscyBhbHVtbmVzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIGV4YWN0YW1lbnQgJDIkLCBubyBkZWxzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIG1lbnlzIGRlICQyJC4iLCAiTGEgZnJlccO8w6huY2lhIGFjdW11bGFkYSBkZSBcIiQyJFwiICgkRl8yJCkgaW5jbG91IHRhbWLDqSBlbHMgcXVlIGVuIHZhbiBzdXNwZW5kcmUgZXhhY3RhbWVudCAkMiQsIGkgbGEgcHJlZ3VudGEgZGVtYW5hIE1FTllTIGRlIGR1ZXMsIMOpcyBhIGRpciwgbm9tw6lzICQwJCBvICQxJDogY2FsIGwnYWN1bXVsYWRhIGRlIFwiJDEkXCIsIG5vIGxhIGRlIFwiJDIkXCIuIiwgIiIsICJTw60gcXVlIG4naGkgaGEgdW5hOiBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgQUNVTVVMQURBIGQndW4gdmFsb3Igc3VtYSB0b3RlcyBsZXMgcXVlIGVsIHByZWNlZGVpeGVuLCBxdWUgw6lzIGV4YWN0YW1lbnQgZWwgcXVlIGRlbWFuYSBcIm1lbnlzIGRlIGR1ZXNcIi4iXSwgImVyciI6IFsiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiIiwgIkVTX1BPVF9ERVRFUk1JTkFSIl0sICJyZXMiOiBbIiRGXzE9Zl8wK2ZfMT0zKzY9OSQ6IGxhIGZyZXHDvMOobmNpYSBhYnNvbHV0YSBhY3VtdWxhZGEgZGVsIHZhbG9yIFwiJDEkXCIgcmVzcG9uIGV4YWN0YW1lbnQgYSBsYSBwcmVndW50YSIsICJQZXIgdGFudCwgc8OtLCAkOSQgYWx1bW5lcyB2YW4gc3VzcGVuZHJlIG1lbnlzIGRlIGR1ZXMgYXNzaWduYXR1cmVzIl19"
   },
   {
    "id": "224a",
@@ -589,6 +633,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
    "enunciat": "Quina i de quin tipus és la variable estadística que estem estudiant?",
    "opcions": [
@@ -610,6 +655,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
    "enunciat": "Quina és la freqüència absoluta del valor $x_i=1$ (una vegada per setmana)?",
    "opcions": [
@@ -631,6 +677,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
    "enunciat": "Quants joves van al cinema MÉS de dues vegades per setmana?",
    "opcions": [
@@ -652,6 +699,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
    "enunciat": "I quants joves van al cinema, com a mínim, una vegada per setmana?",
    "opcions": [
@@ -673,6 +721,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Les dades següents corresponen al nombre de treballadors d'una cadena de botigues (35 botigues): $4,7,5,2,4,5,6,4,7,3,7,4,3,4,4,3,4,3,2,4,4,1,1,2,5,3,8,2,3,2,8,6,6,1,3$.",
    "enunciat": "Indica quina és la variable i de quin tipus és.",
    "opcions": [
@@ -694,6 +743,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Les dades següents corresponen al nombre de treballadors d'una cadena de botigues (35 botigues): $4,7,5,2,4,5,6,4,7,3,7,4,3,4,4,3,4,3,2,4,4,1,1,2,5,3,8,2,3,2,8,6,6,1,3$.",
    "enunciat": "Fent el recompte de les $35$ dades, quina és la freqüència absoluta acumulada $F_i$ del valor $x_i=4$?",
    "opcions": [
@@ -715,6 +765,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Hem preguntat a 50 alumnes quin és el seu esport preferit: 16 han escollit futbol; 12, bàsquet; 6, handbol; 10, equitació; i 6, ciclisme.",
    "enunciat": "Quina és la freqüència absoluta del bàsquet?",
    "opcions": [
@@ -736,6 +787,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Hem preguntat a 50 alumnes quin és el seu esport preferit: 16 han escollit futbol; 12, bàsquet; 6, handbol; 10, equitació; i 6, ciclisme.",
    "enunciat": "Quina freqüència absoluta representa el $20\\,\\%$ dels alumnes?",
    "opcions": [
@@ -757,6 +809,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Hem preguntat a 50 alumnes quin és el seu esport preferit: 16 han escollit futbol; 12, bàsquet; 6, handbol; 10, equitació; i 6, ciclisme.",
    "enunciat": "Quina és la freqüència relativa de l'handbol?",
    "opcions": [
@@ -778,6 +831,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Hem preguntat a 50 alumnes quin és el seu esport preferit: 16 han escollit futbol; 12, bàsquet; 6, handbol; 10, equitació; i 6, ciclisme.",
    "enunciat": "Quina freqüència relativa representa el $32\\,\\%$?",
    "opcions": [
@@ -799,6 +853,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Hem estudiat el contingut en sals de 22 ampolles d'aigua, i n'hem obtingut les dades següents, expressades en mil·ligrams: $46,25,27,30,48,40,27,44,37,62,56,29,76,75,49,59,33,52,54,45,66,69$.",
    "enunciat": "Classifica la variable estadística estudiada.",
    "opcions": [
@@ -820,6 +875,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Hem estudiat el contingut en sals de 22 ampolles d'aigua, i n'hem obtingut les dades següents, expressades en mil·ligrams: $46,25,27,30,48,40,27,44,37,62,56,29,76,75,49,59,33,52,54,45,66,69$.",
    "enunciat": "Amb aquestes $22$ dades disperses (de $25$ a $76$ mg, sense gaires valors repetits), convé fer una taula de freqüències amb cada valor per separat o agrupar-les en intervals? Per què?",
    "opcions": [
@@ -833,7 +889,7 @@ window.FULL = {
     "Si gairebé cap valor es repeteix, una taula sense agrupar no aporta cap resum: pensa en l'alternativa (agrupar en intervals)."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbW90aXUgbm8gw6lzIGVsIG5vbWJyZSBkZSBkYWRlcyBlbiBzaSwgc2luw7MgcXVlIGVzdGFuIG1vbHQgZGlzcGVyc2VzIGkgZ2FpcmViw6kgbm8gZXMgcmVwZXRlaXhlbjogc2kgZWxzICQyMiQgdmFsb3JzIGhhZ3Vlc3NpbiBlc3RhdCBtb2x0IHNlbWJsYW50cyBlbnRyZSBlbGxzLCBubyBjYWxpZHJpYSBhZ3J1cGFyIGVuIGludGVydmFscy4iLCAiTm8gw6lzIGluZGlmZXJlbnQ6IGFncnVwYXIgZW4gaW50ZXJ2YWxzIHPDrSBxdWUgYXBvcnRhIHVuIHJlc3VtIMO6dGlsIChxdWFudHMgdmFsb3JzIGNhdWVuIGVuIGNhZGEgZnJhbmphKSwgbWVudHJlIHF1ZSB1bmEgdGF1bGEgc2Vuc2UgYWdydXBhciBhbWIgZGFkZXMgdGFuIGRpc3BlcnNlcyBzZXJpYSBnYWlyZWLDqSB1bmEgY8OycGlhIGRlIGxhIGxsaXN0YSBvcmlnaW5hbC4iLCAiTm8gcGVyZHJlIGNhcCBkZXRhbGwgbm8gw6lzIGwnb2JqZWN0aXUgZCd1bmEgdGF1bGEgZGUgZnJlccO8w6huY2llczogbCdvYmplY3RpdSDDqXMgcmVzdW1pci4gQW1iIHZhbG9ycyB0YW4gZGlzcGVyc29zIGkgcG9jIHJlcGV0aXRzLCB1bmEgdGF1bGEgc2Vuc2UgYWdydXBhciBzZXJpYSBnYWlyZWLDqSB0YW4gbGxhcmdhIGNvbSBsYSBsbGlzdGEgb3JpZ2luYWwgaSBubyBhcG9ydGFyaWEgY2FwIHJlc3VtIMO6dGlsLiJdLCAiZXJyIjogWyIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiXSwgInJlcyI6IFsiQW1iIHVuIHJhbmcgYW1wbGkgKCQyNSQgYSAkNzYkIG1nKSBpIHBvcXVlcyByZXBldGljaW9ucywgdW5hIHRhdWxhIHNlbnNlIGFncnVwYXIgZG9uYXJpYSBnYWlyZWLDqSB0b3RlcyBsZXMgZnJlccO8w6huY2llcyBpZ3VhbHMgYSAkMSQsIGkgbm8gcmVzdW1pcmlhIHJlcy4iLCAiUGVyIGFpeMOyLCBlbiB2YXJpYWJsZXMgY29udMOtbnVlcyBjb20gYXF1ZXN0YSwgcydhZ3J1cGVuIGxlcyBkYWRlcyBlbiBpbnRlcnZhbHM6IGFpeMOtIGxhIHRhdWxhIHPDrSBxdWUgbW9zdHJhIHBhdHJvbnMgY2xhcnMuIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbW90aXUgbm8gw6lzIGVsIG5vbWJyZSBkZSBkYWRlcyBlbiBzaSwgc2luw7MgcXVlIGVzdGFuIG1vbHQgZGlzcGVyc2VzIGkgZ2FpcmViw6kgbm8gZXMgcmVwZXRlaXhlbjogc2kgZWxzICQyMiQgdmFsb3JzIGhhZ3Vlc3NpbiBlc3RhdCBtb2x0IHNlbWJsYW50cyBlbnRyZSBlbGxzLCBubyBjYWxpZHJpYSBhZ3J1cGFyIGVuIGludGVydmFscy4iLCAiTm8gw6lzIGluZGlmZXJlbnQ6IGFncnVwYXIgZW4gaW50ZXJ2YWxzIHPDrSBxdWUgYXBvcnRhIHVuIHJlc3VtIMO6dGlsIChxdWFudHMgdmFsb3JzIGNhdWVuIGVuIGNhZGEgZnJhbmphKSwgbWVudHJlIHF1ZSB1bmEgdGF1bGEgc2Vuc2UgYWdydXBhciBhbWIgZGFkZXMgdGFuIGRpc3BlcnNlcyBzZXJpYSBnYWlyZWLDqSB1bmEgY8OycGlhIGRlIGxhIGxsaXN0YSBvcmlnaW5hbC4iLCAiTm8gcGVyZHJlIGNhcCBkZXRhbGwgbm8gw6lzIGwnb2JqZWN0aXUgZCd1bmEgdGF1bGEgZGUgZnJlccO8w6huY2llczogbCdvYmplY3RpdSDDqXMgcmVzdW1pci4gQW1iIHZhbG9ycyB0YW4gZGlzcGVyc29zIGkgcG9jIHJlcGV0aXRzLCB1bmEgdGF1bGEgc2Vuc2UgYWdydXBhciBzZXJpYSBnYWlyZWLDqSB0YW4gbGxhcmdhIGNvbSBsYSBsbGlzdGEgb3JpZ2luYWwgaSBubyBhcG9ydGFyaWEgY2FwIHJlc3VtIMO6dGlsLiJdLCAiZXJyIjogWyIiLCAiQ1JJVEVSSV9BR1JVUEFDSU9fTUFMIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJDUklURVJJX0FHUlVQQUNJT19NQUwiXSwgInJlcyI6IFsiQW1iIHVuIHJhbmcgYW1wbGkgKCQyNSQgYSAkNzYkIG1nKSBpIHBvcXVlcyByZXBldGljaW9ucywgdW5hIHRhdWxhIHNlbnNlIGFncnVwYXIgZG9uYXJpYSBnYWlyZWLDqSB0b3RlcyBsZXMgZnJlccO8w6huY2llcyBpZ3VhbHMgYSAkMSQsIGkgbm8gcmVzdW1pcmlhIHJlcy4iLCAiUGVyIGFpeMOyLCBlbiB2YXJpYWJsZXMgY29udMOtbnVlcyBjb20gYXF1ZXN0YSwgcydhZ3J1cGVuIGxlcyBkYWRlcyBlbiBpbnRlcnZhbHM6IGFpeMOtIGxhIHRhdWxhIHPDrSBxdWUgbW9zdHJhIHBhdHJvbnMgY2xhcnMuIl19"
   },
   {
    "id": "227",
@@ -841,6 +897,7 @@ window.FULL = {
    "ap": "",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "La talla de calçat que fan servir 20 alumnes en una classe d'Educació Física és: $37,40,39,37,38,38,38,41,42,37,43,40,38,38,38,40,37,37,38,38$. Representa el diagrama de barres i el polígon de freqüències.",
    "enunciat": "Quina talla té la freqüència absoluta més alta, i quin valor pren aquesta freqüència?",
    "opcions": [
@@ -862,6 +919,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Quants joves tenen una estatura dins de l'interval $[160,165)$ cm?",
    "opcions": [
@@ -883,6 +941,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Quina és la freqüència absoluta acumulada de l'interval $[165,170)$?",
    "opcions": [
@@ -904,6 +963,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Per representar aquestes dades agrupades en intervals, cal fer servir un diagrama de barres o un histograma? Per què?",
    "opcions": [
@@ -925,6 +985,7 @@ window.FULL = {
    "ap": "",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dels 30 assistents a un sopar d'empresa, el $30\\,\\%$ va menjar vedella, el $40\\,\\%$, xai, i la resta va menjar peix. Representa les dades en un gràfic de sectors.",
    "enunciat": "Quin angle ocupa el sector corresponent al xai en el gràfic de sectors?",
    "opcions": [
@@ -946,6 +1007,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Observa aquest polígon de freqüències (amb els punts $(1,3)$, $(2,5)$, $(3,6)$, $(4,4)$ i $(5,2)$). Indica, raonadament, quines de les afirmacions següents són certes.",
    "enunciat": "La freqüència absoluta de $5$ és $0{,}3$.",
    "opcions": [
@@ -967,6 +1029,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Observa aquest polígon de freqüències (amb els punts $(1,3)$, $(2,5)$, $(3,6)$, $(4,4)$ i $(5,2)$). Indica, raonadament, quines de les afirmacions següents són certes.",
    "enunciat": "La freqüència absoluta acumulada de $4$ és $4$.",
    "opcions": [
@@ -988,6 +1051,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Observa aquest polígon de freqüències (amb els punts $(1,3)$, $(2,5)$, $(3,6)$, $(4,4)$ i $(5,2)$). Indica, raonadament, quines de les afirmacions següents són certes.",
    "enunciat": "La freqüència relativa de $5$ és $2$.",
    "opcions": [
@@ -1009,6 +1073,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Observa aquest polígon de freqüències (amb els punts $(1,3)$, $(2,5)$, $(3,6)$, $(4,4)$ i $(5,2)$). Indica, raonadament, quines de les afirmacions següents són certes.",
    "enunciat": "El percentatge de $4$ és $20\\,\\%$.",
    "opcions": [
@@ -1030,6 +1095,7 @@ window.FULL = {
    "ap": "",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Construeix la taula de freqüències a partir del polígon de freqüències següent (amb els punts $(5,1)$, $(10,3)$, $(15,4)$, $(20,4)$, $(25,7)$ i $(30,6)$).",
    "enunciat": "Quantes dades en total representa aquest polígon de freqüències?",
    "opcions": [
@@ -1051,6 +1117,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "La taula següent mostra els resultats de llançar 50 vegades un dau: cara $1\\to8$, $2\\to12$, $3\\to5$, $4\\to9$, $5\\to6$, $6\\to10$.",
    "enunciat": "En comparar el diagrama de barres de freqüències absolutes amb el de freqüències relatives d'aquest dau, què s'observa?",
    "opcions": [
@@ -1064,7 +1131,7 @@ window.FULL = {
     "Compara, per exemple, quina cara té la barra més alta en cada diagrama."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiU8OtIHF1ZSBlcyBwb2RlbiBjb21wYXJhciBkaXJlY3RhbWVudDogYW1iZMOzcyBkaWFncmFtZXMgbW9zdHJlbiBsYSBtYXRlaXhhIGluZm9ybWFjacOzIHJlbGF0aXZhIGVudHJlIGNhcmVzLCBub23DqXMgYW1iIHVuYSBlc2NhbGEgdmVydGljYWwgZGlmZXJlbnQuIiwgIkxlcyBmcmVxw7zDqG5jaWVzIHJlbGF0aXZlcyBubyByZW9yZGVuZW4gcmVzOiBjYWRhIGNhcmEgY29uc2VydmEgbGEgc2V2YSBwb3NpY2nDszsgbm9tw6lzIGVzIGRpdmlkZWl4IGxhIHNldmEgYWzDp2FkYSBwZWwgbWF0ZWl4IG5vbWJyZSAoJDUwJCkgYSB0b3RlcyBlbGxlcywgYWl4w60gcXVlIGxhIGZvcm1hIGVzIG1hbnTDqSBpZMOobnRpY2EuIiwgIkNhcCBiYXJyYSBkZXNhcGFyZWl4OiBkaXZpZGlyIHBlciAkNTAkIG5vIGVsaW1pbmEgY2FwIHZhbG9yLCBub23DqXMgbidlc2NhbGEgbCdhbMOnYWRhLiBMYSBjYXJhIGFtYiBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgJDUkIHNpbXBsZW1lbnQgcGFzc2EgYSB0ZW5pciB1bmEgYWzDp2FkYSByZWxhdGl2YSBkZSAkMHssfTEwJC4iXSwgImVyciI6IFsiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJQT0xJR09OX01BTF9DT05TVFJVSVQiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIkZyZXHDvMOobmNpZXMgcmVsYXRpdmVzOiAkXFxmcmFjezh9ezUwfT0weyx9MTYkLCAkXFxmcmFjezEyfXs1MH09MHssfTI0JCwgJFxcZnJhY3s1fXs1MH09MHssfTEwJCwgJFxcZnJhY3s5fXs1MH09MHssfTE4JCwgJFxcZnJhY3s2fXs1MH09MHssfTEyJCwgJFxcZnJhY3sxMH17NTB9PTB7LH0yMCQiLCAiQ29tIHF1ZSB0b3RlcyBzJ29idGVuZW4gZGl2aWRpbnQgcGVyICQ1MCQsIGwnb3JkcmUgaSBsYSBmb3JtYSBkZSBsZXMgYmFycmVzIGVzIG1hbnRlbmVuIGlkw6hudGljczogbm9tw6lzIGNhbnZpYSBsJ2VzY2FsYSB2ZXJ0aWNhbCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiU8OtIHF1ZSBlcyBwb2RlbiBjb21wYXJhciBkaXJlY3RhbWVudDogYW1iZMOzcyBkaWFncmFtZXMgbW9zdHJlbiBsYSBtYXRlaXhhIGluZm9ybWFjacOzIHJlbGF0aXZhIGVudHJlIGNhcmVzLCBub23DqXMgYW1iIHVuYSBlc2NhbGEgdmVydGljYWwgZGlmZXJlbnQuIiwgIkxlcyBmcmVxw7zDqG5jaWVzIHJlbGF0aXZlcyBubyByZW9yZGVuZW4gcmVzOiBjYWRhIGNhcmEgY29uc2VydmEgbGEgc2V2YSBwb3NpY2nDszsgbm9tw6lzIGVzIGRpdmlkZWl4IGxhIHNldmEgYWzDp2FkYSBwZWwgbWF0ZWl4IG5vbWJyZSAoJDUwJCkgYSB0b3RlcyBlbGxlcywgYWl4w60gcXVlIGxhIGZvcm1hIGVzIG1hbnTDqSBpZMOobnRpY2EuIiwgIkNhcCBiYXJyYSBkZXNhcGFyZWl4OiBkaXZpZGlyIHBlciAkNTAkIG5vIGVsaW1pbmEgY2FwIHZhbG9yLCBub23DqXMgbidlc2NhbGEgbCdhbMOnYWRhLiBMYSBjYXJhIGFtYiBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgJDUkIHNpbXBsZW1lbnQgcGFzc2EgYSB0ZW5pciB1bmEgYWzDp2FkYSByZWxhdGl2YSBkZSAkMHssfTEwJC4iXSwgImVyciI6IFsiIiwgIkVTX1BPVF9ERVRFUk1JTkFSIiwgIlBPTElHT05fTUFMX0NPTlNUUlVJVCIsICJFU0NBTEFfQUxURVJBX0RBREVTIl0sICJyZXMiOiBbIkZyZXHDvMOobmNpZXMgcmVsYXRpdmVzOiAkXFxmcmFjezh9ezUwfT0weyx9MTYkLCAkXFxmcmFjezEyfXs1MH09MHssfTI0JCwgJFxcZnJhY3s1fXs1MH09MHssfTEwJCwgJFxcZnJhY3s5fXs1MH09MHssfTE4JCwgJFxcZnJhY3s2fXs1MH09MHssfTEyJCwgJFxcZnJhY3sxMH17NTB9PTB7LH0yMCQiLCAiQ29tIHF1ZSB0b3RlcyBzJ29idGVuZW4gZGl2aWRpbnQgcGVyICQ1MCQsIGwnb3JkcmUgaSBsYSBmb3JtYSBkZSBsZXMgYmFycmVzIGVzIG1hbnRlbmVuIGlkw6hudGljczogbm9tw6lzIGNhbnZpYSBsJ2VzY2FsYSB2ZXJ0aWNhbCJdfQ=="
   },
   {
    "id": "232b",
@@ -1072,6 +1139,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "La taula següent mostra els resultats de llançar 50 vegades un dau: cara $1\\to8$, $2\\to12$, $3\\to5$, $4\\to9$, $5\\to6$, $6\\to10$.",
    "enunciat": "Com s'obté el polígon de freqüències a partir d'un diagrama de barres com el d'aquest dau?",
    "opcions": [
@@ -1093,6 +1161,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "grafics",
    "tipus": "B",
+   "dif": 3,
    "encapcalament": "La taula següent mostra els resultats de llançar 50 vegades un dau: cara $1\\to8$, $2\\to12$, $3\\to5$, $4\\to9$, $5\\to6$, $6\\to10$.",
    "enunciat": "Podries representar les dades d'aquest dau en un histograma?",
    "opcions": [
@@ -1114,6 +1183,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "El nombre de vegades que es va llogar cada mes la pista de tennis d'un poliesportiu: Gener $100$, Febrer $70$, Març $97$, Abril $60$, Maig $62$, Juny $120$, Juliol $100$, Agost $78$, Setembre $66$, Octubre $126$, Novembre $69$, Desembre $90$.",
    "enunciat": "Quin és el total de vegades que es va llogar la pista durant tot l'any?",
    "opcions": [
@@ -1135,6 +1205,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "frequencies",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "El nombre de vegades que es va llogar cada mes la pista de tennis d'un poliesportiu: Gener $100$, Febrer $70$, Març $97$, Abril $60$, Maig $62$, Juny $120$, Juliol $100$, Agost $78$, Setembre $66$, Octubre $126$, Novembre $69$, Desembre $90$.",
    "enunciat": "En quin percentatge de mesos es va llogar la pista MÉS de $80$ vegades?",
    "opcions": [
@@ -1156,6 +1227,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "grafics",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "El nombre de vegades que es va llogar cada mes la pista de tennis d'un poliesportiu: Gener $100$, Febrer $70$, Març $97$, Abril $60$, Maig $62$, Juny $120$, Juliol $100$, Agost $78$, Setembre $66$, Octubre $126$, Novembre $69$, Desembre $90$.",
    "enunciat": "Com és el polígon de freqüències absolutes acumulades d'aquestes dades, mes a mes?",
    "opcions": [

@@ -65,6 +65,20 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "ARITMETICA_PAS_INTERMEDI": "El plantejament és bo, però hi ha un error de càlcul en un dels passos del mig. Refes l'operació pas a pas i comprova el resultat substituint-lo a l'enunciat original.",
+  "CREUAMENT_INVERTIT": "Has creuat els termes al revés en aïllar la incògnita.",
+  "CRITERI_SEMBLANCA_INSUFICIENT": "Has dit que falten dades, però el criteri que toca ja es pot aplicar amb el que dona l'enunciat: tres costats, o dos costats i l'angle que formen, o dos angles.",
+  "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
+  "ESCALA_NO_APLICADA": "Has donat la mesura tal com surt al plànol (o a la realitat) sense passar-la per l'escala. Les dues mesures només coincideixen si l'escala és $1:1$.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
+  "RAONAMENT_ADDITIU": "Has passat d'una fracció a l'altra sumant. Dues fraccions són equivalents quan es passa d'una a l'altra MULTIPLICANT els dos termes pel mateix nombre.",
+  "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
+  "UNITATS_NO_CONVERTIDES": "Has barrejat unitats diferents en la mateixa operació. Passa-ho tot a la mateixa unitat abans de calcular res."
+ },
  "items": [
   {
    "id": "152a",
@@ -72,6 +86,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i $3$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -84,7 +99,7 @@ window.FULL = {
     "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$.",
     "Aïlla $x$ multiplicant en creu."
    ],
-   "nota": "La posició exacta de cada mesura respecte al vèrtex de les rectes secants s'ha llegit de la manera més estàndard (proporció directa entre els segments corresponents de cada secant), seguint la interpretació que ja proposa el solucionari font; convé confirmar-ho contra la figura original abans de publicar.",
+   "nota": "Els segments s'aparellen en el mateix ordre a les dues secants: el primer amb el primer i el segon amb el segon, comptant des del vèrtex. La figura de partida no ho deixa del tot clar, i aquesta és la lectura que s'ha pres.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgbXVudGF0IGxhIHByb3BvcmNpw7MgYW1iIGVscyBzZWdtZW50cyBkZSBjYWRhIHNlY2FudCBpbnRlcmNhbnZpYXRzLiBQbGFudGVqYSAkXFxkZnJhY3syeyx9NX17Mn09XFxkZnJhY3t4fXszfSQsIG5vIGxhIHByb3BvcmNpw7MgaW52ZXJzYS4iLCAiU2VtYmxhIHF1ZSBoYXMgY2FsY3VsYXQgJDI6MnssfTVcXGNkb3QzJCBhbWIgZWxzIHRlcm1lcyBpbnRlcmNhbnZpYXRzOiByZXZpc2EgcXVpbiBzZWdtZW50IGZhIGRlIG51bWVyYWRvciBhIGNhZGEgc2VjYW50LiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkMnssfTVcXGNkb3QzJCBzZW5zZSBkaXZpZGlyIHBlciAkMiQ6ICR4PVxcZGZyYWN7MnssfTVcXGNkb3QzfXsyfSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIiwgIiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiXSwgInJlcyI6IFsiJFxcZGZyYWN7MnssfTV9ezJ9PVxcZGZyYWN7eH17M30gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7MnssfTVcXGNkb3QzfXsyfSQiLCAiJHg9M3ssfTc1JCBjbSJdfQ=="
   },
   {
@@ -93,6 +108,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -105,7 +121,7 @@ window.FULL = {
     "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$.",
     "Aïlla $x$ multiplicant en creu."
    ],
-   "nota": "La posició exacta de cada mesura respecte al vèrtex de les rectes secants s'ha llegit de la manera més estàndard (proporció directa entre els segments corresponents de cada secant), seguint la interpretació que ja proposa el solucionari font; convé confirmar-ho contra la figura original abans de publicar.",
+   "nota": "Els segments s'aparellen en el mateix ordre a les dues secants: el primer amb el primer i el segon amb el segon, comptant des del vèrtex. La figura de partida no ho deixa del tot clar, i aquesta és la lectura que s'ha pres.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW4gc2VnbWVudCBjb3JyZXNwb24gYSBxdWluOiBwbGFudGVqYSAkXFxkZnJhY3s0fXsyfT1cXGRmcmFje3h9ezN9JCwgYW1iIGVsIHNlZ21lbnQgTcOJUyBncmFuIGRlIGxhIHByaW1lcmEgc2VjYW50ICgkNCQpIGNvcnJlc3BvbmVudCBhICR4JC4iLCAiQXF1ZXN0IHZhbG9yIG5vIHN1cnQgZGUgbGEgcHJvcG9yY2nDszogY29tcHJvdmEgJHg9XFxkZnJhY3s0XFxjZG90M317Mn0kIHBhcyBhIHBhcyBlbiBsbG9jIGRlIHJlcGV0aXIgdW4gc2VnbWVudCBxdWUgamEgYXBhcmVpeGlhIGEgbCdlbnVuY2lhdC4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0XFxjZG90MyQgc2Vuc2UgZGl2aWRpciBwZXIgJDIkOiAkeD1cXGRmcmFjezRcXGNkb3QzfXsyfSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIl0sICJlcnIiOiBbIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJQUk9HUkVTU0lPX0lOVkVOVEFEQSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkXFxkZnJhY3s0fXsyfT1cXGRmcmFje3h9ezN9IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezRcXGNkb3QzfXsyfSQiLCAiJHg9NiQgY20iXX0="
   },
   {
@@ -114,6 +130,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -126,7 +143,7 @@ window.FULL = {
     "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$.",
     "Aïlla $x$ multiplicant en creu."
    ],
-   "nota": "La posició exacta de cada mesura respecte al vèrtex de les rectes secants s'ha llegit de la manera més estàndard (proporció directa entre els segments corresponents de cada secant), seguint la interpretació que ja proposa el solucionari font; convé confirmar-ho contra la figura original abans de publicar.",
+   "nota": "Els segments s'aparellen en el mateix ordre a les dues secants: el primer amb el primer i el segon amb el segon, comptant des del vèrtex. La figura de partida no ho deixa del tot clar, i aquesta és la lectura que s'ha pres.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW4gc2VnbWVudCBjb3JyZXNwb24gYSBxdWluOiBwbGFudGVqYSAkXFxkZnJhY3s4fXs0fT1cXGRmcmFje3h9ezZ9JCwgbm8gbGEgcHJvcG9yY2nDsyBhbWIgZWxzIHRlcm1lcyBpbnZlcnRpdHMuIiwgIlNlbWJsYSBxdWUgaGFzIGNhbGN1bGF0ICQ2XFxjZG90NDo4JCBhbWIgdW4gYWx0cmUgYXBhcmVsbGFtZW50IGRlIHNlZ21lbnRzOiByZXZpc2EgcXVpbnMgZG9zIHNlZ21lbnRzIHPDs24gY29ycmVzcG9uZW50cyBlbnRyZSBsZXMgZHVlcyBzZWNhbnRzLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkOFxcY2RvdDYkIHNlbnNlIGRpdmlkaXIgcGVyICQ0JDogJHg9XFxkZnJhY3s4XFxjZG90Nn17NH0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICIiXSwgImVyciI6IFsiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezh9ezR9PVxcZGZyYWN7eH17Nn0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7OFxcY2RvdDZ9ezR9JCIsICIkeD0xMiQgY20iXX0="
   },
   {
@@ -135,6 +152,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i $8$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -147,7 +165,7 @@ window.FULL = {
     "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$.",
     "Aïlla $x$ multiplicant en creu."
    ],
-   "nota": "La posició exacta de cada mesura respecte al vèrtex de les rectes secants s'ha llegit de la manera més estàndard (proporció directa entre els segments corresponents de cada secant), seguint la interpretació que ja proposa el solucionari font; convé confirmar-ho contra la figura original abans de publicar.",
+   "nota": "Els segments s'aparellen en el mateix ordre a les dues secants: el primer amb el primer i el segon amb el segon, comptant des del vèrtex. La figura de partida no ho deixa del tot clar, i aquesta és la lectura que s'ha pres.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW5hIGZyYWNjacOzIMOpcyBxdWluYTogcGxhbnRlamEgJFxcZGZyYWN7eH17MTB9PVxcZGZyYWN7NX17OH0kLCBhbWIgJHgkIGNvcnJlc3BvbmVudCBhbCBzZWdtZW50IGRlICQ1JCBjbSwgbm8gYWwgZGUgJDgkIGNtLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDEwXFxjZG90NSQgc2Vuc2UgZGl2aWRpciBwZXIgJDgkOiAkeD1cXGRmcmFjezEwXFxjZG90NX17OH0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxkZnJhY3s1XFxjZG90OH17MTB9JDogcmV2aXNhIHF1aW4gc2VnbWVudCDDqXMgZWwgcXVlIG11bHRpcGxpY2EgcGVyICQxMCQgaSBxdWluIGhpIGRpdmlkZWl4LiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUFJPRFVDVEVfTUFMIl0sICJyZXMiOiBbIiRcXGRmcmFje3h9ezEwfT1cXGRmcmFjezV9ezh9IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezEwXFxjZG90NX17OH0kIiwgIiR4PTZ7LH0yNSQgY20iXX0="
   },
   {
@@ -156,6 +174,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i $3$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -168,7 +187,7 @@ window.FULL = {
     "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$.",
     "Aïlla $x$ multiplicant en creu."
    ],
-   "nota": "La posició exacta de cada mesura respecte al vèrtex de les rectes secants s'ha llegit de la manera més estàndard (proporció directa entre els segments corresponents de cada secant), seguint la interpretació que ja proposa el solucionari font; convé confirmar-ho contra la figura original abans de publicar.",
+   "nota": "Els segments s'aparellen en el mateix ordre a les dues secants: el primer amb el primer i el segon amb el segon, comptant des del vèrtex. La figura de partida no ho deixa del tot clar, i aquesta és la lectura que s'ha pres.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBkaXZpZGl0ICQyOjR7LH04XFxjZG90MyQgYW1iIGVscyB0ZXJtZXMgaW50ZXJjYW52aWF0czogcmV2aXNhIHF1aW4gc2VnbWVudCBmYSBkZSBudW1lcmFkb3IgYSBjYWRhIHNlY2FudC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDR7LH04XFxjZG90MyQgc2Vuc2UgZGl2aWRpciBwZXIgJDIkOiAkeD1cXGRmcmFjezR7LH04XFxjZG90M317Mn0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICIiLCAiSGFzIG11bnRhdCBsYSBwcm9wb3JjacOzIGFtYiBlbHMgc2VnbWVudHMgZGUgY2FkYSBzZWNhbnQgaW50ZXJjYW52aWF0cy4gUGxhbnRlamEgJFxcZGZyYWN7NHssfTh9ezJ9PVxcZGZyYWN7eH17M30kLCBubyBsYSBwcm9wb3JjacOzIGludmVyc2EuIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCJdLCAicmVzIjogWyIkXFxkZnJhY3s0eyx9OH17Mn09XFxkZnJhY3t4fXszfSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s0eyx9OFxcY2RvdDN9ezJ9JCIsICIkeD03eyx9MiQgY20iXX0="
   },
   {
@@ -177,6 +196,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OA=2$ cm, $OB=5$ cm, $OA'=2{,}6$ cm i $OC'=11{,}7$ cm, quant val $BC$?",
    "opcions": [
@@ -198,6 +218,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val $AB$?",
    "opcions": [
@@ -219,6 +240,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "tales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant val $AB$?",
    "opcions": [
@@ -240,6 +262,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle petit de costats $3$ cm i $5$ cm; triangle gran de costats $4$ cm (correspon al de $3$ cm) i $x$ (correspon al de $5$ cm).",
    "opcions": [
@@ -252,7 +275,7 @@ window.FULL = {
     "La raó de semblança és $k=\\dfrac{4}{3}$ (el costat de $4$ cm correspon al de $3$ cm).",
     "Aplica aquesta raó al costat de $5$ cm: $x=5\\cdot k$."
    ],
-   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat font (quins costats es corresponen entre si).",
+   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat, que ja diu quins costats es corresponen entre si.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm8gc3VydCBkZSBsYSBwcm9wb3JjacOzIGNvcnJlY3RhOiBjYWxjdWxhICQ1XFxjZG90XFxmcmFjezR9ezN9JCBwYXMgYSBwYXMgZW4gbGxvYyBkJ2Fycm9kb25pciAkXFxmcmFjezIwfXszfSQgYSB1biBub21icmUgZW50ZXIuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ1XFxjZG90NCQgc2Vuc2UgZGl2aWRpciBwZXIgJDMkOiBsYSByYcOzIGRlIHNlbWJsYW7Dp2Egw6lzICRcXGZyYWN7NH17M30kLCBpIGNhbCBtdWx0aXBsaWNhci1sYSBwZWwgY29zdGF0LCBubyBub23DqXMgbXVsdGlwbGljYXIgcGVsIG51bWVyYWRvci4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnYXBsaWNhciBsYSByYcOzIGludmVydGlkYSAkaz1cXGZyYWN7M317NH0kIGFsIGNvc3RhdCBkZSAkNSQgY207IGxhIHJhw7Mgw6lzICRrPVxcZnJhY3s0fXszfSQgKGRlbCBjb3N0YXQgZ3JhbiBjb25lZ3V0IGFsIHBldGl0IGNvbmVndXQpLCBubyBsYSBpbnZlcnNhLiJdLCAiZXJyIjogWyJQUk9HUkVTU0lPX0lOVkVOVEFEQSIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJGs9XFxkZnJhY3s0fXszfSQiLCAiJHg9NVxcY2RvdFxcZGZyYWN7NH17M309XFxkZnJhY3syMH17M31cXGFwcHJveDZ7LH02NyQgY20iXX0="
   },
   {
@@ -261,6 +284,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle petit de costats $8$ cm, $10$ cm i $7$ cm; triangle gran de costat $6$ cm (correspon al de $8$ cm), amb els altres dos costats desconeguts. Quant valen?",
    "opcions": [
@@ -273,7 +297,7 @@ window.FULL = {
     "La raó de semblança és $k=\\dfrac{6}{8}=0{,}75$ (el costat de $6$ cm correspon al de $8$ cm).",
     "Aplica aquesta raó als costats de $10$ cm i $7$ cm."
    ],
-   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat font (quins costats es corresponen entre si).",
+   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat, que ja diu quins costats es corresponen entre si.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RzIHZhbG9ycyBubyBzdXJ0ZW4gZGUgbGEgcHJvcG9yY2nDszogY2FsY3VsYSAkMTBcXGNkb3Qweyx9NzUkIGkgJDdcXGNkb3Qweyx9NzUkIHBhcyBhIHBhcyBlbiBsbG9jIGQnYXJyb2RvbmlyIGEgbm9tYnJlcyBlbnRlcnMgcHJvcGVycy4iLCAiIiwgIkFxdWVzdHMgdmFsb3JzIHN1cnRlbiBkZSAkMTBcXGNkb3Q2JCBpICQ3XFxjZG90NiQgc2Vuc2UgZGl2aWRpciBwZXIgJDgkOiBsYSByYcOzIGRlIHNlbWJsYW7Dp2Egw6lzICRcXGZyYWN7Nn17OH0kLCBubyBub23DqXMgZWwgJDYkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkJ2FwbGljYXIgbGEgcmHDsyBpbnZlcnRpZGEgJGs9XFxmcmFjezh9ezZ9JCBhbHMgY29zdGF0cyBkZSAkMTAkIGkgJDckIGNtOyBsYSByYcOzIMOpcyAkaz1cXGZyYWN7Nn17OH09MHssfTc1JCAoZGVsIGNvc3RhdCBncmFuIGNvbmVndXQgYWwgcGV0aXQgY29uZWd1dCksIG5vIGxhIGludmVyc2EuIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCJdLCAicmVzIjogWyIkaz1cXGRmcmFjezZ9ezh9PTB7LH03NSQiLCAiJDEwXFxjZG90MHssfTc1PTd7LH01JCBjbSRcXHFxdWFkIDdcXGNkb3Qweyx9NzU9NXssfTI1JCBjbSJdfQ=="
   },
   {
@@ -282,6 +306,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle petit de costat $6$ cm (desconegut als altres dos); triangle gran de costats $3$ cm, $5$ cm i $4$ cm, on el de $5$ cm (el més llarg) correspon al de $6$ cm. Quant valen els altres dos costats del triangle petit?",
    "opcions": [
@@ -294,7 +319,7 @@ window.FULL = {
     "La raó de semblança és $k=\\dfrac{6}{5}=1{,}2$ (el costat de $6$ cm correspon al de $5$ cm, el més llarg del triangle petit).",
     "Aplica aquesta raó als altres dos costats del triangle gran ($3$ cm i $4$ cm)."
    ],
-   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat font (quins costats es corresponen entre si).",
+   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat, que ja diu quins costats es corresponen entre si.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3RzIHZhbG9ycyBzw7NuIGVscyBjb3N0YXRzIGRlbCB0cmlhbmdsZSBHUkFOLCBubyBlbHMgZGVsIHRyaWFuZ2xlIHBldGl0IHF1ZSBjYWxlbjogZW5jYXJhIGhhcyBkJ2FwbGljYXItaGkgbGEgcmHDsyBkZSBzZW1ibGFuw6dhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkJ2FwbGljYXIgbGEgcmHDsyBpbnZlcnRpZGEgJGs9XFxmcmFjezV9ezZ9JCBhbHMgY29zdGF0cyBkZSAkMyQgaSAkNCQgY207IGxhIHJhw7Mgw6lzICRrPVxcZnJhY3s2fXs1fT0xeyx9MiQgKGRlbCBjb3N0YXQgY29uZWd1dCBkZWwgdHJpYW5nbGUgcGV0aXQgYWwgZGVsIGdyYW4pLCBubyBsYSBpbnZlcnNhLiIsICJBcXVlc3RzIHZhbG9ycyBzdXJ0ZW4gZGUgJDNcXGNkb3Q2JCBpICQ0XFxjZG90NiQgc2Vuc2UgZGl2aWRpciBwZXIgJDUkOiBsYSByYcOzIGRlIHNlbWJsYW7Dp2Egw6lzICRcXGZyYWN7Nn17NX0kLCBubyBub23DqXMgZWwgJDYkLiIsICIiXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRrPVxcZGZyYWN7Nn17NX09MXssfTIkIiwgIiQzXFxjZG90MXssfTI9M3ssfTYkIGNtJFxccXF1YWQgNFxcY2RvdDF7LH0yPTR7LH04JCBjbSJdfQ=="
   },
   {
@@ -303,6 +328,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 1,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Dos triangles isòsceles tenen els costats iguals de $5$ cm cadascun, amb bases respectives de $3{,}2$ cm i $2$ cm. Són semblants?",
    "opcions": [
@@ -315,7 +341,7 @@ window.FULL = {
     "Per ser semblants, TOTS els costats han de guardar la mateixa raó, no només alguns.",
     "Compara la raó dels costats iguals ($\\frac{5}{5}$) amb la raó de les bases ($\\frac{3{,}2}{2}$)."
    ],
-   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat font (quins costats es corresponen entre si).",
+   "nota": "La correspondència entre costats del triangle petit i el gran s'ha establert seguint la indicació explícita del propi enunciat, que ja diu quins costats es corresponen entre si.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBbWIgZWxzIHRyZXMgY29zdGF0cyBkZSBjYWRhIHRyaWFuZ2xlIGphIG4naGkgaGEgcHJvdSBwZXIgYXBsaWNhciBlbCBjcml0ZXJpIGNvc3RhdC1jb3N0YXQtY29zdGF0OiBubyBjYWxlbiBlbHMgYW5nbGVzIHBlciBkZXNjYXJ0YXIgbGEgc2VtYmxhbsOnYS4iLCAiU2VyIGlzw7JzY2VsZXMgbm9tw6lzIGRpdSBxdWUgaGkgaGEgZG9zIGNvc3RhdHMgaWd1YWxzIGVudHJlIGVsbHMgZGlucyBkZSBDQURBIHRyaWFuZ2xlOyBubyBkaXUgcmVzIHNvYnJlIGxhIHByb3BvcmNpw7MgZW50cmUgZWxzIGRvcyB0cmlhbmdsZXMsIHF1ZSDDqXMgZWwgcXVlIGNhbCBjb21wcm92YXIuIiwgIiIsICJRdWUgdW4gcGFyZWxsIGRlIGNvc3RhdHMgY29pbmNpZGVpeGkgbm8gYmFzdGE6IGNhbCBxdWUgVE9UUyBlbHMgY29zdGF0cyBndWFyZGluIGxhIG1hdGVpeGEgcmHDsy4gQXF1w60gbGVzIGJhc2VzICgkM3ssfTIkIGNtIGkgJDIkIGNtKSBubyBndWFyZGVuIGxhIG1hdGVpeGEgcmHDsyBxdWUgZWxzIGNvc3RhdHMgaWd1YWxzLiJdLCAiZXJyIjogWyJDUklURVJJX1NFTUJMQU5DQV9JTlNVRklDSUVOVCIsICJDUklURVJJX1NFTUJMQU5DQV9JTlNVRklDSUVOVCIsICIiLCAiUkFPX05PTUVTX1VOX0NPU1RBVCJdLCAicmVzIjogWyJSYcOzIGRlbHMgY29zdGF0cyBpZ3VhbHM6ICRcXGRmcmFjezV9ezV9PTEkIiwgIlJhw7MgZGUgbGVzIGJhc2VzOiAkXFxkZnJhY3szeyx9Mn17Mn09MXssfTYkIiwgIkNvbSBxdWUgJDFcXG5lMXssfTYkLCBlbHMgdHJpYW5nbGVzIE5PIHPDs24gc2VtYmxhbnRzLiJdfQ=="
   },
   {
@@ -324,6 +350,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $4$ cm i $5$ cm amb angle comprès de $80^\\circ$; triangle de costats $5$ cm i $6$ cm amb angle comprès de $80^\\circ$. Són semblants?",
    "opcions": [
@@ -345,6 +372,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $11$ cm i $9{,}1$ cm amb angle comprès de $65^\\circ$; triangle de costats $9$ cm i $7$ cm amb angle comprès de $65^\\circ$. Són semblants?",
    "opcions": [
@@ -366,6 +394,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
    "enunciat": "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és l'escala numèrica?",
    "opcions": [
@@ -379,7 +408,7 @@ window.FULL = {
     "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkMiQga20gYSBjZW50w61tZXRyZXMgcGVycXXDqCBsZXMgZHVlcyBtZXN1cmVzIGRlIGwnZXNjYWxhIGVzdGlndWluIGVuIGxhIG1hdGVpeGEgdW5pdGF0OiAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20uIiwgIkwnZXNjYWxhIG51bcOocmljYSBzJ2VzY3JpdSBhbWIgZWwgZGlidWl4IHByaW1lciBpIGxhIHJlYWxpdGF0IGRlc3Byw6lzOiAkMTpuJCwgbm8gJG46MSQuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGNvbnZlcnRpciAkMiQga20gYSBtZXRyZXMgKCQyMDAkIG0pIGVuIGNvbXB0ZXMgZGUgYSBjZW50w61tZXRyZXM6IGNhbCAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20sIG5vICQyMFxcLDAwMCQuIl0sICJlcnIiOiBbIiIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiSU5WRVJUSURBIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20iLCAiRXNjYWxhIG51bcOocmljYTogJDE6MjAwXFwsMDAwJCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkMiQga20gYSBjZW50w61tZXRyZXMgcGVycXXDqCBsZXMgZHVlcyBtZXN1cmVzIGRlIGwnZXNjYWxhIGVzdGlndWluIGVuIGxhIG1hdGVpeGEgdW5pdGF0OiAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20uIiwgIkwnZXNjYWxhIG51bcOocmljYSBzJ2VzY3JpdSBhbWIgZWwgZGlidWl4IHByaW1lciBpIGxhIHJlYWxpdGF0IGRlc3Byw6lzOiAkMTpuJCwgbm8gJG46MSQuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGNvbnZlcnRpciAkMiQga20gYSBtZXRyZXMgKCQyMDAkIG0pIGVuIGNvbXB0ZXMgZGUgYSBjZW50w61tZXRyZXM6IGNhbCAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20sIG5vICQyMFxcLDAwMCQuIl0sICJlcnIiOiBbIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJDJcXHRleHR7IGttfT0yMDBcXCwwMDAkIGNtIiwgIkVzY2FsYSBudW3DqHJpY2E6ICQxOjIwMFxcLDAwMCQiXX0="
   },
   {
    "id": "156b",
@@ -387,6 +416,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
    "enunciat": "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és l'escala numèrica?",
    "opcions": [
@@ -400,7 +430,7 @@ window.FULL = {
     "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSBudW3DqHJpY2Egcydlc2NyaXUgYW1iIGVsIGRpYnVpeCBwcmltZXIgaSBsYSByZWFsaXRhdCBkZXNwcsOpczogJDE6biQsIG5vICRuOjEkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBjb252ZXJ0aXIgJDUwJCBrbSBhIG1ldHJlcyAoJDUwXFwsMDAwJCBtKSBlbiBjb21wdGVzIGRlIGEgY2VudMOtbWV0cmVzOiBjYWwgJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20sIG5vICQ1MDBcXCwwMDAkLiIsICIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkNTAkIGttIGEgY2VudMOtbWV0cmVzIHBlcnF1w6ggbGVzIGR1ZXMgbWVzdXJlcyBkZSBsJ2VzY2FsYSBlc3RpZ3VpbiBlbiBsYSBtYXRlaXhhIHVuaXRhdDogJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20uIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyIkNTBcXHRleHR7IGttfT01XFwsMDAwXFwsMDAwJCBjbSIsICJFc2NhbGEgbnVtw6hyaWNhOiAkMTo1XFwsMDAwXFwsMDAwJCJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSBudW3DqHJpY2Egcydlc2NyaXUgYW1iIGVsIGRpYnVpeCBwcmltZXIgaSBsYSByZWFsaXRhdCBkZXNwcsOpczogJDE6biQsIG5vICRuOjEkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBjb252ZXJ0aXIgJDUwJCBrbSBhIG1ldHJlcyAoJDUwXFwsMDAwJCBtKSBlbiBjb21wdGVzIGRlIGEgY2VudMOtbWV0cmVzOiBjYWwgJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20sIG5vICQ1MDBcXCwwMDAkLiIsICIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkNTAkIGttIGEgY2VudMOtbWV0cmVzIHBlcnF1w6ggbGVzIGR1ZXMgbWVzdXJlcyBkZSBsJ2VzY2FsYSBlc3RpZ3VpbiBlbiBsYSBtYXRlaXhhIHVuaXRhdDogJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20uIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiLCAiIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiXSwgInJlcyI6IFsiJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20iLCAiRXNjYWxhIG51bcOocmljYTogJDE6NVxcLDAwMFxcLDAwMCQiXX0="
   },
   {
    "id": "158",
@@ -408,6 +438,7 @@ window.FULL = {
    "ap": "",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "La distància real entre dues ciutats és de $450$ km. Troba la distància que les separa en un mapa dibuixat a escala $1:1\\,500\\,000$.",
    "opcions": [
@@ -429,6 +460,7 @@ window.FULL = {
    "ap": "",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "En representar la carretera que uneix dos pobles en un mapa d'escala $1:500\\,000$, té una longitud de $6$ cm. Quina seria la longitud de la carretera si la representem en un plànol d'escala $1:60\\,000$?",
    "opcions": [
@@ -450,6 +482,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
    "enunciat": "Quines dimensions reals té la cuina si en el plànol fa $4$ cm d'ample i $7$ cm de llarg?",
    "opcions": [
@@ -463,7 +496,7 @@ window.FULL = {
     "Multiplica les dues mesures del plànol per $60$ i converteix el resultat a metres."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIHBlciAkNjAkIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXI6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgUkVBTCDDqXMgJDYwJCB2ZWdhZGVzIGxhIG1lc3VyYSBhbCBwbMOgbm9sLCBubyB1bmEgc2VpeGFudGVuYSBwYXJ0LiIsICJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdHMgdmFsb3JzIHRlbmVuIHVuIGZhY3RvciAkMTAwJCBkZSBtw6lzOiAkNFxcY2RvdDYwPTI0MCQgY20sIHF1ZSBjYWwgY29udmVydGlyIGEgbWV0cmVzIGRpdmlkaW50IHBlciAkMTAwJCwgbm8gZGVpeGFyLWhvIHRhbCBxdWFsLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiQW1wbGU6ICQ0XFxjZG90NjA9MjQwJCBjbSAkPTJ7LH00JCBtIiwgIkxsYXJnOiAkN1xcY2RvdDYwPTQyMCQgY20gJD00eyx9MiQgbSJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIHBlciAkNjAkIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXI6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgUkVBTCDDqXMgJDYwJCB2ZWdhZGVzIGxhIG1lc3VyYSBhbCBwbMOgbm9sLCBubyB1bmEgc2VpeGFudGVuYSBwYXJ0LiIsICJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdHMgdmFsb3JzIHRlbmVuIHVuIGZhY3RvciAkMTAwJCBkZSBtw6lzOiAkNFxcY2RvdDYwPTI0MCQgY20sIHF1ZSBjYWwgY29udmVydGlyIGEgbWV0cmVzIGRpdmlkaW50IHBlciAkMTAwJCwgbm8gZGVpeGFyLWhvIHRhbCBxdWFsLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiQW1wbGU6ICQ0XFxjZG90NjA9MjQwJCBjbSAkPTJ7LH00JCBtIiwgIkxsYXJnOiAkN1xcY2RvdDYwPTQyMCQgY20gJD00eyx9MiQgbSJdfQ=="
   },
   {
    "id": "160b",
@@ -471,6 +504,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
    "enunciat": "El passadís mesura $7{,}5$ m a la realitat. Quant fa de llarg en el plànol?",
    "opcions": [
@@ -484,7 +518,7 @@ window.FULL = {
     "Divideix-los per $60$ per passar de la mesura real a la del plànol."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdCB2YWxvciB0w6kgdW4gZmFjdG9yICQxMCQgZGUgbWVueXM6IHJldmlzYSBsYSBjb252ZXJzacOzICQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciAkNjAkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciBwZXIgJDYwJCBlbiBjb21wdGVzIGRlIGRpdmlkaXItaGk6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgQUwgUEzDgE5PTCDDqXMgbGEgbWVzdXJhIHJlYWwgRElWSURJREEgcGVyICQ2MCQsIG5vIG11bHRpcGxpY2FkYS4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSIsICIkNzUwOjYwPTEyeyx9NSQgY20iXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdCB2YWxvciB0w6kgdW4gZmFjdG9yICQxMCQgZGUgbWVueXM6IHJldmlzYSBsYSBjb252ZXJzacOzICQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciAkNjAkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciBwZXIgJDYwJCBlbiBjb21wdGVzIGRlIGRpdmlkaXItaGk6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgQUwgUEzDgE5PTCDDqXMgbGEgbWVzdXJhIHJlYWwgRElWSURJREEgcGVyICQ2MCQsIG5vIG11bHRpcGxpY2FkYS4iXSwgImVyciI6IFsiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSIsICIkNzUwOjYwPTEyeyx9NSQgY20iXX0="
   },
   {
    "id": "161",
@@ -492,6 +526,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Quant mesura l'ombra projectada per un arbre de $15$ m d'altura, sabent que en aquest mateix moment un altre arbre de $8$ m d'altura projecta una ombra de $10$ m?",
    "opcions": [
@@ -513,6 +548,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Una antena està subjectada amb dos cables que formen entre ells un angle de $90^\\circ$ i mesuren $8$ i $5$ m, respectivament. A quina altura s'enganxen a l'antena?",
    "opcions": [
@@ -534,6 +570,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un arbre fa $5$ m d'altura i, a una determinada hora del dia, projecta una ombra de $6$ m. Quina altura tindrà un edifici que a la mateixa hora projecta una ombra de $10$ m?",
    "opcions": [
@@ -555,6 +592,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Si un pal mesura $1$ m, i l'ombra que projecta a una determinada hora del dia és d'$1{,}5$ m, quant mesura un edifici que projecta una ombra de $6$ m a la mateixa hora?",
    "opcions": [
@@ -576,6 +614,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la cistella, llança la pilota per encistellar (cistella a $3{,}05$ m d'altura). Suposant una trajectòria rectilínia des del llançament fins a la cistella, a quina altura està la pilota quan va per la meitat del recorregut?",
    "opcions": [
@@ -588,8 +627,8 @@ window.FULL = {
     "A mig recorregut, la pilota ha pujat la meitat de la diferència total d'altura entre el llançament i la cistella.",
     "Calcula primer la diferència d'altures ($3{,}05-1{,}9$) i suma'n la meitat a l'altura inicial."
    ],
-   "nota": "L'enunciat original acompanya una figura amb la trajectòria corba de la pilota; seguint la nota de transcripció del propi im9.tex, es considera aquí una trajectòria rectilínia simplificada entre la mà del jugador i la cistella, adequada a les eines de semblança de 2n ESO.",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIGxhIG1laXRhdCBkZSAkM3ssfTA1JCBtOiBubyB0w6kgZW4gY29tcHRlIHF1ZSBsYSBwaWxvdGEgamEgcGFydGVpeCBkJ3VuYSBhbHR1cmEgaW5pY2lhbCBkJyQxeyx9OSQgbSwgbm8gZGUgdGVycmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIHN1bWFyIGxlcyBkdWVzIGFsdHVyZXMgaSBkaXZpZGlyLWxlcyBlbnRyZSAkMiQ6IGNvbSBxdWUgbGEgcGlsb3RhIHB1amEgZGVzIGQnJDF7LH05JCBtLCBjYWwgc3VtYXItaGkgTk9Nw4lTIGxhIG1laXRhdCBkZSBsYSBkaWZlcsOobmNpYSwgbm8gZmVyIGxhIG1pdGphbmEgYXJpdG3DqHRpY2EgZGlyZWN0YSAocXVlIHBlciBhcXVlc3QgY2FzIGRvbmEgZWwgbWF0ZWl4IHJlc3VsdGF0IHBlcsOyIHBlbCBtb3RpdSBlcXVpdm9jYXQ7IGNvbXByb3ZhLWhvIGFtYiBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMpLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezN7LH0wNX17Mn0tXFxmcmFjezF7LH05fXsyfSQ6IGNhbCBwYXJ0aXIgZGUgbCdhbHR1cmEgaW5pY2lhbCAoJDF7LH05JCBtKSBpIHN1bWFyLWhpIGxhIE1FSVRBVCBkZSBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMsIG5vIGNhbGN1bGFyIGxhIG1laXRhdCBkZSBjYWRhIGFsdHVyYSBwZXIgc2VwYXJhdC4iLCAiIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhIGQnYWx0dXJhOiAkM3ssfTA1LTF7LH05PTF7LH0xNSQgbSIsICIkeD0xeyx9OStcXGRmcmFjezF7LH0xNX17Mn09MXssfTkrMHssfTU3NSQiLCAiJHg9MnssfTQ3NSQgbSJdfQ=="
+   "nota": "L'enunciat de partida porta una figura amb la trajectòria corba de la pilota; aquí es considera una trajectòria recta entre la mà del jugador i la cistella, que és el que permeten les eines de semblança.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIGxhIG1laXRhdCBkZSAkM3ssfTA1JCBtOiBubyB0w6kgZW4gY29tcHRlIHF1ZSBsYSBwaWxvdGEgamEgcGFydGVpeCBkJ3VuYSBhbHR1cmEgaW5pY2lhbCBkJyQxeyx9OSQgbSwgbm8gZGUgdGVycmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIHN1bWFyIGxlcyBkdWVzIGFsdHVyZXMgaSBkaXZpZGlyLWxlcyBlbnRyZSAkMiQ6IGNvbSBxdWUgbGEgcGlsb3RhIHB1amEgZGVzIGQnJDF7LH05JCBtLCBjYWwgc3VtYXItaGkgTk9Nw4lTIGxhIG1laXRhdCBkZSBsYSBkaWZlcsOobmNpYSwgbm8gZmVyIGxhIG1pdGphbmEgYXJpdG3DqHRpY2EgZGlyZWN0YSAocXVlIHBlciBhcXVlc3QgY2FzIGRvbmEgZWwgbWF0ZWl4IHJlc3VsdGF0IHBlcsOyIHBlbCBtb3RpdSBlcXVpdm9jYXQ7IGNvbXByb3ZhLWhvIGFtYiBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMpLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezN7LH0wNX17Mn0tXFxmcmFjezF7LH05fXsyfSQ6IGNhbCBwYXJ0aXIgZGUgbCdhbHR1cmEgaW5pY2lhbCAoJDF7LH05JCBtKSBpIHN1bWFyLWhpIGxhIE1FSVRBVCBkZSBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMsIG5vIGNhbGN1bGFyIGxhIG1laXRhdCBkZSBjYWRhIGFsdHVyYSBwZXIgc2VwYXJhdC4iLCAiIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJBUklUTUVUSUNBX1BBU19JTlRFUk1FREkiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhIGQnYWx0dXJhOiAkM3ssfTA1LTF7LH05PTF7LH0xNSQgbSIsICIkeD0xeyx9OStcXGRmcmFjezF7LH0xNX17Mn09MXssfTkrMHssfTU3NSQiLCAiJHg9MnssfTQ3NSQgbSJdfQ=="
   },
   {
    "id": "166",
@@ -597,6 +636,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'Anna està situada a $5$ m de la vora d'un riu i veu reflectida una muntanya a l'aigua. Si l'Anna mesura $1{,}70$ m i el riu està a $3$ km de la muntanya, quina altura té la muntanya?",
    "opcions": [
@@ -618,6 +658,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Mesurem l'ombra d'un edifici en dos moments del dia, amb angles d'elevació del sol de $60^\\circ$ i $30^\\circ$ respecte al terra. Si la distància entre els extrems de les dues ombres és de $6{,}67$ m, calcula l'altura de l'edifici.",
    "opcions": [
@@ -639,6 +680,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En Pere és a $2$ m d'un precipici i veu alineat un poble amb la vora del precipici. Els seus ulls són a $1{,}6$ m d'altura i el precipici té $450$ m de profunditat. A quina distància horitzontal està el poble del precipici?",
    "opcions": [
@@ -660,6 +702,7 @@ window.FULL = {
    "ap": "",
    "bloc": "aplicacions",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un home que té una alçada d'$1{,}75$ m veu reflectit un edifici de $52{,}5$ m sobre un bassal d'aigua que hi ha a $4$ m d'ell. A quina distància del bassal es troba l'edifici?",
    "opcions": [
@@ -681,6 +724,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $5$ cm i $7$ cm; triangle de costats $8$ cm i $12{,}8$ cm (sense conèixer cap angle). Es pot assegurar que són semblants?",
    "opcions": [
@@ -702,6 +746,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle rectangle de catets $3$ cm i $5$ cm; triangle rectangle de catets $10$ cm i $13$ cm. Són semblants?",
    "opcions": [
@@ -723,6 +768,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "semblanca",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle rectangle amb un angle agut de $50^\\circ$; triangle rectangle amb un angle agut de $40^\\circ$. Són semblants?",
    "opcions": [

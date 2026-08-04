@@ -100,6 +100,28 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "CARTES_REPETIDES_CONFOSES": "Revisa quantes cartes (o elements) diferents compleixen exactament la condició demanada: un esdeveniment és impossible només quan CAP resultat de l'espai mostral el compleix, no quan sembla poc habitual.",
+  "CASOS_FAVORABLES_MAL_COMPTATS": "Revisa un per un quins resultats de l'espai mostral compleixen la condició de l'esdeveniment: és fàcil oblidar un límit inclòs (\"igual o més gran que\") o comptar-ne un de més.",
+  "CASOS_POSSIBLES_MAL_COMPTATS": "Revisa quants resultats TOTALS té l'experiment (els casos possibles): ha de ser el denominador de la probabilitat, no un altre nombre de l'enunciat.",
+  "COMBINACIONS_MAL_COMPTADES": "Per triar quins $k$ elements d'entre $n$ compleixen una condició (sense importar l'ordre en què es trien), cal fer servir combinacions, $\\binom{n}{k}$, no una simple multiplicació o suma.",
+  "COMPATIBLE_INCOMPATIBLE_CONFOSOS": "Dos esdeveniments són incompatibles quan no tenen CAP resultat en comú (la seva intersecció és buida); si comparteixen encara que sigui un sol resultat, són compatibles.",
+  "ELEMENTAL_NO_ELEMENTAL_CONFOSOS": "Un esdeveniment elemental és un ÚNIC resultat de l'espai mostral; un esdeveniment NO elemental n'agrupa diversos.",
+  "ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS": "Per combinar dos esdeveniments independents (per exemple, dos sortejos separats), el nombre de combinacions possibles es multiplica, no se suma.",
+  "ESDEVENIMENT_CONTRARI_MAL_CALCULAT": "La probabilitat de l'esdeveniment contrari és $1$ menys la probabilitat de l'esdeveniment: $P(\\text{no }A)=1-P(A)$.",
+  "ESPAI_MOSTRAL_MAL_COMPTAT": "L'espai mostral és el conjunt de resultats DIFERENTS i DISTINGIBLES d'un experiment aleatori: revisa que no en falti cap ni que n'hi hagi cap de sobrant o repetit.",
+  "FACTORIAL_MAL_APLICAT": "El nombre de maneres d'ordenar $n$ elements diferents és $n!$ ($n$ factorial): revisa que estàs calculant permutacions dels elements correctes.",
+  "FREQ_RELATIVA_PROBABILITAT_CONFOSES": "La freqüència relativa és el resultat observat en repetir un experiment un nombre concret de vegades; la probabilitat teòrica és el valor que s'espera a llarg termini. Quan hi ha moltes repeticions, la freqüència relativa s'aproxima a la probabilitat, però es calculen amb les dades donades a cada cas.",
+  "ORDRE_NO_CONSIDERAT": "Quan els dos elements combinats es poden distingir (per exemple, per color), l'ordre importa: el parell $(a,b)$ és un resultat diferent del $(b,a)$.",
+  "PARELLS_VALORS_CONFOSOS": "No confonguis el nombre de PARELLS de resultats (per exemple, dels dos daus) amb el nombre de VALORS diferents que en resulten (com la seva suma o el seu producte): diversos parells poden donar el mateix valor final.",
+  "PRINCIPI_MULTIPLICATIU_MAL_APLICAT": "Quan es combinen diverses eleccions independents, el nombre total de resultats es MULTIPLICA (no se suma): si la primera elecció té $m$ opcions i la segona en té $n$, en total hi ha $m\\cdot n$ combinacions.",
+  "PROBABILITAT_CONDICIONADA_MAL": "Quan es demana la probabilitat DINS d'un grup concret (no de tota la població), el denominador ha de ser la mida d'aquell grup, no el total de tots els casos.",
+  "RECOMPTE_MAL_FET": "Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.",
+  "UNIO_DOBLE_COMPTADA": "En calcular la probabilitat d'una unió, els resultats que compleixen totes dues condicions a la vegada s'han comptat dues vegades si simplement se sumen les probabilitats individuals: cal restar la intersecció un cop, $P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$.",
+  "UNIO_INTERSECCIO_CONFOSES": "La unió ($A\\cup B$) inclou els resultats que compleixen A, B, o totes dues alhora; la intersecció ($A\\cap B$) inclou només els que compleixen totes dues coses a la vegada.",
+  "VARIACIONS_SENSE_REPETICIO_MAL": "Quan un element ja s'ha fet servir, no es pot tornar a triar: el nombre d'opcions disponibles disminueix a cada posició que es va omplint.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "236a",
@@ -107,6 +129,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Treure una carta de la baralla espanyola.",
    "opcions": [
@@ -128,6 +151,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar una xinxeta i anotar la posició de caiguda.",
    "opcions": [
@@ -149,6 +173,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Treure una bola d'una urna amb 5 boles vermelles, 3 de blaves i 2 de verdes.",
    "opcions": [
@@ -170,6 +195,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar 2 daus i restar les cares superiors.",
    "opcions": [
@@ -191,6 +217,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar 2 daus i multiplicar les cares superiors.",
    "opcions": [
@@ -212,6 +239,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Considerar les espases de la baralla espanyola i treure una carta d'aquest grup.",
    "opcions": [
@@ -233,6 +261,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Escollir a l'atzar un país de la Unió Europea.",
    "opcions": [
@@ -254,6 +283,7 @@ window.FULL = {
    "ap": "",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Llancem 2 daus, un de vermell i un de blau. Quin és l'espai mostral d'aquest experiment?",
    "opcions": [
@@ -275,6 +305,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
    "enunciat": "Quants resultats DIFERENTS es poden obtenir com a producte de les dues cares?",
    "opcions": [
@@ -296,6 +327,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
    "enunciat": "Quin d'aquests és un exemple d'esdeveniment NO elemental (format per més d'un resultat) de l'espai mostral del producte de les dues cares?",
    "opcions": [
@@ -317,6 +349,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dos ors»",
    "opcions": [
@@ -338,6 +371,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dos cavalls de copes»",
    "opcions": [
@@ -359,6 +393,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dues cartes de coll diferent»",
    "opcions": [
@@ -380,6 +415,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dues figures iguals del mateix coll»",
    "opcions": [
@@ -401,6 +437,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure un or i una copa»",
    "opcions": [
@@ -422,6 +459,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre imparell»",
    "opcions": [
@@ -443,6 +481,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre igual o més gran que $5$»",
    "opcions": [
@@ -464,6 +503,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més petit que $7$»",
    "opcions": [
@@ -476,7 +516,7 @@ window.FULL = {
     "Quins valors del $1$ al $6$ són més petits que $7$?",
     "Compara-ho amb els casos possibles totals del dau."
    ],
-   "nota": "Al full original, els apartats c) i d) repeteixen literalment el mateix text, «Nombre més petit que 7» (molt probablement una errata editorial, ja que un dau numerat de l'1 al 6 no permet cap altre matís interessant amb aquest enunciat). Es couen tots dos apartats amb el mateix esdeveniment, seguint el criteri del solucionari original.",
+   "nota": "Els apartats c) i d) tenen el mateix text al full de partida, «Nombre més petit que 7», i es conserven tots dos tal com estan: en un dau de l'1 al 6, tots els resultats el compleixen.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJDYkIFPDjSDDqXMgbcOpcyBwZXRpdCBxdWUgJDckOiB0YW1iw6kgY29tcHRhIGNvbSBhIGNhcyBmYXZvcmFibGUuIFRvdHMgZWxzIHJlc3VsdGF0cyBkZWwgZGF1ICgkMSQgYSAkNiQpIGNvbXBsZWl4ZW4gYXF1ZXN0YSBjb25kaWNpw7MuIiwgIlF1ZSBlbCBkYXUgbm8gYXJyaWJpIGEgJDckIMOpcyBleGFjdGFtZW50IGVsIG1vdGl1IHBlbCBxdWFsIFRPVFMgZWxzIHNldXMgcmVzdWx0YXRzIHPDs24gbcOpcyBwZXRpdHMgcXVlICQ3JDogYXF1ZXN0IGVzZGV2ZW5pbWVudCDDqXMgc2VndXIgKCRQPTEkKSwgbm8gaW1wb3NzaWJsZS4iLCAiTCdlc2RldmVuaW1lbnQgbm8gZGVtYW5hIFwic2VyIGV4YWN0YW1lbnQgJDYkXCI6IGRlbWFuYSBcInNlciBtw6lzIHBldGl0IHF1ZSAkNyRcIiwgcXVlIGNvbXBsZWl4ZW4gdG90cyBlbHMgJDYkIHJlc3VsdGF0cyBwb3NzaWJsZXMgZGVsIGRhdS4iXSwgImVyciI6IFsiIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyLCq05vbWJyZSBtw6lzIHBldGl0IHF1ZSAkNyTCuzogdG90cyBlbHMgcmVzdWx0YXRzICQxLDIsMyw0LDUsNiQgaG8gY29tcGxlaXhlbiwgJDYkIGNhc29zIGZhdm9yYWJsZXMuICRQPVxcZGZyYWN7Nn17Nn09MSQgKGVzZGV2ZW5pbWVudCBzZWd1cikiXX0="
   },
   {
@@ -485,6 +525,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més petit que $7$»",
    "opcions": [
@@ -497,7 +538,7 @@ window.FULL = {
     "Aquest apartat repeteix literalment el mateix enunciat que l'anterior: el raonament és idèntic.",
     "Quins valors del $1$ al $6$ són més petits que $7$?"
    ],
-   "nota": "Aquest apartat repeteix literalment el text de l'apartat c) al full original («Nombre més petit que 7», dues vegades: molt probablement una errata editorial). Es cou tal com apareix, amb el mateix esdeveniment i la mateixa resposta que el 240c, seguint el criteri del solucionari original.",
+   "nota": "Aquest apartat té el mateix text que el c) al full de partida, i per tant la mateixa resposta: en un dau de l'1 al 6, cap resultat arriba a $7$.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2VzZGV2ZW5pbWVudCBubyBkZW1hbmEgXCJzZXIgZXhhY3RhbWVudCAkNiRcIjogZGVtYW5hIFwic2VyIG3DqXMgcGV0aXQgcXVlICQ3JFwiLCBxdWUgY29tcGxlaXhlbiB0b3RzIGVscyAkNiQgcmVzdWx0YXRzIHBvc3NpYmxlcyBkZWwgZGF1LiIsICIiLCAiUXVlIGVsIGRhdSBubyBhcnJpYmkgYSAkNyQgw6lzIGV4YWN0YW1lbnQgZWwgbW90aXUgcGVsIHF1YWwgVE9UUyBlbHMgc2V1cyByZXN1bHRhdHMgc8OzbiBtw6lzIHBldGl0cyBxdWUgJDckOiBhcXVlc3QgZXNkZXZlbmltZW50IMOpcyBzZWd1ciAoJFA9MSQpLCBubyBpbXBvc3NpYmxlLiIsICJFbCAkNiQgU8ONIMOpcyBtw6lzIHBldGl0IHF1ZSAkNyQ6IHRhbWLDqSBjb21wdGEgY29tIGEgY2FzIGZhdm9yYWJsZS4gVG90cyBlbHMgcmVzdWx0YXRzIGRlbCBkYXUgKCQxJCBhICQ2JCkgY29tcGxlaXhlbiBhcXVlc3RhIGNvbmRpY2nDsy4iXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyLCq05vbWJyZSBtw6lzIHBldGl0IHF1ZSAkNyTCuzogdG90cyBlbHMgcmVzdWx0YXRzICQxLDIsMyw0LDUsNiQgaG8gY29tcGxlaXhlbiwgJDYkIGNhc29zIGZhdm9yYWJsZXMuICRQPVxcZGZyYWN7Nn17Nn09MSQgKGVzZGV2ZW5pbWVudCBzZWd1cikiXX0="
   },
   {
@@ -506,6 +547,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més gran o igual que $2$»",
    "opcions": [
@@ -527,6 +569,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Llancem un dau a l'aire i sumem els punts de totes les cares MENYS la de dalt. Calcula la probabilitat d'obtenir un nombre múltiple de $3$.",
    "opcions": [
@@ -548,6 +591,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de diferents colors, 2 bruses, 3 samarretes i 3 barrets. Quantes combinacions diferents pot fer (una peça de la part de baix, una de la part de dalt i un barret)?",
    "opcions": [
@@ -560,7 +604,7 @@ window.FULL = {
     "Agrupa la roba en tres nivells: peça de baix (faldilla o pantalons), peça de dalt (brusa o samarreta) i barret.",
     "Compta les opcions de cada nivell per separat: $2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les."
    ],
-   "nota": "L'enunciat original no precisa com s'agrupen les peces en una \"combinació\" de roba. S'adopta el criteri més natural per a un diagrama d'arbre de tres nivells (una peça de la part de baix, una de la part de dalt i un barret), seguint el mateix criteri que el solucionari original.",
+   "nota": "L'enunciat original no precisa com s'agrupen les peces en una \"combinació\" de roba. S'adopta el criteri més natural per a un diagrama d'arbre de tres nivells (una peça de la part de baix, una de la part de dalt i un barret), seguint que és el que fa el diagrama d'arbre habitual.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRlcyBvcGNpb25zIGhpIGhhIGEgY2FkYSBuaXZlbGwgZGUgbCdhcmJyZTogbGEgcGFydCBkZSBiYWl4ICgkMiszPTUkIG9wY2lvbnMpIGkgbGEgcGFydCBkZSBkYWx0ICgkMiszPTUkIG9wY2lvbnMpIG5vIHRlbmVuIGVsIG1hdGVpeCBub21icmUgZCdvcGNpb25zIHBlciBjYXN1YWxpdGF0LCBjYWwgY2FsY3VsYXItbGVzIHBlciBzZXBhcmF0LiIsICJRdWFuIGVzIGNvbWJpbmVuIGRpdmVyc2VzIGVsZWNjaW9ucyBpbmRlcGVuZGVudHMgKHBhcnQgZGUgYmFpeCwgcGFydCBkZSBkYWx0LCBiYXJyZXQpLCBlbCBub21icmUgZGUgY29tYmluYWNpb25zIGVzIE1VTFRJUExJQ0EsIG5vIHNlIHN1bWEuIiwgIkwnYXJtYXJpIHRhbWLDqSBpbmNsb3UgcGFudGFsb25zIChwYXJ0IGRlIGJhaXgpIGkgc2FtYXJyZXRlcyAocGFydCBkZSBkYWx0KSBjb20gYSBhbHRlcm5hdGl2ZXM6IGNhbCBzdW1hci1sb3MgYSBsZXMgc2V2ZXMgY2F0ZWdvcmllcyByZXNwZWN0aXZlcywgbm8gaWdub3Jhci1sb3MuIiwgIiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiUGXDp2EgZGUgYmFpeDogJDIkIGZhbGRpbGxlcyAkKzMkIHBhbnRhbG9ucyAkPTUkIG9wY2lvbnMiLCAiUGXDp2EgZGUgZGFsdDogJDIkIGJydXNlcyAkKzMkIHNhbWFycmV0ZXMgJD01JCBvcGNpb25zIiwgIkJhcnJldDogJDMkIG9wY2lvbnMiLCAiUGVsIHByaW5jaXBpIG11bHRpcGxpY2F0aXU6ICQ1XFxjZG90NVxcY2RvdDM9NzUkIGNvbWJpbmFjaW9ucyJdfQ=="
   },
   {
@@ -569,6 +613,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "",
    "enunciat": "Quants resultats possibles s'obtenen en llançar una moneda a l'aire i anotar el resultat de $10$ tirades?",
    "opcions": [
@@ -590,6 +635,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "En un restaurant, el menú del dia té $3$ primers plats, $3$ segons i $4$ postres. Quants menús diferents es poden confeccionar, triant un primer, un segon i unes postres?",
    "opcions": [
@@ -611,6 +657,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "La clau d'accés d'un ordinador consta de $4$ caràcters (només lletres o nombres) i distingeix entre lletres majúscules i minúscules. Calcula el nombre de possibilitats diferents que hi ha per escriure la clau.",
    "opcions": [
@@ -632,6 +679,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "El codi PIN d'un telèfon mòbil està format per $4$ dígits. Troba el nombre de codis diferents que podem posar al telèfon.",
    "opcions": [
@@ -653,6 +701,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules de $3$ lletres es poden formar en total?",
    "opcions": [
@@ -674,6 +723,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes d'aquestes paraules comencen amb la lletra H?",
    "opcions": [
@@ -695,6 +745,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "I quantes paraules contenen alhora les lletres L i A (en qualsevol ordre)?",
    "opcions": [
@@ -716,6 +767,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules acabaran amb la lletra O?",
    "opcions": [
@@ -737,6 +789,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "combinatoria",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules acabaran amb les lletres \"LO\" (penúltima L, última O)?",
    "opcions": [
@@ -758,6 +811,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$A=$ «Obtenir ors»",
    "opcions": [
@@ -779,6 +833,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$B=$ «Obtenir el rei d'ors»",
    "opcions": [
@@ -800,6 +855,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$C=$ «Obtenir espases o copes»",
    "opcions": [
@@ -821,6 +877,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$D=$ «Obtenir una figura»",
    "opcions": [
@@ -842,6 +899,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$E=$ «Obtenir un as»",
    "opcions": [
@@ -863,6 +921,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment $A=$«Múltiple de $3$»?",
    "opcions": [
@@ -884,6 +943,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cup B$ (múltiple de $3$ o nombre senar)?",
    "opcions": [
@@ -905,6 +965,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cap B$ (múltiple de $3$ i, alhora, senar)?",
    "opcions": [
@@ -926,6 +987,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cup C$ (múltiple de $3$ o divisor de $6$)?",
    "opcions": [
@@ -947,6 +1009,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Múltiple de $3$»?",
    "opcions": [
@@ -968,6 +1031,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Múltiple de $2$»?",
    "opcions": [
@@ -989,6 +1053,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Cara més gran que $1$»?",
    "opcions": [
@@ -1010,6 +1075,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Cara més petita que $1$»?",
    "opcions": [
@@ -1031,6 +1097,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quina és la probabilitat d'obtenir $4$ cares?",
    "opcions": [
@@ -1052,6 +1119,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quina és la probabilitat de NO obtenir cap cara (és a dir, totes creus)?",
    "opcions": [
@@ -1073,6 +1141,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quin esdeveniment és més probable: obtenir $2$ cares, o obtenir almenys $3$ creus?",
    "opcions": [
@@ -1094,6 +1163,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "Calcula la probabilitat d'encertar exactament $3$ preguntes si contestes a l'atzar.",
    "opcions": [
@@ -1115,6 +1185,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "Si per aprovar l'examen s'han de contestar almenys $3$ preguntes correctament, quina és la probabilitat d'aprovar?",
    "opcions": [
@@ -1136,6 +1207,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "I quina és la probabilitat de suspendre l'examen?",
    "opcions": [
@@ -1157,6 +1229,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
    "enunciat": "Quants esdeveniments elementals componen $B=$«múltiple de $3$», i quina és la seva probabilitat?",
    "opcions": [
@@ -1178,6 +1251,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
    "enunciat": "Quina és la probabilitat de $D=$«divisible per $10$»?",
    "opcions": [
@@ -1199,6 +1273,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
    "enunciat": "Quina és la probabilitat de $F=$«divisible per $1$»?",
    "opcions": [
@@ -1220,6 +1295,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "esdeveniments",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
    "enunciat": "«Hi ha algun parell d'esdeveniments incompatibles entre $A$, $B$, $C$, $D$ i $F$»",
    "opcions": [
@@ -1241,6 +1317,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "esdeveniments",
    "tipus": "B",
+   "dif": 2,
    "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
    "enunciat": "«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, $C$, $D$ i $F$»",
    "opcions": [
@@ -1262,6 +1339,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
    "enunciat": "Si escollim una persona a l'atzar, quina és la probabilitat que sigui home?",
    "opcions": [
@@ -1283,6 +1361,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
    "enunciat": "Quina és la probabilitat que hagi menjat peix?",
    "opcions": [
@@ -1304,6 +1383,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
    "enunciat": "Quina és la probabilitat que sigui home I hagi menjat peix?",
    "opcions": [
@@ -1325,6 +1405,7 @@ window.FULL = {
    "ap": "",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i tres quartes parts de les nenes tenen els cabells negres, i la resta, rossos. Quina és la probabilitat que, si n'escollim un a l'atzar, sigui nen o tingui els cabells negres?",
    "opcions": [
@@ -1346,6 +1427,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
    "enunciat": "Quina probabilitat hi ha que, si n'escollim un a l'atzar, llegeixi algun dels dos diaris?",
    "opcions": [
@@ -1367,6 +1449,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
    "enunciat": "I quina probabilitat hi ha que no llegeixi cap dels dos diaris?",
    "opcions": [
@@ -1388,6 +1471,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
    "enunciat": "Quina probabilitat hi ha que llegeixi exactament UN dels dos diaris (no els dos)?",
    "opcions": [
@@ -1409,20 +1493,21 @@ window.FULL = {
    "ap": "a",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "Quina és la probabilitat de cada color de bola?",
    "opcions": [
-    "$P(\\text{vermella})=\\dfrac36$, sense simplificar, i les altres tampoc simplificades ($\\frac26$, $\\frac16$)",
+    "$P(\\text{vermella})=\\dfrac35$, $P(\\text{verda})=\\dfrac25$, $P(\\text{blava})=\\dfrac15$",
     "$P(\\text{vermella})=\\dfrac13$, $P(\\text{verda})=\\dfrac12$, intercanviant vermella i verda",
     "$P(\\text{vermella})=\\dfrac12$, $P(\\text{verda})=\\dfrac13$, $P(\\text{blava})=\\dfrac16$",
     "Totes les boles tenen la mateixa probabilitat, $\\dfrac13$ cadascuna, perquè hi ha $3$ colors"
    ],
    "pistes": [
-    "La bossa té $3+2+1=6$ boles en total.",
-    "Aplica la regla de Laplace a cada color per separat, i simplifica el resultat."
+    "La bossa té $3+2+1=6$ boles en total: aquest és el nombre de casos possibles per als tres colors.",
+    "Aplica la regla de Laplace a cada color per separat: casos favorables d'aquell color entre $6$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkXFxmcmFjMzYkIGkgJFxcZnJhYzI2JCBlcyBwb2RlbiBzaW1wbGlmaWNhciBtw6lzOiBkaXZpZGVpeCBudW1lcmFkb3IgaSBkZW5vbWluYWRvciBwZWwgc2V1IG0uYy5kLiBwZXIgb2J0ZW5pciAkXFxmcmFjMTIkIGkgJFxcZnJhYzEzJC4iLCAiUmV2aXNhIHF1aW4gY29sb3IgdMOpIG3DqXMgYm9sZXM6IG4naGkgaGEgJDMkIHZlcm1lbGxlcyBpIG5vbcOpcyAkMiQgdmVyZGVzLCBhaXjDrSBxdWUgbGEgdmVybWVsbGEgaGEgZGUgdGVuaXIgbGEgcHJvYmFiaWxpdGF0IG3DqXMgYWx0YSwgbm8gbGEgdmVyZGEuIiwgIiIsICJFbCBub21icmUgZGUgQ09MT1JTIGRpZmVyZW50cyAoJDMkKSBubyBkZXRlcm1pbmEgbGEgcHJvYmFiaWxpdGF0OiBjYWwgY29tcHRhciBxdWFudGVzIGJvbGVzIHTDqSBjYWRhIGNvbG9yLCBpIG5vIGVuIHTDqSBlbCBtYXRlaXggbm9tYnJlIGNhZGFzY3VuLiJdLCAiZXJyIjogWyJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiUkVDT01QVEVfTUFMX0ZFVCIsICIiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e3Zlcm1lbGxhfSk9XFxkZnJhYzM2PVxcZGZyYWMxMiQsICRQKFxcdGV4dHt2ZXJkYX0pPVxcZGZyYWMyNj1cXGRmcmFjMTMkLCAkUChcXHRleHR7YmxhdmF9KT1cXGRmcmFjMTYkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgZWwgVE9UQUwgZGUgYm9sZXMgZGUgbGEgYm9zc2EsICQzKzIrMT02JCwgbm8gJDUkOiBzZW1ibGEgcXVlIHQnaGFzIGRlaXhhdCBsYSBib2xhIGJsYXZhIGVuIGNvbXB0YXItbGVzLiIsICJSZXZpc2EgcXVpbiBjb2xvciB0w6kgbcOpcyBib2xlczogbidoaSBoYSAkMyQgdmVybWVsbGVzIGkgbm9tw6lzICQyJCB2ZXJkZXMsIGFpeMOtIHF1ZSBsYSB2ZXJtZWxsYSBoYSBkZSB0ZW5pciBsYSBwcm9iYWJpbGl0YXQgbcOpcyBhbHRhLCBubyBsYSB2ZXJkYS4iLCAiIiwgIkVsIG5vbWJyZSBkZSBDT0xPUlMgZGlmZXJlbnRzICgkMyQpIG5vIGRldGVybWluYSBsYSBwcm9iYWJpbGl0YXQ6IGNhbCBjb21wdGFyIHF1YW50ZXMgYm9sZXMgdMOpIGNhZGEgY29sb3IsIGkgbm8gZW4gdMOpIGVsIG1hdGVpeCBub21icmUgY2FkYXNjdW4uIl0sICJlcnIiOiBbIkNBU09TX1BPU1NJQkxFU19NQUxfQ09NUFRBVFMiLCAiUkVDT01QVEVfTUFMX0ZFVCIsICIiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e3Zlcm1lbGxhfSk9XFxkZnJhYzM2PVxcZGZyYWMxMiQsICRQKFxcdGV4dHt2ZXJkYX0pPVxcZGZyYWMyNj1cXGRmcmFjMTMkLCAkUChcXHRleHR7YmxhdmF9KT1cXGRmcmFjMTYkIl19"
   },
   {
    "id": "257b",
@@ -1430,6 +1515,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "És just el tracte que proposa en Lluís (vermella: recull en Joan; blava: recull en Lluís)?",
    "opcions": [
@@ -1451,6 +1537,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "En Joan proposa un nou tracte: si surt vermell, recollirà ell; si surt blau o verd, recollirà en Lluís. És just aquest tracte?",
    "opcions": [
@@ -1472,6 +1559,7 @@ window.FULL = {
    "ap": "",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat que encerti la combinació al primer intent? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
    "opcions": [
@@ -1493,6 +1581,7 @@ window.FULL = {
    "ap": "",
    "bloc": "esdeveniments",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "La Paula va a una botiga 2 vegades per setmana, i en Robert hi treballa 4 dies a la setmana. Si el divendres és l'únic dia en què no hi va cap dels dos (i la botiga tanca els diumenges), quina és la probabilitat que coincideixin dos dies?",
    "opcions": [

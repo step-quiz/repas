@@ -139,6 +139,47 @@ window.FULL = {
    ]
   }
  ],
+ "errors": {
+  "AGRUPACIO_TERMES_MAL": "Els termes amb incògnita no s'han agrupat bé: torna a sumar-ne els coeficients un per un, amb el seu signe.",
+  "AILLAMENT_INCOMPLET": "Has parat abans d'acabar d'aïllar la incògnita: encara queda una operació per desfer. Comprova-ho substituint el teu valor a l'equació original.",
+  "ARITMETICA_PAS_INTERMEDI": "El plantejament és bo, però hi ha un error de càlcul en un dels passos del mig. Refes l'operació pas a pas i comprova el resultat substituint-lo a l'enunciat original.",
+  "ARREL_OBLIDADA": "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.",
+  "DENOMINADOR_NO_ELIMINAT": "Has operat amb la fracció sense treure-li el denominador. Multiplica els dos membres pel denominador PRIMER, i només després aïlla la incògnita.",
+  "DESPLACAMENT_INDEX": "Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.",
+  "DISTRIBUCIO_INCOMPLETA": "En multiplicar un polinomi per un altre, cada terme del primer s'ha de multiplicar per TOTS els termes del segon, no només per un.",
+  "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
+  "ENTER_MULTIPLICA_DENOMINADOR": "En multiplicar un enter per una fracció, l'enter multiplica NOMÉS el numerador; el denominador no canvia.",
+  "EQUACIO_NO_SIMPLIFICADA": "Simplifica cada equació per separat (parèntesis, termes semblants, denominadors) ABANS de combinar-les: si no, el sistema que resols no és el de l'enunciat.",
+  "EXPONENT_MULTIPLICAT": "L'exponent que dona l'enunciat s'ha de fer servir tal qual, no multiplicat per un altre nombre.",
+  "EXPONENT_SENSE_DESPLACAR": "T'has deixat pel camí una part de l'exponent: si l'enunciat diu $n+2$ (o similar), cal fer servir aquest exponent complet, no només la $n$.",
+  "FACTOR_COMU_INCOMPLET": "No has tret tot el factor comú possible: revisa si encara hi ha algun nombre o alguna $x$ que es repeteixi a tots els termes.",
+  "FACTOR_COMU_MAL_DIVIDIT": "En treure factor comú, cada terme s'ha de dividir pel factor comú: algun terme de dins del parèntesi no s'ha dividit correctament.",
+  "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
+  "GRAUS_MAL_AGRUPATS": "Només es poden sumar o restar termes del MATEIX grau: $x^3$ amb $x^3$, $x^2$ amb $x^2$... Revisa que has agrupat els termes correctes.",
+  "GRAU_PRODUCTE_MAL": "En multiplicar potències de $x$, els exponents se SUMEN: $x^a\\cdot x^b=x^{a+b}$. El grau del producte és la suma dels graus dels factors.",
+  "IGUALTAT_NOTABLE_SIGNE": "Revisa el signe del terme del mig: $(a-b)^2=a^2-2ab+b^2$, amb el terme del mig NEGATIU, a diferència de $(a+b)^2$.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "JERARQUIA": "Primer les multiplicacions i divisions; després, les sumes i restes.",
+  "MENYS_PARENTESI": "El signe $-$ davant d'un parèntesi canvia el signe de TOTS els termes de dins, no només del primer.",
+  "NUMERADORS_SENSE_AJUSTAR": "Has posat el denominador comú correcte, però has copiat els numeradors tal qual. Cada numerador s'ha de multiplicar pel mateix nombre que el seu denominador.",
+  "ORDRE_ARREL_DIVISIO": "Has fet l'arrel abans de dividir. De $ax^2=k$ cal aïllar primer $x^2$ dividint per $a$, i fer l'arrel al final.",
+  "ORDRE_DIVISIONS": "El que hi ha entre claudàtors s'ha de resoldre primer: no es poden restar tots els exponents seguits com si no hi hagués claudàtor.",
+  "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
+  "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
+  "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
+  "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
+  "PRODUCTE_CREUAT": "Per multiplicar fraccions es fa numerador per numerador i denominador per denominador. Creuar-los és el que es fa per COMPARAR-les, no per multiplicar-les.",
+  "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
+  "QUADRAT_INCOMPLET": "Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat del primer, el doble producte, i el quadrat del segon. Revisa que hi són tots.",
+  "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
+  "SIGNE_PRODUCTE": "Revisa la regla dels signes del producte: signes diferents donen resultat negatiu.",
+  "SIGNE_QUOCIENT": "Revisa la regla dels signes del quocient: signes diferents donen resultat negatiu.",
+  "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
+  "SIMPLIFICACIO_INCOMPLETA": "Encara es pot simplificar més: busca el m.c.d. del numerador i el denominador i divideix-los pel m.c.d. d'un sol cop.",
+  "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
+  "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
+ },
  "items": [
   {
    "id": "75a",
@@ -146,6 +187,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$6(x+11) = 40 + 6(x+2)$",
    "opcions": [
@@ -167,6 +209,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$2(x-17) = x - 3(12-2x)$",
    "opcions": [
@@ -188,6 +231,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$x - 5(x-2) = 6$",
    "opcions": [
@@ -209,6 +253,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$120 = 2x - (15-7x)$",
    "opcions": [
@@ -222,7 +267,7 @@ window.FULL = {
     "Un cop distribuït, agrupa tots els termes amb $x$ a un costat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmU6ICQtKDE1LTd4KT0tMTUrN3gkLCBlbCAkLSQgY2FudmlhIGVsIHNpZ25lIGRlbHMgRE9TIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iLCAiSGFzIGFycmliYXQgYSAkMTM1PTl4JCBwZXLDsiBlbmNhcmEgbm8gaGFzIGRpdmlkaXQgZWxzIGRvcyBjb3N0YXRzIHBlciAkOSQ6IGZhbHRhIGwnw7psdGltIHBhcy4iLCAiIiwgIlMnaGEgcGVyZHV0IHVuIHRlcm1lIGVuIGFncnVwYXI7IHJldmlzYSB1biBwZXIgdW4gZWxzIG7Dum1lcm9zIHF1ZSBwYXNzZW4gYSBsJ2FsdHJlIGNvc3RhdC4iXSwgImVyciI6IFsiTUVOWVNfUEFSRU5URVNJIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkMTIwPTJ4LSgxNS03eCkgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAxMjA9MngtMTUrN3gkIiwgIiQxMjArMTU9OXggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAxMzU9OXgkIiwgIiR4PTE1JCJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmU6ICQtKDE1LTd4KT0tMTUrN3gkLCBlbCAkLSQgY2FudmlhIGVsIHNpZ25lIGRlbHMgRE9TIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iLCAiSGFzIGFycmliYXQgYSAkMTM1PTl4JCBwZXLDsiBlbmNhcmEgbm8gaGFzIGRpdmlkaXQgZWxzIGRvcyBjb3N0YXRzIHBlciAkOSQ6IGZhbHRhIGwnw7psdGltIHBhcy4iLCAiIiwgIlMnaGEgcGVyZHV0IHVuIHRlcm1lIGVuIGFncnVwYXI7IHJldmlzYSB1biBwZXIgdW4gZWxzIG7Dum1lcm9zIHF1ZSBwYXNzZW4gYSBsJ2FsdHJlIGNvc3RhdC4iXSwgImVyciI6IFsiTUVOWVNfUEFSRU5URVNJIiwgIkFJTExBTUVOVF9JTkNPTVBMRVQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJDEyMD0yeC0oMTUtN3gpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTIwPTJ4LTE1Kzd4JCIsICIkMTIwKzE1PTl4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTM1PTl4JCIsICIkeD0xNSQiXX0="
   },
   {
    "id": "75e",
@@ -230,6 +275,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$5(x+4) = 7(x-2)$",
    "opcions": [
@@ -251,6 +297,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$3(x+7) - 6 = 2(x+8)$",
    "opcions": [
@@ -272,8 +319,9 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
-   "enunciat": "$\\dfrac{1x}{5} = 3$",
+   "enunciat": "$\\dfrac{x}{5} = 3$",
    "opcions": [
     "$x=3$",
     "$x=15$",
@@ -285,7 +333,7 @@ window.FULL = {
     "Aïlla $x$ dividint pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZW4gY3JldSBwZXLDsiBubyBoYXMgYWNhYmF0IGRlIHNpbXBsaWZpY2FyIGxhIGZyYWNjacOzIHJlc3VsdGFudDogZGl2aWRlaXggbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIG0uYy5kLiIsICIiLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJFTlRFUl9NVUxUSVBMSUNBX0RFTk9NSU5BRE9SIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIiRcXGRmcmFjezF4fXs1fT0zIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMXg9MTUkIiwgIiR4PTE1JCJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICIiLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJFxcZGZyYWN7eH17NX09MyBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9MTUkIl19"
   },
   {
    "id": "76b",
@@ -293,8 +341,9 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
-   "enunciat": "$\\dfrac{1x}{2} = -21$",
+   "enunciat": "$\\dfrac{x}{2} = -21$",
    "opcions": [
     "$x=-42$",
     "$x=-41$",
@@ -306,7 +355,7 @@ window.FULL = {
     "Aïlla $x$ dividint pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbiBjcmV1IHBlcsOyIG5vIGhhcyBhY2FiYXQgZGUgc2ltcGxpZmljYXIgbGEgZnJhY2Npw7MgcmVzdWx0YW50OiBkaXZpZGVpeCBudW1lcmFkb3IgaSBkZW5vbWluYWRvciBwZWwgbS5jLmQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiIiwgIlNJR05FX0ZJTkFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJFTlRFUl9NVUxUSVBMSUNBX0RFTk9NSU5BRE9SIl0sICJyZXMiOiBbIiRcXGRmcmFjezF4fXsyfT0tMjEgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAxeD0tNDIkIiwgIiR4PS00MiQiXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkhhcyBkaXZpZGl0IHBlbCBub21icmUgcXVlIGFjb21wYW55YSBsYSAkeCQsIHBlcsOyIHQnaGFzIHNhbHRhdCBlbCBkZW5vbWluYWRvcjogZGUgJFxcZGZyYWN7YXh9e2J9PWMkIHN1cnQgcHJpbWVyICRheD1iXFxjZG90IGMkLCBpIG5vbcOpcyBsbGF2b3JzIGVzIGRpdmlkZWl4IHBlciAkYSQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiIiwgIlNJR05FX0ZJTkFMIiwgIkRFTk9NSU5BRE9SX05PX0VMSU1JTkFUIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiXSwgInJlcyI6IFsiJFxcZGZyYWN7eH17Mn09LTIxIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD0tNDIkIl19"
   },
   {
    "id": "76c",
@@ -314,6 +363,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{-2x}{3} = 4$",
    "opcions": [
@@ -327,7 +377,7 @@ window.FULL = {
     "Aïlla $x$ dividint pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIlJldmlzYSBlbHMgc2lnbmVzOiBzaSBlbCBudW1lcmFkb3IgZGVsIGNvZWZpY2llbnQgZGUgJHgkIMOpcyBuZWdhdGl1LCBlbCByZXN1bHRhdCBmaW5hbCBuJ2hlcmV0YSBlbCBzaWduZSBzZWdvbnMgbGEgcmVnbGEgZGVscyBzaWduZXMgZGVsIHF1b2NpZW50LiIsICIiLCAiSGFzIG11bHRpcGxpY2F0IGVuIGNyZXUgcGVyw7Igbm8gaGFzIGFjYWJhdCBkZSBzaW1wbGlmaWNhciBsYSBmcmFjY2nDsyByZXN1bHRhbnQ6IGRpdmlkZWl4IG51bWVyYWRvciBpIGRlbm9taW5hZG9yIHBlbCBtLmMuZC4iXSwgImVyciI6IFsiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSUdORV9GSU5BTCIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRcXGRmcmFjey0yeH17M309NCBcXDtcXExvbmdyaWdodGFycm93XFw7IC0yeD0xMiQiLCAiJHg9LTYkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIlJldmlzYSBlbHMgc2lnbmVzOiBzaSBlbCBudW1lcmFkb3IgZGVsIGNvZWZpY2llbnQgZGUgJHgkIMOpcyBuZWdhdGl1LCBlbCByZXN1bHRhdCBmaW5hbCBuJ2hlcmV0YSBlbCBzaWduZSBzZWdvbnMgbGEgcmVnbGEgZGVscyBzaWduZXMgZGVsIHF1b2NpZW50LiIsICIiLCAiSGFzIGRpdmlkaXQgcGVsIG5vbWJyZSBxdWUgYWNvbXBhbnlhIGxhICR4JCwgcGVyw7IgdCdoYXMgc2FsdGF0IGVsIGRlbm9taW5hZG9yOiBkZSAkXFxkZnJhY3theH17Yn09YyQgc3VydCBwcmltZXIgJGF4PWJcXGNkb3QgYyQsIGkgbm9tw6lzIGxsYXZvcnMgZXMgZGl2aWRlaXggcGVyICRhJC4iXSwgImVyciI6IFsiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSUdORV9GSU5BTCIsICIiLCAiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiXSwgInJlcyI6IFsiJFxcZGZyYWN7LTJ4fXszfT00IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgLTJ4PTEyJCIsICIkeD0tNiQiXX0="
   },
   {
    "id": "76d",
@@ -335,6 +385,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{7x}{4} = 28$",
    "opcions": [
@@ -348,7 +399,7 @@ window.FULL = {
     "Aïlla $x$ dividint pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZW4gY3JldSBwZXLDsiBubyBoYXMgYWNhYmF0IGRlIHNpbXBsaWZpY2FyIGxhIGZyYWNjacOzIHJlc3VsdGFudDogZGl2aWRlaXggbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIG0uYy5kLiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICIiXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlNJR05FX0ZJTkFMIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezd4fXs0fT0yOCBcXDtcXExvbmdyaWdodGFycm93XFw7IDd4PTExMiQiLCAiJHg9MTYkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICIiXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiU0lHTkVfRklOQUwiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICIiXSwgInJlcyI6IFsiJFxcZGZyYWN7N3h9ezR9PTI4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgN3g9MTEyJCIsICIkeD0xNiQiXX0="
   },
   {
    "id": "76e",
@@ -356,8 +407,9 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
-   "enunciat": "$\\dfrac{3x}{1} = -5$",
+   "enunciat": "$3x = -5$",
    "opcions": [
     "$x=-5$",
     "$x=-\\dfrac{5}{3}$",
@@ -365,11 +417,11 @@ window.FULL = {
     "$x=\\dfrac{5}{3}$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Aquí no hi ha cap denominador: la $x$ ja només porta un coeficient al davant.",
+    "Aïlla $x$ dividint els dos costats pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZW4gY3JldSBwZXLDsiBubyBoYXMgYWNhYmF0IGRlIHNpbXBsaWZpY2FyIGxhIGZyYWNjacOzIHJlc3VsdGFudDogZGl2aWRlaXggbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIG0uYy5kLiIsICIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJTSUdORV9GSU5BTCIsICJFTlRFUl9NVUxUSVBMSUNBX0RFTk9NSU5BRE9SIl0sICJyZXMiOiBbIiRcXGRmcmFjezN4fXsxfT0tNSBcXDtcXExvbmdyaWdodGFycm93XFw7IDN4PS01JCIsICIkeD0tXFxkZnJhY3s1fXszfSQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiIiwgIlNJR05FX0ZJTkFMIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiXSwgInJlcyI6IFsiJDN4PS01IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD0tXFxkZnJhY3s1fXszfSQiXX0="
   },
   {
    "id": "76f",
@@ -377,6 +429,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{-3x}{2} = -25$",
    "opcions": [
@@ -390,7 +443,7 @@ window.FULL = {
     "Aïlla $x$ dividint pel nombre que l'acompanya."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZW4gY3JldSBwZXLDsiBubyBoYXMgYWNhYmF0IGRlIHNpbXBsaWZpY2FyIGxhIGZyYWNjacOzIHJlc3VsdGFudDogZGl2aWRlaXggbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIG0uYy5kLiIsICJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIiRcXGRmcmFjey0zeH17Mn09LTI1IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgLTN4PS01MCQiLCAiJHg9XFxkZnJhY3s1MH17M30kIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJFxcZGZyYWN7LTN4fXsyfT0tMjUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAtM3g9LTUwJCIsICIkeD1cXGRmcmFjezUwfXszfSQiXX0="
   },
   {
    "id": "77a",
@@ -398,6 +451,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{x-2}{5} = 1$",
    "opcions": [
@@ -418,6 +472,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x+15}{6} = -7$",
    "opcions": [
@@ -439,6 +494,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x}{2} + 20 = x + 25$",
    "opcions": [
@@ -452,7 +508,7 @@ window.FULL = {
     "Un cop sense fraccions, agrupa termes amb $x$ i números per separat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJEZXNwcsOpcyBkZSBtdWx0aXBsaWNhciBwZXIgJDIkIGkgYWdydXBhciwgcmV2aXNhIGwnYXJpdG3DqHRpY2EgZGVsIHBhcyAkM3gtMng9NTAtNDAkLiIsICIiLCAiRW4gbXVsdGlwbGljYXIgdG90YSBsJ2VxdWFjacOzIHBlbCBtLmMubS4sIGNhbCBtdWx0aXBsaWNhciBDQURBIHRlcm1lLCBpbmNsb2VudC1oaSBlbHMgcXVlIGphIG5vIHRlbmVuIGRlbm9taW5hZG9yLiIsICJSZXZpc2EgZWwgc2lnbmUgZmluYWw6IGRlICR4PTUwLTQwJCBzdXJ0IHVuIHJlc3VsdGF0IHBvc2l0aXUuIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJNdWx0aXBsaXF1ZW0gcGVyICQyJDogJFxcZGZyYWN7M3h9ezJ9KzIwPXgrMjUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAzeCs0MD0yeCs1MCQiLCAiJDN4LTJ4PTUwLTQwJCIsICIkeD0xMCQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJEZXNwcsOpcyBkZSBtdWx0aXBsaWNhciBwZXIgJDIkIGkgYWdydXBhciwgcmV2aXNhIGwnYXJpdG3DqHRpY2EgZGVsIHBhcyAkM3gtMng9NTAtNDAkLiIsICIiLCAiRW4gbXVsdGlwbGljYXIgdG90YSBsJ2VxdWFjacOzIHBlbCBtLmMubS4sIGNhbCBtdWx0aXBsaWNhciBDQURBIHRlcm1lLCBpbmNsb2VudC1oaSBlbHMgcXVlIGphIG5vIHRlbmVuIGRlbm9taW5hZG9yLiIsICJSZXZpc2EgZWwgc2lnbmUgZmluYWw6IGRlICR4PTUwLTQwJCBzdXJ0IHVuIHJlc3VsdGF0IHBvc2l0aXUuIl0sICJlcnIiOiBbIkFSSVRNRVRJQ0FfUEFTX0lOVEVSTUVESSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJNdWx0aXBsaXF1ZW0gcGVyICQyJDogJFxcZGZyYWN7M3h9ezJ9KzIwPXgrMjUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAzeCs0MD0yeCs1MCQiLCAiJDN4LTJ4PTUwLTQwJCIsICIkeD0xMCQiXX0="
   },
   {
    "id": "77d",
@@ -460,6 +516,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x}{4} - 1 = 12 - 3x$",
    "opcions": [
@@ -481,6 +538,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{3x}{5} + 7 = \\dfrac{2x}{6} + 9$",
    "opcions": [
@@ -502,6 +560,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x+2}{3} = 5x - 46$",
    "opcions": [
@@ -515,7 +574,7 @@ window.FULL = {
     "Agrupa tots els termes amb $x$ a un costat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRzIHRlcm1lcyBhbWIgJHgkIHF1ZWRlbiBlbiB0b3RhbCBhIGxhIGRyZXRhOiAkMTV4LXg9MTR4JCwgbm8gJDE2eCQuIiwgIlJldmlzYSBsJ2FyaXRtw6h0aWNhIGZpbmFsOiAkMisxMzg9MTQwJCwgaSAkMTQwOjE0PTEwJCBleGFjdGUuIiwgIiIsICJSZXZpc2EgZWwgc2lnbmUgZGVsICQxMzgkOiBlbiBtdWx0aXBsaWNhciAkM1xcY2RvdCg1eC00NikkIGVsIHJlc3VsdGF0IMOpcyAkMTV4LTEzOCQsIGkgYXF1ZXN0ICQtMTM4JCBwYXNzYSBzdW1hbnQgYSBsJ2VzcXVlcnJhLiJdLCAiZXJyIjogWyJHUkFVX1BST0RVQ1RFX01BTCIsICJTSU1QTElGSUNBQ0lPX0lOQ09NUExFVEEiLCAiIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIl0sICJyZXMiOiBbIiRcXGRmcmFje3grMn17M309NXgtNDYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4KzI9MTV4LTEzOCQiLCAiJDIrMTM4PTE1eC14IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTQwPTE0eCQiLCAiJHg9MTAkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRzIHRlcm1lcyBhbWIgJHgkIHF1ZWRlbiBlbiB0b3RhbCBhIGxhIGRyZXRhOiAkMTV4LXg9MTR4JCwgbm8gJDE2eCQuIiwgIlJldmlzYSBsJ2FyaXRtw6h0aWNhIGZpbmFsOiAkMisxMzg9MTQwJCwgaSAkMTQwOjE0PTEwJCBleGFjdGUuIiwgIiIsICJSZXZpc2EgZWwgc2lnbmUgZGVsICQxMzgkOiBlbiBtdWx0aXBsaWNhciAkM1xcY2RvdCg1eC00NikkIGVsIHJlc3VsdGF0IMOpcyAkMTV4LTEzOCQsIGkgYXF1ZXN0ICQtMTM4JCBwYXNzYSBzdW1hbnQgYSBsJ2VzcXVlcnJhLiJdLCAiZXJyIjogWyJHUkFVX1BST0RVQ1RFX01BTCIsICJBUklUTUVUSUNBX1BBU19JTlRFUk1FREkiLCAiIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIl0sICJyZXMiOiBbIiRcXGRmcmFje3grMn17M309NXgtNDYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4KzI9MTV4LTEzOCQiLCAiJDIrMTM4PTE1eC14IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTQwPTE0eCQiLCAiJHg9MTAkIl19"
   },
   {
    "id": "78c",
@@ -523,6 +582,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$x - \\dfrac{x+4}{5} = 1 + \\dfrac{x}{2}$",
    "opcions": [
@@ -536,7 +596,7 @@ window.FULL = {
     "Compte amb el signe: $-\\frac{x+4}{5}$ multiplicat per $10$ dona $-2(x+4)$, i el parèntesi s'ha de distribuir sencer."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiBtdWx0aXBsaWNhciBwZWwgbS5jLm0uJCg1LDIpPTEwJCwgY2FkYSB0ZXJtZSBzJ2hhIGRlIG11bHRpcGxpY2FyIHBlbCBmYWN0b3IgcXVlIGxpIGNvcnJlc3BvbiBzZWdvbnMgZWwgc2V1IHByb3BpIGRlbm9taW5hZG9yLCBubyB0b3RzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQ6ICQzeD0xOCQgZG9uYSB1bmEgJHgkIHBvc2l0aXZhLiIsICJSZXZpc2EgcXVlIGhhcyBhZ3J1cGF0IGLDqSBlbHMgdGVybWVzIGFtYiAkeCQ6ICQxMHgtMngtNXg9M3gkLCBubyB1biBhbHRyZSBjb2VmaWNpZW50LiJdLCAiZXJyIjogWyJOVU1FUkFET1JTX1NFTlNFX0FKVVNUQVIiLCAiIiwgIlNJR05FX0ZJTkFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyJNLmMubS4kKDUsMik9MTAkOiAkeC1cXGRmcmFje3grNH17NX09MStcXGRmcmFje3h9ezJ9IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTB4LTIoeCs0KT0xMCs1eCQiLCAiJDEweC0yeC04PTEwKzV4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgOHgtNXg9MTArOCQiLCAiJDN4PTE4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD02JCJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiBtdWx0aXBsaWNhciBwZWwgbS5jLm0uJCg1LDIpPTEwJCwgY2FkYSB0ZXJtZSBzJ2hhIGRlIG11bHRpcGxpY2FyIHBlbCBmYWN0b3IgcXVlIGxpIGNvcnJlc3BvbiBzZWdvbnMgZWwgc2V1IHByb3BpIGRlbm9taW5hZG9yLCBubyB0b3RzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQ6ICQzeD0xOCQgZG9uYSB1bmEgJHgkIHBvc2l0aXZhLiIsICJSZXZpc2EgcXVlIGhhcyBhZ3J1cGF0IGLDqSBlbHMgdGVybWVzIGFtYiAkeCQ6ICQxMHgtMngtNXg9M3gkLCBubyB1biBhbHRyZSBjb2VmaWNpZW50LiJdLCAiZXJyIjogWyJOVU1FUkFET1JTX1NFTlNFX0FKVVNUQVIiLCAiIiwgIlNJR05FX0ZJTkFMIiwgIkFHUlVQQUNJT19URVJNRVNfTUFMIl0sICJyZXMiOiBbIk0uYy5tLiQoNSwyKT0xMCQ6ICR4LVxcZGZyYWN7eCs0fXs1fT0xK1xcZGZyYWN7eH17Mn0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAxMHgtMih4KzQpPTEwKzV4JCIsICIkMTB4LTJ4LTg9MTArNXggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyA4eC01eD0xMCs4JCIsICIkM3g9MTggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PTYkIl19"
   },
   {
    "id": "78d",
@@ -544,6 +604,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x+8}{2} - \\dfrac{x-4}{6} = 2$",
    "opcions": [
@@ -565,6 +626,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x-5}{5} + \\dfrac{8-x}{2} + \\dfrac{2x-10}{2} = 3$",
    "opcions": [
@@ -586,6 +648,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x-10}{2} - \\dfrac{x-20}{4} - \\dfrac{x-30}{3} = 5$",
    "opcions": [
@@ -599,7 +662,7 @@ window.FULL = {
     "Compte amb els signes en distribuir cada parèntesi que resulta de multiplicar pel m.c.m."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgcGFzICQteCsxMjA9NjAkOiBlbCAkMTIwJCBoYSBkZSByZXN0YXIgYSBiYW5kYSBpIGJhbmRhLCBubyBzdW1hci1zZSBkdWVzIHZlZ2FkZXMuIiwgIlF1YW4gZGlzdHJpYnVlaXhlcyAkLTMoeC0yMCkkIGkgJC00KHgtMzApJCwgZWwgc2lnbmUgJC0kIGhhIGQnYWZlY3RhciBlbHMgZG9zIHRlcm1lcyBkZSBjYWRhIHBhcsOobnRlc2kuIiwgIlJldmlzYSBlbCBzaWduZSBmaW5hbDogZGUgJC14PS02MCQgc3VydCB1bmEgJHgkIHBvc2l0aXZhLiIsICIiXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIk1FTllTX1BBUkVOVEVTSSIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiTS5jLm0uJCgyLDQsMyk9MTIkOiAkNih4LTEwKS0zKHgtMjApLTQoeC0zMCk9NjAkIiwgIiQ2eC02MC0zeCs2MC00eCsxMjA9NjAgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAteCsxMjA9NjAkIiwgIiQteD0tNjAgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PTYwJCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgcGFzICQteCsxMjA9NjAkOiBlbCAkMTIwJCBoYSBkZSByZXN0YXIgYSBiYW5kYSBpIGJhbmRhLCBubyBzdW1hci1zZSBkdWVzIHZlZ2FkZXMuIiwgIlF1YW4gZGlzdHJpYnVlaXhlcyAkLTMoeC0yMCkkIGkgJC00KHgtMzApJCwgZWwgc2lnbmUgJC0kIGhhIGQnYWZlY3RhciBlbHMgZG9zIHRlcm1lcyBkZSBjYWRhIHBhcsOobnRlc2kuIiwgIlJldmlzYSBlbCBzaWduZSBmaW5hbDogZGUgJC14PS02MCQgc3VydCB1bmEgJHgkIHBvc2l0aXZhLiIsICIiXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiTUVOWVNfUEFSRU5URVNJIiwgIlNJR05FX0ZJTkFMIiwgIiJdLCAicmVzIjogWyJNLmMubS4kKDIsNCwzKT0xMiQ6ICQ2KHgtMTApLTMoeC0yMCktNCh4LTMwKT02MCQiLCAiJDZ4LTYwLTN4KzYwLTR4KzEyMD02MCBcXDtcXExvbmdyaWdodGFycm93XFw7IC14KzEyMD02MCQiLCAiJC14PS02MCBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9NjAkIl19"
   },
   {
    "id": "79a",
@@ -607,6 +670,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{2x-10}{3} - \\dfrac{3(x-12)}{4} = -1$",
    "opcions": [
@@ -628,6 +692,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{-3x-3}{5} = 3 - 4(x+2)$",
    "opcions": [
@@ -649,6 +714,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{2x-5}{5} + \\dfrac{x+1}{4} = 20 - x$",
    "opcions": [
@@ -670,6 +736,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{3-x}{7} - x = \\dfrac{3+2(x-1)}{14}$",
    "opcions": [
@@ -691,10 +758,11 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{4x-6}{10} + 2x = 21 - \\dfrac{3(x+1)}{12}$",
    "opcions": [
-    "$x=\\dfrac{1281}{159}$",
+    "$x=\\dfrac{405}{53}$",
     "$x=-\\dfrac{427}{53}$",
     "$x=\\dfrac{427}{53}$",
     "$x=\\dfrac{427}{159}$"
@@ -704,7 +772,7 @@ window.FULL = {
     "Un cop sense denominadors, agrupa termes amb $x$ i números, i simplifica la fracció final al màxim."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZXN1bHRhdCAkXFxmcmFjezEyODF9ezE1OX0kIGVuY2FyYSBlcyBwb3Qgc2ltcGxpZmljYXIgZGl2aWRpbnQgbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIHNldSBtLmMuZC4gKCQzJCksIGkgYXJyaWJhciBhICRcXGZyYWN7NDI3fXs1M30kLiIsICJSZXZpc2EgZWwgc2lnbmUgZmluYWw6ICQxNTl4PTEyODEkIGRvbmEgdW5hICR4JCBwb3NpdGl2YS4iLCAiIiwgIkhhcyBzaW1wbGlmaWNhdCBub23DqXMgZWwgbnVtZXJhZG9yIGkgbm8gZWwgZGVub21pbmFkb3IgKG8gYSBsJ2lucmV2w6lzKTogJFxcZnJhY3sxMjgxfXsxNTl9JCBzJ2hhIGRlIGRpdmlkaXIgcGVyICQzJCBhbHMgRE9TIGNvc3RhdHMgZGUgbGEgZnJhY2Npw7MgcGVyIGFycmliYXIgYSAkXFxmcmFjezQyN317NTN9JC4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJTSU1QTElGSUNBQ0lPX1BBUkNJQUwiXSwgInJlcyI6IFsiTS5jLm0uJCgxMCwxLDEyKT02MCQ6ICQ2KDR4LTYpKzEyMHg9MTI2MC0xNSh4KzEpJCIsICIkMjR4LTM2KzEyMHg9MTI2MC0xNXgtMTUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAxNDR4LTM2PTEyNDUtMTV4JCIsICIkMTQ0eCsxNXg9MTI0NSszNiBcXDtcXExvbmdyaWdodGFycm93XFw7IDE1OXg9MTI4MSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxMjgxfXsxNTl9PVxcZGZyYWN7NDI3fXs1M30kIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgdGVybWUgaW5kZXBlbmRlbnQ6IGVsICQtMzYkIGRlIGwnZXNxdWVycmEgcGFzc2EgYSBsJ2FsdHJlIG1lbWJyZSBTVU1BTlQsICQxMjQ1KzM2PTEyODEkLiBBbWIgJDE1OXg9MTIxNSQgc29ydGlyaWEgYXF1ZXN0IHZhbG9yLCBwZXLDsiBsJ2VxdWFjacOzIGRvbmEgJDE1OXg9MTI4MSQuIiwgIlJldmlzYSBlbCBzaWduZSBmaW5hbDogJDE1OXg9MTI4MSQgZG9uYSB1bmEgJHgkIHBvc2l0aXZhLiIsICIiLCAiSGFzIHNpbXBsaWZpY2F0IG5vbcOpcyBlbCBudW1lcmFkb3IgaSBubyBlbCBkZW5vbWluYWRvcjogJFxcZnJhY3sxMjgxfXsxNTl9JCBzJ2hhIGRlIGRpdmlkaXIgcGVyICQzJCBhbHMgRE9TIGNvc3RhdHMgZGUgbGEgZnJhY2Npw7MgcGVyIGFycmliYXIgYSAkXFxmcmFjezQyN317NTN9JC4iXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiU0lHTkVfRklOQUwiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fUEFSQ0lBTCJdLCAicmVzIjogWyJNLmMubS4kKDEwLDEsMTIpPTYwJDogJDYoNHgtNikrMTIweD0xMjYwLTE1KHgrMSkkIiwgIiQyNHgtMzYrMTIweD0xMjYwLTE1eC0xNSBcXDtcXExvbmdyaWdodGFycm93XFw7IDE0NHgtMzY9MTI0NS0xNXgkIiwgIiQxNDR4KzE1eD0xMjQ1KzM2IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTU5eD0xMjgxIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezEyODF9ezE1OX09XFxkZnJhY3s0Mjd9ezUzfSQiXX0="
   },
   {
    "id": "80a",
@@ -712,6 +780,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2-5x+6=0$",
    "opcions": [
@@ -725,7 +794,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGxhIGbDs3JtdWxhOiBubyBuJ2hpIGhhIHByb3UgZGUgZGVzY29tcG9uZHJlICQ2JCBjb20gYSBwcm9kdWN0ZSBkZSBkb3MgZmFjdG9ycywgY2FsIGFwbGljYXIgJHg9XFxmcmFjey1iXFxwbVxcc3FydFxcRGVsdGF9ezJhfSQuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS01JCwgZWwgbnVtZXJhZG9yIGRlIGxhIGbDs3JtdWxhIHBvcnRhICQrNSQsIGkgbGVzIGR1ZXMgc29sdWNpb25zIHN1cnRlbiBwb3NpdGl2ZXMuIiwgIkVsIGRpc2NyaW1pbmFudCAkXFxEZWx0YT0xJCDDqXMgcG9zaXRpdSAobm8gemVybyk6IGhpIGhhIERVRVMgc29sdWNpb25zIGRpZmVyZW50cywgbm8gdW5hIGRlIGRvYmxlLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfQ1JFVUFUIiwgIlNJR05FX1FVT0NJRU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTUsXFwgYz02JDogJFxcRGVsdGE9KC01KV4yLTRcXGNkb3QxXFxjZG90KDYpPTI1LTI0PTEkIiwgIiR4PVxcZGZyYWN7NVxccG1cXHNxcnR7MX19ezJ9JCIsICIkeD0yLFxcIDMkIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGxhIGbDs3JtdWxhOiBubyBuJ2hpIGhhIHByb3UgZGUgZGVzY29tcG9uZHJlICQ2JCBjb20gYSBwcm9kdWN0ZSBkZSBkb3MgZmFjdG9ycywgY2FsIGFwbGljYXIgJHg9XFxmcmFjey1iXFxwbVxcc3FydFxcRGVsdGF9ezJhfSQuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS01JCwgZWwgbnVtZXJhZG9yIGRlIGxhIGbDs3JtdWxhIHBvcnRhICQrNSQsIGkgbGVzIGR1ZXMgc29sdWNpb25zIHN1cnRlbiBwb3NpdGl2ZXMuIiwgIkVsIGRpc2NyaW1pbmFudCAkXFxEZWx0YT0xJCDDqXMgcG9zaXRpdSAobm8gemVybyk6IGhpIGhhIERVRVMgc29sdWNpb25zIGRpZmVyZW50cywgbm8gdW5hIGRlIGRvYmxlLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfQ1JFVUFUIiwgIlNJR05FX1FVT0NJRU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTUsXFwgYz02JDogJFxcRGVsdGE9KC01KV4yLTRcXGNkb3QxXFxjZG90Nj0yNS0yND0xJCIsICIkeD1cXGRmcmFjezVcXHBtXFxzcXJ0ezF9fXsyfSQiLCAiJHg9MixcXCAzJCJdfQ=="
   },
   {
    "id": "80b",
@@ -733,6 +802,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$2x^2-4x+13=0$",
    "opcions": [
@@ -746,7 +816,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJcIlNlbnNlIHNvbHVjaW9ucyByZWFsc1wiIG5vIMOpcyBlbCBtYXRlaXggcXVlIFwic2Vuc2Ugc29sdWNpw7NcIjogYXF1w60gZW5zIHJlZmVyaW0gYSBub21icmVzIHJlYWxzLCBpIGVsIGRpc2NyaW1pbmFudCBuZWdhdGl1IGhvIGNvbmZpcm1hLiIsICJVbiBkaXNjcmltaW5hbnQgbmVnYXRpdSB2b2wgZGlyIHF1ZSBOTyBoaSBoYSBjYXAgc29sdWNpw7MgcmVhbCwgbmkgdGFuIHNvbHMgdW5hIGRlIGRvYmxlOiB0b3JuYSBhIGNhbGN1bGFyICRcXERlbHRhPWJeMi00YWMkLiIsICIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudCBhbWIgY3VyYTogJFxcRGVsdGE9KC00KV4yLTRcXGNkb3QyXFxjZG90MTM9MTYtMTA0PS04OCQsIG5lZ2F0aXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIiIsICJTSUdORV9QUk9EVUNURSJdLCAicmVzIjogWyIkYT0yLFxcIGI9LTQsXFwgYz0xMyQ6ICRcXERlbHRhPSgtNCleMi00XFxjZG90MlxcY2RvdCgxMyk9MTYtMTA0PS04OCQiLCAiQ29tIHF1ZSAkXFxEZWx0YTwwJCwgbCdlcXVhY2nDsyBubyB0w6kgc29sdWNpb25zIHJlYWxzLiJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJcIlNlbnNlIHNvbHVjaW9ucyByZWFsc1wiIG5vIMOpcyBlbCBtYXRlaXggcXVlIFwic2Vuc2Ugc29sdWNpw7NcIjogYXF1w60gZW5zIHJlZmVyaW0gYSBub21icmVzIHJlYWxzLCBpIGVsIGRpc2NyaW1pbmFudCBuZWdhdGl1IGhvIGNvbmZpcm1hLiIsICJVbiBkaXNjcmltaW5hbnQgbmVnYXRpdSB2b2wgZGlyIHF1ZSBOTyBoaSBoYSBjYXAgc29sdWNpw7MgcmVhbCwgbmkgdGFuIHNvbHMgdW5hIGRlIGRvYmxlOiB0b3JuYSBhIGNhbGN1bGFyICRcXERlbHRhPWJeMi00YWMkLiIsICIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudCBhbWIgY3VyYTogJFxcRGVsdGE9KC00KV4yLTRcXGNkb3QyXFxjZG90MTM9MTYtMTA0PS04OCQsIG5lZ2F0aXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIiIsICJTSUdORV9QUk9EVUNURSJdLCAicmVzIjogWyIkYT0yLFxcIGI9LTQsXFwgYz0xMyQ6ICRcXERlbHRhPSgtNCleMi00XFxjZG90MlxcY2RvdDEzPTE2LTEwND0tODgkIiwgIkNvbSBxdWUgJFxcRGVsdGE8MCQsIGwnZXF1YWNpw7Mgbm8gdMOpIHNvbHVjaW9ucyByZWFscy4iXX0="
   },
   {
    "id": "80c",
@@ -754,6 +824,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2+8x+16=0$",
    "opcions": [
@@ -767,7 +838,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJC04XFxwbTAkIGVzIGRpdmlkZWl4IFRPVCBlbnRyZSAkMiQsIG5vIGVzIHF1ZWRhIHNlbnNlIGRpdmlkaXIuIiwgIiRcXERlbHRhPTAkIG5vIHZvbCBkaXIgcXVlIG5vIGhpIGhhZ2kgc29sdWNpb25zIHJlYWxzOiB2b2wgZGlyIHF1ZSBuJ2hpIGhhIGV4YWN0YW1lbnQgdW5hIChkb2JsZSkuIiwgIiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKSwgbm8gZHVlcyBkZSBzaWduZSBvcG9zYXQ6IHJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvci4iXSwgImVyciI6IFsiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJGE9MSxcXCBiPTgsXFwgYz0xNiQ6ICRcXERlbHRhPSg4KV4yLTRcXGNkb3QxXFxjZG90KDE2KT02NC02ND0wJCIsICIkeD1cXGRmcmFjey04XFxwbVxcc3FydHswfX17Mn0kIiwgIiR4PS00JCAoZG9ibGUpIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJC04XFxwbTAkIGVzIGRpdmlkZWl4IFRPVCBlbnRyZSAkMiQsIG5vIGVzIHF1ZWRhIHNlbnNlIGRpdmlkaXIuIiwgIiRcXERlbHRhPTAkIG5vIHZvbCBkaXIgcXVlIG5vIGhpIGhhZ2kgc29sdWNpb25zIHJlYWxzOiB2b2wgZGlyIHF1ZSBuJ2hpIGhhIGV4YWN0YW1lbnQgdW5hIChkb2JsZSkuIiwgIiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKSwgbm8gZHVlcyBkZSBzaWduZSBvcG9zYXQ6IHJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvci4iXSwgImVyciI6IFsiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJGE9MSxcXCBiPTgsXFwgYz0xNiQ6ICRcXERlbHRhPSg4KV4yLTRcXGNkb3QxXFxjZG90MTY9NjQtNjQ9MCQiLCAiJHg9XFxkZnJhY3stOFxccG1cXHNxcnR7MH19ezJ9JCIsICIkeD0tNCQgKGRvYmxlKSJdfQ=="
   },
   {
    "id": "80d",
@@ -775,6 +846,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$3x^2+2x-16=0$",
    "opcions": [
@@ -788,7 +860,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxmcmFjey0yKzE0fXs2fT1cXGZyYWN7MTJ9ezZ9PTIkLCBwb3NpdGl1LiIsICIiLCAiTGVzIGZyYWNjaW9ucyBmaW5hbHMgZW5jYXJhIGVzIHBvZGVuIHNpbXBsaWZpY2FyIGRpdmlkaW50IG51bWVyYWRvciBpIGRlbm9taW5hZG9yIGVudHJlICQyJC4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9MiQsIGVsIG51bWVyYWRvciBwb3J0YSAkLTIkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlNJR05FX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRhPTMsXFwgYj0yLFxcIGM9LTE2JDogJFxcRGVsdGE9KDIpXjItNFxcY2RvdDNcXGNkb3QoLTE2KT00LS0xOTI9MTk2JCIsICIkeD1cXGRmcmFjey0yXFxwbVxcc3FydHsxOTZ9fXs2fSQiLCAiJHg9LVxcZGZyYWN7OH17M30sXFwgMiQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxmcmFjey0yKzE0fXs2fT1cXGZyYWN7MTJ9ezZ9PTIkLCBwb3NpdGl1LiIsICIiLCAiTGVzIGZyYWNjaW9ucyBmaW5hbHMgZW5jYXJhIGVzIHBvZGVuIHNpbXBsaWZpY2FyIGRpdmlkaW50IG51bWVyYWRvciBpIGRlbm9taW5hZG9yIGVudHJlICQyJC4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9MiQsIGVsIG51bWVyYWRvciBwb3J0YSAkLTIkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlNJR05FX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRhPTMsXFwgYj0yLFxcIGM9LTE2JDogJFxcRGVsdGE9KDIpXjItNFxcY2RvdDNcXGNkb3QoLTE2KT00KzE5Mj0xOTYkIiwgIiR4PVxcZGZyYWN7LTJcXHBtXFxzcXJ0ezE5Nn19ezZ9JCIsICIkeD0tXFxkZnJhY3s4fXszfSxcXCAyJCJdfQ=="
   },
   {
    "id": "80e",
@@ -796,6 +868,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2-2x+1=0$",
    "opcions": [
@@ -809,7 +882,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkXFxEZWx0YT0wJCBubyB2b2wgZGlyIHF1ZSBubyBoaSBoYWdpIHNvbHVjaW9ucyByZWFsczogdm9sIGRpciBxdWUgbidoaSBoYSBleGFjdGFtZW50IHVuYSAoZG9ibGUpLiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKTogcmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yLCBhbWIgJGI9LTIkIGVsIG51bWVyYWRvciBwb3J0YSAkKzIkLiIsICJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJDJcXHBtMCQgZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGRvbmEgJDEkLCBubyAkMiQuIiwgIiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTIsXFwgYz0xJDogJFxcRGVsdGE9KC0yKV4yLTRcXGNkb3QxXFxjZG90KDEpPTQtND0wJCIsICIkeD1cXGRmcmFjezJcXHBtXFxzcXJ0ezB9fXsyfSQiLCAiJHg9MSQgKGRvYmxlKSJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkXFxEZWx0YT0wJCBubyB2b2wgZGlyIHF1ZSBubyBoaSBoYWdpIHNvbHVjaW9ucyByZWFsczogdm9sIGRpciBxdWUgbidoaSBoYSBleGFjdGFtZW50IHVuYSAoZG9ibGUpLiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKTogcmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yLCBhbWIgJGI9LTIkIGVsIG51bWVyYWRvciBwb3J0YSAkKzIkLiIsICJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJDJcXHBtMCQgZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGRvbmEgJDEkLCBubyAkMiQuIiwgIiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTIsXFwgYz0xJDogJFxcRGVsdGE9KC0yKV4yLTRcXGNkb3QxXFxjZG90MT00LTQ9MCQiLCAiJHg9XFxkZnJhY3syXFxwbVxcc3FydHswfX17Mn0kIiwgIiR4PTEkIChkb2JsZSkiXX0="
   },
   {
    "id": "80f",
@@ -817,6 +890,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$7x^2-3x+1=0$",
    "opcions": [
@@ -830,7 +904,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudDogJFxcRGVsdGE9KC0zKV4yLTRcXGNkb3Q3XFxjZG90MT05LTI4PS0xOSQsIG5lZ2F0aXUuIiwgIlVuIGRpc2NyaW1pbmFudCBuZWdhdGl1IHZvbCBkaXIgcXVlIE5PIGhpIGhhIGNhcCBzb2x1Y2nDsyByZWFsLCBuaSB0YW4gc29scyB1bmEgZGUgZG9ibGU6IHRvcm5hIGEgY2FsY3VsYXIgJFxcRGVsdGE9Yl4yLTRhYyQuIiwgIlwiU2Vuc2Ugc29sdWNpb25zIHJlYWxzXCIgbm8gw6lzIGVsIG1hdGVpeCBxdWUgXCJzZW5zZSBzb2x1Y2nDs1wiOiBlbCBkaXNjcmltaW5hbnQgbmVnYXRpdSBjb25maXJtYSBxdWUgbm8gbidoaSBoYSBjYXAgZGUgcmVhbC4iXSwgImVyciI6IFsiIiwgIlNJR05FX1BST0RVQ1RFIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIiRhPTcsXFwgYj0tMyxcXCBjPTEkOiAkXFxEZWx0YT0oLTMpXjItNFxcY2RvdDdcXGNkb3QoMSk9OS0yOD0tMTkkIiwgIkNvbSBxdWUgJFxcRGVsdGE8MCQsIGwnZXF1YWNpw7Mgbm8gdMOpIHNvbHVjaW9ucyByZWFscy4iXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudDogJFxcRGVsdGE9KC0zKV4yLTRcXGNkb3Q3XFxjZG90MT05LTI4PS0xOSQsIG5lZ2F0aXUuIiwgIlVuIGRpc2NyaW1pbmFudCBuZWdhdGl1IHZvbCBkaXIgcXVlIE5PIGhpIGhhIGNhcCBzb2x1Y2nDsyByZWFsLCBuaSB0YW4gc29scyB1bmEgZGUgZG9ibGU6IHRvcm5hIGEgY2FsY3VsYXIgJFxcRGVsdGE9Yl4yLTRhYyQuIiwgIlwiU2Vuc2Ugc29sdWNpb25zIHJlYWxzXCIgbm8gw6lzIGVsIG1hdGVpeCBxdWUgXCJzZW5zZSBzb2x1Y2nDs1wiOiBlbCBkaXNjcmltaW5hbnQgbmVnYXRpdSBjb25maXJtYSBxdWUgbm8gbidoaSBoYSBjYXAgZGUgcmVhbC4iXSwgImVyciI6IFsiIiwgIlNJR05FX1BST0RVQ1RFIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIiRhPTcsXFwgYj0tMyxcXCBjPTEkOiAkXFxEZWx0YT0oLTMpXjItNFxcY2RvdDdcXGNkb3QxPTktMjg9LTE5JCIsICJDb20gcXVlICRcXERlbHRhPDAkLCBsJ2VxdWFjacOzIG5vIHTDqSBzb2x1Y2lvbnMgcmVhbHMuIl19"
   },
   {
    "id": "80g",
@@ -838,6 +912,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$-x^2-4x+5=0$",
    "opcions": [
@@ -851,7 +926,7 @@ window.FULL = {
     "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbCdhcml0bcOodGljYSBkZWwgbnVtZXJhZG9yIGFiYW5zIGRlIGRpdmlkaXI6ICQ0K1xcc3FydHszNn09NCs2PTEwJCwgbm8gdW4gYWx0cmUgdmFsb3IuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS00JCwgZWwgbnVtZXJhZG9yIHBvcnRhICQrNCQ7IGkgZWwgZGVub21pbmFkb3IgJDJhPS0yJCDDqXMgbmVnYXRpdSwgY29zYSBxdWUgdGFtYsOpIGFmZWN0YSBlbCBzaWduZSBmaW5hbC4iLCAiIiwgIlJldmlzYSBxdWluIGRlbHMgZG9zIGNhc29zIGRlbCAkXFxwbSQgZG9uYSBjYWRhIHNvbHVjacOzOiAkXFxmcmFjezQrNn17LTJ9PS01JCBpICRcXGZyYWN7NC02fXstMn09MSQuIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJTSUdORV9RVU9DSUVOVCIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJGE9LTEsXFwgYj0tNCxcXCBjPTUkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdC0xXFxjZG90KDUpPTE2LS0yMD0zNiQiLCAiJHg9XFxkZnJhY3s0XFxwbVxcc3FydHszNn19ey0yfSQiLCAiJHg9LTUsXFwgMSQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbCdhcml0bcOodGljYSBkZWwgbnVtZXJhZG9yIGFiYW5zIGRlIGRpdmlkaXI6ICQ0K1xcc3FydHszNn09NCs2PTEwJCwgbm8gdW4gYWx0cmUgdmFsb3IuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS00JCwgZWwgbnVtZXJhZG9yIHBvcnRhICQrNCQ7IGkgZWwgZGVub21pbmFkb3IgJDJhPS0yJCDDqXMgbmVnYXRpdSwgY29zYSBxdWUgdGFtYsOpIGFmZWN0YSBlbCBzaWduZSBmaW5hbC4iLCAiIiwgIlJldmlzYSBxdWluIGRlbHMgZG9zIGNhc29zIGRlbCAkXFxwbSQgZG9uYSBjYWRhIHNvbHVjacOzOiAkXFxmcmFjezQrNn17LTJ9PS01JCBpICRcXGZyYWN7NC02fXstMn09MSQuIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJTSUdORV9RVU9DSUVOVCIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJGE9LTEsXFwgYj0tNCxcXCBjPTUkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdCgtMSlcXGNkb3Q1PTE2KzIwPTM2JCIsICIkeD1cXGRmcmFjezRcXHBtXFxzcXJ0ezM2fX17LTJ9JCIsICIkeD0tNSxcXCAxJCJdfQ=="
   },
   {
    "id": "81a",
@@ -859,6 +934,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2+5x+6=0$",
    "opcions": [
@@ -872,7 +948,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiVW5hIGVxdWFjacOzIGRlIHNlZ29uIGdyYXUgKGdyYXUgMikgdMOpIGNvbSBhIG1vbHQgMiBzb2x1Y2lvbnMgcmVhbHMsIG1haSAzOiByZXZpc2EgcXVlIGhhcyBpZGVudGlmaWNhdCBiw6kgZWwgZ3JhdS4iLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIiIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9NSxcXCBjPTYkOiAkXFxEZWx0YT0oNSleMi00XFxjZG90MVxcY2RvdCg2KT0yNS0yND0xJCIsICIkXFxEZWx0YT4wJCAkXFxSaWdodGFycm93JCAyIHNvbHVjaW9ucyJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiVW5hIGVxdWFjacOzIGRlIHNlZ29uIGdyYXUgKGdyYXUgMikgdMOpIGNvbSBhIG1vbHQgMiBzb2x1Y2lvbnMgcmVhbHMsIG1haSAzOiByZXZpc2EgcXVlIGhhcyBpZGVudGlmaWNhdCBiw6kgZWwgZ3JhdS4iLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIiIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9NSxcXCBjPTYkOiAkXFxEZWx0YT0oNSleMi00XFxjZG90MVxcY2RvdDY9MjUtMjQ9MSQiLCAiJFxcRGVsdGE+MCQgJFxcUmlnaHRhcnJvdyQgMiBzb2x1Y2lvbnMiXX0="
   },
   {
    "id": "81b",
@@ -880,6 +956,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$-2x^2-6x+8=0$",
    "opcions": [
@@ -893,7 +970,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbmEgZXF1YWNpw7MgZGUgc2Vnb24gZ3JhdSAoZ3JhdSAyKSB0w6kgY29tIGEgbW9sdCAyIHNvbHVjaW9ucyByZWFscywgbWFpIDM6IHJldmlzYSBxdWUgaGFzIGlkZW50aWZpY2F0IGLDqSBlbCBncmF1LiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlBBUklUQVRfRVhQT05FTlQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0tMixcXCBiPS02LFxcIGM9OCQ6ICRcXERlbHRhPSgtNileMi00XFxjZG90LTJcXGNkb3QoOCk9MzYtLTY0PTEwMCQiLCAiJFxcRGVsdGE+MCQgJFxcUmlnaHRhcnJvdyQgMiBzb2x1Y2lvbnMiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbmEgZXF1YWNpw7MgZGUgc2Vnb24gZ3JhdSAoZ3JhdSAyKSB0w6kgY29tIGEgbW9sdCAyIHNvbHVjaW9ucyByZWFscywgbWFpIDM6IHJldmlzYSBxdWUgaGFzIGlkZW50aWZpY2F0IGLDqSBlbCBncmF1LiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlBBUklUQVRfRVhQT05FTlQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0tMixcXCBiPS02LFxcIGM9OCQ6ICRcXERlbHRhPSgtNileMi00XFxjZG90KC0yKVxcY2RvdDg9MzYrNjQ9MTAwJCIsICIkXFxEZWx0YT4wJCAkXFxSaWdodGFycm93JCAyIHNvbHVjaW9ucyJdfQ=="
   },
   {
    "id": "81c",
@@ -901,6 +978,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2-8x+16=0$",
    "opcions": [
@@ -914,7 +992,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTgsXFwgYz0xNiQ6ICRcXERlbHRhPSgtOCleMi00XFxjZG90MVxcY2RvdCgxNik9NjQtNjQ9MCQiLCAiJFxcRGVsdGE9MCQgJFxcUmlnaHRhcnJvdyQgMSBzb2x1Y2nDsyAoZG9ibGUpIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTgsXFwgYz0xNiQ6ICRcXERlbHRhPSgtOCleMi00XFxjZG90MVxcY2RvdDE2PTY0LTY0PTAkIiwgIiRcXERlbHRhPTAkICRcXFJpZ2h0YXJyb3ckIDEgc29sdWNpw7MgKGRvYmxlKSJdfQ=="
   },
   {
    "id": "81d",
@@ -922,8 +1000,9 @@ window.FULL = {
    "ap": "d",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
-   "enunciat": "$-x^2+1x+1=0$",
+   "enunciat": "$-x^2+x+1=0$",
    "opcions": [
     "1 solució (doble)",
     "2 solucions",
@@ -935,7 +1014,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlVuYSBlcXVhY2nDsyBkZSBzZWdvbiBncmF1IChncmF1IDIpIHTDqSBjb20gYSBtb2x0IDIgc29sdWNpb25zIHJlYWxzLCBtYWkgMzogcmV2aXNhIHF1ZSBoYXMgaWRlbnRpZmljYXQgYsOpIGVsIGdyYXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUFJPRFVDVEUiLCAiUEFSSVRBVF9FWFBPTkVOVCJdLCAicmVzIjogWyIkYT0tMSxcXCBiPTEsXFwgYz0xJDogJFxcRGVsdGE9KDEpXjItNFxcY2RvdC0xXFxjZG90KDEpPTEtLTQ9NSQiLCAiJFxcRGVsdGE+MCQgJFxcUmlnaHRhcnJvdyQgMiBzb2x1Y2lvbnMiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlVuYSBlcXVhY2nDsyBkZSBzZWdvbiBncmF1IChncmF1IDIpIHTDqSBjb20gYSBtb2x0IDIgc29sdWNpb25zIHJlYWxzLCBtYWkgMzogcmV2aXNhIHF1ZSBoYXMgaWRlbnRpZmljYXQgYsOpIGVsIGdyYXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUFJPRFVDVEUiLCAiUEFSSVRBVF9FWFBPTkVOVCJdLCAicmVzIjogWyIkYT0tMSxcXCBiPTEsXFwgYz0xJDogJFxcRGVsdGE9KDEpXjItNFxcY2RvdCgtMSlcXGNkb3QxPTErND01JCIsICIkXFxEZWx0YT4wJCAkXFxSaWdodGFycm93JCAyIHNvbHVjaW9ucyJdfQ=="
   },
   {
    "id": "81e",
@@ -943,6 +1022,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2+8x+16=0$",
    "opcions": [
@@ -956,7 +1036,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9OCxcXCBjPTE2JDogJFxcRGVsdGE9KDgpXjItNFxcY2RvdDFcXGNkb3QoMTYpPTY0LTY0PTAkIiwgIiRcXERlbHRhPTAkICRcXFJpZ2h0YXJyb3ckIDEgc29sdWNpw7MgKGRvYmxlKSJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9OCxcXCBjPTE2JDogJFxcRGVsdGE9KDgpXjItNFxcY2RvdDFcXGNkb3QxNj02NC02ND0wJCIsICIkXFxEZWx0YT0wJCAkXFxSaWdodGFycm93JCAxIHNvbHVjacOzIChkb2JsZSkiXX0="
   },
   {
    "id": "81f",
@@ -964,6 +1044,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$2x^2-4x+13=0$",
    "opcions": [
@@ -977,7 +1058,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIl0sICJlcnIiOiBbIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiU0lHTkVfUFJPRFVDVEUiXSwgInJlcyI6IFsiJGE9MixcXCBiPS00LFxcIGM9MTMkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdDJcXGNkb3QoMTMpPTE2LTEwND0tODgkIiwgIiRcXERlbHRhPDAkICRcXFJpZ2h0YXJyb3ckIENhcCBzb2x1Y2nDsyByZWFsIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIl0sICJlcnIiOiBbIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiU0lHTkVfUFJPRFVDVEUiXSwgInJlcyI6IFsiJGE9MixcXCBiPS00LFxcIGM9MTMkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdDJcXGNkb3QxMz0xNi0xMDQ9LTg4JCIsICIkXFxEZWx0YTwwJCAkXFxSaWdodGFycm93JCBDYXAgc29sdWNpw7MgcmVhbCJdfQ=="
   },
   {
    "id": "81g",
@@ -985,6 +1066,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "formula_general",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$7x^2-3x+1=0$",
    "opcions": [
@@ -998,7 +1080,7 @@ window.FULL = {
     "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIlNJR05FX1BST0RVQ1RFIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiXSwgInJlcyI6IFsiJGE9NyxcXCBiPS0zLFxcIGM9MSQ6ICRcXERlbHRhPSgtMyleMi00XFxjZG90N1xcY2RvdCgxKT05LTI4PS0xOSQiLCAiJFxcRGVsdGE8MCQgJFxcUmlnaHRhcnJvdyQgQ2FwIHNvbHVjacOzIHJlYWwiXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIlNJR05FX1BST0RVQ1RFIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiXSwgInJlcyI6IFsiJGE9NyxcXCBiPS0zLFxcIGM9MSQ6ICRcXERlbHRhPSgtMyleMi00XFxjZG90N1xcY2RvdDE9OS0yOD0tMTkkIiwgIiRcXERlbHRhPDAkICRcXFJpZ2h0YXJyb3ckIENhcCBzb2x1Y2nDsyByZWFsIl19"
   },
   {
    "id": "82a",
@@ -1006,6 +1088,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-7x=0$",
    "opcions": [
@@ -1027,6 +1110,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$x^2+3x=0$",
    "opcions": [
@@ -1048,6 +1132,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-25x=0$",
    "opcions": [
@@ -1069,6 +1154,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-10x=0$",
    "opcions": [
@@ -1090,6 +1176,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$16x(x-5)=0$",
    "opcions": [
@@ -1111,6 +1198,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$3x^2-12x=0$",
    "opcions": [
@@ -1132,6 +1220,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$3x = 4x^2-2x$",
    "opcions": [
@@ -1153,6 +1242,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$4x^2=5x$",
    "opcions": [
@@ -1174,6 +1264,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol.",
    "enunciat": "$25x^2-100x=0$",
    "opcions": [
@@ -1195,6 +1286,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x+2)(x-2) = 0$",
    "opcions": [
@@ -1216,6 +1308,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-3)(x+3) = 0$",
    "opcions": [
@@ -1237,6 +1330,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x+3)(2x-5)\\left(5 - \\dfrac{x}{2}\\right) = 0$",
    "opcions": [
@@ -1258,6 +1352,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-5)^2 = 0$",
    "opcions": [
@@ -1279,6 +1374,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-2)^2 + x = x$",
    "opcions": [
@@ -1300,6 +1396,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$x\\left(\\dfrac{3x}{4} - \\dfrac{4}{5}\\right)^2 = 0$",
    "opcions": [
@@ -1313,7 +1410,7 @@ window.FULL = {
     "El factor al quadrat compta com una única solució, no cal repetir-la."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIHNpZ25lIGVuIGHDr2xsYXIgJHgkIGRpbnMgZGVsIHNlZ29uIGZhY3RvcjogJFxcZnJhY3szeH17NH09XFxmcmFjezR9ezV9IFxcUmlnaHRhcnJvdyB4PVxcZnJhY3sxNn17MTV9JCwgcG9zaXRpdS4iLCAiQXF1ZXN0IHByb2R1Y3RlIHTDqSBET1MgZmFjdG9ycyAoJHgkIGkgZWwgcXVhZHJhdCk6IGxhIHNvbHVjacOzICR4PTAkIGRlbCBwcmltZXIgZmFjdG9yIHRhbWLDqSBjb21wdGEsIG5vIG5vbcOpcyBsYSBkZSBkaW5zIGRlbCBxdWFkcmF0LiIsICJVbiBjb3AgYcOvbGxhZGEgJFxcZnJhY3szeH17NH09XFxmcmFjezR9ezV9JCwgZW5jYXJhIGZhbHRhIG11bHRpcGxpY2FyIHBlciAkXFxmcmFjezR9ezN9JCBwZXIgYWNhYmFyIGQnYcOvbGxhciAkeCQuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiR4PTAkIG8gJFxcbGVmdChcXGRmcmFjezN4fXs0fS1cXGRmcmFjezR9ezV9XFxyaWdodCleMj0wJCIsICJEZWwgc2Vnb24gZmFjdG9yOiAkXFxkZnJhY3szeH17NH09XFxkZnJhY3s0fXs1fSBcXFJpZ2h0YXJyb3cgeD1cXGRmcmFjezE2fXsxNX0kIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIHNpZ25lIGVuIGHDr2xsYXIgJHgkIGRpbnMgZGVsIHNlZ29uIGZhY3RvcjogJFxcZnJhY3szeH17NH09XFxmcmFjezR9ezV9IFxcUmlnaHRhcnJvdyB4PVxcZnJhY3sxNn17MTV9JCwgcG9zaXRpdS4iLCAiQXF1ZXN0IHByb2R1Y3RlIHTDqSBET1MgZmFjdG9ycyAoJHgkIGkgZWwgcXVhZHJhdCk6IGxhIHNvbHVjacOzICR4PTAkIGRlbCBwcmltZXIgZmFjdG9yIHRhbWLDqSBjb21wdGEsIG5vIG5vbcOpcyBsYSBkZSBkaW5zIGRlbCBxdWFkcmF0LiIsICJVbiBjb3AgYcOvbGxhZGEgJFxcZnJhY3szeH17NH09XFxmcmFjezR9ezV9JCwgZW5jYXJhIGZhbHRhIG11bHRpcGxpY2FyIHBlciAkXFxmcmFjezR9ezN9JCBwZXIgYWNhYmFyIGQnYcOvbGxhciAkeCQuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiQUlMTEFNRU5UX0lOQ09NUExFVCJdLCAicmVzIjogWyIkeD0wJCBvICRcXGxlZnQoXFxkZnJhY3szeH17NH0tXFxkZnJhY3s0fXs1fVxccmlnaHQpXjI9MCQiLCAiRGVsIHNlZ29uIGZhY3RvcjogJFxcZGZyYWN7M3h9ezR9PVxcZGZyYWN7NH17NX0gXFxSaWdodGFycm93IHg9XFxkZnJhY3sxNn17MTV9JCJdfQ=="
   },
   {
    "id": "84a",
@@ -1321,6 +1418,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(x+1)(x-3) + 3 = 0$",
    "opcions": [
@@ -1342,6 +1440,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(x+9)(x-9) = 3(x-27)$",
    "opcions": [
@@ -1363,6 +1462,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x(3x-2) = 65$",
    "opcions": [
@@ -1384,6 +1484,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$4x - (x^2-4) = 2x - 4$",
    "opcions": [
@@ -1405,6 +1506,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(2x+3)(2x-3) = 135$",
    "opcions": [
@@ -1418,7 +1520,7 @@ window.FULL = {
     "Aïlla $x^2$ i fes l'arrel quadrada als dos costats (recorda el $\\pm$)."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBxdWFkcmF0ICR4XjI9MzYkIHTDqSBEVUVTIHNvbHVjaW9ucywgJHg9NiQgaSAkeD0tNiQ6IG5vIGVuIGRlc2NhcnRpcyBjYXAgYXJyYW4gZGUgbCdhcnJlbCBxdWFkcmFkYS4iLCAiUmV2aXNhIGVsIHBhcyAkNHheMj0xNDQgXFxSaWdodGFycm93IHheMj0zNiQ6IGNhbCBkaXZpZGlyIGVudHJlICQ0JCBhYmFucyBkZSBmZXIgbCdhcnJlbCBxdWFkcmFkYSwgbm8gZmVyLWxhIGRpcmVjdGFtZW50IHNvYnJlICQxNDQkLiIsICIiLCAiUmV2aXNhIGVsIGRlc2Vudm9sdXBhbWVudCAkKDJ4KzMpKDJ4LTMpPTR4XjItOSQ6IGVsIHRlcm1lIGVuICR4JCB2YSBtdWx0aXBsaWNhdCBwZXIgJDQkLCBubyBwZXIgJDEkLiJdLCAiZXJyIjogWyJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJRVUFEUkFUX0lOQ09NUExFVCJdLCAicmVzIjogWyIkKDJ4KzMpKDJ4LTMpPTEzNSBcXDtcXExvbmdyaWdodGFycm93XFw7IDR4XjItOT0xMzUkIiwgIiQ0eF4yPTE0NCBcXDtcXExvbmdyaWdodGFycm93XFw7IHheMj0zNiQiLCAiJHg9XFxwbTYkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBxdWFkcmF0ICR4XjI9MzYkIHTDqSBEVUVTIHNvbHVjaW9ucywgJHg9NiQgaSAkeD0tNiQ6IG5vIGVuIGRlc2NhcnRpcyBjYXAgYXJyYW4gZGUgbCdhcnJlbCBxdWFkcmFkYS4iLCAiUmV2aXNhIGVsIHBhcyAkNHheMj0xNDQgXFxSaWdodGFycm93IHheMj0zNiQ6IGNhbCBkaXZpZGlyIGVudHJlICQ0JCBhYmFucyBkZSBmZXIgbCdhcnJlbCBxdWFkcmFkYSwgbm8gZmVyLWxhIGRpcmVjdGFtZW50IHNvYnJlICQxNDQkLiIsICIiLCAiUmV2aXNhIGVsIGRlc2Vudm9sdXBhbWVudCAkKDJ4KzMpKDJ4LTMpPTR4XjItOSQ6IGVsIHRlcm1lIGVuICR4JCB2YSBtdWx0aXBsaWNhdCBwZXIgJDQkLCBubyBwZXIgJDEkLiJdLCAiZXJyIjogWyJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiT1JEUkVfQVJSRUxfRElWSVNJTyIsICIiLCAiUVVBRFJBVF9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJCgyeCszKSgyeC0zKT0xMzUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyA0eF4yLTk9MTM1JCIsICIkNHheMj0xNDQgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4XjI9MzYkIiwgIiR4PVxccG02JCJdfQ=="
   },
   {
    "id": "84f",
@@ -1426,6 +1528,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x^2 - \\dfrac{23}{4}x = 18$",
    "opcions": [
@@ -1447,6 +1550,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "factoritzacio",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x^2 - 7x + \\dfrac{13}{4} = 0$",
    "opcions": [
@@ -1460,7 +1564,7 @@ window.FULL = {
     "Aplica la fórmula general amb $a=1,\\ b=-7,\\ c=\\frac{13}{4}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9LTckLCBlbCBudW1lcmFkb3IgcG9ydGEgJCs3JCwgaSBlbCByZXN1bHRhdCBmaW5hbCDDqXMgcG9zaXRpdS4iLCAiQWwgZmluYWwgY2FsIGRpdmlkaXIgZW50cmUgJDJhPTIkIChwZXJxdcOoICRhPTEkKSwgbm8gZW50cmUgJDQkOiByZXZpc2EgZWwgZGVub21pbmFkb3IgZGUgbGVzIGR1ZXMgc29sdWNpb25zLiIsICJSZXZpc2EgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxkZnJhY3sxM317Mn0kIG5vIGVzIHNpbXBsaWZpY2EgYSAkNiQ7IGNvbXByb3ZhIGxhIGRpdmlzacOzICRcXGRmcmFjezcrNn17Mn0kLiJdLCAiZXJyIjogWyIiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfRElWSVNJT05TIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTcsXFwgYz1cXGRmcmFjezEzfXs0fSQ6ICRcXERlbHRhPSgtNyleMi00XFxjZG90MVxcY2RvdFxcZGZyYWN7MTN9ezR9PTQ5LTEzPTM2JCIsICIkXFxzcXJ0ezM2fT02JDogJHg9XFxkZnJhY3s3XFxwbTZ9ezJ9JCIsICIkeD1cXGRmcmFjezEzfXsyfSQgbyAkeD1cXGRmcmFjezF9ezJ9JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9LTckLCBlbCBudW1lcmFkb3IgcG9ydGEgJCs3JCwgaSBlbCByZXN1bHRhdCBmaW5hbCDDqXMgcG9zaXRpdS4iLCAiQWwgZmluYWwgY2FsIGRpdmlkaXIgZW50cmUgJDJhPTIkIChwZXJxdcOoICRhPTEkKSwgbm8gZW50cmUgJDQkOiByZXZpc2EgZWwgZGVub21pbmFkb3IgZGUgbGVzIGR1ZXMgc29sdWNpb25zLiIsICJSZXZpc2EgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxkZnJhY3sxM317Mn0kIG5vIGVzIHNpbXBsaWZpY2EgYSAkNiQ7IGNvbXByb3ZhIGxhIGRpdmlzacOzICRcXGRmcmFjezcrNn17Mn0kLiJdLCAiZXJyIjogWyIiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfRElWSVNJT05TIiwgIkFSSVRNRVRJQ0FfUEFTX0lOVEVSTUVESSJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTcsXFwgYz1cXGRmcmFjezEzfXs0fSQ6ICRcXERlbHRhPSgtNyleMi00XFxjZG90MVxcY2RvdFxcZGZyYWN7MTN9ezR9PTQ5LTEzPTM2JCIsICIkXFxzcXJ0ezM2fT02JDogJHg9XFxkZnJhY3s3XFxwbTZ9ezJ9JCIsICIkeD1cXGRmcmFjezEzfXsyfSQgbyAkeD1cXGRmcmFjezF9ezJ9JCJdfQ=="
   },
   {
    "id": "85a",
@@ -1468,6 +1572,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+y=2\\\\ x-y=6\\end{array}\\right\\}$",
    "opcions": [
@@ -1489,6 +1594,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=4\\\\ 2x-3y=4\\end{array}\\right\\}$",
    "opcions": [
@@ -1510,6 +1616,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+2y=5\\\\ 2x+5y=11\\end{array}\\right\\}$",
    "opcions": [
@@ -1531,6 +1638,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=8\\\\ x+2y=3\\end{array}\\right\\}$",
    "opcions": [
@@ -1552,6 +1660,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+y=9\\\\ 20x-3y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1573,6 +1682,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x-3y=-25\\\\ 12x-3y=75\\end{array}\\right\\}$",
    "opcions": [
@@ -1594,6 +1704,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+2y=5\\\\ 2x+y=7\\end{array}\\right\\}$",
    "opcions": [
@@ -1615,6 +1726,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 1,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}5x-y=23\\\\ -9x+5y=13\\end{array}\\right\\}$",
    "opcions": [
@@ -1636,6 +1748,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x-3y=4\\\\ 2x-5y=8\\end{array}\\right\\}$",
    "opcions": [
@@ -1657,6 +1770,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3x+y=3\\\\ 6x-y=0\\end{array}\\right\\}$",
    "opcions": [
@@ -1678,20 +1792,21 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}4x-5y=10\\\\ 2x+7y=-4\\end{array}\\right\\}$",
    "opcions": [
     "$x=\\dfrac{25}{19},\\ y=-\\dfrac{18}{19}$",
     "$x=-\\dfrac{18}{19},\\ y=\\dfrac{25}{19}$",
     "$x=\\dfrac{25}{19},\\ y=\\dfrac{18}{19}$",
-    "$x=\\dfrac{50}{38},\\ y=-\\dfrac{18}{19}$"
+    "$x=\\dfrac{25}{19},\\ y=-\\dfrac{126}{19}$"
    ],
    "pistes": [
     "Multiplica la primera equació per $7$ i la segona per $5$ per igualar el coeficient de $y$ (reducció).",
     "Un cop trobada $x$, substitueix a qualsevol equació original i aïlla $y$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGludGVyY2FudmlhdCAkeCQgaSAkeSQ6IGNvbXByb3ZhLWhvIHN1YnN0aXR1aW50IGEgbCdlcXVhY2nDsyBvcmlnaW5hbC4iLCAiUmV2aXNhIGVsIHNpZ25lIGZpbmFsIGRlICR5JDogc3Vic3RpdHVpbnQgYSAkMngrN3k9LTQkIHN1cnQgdW4gdmFsb3IgbmVnYXRpdS4iLCAiJFxcZnJhY3s1MH17Mzh9JCBlbmNhcmEgZXMgcG90IHNpbXBsaWZpY2FyIGRpdmlkaW50IG51bWVyYWRvciBpIGRlbm9taW5hZG9yIGVudHJlICQyJCwgaSBhcnJpYmFyIGEgJFxcZnJhY3syNX17MTl9JC4iXSwgImVyciI6IFsiIiwgIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlNJR05FX0ZJTkFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSJdLCAicmVzIjogWyJNdWx0aXBsaXF1ZW0gcGVyICQ3JCBpIHBlciAkNSQ6ICRcXGJlZ2lue2FycmF5fXtyfTI4eC0zNXk9NzBcXFxcMTB4KzM1eT0tMjBcXFxcXFxobGluZSAzOHg9NTBcXGVuZHthcnJheX0kIiwgIiR4PVxcZGZyYWN7NTB9ezM4fT1cXGRmcmFjezI1fXsxOX0kIiwgIlN1YnN0aXR1aW50IGEgJDJ4Kzd5PS00JDogJDd5PS00LVxcZGZyYWN7NTB9ezE5fT1cXGRmcmFjey0xMjZ9ezE5fSBcXFJpZ2h0YXJyb3cgeT0tXFxkZnJhY3sxOH17MTl9JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGludGVyY2FudmlhdCAkeCQgaSAkeSQ6IGNvbXByb3ZhLWhvIHN1YnN0aXR1aW50IGEgbCdlcXVhY2nDsyBvcmlnaW5hbC4iLCAiUmV2aXNhIGVsIHNpZ25lIGZpbmFsIGRlICR5JDogc3Vic3RpdHVpbnQgYSAkMngrN3k9LTQkIHN1cnQgdW4gdmFsb3IgbmVnYXRpdS4iLCAiVCdoYXMgcXVlZGF0IGEgbWlnIGHDr2xsYXIgbGEgJHkkOiBkZSAkN3k9LVxcZnJhY3sxMjZ9ezE5fSQgZW5jYXJhIGNhbCBkaXZpZGlyIGVudHJlICQ3JCwgaSBxdWVkYSAkeT0tXFxmcmFjezE4fXsxOX0kLiJdLCAiZXJyIjogWyIiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiU0lHTkVfRklOQUwiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiTXVsdGlwbGlxdWVtIHBlciAkNyQgaSBwZXIgJDUkOiAkXFxiZWdpbnthcnJheX17cn0yOHgtMzV5PTcwXFxcXDEweCszNXk9LTIwXFxcXFxcaGxpbmUgMzh4PTUwXFxlbmR7YXJyYXl9JCIsICIkeD1cXGRmcmFjezUwfXszOH09XFxkZnJhY3syNX17MTl9JCIsICJTdWJzdGl0dWludCBhICQyeCs3eT0tNCQ6ICQ3eT0tNC1cXGRmcmFjezUwfXsxOX09XFxkZnJhY3stMTI2fXsxOX0gXFxSaWdodGFycm93IHk9LVxcZGZyYWN7MTh9ezE5fSQiXX0="
   },
   {
    "id": "86d",
@@ -1699,6 +1814,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x-3y=13\\\\ 5x-2y=26\\end{array}\\right\\}$",
    "opcions": [
@@ -1720,6 +1836,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}8x+14y=-6\\\\ x+y=0\\end{array}\\right\\}$",
    "opcions": [
@@ -1741,6 +1858,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3x-\\dfrac{4}{5}y=13\\\\[4pt] \\dfrac{8}{3}x-y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1762,6 +1880,7 @@ window.FULL = {
    "ap": "",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "Resol:",
    "enunciat": "$\\left.\\begin{array}{r}2(x-2)-3(y+1)+6=17\\\\[4pt] 4(x-y)-\\dfrac{x}{3}+\\dfrac{y}{2}=25\\end{array}\\right\\}$",
    "opcions": [
@@ -1783,6 +1902,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=5+x+2y\\\\ x-2y-3=3-4y\\end{array}\\right\\}$",
    "opcions": [
@@ -1804,6 +1924,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}2y-x-1=4-y-2x\\\\ 2x-y=1+x\\end{array}\\right\\}$",
    "opcions": [
@@ -1817,7 +1938,7 @@ window.FULL = {
     "Un cop simplificades ($x+3y=5$ i $x-y=1$), resta-les per eliminar la $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgc2ltcGxpZmljYWNpw7MgZGUgY2FkYSBlcXVhY2nDsyBwZXIgc2VwYXJhdCBhYmFucyBkZSBjb21iaW5hci1sZXMuIiwgIlVuIGNvcCAkeT0xJCwgc3Vic3RpdHVlaXggYSAkeC15PTEkOiAkeC0xPTEgXFxSaWdodGFycm93IHg9MiQsIHBvc2l0aXUuIiwgIiIsICJIYXMgaW50ZXJjYW52aWF0ICR4JCBpICR5JDogY29tcHJvdmEtaG8gc3Vic3RpdHVpbnQgYSB1bmEgZXF1YWNpw7Mgb3JpZ2luYWwuIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJTSUdORV9GSU5BTCIsICIiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiU2ltcGxpZmljYW50OiAkeCszeT01JCBpICR4LXk9MSQiLCAiUmVzdGFudDogJCh4KzN5KS0oeC15KT01LTEgXFxSaWdodGFycm93IDR5PTQgXFxSaWdodGFycm93IHk9MSQiLCAiU3Vic3RpdHVpbnQ6ICR4LTE9MSBcXFJpZ2h0YXJyb3cgeD0yJCJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgc2ltcGxpZmljYWNpw7MgZGUgY2FkYSBlcXVhY2nDsyBwZXIgc2VwYXJhdCBhYmFucyBkZSBjb21iaW5hci1sZXMuIiwgIlVuIGNvcCAkeT0xJCwgc3Vic3RpdHVlaXggYSAkeC15PTEkOiAkeC0xPTEgXFxSaWdodGFycm93IHg9MiQsIHBvc2l0aXUuIiwgIiIsICJIYXMgaW50ZXJjYW52aWF0ICR4JCBpICR5JDogY29tcHJvdmEtaG8gc3Vic3RpdHVpbnQgYSB1bmEgZXF1YWNpw7Mgb3JpZ2luYWwuIl0sICJlcnIiOiBbIkVRVUFDSU9fTk9fU0lNUExJRklDQURBIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyJdLCAicmVzIjogWyJTaW1wbGlmaWNhbnQ6ICR4KzN5PTUkIGkgJHgteT0xJCIsICJSZXN0YW50OiAkKHgrM3kpLSh4LXkpPTUtMSBcXFJpZ2h0YXJyb3cgNHk9NCBcXFJpZ2h0YXJyb3cgeT0xJCIsICJTdWJzdGl0dWludDogJHgtMT0xIFxcUmlnaHRhcnJvdyB4PTIkIl19"
   },
   {
    "id": "88c",
@@ -1825,6 +1946,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}3y-2=x-2(x+y)\\\\ (x+4)+2\\cdot(y-2)=18-x-y\\end{array}\\right\\}$",
    "opcions": [
@@ -1846,6 +1968,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}3x-2(y-1)=y-x+1\\\\ 2x-y=x+y-9\\end{array}\\right\\}$",
    "opcions": [
@@ -1859,7 +1982,7 @@ window.FULL = {
     "Un cop simplificades ($4x-3y=-1$ i $x-2y=-9$), aplica reducció."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGludGVyY2FudmlhdCAkeCQgaSAkeSQ6IGNvbXByb3ZhLWhvIHN1YnN0aXR1aW50IGEgdW5hIGVxdWFjacOzIG9yaWdpbmFsLiIsICJVbiBjb3AgJHk9NyQsIHN1YnN0aXR1ZWl4IGEgJHgtMnk9LTkkOiAkeC0xND0tOSBcXFJpZ2h0YXJyb3cgeD01JCwgcG9zaXRpdS4iLCAiUmV2aXNhIGxhIHNpbXBsaWZpY2FjacOzIGRlIGNhZGEgZXF1YWNpw7MgcGVyIHNlcGFyYXQgYWJhbnMgZGUgY29tYmluYXItbGVzLiJdLCAiZXJyIjogWyIiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiU0lHTkVfRklOQUwiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIlNpbXBsaWZpY2FudDogJDR4LTN5PS0xJCBpICR4LTJ5PS05JCIsICJNdWx0aXBsaXF1ZW0gbGEgc2Vnb25hIHBlciAkLTQkOiAkXFxiZWdpbnthcnJheX17cn00eC0zeT0tMVxcXFwtNHgrOHk9MzZcXFxcXFxobGluZSA1eT0zNVxcZW5ke2FycmF5fSQiLCAiJHk9NyQ7IHN1YnN0aXR1aW50IGEgJHgtMnk9LTkkOiAkeC0xND0tOSBcXFJpZ2h0YXJyb3cgeD01JCJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGludGVyY2FudmlhdCAkeCQgaSAkeSQ6IGNvbXByb3ZhLWhvIHN1YnN0aXR1aW50IGEgdW5hIGVxdWFjacOzIG9yaWdpbmFsLiIsICJVbiBjb3AgJHk9NyQsIHN1YnN0aXR1ZWl4IGEgJHgtMnk9LTkkOiAkeC0xND0tOSBcXFJpZ2h0YXJyb3cgeD01JCwgcG9zaXRpdS4iLCAiUmV2aXNhIGxhIHNpbXBsaWZpY2FjacOzIGRlIGNhZGEgZXF1YWNpw7MgcGVyIHNlcGFyYXQgYWJhbnMgZGUgY29tYmluYXItbGVzLiJdLCAiZXJyIjogWyIiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiU0lHTkVfRklOQUwiLCAiRVFVQUNJT19OT19TSU1QTElGSUNBREEiXSwgInJlcyI6IFsiU2ltcGxpZmljYW50OiAkNHgtM3k9LTEkIGkgJHgtMnk9LTkkIiwgIk11bHRpcGxpcXVlbSBsYSBzZWdvbmEgcGVyICQtNCQ6ICRcXGJlZ2lue2FycmF5fXtyfTR4LTN5PS0xXFxcXC00eCs4eT0zNlxcXFxcXGhsaW5lIDV5PTM1XFxlbmR7YXJyYXl9JCIsICIkeT03JDsgc3Vic3RpdHVpbnQgYSAkeC0yeT0tOSQ6ICR4LTE0PS05IFxcUmlnaHRhcnJvdyB4PTUkIl19"
   },
   {
    "id": "88e",
@@ -1867,6 +1990,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}\\dfrac{x}{2}-\\dfrac{y}{5}=\\dfrac{11}{5}\\\\[4pt] \\dfrac{4x-5y}{2}=2\\end{array}\\right\\}$",
    "opcions": [
@@ -1888,6 +2012,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}\\dfrac{x+4y}{3}+\\dfrac{x-y}{5}=\\dfrac{2}{3}\\\\[4pt] -x+5y=13\\end{array}\\right\\}$",
    "opcions": [
@@ -1909,6 +2034,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}-2(x-2)=y-4\\\\ 3y-2x=0\\end{array}\\right\\}$",
    "opcions": [
@@ -1930,6 +2056,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}-5(y-2)=x-2\\\\ x-3y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1943,7 +2070,7 @@ window.FULL = {
     "Un cop en forma $x+5y=12$ i $x-3y=-4$, resta-les (reducció)."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgbGEgc2ltcGxpZmljYWNpw7MgZGUgbGEgcHJpbWVyYSBlcXVhY2nDsyBhYmFucyBkZSBjb21iaW5hci1sYSBhbWIgbGEgc2Vnb25hLiIsICIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlICR4JDogJHgtM1xcY2RvdDI9LTQgXFxSaWdodGFycm93IHg9MiQsIHBvc2l0aXUuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkeSQ6ICQ4eT0xNiBcXFJpZ2h0YXJyb3cgeT0yJCwgcG9zaXRpdS4iXSwgImVyciI6IFsiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIiIsICJTSUdORV9GSU5BTCIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJTaW1wbGlmaWNhbnQgbGEgcHJpbWVyYTogJC01KHktMik9eC0yIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeCs1eT0xMiQiLCAiUmVzdGFudCBhbWIgJHgtM3k9LTQkOiAkXFxiZWdpbnthcnJheX17cn14KzV5PTEyXFxcXHgtM3k9LTRcXFxcXFxobGluZSA4eT0xNlxcZW5ke2FycmF5fSQiLCAiJHk9MiQ7IHN1YnN0aXR1aW50OiAkeC0zXFxjZG90Mj0tNCBcXFJpZ2h0YXJyb3cgeD0yJCJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgbGEgc2ltcGxpZmljYWNpw7MgZGUgbGEgcHJpbWVyYSBlcXVhY2nDsyBhYmFucyBkZSBjb21iaW5hci1sYSBhbWIgbGEgc2Vnb25hLiIsICIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlICR4JDogJHgtM1xcY2RvdDI9LTQgXFxSaWdodGFycm93IHg9MiQsIHBvc2l0aXUuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkeSQ6ICQ4eT0xNiBcXFJpZ2h0YXJyb3cgeT0yJCwgcG9zaXRpdS4iXSwgImVyciI6IFsiRVFVQUNJT19OT19TSU1QTElGSUNBREEiLCAiIiwgIlNJR05FX0ZJTkFMIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIlNpbXBsaWZpY2FudCBsYSBwcmltZXJhOiAkLTUoeS0yKT14LTIgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4KzV5PTEyJCIsICJSZXN0YW50IGFtYiAkeC0zeT0tNCQ6ICRcXGJlZ2lue2FycmF5fXtyfXgrNXk9MTJcXFxceC0zeT0tNFxcXFxcXGhsaW5lIDh5PTE2XFxlbmR7YXJyYXl9JCIsICIkeT0yJDsgc3Vic3RpdHVpbnQ6ICR4LTNcXGNkb3QyPS00IFxcUmlnaHRhcnJvdyB4PTIkIl19"
   },
   {
    "id": "89c",
@@ -1951,6 +2078,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3(x+y)-x+2y=15\\\\ 2x-(y+8)=-11\\end{array}\\right\\}$",
    "opcions": [
@@ -1972,6 +2100,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
+   "dif": 2,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3(x+2)-7(x+y)=5\\\\ 5(x+1)-y=14\\end{array}\\right\\}$",
    "opcions": [
@@ -1993,6 +2122,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Troba dos nombres consecutius, sabent que la diferència dels seus quadrats és 567.",
    "opcions": [
@@ -2014,6 +2144,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "El preu d'un anell i el seu estoig és de 10\\,200 €, i l'anell val 10\\,000 € més que l'estoig. Quin és el preu de cada article?",
    "opcions": [
@@ -2035,6 +2166,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Una bodega va exportar al gener la meitat dels seus barrils i, al cap de dos mesos, un terç dels que li quedaven. Quants barrils tenia al començament si ara hi ha 40\\,000 barrils?",
    "opcions": [
@@ -2056,6 +2188,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En Miquel té 4 anys més que el seu cosí Ignasi i, al cap de 3 anys, entre els dos sumaran 20 anys. Quants anys té cadascú?",
    "opcions": [
@@ -2077,6 +2210,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Quina edat tinc ara si al cap de 12 anys tindré el triple de l'edat que tenia fa 6 anys?",
    "opcions": [
@@ -2098,6 +2232,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En un triangle rectangle de 24 m de perímetre, la longitud d'un catet és igual als tres quarts de la longitud de l'altre. Troba'n les dimensions.",
    "opcions": [
@@ -2119,6 +2254,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Per enrajolar una sala de 8 m de llarg per 6 m d'ample s'han fet servir 300 rajoles quadrades. Quant mesura el costat de les rajoles?",
    "opcions": [
@@ -2132,7 +2268,7 @@ window.FULL = {
     "Com que se n'han fet servir $300$ per cobrir tota la sala: $300\\cdot L^2=48$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obzogdW5hIHJham9sYSBkZSAkNCQgbSBkZSBjb3N0YXQgdGluZHJpYSAkMTYkIG0kXjIkLCBtb2x0IG3DqXMgZ3JhbiBxdWUgdG90YSBsYSBzYWxhOyByZXZpc2EgbCdlcXVhY2nDsyAkMzAwXFxjZG90IExeMj00OCQuIiwgIkFxdWVzdCBzZXJpYSBlbCB2YWxvciBkZSAkTF4yJCAobCfDoHJlYSBkJ3VuYSByYWpvbGEpLCBubyBkZSAkTCQgKGVsIGNvc3RhdCk6IGVuY2FyYSBmYWx0YSBmZXIgbCdhcnJlbCBxdWFkcmFkYS4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgZGl2aWRpciAkMzAwJCBlbnRyZSAkNDgkIGVubGxvYyBkZSAkNDgkIGVudHJlICQzMDAkIGRpbnMgZGUgbCdlcXVhY2nDsyAkMzAwXFxjZG90IExeMj00OCQuIiwgIiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIiJdLCAicmVzIjogWyIkMzAwXFxjZG90IExeMj00OCBcXDtcXExvbmdyaWdodGFycm93XFw7IExeMj1cXGRmcmFjezQ4fXszMDB9PVxcZGZyYWN7NH17MjV9JCIsICIkTD1cXHNxcnR7XFxkZnJhY3s0fXsyNX19PVxcZGZyYWN7Mn17NX09MHssfTQkIG0iXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obzogdW5hIHJham9sYSBkZSAkNCQgbSBkZSBjb3N0YXQgdGluZHJpYSAkMTYkIG0kXjIkLCBtb2x0IG3DqXMgZ3JhbiBxdWUgdG90YSBsYSBzYWxhOyByZXZpc2EgbCdlcXVhY2nDsyAkMzAwXFxjZG90IExeMj00OCQuIiwgIkFxdWVzdCBzZXJpYSBlbCB2YWxvciBkZSAkTF4yJCAobCfDoHJlYSBkJ3VuYSByYWpvbGEpLCBubyBkZSAkTCQgKGVsIGNvc3RhdCk6IGVuY2FyYSBmYWx0YSBmZXIgbCdhcnJlbCBxdWFkcmFkYS4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgZGl2aWRpciAkMzAwJCBlbnRyZSAkNDgkIGVubGxvYyBkZSAkNDgkIGVudHJlICQzMDAkIGRpbnMgZGUgbCdlcXVhY2nDsyAkMzAwXFxjZG90IExeMj00OCQuIiwgIiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiQVJSRUxfT0JMSURBREEiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiIl0sICJyZXMiOiBbIiQzMDBcXGNkb3QgTF4yPTQ4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgTF4yPVxcZGZyYWN7NDh9ezMwMH09XFxkZnJhY3s0fXsyNX0kIiwgIiRMPVxcc3FydHtcXGRmcmFjezR9ezI1fX09XFxkZnJhY3syfXs1fT0weyx9NCQgbSJdfQ=="
   },
   {
    "id": "97",
@@ -2140,6 +2276,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En Pau té 8 anys i la seva germana, 2 anys. Al cap de quants anys l'edat d'en Pau serà el doble que la de la seva germana?",
    "opcions": [
@@ -2161,6 +2298,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En Tomàs és 5 anys més gran que l'Elena i, fa 10 anys, l'edat d'en Tomàs era el doble de l'edat de l'Elena. Quina edat té en Tomàs?",
    "opcions": [
@@ -2182,6 +2320,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Canviem el valor de diverses monedes d'1 cèntim d'euro per monedes de 5 cèntims, amb la qual cosa obtenim 60 monedes menys. Quantes monedes hi ha de cada classe?",
    "opcions": [
@@ -2203,6 +2342,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un matrimoni i els seus tres fills viatgen en tren. Si el bitllet d'adult costa el doble que el de nen i el cost total dels bitllets és de 8,75 €, quant ha costat cada bitllet?",
    "opcions": [
