@@ -30,7 +30,44 @@ r-im4.tex sí que portava un error, vegeu AUTHORING-GUIDE.md).
 """
 from fractions import Fraction as F
 from sympy import symbols, Eq, solve, Rational, sqrt, expand, nsimplify
-from lib import Q, D, DT, ev, tex
+from lib import Q, D, DT, ev, tex, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 5 · equacions i sistemes
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     75: 2,  # parèntesis als dos membres (i algun cas sense solució)
+     76: 1,  # aïllar la x en un pas o dos; 82 i 83, arrel evident o ja factoritzat
+     77: 1,
+     78: 2,  # denominadors senzills; 81, comptar solucions amb el discriminant
+     79: 3,  # denominadors compostos i fraccions dins de parèntesis
+     80: 1,  # substituir a la fórmula general
+     81: 2,
+     82: 1,
+     83: 1,
+     84: 2,  # cal desenvolupar abans de reconèixer el segon grau
+     85: 1,  # sistema que surt sol per reducció
+     86: 2,
+     87: 3,  # sistema amb parèntesis i fraccions: cal netejar-lo primer
+     88: 2,
+     89: 2,
+     90: 3,  # problemes: la feina és plantejar l'equació, no resoldre-la
+     91: 3,
+     92: 3,
+     93: 3,
+     94: 3,
+     95: 3,
+     96: 3,
+     97: 3,
+     98: 3,
+     99: 3,
+    100: 3,
+})
+
 
 B1 = "primer_grau"
 B2 = "formula_general"
@@ -85,14 +122,27 @@ def sense_reals_tex():
     return "Sense solucions reals"
 
 
+def _fact(v):
+    """Un factor dins d'un producte: parèntesis només si és negatiu."""
+    return "(%s)" % v if v < 0 else "%s" % v
+
+
 def disc_tex(a, b, c):
     """LaTeX del càlcul del discriminant Δ=b²-4ac amb els valors concrets,
     sense $...$ (per incrustar dins d'una cadena ja delimitada, com una
-    pista o una resolució)."""
+    pista o una resolució).
+
+    El pas del mig s'escriu com el faria un alumne al quadern: si $4ac$ és
+    negatiu, restar-lo és sumar-ne el valor absolut. Escrivint-ho en cru
+    sortien coses com "36--64" i "4\cdot-2\cdot(8)", que és justament el
+    que se'ls demana que no escriguin, i encara pitjor en una resolució que
+    fa de model."""
     b2 = b * b
     quatre_ac = 4 * a * c
-    return r"\Delta=(%s)^2-4\cdot%s\cdot(%s)=%s-%s=%s" % (
-        b, a, c, b2, quatre_ac, b2 - quatre_ac)
+    mig = ("%s-%s" % (b2, quatre_ac) if quatre_ac >= 0
+           else "%s+%s" % (b2, -quatre_ac))
+    return r"\Delta=(%s)^2-4\cdot%s\cdot%s=%s=%s" % (
+        b, _fact(a), _fact(c), mig, b2 - quatre_ac)
 
 
 def eq2_tex(a, b, c):
@@ -104,7 +154,11 @@ def eq2_tex(a, b, c):
         parts.append("-x^2")
     else:
         parts.append("%dx^2" % a)
-    if b != 0:
+    if b == 1:
+        parts.append("+x")
+    elif b == -1:
+        parts.append("-x")
+    elif b != 0:
         parts.append(("+%dx" % b) if b > 0 else ("-%dx" % -b))
     if c != 0:
         parts.append(("+%d" % c) if c > 0 else ("-%d" % -c))
@@ -232,7 +286,7 @@ Q("75c", 75, "c", B1, "A",
 Q("75d", 75, "d", B1, "A",
   r"$120 = 2x - (15-7x)$",
   x_tex(F(15, 1)),
-  [D(x_tex(F(15, 9)), "SIMPLIFICACIO_INCOMPLETA",
+  [D(x_tex(F(15, 9)), "AILLAMENT_INCOMPLET",
      "Has arribat a $135=9x$ però encara no has dividit els dos "
      "costats per $9$: falta l'últim pas."),
    D(x_tex(F(-15, 1)), "MENYS_PARENTESI",
@@ -302,8 +356,34 @@ casos_76 = [
 ]
 for letra, coef, dreta, correcta in casos_76:
     num, den = coef.numerator, coef.denominator
-    enun = r"$\dfrac{%dx}{%d} = %d$" % (num, den, dreta.numerator) \
-        if dreta.denominator == 1 else r"$\dfrac{%dx}{%d} = %s$" % (num, den, frac_tex(dreta))
+    # "1x" i "x/1" són correctes però no els escriu ningú: el generador els
+    # treia perquè num i den venen de la fracció reduïda del coeficient.
+    if num == 1:
+        esq = "x" if den == 1 else r"\dfrac{x}{%d}" % den
+    elif num == -1:
+        esq = "-x" if den == 1 else r"-\dfrac{x}{%d}" % den
+    else:
+        esq = ("%dx" % num) if den == 1 else r"\dfrac{%dx}{%d}" % (num, den)
+    coef_x = "x" if num == 1 else ("-x" if num == -1 else "%dx" % num)
+    dreta_tex = "%d" % dreta.numerator if dreta.denominator == 1 else frac_tex(dreta)
+    enun = r"$%s = %s$" % (esq, dreta_tex)
+    # Pistes i resolució s'adapten al cas: si el coeficient ja ve enter no hi
+    # ha cap denominador per treure, i si la x va sola no cal dividir res.
+    if den != 1:
+        pistes_76 = ["Multiplica els dos costats pel denominador per fer-lo "
+                     "desaparèixer.",
+                     "Aïlla $x$ dividint pel nombre que l'acompanya."]
+        passos_76 = [r"$%s=%s \;\Longrightarrow\; %s=%s$"
+                     % (esq, frac_tex(dreta), coef_x, frac_tex(dreta * den))]
+        if coef_x != "x":
+            passos_76.append("$x=%s$" % frac_tex(correcta))
+    else:
+        pistes_76 = ["Aquí no hi ha cap denominador: la $x$ ja només porta un "
+                     "coeficient al davant.",
+                     "Aïlla $x$ dividint els dos costats pel nombre que "
+                     "l'acompanya."]
+        passos_76 = [r"$%s=%s \;\Longrightarrow\; x=%s$"
+                     % (esq, frac_tex(dreta), frac_tex(correcta))]
     # distractor: oblidar multiplicar per dreta*den (queda dreta/num en lloc de dreta*den/num)
     dist1 = dreta / F(num)
     # distractor: dividir per den en lloc de num (invertir quin nombre és el "coeficient")
@@ -330,9 +410,10 @@ for letra, coef, dreta, correcta in casos_76:
             finals.append(cand)
     d1, d2, d3 = finals[:3]
     Q("76" + letra, 76, letra, B1, "A", enun, x_tex(correcta),
-      [D(x_tex(d1), "SIMPLIFICACIO_INCOMPLETA",
-         "Has multiplicat en creu però no has acabat de simplificar la "
-         "fracció resultant: divideix numerador i denominador pel m.c.d."),
+      [D(x_tex(d1), "DENOMINADOR_NO_ELIMINAT",
+         "Has dividit pel nombre que acompanya la $x$, però t'has saltat "
+         "el denominador: de $\\dfrac{ax}{b}=c$ surt primer $ax=b\\cdot c$, "
+         "i només llavors es divideix per $a$."),
        D(x_tex(d2), "ENTER_MULTIPLICA_DENOMINADOR",
          "En passar el denominador a l'altre costat, multiplica TOT el "
          "membre de la dreta, no només una part."),
@@ -340,11 +421,8 @@ for letra, coef, dreta, correcta in casos_76:
          "Revisa els signes: si el numerador del coeficient de $x$ és "
          "negatiu, el resultat final n'hereta el signe segons la regla "
          "dels signes del quocient.")],
-      ["Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-       "Aïlla $x$ dividint pel nombre que l'acompanya."],
-      [r"$\dfrac{%dx}{%d}=%s \;\Longrightarrow\; %dx=%s$"
-       % (num, den, frac_tex(dreta), num, frac_tex(dreta * den)),
-       "$x=%s$" % frac_tex(correcta)],
+      pistes_76,
+      passos_76,
       ex_text=E76)
 
 
@@ -393,7 +471,7 @@ Q("77c", 77, "c", B1, "A",
      "terme, incloent-hi els que ja no tenen denominador."),
    D(x_tex(F(-10, 1)), "SIGNE_FINAL",
      "Revisa el signe final: de $x=50-40$ surt un resultat positiu."),
-   D(x_tex(F(2, 1)), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_tex(F(2, 1)), "ARITMETICA_PAS_INTERMEDI",
      "Després de multiplicar per $2$ i agrupar, revisa l'aritmètica "
      "del pas $3x-2x=50-40$.")],
   ["Multiplica tota l'equació pel m.c.m.$(2,1)=2$ per eliminar el "
@@ -459,7 +537,7 @@ Q("78b", 78, "b", B1, "A",
    D(x_tex(F(-10, 1)), "SIGNE_TERME_INDEPENDENT",
      "Revisa el signe del $138$: en multiplicar $3\\cdot(5x-46)$ el "
      "resultat és $15x-138$, i aquest $-138$ passa sumant a l'esquerra."),
-   D(x_tex(F(136, 14)), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_tex(F(136, 14)), "ARITMETICA_PAS_INTERMEDI",
      "Revisa l'aritmètica final: $2+138=140$, i $140:14=10$ exacte.")],
   ["Multiplica els dos costats per $3$ per eliminar el denominador.",
    "Agrupa tots els termes amb $x$ a un costat."],
@@ -470,7 +548,7 @@ Q("78b", 78, "b", B1, "A",
 Q("78c", 78, "c", B1, "A",
   r"$x - \dfrac{x+4}{5} = 1 + \dfrac{x}{2}$",
   x_tex(F(6, 1)),
-  [D(x_tex(F(18, 13)), "SIMPLIFICACIO_INCOMPLETA",
+  [D(x_tex(F(18, 13)), "AGRUPACIO_TERMES_MAL",
      "Revisa que has agrupat bé els termes amb $x$: $10x-2x-5x=3x$, "
      "no un altre coeficient."),
    D(x_tex(F(-6, 1)), "SIGNE_FINAL",
@@ -533,7 +611,7 @@ Q("78f", 78, "f", B1, "A",
   x_tex(F(60, 1)),
   [D(x_tex(F(-60, 1)), "SIGNE_FINAL",
      "Revisa el signe final: de $-x=-60$ surt una $x$ positiva."),
-   D(x_tex(F(180, 1)), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_tex(F(180, 1)), "SIGNE_TERME_INDEPENDENT",
      "Revisa el pas $-x+120=60$: el $120$ ha de restar a banda i "
      "banda, no sumar-se dues vegades."),
    D(x_tex(F(20, 1)), "MENYS_PARENTESI",
@@ -634,14 +712,14 @@ Q("79e", 79, "e", B1, "A",
   x_tex(F(427, 53)),
   [D(x_tex(F(-427, 53)), "SIGNE_FINAL",
      "Revisa el signe final: $159x=1281$ dona una $x$ positiva."),
-   D("$x=\\dfrac{1281}{159}$", "SIMPLIFICACIO_INCOMPLETA",
-     "El resultat $\\frac{1281}{159}$ encara es pot simplificar "
-     "dividint numerador i denominador pel seu m.c.d. ($3$), i "
-     "arribar a $\\frac{427}{53}$."),
+   D("$x=\\dfrac{405}{53}$", "SIGNE_TERME_INDEPENDENT",
+     "Revisa el terme independent: el $-36$ de l'esquerra passa a "
+     "l'altre membre SUMANT, $1245+36=1281$. Amb $159x=1215$ "
+     "sortiria aquest valor, però l'equació dona $159x=1281$."),
    D("$x=\\dfrac{427}{159}$", "SIMPLIFICACIO_PARCIAL",
-     "Has simplificat només el numerador i no el denominador (o a "
-     "l'inrevés): $\\frac{1281}{159}$ s'ha de dividir per $3$ als "
-     "DOS costats de la fracció per arribar a $\\frac{427}{53}$.")],
+     "Has simplificat només el numerador i no el denominador: "
+     "$\\frac{1281}{159}$ s'ha de dividir per $3$ als DOS costats "
+     "de la fracció per arribar a $\\frac{427}{53}$.")],
   ["El m.c.m.$(10,1,12)=60$: multiplica tota l'equació per $60$.",
    "Un cop sense denominadors, agrupa termes amb $x$ i números, i "
    "simplifica la fracció final al màxim."],
@@ -972,7 +1050,7 @@ Q("83f", 83, "f", B3, "A",
      "Revisa el signe en aïllar $x$ dins del segon factor: "
      "$\\frac{3x}{4}=\\frac{4}{5} \\Rightarrow x=\\frac{16}{15}$, "
      "positiu."),
-   D(x_multi_tex([F(0), F(4, 5)]), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_multi_tex([F(0), F(4, 5)]), "AILLAMENT_INCOMPLET",
      "Un cop aïllada $\\frac{3x}{4}=\\frac{4}{5}$, encara falta "
      "multiplicar per $\\frac{4}{3}$ per acabar d'aïllar $x$.")],
   ["Un producte val zero quan algun dels seus factors ho és: aquí "
@@ -1077,7 +1155,7 @@ Q("84e", 84, "e", B3, "A",
   [D(x_tex(F(6)), "FACTOR_COMU_INCOMPLET",
      "Un quadrat $x^2=36$ té DUES solucions, $x=6$ i $x=-6$: no en "
      "descartis cap arran de l'arrel quadrada."),
-   D(x_multi_tex([F(-72), F(72)]), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_multi_tex([F(-72), F(72)]), "ORDRE_ARREL_DIVISIO",
      "Revisa el pas $4x^2=144 \\Rightarrow x^2=36$: cal dividir "
      "entre $4$ abans de fer l'arrel quadrada, no fer-la directament "
      "sobre $144$."),
@@ -1125,7 +1203,7 @@ Q("84g", 84, "g", B3, "A",
    D(x_multi_tex([F(1, 4), F(13, 4)]), "ORDRE_DIVISIONS",
      "Al final cal dividir entre $2a=2$ (perquè $a=1$), no entre "
      "$4$: revisa el denominador de les dues solucions."),
-   D(x_multi_tex([F(1, 2), F(6)]), "SIMPLIFICACIO_INCOMPLETA",
+   D(x_multi_tex([F(1, 2), F(6)]), "ARITMETICA_PAS_INTERMEDI",
      "Revisa la segona solució: $\\dfrac{13}{2}$ no es simplifica "
      "a $6$; comprova la divisió $\\dfrac{7+6}{2}$.")],
   ["El terme independent ja és una fracció: pots deixar l'equació "
@@ -1357,9 +1435,9 @@ Q("86c", 86, "c", B4, "A",
    D(xy_tex(F(25, 19), F(18, 19)), "SIGNE_FINAL",
      "Revisa el signe final de $y$: substituint a "
      "$2x+7y=-4$ surt un valor negatiu."),
-   D(r"$x=\dfrac{50}{38},\ y=-\dfrac{18}{19}$", "SIMPLIFICACIO_INCOMPLETA",
-     "$\\frac{50}{38}$ encara es pot simplificar dividint numerador "
-     "i denominador entre $2$, i arribar a $\\frac{25}{19}$.")],
+   D(r"$x=\dfrac{25}{19},\ y=-\dfrac{126}{19}$", "FACTOR_OBLIDAT",
+     "T'has quedat a mig aïllar la $y$: de $7y=-\\frac{126}{19}$ "
+     "encara cal dividir entre $7$, i queda $y=-\\frac{18}{19}$.")],
   ["Multiplica la primera equació per $7$ i la segona per $5$ per "
    "igualar el coeficient de $y$ (reducció).",
    "Un cop trobada $x$, substitueix a qualsevol equació original i "
@@ -1496,7 +1574,7 @@ Q("88b", 88, "b", B4, "A",
    D(xy_tex(F(2), F(-1)), "SIGNE_FINAL",
      "Un cop $y=1$, substitueix a $x-y=1$: "
      "$x-1=1 \\Rightarrow x=2$, positiu."),
-   D(xy_tex(F(0), F(1, 3)), "SIMPLIFICACIO_INCOMPLETA",
+   D(xy_tex(F(0), F(1, 3)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de cada equació per separat abans de "
      "combinar-les.")],
   ["Simplifica cada equació: agrupa termes amb $x$/$y$ a "
@@ -1538,7 +1616,7 @@ Q("88d", 88, "d", B4, "A",
    D(xy_tex(F(5), F(-7)), "SIGNE_FINAL",
      "Un cop $y=7$, substitueix a $x-2y=-9$: "
      "$x-14=-9 \\Rightarrow x=5$, positiu."),
-   D(xy_tex(F(-1), F(-2)), "SIMPLIFICACIO_INCOMPLETA",
+   D(xy_tex(F(-1), F(-2)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de cada equació per separat abans de "
      "combinar-les.")],
   ["Simplifica cada equació distribuint el parèntesi i agrupant "
@@ -1627,7 +1705,7 @@ Q("89b", 89, "b", B4, "A",
      "positiu."),
    D(xy_tex(F(2), F(-2)), "SIGNE_FINAL",
      "Revisa el signe de $y$: $8y=16 \\Rightarrow y=2$, positiu."),
-   D(xy_tex(F(12), F(2)), "SIMPLIFICACIO_INCOMPLETA",
+   D(xy_tex(F(12), F(2)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de la primera equació abans de "
      "combinar-la amb la segona.")],
   ["Distribueix el parèntesi de la primera equació.",
@@ -1837,7 +1915,7 @@ Q("96", 96, "", B5, "A",
   "servir 300 rajoles quadrades. Quant mesura el costat de les "
   "rajoles?",
   "$0{,}4$ m (és a dir, $40$ cm) de costat",
-  [D("$0{,}16$ m de costat", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$0{,}16$ m de costat", "ARREL_OBLIDADA",
      "Aquest seria el valor de $L^2$ (l'àrea d'una rajola), no de "
      "$L$ (el costat): encara falta fer l'arrel quadrada."),
    D("$4$ m de costat", "ORDRE_MULTIPLICACIO_DIVISIO",

@@ -64,7 +64,50 @@ opció directa d'una `Q()`/`D()`, ja que `mathify()` a build.py no reconeix
 dins d'una resolució o pista que ja porta els seus propis delimitadors.
 """
 import math
-from lib import Q, D, DT, tex
+from lib import Q, D, DT, tex, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 7 · Pitàgores i àrees
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    119: 1,  # angles d'un triangle; 120, desigualtat triangular; 123, Pitàgores directe
+    120: 1,
+    121: 2,  # comprovar si es compleix el teorema, i concloure'n alguna cosa
+    122: 2,
+    123: 1,
+    124: 2,  # Pitàgores dins d'una figura: cal veure quin triangle rectangle hi ha
+    125: 2,
+    126: 2,
+    127: 2,
+    128: 3,  # figura composta: cal descompondre-la
+    129: 3,
+    130: 3,  # a l'inrevés partint de l'àrea; 133, amb radical pel mig
+    131: 2,  # àrea i un costat donats: Pitàgores per trobar el que falta
+    132: 2,
+    133: 3,
+    134: 2,
+    135: 2,
+    136: 2,
+    137: 2,
+    138: 2,
+    140: 2,  # àrees de polígons amb la fórmula corresponent
+    141: 2,
+    142: 2,
+    143: 2,
+    144: 3,  # àrees per diferència de figures
+    145: 3,
+    146: 3,  # problemes amb context
+    147: 3,
+    148: 3,
+    149: 3,
+    150: 3,
+    151: 3,
+})
+
 
 B1 = "triangles"
 B2 = "arees_pit"
@@ -183,7 +226,7 @@ Q("120a", 120, "a", B1, "A",
      "que el costat més llarg: la desigualtat triangular exigeix que "
      "la suma sigui ESTRICTAMENT més gran, no igual. Amb $7+1=8$ el "
      "\"triangle\" quedaria completament pla."),
-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
+   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
      "La desigualtat triangular es comprova només amb les tres "
      "longituds, sense necessitat de cap angle: la suma dels dos "
      "costats més curts ha de superar el més llarg."),
@@ -211,7 +254,7 @@ Q("120b", 120, "b", B1, "A",
      "Que dos costats siguin iguals no garanteix que es pugui formar "
      "un triangle: cal comprovar la desigualtat triangular igualment, "
      "i aquí no es compleix."),
-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
+   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
      "La desigualtat triangular es comprova només amb les tres "
      "longituds donades, sense cap angle.")],
   ["Compara la suma dels dos costats més curts amb el més llarg.",
@@ -228,11 +271,11 @@ Q("120c", 120, "c", B1, "A",
      "més gran que $14$. La desigualtat triangular es compleix en "
      "aquest cas."),
    D("Només es pot saber comparant $12$ amb $14$, no cal mirar el $6$",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "COSTATS_MAL_TRIATS",
      "Cal comprovar la desigualtat amb els DOS costats més curts "
      "sumats ($12+6$) contra el més llarg ($14$), no comparar dos "
      "costats qualssevol entre si."),
-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
+   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
      "La desigualtat triangular es comprova només amb les tres "
      "longituds donades, sense cap angle.")],
   ["Només cal comprovar-ho amb els dos costats més curts: $12$ i $6$.",
@@ -279,7 +322,7 @@ Q("121b", 121, "b", B1, "A",
      "més llarg ($12$ cm), no el $8$ cm; però de fet aquest triangle "
      "no és rectangle."),
    D("No es pot saber sense mesurar els angles directament",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "ES_POT_DETERMINAR",
      "El teorema de Pitàgores permet saber-ho només amb les tres "
      "longituds, sense mesurar cap angle: només cal comparar "
      "$6^2+8^2$ amb $12^2$.")],
@@ -302,7 +345,7 @@ Q("121c", 121, "c", B1, "A",
      r"\approx7{,}81$ cm, és més llarg que $6$ cm, i per tant és ell "
      "qui fa d'hipotenusa, no el $6$."),
    D(r"No es pot saber perquè un dels costats és una arrel, no un "
-     r"nombre enter", "SIMPLIFICACIO_INCOMPLETA",
+     r"nombre enter", "ES_POT_DETERMINAR",
      r"El teorema de Pitàgores funciona igual amb costats irracionals: "
      r"n'hi ha prou d'elevar $\sqrt{61}$ al quadrat, que dona "
      "exactament $61$.")],
@@ -348,7 +391,7 @@ Q("122", 122, "", B1, "A",
      "seria rectangle): com que $100$ és més gran que $89$, l'angle és "
      "més obert que un angle recte, és a dir, obtusangle."),
    D("No es pot classificar sense mesurar els angles directament",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "ES_POT_DETERMINAR",
      "Comparant el quadrat del costat més llarg amb la suma dels "
      "quadrats dels altres dos ja n'hi ha prou per classificar-lo, "
      "sense necessitat de mesurar cap angle.")],
@@ -454,7 +497,7 @@ Q("124a", 124, "a", B1, "A",
      "Aquest plantejament fa servir el costat sencer ($10$) com a "
      "catet dues vegades, no la SEMIBASE (la meitat del costat, ja "
      "que l'alçada cau al punt mitjà de la base)."),
-   D(tex(5), "SIMPLIFICACIO_INCOMPLETA",
+   D(tex(5), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la semibase (la meitat del costat), no l'alçada: "
      "encara falta aplicar Pitàgores amb aquesta semibase i el costat "
      "com a hipotenusa.")],
@@ -480,7 +523,7 @@ Q("124b", 124, "b", B1, "A",
      "Has fet servir la base sencera ($8$ cm) com a catet, en lloc de "
      "la SEMIBASE ($4$ cm, la meitat de la base, ja que l'alçada cau "
      "al punt mitjà)."),
-   D(tex(4), "SIMPLIFICACIO_INCOMPLETA",
+   D("$%s$ cm" % tex(4), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la semibase (la meitat de la base), no el costat "
      "igual que et demanen: encara falta aplicar Pitàgores.")],
   ["L'alçada divideix la base pel mig: la semibase és "
@@ -524,7 +567,7 @@ Q("125", 125, "", B1, "A",
      "($48:3=16$ cm): sembla que has fet servir el perímetre sencer "
      "($48$) com si fos el costat, en lloc de dividir-lo entre 3 "
      "primer."),
-   D(tex(16), "SIMPLIFICACIO_INCOMPLETA",
+   D(tex(16), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat del triangle ($48:3$), no l'alçada: encara "
      "cal aplicar Pitàgores amb la semibase."),
    D(tex(192), "ARREL_OBLIDADA",
@@ -569,7 +612,7 @@ Q("126b", 126, "b", B1, "A",
    D("$70$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor no coincideix amb la suma dels sis costats donats: "
      "torna a sumar-los amb calma."),
-   D("$41$ cm", "SIMPLIFICACIO_INCOMPLETA",
+   D("$41$ cm", "PART_PEL_TOT",
      "Aquest valor sembla la meitat del perímetre real: el perímetre "
      "inclou els sis costats sencers, no la meitat de la suma.")],
   ["El perímetre és la suma de tots els costats, encara que la figura "
@@ -583,8 +626,8 @@ E127 = "Troba l'apotema d'un hexàgon regular el costat del qual mesura:"
 
 Q("127a", 127, "a", B1, "A",
   "10 cm",
-  arrel_tex(75, aprox=True),
-  [D(tex(10), "APOTEMA_COSTAT_CONFOS",
+  arrel_tex(75, aprox=True) + " cm",
+  [D("$%s$ cm" % tex(10), "APOTEMA_COSTAT_CONFOS",
      "L'apotema d'un hexàgon regular NO coincideix amb el costat: "
      "s'obté aplicant Pitàgores a un dels sis triangles equilàters en "
      "què el centre el divideix."),
@@ -592,7 +635,7 @@ Q("127a", 127, "a", B1, "A",
      "Aquest és el catet corresponent a la meitat del costat, però "
      "encara falta multiplicar per $\\sqrt{3}$: l'apotema és "
      "$\\dfrac{L\\sqrt3}{2}$, no només $\\dfrac{L}{2}$."),
-   D(tex(10 * 3), "POTENCIA_DE_SUMA",
+   D("$%s$ cm" % tex(10 * 3), "POTENCIA_DE_SUMA",
      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
      "dividit per $2$.")],
@@ -604,14 +647,14 @@ Q("127a", 127, "a", B1, "A",
 
 Q("127b", 127, "b", B1, "A",
   "16 cm",
-  arrel_tex(192, aprox=True),
-  [D(tex(16), "APOTEMA_COSTAT_CONFOS",
+  arrel_tex(192, aprox=True) + " cm",
+  [D("$%s$ cm" % tex(16), "APOTEMA_COSTAT_CONFOS",
      "L'apotema d'un hexàgon regular no coincideix amb el costat: cal "
      "aplicar la fórmula $a=\\dfrac{L\\sqrt3}{2}$."),
    D("$8$ cm", "ARREL_FACTOR_OBLIDAT",
      "Aquest és $\\dfrac{L}{2}$, però encara falta multiplicar per "
      "$\\sqrt{3}$."),
-   D(tex(16 * 3), "POTENCIA_DE_SUMA",
+   D("$%s$ cm" % tex(16 * 3), "POTENCIA_DE_SUMA",
      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
      "dividit per $2$.")],
@@ -644,14 +687,14 @@ Q("128a", 128, "a", B1, "A",
   "els punts mitjans dels quatre costats del rectangle. Calcula el "
   "costat del rombe.",
   "$10$ cm",
-  [D(tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
+  [D("$%s$ cm" % tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat directament les meitats de base i altura ($6+8$) en "
      "lloc d'aplicar Pitàgores."),
-   D(tex(100), "ARREL_OBLIDADA",
+   D("$%s$ cm" % tex(100), "ARREL_OBLIDADA",
      r"Has calculat $6^2+8^2=100$ correctament, però t'has deixat "
      r"l'arrel quadrada final."),
-   D(arrel_tex(12 ** 2 + 16 ** 2, aprox=True).replace("$", ""),
-     "SIMPLIFICACIO_INCOMPLETA",
+   D(arrel_tex(12 ** 2 + 16 ** 2, aprox=True) + " cm",
+     "MEITAT_OBLIDADA",
      "Has fet servir la base i l'altura senceres ($12$ i $16$) en "
      "lloc de les seves MEITATS ($6$ i $8$): el costat del rombe és "
      "la hipotenusa del triangle format pels punts mitjans, no pel "
@@ -695,10 +738,10 @@ Q("129", 129, "", B1, "A",
   "Un rectangle de costats 15 cm i 20 cm està inscrit en una "
   "circumferència. Quant mesura el radi de la circumferència?",
   "$12{,}5$ cm",
-  [D("$25$ cm", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$25$ cm", "MEITAT_OBLIDADA",
      "Aquest és el DIÀMETRE de la circumferència (la diagonal del "
      "rectangle), no el radi: el radi és la meitat del diàmetre."),
-   D(tex(15 + 20), "SUMA_CATETS_SENSE_QUADRAT",
+   D("$%s$ cm" % tex(15 + 20), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat directament els dos costats ($15+20$) en lloc "
      "d'aplicar Pitàgores per trobar la diagonal."),
    D("$625$ cm", "ARREL_OBLIDADA",
@@ -726,7 +769,7 @@ Q("130", 130, "", B2, "A",
   "L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual "
   "(la base) mesura $6$ m. Troba la longitud dels altres dos costats.",
   arrel_tex(73, aprox=True) + " m",
-  [D("$8$ m", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$8$ m", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada del triangle (obtinguda de l'àrea), no el "
      "costat lateral que et demanen: encara falta aplicar Pitàgores "
      "amb la semibase."),
@@ -748,7 +791,7 @@ Q("131", 131, "", B2, "A",
   "L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets "
   "mesura $6$ cm. Calcula la longitud de la hipotenusa.",
   "$2\\sqrt{13}\\approx7{,}21$ cm",
-  [D("$4$ cm", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$4$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre catet (obtingut de l'àrea), no la hipotenusa "
      "que et demanen: encara falta aplicar Pitàgores."),
    D(tex(6 + 4) + " cm", "SUMA_CATETS_SENSE_QUADRAT",
@@ -768,7 +811,7 @@ Q("131", 131, "", B2, "A",
 Q("132", 132, "", B2, "A",
   "Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
   "$225\\sqrt3\\approx389{,}71$ cm$^2$",
-  [D("$30$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$30$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat del triangle ($90:3$), no l'àrea: encara "
      "cal aplicar la fórmula de l'àrea del triangle equilàter."),
    D("$900$ cm$^2$", "POTENCIA_DE_SUMA",
@@ -814,7 +857,7 @@ Q("134", 134, "", B2, "A",
   "Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un "
   "dels catets mesura $5$ cm.",
   "$30$ cm$^2$",
-  [D("$12$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$12$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre catet (obtingut amb Pitàgores), no l'àrea que "
      "et demanen: encara falta aplicar la fórmula de l'àrea del "
      "triangle."),
@@ -860,7 +903,7 @@ Q("136", 136, "", B2, "A",
   "Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels "
   "costats de $4$ cm.",
   "$20$ cm$^2$",
-  [D("$5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre costat (obtingut amb Pitàgores), no l'àrea: "
      "encara falta multiplicar els dos costats."),
    D("$\\sqrt{41}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
@@ -882,7 +925,7 @@ Q("137", 137, "", B2, "A",
   "Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal "
   "$\\sqrt{116}$ cm.",
   "$40$ cm$^2$",
-  [D("$4$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$4$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada (obtinguda amb Pitàgores), no l'àrea: "
      "encara falta multiplicar-la per la base."),
    D("$\\sqrt{116}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
@@ -904,7 +947,7 @@ Q("138", 138, "", B2, "A",
   "Determina l'àrea d'un rectangle de base $7$ cm i perímetre "
   "$24$ cm.",
   "$35$ cm$^2$",
-  [D("$5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada (obtinguda del perímetre), no l'àrea: "
      "encara falta multiplicar-la per la base."),
    D("$8{,}5$ cm$^2$", "INVERTIDA",
@@ -941,7 +984,7 @@ Q("140a", 140, "a", B3, "A",
   [D("$78$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un trapezi és "
      "$\\dfrac{(B+b)\\cdot h}{2}$, no $(B+b)\\cdot h$ sencer."),
-   D("$19$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$19$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades: revisa que "
      "has calculat $(3+10)\\cdot6$ abans de dividir per $2$, no "
      "$(3+10)$ dividit per $2$ i després multiplicat per $6$ dividit "
@@ -963,7 +1006,7 @@ Q("140b", 140, "b", B3, "A",
      "$\\dfrac{(16+24)\\cdot\\sqrt{164}}{2}$, i $\\dfrac{40}{2}=20$ ja "
      "és el resultat correcte de la primera divisió, no cal tornar-la "
      "a dividir."),
-   D("$\\sqrt{164}$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$\\sqrt{164}$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és només l'alçada, no l'àrea: encara falta multiplicar "
      "per la suma de les bases i dividir per $2$."),
    D("$164$ m$^2$", "CATET_MAL_IDENTIFICAT",
@@ -987,7 +1030,7 @@ Q("140c", 140, "c", B3, "A",
      "Aquest valor sembla fet servir només una de les dues bases "
      "(la gran) amb l'alçada, i després dividit per $2$: cal sumar "
      "les DUES bases abans de multiplicar per l'alçada."),
-   D("$5{,}345$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$5{,}345$ m$^2$", "FORMULA_INVERTIDA",
      "Aquest valor sembla la suma de les bases dividida per l'alçada, "
      "en lloc de multiplicada: revisa la fórmula "
      "$\\dfrac{(B+b)\\cdot h}{2}$.")],
@@ -1020,7 +1063,7 @@ E141 = "Calcula l'àrea de:"
 Q("141a", 141, "a", B3, "A",
   "Un hexàgon regular de costat $2$ cm.",
   "$6\\sqrt3\\approx10{,}39$ cm$^2$",
-  [D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest valor és l'apotema, no l'àrea: encara falta multiplicar "
      "pel perímetre i dividir per $2$."),
    D("$12$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1044,7 +1087,7 @@ Q("141a", 141, "a", B3, "A",
 Q("141b", 141, "b", B3, "A",
   "Un octàgon regular de perímetre $48$ cm.",
   "$72(1+\\sqrt2)\\approx173{,}82$ cm$^2$",
-  [D("$6$ cm", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat de l'octàgon ($48:8$), no l'àrea: encara "
      "cal calcular l'apotema i aplicar la fórmula de l'àrea."),
    D("$288$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1068,7 +1111,7 @@ Q("142", 142, "", B3, "A",
   "Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la "
   "diagonal que passa pel centre (la que uneix dos vèrtexs oposats).",
   "$12$ cm",
-  [D("$6$ cm", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat de l'hexàgon, no la diagonal que passa pel "
      "centre: en un hexàgon regular, aquesta diagonal val el DOBLE "
      "del costat."),
@@ -1097,7 +1140,7 @@ Q("143a", 143, "a", B3, "A",
   "Un quadrat de costat $5$ cm queda dividit en dos triangles iguals "
   "per una diagonal. Quina és l'àrea d'un d'aquests triangles?",
   "$12{,}5$ cm$^2$",
-  [D("$25$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$25$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea del QUADRAT sencer, no d'un dels dos triangles "
      "(la meitat): encara falta dividir per $2$."),
    D("$5$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1119,14 +1162,14 @@ Q("143b", 143, "b", B3, "A",
   "el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests "
   "triangles?",
   "$5{,}5$ cm$^2$",
-  [D("$27{,}5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$27{,}5$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea del PENTÀGON sencer (els $5$ triangles "
      "junts), no d'un sol triangle: divideix per $5$."),
    D("$11$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un dels triangles és "
      "$\\dfrac{\\text{costat}\\cdot\\text{apotema}}{2}$, no el "
      "producte sencer."),
-   D("$1{,}375$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$1{,}375$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
      "has calculat $4\\cdot2{,}75$ abans de dividir per $2$, no "
      "$2\\cdot1{,}375$.")],
@@ -1142,7 +1185,7 @@ Q("143c", 143, "c", B3, "A",
   "l'àrea d'un d'aquests triangles?",
   "$\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ cm$^2$",
   [D("$\\dfrac{27\\sqrt3}{2}\\approx23{,}38$ cm$^2$",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "PART_PEL_TOT",
      "Aquesta és l'àrea de l'HEXÀGON sencer (els $6$ triangles "
      "junts), no d'un sol triangle: divideix-la per $6$."),
    D("$9\\sqrt3\\approx15{,}59$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1164,14 +1207,14 @@ Q("143d", 143, "d", B3, "A",
   "dividit en vuit triangles iguals unint el centre amb cada vèrtex. "
   "Quina és l'àrea d'un d'aquests triangles?",
   "$8{,}31$ cm$^2$",
-  [D("$66{,}48$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$66{,}48$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea de l'OCTÀGON sencer (els $8$ triangles "
      "junts), no d'un sol triangle: divideix-la per $8$."),
    D("$16{,}62$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un dels triangles és "
      "$\\dfrac{\\text{costat}\\cdot\\text{apotema}}{2}$, no el "
      "producte sencer."),
-   D("$4{,}155$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$4{,}155$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
      "has calculat $3\\cdot5{,}54$ abans de dividir per $2$.")],
   ["Cada triangle té com a base el costat de l'octàgon i com a "
@@ -1187,7 +1230,7 @@ Q("144a", 144, "a", B3, "A",
   "semicercle de $12$ cm de diàmetre i un semicercle interior de "
   "$6$ cm de diàmetre. Quina és la seva àrea?",
   "$\\dfrac{27\\pi}{2}\\approx42{,}41$ cm$^2$",
-  [D("$18\\pi\\approx56{,}55$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$18\\pi\\approx56{,}55$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
      "Aquest valor no divideix per $2$: cal calcular l'àrea de "
      "CADASCUN dels dos semicercles (ja dividida per $2$ respecte "
      "del cercle complet), no la diferència dels cercles complets."),
@@ -1208,25 +1251,26 @@ Q("144a", 144, "a", B3, "A",
    "Diferència: $18\\pi-4{,}5\\pi=13{,}5\\pi=\\dfrac{27\\pi}{2}"
    "\\approx42{,}41$ cm$^2$"],
   ex_text=E144,
-  nota="La font no permet determinar amb seguretat el diàmetre exacte "
-       "de l'arc interior (vegeu NOTA DE TRANSCRIPCIÓ IMPORTANT a "
-       "r-im8.tex); s'adopta la interpretació explícita del "
-       "solucionari (diàmetre interior $6$ cm) per obtenir un valor "
-       "numèric complet.")
+  nota="La figura de partida no deixa clar el diàmetre de l'arc "
+       "interior; aquí es pren $6$ cm, que és la meitat de l'exterior.",
+  nota_interna="La imatge de la font no permet determinar el diàmetre "
+               "interior amb seguretat; s'adopta la lectura explícita del "
+               "solucionari (6 cm) per tenir un valor numèric complet. "
+               "Vegeu la nota de transcripció de r-im8.tex.")
 
 Q("144b", 144, "b", B3, "A",
-  "D'una circumferència de $4$ cm de diàmetre es retalla un sector de "
+  "D'un cercle de $4$ cm de diàmetre es retalla un sector de "
   "$90^\\circ$ (una quarta part, tipus \"Pac-Man\"). Quina és l'àrea "
   "de la part que queda?",
   "$3\\pi\\approx9{,}42$ cm$^2$",
   [D("$4\\pi\\approx12{,}57$ cm$^2$", "TERME_OBLIDAT_OPERACIO",
      "Aquesta és l'àrea del cercle complet, sense retallar el "
      "sector: recorda restar la porció retallada."),
-   D("$\\pi\\approx3{,}14$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$\\pi\\approx3{,}14$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
      "Aquest valor és el sector RETALLAT (la quarta part), no el que "
      "queda de la figura: la figura és la resta del cercle un cop "
      "tret aquest sector."),
-   D("$2\\pi\\approx6{,}28$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$2\\pi\\approx6{,}28$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
      "Aquest valor correspon a la meitat del cercle, no a les tres "
      "quartes parts que queden després de retallar un sector de "
      "$90^\\circ$ (un quart de volta).")],
@@ -1238,11 +1282,13 @@ Q("144b", 144, "b", B3, "A",
    "Àrea final (tres quarts del cercle): "
    "$\\dfrac34\\cdot4\\pi=3\\pi\\approx9{,}42$ cm$^2$"],
   ex_text="",
-  nota="La font no permet determinar amb seguretat l'amplitud exacta "
-       "del sector retallat (vegeu NOTA DE TRANSCRIPCIÓ IMPORTANT a "
-       "r-im8.tex); s'adopta la interpretació explícita del "
-       "solucionari (sector de $90^\\circ$, forma de \"Pac-Man\") per "
-       "obtenir un valor numèric complet.")
+  nota="La figura de partida no deixa clar quin angle abasta el sector "
+       "retallat; aquí es pren un quart de volta ($90^\\circ$), que és el "
+       "que ja diu l'enunciat.",
+  nota_interna="La imatge de la font no permet determinar l'amplitud del "
+               "sector amb seguretat; s'adopta la lectura explícita del "
+               "solucionari (90°, forma de \"Pac-Man\"). Vegeu la nota de "
+               "transcripció de r-im8.tex.")
 
 Q("145c", 145, "c", B3, "A",
   "Un quadrat de costat $5$ cm té un forat circular de $2$ cm de "
@@ -1272,13 +1318,14 @@ Q("145c", 145, "c", B3, "A",
    "$\\pi\\cdot1^2=\\pi$ cm$^2$",
    "Àrea de la figura: $25-\\pi\\approx21{,}86$ cm$^2$"],
   ex_text="Determina l'àrea de la figura descrita.",
-  nota="Els apartats a, b i d d'aquest exercici (figures esglaonades "
-       "en forma de L/T) no es conserven: la font indica que no s'ha "
-       "pogut reconstruir amb seguretat la disposició exacta de les "
-       "peces a partir de la imatge, i r-im8.tex no arriba a cap "
-       "valor numèric per a ells. Es conserva únicament l'apartat c "
-       "(quadrat amb forat circular), que sí té una disposició "
-       "inequívoca i un resultat numèric complet.")
+  nota="D'aquest exercici només hi ha l'apartat c: els altres tres eren "
+       "figures esglaonades en forma de L i de T que no es poden "
+       "descriure sense el dibuix.",
+  nota_interna="Apartats a, b i d exclosos: la imatge de la font no permet "
+               "reconstruir la disposició de les peces i r-im8.tex no arriba "
+               "a cap valor numèric per a ells. Es conserva només el c "
+               "(quadrat amb forat circular), inequívoc i amb resultat "
+               "numèric complet.")
 
 
 # =====================================================================
@@ -1336,10 +1383,10 @@ Q("148a", 148, "a", B4, "A",
      "Aquest és el nombre d'arbres, no el costat: primer cal trobar "
      "el perímetre total ($32$ arbres $\\times5$ m de separació) i "
      "després dividir-lo entre els $4$ costats."),
-   D("$5$ m", "SIMPLIFICACIO_INCOMPLETA",
+   D("$5$ m", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la separació entre arbres, no el costat del camp: "
      "encara falta calcular el perímetre total i dividir entre 4."),
-   D("$160$ m", "SIMPLIFICACIO_INCOMPLETA",
+   D("$160$ m", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el PERÍMETRE del camp ($32\\times5$), no el costat: "
      "encara falta dividir-lo entre els $4$ costats.")],
   ["Cada arbre marca una separació de $5$ m al voltant de tot el "
@@ -1354,7 +1401,7 @@ Q("148b", 148, "b", B4, "A",
   "Amb les mateixes dades de l'apartat anterior (32 arbres, separats "
   "5 m, camp quadrangular): quina és l'àrea del camp?",
   "$1\\,600$ m$^2$",
-  [D("$160$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$160$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el perímetre del camp, no l'àrea: encara falta "
      "elevar el costat al quadrat."),
    D("$80$ m$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1386,7 +1433,7 @@ Q("149", 149, "", B4, "A",
      "si fos l'apotema, en lloc de la seva meitat ($45$ cm): en un "
      "octàgon regular, l'alçada (distància entre costats oposats) és "
      "el DOBLE de l'apotema."),
-   D("$1\\,665$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$1\\,665$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades més del "
      "compte: revisa el càlcul $\\dfrac{296\\cdot45}{2}$ pas a pas.")],
   ["L'apotema d'un octàgon regular és la meitat de l'alçada (la "
@@ -1407,7 +1454,7 @@ Q("150", 150, "", B4, "A",
   [D("$46\\,765{,}37$ €", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor sembla el cost d'un sol pis (àrea $\\times20$ €), "
      "sense multiplicar pels $50$ pisos de l'edifici."),
-   D("$1\\,350\\sqrt3\\approx2\\,338{,}27$ €", "SIMPLIFICACIO_INCOMPLETA",
+   D("$1\\,350\\sqrt3\\approx2\\,338{,}27$ €", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest valor és l'àrea (en m$^2$) d'un sol pis, sense "
      "multiplicar-la ni pel preu del m$^2$ ni pels $50$ pisos."),
    D("$116\\,913{,}43$ €", "TERME_OBLIDAT_OPERACIO",
@@ -1431,7 +1478,7 @@ Q("151", 151, "", B4, "A",
   "de diàmetre 5 cm. Si ha fet servir 5 kg de sucre, quants grams de "
   "sucre fan falta per cobrir cada centímetre quadrat de rosquilla?",
   "$\\approx2{,}89$ g/cm$^2$",
-  [D("$\\approx0{,}91$ g/cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$\\approx0{,}91$ g/cm$^2$", "FACTOR_OBLIDAT",
      "Aquest valor sembla dividir els $5\\,000$ g entre l'àrea d'UNA "
      "sola rosquilla, no entre l'àrea total de les $200$ rosquilles."),
    D("$\\approx28{,}94$ g/cm$^2$", "TERME_OBLIDAT_OPERACIO",
@@ -1455,8 +1502,8 @@ Q("151", 151, "", B4, "A",
    "Sucre per cm$^2$: $\\dfrac{5\\,000}{1\\,727{,}88}"
    "\\approx2{,}89$ g/cm$^2$"],
   ex_text="",
-  nota="La font llegeix la \"rosquilla\" com una corona circular "
-       "plana (part superior), no com un tor tridimensional: els "
-       "6 cm i 5 cm de l'enunciat es prenen com a diàmetres, exterior "
-       "i del forat central respectivament (vegeu NOTA DE "
-       "TRANSCRIPCIÓ a r-im8.tex).")
+  nota="La \"rosquilla\" es tracta com una corona circular plana (només "
+       "la cara de dalt, que és la que es cobreix de sucre), no com un "
+       "cos de tres dimensions: els $6$ cm i els $5$ cm són diàmetres, "
+       "l'exterior i el del forat.",
+  nota_interna="Lectura presa de la nota de transcripció de r-im8.tex.")

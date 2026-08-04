@@ -43,7 +43,35 @@ contrastat contra `r-im12.tex` (el solucionari LaTeX subministrat) sense
 trobar-hi cap discrepància.
 """
 from fractions import Fraction as F
-from lib import Q, D, DT, tex, texd, TAX
+from lib import Q, D, DT, tex, texd, TAX, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 11 · estadística
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    218: 1,  # classificar la variable; 220 i 226-227, llegir una freqüència
+    219: 1,
+    220: 1,
+    221: 2,  # completar una taula: freqüències acumulades i relatives
+    222: 2,  # fer el recompte a partir de la llista de dades
+    223: 3,  # percentatges encadenats abans d'arribar a les freqüències
+    224: 2,
+    225: 2,
+    226: 1,
+    227: 1,
+    228: 3,  # agrupar en intervals i després llegir-hi les acumulades
+    229: 2,  # passar de percentatge a angle del sector
+    230: 2,  # jutjar afirmacions sobre un gràfic
+    231: 2,
+    232: 3,  # comparar dos gràfics i raonar-ne la relació
+    234: 2,
+    235: 2,
+})
+
 
 B1 = "variables"
 B2 = "frequencies"
@@ -296,7 +324,7 @@ Q("219b", 219, "b", B1, "A",
      "sent un conjunt finit de valors aïllats ($37, 37{,}5, 38, "
      "38{,}5,\\ldots$), no qualsevol valor possible entre ells."),
    D("No es pot classificar sense saber la marca de sabates",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "ES_POT_DETERMINAR",
      "El tipus de variable (discreta) no depèn de la marca: totes les "
      "escales de talles funcionen amb un conjunt finit de valors "
      "aïllats.")],
@@ -642,7 +670,7 @@ Q("223c", 223, "c", B2, "A",
   "suspesa\" ($F_1=9$ alumnes), perquè acumula els que en van "
   "suspendre $0$ i $1$",
   [D("No, cap freqüència respon directament a aquesta pregunta: cal "
-     "tornar a comptar les dades des de zero", "SIMPLIFICACIO_INCOMPLETA",
+     "tornar a comptar les dades des de zero", "ES_POT_DETERMINAR",
      "Sí que n'hi ha una: la freqüència absoluta ACUMULADA d'un valor "
      "suma totes les que el precedeixen, que és exactament el que "
      "demana \"menys de dues\"."),
@@ -937,13 +965,13 @@ Q("235b", 235, "b", B2, "A",
   "i poc repetits una taula sense agrupar (la majoria de freqüències "
   "serien $1$) no resumeix la informació",
   [D("Amb cada valor per separat, perquè així no es perd cap detall "
-     "de les dades originals", "SIMPLIFICACIO_INCOMPLETA",
+     "de les dades originals", "CRITERI_AGRUPACIO_MAL",
      "No perdre cap detall no és l'objectiu d'una taula de "
      "freqüències: l'objectiu és resumir. Amb valors tan dispersos i "
      "poc repetits, una taula sense agrupar seria gairebé tan llarga "
      "com la llista original i no aportaria cap resum útil."),
    D("Amb intervals, però només perquè hi ha poques dades ($22$)",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "CRITERI_AGRUPACIO_MAL",
      "El motiu no és el nombre de dades en si, sinó que estan molt "
      "disperses i gairebé no es repeteixen: si els $22$ valors "
      "haguessin estat molt semblants entre ells, no calidria agrupar "
@@ -1260,7 +1288,7 @@ Q("232a", 232, "a", B3, "B",
   "perquè les relatives són les absolutes dividides pel mateix "
   "nombre ($50$) en tots els casos",
   [D("El diagrama de relatives té una barra menys, perquè la cara "
-     "amb freqüència $5$ desapareix", "SIMPLIFICACIO_INCOMPLETA",
+     "amb freqüència $5$ desapareix", "ESCALA_ALTERA_DADES",
      "Cap barra desapareix: dividir per $50$ no elimina cap valor, "
      "només n'escala l'alçada. La cara amb freqüència absoluta $5$ "
      "simplement passa a tenir una alçada relativa de $0{,}10$."),
@@ -1271,7 +1299,7 @@ Q("232a", 232, "a", B3, "B",
      "nombre ($50$) a totes elles, així que la forma es manté "
      "idèntica."),
    D("No es poden comparar perquè estan en unitats diferents "
-     "(vegades i tant per u)", "SIMPLIFICACIO_INCOMPLETA",
+     "(vegades i tant per u)", "ES_POT_DETERMINAR",
      "Sí que es poden comparar directament: ambdós diagrames "
      "mostren la mateixa informació relativa entre cares, només amb "
      "una escala vertical diferent.")],

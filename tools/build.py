@@ -193,7 +193,7 @@ FULLS = {
             ("concepte_funcio", "Concepte de funció",
              "Relacions que són o no funcions, càlcul d'imatges, i "
              "domini, recorregut i creixement llegits d'una gràfica."),
-            ("funcions_lineals", "Funcions lineals",
+            ("funcions_lineals", "Funcions lineals i afins",
              "Pendent i ordenada a l'origen, creixement sense "
              "representar, i equació de la recta a partir de dos punts."),
             ("funcions_quadratiques", "Funcions quadràtiques",
@@ -301,6 +301,7 @@ def compila():
             "ap": it["ap"],
             "bloc": it["bloc"],
             "tipus": it["tipus"],
+            "dif": it["dif"],
             "encapcalament": it["ex_text"],
             "enunciat": it["enunciat"],
             "opcions": [opcions[i] for i in ordre],
@@ -316,11 +317,20 @@ def compila():
 
     blocs = [{"id": b, "titol": t, "descripcio": d,
               "items": [i["id"] for i in items if i["bloc"] == b]} for b, t, d in BLOCS]
+    # Text genèric de cada etiqueta d'error que apareix en aquest full. El
+    # panell "els errors que repeteixes" agrega per etiqueta, i el que hi toca
+    # és la descripció del malentès, no el diagnòstic d'un exercici concret
+    # (que parla de números que l'alumne potser no recorda). Només s'hi posen
+    # les etiquetes usades al full: no cal enviar el catàleg sencer.
+    usades = sorted({d["err"] for it in BANC for d in it["distractors"]})
+    errors_tex = {e: mathify(lib.TAX[e]) for e in usades if e in lib.TAX}
+
     dades = {
         "full": FULL_N,
         "titol": CFG["titol"],
         "subtitol": CFG["subtitol"],
         "blocs": blocs,
+        "errors": errors_tex,
         "items": items,
     }
     os.makedirs(os.path.join(ARREL, "data"), exist_ok=True)
@@ -404,8 +414,9 @@ def revisio(dades):
                 p.append('<p class="sec"><strong>Exercici %d.</strong> %s</p>'
                          % (it["ex"], html.escape(it["ex_text"])))
             p.append('<div class="it"><div class="cap"><span class="cod">%s</span>'
-                     '<span class="tip">tipus %s</span></div>'
-                     % (it["id"], it["tipus"]))
+                     '<span class="tip">tipus %s · dificultat %d (%s)</span></div>'
+                     % (it["id"], it["tipus"], it["dif"],
+                        {1: "directa", 2: "encadenada", 3: "completa"}[it["dif"]]))
             p.append('<div class="enun">%s</div>' % it["enunciat"])
             p.append('<ol class="op"><li><span class="ok">%s</span> — resposta correcta</li>'
                      % mathify(it["correcta"]))
@@ -419,7 +430,22 @@ def revisio(dades):
                      % "".join("<li>%s</li>" % x for x in it["resolucio"]))
             if it["nota"]:
                 p.append('<p class="nota"><strong>Nota:</strong> %s</p>' % it["nota"])
+            if it["nota_interna"]:
+                p.append('<p class="nota"><strong>Nota interna '
+                         '(no es publica):</strong> %s</p>' % it["nota_interna"])
             p.append('</div>')
+
+    p.append('<h2>Graduació per bloc</h2><table><tr><th>Bloc</th>'
+             '<th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>')
+    for b, t, _d in BLOCS:
+        dels = [it for it in BANC if it["bloc"] == b]
+        if not dels:
+            continue
+        c = [sum(1 for it in dels if it["dif"] == n) for n in (1, 2, 3)]
+        avis = ' <span class="err">un sol nivell</span>' if sum(1 for x in c if x) == 1 else ''
+        p.append('<tr><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td></tr>'
+                 % (html.escape(t), avis, c[0], c[1], c[2]))
+    p.append('</table>')
 
     p.append('<h2>Catàleg d\'errors utilitzats</h2><table><tr><th>Etiqueta</th>'
              '<th>Vegades</th><th>Preguntes</th></tr>')

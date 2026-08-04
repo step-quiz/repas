@@ -51,7 +51,31 @@ r-im11.tex abans d'escriure cap codi — coincidència exacta en els 45 casos,
 sense cap error trobat al solucionari font.
 """
 from fractions import Fraction as F
-from lib import Q, D, DT, tex
+from lib import Q, D, DT, tex, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 10 · funcions
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    200: 2,  # decidir si una relació és funció i justificar-ho
+    201: 1,  # substituir valors i calcular imatges
+    202: 1,
+    203: 2,  # llegir domini i recorregut d'una gràfica descrita
+    206: 3,  # estudi complet d'una gràfica
+    207: 1,  # llegir el pendent i l'ordenada de l'expressió; 208, el signe del pendent
+    208: 1,
+    209: 2,  # muntar l'expressió de la recta a partir de dos punts
+    212: 1,  # comparar obertures de paràboles a ull
+    214: 2,  # a l'inrevés: quina constant dona aquest vèrtex
+    215: 3,
+    216: 3,  # talls, vèrtex i eix: tres càlculs encadenats sobre la mateixa paràbola
+    217: 2,
+})
+
 
 B1 = "concepte_funcio"
 B2 = "funcions_lineals"
@@ -169,36 +193,44 @@ Q("200a", 200, "a", B1, "B",
   ex_text=E200)
 
 Q("200b", 200, "b", B1, "B",
-  "Cada mes de l'any i el seu nombre de dies.",
-  "SÍ és una funció: cada mes concret té sempre el mateix nombre de "
-  "dies (els anys de traspàs només afegeixen un dia al febrer d'alguns "
-  "anys, però per a un mes fixat el nombre de dies és sempre el mateix "
-  "o varia de manera predictible).",
+  "Cada mes d'un any concret (per exemple, el 2025) i el seu nombre "
+  "de dies.",
+  "SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, "
+  "determinat pel calendari.",
   [D("NO és una funció: el febrer no sempre té el mateix nombre de "
      "dies (28 o 29, segons l'any), així que un mateix mes té més "
      "d'un valor possible.",
-     "VEREDICTE_INVERTIT",
-     "Encara que el febrer variï segons l'any, per a CADA any concret "
-     "el nombre de dies de febrer és un únic valor determinat (per la "
-     "regla dels anys de traspàs): no hi ha ambigüitat real, la "
-     "relació segueix sent una funció."),
+     "DOMINI_MAL_LLEGIT",
+     "Això seria cert si el conjunt de partida fossin els dotze mesos "
+     "SENSE dir de quin any: llavors el febrer tindria dues imatges "
+     "possibles i NO seria una funció. Però aquí l'any està fixat, i "
+     "amb l'any fixat el febrer té un únic nombre de dies."),
    D("NO és una funció: mesos diferents poden tenir el mateix nombre "
      "de dies (per exemple, abril i juny en tenen 30 tots dos).",
      "VEREDICTE_INVERTIT",
      "Que dos mesos DIFERENTS comparteixin el mateix nombre de dies "
      "no trenca que sigui una funció: el que cal comprovar és que un "
-     "mateix mes no tingui mai dos valors diferents, i això sí es "
-     "compleix."),
-   D("Depèn: només és una funció si no hi ha anys de traspàs.",
-     "VEREDICTE_INVERTIT",
-     "Els anys de traspàs no trenquen que sigui una funció: fins i "
-     "tot amb ells, cada mes té un nombre de dies determinat per la "
-     "regla del calendari, mai ambigu.")],
-  ["Comprova si algun mes concret podria tenir dos nombres de dies "
-   "diferents alhora (no d'un any a l'altre, sinó simultàniament)."],
-  ["Cada mes té sempre un únic nombre de dies determinat: és una "
-   "funció."],
-  ex_text=E200)
+     "mateix mes no tingui mai dos valors alhora, i això es compleix."),
+   D("Depèn: només és una funció si l'any no és de traspàs.",
+     "DOMINI_MAL_LLEGIT",
+     "Tant si l'any és de traspàs com si no, un cop fixat l'any el "
+     "febrer té un nombre de dies i només un ($29$ o $28$): en tots "
+     "dos casos la relació és una funció.")],
+  ["Comprova si algun mes d'aquell any podria tenir dos nombres de "
+   "dies diferents alhora.",
+   "Fixa't en què és exactament el conjunt de partida: els mesos d'un "
+   "any determinat, no \"els mesos\" en abstracte."],
+  ["Fixat l'any, cada mes té un únic nombre de dies: és una funció.",
+   "Compte amb el conjunt de partida: si fossin \"els mesos\" sense "
+   "concretar l'any, el febrer tindria dues imatges ($28$ i $29$) i "
+   "la relació NO seria una funció. Quina és la resposta depèn de com "
+   "es defineix el domini."],
+  ex_text=E200,
+  nota="L'enunciat original diu només \"cada mes de l'any\". Aquí "
+       "s'hi ha afegit \"d'un any concret\" perquè, sense fixar "
+       "l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) "
+       "i la relació NO seria una funció: tal com estava, l'exercici "
+       "no tenia una resposta única.")
 
 Q("200c", 200, "c", B1, "B",
   "El radi d'una circumferència i la longitud del seu perímetre.",
@@ -390,7 +422,7 @@ Q("202c", 202, "c", B1, "A",
    r"$f(2)=\sqrt{6}\approx 2{,}45$."],
   ex_text=E202,
   nota="Les imatges no són exactes: s'han arrodonit a les centèsimes, "
-       "igual que fa el solucionari original.")
+       "com demana l'encapçalament de l'exercici.")
 
 Q("202d", 202, "d", B1, "A",
   r"$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$",
@@ -657,8 +689,10 @@ Q("206c", 206, "c", B1, "B",
 # =====================================================================
 
 # ---- exercici 207: pendent i ordenada a l'origen ----
-E207 = ("Indica el pendent i l'ordenada a l'origen de cada funció lineal, "
-        "donada per la seva expressió.")
+E207 = ("Indica el pendent i l'ordenada a l'origen de cada funció afí, "
+        "donada per la seva expressió. Recorda que les que no tenen terme "
+        "independent ($y=mx$) s'anomenen funcions lineals, i són el cas "
+        "particular amb ordenada a l'origen $0$.")
 _207 = {"a": (F(-3), F(6)), "b": (F(10), F(0)),
         "c": (F(-2), F(-5)), "d": (F(-9), F(0))}
 _207_EXPR = {"a": "y=-3x+6", "b": "y=10x", "c": "y=-2x-5", "d": "y=-9x"}
@@ -695,11 +729,14 @@ for _ap, (_m, _n) in _207.items():
 
 
 # ---- exercici 208: creixent o decreixent, sense representar ----
-E208 = ("Indica, sense representar-la, si la funció lineal és creixent o "
+E208 = ("Indica, sense representar-la, si la funció afí és creixent o "
         "decreixent.")
-_208 = {"a": ("y=12x-1", F(12)), "b": ("y=x/6+3", F(1, 6)),
-        "c": ("y=x/4-2", F(1, 4)), "d": ("y=-7x+5", F(-7)),
-        "e": ("y=-12x/5+1", F(-12, 5)), "f": ("y=7x/10", F(7, 10))}
+# Les fraccions van amb \dfrac com a la resta del projecte: escrites amb
+# barra inclinada quedaven diminutes al costat de la resta d'expressions.
+_208 = {"a": ("y=12x-1", F(12)), "b": (r"y=\dfrac{x}{6}+3", F(1, 6)),
+        "c": (r"y=\dfrac{x}{4}-2", F(1, 4)), "d": ("y=-7x+5", F(-7)),
+        "e": (r"y=-\dfrac{12x}{5}+1", F(-12, 5)),
+        "f": (r"y=\dfrac{7x}{10}", F(7, 10))}
 
 for _ap, (_expr, _m) in _208.items():
     _creix = _m > 0
@@ -712,7 +749,7 @@ for _ap, (_expr, _m) in _208.items():
             "creixent" if _creix else "decreixent",
             "decreixent" if _creix else "creixent")),
        D("Constant", "PENDENT_COM_NUL",
-         r"El pendent $%s$ no és $0$: una funció lineal només és "
+         r"El pendent $%s$ no és $0$: una funció afí només és "
          r"constant quan el pendent és nul, i aquí no ho és."
          % frac_tex(_m)),
        D("No es pot saber sense representar-la", "REPRESENTACIO_INNECESSARIA",
@@ -728,7 +765,7 @@ for _ap, (_expr, _m) in _208.items():
 
 
 # ---- exercici 209: equació de la recta a partir de dos punts ----
-E209 = ("Calcula l'expressió algebraica de la funció lineal que passa "
+E209 = ("Calcula l'expressió algebraica de la funció afí que passa "
         "pels dos punts donats.")
 _209 = {"a": ((0, -1), (1, 1)), "b": ((0, 1), (1, 3)),
         "c": ((0, 1), (2, 2)), "d": ((0, -1), (1, -3))}
@@ -778,8 +815,8 @@ for _ap, (_p1, _p2) in _209.items():
 E212 = ("Sense representar-la, indica si la paràbola és més oberta cap "
         "amunt o cap avall, i si és més estreta o més ampla que "
         "$y=x^2$.")
-_212 = {"a": ("y=2x^2", F(2)), "b": ("y=x^2/2", F(1, 2)),
-        "c": ("y=-2x^2", F(-2)), "d": ("y=x^2/4", F(1, 4))}
+_212 = {"a": ("y=2x^2", F(2)), "b": (r"y=\dfrac{x^2}{2}", F(1, 2)),
+        "c": ("y=-2x^2", F(-2)), "d": (r"y=\dfrac{x^2}{4}", F(1, 4))}
 
 for _ap, (_expr, _a) in _212.items():
     _obert = "amunt" if _a > 0 else "avall"
@@ -974,7 +1011,7 @@ Q("217b", 217, "b", B3, "B",
   [D(r"No té cap terme en $x^2$ escrit, però és una paràbola amb "
      r"$a=0$: oberta cap avall, decreixent.", "PARABOLA_AMB_A_ZERO",
      r"Si el coeficient de $x^2$ és $0$, l'expressió deixa de ser una "
-     r"paràbola: sense terme en $x^2$, és una recta (funció lineal), "
+     r"paràbola: sense terme en $x^2$, és una recta (funció afí), "
      r"no una paràbola extremament oberta."),
    D(r"És una recta amb pendent $-1$, però creixent, i ordenada a "
      r"l'origen $-3$.", "SIGNE_PENDENT_INVERTIT",
@@ -986,7 +1023,7 @@ Q("217b", 217, "b", B3, "B",
      r"recta talla l'eix $Y$ en $(0,-3)$.")],
   [r"Si l'expressió no té cap terme en $x^2$, no és una paràbola: és "
    r"una recta."],
-  [r"$y=-x-3$ no té terme en $x^2$: és una funció lineal (recta), no "
+  [r"$y=-x-3$ no té terme en $x^2$: és una funció afí (recta), no "
    r"una paràbola.",
    r"El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a "
    r"l'origen és $-3$."],

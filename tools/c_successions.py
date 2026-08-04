@@ -15,7 +15,33 @@ Com a c_potencies.py: cap resposta s'escriu a mà — es calculen amb ev()
 exponents variables (ratio^(n-1)), i es formaten amb tex()/llista().
 """
 from fractions import Fraction as F
-from lib import Q, D, DT, ev, tex, TAX
+from lib import Q, D, DT, ev, tex, TAX, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 3 · successions i progressions
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     47: 1,  # substituir n al terme general; 56, aplicar la fórmula de la PG
+     48: 2,  # recurrència: cada terme depèn dels anteriors
+     49: 2,  # trobar d i muntar el terme general
+     50: 2,
+     51: 2,
+     52: 2,
+     53: 3,  # omplir buits a l'interior de la progressió
+     54: 2,  # cal decidir primer si és aritmètica o geomètrica
+     55: 3,  # dos termes donats: primer la raó, després el terme general
+     56: 1,
+     57: 2,
+     58: 3,
+     59: 3,  # jutjar si una expressió és el terme general
+     60: 3,  # a l'inrevés: quin lloc ocupa un terme del qual saps el valor
+     61: 3,
+})
+
 
 B1 = "termes"
 B2 = "aritmetiques"
@@ -173,7 +199,7 @@ Q("47g", 47, "g", B1, "A",
   r"$a_n = \dfrac{n+3}{n^2}$",
   llista([F(4, 1), F(5, 4), F(2, 3), F(7, 16), F(8, 25)]),
   [D(llista([F(4, 1), F(5, 4), F(2, 3), F(7, 16), F(8, 24)]),
-     "SIMPLIFICACIO_INCOMPLETA",
+     "SIMPLIFICACIO_INVENTADA",
      "Al cinquè terme, $\\dfrac{8}{25}$ ja està simplificat del tot: "
      "$8$ i $25$ no tenen cap factor comú, no es pot reduir més."),
    D(llista([F(4, 1), F(5, 2), F(2, 1), F(7, 4), F(8, 5)]),
@@ -377,9 +403,10 @@ Q("50a", 50, "a", B1, "B",
 Q("50b", 50, "b", B1, "A",
   r"Terme general de $2,\;4,\;6,\;8,\;10,\dots$",
   r"$a_n=2n$",
-  [D(r"$a_n=2+(n-1)\cdot2$", "SIMPLIFICACIO_INCOMPLETA",
-     "Aquesta expressió és correcta però no està simplificada: "
-     "$2+(n-1)\\cdot2=2+2n-2=2n$."),
+  [D(r"$a_n=2n-2$", "DESPLACAMENT_INDEX",
+     "Aquesta fórmula dona $0,2,4,6,8\\dots$: va un lloc endarrerida. "
+     "Comprova-la sempre amb $n=1$, que ha de tornar el primer terme "
+     "($2$), i no $0$."),
    D(r"$a_n=2^n$", "EXPONENT_COM_PRODUCTE",
      "$2^n$ dona $2,4,8,16,32\\dots$: creix massa de pressa. Aquí cada "
      "terme suma sempre $2$ a l'anterior, és una progressió "
@@ -514,11 +541,10 @@ Q("52c", 52, "c", B2, "A",
   [D(r"$a_n=\dfrac12+(n-1)\cdot2$", "INVERTIDA",
      "La diferència és $\\dfrac12$, no $2$: has invertit la fracció en "
      "calcular $d$."),
-   D(r"$a_n=\dfrac12\cdot n$", "SIMPLIFICACIO_INCOMPLETA",
-     "Aquesta expressió dona el mateix valor un cop simplificada "
-     "($\\dfrac12+(n-1)\\cdot\\dfrac12=\\dfrac{n}2$), però com a "
-     "resposta d'aquest apartat cal la forma "
-     "$a_1+(n-1)d$ sense simplificar."),
+   D(r"$a_n=\dfrac12+n\cdot\dfrac12$", "DESPLACAMENT_INDEX",
+     "Falta el $-1$ de l'exponent d'ordre: aquesta fórmula dona "
+     "$1,\\dfrac32,2\\dots$, un lloc avançada. Comprova-la sempre amb "
+     "$n=1$, que ha de tornar el primer terme ($\\dfrac12$)."),
    D(r"$a_n=1+(n-1)\cdot\dfrac12$", "COMPARA_TERMES",
      "El primer terme de la successió és $\\dfrac12$, no $1$ (aquest "
      "és el segon terme).")],
@@ -527,9 +553,10 @@ Q("52c", 52, "c", B2, "A",
   ["$d=1-\\dfrac12=\\dfrac12$ (es manté igual: $\\dfrac32-1=\\dfrac12$)",
    "$a_n=a_1+(n-1)d=\\dfrac12+(n-1)\\cdot\\dfrac12$"],
   ex_text=E52,
-  nota="La forma $a_n=\\dfrac{n}{2}$ (simplificada) també és correcta; "
-       "es demana com a resposta la forma $a_1+(n-1)d$ perquè és la "
-       "que l'exercici practica.")
+  nota="Si simplifiques et queda $a_n=\\dfrac{n}{2}$, que és igual de "
+       "correcta i no la trobaràs entre les opcions: aquest exercici "
+       "practica la forma $a_1+(n-1)d$, i és aquesta la que has de "
+       "reconèixer.")
 
 Q("52d", 52, "d", B2, "A",
   r"$\dfrac1a,\;\dfrac3a,\;\dfrac5a,\;\dfrac7a,\dots$",
@@ -562,7 +589,7 @@ Q("53a", 53, "a", B2, "A",
      "El primer terme s'obté restant $d$ al segon terme, "
      "$\\dfrac12-\\dfrac16$, no dividint-lo."),
    D(llista([F(1, 3), F(1, 2), F(2, 3), F(5, 6), F(11, 12), F(1, 1)]),
-     "SIMPLIFICACIO_INCOMPLETA",
+     "TERME_MAL_CALCULAT",
      "Revisa el cinquè terme: $\\dfrac56+\\dfrac16=\\dfrac{6}{6}=1$, "
      "no $\\dfrac{11}{12}$."),
    D(llista([F(1, 3), F(1, 2), F(2, 3), F(5, 6), F(7, 6), F(4, 3)]),
@@ -684,14 +711,14 @@ Q("54b", 54, "b", B2, "A",
 Q("54c", 54, "c", B2, "A",
   r"$1,\;1,\;1,\;1,\dots$",
   r"$d=0,\;\;a_n=1$",
-  [D(r"$r=1,\;\;a_n=1$", "VEREDICTE_INVERTIT",
-     "També és certa (aquesta successió és alhora aritmètica amb "
-     "$d=0$ i geomètrica amb $r=1$); es demana com a resposta la "
-     "lectura ARITMÈTICA, coherent amb la resta de l'exercici."),
+  [D(r"$d=0,\;\;a_n=n$", "PROGRESSIO_INVENTADA",
+     "La diferència sí que és $0$, però llavors el terme general no "
+     "pot dependre de $n$: $a_n=a_1+(n-1)\\cdot0=a_1$, sempre el "
+     "mateix valor."),
    D(r"$d=1,\;\;a_n=n$", "COMPARA_TERMES",
      "El terme general ha de donar sempre $1$: $a_n=n$ dona "
      "$1,2,3,4\\dots$, que no coincideix amb la successió."),
-   D(r"$d=0,\;\;a_n=0$", "SIMPLIFICACIO_INCOMPLETA",
+   D(r"$d=0,\;\;a_n=0$", "TERME_MAL_CALCULAT",
      "El primer terme (i tots els altres) és $1$, no $0$: revisa la "
      "substitució a $a_n=a_1+(n-1)\\cdot0$.")],
   ["Calcula la diferència entre termes consecutius.",
@@ -701,9 +728,9 @@ Q("54c", 54, "c", B2, "A",
   ex_text=E54,
   nota="Aquesta successió constant compleix alhora la definició de "
        "progressió aritmètica ($d=0$) i de progressió geomètrica "
-       "($r=1$): és un cas límit on totes dues coincideixen. Es "
-       "demana la lectura aritmètica perquè encaixa amb el 54b, "
-       "però la geomètrica és igualment vàlida.")
+       "($r=1$): és un cas límit on totes dues coincideixen. Aquí es "
+       "demana la lectura aritmètica, que és la de la resta de "
+       "l'exercici; la geomètrica seria igual de vàlida.")
 
 Q("54d", 54, "d", B2, "A",
   r"$16,\;8,\;4,\;2,\;1,\dots$",
@@ -968,7 +995,7 @@ Q("58a", 58, "a", B3, "A",
      "$r=0{,}1$, no anar disminuint una mica cada vegada de manera "
      "aproximada."),
    D(llista([F(1, 1), F(1, 10), F(1, 20), F(1, 1000), F(1, 2000)]),
-     "SIMPLIFICACIO_INCOMPLETA",
+     "RAO_MAL_APLICADA",
      "El tercer terme s'obté multiplicant per $r=0{,}1$, no dividint "
      "entre $2$: $0{,}1\\cdot0{,}1=0{,}01$, no $\\dfrac1{20}$.")],
   ["La raó és el quocient entre dos termes consecutius coneguts: "
@@ -993,7 +1020,7 @@ Q("58b", 58, "b", B3, "A",
      "Per anar cap enrere (del segon al primer terme) cal DIVIDIR "
      "entre la raó, $\\dfrac12:\\dfrac13$, no multiplicar-hi."),
    D(llista([F(3, 2), F(1, 2), F(1, 6), F(1, 12), F(1, 54), F(1, 162)]),
-     "SIMPLIFICACIO_INCOMPLETA",
+     "RAO_MAL_APLICADA",
      "El quart terme s'obté multiplicant el tercer per $r=\\dfrac13$: "
      "$\\dfrac16\\cdot\\dfrac13=\\dfrac1{18}$, no $\\dfrac1{12}$.")],
   ["La raó és el quocient entre dos termes consecutius coneguts: "
@@ -1021,7 +1048,7 @@ Q("58c", 58, "c", B3, "A",
      "Entre el segon terme ($\\dfrac13$) i el quart ($\\dfrac1{12}$) "
      "hi ha exactament DOS passos de $r$, no un."),
    D(llista([F(2, 3), F(1, 3), F(1, 9), F(1, 12), F(1, 36)]),
-     "SIMPLIFICACIO_INCOMPLETA",
+     "RAO_MAL_APLICADA",
      "El tercer terme s'obté multiplicant el segon per $r=\\dfrac12$: "
      "$\\dfrac13\\cdot\\dfrac12=\\dfrac16$, no $\\dfrac19$.")],
   ["Els dos termes coneguts són a les posicions $2$ i $4$: la relació "
@@ -1048,7 +1075,7 @@ Q("58d", 58, "d", B3, "B",
   "expressats en funció de $r$: $a_1=\\dfrac{3}{2r}$, "
   "$a_3=\\dfrac32\\,r$, $a_4=\\dfrac32\\,r^2$.",
   [D("La raó és $r=3$ i els termes que falten són "
-     "$\\dfrac12,\\;\\dfrac92,\\;\\dfrac{27}2$.", "SIMPLIFICACIO_INCOMPLETA",
+     "$\\dfrac12,\\;\\dfrac92,\\;\\dfrac{27}2$.", "RAO_MAL_APLICADA",
      "Amb $r=3$ el cinquè terme donaria "
      "$\\dfrac32\\cdot3^3=\\dfrac32\\cdot27=\\dfrac{81}2$, no "
      "$\\dfrac{81}4$ (el valor real de l'enunciat): $r=3$ no "
@@ -1060,7 +1087,7 @@ Q("58d", 58, "d", B3, "B",
      "que falten es poden expressar en funció d'aquest valor de "
      "$r$."),
    D("La raó és $r^3=\\dfrac{27}2$ i ja està, no cal continuar.",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "PAS_INTERMEDI_PER_RESPOSTA",
      "$r^3=\\dfrac{27}2$ és un pas intermedi, no la raó: cal encara "
      "extreure l'arrel cúbica, $r=\\sqrt[3]{\\dfrac{27}2}$, i fer "
      "servir aquest valor per completar els termes que falten.")],
@@ -1089,7 +1116,8 @@ Q("58d", 58, "d", B3, "B",
 # =====================================================================
 
 E59 = ("Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada "
-       "expressió n'és o no el terme general, i per què.")
+       "expressió n'és o no el terme general (o si l'afirmació és certa), "
+       "i per què.")
 
 Q("59a", 59, "a", B4, "B",
   r"$a_n = 3 + (n-1)\cdot 3$",
@@ -1175,7 +1203,8 @@ Q("59c", 59, "c", B4, "B",
   ex_text=E59)
 
 Q("59d", 59, "d", B4, "B",
-  r"No es pot calcular.",
+  "Algú afirma: «d'aquesta successió no se'n pot calcular el "
+  "terme general». És cert?",
   "Fals: sí que es pot calcular, perquè la successió té raó constant "
   "$r=2$; és una progressió geomètrica amb terme general "
   "$a_n=3\\cdot2^{\\,n-1}$.",

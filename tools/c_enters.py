@@ -1,7 +1,22 @@
 # -*- coding: utf-8 -*-
 """Bloc A — Nombres enters. Exercicis 1–4 del Full 1 (19 ítems)."""
 
-from lib import Q, D, ev, tex, F
+from lib import Q, D, ev, tex, F, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 1 · nombres enters
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+      1: 1,  # cadena d'operacions amb signes, en una línia
+      2: 2,  # parèntesis i claudàtors: cal respectar la jerarquia
+      3: 2,  # hi entren potències, a més dels claudàtors
+      4: 3,  # troba el pas equivocat i justifica'l
+})
+
 
 B = "enters"
 

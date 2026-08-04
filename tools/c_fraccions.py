@@ -2,7 +2,26 @@
 """Bloc C — Fraccions. Exercicis 18–25 del Full 1 (41 ítems)."""
 
 from fractions import Fraction as F
-from lib import Q, D, DT, TAX, ev, tex, mcd
+from lib import Q, D, DT, TAX, ev, tex, mcd, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 1 · fraccions
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     18: 1,  # comprovar equivalència; 20, simplificar; 22, enter ± fracció
+     19: 2,  # a l'inrevés: quin nombre falta perquè siguin equivalents
+     20: 1,
+     21: 2,  # parèntesis niats, i 23-25 barregen suma, producte i enters
+     22: 1,
+     23: 2,
+     24: 2,
+     25: 2,
+})
+
 
 B = "fraccions"
 
@@ -164,7 +183,7 @@ Q("20c", 20, "c", B, "A", r"$\dfrac{121}{11}$", 11,
   [D(r"No es pot simplificar, perquè $11$ és primer.", "NO_SIMPLIFICABLE",
      TAX["NO_SIMPLIFICABLE"] + r" Aquí $121 = 11^{2}$."),
    DT(F(1, 11), "INVERTIDA", ""),
-   DT(110, "SIMPLIFICACIO_INCOMPLETA",
+   DT(110, "SIMPLIFICAR_RESTANT",
       r"Has restat $121-11$. Simplificar és DIVIDIR els dos termes pel mateix nombre.")],
   [r"$121$ és una potència de $11$.",
    r"$121 = 11\cdot 11$."],

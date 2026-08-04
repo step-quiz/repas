@@ -12,7 +12,30 @@ Com a c_enters.py: cap resposta s'escriu a mà — es calculen amb ev() (Fractio
 exacte) o, quan la tasca demana "una sola potència" i no un valor, l'exponent
 final es calcula amb aritmètica normal de Python i es formata amb pot().
 """
-from lib import Q, D, DT, ev, tex
+from lib import Q, D, DT, ev, tex, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 2 · potències
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     35: 1,  # una sola propietat, base repetida; 43, potència d'una potència
+     36: 2,  # encadena producte i quocient de potències
+     37: 2,  # potència d'un producte i d'un quocient, amb fraccions i decimals
+     38: 2,  # exponents negatius encadenats
+     39: 2,  # a l'inrevés: quina potència falta perquè la igualtat sigui certa
+     40: 3,  # a l'inrevés i amb incògnita a l'exponent: cal plantejar una equació
+     41: 3,  # trobar l'error d'una cadena i corregir-lo
+     42: 2,  # decidir si la igualtat és certa i dir per què
+     43: 1,
+     44: 2,
+     45: 3,  # cal unificar bases diferents abans d'aplicar cap propietat
+     46: 3,  # incògnita dins d'una cadena de dues propietats
+})
+
 
 B1 = "basiques"
 B2 = "negatiu"

@@ -49,7 +49,42 @@ sense trobar-hi cap discrepància.
 """
 from fractions import Fraction as F
 from math import comb
-from lib import Q, D, DT, tex, TAX
+from lib import Q, D, DT, tex, TAX, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 12 · probabilitat
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    236: 1,  # escriure l'espai mostral; 241 i 257, Laplace amb el recompte a la vista
+    237: 2,  # espai mostral de dos daus: cal veure que els resultats són parells
+    238: 3,  # comptar resultats DIFERENTS, no parells: cal descartar repetits
+    239: 2,  # classificar esdeveniments; 240, ordenar-los per probabilitat
+    240: 2,
+    241: 1,
+    242: 3,
+    243: 2,  # comptar combinacions amb el principi multiplicatiu
+    244: 1,  # principi multiplicatiu amb dos experiments
+    245: 2,
+    246: 3,  # variacions amb repetició amb dos alfabets barrejats
+    247: 2,
+    248: 2,
+    249: 2,  # freqüència relativa a partir d'una taula
+    250: 2,
+    251: 3,  # cal muntar l'espai mostral de 4 monedes abans de comptar
+    252: 3,
+    253: 2,  # esdeveniments dins d'un mateix espai; 254, taula de doble entrada
+    254: 2,
+    255: 3,  # diverses fraccions del total encadenades
+    256: 3,  # unió d'esdeveniments no disjunts
+    257: 1,
+    258: 3,
+    259: 3,
+})
+
 
 B1 = "espais_mostrals"
 B2 = "combinatoria"
@@ -570,12 +605,12 @@ Q("240c", 240, "c", B1, "A",
    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
    "(esdeveniment segur)"],
   ex_text=E240,
-  nota="Al full original, els apartats c) i d) repeteixen literalment "
-       "el mateix text, «Nombre més petit que 7» (molt probablement "
-       "una errata editorial, ja que un dau numerat de l'1 al 6 no "
-       "permet cap altre matís interessant amb aquest enunciat). Es "
-       "couen tots dos apartats amb el mateix esdeveniment, seguint "
-       "el criteri del solucionari original.")
+  nota="Els apartats c) i d) tenen el mateix text al full de partida, "
+       "«Nombre més petit que 7», i es conserven tots dos tal com "
+       "estan: en un dau de l'1 al 6, tots els resultats el compleixen.",
+  nota_interna="Molt probablement una errata editorial de la font (el "
+               "text es repeteix literalment). Es mantenen els dos "
+               "apartats amb el mateix esdeveniment, com fa r-im12.")
 
 Q("240d", 240, "d", B1, "A",
   "«Nombre més petit que $7$»",
@@ -603,11 +638,11 @@ Q("240d", 240, "d", B1, "A",
    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
    "(esdeveniment segur)"],
   ex_text=E240,
-  nota="Aquest apartat repeteix literalment el text de l'apartat c) "
-       "al full original («Nombre més petit que 7», dues vegades: "
-       "molt probablement una errata editorial). Es cou tal com "
-       "apareix, amb el mateix esdeveniment i la mateixa resposta "
-       "que el 240c, seguint el criteri del solucionari original.")
+  nota="Aquest apartat té el mateix text que el c) al full de partida, "
+       "i per tant la mateixa resposta: en un dau de l'1 al 6, cap "
+       "resultat arriba a $7$.",
+  nota_interna="Repetició literal del text del 240c a la font, "
+               "probablement una errata editorial.")
 
 Q("240e", 240, "e", B1, "A",
   "«Nombre més gran o igual que $2$»",
@@ -706,7 +741,7 @@ Q("243", 243, "", B2, "A",
        "una \"combinació\" de roba. S'adopta el criteri més natural "
        "per a un diagrama d'arbre de tres nivells (una peça de la "
        "part de baix, una de la part de dalt i un barret), seguint "
-       "el mateix criteri que el solucionari original.")
+       "que és el que fa el diagrama d'arbre habitual.")
 
 # ---- exercici 244: 10 tirades d'una moneda ----
 Q("244", 244, "", B2, "A",
@@ -1864,12 +1899,12 @@ Q("257a", 257, "a", B4, "A",
   "Quina és la probabilitat de cada color de bola?",
   "$P(\\text{vermella})=\\dfrac12$, $P(\\text{verda})=\\dfrac13$, "
   "$P(\\text{blava})=\\dfrac16$",
-  [D("$P(\\text{vermella})=\\dfrac36$, sense simplificar, i les "
-     "altres tampoc simplificades ($\\frac26$, $\\frac16$)",
-     "SIMPLIFICACIO_INCOMPLETA",
-     "$\\frac36$ i $\\frac26$ es poden simplificar més: divideix "
-     "numerador i denominador pel seu m.c.d. per obtenir "
-     "$\\frac12$ i $\\frac13$."),
+  [D("$P(\\text{vermella})=\\dfrac35$, $P(\\text{verda})=\\dfrac25$, "
+     "$P(\\text{blava})=\\dfrac15$",
+     "CASOS_POSSIBLES_MAL_COMPTATS",
+     "El denominador ha de ser el TOTAL de boles de la bossa, "
+     "$3+2+1=6$, no $5$: sembla que t'has deixat la bola blava en "
+     "comptar-les."),
    D("$P(\\text{vermella})=\\dfrac13$, $P(\\text{verda})=\\dfrac12$, "
      "intercanviant vermella i verda", "RECOMPTE_MAL_FET",
      "Revisa quin color té més boles: n'hi ha $3$ vermelles i "
@@ -1881,9 +1916,10 @@ Q("257a", 257, "a", B4, "A",
      "El nombre de COLORS diferents ($3$) no determina la "
      "probabilitat: cal comptar quantes boles té cada color, i no "
      "en té el mateix nombre cadascun.")],
-  ["La bossa té $3+2+1=6$ boles en total.",
-   "Aplica la regla de Laplace a cada color per separat, i "
-   "simplifica el resultat."],
+  ["La bossa té $3+2+1=6$ boles en total: aquest és el nombre de "
+   "casos possibles per als tres colors.",
+   "Aplica la regla de Laplace a cada color per separat: casos "
+   "favorables d'aquell color entre $6$."],
   ["$P(\\text{vermella})=\\dfrac36=\\dfrac12$, "
    "$P(\\text{verda})=\\dfrac26=\\dfrac13$, "
    "$P(\\text{blava})=\\dfrac16$"],

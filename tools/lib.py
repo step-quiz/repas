@@ -140,8 +140,48 @@ def D(valor, error, feedback):
     return {"tex": tex(valor), "err": error, "fb": feedback}
 
 
+# ---------------------------------------------------------------------
+# Dificultat
+# ---------------------------------------------------------------------
+# Tres nivells, i prou: més graons no els sabríem distingir de manera
+# fiable i només farien soroll.
+#
+#   1  DIRECTA     un sol pas: aplicar una definició o una fórmula tal com
+#                  s'acaba de veure, amb les dades ja a punt.
+#   2  ENCADENADA  dos o tres passos, o cal triar el mètode abans de
+#                  començar (quin cas notable és, quin sistema de
+#                  resolució, si toca Ruffini o divisió llarga).
+#   3  COMPLETA    problema amb context, o cal muntar l'expressió a partir
+#                  d'un enunciat en paraules, o barreja diversos conceptes,
+#                  o demana justificar / detectar un error.
+#
+# El nivell es fixa PER EXERCICI amb dificultats({num: nivell}) a dalt de
+# cada c_<tema>.py, perquè així es pot revisar la graduació sencera d'un
+# full d'una ullada en lloc d'anar-la a buscar a 60 llocs. Els apartats que
+# se surten del to del seu exercici porten dif= al seu Q().
+DIRECTA, ENCADENADA, COMPLETA = 1, 2, 3
+
+_DIF = {}
+
+
+def dificultats(taula):
+    """Registra la taula de dificultat: {num_exercici: 1|2|3}.
+
+    Acumula, no substitueix: el Full 1 el componen quatre mòduls i cadascun
+    hi aporta els seus exercicis. Els números d'exercici són únics a tot el
+    projecte, així que registrar-ne un dues vegades amb valors diferents és
+    sempre un error, i s'atura."""
+    for k, v in taula.items():
+        assert v in (DIRECTA, ENCADENADA, COMPLETA), \
+            f"exercici {k}: dificultat {v!r} fora de l'escala 1-3"
+        assert _DIF.get(k, v) == v, \
+            f"exercici {k}: dificultat registrada dues vegades ({_DIF[k]} i {v})"
+    _DIF.update(taula)
+
+
 def Q(qid, ex, ap, bloc, tipus, enunciat,
-      correcta, distractors, pistes, resolucio, ex_text="", nota=""):
+      correcta, distractors, pistes, resolucio, ex_text="", nota="", dif=None,
+      nota_interna=""):
     """Registra una pregunta al banc, validant-la."""
     item = {
         "id": qid,
@@ -149,6 +189,7 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
         "ap": ap,
         "bloc": bloc,
         "tipus": tipus,
+        "dif": dif if dif is not None else _DIF.get(ex),
         "ordre": len(_BANC),
         "ex_text": ex_text,
         "enunciat": enunciat,
@@ -156,7 +197,13 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
         "distractors": distractors,
         "pistes": pistes if isinstance(pistes, list) else [pistes],
         "resolucio": resolucio if isinstance(resolucio, list) else [resolucio],
+        # `nota` la veu l'alumne a practica.html: ha d'explicar-li una decisió
+        # d'interpretació en termes que li serveixin per resoldre l'exercici.
+        # `nota_interna` només surt al REVISIO: hi van les referències als
+        # fitxers de la font, els dubtes de transcripció i la feina pendent,
+        # que a l'alumne no li diuen res i el desconcerten.
         "nota": nota,
+        "nota_interna": nota_interna,
     }
     _valida(item)
     _BANC.append(item)
@@ -178,6 +225,14 @@ def _valida(it):
     assert it["pistes"] and all(p.strip() for p in it["pistes"]), f"{qid}: sense pistes"
     assert it["resolucio"] and all(str(r).strip() for r in it["resolucio"]), f"{qid}: sense resolució"
     assert it["tipus"] in "ABC", f"{qid}: tipus desconegut"
+    fuita = re.search(r"\.tex\b|abans de publicar|cal confirmar|per revisar",
+                      it["nota"], re.I)
+    assert not fuita, (
+        f"{qid}: la nota visible parla de la font o de feina pendent "
+        f"({fuita.group(0)!r}); això va a nota_interna=")
+    assert it["dif"] in (DIRECTA, ENCADENADA, COMPLETA), (
+        f"{qid}: sense dificultat (l'exercici {it['ex']} no és a la taula "
+        f"dificultats() del full, i el Q() no porta dif=)")
 
 
 def tria(correcta, candidats, n=3):
@@ -259,6 +314,10 @@ TAX = {
     "SIMPLIFICA_NOMES_NUMERADOR":
         "Només has dividit el numerador. En simplificar cal dividir numerador "
         "I denominador pel mateix nombre.",
+    # Aquesta etiqueta és NOMÉS per a fraccions o arrels que es queden a
+    # mitges. Si el que passa és que l'alumne ha parat un pas abans d'acabar,
+    # o ha donat una part pel tot, o ha aplicat malament una fórmula, hi ha
+    # etiquetes específiques més avall: no la feu servir de calaix de sastre.
     "SIMPLIFICACIO_INCOMPLETA":
         "Encara es pot simplificar més: busca el m.c.d. del numerador i el "
         "denominador i divideix-los pel m.c.d. d'un sol cop.",
@@ -378,6 +437,10 @@ TAX = {
         "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del "
         "correcte: torna a comprovar la condició amb els valors concrets "
         "de l'enunciat.",
+    "DOMINI_MAL_LLEGIT":
+        "Has decidit sense mirar bé quin és el conjunt de partida. Si una "
+        "relació és funció o no depèn del domini: canviar-lo pot canviar la "
+        "resposta, així que el primer que cal fixar és de què parteixes.",
 
     # ---- polinomis (Full 4) ----
     "PARENTESI_NO_DISTRIBUIT_POLI":
@@ -585,6 +648,236 @@ TAX = {
         "Per combinar dos esdeveniments independents (per exemple, "
         "dos sortejos separats), el nombre de combinacions "
         "possibles es multiplica, no se suma.",
+    # ---- errors transversals — repartits des de SIMPLIFICACIO_INCOMPLETA ----
+    "PAS_INTERMEDI_PER_RESPOSTA":
+        "El valor que has triat és correcte, però és un pas intermedi, no el "
+        "que et demanen. Torna a llegir la pregunta i mira quina magnitud has "
+        "d'acabar donant: sovint només falta una operació més.",
+    "PART_PEL_TOT":
+        "Has donat el tot on et demanaven una part, o al revés. Compta quantes "
+        "peces iguals hi ha a la figura i mira quantes n'entren a la resposta.",
+    "SUMA_DE_PARTS_INCOMPLETA":
+        "L'àrea total d'un cos és la suma de TOTES les seves cares. Has "
+        "calculat bé una part (la base, o la lateral) però encara falta "
+        "sumar-hi l'altra.",
+    "MEITAT_OBLIDADA":
+        "Hi ha un factor $2$ pel mig que t'has deixat: radi i diàmetre, "
+        "semibase i base, semidiagonal i diagonal. Comprova quina de les dues "
+        "et demanen.",
+    "DIVISIO_REPETIDA":
+        "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula "
+        "ja porta la divisió incorporada i se li torna a aplicar al final: "
+        "escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
+    "ARREL_OBLIDADA":
+        "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ "
+        "encara falta l'arrel per arribar a $x$: comprova sempre quina de les "
+        "dues quantitats et demanen.",
+    "ES_POT_DETERMINAR":
+        "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha "
+        "prou. Abans de descartar una pregunta, mira si algun teorema o criteri "
+        "et permet respondre-la amb el que ja tens.",
+    "ARITMETICA_PAS_INTERMEDI":
+        "El plantejament és bo, però hi ha un error de càlcul en un dels passos "
+        "del mig. Refes l'operació pas a pas i comprova el resultat "
+        "substituint-lo a l'enunciat original.",
+    "UNITATS_NO_CONVERTIDES":
+        "Has barrejat unitats diferents en la mateixa operació. Passa-ho tot a "
+        "la mateixa unitat abans de calcular res.",
+
+    # ---- equacions (Full 5) ----
+    "AILLAMENT_INCOMPLET":
+        "Has parat abans d'acabar d'aïllar la incògnita: encara queda una "
+        "operació per desfer. Comprova-ho substituint el teu valor a l'equació "
+        "original.",
+    "DENOMINADOR_NO_ELIMINAT":
+        "Has operat amb la fracció sense treure-li el denominador. Multiplica "
+        "els dos membres pel denominador PRIMER, i només després aïlla la "
+        "incògnita.",
+    "AGRUPACIO_TERMES_MAL":
+        "Els termes amb incògnita no s'han agrupat bé: torna a sumar-ne els "
+        "coeficients un per un, amb el seu signe.",
+    "EQUACIO_NO_SIMPLIFICADA":
+        "Simplifica cada equació per separat (parèntesis, termes semblants, "
+        "denominadors) ABANS de combinar-les: si no, el sistema que resols no "
+        "és el de l'enunciat.",
+    "ORDRE_ARREL_DIVISIO":
+        "Has fet l'arrel abans de dividir. De $ax^2=k$ cal aïllar primer $x^2$ "
+        "dividint per $a$, i fer l'arrel al final.",
+
+    # ---- proporcionalitat i percentatges (Full 6) ----
+    "MAGNITUD_NO_CONVERTIDA":
+        "Has donat el mateix número per a dues magnituds diferents. Fes servir "
+        "la constant que les relaciona (densitat, preu unitari, velocitat) per "
+        "passar d'una a l'altra.",
+    "PERCENTATGE_DECIMAL_MAL":
+        "El pas de tant per cent a decimal no és correcte: es divideix per "
+        "$100$, així que $0{,}8\\,\\%=0{,}008$ i $8\\,\\%=0{,}08$. Compta les "
+        "xifres.",
+    "FRACCIO_COM_PERCENTATGE":
+        "Has pres el numerador de la fracció com si ja fos el percentatge. Per "
+        "arribar-hi cal portar la fracció sencera a denominador $100$.",
+
+    # ---- geometria plana (Full 7) ----
+    "COSTATS_MAL_TRIATS":
+        "El criteri és el bo, però l'has aplicat als costats que no toquen: "
+        "torna a mirar quins dos costats has de comparar amb quin.",
+    "FORMULA_INVERTIDA":
+        "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula "
+        "sencera abans de substituir-hi els valors.",
+    "FRACCIO_DE_CERCLE_MAL":
+        "La porció de cercle no és la que toca: mig cercle, un quart, tres "
+        "quarts... Mira quin angle abasta la figura i quina fracció de "
+        "$360^\\circ$ representa.",
+
+    # ---- escales (Full 8) ----
+    "ESCALA_NO_APLICADA":
+        "Has donat la mesura tal com surt al plànol (o a la realitat) sense "
+        "passar-la per l'escala. Les dues mesures només coincideixen si "
+        "l'escala és $1:1$.",
+
+    # ---- cossos geomètrics (Full 9) ----
+    "PI_OBLIDAT":
+        "Falta $\\pi$: qualsevol longitud, àrea o volum que surti d'un cercle "
+        "en porta. La circumferència és $2\\pi r$ i el cercle, $\\pi r^2$.",
+    "FACTOR_TRES_VOLUM":
+        "El terç del volum va només amb piràmides i cons. Prismes, cilindres i "
+        "cubs són base per altura, sense dividir.",
+    "DIMENSIO_EXPONENT_MAL":
+        "L'exponent no correspon a la dimensió: les àrees van al quadrat i els "
+        "volums, al cub. Comprova també les unitats del resultat.",
+    "ARRODONIMENT_CONTEXT":
+        "El resultat exacte és aquest, però el context demana un nombre enter. "
+        "Pensa si cal arrodonir cap amunt (pots de pintura, autocars, caixes) o "
+        "cap avall (quantes peces senceres en surten).",
+    "PAPERS_INTERCANVIATS":
+        "Has intercanviat les dues magnituds: torna a llegir quina depèn de "
+        "quina a l'enunciat.",
+
+    # ---- successions (Full 3) — repartides des de SIMPLIFICACIO_INCOMPLETA ----
+    "RAO_MAL_APLICADA":
+        "Per passar d'un terme al següent s'ha de MULTIPLICAR per la raó. "
+        "Comprova la raó amb dos termes consecutius que ja tinguis i aplica-la "
+        "sempre igual.",
+    "TERME_MAL_CALCULAT":
+        "Un dels termes no surt: comprova'l substituint-lo al terme general o "
+        "sumant-hi la diferència des de l'anterior.",
+    "SIMPLIFICAR_RESTANT":
+        "Simplificar és DIVIDIR el numerador i el denominador pel mateix "
+        "nombre, no restar-los. Restant canvies el valor de la fracció.",
+    "SIMPLIFICACIO_INVENTADA":
+        "Has simplificat una fracció que ja era irreductible. Comprova que el "
+        "numerador i el denominador tinguin algun factor comú abans de "
+        "tocar-la.",
+
+    # ---- estadística (Full 11) — repartides des de SIMPLIFICACIO_INCOMPLETA ----
+    "CRITERI_AGRUPACIO_MAL":
+        "El criteri per agrupar en intervals no és el nombre de dades sinó com "
+        "estan repartides: si els valors són molt dispersos i gairebé no es "
+        "repeteixen, una taula valor a valor no resumeix res.",
+    "ESCALA_ALTERA_DADES":
+        "Canviar l'escala vertical d'un gràfic no crea ni elimina cap dada: la "
+        "forma es manté, només canvien els números de l'eix.",
+
+    # ---- decimals (Full 1) — etiquetes ja en ús sense text de catàleg ----
+    "TRACTAT_COM_EXACTE":
+        "Has tractat un decimal periòdic com si fos exacte. Un període es "
+        "repeteix sense fi: repetir una xifra dues o tres vegades i parar no és "
+        "tenir període.",
+    "TRACTAT_COM_PERIODIC":
+        "Has tractat com a periòdic un decimal que s'acaba. Si les xifres "
+        "decimals s'acaben, el decimal és exacte i la generatriu porta una "
+        "potència de $10$ al denominador.",
+    "PERIODE_MAL_IDENTIFICAT":
+        "El període no és el que has marcat. Recorda que el període comença "
+        "just on les xifres es comencen a repetir; el que hi hagi entre la coma "
+        "i el període és l'anteperíode.",
+    "NO_RESTA_ANTEPERIODE":
+        "Al numerador de la generatriu cal RESTAR la part que no es repeteix: "
+        "el nombre sencer sense coma, menys la part anterior al període.",
+    "NOUS_I_ZEROS":
+        "Al denominador van tants NOUS com xifres té el període i tants ZEROS "
+        "com xifres té l'anteperíode, en aquest ordre. Compta'ls per separat.",
+    "POTENCIA_10":
+        "El denominador d'un decimal exacte és una potència de $10$ amb tants "
+        "zeros com xifres decimals hi ha. Torna-les a comptar.",
+    "PART_ENTERA_OBLIDADA":
+        "T'has deixat la part entera. La generatriu ha de valer el nombre "
+        "sencer, no només la part decimal.",
+
+    # ---- divisibilitat (Full 1) — etiquetes ja en ús sense text de catàleg ----
+    "MCD_EN_LLOC_DE_MCM":
+        "Has donat el m.c.d. quan et demanaven el m.c.m. El m.c.m. és un "
+        "MÚLTIPLE: ha de ser més gran o igual que tots els nombres.",
+    "MCM_EN_LLOC_DE_MCD":
+        "Has donat el m.c.m. quan et demanaven el m.c.d. El m.c.d. és un "
+        "DIVISOR: ha de ser més petit o igual que tots els nombres.",
+    "PRODUCTE":
+        "Has multiplicat els nombres. Ni el m.c.d. ni el m.c.m. són el "
+        "producte: descompon en factors primers i tria els factors amb el "
+        "criteri que toqui.",
+    "EL_MES_GRAN":
+        "El més gran dels nombres només és el m.c.m. si tots els altres el "
+        "divideixen. Comprova-ho abans de donar-lo per bo.",
+    "EL_MES_PETIT":
+        "El més petit dels nombres només és el m.c.d. si divideix tots els "
+        "altres. Comprova-ho abans de donar-lo per bo.",
+
+    # ---- troba l'error (Fulls 1 i 2) ----
+    "CAP_ERROR":
+        "Has dit que la cadena és correcta, però hi ha un pas equivocat. Que el "
+        "resultat final surti bé no ho garanteix: dos errors es poden "
+        "compensar. Comprova cada igualtat per separat.",
+
+    # ---- geometria plana (Full 7) — etiquetes ja en ús sense text de catàleg ----
+    "SUMA_CATETS_SENSE_QUADRAT":
+        "Has sumat els costats directament. Pitàgores diu que es sumen els seus "
+        "QUADRATS, i al final es fa l'arrel del resultat.",
+    "HIPOTENUSA_MAL_IDENTIFICADA":
+        "La hipotenusa és sempre el costat MÉS LLARG del triangle rectangle, i "
+        "és la que va sola a un costat de la igualtat.",
+    "CATET_MAL_IDENTIFICAT":
+        "El costat que busques no és el que has triat. Fes un dibuix ràpid i "
+        "marca quin costat coneixes i quin has d'aïllar abans de calcular.",
+    "ARREL_FACTOR_OBLIDAT":
+        "Has arribat al valor de dins de l'arrel però t'has deixat el factor "
+        "que l'acompanya (sovint un $\\sqrt3$ o un $2$). Escriu la fórmula "
+        "sencera abans de substituir-hi els números.",
+
+    # ---- cossos geomètrics (Full 9) — etiqueta ja en ús sense text de catàleg ----
+    "ARREL_MAL_APLICADA":
+        "L'arrel no s'ha aplicat on tocava. Aïlla primer la quantitat que va "
+        "sota l'arrel i fes-la al final, sobre el valor ja aïllat.",
+
+    # ---- semblança (Full 8) — etiqueta ja en ús sense text de catàleg ----
+    "CRITERI_SEMBLANCA_INSUFICIENT":
+        "Has dit que falten dades, però el criteri que toca ja es pot aplicar "
+        "amb el que dona l'enunciat: tres costats, o dos costats i l'angle que "
+        "formen, o dos angles.",
+
+    # ---- funcions (Full 10) — etiquetes ja en ús sense text de catàleg ----
+    "PENDENT_ORDENADA_INTERCANVIATS":
+        "El pendent és el nombre que MULTIPLICA la $x$; l'ordenada a l'origen "
+        "és el terme independent, el que va sol. Els has intercanviat.",
+    "SIGNE_PENDENT_INVERTIT":
+        "El pendent conserva el signe amb què apareix a l'expressió: no cal "
+        "canviar-l'hi en llegir-lo.",
+    "PENDENT_COM_NUL":
+        "Una funció afí només és constant si el pendent és $0$. Si el "
+        "pendent és qualsevol altre nombre, la funció puja o baixa sempre.",
+    "REPRESENTACIO_INNECESSARIA":
+        "No cal dibuixar la gràfica: el signe del pendent ja diu si la funció "
+        "creix o decreix, i el de $a$ si la paràbola s'obre amunt o avall.",
+    "DOMINI_RECORREGUT_INTERCANVIATS":
+        "El domini són els valors de $x$ i el recorregut els de $y$. Els has "
+        "intercanviat: mira l'eix horitzontal per al domini i el vertical per "
+        "al recorregut.",
+    "AMPLADA_INVERTIDA":
+        "Com més gran és $|a|$, més ESTRETA és la paràbola, no més ampla: el "
+        "coeficient estira la corba cap amunt.",
+    "POTENCIA_COM_PRODUCTE":
+        "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i "
+        "no $6$.",
+
 }
 
 def DT(valor, tag, extra=""):

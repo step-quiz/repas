@@ -3,7 +3,31 @@
 Exercicis 5–17 del Full 1 (26 ítems)."""
 
 from datetime import date, timedelta
-from lib import Q, D, tria, mcd, mcm, tex_factors, fx, factors
+from lib import Q, D, tria, mcd, mcm, tex_factors, fx, factors, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 1 · divisibilitat
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+      5: 1,  # descomposició factorial directa
+      6: 1,  # m.c.d. de dos nombres; 7, de tres (mateix procediment)
+      7: 1,
+      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
+      9: 1,  # m.c.m., igual que el m.c.d. però amb l'altre criteri
+     10: 1,
+     11: 2,  # a l'inrevés amb dues condicions alhora
+     12: 3,  # problemes amb context: primer cal decidir si toca m.c.d. o m.c.m.
+     13: 3,
+     14: 3,
+     15: 3,
+     16: 3,
+     17: 3,
+})
+
 
 B = "divisibilitat"
 
@@ -50,7 +74,8 @@ def item_mcd(qid, ex, ap, ns, ex_text, enunciat):
            tex_factors(c, sign=False) if c > 1 else "1"),
        "$\\operatorname{m.c.d.} = %d$" % c],
       ex_text=ex_text,
-      nota="El signe no afecta el m.c.d.: es treballa amb els valors absoluts.")
+      nota=("El signe no afecta el m.c.d.: es treballa amb els valors "
+            "absoluts.") if any(n < 0 for n in ns) else "")
 
 
 def item_mcm(qid, ex, ap, ns, ex_text, enunciat):
@@ -82,7 +107,8 @@ def item_mcm(qid, ex, ap, ns, ex_text, enunciat):
        % tex_factors(c, sign=False),
        "$\\operatorname{m.c.m.} = %d$" % c],
       ex_text=ex_text,
-      nota="El signe no afecta el m.c.m.: es treballa amb els valors absoluts.")
+      nota=("El signe no afecta el m.c.m.: es treballa amb els valors "
+            "absoluts.") if any(n < 0 for n in ns) else "")
 
 
 # ================================================================ Exercici 5

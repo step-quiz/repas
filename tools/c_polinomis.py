@@ -20,7 +20,31 @@ són quatre activitats independents i es reformulen aquí com a 4 ítems
 (69a-69d). És el mateix criteri que a l'exercici 59 del Full 3.
 """
 from sympy import symbols, Poly, expand, factor, sqrt
-from lib import Q, D, DT, ev, tex
+from lib import Q, D, DT, ev, tex, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 4 · polinomis
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     62: 2,  # sumar i restar polinomis donats
+     63: 2,  # a l'inrevés: quin polinomi cal sumar per arribar a un altre
+     64: 3,  # operar dins del claudàtor i multiplicar després
+     65: 2,  # divisió llarga; 66 i 68, Ruffini amb divisor mònic
+     66: 2,
+     67: 3,  # Ruffini amb divisor no mònic: cal ajustar quocient o residu
+     68: 2,
+     69: 3,  # reconstruir una taula de Ruffini incompleta
+     70: 2,  # completar una igualtat notable
+     71: 1,  # reconèixer la igualtat notable; 73, treure factor comú
+     72: 3,  # reconèixer el patró amb un bloc sencer fent de terme
+     73: 1,
+     74: 3,  # combinar factor comú i igualtats notables en la mateixa expressió
+})
+
 
 B1 = "operacions"
 B2 = "divisio"
@@ -218,7 +242,10 @@ def item64(letra, dins, ex_txt, dins_txt, correcta_extra_err=None):
       ["Multiplica cada terme de %s per CADA terme de $S(x)=2x+3$: pel "
        "$2x$ i pel $3$." % dins_txt,
        "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."],
-      [r"$%s\cdot S(x)=%s$" % (dins_txt, poli_tex_raw(correcta))],
+      # dins_txt ja ve amb els $ posats, perquè a les pistes i a la retroacció
+      # va enmig de text. Aquí, en canvi, tot el pas és una sola expressió:
+      # cal treure-los-hi o queden dos $ seguits i el renderitzat es trenca.
+      [r"$%s\cdot S(x)=%s$" % (dins_txt.strip("$"), poli_tex_raw(correcta))],
       ex_text=E64)
 
 
@@ -708,8 +735,7 @@ Q("69c", 69, "c", B2, "A",
   nota="L'equació que determina $\\square$ té tres solucions vàlides "
        "($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una "
        "divisió trivial per $x$, i s'ha triat $\\square=1$ per "
-       "completar la taula, seguint el mateix criteri del solucionari "
-       "font.")
+       "completar la taula amb signe positiu.")
 
 # 69d: dividend square,0,0,-3, arrel -4; segona casella fila inferior = 8
 # square*(-4)=8 -> square=-2
@@ -934,10 +960,10 @@ Q("72a", 72, "a", B3, "A",
   r"$(3x-y)^2-16$",
   [D(r"$(3x-y)^2-4$", "QUADRAT_INCOMPLET",
      "El segon terme s'ha d'elevar al quadrat: $4^2=16$, no $4$."),
-   D(r"(3x-y)^2+16", "SUMA_PER_DIFERENCIA_MAL",
+   D(r"$(3x-y)^2+16$", "SUMA_PER_DIFERENCIA_MAL",
      "En una suma per diferència, el segon quadrat sempre resta, mai "
      "suma: $(a+b)(a-b)=a^2-b^2$."),
-   D(r"9x^2-y^2-16", "GRAUS_MAL_AGRUPATS",
+   D(r"$9x^2-y^2-16$", "GRAUS_MAL_AGRUPATS",
      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
      "$(3x-y)$, no només de la $x$: $(3x-y)^2\\neq 9x^2-y^2$.")],
   [r"Identifica el \"primer terme\" comú als dos factors i el "
@@ -950,12 +976,12 @@ Q("72a", 72, "a", B3, "A",
 Q("72b", 72, "b", B3, "A",
   r"$[(a+b)+c]\cdot[(a+b)-c]$",
   r"$(a+b)^2-c^2$",
-  [D(r"(a+b)^2-c", "QUADRAT_INCOMPLET",
+  [D(r"$(a+b)^2-c$", "QUADRAT_INCOMPLET",
      "El segon terme s'ha d'elevar al quadrat: és $c^2$, no $c$."),
-   D(r"(a+b)^2+c^2", "SUMA_PER_DIFERENCIA_MAL",
+   D(r"$(a+b)^2+c^2$", "SUMA_PER_DIFERENCIA_MAL",
      "En una suma per diferència, el segon quadrat sempre resta, mai "
      "suma."),
-   D(r"a^2+b^2-c^2", "GRAUS_MAL_AGRUPATS",
+   D(r"$a^2+b^2-c^2$", "GRAUS_MAL_AGRUPATS",
      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
      "$(a+b)$, no desenvolupat ni separat.")],
   [r"Identifica el \"primer terme\" comú i el \"segon\" que canvia de "
@@ -1169,10 +1195,10 @@ Q("74g", 74, "g", B4, "A",
    D(r"$x^2-49$", "IGUALTAT_NOTABLE_SIGNE",
      "El desenvolupament correcte dona $49-x^2$, no $x^2-49$: revisa "
      "el signe global en treure el $-1$ comú del primer factor."),
-   D(r"$-(x-7)(x+7)$", "FACTOR_COMU_SIGNE",
-     "És una forma equivalent correcta abans de reorganitzar signes, "
-     "però no és la manera més simplificada: $-(x-7)(x+7)=(7-x)(x+7)"
-     "=(7-x)(7+x)$.")],
+   D(r"$-(7-x)(7+x)$", "FACTOR_COMU_SIGNE",
+     "Hi sobra un signe menys: en treure el $-1$ comú de $-x-7$ i "
+     "reordenar-ho a $(7-x)(7+x)$, aquest menys ja s'ha fet servir. "
+     "Comprova-ho amb $x=0$: l'expressió original val $+49$.")],
   [r"Treu primer el signe menys comú del primer factor: "
    r"$-x-7=-(x+7)$.",
    r"$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$."],

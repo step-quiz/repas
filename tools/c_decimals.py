@@ -2,7 +2,28 @@
 """Bloc D — Decimals i fracció generatriu. Exercicis 26–34 del Full 1 (54 ítems)."""
 
 from fractions import Fraction as F
-from lib import (Q, D, DT, TAX, ev, tex, tria, dec_ex, per_frac, per_tex)
+from lib import (Q, D, DT, TAX, ev, tex, tria, dec_ex, per_frac, per_tex,
+                 dificultats)
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 1 · decimals
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+     26: 1,  # reconèixer el tipus de decimal; 27, generatriu d'un decimal exacte
+     27: 1,
+     28: 2,  # generatriu de periòdics: pur, mixt, i cal triar la fórmula
+     29: 2,
+     30: 2,
+     31: 3,  # primer la generatriu i després operar-hi: dues fases
+     32: 3,
+     33: 3,  # comprovar una igualtat i justificar-la; 34, raonar sobre el període
+     34: 3,
+})
+
 
 B = "decimals"
 
@@ -128,7 +149,8 @@ item_exacte("27h", "h", None, 0, "000003")
 E28 = "Calcula la fracció generatriu dels nombres decimals periòdics següents."
 
 
-def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota=""):
+def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
+                  nota_interna=""):
     """Generatriu d'un decimal periòdic. Els distractors surten de les
     variants clàssiques de la fórmula."""
     ent, ante, per = str(ent), str(ante), str(per)
@@ -164,7 +186,7 @@ def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota=""):
       ["Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
        "Denominador: un nou per cada xifra del període i un zero per cada xifra "
        "de l'anteperíode."],
-      passos, ex_text=ex_text or E28, nota=nota)
+      passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna)
 
 
 item_periodic("28a", "a", 3, "", "5")
@@ -247,11 +269,17 @@ item_periodic("30b", "b", 2, "", "25", ex=30, ex_text=E30)
 item_periodic("30c", "c", 22, "", "5", ex=30, ex_text=E30)
 item_periodic("30d", "d", 2, "2", "5", ex=30, ex_text=E30)
 item_periodic("30e", "e", 0, "", "334", ex=30, ex_text=E30,
-              nota="El full escriu $0{,}33433434\\dots$; ho llegim com a "
-                   "$0{,}\\overline{334}$. Cal confirmar-ho amb l'original.")
+              nota="El full de partida escriu $0{,}33433434\\dots$; aquí es "
+                   "llegeix com a $0{,}\\overline{334}$, amb el grup $334$ "
+                   "com a període.",
+              nota_interna="Escriptura ambigua a la font: cal confirmar-ho "
+                           "contra l'original abans de publicar.")
 item_periodic("30f", "f", 8, "57", "1", ex=30, ex_text=E30,
-              nota="El full escriu $8{,}5711\\dots$; ho llegim com a "
-                   "$8{,}57\\overline{1}$. Cal confirmar-ho amb l'original.")
+              nota="El full de partida escriu $8{,}5711\\dots$; aquí es "
+                   "llegeix com a $8{,}57\\overline{1}$, amb el $57$ "
+                   "d'anteperíode i l'$1$ de període.",
+              nota_interna="Escriptura ambigua a la font: cal confirmar-ho "
+                           "contra l'original abans de publicar.")
 
 # =============================================================== Exercici 31
 E31 = "Opera fent servir les fraccions generatrius."

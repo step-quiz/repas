@@ -52,7 +52,35 @@ deixant-ne constància amb `nota` en lloc de silenciar la incertesa.
 """
 from fractions import Fraction as F
 import sympy as sp
-from lib import Q, D, DT, tex, texd
+from lib import Q, D, DT, tex, texd, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 8 · Tales i semblança
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    152: 1,  # proporció de Tales amb tres dades i una incògnita
+    153: 2,
+    154: 1,  # raó de semblança donada la parella: proporció directa
+    155: 2,  # decidir si són semblants i dir per quin criteri (153, homòlegs)
+    156: 1,  # llegir i escriure una escala numèrica
+    158: 2,  # escales amb canvi d'unitats pel mig
+    159: 2,
+    160: 2,
+    161: 3,  # problemes: muntar la semblança a partir de l'enunciat
+    162: 3,
+    163: 3,
+    164: 3,
+    165: 3,
+    166: 3,
+    167: 3,
+    168: 3,
+    169: 3,
+})
+
 
 B1 = "tales"
 B2 = "semblanca"
@@ -84,12 +112,15 @@ assert texirr(sp.sqrt(89)) == "9{,}43"
 # donen un valor numèric fiable (vegeu docstring del mòdul).
 E152 = ("Calcula el valor de $x$ en aquestes figures de rectes "
         "paral·leles tallades per dues rectes secants.")
-NOTA152 = ("La posició exacta de cada mesura respecte al vèrtex de les "
-           "rectes secants s'ha llegit de la manera més estàndard "
-           "(proporció directa entre els segments corresponents de cada "
-           "secant), seguint la interpretació que ja proposa el "
-           "solucionari font; convé confirmar-ho contra la figura "
-           "original abans de publicar.")
+NOTA152 = ("Els segments s'aparellen en el mateix ordre a les dues secants: "
+           "el primer amb el primer i el segon amb el segon, comptant des del "
+           "vèrtex. La figura de partida no ho deixa del tot clar, i aquesta "
+           "és la lectura que s'ha pres.")
+NOTA152_INT = ("Nota de transcripció d'im9.tex: la posició exacta de cada "
+               "mesura respecte al vèrtex s'ha llegit com a proporció directa "
+               "entre segments corresponents, tal com ja proposa r-im9.tex. "
+               "Convé confirmar-ho contra la figura original abans de "
+               "publicar.")
 
 Q("152a", 152, "a", B1, "A",
   "Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i "
@@ -112,7 +143,7 @@ Q("152a", 152, "a", B1, "A",
   [r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{2{,}5\cdot3}{2}$",
    "$x=3{,}75$ cm"],
-  ex_text=E152, nota=NOTA152)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
 
 Q("152b", 152, "b", B1, "A",
   "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ "
@@ -135,7 +166,7 @@ Q("152b", 152, "b", B1, "A",
   [r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot3}{2}$",
    "$x=6$ cm"],
-  ex_text=E152, nota=NOTA152)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
 
 Q("152c", 152, "c", B1, "A",
   "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm "
@@ -158,7 +189,7 @@ Q("152c", 152, "c", B1, "A",
   [r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{8\cdot6}{4}$",
    "$x=12$ cm"],
-  ex_text=E152, nota=NOTA152)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
 
 Q("152e", 152, "e", B1, "A",
   "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i "
@@ -180,7 +211,7 @@ Q("152e", 152, "e", B1, "A",
   [r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
    r"x=\dfrac{10\cdot5}{8}$",
    "$x=6{,}25$ cm"],
-  ex_text=E152, nota=NOTA152)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
 
 Q("152f", 152, "f", B1, "A",
   "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i "
@@ -203,7 +234,7 @@ Q("152f", 152, "f", B1, "A",
   [r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4{,}8\cdot3}{2}$",
    "$x=7{,}2$ cm"],
-  ex_text=E152, nota=NOTA152)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
 
 
 # ---- exercici 153: figures en posició de Tales (triangles O-A-B i
@@ -295,7 +326,7 @@ Q("153c", 153, "c", B1, "A",
 E154 = "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants."
 NOTA154 = ("La correspondència entre costats del triangle petit i el "
            "gran s'ha establert seguint la indicació explícita del propi "
-           "enunciat font (quins costats es corresponen entre si).")
+           "enunciat, que ja diu quins costats es corresponen entre si.")
 
 Q("154a", 154, "a", B2, "A",
   "Triangle petit de costats $3$ cm i $5$ cm; triangle gran de "
@@ -485,7 +516,7 @@ Q("156a", 156, "a", B3, "A",
   "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és "
   "l'escala numèrica?",
   "$1:200\\,000$",
-  [D("$1:2$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$1:2$", "UNITATS_NO_CONVERTIDES",
      "Falta convertir els $2$ km a centímetres perquè les dues "
      "mesures de l'escala estiguin en la mateixa unitat: "
      "$2\\text{ km}=200\\,000$ cm."),
@@ -508,7 +539,7 @@ Q("156b", 156, "b", B3, "A",
   "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és "
   "l'escala numèrica?",
   "$1:5\\,000\\,000$",
-  [D("$1:50$", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$1:50$", "UNITATS_NO_CONVERTIDES",
      "Falta convertir els $50$ km a centímetres perquè les dues "
      "mesures de l'escala estiguin en la mateixa unitat: "
      "$50\\text{ km}=5\\,000\\,000$ cm."),
@@ -599,7 +630,7 @@ Q("160a", 160, "a", B3, "A",
      "Aquest valor surt de dividir per $60$ en comptes de "
      "multiplicar: a l'escala $1:60$, la mesura REAL és $60$ "
      "vegades la mesura al plànol, no una seixantena part."),
-   D("$4$ m d'ample i $7$ m de llarg", "SIMPLIFICACIO_INCOMPLETA",
+   D("$4$ m d'ample i $7$ m de llarg", "ESCALA_NO_APLICADA",
      "No has fet servir l'escala: les mesures del plànol i les "
      "reals no coincideixen a menys que l'escala fos $1:1$.")],
   ["A l'escala $1:60$, cada centímetre del plànol correspon a "
@@ -622,7 +653,7 @@ Q("160b", 160, "b", B3, "A",
      "Aquest valor té un factor $10$ de menys: revisa la "
      "conversió $7{,}5\\text{ m}=750$ cm abans de dividir per "
      "$60$."),
-   D("$7{,}5$ cm", "SIMPLIFICACIO_INCOMPLETA",
+   D("$7{,}5$ cm", "ESCALA_NO_APLICADA",
      "No has fet servir l'escala: les mesures del plànol i les "
      "reals no coincideixen a menys que l'escala fos $1:1$.")],
   ["Converteix els $7{,}5$ m a centímetres: $750$ cm.",
@@ -750,11 +781,12 @@ Q("164", 164, "", B4, "A",
 
 # ---- exercici 165: alçada de la pilota a mig recorregut (trajectòria
 # simplificada com a segment rectilini; vegeu nota de transcripció) ----
-NOTA165 = ("L'enunciat original acompanya una figura amb la trajectòria "
-           "corba de la pilota; seguint la nota de transcripció del "
-           "propi im9.tex, es considera aquí una trajectòria "
-           "rectilínia simplificada entre la mà del jugador i la "
-           "cistella, adequada a les eines de semblança de 2n ESO.")
+NOTA165 = ("L'enunciat de partida porta una figura amb la trajectòria corba "
+           "de la pilota; aquí es considera una trajectòria recta entre la mà "
+           "del jugador i la cistella, que és el que permeten les eines de "
+           "semblança.")
+NOTA165_INT = ("Simplificació ja explicitada a la nota de transcripció "
+               "d'im9.tex.")
 
 Q("165", 165, "", B4, "A",
   "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la "
@@ -763,7 +795,7 @@ Q("165", 165, "", B4, "A",
   "llançament fins a la cistella, a quina altura està la pilota "
   "quan va per la meitat del recorregut?",
   "$2{,}475$ m",
-  [D("$1{,}575$ m", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$1{,}575$ m", "ARITMETICA_PAS_INTERMEDI",
      "Aquest valor surt de $\\frac{3{,}05}{2}-\\frac{1{,}9}{2}$: "
      "cal partir de l'altura inicial ($1{,}9$ m) i sumar-hi la "
      "MEITAT de la diferència d'altures, no calcular la meitat de "
@@ -786,7 +818,7 @@ Q("165", 165, "", B4, "A",
   [r"Diferència d'altura: $3{,}05-1{,}9=1{,}15$ m",
    r"$x=1{,}9+\dfrac{1{,}15}{2}=1{,}9+0{,}575$",
    "$x=2{,}475$ m"],
-  ex_text="", nota=NOTA165)
+  ex_text="", nota=NOTA165, nota_interna=NOTA165_INT)
 
 
 # ---- exercici 166: reflex d'una muntanya al riu ----

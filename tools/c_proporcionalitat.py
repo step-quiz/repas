@@ -25,7 +25,36 @@ arrodonits que el mateix solucionari presenta com a aproximats, p. ex.
 Cap dels 21 ítems necessita `nota`: tots els enunciats són problemes
 verbals amb una lectura única i sense ambigüitat matemàtica.
 """
-from lib import Q, D
+from lib import Q, D, dificultats
+
+# --------------------------------------------------------------------
+# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Full 6 · proporcionalitat i percentatges
+# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
+# per graduar el recorregut, de manera que canviar-hi un número canvia
+# l'ordre en què l'alumne es troba els exercicis.
+# --------------------------------------------------------------------
+dificultats({
+    101: 1,  # regla de tres directa; 109 i 110, percentatge directe
+    102: 2,
+    103: 2,  # proporcionalitat inversa: cal adonar-se que ho és
+    104: 1,
+    105: 2,
+    106: 2,
+    107: 2,
+    108: 3,  # proporcionalitat composta
+    109: 1,
+    110: 1,
+    111: 2,  # a l'inrevés: saps la part i el tant per cent, busques el total
+    112: 2,
+    113: 3,  # percentatges encadenats, que no se sumen
+    114: 3,
+    115: 3,
+    116: 3,  # comparar dos augments expressats en unitats diferents
+    117: 3,
+    118: 3,
+})
+
 
 B1 = "directa_inversa"
 B2 = "percentatges"
@@ -152,7 +181,7 @@ Q("105a", 105, "a", B1, "A",
    D("$0{,}018$ ℓ", "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Sembla que has calculat $1{,}15:65$ en comptes de $65:1{,}15$: "
      "la massa es divideix entre la densitat, no al revés."),
-   D("$65$ ℓ", "SIMPLIFICACIO_INCOMPLETA",
+   D("$65$ ℓ", "MAGNITUD_NO_CONVERTIDA",
      "No has fet servir la densitat per convertir la massa en volum: "
      "$65$ kg i $65$ ℓ no representen el mateix a menys que la "
      "densitat fos exactament $1$ kg/ℓ.")],
@@ -174,7 +203,7 @@ Q("105b", 105, "b", B1, "A",
    D("$43{,}15$ kg", "TERME_OBLIDAT_OPERACIO",
      "No coincideix amb $1{,}15\\cdot42$: torna a fer el producte "
      "xifra a xifra."),
-   D("$42$ kg", "SIMPLIFICACIO_INCOMPLETA",
+   D("$42$ kg", "MAGNITUD_NO_CONVERTIDA",
      "No has fet servir la densitat per convertir el volum en massa: "
      "$42$ ℓ i $42$ kg no representen el mateix a menys que la "
      "densitat fos exactament $1$ kg/ℓ.")],
@@ -304,7 +333,7 @@ Q("109", 109, "", B2, "A",
      "Torna a convertir la fracció: $\\frac{3}{5}=\\frac{3\\cdot20}"
      "{5\\cdot20}=\\frac{60}{100}$, no una combinació directa de les "
      "xifres $5$ i $3$."),
-   D("$3\\,\\%$", "SIMPLIFICACIO_INCOMPLETA",
+   D("$3\\,\\%$", "FRACCIO_COM_PERCENTATGE",
      "Has agafat només el numerador de la fracció com si ja fos el "
      "percentatge: cal convertir la fracció sencera a denominador "
      "$100$.")],
@@ -368,11 +397,11 @@ Q("112a", 112, "a", B2, "A",
      "Aquest valor surt de multiplicar $300\\cdot0{,}008$ en comptes "
      "de dividir: com que $300$ és el resultat d'aplicar el "
      "$0{,}8\\,\\%$ a les vendes, cal dividir $300$ entre $0{,}008$."),
-   D("$375$ €", "SIMPLIFICACIO_INCOMPLETA",
+   D("$375$ €", "PERCENTATGE_DECIMAL_MAL",
      "No coincideix amb $\\dfrac{300}{0{,}008}$: revisa que has "
      "passat correctament el $0{,}8\\,\\%$ a la seva forma decimal "
      "($0{,}008$, no $0{,}08$)."),
-   D("$3\\,750$ €", "SIMPLIFICACIO_INCOMPLETA",
+   D("$3\\,750$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; revisa la divisió "
      "$300:0{,}008$ amb aquest valor.")],
@@ -388,7 +417,7 @@ Q("112b", 112, "b", B2, "A",
   "Si el mes següent va vendre per valor de 45\\,000 €, quina "
   "comissió va obtenir?",
   "$360$ €",
-  [D("$3\\,600$ €", "SIMPLIFICACIO_INCOMPLETA",
+  [D("$3\\,600$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; multiplica de nou "
      "$45\\,000\\cdot0{,}008$."),
@@ -396,7 +425,7 @@ Q("112b", 112, "b", B2, "A",
      "Aquest valor surt de dividir $45\\,000:0{,}008$ en comptes de "
      "multiplicar: aquí es demana la comissió a partir de les "
      "vendes, així que cal $0{,}008\\cdot45\\,000$."),
-   D("$36$ €", "SIMPLIFICACIO_INCOMPLETA",
+   D("$36$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: revisa que $0{,}8\\,\\%=0{,}008$, i multiplica de nou.")],
   ["La comissió és el $0{,}8\\,\\%$ de les vendes: "
@@ -416,7 +445,7 @@ Q("113", 113, "", B3, "A",
   "Un comerciant decideix apujar el preu d'una mercaderia, que era "
   "de 72 €, un 3\\,\\%, i a la setmana següent, un 3\\,\\% més sobre "
   "l'últim preu. Quin és el preu final de venda?",
-  "$76{,}3848$ €",
+  "$76{,}38$ €",
   [D("$76{,}32$ €", "SUMA_EN_LLOC_RESTA",
      "Aquest valor surt de sumar els dos augments ($6\\,\\%$ de cop) "
      "en comptes d'aplicar-los seguits: el segon $3\\,\\%$ s'ha de "
@@ -435,7 +464,9 @@ Q("113", 113, "", B3, "A",
    "original."],
   ["Preu després del primer augment: $72\\cdot1{,}03=74{,}16$ €",
    "Preu després del segon augment (sobre $74{,}16$ €): "
-   "$74{,}16\\cdot1{,}03=76{,}3848$ €"],
+   "$74{,}16\\cdot1{,}03=76{,}3848$ €",
+   "Arrodonit a cèntims, que és com s'expressen els preus: "
+   "$76{,}38$ €"],
   ex_text="")
 
 # ---- exercici 114: percentatge global d'increments encadenats ----
@@ -562,7 +593,7 @@ Q("117", 117, "", B3, "A",
      "($1{,}04$ i $\\approx1{,}0317$), no una impressió aproximada "
      "de la diferència absoluta."),
    D("No es pot saber quin es dilata menys perquè les mesures estan "
-     "en unitats diferents (m i cm)", "SIMPLIFICACIO_INCOMPLETA",
+     "en unitats diferents (m i cm)", "ES_POT_DETERMINAR",
      "El factor de dilatació (longitud final entre inicial) no "
      "depèn de la unitat que facis servir, mentre siguis "
      "consistent en cada barra per separat: es pot comparar "
@@ -594,7 +625,7 @@ Q("118", 118, "", B3, "A",
      "$0{,}2\\cdot100=20$, no $25$: revisa aquest darrer pas del "
      "càlcul del percentatge real d'increment."),
    D("No es pot saber sense conèixer el pes exacte d'una galeta",
-     "SIMPLIFICACIO_INCOMPLETA",
+     "ES_POT_DETERMINAR",
      "Si el pes de cada galeta es manté constant (com dona a "
      "entendre l'enunciat), el percentatge d'augment de PES i el de "
      "NOMBRE de galetes coincideixen: no cal conèixer el pes d'una "
