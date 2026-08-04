@@ -75,6 +75,12 @@
      l'índex original va a data-orig perquè saber quina és la bona no
      depengui de la posició. */
   function pintaOpcions(prova, estat) {
+    /* Un cop l'alumne ha dit en quin estat es troba, el panell de
+       l'autoavaluació desapareix: ja ha fet la seva feina, i deixar-lo obliga
+       a fer scroll per arribar a les opcions de la resposta. La targeta queda
+       amb l'enunciat i les quatre opcions, que és tot el que fa falta ara. */
+    $("#autoavaluacio").hidden = true;
+
     var cont = $("#comprovacio");
     cont.hidden = false;
     cont.innerHTML = '<p class="petit apagat" style="margin:0 0 .5rem">' +
@@ -97,7 +103,10 @@
         caixa.appendChild(b);
       });
     RE.mat(caixa);
-    if (caixa.scrollIntoView) caixa.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    /* Amb el panell amagat la targeta sencera hi cap: portem-la amunt, no
+       les opcions, perquè l'enunciat continuï a la vista mentre es respon. */
+    var targeta = $("#targeta-test");
+    if (targeta.scrollIntoView) targeta.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function pinta() {
@@ -108,6 +117,7 @@
     $("#enunciat-test").innerHTML = prova.enunciat;
     $("#comprovacio").hidden = true;
     $("#comprovacio").innerHTML = "";
+    $("#autoavaluacio").hidden = false;
 
     var cont = $("#estats-test");
     cont.innerHTML = "";

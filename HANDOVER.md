@@ -275,11 +275,17 @@ banc, la pàgina **no carrega cap `data/fullN.js`** i s'obre a l'instant.
 
 Tampoc diu si la resposta era bona. El test no és un examen, i saber-ho
 pregunta a pregunta només hi afegiria pressió al moment en què l'alumne
-encara s'hi està posant; tot ve junt a `resultat.html`. Entre pregunta i
-pregunta hi ha una pausa d'1,5 s amb l'avís "Passem a la següent pregunta…",
-i mentre dura la targeta queda inerta (`.inert`, sense `pointer-events`) per
-si algú clica de pressa: sense això, un doble clic podria menjar-se una
-pregunta.
+encara s'hi està posant; tot ve junt a `resultat.html`.
+
+La targeta ensenya una cosa cada vegada. En marcar l'estat, el panell
+d'autoavaluació (`#autoavaluacio`) s'amaga sencer i deixa lloc a les quatre
+opcions de la resposta: amb tots dos alhora la targeta no cabia en pantalla i
+calia baixar per contestar. Torna a aparèixer a la pregunta següent.
+
+Entre pregunta i pregunta hi ha una pausa d'1,5 s amb l'avís "Passem a la
+següent pregunta…", i mentre dura la targeta queda inerta (`.inert`, sense
+`pointer-events`) per si algú clica de pressa: sense això, un doble clic
+podria menjar-se una pregunta.
 L'autopercepció no té pantalla pròpia: va dins de cada prova. Preguntar "et
 costen les potències?" davant d'una llista de títols és molt menys fiable que
 ensenyar $2^5\cdot 2^{-3}:2^2$ i preguntar-ho allà mateix, amb la destresa a
