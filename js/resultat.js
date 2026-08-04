@@ -79,7 +79,10 @@
     contBones.innerHTML = h2;
   }
 
-  /* ---- per on comencem ---- */
+  /* ---- l'itinerari, a dalt de tot ----
+     Aquesta targeta és l'única acció de la pàgina, i va abans que cap
+     explicació: qui vulgui saber d'on surt ho té tot just a sota, però qui
+     només vulgui començar no ha de llegir res per trobar-hi el botó. */
   var contReco = $("#recorregut");
   if (!recomanats.length) {
     contReco.innerHTML = "<p class='apagat'>Pel test, totes les destreses que hem mirat les tens. " +
@@ -87,10 +90,11 @@
   } else {
     var noms = recomanats.map(function (a) { return a.tema.toLowerCase(); }).join(", ");
     contReco.innerHTML =
-      '<a class="tutor-targeta" href="itinerari.html">' +
+      '<a class="tutor-targeta destacada" href="itinerari.html">' +
         "<h2>El teu itinerari personalitzat</h2>" +
-        '<p class="petit apagat" style="margin:.35rem 0 0">Exercicis de ' + noms +
+        '<p class="sub">Exercicis de ' + noms +
           ", dels més senzills als més complets i alternant de tema.</p>" +
+        '<span class="cta">Clica aquí per començar el teu itinerari →</span>' +
       "</a>";
   }
 

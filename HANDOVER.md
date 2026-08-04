@@ -291,11 +291,19 @@ costen les potències?" davant d'una llista de títols és molt menys fiable que
 ensenyar $2^5\cdot 2^{-3}:2^2$ i preguntar-ho allà mateix, amb la destresa a
 la vista.
 
-`resultat.js` no dona cap nota. Mostra quantes destreses hi ha en cada
-situació, destaca les de `falsa_seguretat` —l'única informació que l'alumne
-no tenia abans d'entrar—, i porta a l'itinerari. La llista sencera de les 15
-queda dins d'un `<details>`, en ordre de currículum, perquè pugui veure on
-se li va trencar el recorregut i triar pel seu compte si vol.
+`resultat.js` no dona cap nota. L'ordre de la pàgina està invertit respecte
+del que semblaria natural: **la targeta de l'itinerari va a dalt de tot**,
+abans del resum i de qualsevol explicació, amb una crida a l'acció explícita
+("Clica aquí per començar el teu itinerari"). És l'única acció de la pàgina, i
+tota la resta només la justifica: qui vulgui saber d'on surt ho té just a
+sota, però qui només vulgui començar no ha de llegir res per trobar-hi el
+botó.
+
+Sota la targeta: el recompte per situació en una línia, els temes de
+`falsa_seguretat` (l'única informació que l'alumne no tenia abans d'entrar) i
+els d'`infravalorat`/`recuperat` en verd. La llista sencera de les 15 queda
+dins d'un `<details>`, en ordre de currículum, perquè pugui veure on se li va
+trencar el recorregut i triar pel seu compte si vol.
 
 ### 5.4 `js/itinerari-dades.js` → `window.RE_ITI`
 
