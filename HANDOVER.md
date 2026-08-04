@@ -94,10 +94,21 @@ malentès. Les etiquetes es descriuen en `SCREAMING_SNAKE_CASE` i anomenen el
 **malentès**, no el símptoma (`RUFFINI_SIGNE_ARREL`, no `ERROR_66B`), perquè
 la mateixa etiqueta es reutilitza a molts ítems i s'hi agrega per bloc.
 
-Cada `Q()` passa per `_valida()`, que imposa quatre regles sense excepció:
+El text de `TAX` no és documentació morta: `build.py` l'emet a `data/fullN.js`
+(clau `errors`, només les etiquetes que el full fa servir) i `hub.js` l'usa
+per pintar el panell «els errors que repeteixes». Per això ha de ser
+**genèric i sense números concrets** —descriu el malentès, no un exercici—
+mentre que el text del `D()` sí que ha de parlar dels números de l'ítem.
+Si una etiqueta no és al catàleg, el panell cau al diagnòstic del primer ítem
+del full que la faci servir; per a etiquetes d'un sol ús tant se val, però per
+a les que es repeteixen dona un text que no resumeix res.
+
+Cada `Q()` passa per `_valida()`, que imposa aquestes regles sense excepció:
 exactament 3 distractors; 4 opcions diferents entre si un cop tret l'espai en
-blanc; cap distractor sense text de retroacció; i com a mínim una pista i un
-pas de resolució. Si una falla, el build s'atura i diu quin ítem és.
+blanc; cap distractor sense text de retroacció; com a mínim una pista i un pas
+de resolució; una dificultat dins de l'escala; i cap referència a la font o a
+feina pendent dins de la `nota` visible (això va a `nota_interna`, que només
+surt al `REVISIO`). Si una falla, el build s'atura i diu quin ítem és.
 
 ### 3.2 `tools/build.py` — el compilador
 
@@ -334,11 +345,14 @@ Com es genera la ruta:
    redistribueix als altres començant pels de més pes. Per això un tema que
    cal reconstruir aporta el doble d'exercicis que un que només cal
    refrescar.
-4. De cada bloc no s'agafen exactament els `quota` primers, sinó `quota`
-   triats a l'atzar d'una finestra una mica més ampla (`triaAmbVarietat`), i
-   després es tornen a ordenar per dificultat. Sense això, generar un
-   itinerari nou tornava a donar exactament el mateix i el botó semblava
-   avariat.
+4. De cada bloc s'agafa **un exercici de cada nivell de dificultat que hi
+   hagi** abans de repetir nivell, i el sobrant es reparteix pesant cap al
+   graó d'entrada (3-2-1 per als nivells 1-2-3): qui ha de reconstruir un
+   tema necessita més rodatge a baix que a dalt, però la ruta ha de pujar.
+   Dins de cada nivell, els `quota` es trien a l'atzar d'una finestra una
+   mica més ampla (`triaAmbVarietat` → `mostra`), perquè generar un itinerari
+   nou no torni a donar exactament el mateix i el botó no sembli avariat. La
+   variació és sempre entre exercicis del mateix graó, mai entre graons.
 5. Els exercicis que l'alumne **ja ha resolt** van al final de la cua de cada
    bloc, no fora: una ruta nova li dona material que no ha vist, però si un
    bloc se li ha quedat curt encara pot completar els 24. Aquest filtre és el
@@ -410,9 +424,14 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
   sort, com a `dominat`. Es va acceptar a canvi de la brevetat: el cost
   d'anar a parar a un tema que ja se sap és baix, i amb 15 proves la sort no
   mou gaire el resultat global.
-- **La longitud d'enunciat com a proxy de dificultat** ordena l'itinerari.
-  Mesura esforç de lectura, no dificultat matemàtica; per ordenar de més
-  senzill a més complet dins d'un bloc fa el fet, però no és una mesura
-  fina.
+- **La dificultat la fixa una taula a mà**, exercici per exercici, a dalt de
+  cada `c_<tema>.py` (`dificultats({...})`, escala 1-3 documentada a
+  `lib.py`). És un judici del qui l'ha escrita, no una mesura: dos
+  professors la posarien diferent en uns quants exercicis. A canvi és
+  explícita, es revisa d'una ullada i es pot discutir número a número. Abans
+  s'ordenava per longitud de l'enunciat, que mesurava esforç de lectura i no
+  matemàtiques: els exercicis amb les dades a l'encapçalament tenien
+  enunciats curtíssims i pujaven al davant encara que fossin dels més
+  difícils del full.
 - **KaTeX ve d'un CDN.** Sense xarxa, les matemàtiques es veuen com a LaTeX
   en cru; el lloc segueix funcionant.

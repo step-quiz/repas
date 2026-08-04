@@ -41,9 +41,9 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="meta">43 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Prismes i el cub <span class="tip">· 12 preguntes</span></h2>
-<p class="sec"><strong>Exercici 170.</strong> Calcula l&#x27;àrea total d&#x27;aquests prismes rectes.</p>
-<div class="it"><div class="cap"><span class="cod">170a</span><span class="tip">tipus A</span></div>
-<div class="enun">Calcula l'àrea total d'aquests prismes rectes.</div>
+<p class="sec"><strong>Exercici 170.</strong> Calcula l&#x27;àrea total d&#x27;aquest prisma recte:</p>
+<div class="it"><div class="cap"><span class="cod">170a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un ortoedre (prisma recte de base rectangular) d'arestes $7$ cm, $2$ cm i $4$ cm.</div>
 <ol class="op"><li><span class="ok">$100$ cm$^2$</span> — resposta correcta</li>
 <li>$56$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">T'has deixat una parella de cares pel camí: un ortoedre en té TRES parelles diferents ($7\times2$, $7\times4$ i $2\times4$), no només dues.</span></li>
 <li>$50$ cm$^2$<br><span class="err">POTENCIA_PRODUCTE_UN_FACTOR</span><span class="fb">Aquest és el resultat de $7\cdot2+7\cdot4+2\cdot4$ sense multiplicar per $2$: cada cara d'un ortoedre és igual a la seva oposada, així que cal comptar-les totes dues.</span></li>
@@ -52,18 +52,18 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea total d'un ortoedre és la suma de les seves $6$ cares: $3$ parelles de rectangles iguals.</li><li>$A=2(a\cdot b+a\cdot c+b\cdot c)$, amb $a=7$, $b=2$, $c=4$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=2(7\cdot2+7\cdot4+2\cdot4)=2(14+28+8)$</li><li>$A=2\cdot50=100$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">170b</span><span class="tip">tipus A</span></div>
-<div class="enun">Calcula l'àrea total d'aquests prismes rectes.</div>
+<div class="it"><div class="cap"><span class="cod">170b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base triangular equilàtera de $5$ cm de costat i $9$ cm d'altura.</div>
 <ol class="op"><li><span class="ok">$\approx156{,}65$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx146{,}25$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta comptar les DUES bases triangulars, no només una: l'àrea total inclou $2\cdot A_{\text{base}}$, no $1$ sola.</span></li>
-<li>$\approx67{,}5$ cm$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest valor només és l'àrea lateral ($15\cdot9:2$, a més amb una divisió de més); l'àrea lateral d'un prisma no es divideix entre $2$, i encara cal sumar-hi les dues bases.</span></li>
+<li>$\approx67{,}5$ cm$^2$<br><span class="err">DIVISIO_REPETIDA</span><span class="fb">Aquest valor només és l'àrea lateral ($15\cdot9:2$, a més amb una divisió de més); l'àrea lateral d'un prisma no es divideix entre $2$, i encara cal sumar-hi les dues bases.</span></li>
 <li>$\approx175{,}95$ cm$^2$<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $2\cdot A_{\text{base}}+15\cdot9$: revisa per separat l'àrea del triangle equilàter i l'àrea lateral.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea d'un triangle equilàter de costat $c$ és $A_{\text{base}}=\dfrac{c^2\sqrt3}{4}$; amb $c=5$, $A_{\text{base}}\approx10{,}83$ cm$^2$.</li><li>El perímetre de la base és $3\cdot5=15$ cm; l'àrea lateral és $15\cdot9=135$ cm$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$</li><li>$A_{\text{lateral}}=15\cdot9=135$ cm$^2$</li><li>$A_{\text{total}}=2\cdot10{,}83+135\approx156{,}65$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">170c</span><span class="tip">tipus A</span></div>
-<div class="enun">Calcula l'àrea total d'aquests prismes rectes.</div>
+<div class="it"><div class="cap"><span class="cod">170c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $5{,}2$ cm d'apotema, amb $6$ cm d'altura.</div>
 <ol class="op"><li><span class="ok">$537{,}6$ cm$^2$</span> — resposta correcta</li>
 <li>$288$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($48\cdot6$): encara falta sumar-hi les dues bases hexagonals.</span></li>
 <li>$374{,}4$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que només has comptat UNA base hexagonal en lloc de dues: un prisma sempre en té dues, una a cada extrem.</span></li>
@@ -72,8 +72,8 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea d'un polígon regular és $A_{\text{base}}=\dfrac{\text{perímetre}\cdot\text{apotema}}{2}$; amb perímetre $6\cdot8=48$ cm i apotema $5{,}2$ cm, $A_{\text{base}}=124{,}8$ cm$^2$.</li><li>L'àrea lateral és $48\cdot6=288$ cm$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{48\cdot5{,}2}{2}=124{,}8$ cm$^2$</li><li>$A_{\text{lateral}}=48\cdot6=288$ cm$^2$</li><li>$A_{\text{total}}=2\cdot124{,}8+288=537{,}6$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">170d</span><span class="tip">tipus A</span></div>
-<div class="enun">Calcula l'àrea total d'aquests prismes rectes.</div>
+<div class="it"><div class="cap"><span class="cod">170d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base pentagonal regular de $5$ cm de costat i $3{,}44$ cm d'apotema, amb $12$ cm d'altura.</div>
 <ol class="op"><li><span class="ok">$386$ cm$^2$</span> — resposta correcta</li>
 <li>$300$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($25\cdot12$): encara falta sumar-hi les dues bases pentagonals.</span></li>
 <li>$343$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que només has comptat UNA base pentagonal en lloc de dues.</span></li>
@@ -82,8 +82,8 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Perímetre de la base: $5\cdot5=25$ cm; $A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$.</li><li>Àrea lateral: $25\cdot12=300$ cm$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$</li><li>$A_{\text{lateral}}=25\cdot12=300$ cm$^2$</li><li>$A_{\text{total}}=2\cdot43+300=386$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">170e</span><span class="tip">tipus A</span></div>
-<div class="enun">Calcula l'àrea total d'aquests prismes rectes.</div>
+<div class="it"><div class="cap"><span class="cod">170e</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de $5$ cm d'altura amb la base en forma de triangle rectangle de catets $6$ cm i $8$ cm.</div>
 <ol class="op"><li><span class="ok">$168$ cm$^2$</span> — resposta correcta</li>
 <li>$120$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($24\cdot5$): encara falta sumar-hi les dues bases triangulars.</span></li>
 <li>$158$ cm$^2$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">No has fet servir la hipotenusa ($10$ cm, per Pitàgores) en el perímetre de la base: el perímetre del triangle rectangle és $6+8+10=24$ cm, no $6+8=14$ cm.</span></li>
@@ -93,7 +93,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$</li><li>Hipotenusa: $\sqrt{6^2+8^2}=10$ cm; perímetre $=24$ cm</li><li>$A_{\text{total}}=2\cdot24+24\cdot5=48+120=168$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 171.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">171</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">171</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un prisma recte de base triangular equilàtera de costat $2$ cm i altura $3$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx21{,}46$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx18$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($6\cdot3$): encara falta sumar-hi les dues bases triangulars.</span></li>
@@ -104,7 +104,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{2^2\sqrt3}{4}\approx1{,}73$ cm$^2$</li><li>$A_{\text{lateral}}=6\cdot3=18$ cm$^2$</li><li>$A_{\text{total}}\approx2\cdot1{,}73+18\approx21{,}46$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 172.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">172</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">172</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un prisma hexagonal regular de costat $8$ cm i altura $10$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx812{,}55$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx480$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($48\cdot10$): encara falta sumar-hi les dues bases hexagonals.</span></li>
@@ -115,7 +115,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=\dfrac{8\sqrt3}{2}\approx6{,}93$ cm</li><li>$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}\approx166{,}28$ cm$^2$</li><li>$A_{\text{lateral}}=48\cdot10=480$ cm$^2$</li><li>$A_{\text{total}}\approx2\cdot166{,}28+480\approx812{,}55$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 173.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">173</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">173</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un prisma hexagonal regular de costat $6$ cm i altura $10$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx547{,}06$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx360$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($36\cdot10$): encara falta sumar-hi les dues bases hexagonals.</span></li>
@@ -126,21 +126,21 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=\dfrac{6\sqrt3}{2}\approx5{,}2$ cm</li><li>$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ cm$^2$</li><li>$A_{\text{lateral}}=36\cdot10=360$ cm$^2$</li><li>$A_{\text{total}}\approx2\cdot93{,}53+360\approx547{,}06$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 174.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">174</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">174</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">L'àrea total d'un cub és $24$ cm$^2$. Calcula la longitud de la seva diagonal.</div>
 <ol class="op"><li><span class="ok">$\approx3{,}46$ cm</span> — resposta correcta</li>
 <li>$4$ cm<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Sembla que has confós la diagonal del cub amb l'aresta de cara al quadrat, o has fet una arrel malament: comprova primer $L=\sqrt{24:6}=2$ cm i després aplica $d=L\sqrt3$.</span></li>
 <li>$\approx2{,}83$ cm<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquesta és la diagonal d'una CARA del cub ($L\sqrt2$), no la diagonal del cub sencer, que travessa l'interior i és més llarga: $d=L\sqrt3$.</span></li>
-<li>$2$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és l'aresta del cub, no la diagonal: encara falta multiplicar per $\sqrt3$.</span></li>
+<li>$2$ cm<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és l'aresta del cub, no la diagonal: encara falta multiplicar per $\sqrt3$.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un cub té $6$ cares iguals, així que l'aresta compleix $6L^2=24 \Rightarrow L^2=4 \Rightarrow L=2$ cm.</li><li>La diagonal del cub és $d=L\sqrt3$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=\sqrt{24:6}=\sqrt4=2$ cm</li><li>$d=L\sqrt3=2\sqrt3\approx3{,}46$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 175.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">175</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">175</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la seva diagonal.</div>
 <ol class="op"><li><span class="ok">$\approx8{,}66$ m</span> — resposta correcta</li>
-<li>$5$ m<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és l'aresta del cub, no la diagonal: encara falta multiplicar per $\sqrt3$.</span></li>
+<li>$5$ m<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és l'aresta del cub, no la diagonal: encara falta multiplicar per $\sqrt3$.</span></li>
 <li>$\approx7{,}07$ m<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquesta és la diagonal d'una CARA del cub ($L\sqrt2$), no la diagonal del cub sencer: cal $d=L\sqrt3$.</span></li>
 <li>$25$ m<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">No has fet l'arrel quadrada de $150:6=25$: l'aresta és $L=\sqrt{25}=5$ m, no $25$ m.</span></li>
 </ol>
@@ -148,17 +148,17 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=\sqrt{150:6}=\sqrt{25}=5$ m</li><li>$d=L\sqrt3=5\sqrt3\approx8{,}66$ m</li></ol>
 </div>
 <p class="sec"><strong>Exercici 176.</strong> En un estudi d&#x27;arquitectura s&#x27;ha dissenyat un edifici que té forma de prisma recte, de $20$ m d&#x27;altura, amb una base triangular equilàtera de $6$ m de costat.</p>
-<div class="it"><div class="cap"><span class="cod">176a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">176a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea lateral de l'edifici?</div>
 <ol class="op"><li><span class="ok">$360$ m$^2$</span> — resposta correcta</li>
-<li>$\approx15{,}59$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és l'àrea d'una base triangular, no l'àrea lateral: l'àrea lateral és perímetre per altura, no depèn de la fórmula del triangle equilàter.</span></li>
+<li>$\approx15{,}59$ m$^2$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és l'àrea d'una base triangular, no l'àrea lateral: l'àrea lateral és perímetre per altura, no depèn de la fórmula del triangle equilàter.</span></li>
 <li>$\approx391{,}18$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor ja inclou les dues bases triangulars: aquí només es demana l'àrea LATERAL, sense les bases.</span></li>
 <li>$240$ m$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">No coincideix amb $18\cdot20$: comprova que el perímetre de la base ($3\cdot6=18$ m) és correcte abans de multiplicar-lo per l'altura.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El perímetre de la base triangular és $3\cdot6=18$ m.</li><li>Àrea lateral d'un prisma: perímetre de la base per l'altura.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{lateral}}=18\cdot20$</li><li>$A_{\text{lateral}}=360$ m$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">176b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">176b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea total de l'edifici?</div>
 <ol class="op"><li><span class="ok">$\approx391{,}18$ m$^2$</span> — resposta correcta</li>
 <li>$360$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral (l'apartat anterior): encara falta sumar-hi les dues bases triangulars.</span></li>
@@ -170,39 +170,39 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <h2>Piràmides i tetraedres <span class="tip">· 11 preguntes</span></h2>
 <p class="sec"><strong>Exercici 177.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">177</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">177</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Una piràmide pentagonal regular té la base de costat $4$ cm i apotema $2{,}75$ cm; l'apotema de la piràmide és $11{,}83$ cm. Calcula la seva àrea total.</div>
 <ol class="op"><li><span class="ok">$145{,}8$ cm$^2$</span> — resposta correcta</li>
 <li>$118{,}3$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi l'àrea de la base pentagonal.</span></li>
-<li>$27{,}5$ cm$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
+<li>$27{,}5$ cm$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$236{,}6$ cm$^2$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Sembla que no has dividit per $2$ l'àrea lateral: $A_{\text{lateral}}=\dfrac{\text{perímetre}\cdot\text{apotema piràmide}}{2}$, no sense dividir.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Perímetre de la base: $5\cdot4=20$ cm; $A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$.</li><li>$A_{\text{lateral}}=\dfrac{20\cdot11{,}83}{2}=118{,}3$ cm$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$</li><li>$A_{\text{lateral}}=\dfrac{20\cdot11{,}83}{2}=118{,}3$ cm$^2$</li><li>$A_{\text{total}}=27{,}5+118{,}3=145{,}8$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 179.</strong> Dues piràmides regulars.</p>
-<div class="it"><div class="cap"><span class="cod">179a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">179a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Una piràmide quadrangular regular té la base de costat $25$ m i l'apotema de la piràmide fa $34$ m. Calcula la seva àrea total.</div>
 <ol class="op"><li><span class="ok">$2325$ m$^2$</span> — resposta correcta</li>
-<li>$1700$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea lateral: encara falta sumar-hi l'àrea de la base quadrada.</span></li>
+<li>$1700$ m$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea lateral: encara falta sumar-hi l'àrea de la base quadrada.</span></li>
 <li>$625$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$3400$ m$^2$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Sembla que no has dividit per $2$ l'àrea lateral.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea de la base: $A_{\text{base}}=25^2=625$ m$^2$.</li><li>Perímetre $=4\cdot25=100$ m; $A_{\text{lateral}}=\dfrac{100\cdot34}{2}=1700$ m$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=25^2=625$ m$^2$</li><li>$A_{\text{lateral}}=\dfrac{100\cdot34}{2}=1700$ m$^2$</li><li>$A_{\text{total}}=625+1700=2325$ m$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">179b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">179b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Una piràmide hexagonal regular té la base de costat $6$ m i l'altura de la piràmide (no l'apotema) fa $9$ m. Calcula la seva àrea total.</div>
 <ol class="op"><li><span class="ok">$\approx280{,}59$ m$^2$</span> — resposta correcta</li>
 <li>$\approx187{,}06$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi l'àrea de la base hexagonal.</span></li>
-<li>$\approx93{,}53$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
+<li>$\approx93{,}53$ m$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$\approx254{,}53$ m$^2$<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Sembla que has fet servir directament l'altura de la piràmide ($9$ m) com si fos l'apotema de la piràmide en comptes de calcular-la amb Pitàgores a partir de l'altura i l'apotema de la base.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Apotema de la base: $a_{\text{base}}=\dfrac{6\sqrt3}{2}\approx5{,}2$ m.</li><li>Apotema de la piràmide (Pitàgores, amb l'altura $9$ m i $a_{\text{base}}$): $\sqrt{9^2+5{,}2^2}\approx10{,}39$ m.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_{\text{base}}\approx5{,}2$ m</li><li>$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ m$^2$</li><li>$a_{\text{piràmide}}=\sqrt{9^2+5{,}2^2}\approx10{,}39$ m</li><li>$A_{\text{lateral}}=\dfrac{36\cdot10{,}39}{2}\approx187{,}06$ m$^2$</li><li>$A_{\text{total}}\approx93{,}53+187{,}06\approx280{,}59$ m$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 180.</strong> Calcula l&#x27;àrea total d&#x27;un tetraedre regular d&#x27;aresta:</p>
-<div class="it"><div class="cap"><span class="cod">180a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">180a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un tetraedre regular d'aresta: $3$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx15{,}59$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx3{,}9$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Un tetraedre regular té $4$ cares triangulars iguals, no $1$: aquest valor només és l'àrea d'UNA cara.</span></li>
@@ -212,7 +212,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada cara és un triangle equilàter d'àrea $\dfrac{L^2\sqrt3}{4}$, i n'hi ha $4$ d'iguals.</li><li>Àrea total: $A=4\cdot\dfrac{L^2\sqrt3}{4}=L^2\sqrt3$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=L^2\sqrt3=3^2\cdot\sqrt3$</li><li>$A\approx15{,}59$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">180b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">180b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un tetraedre regular d'aresta: $5$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx43{,}3$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx10{,}82$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Un tetraedre regular té $4$ cares triangulars iguals, no $1$: aquest valor només és l'àrea d'UNA cara.</span></li>
@@ -222,7 +222,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada cara és un triangle equilàter d'àrea $\dfrac{L^2\sqrt3}{4}$, i n'hi ha $4$ d'iguals.</li><li>Àrea total: $A=4\cdot\dfrac{L^2\sqrt3}{4}=L^2\sqrt3$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=L^2\sqrt3=5^2\cdot\sqrt3$</li><li>$A\approx43{,}3$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">180c</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">180c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un tetraedre regular d'aresta: $9$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx140{,}3$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx35{,}08$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Un tetraedre regular té $4$ cares triangulars iguals, no $1$: aquest valor només és l'àrea d'UNA cara.</span></li>
@@ -232,7 +232,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada cara és un triangle equilàter d'àrea $\dfrac{L^2\sqrt3}{4}$, i n'hi ha $4$ d'iguals.</li><li>Àrea total: $A=4\cdot\dfrac{L^2\sqrt3}{4}=L^2\sqrt3$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=L^2\sqrt3=9^2\cdot\sqrt3$</li><li>$A\approx140{,}3$ cm$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">180d</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">180d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un tetraedre regular d'aresta: $6{,}2$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx66{,}58$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx16{,}64$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Un tetraedre regular té $4$ cares triangulars iguals, no $1$: aquest valor només és l'àrea d'UNA cara.</span></li>
@@ -243,31 +243,31 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A=L^2\sqrt3=6{,}2^2\cdot\sqrt3$</li><li>$A\approx66{,}58$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 181.</strong> Dues piràmides regulars.</p>
-<div class="it"><div class="cap"><span class="cod">181a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">181a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Una piràmide quadrangular regular té la base de costat $8$ m i l'altura (no l'apotema) fa $10$ m. Calcula la seva àrea total.</div>
 <ol class="op"><li><span class="ok">$\approx236{,}33$ m$^2$</span> — resposta correcta</li>
 <li>$\approx172{,}33$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi l'àrea de la base quadrada.</span></li>
-<li>$\approx64$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
+<li>$\approx64$ m$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$\approx384$ m$^2$<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Sembla que has fet servir directament l'altura de la piràmide ($10$ m) com a apotema de la piràmide, sense aplicar Pitàgores amb l'apotema de la base.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Apotema de la piràmide (Pitàgores): amb altura $10$ m i apotema de la base $4$ m, $\sqrt{10^2+4^2}\approx10{,}77$ m.</li><li>$A_{\text{base}}=8^2=64$ m$^2$; $A_{\text{lateral}}=\dfrac{32\cdot10{,}77}{2}\approx172{,}33$ m$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_{\text{piràmide}}=\sqrt{10^2+4^2}\approx10{,}77$ m</li><li>$A_{\text{lateral}}=\dfrac{32\cdot10{,}77}{2}\approx172{,}33$ m$^2$</li><li>$A_{\text{total}}\approx64+172{,}33\approx236{,}33$ m$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">181b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">181b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Una piràmide hexagonal regular té la base de costat $6$ m i l'altura (no l'apotema) fa $8$ m. Calcula la seva àrea total.</div>
 <ol class="op"><li><span class="ok">$\approx265{,}24$ m$^2$</span> — resposta correcta</li>
 <li>$\approx171{,}71$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi l'àrea de la base hexagonal.</span></li>
-<li>$\approx93{,}53$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
+<li>$\approx93{,}53$ m$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$\approx388$ m$^2$<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Sembla que has fet servir directament l'altura de la piràmide ($8$ m) com a apotema de la piràmide, sense aplicar Pitàgores amb l'apotema de la base.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Apotema de la base: $\approx5{,}2$ m; apotema de la piràmide (Pitàgores amb l'altura $8$ m): $\sqrt{8^2+5{,}2^2}\approx9{,}54$ m.</li><li>$A_{\text{base}}\approx93{,}53$ m$^2$; $A_{\text{lateral}}\approx\dfrac{36\cdot9{,}54}{2}\approx171{,}71$ m$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_{\text{base}}\approx5{,}2$ m</li><li>$a_{\text{piràmide}}=\sqrt{8^2+5{,}2^2}\approx9{,}54$ m</li><li>$A_{\text{lateral}}\approx\dfrac{36\cdot9{,}54}{2}\approx171{,}71$ m$^2$</li><li>$A_{\text{total}}\approx93{,}53+171{,}71\approx265{,}24$ m$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 182.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">182</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">182</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Quina aresta té un cub que té la mateixa àrea total que una piràmide d'àrea total $4$ cm$^2$?</div>
 <ol class="op"><li><span class="ok">$\approx0{,}82$ cm</span> — resposta correcta</li>
-<li>$4$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">L'àrea total del cub no és directament l'aresta: cal aïllar $L$ de $6L^2=4$, no fer servir $4$ directament com a aresta.</span></li>
+<li>$4$ cm<br><span class="err">ARREL_OBLIDADA</span><span class="fb">L'àrea total del cub no és directament l'aresta: cal aïllar $L$ de $6L^2=4$, no fer servir $4$ directament com a aresta.</span></li>
 <li>$\approx0{,}67$ cm<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">No coincideix amb $\sqrt{4:6}$: comprova que divideixes l'àrea entre $6$ cares abans de fer l'arrel quadrada.</span></li>
 <li>$24$ cm<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">Sembla que has multiplicat $4\cdot6$ en lloc de dividir $4:6$: la relació és $6L^2=4$, per tant $L^2=4:6$.</span></li>
 </ol>
@@ -275,10 +275,10 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6L^2=4 \Rightarrow L^2=4:6\approx0{,}67$</li><li>$L=\sqrt{0{,}67}\approx0{,}82$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 183.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">183</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">183</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Una piràmide hexagonal regular té la base de costat $3$ cm i l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un tetraedre regular perquè la seva àrea total sigui la mateixa?</div>
 <ol class="op"><li><span class="ok">$\approx8{,}09$ cm</span> — resposta correcta</li>
-<li>$\approx113{,}38$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és l'àrea total de la piràmide (en cm$^2$), no l'aresta del tetraedre: encara falta aïllar $L$ de $L^2\sqrt3\approx113{,}38$.</span></li>
+<li>$\approx113{,}38$ cm<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Aquesta és l'àrea total de la piràmide (en cm$^2$), no l'aresta del tetraedre: encara falta aïllar $L$ de $L^2\sqrt3\approx113{,}38$.</span></li>
 <li>$\approx65{,}46$ cm<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Aquest és el valor de $L^2$ ($113{,}38:\sqrt3$), no de $L$: encara falta fer l'arrel quadrada.</span></li>
 <li>$\approx6{,}53$ cm<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb $\sqrt{113{,}38:\sqrt3}$: comprova que divideixes per $\sqrt3$ (no per $3$) abans de fer l'arrel.</span></li>
 </ol>
@@ -287,18 +287,18 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <h2>Cilindres, cons i l'esfera <span class="tip">· 11 preguntes</span></h2>
 <p class="sec"><strong>Exercici 184.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">184</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">184</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. En dibuixar-ne el desenvolupament pla, el rectangle lateral té una amplada igual a la longitud de la circumferència de la base. Calcula aquesta longitud.</div>
 <ol class="op"><li><span class="ok">$\approx18{,}84$ cm</span> — resposta correcta</li>
 <li>$\approx9{,}42$ cm<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Has fet servir el radi ($3$ cm) en lloc del diàmetre a la fórmula: la longitud és $L=2\pi r=\pi d$, comprova que multipliques per $2$ el radi, o directament pel diàmetre.</span></li>
 <li>$\approx28{,}26$ cm<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $2\pi\cdot3$: revisa el producte pas a pas amb $\pi\approx3{,}14$.</span></li>
-<li>$54$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest valor no fa servir $\pi$: la longitud d'una circumferència sempre és $2\pi r$, no un simple producte de nombres enters.</span></li>
+<li>$54$ cm<br><span class="err">PI_OBLIDAT</span><span class="fb">Aquest valor no fa servir $\pi$: la longitud d'una circumferència sempre és $2\pi r$, no un simple producte de nombres enters.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El diàmetre és $6$ cm, així que el radi és $3$ cm.</li><li>La longitud de la circumferència és $L=2\pi r$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=2\pi r=2\cdot3{,}14\cdot3$</li><li>$L\approx18{,}84$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 185.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">185a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">185a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula l'àrea total d'un cilindre de radi $7$ m i altura $10$ m.</div>
 <ol class="op"><li><span class="ok">$\approx747{,}32$ m$^2$</span> — resposta correcta</li>
 <li>$\approx439{,}6$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi les dues bases circulars.</span></li>
@@ -308,7 +308,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea de la base: $A_{\text{base}}=\pi r^2\approx153{,}86$ m$^2$.</li><li>Àrea lateral: $A_{\text{lateral}}=2\pi rh\approx439{,}6$ m$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\pi\cdot7^2\approx153{,}86$ m$^2$</li><li>$A_{\text{lateral}}=2\pi\cdot7\cdot10\approx439{,}6$ m$^2$</li><li>$A_{\text{total}}\approx2\cdot153{,}86+439{,}6\approx747{,}32$ m$^2$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">185b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">185b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula l'àrea total d'un cilindre de diàmetre de la base $12$ m i altura $5$ m.</div>
 <ol class="op"><li><span class="ok">$\approx414{,}48$ m$^2$</span> — resposta correcta</li>
 <li>$\approx188{,}4$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi les dues bases circulars.</span></li>
@@ -319,7 +319,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=12:2=6$ m</li><li>$A_{\text{base}}=\pi\cdot6^2\approx113{,}04$ m$^2$</li><li>$A_{\text{lateral}}=2\pi\cdot6\cdot5\approx188{,}4$ m$^2$</li><li>$A_{\text{total}}\approx2\cdot113{,}04+188{,}4\approx414{,}48$ m$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 186.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">186</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">186</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. Calcula la seva altura.</div>
 <ol class="op"><li><span class="ok">$\approx12{,}05$ cm</span> — resposta correcta</li>
 <li>$75{,}66$ cm<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No has dividit pel producte complet $2\pi r$: cal dividir $756{,}6$ entre $2\cdot3{,}14\cdot10$, no només entre $10$.</span></li>
@@ -330,10 +330,10 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$h=\dfrac{756{,}6}{2\cdot3{,}14\cdot10}$</li><li>$h\approx12{,}05$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 187.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">187</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">187</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és el doble del radi. Calcula el radi i l'altura del cilindre.</div>
 <ol class="op"><li><span class="ok">$r=5$ cm, $h=10$ cm</span> — resposta correcta</li>
-<li>$r=10$ cm, $h=5$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Has intercanviat els papers del radi i l'altura: l'enunciat diu que l'altura és el DOBLE del radi, no al revés.</span></li>
+<li>$r=10$ cm, $h=5$ cm<br><span class="err">PAPERS_INTERCANVIATS</span><span class="fb">Has intercanviat els papers del radi i l'altura: l'enunciat diu que l'altura és el DOBLE del radi, no al revés.</span></li>
 <li>$r=2{,}5$ cm, $h=5$ cm<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Sembla que t'has deixat algun factor en substituir $h=2r$ dins $A_{\text{total}}=2\pi r^2+2\pi rh$: revisa que quedi $A_{\text{total}}=6\pi r^2$.</span></li>
 <li>$r=15{,}7$ cm, $h=31{,}4$ cm<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb aïllar $r$ de $6\pi r^2=471$: comprova que divideixes per $6\pi$ (no per un altre factor) abans de fer l'arrel quadrada.</span></li>
 </ol>
@@ -341,29 +341,29 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6\pi r^2=471 \Rightarrow r^2=\dfrac{471}{6\cdot3{,}14}=25$</li><li>$r=\sqrt{25}=5$ cm $\Rightarrow h=2\cdot5=10$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 188.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">188</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">188</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Un con té $4$ cm de radi de la base i $15$ cm de generatriu. Calcula la longitud de l'arc que descriu la base en desplegar la superfície lateral del con (és a dir, la longitud de la circumferència de la base).</div>
 <ol class="op"><li><span class="ok">$\approx25{,}12$ cm</span> — resposta correcta</li>
 <li>$\approx94{,}2$ cm<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Aquest valor fa servir la generatriu ($15$ cm) com a radi: la longitud de la circumferència de la base depèn del radi de la base ($4$ cm), no de la generatriu.</span></li>
 <li>$\approx12{,}56$ cm<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $2\pi\cdot4$: revisa el producte amb $\pi\approx3{,}14$.</span></li>
-<li>$19$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest valor no fa servir $\pi$: la longitud d'una circumferència sempre és $2\pi r$.</span></li>
+<li>$19$ cm<br><span class="err">PI_OBLIDAT</span><span class="fb">Aquest valor no fa servir $\pi$: la longitud d'una circumferència sempre és $2\pi r$.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La circumferència de la base d'un con té radi igual al radi del con, $4$ cm (la generatriu no hi intervé).</li><li>Longitud: $L=2\pi r$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=2\pi r=2\cdot3{,}14\cdot4$</li><li>$L\approx25{,}12$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 189.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">189</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">189</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Calcula l'àrea total d'un con de $8$ cm de diàmetre de la base i $12$ cm de generatriu.</div>
 <ol class="op"><li><span class="ok">$\approx200{,}96$ cm$^2$</span> — resposta correcta</li>
 <li>$\approx150{,}72$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral: encara falta sumar-hi l'àrea de la base circular.</span></li>
-<li>$\approx50{,}24$ cm$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
+<li>$\approx50{,}24$ cm$^2$<br><span class="err">SUMA_DE_PARTS_INCOMPLETA</span><span class="fb">Aquesta és només l'àrea de la base: encara falta sumar-hi l'àrea lateral.</span></li>
 <li>$\approx552{,}64$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que has fet servir el diàmetre ($8$ cm) directament com a radi: el radi de la base és la meitat del diàmetre, $4$ cm.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El radi de la base és la meitat del diàmetre: $4$ cm.</li><li>$A_{\text{base}}=\pi r^2\approx50{,}24$ cm$^2$; $A_{\text{lateral}}=\pi rg\approx150{,}72$ cm$^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=8:2=4$ cm</li><li>$A_{\text{base}}=\pi\cdot4^2\approx50{,}24$ cm$^2$</li><li>$A_{\text{lateral}}=\pi\cdot4\cdot12\approx150{,}72$ cm$^2$</li><li>$A_{\text{total}}\approx50{,}24+150{,}72\approx200{,}96$ cm$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 190.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">190</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">190</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Un con té $13$ cm de generatriu i $5$ cm de radi de la base. Calcula la seva altura.</div>
 <ol class="op"><li><span class="ok">$12$ cm</span> — resposta correcta</li>
 <li>$18$ cm<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has sumat generatriu i radi ($13+5$) en lloc d'aplicar Pitàgores: l'altura, el radi i la generatriu formen un triangle rectangle amb la generatriu com a hipotenusa.</span></li>
@@ -374,10 +374,10 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$h=\sqrt{13^2-5^2}=\sqrt{169-25}=\sqrt{144}$</li><li>$h=12$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 191.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">191</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">191</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.</div>
 <ol class="op"><li><span class="ok">$8$ cm</span> — resposta correcta</li>
-<li>$64$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest és el valor de $r^2$ ($803{,}84:4\pi$), no de $r$: encara falta fer l'arrel quadrada.</span></li>
+<li>$64$ cm<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Aquest és el valor de $r^2$ ($803{,}84:4\pi$), no de $r$: encara falta fer l'arrel quadrada.</span></li>
 <li>$\approx15{,}98$ cm<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">No coincideix amb dividir entre $4\pi$: sembla que només has dividit entre $\pi$, sense el factor $4$ de la fórmula de l'àrea de l'esfera.</span></li>
 <li>$\approx200{,}96$ cm<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb aïllar $r$ de $4\pi r^2=803{,}84$: comprova que divideixes (no multipliques) per $4\pi$.</span></li>
 </ol>
@@ -385,17 +385,17 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r^2=\dfrac{803{,}84}{4\cdot3{,}14}=64$</li><li>$r=\sqrt{64}=8$ cm</li></ol>
 </div>
 <p class="sec"><strong>Exercici 193.</strong> Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base.</p>
-<div class="it"><div class="cap"><span class="cod">193a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">193a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea lateral coincideixi amb l'àrea lateral del cilindre?</div>
 <ol class="op"><li><span class="ok">$20$ cm</span> — resposta correcta</li>
-<li>$10$ cm<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest valor és el radi, no la generatriu que fa que coincideixin les àrees laterals: cal igualar $2\pi rh_{\text{cil}}=\pi rg$ i aïllar $g$.</span></li>
+<li>$10$ cm<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest valor és el radi, no la generatriu que fa que coincideixin les àrees laterals: cal igualar $2\pi rh_{\text{cil}}=\pi rg$ i aïllar $g$.</span></li>
 <li>$40$ cm<br><span class="err">PRODUCTE_MAL</span><span class="fb">Duplica el resultat correcte: revisa que, en igualar $2\pi\cdot10\cdot10=\pi\cdot10\cdot g$, el factor $2$ d'un costat es cancel·la correctament amb l'altre.</span></li>
 <li>$\approx31{,}85$ cm<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Aquest exercici no necessita cap arrel quadrada: l'àrea lateral del con és lineal en $g$, no hi intervé cap Pitàgores en aquest apartat.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea lateral del cilindre: $A_{\text{lateral,cil}}=2\pi rh\approx628$ cm$^2$.</li><li>Iguala-la a l'àrea lateral del con, $\pi rg$, i aïlla $g$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2\pi\cdot10\cdot10=\pi\cdot10\cdot g$</li><li>$g=\dfrac{2\cdot10\cdot10}{10}=20$ cm</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">193b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">193b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea total coincideixi amb l'àrea total del cilindre?</div>
 <ol class="op"><li><span class="ok">$30$ cm</span> — resposta correcta</li>
 <li>$20$ cm<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest és el valor de l'apartat anterior (igualant només les àrees laterals): aquí cal igualar les àrees TOTALS, que també inclouen les bases circulars.</span></li>
@@ -407,40 +407,41 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <h2>Volums i problemes aplicats <span class="tip">· 9 preguntes</span></h2>
 <p class="sec"><strong>Exercici 195.</strong> Calcula el volum d&#x27;aquest cos geomètric:</p>
-<div class="it"><div class="cap"><span class="cod">195a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">195a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula el volum d'aquest cos geomètric: una piràmide quadrangular regular de costat de base $4$ cm i altura $2$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx10{,}67$ cm$^3$</span> — resposta correcta</li>
-<li>$32$ cm$^3$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">No has dividit entre $3$: el volum d'una piràmide és $V=\dfrac{A_{\text{base}}\cdot h}{3}$, no $A_{\text{base}}\cdot h$ sense dividir.</span></li>
+<li>$32$ cm$^3$<br><span class="err">FACTOR_TRES_VOLUM</span><span class="fb">No has dividit entre $3$: el volum d'una piràmide és $V=\dfrac{A_{\text{base}}\cdot h}{3}$, no $A_{\text{base}}\cdot h$ sense dividir.</span></li>
 <li>$\approx21{,}33$ cm$^3$<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb $\dfrac{16\cdot2}{3}$: sembla que has dividit per $1{,}5$ en lloc de per $3$.</span></li>
 <li>$8$ cm$^3$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">L'àrea de la base d'un quadrat de costat $4$ cm és $16$ cm$^2$, no $4$ cm$^2$: comprova que has elevat el costat al quadrat.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea de la base: $A_{\text{base}}=4^2=16$ cm$^2$.</li><li>Volum d'una piràmide: $V=\dfrac{A_{\text{base}}\cdot h}{3}$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$V=\dfrac{16\cdot2}{3}$</li><li>$V\approx10{,}67$ cm$^3$</li></ol>
+<p class="nota"><strong>Nota:</strong> D'aquest exercici hi ha els apartats a, c, e i f: els altres eren cossos que no es poden identificar amb seguretat sense la figura.</p>
 </div>
-<div class="it"><div class="cap"><span class="cod">195c</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">195c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula el volum d'aquest cos geomètric: un cilindre de radi $4$ cm i altura $4$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx200{,}96$ cm$^3$</span> — resposta correcta</li>
 <li>$\approx50{,}24$ cm$^3$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Aquest valor és l'àrea de la base, no el volum: encara falta multiplicar-la per l'altura.</span></li>
-<li>$\approx66{,}99$ cm$^3$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Has dividit entre $3$: el volum d'un CILINDRE no es divideix entre $3$ (això només passa amb piràmides i cons).</span></li>
+<li>$\approx66{,}99$ cm$^3$<br><span class="err">FACTOR_TRES_VOLUM</span><span class="fb">Has dividit entre $3$: el volum d'un CILINDRE no es divideix entre $3$ (això només passa amb piràmides i cons).</span></li>
 <li>$\approx401{,}92$ cm$^3$<br><span class="err">PRODUCTE_MAL</span><span class="fb">Duplica el resultat correcte: revisa el producte $\pi\cdot4^2\cdot4$ pas a pas.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea de la base: $A_{\text{base}}=\pi r^2\approx50{,}24$ cm$^2$.</li><li>Volum d'un cilindre: $V=A_{\text{base}}\cdot h$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$V=\pi\cdot4^2\cdot4$</li><li>$V\approx200{,}96$ cm$^3$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">195e</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">195e</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula el volum d'aquest cos geomètric: un con de radi $1{,}5$ cm i altura $5$ cm.</div>
 <ol class="op"><li><span class="ok">$\approx11{,}78$ cm$^3$</span> — resposta correcta</li>
-<li>$\approx35{,}33$ cm$^3$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">No has dividit entre $3$: el volum d'un con és $V=\dfrac{A_{\text{base}}\cdot h}{3}$, no $A_{\text{base}}\cdot h$ sense dividir.</span></li>
+<li>$\approx35{,}33$ cm$^3$<br><span class="err">FACTOR_TRES_VOLUM</span><span class="fb">No has dividit entre $3$: el volum d'un con és $V=\dfrac{A_{\text{base}}\cdot h}{3}$, no $A_{\text{base}}\cdot h$ sense dividir.</span></li>
 <li>$\approx23{,}55$ cm$^3$<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb $\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$: sembla que t'has deixat el factor $3$ del denominador a mitges.</span></li>
 <li>$\approx7{,}85$ cm$^3$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">L'àrea de la base és $\pi\cdot1{,}5^2\approx7{,}07$ cm$^2$, no $\pi\cdot1{,}5\approx4{,}71$ cm$^2$: comprova que has elevat el radi al quadrat.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Àrea de la base: $A_{\text{base}}=\pi r^2\approx7{,}07$ cm$^2$.</li><li>Volum d'un con: $V=\dfrac{A_{\text{base}}\cdot h}{3}$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$V=\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$</li><li>$V\approx11{,}78$ cm$^3$</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">195f</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">195f</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Calcula el volum d'aquest cos geomètric: un cub d'aresta $4$ cm.</div>
 <ol class="op"><li><span class="ok">$64$ cm$^3$</span> — resposta correcta</li>
-<li>$16$ cm$^3$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest valor és $4^2$, no $4^3$: el volum d'un cub és $V=L^3$, no $L^2$.</span></li>
+<li>$16$ cm$^3$<br><span class="err">DIMENSIO_EXPONENT_MAL</span><span class="fb">Aquest valor és $4^2$, no $4^3$: el volum d'un cub és $V=L^3$, no $L^2$.</span></li>
 <li>$48$ cm$^3$<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb $4\cdot4\cdot4$: revisa el producte dels tres factors.</span></li>
 <li>$96$ cm$^3$<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $4^3$: comprova el càlcul de la potència pas a pas.</span></li>
 </ol>
@@ -448,20 +449,20 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$V=4^3=4\cdot4\cdot4$</li><li>$V=64$ cm$^3$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 196.</strong> Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d&#x27;altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$.</p>
-<div class="it"><div class="cap"><span class="cod">196a</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">196a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Quants pots de pintura calen com a mínim?</div>
 <ol class="op"><li><span class="ok">$3$ pots</span> — resposta correcta</li>
 <li>$2$ pots<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Amb $2$ pots només es cobreixen $60$ m$^2$, i la superfície a pintar és més gran que això: torna a calcular l'àrea total abans de dividir entre $30$.</span></li>
-<li>$2{,}8$ pots<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">El nombre de pots ha de ser un nombre enter: com que $2{,}8$ pots no basten per cobrir tota la superfície, cal arrodonir cap AMUNT, a $3$.</span></li>
+<li>$2{,}8$ pots<br><span class="err">ARRODONIMENT_CONTEXT</span><span class="fb">El nombre de pots ha de ser un nombre enter: com que $2{,}8$ pots no basten per cobrir tota la superfície, cal arrodonir cap AMUNT, a $3$.</span></li>
 <li>$4$ pots<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que has comptat alguna superfície de més (per exemple, el terra, que l'enunciat exclou explícitament): revisa quines cares s'han de pintar.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Superfície de les parets: $2(4\cdot3)+2(6\cdot3)=60$ m$^2$.</li><li>Superfície del sostre: $4\cdot6=24$ m$^2$; total $84$ m$^2$ (el terra no es pinta).</li><li>Nombre de pots: $84:30=2{,}8$, i com que amb $2$ pots no n'hi ha prou, cal arrodonir cap amunt.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{parets}}=2(4\cdot3)+2(6\cdot3)=60$ m$^2$</li><li>$A_{\text{sostre}}=4\cdot6=24$ m$^2$</li><li>$A_{\text{total}}=60+24=84$ m$^2$</li><li>$84:30=2{,}8 \Rightarrow$ calen $3$ pots</li></ol>
 </div>
-<div class="it"><div class="cap"><span class="cod">196b</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">196b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Si finalment es fan servir $4$ pots per repartir-hi tota la superfície a parts iguals, quants metres quadrats cobrirà cada pot?</div>
 <ol class="op"><li><span class="ok">$21$ m$^2$</span> — resposta correcta</li>
-<li>$30$ m$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquesta és la cobertura estàndard d'un pot ($30$ m$^2$), no el resultat de repartir els $84$ m$^2$ totals entre $4$ pots.</span></li>
+<li>$30$ m$^2$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la cobertura estàndard d'un pot ($30$ m$^2$), no el resultat de repartir els $84$ m$^2$ totals entre $4$ pots.</span></li>
 <li>$\approx28$ m$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">No coincideix amb $84:4$: comprova que fas servir la superfície total ($84$ m$^2$), no només la de les parets ($60$ m$^2$).</span></li>
 <li>$6$ m$^2$<br><span class="err">ORDRE_MULTIPLICACIO_DIVISIO</span><span class="fb">No coincideix amb $84:4$: revisa la divisió pas a pas.</span></li>
 </ol>
@@ -469,7 +470,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$84:4=21$</li><li>$21$ m$^2$ per pot</li></ol>
 </div>
 <p class="sec"><strong>Exercici 197.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">197</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">197</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">La piràmide de Kheops té una base quadrada d'aresta $215{,}25$ m i una apotema (de la piràmide) de $179{,}37$ m. Calcula la seva altura.</div>
 <ol class="op"><li><span class="ok">$\approx143{,}49$ m</span> — resposta correcta</li>
 <li>$\approx210{,}32$ m<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">Has sumat en lloc de restar dins l'arrel: la relació pitagòrica entre l'altura, l'apotema de la base i l'apotema de la piràmide és $a_{\text{piràmide}}^2=a_{\text{base}}^2+h^2$, així que cal RESTAR $a_{\text{base}}^2$, no sumar-lo.</span></li>
@@ -480,7 +481,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$h=\sqrt{179{,}37^2-107{,}625^2}$</li><li>$h\approx143{,}49$ m</li></ol>
 </div>
 <p class="sec"><strong>Exercici 198.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">198</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">198</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Una torre té la forma d'un cub de $10$ m d'aresta (sense la cara de dalt, que fa de base de la teulada) coronat per una teulada piramidal de base quadrada igual a la del cub i $12$ m d'altura. Calcula l'àrea total de la superfície exterior de la torre (parets del cub, terra del cub i teulada, sense la cara compartida entre cub i teulada).</div>
 <ol class="op"><li><span class="ok">$760$ m$^2$</span> — resposta correcta</li>
 <li>$500$ m$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta sumar-hi l'àrea lateral del cub ($400$ m$^2$) o la de la teulada ($260$ m$^2$): revisa que hi siguin les tres peces (parets, terra i teulada).</span></li>
@@ -491,23 +492,37 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{parets}}=4\cdot10^2=400$ m$^2$</li><li>$A_{\text{terra}}=10^2=100$ m$^2$</li><li>$a_{\text{teulada}}=\sqrt{12^2+5^2}=13$ m</li><li>$A_{\text{teulada}}=\dfrac{40\cdot13}{2}=260$ m$^2$</li><li>$A_{\text{total}}=400+100+260=760$ m$^2$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 199.</strong> </p>
-<div class="it"><div class="cap"><span class="cod">199</span><span class="tip">tipus A</span></div>
+<div class="it"><div class="cap"><span class="cod">199</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
 <div class="enun">Un cub i una esfera tenen el mateix volum, $125$ cm$^3$. Es vol saber quin dels dos té l'àrea total més petita (és a dir, amb quina forma caldria menys material per construir un dipòsit d'aquest volum). Calcula l'àrea total del cub per començar a comparar-ho.</div>
 <ol class="op"><li><span class="ok">$150$ cm$^2$</span> — resposta correcta</li>
-<li>$125$ cm$^2$<br><span class="err">SIMPLIFICACIO_INCOMPLETA</span><span class="fb">Aquest és el volum, no l'àrea total: primer cal aïllar l'aresta $L=\sqrt[3]{125}=5$ cm i després calcular $6L^2$.</span></li>
+<li>$125$ cm$^2$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Aquest és el volum, no l'àrea total: primer cal aïllar l'aresta $L=\sqrt[3]{125}=5$ cm i després calcular $6L^2$.</span></li>
 <li>$25$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Aquesta és l'àrea d'UNA sola cara ($5^2$), no de les $6$ cares del cub.</span></li>
 <li>$75$ cm$^2$<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $6\cdot5^2$: revisa el producte pas a pas.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aresta del cub: $V=L^3=125 \Rightarrow L=\sqrt[3]{125}=5$ cm.</li><li>Àrea total del cub: $A=6L^2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=\sqrt[3]{125}=5$ cm</li><li>$A=6\cdot5^2$</li><li>$A=150$ cm$^2$</li><li>(Per comparar: l'esfera del mateix volum té radi $r=\sqrt[3]{\frac{3\cdot125}{4\pi}}\approx3{,}10$ cm i àrea $4\pi r^2\approx120{,}88$ cm$^2$, menor que la del cub: a igualtat de volum, l'esfera necessita menys material.)</li></ol>
 </div>
+<h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>
+<tr><td>Prismes i el cub</td><td>5</td><td>3</td><td>4</td></tr>
+<tr><td>Piràmides i tetraedres</td><td>0</td><td>8</td><td>3</td></tr>
+<tr><td>Cilindres, cons i l&#x27;esfera</td><td>3</td><td>4</td><td>4</td></tr>
+<tr><td>Volums i problemes aplicats</td><td>4</td><td>0</td><td>5</td></tr>
+</table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>FACTOR_OBLIDAT</code></td><td>27</td><td>170a, 170c, 170d, 171, 172, 173, 176a, 176b, 180a, 180b, 180c, 180d, 184, 185a…</td></tr>
-<tr><td><code>SIMPLIFICACIO_INCOMPLETA</code></td><td>24</td><td>170b, 174, 175, 176a, 177, 179a, 179b, 181a, 181b, 182, 183, 184, 187, 188…</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>21</td><td>170b, 170c, 170d, 170e, 171, 172, 173, 174, 175, 176a, 176b, 177, 179a, 179b…</td></tr>
 <tr><td><code>PRODUCTE_MAL</code></td><td>18</td><td>170a, 170b, 170c, 170d, 170e, 171, 176b, 180a, 180b, 180c, 180d, 184, 188, 193a…</td></tr>
 <tr><td><code>ARREL_MAL_APLICADA</code></td><td>18</td><td>174, 175, 179b, 180a, 180b, 180c, 180d, 181a, 181b, 182, 183, 186, 187, 190…</td></tr>
 <tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>10</td><td>170e, 172, 173, 177, 179a, 185b, 190, 190, 193b, 197</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>10</td><td>182, 183, 185a, 186, 187, 191, 195a, 195e, 195f, 196b</td></tr>
+<tr><td><code>SUMA_DE_PARTS_INCOMPLETA</code></td><td>6</td><td>177, 179a, 179b, 181a, 181b, 189</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>5</td><td>174, 175, 176a, 193a, 196b</td></tr>
+<tr><td><code>ARREL_OBLIDADA</code></td><td>4</td><td>182, 183, 191, 199</td></tr>
+<tr><td><code>FACTOR_TRES_VOLUM</code></td><td>3</td><td>195a, 195c, 195e</td></tr>
+<tr><td><code>PI_OBLIDAT</code></td><td>2</td><td>184, 188</td></tr>
 <tr><td><code>POTENCIA_PRODUCTE_UN_FACTOR</code></td><td>1</td><td>170a</td></tr>
+<tr><td><code>DIVISIO_REPETIDA</code></td><td>1</td><td>170b</td></tr>
+<tr><td><code>PAPERS_INTERCANVIATS</code></td><td>1</td><td>187</td></tr>
+<tr><td><code>DIMENSIO_EXPONENT_MAL</code></td><td>1</td><td>195f</td></tr>
+<tr><td><code>ARRODONIMENT_CONTEXT</code></td><td>1</td><td>196a</td></tr>
 </table></html>

@@ -162,6 +162,26 @@ nombres nets. El procediment establert:
    per a divisors mònics. Això no s'arregla.
 5. Afegiu els ítems amb `nota` a la taula del `README.md`.
 
+**`nota` i `nota_interna` són dues coses diferents.** La `nota` la veu
+l'alumne a `practica.html`, just sota l'enunciat: ha d'explicar-li una
+decisió d'interpretació **en termes que li serveixin per resoldre
+l'exercici**. La `nota_interna` només surt al `REVISIO`: hi van les
+referències als fitxers de la font, els dubtes de transcripció i la feina
+pendent, que a l'alumne no li diuen res i el desconcerten.
+
+```python
+nota="La figura de partida no deixa clar el diàmetre de l'arc interior; "
+     "aquí es pren 6 cm, que és la meitat de l'exterior.",
+nota_interna="La imatge de la font no permet determinar-lo amb seguretat; "
+             "s'adopta la lectura del solucionari. Vegeu r-im8.tex."
+```
+
+`lib._valida()` atura la compilació si la `nota` visible parla d'un fitxer
+`.tex`, diu «cal confirmar» o «abans de publicar»: això va sempre a
+`nota_interna`. Havien arribat a producció catorze notes amb frases com
+«vegeu NOTA DE TRANSCRIPCIÓ a r-im8.tex» o «convé confirmar-ho contra la
+figura original abans de publicar».
+
 ---
 
 ## 4. Distractors i catàleg d'errors
@@ -199,6 +219,92 @@ No reordeneu, renombreu ni esborreu cap etiqueta existent: els
 
 Agrupeu-les sota una capçalera d'una línia, `# ---- <tema> (Full <N>) ----`,
 com fan les de potències, successions, polinomis, estadística i probabilitat.
+
+### 4.4 L'etiqueta ha de dir QUIN error és, no només que n'hi ha un
+
+L'etiqueta no és decoració: `hub.js` agrega les respostes fallades del full
+per etiqueta i pinta el panell **«els errors que repeteixes»** amb el text que
+`TAX` en dona. Dues conseqüències:
+
+1. **Res de calaixos de sastre.** Si poseu la mateixa etiqueta a un distractor
+   de simplificar fraccions i a un de «no es pot saber sense mesurar els
+   angles», el panell li dirà a l'alumne que busqui el m.c.d. del numerador i
+   el denominador en un problema de triangles. Va passar: `SIMPLIFICACIO_INCOMPLETA`
+   va arribar a tenir 119 usos, i només 7 tenien res a veure amb simplificar.
+   Ara està repartida, i el text del catàleg avisa de no tornar-hi.
+2. **Poseu-la al `TAX` si l'etiqueta es repetirà.** Sense entrada al catàleg,
+   el panell cau al diagnòstic del primer ítem del full que la faci servir —
+   un text ple de números d'un exercici concret, que com a resum de cinc
+   errors diferents no diu res. Per a etiquetes que només fareu servir un cop
+   això no importa (mai no sortiran com a error repetit) i no cal.
+
+Escriviu el text de `TAX` **genèric i sense números**: descriu el malentès i
+què s'ha de mirar per no repetir-lo. El diagnòstic concret, amb els números de
+l'exercici, va al `D()`; el genèric, al `TAX`. Compareu:
+
+```
+D()   -> "Aquesta és la semibase (la meitat del costat), no l'alçada: encara
+          falta aplicar Pitàgores amb aquesta semibase i el costat."
+TAX   -> "El valor que has triat és correcte, però és un pas intermedi, no el
+          que et demanen. Torna a llegir la pregunta i mira quina magnitud
+          has d'acabar donant: sovint només falta una operació més."
+```
+
+Un cop compilat, el `REVISIO-fullN.html` du al peu el **catàleg d'errors
+utilitzats** amb el recompte de cada etiqueta. Una etiqueta amb molts usos
+repartits per blocs molt diferents és el senyal que torna a ser un calaix de
+sastre: obriu-la en etiquetes específiques.
+
+---
+
+## 4bis. Graduar el full: `dificultats()`
+
+A dalt de cada `c_<tema>.py`, just després de l'import de `lib`, hi ha una
+taula que assigna un nivell a cada exercici del full:
+
+```python
+dificultats({
+      5: 1,  # descomposició factorial directa
+      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
+     12: 3,  # problemes amb context: cal decidir si toca m.c.d. o m.c.m.
+})
+```
+
+L'escala és de tres graons i està documentada a `lib.py`:
+
+| | | |
+|---|---|---|
+| **1** | directa | un sol pas: aplicar una definició o fórmula tal com s'acaba de veure, amb les dades a punt |
+| **2** | encadenada | dos o tres passos, o cal triar el mètode abans de començar |
+| **3** | completa | problema amb context, muntar l'expressió des d'un enunciat en paraules, barrejar conceptes, o justificar / detectar un error |
+
+Tres graons i prou: més no els sabríem distingir de manera fiable.
+
+**El nivell va per exercici, no per ítem.** Els apartats d'un mateix exercici
+solen ser variacions de la mateixa feina, i tenir-ho en una taula permet
+revisar la graduació sencera d'un full d'una ullada en lloc d'anar-la a
+buscar a seixanta llocs. Si un apartat concret se surt del to del seu
+exercici, passeu-li `dif=` al seu `Q()`, que té prioritat.
+
+`lib._valida()` atura la compilació si un exercici no és a la taula: no es
+pot afegir un exercici i oblidar-se de graduar-lo. Registrar dues vegades el
+mateix número amb valors diferents també atura (el Full 1 el componen quatre
+mòduls i la taula s'acumula entre tots).
+
+**Com triar el número.** No hi penseu com «quant costa» sinó com «quantes
+decisions ha de prendre l'alumne abans de començar a calcular»: cap (1), una
+(2), o ha de construir el plantejament (3). Els blocs de problemes són tots
+3 de manera natural, i els de classificar o reconèixer, tots 1; això està bé
+i no cal forçar-hi varietat.
+
+**Comproveu la graduació al `REVISIO`.** Al peu hi ha una taula «Graduació
+per bloc» amb el recompte per nivell, i marca en vermell els blocs que han
+quedat amb **un sol nivell**. Un bloc de problemes tot a 3 és correcte; un
+bloc de mecànica tot a 2 vol dir que la taula no s'ha pensat.
+
+Això importa perquè l'itinerari agafa **un exercici de cada nivell que hi
+hagi al bloc** abans de repetir-ne cap: un bloc sense graduar li dona a
+l'alumne quatre exercicis del mateix graó.
 
 ---
 

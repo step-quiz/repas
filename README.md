@@ -110,12 +110,45 @@ Cada crida escriu `data/fullN.js` i `REVISIO-fullN.html` i informa del
 recompte d'ítems i d'etiquetes d'error. La compilació és determinista: si el
 `c_<tema>.py` no canvia, la sortida és byte a byte idèntica.
 
+## Què no hi és
+
+El banc surt d'un material de repàs amb figures, i tot el que depèn d'una
+figura que no s'ha pogut llegir amb seguretat s'ha deixat fora en lloc
+d'inventar-ne les mesures. Els motius concrets són al docstring de cada
+`tools/c_<tema>.py`; el resum:
+
+| Full | Fora | Motiu |
+|---|---|---|
+| 7 | 139 sencer, 145a/b/d | La font no arriba a cap valor numèric per a aquestes figures |
+| 8 | 152d/g/h, 157 sencer | Tres rectes paral·leles il·legibles; el 157 demana mesurar amb regle sobre el dibuix |
+| 9 | 170f–j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
+| 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
+| 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
+
+Els exercicis on només falten alguns apartats (145, 152, 195) porten una
+nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
+
+Res d'això és una decisió tancada: si es recuperen les figures originals,
+els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
+
 ## Abans de publicar
 
 - **Repassa els `REVISIO-fullN.html`.** És la clau de respostes completa:
   enunciat, opcions, quina és correcta, el diagnòstic de cada distractor i la
   resolució. Un build net només garanteix que les regles de validació es
   compleixin, no que les matemàtiques i la redacció siguin bones.
+- **Mira el catàleg d'errors** del peu del `REVISIO-fullN.html`. Una etiqueta
+  amb molts usos escampats per blocs molt diferents sol voler dir que s'ha
+  fet servir de calaix de sastre, i llavors el panell «els errors que
+  repeteixes» del full mostra un consell que no té res a veure amb el que
+  l'alumne ha fallat.
+- **Comprova la taula «Graduació per bloc»** que hi ha al peu de cada
+  `REVISIO-fullN.html`. Diu quants exercicis té cada bloc a cada nivell de
+  dificultat (1 directa, 2 encadenada, 3 completa) i marca en vermell els que
+  han quedat amb un sol nivell. Un bloc de problemes tot a nivell 3 és
+  correcte; un bloc de mecànica tot a nivell 2 vol dir que la taula
+  `dificultats()` del generador no s'ha pensat, i llavors l'itinerari només
+  li podrà donar a l'alumne exercicis del mateix graó.
 - **Mira especialment els ítems amb `nota`.** Són els que han necessitat una
   decisió d'interpretació perquè la font era ambigua; la nota surt al
   fitxer de revisió i explica què s'ha assumit:
@@ -128,7 +161,7 @@ recompte d'ítems i d'etiquetes d'error. La compilació és determinista: si el
   | 4 | 62c, 67d-f, 68c, 68d, 69c |
   | 7 | 144a, 144b, 145c, 151 |
   | 8 | 152a-c, 152e, 152f, 154a-d, 165 |
-  | 10 | 202c |
+  | 10 | 200b, 202c |
   | 12 | 240c, 240d, 243 |
 
 - **Obre el lloc en un navegador de veritat.** El `<details>` del mapa, el

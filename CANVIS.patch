@@ -1,0 +1,3291 @@
+diff -ru a/AUTHORING-GUIDE.md b/AUTHORING-GUIDE.md
+--- a/AUTHORING-GUIDE.md	2026-08-04 21:17:47.808491500 +0000
++++ b/AUTHORING-GUIDE.md	2026-08-04 21:17:47.809553987 +0000
+@@ -162,6 +162,26 @@
+    per a divisors mònics. Això no s'arregla.
+ 5. Afegiu els ítems amb `nota` a la taula del `README.md`.
+ 
++**`nota` i `nota_interna` són dues coses diferents.** La `nota` la veu
++l'alumne a `practica.html`, just sota l'enunciat: ha d'explicar-li una
++decisió d'interpretació **en termes que li serveixin per resoldre
++l'exercici**. La `nota_interna` només surt al `REVISIO`: hi van les
++referències als fitxers de la font, els dubtes de transcripció i la feina
++pendent, que a l'alumne no li diuen res i el desconcerten.
++
++```python
++nota="La figura de partida no deixa clar el diàmetre de l'arc interior; "
++     "aquí es pren 6 cm, que és la meitat de l'exterior.",
++nota_interna="La imatge de la font no permet determinar-lo amb seguretat; "
++             "s'adopta la lectura del solucionari. Vegeu r-im8.tex."
++```
++
++`lib._valida()` atura la compilació si la `nota` visible parla d'un fitxer
++`.tex`, diu «cal confirmar» o «abans de publicar»: això va sempre a
++`nota_interna`. Havien arribat a producció catorze notes amb frases com
++«vegeu NOTA DE TRANSCRIPCIÓ a r-im8.tex» o «convé confirmar-ho contra la
++figura original abans de publicar».
++
+ ---
+ 
+ ## 4. Distractors i catàleg d'errors
+@@ -200,6 +220,92 @@
+ Agrupeu-les sota una capçalera d'una línia, `# ---- <tema> (Full <N>) ----`,
+ com fan les de potències, successions, polinomis, estadística i probabilitat.
+ 
++### 4.4 L'etiqueta ha de dir QUIN error és, no només que n'hi ha un
++
++L'etiqueta no és decoració: `hub.js` agrega les respostes fallades del full
++per etiqueta i pinta el panell **«els errors que repeteixes»** amb el text que
++`TAX` en dona. Dues conseqüències:
++
++1. **Res de calaixos de sastre.** Si poseu la mateixa etiqueta a un distractor
++   de simplificar fraccions i a un de «no es pot saber sense mesurar els
++   angles», el panell li dirà a l'alumne que busqui el m.c.d. del numerador i
++   el denominador en un problema de triangles. Va passar: `SIMPLIFICACIO_INCOMPLETA`
++   va arribar a tenir 119 usos, i només 7 tenien res a veure amb simplificar.
++   Ara està repartida, i el text del catàleg avisa de no tornar-hi.
++2. **Poseu-la al `TAX` si l'etiqueta es repetirà.** Sense entrada al catàleg,
++   el panell cau al diagnòstic del primer ítem del full que la faci servir —
++   un text ple de números d'un exercici concret, que com a resum de cinc
++   errors diferents no diu res. Per a etiquetes que només fareu servir un cop
++   això no importa (mai no sortiran com a error repetit) i no cal.
++
++Escriviu el text de `TAX` **genèric i sense números**: descriu el malentès i
++què s'ha de mirar per no repetir-lo. El diagnòstic concret, amb els números de
++l'exercici, va al `D()`; el genèric, al `TAX`. Compareu:
++
++```
++D()   -> "Aquesta és la semibase (la meitat del costat), no l'alçada: encara
++          falta aplicar Pitàgores amb aquesta semibase i el costat."
++TAX   -> "El valor que has triat és correcte, però és un pas intermedi, no el
++          que et demanen. Torna a llegir la pregunta i mira quina magnitud
++          has d'acabar donant: sovint només falta una operació més."
++```
++
++Un cop compilat, el `REVISIO-fullN.html` du al peu el **catàleg d'errors
++utilitzats** amb el recompte de cada etiqueta. Una etiqueta amb molts usos
++repartits per blocs molt diferents és el senyal que torna a ser un calaix de
++sastre: obriu-la en etiquetes específiques.
++
++---
++
++## 4bis. Graduar el full: `dificultats()`
++
++A dalt de cada `c_<tema>.py`, just després de l'import de `lib`, hi ha una
++taula que assigna un nivell a cada exercici del full:
++
++```python
++dificultats({
++      5: 1,  # descomposició factorial directa
++      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
++     12: 3,  # problemes amb context: cal decidir si toca m.c.d. o m.c.m.
++})
++```
++
++L'escala és de tres graons i està documentada a `lib.py`:
++
++| | | |
++|---|---|---|
++| **1** | directa | un sol pas: aplicar una definició o fórmula tal com s'acaba de veure, amb les dades a punt |
++| **2** | encadenada | dos o tres passos, o cal triar el mètode abans de començar |
++| **3** | completa | problema amb context, muntar l'expressió des d'un enunciat en paraules, barrejar conceptes, o justificar / detectar un error |
++
++Tres graons i prou: més no els sabríem distingir de manera fiable.
++
++**El nivell va per exercici, no per ítem.** Els apartats d'un mateix exercici
++solen ser variacions de la mateixa feina, i tenir-ho en una taula permet
++revisar la graduació sencera d'un full d'una ullada en lloc d'anar-la a
++buscar a seixanta llocs. Si un apartat concret se surt del to del seu
++exercici, passeu-li `dif=` al seu `Q()`, que té prioritat.
++
++`lib._valida()` atura la compilació si un exercici no és a la taula: no es
++pot afegir un exercici i oblidar-se de graduar-lo. Registrar dues vegades el
++mateix número amb valors diferents també atura (el Full 1 el componen quatre
++mòduls i la taula s'acumula entre tots).
++
++**Com triar el número.** No hi penseu com «quant costa» sinó com «quantes
++decisions ha de prendre l'alumne abans de començar a calcular»: cap (1), una
++(2), o ha de construir el plantejament (3). Els blocs de problemes són tots
++3 de manera natural, i els de classificar o reconèixer, tots 1; això està bé
++i no cal forçar-hi varietat.
++
++**Comproveu la graduació al `REVISIO`.** Al peu hi ha una taula «Graduació
++per bloc» amb el recompte per nivell, i marca en vermell els blocs que han
++quedat amb **un sol nivell**. Un bloc de problemes tot a 3 és correcte; un
++bloc de mecànica tot a 2 vol dir que la taula no s'ha pensat.
++
++Això importa perquè l'itinerari agafa **un exercici de cada nivell que hi
++hagi al bloc** abans de repetir-ne cap: un bloc sense graduar li dona a
++l'alumne quatre exercicis del mateix graó.
++
+ ---
+ 
+ ## 5. El parany del `mathify()`
+diff -ru a/HANDOVER.md b/HANDOVER.md
+--- a/HANDOVER.md	2026-08-04 21:17:47.813416712 +0000
++++ b/HANDOVER.md	2026-08-04 21:17:47.814782253 +0000
+@@ -94,10 +94,21 @@
+ **malentès**, no el símptoma (`RUFFINI_SIGNE_ARREL`, no `ERROR_66B`), perquè
+ la mateixa etiqueta es reutilitza a molts ítems i s'hi agrega per bloc.
+ 
+-Cada `Q()` passa per `_valida()`, que imposa quatre regles sense excepció:
++El text de `TAX` no és documentació morta: `build.py` l'emet a `data/fullN.js`
++(clau `errors`, només les etiquetes que el full fa servir) i `hub.js` l'usa
++per pintar el panell «els errors que repeteixes». Per això ha de ser
++**genèric i sense números concrets** —descriu el malentès, no un exercici—
++mentre que el text del `D()` sí que ha de parlar dels números de l'ítem.
++Si una etiqueta no és al catàleg, el panell cau al diagnòstic del primer ítem
++del full que la faci servir; per a etiquetes d'un sol ús tant se val, però per
++a les que es repeteixen dona un text que no resumeix res.
++
++Cada `Q()` passa per `_valida()`, que imposa aquestes regles sense excepció:
+ exactament 3 distractors; 4 opcions diferents entre si un cop tret l'espai en
+-blanc; cap distractor sense text de retroacció; i com a mínim una pista i un
+-pas de resolució. Si una falla, el build s'atura i diu quin ítem és.
++blanc; cap distractor sense text de retroacció; com a mínim una pista i un pas
++de resolució; una dificultat dins de l'escala; i cap referència a la font o a
++feina pendent dins de la `nota` visible (això va a `nota_interna`, que només
++surt al `REVISIO`). Si una falla, el build s'atura i diu quin ítem és.
+ 
+ ### 3.2 `tools/build.py` — el compilador
+ 
+@@ -334,11 +345,14 @@
+    redistribueix als altres començant pels de més pes. Per això un tema que
+    cal reconstruir aporta el doble d'exercicis que un que només cal
+    refrescar.
+-4. De cada bloc no s'agafen exactament els `quota` primers, sinó `quota`
+-   triats a l'atzar d'una finestra una mica més ampla (`triaAmbVarietat`), i
+-   després es tornen a ordenar per dificultat. Sense això, generar un
+-   itinerari nou tornava a donar exactament el mateix i el botó semblava
+-   avariat.
++4. De cada bloc s'agafa **un exercici de cada nivell de dificultat que hi
++   hagi** abans de repetir nivell, i el sobrant es reparteix pesant cap al
++   graó d'entrada (3-2-1 per als nivells 1-2-3): qui ha de reconstruir un
++   tema necessita més rodatge a baix que a dalt, però la ruta ha de pujar.
++   Dins de cada nivell, els `quota` es trien a l'atzar d'una finestra una
++   mica més ampla (`triaAmbVarietat` → `mostra`), perquè generar un itinerari
++   nou no torni a donar exactament el mateix i el botó no sembli avariat. La
++   variació és sempre entre exercicis del mateix graó, mai entre graons.
+ 5. Els exercicis que l'alumne **ja ha resolt** van al final de la cua de cada
+    bloc, no fora: una ruta nova li dona material que no ha vist, però si un
+    bloc se li ha quedat curt encara pot completar els 24. Aquest filtre és el
+@@ -410,9 +424,14 @@
+   sort, com a `dominat`. Es va acceptar a canvi de la brevetat: el cost
+   d'anar a parar a un tema que ja se sap és baix, i amb 15 proves la sort no
+   mou gaire el resultat global.
+-- **La longitud d'enunciat com a proxy de dificultat** ordena l'itinerari.
+-  Mesura esforç de lectura, no dificultat matemàtica; per ordenar de més
+-  senzill a més complet dins d'un bloc fa el fet, però no és una mesura
+-  fina.
++- **La dificultat la fixa una taula a mà**, exercici per exercici, a dalt de
++  cada `c_<tema>.py` (`dificultats({...})`, escala 1-3 documentada a
++  `lib.py`). És un judici del qui l'ha escrita, no una mesura: dos
++  professors la posarien diferent en uns quants exercicis. A canvi és
++  explícita, es revisa d'una ullada i es pot discutir número a número. Abans
++  s'ordenava per longitud de l'enunciat, que mesurava esforç de lectura i no
++  matemàtiques: els exercicis amb les dades a l'encapçalament tenien
++  enunciats curtíssims i pujaven al davant encara que fossin dels més
++  difícils del full.
+ - **KaTeX ve d'un CDN.** Sense xarxa, les matemàtiques es veuen com a LaTeX
+   en cru; el lloc segueix funcionant.
+diff -ru a/README.md b/README.md
+--- a/README.md	2026-08-04 21:17:47.711625590 +0000
++++ b/README.md	2026-08-04 21:17:47.712721702 +0000
+@@ -110,12 +110,45 @@
+ recompte d'ítems i d'etiquetes d'error. La compilació és determinista: si el
+ `c_<tema>.py` no canvia, la sortida és byte a byte idèntica.
+ 
++## Què no hi és
++
++El banc surt d'un material de repàs amb figures, i tot el que depèn d'una
++figura que no s'ha pogut llegir amb seguretat s'ha deixat fora en lloc
++d'inventar-ne les mesures. Els motius concrets són al docstring de cada
++`tools/c_<tema>.py`; el resum:
++
++| Full | Fora | Motiu |
++|---|---|---|
++| 7 | 139 sencer, 145a/b/d | La font no arriba a cap valor numèric per a aquestes figures |
++| 8 | 152d/g/h, 157 sencer | Tres rectes paral·leles il·legibles; el 157 demana mesurar amb regle sobre el dibuix |
++| 9 | 170f–j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
++| 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
++| 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
++
++Els exercicis on només falten alguns apartats (145, 152, 195) porten una
++nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
++
++Res d'això és una decisió tancada: si es recuperen les figures originals,
++els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
++
+ ## Abans de publicar
+ 
+ - **Repassa els `REVISIO-fullN.html`.** És la clau de respostes completa:
+   enunciat, opcions, quina és correcta, el diagnòstic de cada distractor i la
+   resolució. Un build net només garanteix que les regles de validació es
+   compleixin, no que les matemàtiques i la redacció siguin bones.
++- **Mira el catàleg d'errors** del peu del `REVISIO-fullN.html`. Una etiqueta
++  amb molts usos escampats per blocs molt diferents sol voler dir que s'ha
++  fet servir de calaix de sastre, i llavors el panell «els errors que
++  repeteixes» del full mostra un consell que no té res a veure amb el que
++  l'alumne ha fallat.
++- **Comprova la taula «Graduació per bloc»** que hi ha al peu de cada
++  `REVISIO-fullN.html`. Diu quants exercicis té cada bloc a cada nivell de
++  dificultat (1 directa, 2 encadenada, 3 completa) i marca en vermell els que
++  han quedat amb un sol nivell. Un bloc de problemes tot a nivell 3 és
++  correcte; un bloc de mecànica tot a nivell 2 vol dir que la taula
++  `dificultats()` del generador no s'ha pensat, i llavors l'itinerari només
++  li podrà donar a l'alumne exercicis del mateix graó.
+ - **Mira especialment els ítems amb `nota`.** Són els que han necessitat una
+   decisió d'interpretació perquè la font era ambigua; la nota surt al
+   fitxer de revisió i explica què s'ha assumit:
+@@ -128,7 +161,7 @@
+   | 4 | 62c, 67d-f, 68c, 68d, 69c |
+   | 7 | 144a, 144b, 145c, 151 |
+   | 8 | 152a-c, 152e, 152f, 154a-d, 165 |
+-  | 10 | 202c |
++  | 10 | 200b, 202c |
+   | 12 | 240c, 240d, 243 |
+ 
+ - **Obre el lloc en un navegador de veritat.** El `<details>` del mapa, el
+diff -ru a/js/hub.js b/js/hub.js
+--- a/js/hub.js	2026-08-04 21:17:47.823267353 +0000
++++ b/js/hub.js	2026-08-04 21:17:47.824276351 +0000
+@@ -76,11 +76,17 @@
+     var cont = $("#errades");
+     if (!tops.length) { cont.hidden = true; return; }
+ 
++    /* El text que es mostra és la descripció genèrica de l'etiqueta (D.errors,
++       que ve del catàleg TAX): aquí s'agreguen errors de diversos exercicis i
++       el que cal és el malentès, no els números d'un exercici concret. Si una
++       etiqueta no és al catàleg, es cau al diagnòstic del primer ítem que la
++       fa servir, que és el que es feia abans. */
+     var textos = {};
+     D.items.forEach(function (it) {
+       var k = RE.clau(it);
+       k.err.forEach(function (e, i) { if (e && !textos[e]) textos[e] = k.diag[i]; });
+     });
++    Object.keys(D.errors || {}).forEach(function (e) { textos[e] = D.errors[e]; });
+ 
+     cont.hidden = false;
+     cont.innerHTML = "<h2>Els errors que repeteixes</h2>" +
+diff -ru a/js/itinerari-dades.js b/js/itinerari-dades.js
+--- a/js/itinerari-dades.js	2026-08-04 21:17:47.818563189 +0000
++++ b/js/itinerari-dades.js	2026-08-04 21:17:47.819582371 +0000
+@@ -27,12 +27,36 @@
+      sistemàticament més senzill d'encarar que un de llarg amb diversos
+      passos). No cal que sigui una mesura perfecta de dificultat real, només
+      prou bona per ordenar fàcil abans que difícil dins de cada bloc. */
++  /* Nivell d'un exercici: el camp `dif` que hi posa el generador (1 directa,
++     2 encadenada, 3 completa; vegeu tools/lib.py). Si un full compilat abans
++     que existís el camp queda a la memòria cau del navegador, els seus ítems
++     cauen tots al nivell 2 i el desempat per longitud fa la feina, com abans. */
++  function niv(it) { return it.dif || 2; }
++
+   function ordenaPerDificultat(items) {
+     return items.slice().sort(function (a, b) {
++      if (niv(a) !== niv(b)) return niv(a) - niv(b);
+       return a.enunciat.length - b.enunciat.length;
+     });
+   }
+ 
++  function barreja(a) {
++    var c = a.slice();
++    for (var i = c.length - 1; i > 0; i--) {
++      var j = Math.floor(Math.random() * (i + 1));
++      var t = c[i]; c[i] = c[j]; c[j] = t;
++    }
++    return c;
++  }
++
++  /* n exercicis d'entre els més senzills d'un grup, amb una mica de marge
++     perquè dues rutes seguides no siguin calcades. */
++  function mostra(items, n) {
++    if (n >= items.length) return items.slice();
++    var finestra = Math.min(items.length, Math.max(n + 2, Math.ceil(n * 1.6)));
++    return barreja(items.slice(0, finestra)).slice(0, n);
++  }
++
+   /* Passa dels temes del test als blocs del lloc, amb un pes per bloc.
+ 
+      Cada tema del test apunta a un bloc principal i, sovint, a un parell més
+@@ -120,24 +144,49 @@
+      estreta perquè els ítems triats segueixin sent dels senzills del bloc, i
+      el resultat es torna a ordenar per dificultat abans de retornar-lo. */
+   function triaAmbVarietat(items, quota) {
+-    if (quota >= items.length) return items.slice();
+-    var finestra = Math.min(items.length, Math.max(quota + 2, Math.ceil(quota * 1.6)));
+-    var pool = items.slice(0, finestra);
+-    for (var i = pool.length - 1; i > 0; i--) {
+-      var j = Math.floor(Math.random() * (i + 1));
+-      var t = pool[i]; pool[i] = pool[j]; pool[j] = t;
++    if (quota <= 0) return [];
++    var ordenats = ordenaPerDificultat(items);
++    if (quota >= ordenats.length) return ordenats;
++
++    var grups = [1, 2, 3].map(function (n) {
++      return { niv: n, items: ordenats.filter(function (it) { return niv(it) === n; }) };
++    }).filter(function (g) { return g.items.length; });
++
++    /* Primer un exercici de cada nivell que hi hagi al bloc, i només després
++       es reparteix la resta. Amb les quotes normals (2-4 per bloc) això sol ja
++       fa que la ruta pugi: abans agafava sempre del graó d'entrada i els
++       exercicis substanciosos d'un bloc no sortien mai.
++
++       El sobrant es reparteix pesant cap avall (3-2-1 per als nivells 1-2-3),
++       perquè qui ha de reconstruir un tema necessita més rodatge a baix que a
++       dalt; la divisió per `presos+1` fa que el pes vagi baixant a mesura que
++       un nivell s'omple, i així no se n'emporta tot. */
++    var presos = grups.map(function () { return 0; });
++    var resta = quota, i;
++    for (i = 0; i < grups.length && resta > 0; i++) { presos[i] = 1; resta--; }
++    while (resta > 0) {
++      var millor = -1, punts = -1;
++      for (i = 0; i < grups.length; i++) {
++        if (presos[i] >= grups[i].items.length) continue;
++        var p = (4 - grups[i].niv) / (presos[i] + 1);
++        if (p > punts) { punts = p; millor = i; }
++      }
++      if (millor < 0) break;
++      presos[millor]++; resta--;
+     }
+-    return pool.slice(0, quota).sort(function (a, b) {
+-      return a.enunciat.length - b.enunciat.length;
+-    });
++
++    var tria = [];
++    grups.forEach(function (g, k) { tria = tria.concat(mostra(g.items, presos[k])); });
++    return ordenaPerDificultat(tria);
+   }
+ 
+-  /* Genera la ruta: de cada bloc, `quota` preguntes d'entre les més
+-     senzilles, i després intercala entre blocs (round-robin: un ítem de cada
+-     bloc per torn) perquè l'alumne vagi canviant de tema en lloc de fer un
+-     bloc sencer abans de passar al següent. Intercalar només es pot fer un
+-     cop cada bloc ja està ordenat: barrejar-ho tot junt perdria l'ordre de
+-     dificultat.
++  /* Genera la ruta: de cada bloc, `quota` preguntes graduades de més
++     senzilles a més completes, i després intercala entre blocs (round-robin:
++     un ítem de cada bloc per torn) perquè l'alumne vagi canviant de tema en
++     lloc de fer un bloc sencer abans de passar al següent. Com que cada cua
++     ja ve ordenada per dificultat i el round-robin les recorre en paral·lel,
++     la ruta sencera també puja: els primers torns són els graons d'entrada de
++     tots els blocs i els últims, els exercicis complets.
+ 
+      `jaFet(full, id)` és opcional: si es passa, els exercicis que l'alumne ja
+      ha resolt queden al final de la cua de cada bloc i, a la pràctica, fora
+diff -ru a/js/itinerari.js b/js/itinerari.js
+--- a/js/itinerari.js	2026-08-04 21:17:47.827940571 +0000
++++ b/js/itinerari.js	2026-08-04 21:17:47.828939683 +0000
+@@ -42,17 +42,36 @@
+     });
+   }
+ 
++  /* Una ruta buida vol dir dues coses molt diferents, i abans les dues
++     rebien el mateix missatge ("fes el test inicial"), que a qui l'acabava
++     de fer li deia una falsedat. Es distingeixen mirant si hi ha diagnòstic
++     desat:
++       - sense diagnòstic  -> encara no ha fet el test
++       - amb diagnòstic    -> el test no ha trobat cap tema per repassar,
++                              que és una bona notícia, no un error. */
++  function capItinerari() {
++    var diag = RE_DIAG.llegeix();
++    var html = '<p class="cimera">Repàs per començar 1r de batxillerat</p>';
++    if (!diag) {
++      html += "<h1>Encara no tens cap itinerari</h1>" +
++        '<p class="apagat" style="margin:.6rem 0 1.4rem">Primer cal fer el test inicial: ' +
++        "a partir del resultat et preparem un recorregut personalitzat.</p>" +
++        '<a class="btn" href="diagnostic.html">Fer el test inicial</a>';
++    } else {
++      html += "<h1>No et cal cap itinerari</h1>" +
++        '<p class="apagat" style="margin:.6rem 0 1.4rem">Al test inicial no ha sortit ' +
++        "cap destresa que et convingui repassar ara mateix: totes les que hem " +
++        "mesurat les tens. Pots triar el full que vulguis i practicar pel teu " +
++        "compte, o repetir el test si creus que no reflecteix com estàs.</p>" +
++        '<a class="btn" href="index.html">Veure els fulls</a> ' +
++        '<a class="btn buit" href="resultat.html">Tornar al resultat del test</a>';
++    }
++    $("#main").innerHTML = html;
++  }
++
+   function carregaIPinta() {
+     RE_ITI.obtenIGenera(function (ruta) {
+-      if (!ruta.length) {
+-        $("#main").innerHTML =
+-          '<p class="cimera">Repàs per començar 1r de batxillerat</p>' +
+-          "<h1>Encara no tens cap itinerari</h1>" +
+-          '<p class="apagat" style="margin:.6rem 0 1.4rem">Primer cal fer el test inicial: ' +
+-          "a partir del resultat et preparem un recorregut personalitzat.</p>" +
+-          '<a class="btn" href="diagnostic.html">Fer el test inicial</a>';
+-        return;
+-      }
++      if (!ruta.length) { capItinerari(); return; }
+       var mida = ruta.length;
+       $("#subtitol").textContent = mida < RE_ITI.MIN_TOTAL
+         ? "Un recorregut curt: és tot el que hem trobat als blocs que et convé repassar."
+diff -ru a/tools/build.py b/tools/build.py
+--- a/tools/build.py	2026-08-04 21:17:47.792093889 +0000
++++ b/tools/build.py	2026-08-04 21:17:47.793169465 +0000
+@@ -193,7 +193,7 @@
+             ("concepte_funcio", "Concepte de funció",
+              "Relacions que són o no funcions, càlcul d'imatges, i "
+              "domini, recorregut i creixement llegits d'una gràfica."),
+-            ("funcions_lineals", "Funcions lineals",
++            ("funcions_lineals", "Funcions lineals i afins",
+              "Pendent i ordenada a l'origen, creixement sense "
+              "representar, i equació de la recta a partir de dos punts."),
+             ("funcions_quadratiques", "Funcions quadràtiques",
+@@ -301,6 +301,7 @@
+             "ap": it["ap"],
+             "bloc": it["bloc"],
+             "tipus": it["tipus"],
++            "dif": it["dif"],
+             "encapcalament": it["ex_text"],
+             "enunciat": it["enunciat"],
+             "opcions": [opcions[i] for i in ordre],
+@@ -316,11 +317,20 @@
+ 
+     blocs = [{"id": b, "titol": t, "descripcio": d,
+               "items": [i["id"] for i in items if i["bloc"] == b]} for b, t, d in BLOCS]
++    # Text genèric de cada etiqueta d'error que apareix en aquest full. El
++    # panell "els errors que repeteixes" agrega per etiqueta, i el que hi toca
++    # és la descripció del malentès, no el diagnòstic d'un exercici concret
++    # (que parla de números que l'alumne potser no recorda). Només s'hi posen
++    # les etiquetes usades al full: no cal enviar el catàleg sencer.
++    usades = sorted({d["err"] for it in BANC for d in it["distractors"]})
++    errors_tex = {e: mathify(lib.TAX[e]) for e in usades if e in lib.TAX}
++
+     dades = {
+         "full": FULL_N,
+         "titol": CFG["titol"],
+         "subtitol": CFG["subtitol"],
+         "blocs": blocs,
++        "errors": errors_tex,
+         "items": items,
+     }
+     os.makedirs(os.path.join(ARREL, "data"), exist_ok=True)
+@@ -404,8 +414,9 @@
+                 p.append('<p class="sec"><strong>Exercici %d.</strong> %s</p>'
+                          % (it["ex"], html.escape(it["ex_text"])))
+             p.append('<div class="it"><div class="cap"><span class="cod">%s</span>'
+-                     '<span class="tip">tipus %s</span></div>'
+-                     % (it["id"], it["tipus"]))
++                     '<span class="tip">tipus %s · dificultat %d (%s)</span></div>'
++                     % (it["id"], it["tipus"], it["dif"],
++                        {1: "directa", 2: "encadenada", 3: "completa"}[it["dif"]]))
+             p.append('<div class="enun">%s</div>' % it["enunciat"])
+             p.append('<ol class="op"><li><span class="ok">%s</span> — resposta correcta</li>'
+                      % mathify(it["correcta"]))
+@@ -419,8 +430,23 @@
+                      % "".join("<li>%s</li>" % x for x in it["resolucio"]))
+             if it["nota"]:
+                 p.append('<p class="nota"><strong>Nota:</strong> %s</p>' % it["nota"])
++            if it["nota_interna"]:
++                p.append('<p class="nota"><strong>Nota interna '
++                         '(no es publica):</strong> %s</p>' % it["nota_interna"])
+             p.append('</div>')
+ 
++    p.append('<h2>Graduació per bloc</h2><table><tr><th>Bloc</th>'
++             '<th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>')
++    for b, t, _d in BLOCS:
++        dels = [it for it in BANC if it["bloc"] == b]
++        if not dels:
++            continue
++        c = [sum(1 for it in dels if it["dif"] == n) for n in (1, 2, 3)]
++        avis = ' <span class="err">un sol nivell</span>' if sum(1 for x in c if x) == 1 else ''
++        p.append('<tr><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td></tr>'
++                 % (html.escape(t), avis, c[0], c[1], c[2]))
++    p.append('</table>')
++
+     p.append('<h2>Catàleg d\'errors utilitzats</h2><table><tr><th>Etiqueta</th>'
+              '<th>Vegades</th><th>Preguntes</th></tr>')
+     for e, ids in sorted(errors.items(), key=lambda x: -len(x[1])):
+diff -ru a/tools/c_cossos.py b/tools/c_cossos.py
+--- a/tools/c_cossos.py	2026-08-04 21:17:47.775386634 +0000
++++ b/tools/c_cossos.py	2026-08-04 21:17:47.776616985 +0000
+@@ -54,7 +54,45 @@
+ i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia.
+ """
+ import math
+-from lib import Q, D, DT, tria
++from lib import Q, D, DT, tria, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 9 · cossos geomètrics
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    170: 1,  # àrea total amb totes les dades a l'enunciat
++    171: 2,  # cal calcular abans l'àrea de la base (apotema, triangle equilàter)
++    172: 2,
++    173: 2,
++    174: 3,  # a l'inrevés: de l'àrea a l'aresta, i després la diagonal
++    175: 3,
++    176: 3,
++    177: 2,
++    179: 2,
++    180: 2,  # tetraedre: quatre triangles equilàters
++    181: 3,  # altura donada: cal l'apotema de la cara per Pitàgores
++    182: 3,
++    183: 2,
++    184: 2,
++    185: 1,  # àrea del cilindre; 188, del con; 195, volums amb la fórmula
++    186: 3,  # partir d'una àrea per trobar una mesura
++    187: 3,
++    188: 1,
++    189: 2,
++    190: 2,  # Pitàgores per passar de generatriu a altura, o al revés
++    191: 2,
++    193: 3,  # comparar dos cossos; 196-199, problemes amb context
++    195: 1,
++    196: 3,
++    197: 3,
++    198: 3,
++    199: 3,
++})
++
+ 
+ B1 = "prismes"
+ B2 = "piramides"
+@@ -103,10 +141,17 @@
+ # Àrea total d'un prisma recte: A = 2*A_base + perímetre_base * altura.
+ 
+ # ---- exercici 170: deu prismes en perspectiva (només a-e, f-j exclosos) ----
+-E170 = ("Calcula l'àrea total d'aquests prismes rectes.")
++# La font dona cada prisma NOMÉS com a figura en perspectiva, amb les cotes
++# a sobre del dibuix. Com que aquí no hi ha figura, cada apartat porta la
++# seva descripció al mateix enunciat (mateix criteri que l'exercici 195):
++# sense això, l'enunciat es quedava en la capçalera i l'ítem no es podia
++# resoldre.
++E170 = ("Calcula l'àrea total d'aquest prisma recte:")
+ 
+ # 170a: rectangular 7x2x4 -> A=100 (exacte)
+-Q("170a", 170, "a", B1, "A", E170,
++Q("170a", 170, "a", B1, "A",
++  f"{E170} un ortoedre (prisma recte de base rectangular) d'arestes "
++  "$7$ cm, $2$ cm i $4$ cm.",
+   "$100$ cm$^2$",
+   [D("$56$ cm$^2$", "FACTOR_OBLIDAT",
+      "T'has deixat una parella de cares pel camí: un ortoedre en té "
+@@ -127,12 +172,14 @@
+   ex_text=E170)
+ 
+ # 170b: triangular equilater costat 5, altura 9 -> A~156.65
+-Q("170b", 170, "b", B1, "A", E170,
++Q("170b", 170, "b", B1, "A",
++  f"{E170} un prisma de base triangular equilàtera de $5$ cm de "
++  "costat i $9$ cm d'altura.",
+   apx(156.65, 2, "cm$^2$"),
+   [D(apx(146.25, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Falta comptar les DUES bases triangulars, no només una: "
+      "l'àrea total inclou $2\\cdot A_{\\text{base}}$, no $1$ sola."),
+-   D(apx(67.5, 2, "cm$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(67.5, 2, "cm$^2$"), "DIVISIO_REPETIDA",
+      "Aquest valor només és l'àrea lateral ($15\\cdot9:2$, a més amb "
+      "una divisió de més); l'àrea lateral d'un prisma no es divideix "
+      "entre $2$, i encara cal sumar-hi les dues bases."),
+@@ -150,7 +197,9 @@
+   ex_text=E170)
+ 
+ # 170c: hexagonal costat 8 apotema 5.2 altura 6 -> A=537.6 (exacte)
+-Q("170c", 170, "c", B1, "A", E170,
++Q("170c", 170, "c", B1, "A",
++  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
++  "$5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
+   val(537.6, 2, "cm$^2$"),
+   [D(val(288, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral ($48\\cdot6$): encara "
+@@ -172,7 +221,9 @@
+   ex_text=E170)
+ 
+ # 170d: pentagonal costat 5 apotema 3.44 altura 12 -> A=386 (exacte)
+-Q("170d", 170, "d", B1, "A", E170,
++Q("170d", 170, "d", B1, "A",
++  f"{E170} un prisma de base pentagonal regular de $5$ cm de costat i "
++  "$3{,}44$ cm d'apotema, amb $12$ cm d'altura.",
+   val(386, 2, "cm$^2$"),
+   [D(val(300, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral ($25\\cdot12$): encara "
+@@ -192,7 +243,9 @@
+   ex_text=E170)
+ 
+ # 170e: triangular rectangle catets 6,8 altura 5 -> A=168 (exacte)
+-Q("170e", 170, "e", B1, "A", E170,
++Q("170e", 170, "e", B1, "A",
++  f"{E170} un prisma de $5$ cm d'altura amb la base en forma de "
++  "triangle rectangle de catets $6$ cm i $8$ cm.",
+   val(168, 2, "cm$^2$"),
+   [D(val(120, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral ($24\\cdot5$): encara "
+@@ -299,7 +352,7 @@
+      "Aquesta és la diagonal d'una CARA del cub ($L\\sqrt2$), no la "
+      "diagonal del cub sencer, que travessa l'interior i és més "
+      "llarga: $d=L\\sqrt3$."),
+-   D(val(2, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++   D(val(2, 2, "cm"), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'aresta del cub, no la diagonal: encara falta "
+      "multiplicar per $\\sqrt3$.")],
+   ["Un cub té $6$ cares iguals, així que l'aresta compleix "
+@@ -314,7 +367,7 @@
+   "L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la "
+   "seva diagonal.",
+   apx(8.66, 2, "m"),
+-  [D(val(5, 2, "m"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(5, 2, "m"), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'aresta del cub, no la diagonal: encara falta "
+      "multiplicar per $\\sqrt3$."),
+    D(apx(7.07, 2, "m"), "TERME_OBLIDAT_OPERACIO",
+@@ -345,7 +398,7 @@
+ Q("176a", 176, "a", B1, "A",
+   f"{E176} Quant mesura l'àrea lateral de l'edifici?",
+   val(360, 2, "m$^2$"),
+-  [D(apx(15.59, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(apx(15.59, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'àrea d'una base triangular, no l'àrea lateral: "
+      "l'àrea lateral és perímetre per altura, no depèn de la "
+      "fórmula del triangle equilàter."),
+@@ -394,7 +447,7 @@
+   [D(val(118.3, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base pentagonal."),
+-   D(val(27.5, 2, "cm$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(val(27.5, 2, "cm$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea de la base: encara falta sumar-hi "
+      "l'àrea lateral."),
+    D(val(236.6, 2, "cm$^2$"), "SIGNE_TERME_INDEPENDENT",
+@@ -414,7 +467,7 @@
+   "Una piràmide quadrangular regular té la base de costat $25$ m i "
+   "l'apotema de la piràmide fa $34$ m. Calcula la seva àrea total.",
+   val(2325, 2, "m$^2$"),
+-  [D(val(1700, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(1700, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base quadrada."),
+    D(val(625, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+@@ -439,7 +492,7 @@
+   [D(apx(187.06, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base hexagonal."),
+-   D(apx(93.53, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(93.53, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea de la base: encara falta sumar-hi "
+      "l'àrea lateral."),
+    D(apx(254.53, 2, "m$^2$"), "ARREL_MAL_APLICADA",
+@@ -492,7 +545,7 @@
+   [D(apx(172.33, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base quadrada."),
+-   D(apx(64, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(64, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea de la base: encara falta sumar-hi "
+      "l'àrea lateral."),
+    D(apx(384, 2, "m$^2$"), "ARREL_MAL_APLICADA",
+@@ -517,7 +570,7 @@
+   [D(apx(171.71, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base hexagonal."),
+-   D(apx(93.53, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(93.53, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea de la base: encara falta sumar-hi "
+      "l'àrea lateral."),
+    D(apx(388, 2, "m$^2$"), "ARREL_MAL_APLICADA",
+@@ -540,7 +593,7 @@
+   "Quina aresta té un cub que té la mateixa àrea total que una "
+   "piràmide d'àrea total $4$ cm$^2$?",
+   apx(0.82, 2, "cm"),
+-  [D(val(4, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(4, 2, "cm"), "ARREL_OBLIDADA",
+      "L'àrea total del cub no és directament l'aresta: cal aïllar "
+      "$L$ de $6L^2=4$, no fer servir $4$ directament com a aresta."),
+    D(apx(0.67, 2, "cm"), "ARREL_MAL_APLICADA",
+@@ -561,7 +614,7 @@
+   "l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un "
+   "tetraedre regular perquè la seva àrea total sigui la mateixa?",
+   apx(8.09, 2, "cm"),
+-  [D(apx(113.38, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(apx(113.38, 2, "cm"), "ARREL_OBLIDADA",
+      "Aquesta és l'àrea total de la piràmide (en cm$^2$), no "
+      "l'aresta del tetraedre: encara falta aïllar $L$ de "
+      "$L^2\\sqrt3\\approx113{,}38$."),
+@@ -606,7 +659,7 @@
+    D(apx(28.26, 2, "cm"), "PRODUCTE_MAL",
+      "No coincideix amb $2\\pi\\cdot3$: revisa el producte pas a "
+      "pas amb $\\pi\\approx3{,}14$."),
+-   D(val(54, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++   D(val(54, 2, "cm"), "PI_OBLIDAT",
+      "Aquest valor no fa servir $\\pi$: la longitud d'una "
+      "circumferència sempre és $2\\pi r$, no un simple producte "
+      "de nombres enters.")],
+@@ -684,7 +737,7 @@
+   "L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és "
+   "el doble del radi. Calcula el radi i l'altura del cilindre.",
+   r"$r=5$ cm, $h=10$ cm",
+-  [D(r"$r=10$ cm, $h=5$ cm", "SIMPLIFICACIO_INCOMPLETA",
++  [D(r"$r=10$ cm, $h=5$ cm", "PAPERS_INTERCANVIATS",
+      "Has intercanviat els papers del radi i l'altura: l'enunciat "
+      "diu que l'altura és el DOBLE del radi, no al revés."),
+    D(r"$r=2{,}5$ cm, $h=5$ cm", "ARREL_MAL_APLICADA",
+@@ -715,7 +768,7 @@
+    D(apx(12.56, 2, "cm"), "PRODUCTE_MAL",
+      "No coincideix amb $2\\pi\\cdot4$: revisa el producte amb "
+      "$\\pi\\approx3{,}14$."),
+-   D(val(19, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++   D(val(19, 2, "cm"), "PI_OBLIDAT",
+      "Aquest valor no fa servir $\\pi$: la longitud d'una "
+      "circumferència sempre és $2\\pi r$.")],
+   ["La circumferència de la base d'un con té radi igual al radi "
+@@ -732,7 +785,7 @@
+   [D(apx(150.72, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
+      "l'àrea de la base circular."),
+-   D(apx(50.24, 2, "cm$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(50.24, 2, "cm$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+      "Aquesta és només l'àrea de la base: encara falta sumar-hi "
+      "l'àrea lateral."),
+    D(apx(552.64, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+@@ -773,7 +826,7 @@
+ Q("191", 191, "", B3, "A",
+   "L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.",
+   val(8, 2, "cm"),
+-  [D(val(64, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(64, 2, "cm"), "ARREL_OBLIDADA",
+      "Aquest és el valor de $r^2$ ($803{,}84:4\\pi$), no de $r$: "
+      "encara falta fer l'arrel quadrada."),
+    D(apx(15.98, 2, "cm"), "FACTOR_OBLIDAT",
+@@ -805,7 +858,7 @@
+   f"{E193} Quina generatriu ha de tenir el con perquè la seva àrea "
+   "lateral coincideixi amb l'àrea lateral del cilindre?",
+   val(20, 2, "cm"),
+-  [D(val(10, 2, "cm"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(10, 2, "cm"), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest valor és el radi, no la generatriu que fa que "
+      "coincideixin les àrees laterals: cal igualar "
+      "$2\\pi rh_{\\text{cil}}=\\pi rg$ i aïllar $g$."),
+@@ -858,7 +911,7 @@
+   f"{E195} una piràmide quadrangular regular de costat de base "
+   "$4$ cm i altura $2$ cm.",
+   apx(10.67, 2, "cm$^3$"),
+-  [D(val(32, 2, "cm$^3$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(32, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
+      "No has dividit entre $3$: el volum d'una piràmide és "
+      "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$, no "
+      "$A_{\\text{base}}\\cdot h$ sense dividir."),
+@@ -873,7 +926,9 @@
+    "Volum d'una piràmide: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
+   [r"$V=\dfrac{16\cdot2}{3}$",
+    "$V\\approx10{,}67$ cm$^3$"],
+-  ex_text=E195)
++  ex_text=E195,
++  nota="D'aquest exercici hi ha els apartats a, c, e i f: els altres eren "
++       "cossos que no es poden identificar amb seguretat sense la figura.")
+ 
+ # 195c: cilindre r=4 h=4 -> V~200.96
+ Q("195c", 195, "c", B4, "A",
+@@ -882,7 +937,7 @@
+   [D(apx(50.24, 2, "cm$^3$"), "FACTOR_OBLIDAT",
+      "Aquest valor és l'àrea de la base, no el volum: encara "
+      "falta multiplicar-la per l'altura."),
+-   D(apx(66.99, 2, "cm$^3$"), "SIMPLIFICACIO_INCOMPLETA",
++   D(apx(66.99, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
+      "Has dividit entre $3$: el volum d'un CILINDRE no es "
+      "divideix entre $3$ (això només passa amb piràmides i cons)."),
+    D(apx(401.92, 2, "cm$^3$"), "PRODUCTE_MAL",
+@@ -898,7 +953,7 @@
+ Q("195e", 195, "e", B4, "A",
+   f"{E195} un con de radi $1{{,}}5$ cm i altura $5$ cm.",
+   apx(11.78, 2, "cm$^3$"),
+-  [D(apx(35.33, 2, "cm$^3$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(apx(35.33, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
+      "No has dividit entre $3$: el volum d'un con és "
+      "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$, no "
+      "$A_{\\text{base}}\\cdot h$ sense dividir."),
+@@ -920,7 +975,7 @@
+ Q("195f", 195, "f", B4, "A",
+   f"{E195} un cub d'aresta $4$ cm.",
+   val(64, 2, "cm$^3$"),
+-  [D(val(16, 2, "cm$^3$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(16, 2, "cm$^3$"), "DIMENSIO_EXPONENT_MAL",
+      "Aquest valor és $4^2$, no $4^3$: el volum d'un cub és "
+      "$V=L^3$, no $L^2$."),
+    D(val(48, 2, "cm$^3$"), "ORDRE_MULTIPLICACIO_DIVISIO",
+@@ -947,7 +1002,7 @@
+      "Amb $2$ pots només es cobreixen $60$ m$^2$, i la superfície "
+      "a pintar és més gran que això: torna a calcular l'àrea "
+      "total abans de dividir entre $30$."),
+-   D(r"$2{,}8$ pots", "SIMPLIFICACIO_INCOMPLETA",
++   D(r"$2{,}8$ pots", "ARRODONIMENT_CONTEXT",
+      "El nombre de pots ha de ser un nombre enter: com que "
+      "$2{,}8$ pots no basten per cobrir tota la superfície, cal "
+      "arrodonir cap AMUNT, a $3$."),
+@@ -972,7 +1027,7 @@
+   "la superfície a parts iguals, quants metres quadrats cobrirà "
+   "cada pot?",
+   val(21, 2, "m$^2$"),
+-  [D(val(30, 2, "m$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(30, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és la cobertura estàndard d'un pot ($30$ m$^2$), no "
+      "el resultat de repartir els $84$ m$^2$ totals entre $4$ pots."),
+    D(apx(28, 2, "m$^2$"), "FACTOR_OBLIDAT",
+@@ -1057,7 +1112,7 @@
+   "d'aquest volum). Calcula l'àrea total del cub per començar a "
+   "comparar-ho.",
+   val(150, 2, "cm$^2$"),
+-  [D(val(125, 2, "cm$^2$"), "SIMPLIFICACIO_INCOMPLETA",
++  [D(val(125, 2, "cm$^2$"), "ARREL_OBLIDADA",
+      "Aquest és el volum, no l'àrea total: primer cal aïllar "
+      "l'aresta $L=\\sqrt[3]{125}=5$ cm i després calcular $6L^2$."),
+    D(val(25, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+diff -ru a/tools/c_decimals.py b/tools/c_decimals.py
+--- a/tools/c_decimals.py	2026-08-04 21:17:47.737927865 +0000
++++ b/tools/c_decimals.py	2026-08-04 21:17:47.739141071 +0000
+@@ -2,7 +2,28 @@
+ """Bloc D — Decimals i fracció generatriu. Exercicis 26–34 del Full 1 (54 ítems)."""
+ 
+ from fractions import Fraction as F
+-from lib import (Q, D, DT, TAX, ev, tex, tria, dec_ex, per_frac, per_tex)
++from lib import (Q, D, DT, TAX, ev, tex, tria, dec_ex, per_frac, per_tex,
++                 dificultats)
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 1 · decimals
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     26: 1,  # reconèixer el tipus de decimal; 27, generatriu d'un decimal exacte
++     27: 1,
++     28: 2,  # generatriu de periòdics: pur, mixt, i cal triar la fórmula
++     29: 2,
++     30: 2,
++     31: 3,  # primer la generatriu i després operar-hi: dues fases
++     32: 3,
++     33: 3,  # comprovar una igualtat i justificar-la; 34, raonar sobre el període
++     34: 3,
++})
++
+ 
+ B = "decimals"
+ 
+@@ -128,7 +149,8 @@
+ E28 = "Calcula la fracció generatriu dels nombres decimals periòdics següents."
+ 
+ 
+-def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota=""):
++def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
++                  nota_interna=""):
+     """Generatriu d'un decimal periòdic. Els distractors surten de les
+     variants clàssiques de la fórmula."""
+     ent, ante, per = str(ent), str(ante), str(per)
+@@ -164,7 +186,7 @@
+       ["Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
+        "Denominador: un nou per cada xifra del període i un zero per cada xifra "
+        "de l'anteperíode."],
+-      passos, ex_text=ex_text or E28, nota=nota)
++      passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna)
+ 
+ 
+ item_periodic("28a", "a", 3, "", "5")
+@@ -247,11 +269,17 @@
+ item_periodic("30c", "c", 22, "", "5", ex=30, ex_text=E30)
+ item_periodic("30d", "d", 2, "2", "5", ex=30, ex_text=E30)
+ item_periodic("30e", "e", 0, "", "334", ex=30, ex_text=E30,
+-              nota="El full escriu $0{,}33433434\\dots$; ho llegim com a "
+-                   "$0{,}\\overline{334}$. Cal confirmar-ho amb l'original.")
++              nota="El full de partida escriu $0{,}33433434\\dots$; aquí es "
++                   "llegeix com a $0{,}\\overline{334}$, amb el grup $334$ "
++                   "com a període.",
++              nota_interna="Escriptura ambigua a la font: cal confirmar-ho "
++                           "contra l'original abans de publicar.")
+ item_periodic("30f", "f", 8, "57", "1", ex=30, ex_text=E30,
+-              nota="El full escriu $8{,}5711\\dots$; ho llegim com a "
+-                   "$8{,}57\\overline{1}$. Cal confirmar-ho amb l'original.")
++              nota="El full de partida escriu $8{,}5711\\dots$; aquí es "
++                   "llegeix com a $8{,}57\\overline{1}$, amb el $57$ "
++                   "d'anteperíode i l'$1$ de període.",
++              nota_interna="Escriptura ambigua a la font: cal confirmar-ho "
++                           "contra l'original abans de publicar.")
+ 
+ # =============================================================== Exercici 31
+ E31 = "Opera fent servir les fraccions generatrius."
+diff -ru a/tools/c_divisibilitat.py b/tools/c_divisibilitat.py
+--- a/tools/c_divisibilitat.py	2026-08-04 21:17:47.748204831 +0000
++++ b/tools/c_divisibilitat.py	2026-08-04 21:17:47.749284321 +0000
+@@ -3,7 +3,31 @@
+ Exercicis 5–17 del Full 1 (26 ítems)."""
+ 
+ from datetime import date, timedelta
+-from lib import Q, D, tria, mcd, mcm, tex_factors, fx, factors
++from lib import Q, D, tria, mcd, mcm, tex_factors, fx, factors, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 1 · divisibilitat
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++      5: 1,  # descomposició factorial directa
++      6: 1,  # m.c.d. de dos nombres; 7, de tres (mateix procediment)
++      7: 1,
++      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
++      9: 1,  # m.c.m., igual que el m.c.d. però amb l'altre criteri
++     10: 1,
++     11: 2,  # a l'inrevés amb dues condicions alhora
++     12: 3,  # problemes amb context: primer cal decidir si toca m.c.d. o m.c.m.
++     13: 3,
++     14: 3,
++     15: 3,
++     16: 3,
++     17: 3,
++})
++
+ 
+ B = "divisibilitat"
+ 
+@@ -50,7 +74,8 @@
+            tex_factors(c, sign=False) if c > 1 else "1"),
+        "$\\operatorname{m.c.d.} = %d$" % c],
+       ex_text=ex_text,
+-      nota="El signe no afecta el m.c.d.: es treballa amb els valors absoluts.")
++      nota=("El signe no afecta el m.c.d.: es treballa amb els valors "
++            "absoluts.") if any(n < 0 for n in ns) else "")
+ 
+ 
+ def item_mcm(qid, ex, ap, ns, ex_text, enunciat):
+@@ -82,7 +107,8 @@
+        % tex_factors(c, sign=False),
+        "$\\operatorname{m.c.m.} = %d$" % c],
+       ex_text=ex_text,
+-      nota="El signe no afecta el m.c.m.: es treballa amb els valors absoluts.")
++      nota=("El signe no afecta el m.c.m.: es treballa amb els valors "
++            "absoluts.") if any(n < 0 for n in ns) else "")
+ 
+ 
+ # ================================================================ Exercici 5
+diff -ru a/tools/c_enters.py b/tools/c_enters.py
+--- a/tools/c_enters.py	2026-08-04 21:17:47.759145587 +0000
++++ b/tools/c_enters.py	2026-08-04 21:17:47.760215376 +0000
+@@ -1,7 +1,22 @@
+ # -*- coding: utf-8 -*-
+ """Bloc A — Nombres enters. Exercicis 1–4 del Full 1 (19 ítems)."""
+ 
+-from lib import Q, D, ev, tex, F
++from lib import Q, D, ev, tex, F, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 1 · nombres enters
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++      1: 1,  # cadena d'operacions amb signes, en una línia
++      2: 2,  # parèntesis i claudàtors: cal respectar la jerarquia
++      3: 2,  # hi entren potències, a més dels claudàtors
++      4: 3,  # troba el pas equivocat i justifica'l
++})
++
+ 
+ B = "enters"
+ 
+diff -ru a/tools/c_equacions.py b/tools/c_equacions.py
+--- a/tools/c_equacions.py	2026-08-04 21:17:47.798752605 +0000
++++ b/tools/c_equacions.py	2026-08-04 21:17:47.803654463 +0000
+@@ -30,7 +30,44 @@
+ """
+ from fractions import Fraction as F
+ from sympy import symbols, Eq, solve, Rational, sqrt, expand, nsimplify
+-from lib import Q, D, DT, ev, tex
++from lib import Q, D, DT, ev, tex, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 5 · equacions i sistemes
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     75: 2,  # parèntesis als dos membres (i algun cas sense solució)
++     76: 1,  # aïllar la x en un pas o dos; 82 i 83, arrel evident o ja factoritzat
++     77: 1,
++     78: 2,  # denominadors senzills; 81, comptar solucions amb el discriminant
++     79: 3,  # denominadors compostos i fraccions dins de parèntesis
++     80: 1,  # substituir a la fórmula general
++     81: 2,
++     82: 1,
++     83: 1,
++     84: 2,  # cal desenvolupar abans de reconèixer el segon grau
++     85: 1,  # sistema que surt sol per reducció
++     86: 2,
++     87: 3,  # sistema amb parèntesis i fraccions: cal netejar-lo primer
++     88: 2,
++     89: 2,
++     90: 3,  # problemes: la feina és plantejar l'equació, no resoldre-la
++     91: 3,
++     92: 3,
++     93: 3,
++     94: 3,
++     95: 3,
++     96: 3,
++     97: 3,
++     98: 3,
++     99: 3,
++    100: 3,
++})
++
+ 
+ B1 = "primer_grau"
+ B2 = "formula_general"
+@@ -85,14 +122,27 @@
+     return "Sense solucions reals"
+ 
+ 
++def _fact(v):
++    """Un factor dins d'un producte: parèntesis només si és negatiu."""
++    return "(%s)" % v if v < 0 else "%s" % v
++
++
+ def disc_tex(a, b, c):
+     """LaTeX del càlcul del discriminant Δ=b²-4ac amb els valors concrets,
+     sense $...$ (per incrustar dins d'una cadena ja delimitada, com una
+-    pista o una resolució)."""
++    pista o una resolució).
++
++    El pas del mig s'escriu com el faria un alumne al quadern: si $4ac$ és
++    negatiu, restar-lo és sumar-ne el valor absolut. Escrivint-ho en cru
++    sortien coses com "36--64" i "4\cdot-2\cdot(8)", que és justament el
++    que se'ls demana que no escriguin, i encara pitjor en una resolució que
++    fa de model."""
+     b2 = b * b
+     quatre_ac = 4 * a * c
+-    return r"\Delta=(%s)^2-4\cdot%s\cdot(%s)=%s-%s=%s" % (
+-        b, a, c, b2, quatre_ac, b2 - quatre_ac)
++    mig = ("%s-%s" % (b2, quatre_ac) if quatre_ac >= 0
++           else "%s+%s" % (b2, -quatre_ac))
++    return r"\Delta=(%s)^2-4\cdot%s\cdot%s=%s=%s" % (
++        b, _fact(a), _fact(c), mig, b2 - quatre_ac)
+ 
+ 
+ def eq2_tex(a, b, c):
+@@ -104,7 +154,11 @@
+         parts.append("-x^2")
+     else:
+         parts.append("%dx^2" % a)
+-    if b != 0:
++    if b == 1:
++        parts.append("+x")
++    elif b == -1:
++        parts.append("-x")
++    elif b != 0:
+         parts.append(("+%dx" % b) if b > 0 else ("-%dx" % -b))
+     if c != 0:
+         parts.append(("+%d" % c) if c > 0 else ("-%d" % -c))
+@@ -232,7 +286,7 @@
+ Q("75d", 75, "d", B1, "A",
+   r"$120 = 2x - (15-7x)$",
+   x_tex(F(15, 1)),
+-  [D(x_tex(F(15, 9)), "SIMPLIFICACIO_INCOMPLETA",
++  [D(x_tex(F(15, 9)), "AILLAMENT_INCOMPLET",
+      "Has arribat a $135=9x$ però encara no has dividit els dos "
+      "costats per $9$: falta l'últim pas."),
+    D(x_tex(F(-15, 1)), "MENYS_PARENTESI",
+@@ -302,8 +356,34 @@
+ ]
+ for letra, coef, dreta, correcta in casos_76:
+     num, den = coef.numerator, coef.denominator
+-    enun = r"$\dfrac{%dx}{%d} = %d$" % (num, den, dreta.numerator) \
+-        if dreta.denominator == 1 else r"$\dfrac{%dx}{%d} = %s$" % (num, den, frac_tex(dreta))
++    # "1x" i "x/1" són correctes però no els escriu ningú: el generador els
++    # treia perquè num i den venen de la fracció reduïda del coeficient.
++    if num == 1:
++        esq = "x" if den == 1 else r"\dfrac{x}{%d}" % den
++    elif num == -1:
++        esq = "-x" if den == 1 else r"-\dfrac{x}{%d}" % den
++    else:
++        esq = ("%dx" % num) if den == 1 else r"\dfrac{%dx}{%d}" % (num, den)
++    coef_x = "x" if num == 1 else ("-x" if num == -1 else "%dx" % num)
++    dreta_tex = "%d" % dreta.numerator if dreta.denominator == 1 else frac_tex(dreta)
++    enun = r"$%s = %s$" % (esq, dreta_tex)
++    # Pistes i resolució s'adapten al cas: si el coeficient ja ve enter no hi
++    # ha cap denominador per treure, i si la x va sola no cal dividir res.
++    if den != 1:
++        pistes_76 = ["Multiplica els dos costats pel denominador per fer-lo "
++                     "desaparèixer.",
++                     "Aïlla $x$ dividint pel nombre que l'acompanya."]
++        passos_76 = [r"$%s=%s \;\Longrightarrow\; %s=%s$"
++                     % (esq, frac_tex(dreta), coef_x, frac_tex(dreta * den))]
++        if coef_x != "x":
++            passos_76.append("$x=%s$" % frac_tex(correcta))
++    else:
++        pistes_76 = ["Aquí no hi ha cap denominador: la $x$ ja només porta un "
++                     "coeficient al davant.",
++                     "Aïlla $x$ dividint els dos costats pel nombre que "
++                     "l'acompanya."]
++        passos_76 = [r"$%s=%s \;\Longrightarrow\; x=%s$"
++                     % (esq, frac_tex(dreta), frac_tex(correcta))]
+     # distractor: oblidar multiplicar per dreta*den (queda dreta/num en lloc de dreta*den/num)
+     dist1 = dreta / F(num)
+     # distractor: dividir per den en lloc de num (invertir quin nombre és el "coeficient")
+@@ -330,9 +410,10 @@
+             finals.append(cand)
+     d1, d2, d3 = finals[:3]
+     Q("76" + letra, 76, letra, B1, "A", enun, x_tex(correcta),
+-      [D(x_tex(d1), "SIMPLIFICACIO_INCOMPLETA",
+-         "Has multiplicat en creu però no has acabat de simplificar la "
+-         "fracció resultant: divideix numerador i denominador pel m.c.d."),
++      [D(x_tex(d1), "DENOMINADOR_NO_ELIMINAT",
++         "Has dividit pel nombre que acompanya la $x$, però t'has saltat "
++         "el denominador: de $\\dfrac{ax}{b}=c$ surt primer $ax=b\\cdot c$, "
++         "i només llavors es divideix per $a$."),
+        D(x_tex(d2), "ENTER_MULTIPLICA_DENOMINADOR",
+          "En passar el denominador a l'altre costat, multiplica TOT el "
+          "membre de la dreta, no només una part."),
+@@ -340,11 +421,8 @@
+          "Revisa els signes: si el numerador del coeficient de $x$ és "
+          "negatiu, el resultat final n'hereta el signe segons la regla "
+          "dels signes del quocient.")],
+-      ["Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
+-       "Aïlla $x$ dividint pel nombre que l'acompanya."],
+-      [r"$\dfrac{%dx}{%d}=%s \;\Longrightarrow\; %dx=%s$"
+-       % (num, den, frac_tex(dreta), num, frac_tex(dreta * den)),
+-       "$x=%s$" % frac_tex(correcta)],
++      pistes_76,
++      passos_76,
+       ex_text=E76)
+ 
+ 
+@@ -393,7 +471,7 @@
+      "terme, incloent-hi els que ja no tenen denominador."),
+    D(x_tex(F(-10, 1)), "SIGNE_FINAL",
+      "Revisa el signe final: de $x=50-40$ surt un resultat positiu."),
+-   D(x_tex(F(2, 1)), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_tex(F(2, 1)), "ARITMETICA_PAS_INTERMEDI",
+      "Després de multiplicar per $2$ i agrupar, revisa l'aritmètica "
+      "del pas $3x-2x=50-40$.")],
+   ["Multiplica tota l'equació pel m.c.m.$(2,1)=2$ per eliminar el "
+@@ -459,7 +537,7 @@
+    D(x_tex(F(-10, 1)), "SIGNE_TERME_INDEPENDENT",
+      "Revisa el signe del $138$: en multiplicar $3\\cdot(5x-46)$ el "
+      "resultat és $15x-138$, i aquest $-138$ passa sumant a l'esquerra."),
+-   D(x_tex(F(136, 14)), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_tex(F(136, 14)), "ARITMETICA_PAS_INTERMEDI",
+      "Revisa l'aritmètica final: $2+138=140$, i $140:14=10$ exacte.")],
+   ["Multiplica els dos costats per $3$ per eliminar el denominador.",
+    "Agrupa tots els termes amb $x$ a un costat."],
+@@ -470,7 +548,7 @@
+ Q("78c", 78, "c", B1, "A",
+   r"$x - \dfrac{x+4}{5} = 1 + \dfrac{x}{2}$",
+   x_tex(F(6, 1)),
+-  [D(x_tex(F(18, 13)), "SIMPLIFICACIO_INCOMPLETA",
++  [D(x_tex(F(18, 13)), "AGRUPACIO_TERMES_MAL",
+      "Revisa que has agrupat bé els termes amb $x$: $10x-2x-5x=3x$, "
+      "no un altre coeficient."),
+    D(x_tex(F(-6, 1)), "SIGNE_FINAL",
+@@ -533,7 +611,7 @@
+   x_tex(F(60, 1)),
+   [D(x_tex(F(-60, 1)), "SIGNE_FINAL",
+      "Revisa el signe final: de $-x=-60$ surt una $x$ positiva."),
+-   D(x_tex(F(180, 1)), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_tex(F(180, 1)), "SIGNE_TERME_INDEPENDENT",
+      "Revisa el pas $-x+120=60$: el $120$ ha de restar a banda i "
+      "banda, no sumar-se dues vegades."),
+    D(x_tex(F(20, 1)), "MENYS_PARENTESI",
+@@ -634,14 +712,14 @@
+   x_tex(F(427, 53)),
+   [D(x_tex(F(-427, 53)), "SIGNE_FINAL",
+      "Revisa el signe final: $159x=1281$ dona una $x$ positiva."),
+-   D("$x=\\dfrac{1281}{159}$", "SIMPLIFICACIO_INCOMPLETA",
+-     "El resultat $\\frac{1281}{159}$ encara es pot simplificar "
+-     "dividint numerador i denominador pel seu m.c.d. ($3$), i "
+-     "arribar a $\\frac{427}{53}$."),
++   D("$x=\\dfrac{405}{53}$", "SIGNE_TERME_INDEPENDENT",
++     "Revisa el terme independent: el $-36$ de l'esquerra passa a "
++     "l'altre membre SUMANT, $1245+36=1281$. Amb $159x=1215$ "
++     "sortiria aquest valor, però l'equació dona $159x=1281$."),
+    D("$x=\\dfrac{427}{159}$", "SIMPLIFICACIO_PARCIAL",
+-     "Has simplificat només el numerador i no el denominador (o a "
+-     "l'inrevés): $\\frac{1281}{159}$ s'ha de dividir per $3$ als "
+-     "DOS costats de la fracció per arribar a $\\frac{427}{53}$.")],
++     "Has simplificat només el numerador i no el denominador: "
++     "$\\frac{1281}{159}$ s'ha de dividir per $3$ als DOS costats "
++     "de la fracció per arribar a $\\frac{427}{53}$.")],
+   ["El m.c.m.$(10,1,12)=60$: multiplica tota l'equació per $60$.",
+    "Un cop sense denominadors, agrupa termes amb $x$ i números, i "
+    "simplifica la fracció final al màxim."],
+@@ -972,7 +1050,7 @@
+      "Revisa el signe en aïllar $x$ dins del segon factor: "
+      "$\\frac{3x}{4}=\\frac{4}{5} \\Rightarrow x=\\frac{16}{15}$, "
+      "positiu."),
+-   D(x_multi_tex([F(0), F(4, 5)]), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_multi_tex([F(0), F(4, 5)]), "AILLAMENT_INCOMPLET",
+      "Un cop aïllada $\\frac{3x}{4}=\\frac{4}{5}$, encara falta "
+      "multiplicar per $\\frac{4}{3}$ per acabar d'aïllar $x$.")],
+   ["Un producte val zero quan algun dels seus factors ho és: aquí "
+@@ -1077,7 +1155,7 @@
+   [D(x_tex(F(6)), "FACTOR_COMU_INCOMPLET",
+      "Un quadrat $x^2=36$ té DUES solucions, $x=6$ i $x=-6$: no en "
+      "descartis cap arran de l'arrel quadrada."),
+-   D(x_multi_tex([F(-72), F(72)]), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_multi_tex([F(-72), F(72)]), "ORDRE_ARREL_DIVISIO",
+      "Revisa el pas $4x^2=144 \\Rightarrow x^2=36$: cal dividir "
+      "entre $4$ abans de fer l'arrel quadrada, no fer-la directament "
+      "sobre $144$."),
+@@ -1125,7 +1203,7 @@
+    D(x_multi_tex([F(1, 4), F(13, 4)]), "ORDRE_DIVISIONS",
+      "Al final cal dividir entre $2a=2$ (perquè $a=1$), no entre "
+      "$4$: revisa el denominador de les dues solucions."),
+-   D(x_multi_tex([F(1, 2), F(6)]), "SIMPLIFICACIO_INCOMPLETA",
++   D(x_multi_tex([F(1, 2), F(6)]), "ARITMETICA_PAS_INTERMEDI",
+      "Revisa la segona solució: $\\dfrac{13}{2}$ no es simplifica "
+      "a $6$; comprova la divisió $\\dfrac{7+6}{2}$.")],
+   ["El terme independent ja és una fracció: pots deixar l'equació "
+@@ -1357,9 +1435,9 @@
+    D(xy_tex(F(25, 19), F(18, 19)), "SIGNE_FINAL",
+      "Revisa el signe final de $y$: substituint a "
+      "$2x+7y=-4$ surt un valor negatiu."),
+-   D(r"$x=\dfrac{50}{38},\ y=-\dfrac{18}{19}$", "SIMPLIFICACIO_INCOMPLETA",
+-     "$\\frac{50}{38}$ encara es pot simplificar dividint numerador "
+-     "i denominador entre $2$, i arribar a $\\frac{25}{19}$.")],
++   D(r"$x=\dfrac{25}{19},\ y=-\dfrac{126}{19}$", "FACTOR_OBLIDAT",
++     "T'has quedat a mig aïllar la $y$: de $7y=-\\frac{126}{19}$ "
++     "encara cal dividir entre $7$, i queda $y=-\\frac{18}{19}$.")],
+   ["Multiplica la primera equació per $7$ i la segona per $5$ per "
+    "igualar el coeficient de $y$ (reducció).",
+    "Un cop trobada $x$, substitueix a qualsevol equació original i "
+@@ -1496,7 +1574,7 @@
+    D(xy_tex(F(2), F(-1)), "SIGNE_FINAL",
+      "Un cop $y=1$, substitueix a $x-y=1$: "
+      "$x-1=1 \\Rightarrow x=2$, positiu."),
+-   D(xy_tex(F(0), F(1, 3)), "SIMPLIFICACIO_INCOMPLETA",
++   D(xy_tex(F(0), F(1, 3)), "EQUACIO_NO_SIMPLIFICADA",
+      "Revisa la simplificació de cada equació per separat abans de "
+      "combinar-les.")],
+   ["Simplifica cada equació: agrupa termes amb $x$/$y$ a "
+@@ -1538,7 +1616,7 @@
+    D(xy_tex(F(5), F(-7)), "SIGNE_FINAL",
+      "Un cop $y=7$, substitueix a $x-2y=-9$: "
+      "$x-14=-9 \\Rightarrow x=5$, positiu."),
+-   D(xy_tex(F(-1), F(-2)), "SIMPLIFICACIO_INCOMPLETA",
++   D(xy_tex(F(-1), F(-2)), "EQUACIO_NO_SIMPLIFICADA",
+      "Revisa la simplificació de cada equació per separat abans de "
+      "combinar-les.")],
+   ["Simplifica cada equació distribuint el parèntesi i agrupant "
+@@ -1627,7 +1705,7 @@
+      "positiu."),
+    D(xy_tex(F(2), F(-2)), "SIGNE_FINAL",
+      "Revisa el signe de $y$: $8y=16 \\Rightarrow y=2$, positiu."),
+-   D(xy_tex(F(12), F(2)), "SIMPLIFICACIO_INCOMPLETA",
++   D(xy_tex(F(12), F(2)), "EQUACIO_NO_SIMPLIFICADA",
+      "Revisa la simplificació de la primera equació abans de "
+      "combinar-la amb la segona.")],
+   ["Distribueix el parèntesi de la primera equació.",
+@@ -1837,7 +1915,7 @@
+   "servir 300 rajoles quadrades. Quant mesura el costat de les "
+   "rajoles?",
+   "$0{,}4$ m (és a dir, $40$ cm) de costat",
+-  [D("$0{,}16$ m de costat", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$0{,}16$ m de costat", "ARREL_OBLIDADA",
+      "Aquest seria el valor de $L^2$ (l'àrea d'una rajola), no de "
+      "$L$ (el costat): encara falta fer l'arrel quadrada."),
+    D("$4$ m de costat", "ORDRE_MULTIPLICACIO_DIVISIO",
+diff -ru a/tools/c_estadistica.py b/tools/c_estadistica.py
+--- a/tools/c_estadistica.py	2026-08-04 21:17:47.769574813 +0000
++++ b/tools/c_estadistica.py	2026-08-04 21:17:47.771100742 +0000
+@@ -43,7 +43,35 @@
+ trobar-hi cap discrepància.
+ """
+ from fractions import Fraction as F
+-from lib import Q, D, DT, tex, texd, TAX
++from lib import Q, D, DT, tex, texd, TAX, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 11 · estadística
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    218: 1,  # classificar la variable; 220 i 226-227, llegir una freqüència
++    219: 1,
++    220: 1,
++    221: 2,  # completar una taula: freqüències acumulades i relatives
++    222: 2,  # fer el recompte a partir de la llista de dades
++    223: 3,  # percentatges encadenats abans d'arribar a les freqüències
++    224: 2,
++    225: 2,
++    226: 1,
++    227: 1,
++    228: 3,  # agrupar en intervals i després llegir-hi les acumulades
++    229: 2,  # passar de percentatge a angle del sector
++    230: 2,  # jutjar afirmacions sobre un gràfic
++    231: 2,
++    232: 3,  # comparar dos gràfics i raonar-ne la relació
++    234: 2,
++    235: 2,
++})
++
+ 
+ B1 = "variables"
+ B2 = "frequencies"
+@@ -296,7 +324,7 @@
+      "sent un conjunt finit de valors aïllats ($37, 37{,}5, 38, "
+      "38{,}5,\\ldots$), no qualsevol valor possible entre ells."),
+    D("No es pot classificar sense saber la marca de sabates",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "ES_POT_DETERMINAR",
+      "El tipus de variable (discreta) no depèn de la marca: totes les "
+      "escales de talles funcionen amb un conjunt finit de valors "
+      "aïllats.")],
+@@ -642,7 +670,7 @@
+   "suspesa\" ($F_1=9$ alumnes), perquè acumula els que en van "
+   "suspendre $0$ i $1$",
+   [D("No, cap freqüència respon directament a aquesta pregunta: cal "
+-     "tornar a comptar les dades des de zero", "SIMPLIFICACIO_INCOMPLETA",
++     "tornar a comptar les dades des de zero", "ES_POT_DETERMINAR",
+      "Sí que n'hi ha una: la freqüència absoluta ACUMULADA d'un valor "
+      "suma totes les que el precedeixen, que és exactament el que "
+      "demana \"menys de dues\"."),
+@@ -937,13 +965,13 @@
+   "i poc repetits una taula sense agrupar (la majoria de freqüències "
+   "serien $1$) no resumeix la informació",
+   [D("Amb cada valor per separat, perquè així no es perd cap detall "
+-     "de les dades originals", "SIMPLIFICACIO_INCOMPLETA",
++     "de les dades originals", "CRITERI_AGRUPACIO_MAL",
+      "No perdre cap detall no és l'objectiu d'una taula de "
+      "freqüències: l'objectiu és resumir. Amb valors tan dispersos i "
+      "poc repetits, una taula sense agrupar seria gairebé tan llarga "
+      "com la llista original i no aportaria cap resum útil."),
+    D("Amb intervals, però només perquè hi ha poques dades ($22$)",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "CRITERI_AGRUPACIO_MAL",
+      "El motiu no és el nombre de dades en si, sinó que estan molt "
+      "disperses i gairebé no es repeteixen: si els $22$ valors "
+      "haguessin estat molt semblants entre ells, no calidria agrupar "
+@@ -1260,7 +1288,7 @@
+   "perquè les relatives són les absolutes dividides pel mateix "
+   "nombre ($50$) en tots els casos",
+   [D("El diagrama de relatives té una barra menys, perquè la cara "
+-     "amb freqüència $5$ desapareix", "SIMPLIFICACIO_INCOMPLETA",
++     "amb freqüència $5$ desapareix", "ESCALA_ALTERA_DADES",
+      "Cap barra desapareix: dividir per $50$ no elimina cap valor, "
+      "només n'escala l'alçada. La cara amb freqüència absoluta $5$ "
+      "simplement passa a tenir una alçada relativa de $0{,}10$."),
+@@ -1271,7 +1299,7 @@
+      "nombre ($50$) a totes elles, així que la forma es manté "
+      "idèntica."),
+    D("No es poden comparar perquè estan en unitats diferents "
+-     "(vegades i tant per u)", "SIMPLIFICACIO_INCOMPLETA",
++     "(vegades i tant per u)", "ES_POT_DETERMINAR",
+      "Sí que es poden comparar directament: ambdós diagrames "
+      "mostren la mateixa informació relativa entre cares, només amb "
+      "una escala vertical diferent.")],
+diff -ru a/tools/c_fraccions.py b/tools/c_fraccions.py
+--- a/tools/c_fraccions.py	2026-08-04 21:17:47.796968456 +0000
++++ b/tools/c_fraccions.py	2026-08-04 21:17:47.798130633 +0000
+@@ -2,7 +2,26 @@
+ """Bloc C — Fraccions. Exercicis 18–25 del Full 1 (41 ítems)."""
+ 
+ from fractions import Fraction as F
+-from lib import Q, D, DT, TAX, ev, tex, mcd
++from lib import Q, D, DT, TAX, ev, tex, mcd, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 1 · fraccions
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     18: 1,  # comprovar equivalència; 20, simplificar; 22, enter ± fracció
++     19: 2,  # a l'inrevés: quin nombre falta perquè siguin equivalents
++     20: 1,
++     21: 2,  # parèntesis niats, i 23-25 barregen suma, producte i enters
++     22: 1,
++     23: 2,
++     24: 2,
++     25: 2,
++})
++
+ 
+ B = "fraccions"
+ 
+@@ -164,7 +183,7 @@
+   [D(r"No es pot simplificar, perquè $11$ és primer.", "NO_SIMPLIFICABLE",
+      TAX["NO_SIMPLIFICABLE"] + r" Aquí $121 = 11^{2}$."),
+    DT(F(1, 11), "INVERTIDA", ""),
+-   DT(110, "SIMPLIFICACIO_INCOMPLETA",
++   DT(110, "SIMPLIFICAR_RESTANT",
+       r"Has restat $121-11$. Simplificar és DIVIDIR els dos termes pel mateix nombre.")],
+   [r"$121$ és una potència de $11$.",
+    r"$121 = 11\cdot 11$."],
+diff -ru a/tools/c_funcions.py b/tools/c_funcions.py
+--- a/tools/c_funcions.py	2026-08-04 21:17:47.785703708 +0000
++++ b/tools/c_funcions.py	2026-08-04 21:17:47.786962231 +0000
+@@ -51,7 +51,31 @@
+ sense cap error trobat al solucionari font.
+ """
+ from fractions import Fraction as F
+-from lib import Q, D, DT, tex
++from lib import Q, D, DT, tex, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 10 · funcions
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    200: 2,  # decidir si una relació és funció i justificar-ho
++    201: 1,  # substituir valors i calcular imatges
++    202: 1,
++    203: 2,  # llegir domini i recorregut d'una gràfica descrita
++    206: 3,  # estudi complet d'una gràfica
++    207: 1,  # llegir el pendent i l'ordenada de l'expressió; 208, el signe del pendent
++    208: 1,
++    209: 2,  # muntar l'expressió de la recta a partir de dos punts
++    212: 1,  # comparar obertures de paràboles a ull
++    214: 2,  # a l'inrevés: quina constant dona aquest vèrtex
++    215: 3,
++    216: 3,  # talls, vèrtex i eix: tres càlculs encadenats sobre la mateixa paràbola
++    217: 2,
++})
++
+ 
+ B1 = "concepte_funcio"
+ B2 = "funcions_lineals"
+@@ -169,36 +193,44 @@
+   ex_text=E200)
+ 
+ Q("200b", 200, "b", B1, "B",
+-  "Cada mes de l'any i el seu nombre de dies.",
+-  "SÍ és una funció: cada mes concret té sempre el mateix nombre de "
+-  "dies (els anys de traspàs només afegeixen un dia al febrer d'alguns "
+-  "anys, però per a un mes fixat el nombre de dies és sempre el mateix "
+-  "o varia de manera predictible).",
++  "Cada mes d'un any concret (per exemple, el 2025) i el seu nombre "
++  "de dies.",
++  "SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, "
++  "determinat pel calendari.",
+   [D("NO és una funció: el febrer no sempre té el mateix nombre de "
+      "dies (28 o 29, segons l'any), així que un mateix mes té més "
+      "d'un valor possible.",
+-     "VEREDICTE_INVERTIT",
+-     "Encara que el febrer variï segons l'any, per a CADA any concret "
+-     "el nombre de dies de febrer és un únic valor determinat (per la "
+-     "regla dels anys de traspàs): no hi ha ambigüitat real, la "
+-     "relació segueix sent una funció."),
++     "DOMINI_MAL_LLEGIT",
++     "Això seria cert si el conjunt de partida fossin els dotze mesos "
++     "SENSE dir de quin any: llavors el febrer tindria dues imatges "
++     "possibles i NO seria una funció. Però aquí l'any està fixat, i "
++     "amb l'any fixat el febrer té un únic nombre de dies."),
+    D("NO és una funció: mesos diferents poden tenir el mateix nombre "
+      "de dies (per exemple, abril i juny en tenen 30 tots dos).",
+      "VEREDICTE_INVERTIT",
+      "Que dos mesos DIFERENTS comparteixin el mateix nombre de dies "
+      "no trenca que sigui una funció: el que cal comprovar és que un "
+-     "mateix mes no tingui mai dos valors diferents, i això sí es "
+-     "compleix."),
+-   D("Depèn: només és una funció si no hi ha anys de traspàs.",
+-     "VEREDICTE_INVERTIT",
+-     "Els anys de traspàs no trenquen que sigui una funció: fins i "
+-     "tot amb ells, cada mes té un nombre de dies determinat per la "
+-     "regla del calendari, mai ambigu.")],
+-  ["Comprova si algun mes concret podria tenir dos nombres de dies "
+-   "diferents alhora (no d'un any a l'altre, sinó simultàniament)."],
+-  ["Cada mes té sempre un únic nombre de dies determinat: és una "
+-   "funció."],
+-  ex_text=E200)
++     "mateix mes no tingui mai dos valors alhora, i això es compleix."),
++   D("Depèn: només és una funció si l'any no és de traspàs.",
++     "DOMINI_MAL_LLEGIT",
++     "Tant si l'any és de traspàs com si no, un cop fixat l'any el "
++     "febrer té un nombre de dies i només un ($29$ o $28$): en tots "
++     "dos casos la relació és una funció.")],
++  ["Comprova si algun mes d'aquell any podria tenir dos nombres de "
++   "dies diferents alhora.",
++   "Fixa't en què és exactament el conjunt de partida: els mesos d'un "
++   "any determinat, no \"els mesos\" en abstracte."],
++  ["Fixat l'any, cada mes té un únic nombre de dies: és una funció.",
++   "Compte amb el conjunt de partida: si fossin \"els mesos\" sense "
++   "concretar l'any, el febrer tindria dues imatges ($28$ i $29$) i "
++   "la relació NO seria una funció. Quina és la resposta depèn de com "
++   "es defineix el domini."],
++  ex_text=E200,
++  nota="L'enunciat original diu només \"cada mes de l'any\". Aquí "
++       "s'hi ha afegit \"d'un any concret\" perquè, sense fixar "
++       "l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) "
++       "i la relació NO seria una funció: tal com estava, l'exercici "
++       "no tenia una resposta única.")
+ 
+ Q("200c", 200, "c", B1, "B",
+   "El radi d'una circumferència i la longitud del seu perímetre.",
+@@ -390,7 +422,7 @@
+    r"$f(2)=\sqrt{6}\approx 2{,}45$."],
+   ex_text=E202,
+   nota="Les imatges no són exactes: s'han arrodonit a les centèsimes, "
+-       "igual que fa el solucionari original.")
++       "com demana l'encapçalament de l'exercici.")
+ 
+ Q("202d", 202, "d", B1, "A",
+   r"$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$",
+@@ -657,8 +689,10 @@
+ # =====================================================================
+ 
+ # ---- exercici 207: pendent i ordenada a l'origen ----
+-E207 = ("Indica el pendent i l'ordenada a l'origen de cada funció lineal, "
+-        "donada per la seva expressió.")
++E207 = ("Indica el pendent i l'ordenada a l'origen de cada funció afí, "
++        "donada per la seva expressió. Recorda que les que no tenen terme "
++        "independent ($y=mx$) s'anomenen funcions lineals, i són el cas "
++        "particular amb ordenada a l'origen $0$.")
+ _207 = {"a": (F(-3), F(6)), "b": (F(10), F(0)),
+         "c": (F(-2), F(-5)), "d": (F(-9), F(0))}
+ _207_EXPR = {"a": "y=-3x+6", "b": "y=10x", "c": "y=-2x-5", "d": "y=-9x"}
+@@ -695,11 +729,14 @@
+ 
+ 
+ # ---- exercici 208: creixent o decreixent, sense representar ----
+-E208 = ("Indica, sense representar-la, si la funció lineal és creixent o "
++E208 = ("Indica, sense representar-la, si la funció afí és creixent o "
+         "decreixent.")
+-_208 = {"a": ("y=12x-1", F(12)), "b": ("y=x/6+3", F(1, 6)),
+-        "c": ("y=x/4-2", F(1, 4)), "d": ("y=-7x+5", F(-7)),
+-        "e": ("y=-12x/5+1", F(-12, 5)), "f": ("y=7x/10", F(7, 10))}
++# Les fraccions van amb \dfrac com a la resta del projecte: escrites amb
++# barra inclinada quedaven diminutes al costat de la resta d'expressions.
++_208 = {"a": ("y=12x-1", F(12)), "b": (r"y=\dfrac{x}{6}+3", F(1, 6)),
++        "c": (r"y=\dfrac{x}{4}-2", F(1, 4)), "d": ("y=-7x+5", F(-7)),
++        "e": (r"y=-\dfrac{12x}{5}+1", F(-12, 5)),
++        "f": (r"y=\dfrac{7x}{10}", F(7, 10))}
+ 
+ for _ap, (_expr, _m) in _208.items():
+     _creix = _m > 0
+@@ -712,7 +749,7 @@
+             "creixent" if _creix else "decreixent",
+             "decreixent" if _creix else "creixent")),
+        D("Constant", "PENDENT_COM_NUL",
+-         r"El pendent $%s$ no és $0$: una funció lineal només és "
++         r"El pendent $%s$ no és $0$: una funció afí només és "
+          r"constant quan el pendent és nul, i aquí no ho és."
+          % frac_tex(_m)),
+        D("No es pot saber sense representar-la", "REPRESENTACIO_INNECESSARIA",
+@@ -728,7 +765,7 @@
+ 
+ 
+ # ---- exercici 209: equació de la recta a partir de dos punts ----
+-E209 = ("Calcula l'expressió algebraica de la funció lineal que passa "
++E209 = ("Calcula l'expressió algebraica de la funció afí que passa "
+         "pels dos punts donats.")
+ _209 = {"a": ((0, -1), (1, 1)), "b": ((0, 1), (1, 3)),
+         "c": ((0, 1), (2, 2)), "d": ((0, -1), (1, -3))}
+@@ -778,8 +815,8 @@
+ E212 = ("Sense representar-la, indica si la paràbola és més oberta cap "
+         "amunt o cap avall, i si és més estreta o més ampla que "
+         "$y=x^2$.")
+-_212 = {"a": ("y=2x^2", F(2)), "b": ("y=x^2/2", F(1, 2)),
+-        "c": ("y=-2x^2", F(-2)), "d": ("y=x^2/4", F(1, 4))}
++_212 = {"a": ("y=2x^2", F(2)), "b": (r"y=\dfrac{x^2}{2}", F(1, 2)),
++        "c": ("y=-2x^2", F(-2)), "d": (r"y=\dfrac{x^2}{4}", F(1, 4))}
+ 
+ for _ap, (_expr, _a) in _212.items():
+     _obert = "amunt" if _a > 0 else "avall"
+@@ -974,7 +1011,7 @@
+   [D(r"No té cap terme en $x^2$ escrit, però és una paràbola amb "
+      r"$a=0$: oberta cap avall, decreixent.", "PARABOLA_AMB_A_ZERO",
+      r"Si el coeficient de $x^2$ és $0$, l'expressió deixa de ser una "
+-     r"paràbola: sense terme en $x^2$, és una recta (funció lineal), "
++     r"paràbola: sense terme en $x^2$, és una recta (funció afí), "
+      r"no una paràbola extremament oberta."),
+    D(r"És una recta amb pendent $-1$, però creixent, i ordenada a "
+      r"l'origen $-3$.", "SIGNE_PENDENT_INVERTIT",
+@@ -986,7 +1023,7 @@
+      r"recta talla l'eix $Y$ en $(0,-3)$.")],
+   [r"Si l'expressió no té cap terme en $x^2$, no és una paràbola: és "
+    r"una recta."],
+-  [r"$y=-x-3$ no té terme en $x^2$: és una funció lineal (recta), no "
++  [r"$y=-x-3$ no té terme en $x^2$: és una funció afí (recta), no "
+    r"una paràbola.",
+    r"El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a "
+    r"l'origen és $-3$."],
+diff -ru a/tools/c_geometria.py b/tools/c_geometria.py
+--- a/tools/c_geometria.py	2026-08-04 21:17:47.716803961 +0000
++++ b/tools/c_geometria.py	2026-08-04 21:17:47.718331913 +0000
+@@ -64,7 +64,50 @@
+ dins d'una resolució o pista que ja porta els seus propis delimitadors.
+ """
+ import math
+-from lib import Q, D, DT, tex
++from lib import Q, D, DT, tex, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 7 · Pitàgores i àrees
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    119: 1,  # angles d'un triangle; 120, desigualtat triangular; 123, Pitàgores directe
++    120: 1,
++    121: 2,  # comprovar si es compleix el teorema, i concloure'n alguna cosa
++    122: 2,
++    123: 1,
++    124: 2,  # Pitàgores dins d'una figura: cal veure quin triangle rectangle hi ha
++    125: 2,
++    126: 2,
++    127: 2,
++    128: 3,  # figura composta: cal descompondre-la
++    129: 3,
++    130: 3,  # a l'inrevés partint de l'àrea; 133, amb radical pel mig
++    131: 2,  # àrea i un costat donats: Pitàgores per trobar el que falta
++    132: 2,
++    133: 3,
++    134: 2,
++    135: 2,
++    136: 2,
++    137: 2,
++    138: 2,
++    140: 2,  # àrees de polígons amb la fórmula corresponent
++    141: 2,
++    142: 2,
++    143: 2,
++    144: 3,  # àrees per diferència de figures
++    145: 3,
++    146: 3,  # problemes amb context
++    147: 3,
++    148: 3,
++    149: 3,
++    150: 3,
++    151: 3,
++})
++
+ 
+ B1 = "triangles"
+ B2 = "arees_pit"
+@@ -183,7 +226,7 @@
+      "que el costat més llarg: la desigualtat triangular exigeix que "
+      "la suma sigui ESTRICTAMENT més gran, no igual. Amb $7+1=8$ el "
+      "\"triangle\" quedaria completament pla."),
+-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
++   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
+      "La desigualtat triangular es comprova només amb les tres "
+      "longituds, sense necessitat de cap angle: la suma dels dos "
+      "costats més curts ha de superar el més llarg."),
+@@ -211,7 +254,7 @@
+      "Que dos costats siguin iguals no garanteix que es pugui formar "
+      "un triangle: cal comprovar la desigualtat triangular igualment, "
+      "i aquí no es compleix."),
+-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
++   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
+      "La desigualtat triangular es comprova només amb les tres "
+      "longituds donades, sense cap angle.")],
+   ["Compara la suma dels dos costats més curts amb el més llarg.",
+@@ -228,11 +271,11 @@
+      "més gran que $14$. La desigualtat triangular es compleix en "
+      "aquest cas."),
+    D("Només es pot saber comparant $12$ amb $14$, no cal mirar el $6$",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "COSTATS_MAL_TRIATS",
+      "Cal comprovar la desigualtat amb els DOS costats més curts "
+      "sumats ($12+6$) contra el més llarg ($14$), no comparar dos "
+      "costats qualssevol entre si."),
+-   D("No es pot saber sense conèixer els angles", "SIMPLIFICACIO_INCOMPLETA",
++   D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
+      "La desigualtat triangular es comprova només amb les tres "
+      "longituds donades, sense cap angle.")],
+   ["Només cal comprovar-ho amb els dos costats més curts: $12$ i $6$.",
+@@ -279,7 +322,7 @@
+      "més llarg ($12$ cm), no el $8$ cm; però de fet aquest triangle "
+      "no és rectangle."),
+    D("No es pot saber sense mesurar els angles directament",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "ES_POT_DETERMINAR",
+      "El teorema de Pitàgores permet saber-ho només amb les tres "
+      "longituds, sense mesurar cap angle: només cal comparar "
+      "$6^2+8^2$ amb $12^2$.")],
+@@ -302,7 +345,7 @@
+      r"\approx7{,}81$ cm, és més llarg que $6$ cm, i per tant és ell "
+      "qui fa d'hipotenusa, no el $6$."),
+    D(r"No es pot saber perquè un dels costats és una arrel, no un "
+-     r"nombre enter", "SIMPLIFICACIO_INCOMPLETA",
++     r"nombre enter", "ES_POT_DETERMINAR",
+      r"El teorema de Pitàgores funciona igual amb costats irracionals: "
+      r"n'hi ha prou d'elevar $\sqrt{61}$ al quadrat, que dona "
+      "exactament $61$.")],
+@@ -348,7 +391,7 @@
+      "seria rectangle): com que $100$ és més gran que $89$, l'angle és "
+      "més obert que un angle recte, és a dir, obtusangle."),
+    D("No es pot classificar sense mesurar els angles directament",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "ES_POT_DETERMINAR",
+      "Comparant el quadrat del costat més llarg amb la suma dels "
+      "quadrats dels altres dos ja n'hi ha prou per classificar-lo, "
+      "sense necessitat de mesurar cap angle.")],
+@@ -454,7 +497,7 @@
+      "Aquest plantejament fa servir el costat sencer ($10$) com a "
+      "catet dues vegades, no la SEMIBASE (la meitat del costat, ja "
+      "que l'alçada cau al punt mitjà de la base)."),
+-   D(tex(5), "SIMPLIFICACIO_INCOMPLETA",
++   D(tex(5), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és la semibase (la meitat del costat), no l'alçada: "
+      "encara falta aplicar Pitàgores amb aquesta semibase i el costat "
+      "com a hipotenusa.")],
+@@ -480,7 +523,7 @@
+      "Has fet servir la base sencera ($8$ cm) com a catet, en lloc de "
+      "la SEMIBASE ($4$ cm, la meitat de la base, ja que l'alçada cau "
+      "al punt mitjà)."),
+-   D(tex(4), "SIMPLIFICACIO_INCOMPLETA",
++   D("$%s$ cm" % tex(4), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és la semibase (la meitat de la base), no el costat "
+      "igual que et demanen: encara falta aplicar Pitàgores.")],
+   ["L'alçada divideix la base pel mig: la semibase és "
+@@ -524,7 +567,7 @@
+      "($48:3=16$ cm): sembla que has fet servir el perímetre sencer "
+      "($48$) com si fos el costat, en lloc de dividir-lo entre 3 "
+      "primer."),
+-   D(tex(16), "SIMPLIFICACIO_INCOMPLETA",
++   D(tex(16), "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el costat del triangle ($48:3$), no l'alçada: encara "
+      "cal aplicar Pitàgores amb la semibase."),
+    D(tex(192), "ARREL_OBLIDADA",
+@@ -569,7 +612,7 @@
+    D("$70$ cm", "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor no coincideix amb la suma dels sis costats donats: "
+      "torna a sumar-los amb calma."),
+-   D("$41$ cm", "SIMPLIFICACIO_INCOMPLETA",
++   D("$41$ cm", "PART_PEL_TOT",
+      "Aquest valor sembla la meitat del perímetre real: el perímetre "
+      "inclou els sis costats sencers, no la meitat de la suma.")],
+   ["El perímetre és la suma de tots els costats, encara que la figura "
+@@ -583,8 +626,8 @@
+ 
+ Q("127a", 127, "a", B1, "A",
+   "10 cm",
+-  arrel_tex(75, aprox=True),
+-  [D(tex(10), "APOTEMA_COSTAT_CONFOS",
++  arrel_tex(75, aprox=True) + " cm",
++  [D("$%s$ cm" % tex(10), "APOTEMA_COSTAT_CONFOS",
+      "L'apotema d'un hexàgon regular NO coincideix amb el costat: "
+      "s'obté aplicant Pitàgores a un dels sis triangles equilàters en "
+      "què el centre el divideix."),
+@@ -592,7 +635,7 @@
+      "Aquest és el catet corresponent a la meitat del costat, però "
+      "encara falta multiplicar per $\\sqrt{3}$: l'apotema és "
+      "$\\dfrac{L\\sqrt3}{2}$, no només $\\dfrac{L}{2}$."),
+-   D(tex(10 * 3), "POTENCIA_DE_SUMA",
++   D("$%s$ cm" % tex(10 * 3), "POTENCIA_DE_SUMA",
+      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
+      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
+      "dividit per $2$.")],
+@@ -604,14 +647,14 @@
+ 
+ Q("127b", 127, "b", B1, "A",
+   "16 cm",
+-  arrel_tex(192, aprox=True),
+-  [D(tex(16), "APOTEMA_COSTAT_CONFOS",
++  arrel_tex(192, aprox=True) + " cm",
++  [D("$%s$ cm" % tex(16), "APOTEMA_COSTAT_CONFOS",
+      "L'apotema d'un hexàgon regular no coincideix amb el costat: cal "
+      "aplicar la fórmula $a=\\dfrac{L\\sqrt3}{2}$."),
+    D("$8$ cm", "ARREL_FACTOR_OBLIDAT",
+      "Aquest és $\\dfrac{L}{2}$, però encara falta multiplicar per "
+      "$\\sqrt{3}$."),
+-   D(tex(16 * 3), "POTENCIA_DE_SUMA",
++   D("$%s$ cm" % tex(16 * 3), "POTENCIA_DE_SUMA",
+      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
+      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
+      "dividit per $2$.")],
+@@ -644,14 +687,14 @@
+   "els punts mitjans dels quatre costats del rectangle. Calcula el "
+   "costat del rombe.",
+   "$10$ cm",
+-  [D(tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
++  [D("$%s$ cm" % tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
+      "Has sumat directament les meitats de base i altura ($6+8$) en "
+      "lloc d'aplicar Pitàgores."),
+-   D(tex(100), "ARREL_OBLIDADA",
++   D("$%s$ cm" % tex(100), "ARREL_OBLIDADA",
+      r"Has calculat $6^2+8^2=100$ correctament, però t'has deixat "
+      r"l'arrel quadrada final."),
+-   D(arrel_tex(12 ** 2 + 16 ** 2, aprox=True).replace("$", ""),
+-     "SIMPLIFICACIO_INCOMPLETA",
++   D(arrel_tex(12 ** 2 + 16 ** 2, aprox=True) + " cm",
++     "MEITAT_OBLIDADA",
+      "Has fet servir la base i l'altura senceres ($12$ i $16$) en "
+      "lloc de les seves MEITATS ($6$ i $8$): el costat del rombe és "
+      "la hipotenusa del triangle format pels punts mitjans, no pel "
+@@ -695,10 +738,10 @@
+   "Un rectangle de costats 15 cm i 20 cm està inscrit en una "
+   "circumferència. Quant mesura el radi de la circumferència?",
+   "$12{,}5$ cm",
+-  [D("$25$ cm", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$25$ cm", "MEITAT_OBLIDADA",
+      "Aquest és el DIÀMETRE de la circumferència (la diagonal del "
+      "rectangle), no el radi: el radi és la meitat del diàmetre."),
+-   D(tex(15 + 20), "SUMA_CATETS_SENSE_QUADRAT",
++   D("$%s$ cm" % tex(15 + 20), "SUMA_CATETS_SENSE_QUADRAT",
+      "Has sumat directament els dos costats ($15+20$) en lloc "
+      "d'aplicar Pitàgores per trobar la diagonal."),
+    D("$625$ cm", "ARREL_OBLIDADA",
+@@ -726,7 +769,7 @@
+   "L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual "
+   "(la base) mesura $6$ m. Troba la longitud dels altres dos costats.",
+   arrel_tex(73, aprox=True) + " m",
+-  [D("$8$ m", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$8$ m", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'alçada del triangle (obtinguda de l'àrea), no el "
+      "costat lateral que et demanen: encara falta aplicar Pitàgores "
+      "amb la semibase."),
+@@ -748,7 +791,7 @@
+   "L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets "
+   "mesura $6$ cm. Calcula la longitud de la hipotenusa.",
+   "$2\\sqrt{13}\\approx7{,}21$ cm",
+-  [D("$4$ cm", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$4$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és l'altre catet (obtingut de l'àrea), no la hipotenusa "
+      "que et demanen: encara falta aplicar Pitàgores."),
+    D(tex(6 + 4) + " cm", "SUMA_CATETS_SENSE_QUADRAT",
+@@ -768,7 +811,7 @@
+ Q("132", 132, "", B2, "A",
+   "Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
+   "$225\\sqrt3\\approx389{,}71$ cm$^2$",
+-  [D("$30$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$30$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el costat del triangle ($90:3$), no l'àrea: encara "
+      "cal aplicar la fórmula de l'àrea del triangle equilàter."),
+    D("$900$ cm$^2$", "POTENCIA_DE_SUMA",
+@@ -814,7 +857,7 @@
+   "Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un "
+   "dels catets mesura $5$ cm.",
+   "$30$ cm$^2$",
+-  [D("$12$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$12$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és l'altre catet (obtingut amb Pitàgores), no l'àrea que "
+      "et demanen: encara falta aplicar la fórmula de l'àrea del "
+      "triangle."),
+@@ -860,7 +903,7 @@
+   "Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels "
+   "costats de $4$ cm.",
+   "$20$ cm$^2$",
+-  [D("$5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és l'altre costat (obtingut amb Pitàgores), no l'àrea: "
+      "encara falta multiplicar els dos costats."),
+    D("$\\sqrt{41}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
+@@ -882,7 +925,7 @@
+   "Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal "
+   "$\\sqrt{116}$ cm.",
+   "$40$ cm$^2$",
+-  [D("$4$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$4$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'alçada (obtinguda amb Pitàgores), no l'àrea: "
+      "encara falta multiplicar-la per la base."),
+    D("$\\sqrt{116}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
+@@ -904,7 +947,7 @@
+   "Determina l'àrea d'un rectangle de base $7$ cm i perímetre "
+   "$24$ cm.",
+   "$35$ cm$^2$",
+-  [D("$5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és l'alçada (obtinguda del perímetre), no l'àrea: "
+      "encara falta multiplicar-la per la base."),
+    D("$8{,}5$ cm$^2$", "INVERTIDA",
+@@ -941,7 +984,7 @@
+   [D("$78$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+      "Aquest valor no divideix per $2$: l'àrea d'un trapezi és "
+      "$\\dfrac{(B+b)\\cdot h}{2}$, no $(B+b)\\cdot h$ sencer."),
+-   D("$19$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$19$ cm$^2$", "DIVISIO_REPETIDA",
+      "Aquest valor sembla dividir per $2$ dues vegades: revisa que "
+      "has calculat $(3+10)\\cdot6$ abans de dividir per $2$, no "
+      "$(3+10)$ dividit per $2$ i després multiplicat per $6$ dividit "
+@@ -963,7 +1006,7 @@
+      "$\\dfrac{(16+24)\\cdot\\sqrt{164}}{2}$, i $\\dfrac{40}{2}=20$ ja "
+      "és el resultat correcte de la primera divisió, no cal tornar-la "
+      "a dividir."),
+-   D("$\\sqrt{164}$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$\\sqrt{164}$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és només l'alçada, no l'àrea: encara falta multiplicar "
+      "per la suma de les bases i dividir per $2$."),
+    D("$164$ m$^2$", "CATET_MAL_IDENTIFICAT",
+@@ -987,7 +1030,7 @@
+      "Aquest valor sembla fet servir només una de les dues bases "
+      "(la gran) amb l'alçada, i després dividit per $2$: cal sumar "
+      "les DUES bases abans de multiplicar per l'alçada."),
+-   D("$5{,}345$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$5{,}345$ m$^2$", "FORMULA_INVERTIDA",
+      "Aquest valor sembla la suma de les bases dividida per l'alçada, "
+      "en lloc de multiplicada: revisa la fórmula "
+      "$\\dfrac{(B+b)\\cdot h}{2}$.")],
+@@ -1020,7 +1063,7 @@
+ Q("141a", 141, "a", B3, "A",
+   "Un hexàgon regular de costat $2$ cm.",
+   "$6\\sqrt3\\approx10{,}39$ cm$^2$",
+-  [D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest valor és l'apotema, no l'àrea: encara falta multiplicar "
+      "pel perímetre i dividir per $2$."),
+    D("$12$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+@@ -1044,7 +1087,7 @@
+ Q("141b", 141, "b", B3, "A",
+   "Un octàgon regular de perímetre $48$ cm.",
+   "$72(1+\\sqrt2)\\approx173{,}82$ cm$^2$",
+-  [D("$6$ cm", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el costat de l'octàgon ($48:8$), no l'àrea: encara "
+      "cal calcular l'apotema i aplicar la fórmula de l'àrea."),
+    D("$288$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+@@ -1068,7 +1111,7 @@
+   "Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la "
+   "diagonal que passa pel centre (la que uneix dos vèrtexs oposats).",
+   "$12$ cm",
+-  [D("$6$ cm", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el costat de l'hexàgon, no la diagonal que passa pel "
+      "centre: en un hexàgon regular, aquesta diagonal val el DOBLE "
+      "del costat."),
+@@ -1097,7 +1140,7 @@
+   "Un quadrat de costat $5$ cm queda dividit en dos triangles iguals "
+   "per una diagonal. Quina és l'àrea d'un d'aquests triangles?",
+   "$12{,}5$ cm$^2$",
+-  [D("$25$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$25$ cm$^2$", "PART_PEL_TOT",
+      "Aquesta és l'àrea del QUADRAT sencer, no d'un dels dos triangles "
+      "(la meitat): encara falta dividir per $2$."),
+    D("$5$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+@@ -1119,14 +1162,14 @@
+   "el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests "
+   "triangles?",
+   "$5{,}5$ cm$^2$",
+-  [D("$27{,}5$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$27{,}5$ cm$^2$", "PART_PEL_TOT",
+      "Aquesta és l'àrea del PENTÀGON sencer (els $5$ triangles "
+      "junts), no d'un sol triangle: divideix per $5$."),
+    D("$11$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+      "Aquest valor no divideix per $2$: l'àrea d'un dels triangles és "
+      "$\\dfrac{\\text{costat}\\cdot\\text{apotema}}{2}$, no el "
+      "producte sencer."),
+-   D("$1{,}375$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$1{,}375$ cm$^2$", "DIVISIO_REPETIDA",
+      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
+      "has calculat $4\\cdot2{,}75$ abans de dividir per $2$, no "
+      "$2\\cdot1{,}375$.")],
+@@ -1142,7 +1185,7 @@
+   "l'àrea d'un d'aquests triangles?",
+   "$\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ cm$^2$",
+   [D("$\\dfrac{27\\sqrt3}{2}\\approx23{,}38$ cm$^2$",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "PART_PEL_TOT",
+      "Aquesta és l'àrea de l'HEXÀGON sencer (els $6$ triangles "
+      "junts), no d'un sol triangle: divideix-la per $6$."),
+    D("$9\\sqrt3\\approx15{,}59$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+@@ -1164,14 +1207,14 @@
+   "dividit en vuit triangles iguals unint el centre amb cada vèrtex. "
+   "Quina és l'àrea d'un d'aquests triangles?",
+   "$8{,}31$ cm$^2$",
+-  [D("$66{,}48$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$66{,}48$ cm$^2$", "PART_PEL_TOT",
+      "Aquesta és l'àrea de l'OCTÀGON sencer (els $8$ triangles "
+      "junts), no d'un sol triangle: divideix-la per $8$."),
+    D("$16{,}62$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+      "Aquest valor no divideix per $2$: l'àrea d'un dels triangles és "
+      "$\\dfrac{\\text{costat}\\cdot\\text{apotema}}{2}$, no el "
+      "producte sencer."),
+-   D("$4{,}155$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$4{,}155$ cm$^2$", "DIVISIO_REPETIDA",
+      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
+      "has calculat $3\\cdot5{,}54$ abans de dividir per $2$.")],
+   ["Cada triangle té com a base el costat de l'octàgon i com a "
+@@ -1187,7 +1230,7 @@
+   "semicercle de $12$ cm de diàmetre i un semicercle interior de "
+   "$6$ cm de diàmetre. Quina és la seva àrea?",
+   "$\\dfrac{27\\pi}{2}\\approx42{,}41$ cm$^2$",
+-  [D("$18\\pi\\approx56{,}55$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$18\\pi\\approx56{,}55$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
+      "Aquest valor no divideix per $2$: cal calcular l'àrea de "
+      "CADASCUN dels dos semicercles (ja dividida per $2$ respecte "
+      "del cercle complet), no la diferència dels cercles complets."),
+@@ -1208,25 +1251,26 @@
+    "Diferència: $18\\pi-4{,}5\\pi=13{,}5\\pi=\\dfrac{27\\pi}{2}"
+    "\\approx42{,}41$ cm$^2$"],
+   ex_text=E144,
+-  nota="La font no permet determinar amb seguretat el diàmetre exacte "
+-       "de l'arc interior (vegeu NOTA DE TRANSCRIPCIÓ IMPORTANT a "
+-       "r-im8.tex); s'adopta la interpretació explícita del "
+-       "solucionari (diàmetre interior $6$ cm) per obtenir un valor "
+-       "numèric complet.")
++  nota="La figura de partida no deixa clar el diàmetre de l'arc "
++       "interior; aquí es pren $6$ cm, que és la meitat de l'exterior.",
++  nota_interna="La imatge de la font no permet determinar el diàmetre "
++               "interior amb seguretat; s'adopta la lectura explícita del "
++               "solucionari (6 cm) per tenir un valor numèric complet. "
++               "Vegeu la nota de transcripció de r-im8.tex.")
+ 
+ Q("144b", 144, "b", B3, "A",
+-  "D'una circumferència de $4$ cm de diàmetre es retalla un sector de "
++  "D'un cercle de $4$ cm de diàmetre es retalla un sector de "
+   "$90^\\circ$ (una quarta part, tipus \"Pac-Man\"). Quina és l'àrea "
+   "de la part que queda?",
+   "$3\\pi\\approx9{,}42$ cm$^2$",
+   [D("$4\\pi\\approx12{,}57$ cm$^2$", "TERME_OBLIDAT_OPERACIO",
+      "Aquesta és l'àrea del cercle complet, sense retallar el "
+      "sector: recorda restar la porció retallada."),
+-   D("$\\pi\\approx3{,}14$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$\\pi\\approx3{,}14$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
+      "Aquest valor és el sector RETALLAT (la quarta part), no el que "
+      "queda de la figura: la figura és la resta del cercle un cop "
+      "tret aquest sector."),
+-   D("$2\\pi\\approx6{,}28$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$2\\pi\\approx6{,}28$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
+      "Aquest valor correspon a la meitat del cercle, no a les tres "
+      "quartes parts que queden després de retallar un sector de "
+      "$90^\\circ$ (un quart de volta).")],
+@@ -1238,11 +1282,13 @@
+    "Àrea final (tres quarts del cercle): "
+    "$\\dfrac34\\cdot4\\pi=3\\pi\\approx9{,}42$ cm$^2$"],
+   ex_text="",
+-  nota="La font no permet determinar amb seguretat l'amplitud exacta "
+-       "del sector retallat (vegeu NOTA DE TRANSCRIPCIÓ IMPORTANT a "
+-       "r-im8.tex); s'adopta la interpretació explícita del "
+-       "solucionari (sector de $90^\\circ$, forma de \"Pac-Man\") per "
+-       "obtenir un valor numèric complet.")
++  nota="La figura de partida no deixa clar quin angle abasta el sector "
++       "retallat; aquí es pren un quart de volta ($90^\\circ$), que és el "
++       "que ja diu l'enunciat.",
++  nota_interna="La imatge de la font no permet determinar l'amplitud del "
++               "sector amb seguretat; s'adopta la lectura explícita del "
++               "solucionari (90°, forma de \"Pac-Man\"). Vegeu la nota de "
++               "transcripció de r-im8.tex.")
+ 
+ Q("145c", 145, "c", B3, "A",
+   "Un quadrat de costat $5$ cm té un forat circular de $2$ cm de "
+@@ -1272,13 +1318,14 @@
+    "$\\pi\\cdot1^2=\\pi$ cm$^2$",
+    "Àrea de la figura: $25-\\pi\\approx21{,}86$ cm$^2$"],
+   ex_text="Determina l'àrea de la figura descrita.",
+-  nota="Els apartats a, b i d d'aquest exercici (figures esglaonades "
+-       "en forma de L/T) no es conserven: la font indica que no s'ha "
+-       "pogut reconstruir amb seguretat la disposició exacta de les "
+-       "peces a partir de la imatge, i r-im8.tex no arriba a cap "
+-       "valor numèric per a ells. Es conserva únicament l'apartat c "
+-       "(quadrat amb forat circular), que sí té una disposició "
+-       "inequívoca i un resultat numèric complet.")
++  nota="D'aquest exercici només hi ha l'apartat c: els altres tres eren "
++       "figures esglaonades en forma de L i de T que no es poden "
++       "descriure sense el dibuix.",
++  nota_interna="Apartats a, b i d exclosos: la imatge de la font no permet "
++               "reconstruir la disposició de les peces i r-im8.tex no arriba "
++               "a cap valor numèric per a ells. Es conserva només el c "
++               "(quadrat amb forat circular), inequívoc i amb resultat "
++               "numèric complet.")
+ 
+ 
+ # =====================================================================
+@@ -1336,10 +1383,10 @@
+      "Aquest és el nombre d'arbres, no el costat: primer cal trobar "
+      "el perímetre total ($32$ arbres $\\times5$ m de separació) i "
+      "després dividir-lo entre els $4$ costats."),
+-   D("$5$ m", "SIMPLIFICACIO_INCOMPLETA",
++   D("$5$ m", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquesta és la separació entre arbres, no el costat del camp: "
+      "encara falta calcular el perímetre total i dividir entre 4."),
+-   D("$160$ m", "SIMPLIFICACIO_INCOMPLETA",
++   D("$160$ m", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el PERÍMETRE del camp ($32\\times5$), no el costat: "
+      "encara falta dividir-lo entre els $4$ costats.")],
+   ["Cada arbre marca una separació de $5$ m al voltant de tot el "
+@@ -1354,7 +1401,7 @@
+   "Amb les mateixes dades de l'apartat anterior (32 arbres, separats "
+   "5 m, camp quadrangular): quina és l'àrea del camp?",
+   "$1\\,600$ m$^2$",
+-  [D("$160$ m$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$160$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest és el perímetre del camp, no l'àrea: encara falta "
+      "elevar el costat al quadrat."),
+    D("$80$ m$^2$", "ARREL_FACTOR_OBLIDAT",
+@@ -1386,7 +1433,7 @@
+      "si fos l'apotema, en lloc de la seva meitat ($45$ cm): en un "
+      "octàgon regular, l'alçada (distància entre costats oposats) és "
+      "el DOBLE de l'apotema."),
+-   D("$1\\,665$ cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$1\\,665$ cm$^2$", "DIVISIO_REPETIDA",
+      "Aquest valor sembla dividir per $2$ dues vegades més del "
+      "compte: revisa el càlcul $\\dfrac{296\\cdot45}{2}$ pas a pas.")],
+   ["L'apotema d'un octàgon regular és la meitat de l'alçada (la "
+@@ -1407,7 +1454,7 @@
+   [D("$46\\,765{,}37$ €", "TERME_OBLIDAT_OPERACIO",
+      "Aquest valor sembla el cost d'un sol pis (àrea $\\times20$ €), "
+      "sense multiplicar pels $50$ pisos de l'edifici."),
+-   D("$1\\,350\\sqrt3\\approx2\\,338{,}27$ €", "SIMPLIFICACIO_INCOMPLETA",
++   D("$1\\,350\\sqrt3\\approx2\\,338{,}27$ €", "PAS_INTERMEDI_PER_RESPOSTA",
+      "Aquest valor és l'àrea (en m$^2$) d'un sol pis, sense "
+      "multiplicar-la ni pel preu del m$^2$ ni pels $50$ pisos."),
+    D("$116\\,913{,}43$ €", "TERME_OBLIDAT_OPERACIO",
+@@ -1431,7 +1478,7 @@
+   "de diàmetre 5 cm. Si ha fet servir 5 kg de sucre, quants grams de "
+   "sucre fan falta per cobrir cada centímetre quadrat de rosquilla?",
+   "$\\approx2{,}89$ g/cm$^2$",
+-  [D("$\\approx0{,}91$ g/cm$^2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$\\approx0{,}91$ g/cm$^2$", "FACTOR_OBLIDAT",
+      "Aquest valor sembla dividir els $5\\,000$ g entre l'àrea d'UNA "
+      "sola rosquilla, no entre l'àrea total de les $200$ rosquilles."),
+    D("$\\approx28{,}94$ g/cm$^2$", "TERME_OBLIDAT_OPERACIO",
+@@ -1455,8 +1502,8 @@
+    "Sucre per cm$^2$: $\\dfrac{5\\,000}{1\\,727{,}88}"
+    "\\approx2{,}89$ g/cm$^2$"],
+   ex_text="",
+-  nota="La font llegeix la \"rosquilla\" com una corona circular "
+-       "plana (part superior), no com un tor tridimensional: els "
+-       "6 cm i 5 cm de l'enunciat es prenen com a diàmetres, exterior "
+-       "i del forat central respectivament (vegeu NOTA DE "
+-       "TRANSCRIPCIÓ a r-im8.tex).")
++  nota="La \"rosquilla\" es tracta com una corona circular plana (només "
++       "la cara de dalt, que és la que es cobreix de sucre), no com un "
++       "cos de tres dimensions: els $6$ cm i els $5$ cm són diàmetres, "
++       "l'exterior i el del forat.",
++  nota_interna="Lectura presa de la nota de transcripció de r-im8.tex.")
+diff -ru a/tools/c_polinomis.py b/tools/c_polinomis.py
+--- a/tools/c_polinomis.py	2026-08-04 21:17:47.722695509 +0000
++++ b/tools/c_polinomis.py	2026-08-04 21:17:47.723755358 +0000
+@@ -20,7 +20,31 @@
+ (69a-69d). És el mateix criteri que a l'exercici 59 del Full 3.
+ """
+ from sympy import symbols, Poly, expand, factor, sqrt
+-from lib import Q, D, DT, ev, tex
++from lib import Q, D, DT, ev, tex, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 4 · polinomis
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     62: 2,  # sumar i restar polinomis donats
++     63: 2,  # a l'inrevés: quin polinomi cal sumar per arribar a un altre
++     64: 3,  # operar dins del claudàtor i multiplicar després
++     65: 2,  # divisió llarga; 66 i 68, Ruffini amb divisor mònic
++     66: 2,
++     67: 3,  # Ruffini amb divisor no mònic: cal ajustar quocient o residu
++     68: 2,
++     69: 3,  # reconstruir una taula de Ruffini incompleta
++     70: 2,  # completar una igualtat notable
++     71: 1,  # reconèixer la igualtat notable; 73, treure factor comú
++     72: 3,  # reconèixer el patró amb un bloc sencer fent de terme
++     73: 1,
++     74: 3,  # combinar factor comú i igualtats notables en la mateixa expressió
++})
++
+ 
+ B1 = "operacions"
+ B2 = "divisio"
+@@ -218,7 +242,10 @@
+       ["Multiplica cada terme de %s per CADA terme de $S(x)=2x+3$: pel "
+        "$2x$ i pel $3$." % dins_txt,
+        "Un cop distribuït, agrupa els termes del mateix grau i suma'ls."],
+-      [r"$%s\cdot S(x)=%s$" % (dins_txt, poli_tex_raw(correcta))],
++      # dins_txt ja ve amb els $ posats, perquè a les pistes i a la retroacció
++      # va enmig de text. Aquí, en canvi, tot el pas és una sola expressió:
++      # cal treure-los-hi o queden dos $ seguits i el renderitzat es trenca.
++      [r"$%s\cdot S(x)=%s$" % (dins_txt.strip("$"), poli_tex_raw(correcta))],
+       ex_text=E64)
+ 
+ 
+@@ -708,8 +735,7 @@
+   nota="L'equació que determina $\\square$ té tres solucions vàlides "
+        "($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una "
+        "divisió trivial per $x$, i s'ha triat $\\square=1$ per "
+-       "completar la taula, seguint el mateix criteri del solucionari "
+-       "font.")
++       "completar la taula amb signe positiu.")
+ 
+ # 69d: dividend square,0,0,-3, arrel -4; segona casella fila inferior = 8
+ # square*(-4)=8 -> square=-2
+@@ -934,10 +960,10 @@
+   r"$(3x-y)^2-16$",
+   [D(r"$(3x-y)^2-4$", "QUADRAT_INCOMPLET",
+      "El segon terme s'ha d'elevar al quadrat: $4^2=16$, no $4$."),
+-   D(r"(3x-y)^2+16", "SUMA_PER_DIFERENCIA_MAL",
++   D(r"$(3x-y)^2+16$", "SUMA_PER_DIFERENCIA_MAL",
+      "En una suma per diferència, el segon quadrat sempre resta, mai "
+      "suma: $(a+b)(a-b)=a^2-b^2$."),
+-   D(r"9x^2-y^2-16", "GRAUS_MAL_AGRUPATS",
++   D(r"$9x^2-y^2-16$", "GRAUS_MAL_AGRUPATS",
+      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
+      "$(3x-y)$, no només de la $x$: $(3x-y)^2\\neq 9x^2-y^2$.")],
+   [r"Identifica el \"primer terme\" comú als dos factors i el "
+@@ -950,12 +976,12 @@
+ Q("72b", 72, "b", B3, "A",
+   r"$[(a+b)+c]\cdot[(a+b)-c]$",
+   r"$(a+b)^2-c^2$",
+-  [D(r"(a+b)^2-c", "QUADRAT_INCOMPLET",
++  [D(r"$(a+b)^2-c$", "QUADRAT_INCOMPLET",
+      "El segon terme s'ha d'elevar al quadrat: és $c^2$, no $c$."),
+-   D(r"(a+b)^2+c^2", "SUMA_PER_DIFERENCIA_MAL",
++   D(r"$(a+b)^2+c^2$", "SUMA_PER_DIFERENCIA_MAL",
+      "En una suma per diferència, el segon quadrat sempre resta, mai "
+      "suma."),
+-   D(r"a^2+b^2-c^2", "GRAUS_MAL_AGRUPATS",
++   D(r"$a^2+b^2-c^2$", "GRAUS_MAL_AGRUPATS",
+      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
+      "$(a+b)$, no desenvolupat ni separat.")],
+   [r"Identifica el \"primer terme\" comú i el \"segon\" que canvia de "
+@@ -1169,10 +1195,10 @@
+    D(r"$x^2-49$", "IGUALTAT_NOTABLE_SIGNE",
+      "El desenvolupament correcte dona $49-x^2$, no $x^2-49$: revisa "
+      "el signe global en treure el $-1$ comú del primer factor."),
+-   D(r"$-(x-7)(x+7)$", "FACTOR_COMU_SIGNE",
+-     "És una forma equivalent correcta abans de reorganitzar signes, "
+-     "però no és la manera més simplificada: $-(x-7)(x+7)=(7-x)(x+7)"
+-     "=(7-x)(7+x)$.")],
++   D(r"$-(7-x)(7+x)$", "FACTOR_COMU_SIGNE",
++     "Hi sobra un signe menys: en treure el $-1$ comú de $-x-7$ i "
++     "reordenar-ho a $(7-x)(7+x)$, aquest menys ja s'ha fet servir. "
++     "Comprova-ho amb $x=0$: l'expressió original val $+49$.")],
+   [r"Treu primer el signe menys comú del primer factor: "
+    r"$-x-7=-(x+7)$.",
+    r"$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$."],
+diff -ru a/tools/c_potencies.py b/tools/c_potencies.py
+--- a/tools/c_potencies.py	2026-08-04 21:17:47.753760896 +0000
++++ b/tools/c_potencies.py	2026-08-04 21:17:47.755203652 +0000
+@@ -12,7 +12,30 @@
+ exacte) o, quan la tasca demana "una sola potència" i no un valor, l'exponent
+ final es calcula amb aritmètica normal de Python i es formata amb pot().
+ """
+-from lib import Q, D, DT, ev, tex
++from lib import Q, D, DT, ev, tex, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 2 · potències
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     35: 1,  # una sola propietat, base repetida; 43, potència d'una potència
++     36: 2,  # encadena producte i quocient de potències
++     37: 2,  # potència d'un producte i d'un quocient, amb fraccions i decimals
++     38: 2,  # exponents negatius encadenats
++     39: 2,  # a l'inrevés: quina potència falta perquè la igualtat sigui certa
++     40: 3,  # a l'inrevés i amb incògnita a l'exponent: cal plantejar una equació
++     41: 3,  # trobar l'error d'una cadena i corregir-lo
++     42: 2,  # decidir si la igualtat és certa i dir per què
++     43: 1,
++     44: 2,
++     45: 3,  # cal unificar bases diferents abans d'aplicar cap propietat
++     46: 3,  # incògnita dins d'una cadena de dues propietats
++})
++
+ 
+ B1 = "basiques"
+ B2 = "negatiu"
+diff -ru a/tools/c_probabilitat.py b/tools/c_probabilitat.py
+--- a/tools/c_probabilitat.py	2026-08-04 21:17:47.732433315 +0000
++++ b/tools/c_probabilitat.py	2026-08-04 21:17:47.733768633 +0000
+@@ -49,7 +49,42 @@
+ """
+ from fractions import Fraction as F
+ from math import comb
+-from lib import Q, D, DT, tex, TAX
++from lib import Q, D, DT, tex, TAX, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 12 · probabilitat
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    236: 1,  # escriure l'espai mostral; 241 i 257, Laplace amb el recompte a la vista
++    237: 2,  # espai mostral de dos daus: cal veure que els resultats són parells
++    238: 3,  # comptar resultats DIFERENTS, no parells: cal descartar repetits
++    239: 2,  # classificar esdeveniments; 240, ordenar-los per probabilitat
++    240: 2,
++    241: 1,
++    242: 3,
++    243: 2,  # comptar combinacions amb el principi multiplicatiu
++    244: 1,  # principi multiplicatiu amb dos experiments
++    245: 2,
++    246: 3,  # variacions amb repetició amb dos alfabets barrejats
++    247: 2,
++    248: 2,
++    249: 2,  # freqüència relativa a partir d'una taula
++    250: 2,
++    251: 3,  # cal muntar l'espai mostral de 4 monedes abans de comptar
++    252: 3,
++    253: 2,  # esdeveniments dins d'un mateix espai; 254, taula de doble entrada
++    254: 2,
++    255: 3,  # diverses fraccions del total encadenades
++    256: 3,  # unió d'esdeveniments no disjunts
++    257: 1,
++    258: 3,
++    259: 3,
++})
++
+ 
+ B1 = "espais_mostrals"
+ B2 = "combinatoria"
+@@ -570,12 +605,12 @@
+    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
+    "(esdeveniment segur)"],
+   ex_text=E240,
+-  nota="Al full original, els apartats c) i d) repeteixen literalment "
+-       "el mateix text, «Nombre més petit que 7» (molt probablement "
+-       "una errata editorial, ja que un dau numerat de l'1 al 6 no "
+-       "permet cap altre matís interessant amb aquest enunciat). Es "
+-       "couen tots dos apartats amb el mateix esdeveniment, seguint "
+-       "el criteri del solucionari original.")
++  nota="Els apartats c) i d) tenen el mateix text al full de partida, "
++       "«Nombre més petit que 7», i es conserven tots dos tal com "
++       "estan: en un dau de l'1 al 6, tots els resultats el compleixen.",
++  nota_interna="Molt probablement una errata editorial de la font (el "
++               "text es repeteix literalment). Es mantenen els dos "
++               "apartats amb el mateix esdeveniment, com fa r-im12.")
+ 
+ Q("240d", 240, "d", B1, "A",
+   "«Nombre més petit que $7$»",
+@@ -603,11 +638,11 @@
+    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
+    "(esdeveniment segur)"],
+   ex_text=E240,
+-  nota="Aquest apartat repeteix literalment el text de l'apartat c) "
+-       "al full original («Nombre més petit que 7», dues vegades: "
+-       "molt probablement una errata editorial). Es cou tal com "
+-       "apareix, amb el mateix esdeveniment i la mateixa resposta "
+-       "que el 240c, seguint el criteri del solucionari original.")
++  nota="Aquest apartat té el mateix text que el c) al full de partida, "
++       "i per tant la mateixa resposta: en un dau de l'1 al 6, cap "
++       "resultat arriba a $7$.",
++  nota_interna="Repetició literal del text del 240c a la font, "
++               "probablement una errata editorial.")
+ 
+ Q("240e", 240, "e", B1, "A",
+   "«Nombre més gran o igual que $2$»",
+@@ -706,7 +741,7 @@
+        "una \"combinació\" de roba. S'adopta el criteri més natural "
+        "per a un diagrama d'arbre de tres nivells (una peça de la "
+        "part de baix, una de la part de dalt i un barret), seguint "
+-       "el mateix criteri que el solucionari original.")
++       "que és el que fa el diagrama d'arbre habitual.")
+ 
+ # ---- exercici 244: 10 tirades d'una moneda ----
+ Q("244", 244, "", B2, "A",
+@@ -1864,12 +1899,12 @@
+   "Quina és la probabilitat de cada color de bola?",
+   "$P(\\text{vermella})=\\dfrac12$, $P(\\text{verda})=\\dfrac13$, "
+   "$P(\\text{blava})=\\dfrac16$",
+-  [D("$P(\\text{vermella})=\\dfrac36$, sense simplificar, i les "
+-     "altres tampoc simplificades ($\\frac26$, $\\frac16$)",
+-     "SIMPLIFICACIO_INCOMPLETA",
+-     "$\\frac36$ i $\\frac26$ es poden simplificar més: divideix "
+-     "numerador i denominador pel seu m.c.d. per obtenir "
+-     "$\\frac12$ i $\\frac13$."),
++  [D("$P(\\text{vermella})=\\dfrac35$, $P(\\text{verda})=\\dfrac25$, "
++     "$P(\\text{blava})=\\dfrac15$",
++     "CASOS_POSSIBLES_MAL_COMPTATS",
++     "El denominador ha de ser el TOTAL de boles de la bossa, "
++     "$3+2+1=6$, no $5$: sembla que t'has deixat la bola blava en "
++     "comptar-les."),
+    D("$P(\\text{vermella})=\\dfrac13$, $P(\\text{verda})=\\dfrac12$, "
+      "intercanviant vermella i verda", "RECOMPTE_MAL_FET",
+      "Revisa quin color té més boles: n'hi ha $3$ vermelles i "
+@@ -1881,9 +1916,10 @@
+      "El nombre de COLORS diferents ($3$) no determina la "
+      "probabilitat: cal comptar quantes boles té cada color, i no "
+      "en té el mateix nombre cadascun.")],
+-  ["La bossa té $3+2+1=6$ boles en total.",
+-   "Aplica la regla de Laplace a cada color per separat, i "
+-   "simplifica el resultat."],
++  ["La bossa té $3+2+1=6$ boles en total: aquest és el nombre de "
++   "casos possibles per als tres colors.",
++   "Aplica la regla de Laplace a cada color per separat: casos "
++   "favorables d'aquell color entre $6$."],
+   ["$P(\\text{vermella})=\\dfrac36=\\dfrac12$, "
+    "$P(\\text{verda})=\\dfrac26=\\dfrac13$, "
+    "$P(\\text{blava})=\\dfrac16$"],
+diff -ru a/tools/c_proporcionalitat.py b/tools/c_proporcionalitat.py
+--- a/tools/c_proporcionalitat.py	2026-08-04 21:17:47.727519333 +0000
++++ b/tools/c_proporcionalitat.py	2026-08-04 21:17:47.728564010 +0000
+@@ -25,7 +25,36 @@
+ Cap dels 21 ítems necessita `nota`: tots els enunciats són problemes
+ verbals amb una lectura única i sense ambigüitat matemàtica.
+ """
+-from lib import Q, D
++from lib import Q, D, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 6 · proporcionalitat i percentatges
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    101: 1,  # regla de tres directa; 109 i 110, percentatge directe
++    102: 2,
++    103: 2,  # proporcionalitat inversa: cal adonar-se que ho és
++    104: 1,
++    105: 2,
++    106: 2,
++    107: 2,
++    108: 3,  # proporcionalitat composta
++    109: 1,
++    110: 1,
++    111: 2,  # a l'inrevés: saps la part i el tant per cent, busques el total
++    112: 2,
++    113: 3,  # percentatges encadenats, que no se sumen
++    114: 3,
++    115: 3,
++    116: 3,  # comparar dos augments expressats en unitats diferents
++    117: 3,
++    118: 3,
++})
++
+ 
+ B1 = "directa_inversa"
+ B2 = "percentatges"
+@@ -152,7 +181,7 @@
+    D("$0{,}018$ ℓ", "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+      "Sembla que has calculat $1{,}15:65$ en comptes de $65:1{,}15$: "
+      "la massa es divideix entre la densitat, no al revés."),
+-   D("$65$ ℓ", "SIMPLIFICACIO_INCOMPLETA",
++   D("$65$ ℓ", "MAGNITUD_NO_CONVERTIDA",
+      "No has fet servir la densitat per convertir la massa en volum: "
+      "$65$ kg i $65$ ℓ no representen el mateix a menys que la "
+      "densitat fos exactament $1$ kg/ℓ.")],
+@@ -174,7 +203,7 @@
+    D("$43{,}15$ kg", "TERME_OBLIDAT_OPERACIO",
+      "No coincideix amb $1{,}15\\cdot42$: torna a fer el producte "
+      "xifra a xifra."),
+-   D("$42$ kg", "SIMPLIFICACIO_INCOMPLETA",
++   D("$42$ kg", "MAGNITUD_NO_CONVERTIDA",
+      "No has fet servir la densitat per convertir el volum en massa: "
+      "$42$ ℓ i $42$ kg no representen el mateix a menys que la "
+      "densitat fos exactament $1$ kg/ℓ.")],
+@@ -304,7 +333,7 @@
+      "Torna a convertir la fracció: $\\frac{3}{5}=\\frac{3\\cdot20}"
+      "{5\\cdot20}=\\frac{60}{100}$, no una combinació directa de les "
+      "xifres $5$ i $3$."),
+-   D("$3\\,\\%$", "SIMPLIFICACIO_INCOMPLETA",
++   D("$3\\,\\%$", "FRACCIO_COM_PERCENTATGE",
+      "Has agafat només el numerador de la fracció com si ja fos el "
+      "percentatge: cal convertir la fracció sencera a denominador "
+      "$100$.")],
+@@ -368,11 +397,11 @@
+      "Aquest valor surt de multiplicar $300\\cdot0{,}008$ en comptes "
+      "de dividir: com que $300$ és el resultat d'aplicar el "
+      "$0{,}8\\,\\%$ a les vendes, cal dividir $300$ entre $0{,}008$."),
+-   D("$375$ €", "SIMPLIFICACIO_INCOMPLETA",
++   D("$375$ €", "PERCENTATGE_DECIMAL_MAL",
+      "No coincideix amb $\\dfrac{300}{0{,}008}$: revisa que has "
+      "passat correctament el $0{,}8\\,\\%$ a la seva forma decimal "
+      "($0{,}008$, no $0{,}08$)."),
+-   D("$3\\,750$ €", "SIMPLIFICACIO_INCOMPLETA",
++   D("$3\\,750$ €", "PERCENTATGE_DECIMAL_MAL",
+      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
+      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; revisa la divisió "
+      "$300:0{,}008$ amb aquest valor.")],
+@@ -388,7 +417,7 @@
+   "Si el mes següent va vendre per valor de 45\\,000 €, quina "
+   "comissió va obtenir?",
+   "$360$ €",
+-  [D("$3\\,600$ €", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$3\\,600$ €", "PERCENTATGE_DECIMAL_MAL",
+      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
+      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; multiplica de nou "
+      "$45\\,000\\cdot0{,}008$."),
+@@ -396,7 +425,7 @@
+      "Aquest valor surt de dividir $45\\,000:0{,}008$ en comptes de "
+      "multiplicar: aquí es demana la comissió a partir de les "
+      "vendes, així que cal $0{,}008\\cdot45\\,000$."),
+-   D("$36$ €", "SIMPLIFICACIO_INCOMPLETA",
++   D("$36$ €", "PERCENTATGE_DECIMAL_MAL",
+      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
+      "decimal: revisa que $0{,}8\\,\\%=0{,}008$, i multiplica de nou.")],
+   ["La comissió és el $0{,}8\\,\\%$ de les vendes: "
+@@ -416,7 +445,7 @@
+   "Un comerciant decideix apujar el preu d'una mercaderia, que era "
+   "de 72 €, un 3\\,\\%, i a la setmana següent, un 3\\,\\% més sobre "
+   "l'últim preu. Quin és el preu final de venda?",
+-  "$76{,}3848$ €",
++  "$76{,}38$ €",
+   [D("$76{,}32$ €", "SUMA_EN_LLOC_RESTA",
+      "Aquest valor surt de sumar els dos augments ($6\\,\\%$ de cop) "
+      "en comptes d'aplicar-los seguits: el segon $3\\,\\%$ s'ha de "
+@@ -435,7 +464,9 @@
+    "original."],
+   ["Preu després del primer augment: $72\\cdot1{,}03=74{,}16$ €",
+    "Preu després del segon augment (sobre $74{,}16$ €): "
+-   "$74{,}16\\cdot1{,}03=76{,}3848$ €"],
++   "$74{,}16\\cdot1{,}03=76{,}3848$ €",
++   "Arrodonit a cèntims, que és com s'expressen els preus: "
++   "$76{,}38$ €"],
+   ex_text="")
+ 
+ # ---- exercici 114: percentatge global d'increments encadenats ----
+@@ -562,7 +593,7 @@
+      "($1{,}04$ i $\\approx1{,}0317$), no una impressió aproximada "
+      "de la diferència absoluta."),
+    D("No es pot saber quin es dilata menys perquè les mesures estan "
+-     "en unitats diferents (m i cm)", "SIMPLIFICACIO_INCOMPLETA",
++     "en unitats diferents (m i cm)", "ES_POT_DETERMINAR",
+      "El factor de dilatació (longitud final entre inicial) no "
+      "depèn de la unitat que facis servir, mentre siguis "
+      "consistent en cada barra per separat: es pot comparar "
+@@ -594,7 +625,7 @@
+      "$0{,}2\\cdot100=20$, no $25$: revisa aquest darrer pas del "
+      "càlcul del percentatge real d'increment."),
+    D("No es pot saber sense conèixer el pes exacte d'una galeta",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "ES_POT_DETERMINAR",
+      "Si el pes de cada galeta es manté constant (com dona a "
+      "entendre l'enunciat), el percentatge d'augment de PES i el de "
+      "NOMBRE de galetes coincideixen: no cal conèixer el pes d'una "
+diff -ru a/tools/c_semblanca.py b/tools/c_semblanca.py
+--- a/tools/c_semblanca.py	2026-08-04 21:17:47.764060185 +0000
++++ b/tools/c_semblanca.py	2026-08-04 21:17:47.765362721 +0000
+@@ -52,7 +52,35 @@
+ """
+ from fractions import Fraction as F
+ import sympy as sp
+-from lib import Q, D, DT, tex, texd
++from lib import Q, D, DT, tex, texd, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 8 · Tales i semblança
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++    152: 1,  # proporció de Tales amb tres dades i una incògnita
++    153: 2,
++    154: 1,  # raó de semblança donada la parella: proporció directa
++    155: 2,  # decidir si són semblants i dir per quin criteri (153, homòlegs)
++    156: 1,  # llegir i escriure una escala numèrica
++    158: 2,  # escales amb canvi d'unitats pel mig
++    159: 2,
++    160: 2,
++    161: 3,  # problemes: muntar la semblança a partir de l'enunciat
++    162: 3,
++    163: 3,
++    164: 3,
++    165: 3,
++    166: 3,
++    167: 3,
++    168: 3,
++    169: 3,
++})
++
+ 
+ B1 = "tales"
+ B2 = "semblanca"
+@@ -84,12 +112,15 @@
+ # donen un valor numèric fiable (vegeu docstring del mòdul).
+ E152 = ("Calcula el valor de $x$ en aquestes figures de rectes "
+         "paral·leles tallades per dues rectes secants.")
+-NOTA152 = ("La posició exacta de cada mesura respecte al vèrtex de les "
+-           "rectes secants s'ha llegit de la manera més estàndard "
+-           "(proporció directa entre els segments corresponents de cada "
+-           "secant), seguint la interpretació que ja proposa el "
+-           "solucionari font; convé confirmar-ho contra la figura "
+-           "original abans de publicar.")
++NOTA152 = ("Els segments s'aparellen en el mateix ordre a les dues secants: "
++           "el primer amb el primer i el segon amb el segon, comptant des del "
++           "vèrtex. La figura de partida no ho deixa del tot clar, i aquesta "
++           "és la lectura que s'ha pres.")
++NOTA152_INT = ("Nota de transcripció d'im9.tex: la posició exacta de cada "
++               "mesura respecte al vèrtex s'ha llegit com a proporció directa "
++               "entre segments corresponents, tal com ja proposa r-im9.tex. "
++               "Convé confirmar-ho contra la figura original abans de "
++               "publicar.")
+ 
+ Q("152a", 152, "a", B1, "A",
+   "Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i "
+@@ -112,7 +143,7 @@
+   [r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+    r"x=\dfrac{2{,}5\cdot3}{2}$",
+    "$x=3{,}75$ cm"],
+-  ex_text=E152, nota=NOTA152)
++  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+ 
+ Q("152b", 152, "b", B1, "A",
+   "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ "
+@@ -135,7 +166,7 @@
+   [r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+    r"x=\dfrac{4\cdot3}{2}$",
+    "$x=6$ cm"],
+-  ex_text=E152, nota=NOTA152)
++  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+ 
+ Q("152c", 152, "c", B1, "A",
+   "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm "
+@@ -158,7 +189,7 @@
+   [r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
+    r"x=\dfrac{8\cdot6}{4}$",
+    "$x=12$ cm"],
+-  ex_text=E152, nota=NOTA152)
++  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+ 
+ Q("152e", 152, "e", B1, "A",
+   "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i "
+@@ -180,7 +211,7 @@
+   [r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
+    r"x=\dfrac{10\cdot5}{8}$",
+    "$x=6{,}25$ cm"],
+-  ex_text=E152, nota=NOTA152)
++  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+ 
+ Q("152f", 152, "f", B1, "A",
+   "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i "
+@@ -203,7 +234,7 @@
+   [r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+    r"x=\dfrac{4{,}8\cdot3}{2}$",
+    "$x=7{,}2$ cm"],
+-  ex_text=E152, nota=NOTA152)
++  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+ 
+ 
+ # ---- exercici 153: figures en posició de Tales (triangles O-A-B i
+@@ -295,7 +326,7 @@
+ E154 = "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants."
+ NOTA154 = ("La correspondència entre costats del triangle petit i el "
+            "gran s'ha establert seguint la indicació explícita del propi "
+-           "enunciat font (quins costats es corresponen entre si).")
++           "enunciat, que ja diu quins costats es corresponen entre si.")
+ 
+ Q("154a", 154, "a", B2, "A",
+   "Triangle petit de costats $3$ cm i $5$ cm; triangle gran de "
+@@ -485,7 +516,7 @@
+   "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és "
+   "l'escala numèrica?",
+   "$1:200\\,000$",
+-  [D("$1:2$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$1:2$", "UNITATS_NO_CONVERTIDES",
+      "Falta convertir els $2$ km a centímetres perquè les dues "
+      "mesures de l'escala estiguin en la mateixa unitat: "
+      "$2\\text{ km}=200\\,000$ cm."),
+@@ -508,7 +539,7 @@
+   "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és "
+   "l'escala numèrica?",
+   "$1:5\\,000\\,000$",
+-  [D("$1:50$", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$1:50$", "UNITATS_NO_CONVERTIDES",
+      "Falta convertir els $50$ km a centímetres perquè les dues "
+      "mesures de l'escala estiguin en la mateixa unitat: "
+      "$50\\text{ km}=5\\,000\\,000$ cm."),
+@@ -599,7 +630,7 @@
+      "Aquest valor surt de dividir per $60$ en comptes de "
+      "multiplicar: a l'escala $1:60$, la mesura REAL és $60$ "
+      "vegades la mesura al plànol, no una seixantena part."),
+-   D("$4$ m d'ample i $7$ m de llarg", "SIMPLIFICACIO_INCOMPLETA",
++   D("$4$ m d'ample i $7$ m de llarg", "ESCALA_NO_APLICADA",
+      "No has fet servir l'escala: les mesures del plànol i les "
+      "reals no coincideixen a menys que l'escala fos $1:1$.")],
+   ["A l'escala $1:60$, cada centímetre del plànol correspon a "
+@@ -622,7 +653,7 @@
+      "Aquest valor té un factor $10$ de menys: revisa la "
+      "conversió $7{,}5\\text{ m}=750$ cm abans de dividir per "
+      "$60$."),
+-   D("$7{,}5$ cm", "SIMPLIFICACIO_INCOMPLETA",
++   D("$7{,}5$ cm", "ESCALA_NO_APLICADA",
+      "No has fet servir l'escala: les mesures del plànol i les "
+      "reals no coincideixen a menys que l'escala fos $1:1$.")],
+   ["Converteix els $7{,}5$ m a centímetres: $750$ cm.",
+@@ -750,11 +781,12 @@
+ 
+ # ---- exercici 165: alçada de la pilota a mig recorregut (trajectòria
+ # simplificada com a segment rectilini; vegeu nota de transcripció) ----
+-NOTA165 = ("L'enunciat original acompanya una figura amb la trajectòria "
+-           "corba de la pilota; seguint la nota de transcripció del "
+-           "propi im9.tex, es considera aquí una trajectòria "
+-           "rectilínia simplificada entre la mà del jugador i la "
+-           "cistella, adequada a les eines de semblança de 2n ESO.")
++NOTA165 = ("L'enunciat de partida porta una figura amb la trajectòria corba "
++           "de la pilota; aquí es considera una trajectòria recta entre la mà "
++           "del jugador i la cistella, que és el que permeten les eines de "
++           "semblança.")
++NOTA165_INT = ("Simplificació ja explicitada a la nota de transcripció "
++               "d'im9.tex.")
+ 
+ Q("165", 165, "", B4, "A",
+   "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la "
+@@ -763,7 +795,7 @@
+   "llançament fins a la cistella, a quina altura està la pilota "
+   "quan va per la meitat del recorregut?",
+   "$2{,}475$ m",
+-  [D("$1{,}575$ m", "SIMPLIFICACIO_INCOMPLETA",
++  [D("$1{,}575$ m", "ARITMETICA_PAS_INTERMEDI",
+      "Aquest valor surt de $\\frac{3{,}05}{2}-\\frac{1{,}9}{2}$: "
+      "cal partir de l'altura inicial ($1{,}9$ m) i sumar-hi la "
+      "MEITAT de la diferència d'altures, no calcular la meitat de "
+@@ -786,7 +818,7 @@
+   [r"Diferència d'altura: $3{,}05-1{,}9=1{,}15$ m",
+    r"$x=1{,}9+\dfrac{1{,}15}{2}=1{,}9+0{,}575$",
+    "$x=2{,}475$ m"],
+-  ex_text="", nota=NOTA165)
++  ex_text="", nota=NOTA165, nota_interna=NOTA165_INT)
+ 
+ 
+ # ---- exercici 166: reflex d'una muntanya al riu ----
+diff -ru a/tools/c_successions.py b/tools/c_successions.py
+--- a/tools/c_successions.py	2026-08-04 21:17:47.743117054 +0000
++++ b/tools/c_successions.py	2026-08-04 21:17:47.744264100 +0000
+@@ -15,7 +15,33 @@
+ exponents variables (ratio^(n-1)), i es formaten amb tex()/llista().
+ """
+ from fractions import Fraction as F
+-from lib import Q, D, DT, ev, tex, TAX
++from lib import Q, D, DT, ev, tex, TAX, dificultats
++
++# --------------------------------------------------------------------
++# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
++# Full 3 · successions i progressions
++# Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
++# per graduar el recorregut, de manera que canviar-hi un número canvia
++# l'ordre en què l'alumne es troba els exercicis.
++# --------------------------------------------------------------------
++dificultats({
++     47: 1,  # substituir n al terme general; 56, aplicar la fórmula de la PG
++     48: 2,  # recurrència: cada terme depèn dels anteriors
++     49: 2,  # trobar d i muntar el terme general
++     50: 2,
++     51: 2,
++     52: 2,
++     53: 3,  # omplir buits a l'interior de la progressió
++     54: 2,  # cal decidir primer si és aritmètica o geomètrica
++     55: 3,  # dos termes donats: primer la raó, després el terme general
++     56: 1,
++     57: 2,
++     58: 3,
++     59: 3,  # jutjar si una expressió és el terme general
++     60: 3,  # a l'inrevés: quin lloc ocupa un terme del qual saps el valor
++     61: 3,
++})
++
+ 
+ B1 = "termes"
+ B2 = "aritmetiques"
+@@ -173,7 +199,7 @@
+   r"$a_n = \dfrac{n+3}{n^2}$",
+   llista([F(4, 1), F(5, 4), F(2, 3), F(7, 16), F(8, 25)]),
+   [D(llista([F(4, 1), F(5, 4), F(2, 3), F(7, 16), F(8, 24)]),
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "SIMPLIFICACIO_INVENTADA",
+      "Al cinquè terme, $\\dfrac{8}{25}$ ja està simplificat del tot: "
+      "$8$ i $25$ no tenen cap factor comú, no es pot reduir més."),
+    D(llista([F(4, 1), F(5, 2), F(2, 1), F(7, 4), F(8, 5)]),
+@@ -377,9 +403,10 @@
+ Q("50b", 50, "b", B1, "A",
+   r"Terme general de $2,\;4,\;6,\;8,\;10,\dots$",
+   r"$a_n=2n$",
+-  [D(r"$a_n=2+(n-1)\cdot2$", "SIMPLIFICACIO_INCOMPLETA",
+-     "Aquesta expressió és correcta però no està simplificada: "
+-     "$2+(n-1)\\cdot2=2+2n-2=2n$."),
++  [D(r"$a_n=2n-2$", "DESPLACAMENT_INDEX",
++     "Aquesta fórmula dona $0,2,4,6,8\\dots$: va un lloc endarrerida. "
++     "Comprova-la sempre amb $n=1$, que ha de tornar el primer terme "
++     "($2$), i no $0$."),
+    D(r"$a_n=2^n$", "EXPONENT_COM_PRODUCTE",
+      "$2^n$ dona $2,4,8,16,32\\dots$: creix massa de pressa. Aquí cada "
+      "terme suma sempre $2$ a l'anterior, és una progressió "
+@@ -514,11 +541,10 @@
+   [D(r"$a_n=\dfrac12+(n-1)\cdot2$", "INVERTIDA",
+      "La diferència és $\\dfrac12$, no $2$: has invertit la fracció en "
+      "calcular $d$."),
+-   D(r"$a_n=\dfrac12\cdot n$", "SIMPLIFICACIO_INCOMPLETA",
+-     "Aquesta expressió dona el mateix valor un cop simplificada "
+-     "($\\dfrac12+(n-1)\\cdot\\dfrac12=\\dfrac{n}2$), però com a "
+-     "resposta d'aquest apartat cal la forma "
+-     "$a_1+(n-1)d$ sense simplificar."),
++   D(r"$a_n=\dfrac12+n\cdot\dfrac12$", "DESPLACAMENT_INDEX",
++     "Falta el $-1$ de l'exponent d'ordre: aquesta fórmula dona "
++     "$1,\\dfrac32,2\\dots$, un lloc avançada. Comprova-la sempre amb "
++     "$n=1$, que ha de tornar el primer terme ($\\dfrac12$)."),
+    D(r"$a_n=1+(n-1)\cdot\dfrac12$", "COMPARA_TERMES",
+      "El primer terme de la successió és $\\dfrac12$, no $1$ (aquest "
+      "és el segon terme).")],
+@@ -527,9 +553,10 @@
+   ["$d=1-\\dfrac12=\\dfrac12$ (es manté igual: $\\dfrac32-1=\\dfrac12$)",
+    "$a_n=a_1+(n-1)d=\\dfrac12+(n-1)\\cdot\\dfrac12$"],
+   ex_text=E52,
+-  nota="La forma $a_n=\\dfrac{n}{2}$ (simplificada) també és correcta; "
+-       "es demana com a resposta la forma $a_1+(n-1)d$ perquè és la "
+-       "que l'exercici practica.")
++  nota="Si simplifiques et queda $a_n=\\dfrac{n}{2}$, que és igual de "
++       "correcta i no la trobaràs entre les opcions: aquest exercici "
++       "practica la forma $a_1+(n-1)d$, i és aquesta la que has de "
++       "reconèixer.")
+ 
+ Q("52d", 52, "d", B2, "A",
+   r"$\dfrac1a,\;\dfrac3a,\;\dfrac5a,\;\dfrac7a,\dots$",
+@@ -562,7 +589,7 @@
+      "El primer terme s'obté restant $d$ al segon terme, "
+      "$\\dfrac12-\\dfrac16$, no dividint-lo."),
+    D(llista([F(1, 3), F(1, 2), F(2, 3), F(5, 6), F(11, 12), F(1, 1)]),
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "TERME_MAL_CALCULAT",
+      "Revisa el cinquè terme: $\\dfrac56+\\dfrac16=\\dfrac{6}{6}=1$, "
+      "no $\\dfrac{11}{12}$."),
+    D(llista([F(1, 3), F(1, 2), F(2, 3), F(5, 6), F(7, 6), F(4, 3)]),
+@@ -684,14 +711,14 @@
+ Q("54c", 54, "c", B2, "A",
+   r"$1,\;1,\;1,\;1,\dots$",
+   r"$d=0,\;\;a_n=1$",
+-  [D(r"$r=1,\;\;a_n=1$", "VEREDICTE_INVERTIT",
+-     "També és certa (aquesta successió és alhora aritmètica amb "
+-     "$d=0$ i geomètrica amb $r=1$); es demana com a resposta la "
+-     "lectura ARITMÈTICA, coherent amb la resta de l'exercici."),
++  [D(r"$d=0,\;\;a_n=n$", "PROGRESSIO_INVENTADA",
++     "La diferència sí que és $0$, però llavors el terme general no "
++     "pot dependre de $n$: $a_n=a_1+(n-1)\\cdot0=a_1$, sempre el "
++     "mateix valor."),
+    D(r"$d=1,\;\;a_n=n$", "COMPARA_TERMES",
+      "El terme general ha de donar sempre $1$: $a_n=n$ dona "
+      "$1,2,3,4\\dots$, que no coincideix amb la successió."),
+-   D(r"$d=0,\;\;a_n=0$", "SIMPLIFICACIO_INCOMPLETA",
++   D(r"$d=0,\;\;a_n=0$", "TERME_MAL_CALCULAT",
+      "El primer terme (i tots els altres) és $1$, no $0$: revisa la "
+      "substitució a $a_n=a_1+(n-1)\\cdot0$.")],
+   ["Calcula la diferència entre termes consecutius.",
+@@ -701,9 +728,9 @@
+   ex_text=E54,
+   nota="Aquesta successió constant compleix alhora la definició de "
+        "progressió aritmètica ($d=0$) i de progressió geomètrica "
+-       "($r=1$): és un cas límit on totes dues coincideixen. Es "
+-       "demana la lectura aritmètica perquè encaixa amb el 54b, "
+-       "però la geomètrica és igualment vàlida.")
++       "($r=1$): és un cas límit on totes dues coincideixen. Aquí es "
++       "demana la lectura aritmètica, que és la de la resta de "
++       "l'exercici; la geomètrica seria igual de vàlida.")
+ 
+ Q("54d", 54, "d", B2, "A",
+   r"$16,\;8,\;4,\;2,\;1,\dots$",
+@@ -968,7 +995,7 @@
+      "$r=0{,}1$, no anar disminuint una mica cada vegada de manera "
+      "aproximada."),
+    D(llista([F(1, 1), F(1, 10), F(1, 20), F(1, 1000), F(1, 2000)]),
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "RAO_MAL_APLICADA",
+      "El tercer terme s'obté multiplicant per $r=0{,}1$, no dividint "
+      "entre $2$: $0{,}1\\cdot0{,}1=0{,}01$, no $\\dfrac1{20}$.")],
+   ["La raó és el quocient entre dos termes consecutius coneguts: "
+@@ -993,7 +1020,7 @@
+      "Per anar cap enrere (del segon al primer terme) cal DIVIDIR "
+      "entre la raó, $\\dfrac12:\\dfrac13$, no multiplicar-hi."),
+    D(llista([F(3, 2), F(1, 2), F(1, 6), F(1, 12), F(1, 54), F(1, 162)]),
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "RAO_MAL_APLICADA",
+      "El quart terme s'obté multiplicant el tercer per $r=\\dfrac13$: "
+      "$\\dfrac16\\cdot\\dfrac13=\\dfrac1{18}$, no $\\dfrac1{12}$.")],
+   ["La raó és el quocient entre dos termes consecutius coneguts: "
+@@ -1021,7 +1048,7 @@
+      "Entre el segon terme ($\\dfrac13$) i el quart ($\\dfrac1{12}$) "
+      "hi ha exactament DOS passos de $r$, no un."),
+    D(llista([F(2, 3), F(1, 3), F(1, 9), F(1, 12), F(1, 36)]),
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "RAO_MAL_APLICADA",
+      "El tercer terme s'obté multiplicant el segon per $r=\\dfrac12$: "
+      "$\\dfrac13\\cdot\\dfrac12=\\dfrac16$, no $\\dfrac19$.")],
+   ["Els dos termes coneguts són a les posicions $2$ i $4$: la relació "
+@@ -1048,7 +1075,7 @@
+   "expressats en funció de $r$: $a_1=\\dfrac{3}{2r}$, "
+   "$a_3=\\dfrac32\\,r$, $a_4=\\dfrac32\\,r^2$.",
+   [D("La raó és $r=3$ i els termes que falten són "
+-     "$\\dfrac12,\\;\\dfrac92,\\;\\dfrac{27}2$.", "SIMPLIFICACIO_INCOMPLETA",
++     "$\\dfrac12,\\;\\dfrac92,\\;\\dfrac{27}2$.", "RAO_MAL_APLICADA",
+      "Amb $r=3$ el cinquè terme donaria "
+      "$\\dfrac32\\cdot3^3=\\dfrac32\\cdot27=\\dfrac{81}2$, no "
+      "$\\dfrac{81}4$ (el valor real de l'enunciat): $r=3$ no "
+@@ -1060,7 +1087,7 @@
+      "que falten es poden expressar en funció d'aquest valor de "
+      "$r$."),
+    D("La raó és $r^3=\\dfrac{27}2$ i ja està, no cal continuar.",
+-     "SIMPLIFICACIO_INCOMPLETA",
++     "PAS_INTERMEDI_PER_RESPOSTA",
+      "$r^3=\\dfrac{27}2$ és un pas intermedi, no la raó: cal encara "
+      "extreure l'arrel cúbica, $r=\\sqrt[3]{\\dfrac{27}2}$, i fer "
+      "servir aquest valor per completar els termes que falten.")],
+@@ -1089,7 +1116,8 @@
+ # =====================================================================
+ 
+ E59 = ("Donada la progressió $3,\\;6,\\;12,\\;24,\\dots$, digues si cada "
+-       "expressió n'és o no el terme general, i per què.")
++       "expressió n'és o no el terme general (o si l'afirmació és certa), "
++       "i per què.")
+ 
+ Q("59a", 59, "a", B4, "B",
+   r"$a_n = 3 + (n-1)\cdot 3$",
+@@ -1175,7 +1203,8 @@
+   ex_text=E59)
+ 
+ Q("59d", 59, "d", B4, "B",
+-  r"No es pot calcular.",
++  "Algú afirma: «d'aquesta successió no se'n pot calcular el "
++  "terme general». És cert?",
+   "Fals: sí que es pot calcular, perquè la successió té raó constant "
+   "$r=2$; és una progressió geomètrica amb terme general "
+   "$a_n=3\\cdot2^{\\,n-1}$.",
+diff -ru a/tools/lib.py b/tools/lib.py
+--- a/tools/lib.py	2026-08-04 21:17:47.780718463 +0000
++++ b/tools/lib.py	2026-08-04 21:17:47.781799227 +0000
+@@ -140,8 +140,48 @@
+     return {"tex": tex(valor), "err": error, "fb": feedback}
+ 
+ 
++# ---------------------------------------------------------------------
++# Dificultat
++# ---------------------------------------------------------------------
++# Tres nivells, i prou: més graons no els sabríem distingir de manera
++# fiable i només farien soroll.
++#
++#   1  DIRECTA     un sol pas: aplicar una definició o una fórmula tal com
++#                  s'acaba de veure, amb les dades ja a punt.
++#   2  ENCADENADA  dos o tres passos, o cal triar el mètode abans de
++#                  començar (quin cas notable és, quin sistema de
++#                  resolució, si toca Ruffini o divisió llarga).
++#   3  COMPLETA    problema amb context, o cal muntar l'expressió a partir
++#                  d'un enunciat en paraules, o barreja diversos conceptes,
++#                  o demana justificar / detectar un error.
++#
++# El nivell es fixa PER EXERCICI amb dificultats({num: nivell}) a dalt de
++# cada c_<tema>.py, perquè així es pot revisar la graduació sencera d'un
++# full d'una ullada en lloc d'anar-la a buscar a 60 llocs. Els apartats que
++# se surten del to del seu exercici porten dif= al seu Q().
++DIRECTA, ENCADENADA, COMPLETA = 1, 2, 3
++
++_DIF = {}
++
++
++def dificultats(taula):
++    """Registra la taula de dificultat: {num_exercici: 1|2|3}.
++
++    Acumula, no substitueix: el Full 1 el componen quatre mòduls i cadascun
++    hi aporta els seus exercicis. Els números d'exercici són únics a tot el
++    projecte, així que registrar-ne un dues vegades amb valors diferents és
++    sempre un error, i s'atura."""
++    for k, v in taula.items():
++        assert v in (DIRECTA, ENCADENADA, COMPLETA), \
++            f"exercici {k}: dificultat {v!r} fora de l'escala 1-3"
++        assert _DIF.get(k, v) == v, \
++            f"exercici {k}: dificultat registrada dues vegades ({_DIF[k]} i {v})"
++    _DIF.update(taula)
++
++
+ def Q(qid, ex, ap, bloc, tipus, enunciat,
+-      correcta, distractors, pistes, resolucio, ex_text="", nota=""):
++      correcta, distractors, pistes, resolucio, ex_text="", nota="", dif=None,
++      nota_interna=""):
+     """Registra una pregunta al banc, validant-la."""
+     item = {
+         "id": qid,
+@@ -149,6 +189,7 @@
+         "ap": ap,
+         "bloc": bloc,
+         "tipus": tipus,
++        "dif": dif if dif is not None else _DIF.get(ex),
+         "ordre": len(_BANC),
+         "ex_text": ex_text,
+         "enunciat": enunciat,
+@@ -156,7 +197,13 @@
+         "distractors": distractors,
+         "pistes": pistes if isinstance(pistes, list) else [pistes],
+         "resolucio": resolucio if isinstance(resolucio, list) else [resolucio],
++        # `nota` la veu l'alumne a practica.html: ha d'explicar-li una decisió
++        # d'interpretació en termes que li serveixin per resoldre l'exercici.
++        # `nota_interna` només surt al REVISIO: hi van les referències als
++        # fitxers de la font, els dubtes de transcripció i la feina pendent,
++        # que a l'alumne no li diuen res i el desconcerten.
+         "nota": nota,
++        "nota_interna": nota_interna,
+     }
+     _valida(item)
+     _BANC.append(item)
+@@ -178,6 +225,14 @@
+     assert it["pistes"] and all(p.strip() for p in it["pistes"]), f"{qid}: sense pistes"
+     assert it["resolucio"] and all(str(r).strip() for r in it["resolucio"]), f"{qid}: sense resolució"
+     assert it["tipus"] in "ABC", f"{qid}: tipus desconegut"
++    fuita = re.search(r"\.tex\b|abans de publicar|cal confirmar|per revisar",
++                      it["nota"], re.I)
++    assert not fuita, (
++        f"{qid}: la nota visible parla de la font o de feina pendent "
++        f"({fuita.group(0)!r}); això va a nota_interna=")
++    assert it["dif"] in (DIRECTA, ENCADENADA, COMPLETA), (
++        f"{qid}: sense dificultat (l'exercici {it['ex']} no és a la taula "
++        f"dificultats() del full, i el Q() no porta dif=)")
+ 
+ 
+ def tria(correcta, candidats, n=3):
+@@ -259,6 +314,10 @@
+     "SIMPLIFICA_NOMES_NUMERADOR":
+         "Només has dividit el numerador. En simplificar cal dividir numerador "
+         "I denominador pel mateix nombre.",
++    # Aquesta etiqueta és NOMÉS per a fraccions o arrels que es queden a
++    # mitges. Si el que passa és que l'alumne ha parat un pas abans d'acabar,
++    # o ha donat una part pel tot, o ha aplicat malament una fórmula, hi ha
++    # etiquetes específiques més avall: no la feu servir de calaix de sastre.
+     "SIMPLIFICACIO_INCOMPLETA":
+         "Encara es pot simplificar més: busca el m.c.d. del numerador i el "
+         "denominador i divideix-los pel m.c.d. d'un sol cop.",
+@@ -378,6 +437,10 @@
+         "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del "
+         "correcte: torna a comprovar la condició amb els valors concrets "
+         "de l'enunciat.",
++    "DOMINI_MAL_LLEGIT":
++        "Has decidit sense mirar bé quin és el conjunt de partida. Si una "
++        "relació és funció o no depèn del domini: canviar-lo pot canviar la "
++        "resposta, així que el primer que cal fixar és de què parteixes.",
+ 
+     # ---- polinomis (Full 4) ----
+     "PARENTESI_NO_DISTRIBUIT_POLI":
+@@ -585,6 +648,236 @@
+         "Per combinar dos esdeveniments independents (per exemple, "
+         "dos sortejos separats), el nombre de combinacions "
+         "possibles es multiplica, no se suma.",
++    # ---- errors transversals — repartits des de SIMPLIFICACIO_INCOMPLETA ----
++    "PAS_INTERMEDI_PER_RESPOSTA":
++        "El valor que has triat és correcte, però és un pas intermedi, no el "
++        "que et demanen. Torna a llegir la pregunta i mira quina magnitud has "
++        "d'acabar donant: sovint només falta una operació més.",
++    "PART_PEL_TOT":
++        "Has donat el tot on et demanaven una part, o al revés. Compta quantes "
++        "peces iguals hi ha a la figura i mira quantes n'entren a la resposta.",
++    "SUMA_DE_PARTS_INCOMPLETA":
++        "L'àrea total d'un cos és la suma de TOTES les seves cares. Has "
++        "calculat bé una part (la base, o la lateral) però encara falta "
++        "sumar-hi l'altra.",
++    "MEITAT_OBLIDADA":
++        "Hi ha un factor $2$ pel mig que t'has deixat: radi i diàmetre, "
++        "semibase i base, semidiagonal i diagonal. Comprova quina de les dues "
++        "et demanen.",
++    "DIVISIO_REPETIDA":
++        "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula "
++        "ja porta la divisió incorporada i se li torna a aplicar al final: "
++        "escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
++    "ARREL_OBLIDADA":
++        "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ "
++        "encara falta l'arrel per arribar a $x$: comprova sempre quina de les "
++        "dues quantitats et demanen.",
++    "ES_POT_DETERMINAR":
++        "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha "
++        "prou. Abans de descartar una pregunta, mira si algun teorema o criteri "
++        "et permet respondre-la amb el que ja tens.",
++    "ARITMETICA_PAS_INTERMEDI":
++        "El plantejament és bo, però hi ha un error de càlcul en un dels passos "
++        "del mig. Refes l'operació pas a pas i comprova el resultat "
++        "substituint-lo a l'enunciat original.",
++    "UNITATS_NO_CONVERTIDES":
++        "Has barrejat unitats diferents en la mateixa operació. Passa-ho tot a "
++        "la mateixa unitat abans de calcular res.",
++
++    # ---- equacions (Full 5) ----
++    "AILLAMENT_INCOMPLET":
++        "Has parat abans d'acabar d'aïllar la incògnita: encara queda una "
++        "operació per desfer. Comprova-ho substituint el teu valor a l'equació "
++        "original.",
++    "DENOMINADOR_NO_ELIMINAT":
++        "Has operat amb la fracció sense treure-li el denominador. Multiplica "
++        "els dos membres pel denominador PRIMER, i només després aïlla la "
++        "incògnita.",
++    "AGRUPACIO_TERMES_MAL":
++        "Els termes amb incògnita no s'han agrupat bé: torna a sumar-ne els "
++        "coeficients un per un, amb el seu signe.",
++    "EQUACIO_NO_SIMPLIFICADA":
++        "Simplifica cada equació per separat (parèntesis, termes semblants, "
++        "denominadors) ABANS de combinar-les: si no, el sistema que resols no "
++        "és el de l'enunciat.",
++    "ORDRE_ARREL_DIVISIO":
++        "Has fet l'arrel abans de dividir. De $ax^2=k$ cal aïllar primer $x^2$ "
++        "dividint per $a$, i fer l'arrel al final.",
++
++    # ---- proporcionalitat i percentatges (Full 6) ----
++    "MAGNITUD_NO_CONVERTIDA":
++        "Has donat el mateix número per a dues magnituds diferents. Fes servir "
++        "la constant que les relaciona (densitat, preu unitari, velocitat) per "
++        "passar d'una a l'altra.",
++    "PERCENTATGE_DECIMAL_MAL":
++        "El pas de tant per cent a decimal no és correcte: es divideix per "
++        "$100$, així que $0{,}8\\,\\%=0{,}008$ i $8\\,\\%=0{,}08$. Compta les "
++        "xifres.",
++    "FRACCIO_COM_PERCENTATGE":
++        "Has pres el numerador de la fracció com si ja fos el percentatge. Per "
++        "arribar-hi cal portar la fracció sencera a denominador $100$.",
++
++    # ---- geometria plana (Full 7) ----
++    "COSTATS_MAL_TRIATS":
++        "El criteri és el bo, però l'has aplicat als costats que no toquen: "
++        "torna a mirar quins dos costats has de comparar amb quin.",
++    "FORMULA_INVERTIDA":
++        "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula "
++        "sencera abans de substituir-hi els valors.",
++    "FRACCIO_DE_CERCLE_MAL":
++        "La porció de cercle no és la que toca: mig cercle, un quart, tres "
++        "quarts... Mira quin angle abasta la figura i quina fracció de "
++        "$360^\\circ$ representa.",
++
++    # ---- escales (Full 8) ----
++    "ESCALA_NO_APLICADA":
++        "Has donat la mesura tal com surt al plànol (o a la realitat) sense "
++        "passar-la per l'escala. Les dues mesures només coincideixen si "
++        "l'escala és $1:1$.",
++
++    # ---- cossos geomètrics (Full 9) ----
++    "PI_OBLIDAT":
++        "Falta $\\pi$: qualsevol longitud, àrea o volum que surti d'un cercle "
++        "en porta. La circumferència és $2\\pi r$ i el cercle, $\\pi r^2$.",
++    "FACTOR_TRES_VOLUM":
++        "El terç del volum va només amb piràmides i cons. Prismes, cilindres i "
++        "cubs són base per altura, sense dividir.",
++    "DIMENSIO_EXPONENT_MAL":
++        "L'exponent no correspon a la dimensió: les àrees van al quadrat i els "
++        "volums, al cub. Comprova també les unitats del resultat.",
++    "ARRODONIMENT_CONTEXT":
++        "El resultat exacte és aquest, però el context demana un nombre enter. "
++        "Pensa si cal arrodonir cap amunt (pots de pintura, autocars, caixes) o "
++        "cap avall (quantes peces senceres en surten).",
++    "PAPERS_INTERCANVIATS":
++        "Has intercanviat les dues magnituds: torna a llegir quina depèn de "
++        "quina a l'enunciat.",
++
++    # ---- successions (Full 3) — repartides des de SIMPLIFICACIO_INCOMPLETA ----
++    "RAO_MAL_APLICADA":
++        "Per passar d'un terme al següent s'ha de MULTIPLICAR per la raó. "
++        "Comprova la raó amb dos termes consecutius que ja tinguis i aplica-la "
++        "sempre igual.",
++    "TERME_MAL_CALCULAT":
++        "Un dels termes no surt: comprova'l substituint-lo al terme general o "
++        "sumant-hi la diferència des de l'anterior.",
++    "SIMPLIFICAR_RESTANT":
++        "Simplificar és DIVIDIR el numerador i el denominador pel mateix "
++        "nombre, no restar-los. Restant canvies el valor de la fracció.",
++    "SIMPLIFICACIO_INVENTADA":
++        "Has simplificat una fracció que ja era irreductible. Comprova que el "
++        "numerador i el denominador tinguin algun factor comú abans de "
++        "tocar-la.",
++
++    # ---- estadística (Full 11) — repartides des de SIMPLIFICACIO_INCOMPLETA ----
++    "CRITERI_AGRUPACIO_MAL":
++        "El criteri per agrupar en intervals no és el nombre de dades sinó com "
++        "estan repartides: si els valors són molt dispersos i gairebé no es "
++        "repeteixen, una taula valor a valor no resumeix res.",
++    "ESCALA_ALTERA_DADES":
++        "Canviar l'escala vertical d'un gràfic no crea ni elimina cap dada: la "
++        "forma es manté, només canvien els números de l'eix.",
++
++    # ---- decimals (Full 1) — etiquetes ja en ús sense text de catàleg ----
++    "TRACTAT_COM_EXACTE":
++        "Has tractat un decimal periòdic com si fos exacte. Un període es "
++        "repeteix sense fi: repetir una xifra dues o tres vegades i parar no és "
++        "tenir període.",
++    "TRACTAT_COM_PERIODIC":
++        "Has tractat com a periòdic un decimal que s'acaba. Si les xifres "
++        "decimals s'acaben, el decimal és exacte i la generatriu porta una "
++        "potència de $10$ al denominador.",
++    "PERIODE_MAL_IDENTIFICAT":
++        "El període no és el que has marcat. Recorda que el període comença "
++        "just on les xifres es comencen a repetir; el que hi hagi entre la coma "
++        "i el període és l'anteperíode.",
++    "NO_RESTA_ANTEPERIODE":
++        "Al numerador de la generatriu cal RESTAR la part que no es repeteix: "
++        "el nombre sencer sense coma, menys la part anterior al període.",
++    "NOUS_I_ZEROS":
++        "Al denominador van tants NOUS com xifres té el període i tants ZEROS "
++        "com xifres té l'anteperíode, en aquest ordre. Compta'ls per separat.",
++    "POTENCIA_10":
++        "El denominador d'un decimal exacte és una potència de $10$ amb tants "
++        "zeros com xifres decimals hi ha. Torna-les a comptar.",
++    "PART_ENTERA_OBLIDADA":
++        "T'has deixat la part entera. La generatriu ha de valer el nombre "
++        "sencer, no només la part decimal.",
++
++    # ---- divisibilitat (Full 1) — etiquetes ja en ús sense text de catàleg ----
++    "MCD_EN_LLOC_DE_MCM":
++        "Has donat el m.c.d. quan et demanaven el m.c.m. El m.c.m. és un "
++        "MÚLTIPLE: ha de ser més gran o igual que tots els nombres.",
++    "MCM_EN_LLOC_DE_MCD":
++        "Has donat el m.c.m. quan et demanaven el m.c.d. El m.c.d. és un "
++        "DIVISOR: ha de ser més petit o igual que tots els nombres.",
++    "PRODUCTE":
++        "Has multiplicat els nombres. Ni el m.c.d. ni el m.c.m. són el "
++        "producte: descompon en factors primers i tria els factors amb el "
++        "criteri que toqui.",
++    "EL_MES_GRAN":
++        "El més gran dels nombres només és el m.c.m. si tots els altres el "
++        "divideixen. Comprova-ho abans de donar-lo per bo.",
++    "EL_MES_PETIT":
++        "El més petit dels nombres només és el m.c.d. si divideix tots els "
++        "altres. Comprova-ho abans de donar-lo per bo.",
++
++    # ---- troba l'error (Fulls 1 i 2) ----
++    "CAP_ERROR":
++        "Has dit que la cadena és correcta, però hi ha un pas equivocat. Que el "
++        "resultat final surti bé no ho garanteix: dos errors es poden "
++        "compensar. Comprova cada igualtat per separat.",
++
++    # ---- geometria plana (Full 7) — etiquetes ja en ús sense text de catàleg ----
++    "SUMA_CATETS_SENSE_QUADRAT":
++        "Has sumat els costats directament. Pitàgores diu que es sumen els seus "
++        "QUADRATS, i al final es fa l'arrel del resultat.",
++    "HIPOTENUSA_MAL_IDENTIFICADA":
++        "La hipotenusa és sempre el costat MÉS LLARG del triangle rectangle, i "
++        "és la que va sola a un costat de la igualtat.",
++    "CATET_MAL_IDENTIFICAT":
++        "El costat que busques no és el que has triat. Fes un dibuix ràpid i "
++        "marca quin costat coneixes i quin has d'aïllar abans de calcular.",
++    "ARREL_FACTOR_OBLIDAT":
++        "Has arribat al valor de dins de l'arrel però t'has deixat el factor "
++        "que l'acompanya (sovint un $\\sqrt3$ o un $2$). Escriu la fórmula "
++        "sencera abans de substituir-hi els números.",
++
++    # ---- cossos geomètrics (Full 9) — etiqueta ja en ús sense text de catàleg ----
++    "ARREL_MAL_APLICADA":
++        "L'arrel no s'ha aplicat on tocava. Aïlla primer la quantitat que va "
++        "sota l'arrel i fes-la al final, sobre el valor ja aïllat.",
++
++    # ---- semblança (Full 8) — etiqueta ja en ús sense text de catàleg ----
++    "CRITERI_SEMBLANCA_INSUFICIENT":
++        "Has dit que falten dades, però el criteri que toca ja es pot aplicar "
++        "amb el que dona l'enunciat: tres costats, o dos costats i l'angle que "
++        "formen, o dos angles.",
++
++    # ---- funcions (Full 10) — etiquetes ja en ús sense text de catàleg ----
++    "PENDENT_ORDENADA_INTERCANVIATS":
++        "El pendent és el nombre que MULTIPLICA la $x$; l'ordenada a l'origen "
++        "és el terme independent, el que va sol. Els has intercanviat.",
++    "SIGNE_PENDENT_INVERTIT":
++        "El pendent conserva el signe amb què apareix a l'expressió: no cal "
++        "canviar-l'hi en llegir-lo.",
++    "PENDENT_COM_NUL":
++        "Una funció afí només és constant si el pendent és $0$. Si el "
++        "pendent és qualsevol altre nombre, la funció puja o baixa sempre.",
++    "REPRESENTACIO_INNECESSARIA":
++        "No cal dibuixar la gràfica: el signe del pendent ja diu si la funció "
++        "creix o decreix, i el de $a$ si la paràbola s'obre amunt o avall.",
++    "DOMINI_RECORREGUT_INTERCANVIATS":
++        "El domini són els valors de $x$ i el recorregut els de $y$. Els has "
++        "intercanviat: mira l'eix horitzontal per al domini i el vertical per "
++        "al recorregut.",
++    "AMPLADA_INVERTIDA":
++        "Com més gran és $|a|$, més ESTRETA és la paràbola, no més ampla: el "
++        "coeficient estira la corba cap amunt.",
++    "POTENCIA_COM_PRODUCTE":
++        "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i "
++        "no $6$.",
++
+ }
+ 
+ def DT(valor, tag, extra=""):
