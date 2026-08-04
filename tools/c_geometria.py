@@ -2,8 +2,7 @@
 r"""c_geometria.py — Full 7: Teorema de Pitàgores. Àrees.
 
 Genera els ítems dels exercicis 119-151, que corresponen a `im8.tex` del
-repositori LaTeX font ("Full d'exercicis 8 — Geometria plana" segons la
-seva pròpia capçalera). Organitzats en 4 blocs:
+repositori LaTeX font. Organitzats en 4 blocs:
   triangles     (119-129)   angles, desigualtat triangular, triangles
                              rectangles i teorema de Pitàgores bàsic
   arees_pit     (130-139)   àrees de triangles i rectangles combinades
@@ -13,60 +12,37 @@ seva pròpia capçalera). Organitzats en 4 blocs:
   problemes     (146-151)   problemes d'aplicació (ombres, escales,
                              camps, senyals, edificis, rosquilles)
 
-Nota sobre la font: com ja passava amb Full 5 i Full 6 (vegeu
-c_equacions.py i c_proporcionalitat.py), la numeració de fulls d'aquest
-lloc no coincideix amb la dels fitxers LaTeX. El fitxer font `im6.tex`
-("sistemes d'equacions i problemes") ja es va incorporar a Full 5, i
-`im7.tex` ("proporcionalitat i percentatges") ja es va incorporar a
-Full 6. El contingut que correspon a "Full 7 — Teorema de Pitàgores.
-Àrees" d'aquest lloc és, doncs, `im8.tex` (exercicis 119-151) — una
-discrepància de numeració ja anticipada al README i confirmada (mirant
-`js/inici.js`, on l'entrada `n: 7` ja porta el títol "Teorema de
-Pitàgores. Àrees") abans d'escriure aquest fitxer.
+Recompte: 33 exercicis / 58 ítems bruts (comptant \\item dins
+d'apartats/apartatscols; un exercici sense apartats compta 1). Les figures
+d'`im8.tex` porten les mesures transcrites al text de l'enunciat, amb
+comentaris `% NOTA DE TRANSCRIPCIÓ` allà on la lectura de la imatge
+original era incerta; el criteri d'exclusió aquí és només si `r-im8.tex`
+arriba o no a un valor numèric complet, no l'existència d'una nota.
 
-Recompte: el parsing automàtic (comptar \\item dins d'apartats/
-apartatscols; exercici sense apartats compta 1) dona 33 exercicis / 58
-ítems per a `im8.tex`. Cap `\\foratimatge` en tot el fitxer font: a
-diferència de l'estat que documentava el HANDOVER v2 (que preveia 7
-exercicis exclosos per figura absent en aquest full), la versió d'`im8.tex`
-subministrada ja té totes les mesures de les figures transcrites al text
-mateix de l'enunciat, amb comentaris `% NOTA DE TRANSCRIPCIÓ` allà on la
-lectura de la imatge original era incerta. Per tant no calia excloure cap
-exercici per figura absent — la decisió d'exclusió d'aquesta sessió es
-basa únicament en si `r-im8.tex` (el solucionari subministrat) arriba a
-un valor numèric complet per a cada ítem, no en l'existència d'una nota.
-
-Exclusions (4 ítems, dels 58 originals, per manca de valor numèric a la
-font, vegeu §3.5 de l'AUTHORING-GUIDE):
+Exclusions (4 ítems, per manca de valor numèric a la font):
   - Exercici 139 sencer: la nota de `r-im8.tex` diu literalment "no es
     dona aquí un desenvolupament numèric complet" — la disposició de la
     figura (una zona ombrejada de rectangles) no s'ha pogut determinar,
     i no hi ha cap resposta correcta calculable per oferir.
-  - Exercici 145, apartats a, b i d: mateix motiu ("pendents de
-    confirmar la disposició exacta de la figura", sense valor numèric).
-    Només l'apartat 145c (quadrat amb forat circular) arriba a un
-    resultat complet i es conserva.
+  - Exercici 145, apartats a, b i d: mateix motiu (sense valor numèric a
+    la font). Només l'apartat 145c (quadrat amb forat circular) arriba a
+    un resultat complet i es conserva.
 Els altres ítems amb nota de transcripció (144a, 144b, 151) SÍ arriben a
 un valor numèric complet a partir d'una interpretació explícita i
 raonable de la figura (semicercles concèntrics, sector circular, corona
 circular), així que es conserven amb `nota=` explicant la interpretació
-adoptada — mateix criteri que el `46b` de Full 2 o els ítems amb nota de
-Full 3/4.
+adoptada.
 
-Total real d'aquest full: 58 - 4 = 54 ítems pel recompte automàtic
-(comptant \item dins d'apartats/apartatscols), MÉS 1 ítem addicional:
-l'exercici 148 és una única \problema{} en prosa que en realitat conté
-DUES preguntes independents ("Quina és l'àrea del camp? Quant mesura el
-costat?") sense fer-les servir amb \begin{apartats}, així que el parser
-automàtic el compta com 1 sol ítem quan en té 2 (patró d'"ítems amagats"
-descrit a §3.2 de l'AUTHORING-GUIDE). Es desdobla en 148a (costat) i
-148b (àrea), ja que el motor de tria múltiple necessita una resposta
-correcta per ítem i totes dues preguntes tenen respostes numèriques
-diferenciades i igualment rellevants. Total final: 55 ítems, en 32 dels
-33 exercicis originals: el 139 hi perd la totalitat dels seus ítems (0
-conservats) i el 145 en perd 3 dels 4 (només hi queda 145c); els altres
-31 exercicis conserven tots els seus ítems originals, més el 148, que en
-guanya un (es desdobla en 148a i 148b).
+Total: 58 - 4 = 54 ítems pel recompte automàtic, MÉS 1 ítem addicional.
+L'exercici 148 és una única \\problema{} en prosa que en realitat conté DUES
+preguntes independents ("Quina és l'àrea del camp? Quant mesura el
+costat?") sense fer servir \\begin{apartats}, així que el parser automàtic
+el compta com 1 sol ítem quan en té 2 (patró d'"ítems amagats" descrit a
+AUTHORING-GUIDE.md). Es desdobla en 148a (costat) i 148b (àrea), ja que el
+motor de tria múltiple necessita una resposta correcta per ítem i totes
+dues preguntes tenen respostes numèriques diferenciades i igualment
+rellevants. Total final: 55 ítems, en 32 dels 33 exercicis originals (el
+139 hi perd tots els seus ítems i el 145 en perd 3 dels 4).
 
 Cap resposta s'escriu a mà: cada resultat s'ha calculat de manera
 independent (aritmètica exacta amb `math.sqrt`/`Fraction` i, quan calia
@@ -75,17 +51,15 @@ fitxer) abans d'escriure cap `Q()`, i s'ha contrastat contra `r-im8.tex`
 (el solucionari LaTeX subministrat) sense trobar-hi cap discrepància en
 cap dels 55 ítems conservats.
 
-Nota d'estil (arrels quadrades): a diferència dels fulls anteriors, en
-aquest full la majoria de respostes correctes són arrels quadrades
-irracionals (diagonals, altures, hipotenuses...). SymPy `sqrt()` no cal
-aquí: com que totes les operacions són purament numèriques (mai
-simbòliques en `x`), n'hi ha prou amb els helpers `simplifica_arrel()` /
-`arrel_tex_raw()` / `arrel_tex()` definits més avall, en l'estil de
-`poli_tex_raw()`/`poli_tex()` de c_polinomis.py: `arrel_tex()` retorna la
-cadena ja embolcallada amb `$...$` (segura com a opció directa d'una
-`Q()`/`D()`, ja que `mathify()` a build.py no reconeix `\sqrt` com a
-"matemàtica pura" i no la delimitaria — el mateix "mathify trap" descrit
-a l'AUTHORING-GUIDE §5, aquí amb `\sqrt` en lloc de lletres), mentre que
+Nota d'estil (arrels quadrades): en aquest full la majoria de respostes
+correctes són arrels quadrades irracionals (diagonals, altures,
+hipotenuses...). SymPy no cal aquí: com que totes les operacions són
+purament numèriques (mai simbòliques en `x`), n'hi ha prou amb els helpers
+`simplifica_arrel()` / `arrel_tex_raw()` / `arrel_tex()` definits més
+avall, en l'estil de `poli_tex_raw()`/`poli_tex()` de c_polinomis.py:
+`arrel_tex()` retorna la cadena ja embolcallada amb `$...$` (segura com a
+opció directa d'una `Q()`/`D()`, ja que `mathify()` a build.py no reconeix
+`\\sqrt` com a "matemàtica pura" i no la delimitaria), mentre que
 `arrel_tex_raw()` retorna la mateixa cadena sense `$...$`, per incrustar-la
 dins d'una resolució o pista que ja porta els seus propis delimitadors.
 """

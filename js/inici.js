@@ -1,16 +1,17 @@
-/* inici.js — selector de fulls (Nivell 0), la nova portada del lloc.
+/* inici.js — selector de fulls (Nivell 0), la portada del lloc.
 
    No carrega cap data/fullN.js (no cal: només mostrem tema + progrés, no
-   preguntes). El total de preguntes de cada full es fixa aquí a mà quan
-   s'autoria — per als fulls encara no autorats, `total` és null i la targeta
-   surt marcada "Properament" i no és clicable.
+   preguntes). El total de preguntes de cada full es fixa a mà a la taula
+   FULLS d'aquí sota; ha de coincidir amb el que reporta tools/build.py en
+   compilar aquell full.
 
-   Quan s'autori un full nou: canvieu el seu `disponible` a true i poseu-hi
-   el `total` real (el que doni tools/build.py en compilar). Res més.
+   Els 12 fulls tenen banc de preguntes i estan tots disponibles. La targeta
+   sap pintar-se com a "Properament" (`disponible: false`, `total: null`) si
+   algun dia s'hi afegeix un full abans de tenir-ne les preguntes.
 
    NUMERACIÓ — llegiu això abans de tocar res. El lloc té 12 fulls, i el seu
    número NO coincideix amb el nom del fitxer LaTeX font. La correspondència
-   definitiva és:
+   és:
 
      Full  1 = im1.tex   (ex. 1-34)      Full  7 = im8.tex   (ex. 119-151)
      Full  2 = im2.tex   (ex. 35-46)     Full  8 = im9.tex   (ex. 152-169)
@@ -19,11 +20,10 @@
      Full  5 = im5 + im6 (ex. 75-100)    Full 11 = im12.tex  (ex. 218-235)
      Full  6 = im7.tex   (ex. 101-118)   Full 12 = im13.tex  (ex. 236-259)
 
-   La fusió d'im5+im6 en un sol Full 5 és el que desplaça tota la resta un
-   número avall a partir del Full 6. L'inventari del HANDOVER v2 encara
-   partia im11.tex en dos fulls ("Funcions" i "Funcions lineals i
-   quadràtiques") i llistava 13 fulls: aquesta llista de 12 el substitueix.
-   Els 13 fitxers im*.tex estan tots coberts; no en queda cap de pendent. */
+   El Full 5 recull dos fitxers font (im5 + im6), i per això a partir del
+   Full 6 el número del full va un per sota del número de fitxer. Els 13
+   fitxers im*.tex queden coberts pels 12 fulls; no n'hi ha cap de pendent.
+   Vegeu HANDOVER.md §2 per a l'inventari complet. */
 (function () {
   "use strict";
   var $ = function (s) { return document.querySelector(s); };

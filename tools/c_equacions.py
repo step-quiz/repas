@@ -10,15 +10,11 @@ blocs:
   sistemes          (85-89)   sistemes d'equacions lineals (2 incògnites)
   problemes         (90-100)  problemes que es resolen amb equació o sistema
 
-Nota sobre la font: el HANDOVER-repas-eso v2 documenta "Full 5 — Equacions
-i sistemes" com un sol bloc de 26 exercicis / 99 preguntes, però el
-repositori LaTeX proporcionat té els temes "equacions" i "sistemes
-d'equacions i problemes" com dos fitxers font separats, im5.tex (exercicis
-75-84, equacions de primer i segon grau) i im6.tex (exercicis 85-100,
-sistemes i problemes). La suma exacta (10+16=26 exercicis, 63+36=99
-items) confirma que "Full 5" del handover és aquesta fusió — es tracta
-com un sol full aquí, amb el bloc "sistemes"/"problemes" cobrint el
-contingut d'im6.tex.
+Font: aquest full recull DOS fitxers LaTeX, im5.tex (exercicis 75-84,
+equacions de primer i segon grau) i im6.tex (exercicis 85-100, sistemes i
+problemes) — 10+16 = 26 exercicis, 63+36 = 99 ítems. És l'únic full del
+lloc que ajunta dos fitxers font, i el motiu que a partir del Full 6 el
+número de full vagi un per sota del número de fitxer.
 
 Com als fulls anteriors: cap resposta s'escriu a mà — cada solució es
 calcula amb sympy.solve() sobre l'equació/sistema simbòlic i es renderitza
@@ -30,7 +26,7 @@ SymPy (Eq/solve) contrastant contra r-im5.tex i r-im6.tex (el solucionari
 LaTeX subministrat, no generat per aquest projecte) abans d'escriure cap
 codi — coincidència exacta en els 99 casos, sense cap error trobat als
 solucionaris font (a diferència del que va passar a Full 4, on
-r-im4.tex sí que portava un error, vegeu AUTHORING-GUIDE §3.4).
+r-im4.tex sí que portava un error, vegeu AUTHORING-GUIDE.md).
 """
 from fractions import Fraction as F
 from sympy import symbols, Eq, solve, Rational, sqrt, expand, nsimplify
@@ -61,7 +57,7 @@ def frac_tex(v):
 def x_tex(v):
     """'x=valor', valor com a Fraction. Ja ve embolcallat en $...$ perquè
     conté una lletra (x) i mathify() no el reconeixeria com a matemàtica
-    pura (vegeu AUTHORING-GUIDE §5 — el parany del mathify())."""
+    pura (vegeu el parany del mathify() a AUTHORING-GUIDE.md)."""
     return "$x=%s$" % frac_tex(v)
 
 

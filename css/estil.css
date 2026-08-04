@@ -137,22 +137,6 @@ a.full:hover{border-color:var(--blau)}
   color:var(--apagat);text-decoration:underline;cursor:pointer;font-family:inherit}
 .link-refer-test:hover{color:var(--tinta)}
 
-/* ---- diagnostic.html: autopercepció (selecció múltiple, no única) ---- */
-.percepcio-item{cursor:pointer}
-.percepcio-item .marca{width:1.2rem;height:1.2rem;border-radius:5px;flex:none;
-  border:1.5px solid var(--vora);background:#fff;transition:background .12s,border-color .12s}
-.percepcio-item.tria .marca{background:var(--blau);border-color:var(--blau)}
-.percepcio-item.tria .marca::after{content:"✓";display:block;color:#fff;
-  font-size:.85rem;line-height:1.15rem;text-align:center}
-
-/* ---- resultat.html: resum compacte de tots els blocs (sense desplegar res) ---- */
-.resum-blocs{display:flex;flex-direction:column;gap:.15rem;margin-bottom:1.3rem}
-.fila-resum-bloc{display:flex;align-items:baseline;gap:.55rem;padding:.15rem 0;font-size:.86rem}
-.fila-resum-bloc .pct{font:700 .82rem/1 var(--mono);min-width:2.6rem}
-.fila-resum-bloc .nom{flex:1}
-
-/* ---- resultat.html: fals-alarma dins el bloc de desajustos ---- */
-.errada.bona-noticia{border-left-color:var(--verd);background:var(--verd-suau)}
 
 /* ---- full.html: bloc destacat en arribar des d'una recomanació del tutor ---- */
 .bloc.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
@@ -164,3 +148,8 @@ a.full:hover{border-color:var(--blau)}
 .pas-itinerari.fet .num{color:var(--verd);font-size:1rem}
 .pas-itinerari.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
 .pas-itinerari.destacat .num{color:var(--blau)}
+
+/* ---- test inicial: les quatre respostes d'autoavaluació ---- */
+.opcio-estat{align-items:center}
+.opcio-estat .cos{line-height:1.35}
+.opcio-estat.triada{border-color:var(--blau);background:var(--blau-suau)}

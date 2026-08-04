@@ -1,6 +1,9 @@
 /* hub.js — pàgina d'un full (Nivell 1): botó "continua", resum d'errors,
-   blocs i mapa de llacunes complet (plegat per defecte).
-   Substitueix portada.js: ara és genèric per a qualsevol full, no només full1. */
+   blocs i mapa de llacunes complet (plegat per defecte). Genèric per a
+   qualsevol full: llegeix window.FULL, no cap full concret.
+
+   Amb ?bloc=<id> a la URL, aquell bloc surt destacat i la pàgina hi fa
+   scroll: és com hi arriba l'alumne des d'una recomanació del tutor. */
 (function () {
   "use strict";
   if (!window.FULL) return;   /* full.html ja mostra "aquest full encara no està preparat" */

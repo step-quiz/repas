@@ -2,9 +2,9 @@
    pintat del mapa de llacunes i renderitzat de matemàtiques amb KaTeX.
 
    El progrés de cada full es desa amb la seva pròpia clau
-   ("repas-eso:full1", "repas-eso:full2"...) perquè cada full té el seu propi
-   recorregut. Per això totes les funcions de progrés reben el número de full
-   com a primer argument — cap altre canvi de comportament respecte abans. */
+   ("repas-eso:full1", "repas-eso:full2"... fins a "repas-eso:full12") perquè
+   cada full té el seu propi recorregut. Per això totes les funcions de
+   progrés reben el número de full com a primer argument. */
 window.RE = (function () {
   "use strict";
 

@@ -33,53 +33,91 @@ window.RE_ITI = (function () {
     });
   }
 
-  /* Reparteix OBJECTIU_TOTAL ítems entre els blocs recomanats, equitativament
-     però respectant que un bloc petit no pot donar més ítems dels que té.
-     El que li falta a un bloc petit es reparteix entre els altres, en rondes
-     successives, fins arribar a l'objectiu o esgotar tots els blocs. */
-  function repartimentPerBloc(blocsAmbItems, objectiu) {
-    var quota = {};
-    blocsAmbItems.forEach(function (b) { quota[b.k] = 0; });
-    var pendent = objectiu;
-    var actius = blocsAmbItems.slice();
-    while (pendent > 0 && actius.length) {
-      var base = Math.floor(pendent / actius.length) || 1;
-      var seguents = [];
-      actius.forEach(function (b) {
-        var marge = b.items.length - quota[b.k];
-        var afegeix = Math.min(base, marge, pendent);
-        if (afegeix > 0) { quota[b.k] += afegeix; pendent -= afegeix; }
-        if (marge - afegeix > 0) seguents.push(b);
+  /* Passa dels temes del test als blocs del lloc, amb un pes per bloc.
+
+     Cada tema del test apunta a un bloc principal i, sovint, a un parell més
+     que l'acompanyen (per exemple, "sumar fraccions" porta a Fraccions i
+     també a Divisibilitat, perquè sense m.c.m. no se'n surt). El pes del
+     tema el fixa la situació en què està l'alumne —8 si no ho va entendre
+     mai o si ho donava per sabut i ha fallat, 4 si només ho té rovellat— i
+     es reparteix entre els seus blocs: el principal se'n queda la meitat i
+     la resta van baixant. Així un tema que cal reconstruir aporta el doble
+     d'exercicis que un que només cal refrescar. */
+  function blocsAmbPes(temes, blocsDisponibles) {
+    var llista = [];
+    temes.forEach(function (t, itema) {
+      t.blocs.forEach(function (ref, rang) {
+        var complet = blocsDisponibles.filter(function (b) {
+          return b.full === ref.full && b.id === ref.bloc;
+        })[0];
+        if (!complet || !complet.items.length) return;
+        llista.push({
+          k: ref.full + ":" + ref.bloc,
+          full: ref.full, bloc: ref.bloc, titol: complet.titol,
+          tema: t.tema, itema: itema, rang: rang,
+          pes: t.pes / (rang + 1),
+          items: ordenaPerDificultat(complet.items)
+        });
       });
-      if (!seguents.length) break;
-      actius = seguents;
+    });
+    /* Ordenats per rang i després per tema: així la primera volta del
+       round-robin agafa el bloc principal de cada tema, la segona el
+       secundari, etc., i l'alumne va canviant de tema a cada pas. */
+    return llista.sort(function (a, b) {
+      return a.rang - b.rang || a.itema - b.itema;
+    });
+  }
+
+  /* Reparteix OBJECTIU_TOTAL ítems entre els blocs, proporcionalment al seu
+     pes però sense demanar a cap bloc més ítems dels que té. El que sobra
+     d'un bloc petit es redistribueix als altres, d'un en un i començant pels
+     de més pes, fins arribar a l'objectiu o esgotar el material. */
+  function repartimentPerBloc(blocs, objectiu) {
+    var quota = {}, totalPes = 0;
+    blocs.forEach(function (b) { totalPes += b.pes; });
+    if (!totalPes) return quota;
+
+    var assignat = 0;
+    blocs.forEach(function (b) {
+      var q = Math.min(b.items.length, Math.round(objectiu * b.pes / totalPes));
+      quota[b.k] = q;
+      assignat += q;
+    });
+
+    var perPes = blocs.slice().sort(function (a, b) { return b.pes - a.pes; });
+    while (assignat < objectiu) {
+      var afegit = false;
+      for (var i = 0; i < perPes.length && assignat < objectiu; i++) {
+        var b = perPes[i];
+        if (quota[b.k] < b.items.length) { quota[b.k]++; assignat++; afegit = true; }
+      }
+      if (!afegit) break;   /* no queda material enlloc */
+    }
+    while (assignat > objectiu) {
+      var tret = false;
+      for (var j = perPes.length - 1; j >= 0 && assignat > objectiu; j--) {
+        if (quota[perPes[j].k] > 1) { quota[perPes[j].k]--; assignat--; tret = true; }
+      }
+      if (!tret) break;
     }
     return quota;
   }
 
-  /* Genera la ruta: per cada bloc recomanat, les seves `quota[bloc]` preguntes
-     més fàcils (ordenades fàcil->difícil). Després intercala entre blocs
+  /* Genera la ruta: de cada bloc, les seves `quota` preguntes més senzilles
+     (ordenades de menys a més), i després intercala entre blocs
      (round-robin: un ítem de cada bloc per torn) perquè l'alumne vagi
      canviant de tema en lloc de fer un bloc sencer abans de passar al
-     següent — l'única manera de mantenir dins de cada bloc l'ordre
-     fàcil->difícil i alhora barrejar temes és intercalar un cop ja
-     ordenats, no barrejar-ho tot junt. */
-  function generaRuta(blocsRecomanats, blocsDisponibles) {
-    var blocsAmbItems = blocsRecomanats.map(function (r) {
-      var complet = blocsDisponibles.filter(function (b) {
-        return b.full === r.full && b.id === r.bloc;
-      })[0];
-      if (!complet) return null;
-      return { k: r.full + ":" + r.bloc, full: r.full, bloc: r.bloc, titol: r.titol,
-        items: ordenaPerDificultat(complet.items) };
-    }).filter(Boolean);
+     següent. Intercalar només es pot fer un cop cada bloc ja està ordenat:
+     barrejar-ho tot junt perdria l'ordre de dificultat. */
+  function generaRuta(temesRecomanats, blocsDisponibles) {
+    var blocs = blocsAmbPes(temesRecomanats, blocsDisponibles);
+    if (!blocs.length) return [];
 
-    if (!blocsAmbItems.length) return [];
-
-    var quota = repartimentPerBloc(blocsAmbItems, OBJECTIU_TOTAL);
-    var cues = blocsAmbItems.map(function (b) {
-      return { full: b.full, bloc: b.bloc, titol: b.titol, items: b.items.slice(0, quota[b.k]) };
-    });
+    var quota = repartimentPerBloc(blocs, OBJECTIU_TOTAL);
+    var cues = blocs.map(function (b) {
+      return { full: b.full, bloc: b.bloc, titol: b.titol, tema: b.tema,
+               items: b.items.slice(0, quota[b.k] || 0) };
+    }).filter(function (c) { return c.items.length; });
 
     var ruta = [], hiHaMes = true;
     while (hiHaMes) {
@@ -87,7 +125,8 @@ window.RE_ITI = (function () {
       cues.forEach(function (c) {
         if (c.items.length) {
           var it = c.items.shift();
-          ruta.push({ full: c.full, bloc: c.bloc, blocTitol: c.titol, id: it.id });
+          ruta.push({ full: c.full, bloc: c.bloc, blocTitol: c.titol,
+                      tema: c.tema, id: it.id });
           hiHaMes = true;
         }
       });

@@ -2,31 +2,20 @@
 """c_cossos.py — Full 9: Cossos geomètrics. Àrea i volum.
 
 Genera els ítems dels exercicis 170-199, que corresponen a `im10.tex` del
-repositori LaTeX font ("Full d'exercicis 10 — Cossos geomètrics" segons la
-seva pròpia capçalera). Organitzats en 4 blocs:
+repositori LaTeX font. Organitzats en 4 blocs:
   prismes            (170-175)        àrea de prismes rectes i del cub
   piramides          (176-183)        àrea de piràmides i tetraedres
   cilindres_cons_esfera (184-191)     àrea de cilindres, cons i l'esfera
   volums_aplicacions (193, 195-199)   volums i problemes aplicats
 
-Nota sobre la font: la numeració dels fitxers LaTeX font no coincideix amb
-la dels fulls d'aquest lloc (vegeu HANDOVER-repas-eso v2 §1.2 i les notes
-equivalents a `c_equacions.py`/`c_proporcionalitat.py`): "Full 9 — Cossos
-geomètrics" d'aquest projecte és `im10.tex` del paquet LaTeX (no `im9.tex`,
-que correspon a "Full 8 — Teorema de Tales. Semblança").
-
-Recompte i exclusió per figura absent: el parsing automàtic (comptar
-`\\item` dins d'`apartats`/`apartatscols`; exercici sense apartats compta 1)
-dona 30 exercicis / 55 ítems per a `im10.tex`. A diferència de la resta de
-fulls, aquesta còpia d'`im10.tex` NO fa servir el placeholder `\\foratimatge`
-(0 ocurrències) — en comptes d'això, cada figura amb mesures s'ha transcrit
-com a text, amb un comentari `% NOTA DE TRANSCRIPCIÓ` explícit als apartats
-on la lectura de la imatge original és massa incerta per confiar-hi (vegeu
-`instruccions.md` §6 del paquet de fonts LaTeX, que detalla exactament quins
-apartats de quins exercicis queden sense valor numèric fiable). Seguint el
-mateix criteri de fons que HANDOVER §2.1 (descartar el que depèn d'una
-figura que no es pot llegir amb confiança, sencer, no a mitges), aquest
-mòdul EXCLOU:
+Recompte i exclusions: 30 exercicis / 55 ítems bruts (comptant \\item dins
+d'`apartats`/`apartatscols`; un exercici sense apartats compta 1). Les
+figures d'`im10.tex` estan transcrites com a text, amb un comentari
+`% NOTA DE TRANSCRIPCIÓ` als apartats on la lectura de la imatge original
+és massa incerta per confiar-hi (`instruccions.md` §6 del paquet LaTeX ho
+detalla apartat per apartat). D'acord amb el criteri general del projecte
+—descartar sencer el que depèn d'una figura il·legible, no a mitges—
+aquest mòdul EXCLOU:
   - 170, apartats f-j (5 dels 10 prismes: l'enunciat mateix diu que la
     disposició de les mesures sobre la figura no és prou clara)
   - 178 (sencer: la tercera mesura, 14,42 cm, no s'ha pogut identificar
@@ -56,15 +45,13 @@ quadra amb el càlcul fet SENSE arrodonir cap pas intermedi —apotema de la
 piràmide ≈9,54 m, àrea lateral ≈171,71 m²—, no amb la suma dels seus propis
 valors intermedis arrodonits, que donaria ≈265,43 m²). Aquest mòdul manté el
 resultat final que el mateix solucionari dona per bo (≈265,24 m²) però hi
-arriba amb precisió completa fins a l'últim pas, per coherència interna
-(vegeu AUTHORING-GUIDE §3.4: el solucionari és una segona opinió, no una
-font de veritat per copiar cegament).
+arriba amb precisió completa fins a l'últim pas, per coherència interna (el
+solucionari LaTeX és una segona opinió a contrastar, no una font de veritat
+per copiar cegament).
 
 Cap dels 43 ítems necessita `nota`: un cop exclosos els apartats amb figura
 massa incerta (vegeu més amunt), la resta són enunciats de fórmules d'àrea
-i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia
-(a diferència, per exemple, del `46b` de Full 2 o diversos ítems de
-Full 3/4/8).
+i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia.
 """
 import math
 from lib import Q, D, DT, tria

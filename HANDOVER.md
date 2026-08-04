@@ -180,81 +180,99 @@ no existís.
 
 ## 5. La capa de tutor
 
-### 5.1 `js/diagnostic-dades.js` → `window.RE_DIAG`
+### 5.1 El test inicial: `js/proves-inicials.js`
+
+Les preguntes del test **no surten del banc d'exercicis**. Són 15 proves
+escrites expressament, en un fitxer a part, perquè la seva funció és una
+altra: un exercici de pràctica ha de fer treballar; una prova del test només
+ha de distingir qui en sap de qui no. Fer calcular vuit valors numèrics d'un
+polinomi no diu res més que fer-ne calcular un, i costa vuit vegades més
+temps i atenció.
+
+Criteris amb què estan triades les 15:
+
+- **Una destresa per prova, i la destresa pont del tema.** Qui sap
+  factoritzar $x^2-25$ sap fer el valor numèric d'un polinomi; al revés no.
+  S'escull sempre la que arrossega les altres.
+- **Curtes**: enunciat d'una línia, sense context narratiu (la més llarga fa
+  89 caràcters, la mediana 60). El temps de lectura no ha de competir amb el
+  de pensar.
+- **Diagnòstiques**: allà on hi ha un malentès clàssic, la prova el toca de
+  ple ($-3^2$ contra $(-3)^2$; pujar i baixar un 20 % no torna al preu de
+  partida), i els distractors són el resultat d'aquell error, no números a
+  l'atzar.
+- **Ordre de currículum, sense rotació ni barreja.** L'alumne ha de poder
+  notar que va pujant i on deixa de reconèixer les coses; aquest punt és,
+  ell mateix, una dada.
+- **Cobertura**: una prova per full, i tres de més al Full 1 i al Full 5, que
+  són els més amples i els més prerequisit.
+
+Cada prova declara els blocs del lloc on portarà l'alumne si surt malament:
+el principal primer, i després els que l'acompanyen (sumar fraccions porta a
+Fraccions i també a Divisibilitat, perquè sense m.c.m. no se'n surt). Entre
+totes cobreixen **34 dels 46 blocs**. Amb 15 preguntes no se'n poden cobrir
+46, i el lloc ho diu obertament a la pàgina de resultats: el test serveix per
+decidir per on començar, no per certificar res.
+
+### 5.2 Les cinc situacions: `js/diagnostic-dades.js` → `window.RE_DIAG`
+
+A cada prova l'alumne marca una de quatre respostes. Si diu que la sap
+resoldre, i només llavors, apareixen quatre opcions i ha de contestar. La
+comprovació va exactament on fa falta: si diu que no se'n recorda no hi ha
+res a verificar —ja sabem què li toca—, però si diu que en sap i falla,
+aquest és el cas que més mal fa, perquè és l'únic tema que no repassaria pel
+seu compte. Comprovar només les respostes segures manté el test en dos minuts
+i no en perd el valor.
+
+De les quatre respostes, més la verificació, en surten cinc situacions:
+
+| Situació | Ve de | Prioritat | Pes | Què vol dir |
+|---|---|---:|---:|---|
+| `falsa_seguretat` | "sé fer-ho" + error | 4 | 8 | Creu que ho sap. El primer a mirar. |
+| `no_entes` | "no ho vaig entendre" | 3 | 8 | Mai ho va arribar a construir. |
+| `mai` | "no ho he fet mai" | 3 | 8 | Llacuna: no ho ha vist. |
+| `oblidat` | "ho vaig entendre, però ho he oblidat" | 2 | 4 | Refrescar, no reconstruir. |
+| `dominat` | "sé fer-ho" + encert | 0 | 0 | Fora de l'itinerari. |
+
+La distinció entre `oblidat` i els altres dos no és cosmètica: és el **pes**,
+i el pes decideix quants exercicis rep l'alumne d'aquell tema. Refrescar una
+destresa que va entendre costa la meitat que construir-ne una que no.
+
+**A igualtat de prioritat mana l'ordre del currículum.** Si a algú li fallen
+alhora les fraccions i les paràboles, les fraccions van abans: són
+prerequisit, i atacar la paràbola sense elles és perdre el temps.
 
 ```js
-RE_DIAG.blocsDisponibles(cb)          // carrega els fulls de FULLS_TEST en paral·lel
-RE_DIAG.seleccionaBlocsDelTest(blocs) // -> els blocs d'avui, rotats per dia
-RE_DIAG.triaPreguntes(blocsSeleccionats)  // -> 15 preguntes
-RE_DIAG.desa(r) / .llegeix() / .esborra()
-RE_DIAG.analitza(r)                   // -> estadística per bloc, pitjor primer
-RE_DIAG.recomanacio(analisi)          // -> fins a 3 blocs amb menys del 80%
+RE_DIAG.analitza(dades)      // -> una entrada per prova, ordenada per urgència
+RE_DIAG.recomanacio(analisi) // -> fins a MAX_TEMES (3) temes amb prioritat
+RE_DIAG.resum(analisi)       // -> recompte per situació
+RE_DIAG.blocsDisponibles(cb) // carrega el banc real (per a l'itinerari)
+RE_DIAG.desa(respostes) / .llegeix() / .esborra()
 ```
 
-Constants i per què tenen el valor que tenen:
+`FULLS_AMB_BANC = [1..12]` no té res a veure amb el test: és quins fulls es
+carreguen per construir l'itinerari.
 
-- `FULLS_TEST = [1..12]` — quins fulls alimenten el test. Tots.
-- `PREGUNTES_PER_BLOC = 2` — el mínim fiable. Amb una sola pregunta, un
-  despistament deixa un bloc a 0% sense dir res real sobre si es domina.
-- `TOTAL_TEST = 15` — la mida del test, fixa.
-- `BLOCS_PER_TEST` es **deriva** de les dues anteriors (7 blocs amb 2
-  preguntes + 1 amb una = 8). Si canvieu `TOTAL_TEST`, s'ajusta sol.
-- `CARACTERS_MAX_PREFERITS = 40` — la longitud de l'enunciat com a proxy de
-  "quant costa d'encarar". No mesura dificultat matemàtica: mesura esforç de
-  lectura, que és el que fa que un test sembli intimidant a la primera
-  pantalla.
+`llegeix()` descarta qualsevol diagnòstic que no porti `versio: 2`. Els
+resultats desats per la versió anterior del test (encerts sobre preguntes del
+banc) no es poden reinterpretar amb aquestes regles, així que es tracten com
+si no n'hi hagués cap i el lloc ofereix fer el test.
 
-Com que hi ha 46 blocs i només 8 hi caben, la tria rota **per dia de l'any**
-amb un generador amb llavor: el mateix dia dona sempre el mateix conjunt, i
-cap bloc queda permanentment fora per mala sort. Una segona rotació, amb una
-llavor diferent, decideix quin bloc és el que aporta una sola pregunta.
+### 5.3 `js/diagnostic.js` i `js/resultat.js`
 
-`itemsCurts(items, n)` retorna els ítems de menys de 40 caràcters si n'hi ha
-prou; si no, retorna **exactament els `n` més curts**, sense marge per
-barrejar. El marge hi va ser i es va treure: amb un bloc que només té ítems
-llargs, barrejar dins d'un conjunt més ample podia triar-ne un de molt més
-llarg havent-n'hi un de disponible més curt.
+`diagnostic.js` pinta una prova per pantalla i prou: cap fase prèvia,
+cap pista, cap segon intent, cap resolució. Com que les proves no surten del
+banc, la pàgina **no carrega cap `data/fullN.js`** i s'obre a l'instant.
+L'autopercepció no té pantalla pròpia: va dins de cada prova. Preguntar "et
+costen les potències?" davant d'una llista de títols és molt menys fiable que
+ensenyar $2^5\cdot 2^{-3}:2^2$ i preguntar-ho allà mateix, amb la destresa a
+la vista.
 
-Les preguntes del test surten del mateix banc que la pràctica. Per no inflar
-el progrés, un ítem contestat al test es marca `"vist"`, no `"net"`, i només
-si no en tenia cap estat previ.
-
-**Limitació coneguda.** L'objectiu de "cap pregunta del test per sobre de 60
-caràcters" ja no es compleix: 12 dels 46 blocs no tenen cap ítem curt, perquè
-són blocs de problemes verbals (geometria aplicada, semblança, percentatges
-encadenats). En aquests blocs el test agafa el més curt que hi ha, que pot
-passar de 150 caràcters. Si algun dia molesta, les sortides són pujar
-`TOTAL_TEST` perquè el test cobreixi més blocs, o afegir un camp de dificultat
-real al banc i deixar de fer servir la longitud com a proxy.
-
-### 5.2 `js/diagnostic.js`
-
-Tres fases a la mateixa pàgina: autopercepció (tria múltiple de "quins temes
-creus que et costen"), 15 preguntes, i desat amb redirecció a `resultat.html`.
-Sense pistes ni segon intent: és un instrument de mesura, no una pràctica.
-
-L'autopercepció i les preguntes han de parlar **dels mateixos blocs**, o la
-comparació entre el que l'alumne creu i el que demostra no vol dir res. Per
-això `diagnostic.js` crida `seleccionaBlocsDelTest()` una sola vegada i passa
-el resultat tant a la pantalla d'autopercepció com a `triaPreguntes()`.
-`triaPreguntes()` espera un conjunt **ja seleccionat**; no li passeu la
-sortida crua de `blocsDisponibles()`.
-
-### 5.3 `js/resultat.js`
-
-Mostra els encerts totals, un resum compacte per bloc sempre visible, els
-desajustos amb l'autopercepció, la taula completa i l'entrada a l'itinerari.
-
-- `sorpresa`: no marcat com a difícil i **0%** d'encerts.
-- `falsAlarma`: marcat com a difícil i **100%** d'encerts.
-
-Els llindars són exactes a propòsit. Amb 1 o 2 preguntes per bloc, un llindar
-tou (per exemple "menys del 60%") marca gairebé tots els blocs i converteix un
-destacat en soroll. `MAX_DESAJUSTOS = 3` limita quants se'n mostren de cada
-mena.
-
-El resum compacte hi és perquè el total de dalt ("3 de 15") es pugui quadrar
-amb el detall d'una ullada, sense desplegar res ni sumar a mà.
+`resultat.js` no dona cap nota. Mostra quantes destreses hi ha en cada
+situació, destaca les de `falsa_seguretat` —l'única informació que l'alumne
+no tenia abans d'entrar—, i porta a l'itinerari. La llista sencera de les 15
+queda dins d'un `<details>`, en ordre de currículum, perquè pugui veure on
+se li va trencar el recorregut i triar pel seu compte si vol.
 
 ### 5.4 `js/itinerari-dades.js` → `window.RE_ITI`
 
@@ -276,11 +294,15 @@ afegiu un indicador de "fet" dins de l'emmagatzematge de l'itinerari.
 
 Com es genera la ruta:
 
-1. Es prenen fins a 3 blocs recomanats pel diagnòstic.
+1. Es prenen fins a 3 **temes** recomanats pel test, cadascun amb el seu pes
+   (§5.2), i s'expandeixen als seus blocs: el principal se'n queda la
+   meitat del pes i la resta van baixant.
 2. Els ítems de cada bloc s'ordenen per longitud d'enunciat, de menys a més.
-3. Es reparteixen 24 ítems entre els blocs tan equitativament com es pugui;
-   un bloc petit no pot aportar més ítems dels que té, i el que hi falta es
-   redistribueix als altres en rondes successives.
+3. Es reparteixen 24 ítems entre els blocs **proporcionalment al pes**; un
+   bloc petit no pot aportar més ítems dels que té, i el que hi falta es
+   redistribueix als altres començant pels de més pes. Per això un tema que
+   cal reconstruir aporta el doble d'exercicis que un que només cal
+   refrescar.
 4. Es prenen **un de cada bloc per torns**, no bloc a bloc: la ruta va
    canviant de tema a cada pas.
 5. Si el material disponible no arriba a `MIN_TOTAL`, la ruta és més curta i
@@ -296,8 +318,8 @@ explícit (amb confirmació) o quan es refà el test.
 | Clau | Propietari | Contingut |
 |---|---|---|
 | `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full |
-| `repas-eso:diagnostic` | `RE_DIAG` | `{ts, percebuts: ["full:bloc"], respostes: [{full, bloc, blocTitol, id, encert}]}` |
-| `repas-eso:itinerari` | `RE_ITI` | `{ts, ruta: [{full, bloc, blocTitol, id}]}` — sense estat |
+| `repas-eso:diagnostic` | `RE_DIAG` | `{ts, versio: 2, respostes: [{prova, estat, encert}]}` — `encert` és `null` si no es va comprovar |
+| `repas-eso:itinerari` | `RE_ITI` | `{ts, ruta: [{full, bloc, blocTitol, tema, id}]}` — sense estat |
 
 Refer el test esborra les dues claus del tutor, mai el progrés dels fulls. Es
 pot fer des de la portada i des de la pàgina de resultats, i **totes dues han
@@ -316,9 +338,11 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
 3. Compilar-lo: `cd tools && python3 build.py 13`.
 4. Afegir-lo a la taula `FULLS` de `js/inici.js` amb el `total` que hagi
    reportat el compilador.
-5. Decidir si ha d'entrar al test inicial. Si sí, afegir el número a
-   `FULLS_TEST` de `js/diagnostic-dades.js`; abans, mirar la distribució de
-   longituds d'enunciat dels seus blocs (§5.1).
+5. Afegir el número a `FULLS_AMB_BANC` de `js/diagnostic-dades.js`, perquè
+   els seus exercicis puguin entrar a l'itinerari. Si el tema nou també ha
+   d'entrar al test inicial, cal escriure-hi una prova a
+   `js/proves-inicials.js` i mapar-la als seus blocs (§5.1) — el test no
+   s'alimenta del banc, així que no hi entra sol.
 6. Actualitzar el `README.md` (taula de contingut, arbre de fitxers, ítems
    amb nota) i la taula de correspondència del §2 d'aquest document i del
    capdamunt de `js/inici.js`.
@@ -335,10 +359,16 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
 - **L'itinerari no s'amplia.** Quan se'n completen els 24 passos, la pàgina
   felicita i prou; no hi ha manera d'estendre'l amb més material sense
   regenerar-lo.
-- **La longitud d'enunciat com a proxy de dificultat** és imperfecta i, amb
-  els 12 fulls, insuficient en 12 blocs (§5.1).
-- **La rotació per dia** fa servir l'hora local sense cap tractament de fus
-  horari. Fer el test just abans i just després de mitjanit pot donar conjunts
-  de blocs diferents, cosa que no té cap conseqüència.
+- **El test cobreix 34 dels 46 blocs.** Els 12 restants no es poden
+  recomanar automàticament; s'hi arriba navegant. Ampliar la cobertura vol
+  dir escriure més proves, no canviar cap algorisme.
+- **La verificació és d'una sola pregunta.** Qui diu que domina un tema i
+  falla per un badall queda marcat com a `falsa_seguretat`. Es va acceptar a
+  canvi de la brevetat: el cost d'anar a parar a un tema que ja se sap és
+  baix, i el de saltar-se'n un que no se sap, alt.
+- **La longitud d'enunciat com a proxy de dificultat** ordena l'itinerari.
+  Mesura esforç de lectura, no dificultat matemàtica; per ordenar de més
+  senzill a més complet dins d'un bloc fa el fet, però no és una mesura
+  fina.
 - **KaTeX ve d'un CDN.** Sense xarxa, les matemàtiques es veuen com a LaTeX
   en cru; el lloc segueix funcionant.

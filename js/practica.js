@@ -1,5 +1,10 @@
 /* practica.js — el cicle de quatre passos: enunciat, pistes, resposta, resolució.
-   Genèric per a qualsevol full (window.FULL); abans estava fixat a full1. */
+   Genèric per a qualsevol full: llegeix window.FULL, que full.html/practica.html
+   omplen carregant el data/fullN.js que indica el paràmetre ?full=N.
+
+   Amb ?origen=itinerari a la URL, tota la navegació de sortida (Següent,
+   Anterior i l'enllaç de tornada) va a itinerari.html en lloc de seguir
+   l'ordre del full; sense aquest paràmetre el comportament és el normal. */
 (function () {
   "use strict";
   if (!window.FULL) return;   /* practica.html ja mostra "aquest full encara no està preparat" */

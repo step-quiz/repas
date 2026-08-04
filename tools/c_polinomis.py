@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
 """c_polinomis.py — Full 4: Polinomis.
 
-Genera els ítems dels exercicis 62-74 del full font (im4.tex), organitzats
-en 4 blocs:
+Genera els ítems dels exercicis 62-74, que corresponen a `im4.tex` del
+repositori LaTeX font. Organitzats en 4 blocs:
   operacions   (62-64)  suma, resta i producte de polinomis
   divisio      (65-69)  divisió de polinomis i regla de Ruffini
   notables     (70-72)  igualtats notables (completar i factoritzar)
   factor_comu  (73-74)  factor comú i simplificació combinada
 
-Com a c_potencies.py: cap resposta s'escriu a mà — cada polinomi resultant
-es calcula amb SymPy (Poly/expand/factor) i es renderitza a LaTeX amb el
-helper propi poli_tex(), en l'estil del projecte (sense espais sobrers, un
-terme independent sempre amb signe explícit).
+Cap resposta s'escriu a mà: cada polinomi resultant es calcula amb SymPy
+(Poly/expand/factor) i es renderitza a LaTeX amb el helper propi
+poli_tex(), en l'estil del projecte (sense espais sobrers, un terme
+independent sempre amb signe explícit).
 
-Nota sobre el recompte: l'exercici 69 (quatre taules de Ruffini a completar,
-a-d) no porta \\begin{apartats} al .tex font, així que el comptatge automàtic
-de l'inventari (HANDOVER v2 §1.2) el compta com 1 sola pregunta — donant
-56 en total per aquest full. Pedagògicament són quatre activitats
-independents (quatre taules diferents), i es reformulen aquí com a 4 ítems
-(69a-69d), portant el total real d'aquest full a 59. És el mateix criteri
-que ja s'aplica a l'exercici 59 de Full 3 (mateixa situació exacta).
+Recompte: 56 ítems bruts, 59 finals. L'exercici 69 (quatre taules de
+Ruffini a completar, a-d) no porta \\begin{apartats} al fitxer font, així
+que el recompte automàtic el veu com una sola pregunta; pedagògicament
+són quatre activitats independents i es reformulen aquí com a 4 ítems
+(69a-69d). És el mateix criteri que a l'exercici 59 del Full 3.
 """
 from sympy import symbols, Poly, expand, factor, sqrt
 from lib import Q, D, DT, ev, tex

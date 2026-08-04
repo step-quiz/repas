@@ -6,7 +6,7 @@ dependències. Obre `index.html`.
 
 **Els 12 fulls tenen banc de preguntes: 739 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
-de 15 preguntes que diagnostica quins blocs costen més i genera un itinerari
+de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
 
 ## Contingut
@@ -41,10 +41,12 @@ personalitzat d'exercicis.
 
 **Recorregut del tutor**, per a qui no sap per on començar:
 
-1. **`diagnostic.html`** — test de 15 preguntes, precedit d'una tria
-   d'autopercepció ("quins temes creus que et costen?").
-2. **`resultat.html`** — encerts per bloc, els desajustos entre el que
-   l'alumne creia i el que ha demostrat, i l'entrada a l'itinerari.
+1. **`diagnostic.html`** — test inicial: 15 destreses clau, una per
+   pantalla, en ordre de currículum. A cada una l'alumne diu si la sap fer,
+   si la té oblidada, si no la va entendre o si no l'havia vist mai. Quan diu
+   que la sap fer, i només llavors, ha de contestar-la per confirmar-ho.
+2. **`resultat.html`** — en quina situació està cada destresa, què donava
+   per sabut i no ho estava, i l'entrada a l'itinerari.
 3. **`itinerari.html`** — un recorregut d'uns 24 exercicis dels blocs més
    fluixos, de més senzills a més complets i alternant de tema. Els
    exercicis s'obren amb `?origen=itinerari`, i llavors tota la navegació de
@@ -66,7 +68,8 @@ hi ha comptes ni sincronització entre dispositius.
     js/inici.js           controlador del Nivell 0 (taula FULLS)
     js/hub.js             controlador del Nivell 1
     js/practica.js        controlador del Nivell 2
-    js/diagnostic-dades.js  regles del test: quins blocs, quines preguntes
+    js/proves-inicials.js   les 15 proves del test, escrites a mà
+    js/diagnostic-dades.js  situacions, prioritats i recomanació de temes
     js/diagnostic.js      controlador del test
     js/resultat.js        controlador de la diagnosi
     js/itinerari-dades.js generació i estat de la ruta

@@ -99,8 +99,8 @@ solucions a problemes que us trobareu.
     data/full<N>.js         GENERAT — mai a mà
     REVISIO-full<N>.html    GENERAT — mai a mà, però llegiu-lo a fons
     js/inici.js             una entrada nova a la taula FULLS
-    js/diagnostic-dades.js  el número a FULLS_TEST, si el full ha d'entrar
-                            al test inicial
+    js/diagnostic-dades.js  el número a FULLS_AMB_BANC, perquè els seus
+                            exercicis puguin entrar a l'itinerari
     README.md, HANDOVER.md  taules de contingut i de correspondència
 
 Res més. Si el repositori ha crescut amb coses que no són a aquesta llista,
@@ -311,10 +311,11 @@ la guia de 20-30 ítems per bloc, no un número concret de blocs.
 hagi reportat el compilador (que pot no coincidir amb el recompte automàtic
 de la font, si heu desdoblat ítems amagats).
 
-**`js/diagnostic-dades.js`** — el número a `FULLS_TEST` **només si** el full
-ha d'entrar al test inicial. És una decisió a preguntar, no una conseqüència
-automàtica d'existir; mireu abans la distribució de longituds d'enunciat dels
-seus blocs (`HANDOVER.md` §5.1).
+**`js/diagnostic-dades.js`** — el número a `FULLS_AMB_BANC`, perquè els
+exercicis del full es puguin fer servir a l'itinerari. Això no el posa al
+test inicial: el test té preguntes pròpies, escrites a mà a
+`js/proves-inicials.js`. Si voleu que el tema nou hi entri, cal escriure-hi
+una prova i mapar-la als blocs del full (`HANDOVER.md` §5.1).
 
 **`README.md` i `HANDOVER.md`** — taula de contingut, arbre de fitxers, ítems
 amb `nota`, taula de correspondència amb el material font, comandes de

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """c_funcions.py — Full 10: Funcions.
 
-Genera els ítems dels exercicis 200-217 del full font (im11.tex), organitzats
-en 3 blocs:
+Genera els ítems dels exercicis 200-217, que corresponen a `im11.tex` del
+repositori LaTeX font. Aquest fitxer conté TOT el temari de funcions
+(concepte, domini i recorregut, creixement, rectes i paràboles) en un sol
+full de 18 exercicis / 55 subapartats. Organitzats en 3 blocs:
   concepte_funcio      (200-203, 206)  concepte de funció, imatges, domini i
                                         recorregut, i estudi qualitatiu complet
   funcions_lineals     (207-209)       pendent i ordenada, monotonia sense
@@ -10,26 +12,10 @@ en 3 blocs:
   funcions_quadratiques (212, 214-217) paràboles: obertura i amplada, vèrtex,
                                         talls amb els eixos i eix de simetria
 
-Nota sobre la font i la numeració: el HANDOVER-repas-eso v2 documenta "Full
-10 — Funcions" i "Full 11 — Funcions lineals i quadràtiques" com dos fulls
-separats a la seva taula d'inventari (numeració original del document),
-però com ja passava a Full 5 (fusió d'im5.tex+im6.tex) i Full 6 (que ve
-d'im7.tex, no d'im6.tex), aquest projecte numera els fulls de manera
-CONTÍNUA seguint el propi repositori web, no els noms de fitxer LaTeX. La
-fusió d'im5+im6 en un sol Full 5 desplaça tota la resta un número avall:
-Full 6=im7, Full 7=im8, Full 8=im9, Full 9=im10 (Cossos geomètrics, encara
-sense autorar), i per tant Full 10=im11.tex — el fitxer font real d'aquest
-full és im11.tex, que ja inclou TOT el contingut de funcions (concepte,
-domini/recorregut, creixement, i funcions lineals i quadràtiques) en un
-sol fitxer de 18 exercicis / 55 subapartats. Confirmat per triangulació amb
-build.py (FULLS), js/inici.js i el contingut mateix d'im7.tex..im11.tex
-abans d'escriure cap codi (vegeu HANDOVER-repas-eso-v3.md, que documenta la
-correspondència exacta, però no s'ha proporcionat en aquesta sessió).
-
-Ítems exclosos (10 dels 55 subapartats originals, tots exercicis on la
-"resposta" depèn essencialment de dibuixar o de llegir un número concret
-(1, 2, 3 o 4) assignat a una gràfica dins d'una figura, no d'un càlcul o
-d'una lectura de forma qualitativa):
+Ítems exclosos (10 dels 55 subapartats), tots exercicis on la "resposta"
+depèn essencialment de dibuixar o de llegir un número concret (1, 2, 3 o 4)
+assignat a una gràfica dins d'una figura, no d'un càlcul ni d'una lectura
+de forma qualitativa:
   204 (2 apartats) — "completa les gràfiques perquè siguin imparelles":
       exercici de dibuix pur, no hi ha resposta de tria múltiple.
   205 (1, sense apartats) — "completa la gràfica...explica com ho fas":
@@ -51,13 +37,12 @@ d'una lectura de forma qualitativa):
 Els 13 exercicis restants (45 subapartats) sí tenen una resposta calculable
 o un judici de forma ben determinat pel text, i formen aquest banc.
 
-Com als fulls anteriors: cap resposta s'escriu a mà. Els càlculs numèrics
-(imatges, pendents, vèrtexs, talls amb els eixos) es fan amb Fraction
-exacte; les arrels no exactes de l'exercici 202 es deixen com a
-aproximacions decimals explícites (```\\approx```), tal com ja fa el
-solucionari font per aquests mateixos casos, perquè no hi ha cap altra
-manera exacta de representar-les sense sortir del domini racional del
-projecte.
+Cap resposta s'escriu a mà. Els càlculs numèrics (imatges, pendents,
+vèrtexs, talls amb els eixos) es fan amb Fraction exacte; les arrels no
+exactes de l'exercici 202 es deixen com a aproximacions decimals explícites
+(\\approx), tal com ja fa el solucionari font per aquests mateixos casos,
+perquè no hi ha cap altra manera exacta de representar-les sense sortir del
+domini racional del projecte.
 
 Verificació prèvia: els 45 ítems s'han resolt de manera independent (Python
 amb Fraction/aritmètica exacta, i pel cas de l'exercici 202c amb arrels
@@ -102,7 +87,7 @@ def mn_tex(m, n):
     """'m=..., n=...' (pendent i ordenada a l'origen), com a resposta
     empaquetada d'un sol ítem. Ja ve embolcallat en $...$ perquè conté
     lletres i mathify() no el reconeixeria com a matemàtica pura (vegeu
-    AUTHORING-GUIDE §5 — el parany del mathify(), i x_tex a
+    el parany del mathify() (AUTHORING-GUIDE.md), i x_tex a
     c_equacions.py per al mateix patró amb sistemes)."""
     return r"$m=%s,\ n=%s$" % (frac_tex(m), frac_tex(n))
 

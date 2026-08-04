@@ -4,8 +4,10 @@
     python3 build.py        compila el full 1 (per defecte)
     python3 build.py 2      compila el full 2
 
-Sortides:
-  web/data/fullN.js       dades del lloc (respostes ofuscades en base64)
+    python3 build.py 12     compila el full 12
+
+Sortides (relatives a l'arrel del repositori, no a tools/):
+  data/fullN.js           dades del lloc (respostes ofuscades en base64)
   REVISIO-fullN.html      clau de respostes completa, per revisar abans de publicar
 
 Cada full es compila en un procés Python separat a propòsit: lib._BANC és

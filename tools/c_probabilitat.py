@@ -2,8 +2,7 @@
 """c_probabilitat.py — Full 12: Combinatòria i probabilitat.
 
 Genera els ítems dels exercicis 236-259, que corresponen a `im13.tex` del
-repositori LaTeX font ("Full d'exercicis 13 — Combinatòria i
-probabilitat" segons la seva pròpia capçalera). Organitzats en 4 blocs:
+repositori LaTeX font. Organitzats en 4 blocs:
   espais_mostrals  (236-240)         espai mostral d'un experiment
                                       aleatori, esdeveniments elementals,
                                       impossibles, i comparació de
@@ -19,23 +18,13 @@ probabilitat" segons la seva pròpia capçalera). Organitzats en 4 blocs:
                                       condicionada senzilla i problemes
                                       combinats
 
-Nota sobre la numeració: seguint la mateixa convenció que Full 6 i
-Full 11 (vegeu `c_proporcionalitat.py`/`c_estadistica.py`), Full 12
-d'aquest lloc correspon a `im13.tex` (no a un hipotètic "im12" ampliat):
-im12.tex ja s'ha incorporat a Full 11 (Estadística).
-
-Recompte: 24 exercicis / 61 ítems amb el mateix mètode de parsing que la
-resta de fulls (comptar \\item dins d'apartats; exercici sense apartats
-compta 1) — coincideix exactament amb la xifra "Preguntes (totes)" de
-l'inventari del handover per a aquest full (61). A diferència de Full 11,
-aquí el recompte automàtic ja és el recompte final: cap exercici amaga
-una estructura amb més subpreguntes de les que compta el parser.
-
-Cap `\\foratimatge` en tot el fitxer font (0 figures excloses, tal com
-anticipava l'inventari): la pròpia capçalera d'`im13.tex` ho confirma
-explícitament — les il·lustracions d'aquest full (daus, moneda, claus...)
-són purament decoratives, sense cap dada numèrica pròpia que no aparegui
-ja al text.
+Recompte: 24 exercicis / 61 ítems bruts (comptant \\item dins d'apartats;
+un exercici sense apartats compta 1). El total real del full és 67: quatre
+exercicis amaguen més subpreguntes de les que compta el parser i es
+desdoblen en subítems —249 (2->4), 252 (2->3), 253 (3->5) i 256 (2->3)—,
+el patró d'"ítems amagats" descrit a AUTHORING-GUIDE.md. Cap exclusió: les
+il·lustracions d'aquest full (daus, moneda, claus...) són decoratives i no
+aporten cap dada que no sigui ja al text.
 
 Dos exercicis necessiten una decisió explícita, ja documentada al mateix
 `im13.tex`/`r-im13.tex`:

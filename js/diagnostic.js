@@ -1,126 +1,110 @@
-/* diagnostic.js — controlador de diagnostic.html: tres fases dins la mateixa
-   pàgina (autopercepció -> 15 preguntes -> redirecció a resultat.html).
-   No hi ha pistes ni segon intent: és un test, no una pràctica; el cicle de
-   practica.js ja cobreix l'aprenentatge, aquí només interessa mesurar. */
+/* diagnostic.js — controlador de diagnostic.html.
+
+   Una prova per pantalla, en ordre de currículum. A cada prova l'alumne
+   marca en quin estat es troba; si diu que la sap resoldre, apareixen les
+   quatre opcions i l'ha de contestar. Res més: no hi ha pistes, ni segon
+   intent, ni resolució. Això és una mesura, no una pràctica — el cicle
+   d'aprenentatge ja el fa practica.html.
+
+   No es carrega cap data/fullN.js: les proves són a js/proves-inicials.js i
+   la pàgina s'obre a l'instant. */
 (function () {
   "use strict";
   var $ = function (s) { return document.querySelector(s); };
   var LLETRES = ["A", "B", "C", "D"];
 
-  var fase = "carrega", blocs = null, preguntes = null, idx = 0;
-  var percebuts = [], respostes = [];
+  var PROVES = RE_PROVES.PROVES, ESTATS = RE_PROVES.ESTATS;
+  var idx = 0, respostes = [];
 
-  function mostraNomesFase(id) {
-    ["#fase-carrega", "#fase-percepcio", "#fase-preguntes", "#fase-final"].forEach(function (s) {
-      $(s).hidden = (s !== id);
-    });
-  }
-
-  /* ---- fase 1: autopercepció ---- */
-  function pintaPercepcio() {
-    fase = "percepcio";
-    mostraNomesFase("#fase-percepcio");
-    var cont = $("#llista-percepcio");
-    cont.innerHTML = "";
-    blocs.forEach(function (b) {
-      var k = b.full + ":" + b.id;
-      var el = document.createElement("button");
-      el.type = "button";
-      el.className = "opcio percepcio-item";
-      el.dataset.k = k;
-      el.innerHTML = '<span class="marca" aria-hidden="true"></span><span>' + b.titol + '</span>';
-      el.onclick = function () {
-        el.classList.toggle("tria");
-        var i = percebuts.indexOf(k);
-        if (el.classList.contains("tria") && i === -1) percebuts.push(k);
-        if (!el.classList.contains("tria") && i !== -1) percebuts.splice(i, 1);
-      };
-      cont.appendChild(el);
-    });
-  }
-
-  $("#continua-percepcio").onclick = function () { pintaPreguntes(); };
-
-  /* ---- fase 2: les preguntes ---- */
-  function pintaPreguntes() {
-    fase = "preguntes";
-    mostraNomesFase("#fase-preguntes");
-    idx = 0;
-    pintaPregunta();
-  }
-
-  function pintaPregunta() {
-    var p = preguntes[idx], item = p.item;
-    var k = RE.clau(item);
-
-    $("#progres-test").textContent = "Pregunta " + (idx + 1) + " de " + preguntes.length;
-    $("#barra-test i").style.width = Math.round(100 * idx / preguntes.length) + "%";
-    $("#enunciat-test").innerHTML = item.enunciat;
-    $("#encap-test").textContent = item.encapcalament;
-
-    var ordre = [0, 1, 2, 3];
-    for (var i = 3; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1)), t = ordre[i];
-      ordre[i] = ordre[j]; ordre[j] = t;
+  function barreja(a) {
+    var c = a.slice();
+    for (var i = c.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = c[i]; c[i] = c[j]; c[j] = t;
     }
-
-    var caixa = $("#opcions-test");
-    caixa.innerHTML = "";
-    var tancat = false;
-    ordre.forEach(function (orig, pos) {
-      var b = document.createElement("button");
-      b.className = "opcio";
-      b.type = "button";
-      b.innerHTML = '<span class="lletra">' + LLETRES[pos] + "</span><span>" + item.opcions[orig] + "</span>";
-      b.onclick = function () {
-        if (tancat) return;
-        tancat = true;
-        var encert = orig === k.ok;
-        b.classList.add(encert ? "bona" : "dolenta");
-        if (!encert) caixa.children[ordre.indexOf(k.ok)].classList.add("bona");
-        Array.prototype.forEach.call(caixa.children, function (c) { c.disabled = true; });
-
-        respostes.push({
-          full: p.full, bloc: p.bloc, blocTitol: p.blocTitol,
-          id: item.id, encert: encert
-        });
-        /* Marquem l'ítem com "vist" (no com a resolt) al progrés del seu full,
-           perquè si l'alumne hi torna dins la pràctica normal encara li
-           compti com a pendent, però sense sobreescriure si ja hi havia estat. */
-        if (!RE.estat(p.full, item.id)) RE.apunta(p.full, item.id, { estat: "vist" });
-
-        setTimeout(function () {
-          idx++;
-          if (idx < preguntes.length) pintaPregunta(); else acaba();
-        }, 650);
-      };
-      caixa.appendChild(b);
-    });
-    RE.mat($("#fase-preguntes"));
+    return c;
   }
 
-  /* ---- fase 3: desar i anar al resultat ---- */
+  function pintaProgres() {
+    $("#progres-test").textContent = "Pregunta " + (idx + 1) + " de " + PROVES.length;
+    $("#barra-test i").style.width = Math.round(100 * idx / PROVES.length) + "%";
+  }
+
+  /* Registra la resposta i passa a la següent prova (o al final). */
+  function respon(prova, estat, encert) {
+    respostes.push({ prova: prova.id, estat: estat, encert: encert });
+    idx++;
+    if (idx < PROVES.length) pinta();
+    else acaba();
+  }
+
+  /* Les quatre opcions, només per a qui ha dit que ho sap resoldre. Es
+     pinten barrejades; l'índex original va a data-orig perquè saber quina
+     és la bona no depengui de la posició. */
+  function pintaOpcions(prova) {
+    var cont = $("#comprovacio");
+    cont.hidden = false;
+    cont.innerHTML = '<p class="petit apagat" style="margin:0 0 .5rem">' +
+      "Doncs va: quina és la resposta?</p>" +
+      '<div class="opcions" id="opcions-test"></div>';
+    var caixa = $("#opcions-test");
+    barreja(prova.opcions.map(function (o, i) { return { text: o, orig: i }; }))
+      .forEach(function (o, i) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opcio";
+        b.innerHTML = '<span class="lletra">' + LLETRES[i] + "</span>" +
+                      '<span class="cos">' + o.text + "</span>";
+        b.onclick = function () { respon(prova, "domino", o.orig === prova.ok); };
+        caixa.appendChild(b);
+      });
+    RE.mat(caixa);
+    if (caixa.scrollIntoView) caixa.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function pinta() {
+    var prova = PROVES[idx];
+    pintaProgres();
+
+    $("#encap-test").innerHTML = prova.encap;
+    $("#enunciat-test").innerHTML = prova.enunciat;
+    $("#comprovacio").hidden = true;
+    $("#comprovacio").innerHTML = "";
+
+    var cont = $("#estats-test");
+    cont.innerHTML = "";
+    ESTATS.forEach(function (e) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opcio opcio-estat";
+      b.innerHTML = '<span class="cos">' + e.text + "</span>";
+      b.onclick = function () {
+        if (e.id === "domino") {
+          /* Marquem la tria i demanem la comprovació, sense avançar encara. */
+          [].forEach.call(cont.children, function (x) { x.classList.remove("triada"); });
+          b.classList.add("triada");
+          pintaOpcions(prova);
+        } else {
+          respon(prova, e.id, null);
+        }
+      };
+      cont.appendChild(b);
+    });
+
+    RE.mat($("#targeta-test"));
+    try { window.scrollTo(0, 0); } catch (e) { /* entorns sense scroll */ }
+  }
+
   function acaba() {
     $("#barra-test i").style.width = "100%";
-    RE_DIAG.desa({ ts: Date.now(), percebuts: percebuts, respostes: respostes });
-    mostraNomesFase("#fase-final");
-    setTimeout(function () { location.href = "resultat.html"; }, 700);
+    $("#fase-preguntes").hidden = true;
+    $("#fase-final").hidden = false;
+    RE_DIAG.desa(respostes);
+    RE_ITI.esborra();   /* qualsevol itinerari anterior ja no correspon */
+    setTimeout(function () { location.href = "resultat.html"; }, 500);
   }
 
-  /* ---- arrencada ---- */
-  RE_DIAG.blocsDisponibles(function (b) {
-    if (!b.length) {
-      $("#fase-carrega").innerHTML = "<p>Encara no hi ha cap full amb preguntes disponible.</p>" +
-        '<a class="btn" href="index.html">← Tots els fulls</a>';
-      return;
-    }
-    /* Seleccionem primer quins blocs entren al test d'avui (pot ser un
-       subconjunt, si n'hi ha més de disponibles que els que caben en un
-       test curt): l'autopercepció ha de preguntar exactament sobre aquests
-       blocs, no sobre tots els disponibles, perquè després es puguin
-       comparar de veritat amb el resultat. */
-    blocs = RE_DIAG.seleccionaBlocsDelTest(b);
-    preguntes = RE_DIAG.triaPreguntes(blocs);
-    pintaPercepcio();
-  });
+  $("#fase-carrega").hidden = true;
+  $("#fase-preguntes").hidden = false;
+  pinta();
 })();

@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 """c_semblanca.py — Full 8: Teorema de Tales. Semblança.
 
-Genera els ítems dels exercicis 152-169 del full font (im9.tex, "Full
-d'exercicis 9 — Semblança i teorema de Tales" segons la seva pròpia
-capçalera), organitzats en 4 blocs:
+Genera els ítems dels exercicis 152-169, que corresponen a `im9.tex` del
+repositori LaTeX font. Organitzats en 4 blocs:
   tales        (152, 153)        teorema de Tales i triangles en posició
                                   de Tales
   semblanca    (154, 155)        raó de semblança i criteris de semblança
@@ -13,26 +12,15 @@ capçalera), organitzats en 4 blocs:
   aplicacions  (161-169)         aplicacions de la semblança: ombres,
                                   reflexos, alçades inaccessibles
 
-Nota sobre la numeració (discrepància ja documentada al README i a
-c_proporcionalitat.py per a Full 6): "Full 8 — Teorema de Tales. Semblança"
-d'aquest lloc (vegeu js/inici.js) correspon a `im9.tex` del repositori
-LaTeX font, NO a `im8.tex` (que és "Geometria plana": triangles, Pitàgores
-i àrees de polígons, encara sense autoritzar com a Full 7). La numeració
-dels fulls d'aquest lloc és la del repositori del centre, no la dels noms
-de fitxer LaTeX originals.
-
-Recompte i exclusions: el parser automàtic (comptar \\item dins d'apartats;
-exercici sense apartats compta 1) dona 38 ítems bruts sobre els 18
-exercicis 152-169. D'aquests, se n'exclouen 6:
+Recompte i exclusions: 38 ítems bruts sobre els 18 exercicis 152-169
+(comptant \\item dins d'apartats; un exercici sense apartats compta 1).
+D'aquests, se n'exclouen 6:
   - 152d, 152g, 152h: el mateix `r-im9.tex` (solucionari font) els deixa
-    sense valor numèric ("pendents de confirmar la figura"/"no es dona un
-    valor numèric fiable"), perquè depenen de la posició exacta d'una
-    mesura sobre una figura de rectes paral·leles amb tres rectes que no
-    es pot llegir amb prou seguretat. No s'inventa cap valor: es descarten
-    els tres apartats sencers, seguint el mateix criteri de v2 del
-    handover per a `\\foratimatge` (exercici o subapartat depenent d'una
-    figura absent -> fora del banc), encara que aquí no hi hagi la marca
-    `\\foratimatge` literal sinó una nota de transcripció equivalent.
+    sense valor numèric, perquè depenen de la posició exacta d'una mesura
+    sobre una figura de rectes paral·leles amb tres rectes que no es pot
+    llegir amb prou seguretat. No s'inventa cap valor: es descarten els
+    tres apartats sencers, que és el criteri general del projecte per a
+    qualsevol ítem que depengui d'una figura il·legible.
   - 157a, 157b, 157c: aquest exercici demana l'altura real de tres
     objectes A PARTIR DE MESURAR-LA FÍSICAMENT sobre el dibuix original
     amb un regle; no hi ha cap xifra al text que permeti calcular-ho, i
@@ -58,10 +46,9 @@ Notes (`nota=`) als ítems que hereten una interpretació de figura del propi
 `im9.tex`/`r-im9.tex` (no inventada aquí, sinó ja explicitada al fitxer
 font com "nota de transcripció"): 152a, 152b, 152c, 152e, 152f (posició
 exacta de cada mesura a la figura de Tales) i 154a, 154b, 154c
-(correspondència exacta entre costats dels dos triangles). Vegeu §3.5 de
-l'AUTHORING-GUIDE: es tracta la interpretació ja proposada pel fitxer font
-com la lectura adoptada, deixant-ne constància amb `nota` en lloc de
-silenciar l'origen de la incertesa.
+(correspondència exacta entre costats dels dos triangles). Es tracta la
+interpretació ja proposada pel fitxer font com la lectura adoptada,
+deixant-ne constància amb `nota` en lloc de silenciar la incertesa.
 """
 from fractions import Fraction as F
 import sympy as sp

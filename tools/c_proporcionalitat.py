@@ -2,27 +2,17 @@
 """c_proporcionalitat.py — Full 6: Proporcionalitat i percentatges.
 
 Genera els ítems dels exercicis 101-118, que corresponen a `im7.tex` del
-repositori LaTeX font ("Full d'exercicis 7 — Proporcionalitat i
-percentatges" segons la seva pròpia capçalera). Organitzats en 3 blocs:
+repositori LaTeX font. Organitzats en 3 blocs:
   directa_inversa   (101-108)   regla de tres directa i inversa
   percentatges      (109-112)   percentatge d'una quantitat, càlcul del
                                  total i de la comissió/quantitat original
   encadenats        (113-118)   augments/disminucions percentuals
                                  encadenats i comparacions "en proporció"
 
-Nota sobre la font: el fitxer `im6.tex` del repositori LaTeX ("sistemes
-d'equacions i problemes") ja es va incorporar a Full 5 (vegeu
-`c_equacions.py`). El contingut que correspon a "Full 6 — Proporcionalitat
-i percentatges" d'aquest lloc és, doncs, `im7.tex` (exercicis 101-118) —
-una discrepància de numeració entre els fitxers font i els fulls del
-lloc, ja anticipada al README i confirmada abans d'escriure aquest fitxer.
-
-Recompte: 18 exercicis / 21 ítems amb el mateix mètode de parsing que la
-resta de fulls (comptar \\item dins d'apartats; exercici sense apartats
-compta 1). Coincideix exactament amb la xifra de l'inventari del handover
-per a aquest full. Els exercicis 105, 106 i 112 tenen 2 apartats cadascun
-(a/b); la resta són autònoms. Cap `\\foratimatge` en tot el fitxer font:
-no calia excloure cap exercici per figura absent.
+Recompte: 18 exercicis / 21 ítems (comptant \\item dins d'apartats; un
+exercici sense apartats compta 1). Els exercicis 105, 106 i 112 tenen 2
+apartats cadascun (a/b); la resta són autònoms. Cap exclusió: tots els
+enunciats porten al text les dades que calen.
 
 Cap resposta s'escriu a mà: cada resultat s'ha calculat de manera
 independent amb `fractions.Fraction` (aritmètica exacta, sense passar per
@@ -33,8 +23,7 @@ arrodonits que el mateix solucionari presenta com a aproximats, p. ex.
 105a, 106b).
 
 Cap dels 21 ítems necessita `nota`: tots els enunciats són problemes
-verbals amb una lectura única i sense ambigüitat matemàtica (a diferència,
-per exemple, del `46b` de Full 2 o diversos ítems de Full 3/4).
+verbals amb una lectura única i sense ambigüitat matemàtica.
 """
 from lib import Q, D
 

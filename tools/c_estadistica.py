@@ -2,8 +2,7 @@
 """c_estadistica.py — Full 11: Estadística.
 
 Genera els ítems dels exercicis 218-235, que corresponen a `im12.tex` del
-repositori LaTeX font ("Full d'exercicis 12 — Estadística" segons la seva
-pròpia capçalera). Organitzats en 3 blocs:
+repositori LaTeX font. Organitzats en 3 blocs:
   variables      (218-219)         tipus de variable (qualitativa/
                                     quantitativa, discreta/contínua) i
                                     mostra vs. població
@@ -14,37 +13,28 @@ pròpia capçalera). Organitzats en 3 blocs:
                                     freqüències, histogrames i gràfics de
                                     sectors: construcció i interpretació
 
-Nota sobre la numeració: seguint la mateixa convenció que Full 6 (vegeu
-`c_proporcionalitat.py`), el nom del full al lloc web NO coincideix
-necessàriament amb el número del fitxer LaTeX font. Full 11 d'aquest lloc
-correspon a `im12.tex` (no a un hipotètic "im11" ampliat): im11.tex
-("Funcions") queda reservat per a Full 10, encara no autorat.
+Recompte: 18 exercicis / 48 ítems bruts (comptant \\item dins d'apartats;
+un exercici sense apartats compta 1).
 
-Recompte: 18 exercicis / 48 ítems amb el mateix mètode de parsing que la
-resta de fulls (comptar \\item dins d'apartats; exercici sense apartats
-compta 1) — coincideix exactament amb la xifra "Preguntes (totes)" de
-l'inventari del handover per a aquest full (48).
-
-Figura absent (exclusió, §2 del handover): cap `\\foratimatge` explícit al
-fitxer font, però l'exercici 233 (venda de cotxes) depèn d'un "gràfic de
-línies sense valors numèrics exactes indicats", tal com confirma
-explícitament la nota de transcripció del mateix `r-im12.tex` per aquest
-ítem — no hi ha manera honesta d'inventar les xifres mensuals. S'exclou
-sencer (2 preguntes), seguint la mateixa regla "exercici sencer, no
-subapartat" del handover §2.1/§2.2.
+Exclusió: l'exercici 233 (venda de cotxes) depèn d'un gràfic de línies
+sense valors numèrics exactes indicats, tal com confirma la nota de
+transcripció del mateix `r-im12.tex` — no hi ha manera honesta d'inventar
+les xifres mensuals. S'exclou sencer (2 preguntes).
 
 Els exercicis 227, 228, 230, 231 i 234 en canvi SÍ es conserven, encara
 que l'enunciat original demani "representa" un gràfic o parli d'un
-"polígon de freqüències": totes les dades numèriques necessàries
-(la taula de partida a 227/228/234, o les coordenades explícites dels
-punts a 230/231) són presents al text, així que es reformulen en
-preguntes de lectura/càlcul sobre aquestes dades (tipus C, com ja es fa a
-altres fulls amb exercicis "raona"/"representa" que no depenen de veure
-cap imatge). Això fa que el recompte final d'aquest full (46 preguntes
-finals de 48) sigui més alt que l'estimació heurística del handover
-v2 (43 finals / 5 excloses): un cop llegit el text complet, només 233
-depèn realment d'una figura irrecuperable, no 5 preguntes com s'hi
-estimava abans de parsejar-ho amb detall.
+"polígon de freqüències": totes les dades numèriques necessàries (la taula
+de partida a 227/228/234, o les coordenades explícites dels punts a
+230/231) són presents al text, així que es reformulen en preguntes de
+lectura i càlcul sobre aquestes dades.
+
+De 48 ítems bruts, 46 sobreviuen a l'exclusió del 233. El total real del
+full és 52, perquè quatre exercicis amaguen més subpreguntes de les que
+compta el parser automàtic i es desdoblen en subítems: 220 (2->3), 221
+(1->4, una taula de freqüències amb quatre caselles a completar), 223
+(2->3) i 228 (2->3). És el patró d'"ítems amagats" descrit a
+AUTHORING-GUIDE.md: una taula amb diverses caselles buides és una
+activitat per casella, no una de sola.
 
 Cap resposta s'escriu a mà: cada resultat (recomptes de freqüència,
 percentatges, freqüències acumulades...) s'ha calculat de manera

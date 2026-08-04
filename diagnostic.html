@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Test inicial — Repàs d'ESO</title>
-<meta name="description" content="Test curt per saber quins blocs de matemàtiques et convé repassar primer.">
+<meta name="description" content="Test curt per saber quins temes de matemàtiques et convé repassar primer.">
 <link rel="stylesheet" href="css/estil.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
@@ -23,27 +23,23 @@
     <h1>Preparant el test…</h1>
   </section>
 
-  <section id="fase-percepcio" hidden>
-    <h1>Abans de començar</h1>
-    <p class="apagat" style="margin:.5rem 0 1.1rem">
-      D'aquests blocs, quins creus que et costaran més? No cal encertar-ho:
-      és per comparar-ho després amb com et surt realment.
-    </p>
-    <div id="llista-percepcio" class="opcions"></div>
-    <div class="accions">
-      <button class="btn gran" id="continua-percepcio">Comença el test</button>
-    </div>
-  </section>
-
   <section id="fase-preguntes" hidden>
     <p class="petit apagat" id="progres-test" style="margin:0 0 .3rem"></p>
     <div class="barra" id="barra-test" style="margin-bottom:1.1rem"><i style="width:0%"></i></div>
 
-    <section class="targeta">
+    <section class="targeta" id="targeta-test">
       <p class="encap" id="encap-test"></p>
       <div class="enunciat" id="enunciat-test"></div>
-      <div class="opcions" id="opcions-test" style="margin-top:1.1rem"></div>
+
+      <p class="petit apagat" style="margin:1.2rem 0 .5rem">Què en dius?</p>
+      <div class="opcions" id="estats-test"></div>
+
+      <div id="comprovacio" style="margin-top:1.2rem" hidden></div>
     </section>
+
+    <p class="petit apagat" style="margin-top:1.2rem">
+      No cal que ho resolguis al paper: només volem saber si ho reconeixes.
+    </p>
   </section>
 
   <section id="fase-final" hidden>
@@ -52,7 +48,9 @@
   </section>
 </main>
 <script src="js/nucli.js"></script>
+<script src="js/proves-inicials.js"></script>
 <script src="js/diagnostic-dades.js"></script>
+<script src="js/itinerari-dades.js"></script>
 <script src="js/diagnostic.js"></script>
 </body>
 </html>
