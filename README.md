@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 739 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 778 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -23,7 +23,7 @@ personalitzat d'exercicis.
 | 8 | Teorema de Tales. Semblança | 4 | 32 |
 | 9 | Cossos geomètrics. Àrea i volum | 4 | 43 |
 | 10 | Funcions | 3 | 45 |
-| 11 | Estadística | 3 | 52 |
+| 11 | Estadística | 5 | 91 |
 | 12 | Combinatòria i probabilitat | 4 | 67 |
 
 ## Navegació
@@ -180,6 +180,13 @@ d'inventar-ne les mesures. Els motius concrets són al docstring de cada
 | 9 | 170f–j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
 | 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
 | 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
+
+Al Full 11 hi ha, a més, **dos blocs de contingut nou** (exercicis 260–274)
+que no surten de la font: mitjana, mediana, moda, recorregut, variància,
+desviació típica i coeficient de variació. El material de partida no en porta
+cap, i és contingut de 4t d'ESO i prerequisit directe de l'estadística de 1r
+de batxillerat. Van numerats a partir del 260 perquè els números 1–259 són els
+de la font i convé poder saber d'on surt cada cosa.
 
 Els exercicis on només falten alguns apartats (145, 152, 195) porten una
 nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.

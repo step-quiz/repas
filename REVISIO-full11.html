@@ -38,7 +38,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
 </style>
 <h1>Clau de respostes — Full 11</h1>
-<p class="meta">52 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">91 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Variables estadístiques <span class="tip">· 12 preguntes</span></h2>
 <p class="sec"><strong>Exercici 218.</strong> Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.</p>
@@ -581,10 +581,427 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa què representa $F_i$: la suma dels lloguers de tots els mesos fins aquell, inclòs.</li><li>Una suma acumulada de valors positius, com creix a mesura que s'hi afegeixen més mesos?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que cada $F_i$ suma els lloguers de tots els mesos anteriors més el propi, mai pot disminuir: el polígon és sempre creixent, des de $F(\text{gener})=100$ fins a $F(\text{desembre})=1\,038$</li></ol>
 </div>
+<h2>Mitjana, mediana i moda <span class="tip">· 22 preguntes</span></h2>
+<p class="sec"><strong>Exercici 260.</strong> Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.</p>
+<div class="it"><div class="cap"><span class="cod">260a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$3,\;5,\;5,\;8,\;9$</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$\dfrac{15}{2}$<br><span class="err">DIVIDIT_PER_VALORS_DIFERENTS</span><span class="fb">Has dividit pels valors DIFERENTS que hi ha ($4$), no per les dades que hi ha ($5$). A la mitjana, un valor repetit compta cada vegada que apareix.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mediana (el valor del mig un cop ordenades), no la mitjana. La mitjana surt de sumar-ho tot i dividir per $5$.</span></li>
+<li>$30$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de totes les dades: encara falta dividir-la per $5$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma totes les dades i divideix el resultat pel nombre de dades.</li><li>Aquí hi ha $5$ dades i sumen $30$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{3+5+5+8+9}{5}=\dfrac{30}{5}=6$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">260b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$6,\;2,\;7,\;4,\;6$</div>
+<ol class="op"><li><span class="ok">$5$</span> — resposta correcta</li>
+<li>$\dfrac{25}{4}$<br><span class="err">DIVIDIT_PER_VALORS_DIFERENTS</span><span class="fb">Has dividit pels valors DIFERENTS que hi ha ($4$), no per les dades que hi ha ($5$). A la mitjana, un valor repetit compta cada vegada que apareix.</span></li>
+<li>$6$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mediana (el valor del mig un cop ordenades), no la mitjana. La mitjana surt de sumar-ho tot i dividir per $5$.</span></li>
+<li>$25$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de totes les dades: encara falta dividir-la per $5$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma totes les dades i divideix el resultat pel nombre de dades.</li><li>Aquí hi ha $5$ dades i sumen $25$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{6+2+7+4+6}{5}=\dfrac{25}{5}=5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">260c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$5,\;7,\;7,\;9,\;2,\;6$</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$\dfrac{36}{5}$<br><span class="err">DIVIDIT_PER_VALORS_DIFERENTS</span><span class="fb">Has dividit pels valors DIFERENTS que hi ha ($5$), no per les dades que hi ha ($6$). A la mitjana, un valor repetit compta cada vegada que apareix.</span></li>
+<li>$\dfrac{13}{2}$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mediana (el valor del mig un cop ordenades), no la mitjana. La mitjana surt de sumar-ho tot i dividir per $6$.</span></li>
+<li>$36$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de totes les dades: encara falta dividir-la per $6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma totes les dades i divideix el resultat pel nombre de dades.</li><li>Aquí hi ha $6$ dades i sumen $36$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{5+7+7+9+2+6}{6}=\dfrac{36}{6}=6$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">260d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$8,\;3,\;5,\;5,\;9$</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$\dfrac{15}{2}$<br><span class="err">DIVIDIT_PER_VALORS_DIFERENTS</span><span class="fb">Has dividit pels valors DIFERENTS que hi ha ($4$), no per les dades que hi ha ($5$). A la mitjana, un valor repetit compta cada vegada que apareix.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mediana (el valor del mig un cop ordenades), no la mitjana. La mitjana surt de sumar-ho tot i dividir per $5$.</span></li>
+<li>$30$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de totes les dades: encara falta dividir-la per $5$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma totes les dades i divideix el resultat pel nombre de dades.</li><li>Aquí hi ha $5$ dades i sumen $30$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{8+3+5+5+9}{5}=\dfrac{30}{5}=6$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 261.</strong> Calcula la mediana de cada llista. Fixa&#x27;t que les dades no venen ordenades.</p>
+<div class="it"><div class="cap"><span class="cod">261a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$3,\;6,\;19,\;2,\;10$</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$19$<br><span class="err">MEDIANA_SENSE_ORDENAR</span><span class="fb">Has agafat el valor del mig de la llista TAL COM ve. La mediana es busca sobre les dades ORDENADES: $2,\;3,\;6,\;10,\;19$.</span></li>
+<li>$8$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mitjana, no la mediana. La mediana no es calcula: es busca, un cop les dades estan ordenades.</span></li>
+<li>$17$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">Això és el recorregut (el més gran menys el més petit), que mesura com d'esteses estan les dades, no on és el centre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena primer les dades de menor a major.</li><li>Ordenades queden $2,\;3,\;6,\;10,\;19$. Com que n'hi ha $5$, la mediana és el valor que ocupa el lloc $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordenades: $2,\;3,\;6,\;10,\;19$</li><li>Hi ha $5$ dades, així que la mediana és el valor que ocupa el lloc $3$: $6$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">261b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$18,\;4,\;14,\;12$</div>
+<ol class="op"><li><span class="ok">$13$</span> — resposta correcta</li>
+<li>$9$<br><span class="err">MEDIANA_SENSE_ORDENAR</span><span class="fb">Has agafat el valor del mig de la llista TAL COM ve. La mediana es busca sobre les dades ORDENADES: $4,\;12,\;14,\;18$.</span></li>
+<li>$12$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mitjana, no la mediana. La mediana no es calcula: es busca, un cop les dades estan ordenades.</span></li>
+<li>$14$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">Això és el recorregut (el més gran menys el més petit), que mesura com d'esteses estan les dades, no on és el centre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena primer les dades de menor a major.</li><li>Ordenades queden $4,\;12,\;14,\;18$. Com que n'hi ha $4$, la mediana és la mitjana dels que ocupen els llocs $2$ i $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordenades: $4,\;12,\;14,\;18$</li><li>Hi ha $4$ dades, així que la mediana és la mitjana dels que ocupen els llocs $2$ i $3$: $13$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">261c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$14,\;14,\;15,\;1,\;8,\;7,\;18$</div>
+<ol class="op"><li><span class="ok">$14$</span> — resposta correcta</li>
+<li>$1$<br><span class="err">MEDIANA_SENSE_ORDENAR</span><span class="fb">Has agafat el valor del mig de la llista TAL COM ve. La mediana es busca sobre les dades ORDENADES: $1,\;7,\;8,\;14,\;14,\;15,\;18$.</span></li>
+<li>$11$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mitjana, no la mediana. La mediana no es calcula: es busca, un cop les dades estan ordenades.</span></li>
+<li>$17$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">Això és el recorregut (el més gran menys el més petit), que mesura com d'esteses estan les dades, no on és el centre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena primer les dades de menor a major.</li><li>Ordenades queden $1,\;7,\;8,\;14,\;14,\;15,\;18$. Com que n'hi ha $7$, la mediana és el valor que ocupa el lloc $4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordenades: $1,\;7,\;8,\;14,\;14,\;15,\;18$</li><li>Hi ha $7$ dades, així que la mediana és el valor que ocupa el lloc $4$: $14$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">261d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$9,\;5,\;17,\;7,\;2,\;20$</div>
+<ol class="op"><li><span class="ok">$8$</span> — resposta correcta</li>
+<li>$12$<br><span class="err">MEDIANA_SENSE_ORDENAR</span><span class="fb">Has agafat el valor del mig de la llista TAL COM ve. La mediana es busca sobre les dades ORDENADES: $2,\;5,\;7,\;9,\;17,\;20$.</span></li>
+<li>$10$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mitjana, no la mediana. La mediana no es calcula: es busca, un cop les dades estan ordenades.</span></li>
+<li>$18$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">Això és el recorregut (el més gran menys el més petit), que mesura com d'esteses estan les dades, no on és el centre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena primer les dades de menor a major.</li><li>Ordenades queden $2,\;5,\;7,\;9,\;17,\;20$. Com que n'hi ha $6$, la mediana és la mitjana dels que ocupen els llocs $3$ i $4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordenades: $2,\;5,\;7,\;9,\;17,\;20$</li><li>Hi ha $6$ dades, així que la mediana és la mitjana dels que ocupen els llocs $3$ i $4$: $8$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 262.</strong> Quina és la moda de cada llista?</p>
+<div class="it"><div class="cap"><span class="cod">262a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$8,\;4,\;4,\;5,\;4,\;5,\;9$</div>
+<ol class="op"><li><span class="ok">$4$</span> — resposta correcta</li>
+<li>$3$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Has donat quantes vegades es repeteix, no QUIN valor es repeteix. La moda és la dada, no el seu recompte.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Això és la mediana (el valor central un cop ordenades). La moda és el valor que surt més vegades, estigui on estigui.</span></li>
+<li>$9$<br><span class="err">EL_MES_GRAN</span><span class="fb">El més gran de tots no té res a veure amb la moda: el que compta és quantes vegades surt cada valor, no com de gran és.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes vegades apareix cada valor.</li><li>Recompte: $4$ surt 3 cops, $5$ surt 2 cops, $8$ surt 1 cop, $9$ surt 1 cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $4\to3$, $5\to2$, $8\to1$, $9\to1$</li><li>La freqüència màxima és $3$, i li correspon el valor $4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">262b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$4,\;4,\;6,\;6,\;2,\;9$</div>
+<ol class="op"><li><span class="ok">$4$ i $6$</span> — resposta correcta</li>
+<li>$2$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Has donat quantes vegades es repeteix, no QUIN valor es repeteix. La moda és la dada, no el seu recompte.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Això és la mediana (el valor central un cop ordenades). La moda és el valor que surt més vegades, estigui on estigui.</span></li>
+<li>$9$<br><span class="err">EL_MES_GRAN</span><span class="fb">El més gran de tots no té res a veure amb la moda: el que compta és quantes vegades surt cada valor, no com de gran és.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes vegades apareix cada valor.</li><li>Recompte: $2$ surt 1 cop, $4$ surt 2 cops, $6$ surt 2 cops, $9$ surt 1 cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $2\to1$, $4\to2$, $6\to2$, $9\to1$</li><li>Hi ha dos valors amb la freqüència màxima ($2$): la distribució és bimodal</li></ol>
+<p class="nota"><strong>Nota:</strong> Una distribució pot tenir més d'una moda, o no tenir-ne cap. No és cap error del càlcul: és una propietat de les dades.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">262c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$1,\;2,\;3,\;4,\;5$</div>
+<ol class="op"><li><span class="ok">No en té: totes les dades surten una vegada</span> — resposta correcta</li>
+<li>$1$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Has donat quantes vegades es repeteix, no QUIN valor es repeteix. La moda és la dada, no el seu recompte.</span></li>
+<li>$3$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Això és la mediana (el valor central un cop ordenades). La moda és el valor que surt més vegades, estigui on estigui.</span></li>
+<li>$5$<br><span class="err">EL_MES_GRAN</span><span class="fb">El més gran de tots no té res a veure amb la moda: el que compta és quantes vegades surt cada valor, no com de gran és.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes vegades apareix cada valor.</li><li>Recompte: $1$ surt 1 cop, $2$ surt 1 cop, $3$ surt 1 cop, $4$ surt 1 cop, $5$ surt 1 cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $1\to1$, $2\to1$, $3\to1$, $4\to1$, $5\to1$</li><li>Cap valor no destaca: la distribució és amodal</li></ol>
+<p class="nota"><strong>Nota:</strong> Una distribució pot tenir més d'una moda, o no tenir-ne cap. No és cap error del càlcul: és una propietat de les dades.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">262d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$9,\;9,\;2,\;5,\;2,\;2,\;7$</div>
+<ol class="op"><li><span class="ok">$2$</span> — resposta correcta</li>
+<li>$3$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Has donat quantes vegades es repeteix, no QUIN valor es repeteix. La moda és la dada, no el seu recompte.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Això és la mediana (el valor central un cop ordenades). La moda és el valor que surt més vegades, estigui on estigui.</span></li>
+<li>$9$<br><span class="err">EL_MES_GRAN</span><span class="fb">El més gran de tots no té res a veure amb la moda: el que compta és quantes vegades surt cada valor, no com de gran és.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes vegades apareix cada valor.</li><li>Recompte: $2$ surt 3 cops, $5$ surt 1 cop, $7$ surt 1 cop, $9$ surt 2 cops.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $2\to3$, $5\to1$, $7\to1$, $9\to2$</li><li>La freqüència màxima és $3$, i li correspon el valor $2$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 263.</strong> Torna a l&#x27;exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:</p>
+<div class="it"><div class="cap"><span class="cod">263a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">La mitjana de viatges per alumne.</div>
+<ol class="op"><li><span class="ok">$\dfrac{71}{20}=3{,}55$</span> — resposta correcta</li>
+<li>$\dfrac{7}{2}$<br><span class="err">FREQUENCIA_NO_PONDERADA</span><span class="fb">Has fet la mitjana dels VALORS diferents ($1,2,3,4,5,6$) sense tenir en compte quantes vegades surt cadascun. Cada valor s'ha de multiplicar per la seva freqüència.</span></li>
+<li>$3$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mediana. La mitjana surt de $\dfrac{\sum x_i f_i}{N}$.</span></li>
+<li>$71$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma $\sum x_i f_i$: encara falta dividir-la entre $N=20$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb una taula de freqüències, la mitjana és $\bar{x}=\dfrac{\sum x_i f_i}{N}$.</li><li>Multiplica cada valor per la seva freqüència, suma-ho tot i divideix entre $N=20$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\sum x_i f_i=1\cdot1+2\cdot3+3\cdot7+4\cdot4+5\cdot3+6\cdot2=71$</li><li>$\bar{x}=\dfrac{71}{20}=\dfrac{71}{20}=3{,}55$ viatges</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">263b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">La mediana.</div>
+<ol class="op"><li><span class="ok">$3$</span> — resposta correcta</li>
+<li>$\dfrac{71}{20}$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">Això és la mitjana. La mediana és el valor que deixa la meitat de les dades a cada banda.</span></li>
+<li>$4$<br><span class="err">ACUMULADA_MAL_LLEGIDA</span><span class="fb">Amb $N=20$, la mediana és la mitjana de les dades que ocupen els llocs $10$ i $11$. Mira les freqüències acumulades: totes dues cauen dins del valor $3$, no del $4$.</span></li>
+<li>$7$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Aquest és el nombre de vegades que es repeteix la moda, no cap dada.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb $N=20$ (parell), la mediana és la mitjana de les dades que ocupen els llocs $10$ i $11$.</li><li>Fes servir les freqüències acumulades per veure dins de quin valor cauen aquests dos llocs: $F(1)=1$, $F(2)=4$, $F(3)=11$, $F(4)=15$, $F(5)=18$, $F(6)=20$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Acumulades: $F(1)=1$, $F(2)=4$, $F(3)=11$, $F(4)=15$, $F(5)=18$, $F(6)=20$</li><li>Els llocs $10$ i $11$ cauen tots dos dins del valor $3$, així que la mediana és $3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">263c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">La moda.</div>
+<ol class="op"><li><span class="ok">$3$</span> — resposta correcta</li>
+<li>$7$<br><span class="err">MODA_PER_FREQUENCIA</span><span class="fb">Has donat la freqüència màxima ($7$ alumnes), no el valor que la té.</span></li>
+<li>$6$<br><span class="err">EL_MES_GRAN</span><span class="fb">El $6$ és el nombre de viatges més alt, però només l'han fet $2$ alumnes. La moda és el valor MÉS REPETIT, no el més gran.</span></li>
+<li>$\dfrac{71}{20}$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Aquesta és la mitjana. La moda ha de ser un dels valors de la taula.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la freqüència més alta de la taula.</li><li>La freqüència màxima és $7$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La freqüència més alta és $f_i=7$, i li correspon el valor $x_i=3$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 264.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">264</span><span class="tip">tipus B · dificultat 3 (completa)</span></div>
+<div class="enun">Una sabateria ha venut aquestes talles de calçat en una setmana: 37,\;37,\;37,\;37,\;37,\;38,\;38,\;38,\;38,\;38,\;38,\;38,\;38,\;39,\;40,\;40,\;40,\;41,\;42,\;43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?</div>
+<ol class="op"><li><span class="ok">La MODA: la talla $38$, que és la que ha venut més vegades ($8$ parells).</span> — resposta correcta</li>
+<li>La MITJANA: la talla $38{,}7$.<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">La mitjana val $38{,}7$, i les talles són nombres sencers: no existeix aquesta talla i no en pot encarregar cap parell. Quan les dades són categories o valors sencers que no admeten mitges, la mesura que respon és la moda.</span></li>
+<li>La MEDIANA: la talla $38$.<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">La mediana parteix les vendes en dues meitats, però no diu quina talla s'ha venut més. Aquí coincideix que val $38$, però hi arriba per un motiu que no és el que es pregunta.</span></li>
+<li>El RECORREGUT: $6$ talles.<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">El recorregut diu quantes talles diferents abasta la venda, no quina s'ha de reposar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa què vol saber el botiguer: no quin és el valor central, sinó quin és el que es repeteix més.</li><li>Compta quantes vegades apareix cada talla.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $37\to5$, $38\to8$, $39\to1$, $40\to3$, $41\to1$, $42\to1$, $43\to1$</li><li>La talla més venuda és la $38$, amb $8$ parells: aquesta és la moda</li><li>La mitjana ($38{,}7$) no serveix aquí perquè no hi ha talles decimals</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest exercici no demana calcular sinó TRIAR. Les tres mesures es poden calcular sempre; la gràcia és saber quina respon la pregunta que t'han fet.</p>
+</div>
+<p class="sec"><strong>Exercici 265.</strong> A matemàtiques, la nota del trimestre surt de tres parts amb pesos diferents. Calcula la nota final.</p>
+<div class="it"><div class="cap"><span class="cod">265a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">proves $6$ (pes $50\,\%$), feina $8$ (pes $30\,\%$), actitud $9$ (pes $20\,\%$).</div>
+<ol class="op"><li><span class="ok">$7{,}20$</span> — resposta correcta</li>
+<li>$7{,}67$<br><span class="err">PES_IGNORAT</span><span class="fb">Has fet la mitjana de les tres notes com si totes valguessin el mateix. Cada part té el seu pes: la de $50\,\%$ compta molt més que la de $20\,\%$.</span></li>
+<li>$21{,}60$<br><span class="err">DIVISIO_SOBRERA</span><span class="fb">Amb pesos que sumen $100\,\%%$, la suma ponderada JA és la nota: no s'ha de tornar a dividir ni multiplicar per res.</span></li>
+<li>$11{,}50$<br><span class="err">PES_MAL_APLICAT</span><span class="fb">Sembla que has aplicat el mateix pes a totes les notes. Cada nota va amb el seu.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa cada pes a decimal ($50\,\%\to0{,}5$) i multiplica'l per la seva nota.</li><li>Suma els tres productes. Com que els pesos sumen $100\,\%$, el resultat ja és la nota final.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6\cdot0{,}50+8\cdot0{,}30+9\cdot0{,}20=7{,}20$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">265b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">proves $4$ (pes $60\,\%$), feina $7$ (pes $25\,\%$), actitud $8$ (pes $15\,\%$).</div>
+<ol class="op"><li><span class="ok">$5{,}35$</span> — resposta correcta</li>
+<li>$6{,}33$<br><span class="err">PES_IGNORAT</span><span class="fb">Has fet la mitjana de les tres notes com si totes valguessin el mateix. Cada part té el seu pes: la de $60\,\%$ compta molt més que la de $15\,\%$.</span></li>
+<li>$16{,}05$<br><span class="err">DIVISIO_SOBRERA</span><span class="fb">Amb pesos que sumen $100\,\%%$, la suma ponderada JA és la nota: no s'ha de tornar a dividir ni multiplicar per res.</span></li>
+<li>$11{,}40$<br><span class="err">PES_MAL_APLICAT</span><span class="fb">Sembla que has aplicat el mateix pes a totes les notes. Cada nota va amb el seu.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa cada pes a decimal ($50\,\%\to0{,}5$) i multiplica'l per la seva nota.</li><li>Suma els tres productes. Com que els pesos sumen $100\,\%$, el resultat ja és la nota final.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4\cdot0{,}60+7\cdot0{,}25+8\cdot0{,}15=5{,}35$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 266.</strong> Un grup de $5$ amics compara quants llibres ha llegit l&#x27;últim any: $3,\;4,\;5,\;6,\;7$. S&#x27;hi afegeix un sisè amic que n&#x27;ha llegit $60$.</p>
+<div class="it"><div class="cap"><span class="cod">266a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Què li passa a la mitjana?</div>
+<ol class="op"><li><span class="ok">Puja de $5$ a $14{,}17$: gairebé es duplica.</span> — resposta correcta</li>
+<li>Es queda pràcticament igual.<br><span class="err">EXTREM_SENSE_EFECTE</span><span class="fb">La mitjana sí que se'n ressent, i molt: passa de $5$ a $14{,}17$. Com que surt de sumar-ho tot, una dada molt gran l'estira cap amunt.</span></li>
+<li>Puja de $5$ a $60$.<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">El $60$ és la dada nova, no la mitjana nova. La mitjana continua sent un valor entremig de totes les dades.</span></li>
+<li>Baixa, perquè ara hi ha més dades.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Tenir més dades no fa baixar la mitjana per si sol: depèn de si la dada nova és més gran o més petita que la mitjana que hi havia.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la mitjana abans i després d'afegir el $60$.</li><li>Abans: $\dfrac{25}{5}$. Després: $\dfrac{85}{6}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Abans: $\bar{x}=\dfrac{3+4+5+6+7}{5}=\dfrac{25}{5}=5$</li><li>Després: $\bar{x}=\dfrac{25+60}{6}=\dfrac{85}{6}\approx14{,}17$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">266b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I què li passa a la mediana?</div>
+<ol class="op"><li><span class="ok">Puja molt poc: de $5$ a $\dfrac{11}{2}$.</span> — resposta correcta</li>
+<li>Puja tant com la mitjana.<br><span class="err">EXTREM_SENSE_EFECTE</span><span class="fb">La mediana només mira quin valor queda al mig: que l'últim sigui $8$ o $60$ no la mou. Per això es diu que és RESISTENT als valors extrems.</span></li>
+<li>Es queda exactament a $5$.<br><span class="err">MEDIANA_SENSE_ORDENAR</span><span class="fb">Gairebé: passar de $5$ a $6$ dades canvia com es busca el centre. Amb $6$ dades cal fer la mitjana de les dues centrals, $5$ i $6$.</span></li>
+<li>Baixa a $4$.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Afegir una dada per damunt de totes desplaça el centre cap amunt, no cap avall.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ordena les $6$ dades i busca el centre.</li><li>Amb $6$ dades, la mediana és la mitjana de les que ocupen els llocs $3$ i $4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordenades: $3,\;4,\;5,\;6,\;7,\;60$</li><li>Mediana $=\dfrac{5+6}{2}=\dfrac{11}{2}$</li><li>La mitjana s'ha mogut $9{,}17$ punts i la mediana només $0{,}5$: quan hi ha valors extrems, la mediana descriu millor el grup</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquesta diferència és el motiu pel qual els sous o els preus dels pisos es donen sovint amb la mediana i no amb la mitjana: quatre valors molt alts poden desplaçar la mitjana i fer-la poc representativa del que li passa a la majoria.</p>
+</div>
+<p class="sec"><strong>Exercici 267.</strong> Falta una dada. Esbrina-la a partir de la mitjana.</p>
+<div class="it"><div class="cap"><span class="cod">267a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">La mitjana de $5$ dades és $7$. En coneixem $4$: $5,\;6,\;9,\;4$. Quina és l'altra?</div>
+<ol class="op"><li><span class="ok">$11$</span> — resposta correcta</li>
+<li>$4$<br><span class="err">N_MAL_COMPTAT</span><span class="fb">Has multiplicat la mitjana per les dades que ja coneixies ($4$), no per totes les que hi ha ($5$).</span></li>
+<li>$7$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la mitjana, que ja te la donaven. La dada que falta no té per què coincidir-hi.</span></li>
+<li>$35$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de TOTES les dades: encara cal restar-hi les que ja coneixes.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la mitjana de $5$ dades és $7$, la suma de totes ha de ser $5\cdot7$.</li><li>Resta a aquesta suma el que ja sumen les dades conegudes.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Suma total: $5\cdot7=35$</li><li>Suma coneguda: $5+6+9+4=24$</li><li>Dada que falta: $35-24=11$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">267b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">La mitjana de $6$ dades és $12$. En coneixem $5$: $12,\;8,\;15,\;11,\;9$. Quina és l'altra?</div>
+<ol class="op"><li><span class="ok">$17$</span> — resposta correcta</li>
+<li>$5$<br><span class="err">N_MAL_COMPTAT</span><span class="fb">Has multiplicat la mitjana per les dades que ja coneixies ($5$), no per totes les que hi ha ($6$).</span></li>
+<li>$12$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la mitjana, que ja te la donaven. La dada que falta no té per què coincidir-hi.</span></li>
+<li>$72$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de TOTES les dades: encara cal restar-hi les que ja coneixes.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la mitjana de $6$ dades és $12$, la suma de totes ha de ser $6\cdot12$.</li><li>Resta a aquesta suma el que ja sumen les dades conegudes.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Suma total: $6\cdot12=72$</li><li>Suma coneguda: $12+8+15+11+9=55$</li><li>Dada que falta: $72-55=17$</li></ol>
+</div>
+<h2>Recorregut i desviació típica <span class="tip">· 17 preguntes</span></h2>
+<p class="sec"><strong>Exercici 268.</strong> Calcula el recorregut (o rang) de cada llista: la diferència entre la dada més gran i la més petita.</p>
+<div class="it"><div class="cap"><span class="cod">268a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$12,\;5,\;9,\;20,\;7$</div>
+<ol class="op"><li><span class="ok">$15$</span> — resposta correcta</li>
+<li>$25$<br><span class="err">SIGNE_FINAL</span><span class="fb">El recorregut és una RESTA: el més gran menys el més petit.</span></li>
+<li>$20$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el valor més gran. El recorregut és la distància entre l'extrem de dalt i el de baix: $20-5$.</span></li>
+<li>$\dfrac{53}{5}$<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">Això és la mitjana, que diu on és el centre. El recorregut diu com d'esteses estan les dades.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la dada més gran i la més petita.</li><li>Aquí són $20$ i $5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$R=x_{\max}-x_{\min}=20-5=15$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">268b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$3,\;3,\;3,\;3$</div>
+<ol class="op"><li><span class="ok">$0$</span> — resposta correcta</li>
+<li>$6$<br><span class="err">SIGNE_FINAL</span><span class="fb">El recorregut és una RESTA: el més gran menys el més petit.</span></li>
+<li>$3$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el valor més gran. El recorregut és la distància entre l'extrem de dalt i el de baix: $3-3$.</span></li>
+<li>No es pot calcular: totes les dades són iguals.<br><span class="err">ES_POT_DETERMINAR</span><span class="fb">Sí que es pot: si totes les dades valen el mateix, el més gran i el més petit coincideixen i el recorregut val $0$. Zero no vol dir "impossible", vol dir que no hi ha gens de dispersió.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la dada més gran i la més petita.</li><li>Aquí són $3$ i $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$R=x_{\max}-x_{\min}=3-3=0$</li></ol>
+<p class="nota"><strong>Nota:</strong> Totes les dades són iguals, així que no hi ha cap dispersió: el recorregut val $0$.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">268c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$-4,\;10,\;0,\;6,\;-1$</div>
+<ol class="op"><li><span class="ok">$14$</span> — resposta correcta</li>
+<li>$6$<br><span class="err">SIGNE_FINAL</span><span class="fb">El recorregut és una RESTA: el més gran menys el més petit.</span></li>
+<li>$10$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el valor més gran. El recorregut és la distància entre l'extrem de dalt i el de baix: $10--4$.</span></li>
+<li>$\dfrac{11}{5}$<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">Això és la mitjana, que diu on és el centre. El recorregut diu com d'esteses estan les dades.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la dada més gran i la més petita.</li><li>Aquí són $10$ i $-4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$R=x_{\max}-x_{\min}=10-(-4)=14$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 269.</strong> Per a la llista $2,\;4,\;4,\;4,\;5,\;5,\;7,\;9$, que té mitjana $\bar{x}=5$:</p>
+<div class="it"><div class="cap"><span class="cod">269a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Quant sumen les desviacions $x_i-\bar{x}$?</div>
+<ol class="op"><li><span class="ok">$0$</span> — resposta correcta</li>
+<li>$12$<br><span class="err">VALOR_ABSOLUT_INDEGUT</span><span class="fb">Això és la suma dels valors absoluts. Les desviacions van amb signe, i les negatives compensen les positives.</span></li>
+<li>$40$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la suma de les dades, no la de les desviacions.</span></li>
+<li>$32$<br><span class="err">DESVIACIONS_AL_QUADRAT</span><span class="fb">Això és la suma dels quadrats de les desviacions, que és el pas següent. Aquí es demanen les desviacions tal com són.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula $x_i-5$ per a cada dada i suma-ho tot.</li><li>Fixa't en el signe de cada desviació: n'hi ha de negatives.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Desviacions: $-3,\;-1,\;-1,\;-1,\;+0,\;+0,\;+2,\;+4$</li><li>Suma: $0$. Sempre dona zero, i per això les desviacions no serveixen directament per mesurar la dispersió: cal elevar-les al quadrat.</li></ol>
+<p class="nota"><strong>Nota:</strong> Que la suma de desviacions doni sempre $0$ no és casualitat d'aquesta llista: passa amb qualsevol conjunt de dades, perquè la mitjana és justament el punt que equilibra les desviacions. És el motiu pel qual la variància les eleva al quadrat.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">269b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">I quant sumen els quadrats de les desviacions, $\sum(x_i-\bar{x})^2$?</div>
+<ol class="op"><li><span class="ok">$32$</span> — resposta correcta</li>
+<li>$0$<br><span class="err">DESVIACIONS_SENSE_QUADRAT</span><span class="fb">Zero és la suma de les desviacions SENSE elevar al quadrat. En elevar-les, totes es tornen positives i ja no es compensen.</span></li>
+<li>$12$<br><span class="err">VALOR_ABSOLUT_INDEGUT</span><span class="fb">Això és la suma dels valors absoluts. El quadrat de $-3$ és $9$, no $3$.</span></li>
+<li>$4$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta ja és la variància (la suma dividida entre $N$). Aquí es demana només la suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Eleva cada desviació al quadrat abans de sumar.</li><li>Recorda que $(-3)^2=9$, no $-9$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Quadrats: $9,\;1,\;1,\;1,\;0,\;0,\;4,\;16$</li><li>Suma: $9+1+1+1+0+0+4+16=32$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 270.</strong> Calcula la variància i la desviació típica de cada llista. Arrodoneix la desviació típica a les centèsimes.</p>
+<div class="it"><div class="cap"><span class="cod">270a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$2,\;4,\;4,\;4,\;5,\;5,\;7,\;9$</div>
+<ol class="op"><li><span class="ok">$\sigma^2=4$, $\sigma\approx2{,}00$</span> — resposta correcta</li>
+<li>$\sigma^2=4$, $\sigma\approx4{,}00$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">La desviació típica és l'ARREL de la variància, no la variància una altra vegada: $\sigma=\sqrt{4}$.</span></li>
+<li>$\sigma^2=32$, $\sigma\approx5{,}66$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">T'has quedat amb la suma dels quadrats sense dividir-la entre $N=8$.</span></li>
+<li>$\sigma^2=0$, $\sigma=0$<br><span class="err">DESVIACIONS_SENSE_QUADRAT</span><span class="fb">Si et dona zero és que has sumat les desviacions sense elevar-les al quadrat: aquesta suma sempre val zero.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la mitjana: $\bar{x}=5$.</li><li>Després $\sigma^2=\dfrac{\sum(x_i-\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{40}{8}=5$</li><li>$\sum(x_i-\bar{x})^2=9+1+1+1+0+0+4+16=32$</li><li>$\sigma^2=\dfrac{32}{8}=4$</li><li>$\sigma=\sqrt{4}\approx2{,}00$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">270b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$10,\;12,\;14,\;16,\;18$</div>
+<ol class="op"><li><span class="ok">$\sigma^2=8$, $\sigma\approx2{,}83$</span> — resposta correcta</li>
+<li>$\sigma^2=8$, $\sigma\approx8{,}00$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">La desviació típica és l'ARREL de la variància, no la variància una altra vegada: $\sigma=\sqrt{8}$.</span></li>
+<li>$\sigma^2=40$, $\sigma\approx6{,}32$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">T'has quedat amb la suma dels quadrats sense dividir-la entre $N=5$.</span></li>
+<li>$\sigma^2=0$, $\sigma=0$<br><span class="err">DESVIACIONS_SENSE_QUADRAT</span><span class="fb">Si et dona zero és que has sumat les desviacions sense elevar-les al quadrat: aquesta suma sempre val zero.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la mitjana: $\bar{x}=14$.</li><li>Després $\sigma^2=\dfrac{\sum(x_i-\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{70}{5}=14$</li><li>$\sum(x_i-\bar{x})^2=16+4+0+4+16=40$</li><li>$\sigma^2=\dfrac{40}{5}=8$</li><li>$\sigma=\sqrt{8}\approx2{,}83$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">270c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$4,\;8,\;6,\;5,\;3,\;2,\;8,\;4$</div>
+<ol class="op"><li><span class="ok">$\sigma^2=\dfrac{17}{4}$, $\sigma\approx2{,}06$</span> — resposta correcta</li>
+<li>$\sigma^2=\dfrac{17}{4}$, $\sigma\approx4{,}25$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">La desviació típica és l'ARREL de la variància, no la variància una altra vegada: $\sigma=\sqrt{\dfrac{17}{4}}$.</span></li>
+<li>$\sigma^2=34$, $\sigma\approx5{,}83$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">T'has quedat amb la suma dels quadrats sense dividir-la entre $N=8$.</span></li>
+<li>$\sigma^2=0$, $\sigma=0$<br><span class="err">DESVIACIONS_SENSE_QUADRAT</span><span class="fb">Si et dona zero és que has sumat les desviacions sense elevar-les al quadrat: aquesta suma sempre val zero.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la mitjana: $\bar{x}=5$.</li><li>Després $\sigma^2=\dfrac{\sum(x_i-\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar{x}=\dfrac{40}{8}=5$</li><li>$\sum(x_i-\bar{x})^2=1+9+1+0+4+9+9+1=34$</li><li>$\sigma^2=\dfrac{34}{8}=\dfrac{17}{4}$</li><li>$\sigma=\sqrt{\dfrac{17}{4}}\approx2{,}06$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 271.</strong> Torna a les talles de calçat de l&#x27;exercici 227. La taula és: $x_i=37$ amb $f_i=5$, $x_i=38$ amb $f_i=8$, $x_i=39$ amb $f_i=1$, $x_i=40$ amb $f_i=3$, $x_i=41$ amb $f_i=1$, $x_i=42$ amb $f_i=1$, $x_i=43$ amb $f_i=1$, amb $N=20$ i $\bar{x}=38{,}7$.</p>
+<div class="it"><div class="cap"><span class="cod">271a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Calcula la variància.</div>
+<ol class="op"><li><span class="ok">$2{,}91$</span> — resposta correcta</li>
+<li>$4{,}00$<br><span class="err">FREQUENCIA_NO_PONDERADA</span><span class="fb">Has fet servir els valors diferents sense pesar-los per la seva freqüència. Cada quadrat $(x_i-\bar{x})^2$ s'ha de multiplicar per $f_i$ abans de sumar.</span></li>
+<li>$58{,}20$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">Aquesta és la suma $\sum(x_i-\bar{x})^2 f_i$ sense dividir entre $N=20$.</span></li>
+<li>$1{,}71$<br><span class="err">VARIANCIA_PER_DESVIACIO</span><span class="fb">Això ja és la desviació típica. La variància és el valor abans de fer l'arrel.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb taula de freqüències, $\sigma^2=\dfrac{\sum(x_i-\bar{x})^2 f_i}{N}$.</li><li>Calcula $(x_i-38{,}7)^2$ per a cada talla, multiplica'l per la seva freqüència i suma-ho tot.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\sum(x_i-\bar{x})^2 f_i=58{,}2$</li><li>$\sigma^2=\dfrac{58{,}2}{20}=2{,}91$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">271b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I la desviació típica?</div>
+<ol class="op"><li><span class="ok">$\approx1{,}71$</span> — resposta correcta</li>
+<li>$2{,}91$<br><span class="err">VARIANCIA_PER_DESVIACIO</span><span class="fb">Aquesta és la variància. La desviació típica n'és l'arrel quadrada.</span></li>
+<li>$\approx8{,}47$<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">Has elevat al quadrat en comptes de fer l'arrel: la desviació típica és més PETITA que la variància quan aquesta és més gran que $1$.</span></li>
+<li>$6$<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">Això és el recorregut. També mesura dispersió, però no és la desviació típica.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$\sigma=\sqrt{\sigma^2}$.</li><li>Fes l'arrel quadrada de $2{,}91$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\sigma=\sqrt{2{,}91}\approx1{,}71$ talles</li><li>Vol dir que, de mitjana, les talles venudes se separen poc més d'una talla de la mitjana</li></ol>
+</div>
+<p class="sec"><strong>Exercici 272.</strong> Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\;5,\;5,\;5,\;5,\;5. Grup B: 1,\;3,\;5,\;5,\;7,\;9.</p>
+<div class="it"><div class="cap"><span class="cod">272a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Compara'n les mitjanes.</div>
+<ol class="op"><li><span class="ok">Són iguals: totes dues valen $5$.</span> — resposta correcta</li>
+<li>La del grup A és més alta.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Totes dues sumen $30$ entre $6$ alumnes: la mitjana és $5$ als dos grups.</span></li>
+<li>La del grup B és més alta, perquè hi ha un $9$.<br><span class="err">EXTREM_SENSE_EFECTE</span><span class="fb">El $9$ del grup B es compensa amb l'$1$: la suma continua sent $30$.</span></li>
+<li>No es poden comparar perquè les dades són diferents.<br><span class="err">ES_POT_DETERMINAR</span><span class="fb">Es poden comparar perfectament: per això serveixen les mesures de centralització.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la mitjana de cada grup.</li><li>Suma les notes de cada grup: totes dues sumen el mateix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Grup A: $\dfrac{30}{6}=5$</li><li>Grup B: $\dfrac{30}{6}=5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">272b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Quin grup és més regular, i com ho justifiques amb un número?</div>
+<ol class="op"><li><span class="ok">El grup A: té $\sigma=0$ i el B, $\sigma\approx2{,}58$.</span> — resposta correcta</li>
+<li>El grup B, perquè té notes més altes.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Ser regular vol dir que les notes s'assemblen entre si, no que siguin altes. Al grup B van de l'$1$ al $9$.</span></li>
+<li>Són igual de regulars, perquè tenen la mateixa mitjana.<br><span class="err">MITJANA_NO_DIU_DISPERSIO</span><span class="fb">La mitjana diu on és el centre, no com d'agrupades estan les dades al seu voltant. Per això calen les mesures de dispersió: dos grups amb la mateixa mitjana poden ser completament diferents.</span></li>
+<li>El grup A, però no es pot posar cap número.<br><span class="err">ES_POT_DETERMINAR</span><span class="fb">Sí que se'n pot posar: la desviació típica és exactament el número que mesura això.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la desviació típica de cada grup.</li><li>Al grup A totes les dades valen igual que la mitjana.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Grup A: totes les desviacions són $0$, així que $\sigma^2=0$ i $\sigma=0$</li><li>Grup B: $\sigma^2=\dfrac{20}{3}$ i $\sigma=\sqrt{\dfrac{20}{3}}\approx2{,}58$</li><li>Com més petita és $\sigma$, més agrupades estan les dades: el grup A és perfectament regular</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest parell d'exercicis és el motiu de ser de tot el bloc: dues distribucions poden tenir la mateixa mitjana i no assemblar-se gens. La mitjana tota sola gairebé mai no descriu prou bé un conjunt de dades.</p>
+</div>
+<p class="sec"><strong>Exercici 273.</strong> En un grup de persones s&#x27;han mesurat l&#x27;alçada (mitjana $170$ cm, $\sigma=8$ cm) i el pes (mitjana $65$ kg, $\sigma=8$ kg).</p>
+<div class="it"><div class="cap"><span class="cod">273a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Les dues desviacions típiques valen $8$. Vol dir que les dues variables estan igual de disperses?</div>
+<ol class="op"><li><span class="ok">No: $8$ cm sobre una mitjana de $170$ és molt menys, en proporció, que $8$ kg sobre una mitjana de $65$.</span> — resposta correcta</li>
+<li>Sí, perquè totes dues valen $8$.<br><span class="err">CV_SENSE_DIVIDIR</span><span class="fb">La desviació típica va en les mateixes unitats que les dades, i per això no es poden comparar directament dues variables diferents. Cal mirar quant representa $\sigma$ respecte de la seva mitjana.</span></li>
+<li>No: el pes està menys dispers perquè la seva mitjana és més petita.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">És al revés: la mateixa desviació sobre una mitjana més petita representa una variació relativa MÉS gran.</span></li>
+<li>No es pot saber sense les dades originals.<br><span class="err">ES_POT_DETERMINAR</span><span class="fb">Amb la mitjana i la desviació típica ja n'hi ha prou: el coeficient de variació és $\dfrac{\sigma}{\bar{x}}$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa si $8$ cm de diferència en l'alçada d'una persona et sembla molt o poc, i compara-ho amb $8$ kg de diferència en el pes.</li><li>Per comparar dispersions de magnituds diferents es divideix $\sigma$ entre la mitjana.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Alçada: $\dfrac{8}{170}\approx0{,}0471$</li><li>Pes: $\dfrac{8}{65}\approx0{,}1231$</li><li>El pes està relativament més dispers, tot i tenir la mateixa $\sigma$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">273b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Calcula el coeficient de variació de cada variable, en percentatge.</div>
+<ol class="op"><li><span class="ok">Alçada $\approx4{,}7\,\%$, pes $\approx12{,}3\,\%$</span> — resposta correcta</li>
+<li>Alçada $\approx2125{,}0\,\%$, pes $\approx812{,}5\,\%$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit la mitjana entre la desviació típica. El coeficient de variació és $CV=\dfrac{\sigma}{\bar{x}}$, no al revés.</span></li>
+<li>Totes dues $\approx8\,\%$<br><span class="err">CV_SENSE_DIVIDIR</span><span class="fb">El $8$ és la desviació típica, no el coeficient. El coeficient surt de dividir-la entre la mitjana.</span></li>
+<li>Alçada $\approx0{,}047\,\%$, pes $\approx0{,}123\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Aquests són els quocients en decimal: per passar-los a percentatge encara falta multiplicar per $100$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$CV=\dfrac{\sigma}{\bar{x}}$, i per posar-ho en percentatge es multiplica per $100$.</li><li>Alçada: $\dfrac{8}{170}$. Pes: $\dfrac{8}{65}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Alçada: $CV=\dfrac{8}{170}\cdot100\approx4{,}7\,\%$</li><li>Pes: $CV=\dfrac{8}{65}\cdot100\approx12{,}3\,\%$</li><li>El pes varia gairebé el doble, en termes relatius</li></ol>
+<p class="nota"><strong>Nota:</strong> El coeficient de variació no té unitats, i per això serveix per comparar la dispersió de coses que es mesuren en unitats diferents. És el que et permet dir si un grup és més irregular en alçada o en pes sense comparar centímetres amb quilograms.</p>
+</div>
+<p class="sec"><strong>Exercici 274.</strong> Un conjunt de dades té mitjana $\bar{x}=20$ i desviació típica $\sigma=4$. Digues què passa en cada cas.</p>
+<div class="it"><div class="cap"><span class="cod">274a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Sumem $5$ a totes les dades.</div>
+<ol class="op"><li><span class="ok">La mitjana passa a $25$ i la desviació típica es queda a $4$.</span> — resposta correcta</li>
+<li>Totes dues pugen $5$: mitjana $25$ i $\sigma=9$.<br><span class="err">CONSTANT_AFECTA_DISPERSIO</span><span class="fb">Sumar el mateix a totes les dades les desplaça totes igual: les distàncies entre elles no canvien, i la dispersió tampoc.</span></li>
+<li>La mitjana es queda a $20$ i $\sigma$ passa a $9$.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">És just al revés: el que es mou és el centre, no l'amplada.</span></li>
+<li>No canvia res.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">La mitjana sí que canvia: si totes les dades pugen $5$, el seu centre també.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Imagina't les dades sobre una recta i desplaça-les totes $5$ unitats.</li><li>La distància entre dues dades qualssevol, canvia?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Nova mitjana: $20+5=25$</li><li>Les desviacions $x_i-\bar{x}$ no canvien, perquè les dades i la mitjana s'han mogut igual: $\sigma$ es manté a $4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">274b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Multipliquem totes les dades per $3$.</div>
+<ol class="op"><li><span class="ok">La mitjana passa a $60$ i la desviació típica, a $12$.</span> — resposta correcta</li>
+<li>Mitjana $60$ i $\sigma=4$.<br><span class="err">CONSTANT_AFECTA_DISPERSIO</span><span class="fb">Multiplicar sí que canvia la dispersió: si totes les dades s'estiren pel triple, les distàncies entre elles també.</span></li>
+<li>Mitjana $60$ i $\sigma=36$.<br><span class="err">VARIANCIA_PER_DESVIACIO</span><span class="fb">El que queda multiplicat per $3^2=9$ és la VARIÀNCIA ($16\to144$). La desviació típica queda multiplicada per $3$: $\sigma=12$.</span></li>
+<li>Mitjana $23$ i $\sigma=7$.<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Multiplicar per $3$ no és sumar $3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si totes les dades es multipliquen per $3$, on va a parar el centre?</li><li>I les distàncies entre dades, què els passa?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Nova mitjana: $20\cdot3=60$</li><li>Cada desviació queda multiplicada per $3$, i per tant $\sigma$ també: $4\cdot3=12$</li><li>La variància, en canvi, queda multiplicada per $3^2=9$: $16\cdot9=144=12^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">274c</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Afegim una dada nova que val exactament $20$.</div>
+<ol class="op"><li><span class="ok">La mitjana es queda a $20$ i la desviació típica baixa una mica.</span> — resposta correcta</li>
+<li>No canvia res, ni la mitjana ni $\sigma$.<br><span class="err">EXTREM_SENSE_EFECTE</span><span class="fb">La mitjana no es mou, això és cert. Però ara hi ha una dada més que està exactament al centre, i això fa que, de mitjana, les dades estiguin una mica menys esteses: $\sigma$ baixa.</span></li>
+<li>La mitjana es queda a $20$ i $\sigma$ puja.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Afegir una dada que coincideix amb la mitjana no pot augmentar la dispersió: aporta una desviació de $0$.</span></li>
+<li>La mitjana baixa i $\sigma$ es queda igual.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Afegir una dada igual a la mitjana no la mou en cap direcció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina desviació aporta una dada que val exactament el mateix que la mitjana?</li><li>La suma dels quadrats no canvia, però el nombre de dades sí.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La dada nova aporta una desviació $20-20=0$, així que $\sum(x_i-\bar{x})^2$ no canvia</li><li>En canvi $N$ augmenta en $1$, i com que la variància és aquesta suma dividida entre $N$, la variància baixa; i amb ella, $\sigma$</li></ol>
+</div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>
 <tr><td>Variables estadístiques <span class="err">un sol nivell</span></td><td>12</td><td>0</td><td>0</td></tr>
 <tr><td>Taules de freqüències</td><td>7</td><td>16</td><td>3</td></tr>
 <tr><td>Gràfics estadístics</td><td>1</td><td>7</td><td>6</td></tr>
+<tr><td>Mitjana, mediana i moda</td><td>12</td><td>5</td><td>5</td></tr>
+<tr><td>Recorregut i desviació típica</td><td>3</td><td>7</td><td>7</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>PERCENTATGE_MAL_CALCULAT</code></td><td>19</td><td>220c, 221a, 221d, 223a, 223a, 223a, 223b, 223b, 226a, 226b, 226b, 226c, 226d, 229…</td></tr>
@@ -593,16 +1010,46 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>FREQ_ABSOLUTA_ACUMULADA_CONFOSES</code></td><td>17</td><td>220a, 220b, 220c, 220c, 221b, 221c, 222b, 223c, 223c, 224c, 224d, 225b, 228b, 230a…</td></tr>
 <tr><td><code>TOTAL_DADES_MAL_CALCULAT</code></td><td>17</td><td>220a, 220b, 221a, 221a, 221d, 222a, 222b, 223b, 224b, 224d, 225b, 226a, 228a, 228b…</td></tr>
 <tr><td><code>RECOMPTE_MAL_FET</code></td><td>15</td><td>220a, 221b, 221c, 222a, 222a, 224b, 224b, 227, 227, 227, 228a, 230a, 231, 234a…</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>15</td><td>260a, 260b, 260c, 260d, 263a, 266a, 267a, 267a, 267b, 267b, 268a, 268b, 268c, 269a…</td></tr>
 <tr><td><code>F_ACUMULADA_NO_CREIXENT</code></td><td>14</td><td>220b, 221b, 221c, 221d, 222b, 224c, 224c, 224d, 225b, 228b, 230b, 230b, 234c, 234c</td></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>11</td><td>235b, 230d, 266a, 266b, 272a, 272b, 273a, 274a, 274a, 274c, 274c</td></tr>
+<tr><td><code>MEDIANA_PER_MITJANA</code></td><td>10</td><td>260a, 260b, 260c, 260d, 261a, 261b, 261c, 261d, 263a, 263b</td></tr>
 <tr><td><code>MOSTRA_POBLACIO_INVERTIDES</code></td><td>8</td><td>218a, 218b, 218c, 218d, 218e, 218f, 218f, 218g</td></tr>
 <tr><td><code>FREQ_RELATIVA_MAL_CALCULADA</code></td><td>8</td><td>226a, 226c, 226c, 226d, 226d, 230a, 230c, 230c</td></tr>
+<tr><td><code>ES_POT_DETERMINAR</code></td><td>7</td><td>219b, 223c, 232a, 268b, 272a, 272b, 273a</td></tr>
 <tr><td><code>DIAGRAMA_HISTOGRAMA_CONFOSOS</code></td><td>6</td><td>228c, 228c, 228c, 232c, 232c, 232c</td></tr>
+<tr><td><code>MODA_PER_FREQUENCIA</code></td><td>6</td><td>262a, 262b, 262c, 262d, 263b, 263c</td></tr>
+<tr><td><code>MESURA_MAL_TRIADA</code></td><td>6</td><td>264, 264, 264, 268a, 268c, 271b</td></tr>
+<tr><td><code>MEDIANA_SENSE_ORDENAR</code></td><td>5</td><td>261a, 261b, 261c, 261d, 266b</td></tr>
+<tr><td><code>MEDIANA_PER_MODA</code></td><td>5</td><td>262a, 262b, 262c, 262d, 263c</td></tr>
+<tr><td><code>EL_MES_GRAN</code></td><td>5</td><td>262a, 262b, 262c, 262d, 263c</td></tr>
 <tr><td><code>POLIGON_MAL_CONSTRUIT</code></td><td>4</td><td>232a, 232b, 232b, 232b</td></tr>
-<tr><td><code>ES_POT_DETERMINAR</code></td><td>3</td><td>219b, 223c, 232a</td></tr>
+<tr><td><code>DIVIDIT_PER_VALORS_DIFERENTS</code></td><td>4</td><td>260a, 260b, 260c, 260d</td></tr>
+<tr><td><code>RANG_PER_MEDIANA</code></td><td>4</td><td>261a, 261b, 261c, 261d</td></tr>
+<tr><td><code>EXTREM_SENSE_EFECTE</code></td><td>4</td><td>266a, 266b, 272a, 274c</td></tr>
+<tr><td><code>DESVIACIONS_SENSE_QUADRAT</code></td><td>4</td><td>269b, 270a, 270b, 270c</td></tr>
+<tr><td><code>DIVISIO_OBLIDADA</code></td><td>4</td><td>270a, 270b, 270c, 271a</td></tr>
+<tr><td><code>SIGNE_FINAL</code></td><td>3</td><td>268a, 268b, 268c</td></tr>
+<tr><td><code>ARREL_OBLIDADA</code></td><td>3</td><td>270a, 270b, 270c</td></tr>
+<tr><td><code>VARIANCIA_PER_DESVIACIO</code></td><td>3</td><td>271a, 271b, 274b</td></tr>
 <tr><td><code>CRITERI_AGRUPACIO_MAL</code></td><td>2</td><td>235b, 235b</td></tr>
-<tr><td><code>VEREDICTE_INVERTIT</code></td><td>2</td><td>235b, 230d</td></tr>
 <tr><td><code>SECTOR_ANGLE_MAL_CALCULAT</code></td><td>2</td><td>229, 229</td></tr>
+<tr><td><code>FREQUENCIA_NO_PONDERADA</code></td><td>2</td><td>263a, 271a</td></tr>
+<tr><td><code>PES_IGNORAT</code></td><td>2</td><td>265a, 265b</td></tr>
+<tr><td><code>DIVISIO_SOBRERA</code></td><td>2</td><td>265a, 265b</td></tr>
+<tr><td><code>PES_MAL_APLICAT</code></td><td>2</td><td>265a, 265b</td></tr>
+<tr><td><code>N_MAL_COMPTAT</code></td><td>2</td><td>267a, 267b</td></tr>
+<tr><td><code>VALOR_ABSOLUT_INDEGUT</code></td><td>2</td><td>269a, 269b</td></tr>
+<tr><td><code>CV_SENSE_DIVIDIR</code></td><td>2</td><td>273a, 273b</td></tr>
+<tr><td><code>CONSTANT_AFECTA_DISPERSIO</code></td><td>2</td><td>274a, 274b</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>1</td><td>226b</td></tr>
 <tr><td><code>INTERVAL_LIMIT_MAL_ASSIGNAT</code></td><td>1</td><td>228a</td></tr>
 <tr><td><code>ESCALA_ALTERA_DADES</code></td><td>1</td><td>232a</td></tr>
+<tr><td><code>ACUMULADA_MAL_LLEGIDA</code></td><td>1</td><td>263b</td></tr>
+<tr><td><code>DESVIACIONS_AL_QUADRAT</code></td><td>1</td><td>269a</td></tr>
+<tr><td><code>ARREL_MAL_APLICADA</code></td><td>1</td><td>271b</td></tr>
+<tr><td><code>MITJANA_NO_DIU_DISPERSIO</code></td><td>1</td><td>272b</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>1</td><td>273b</td></tr>
+<tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>1</td><td>273b</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>1</td><td>274b</td></tr>
 </table></html>

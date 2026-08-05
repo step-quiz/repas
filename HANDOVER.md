@@ -153,6 +153,34 @@ controladors surten amb un `if (!window.FULL) return;`.
 
 ---
 
+### 3.3bis Contingut nou: centralització i dispersió (Full 11)
+
+`c_centralitzacio.py` és l'únic mòdul que **no transcriu res de la font**: hi
+ha els exercicis 260–274, amb mitjana, mediana, moda, recorregut, variància,
+desviació típica i coeficient de variació. El material de partida no en porta
+cap, i sense això un alumne podia fer el Full 11 sencer i acabar sabent muntar
+taules de freqüències però no calcular una mitjana.
+
+Tres coses per saber si s'hi torna:
+
+- **Numeració a partir del 260.** Els números 1–259 són els de la font.
+  Barrejar-hi material nou faria impossible saber d'on surt cada exercici.
+- **El mòdul va SEMPRE l'últim** a `FULLS[11]["moduls"]`. L'ordre dels ítems
+  al banc és l'ordre d'inscripció, i el codi de verificació guarda els estats
+  per POSICIÓ: si els ítems nous no s'afegissin al final, tots els codis ja
+  emesos passarien a llegir-se malament. Comprovat: els 52 ítems que hi havia
+  segueixen a les mateixes posicions i el codi de proves d'abans es continua
+  llegint igual.
+- **Les llistes de dades estan triades perquè les quatre opcions surtin
+  diferents.** A la mitjana, per exemple, la mitjana, la mediana, la suma i la
+  "mitjana dels valors diferents" han de donar quatre nombres distints; si no,
+  `_valida()` atura la compilació i, pitjor, l'ítem no distingiria l'error que
+  vol distingir. Sempre que es pot es reutilitzen els conjunts de dades que ja
+  surten al full (els viatges del 222, les talles del 227).
+
+La variància i la desviació típica es calculen dividint per $N$ (les de la
+població), que és la convenció de l'ESO. La versió amb $N-1$ no hi surt.
+
 ### 3.4 El codi de verificació
 
 `js/codi.js` conté **el generador i el lector al mateix fitxer**, i això és
