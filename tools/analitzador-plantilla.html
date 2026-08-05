@@ -107,7 +107,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
         marca temporal o grup, també les farà servir.
       </p>
-      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC1AM-8599X-…"></textarea>
+      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC2AM-8599X-…"></textarea>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
         <button class="btn" id="btn-llegeix">Llegeix</button>
         <label class="btn buit" style="position:relative;overflow:hidden">
@@ -237,7 +237,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   <section id="v-un" hidden>
     <div class="targeta">
       <h3>Enganxa un codi</h3>
-      <input type="text" id="codi-un" placeholder="RC1AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+      <input type="text" id="codi-un" placeholder="RC2AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
       <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
     </div>
     <div id="un-resultat" style="margin-top:1rem"></div>
@@ -338,7 +338,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      columna es digui de cap manera concreta: si les capçaleres no ajuden,
      es busca la columna que conté un codi. */
   function buscaCodi(text) {
-    var m = String(text || "").toUpperCase().match(/RC1[0-9A-Z\-\s]{10,}/);
+    var m = String(text || "").toUpperCase().match(/RC[12][0-9A-Z\-\s]{10,}/);
     return m ? m[0].trim() : null;
   }
 
@@ -707,7 +707,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var brut = llegeixFull(txt);
     if (!brut.length) {
       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
-        + "Els codis comencen per RC1.</span>";
+        + "Els codis comencen per RC2 (o RC1, els antics).</span>";
       return;
     }
     FORMAT_DATA = detectaFormatData(brut);
