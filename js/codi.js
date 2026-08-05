@@ -16,11 +16,11 @@
 
    ── FORMAT ────────────────────────────────────────────────────────────────
 
-     RC1 SSS DD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
+     RC2 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
 
-     RC1   3   marca i versió
+     RC2   3   marca i versió
      SSS   3   salt aleatori
-     DD    2   dia (dies des de l'1/9/2025)
+     DDD   3   dia (dies des de l'1/9/2025)
      HH    2   hora (minuts/2 des de mitjanit)
      MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
      G     1   nombre de grups d'aquest full
@@ -75,6 +75,14 @@ window.RE_CODI = (function () {
   var ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
 
   var EPOCA = Date.UTC(2025, 8, 1);           /* 1 de setembre de 2025 */
+
+  /* La data ocupa 3 caràcters (32768 dies, fins al 2115). A la versió RC1
+     n'ocupava 2, i això topava als 1024 dies: a partir del 20 de juny de 2028
+     tots els codis haurien dit la mateixa data, en silenci i sense que res
+     avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
+     caràcter arreglar-ho. El lector accepta les dues versions. */
+  var CAR_DIA = { RC1: 2, RC2: 3 };
+  var VERSIO = "RC2";
   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
   var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
 
@@ -133,14 +141,14 @@ window.RE_CODI = (function () {
     for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
 
     var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
-    dia = Math.max(0, Math.min(1023, dia));
+    dia = Math.max(0, Math.min(32767, dia));
     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
 
     var mask = 0;
     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
     if (diag) mask |= (1 << 12);
 
-    var cos = "RC1" + salt + enc(dia, 2) + enc(hora, 2) + enc(mask, 3);
+    var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
 
     fulls.forEach(function (f) {
       var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
@@ -197,8 +205,9 @@ window.RE_CODI = (function () {
     var T = window.RE_TAULES;
     var s = neteja(raw);
     if (!s) return { ok: false, error: "Codi buit" };
-    if (s.slice(0, 3) !== "RC1") {
-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC1)" };
+    var versio = s.slice(0, 3);
+    if (!CAR_DIA[versio]) {
+      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2)" };
     }
     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
 
@@ -209,7 +218,7 @@ window.RE_CODI = (function () {
 
     var p = 3;
     var salt = s.slice(p, p + 3); p += 3;
-    var dia = dec(s.slice(p, p + 2)); p += 2;
+    var dia = dec(s.slice(p, p + CAR_DIA[versio])); p += CAR_DIA[versio];
     var hora = dec(s.slice(p, p + 2)); p += 2;
     var mask = dec(s.slice(p, p + 3)); p += 3;
 
@@ -262,7 +271,7 @@ window.RE_CODI = (function () {
     }
 
     r = {
-      ok: true, integre: integre, salt: salt,
+      ok: true, integre: integre, salt: salt, versio: versio,
       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
       fulls: fulls, diag: diag, errs: errs,
       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
