@@ -204,7 +204,13 @@ decisions que costen més de reconstruir des del codi:
   un alumne que passa dels exercicis directes als problemes semblaria que
   empitjora;
   (d) la feina anterior al trimestre no compta: la línia de base és l'últim
-  codi anterior al període.
+  codi anterior al període;
+  (e) la línia de base és **acumulativa** —la unió de tot el que s'ha vist—,
+  no l'últim codi tot sol. Normalment és el mateix, perquè cada codi conté
+  l'anterior. Deixa de ser-ho si l'alumne perd les dades del navegador i torna
+  a començar: llavors el seu codi següent en porta menys, i amb una base no
+  acumulativa el que repetia es tornava a comptar i el volum sortia inflat.
+  L'analitzador detecta la caiguda i l'avisa.
 - **Les qualificacions no es recalculen a cada tecla.** Hi ha un botó
   «Accepta i calcula», i mentre hi hagi canvis sense aplicar el botó es posa
   ambre i ho diu. Posar una nota a algú no és una previsualització, i veure

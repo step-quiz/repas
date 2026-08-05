@@ -1,10 +1,18 @@
 diff -ru a/HANDOVER.md b/HANDOVER.md
---- a/HANDOVER.md	2026-08-05 12:31:31.640738821 +0000
-+++ b/HANDOVER.md	2026-08-05 12:31:31.642382146 +0000
-@@ -205,10 +205,27 @@
+--- a/HANDOVER.md	2026-08-05 12:43:01.839884338 +0000
++++ b/HANDOVER.md	2026-08-05 12:43:01.840962233 +0000
+@@ -204,11 +204,34 @@
+   un alumne que passa dels exercicis directes als problemes semblaria que
    empitjora;
    (d) la feina anterior al trimestre no compta: la línia de base és l'últim
-   codi anterior al període.
+-  codi anterior al període.
++  codi anterior al període;
++  (e) la línia de base és **acumulativa** —la unió de tot el que s'ha vist—,
++  no l'últim codi tot sol. Normalment és el mateix, perquè cada codi conté
++  l'anterior. Deixa de ser-ho si l'alumne perd les dades del navegador i torna
++  a començar: llavors el seu codi següent en porta menys, i amb una base no
++  acumulativa el que repetia es tornava a comptar i el volum sortia inflat.
++  L'analitzador detecta la caiguda i l'avisa.
 +- **Les qualificacions no es recalculen a cada tecla.** Hi ha un botó
 +  «Accepta i calcula», i mentre hi hagi canvis sense aplicar el botó es posa
 +  ambre i ho diu. Posar una nota a algú no és una previsualització, i veure
@@ -30,9 +38,24 @@ diff -ru a/HANDOVER.md b/HANDOVER.md
    a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
    de 30 min) la precisió al minut no aporta res.
 diff -ru a/README.md b/README.md
---- a/README.md	2026-08-05 12:31:31.607115469 +0000
-+++ b/README.md	2026-08-05 12:31:31.608739299 +0000
-@@ -149,7 +149,9 @@
+--- a/README.md	2026-08-05 12:43:01.801067667 +0000
++++ b/README.md	2026-08-05 12:43:01.806102663 +0000
+@@ -140,16 +140,21 @@
+   enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
+   arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
+   exercici no es pot comparar amb un 6,6 sobre quaranta.
+-- **És acumulatiu.** Cada codi conté tot el que s'ha fet fins llavors, no
+-  només el d'aquella estona. Si l'alumne s'oblida d'enviar-ne un, el següent
+-  ja ho porta tot, i el professorat només ha de mirar l'últim de cadascú.
++- **És acumulatiu i no es reinicia mai.** Cada codi conté tot el que s'ha fet
++  fins llavors, no només el d'aquella estona; copiar-lo no posa cap comptador
++  a zero. Si l'alumne s'oblida d'enviar-ne un, el següent ja ho porta tot, i
++  el professorat només ha de mirar l'últim de cadascú. L'única cosa que fa
++  baixar el comptador és perdre les dades del navegador (esborrar-les, canviar
++  de dispositiu, finestra privada); l'analitzador ho detecta i ho avisa.
+ - **Antifrau.** Acaba amb dos caràcters calculats sobre tots els altres, en
+   l'esperit de la lletra del DNI però amb mòdul primer i pesos per posició:
+   detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
    de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
    de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
  - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
@@ -44,8 +67,8 @@ diff -ru a/README.md b/README.md
    entre dos codis seguits d'un mateix alumne és exactament la feina feta
    entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes
 diff -ru a/analitzador-repas.html b/analitzador-repas.html
---- a/analitzador-repas.html	2026-08-05 12:31:31.614738805 +0000
-+++ b/analitzador-repas.html	2026-08-05 12:31:31.616369987 +0000
+--- a/analitzador-repas.html	2026-08-05 12:43:01.813067667 +0000
++++ b/analitzador-repas.html	2026-08-05 12:43:01.818254916 +0000
 @@ -73,6 +73,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
@@ -265,7 +288,52 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    };
  
    $("#btn-csv").onclick = function () {
-@@ -1270,19 +1355,90 @@
+@@ -1178,17 +1263,31 @@
+       });
+       /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
+          anterior al període com a línia de base. */
+-      var prev = abans.length ? abans[abans.length - 1].mapa : {};
++      var prev = {};
++      if (abans.length) Object.keys(abans[abans.length - 1].mapa).forEach(function (id) {
++        prev[id] = abans[abans.length - 1].mapa[id];
++      });
+ 
++      /* La línia de base és ACUMULATIVA: la unió de tot el que s'ha vist fins
++         ara, no l'últim codi tot sol. Normalment és el mateix, perquè cada
++         codi conté l'anterior. Deixa de ser-ho si l'alumne perd les dades del
++         navegador (les esborra, canvia de dispositiu, finestra privada) i
++         torna a començar: llavors el seu codi següent porta MENYS exercicis
++         que el previ. Amb una línia de base acumulativa, allò que repeteix no
++         es torna a comptar; amb l'últim codi tot sol, sí, i el volum del
++         trimestre sortia inflat. */
++      var perduda = [];
+       var passos = [];
+       dins.forEach(function (c) {
+-        var nous = [], repetits = [];
++        var nous = [], repetits = [], vistos = Object.keys(c.mapa).length;
++        var previs = Object.keys(prev).length;
+         Object.keys(c.mapa).forEach(function (id) {
+           if (!prev[id]) nous.push(c.mapa[id]);
+           else if (prev[id].e !== c.mapa[id].e) repetits.push({ e: c.mapa[id].e, d: c.mapa[id].d, abans: prev[id].e });
+         });
+-        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: Object.keys(c.mapa).length });
+-        prev = c.mapa;
++        if (previs && vistos < previs) perduda.push({ quan: c.quan, abans: previs, ara: vistos });
++        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: vistos });
++        Object.keys(c.mapa).forEach(function (id) { prev[id] = c.mapa[id]; });
+       });
+ 
+       /* Un enviament només compta com a dia de feina si porta exercicis nous.
+@@ -1251,7 +1350,7 @@
+         dies: nDies, setmanes: nSetm, passos: ambFeina,
+         exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
+         dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
+-        comp: comp, nota: nota,
++        comp: comp, nota: nota, perduda: perduda,
+         primer: dins.length ? dins[0].quan : null,
+         ultim: dins.length ? dins[dins.length - 1].quan : null
+       };
+@@ -1270,19 +1369,90 @@
        Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
    }
  
@@ -314,21 +382,21 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
 -      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes '
 +        + "a la pestanya <b>Full de respostes</b>.</div>";
-+      return;
-+    }
-+    if (!cfgAplicada) {
-+      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
-+        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
        return;
      }
 -    var cfg = cfgProgres();
++    if (!cfgAplicada) {
++      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
++        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
++      return;
++    }
 +    var cfg = cfgAplicada;
      var res = analitzaTrimestre(files, cfg);
      if (!res.length) {
 -      $("#p-resultats").innerHTML = '<div class="buit">Cap alumne amb codis vàlids en aquest període.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Cap codi vàlid al full.</div>';
-       return;
-     }
++      return;
++    }
 +    /* Qui té codis al full però cap dins del període hi surt igualment, amb
 +       un zero: no haver fet res durant el trimestre és una nota, no una
 +       absència de dades. Ara bé, si això li passa a TOTHOM, el més probable
@@ -340,9 +408,10 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
 +        + "entre aquestes dues dates.<br><span class=\"petit\">Els codis del full van "
 +        + "del <b>" + mn.toISOString().slice(0, 10) + "</b> al <b>"
 +        + mx.toISOString().slice(0, 10) + "</b>.</span></div>";
-+      return;
-+    }
-+
+       return;
+     }
+ 
+-    var h = '<h2>Qualificació del període</h2>';
 +    /* Que sempre quedi escrit a quines condicions correspon el que es veu:
 +       una nota sense el període i els objectius al costat no vol dir res. */
 +    var dt = function (d) {
@@ -354,27 +423,66 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
 +      + '<span class="apagat"> amb feina i </span><b>' + cfg.exercicis + " exercicis</b>"
 +      + (cfg.difPes ? '<span class="apagat">, ponderats per dificultat</span>' : "")
 +      + '<span class="apagat"> · pesos ' + cfg.pesos.join("/") + "</span></div>";
- 
--    var h = '<h2>Qualificació del període</h2>';
++
 +    h += '<h2>Qualificació del període</h2>';
      h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
        + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
        + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
-@@ -1290,7 +1446,10 @@
+@@ -1290,8 +1460,14 @@
  
      res.forEach(function (a, i) {
        h += '<tr class="clic" data-p="' + i + '">'
 -        + "<td>" + a.alumne + '</td><td class="apagat">' + (a.grup || "—") + "</td>"
+-        + "<td>" + a.dies + (a.enviaments > a.ambFeina
 +        + "<td>" + a.alumne + (a.enviaments ? "" :
 +            ' <span class="xip" title="Té codis al full, però cap en aquest període">'
 +            + "res en aquest període</span>") + "</td>"
 +        + '<td class="apagat">' + (a.grup || "—") + "</td>"
-         + "<td>" + a.dies + (a.enviaments > a.ambFeina
++        + "<td>" + (a.perduda.length
++            ? '<span class="marca avis" title="En algun moment el seu codi va portar menys '
++              + 'exercicis que abans: sembla que va perdre les dades del navegador">!</span> ' : "")
++        + a.dies + (a.enviaments > a.ambFeina
              ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
                + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
+         + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
+@@ -1328,6 +1504,14 @@
+       + dada("Constància fluixa", pocaConst + " de " + res.length)
+       + "</div>";
+ 
++    var perduts = res.filter(function (a) { return a.perduda.length; });
++    if (perduts.length) {
++      h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
++        + "<b>Han perdut el progrés del navegador</b> en algun moment: "
++        + perduts.map(function (a) { return a.alumne; }).join(", ")
++        + ". Convé recordar-los que facin servir sempre el mateix navegador.</p>";
++    }
++
+     if (concentrat.length) {
+       h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
+         + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
+@@ -1408,6 +1592,19 @@
+     });
+     h += "</table></div>";
+ 
++    if (a.perduda.length) {
++      h += '<p class="petit" style="margin-top:.6rem"><span class="marca avis">!</span> '
++        + "<b>Sembla que ha perdut el progrés del navegador.</b> ";
++      a.perduda.forEach(function (x) {
++        h += "El " + x.quan.toISOString().slice(0, 10) + " el seu codi va passar de portar "
++          + x.abans + " exercicis a portar-ne " + x.ara + ". ";
++      });
++      h += "El progrés es desa al navegador: esborrar-ne les dades, canviar de "
++        + "dispositiu o treballar en una finestra privada el fa començar de zero. "
++        + "El que ja tenia comptat no s'ha perdut (els codis anteriors el porten), "
++        + "i el que ha repetit no s'ha tornat a comptar.</p>";
++    }
++
+     if (a.enviaments > a.ambFeina) {
+       h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
+         + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
 diff -ru a/exemple-respostes.csv b/exemple-respostes.csv
---- a/exemple-respostes.csv	2026-08-05 12:31:31.632793365 +0000
-+++ b/exemple-respostes.csv	2026-08-05 12:31:31.635518364 +0000
+--- a/exemple-respostes.csv	2026-08-05 12:43:01.831348301 +0000
++++ b/exemple-respostes.csv	2026-08-05 12:43:01.835286613 +0000
 @@ -0,0 +1,27 @@
 +﻿Marca de temps;Adreça electrònica;Selecciona la classe;Enganxa aquí el codi que has copiat a step-quiz
 +9/22/2026 18:40:28;aina.puig@insterrassa.cat;1r BAT A;RC1HA-4C2HG-40117-0BR6J-D9C15-VFP4C-3ZZ0Z-Z0HB
@@ -404,8 +512,8 @@ diff -ru a/exemple-respostes.csv b/exemple-respostes.csv
 +12/3/2026 14:45:17;dani.serra@insterrassa.cat;1r BAT B;RC1TG-5DEEC-00124-HW72B-Y04C3-ZZ0ZZ-0YP
 +12/4/2026 16:10:43;claudia.moya@insterrassa.cat;1r BAT B;RC1SE-DEBF5-00537-16D5M-N1716-R34XV-Q4V53-48P04-Z63V3-ZZ072
 diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
---- a/tools/analitzador-plantilla.html	2026-08-05 12:31:31.622792047 +0000
-+++ b/tools/analitzador-plantilla.html	2026-08-05 12:31:31.624491419 +0000
+--- a/tools/analitzador-plantilla.html	2026-08-05 12:43:01.825360072 +0000
++++ b/tools/analitzador-plantilla.html	2026-08-05 12:43:01.826511793 +0000
 @@ -73,6 +73,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
@@ -625,7 +733,52 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
    };
  
    $("#btn-csv").onclick = function () {
-@@ -934,19 +1019,90 @@
+@@ -842,17 +927,31 @@
+       });
+       /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
+          anterior al període com a línia de base. */
+-      var prev = abans.length ? abans[abans.length - 1].mapa : {};
++      var prev = {};
++      if (abans.length) Object.keys(abans[abans.length - 1].mapa).forEach(function (id) {
++        prev[id] = abans[abans.length - 1].mapa[id];
++      });
+ 
++      /* La línia de base és ACUMULATIVA: la unió de tot el que s'ha vist fins
++         ara, no l'últim codi tot sol. Normalment és el mateix, perquè cada
++         codi conté l'anterior. Deixa de ser-ho si l'alumne perd les dades del
++         navegador (les esborra, canvia de dispositiu, finestra privada) i
++         torna a començar: llavors el seu codi següent porta MENYS exercicis
++         que el previ. Amb una línia de base acumulativa, allò que repeteix no
++         es torna a comptar; amb l'últim codi tot sol, sí, i el volum del
++         trimestre sortia inflat. */
++      var perduda = [];
+       var passos = [];
+       dins.forEach(function (c) {
+-        var nous = [], repetits = [];
++        var nous = [], repetits = [], vistos = Object.keys(c.mapa).length;
++        var previs = Object.keys(prev).length;
+         Object.keys(c.mapa).forEach(function (id) {
+           if (!prev[id]) nous.push(c.mapa[id]);
+           else if (prev[id].e !== c.mapa[id].e) repetits.push({ e: c.mapa[id].e, d: c.mapa[id].d, abans: prev[id].e });
+         });
+-        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: Object.keys(c.mapa).length });
+-        prev = c.mapa;
++        if (previs && vistos < previs) perduda.push({ quan: c.quan, abans: previs, ara: vistos });
++        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: vistos });
++        Object.keys(c.mapa).forEach(function (id) { prev[id] = c.mapa[id]; });
+       });
+ 
+       /* Un enviament només compta com a dia de feina si porta exercicis nous.
+@@ -915,7 +1014,7 @@
+         dies: nDies, setmanes: nSetm, passos: ambFeina,
+         exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
+         dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
+-        comp: comp, nota: nota,
++        comp: comp, nota: nota, perduda: perduda,
+         primer: dins.length ? dins[0].quan : null,
+         ultim: dins.length ? dins[dins.length - 1].quan : null
+       };
+@@ -934,19 +1033,90 @@
        Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
    }
  
@@ -674,21 +827,21 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
 -      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes '
 +        + "a la pestanya <b>Full de respostes</b>.</div>";
-+      return;
-+    }
-+    if (!cfgAplicada) {
-+      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
-+        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
        return;
      }
 -    var cfg = cfgProgres();
++    if (!cfgAplicada) {
++      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
++        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
++      return;
++    }
 +    var cfg = cfgAplicada;
      var res = analitzaTrimestre(files, cfg);
      if (!res.length) {
 -      $("#p-resultats").innerHTML = '<div class="buit">Cap alumne amb codis vàlids en aquest període.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Cap codi vàlid al full.</div>';
-       return;
-     }
++      return;
++    }
 +    /* Qui té codis al full però cap dins del període hi surt igualment, amb
 +       un zero: no haver fet res durant el trimestre és una nota, no una
 +       absència de dades. Ara bé, si això li passa a TOTHOM, el més probable
@@ -700,9 +853,10 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
 +        + "entre aquestes dues dates.<br><span class=\"petit\">Els codis del full van "
 +        + "del <b>" + mn.toISOString().slice(0, 10) + "</b> al <b>"
 +        + mx.toISOString().slice(0, 10) + "</b>.</span></div>";
-+      return;
-+    }
-+
+       return;
+     }
+ 
+-    var h = '<h2>Qualificació del període</h2>';
 +    /* Que sempre quedi escrit a quines condicions correspon el que es veu:
 +       una nota sense el període i els objectius al costat no vol dir res. */
 +    var dt = function (d) {
@@ -714,27 +868,66 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
 +      + '<span class="apagat"> amb feina i </span><b>' + cfg.exercicis + " exercicis</b>"
 +      + (cfg.difPes ? '<span class="apagat">, ponderats per dificultat</span>' : "")
 +      + '<span class="apagat"> · pesos ' + cfg.pesos.join("/") + "</span></div>";
- 
--    var h = '<h2>Qualificació del període</h2>';
++
 +    h += '<h2>Qualificació del període</h2>';
      h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
        + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
        + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
-@@ -954,7 +1110,10 @@
+@@ -954,8 +1124,14 @@
  
      res.forEach(function (a, i) {
        h += '<tr class="clic" data-p="' + i + '">'
 -        + "<td>" + a.alumne + '</td><td class="apagat">' + (a.grup || "—") + "</td>"
+-        + "<td>" + a.dies + (a.enviaments > a.ambFeina
 +        + "<td>" + a.alumne + (a.enviaments ? "" :
 +            ' <span class="xip" title="Té codis al full, però cap en aquest període">'
 +            + "res en aquest període</span>") + "</td>"
 +        + '<td class="apagat">' + (a.grup || "—") + "</td>"
-         + "<td>" + a.dies + (a.enviaments > a.ambFeina
++        + "<td>" + (a.perduda.length
++            ? '<span class="marca avis" title="En algun moment el seu codi va portar menys '
++              + 'exercicis que abans: sembla que va perdre les dades del navegador">!</span> ' : "")
++        + a.dies + (a.enviaments > a.ambFeina
              ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
                + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
+         + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
+@@ -992,6 +1168,14 @@
+       + dada("Constància fluixa", pocaConst + " de " + res.length)
+       + "</div>";
+ 
++    var perduts = res.filter(function (a) { return a.perduda.length; });
++    if (perduts.length) {
++      h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
++        + "<b>Han perdut el progrés del navegador</b> en algun moment: "
++        + perduts.map(function (a) { return a.alumne; }).join(", ")
++        + ". Convé recordar-los que facin servir sempre el mateix navegador.</p>";
++    }
++
+     if (concentrat.length) {
+       h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
+         + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
+@@ -1072,6 +1256,19 @@
+     });
+     h += "</table></div>";
+ 
++    if (a.perduda.length) {
++      h += '<p class="petit" style="margin-top:.6rem"><span class="marca avis">!</span> '
++        + "<b>Sembla que ha perdut el progrés del navegador.</b> ";
++      a.perduda.forEach(function (x) {
++        h += "El " + x.quan.toISOString().slice(0, 10) + " el seu codi va passar de portar "
++          + x.abans + " exercicis a portar-ne " + x.ara + ". ";
++      });
++      h += "El progrés es desa al navegador: esborrar-ne les dades, canviar de "
++        + "dispositiu o treballar en una finestra privada el fa començar de zero. "
++        + "El que ja tenia comptat no s'ha perdut (els codis anteriors el porten), "
++        + "i el que ha repetit no s'ha tornat a comptar.</p>";
++    }
++
+     if (a.enviaments > a.ambFeina) {
+       h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
+         + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
 diff -ru a/tools/fes-exemple.js b/tools/fes-exemple.js
---- a/tools/fes-exemple.js	2026-08-05 12:31:31.624793365 +0000
-+++ b/tools/fes-exemple.js	2026-08-05 12:31:31.630130935 +0000
+--- a/tools/fes-exemple.js	2026-08-05 12:43:01.826511793 +0000
++++ b/tools/fes-exemple.js	2026-08-05 12:43:01.831348301 +0000
 @@ -0,0 +1,159 @@
 +/* Genera un full de respostes versemblant per provar l'analitzador.
 +   Els codis són reals: els fa el mateix js/codi.js del projecte, i per tant

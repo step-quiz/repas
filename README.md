@@ -140,9 +140,12 @@ s'encalla la classe i si el codi és autèntic.
   enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
   arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
   exercici no es pot comparar amb un 6,6 sobre quaranta.
-- **És acumulatiu.** Cada codi conté tot el que s'ha fet fins llavors, no
-  només el d'aquella estona. Si l'alumne s'oblida d'enviar-ne un, el següent
-  ja ho porta tot, i el professorat només ha de mirar l'últim de cadascú.
+- **És acumulatiu i no es reinicia mai.** Cada codi conté tot el que s'ha fet
+  fins llavors, no només el d'aquella estona; copiar-lo no posa cap comptador
+  a zero. Si l'alumne s'oblida d'enviar-ne un, el següent ja ho porta tot, i
+  el professorat només ha de mirar l'últim de cadascú. L'única cosa que fa
+  baixar el comptador és perdre les dades del navegador (esborrar-les, canviar
+  de dispositiu, finestra privada); l'analitzador ho detecta i ho avisa.
 - **Antifrau.** Acaba amb dos caràcters calculats sobre tots els altres, en
   l'esperit de la lletra del DNI però amb mòdul primer i pesos per posició:
   detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
