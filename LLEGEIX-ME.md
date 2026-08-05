@@ -1,64 +1,51 @@
-# Analitzador: període sota demanda, dates, exemple i un error de recompte
+# Analitzador i format: període sota demanda, dates, exemple i dos errors
 
-**Puja aquests 7 fitxers sobre el teu repositori.** Substitueix qualsevol
-paquet anterior d'aquesta tanda: aquest els conté tots.
+**Puja aquests 8 fitxers.** Substitueix qualsevol paquet anterior d'aquesta
+tanda: aquest els conté tots.
 
 | Fitxer | |
 |---|---|
+| `js/codi.js` | modificat — **format RC2** |
 | `tools/analitzador-plantilla.html` · `analitzador-repas.html` | modificat / regenerat |
 | `exemple-respostes.csv` · `tools/fes-exemple.js` · `EXEMPLE-LLEGEIX-ME.md` | nous |
 | `README.md` · `HANDOVER.md` | modificats |
 
 ---
 
-## 1. El període i la feina, sota demanda
+## 1. Període i feina sota demanda
 
-La pestanya **Progrés del trimestre** demana les coses abans de calcular res:
-període (amb presets de trimestre), setmanes amb feina i exercicis en total.
-El càlcul el dispara el botó **Accepta i calcula**.
-
-Si toques un paràmetre després de calcular, el botó es posa ambre i avisa;
-les notes no es mouen fins que el prems. Sobre la taula queda escrit sempre
-amb quines condicions s'han calculat:
-
-> **20/09/2026 – 05/12/2026** · es demanen **11 setmanes** amb feina i
-> **60 exercicis**, ponderats per dificultat · pesos 35/35/20/10
-
-Avisa si falten dates, si estan a l'inrevés, i si ningú no ha enviat res entre
-les dues (llavors diu quin rang cobreixen els codis de debò). Qui té codis al
-full però cap dins del període hi surt amb un zero i l'etiqueta «res en aquest
-període».
+La pestanya **Progrés del trimestre** demana el període (amb presets) i quanta
+feina hi vols, i el càlcul el dispara el botó **Accepta i calcula**. Si toques
+un paràmetre després, el botó es posa ambre i les notes no es mouen fins que
+el prems. La capçalera del resultat repeteix sempre amb quines condicions s'ha
+calculat.
 
 ## 2. Format de data del formulari
 
 `8/5/2026` es llegia com al 8 de maig quan el codi era del 5 d'agost. Ara es
-detecta comparant-ho amb la data que el codi porta a dins, per majoria de tot
-el full, i l'analitzador diu quin format ha triat.
+detecta comparant-ho amb la data de dins del codi, per majoria de tot el full.
 
-## 3. Recompte inflat quan un alumne perd el navegador
+## 3. Recompte inflat en perdre el navegador
 
-**Aquest és el més important.** El progrés viu al `localStorage`: si l'alumne
-esborra les dades, canvia de dispositiu o treballa en una finestra privada,
-torna a començar de zero i el seu codi següent porta **menys** exercicis que
-l'anterior.
+La línia de base era l'últim codi rebut. Si un alumne perd les dades del
+navegador i refà exercicis, això els tornava a comptar: en una simulació de
+40 exercicis fets, perduts i 13 refets, en comptava **47**. Ara la línia de
+base és la unió de tot el que s'ha vist i en compta **40**. La caiguda es
+detecta i s'avisa a la fila, al detall i al resum de classe.
 
-La línia de base amb què es calculava la feina de cada període era l'últim
-codi rebut. Després d'una pèrdua, això feia que tot el que l'alumne repetia es
-tornés a comptar: en una simulació d'algú que va fer 40 exercicis, els va
-perdre i en va refer 13, **l'analitzador en comptava 47**.
+## 4. La data topava el 20 de juny de 2028
 
-Ara la línia de base és **acumulativa**: la unió de tot el que s'ha vist. En
-ús normal és exactament el mateix, perquè cada codi conté l'anterior; però
-davant d'una pèrdua, el que es repeteix ja no es torna a comptar. La mateixa
-simulació dona ara **40**, que és el correcte.
+La data ocupava 2 caràcters, és a dir 1024 dies des de l'1/9/2025. A partir
+del **20 de juny de 2028**, tots els codis haurien dit aquella mateixa data,
+**en silenci**: l'anàlisi per trimestres hauria quedat inservible sense que
+res avisés.
 
-A més, la caiguda es detecta i s'avisa: hi ha un ⚠ a la fila de l'alumne, el
-detall diu quan va passar i de quant a quant, i el resum de classe els llista
-per si convé recordar-los que facin servir sempre el mateix navegador.
+Ara n'ocupa 3 (32.768 dies, fins al 2115) i la marca de versió passa a
+**RC2**. Costa un caràcter. **El lector accepta les dues versions**, de manera
+que els codis RC1 que ja hagis recollit segueixen valent: ho he comprovat amb
+el que em vas enviar tu.
 
-## 4. Full de respostes d'exemple
+## 5. Full de respostes d'exemple
 
-`exemple-respostes.csv`: 4 alumnes, 26 enviaments, del 20/9 al 5/12 de 2026.
-Els codis són reals. Carrega'l, ves a **Progrés del trimestre**, posa del
-`2026-09-20` al `2026-12-05` amb 11 setmanes i 60 exercicis, i prem el botó.
-`EXEMPLE-LLEGEIX-ME.md` explica què representa cada alumne.
+`exemple-respostes.csv`: 4 alumnes, 26 enviaments, del 20/9 al 5/12 de 2026,
+ja en format RC2. `EXEMPLE-LLEGEIX-ME.md` explica què representa cadascun.

@@ -232,6 +232,20 @@ decisions que costen més de reconstruir des del codi:
   el 5 d'agost. Es resol comparant-ho amb la data que el codi porta a dins
   —entre generar-lo i enviar-lo passen minuts, no mesos— i es decideix per
   majoria per a tot el full. L'analitzador diu quin format ha triat.
+- **L'empaquetat és sense pèrdua, per construcció.** Set exercicis de 6 estats
+  possibles caben en 4 caràcters base32 perquè $6^7=279{.}936 \le 32^4=1{.}048{.}576$:
+  el canvi de base és injectiu i s'ha comprovat exhaustivament sobre les
+  279.936 combinacions. La sobrecàrrega respecte del mínim teòric és del 10,5 %,
+  que ve de quantitzar en grups de 7; són bits que sobren, no que falten.
+  L'enter més gran que es manipula és 279.935, deu ordres de magnitud per sota
+  del límit segur de JavaScript.
+- **Sí que hi ha pèrdua a tres llocs, tots deliberats i acotats:** l'hora va a
+  resolució de 2 minuts, el compte de cada etiqueta d'error topa a 31, i només
+  hi van les 3 etiquetes més repetides.
+- **La data ocupa 3 caràcters des de la versió RC2.** A l'RC1 n'ocupava 2, i
+  això topava als 1024 dies: a partir del 20 de juny de 2028 tots els codis
+  haurien dit la mateixa data, en silenci. El lector accepta les dues
+  versions, de manera que els codis ja emesos segueixen valent.
 - **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
   a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
   de 30 min) la precisió al minut no aporta res.

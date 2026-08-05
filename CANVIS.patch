@@ -1,7 +1,7 @@
 diff -ru a/HANDOVER.md b/HANDOVER.md
---- a/HANDOVER.md	2026-08-05 12:43:01.839884338 +0000
-+++ b/HANDOVER.md	2026-08-05 12:43:01.840962233 +0000
-@@ -204,11 +204,34 @@
+--- a/HANDOVER.md	2026-08-05 12:51:12.262844733 +0000
++++ b/HANDOVER.md	2026-08-05 12:51:12.263980721 +0000
+@@ -204,11 +204,48 @@
    un alumne que passa dels exercicis directes als problemes semblaria que
    empitjora;
    (d) la feina anterior al trimestre no compta: la línia de base és l'últim
@@ -34,12 +34,26 @@ diff -ru a/HANDOVER.md b/HANDOVER.md
 +  el 5 d'agost. Es resol comparant-ho amb la data que el codi porta a dins
 +  —entre generar-lo i enviar-lo passen minuts, no mesos— i es decideix per
 +  majoria per a tot el full. L'analitzador diu quin format ha triat.
++- **L'empaquetat és sense pèrdua, per construcció.** Set exercicis de 6 estats
++  possibles caben en 4 caràcters base32 perquè $6^7=279{.}936 \le 32^4=1{.}048{.}576$:
++  el canvi de base és injectiu i s'ha comprovat exhaustivament sobre les
++  279.936 combinacions. La sobrecàrrega respecte del mínim teòric és del 10,5 %,
++  que ve de quantitzar en grups de 7; són bits que sobren, no que falten.
++  L'enter més gran que es manipula és 279.935, deu ordres de magnitud per sota
++  del límit segur de JavaScript.
++- **Sí que hi ha pèrdua a tres llocs, tots deliberats i acotats:** l'hora va a
++  resolució de 2 minuts, el compte de cada etiqueta d'error topa a 31, i només
++  hi van les 3 etiquetes més repetides.
++- **La data ocupa 3 caràcters des de la versió RC2.** A l'RC1 n'ocupava 2, i
++  això topava als 1024 dies: a partir del 20 de juny de 2028 tots els codis
++  haurien dit la mateixa data, en silenci. El lector accepta les dues
++  versions, de manera que els codis ja emesos segueixen valent.
  - **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
    a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
    de 30 min) la precisió al minut no aporta res.
 diff -ru a/README.md b/README.md
---- a/README.md	2026-08-05 12:43:01.801067667 +0000
-+++ b/README.md	2026-08-05 12:43:01.806102663 +0000
+--- a/README.md	2026-08-05 12:51:12.238152186 +0000
++++ b/README.md	2026-08-05 12:51:12.239403208 +0000
 @@ -140,16 +140,21 @@
    enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
    arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
@@ -67,8 +81,8 @@ diff -ru a/README.md b/README.md
    entre dos codis seguits d'un mateix alumne és exactament la feina feta
    entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes
 diff -ru a/analitzador-repas.html b/analitzador-repas.html
---- a/analitzador-repas.html	2026-08-05 12:43:01.813067667 +0000
-+++ b/analitzador-repas.html	2026-08-05 12:43:01.818254916 +0000
+--- a/analitzador-repas.html	2026-08-05 12:51:12.243657948 +0000
++++ b/analitzador-repas.html	2026-08-05 12:51:12.244880416 +0000
 @@ -73,6 +73,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
@@ -82,6 +96,15 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  </style>
  </head>
  <body>
+@@ -101,7 +107,7 @@
+         obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
+         marca temporal o grup, també les farà servir.
+       </p>
+-      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC1AM-8599X-…"></textarea>
++      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC2AM-8599X-…"></textarea>
+       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
+         <button class="btn" id="btn-llegeix">Llegeix</button>
+         <label class="btn buit" style="position:relative;overflow:hidden">
 @@ -157,30 +163,45 @@
    <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
    <section id="v-progres" hidden>
@@ -159,7 +182,93 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      </div>
  
      <div id="p-resultats" style="margin-top:1rem"></div>
-@@ -627,7 +652,7 @@
+@@ -212,7 +237,7 @@
+   <section id="v-un" hidden>
+     <div class="targeta">
+       <h3>Enganxa un codi</h3>
+-      <input type="text" id="codi-un" placeholder="RC1AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
++      <input type="text" id="codi-un" placeholder="RC2AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+       <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
+     </div>
+     <div id="un-resultat" style="margin-top:1rem"></div>
+@@ -284,11 +309,11 @@
+ 
+    ── FORMAT ────────────────────────────────────────────────────────────────
+ 
+-     RC1 SSS DD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
++     RC2 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
+ 
+-     RC1   3   marca i versió
++     RC2   3   marca i versió
+      SSS   3   salt aleatori
+-     DD    2   dia (dies des de l'1/9/2025)
++     DDD   3   dia (dies des de l'1/9/2025)
+      HH    2   hora (minuts/2 des de mitjanit)
+      MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
+      G     1   nombre de grups d'aquest full
+@@ -343,6 +368,14 @@
+   var ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+ 
+   var EPOCA = Date.UTC(2025, 8, 1);           /* 1 de setembre de 2025 */
++
++  /* La data ocupa 3 caràcters (32768 dies, fins al 2115). A la versió RC1
++     n'ocupava 2, i això topava als 1024 dies: a partir del 20 de juny de 2028
++     tots els codis haurien dit la mateixa data, en silenci i sense que res
++     avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
++     caràcter arreglar-ho. El lector accepta les dues versions. */
++  var CAR_DIA = { RC1: 2, RC2: 3 };
++  var VERSIO = "RC2";
+   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
+   var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
+ 
+@@ -401,14 +434,14 @@
+     for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
+ 
+     var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
+-    dia = Math.max(0, Math.min(1023, dia));
++    dia = Math.max(0, Math.min(32767, dia));
+     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
+ 
+     var mask = 0;
+     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
+     if (diag) mask |= (1 << 12);
+ 
+-    var cos = "RC1" + salt + enc(dia, 2) + enc(hora, 2) + enc(mask, 3);
++    var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
+ 
+     fulls.forEach(function (f) {
+       var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
+@@ -465,8 +498,9 @@
+     var T = window.RE_TAULES;
+     var s = neteja(raw);
+     if (!s) return { ok: false, error: "Codi buit" };
+-    if (s.slice(0, 3) !== "RC1") {
+-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC1)" };
++    var versio = s.slice(0, 3);
++    if (!CAR_DIA[versio]) {
++      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2)" };
+     }
+     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
+ 
+@@ -477,7 +511,7 @@
+ 
+     var p = 3;
+     var salt = s.slice(p, p + 3); p += 3;
+-    var dia = dec(s.slice(p, p + 2)); p += 2;
++    var dia = dec(s.slice(p, p + CAR_DIA[versio])); p += CAR_DIA[versio];
+     var hora = dec(s.slice(p, p + 2)); p += 2;
+     var mask = dec(s.slice(p, p + 3)); p += 3;
+ 
+@@ -530,7 +564,7 @@
+     }
+ 
+     r = {
+-      ok: true, integre: integre, salt: salt,
++      ok: true, integre: integre, salt: salt, versio: versio,
+       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
+       fulls: fulls, diag: diag, errs: errs,
+       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
+@@ -627,7 +661,7 @@
        $("#v-full").hidden = b.dataset.mode !== "full";
        $("#v-progres").hidden = b.dataset.mode !== "progres";
        $("#v-un").hidden = b.dataset.mode !== "un";
@@ -168,7 +277,16 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
      };
    });
-@@ -693,9 +718,41 @@
+@@ -649,7 +683,7 @@
+      columna es digui de cap manera concreta: si les capçaleres no ajuden,
+      es busca la columna que conté un codi. */
+   function buscaCodi(text) {
+-    var m = String(text || "").toUpperCase().match(/RC1[0-9A-Z\-\s]{10,}/);
++    var m = String(text || "").toUpperCase().match(/RC[12][0-9A-Z\-\s]{10,}/);
+     return m ? m[0].trim() : null;
+   }
+ 
+@@ -693,9 +727,41 @@
      var m = String(ts).match(/(\d{1,2}):(\d{2})/);
      return m ? (+m[1]) * 60 + (+m[2]) : null;
    }
@@ -211,7 +329,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
      return m ? m[0] : "";
    }
-@@ -812,6 +869,7 @@
+@@ -812,6 +878,7 @@
        + dada("Amb pista", p.resum.comptes.pista)
        + dada("Al segon intent", p.resum.comptes.segon)
        + dada("Fallats", p.resum.comptes.fallat)
@@ -219,15 +337,19 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
        + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
        + "</div>";
-@@ -988,6 +1046,7 @@
-         + "Els codis comencen per RC1.</span>";
+@@ -985,9 +1052,10 @@
+     var brut = llegeixFull(txt);
+     if (!brut.length) {
+       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
+-        + "Els codis comencen per RC1.</span>";
++        + "Els codis comencen per RC2 (o RC1, els antics).</span>";
        return;
      }
 +    FORMAT_DATA = detectaFormatData(brut);
      files = processa(brut);
      obert = null;
      var sel = $("#f-full");
-@@ -996,11 +1055,16 @@
+@@ -996,11 +1064,16 @@
      vistos.sort(function (a, b) { return a - b; });
      sel.innerHTML = '<option value="">Tots els fulls</option>'
        + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
@@ -246,7 +368,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    }
  
    $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
-@@ -1017,9 +1081,26 @@
+@@ -1017,9 +1090,26 @@
  
    ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
     "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
@@ -275,7 +397,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  
    /* Els trimestres es dedueixen de l'any que tenen les dades, no d'un any
       fix: així el fitxer segueix servint el curs vinent. */
-@@ -1041,7 +1122,11 @@
+@@ -1041,7 +1131,11 @@
      } else if (v === "1") { posa((any - 1) + "-09-01", (any - 1) + "-12-22", 14); }
      else if (v === "2") { posa(any + "-01-08", any + "-03-31", 11); }
      else { posa(any + "-04-01", any + "-06-20", 11); }
@@ -288,7 +410,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    };
  
    $("#btn-csv").onclick = function () {
-@@ -1178,17 +1263,31 @@
+@@ -1178,17 +1272,31 @@
        });
        /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
           anterior al període com a línia de base. */
@@ -324,7 +446,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        });
  
        /* Un enviament només compta com a dia de feina si porta exercicis nous.
-@@ -1251,7 +1350,7 @@
+@@ -1251,7 +1359,7 @@
          dies: nDies, setmanes: nSetm, passos: ambFeina,
          exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
          dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
@@ -333,7 +455,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
          primer: dins.length ? dins[0].quan : null,
          ultim: dins.length ? dins[dins.length - 1].quan : null
        };
-@@ -1270,19 +1369,90 @@
+@@ -1270,19 +1378,90 @@
        Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
    }
  
@@ -428,7 +550,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
        + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
        + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
-@@ -1290,8 +1460,14 @@
+@@ -1290,8 +1469,14 @@
  
      res.forEach(function (a, i) {
        h += '<tr class="clic" data-p="' + i + '">'
@@ -445,7 +567,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
              ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
                + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
          + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
-@@ -1328,6 +1504,14 @@
+@@ -1328,6 +1513,14 @@
        + dada("Constància fluixa", pocaConst + " de " + res.length)
        + "</div>";
  
@@ -460,7 +582,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      if (concentrat.length) {
        h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
          + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
-@@ -1408,6 +1592,19 @@
+@@ -1408,6 +1601,19 @@
      });
      h += "</table></div>";
  
@@ -481,39 +603,119 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
          + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
 diff -ru a/exemple-respostes.csv b/exemple-respostes.csv
---- a/exemple-respostes.csv	2026-08-05 12:43:01.831348301 +0000
-+++ b/exemple-respostes.csv	2026-08-05 12:43:01.835286613 +0000
+--- a/exemple-respostes.csv	2026-08-05 12:51:12.254913290 +0000
++++ b/exemple-respostes.csv	2026-08-05 12:51:12.258878382 +0000
 @@ -0,0 +1,27 @@
 +﻿Marca de temps;Adreça electrònica;Selecciona la classe;Enganxa aquí el codi que has copiat a step-quiz
-+9/22/2026 18:40:28;aina.puig@insterrassa.cat;1r BAT A;RC1HA-4C2HG-40117-0BR6J-D9C15-VFP4C-3ZZ0Z-Z0HB
-+9/24/2026 16:20:26;claudia.moya@insterrassa.cat;1r BAT B;RC1NX-KC4FA-00127-16D48-P04C4-2H2ZZ-05T
-+9/25/2026 15:30:05;dani.serra@insterrassa.cat;1r BAT B;RC16K-WC5EH-00114-HW64C-2ZZ0Z-Z0VN
-+9/29/2026 19:10:48;aina.puig@insterrassa.cat;1r BAT A;RC183-2C9HZ-40127-0CM4P-H86JD-9C15V-FP4C4-312ZZ-03Y
-+10/2/2026 12:10:17;bernat.rius@insterrassa.cat;1r BAT A;RC1GH-FCCBD-00111-RH04C-2ZZ0Z-Z0R7
-+10/6/2026 18:55:33;aina.puig@insterrassa.cat;1r BAT A;RC1YX-6CGHQ-40137-0CM4P-HY674-06JD9-C15VF-P4C54-Z2ZZ0-4Y
-+10/8/2026 15:40:30;dani.serra@insterrassa.cat;1r BAT B;RC16K-WC5EH-00114-HW64C-2ZZ0Z-Z0VN
-+10/9/2026 17:05:47;claudia.moya@insterrassa.cat;1r BAT B;RC1BG-0CKG0-00127-16D5M-N12H4-4C5ZZ-06E
-+10/14/2026 20:05:43;aina.puig@insterrassa.cat;1r BAT A;RC1M9-HCRJT-40147-0CM4P-HY676-R3M3W-6JD9C-15VFP-4Z44C-5ZZ0C-M
-+10/21/2026 17:30:44;aina.puig@insterrassa.cat;1r BAT A;RC1YX-RCZGD-40157-0CM4P-HY676-R3M43-3NZG6-JD9C1-5VFP4-Z52R3-ZZ0MQ
-+10/22/2026 14:55:17;dani.serra@insterrassa.cat;1r BAT B;RC16K-WC5EH-00114-HW64C-2ZZ0Z-Z0VN
-+10/28/2026 19:25:48;aina.puig@insterrassa.cat;1r BAT A;RC1ZS-3D6J6-40167-0CM4P-HY676-R3M43-3NZQ1-PQT6J-D9C15-VFP2R-44Z5Z-Z06R
-+10/30/2026 19:55:28;claudia.moya@insterrassa.cat;1r BAT B;RC14D-6D8FP-00537-16D5M-N1716-R14QW-02H54-Z3ZZ0-TF
-+11/4/2026 18:15:30;aina.puig@insterrassa.cat;1r BAT A;RC196-MDDH3-40377-0CM4P-HY676-R3M43-3NZQ1-PQV1P-DG11S-FC6JD-9C15V-FP2R4-1N3ZZ-0QW
-+11/5/2026 15:20:46;dani.serra@insterrassa.cat;1r BAT B;RC1TG-5DEEC-00124-HW72B-Y04C3-ZZ0ZZ-0YP
-+11/11/2026 19:45:37;aina.puig@insterrassa.cat;1r BAT A;RC1C7-QDMJG-40377-0CM4P-HY676-R3M43-3NZQ1-PQV1P-DG21S-FK28T-26JD9-C15VF-P1N42-R4ZZ0-8C
-+11/18/2026 18:20:32;aina.puig@insterrassa.cat;1r BAT A;RC18E-WDVH6-40377-0CM4P-HY676-R3M43-3NZQ1-PQV1P-DG41S-FK28T-31PNK-2V406-JD9C1-5VFP1-N44C6-ZZ03H
-+11/19/2026 15:10:35;dani.serra@insterrassa.cat;1r BAT B;RC1TG-5DEEC-00124-HW72B-Y04C3-ZZ0ZZ-0YP
-+11/20/2026 17:30:16;claudia.moya@insterrassa.cat;1r BAT B;RC1WZ-TDXGD-00537-16D5M-N1716-R24XV-Q48P0-4Z52H-5ZZ0S-Z
-+11/24/2026 22:40:44;bernat.rius@insterrassa.cat;1r BAT A;RC1C7-7E1N8-00151-RKF4H-W11PN-M4HSK-32Q04-C64Z4-ZZ0XW
-+11/25/2026 20:30:41;aina.puig@insterrassa.cat;1r BAT A;RC10J-AE2K7-40B77-0CM4P-HY676-R3M43-3NZQ1-PQV1P-DG41S-FK28T-31PNK-32Q06-00000-00000-00000-00000-1PNJ6-JD9C1-5VFP1-N44C6-ZZ00B
-+11/25/2026 23:15:25;bernat.rius@insterrassa.cat;1r BAT A;RC132-YE2NS-00371-RKF4H-W11PN-M4HSX-34EB1-QY94M-2G21R-4W4G9-04Z74-C6ZZ0-4Z
-+11/26/2026 23:50:49;bernat.rius@insterrassa.cat;1r BAT A;RC1WN-YE3PB-00371-RKF4H-W11PN-M4HSK-34EB1-QY94M-2G51R-4W4J7-34J2K-3C833-CV04Z-94C6Z-Z02M
-+12/2/2026 18:50:22;aina.puig@insterrassa.cat;1r BAT A;RC1SZ-JE9HN-40B77-0CM4P-HY676-R3M43-3NZQ1-PQV1P-DG41S-FK28T-31PNK-32Q07-00000-00000-00000-00000-1PNK1-PNK6J-D9C15-VFP1N-54C6Z-Z07P
-+12/3/2026 14:45:17;dani.serra@insterrassa.cat;1r BAT B;RC1TG-5DEEC-00124-HW72B-Y04C3-ZZ0ZZ-0YP
-+12/4/2026 16:10:43;claudia.moya@insterrassa.cat;1r BAT B;RC1SE-DEBF5-00537-16D5M-N1716-R34XV-Q4V53-48P04-Z63V3-ZZ072
++9/22/2026 18:40:28;aina.puig@insterrassa.cat;1r BAT A;RC2JH-X0C2H-G4011-70BR6-JD9C1-5VFP4-C3ZZ0-ZZ0S8
++9/24/2026 16:20:26;claudia.moya@insterrassa.cat;1r BAT B;RC232-G0C4F-A0012-716D4-8P04C-42H2Z-Z0TN
++9/25/2026 15:30:05;dani.serra@insterrassa.cat;1r BAT B;RC263-Z0C5E-H0011-4HW64-C2ZZ0-ZZ07J
++9/29/2026 19:10:48;aina.puig@insterrassa.cat;1r BAT A;RC2PM-P0C9H-Z4012-70CM4-PH86J-D9C15-VFP4C-4312Z-Z0P4
++10/2/2026 12:10:17;bernat.rius@insterrassa.cat;1r BAT A;RC29M-E0CCB-D0011-1RH04-C2ZZ0-ZZ0E5
++10/6/2026 18:55:33;aina.puig@insterrassa.cat;1r BAT A;RC2D8-90CGH-Q4013-70CM4-PHY67-406JD-9C15V-FP4C5-4Z2ZZ-0KE
++10/8/2026 15:40:30;dani.serra@insterrassa.cat;1r BAT B;RC263-Z0C5E-H0011-4HW64-C2ZZ0-ZZ07J
++10/9/2026 17:05:47;claudia.moya@insterrassa.cat;1r BAT B;RC23V-Z0CKG-00012-716D5-MN12H-44C5Z-Z0DV
++10/14/2026 20:05:43;aina.puig@insterrassa.cat;1r BAT A;RC2JG-S0CRJ-T4014-70CM4-PHY67-6R3M3-W6JD9-C15VF-P4Z44-C5ZZ0-R4
++10/21/2026 17:30:44;aina.puig@insterrassa.cat;1r BAT A;RC2DB-N0CZG-D4015-70CM4-PHY67-6R3M4-33NZG-6JD9C-15VFP-4Z52R-3ZZ09-B
++10/22/2026 14:55:17;dani.serra@insterrassa.cat;1r BAT B;RC263-Z0C5E-H0011-4HW64-C2ZZ0-ZZ07J
++10/28/2026 19:25:48;aina.puig@insterrassa.cat;1r BAT A;RC2PS-30D6J-64016-70CM4-PHY67-6R3M4-33NZQ-1PQT6-JD9C1-5VFP2-R44Z5-ZZ0EX
++10/30/2026 19:55:28;claudia.moya@insterrassa.cat;1r BAT B;RC2H4-W0D8F-P0053-716D5-MN171-6R14Q-W02H5-4Z3ZZ-027
++11/4/2026 18:15:30;aina.puig@insterrassa.cat;1r BAT A;RC2HH-B0DDH-34037-70CM4-PHY67-6R3M4-33NZQ-1PQV1-PDG11-SFC6J-D9C15-VFP2R-41N3Z-Z0V8
++11/5/2026 15:20:46;dani.serra@insterrassa.cat;1r BAT B;RC282-C0DEE-C0012-4HW72-BY04C-3ZZ0Z-Z0BR
++11/11/2026 19:45:37;aina.puig@insterrassa.cat;1r BAT A;RC2VJ-M0DMJ-G4037-70CM4-PHY67-6R3M4-33NZQ-1PQV1-PDG21-SFK28-T26JD-9C15V-FP1N4-2R4ZZ-0B7
++11/18/2026 18:20:32;aina.puig@insterrassa.cat;1r BAT A;RC2GM-Q0DVH-64037-70CM4-PHY67-6R3M4-33NZQ-1PQV1-PDG41-SFK28-T31PN-K2V40-6JD9C-15VFP-1N44C-6ZZ00-Z
++11/19/2026 15:10:35;dani.serra@insterrassa.cat;1r BAT B;RC282-C0DEE-C0012-4HW72-BY04C-3ZZ0Z-Z0BR
++11/20/2026 17:30:16;claudia.moya@insterrassa.cat;1r BAT B;RC2SD-Z0DXG-D0053-716D5-MN171-6R24X-VQ48P-04Z52-H5ZZ0-R8
++11/24/2026 22:40:44;bernat.rius@insterrassa.cat;1r BAT A;RC21J-D0E1N-80015-1RKF4-HW11P-NM4HS-K32Q0-4C64Z-4ZZ0R-9
++11/25/2026 20:30:41;aina.puig@insterrassa.cat;1r BAT A;RC2VN-N0E2K-740B7-70CM4-PHY67-6R3M4-33NZQ-1PQV1-PDG41-SFK28-T31PN-K32Q0-60000-00000-00000-00000-01PNJ-6JD9C-15VFP-1N44C-6ZZ06-C
++11/25/2026 23:15:25;bernat.rius@insterrassa.cat;1r BAT A;RC2WY-S0E2N-S0037-1RKF4-HW11P-NM4HX-K34EB-1QY94-M2G21-R4W4G-904Z7-4C6ZZ-0GE
++11/26/2026 23:50:49;bernat.rius@insterrassa.cat;1r BAT A;RC2W8-J0E3P-B0037-1RKF4-HW11P-NM4HS-K34EB-1QY94-M2G51-R4W4J-734J2-K3C83-3CV04-Z94C6-ZZ0XJ
++12/2/2026 18:50:22;aina.puig@insterrassa.cat;1r BAT A;RC2PV-W0E9H-N40B7-70CM4-PHY67-6R3M4-33NZQ-1PQV1-PDG41-SFK28-T31PN-K32Q0-70000-00000-00000-00000-01PNK-1PNK6-JD9C1-5VFP1-N54C6-ZZ0TK
++12/3/2026 14:45:17;dani.serra@insterrassa.cat;1r BAT B;RC282-C0DEE-C0012-4HW72-BY04C-3ZZ0Z-Z0BR
++12/4/2026 16:10:43;claudia.moya@insterrassa.cat;1r BAT B;RC256-70EBF-50053-716D5-MN171-6R34X-VQ4V5-348P0-4Z63V-3ZZ0H-6
+diff -ru a/js/codi.js b/js/codi.js
+--- a/js/codi.js	2026-08-05 12:51:12.268401321 +0000
++++ b/js/codi.js	2026-08-05 12:51:12.269492085 +0000
+@@ -16,11 +16,11 @@
+ 
+    ── FORMAT ────────────────────────────────────────────────────────────────
+ 
+-     RC1 SSS DD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
++     RC2 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
+ 
+-     RC1   3   marca i versió
++     RC2   3   marca i versió
+      SSS   3   salt aleatori
+-     DD    2   dia (dies des de l'1/9/2025)
++     DDD   3   dia (dies des de l'1/9/2025)
+      HH    2   hora (minuts/2 des de mitjanit)
+      MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
+      G     1   nombre de grups d'aquest full
+@@ -75,6 +75,14 @@
+   var ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+ 
+   var EPOCA = Date.UTC(2025, 8, 1);           /* 1 de setembre de 2025 */
++
++  /* La data ocupa 3 caràcters (32768 dies, fins al 2115). A la versió RC1
++     n'ocupava 2, i això topava als 1024 dies: a partir del 20 de juny de 2028
++     tots els codis haurien dit la mateixa data, en silenci i sense que res
++     avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
++     caràcter arreglar-ho. El lector accepta les dues versions. */
++  var CAR_DIA = { RC1: 2, RC2: 3 };
++  var VERSIO = "RC2";
+   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
+   var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
+ 
+@@ -133,14 +141,14 @@
+     for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
+ 
+     var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
+-    dia = Math.max(0, Math.min(1023, dia));
++    dia = Math.max(0, Math.min(32767, dia));
+     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
+ 
+     var mask = 0;
+     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
+     if (diag) mask |= (1 << 12);
+ 
+-    var cos = "RC1" + salt + enc(dia, 2) + enc(hora, 2) + enc(mask, 3);
++    var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
+ 
+     fulls.forEach(function (f) {
+       var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
+@@ -197,8 +205,9 @@
+     var T = window.RE_TAULES;
+     var s = neteja(raw);
+     if (!s) return { ok: false, error: "Codi buit" };
+-    if (s.slice(0, 3) !== "RC1") {
+-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC1)" };
++    var versio = s.slice(0, 3);
++    if (!CAR_DIA[versio]) {
++      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2)" };
+     }
+     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
+ 
+@@ -209,7 +218,7 @@
+ 
+     var p = 3;
+     var salt = s.slice(p, p + 3); p += 3;
+-    var dia = dec(s.slice(p, p + 2)); p += 2;
++    var dia = dec(s.slice(p, p + CAR_DIA[versio])); p += CAR_DIA[versio];
+     var hora = dec(s.slice(p, p + 2)); p += 2;
+     var mask = dec(s.slice(p, p + 3)); p += 3;
+ 
+@@ -262,7 +271,7 @@
+     }
+ 
+     r = {
+-      ok: true, integre: integre, salt: salt,
++      ok: true, integre: integre, salt: salt, versio: versio,
+       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
+       fulls: fulls, diag: diag, errs: errs,
+       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
 diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
---- a/tools/analitzador-plantilla.html	2026-08-05 12:43:01.825360072 +0000
-+++ b/tools/analitzador-plantilla.html	2026-08-05 12:43:01.826511793 +0000
+--- a/tools/analitzador-plantilla.html	2026-08-05 12:51:12.249294755 +0000
++++ b/tools/analitzador-plantilla.html	2026-08-05 12:51:12.250543938 +0000
 @@ -73,6 +73,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
@@ -527,6 +729,15 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
  </style>
  </head>
  <body>
+@@ -101,7 +107,7 @@
+         obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
+         marca temporal o grup, també les farà servir.
+       </p>
+-      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC1AM-8599X-…"></textarea>
++      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC2AM-8599X-…"></textarea>
+       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
+         <button class="btn" id="btn-llegeix">Llegeix</button>
+         <label class="btn buit" style="position:relative;overflow:hidden">
 @@ -157,30 +163,45 @@
    <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
    <section id="v-progres" hidden>
@@ -604,6 +815,15 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      </div>
  
      <div id="p-resultats" style="margin-top:1rem"></div>
+@@ -212,7 +237,7 @@
+   <section id="v-un" hidden>
+     <div class="targeta">
+       <h3>Enganxa un codi</h3>
+-      <input type="text" id="codi-un" placeholder="RC1AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
++      <input type="text" id="codi-un" placeholder="RC2AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+       <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
+     </div>
+     <div id="un-resultat" style="margin-top:1rem"></div>
 @@ -291,7 +316,7 @@
        $("#v-full").hidden = b.dataset.mode !== "full";
        $("#v-progres").hidden = b.dataset.mode !== "progres";
@@ -613,6 +833,15 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
      };
    });
+@@ -313,7 +338,7 @@
+      columna es digui de cap manera concreta: si les capçaleres no ajuden,
+      es busca la columna que conté un codi. */
+   function buscaCodi(text) {
+-    var m = String(text || "").toUpperCase().match(/RC1[0-9A-Z\-\s]{10,}/);
++    var m = String(text || "").toUpperCase().match(/RC[12][0-9A-Z\-\s]{10,}/);
+     return m ? m[0].trim() : null;
+   }
+ 
 @@ -357,9 +382,41 @@
      var m = String(ts).match(/(\d{1,2}):(\d{2})/);
      return m ? (+m[1]) * 60 + (+m[2]) : null;
@@ -664,8 +893,12 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
        + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
        + "</div>";
-@@ -652,6 +710,7 @@
-         + "Els codis comencen per RC1.</span>";
+@@ -649,9 +707,10 @@
+     var brut = llegeixFull(txt);
+     if (!brut.length) {
+       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
+-        + "Els codis comencen per RC1.</span>";
++        + "Els codis comencen per RC2 (o RC1, els antics).</span>";
        return;
      }
 +    FORMAT_DATA = detectaFormatData(brut);
@@ -926,8 +1159,8 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
          + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
 diff -ru a/tools/fes-exemple.js b/tools/fes-exemple.js
---- a/tools/fes-exemple.js	2026-08-05 12:43:01.826511793 +0000
-+++ b/tools/fes-exemple.js	2026-08-05 12:43:01.831348301 +0000
+--- a/tools/fes-exemple.js	2026-08-05 12:51:12.250543938 +0000
++++ b/tools/fes-exemple.js	2026-08-05 12:51:12.254913290 +0000
 @@ -0,0 +1,159 @@
 +/* Genera un full de respostes versemblant per provar l'analitzador.
 +   Els codis són reals: els fa el mateix js/codi.js del projecte, i per tant
