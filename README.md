@@ -132,8 +132,14 @@ exercici per exercici, i enviar-lo per un Google Form. El professorat enganxa
 el full de respostes a `analitzador-repas.html` i hi veu qui ha fet què, on
 s'encalla la classe i si el codi és autèntic.
 
-- **On es demana:** a la pàgina d'un full (només aquell full) o a la portada
-  (tota la feina feta).
+- **On es demana:** amb el botó **Codi**, fix a dalt a la dreta de totes les
+  pàgines. Sempre visible, sempre el mateix codi: no hi ha res a triar.
+- **Diu quanta feina s'ha fet.** El botó porta el compte d'exercicis al costat,
+  i la finestra diu quants n'ha fet, com li han anat i quin percentatge del
+  lloc representa. Per sota de 10 avisa que potser encara és aviat per
+  enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
+  arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
+  exercici no es pot comparar amb un 6,6 sobre quaranta.
 - **És acumulatiu.** Cada codi conté tot el que s'ha fet fins llavors, no
   només el d'aquella estona. Si l'alumne s'oblida d'enviar-ne un, el següent
   ja ho porta tot, i el professorat només ha de mirar l'últim de cadascú.
@@ -144,6 +150,12 @@ s'encalla la classe i si el codi és autèntic.
   de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
 - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
   servidor ni connexió. No envia res enlloc.
+- **Progrés del trimestre.** Com que els codis són acumulatius, la diferència
+  entre dos codis seguits d'un mateix alumne és exactament la feina feta
+  entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes
+  amb feina nova), el **volum**, la **millora** (encert i dependència de
+  pistes, estandarditzats per dificultat) i, amb poc pes, l'**encert**. Els
+  pesos i els objectius es toquen des de la mateixa pàgina.
 
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i

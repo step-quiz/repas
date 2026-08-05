@@ -10,10 +10,11 @@ diferències respecte del que fa `operacions` es justifiquen totes a baix.
 
 ## Prova-ho en dos minuts
 
-1. Obre `index.html`, ves a un full i fes uns quants exercicis.
-2. Torna a la pàgina del full: al final hi ha **«Codi d'aquest full»**.
-   A la portada hi ha **«Codi de tota la teva feina»**.
-3. Obre `analitzador-repas.html` (doble clic, no cal servidor), pestanya
+1. Obre `index.html`: a dalt a la dreta hi ha el botó **Codi**, fix i sempre
+   visible a totes les pàgines.
+2. Fes uns quants exercicis. El botó porta el compte al costat (`Codi 7`).
+3. Clica'l: s'obre una finestra amb el resum, el codi i el botó de copiar.
+4. Obre `analitzador-repas.html` (doble clic, no cal servidor), pestanya
    **Full de respostes**, i enganxa el codi. O prem **«Posa-hi un exemple»**,
    que en fabrica sis d'alumnes fictícis —un de manipulat i un enviat tard—
    per veure com es comporta.
@@ -51,7 +52,44 @@ amb la mida del full.
 
 ---
 
-## Cinc decisions, i per què
+## Quan i on s'ofereix
+
+**Un sol botó, flotant, fix a dalt a la dreta, a totes les pàgines** on
+l'alumne pot estar treballant: portada, full, exercici, itinerari i resultat
+del test inicial. No depèn de l'itinerari ni de cap moment de tancament: està
+sempre a mà.
+
+**Un sol codi.** El botó dona sempre la fotografia sencera —tots els fulls més
+el test inicial—, no el d'un full concret. Així l'alumne no ha de decidir res.
+
+**El volum es veu de seguida.** El botó porta el compte d'exercicis al costat
+(`Codi 23`), i la finestra diu quants n'ha fet, com li han anat i quin
+percentatge del lloc representa. Per sota de deu exercicis avisa:
+
+> Has fet **3** exercicis. El codi diu exactament quants n'has fet i quins,
+> així que si el professorat t'ha demanat més feina, val més esperar a
+> haver-la feta.
+
+## Sis decisions, i per què
+
+### 0. El volum ha de ser tan visible com la nota
+
+La nota és un percentatge i no sap res del volum: qui fa **un** exercici i
+l'encerta surt amb un **10**, i qui en fa quaranta amb un 6,6. Comparar-les
+seria injust.
+
+El codi ja porta el volum —diu exactament quants exercicis s'han fet i
+quins—, però calia que a l'analitzador no es pogués passar per alt:
+
+- Camp **«feina mínima demanada»** (per defecte 10). Qui no hi arriba surt amb
+  el número en vermell i una barra de progrés.
+- **La seva nota es pinta apagada i amb asterisc**, perquè no convidi a
+  comparar-la.
+- Filtre **«feina insuficient»** per aïllar-los, i un resum a sobre de la
+  taula: *«1 de 3 no arriben als 10 exercicis: poc (3)»*.
+- El CSV exportat porta les columnes `exercicis`, `minim` i `arriba`.
+
+Posant el mínim a 0, tot això desapareix.
 
 ### 1. El codi és acumulatiu, no un tiquet de sessió
 
@@ -123,14 +161,90 @@ Això és el que fa que valgui la pena mirar-s'ho.
 
 ---
 
+## Progrés del trimestre
+
+Aquesta és la part que fa que el sistema serveixi per qualificar, i es recolza
+tota en una propietat del format: **com que els codis són acumulatius, la
+resta entre dos codis seguits d'un mateix alumne és exactament la feina feta
+entremig**, amb el detall de com li ha anat. Sense això només es podria
+mesurar l'estat final; amb això es mesura el camí.
+
+L'alumne no dona mai cap dada al lloc; la identitat la posa el Google Form, i
+el correu institucional és la primera columna del full.
+
+### Què es mesura
+
+| Component | Com |
+|---|---|
+| **Constància** | Setmanes amb feina **nova**, sobre les esperades |
+| **Volum** | Exercicis fets durant el període, ponderats per dificultat |
+| **Millora** | Variació d'encert i de dependència de pistes entre la primera i la segona meitat de la feina |
+| **Encert** | Percentatge global d'exercicis resolts |
+
+Quatre decisions que no són òbvies:
+
+1. **Un enviament només compta com a dia de feina si porta exercicis nous.**
+   Reenviar el mateix codi vint vegades no és constància, i queda marcat com a
+   `1 (+6)` a la columna de dies.
+2. **Les dues meitats es parteixen per volum acumulat, no pel calendari.** Si
+   un alumne fa 40 exercicis el primer dia i 4 l'últim, partir pel mig del
+   trimestre compararia 40 amb 4 i el soroll es menjaria el senyal.
+3. **L'encert de la variació s'estandarditza per dificultat.** Es calcula per
+   nivell i es recombina amb la barreja global. Sense això, qui passa dels
+   exercicis directes als problemes semblaria que empitjora quan només s'ha
+   posat amb coses més dures. Provat: un alumne que va de nivell 1 a nivell 3
+   amb el mateix encert real surt amb variació 0, i el detall li diu que la
+   segona meitat era més difícil.
+4. **La feina anterior al trimestre no compta.** La línia de base és l'últim
+   codi anterior al període.
+
+Si no hi ha prou dades (menys de 20 exercicis o menys de 2 enviaments amb
+feina), la millora surt com a *no mesurable* i el seu pes es reparteix entre
+els altres components.
+
+### La qualificació
+
+`nota = 10 × (35 % constància + 35 % volum + 20 % progrés + 10 % encert)`
+
+Els quatre pesos, les setmanes esperades i els exercicis esperats es toquen
+des de la mateixa pàgina. Els trimestres tenen presets (set–des, gen–març,
+abril–juny) que dedueixen l'any de les dades.
+
+**L'encert va amb poc pes a propòsit.** Això és pràctica de repàs, no un
+examen: si l'encert pesa molt, a l'alumne li surt a compte no obrir pistes i
+evitar els exercicis de nivell 3, que és el contrari del que busca la
+graduació per dificultat. La pàgina ho adverteix al costat dels controls.
+
+### Com discrimina
+
+Quatre perfils sintètics sobre un trimestre de 10 setmanes, amb objectiu de
+60 exercicis:
+
+| Perfil | Dies | Setm. | Exerc. | Encert | Millora | Nota |
+|---|---|---|---|---|---|---|
+| Regular, 6 exercicis cada setmana, millorant | 10 | 10 | 60 | 92 % | +17 pp · +17 pp | **9,9** |
+| 60 exercicis en 3 dies d'una setmana | 3 | 1 | 60 | 100 % | 0 pp | **5,8** |
+| Irregular, 3 sessions, sense millora | 3 | 3 | 27 | 67 % | −3 pp | **4,4** |
+| 8 exercicis i 6 reenviaments del mateix codi | 1 (+6) | 1 | 8 | 100 % | no mesurable | **2,3** |
+
+El segon perfil és el cas que et preocupava: fa tota la feina i té el 100 %
+d'encert, però la fa de cop, i es queda per la meitat de la nota del primer.
+A més, el resum de classe el llista a part: *«Feina concentrada en pocs dies
+(molt volum, poca constància): bru (1 setmana). Han fet la feina, però de
+cop.»*
+
 ## L'analitzador
 
 `analitzador-repas.html` és **un sol fitxer**: es desa, s'obre amb doble clic i
 funciona sense servidor ni connexió. No envia res enlloc.
 
+Té quatre pestanyes: **Full de respostes**, **Progrés del trimestre**, **Un
+sol codi** i **Com funciona**.
+
 **Full de respostes.** Enganxa-hi el Google Sheet (Ctrl+A, Ctrl+C) o obre'n el
-CSV. Detecta sol les columnes; si les capçaleres no ajuden, busca la columna
-que conté un codi (comencen per `RC1`). Dona:
+CSV. El correu es llegeix de la primera columna, que és on el posa el Google
+Form; si no n'hi ha, es busca per capçalera o per la forma. La columna del
+codi es detecta sola. Dona:
 
 - **Per alumne** — l'últim codi de cadascú, amb els exercicis fets per full i
   la nota. Exportable a CSV.
@@ -209,13 +323,17 @@ Si prefereixes que la vegi, és una línia a `js/codi-ui.js`.
 
 ## Verificació feta
 
-- 19 comprovacions automàtiques de l'analitzador amb un DOM real (jsdom):
-  lectura del TSV, detecció d'un codi manipulat entre quatre, avís de temps,
-  taula per alumne, detall amb identificadors, agregat de classe, filtres,
-  lectura d'un codi solt i el botó d'exemple.
-- 11 comprovacions de la integració a l'app: recollida des de `localStorage`,
-  anada i tornada del codi amb estats i etiquetes idèntics, panell amb feina i
-  panell sense feina.
+- 19 comprovacions de l'anàlisi de trimestre amb quatre perfils sintètics
+  d'alumne, l'estandardització per dificultat i tots els controls.
+- 25 comprovacions de l'analitzador amb un DOM real (jsdom): lectura del TSV,
+  detecció d'un codi manipulat entre quatre, avís de temps, taula per alumne,
+  detall amb identificadors, agregat de classe, filtres, lectura d'un codi
+  solt, botó d'exemple i tot el bloc de feina mínima.
+- 22 comprovacions del botó flotant: que hi és a les cinc pàgines amb tots els
+  scripts, que es posa sol, que és fix, que compta, que avisa amb poca feina i
+  que deixa d'avisar amb prou, i que no ensenya cap nota.
+- 13 comprovacions de la integració a l'app: recollida des de `localStorage`,
+  anada i tornada del codi amb estats i etiquetes idèntics.
 - Anada i tornada exacta amb 739 exercicis, 12 fulls i el diagnòstic.
 - Les proves de manipulació de la taula de més amunt.
 - Compilació determinista: dues passades seguides donen fitxers idèntics.

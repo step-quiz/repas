@@ -65,6 +65,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   background:var(--vermell-suau);color:var(--vermell);margin:1px}
 .xip.ambre{background:var(--ambre-suau);color:#6B4200}
 .nota{font-weight:700;border-radius:6px;padding:.1rem .35rem}
+.feina{display:inline-flex;align-items:center;gap:.35rem}
+.barra{width:52px;height:6px;border-radius:3px;background:#EDEAE4;overflow:hidden;display:inline-block}
+.barra i{display:block;height:100%;background:var(--blau)}
+.poca{color:var(--vermell);font-weight:700}
 .n-alta{background:var(--verd-suau);color:var(--verd)}
 .n-mitja{background:var(--ambre-suau);color:#6B4200}
 .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
@@ -83,6 +87,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
   <div class="pestanyes">
     <button class="pestanya activa" data-mode="full">Full de respostes</button>
+    <button class="pestanya" data-mode="progres">Progrés del trimestre</button>
     <button class="pestanya" data-mode="un">Un sol codi</button>
     <button class="pestanya" data-mode="ajuda">Com funciona</button>
   </div>
@@ -118,7 +123,13 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           <option value="ok">Només els correctes</option>
           <option value="avis">Amb avís</option>
           <option value="mal">Amb problema</option>
+          <option value="poca">Feina insuficient</option>
         </select>
+        <label class="petit apagat" style="display:inline-flex;align-items:center;gap:.35rem">
+          Feina mínima demanada
+          <input type="number" id="f-min" value="10" min="0" max="999" style="width:74px">
+          exercicis
+        </label>
         <span class="petit apagat" id="compte"></span>
         <span style="flex:1"></span>
         <button class="btn buit petit" id="btn-csv">Baixa el resum (CSV)</button>
@@ -141,6 +152,60 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <h2>Què falla més</h2>
       <div id="agregat"></div>
     </div>
+  </section>
+
+  <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
+  <section id="v-progres" hidden>
+    <div class="targeta">
+      <h3>Període i objectius</h3>
+      <p class="petit apagat" style="margin:0 0 .7rem">
+        Els codis són acumulatius, així que la diferència entre dos codis seguits
+        és exactament la feina feta entremig. D'aquí surt tot el que hi ha a sota:
+        constància, volum i si va millorant.
+      </p>
+      <div class="filtres">
+        <label class="petit apagat">Del
+          <input type="date" id="p-ini"></label>
+        <label class="petit apagat">al
+          <input type="date" id="p-fi"></label>
+        <select id="p-preset">
+          <option value="">Trimestre…</option>
+          <option value="1">1r (set–des)</option>
+          <option value="2">2n (gen–març)</option>
+          <option value="3">3r (abril–juny)</option>
+          <option value="tot">Tot el que hi ha</option>
+        </select>
+        <label class="petit apagat">Setmanes esperades
+          <input type="number" id="p-setm" value="10" min="1" max="30" style="width:64px"></label>
+        <label class="petit apagat">Exercicis esperats
+          <input type="number" id="p-exerc" value="60" min="1" max="999" style="width:74px"></label>
+        <label class="petit apagat" title="Els de nivell 3 compten 1,3 i els de nivell 1, 0,8">
+          <input type="checkbox" id="p-dif" checked> pondera per dificultat</label>
+      </div>
+      <details style="margin-top:.4rem">
+        <summary class="petit apagat" style="cursor:pointer">Pesos de la qualificació</summary>
+        <div class="filtres" style="margin-top:.6rem">
+          <label class="petit apagat">Constància
+            <input type="number" id="p-w1" value="35" min="0" max="100" style="width:60px">%</label>
+          <label class="petit apagat">Volum
+            <input type="number" id="p-w2" value="35" min="0" max="100" style="width:60px">%</label>
+          <label class="petit apagat">Progrés
+            <input type="number" id="p-w3" value="20" min="0" max="100" style="width:60px">%</label>
+          <label class="petit apagat">Encert
+            <input type="number" id="p-w4" value="10" min="0" max="100" style="width:60px">%</label>
+          <span class="petit apagat" id="p-sumapesos"></span>
+        </div>
+        <p class="petit apagat" style="margin:.5rem 0 0;max-width:52rem">
+          <b>L'encert va amb poc pes a propòsit.</b> Això és pràctica de repàs, no un
+          examen: si l'encert pesa molt, a l'alumne li surt a compte no obrir pistes i
+          evitar els exercicis difícils, que és el contrari del que interessa. El que
+          pesa és venir sovint, fer feina i anar millorant. Si el puges, fes-ho sabent
+          què estàs incentivant.
+        </p>
+      </details>
+    </div>
+
+    <div id="p-resultats" style="margin-top:1rem"></div>
   </section>
 
   <!-- ── UN SOL CODI ──────────────────────────────────────────────────── -->
@@ -544,7 +609,13 @@ window.RE_CODI = (function () {
   var $ = function (s, d) { return (d || document).querySelector(s); };
   var $$ = function (s, d) { return Array.prototype.slice.call((d || document).querySelectorAll(s)); };
   var FORAT = 30;                 /* minuts entre generar i enviar abans d'avisar */
-  var files = [], obert = null;
+
+  /* Quants exercicis s'han demanat. La nota sola enganya: qui fa un exercici
+     i l'encerta surt amb un 10, i qui en fa quaranta amb un 6,6. Aquest
+     llindar fa que el volum es vegi al costat de la nota i que es puguin
+     aïllar els que han enviat el codi massa aviat. */
+  function feinaMinima() { return Math.max(0, parseInt($("#f-min").value, 10) || 0); }
+  var files = [], obert = null, obertP = null;
 
   $("#peu-versio").textContent = "v" + RE_TAULES.v;
 
@@ -554,7 +625,9 @@ window.RE_CODI = (function () {
       $$(".pestanya").forEach(function (x) { x.classList.remove("activa"); });
       b.classList.add("activa");
       $("#v-full").hidden = b.dataset.mode !== "full";
+      $("#v-progres").hidden = b.dataset.mode !== "progres";
       $("#v-un").hidden = b.dataset.mode !== "un";
+      if (b.dataset.mode === "progres") pintaProgres();
       $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
     };
   });
@@ -598,7 +671,12 @@ window.RE_CODI = (function () {
       var c = trencaLinia(l, sep);
       var codi = (iCodi >= 0 && buscaCodi(c[iCodi])) || buscaCodi(l);
       if (!codi) return;
-      var correu = iCorreu >= 0 ? c[iCorreu] : (c.filter(function (v) { return v.indexOf("@") > 0; })[0] || "");
+      /* El Google Form desa el correu institucional a la primera columna.
+         S'hi confia primer i només es busca per capçalera o per la forma
+         (conté @) si la primera columna no en porta cap. */
+      var correu = (c[0] && c[0].indexOf("@") > 0) ? c[0]
+                 : (iCorreu >= 0 && (c[iCorreu] || "").indexOf("@") > 0) ? c[iCorreu]
+                 : (c.filter(function (v) { return v.indexOf("@") > 0; })[0] || "");
       var quan = iData >= 0 ? c[iData] : (c.filter(function (v) { return /\d{1,2}[\/\-]\d{1,2}[\/\-]\d{4}/.test(v); })[0] || "");
       out.push({
         codi: codi,
@@ -642,9 +720,26 @@ window.RE_CODI = (function () {
     return '<span class="marca mal" title="El control no quadra">✗</span>';
   }
   function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
-  function pintaNota(n) {
+
+  /* La nota d'un codi amb poca feina es pinta apagada i amb un asterisc: és
+     una nota sobre quatre exercicis i no es pot comparar amb la de qui n'ha
+     fet quaranta. */
+  function pintaNota(n, fets, min) {
     if (n === null || n === undefined) return '<span class="apagat">—</span>';
-    return '<span class="nota ' + classeNota(n) + '">' + n.toFixed(1).replace(".", ",") + "</span>";
+    var t = n.toFixed(1).replace(".", ",");
+    if (min && fets < min) {
+      return '<span class="apagat" title="Nota sobre només ' + fets +
+        " exercicis: no és comparable\">" + t + "*</span>";
+    }
+    return '<span class="nota ' + classeNota(n) + '">' + t + "</span>";
+  }
+
+  function pintaFeina(fets, min) {
+    if (!min) return String(fets);
+    var pc = Math.min(100, Math.round(100 * fets / min));
+    return '<span class="feina"><span class="' + (fets < min ? "poca" : "") + '">' + fets +
+      '</span><span class="barra" title="' + pc + ' % del que s\'ha demanat"><i style="width:' +
+      pc + '%' + (fets < min ? ";background:var(--vermell)" : "") + '"></i></span></span>';
   }
   function punts(items) {
     return '<div class="punts">' + items.map(function (it) {
@@ -656,7 +751,8 @@ window.RE_CODI = (function () {
     var t = $("#f-text").value.trim().toLowerCase();
     var f = $("#f-full").value, e = $("#f-estat").value;
     return files.filter(function (r) {
-      if (e && r.estat !== e) return false;
+      if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
+      else if (e && r.estat !== e) return false;
       if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
       if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
       return true;
@@ -673,8 +769,10 @@ window.RE_CODI = (function () {
 
   function pintaEnviaments(fs) {
     if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
+    var min = feinaMinima();
     var h = "<thead><tr><th></th><th>Alumne</th><th>Grup</th><th>Enviat</th><th>Generat</th>"
-          + "<th>Fulls</th><th>Fets</th><th>Nota</th><th>Detall</th></tr></thead><tbody>";
+          + "<th>Fulls</th><th>Feina" + (min ? " (de " + min + ")" : "") + "</th>"
+          + "<th>Nota</th><th>Detall</th></tr></thead><tbody>";
     fs.forEach(function (r) {
       var p = r.p;
       var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
@@ -687,8 +785,8 @@ window.RE_CODI = (function () {
         + '<td class="mono petit">' + (p.ok ? r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2) : "—")
         + (r.forat !== null && r.forat > FORAT ? ' <span class="avis">+' + r.forat + "m</span>" : "") + "</td>"
         + '<td class="mono">' + fulls + "</td>"
-        + "<td>" + (p.ok ? p.resum.fets : "—") + "</td>"
-        + "<td>" + (p.ok ? pintaNota(p.resum.nota) : "—") + "</td>"
+        + "<td>" + (p.ok ? pintaFeina(p.resum.fets, min) : "—") + "</td>"
+        + "<td>" + (p.ok ? pintaNota(p.resum.nota, p.resum.fets, min) : "—") + "</td>"
         + "<td>" + (tots.length ? punts(tots) : '<span class="apagat">—</span>') + "</td></tr>";
       if (obert === r.i) h += detall(r);
     });
@@ -787,13 +885,16 @@ window.RE_CODI = (function () {
     ult.forEach(function (r) { r.p.fulls.forEach(function (f) { if (fullsVistos.indexOf(f.n) < 0) fullsVistos.push(f.n); }); });
     fullsVistos.sort(function (a, b) { return a - b; });
 
-    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Fets</th><th>Nota</th>";
+    var min = feinaMinima();
+    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Feina" + (min ? " (de " + min + ")" : "")
+          + "</th><th>Nota</th>";
     fullsVistos.forEach(function (n) { h += "<th>F" + n + "</th>"; });
     h += "<th>Últim codi</th></tr></thead><tbody>";
     ult.forEach(function (r) {
       var p = r.p;
       h += "<tr><td>" + r.brut.alumne + '</td><td class="apagat">' + (r.brut.grup || "—") + "</td>"
-        + "<td>" + p.resum.fets + "</td><td>" + pintaNota(p.resum.nota) + "</td>";
+        + "<td>" + pintaFeina(p.resum.fets, min) + "</td>"
+        + "<td>" + pintaNota(p.resum.nota, p.resum.fets, min) + "</td>";
       fullsVistos.forEach(function (n) {
         var f = p.fulls.filter(function (x) { return x.n === n; })[0];
         if (!f) { h += '<td class="apagat">·</td>'; return; }
@@ -803,6 +904,22 @@ window.RE_CODI = (function () {
       h += '<td class="mono petit apagat">' + r.dataGen + "</td></tr>";
     });
     $("#t-alumnes").innerHTML = h + "</tbody>";
+
+    if (min) {
+      var curts = ult.filter(function (r) { return r.p.resum.fets < min; });
+      var av = document.getElementById("avis-feina");
+      if (!av) {
+        av = document.createElement("p");
+        av.id = "avis-feina"; av.className = "petit";
+        $("#t-alumnes").parentNode.parentNode.insertBefore(av, $("#t-alumnes").parentNode);
+      }
+      av.innerHTML = curts.length
+        ? '<span class="mal">' + curts.length + " de " + ult.length + " no arriben als "
+          + min + " exercicis:</span> " + curts.map(function (r) {
+              return r.brut.alumne + " (" + r.p.resum.fets + ")";
+            }).join(", ")
+        : '<span class="ok">Tothom arriba als ' + min + " exercicis demanats.</span>";
+    }
   }
 
   /* Agregat de classe: quins exercicis falla més gent i quins errors es
@@ -881,7 +998,9 @@ window.RE_CODI = (function () {
       + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
     $("#estat-carrega").innerHTML = '<span class="ok">' + files.length + " codis llegits</span>";
     $("#resultats").hidden = false;
+    obertP = null;
     pinta();
+    if (!$("#v-progres").hidden) pintaProgres();
   }
 
   $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
@@ -892,15 +1011,46 @@ window.RE_CODI = (function () {
     r.onload = function () { $("#entrada").value = r.result; carrega(r.result); };
     r.readAsText(f, "utf-8");
   };
-  ["#f-text", "#f-full", "#f-estat"].forEach(function (s) {
+  ["#f-text", "#f-full", "#f-estat", "#f-min"].forEach(function (s) {
     $(s).oninput = pinta; $(s).onchange = pinta;
   });
 
+  ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
+   "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
+    $(s).oninput = function () { obertP = null; pintaProgres(); };
+    $(s).onchange = function () { obertP = null; pintaProgres(); };
+  });
+
+  /* Els trimestres es dedueixen de l'any que tenen les dades, no d'un any
+     fix: així el fitxer segueix servint el curs vinent. */
+  $("#p-preset").onchange = function () {
+    var v = this.value;
+    if (!v) return;
+    var anys = files.filter(function (r) { return r.p.ok; })
+      .map(function (r) { return r.p.data.getFullYear(); });
+    var any = anys.length ? Math.max.apply(null, anys) : new Date().getFullYear();
+    function posa(d1, d2, setm) {
+      $("#p-ini").value = d1; $("#p-fi").value = d2; $("#p-setm").value = setm;
+    }
+    if (v === "tot") {
+      var ds = files.filter(function (r) { return r.p.ok; }).map(function (r) { return quan(r.p); });
+      if (!ds.length) return;
+      var mn = new Date(Math.min.apply(null, ds)), mx = new Date(Math.max.apply(null, ds));
+      posa(mn.toISOString().slice(0, 10), mx.toISOString().slice(0, 10),
+           Math.max(1, Math.round((mx - mn) / 604800000)));
+    } else if (v === "1") { posa((any - 1) + "-09-01", (any - 1) + "-12-22", 14); }
+    else if (v === "2") { posa(any + "-01-08", any + "-03-31", 11); }
+    else { posa(any + "-04-01", any + "-06-20", 11); }
+    obertP = null; pintaProgres();
+  };
+
   $("#btn-csv").onclick = function () {
     var ult = ultimPerAlumne(filtra());
-    var l = ["alumne;grup;exercicis;nota;fulls;data"];
+    var min = feinaMinima();
+    var l = ["alumne;grup;exercicis;minim;arriba;nota;fulls;data"];
     ult.forEach(function (r) {
-      l.push([r.brut.alumne, r.brut.grup, r.p.resum.fets,
+      l.push([r.brut.alumne, r.brut.grup, r.p.resum.fets, min,
+              min ? (r.p.resum.fets >= min ? "si" : "no") : "",
               r.p.resum.nota === null ? "" : String(r.p.resum.nota).replace(".", ","),
               r.p.fulls.map(function (f) { return f.n; }).join(" "), r.dataGen].join(";"));
     });
@@ -934,6 +1084,336 @@ window.RE_CODI = (function () {
     $("#entrada").value = l.join("\n");
     carrega($("#entrada").value);
   };
+
+
+  // ── PROGRÉS DEL TRIMESTRE ──────────────────────────────────────────────
+  /* Tota aquesta secció es recolza en una propietat del format: els codis són
+     acumulatius, de manera que la diferència entre dos codis consecutius d'un
+     mateix alumne és exactament la feina que ha fet entremig, amb el detall de
+     com li ha anat. Sense això només es podria mesurar l'estat final; amb
+     això es pot mesurar el camí. */
+
+  function mapaEstats(p) {
+    var m = {};
+    p.fulls.forEach(function (f) {
+      f.items.forEach(function (it) {
+        if (it.estat && it.estat !== "vist") m[f.n + ":" + it.id] = { e: it.estat, d: it.dif };
+      });
+    });
+    return m;
+  }
+
+  var PES_DIF = { 1: 0.8, 2: 1, 3: 1.3 };
+
+  function cfgProgres() {
+    var w = [+$("#p-w1").value || 0, +$("#p-w2").value || 0,
+             +$("#p-w3").value || 0, +$("#p-w4").value || 0];
+    var suma = w.reduce(function (a, b) { return a + b; }, 0);
+    $("#p-sumapesos").textContent = suma === 100 ? "" : "(sumen " + suma + " %, es normalitzen)";
+    return {
+      ini: $("#p-ini").value ? new Date($("#p-ini").value + "T00:00:00") : null,
+      fi: $("#p-fi").value ? new Date($("#p-fi").value + "T23:59:59") : null,
+      setmanes: Math.max(1, +$("#p-setm").value || 10),
+      exercicis: Math.max(1, +$("#p-exerc").value || 60),
+      difPes: $("#p-dif").checked,
+      pesos: w, suma: suma || 1
+    };
+  }
+
+  function quan(p) {
+    var d = new Date(p.data.getTime());
+    d.setHours(p.hora, p.minut, 0, 0);
+    return d;
+  }
+
+  /* Recompte d'un conjunt d'exercicis fets. `ok` és encertar-lo, amb pista o
+     sense: la pista no és una falta, és una ajuda demanada, i es compta a
+     part perquè el que interessa és si en va necessitant menys. */
+  function taxes(arr) {
+    var per = { 1: { n: 0, ok: 0, p: 0 }, 2: { n: 0, ok: 0, p: 0 }, 3: { n: 0, ok: 0, p: 0 } };
+    var c = { net: 0, segon: 0, pista: 0, fallat: 0 }, pes = 0;
+    arr.forEach(function (x) {
+      var b = per[x.d] || per[2];
+      b.n++; c[x.e] = (c[x.e] || 0) + 1; pes += PES_DIF[x.d] || 1;
+      if (x.e !== "fallat") b.ok++;
+      if (x.e === "pista") b.p++;
+    });
+    var n = arr.length;
+    return {
+      n: n, c: c, pes: pes, per: per,
+      encert: n ? (c.net + c.segon + c.pista) / n : null,
+      pistes: n ? c.pista / n : null,
+      dif: n ? arr.reduce(function (a, x) { return a + x.d; }, 0) / n : null
+    };
+  }
+
+  /* Encert estandarditzat: es calcula per nivell de dificultat i es recombina
+     amb la barreja global de nivells. Sense això, un alumne que passa dels
+     exercicis directes als problemes semblaria que empitjora quan en realitat
+     només s'ha posat amb coses més difícils. */
+  function encertEstand(t, mix) {
+    var num = 0, den = 0;
+    [1, 2, 3].forEach(function (d) {
+      if (t.per[d].n && mix[d]) { num += mix[d] * (t.per[d].ok / t.per[d].n); den += mix[d]; }
+    });
+    return den ? num / den : t.encert;
+  }
+
+  function analitzaTrimestre(fs, cfg) {
+    var perAlumne = {};
+    fs.forEach(function (r) {
+      if (!r.p.ok || !r.p.integre) return;
+      var k = (r.brut.correu || r.brut.alumne || "?").toLowerCase();
+      (perAlumne[k] = perAlumne[k] || []).push(r);
+    });
+
+    return Object.keys(perAlumne).map(function (k) {
+      var codis = perAlumne[k].map(function (r) {
+        return { r: r, quan: quan(r.p), mapa: mapaEstats(r.p) };
+      }).sort(function (a, b) { return a.quan - b.quan; });
+
+      var abans = codis.filter(function (c) { return cfg.ini && c.quan < cfg.ini; });
+      var dins = codis.filter(function (c) {
+        return (!cfg.ini || c.quan >= cfg.ini) && (!cfg.fi || c.quan <= cfg.fi);
+      });
+      /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
+         anterior al període com a línia de base. */
+      var prev = abans.length ? abans[abans.length - 1].mapa : {};
+
+      var passos = [];
+      dins.forEach(function (c) {
+        var nous = [], repetits = [];
+        Object.keys(c.mapa).forEach(function (id) {
+          if (!prev[id]) nous.push(c.mapa[id]);
+          else if (prev[id].e !== c.mapa[id].e) repetits.push({ e: c.mapa[id].e, d: c.mapa[id].d, abans: prev[id].e });
+        });
+        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: Object.keys(c.mapa).length });
+        prev = c.mapa;
+      });
+
+      /* Un enviament només compta com a dia de feina si porta exercicis nous.
+         Reenviar el mateix codi vint vegades no és constància. */
+      var ambFeina = passos.filter(function (p) { return p.nous.length; });
+      var dies = {}, setmanes = {};
+      ambFeina.forEach(function (p) {
+        dies[p.quan.toISOString().slice(0, 10)] = 1;
+        var base = cfg.ini || (ambFeina[0] && ambFeina[0].quan) || p.quan;
+        setmanes[Math.floor((p.quan - base) / 604800000)] = 1;
+      });
+      var nDies = Object.keys(dies).length, nSetm = Object.keys(setmanes).length;
+
+      var tots = [];
+      ambFeina.forEach(function (p) { tots = tots.concat(p.nous); });
+      var glob = taxes(tots);
+      var mix = { 1: glob.per[1].n, 2: glob.per[2].n, 3: glob.per[3].n };
+
+      /* Les dues meitats es parteixen per VOLUM acumulat, no per temps: si un
+         alumne fa 40 exercicis el primer dia i 4 l'últim, partir pel mig del
+         calendari compararia 40 amb 4 i el soroll se'ns menjaria el senyal. */
+      var tall = Math.floor(tots.length / 2);
+      var A = taxes(tots.slice(0, tall)), B = taxes(tots.slice(tall));
+      var mesurable = tots.length >= 20 && ambFeina.length >= 2 && A.n && B.n;
+      var dEncert = null, dPistes = null;
+      if (mesurable) {
+        dEncert = encertEstand(B, mix) - encertEstand(A, mix);
+        dPistes = B.pistes - A.pistes;
+      }
+
+      var repetits = 0;
+      ambFeina.forEach(function (p) { repetits += p.repetits.length; });
+
+      // ── components de la qualificació, tots dins de [0,1] ──
+      var volum = cfg.difPes ? glob.pes : glob.n;
+      var comp = {
+        constancia: Math.min(1, nSetm / cfg.setmanes),
+        volum: Math.min(1, volum / cfg.exercicis),
+        /* 30 % d'encert -> 0, 90 % -> 1. Per sota del 30 % pràcticament no
+           s'està resolent res; per sobre del 90 %, els exercicis són massa
+           fàcils per a qui els fa. */
+        encert: glob.encert === null ? null : Math.max(0, Math.min(1, (glob.encert - 0.30) / 0.60)),
+        /* 0,5 vol dir "igual que abans". Una millora de 20 punts d'encert (o
+           20 menys de dependència de pistes) arriba al màxim. */
+        progres: mesurable ? Math.max(0, Math.min(1, 0.5 + (dEncert - dPistes) / 0.80)) : null
+      };
+
+      var ordre = ["constancia", "volum", "progres", "encert"];
+      var num = 0, den = 0;
+      ordre.forEach(function (nom, i) {
+        if (comp[nom] === null) return;      // si no es pot mesurar, el pes es reparteix
+        num += cfg.pesos[i] * comp[nom]; den += cfg.pesos[i];
+      });
+      var nota = den ? 10 * num / den : null;
+
+      return {
+        clau: k, alumne: (k.split("@")[0] || k), correu: k,
+        grup: (codis[codis.length - 1] || {}).r ? codis[codis.length - 1].r.brut.grup : "",
+        enviaments: dins.length, ambFeina: ambFeina.length,
+        dies: nDies, setmanes: nSetm, passos: ambFeina,
+        exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
+        dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
+        comp: comp, nota: nota,
+        primer: dins.length ? dins[0].quan : null,
+        ultim: dins.length ? dins[dins.length - 1].quan : null
+      };
+    }).sort(function (a, b) { return (b.nota || 0) - (a.nota || 0); });
+  }
+
+
+  function pc(x, dec) { return x === null || x === undefined ? "—" : (100 * x).toFixed(dec || 0).replace(".", ",") + " %"; }
+  function pp(x) {
+    if (x === null || x === undefined) return '<span class="apagat">—</span>';
+    var v = (100 * x).toFixed(0), c = x > 0.02 ? "ok" : (x < -0.02 ? "mal" : "apagat");
+    return '<span class="' + c + '">' + (x > 0 ? "+" : "") + v + " pp</span>";
+  }
+  function barra(v, color) {
+    return '<span class="barra" title="' + Math.round(100 * v) + ' %"><i style="width:' +
+      Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
+  }
+
+  function pintaProgres() {
+    if (!files.length) {
+      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
+      return;
+    }
+    var cfg = cfgProgres();
+    var res = analitzaTrimestre(files, cfg);
+    if (!res.length) {
+      $("#p-resultats").innerHTML = '<div class="buit">Cap alumne amb codis vàlids en aquest període.</div>';
+      return;
+    }
+
+    var h = '<h2>Qualificació del període</h2>';
+    h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
+      + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
+      + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
+      + "</tr></thead><tbody>";
+
+    res.forEach(function (a, i) {
+      h += '<tr class="clic" data-p="' + i + '">'
+        + "<td>" + a.alumne + '</td><td class="apagat">' + (a.grup || "—") + "</td>"
+        + "<td>" + a.dies + (a.enviaments > a.ambFeina
+            ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
+              + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
+        + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
+        + barra(a.comp.constancia) + "</td>"
+        + "<td>" + a.exercicis + (cfg.difPes && a.exercicis
+            ? ' <span class="apagat petit">(' + a.volum.toFixed(0) + ")</span>" : "") + " "
+        + barra(a.comp.volum) + "</td>"
+        + "<td>" + pc(a.glob.encert) + "</td>"
+        + "<td>" + pc(a.glob.pistes) + "</td>"
+        + "<td>" + (a.mesurable
+            ? pp(a.dEncert) + " · " + pp(-a.dPistes)
+            : '<span class="apagat" title="Calen 20 exercicis i 2 enviaments amb feina">no mesurable</span>') + "</td>"
+        + "<td>" + (a.nota === null ? "—" : pintaNota(a.nota, a.exercicis, 0)) + "</td>"
+        + '<td class="apagat">▾</td></tr>';
+      if (obertP === i) h += detallProgres(a, cfg);
+    });
+    h += "</tbody></table></div>";
+
+    /* Un resum de classe que digui si el problema és de constància o de
+       volum: són coses diferents i es corregeixen de maneres diferents. */
+    var mitj = function (f) { return res.reduce(function (s, a) { return s + f(a); }, 0) / res.length; };
+    var pocaConst = res.filter(function (a) { return a.comp.constancia < 0.5; }).length;
+    var concentrat = res.filter(function (a) { return a.comp.volum > 0.7 && a.comp.constancia < 0.4; });
+    var milloren = res.filter(function (a) { return a.mesurable && a.dEncert > 0.02; }).length;
+    var mesurables = res.filter(function (a) { return a.mesurable; }).length;
+
+    h += '<h2>Com ha anat el període</h2><div class="graella">'
+      + dada("Alumnes amb codis", res.length)
+      + dada("Setmanes de mitjana", mitj(function (a) { return a.setmanes; }).toFixed(1).replace(".", ",")
+             + " de " + cfg.setmanes)
+      + dada("Exercicis de mitjana", Math.round(mitj(function (a) { return a.exercicis; })))
+      + dada("Encert mitjà", pc(mitj(function (a) { return a.glob.encert || 0; })))
+      + dada("Milloren l'encert", mesurables ? milloren + " de " + mesurables : "—")
+      + dada("Constància fluixa", pocaConst + " de " + res.length)
+      + "</div>";
+
+    if (concentrat.length) {
+      h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
+        + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
+        + concentrat.map(function (a) { return a.alumne + " (" + a.setmanes + " setmanes)"; }).join(", ")
+        + ". Han fet la feina, però de cop.</p>";
+    }
+
+    h += '<div style="margin-top:1rem"><button class="btn buit petit" id="p-csv">'
+      + "Baixa les qualificacions (CSV)</button></div>";
+
+    $("#p-resultats").innerHTML = h;
+
+    $$("#t-progres tr.clic").forEach(function (tr) {
+      tr.onclick = function () { obertP = (obertP === +tr.dataset.p) ? null : +tr.dataset.p; pintaProgres(); };
+    });
+
+    $("#p-csv").onclick = function () {
+      var l = ["correu;grup;dies;setmanes;setmanes_objectiu;exercicis;volum_ponderat;"
+             + "encert;pistes;delta_encert_pp;delta_pistes_pp;repetits;nota"];
+      res.forEach(function (a) {
+        l.push([a.correu, a.grup, a.dies, a.setmanes, cfg.setmanes, a.exercicis,
+                a.volum.toFixed(1).replace(".", ","),
+                a.glob.encert === null ? "" : (100 * a.glob.encert).toFixed(0),
+                a.glob.pistes === null ? "" : (100 * a.glob.pistes).toFixed(0),
+                a.dEncert === null ? "" : (100 * a.dEncert).toFixed(0),
+                a.dPistes === null ? "" : (100 * a.dPistes).toFixed(0),
+                a.repetits,
+                a.nota === null ? "" : a.nota.toFixed(1).replace(".", ",")].join(";"));
+      });
+      var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
+      var x = document.createElement("a");
+      x.href = URL.createObjectURL(b); x.download = "repas-eso-qualificacions.csv"; x.click();
+    };
+  }
+
+  function detallProgres(a, cfg) {
+    var h = '<tr class="detall"><td colspan="10">';
+
+    h += '<div class="graella" style="margin-bottom:1rem">'
+      + dada("Constància", pc(a.comp.constancia) + " · " + a.setmanes + " setmanes, " + a.dies + " dies")
+      + dada("Volum", pc(a.comp.volum) + " · " + a.exercicis + " exercicis")
+      + dada("Encert", a.comp.encert === null ? "—" : pc(a.comp.encert) + " · " + pc(a.glob.encert) + " encertats")
+      + dada("Progrés", a.comp.progres === null ? "no mesurable" : pc(a.comp.progres))
+      + dada("Dificultat mitjana", a.glob.dif ? a.glob.dif.toFixed(2).replace(".", ",") : "—")
+      + dada("Exercicis repetits", a.repetits)
+      + "</div>";
+
+    if (a.mesurable) {
+      h += '<div class="bloc-fila"><h4>PRIMERA MEITAT CONTRA SEGONA (partides per volum de feina)</h4>'
+        + '<table style="font-size:13px"><tr><th></th><th>Exercicis</th><th>Encert</th>'
+        + "<th>Pistes</th><th>Dificultat</th></tr>"
+        + "<tr><td>Primera meitat</td><td>" + a.A.n + "</td><td>" + pc(a.A.encert)
+        + "</td><td>" + pc(a.A.pistes) + "</td><td>" + a.A.dif.toFixed(2).replace(".", ",") + "</td></tr>"
+        + "<tr><td>Segona meitat</td><td>" + a.B.n + "</td><td>" + pc(a.B.encert)
+        + "</td><td>" + pc(a.B.pistes) + "</td><td>" + a.B.dif.toFixed(2).replace(".", ",") + "</td></tr>"
+        + '<tr><td><b>Variació</b></td><td class="apagat">—</td><td>' + pp(a.dEncert)
+        + "</td><td>" + pp(-a.dPistes) + "</td><td>"
+        + (a.B.dif - a.A.dif > 0.15 ? '<span class="ok">més difícils</span>'
+           : (a.A.dif - a.B.dif > 0.15 ? '<span class="apagat">més fàcils</span>' : '<span class="apagat">igual</span>'))
+        + "</td></tr></table>"
+        + '<p class="petit apagat" style="margin:.4rem 0 0">L\'encert de la variació està '
+        + "estandarditzat per dificultat: si la segona meitat porta exercicis més durs, "
+        + "no compta com un empitjorament.</p></div>";
+    } else {
+      h += '<p class="petit apagat">Per mesurar millora calen com a mínim 20 exercicis '
+        + "repartits en 2 enviaments amb feina nova. Aquí n'hi ha " + a.exercicis
+        + " en " + a.ambFeina + ".</p>";
+    }
+
+    h += '<div class="bloc-fila"><h4>ENVIAMENTS AMB FEINA NOVA</h4><table style="font-size:13px">'
+      + "<tr><th>Data</th><th>Nous</th><th>Encert</th><th>Pistes</th><th>Repetits</th><th>Acumulat</th></tr>";
+    a.passos.forEach(function (p) {
+      var t = taxes(p.nous);
+      h += "<tr><td>" + p.quan.toISOString().slice(0, 10) + " "
+        + ("0" + p.quan.getHours()).slice(-2) + ":" + ("0" + p.quan.getMinutes()).slice(-2)
+        + "</td><td>" + p.nous.length + "</td><td>" + pc(t.encert) + "</td><td>" + pc(t.pistes)
+        + '</td><td class="apagat">' + (p.repetits.length || "") + "</td><td>" + p.total + "</td></tr>";
+    });
+    h += "</table></div>";
+
+    if (a.enviaments > a.ambFeina) {
+      h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
+        + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
+    }
+    return h + "</td></tr>";
+  }
 
   // ── un sol codi ────────────────────────────────────────────────────────
   $("#btn-un").onclick = function () {

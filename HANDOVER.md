@@ -181,6 +181,34 @@ decisions que costen més de reconstruir des del codi:
 - **`tools/codi-etiquetes.txt` és append-only.** El codi guarda l'ÍNDEX de
   l'etiqueta d'error, no el nom. Reordenar el fitxer fa il·legibles tots els
   codis ja emesos; `build_codi.py` ho vigila.
+- **Un sol botó i un sol codi.** El botó és flotant, fix a dalt a la dreta, i
+  se'l posa `codi-ui.js` tot sol a qualsevol pàgina que el carregui. Al
+  principi hi havia dos panells incrustats (peu del full i peu de la portada)
+  que donaven codis d'abast diferent; això obligava l'alumne a decidir quin
+  codi tocava i feia que el del full no portés el test inicial, perquè
+  `full.html` no carregava `diagnostic-dades.js`. Ara totes les pàgines de
+  treball carreguen el mateix bloc de scripts i el codi és sempre el mateix.
+- **El volum es veu al costat de la nota, sempre.** La nota és un percentatge
+  i no sap res del volum: qui fa un exercici i l'encerta surt amb un 10.
+  L'analitzador té un llindar de feina mínima; per sota, la nota es pinta
+  apagada i amb asterisc, perquè no convidi a comparar-la.
+- **L'anàlisi de trimestre viu de la propietat acumulativa.** La resta entre
+  dos codis consecutius d'un mateix alumne és la feina feta entremig, amb el
+  detall de com li ha anat. Sense això només es podria mesurar l'estat final;
+  amb això es mesura el camí. Quatre decisions que costen de reconstruir:
+  (a) un enviament només compta com a dia de feina si porta exercicis nous,
+  perquè reenviar el mateix codi vint vegades no és constància;
+  (b) les dues meitats que es comparen es parteixen per **volum acumulat**, no
+  pel calendari, o comparar 40 exercicis amb 4 seria soroll;
+  (c) l'encert de la variació s'**estandarditza per dificultat**, perquè si no
+  un alumne que passa dels exercicis directes als problemes semblaria que
+  empitjora;
+  (d) la feina anterior al trimestre no compta: la línia de base és l'últim
+  codi anterior al període.
+- **L'encert pesa poc a la nota, i és deliberat.** Si pesés molt, a l'alumne
+  li sortiria a compte no obrir pistes i evitar els exercicis de nivell 3, que
+  és el contrari del que busca la graduació per dificultat. Els pesos són
+  editables i la pàgina ho adverteix.
 - **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
   a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
   de 30 min) la precisió al minut no aporta res.
