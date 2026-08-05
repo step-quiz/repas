@@ -149,7 +149,9 @@ s'encalla la classe i si el codi és autèntic.
   de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
   de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
 - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
-  servidor ni connexió. No envia res enlloc.
+  servidor ni connexió. No envia res enlloc. Hi ha un full de respostes
+  d'exemple a `exemple-respostes.csv` per veure'l funcionar; vegeu
+  `EXEMPLE-LLEGEIX-ME.md`.
 - **Progrés del trimestre.** Com que els codis són acumulatius, la diferència
   entre dos codis seguits d'un mateix alumne és exactament la feina feta
   entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes

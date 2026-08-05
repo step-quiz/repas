@@ -209,6 +209,12 @@ decisions que costen més de reconstruir des del codi:
   li sortiria a compte no obrir pistes i evitar els exercicis de nivell 3, que
   és el contrari del que busca la graduació per dificultat. Els pesos són
   editables i la pàgina ho adverteix.
+- **El format de la data del formulari es detecta sol.** Google exporta la
+  marca de temps amb el format del full, que pot ser d/m/Y o m/d/Y, i amb dies
+  de l'1 al 12 no es poden distingir: "8/5/2026" tant pot ser el 8 de maig com
+  el 5 d'agost. Es resol comparant-ho amb la data que el codi porta a dins
+  —entre generar-lo i enviar-lo passen minuts, no mesos— i es decideix per
+  majoria per a tot el full. L'analitzador diu quin format ha triat.
 - **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
   a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
   de 30 min) la precisió al minut no aporta res.
