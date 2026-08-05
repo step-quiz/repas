@@ -204,8 +204,12 @@ FULLS = {
     11: {
         "titol": "Full 11 — Estadística",
         "subtitol": "Variables estadístiques, taules de freqüències i "
-                    "representacions gràfiques.",
-        "moduls": ["c_estadistica"],
+                    "representacions gràfiques. Mesures de centralització "
+                    "i de dispersió.",
+        # c_centralitzacio va SEMPRE l'últim: els seus ítems s'afegeixen al
+        # final del banc, i això és el que fa que els codis de verificació ja
+        # emesos segueixin llegint-se bé (les posicions anteriors no es mouen).
+        "moduls": ["c_estadistica", "c_centralitzacio"],
         "blocs": [
             ("variables", "Variables estadístiques",
              "Tipus de variable (qualitativa/quantitativa, discreta/"
@@ -216,6 +220,12 @@ FULLS = {
             ("grafics", "Gràfics estadístics",
              "Diagrames de barres, histogrames, polígons de freqüències "
              "i gràfics de sectors."),
+            ("centralitzacio", "Mitjana, mediana i moda",
+             "Les tres mesures de centralització, des d'una llista i des "
+             "d'una taula de freqüències, i quina respon cada pregunta."),
+            ("dispersio", "Recorregut i desviació típica",
+             "Com d'esteses estan les dades: recorregut, variància, "
+             "desviació típica i coeficient de variació."),
         ],
     },
     12: {

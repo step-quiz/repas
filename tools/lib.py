@@ -878,6 +878,94 @@ TAX = {
         "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i "
         "no $6$.",
 
+    # ---- centralització i dispersió (Full 11) ----
+    "MEDIANA_PER_MITJANA":
+        "Has confós la mediana amb la mitjana. La mitjana es CALCULA (sumar-ho "
+        "tot i dividir); la mediana es BUSCA (ordenar i mirar quina queda al "
+        "mig).",
+    "MEDIANA_PER_MODA":
+        "Has confós la mediana amb la moda. La mediana és el valor central un "
+        "cop ordenades; la moda és el que es repeteix més, estigui on estigui.",
+    "MEDIANA_SENSE_ORDENAR":
+        "Has agafat el valor del mig de la llista tal com venia. La mediana "
+        "només té sentit sobre les dades ORDENADES: aquest és el primer pas, "
+        "sempre.",
+    "MODA_PER_FREQUENCIA":
+        "Has donat quantes vegades es repeteix el valor, no quin valor és. La "
+        "moda és una dada, no un recompte.",
+    "RANG_PER_MEDIANA":
+        "Has donat el recorregut on es demanava una mesura de centre. El "
+        "recorregut diu com d'esteses estan les dades, no on és el mig.",
+    "MESURA_MAL_TRIADA":
+        "El càlcul és correcte, però aquesta mesura no respon la pregunta que "
+        "t'han fet. Abans de calcular, decideix si et pregunten on és el centre "
+        "(mitjana, mediana), què es repeteix més (moda) o com d'esteses estan "
+        "les dades (recorregut, desviació típica).",
+    "DIVIDIT_PER_VALORS_DIFERENTS":
+        "Has dividit pel nombre de valors DIFERENTS en comptes de pel nombre de "
+        "DADES. A la mitjana, un valor repetit compta tantes vegades com "
+        "apareix.",
+    "FREQUENCIA_NO_PONDERADA":
+        "Amb una taula de freqüències, cada valor s'ha de multiplicar per la "
+        "seva freqüència abans de sumar: $\\bar{x}=\\frac{\\sum x_i f_i}{N}$. "
+        "Fer la mitjana només dels valors diferents ignora quantes vegades surt "
+        "cadascun.",
+    "ACUMULADA_MAL_LLEGIDA":
+        "Has llegit malament la columna de freqüències acumulades. Busca dins "
+        "de quin valor cau la posició que et fa falta, no quin valor té aquella "
+        "freqüència.",
+    "N_MAL_COMPTAT":
+        "Has fet servir un nombre de dades que no és el que toca. Compta'l bé: "
+        "sovint la trampa és comptar només les dades conegudes i oblidar la que "
+        "es busca.",
+    "PES_IGNORAT":
+        "Has fet la mitjana simple, com si totes les parts valguessin el "
+        "mateix. Amb pesos, cada valor es multiplica pel seu abans de sumar.",
+    "PES_MAL_APLICAT":
+        "Els pesos no s'han repartit bé: cada valor ha d'anar amb el SEU pes, "
+        "no tots amb el mateix.",
+    "EXTREM_SENSE_EFECTE":
+        "Has donat per fet que una dada molt gran o molt petita no canvia res. "
+        "La mitjana sí que se'n ressent, perquè surt de sumar-ho tot; la "
+        "mediana molt menys, perquè només mira quin valor queda al mig.",
+    "MITJANA_NO_DIU_DISPERSIO":
+        "La mitjana diu on és el centre, no com d'agrupades estan les dades al "
+        "seu voltant. Dos conjunts amb la mateixa mitjana poden ser "
+        "completament diferents: per això calen les mesures de dispersió.",
+    "DESVIACIONS_SENSE_QUADRAT":
+        "Has sumat les desviacions sense elevar-les al quadrat, i per això et "
+        "dona zero. Sempre dona zero, amb qualsevol conjunt de dades: és "
+        "exactament el motiu pel qual la variància les eleva al quadrat.",
+    "DESVIACIONS_AL_QUADRAT":
+        "Has elevat al quadrat quan es demanaven les desviacions tal com són, "
+        "amb el seu signe.",
+    "VALOR_ABSOLUT_INDEGUT":
+        "Has pres els valors absoluts on tocaven els valors amb signe (o al "
+        "revés). Compte: el quadrat de $-3$ és $9$, no $3$.",
+    "VARIANCIA_PER_DESVIACIO":
+        "Has confós la variància amb la desviació típica. La desviació típica "
+        "és l'ARREL de la variància, i va en les mateixes unitats que les "
+        "dades.",
+    "DIVISIO_OBLIDADA":
+        "T'has quedat amb la suma sense dividir-la entre el nombre de dades. La "
+        "variància és una MITJANA de quadrats, no una suma.",
+    "CV_SENSE_DIVIDIR":
+        "Has comparat dues desviacions típiques directament. Com que van en les "
+        "unitats de cada variable, no es poden comparar entre magnituds "
+        "diferents: cal dividir cada $\\sigma$ entre la seva mitjana "
+        "(coeficient de variació).",
+    "CONSTANT_AFECTA_DISPERSIO":
+        "SUMAR el mateix a totes les dades les desplaça totes igual: el centre "
+        "es mou però les distàncies entre elles no, i la dispersió es manté. "
+        "MULTIPLICAR, en canvi, sí que estira les distàncies i canvia la "
+        "dispersió.",
+    "PRODUCTE_PER_SUMA":
+        "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina "
+        "operació es fa sobre les dades.",
+    "DIVISIO_SOBRERA":
+        "Has tornat a dividir per alguna cosa que ja estava tinguda en compte. "
+        "Escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
+
 }
 
 def DT(valor, tag, extra=""):
