@@ -182,12 +182,19 @@ window.RE_PROVES = (function () {
       ok: 0
     },
     {
+      /* Destresa pont del Full 11: per fer la mitjana d'una taula cal
+         entendre què és la freqüència (si no, es fa la mitjana dels valors i
+         surt 2) i cal saber què és una mitjana. Una prova sobre freqüència
+         relativa tota sola no arribava als blocs de centralització i
+         dispersió, que són el que li fa més falta a qui va a batxillerat. */
       id: "frequencies",
-      tema: "Taules de freqüències",
-      encap: "De 25 alumnes, 15 fan anglès.",
-      enunciat: "Quina és la freqüència relativa dels qui en fan?",
-      blocs: [{ full: 11, bloc: "frequencies" }, { full: 11, bloc: "variables" }],
-      opcions: ["$0,6$", "$0,4$", "$15$", "$1,67$"],
+      tema: "Taules de freqüències i mesures de centralització",
+      encap: "En una taula, el valor $1$ surt $2$ vegades, el $2$ surt $5$ "
+             + "vegades i el $3$ surt $3$ vegades.",
+      enunciat: "Quina és la mitjana?",
+      blocs: [{ full: 11, bloc: "centralitzacio" }, { full: 11, bloc: "frequencies" },
+              { full: 11, bloc: "dispersio" }, { full: 11, bloc: "variables" }],
+      opcions: ["$2,1$", "$2$", "$10$", "$21$"],
       ok: 0
     },
     {
