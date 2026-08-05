@@ -113,9 +113,4 @@
     };
   }
   pintaTutor();
-
-  if (window.RE_CODI_UI) {
-    RE_CODI_UI.pinta(document.getElementById("codi-tot"), null,
-                     "Codi de tota la teva feina");
-  }
 })();

@@ -107,9 +107,6 @@
     RE.mapa($("#mapa"), D, ves);
     pintaBlocs();
     pintaErrors();
-    if (window.RE_CODI_UI) {
-      RE_CODI_UI.pinta($("#codi-full"), [D.full], "Codi d'aquest full");
-    }
 
     $("#continua").onclick = function () {
       ves(primerPendent(D.items.map(function (i) { return i.id; })));
