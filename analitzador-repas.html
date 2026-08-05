@@ -73,6 +73,12 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 .n-mitja{background:var(--ambre-suau);color:#6B4200}
 .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
 .ajuda li{margin-bottom:.45rem}
+.camp{border-top:1px solid var(--vora);padding:.7rem 0 .1rem}
+.camp>b{display:block;font:600 11px/1.6 var(--mono);letter-spacing:.05em;
+  text-transform:uppercase;color:var(--apagat);margin-bottom:.4rem}
+.btn.pendent{background:var(--ambre);border-color:var(--ambre)}
+.capçalera-res{background:var(--blau-suau);border:1px solid #CBDCEA;border-radius:10px;
+  padding:.6rem .8rem;font-size:13.5px;margin-bottom:1rem}
 </style>
 </head>
 <body>
@@ -157,30 +163,45 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
   <section id="v-progres" hidden>
     <div class="targeta">
-      <h3>Període i objectius</h3>
-      <p class="petit apagat" style="margin:0 0 .7rem">
+      <h3>Quin període vols avaluar?</h3>
+      <p class="petit apagat" style="margin:0 0 .9rem">
         Els codis són acumulatius, així que la diferència entre dos codis seguits
         és exactament la feina feta entremig. D'aquí surt tot el que hi ha a sota:
         constància, volum i si va millorant.
       </p>
-      <div class="filtres">
-        <label class="petit apagat">Del
-          <input type="date" id="p-ini"></label>
-        <label class="petit apagat">al
-          <input type="date" id="p-fi"></label>
-        <select id="p-preset">
-          <option value="">Trimestre…</option>
-          <option value="1">1r (set–des)</option>
-          <option value="2">2n (gen–març)</option>
-          <option value="3">3r (abril–juny)</option>
-          <option value="tot">Tot el que hi ha</option>
-        </select>
-        <label class="petit apagat">Setmanes esperades
-          <input type="number" id="p-setm" value="10" min="1" max="30" style="width:64px"></label>
-        <label class="petit apagat">Exercicis esperats
-          <input type="number" id="p-exerc" value="60" min="1" max="999" style="width:74px"></label>
-        <label class="petit apagat" title="Els de nivell 3 compten 1,3 i els de nivell 1, 0,8">
-          <input type="checkbox" id="p-dif" checked> pondera per dificultat</label>
+
+      <div class="camp">
+        <b>Període</b>
+        <div class="filtres" style="margin:0">
+          <label class="petit apagat">Del
+            <input type="date" id="p-ini"></label>
+          <label class="petit apagat">al
+            <input type="date" id="p-fi"></label>
+          <select id="p-preset">
+            <option value="">O tria'n un…</option>
+            <option value="1">1r trimestre (set–des)</option>
+            <option value="2">2n trimestre (gen–març)</option>
+            <option value="3">3r trimestre (abril–juny)</option>
+            <option value="tot">Tot el que hi ha al full</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="camp">
+        <b>Quanta feina demanes en aquest període</b>
+        <div class="filtres" style="margin:0">
+          <label class="petit apagat">Setmanes amb feina
+            <input type="number" id="p-setm" value="10" min="1" max="40" style="width:64px"></label>
+          <label class="petit apagat">Exercicis en total
+            <input type="number" id="p-exerc" value="60" min="1" max="999" style="width:74px"></label>
+          <label class="petit apagat" title="Els de nivell 3 compten 1,3 i els de nivell 1, 0,8">
+            <input type="checkbox" id="p-dif" checked> pondera per dificultat</label>
+        </div>
+        <p class="petit apagat" style="margin:.35rem 0 0">
+          Qui arribi a les dues xifres té el màxim d'aquests dos apartats. Les
+          setmanes compten només si porten feina <b>nova</b>: reenviar el mateix
+          codi no suma.
+        </p>
       </div>
       <details style="margin-top:.4rem">
         <summary class="petit apagat" style="cursor:pointer">Pesos de la qualificació</summary>
@@ -203,6 +224,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           què estàs incentivant.
         </p>
       </details>
+      <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1rem">
+        <button class="btn" id="p-accepta">Accepta i calcula</button>
+        <span class="petit" id="p-estat"></span>
+      </div>
     </div>
 
     <div id="p-resultats" style="margin-top:1rem"></div>
@@ -627,7 +652,7 @@ window.RE_CODI = (function () {
       $("#v-full").hidden = b.dataset.mode !== "full";
       $("#v-progres").hidden = b.dataset.mode !== "progres";
       $("#v-un").hidden = b.dataset.mode !== "un";
-      if (b.dataset.mode === "progres") pintaProgres();
+      if (b.dataset.mode === "progres") { proposaPeriode(); pintaProgres(); }
       $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
     };
   });
@@ -1035,8 +1060,11 @@ window.RE_CODI = (function () {
       + (FORMAT_DATA === "md" ? "mes/dia/any" : "dia/mes/any") + "</span>";
     $("#resultats").hidden = false;
     obertP = null;
+    cfgAplicada = null;
+    $("#p-accepta").classList.remove("pendent");
+    $("#p-estat").textContent = "";
     pinta();
-    if (!$("#v-progres").hidden) pintaProgres();
+    if (!$("#v-progres").hidden) { proposaPeriode(); pintaProgres(); }
   }
 
   $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
@@ -1053,9 +1081,26 @@ window.RE_CODI = (function () {
 
   ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
    "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
-    $(s).oninput = function () { obertP = null; pintaProgres(); };
-    $(s).onchange = function () { obertP = null; pintaProgres(); };
+    $(s).oninput = marcaPendent;
+    $(s).onchange = marcaPendent;
   });
+  $("#p-accepta").onclick = aplicaProgres;
+
+  /* En obrir la pestanya per primera vegada, s'omplen les dates amb el que
+     cobreixen les dades. És una proposta, no una decisió: fins que no es prem
+     el botó no es calcula res. */
+  function proposaPeriode() {
+    if (cfgAplicada || $("#p-ini").value || !files.length) return;
+    var ds = files.filter(function (r) { return r.p.ok; }).map(function (r) { return quan(r.p); });
+    if (!ds.length) return;
+    var mn = new Date(Math.min.apply(null, ds)), mx = new Date(Math.max.apply(null, ds));
+    $("#p-ini").value = mn.toISOString().slice(0, 10);
+    $("#p-fi").value = mx.toISOString().slice(0, 10);
+    $("#p-setm").value = Math.max(1, Math.round((mx - mn) / 604800000) + 1);
+    $("#p-estat").innerHTML = '<span class="apagat">Hi ha codis del '
+      + mn.toISOString().slice(0, 10) + " al " + mx.toISOString().slice(0, 10)
+      + ". Ajusta el que calgui i prem <b>Accepta i calcula</b>.</span>";
+  }
 
   /* Els trimestres es dedueixen de l'any que tenen les dades, no d'un any
      fix: així el fitxer segueix servint el curs vinent. */
@@ -1077,7 +1122,11 @@ window.RE_CODI = (function () {
     } else if (v === "1") { posa((any - 1) + "-09-01", (any - 1) + "-12-22", 14); }
     else if (v === "2") { posa(any + "-01-08", any + "-03-31", 11); }
     else { posa(any + "-04-01", any + "-06-20", 11); }
-    obertP = null; pintaProgres();
+    marcaPendent();
+    if (!cfgAplicada) {
+      $("#p-estat").innerHTML = '<span class="apagat">Període posat. Ara prem '
+        + "<b>Accepta i calcula</b>.</span>";
+    }
   };
 
   $("#btn-csv").onclick = function () {
@@ -1306,19 +1355,90 @@ window.RE_CODI = (function () {
       Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
   }
 
-  function pintaProgres() {
+  /* Les qualificacions NO es recalculen a cada tecla: es recalculen quan es
+     prem "Accepta i calcula". Posar una nota a algú no és una previsualització,
+     i veure les xifres ballar mentre s'escriu un any convida a mirar-se-les
+     abans que estiguin acabades. Mentre hi hagi canvis sense aplicar, el botó
+     es posa ambre i ho diu. */
+  var cfgAplicada = null;
+
+  function marcaPendent() {
+    if (!cfgAplicada) return;
+    $("#p-accepta").classList.add("pendent");
+    $("#p-estat").innerHTML = '<span class="avis">Has canviat alguna cosa: '
+      + "prem <b>Accepta i calcula</b> per tornar a fer els números.</span>";
+  }
+
+  function dataDeText(v) { return v ? new Date(v + "T00:00:00") : null; }
+
+  function aplicaProgres() {
     if (!files.length) {
-      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
+      $("#p-estat").innerHTML = '<span class="mal">Primer has de llegir un full '
+        + "de respostes a la primera pestanya.</span>";
       return;
     }
-    var cfg = cfgProgres();
+    var i = dataDeText($("#p-ini").value), f = dataDeText($("#p-fi").value);
+    if (!i || !f) {
+      $("#p-estat").innerHTML = '<span class="mal">Falta dir de quina data a '
+        + "quina. Pots triar un trimestre de la llista.</span>";
+      return;
+    }
+    if (i > f) {
+      $("#p-estat").innerHTML = '<span class="mal">La data d\'inici és posterior '
+        + "a la de final.</span>";
+      return;
+    }
+    cfgAplicada = cfgProgres();
+    $("#p-accepta").classList.remove("pendent");
+    $("#p-estat").textContent = "";
+    obertP = null;
+    pintaProgres();
+  }
+
+  function pintaProgres() {
+    if (!files.length) {
+      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes '
+        + "a la pestanya <b>Full de respostes</b>.</div>";
+      return;
+    }
+    if (!cfgAplicada) {
+      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
+        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
+      return;
+    }
+    var cfg = cfgAplicada;
     var res = analitzaTrimestre(files, cfg);
     if (!res.length) {
-      $("#p-resultats").innerHTML = '<div class="buit">Cap alumne amb codis vàlids en aquest període.</div>';
+      $("#p-resultats").innerHTML = '<div class="buit">Cap codi vàlid al full.</div>';
+      return;
+    }
+    /* Qui té codis al full però cap dins del període hi surt igualment, amb
+       un zero: no haver fet res durant el trimestre és una nota, no una
+       absència de dades. Ara bé, si això li passa a TOTHOM, el més probable
+       no és que la classe hagi plegat sinó que les dates estiguin malament. */
+    if (res.every(function (a) { return !a.enviaments; })) {
+      var ds = files.filter(function (r) { return r.p.ok; }).map(function (r) { return quan(r.p); });
+      var mn = new Date(Math.min.apply(null, ds)), mx = new Date(Math.max.apply(null, ds));
+      $("#p-resultats").innerHTML = '<div class="buit">Cap alumne no ha enviat res '
+        + "entre aquestes dues dates.<br><span class=\"petit\">Els codis del full van "
+        + "del <b>" + mn.toISOString().slice(0, 10) + "</b> al <b>"
+        + mx.toISOString().slice(0, 10) + "</b>.</span></div>";
       return;
     }
 
-    var h = '<h2>Qualificació del període</h2>';
+    /* Que sempre quedi escrit a quines condicions correspon el que es veu:
+       una nota sense el període i els objectius al costat no vol dir res. */
+    var dt = function (d) {
+      return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2)
+        + "/" + d.getFullYear();
+    };
+    var h = '<div class="capçalera-res"><b>' + dt(cfg.ini) + " – " + dt(cfg.fi) + "</b>"
+      + '<span class="apagat"> · es demanen </span><b>' + cfg.setmanes + " setmanes</b>"
+      + '<span class="apagat"> amb feina i </span><b>' + cfg.exercicis + " exercicis</b>"
+      + (cfg.difPes ? '<span class="apagat">, ponderats per dificultat</span>' : "")
+      + '<span class="apagat"> · pesos ' + cfg.pesos.join("/") + "</span></div>";
+
+    h += '<h2>Qualificació del període</h2>';
     h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
       + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
       + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
@@ -1326,7 +1446,10 @@ window.RE_CODI = (function () {
 
     res.forEach(function (a, i) {
       h += '<tr class="clic" data-p="' + i + '">'
-        + "<td>" + a.alumne + '</td><td class="apagat">' + (a.grup || "—") + "</td>"
+        + "<td>" + a.alumne + (a.enviaments ? "" :
+            ' <span class="xip" title="Té codis al full, però cap en aquest període">'
+            + "res en aquest període</span>") + "</td>"
+        + '<td class="apagat">' + (a.grup || "—") + "</td>"
         + "<td>" + a.dies + (a.enviaments > a.ambFeina
             ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
               + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"

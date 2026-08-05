@@ -12,8 +12,9 @@ tant validen, es descodifiquen i s'analitzen exactament com els de debò.
 1. Obre `analitzador-repas.html` (doble clic, no cal servidor).
 2. Obre `exemple-respostes.csv` amb el botó **Obre un CSV**, o obre'l amb el
    full de càlcul, copia-ho tot i enganxa-ho a la caixa.
-3. A la pestanya **Progrés del trimestre**, posa del `2026-09-20` al
-   `2026-12-05`, **11 setmanes** i **60 exercicis**.
+3. Ves a la pestanya **Progrés del trimestre**. Et proposarà el període que
+   cobreixen les dades; posa-hi del `2026-09-20` al `2026-12-05`,
+   **11 setmanes** i **60 exercicis**, i prem **Accepta i calcula**.
 
 El fitxer imita el teu formulari real: mateixes capçaleres, i la marca de
 temps en **mes/dia/any**, que és el format que té el teu full. L'analitzador

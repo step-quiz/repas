@@ -205,6 +205,17 @@ decisions que costen més de reconstruir des del codi:
   empitjora;
   (d) la feina anterior al trimestre no compta: la línia de base és l'últim
   codi anterior al període.
+- **Les qualificacions no es recalculen a cada tecla.** Hi ha un botó
+  «Accepta i calcula», i mentre hi hagi canvis sense aplicar el botó es posa
+  ambre i ho diu. Posar una nota a algú no és una previsualització, i veure
+  les xifres ballar mentre s'escriu un any convida a mirar-se-les abans que
+  estiguin acabades. La capçalera del resultat repeteix sempre el període i
+  els objectius amb què s'han calculat: una nota sense això al costat no vol
+  dir res.
+- **Qui té codis al full però cap dins del període hi surt amb un zero.** No
+  haver fet res durant el trimestre és una nota, no una absència de dades. Si
+  això li passa a tothom, però, l'analitzador avisa que segurament les dates
+  estan malament i diu quin rang cobreixen els codis de debò.
 - **L'encert pesa poc a la nota, i és deliberat.** Si pesés molt, a l'alumne
   li sortiria a compte no obrir pistes i evitar els exercicis de nivell 3, que
   és el contrari del que busca la graduació per dificultat. Els pesos són
