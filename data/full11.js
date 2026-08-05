@@ -2,7 +2,7 @@
 window.FULL = {
  "full": 11,
  "titol": "Full 11 — Estadística",
- "subtitol": "Variables estadístiques, taules de freqüències i representacions gràfiques.",
+ "subtitol": "Variables estadístiques, taules de freqüències i representacions gràfiques. Mesures de centralització i de dispersió.",
  "blocs": [
   {
    "id": "variables",
@@ -76,26 +76,109 @@ window.FULL = {
     "232c",
     "234c"
    ]
+  },
+  {
+   "id": "centralitzacio",
+   "titol": "Mitjana, mediana i moda",
+   "descripcio": "Les tres mesures de centralització, des d'una llista i des d'una taula de freqüències, i quina respon cada pregunta.",
+   "items": [
+    "260a",
+    "260b",
+    "260c",
+    "260d",
+    "261a",
+    "261b",
+    "261c",
+    "261d",
+    "262a",
+    "262b",
+    "262c",
+    "262d",
+    "263a",
+    "263b",
+    "263c",
+    "264",
+    "265a",
+    "265b",
+    "266a",
+    "266b",
+    "267a",
+    "267b"
+   ]
+  },
+  {
+   "id": "dispersio",
+   "titol": "Recorregut i desviació típica",
+   "descripcio": "Com d'esteses estan les dades: recorregut, variància, desviació típica i coeficient de variació.",
+   "items": [
+    "268a",
+    "268b",
+    "268c",
+    "269a",
+    "269b",
+    "270a",
+    "270b",
+    "270c",
+    "271a",
+    "271b",
+    "272a",
+    "272b",
+    "273a",
+    "273b",
+    "274a",
+    "274b",
+    "274c"
+   ]
   }
  ],
  "errors": {
+  "ACUMULADA_MAL_LLEGIDA": "Has llegit malament la columna de freqüències acumulades. Busca dins de quin valor cau la posició que et fa falta, no quin valor té aquella freqüència.",
+  "ARREL_MAL_APLICADA": "L'arrel no s'ha aplicat on tocava. Aïlla primer la quantitat que va sota l'arrel i fes-la al final, sobre el valor ja aïllat.",
+  "ARREL_OBLIDADA": "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.",
+  "CONSTANT_AFECTA_DISPERSIO": "SUMAR el mateix a totes les dades les desplaça totes igual: el centre es mou però les distàncies entre elles no, i la dispersió es manté. MULTIPLICAR, en canvi, sí que estira les distàncies i canvia la dispersió.",
   "CRITERI_AGRUPACIO_MAL": "El criteri per agrupar en intervals no és el nombre de dades sinó com estan repartides: si els valors són molt dispersos i gairebé no es repeteixen, una taula valor a valor no resumeix res.",
+  "CV_SENSE_DIVIDIR": "Has comparat dues desviacions típiques directament. Com que van en les unitats de cada variable, no es poden comparar entre magnituds diferents: cal dividir cada $\\sigma$ entre la seva mitjana (coeficient de variació).",
+  "DESVIACIONS_AL_QUADRAT": "Has elevat al quadrat quan es demanaven les desviacions tal com són, amb el seu signe.",
+  "DESVIACIONS_SENSE_QUADRAT": "Has sumat les desviacions sense elevar-les al quadrat, i per això et dona zero. Sempre dona zero, amb qualsevol conjunt de dades: és exactament el motiu pel qual la variància les eleva al quadrat.",
   "DIAGRAMA_HISTOGRAMA_CONFOSOS": "El diagrama de barres (amb separació entre barres) s'utilitza per a variables discretes o qualitatives; l'histograma (sense separació) s'utilitza per a variables contínues agrupades en intervals.",
   "DISCRETA_CONTINUA_CONFOSES": "Una variable quantitativa és discreta quan només pot prendre valors aïllats (típicament un recompte), i contínua quan pot prendre qualsevol valor decimal dins d'un interval.",
+  "DIVIDIT_PER_VALORS_DIFERENTS": "Has dividit pel nombre de valors DIFERENTS en comptes de pel nombre de DADES. A la mitjana, un valor repetit compta tantes vegades com apareix.",
+  "DIVISIO_OBLIDADA": "T'has quedat amb la suma sense dividir-la entre el nombre de dades. La variància és una MITJANA de quadrats, no una suma.",
+  "DIVISIO_SOBRERA": "Has tornat a dividir per alguna cosa que ja estava tinguda en compte. Escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
+  "EL_MES_GRAN": "El més gran dels nombres només és el m.c.m. si tots els altres el divideixen. Comprova-ho abans de donar-lo per bo.",
   "ESCALA_ALTERA_DADES": "Canviar l'escala vertical d'un gràfic no crea ni elimina cap dada: la forma es manté, només canvien els números de l'eix.",
   "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
+  "EXTREM_SENSE_EFECTE": "Has donat per fet que una dada molt gran o molt petita no canvia res. La mitjana sí que se'n ressent, perquè surt de sumar-ho tot; la mediana molt menys, perquè només mira quin valor queda al mig.",
+  "FREQUENCIA_NO_PONDERADA": "Amb una taula de freqüències, cada valor s'ha de multiplicar per la seva freqüència abans de sumar: $\\bar{x}=\\frac{\\sum x_i f_i}{N}$. Fer la mitjana només dels valors diferents ignora quantes vegades surt cadascun.",
   "FREQ_ABSOLUTA_ACUMULADA_CONFOSES": "La freqüència absoluta $f_i$ és el recompte d'un valor concret; la freqüència absoluta acumulada $F_i$ és la suma de totes les freqüències fins a aquell valor, inclòs.",
   "FREQ_RELATIVA_MAL_CALCULADA": "La freqüència relativa d'un valor s'obté dividint la seva freqüència absoluta pel nombre TOTAL de dades, no per cap altre nombre.",
   "F_ACUMULADA_NO_CREIXENT": "La freqüència absoluta acumulada $F_i$ mai pot disminuir a mesura que $i$ creix: cada $F_i$ inclou totes les dades fins aquell punt, així que com a mínim es queda igual.",
   "INTERVAL_LIMIT_MAL_ASSIGNAT": "Revisa a quin interval pertany cada dada: amb intervals $[a,b)$, el límit inferior $a$ hi pertany però el superior $b$ no (pertany al següent interval).",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "MEDIANA_PER_MITJANA": "Has confós la mediana amb la mitjana. La mitjana es CALCULA (sumar-ho tot i dividir); la mediana es BUSCA (ordenar i mirar quina queda al mig).",
+  "MEDIANA_PER_MODA": "Has confós la mediana amb la moda. La mediana és el valor central un cop ordenades; la moda és el que es repeteix més, estigui on estigui.",
+  "MEDIANA_SENSE_ORDENAR": "Has agafat el valor del mig de la llista tal com venia. La mediana només té sentit sobre les dades ORDENADES: aquest és el primer pas, sempre.",
+  "MESURA_MAL_TRIADA": "El càlcul és correcte, però aquesta mesura no respon la pregunta que t'han fet. Abans de calcular, decideix si et pregunten on és el centre (mitjana, mediana), què es repeteix més (moda) o com d'esteses estan les dades (recorregut, desviació típica).",
+  "MITJANA_NO_DIU_DISPERSIO": "La mitjana diu on és el centre, no com d'agrupades estan les dades al seu voltant. Dos conjunts amb la mateixa mitjana poden ser completament diferents: per això calen les mesures de dispersió.",
+  "MODA_PER_FREQUENCIA": "Has donat quantes vegades es repeteix el valor, no quin valor és. La moda és una dada, no un recompte.",
   "MOSTRA_POBLACIO_INVERTIDES": "Convé estudiar tota la població quan aquesta és petita i accessible; convé estudiar-ne una mostra quan és molt gran o inabastable en la seva totalitat.",
+  "N_MAL_COMPTAT": "Has fet servir un nombre de dades que no és el que toca. Compta'l bé: sovint la trampa és comptar només les dades conegudes i oblidar la que es busca.",
   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "PERCENTATGE_DECIMAL_MAL": "El pas de tant per cent a decimal no és correcte: es divideix per $100$, així que $0{,}8\\,\\%=0{,}008$ i $8\\,\\%=0{,}08$. Compta les xifres.",
   "PERCENTATGE_MAL_CALCULAT": "El percentatge d'un valor s'obté multiplicant la seva freqüència relativa per $100$ (o, equivalentment, $\\frac{f_i}{N}\\cdot100$).",
+  "PES_IGNORAT": "Has fet la mitjana simple, com si totes les parts valguessin el mateix. Amb pesos, cada valor es multiplica pel seu abans de sumar.",
+  "PES_MAL_APLICAT": "Els pesos no s'han repartit bé: cada valor ha d'anar amb el SEU pes, no tots amb el mateix.",
   "POLIGON_MAL_CONSTRUIT": "El polígon de freqüències s'obté unint amb segments els punts que marquen l'alçada de cada barra, en l'ordre dels valors de la variable.",
+  "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "QUALITATIVA_QUANTITATIVA_CONFOSES": "Una variable és quantitativa quan s'expressa amb un nombre (encara que no porti unitats), i qualitativa quan expressa una categoria o qualitat que no es mesura numèricament.",
+  "RANG_PER_MEDIANA": "Has donat el recorregut on es demanava una mesura de centre. El recorregut diu com d'esteses estan les dades, no on és el mig.",
   "RECOMPTE_MAL_FET": "Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.",
   "SECTOR_ANGLE_MAL_CALCULAT": "L'angle de cada sector s'obté multiplicant la seva freqüència relativa pels $360^\\circ$ totals de la circumferència, no per cap altre nombre.",
+  "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
   "TOTAL_DADES_MAL_CALCULAT": "El nombre total de dades $N$ és la suma de totes les freqüències absolutes (o, equivalentment, l'última freqüència absoluta acumulada).",
+  "VALOR_ABSOLUT_INDEGUT": "Has pres els valors absoluts on tocaven els valors amb signe (o al revés). Compte: el quadrat de $-3$ és $9$, no $3$.",
+  "VARIANCIA_PER_DESVIACIO": "Has confós la variància amb la desviació típica. La desviació típica és l'ARREL de la variància, i va en les mateixes unitats que les dades.",
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
@@ -1242,6 +1325,864 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgbGEgZnJlccO8w6huY2lhIEQnVU4gTUVTIGJhaXhpIHJlc3BlY3RlIGEgbCdhbnRlcmlvciBubyBmYSBiYWl4YXIgbCdBQ1VNVUxBREE6ICRGX2kkIHN1bWEgc2VtcHJlIGVscyBsbG9ndWVycyBkZSB0b3RzIGVscyBtZXNvcyBhbnRlcmlvcnMsIGFpeMOtIHF1ZSBtYWkgcG90IGRpc21pbnVpci4iLCAiRWwgdG90YWwgZmluYWwgKCQxXFwsMDM4JCkgw6lzIGZpeCwgcGVyw7IgZWwgcG9sw61nb24gbW9zdHJhIGNvbSBlcyB2YSBBQ1VNVUxBTlQgbWVzIGEgbWVzLCBpIGFxdWVzdCByZWNvcnJlZ3V0IHPDrSBxdWUgcHVqYSBwcm9ncmVzc2l2YW1lbnQsIG5vIMOpcyB1bmEgbMOtbmlhIHBsYW5hIGRlcyBkZWwgcHJpbmNpcGkuIiwgIk5vIMOpcyBpZ3VhbDogZWwgcG9sw61nb24gZGUgZnJlccO8w6huY2llcyBzaW1wbGVzIHB1amEgaSBiYWl4YSBzZWd1aW50IGVscyBsbG9ndWVycyBkZSBjYWRhIG1lcyBwZXIgc2VwYXJhdCwgbWVudHJlIHF1ZSBsJ2FjdW11bGF0IG5vbcOpcyBwb3QgcHVqYXIgbyBxdWVkYXItc2UgaWd1YWwsIG1haSBiYWl4YXIuIiwgIiJdLCAiZXJyIjogWyJGX0FDVU1VTEFEQV9OT19DUkVJWEVOVCIsICJGX0FDVU1VTEFEQV9OT19DUkVJWEVOVCIsICJGUkVRX0FCU09MVVRBX0FDVU1VTEFEQV9DT05GT1NFUyIsICIiXSwgInJlcyI6IFsiQ29tIHF1ZSBjYWRhICRGX2kkIHN1bWEgZWxzIGxsb2d1ZXJzIGRlIHRvdHMgZWxzIG1lc29zIGFudGVyaW9ycyBtw6lzIGVsIHByb3BpLCBtYWkgcG90IGRpc21pbnVpcjogZWwgcG9sw61nb24gw6lzIHNlbXByZSBjcmVpeGVudCwgZGVzIGRlICRGKFxcdGV4dHtnZW5lcn0pPTEwMCQgZmlucyBhICRGKFxcdGV4dHtkZXNlbWJyZX0pPTFcXCwwMzgkIl19"
+  },
+  {
+   "id": "260a",
+   "ex": 260,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.",
+   "enunciat": "$3,\\;5,\\;5,\\;8,\\;9$",
+   "opcions": [
+    "$30$",
+    "$\\dfrac{15}{2}$",
+    "$6$",
+    "$5$"
+   ],
+   "pistes": [
+    "Suma totes les dades i divideix el resultat pel nombre de dades.",
+    "Aquí hi ha $5$ dades i sumen $30$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBzdW1hIGRlIHRvdGVzIGxlcyBkYWRlczogZW5jYXJhIGZhbHRhIGRpdmlkaXItbGEgcGVyICQ1JC4iLCAiSGFzIGRpdmlkaXQgcGVscyB2YWxvcnMgRElGRVJFTlRTIHF1ZSBoaSBoYSAoJDQkKSwgbm8gcGVyIGxlcyBkYWRlcyBxdWUgaGkgaGEgKCQ1JCkuIEEgbGEgbWl0amFuYSwgdW4gdmFsb3IgcmVwZXRpdCBjb21wdGEgY2FkYSB2ZWdhZGEgcXVlIGFwYXJlaXguIiwgIiIsICJBaXjDsiDDqXMgbGEgbWVkaWFuYSAoZWwgdmFsb3IgZGVsIG1pZyB1biBjb3Agb3JkZW5hZGVzKSwgbm8gbGEgbWl0amFuYS4gTGEgbWl0amFuYSBzdXJ0IGRlIHN1bWFyLWhvIHRvdCBpIGRpdmlkaXIgcGVyICQ1JC4iXSwgImVyciI6IFsiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiRElWSURJVF9QRVJfVkFMT1JTX0RJRkVSRU5UUyIsICIiLCAiTUVESUFOQV9QRVJfTUlUSkFOQSJdLCAicmVzIjogWyIkXFxiYXJ7eH09XFxkZnJhY3szKzUrNSs4Kzl9ezV9PVxcZGZyYWN7MzB9ezV9PTYkIl19"
+  },
+  {
+   "id": "260b",
+   "ex": 260,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.",
+   "enunciat": "$6,\\;2,\\;7,\\;4,\\;6$",
+   "opcions": [
+    "$6$",
+    "$\\dfrac{25}{4}$",
+    "$25$",
+    "$5$"
+   ],
+   "pistes": [
+    "Suma totes les dades i divideix el resultat pel nombre de dades.",
+    "Aquí hi ha $5$ dades i sumen $25$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgbGEgbWVkaWFuYSAoZWwgdmFsb3IgZGVsIG1pZyB1biBjb3Agb3JkZW5hZGVzKSwgbm8gbGEgbWl0amFuYS4gTGEgbWl0amFuYSBzdXJ0IGRlIHN1bWFyLWhvIHRvdCBpIGRpdmlkaXIgcGVyICQ1JC4iLCAiSGFzIGRpdmlkaXQgcGVscyB2YWxvcnMgRElGRVJFTlRTIHF1ZSBoaSBoYSAoJDQkKSwgbm8gcGVyIGxlcyBkYWRlcyBxdWUgaGkgaGEgKCQ1JCkuIEEgbGEgbWl0amFuYSwgdW4gdmFsb3IgcmVwZXRpdCBjb21wdGEgY2FkYSB2ZWdhZGEgcXVlIGFwYXJlaXguIiwgIkFxdWVzdGEgw6lzIGxhIHN1bWEgZGUgdG90ZXMgbGVzIGRhZGVzOiBlbmNhcmEgZmFsdGEgZGl2aWRpci1sYSBwZXIgJDUkLiIsICIiXSwgImVyciI6IFsiTUVESUFOQV9QRVJfTUlUSkFOQSIsICJESVZJRElUX1BFUl9WQUxPUlNfRElGRVJFTlRTIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIiJdLCAicmVzIjogWyIkXFxiYXJ7eH09XFxkZnJhY3s2KzIrNys0KzZ9ezV9PVxcZGZyYWN7MjV9ezV9PTUkIl19"
+  },
+  {
+   "id": "260c",
+   "ex": 260,
+   "ap": "c",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.",
+   "enunciat": "$5,\\;7,\\;7,\\;9,\\;2,\\;6$",
+   "opcions": [
+    "$6$",
+    "$36$",
+    "$\\dfrac{36}{5}$",
+    "$\\dfrac{13}{2}$"
+   ],
+   "pistes": [
+    "Suma totes les dades i divideix el resultat pel nombre de dades.",
+    "Aquí hi ha $6$ dades i sumen $36$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgc3VtYSBkZSB0b3RlcyBsZXMgZGFkZXM6IGVuY2FyYSBmYWx0YSBkaXZpZGlyLWxhIHBlciAkNiQuIiwgIkhhcyBkaXZpZGl0IHBlbHMgdmFsb3JzIERJRkVSRU5UUyBxdWUgaGkgaGEgKCQ1JCksIG5vIHBlciBsZXMgZGFkZXMgcXVlIGhpIGhhICgkNiQpLiBBIGxhIG1pdGphbmEsIHVuIHZhbG9yIHJlcGV0aXQgY29tcHRhIGNhZGEgdmVnYWRhIHF1ZSBhcGFyZWl4LiIsICJBaXjDsiDDqXMgbGEgbWVkaWFuYSAoZWwgdmFsb3IgZGVsIG1pZyB1biBjb3Agb3JkZW5hZGVzKSwgbm8gbGEgbWl0amFuYS4gTGEgbWl0amFuYSBzdXJ0IGRlIHN1bWFyLWhvIHRvdCBpIGRpdmlkaXIgcGVyICQ2JC4iXSwgImVyciI6IFsiIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIkRJVklESVRfUEVSX1ZBTE9SU19ESUZFUkVOVFMiLCAiTUVESUFOQV9QRVJfTUlUSkFOQSJdLCAicmVzIjogWyIkXFxiYXJ7eH09XFxkZnJhY3s1KzcrNys5KzIrNn17Nn09XFxkZnJhY3szNn17Nn09NiQiXX0="
+  },
+  {
+   "id": "260d",
+   "ex": 260,
+   "ap": "d",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.",
+   "enunciat": "$8,\\;3,\\;5,\\;5,\\;9$",
+   "opcions": [
+    "$\\dfrac{15}{2}$",
+    "$30$",
+    "$5$",
+    "$6$"
+   ],
+   "pistes": [
+    "Suma totes les dades i divideix el resultat pel nombre de dades.",
+    "Aquí hi ha $5$ dades i sumen $30$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWxzIHZhbG9ycyBESUZFUkVOVFMgcXVlIGhpIGhhICgkNCQpLCBubyBwZXIgbGVzIGRhZGVzIHF1ZSBoaSBoYSAoJDUkKS4gQSBsYSBtaXRqYW5hLCB1biB2YWxvciByZXBldGl0IGNvbXB0YSBjYWRhIHZlZ2FkYSBxdWUgYXBhcmVpeC4iLCAiQXF1ZXN0YSDDqXMgbGEgc3VtYSBkZSB0b3RlcyBsZXMgZGFkZXM6IGVuY2FyYSBmYWx0YSBkaXZpZGlyLWxhIHBlciAkNSQuIiwgIkFpeMOyIMOpcyBsYSBtZWRpYW5hIChlbCB2YWxvciBkZWwgbWlnIHVuIGNvcCBvcmRlbmFkZXMpLCBubyBsYSBtaXRqYW5hLiBMYSBtaXRqYW5hIHN1cnQgZGUgc3VtYXItaG8gdG90IGkgZGl2aWRpciBwZXIgJDUkLiIsICIiXSwgImVyciI6IFsiRElWSURJVF9QRVJfVkFMT1JTX0RJRkVSRU5UUyIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJNRURJQU5BX1BFUl9NSVRKQU5BIiwgIiJdLCAicmVzIjogWyIkXFxiYXJ7eH09XFxkZnJhY3s4KzMrNSs1Kzl9ezV9PVxcZGZyYWN7MzB9ezV9PTYkIl19"
+  },
+  {
+   "id": "261a",
+   "ex": 261,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mediana de cada llista. Fixa't que les dades no venen ordenades.",
+   "enunciat": "$3,\\;6,\\;19,\\;2,\\;10$",
+   "opcions": [
+    "$19$",
+    "$17$",
+    "$8$",
+    "$6$"
+   ],
+   "pistes": [
+    "Ordena primer les dades de menor a major.",
+    "Ordenades queden $2,\\;3,\\;6,\\;10,\\;19$. Com que n'hi ha $5$, la mediana és el valor que ocupa el lloc $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IGVsIHZhbG9yIGRlbCBtaWcgZGUgbGEgbGxpc3RhIFRBTCBDT00gdmUuIExhIG1lZGlhbmEgZXMgYnVzY2Egc29icmUgbGVzIGRhZGVzIE9SREVOQURFUzogJDIsXFw7MyxcXDs2LFxcOzEwLFxcOzE5JC4iLCAiQWl4w7Igw6lzIGVsIHJlY29ycmVndXQgKGVsIG3DqXMgZ3JhbiBtZW55cyBlbCBtw6lzIHBldGl0KSwgcXVlIG1lc3VyYSBjb20gZCdlc3Rlc2VzIGVzdGFuIGxlcyBkYWRlcywgbm8gb24gw6lzIGVsIGNlbnRyZS4iLCAiQWl4w7Igw6lzIGxhIG1pdGphbmEsIG5vIGxhIG1lZGlhbmEuIExhIG1lZGlhbmEgbm8gZXMgY2FsY3VsYTogZXMgYnVzY2EsIHVuIGNvcCBsZXMgZGFkZXMgZXN0YW4gb3JkZW5hZGVzLiIsICIiXSwgImVyciI6IFsiTUVESUFOQV9TRU5TRV9PUkRFTkFSIiwgIlJBTkdfUEVSX01FRElBTkEiLCAiTUVESUFOQV9QRVJfTUlUSkFOQSIsICIiXSwgInJlcyI6IFsiT3JkZW5hZGVzOiAkMixcXDszLFxcOzYsXFw7MTAsXFw7MTkkIiwgIkhpIGhhICQ1JCBkYWRlcywgYWl4w60gcXVlIGxhIG1lZGlhbmEgw6lzIGVsIHZhbG9yIHF1ZSBvY3VwYSBlbCBsbG9jICQzJDogJDYkIl19"
+  },
+  {
+   "id": "261b",
+   "ex": 261,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mediana de cada llista. Fixa't que les dades no venen ordenades.",
+   "enunciat": "$18,\\;4,\\;14,\\;12$",
+   "opcions": [
+    "$13$",
+    "$12$",
+    "$14$",
+    "$9$"
+   ],
+   "pistes": [
+    "Ordena primer les dades de menor a major.",
+    "Ordenades queden $4,\\;12,\\;14,\\;18$. Com que n'hi ha $4$, la mediana és la mitjana dels que ocupen els llocs $2$ i $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIG1pdGphbmEsIG5vIGxhIG1lZGlhbmEuIExhIG1lZGlhbmEgbm8gZXMgY2FsY3VsYTogZXMgYnVzY2EsIHVuIGNvcCBsZXMgZGFkZXMgZXN0YW4gb3JkZW5hZGVzLiIsICJBaXjDsiDDqXMgZWwgcmVjb3JyZWd1dCAoZWwgbcOpcyBncmFuIG1lbnlzIGVsIG3DqXMgcGV0aXQpLCBxdWUgbWVzdXJhIGNvbSBkJ2VzdGVzZXMgZXN0YW4gbGVzIGRhZGVzLCBubyBvbiDDqXMgZWwgY2VudHJlLiIsICJIYXMgYWdhZmF0IGVsIHZhbG9yIGRlbCBtaWcgZGUgbGEgbGxpc3RhIFRBTCBDT00gdmUuIExhIG1lZGlhbmEgZXMgYnVzY2Egc29icmUgbGVzIGRhZGVzIE9SREVOQURFUzogJDQsXFw7MTIsXFw7MTQsXFw7MTgkLiJdLCAiZXJyIjogWyIiLCAiTUVESUFOQV9QRVJfTUlUSkFOQSIsICJSQU5HX1BFUl9NRURJQU5BIiwgIk1FRElBTkFfU0VOU0VfT1JERU5BUiJdLCAicmVzIjogWyJPcmRlbmFkZXM6ICQ0LFxcOzEyLFxcOzE0LFxcOzE4JCIsICJIaSBoYSAkNCQgZGFkZXMsIGFpeMOtIHF1ZSBsYSBtZWRpYW5hIMOpcyBsYSBtaXRqYW5hIGRlbHMgcXVlIG9jdXBlbiBlbHMgbGxvY3MgJDIkIGkgJDMkOiAkMTMkIl19"
+  },
+  {
+   "id": "261c",
+   "ex": 261,
+   "ap": "c",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mediana de cada llista. Fixa't que les dades no venen ordenades.",
+   "enunciat": "$14,\\;14,\\;15,\\;1,\\;8,\\;7,\\;18$",
+   "opcions": [
+    "$1$",
+    "$14$",
+    "$17$",
+    "$11$"
+   ],
+   "pistes": [
+    "Ordena primer les dades de menor a major.",
+    "Ordenades queden $1,\\;7,\\;8,\\;14,\\;14,\\;15,\\;18$. Com que n'hi ha $7$, la mediana és el valor que ocupa el lloc $4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgYWdhZmF0IGVsIHZhbG9yIGRlbCBtaWcgZGUgbGEgbGxpc3RhIFRBTCBDT00gdmUuIExhIG1lZGlhbmEgZXMgYnVzY2Egc29icmUgbGVzIGRhZGVzIE9SREVOQURFUzogJDEsXFw7NyxcXDs4LFxcOzE0LFxcOzE0LFxcOzE1LFxcOzE4JC4iLCAiIiwgIkFpeMOyIMOpcyBlbCByZWNvcnJlZ3V0IChlbCBtw6lzIGdyYW4gbWVueXMgZWwgbcOpcyBwZXRpdCksIHF1ZSBtZXN1cmEgY29tIGQnZXN0ZXNlcyBlc3RhbiBsZXMgZGFkZXMsIG5vIG9uIMOpcyBlbCBjZW50cmUuIiwgIkFpeMOyIMOpcyBsYSBtaXRqYW5hLCBubyBsYSBtZWRpYW5hLiBMYSBtZWRpYW5hIG5vIGVzIGNhbGN1bGE6IGVzIGJ1c2NhLCB1biBjb3AgbGVzIGRhZGVzIGVzdGFuIG9yZGVuYWRlcy4iXSwgImVyciI6IFsiTUVESUFOQV9TRU5TRV9PUkRFTkFSIiwgIiIsICJSQU5HX1BFUl9NRURJQU5BIiwgIk1FRElBTkFfUEVSX01JVEpBTkEiXSwgInJlcyI6IFsiT3JkZW5hZGVzOiAkMSxcXDs3LFxcOzgsXFw7MTQsXFw7MTQsXFw7MTUsXFw7MTgkIiwgIkhpIGhhICQ3JCBkYWRlcywgYWl4w60gcXVlIGxhIG1lZGlhbmEgw6lzIGVsIHZhbG9yIHF1ZSBvY3VwYSBlbCBsbG9jICQ0JDogJDE0JCJdfQ=="
+  },
+  {
+   "id": "261d",
+   "ex": 261,
+   "ap": "d",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mediana de cada llista. Fixa't que les dades no venen ordenades.",
+   "enunciat": "$9,\\;5,\\;17,\\;7,\\;2,\\;20$",
+   "opcions": [
+    "$12$",
+    "$18$",
+    "$10$",
+    "$8$"
+   ],
+   "pistes": [
+    "Ordena primer les dades de menor a major.",
+    "Ordenades queden $2,\\;5,\\;7,\\;9,\\;17,\\;20$. Com que n'hi ha $6$, la mediana és la mitjana dels que ocupen els llocs $3$ i $4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IGVsIHZhbG9yIGRlbCBtaWcgZGUgbGEgbGxpc3RhIFRBTCBDT00gdmUuIExhIG1lZGlhbmEgZXMgYnVzY2Egc29icmUgbGVzIGRhZGVzIE9SREVOQURFUzogJDIsXFw7NSxcXDs3LFxcOzksXFw7MTcsXFw7MjAkLiIsICJBaXjDsiDDqXMgZWwgcmVjb3JyZWd1dCAoZWwgbcOpcyBncmFuIG1lbnlzIGVsIG3DqXMgcGV0aXQpLCBxdWUgbWVzdXJhIGNvbSBkJ2VzdGVzZXMgZXN0YW4gbGVzIGRhZGVzLCBubyBvbiDDqXMgZWwgY2VudHJlLiIsICJBaXjDsiDDqXMgbGEgbWl0amFuYSwgbm8gbGEgbWVkaWFuYS4gTGEgbWVkaWFuYSBubyBlcyBjYWxjdWxhOiBlcyBidXNjYSwgdW4gY29wIGxlcyBkYWRlcyBlc3RhbiBvcmRlbmFkZXMuIiwgIiJdLCAiZXJyIjogWyJNRURJQU5BX1NFTlNFX09SREVOQVIiLCAiUkFOR19QRVJfTUVESUFOQSIsICJNRURJQU5BX1BFUl9NSVRKQU5BIiwgIiJdLCAicmVzIjogWyJPcmRlbmFkZXM6ICQyLFxcOzUsXFw7NyxcXDs5LFxcOzE3LFxcOzIwJCIsICJIaSBoYSAkNiQgZGFkZXMsIGFpeMOtIHF1ZSBsYSBtZWRpYW5hIMOpcyBsYSBtaXRqYW5hIGRlbHMgcXVlIG9jdXBlbiBlbHMgbGxvY3MgJDMkIGkgJDQkOiAkOCQiXX0="
+  },
+  {
+   "id": "262a",
+   "ex": 262,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la moda de cada llista?",
+   "enunciat": "$8,\\;4,\\;4,\\;5,\\;4,\\;5,\\;9$",
+   "opcions": [
+    "$9$",
+    "$4$",
+    "$3$",
+    "$5$"
+   ],
+   "pistes": [
+    "Compta quantes vegades apareix cada valor.",
+    "Recompte: $4$ surt 3 cops, $5$ surt 2 cops, $8$ surt 1 cop, $9$ surt 1 cop."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBtw6lzIGdyYW4gZGUgdG90cyBubyB0w6kgcmVzIGEgdmV1cmUgYW1iIGxhIG1vZGE6IGVsIHF1ZSBjb21wdGEgw6lzIHF1YW50ZXMgdmVnYWRlcyBzdXJ0IGNhZGEgdmFsb3IsIG5vIGNvbSBkZSBncmFuIMOpcy4iLCAiIiwgIkhhcyBkb25hdCBxdWFudGVzIHZlZ2FkZXMgZXMgcmVwZXRlaXgsIG5vIFFVSU4gdmFsb3IgZXMgcmVwZXRlaXguIExhIG1vZGEgw6lzIGxhIGRhZGEsIG5vIGVsIHNldSByZWNvbXB0ZS4iLCAiQWl4w7Igw6lzIGxhIG1lZGlhbmEgKGVsIHZhbG9yIGNlbnRyYWwgdW4gY29wIG9yZGVuYWRlcykuIExhIG1vZGEgw6lzIGVsIHZhbG9yIHF1ZSBzdXJ0IG3DqXMgdmVnYWRlcywgZXN0aWd1aSBvbiBlc3RpZ3VpLiJdLCAiZXJyIjogWyJFTF9NRVNfR1JBTiIsICIiLCAiTU9EQV9QRVJfRlJFUVVFTkNJQSIsICJNRURJQU5BX1BFUl9NT0RBIl0sICJyZXMiOiBbIlJlY29tcHRlOiAkNFxcdG8zJCwgJDVcXHRvMiQsICQ4XFx0bzEkLCAkOVxcdG8xJCIsICJMYSBmcmVxw7zDqG5jaWEgbcOgeGltYSDDqXMgJDMkLCBpIGxpIGNvcnJlc3BvbiBlbCB2YWxvciAkNCQiXX0="
+  },
+  {
+   "id": "262b",
+   "ex": 262,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la moda de cada llista?",
+   "enunciat": "$4,\\;4,\\;6,\\;6,\\;2,\\;9$",
+   "opcions": [
+    "$9$",
+    "$4$ i $6$",
+    "$2$",
+    "$5$"
+   ],
+   "pistes": [
+    "Compta quantes vegades apareix cada valor.",
+    "Recompte: $2$ surt 1 cop, $4$ surt 2 cops, $6$ surt 2 cops, $9$ surt 1 cop."
+   ],
+   "nota": "Una distribució pot tenir més d'una moda, o no tenir-ne cap. No és cap error del càlcul: és una propietat de les dades.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBtw6lzIGdyYW4gZGUgdG90cyBubyB0w6kgcmVzIGEgdmV1cmUgYW1iIGxhIG1vZGE6IGVsIHF1ZSBjb21wdGEgw6lzIHF1YW50ZXMgdmVnYWRlcyBzdXJ0IGNhZGEgdmFsb3IsIG5vIGNvbSBkZSBncmFuIMOpcy4iLCAiIiwgIkhhcyBkb25hdCBxdWFudGVzIHZlZ2FkZXMgZXMgcmVwZXRlaXgsIG5vIFFVSU4gdmFsb3IgZXMgcmVwZXRlaXguIExhIG1vZGEgw6lzIGxhIGRhZGEsIG5vIGVsIHNldSByZWNvbXB0ZS4iLCAiQWl4w7Igw6lzIGxhIG1lZGlhbmEgKGVsIHZhbG9yIGNlbnRyYWwgdW4gY29wIG9yZGVuYWRlcykuIExhIG1vZGEgw6lzIGVsIHZhbG9yIHF1ZSBzdXJ0IG3DqXMgdmVnYWRlcywgZXN0aWd1aSBvbiBlc3RpZ3VpLiJdLCAiZXJyIjogWyJFTF9NRVNfR1JBTiIsICIiLCAiTU9EQV9QRVJfRlJFUVVFTkNJQSIsICJNRURJQU5BX1BFUl9NT0RBIl0sICJyZXMiOiBbIlJlY29tcHRlOiAkMlxcdG8xJCwgJDRcXHRvMiQsICQ2XFx0bzIkLCAkOVxcdG8xJCIsICJIaSBoYSBkb3MgdmFsb3JzIGFtYiBsYSBmcmVxw7zDqG5jaWEgbcOgeGltYSAoJDIkKTogbGEgZGlzdHJpYnVjacOzIMOpcyBiaW1vZGFsIl19"
+  },
+  {
+   "id": "262c",
+   "ex": 262,
+   "ap": "c",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la moda de cada llista?",
+   "enunciat": "$1,\\;2,\\;3,\\;4,\\;5$",
+   "opcions": [
+    "No en té: totes les dades surten una vegada",
+    "$3$",
+    "$1$",
+    "$5$"
+   ],
+   "pistes": [
+    "Compta quantes vegades apareix cada valor.",
+    "Recompte: $1$ surt 1 cop, $2$ surt 1 cop, $3$ surt 1 cop, $4$ surt 1 cop, $5$ surt 1 cop."
+   ],
+   "nota": "Una distribució pot tenir més d'una moda, o no tenir-ne cap. No és cap error del càlcul: és una propietat de les dades.",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIG1lZGlhbmEgKGVsIHZhbG9yIGNlbnRyYWwgdW4gY29wIG9yZGVuYWRlcykuIExhIG1vZGEgw6lzIGVsIHZhbG9yIHF1ZSBzdXJ0IG3DqXMgdmVnYWRlcywgZXN0aWd1aSBvbiBlc3RpZ3VpLiIsICJIYXMgZG9uYXQgcXVhbnRlcyB2ZWdhZGVzIGVzIHJlcGV0ZWl4LCBubyBRVUlOIHZhbG9yIGVzIHJlcGV0ZWl4LiBMYSBtb2RhIMOpcyBsYSBkYWRhLCBubyBlbCBzZXUgcmVjb21wdGUuIiwgIkVsIG3DqXMgZ3JhbiBkZSB0b3RzIG5vIHTDqSByZXMgYSB2ZXVyZSBhbWIgbGEgbW9kYTogZWwgcXVlIGNvbXB0YSDDqXMgcXVhbnRlcyB2ZWdhZGVzIHN1cnQgY2FkYSB2YWxvciwgbm8gY29tIGRlIGdyYW4gw6lzLiJdLCAiZXJyIjogWyIiLCAiTUVESUFOQV9QRVJfTU9EQSIsICJNT0RBX1BFUl9GUkVRVUVOQ0lBIiwgIkVMX01FU19HUkFOIl0sICJyZXMiOiBbIlJlY29tcHRlOiAkMVxcdG8xJCwgJDJcXHRvMSQsICQzXFx0bzEkLCAkNFxcdG8xJCwgJDVcXHRvMSQiLCAiQ2FwIHZhbG9yIG5vIGRlc3RhY2E6IGxhIGRpc3RyaWJ1Y2nDsyDDqXMgYW1vZGFsIl19"
+  },
+  {
+   "id": "262d",
+   "ex": 262,
+   "ap": "d",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la moda de cada llista?",
+   "enunciat": "$9,\\;9,\\;2,\\;5,\\;2,\\;2,\\;7$",
+   "opcions": [
+    "$2$",
+    "$5$",
+    "$3$",
+    "$9$"
+   ],
+   "pistes": [
+    "Compta quantes vegades apareix cada valor.",
+    "Recompte: $2$ surt 3 cops, $5$ surt 1 cop, $7$ surt 1 cop, $9$ surt 2 cops."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIG1lZGlhbmEgKGVsIHZhbG9yIGNlbnRyYWwgdW4gY29wIG9yZGVuYWRlcykuIExhIG1vZGEgw6lzIGVsIHZhbG9yIHF1ZSBzdXJ0IG3DqXMgdmVnYWRlcywgZXN0aWd1aSBvbiBlc3RpZ3VpLiIsICJIYXMgZG9uYXQgcXVhbnRlcyB2ZWdhZGVzIGVzIHJlcGV0ZWl4LCBubyBRVUlOIHZhbG9yIGVzIHJlcGV0ZWl4LiBMYSBtb2RhIMOpcyBsYSBkYWRhLCBubyBlbCBzZXUgcmVjb21wdGUuIiwgIkVsIG3DqXMgZ3JhbiBkZSB0b3RzIG5vIHTDqSByZXMgYSB2ZXVyZSBhbWIgbGEgbW9kYTogZWwgcXVlIGNvbXB0YSDDqXMgcXVhbnRlcyB2ZWdhZGVzIHN1cnQgY2FkYSB2YWxvciwgbm8gY29tIGRlIGdyYW4gw6lzLiJdLCAiZXJyIjogWyIiLCAiTUVESUFOQV9QRVJfTU9EQSIsICJNT0RBX1BFUl9GUkVRVUVOQ0lBIiwgIkVMX01FU19HUkFOIl0sICJyZXMiOiBbIlJlY29tcHRlOiAkMlxcdG8zJCwgJDVcXHRvMSQsICQ3XFx0bzEkLCAkOVxcdG8yJCIsICJMYSBmcmVxw7zDqG5jaWEgbcOgeGltYSDDqXMgJDMkLCBpIGxpIGNvcnJlc3BvbiBlbCB2YWxvciAkMiQiXX0="
+  },
+  {
+   "id": "263a",
+   "ex": 263,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "enunciat": "La mitjana de viatges per alumne.",
+   "opcions": [
+    "$3$",
+    "$71$",
+    "$\\dfrac{7}{2}$",
+    "$\\dfrac{71}{20}=3{,}55$"
+   ],
+   "pistes": [
+    "Amb una taula de freqüències, la mitjana és $\\bar{x}=\\dfrac{\\sum x_i f_i}{N}$.",
+    "Multiplica cada valor per la seva freqüència, suma-ho tot i divideix entre $N=20$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgbGEgbWVkaWFuYS4gTGEgbWl0amFuYSBzdXJ0IGRlICRcXGRmcmFje1xcc3VtIHhfaSBmX2l9e059JC4iLCAiQXF1ZXN0YSDDqXMgbGEgc3VtYSAkXFxzdW0geF9pIGZfaSQ6IGVuY2FyYSBmYWx0YSBkaXZpZGlyLWxhIGVudHJlICROPTIwJC4iLCAiSGFzIGZldCBsYSBtaXRqYW5hIGRlbHMgVkFMT1JTIGRpZmVyZW50cyAoJDEsMiwzLDQsNSw2JCkgc2Vuc2UgdGVuaXIgZW4gY29tcHRlIHF1YW50ZXMgdmVnYWRlcyBzdXJ0IGNhZGFzY3VuLiBDYWRhIHZhbG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVyIGxhIHNldmEgZnJlccO8w6huY2lhLiIsICIiXSwgImVyciI6IFsiTUVESUFOQV9QRVJfTUlUSkFOQSIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJGUkVRVUVOQ0lBX05PX1BPTkRFUkFEQSIsICIiXSwgInJlcyI6IFsiJFxcc3VtIHhfaSBmX2k9MVxcY2RvdDErMlxcY2RvdDMrM1xcY2RvdDcrNFxcY2RvdDQrNVxcY2RvdDMrNlxcY2RvdDI9NzEkIiwgIiRcXGJhcnt4fT1cXGRmcmFjezcxfXsyMH09XFxkZnJhY3s3MX17MjB9PTN7LH01NSQgdmlhdGdlcyJdfQ=="
+  },
+  {
+   "id": "263b",
+   "ex": 263,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "enunciat": "La mediana.",
+   "opcions": [
+    "$\\dfrac{71}{20}$",
+    "$7$",
+    "$3$",
+    "$4$"
+   ],
+   "pistes": [
+    "Amb $N=20$ (parell), la mediana és la mitjana de les dades que ocupen els llocs $10$ i $11$.",
+    "Fes servir les freqüències acumulades per veure dins de quin valor cauen aquests dos llocs: $F(1)=1$, $F(2)=4$, $F(3)=11$, $F(4)=15$, $F(5)=18$, $F(6)=20$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBaXjDsiDDqXMgbGEgbWl0amFuYS4gTGEgbWVkaWFuYSDDqXMgZWwgdmFsb3IgcXVlIGRlaXhhIGxhIG1laXRhdCBkZSBsZXMgZGFkZXMgYSBjYWRhIGJhbmRhLiIsICJBcXVlc3Qgw6lzIGVsIG5vbWJyZSBkZSB2ZWdhZGVzIHF1ZSBlcyByZXBldGVpeCBsYSBtb2RhLCBubyBjYXAgZGFkYS4iLCAiIiwgIkFtYiAkTj0yMCQsIGxhIG1lZGlhbmEgw6lzIGxhIG1pdGphbmEgZGUgbGVzIGRhZGVzIHF1ZSBvY3VwZW4gZWxzIGxsb2NzICQxMCQgaSAkMTEkLiBNaXJhIGxlcyBmcmVxw7zDqG5jaWVzIGFjdW11bGFkZXM6IHRvdGVzIGR1ZXMgY2F1ZW4gZGlucyBkZWwgdmFsb3IgJDMkLCBubyBkZWwgJDQkLiJdLCAiZXJyIjogWyJNRURJQU5BX1BFUl9NSVRKQU5BIiwgIk1PREFfUEVSX0ZSRVFVRU5DSUEiLCAiIiwgIkFDVU1VTEFEQV9NQUxfTExFR0lEQSJdLCAicmVzIjogWyJBY3VtdWxhZGVzOiAkRigxKT0xJCwgJEYoMik9NCQsICRGKDMpPTExJCwgJEYoNCk9MTUkLCAkRig1KT0xOCQsICRGKDYpPTIwJCIsICJFbHMgbGxvY3MgJDEwJCBpICQxMSQgY2F1ZW4gdG90cyBkb3MgZGlucyBkZWwgdmFsb3IgJDMkLCBhaXjDrSBxdWUgbGEgbWVkaWFuYSDDqXMgJDMkIl19"
+  },
+  {
+   "id": "263c",
+   "ex": 263,
+   "ap": "c",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "enunciat": "La moda.",
+   "opcions": [
+    "$7$",
+    "$\\dfrac{71}{20}$",
+    "$3$",
+    "$6$"
+   ],
+   "pistes": [
+    "Busca la freqüència més alta de la taula.",
+    "La freqüència màxima és $7$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZG9uYXQgbGEgZnJlccO8w6huY2lhIG3DoHhpbWEgKCQ3JCBhbHVtbmVzKSwgbm8gZWwgdmFsb3IgcXVlIGxhIHTDqS4iLCAiQXF1ZXN0YSDDqXMgbGEgbWl0amFuYS4gTGEgbW9kYSBoYSBkZSBzZXIgdW4gZGVscyB2YWxvcnMgZGUgbGEgdGF1bGEuIiwgIiIsICJFbCAkNiQgw6lzIGVsIG5vbWJyZSBkZSB2aWF0Z2VzIG3DqXMgYWx0LCBwZXLDsiBub23DqXMgbCdoYW4gZmV0ICQyJCBhbHVtbmVzLiBMYSBtb2RhIMOpcyBlbCB2YWxvciBNw4lTIFJFUEVUSVQsIG5vIGVsIG3DqXMgZ3Jhbi4iXSwgImVyciI6IFsiTU9EQV9QRVJfRlJFUVVFTkNJQSIsICJNRURJQU5BX1BFUl9NT0RBIiwgIiIsICJFTF9NRVNfR1JBTiJdLCAicmVzIjogWyJMYSBmcmVxw7zDqG5jaWEgbcOpcyBhbHRhIMOpcyAkZl9pPTckLCBpIGxpIGNvcnJlc3BvbiBlbCB2YWxvciAkeF9pPTMkIl19"
+  },
+  {
+   "id": "264",
+   "ex": 264,
+   "ap": "",
+   "bloc": "centralitzacio",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "Una sabateria ha venut aquestes talles de calçat en una setmana: 37,\\;37,\\;37,\\;37,\\;37,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;39,\\;40,\\;40,\\;40,\\;41,\\;42,\\;43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?",
+   "opcions": [
+    "El RECORREGUT: $6$ talles.",
+    "La MEDIANA: la talla $38$.",
+    "La MITJANA: la talla $38{,}7$.",
+    "La MODA: la talla $38$, que és la que ha venut més vegades ($8$ parells)."
+   ],
+   "pistes": [
+    "Pensa què vol saber el botiguer: no quin és el valor central, sinó quin és el que es repeteix més.",
+    "Compta quantes vegades apareix cada talla."
+   ],
+   "nota": "Aquest exercici no demana calcular sinó TRIAR. Les tres mesures es poden calcular sempre; la gràcia és saber quina respon la pregunta que t'han fet.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCByZWNvcnJlZ3V0IGRpdSBxdWFudGVzIHRhbGxlcyBkaWZlcmVudHMgYWJhc3RhIGxhIHZlbmRhLCBubyBxdWluYSBzJ2hhIGRlIHJlcG9zYXIuIiwgIkxhIG1lZGlhbmEgcGFydGVpeCBsZXMgdmVuZGVzIGVuIGR1ZXMgbWVpdGF0cywgcGVyw7Igbm8gZGl1IHF1aW5hIHRhbGxhIHMnaGEgdmVudXQgbcOpcy4gQXF1w60gY29pbmNpZGVpeCBxdWUgdmFsICQzOCQsIHBlcsOyIGhpIGFycmliYSBwZXIgdW4gbW90aXUgcXVlIG5vIMOpcyBlbCBxdWUgZXMgcHJlZ3VudGEuIiwgIkxhIG1pdGphbmEgdmFsICQzOHssfTckLCBpIGxlcyB0YWxsZXMgc8OzbiBub21icmVzIHNlbmNlcnM6IG5vIGV4aXN0ZWl4IGFxdWVzdGEgdGFsbGEgaSBubyBlbiBwb3QgZW5jYXJyZWdhciBjYXAgcGFyZWxsLiBRdWFuIGxlcyBkYWRlcyBzw7NuIGNhdGVnb3JpZXMgbyB2YWxvcnMgc2VuY2VycyBxdWUgbm8gYWRtZXRlbiBtaXRnZXMsIGxhIG1lc3VyYSBxdWUgcmVzcG9uIMOpcyBsYSBtb2RhLiIsICIiXSwgImVyciI6IFsiTUVTVVJBX01BTF9UUklBREEiLCAiTUVTVVJBX01BTF9UUklBREEiLCAiTUVTVVJBX01BTF9UUklBREEiLCAiIl0sICJyZXMiOiBbIlJlY29tcHRlOiAkMzdcXHRvNSQsICQzOFxcdG84JCwgJDM5XFx0bzEkLCAkNDBcXHRvMyQsICQ0MVxcdG8xJCwgJDQyXFx0bzEkLCAkNDNcXHRvMSQiLCAiTGEgdGFsbGEgbcOpcyB2ZW51ZGEgw6lzIGxhICQzOCQsIGFtYiAkOCQgcGFyZWxsczogYXF1ZXN0YSDDqXMgbGEgbW9kYSIsICJMYSBtaXRqYW5hICgkMzh7LH03JCkgbm8gc2VydmVpeCBhcXXDrSBwZXJxdcOoIG5vIGhpIGhhIHRhbGxlcyBkZWNpbWFscyJdfQ=="
+  },
+  {
+   "id": "265a",
+   "ex": 265,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "A matemàtiques, la nota del trimestre surt de tres parts amb pesos diferents. Calcula la nota final.",
+   "enunciat": "proves $6$ (pes $50\\,\\%$), feina $8$ (pes $30\\,\\%$), actitud $9$ (pes $20\\,\\%$).",
+   "opcions": [
+    "$7{,}20$",
+    "$21{,}60$",
+    "$11{,}50$",
+    "$7{,}67$"
+   ],
+   "pistes": [
+    "Passa cada pes a decimal ($50\\,\\%\\to0{,}5$) i multiplica'l per la seva nota.",
+    "Suma els tres productes. Com que els pesos sumen $100\\,\\%$, el resultat ja és la nota final."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iIHBlc29zIHF1ZSBzdW1lbiAkMTAwXFwsXFwlJSQsIGxhIHN1bWEgcG9uZGVyYWRhIEpBIMOpcyBsYSBub3RhOiBubyBzJ2hhIGRlIHRvcm5hciBhIGRpdmlkaXIgbmkgbXVsdGlwbGljYXIgcGVyIHJlcy4iLCAiU2VtYmxhIHF1ZSBoYXMgYXBsaWNhdCBlbCBtYXRlaXggcGVzIGEgdG90ZXMgbGVzIG5vdGVzLiBDYWRhIG5vdGEgdmEgYW1iIGVsIHNldS4iLCAiSGFzIGZldCBsYSBtaXRqYW5hIGRlIGxlcyB0cmVzIG5vdGVzIGNvbSBzaSB0b3RlcyB2YWxndWVzc2luIGVsIG1hdGVpeC4gQ2FkYSBwYXJ0IHTDqSBlbCBzZXUgcGVzOiBsYSBkZSAkNTBcXCxcXCUkIGNvbXB0YSBtb2x0IG3DqXMgcXVlIGxhIGRlICQyMFxcLFxcJSQuIl0sICJlcnIiOiBbIiIsICJESVZJU0lPX1NPQlJFUkEiLCAiUEVTX01BTF9BUExJQ0FUIiwgIlBFU19JR05PUkFUIl0sICJyZXMiOiBbIiQ2XFxjZG90MHssfTUwKzhcXGNkb3Qweyx9MzArOVxcY2RvdDB7LH0yMD03eyx9MjAkIl19"
+  },
+  {
+   "id": "265b",
+   "ex": 265,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "A matemàtiques, la nota del trimestre surt de tres parts amb pesos diferents. Calcula la nota final.",
+   "enunciat": "proves $4$ (pes $60\\,\\%$), feina $7$ (pes $25\\,\\%$), actitud $8$ (pes $15\\,\\%$).",
+   "opcions": [
+    "$16{,}05$",
+    "$6{,}33$",
+    "$5{,}35$",
+    "$11{,}40$"
+   ],
+   "pistes": [
+    "Passa cada pes a decimal ($50\\,\\%\\to0{,}5$) i multiplica'l per la seva nota.",
+    "Suma els tres productes. Com que els pesos sumen $100\\,\\%$, el resultat ja és la nota final."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBbWIgcGVzb3MgcXVlIHN1bWVuICQxMDBcXCxcXCUlJCwgbGEgc3VtYSBwb25kZXJhZGEgSkEgw6lzIGxhIG5vdGE6IG5vIHMnaGEgZGUgdG9ybmFyIGEgZGl2aWRpciBuaSBtdWx0aXBsaWNhciBwZXIgcmVzLiIsICJIYXMgZmV0IGxhIG1pdGphbmEgZGUgbGVzIHRyZXMgbm90ZXMgY29tIHNpIHRvdGVzIHZhbGd1ZXNzaW4gZWwgbWF0ZWl4LiBDYWRhIHBhcnQgdMOpIGVsIHNldSBwZXM6IGxhIGRlICQ2MFxcLFxcJSQgY29tcHRhIG1vbHQgbcOpcyBxdWUgbGEgZGUgJDE1XFwsXFwlJC4iLCAiIiwgIlNlbWJsYSBxdWUgaGFzIGFwbGljYXQgZWwgbWF0ZWl4IHBlcyBhIHRvdGVzIGxlcyBub3Rlcy4gQ2FkYSBub3RhIHZhIGFtYiBlbCBzZXUuIl0sICJlcnIiOiBbIkRJVklTSU9fU09CUkVSQSIsICJQRVNfSUdOT1JBVCIsICIiLCAiUEVTX01BTF9BUExJQ0FUIl0sICJyZXMiOiBbIiQ0XFxjZG90MHssfTYwKzdcXGNkb3Qweyx9MjUrOFxcY2RvdDB7LH0xNT01eyx9MzUkIl19"
+  },
+  {
+   "id": "266a",
+   "ex": 266,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un grup de $5$ amics compara quants llibres ha llegit l'últim any: $3,\\;4,\\;5,\\;6,\\;7$. S'hi afegeix un sisè amic que n'ha llegit $60$.",
+   "enunciat": "Què li passa a la mitjana?",
+   "opcions": [
+    "Puja de $5$ a $60$.",
+    "Es queda pràcticament igual.",
+    "Puja de $5$ a $14{,}17$: gairebé es duplica.",
+    "Baixa, perquè ara hi ha més dades."
+   ],
+   "pistes": [
+    "Calcula la mitjana abans i després d'afegir el $60$.",
+    "Abans: $\\dfrac{25}{5}$. Després: $\\dfrac{85}{6}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkNjAkIMOpcyBsYSBkYWRhIG5vdmEsIG5vIGxhIG1pdGphbmEgbm92YS4gTGEgbWl0amFuYSBjb250aW51YSBzZW50IHVuIHZhbG9yIGVudHJlbWlnIGRlIHRvdGVzIGxlcyBkYWRlcy4iLCAiTGEgbWl0amFuYSBzw60gcXVlIHNlJ24gcmVzc2VudCwgaSBtb2x0OiBwYXNzYSBkZSAkNSQgYSAkMTR7LH0xNyQuIENvbSBxdWUgc3VydCBkZSBzdW1hci1obyB0b3QsIHVuYSBkYWRhIG1vbHQgZ3JhbiBsJ2VzdGlyYSBjYXAgYW11bnQuIiwgIiIsICJUZW5pciBtw6lzIGRhZGVzIG5vIGZhIGJhaXhhciBsYSBtaXRqYW5hIHBlciBzaSBzb2w6IGRlcMOobiBkZSBzaSBsYSBkYWRhIG5vdmEgw6lzIG3DqXMgZ3JhbiBvIG3DqXMgcGV0aXRhIHF1ZSBsYSBtaXRqYW5hIHF1ZSBoaSBoYXZpYS4iXSwgImVyciI6IFsiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiRVhUUkVNX1NFTlNFX0VGRUNURSIsICIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIkFiYW5zOiAkXFxiYXJ7eH09XFxkZnJhY3szKzQrNSs2Kzd9ezV9PVxcZGZyYWN7MjV9ezV9PTUkIiwgIkRlc3Byw6lzOiAkXFxiYXJ7eH09XFxkZnJhY3syNSs2MH17Nn09XFxkZnJhY3s4NX17Nn1cXGFwcHJveDE0eyx9MTckIl19"
+  },
+  {
+   "id": "266b",
+   "ex": 266,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un grup de $5$ amics compara quants llibres ha llegit l'últim any: $3,\\;4,\\;5,\\;6,\\;7$. S'hi afegeix un sisè amic que n'ha llegit $60$.",
+   "enunciat": "I què li passa a la mediana?",
+   "opcions": [
+    "Baixa a $4$.",
+    "Es queda exactament a $5$.",
+    "Puja tant com la mitjana.",
+    "Puja molt poc: de $5$ a $\\dfrac{11}{2}$."
+   ],
+   "pistes": [
+    "Ordena les $6$ dades i busca el centre.",
+    "Amb $6$ dades, la mediana és la mitjana de les que ocupen els llocs $3$ i $4$."
+   ],
+   "nota": "Aquesta diferència és el motiu pel qual els sous o els preus dels pisos es donen sovint amb la mediana i no amb la mitjana: quatre valors molt alts poden desplaçar la mitjana i fer-la poc representativa del que li passa a la majoria.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBZmVnaXIgdW5hIGRhZGEgcGVyIGRhbXVudCBkZSB0b3RlcyBkZXNwbGHDp2EgZWwgY2VudHJlIGNhcCBhbXVudCwgbm8gY2FwIGF2YWxsLiIsICJHYWlyZWLDqTogcGFzc2FyIGRlICQ1JCBhICQ2JCBkYWRlcyBjYW52aWEgY29tIGVzIGJ1c2NhIGVsIGNlbnRyZS4gQW1iICQ2JCBkYWRlcyBjYWwgZmVyIGxhIG1pdGphbmEgZGUgbGVzIGR1ZXMgY2VudHJhbHMsICQ1JCBpICQ2JC4iLCAiTGEgbWVkaWFuYSBub23DqXMgbWlyYSBxdWluIHZhbG9yIHF1ZWRhIGFsIG1pZzogcXVlIGwnw7psdGltIHNpZ3VpICQ4JCBvICQ2MCQgbm8gbGEgbW91LiBQZXIgYWl4w7IgZXMgZGl1IHF1ZSDDqXMgUkVTSVNURU5UIGFscyB2YWxvcnMgZXh0cmVtcy4iLCAiIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJNRURJQU5BX1NFTlNFX09SREVOQVIiLCAiRVhUUkVNX1NFTlNFX0VGRUNURSIsICIiXSwgInJlcyI6IFsiT3JkZW5hZGVzOiAkMyxcXDs0LFxcOzUsXFw7NixcXDs3LFxcOzYwJCIsICJNZWRpYW5hICQ9XFxkZnJhY3s1KzZ9ezJ9PVxcZGZyYWN7MTF9ezJ9JCIsICJMYSBtaXRqYW5hIHMnaGEgbW9ndXQgJDl7LH0xNyQgcHVudHMgaSBsYSBtZWRpYW5hIG5vbcOpcyAkMHssfTUkOiBxdWFuIGhpIGhhIHZhbG9ycyBleHRyZW1zLCBsYSBtZWRpYW5hIGRlc2NyaXUgbWlsbG9yIGVsIGdydXAiXX0="
+  },
+  {
+   "id": "267a",
+   "ex": 267,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Falta una dada. Esbrina-la a partir de la mitjana.",
+   "enunciat": "La mitjana de $5$ dades és $7$. En coneixem $4$: $5,\\;6,\\;9,\\;4$. Quina és l'altra?",
+   "opcions": [
+    "$7$",
+    "$11$",
+    "$4$",
+    "$35$"
+   ],
+   "pistes": [
+    "Si la mitjana de $5$ dades és $7$, la suma de totes ha de ser $5\\cdot7$.",
+    "Resta a aquesta suma el que ja sumen les dades conegudes."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBtaXRqYW5hLCBxdWUgamEgdGUgbGEgZG9uYXZlbi4gTGEgZGFkYSBxdWUgZmFsdGEgbm8gdMOpIHBlciBxdcOoIGNvaW5jaWRpci1oaS4iLCAiIiwgIkhhcyBtdWx0aXBsaWNhdCBsYSBtaXRqYW5hIHBlciBsZXMgZGFkZXMgcXVlIGphIGNvbmVpeGllcyAoJDQkKSwgbm8gcGVyIHRvdGVzIGxlcyBxdWUgaGkgaGEgKCQ1JCkuIiwgIkFxdWVzdGEgw6lzIGxhIHN1bWEgZGUgVE9URVMgbGVzIGRhZGVzOiBlbmNhcmEgY2FsIHJlc3Rhci1oaSBsZXMgcXVlIGphIGNvbmVpeGVzLiJdLCAiZXJyIjogWyJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICIiLCAiTl9NQUxfQ09NUFRBVCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyJTdW1hIHRvdGFsOiAkNVxcY2RvdDc9MzUkIiwgIlN1bWEgY29uZWd1ZGE6ICQ1KzYrOSs0PTI0JCIsICJEYWRhIHF1ZSBmYWx0YTogJDM1LTI0PTExJCJdfQ=="
+  },
+  {
+   "id": "267b",
+   "ex": 267,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Falta una dada. Esbrina-la a partir de la mitjana.",
+   "enunciat": "La mitjana de $6$ dades és $12$. En coneixem $5$: $12,\\;8,\\;15,\\;11,\\;9$. Quina és l'altra?",
+   "opcions": [
+    "$17$",
+    "$72$",
+    "$5$",
+    "$12$"
+   ],
+   "pistes": [
+    "Si la mitjana de $6$ dades és $12$, la suma de totes ha de ser $6\\cdot12$.",
+    "Resta a aquesta suma el que ja sumen les dades conegudes."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgc3VtYSBkZSBUT1RFUyBsZXMgZGFkZXM6IGVuY2FyYSBjYWwgcmVzdGFyLWhpIGxlcyBxdWUgamEgY29uZWl4ZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBsYSBtaXRqYW5hIHBlciBsZXMgZGFkZXMgcXVlIGphIGNvbmVpeGllcyAoJDUkKSwgbm8gcGVyIHRvdGVzIGxlcyBxdWUgaGkgaGEgKCQ2JCkuIiwgIkFxdWVzdGEgw6lzIGxhIG1pdGphbmEsIHF1ZSBqYSB0ZSBsYSBkb25hdmVuLiBMYSBkYWRhIHF1ZSBmYWx0YSBubyB0w6kgcGVyIHF1w6ggY29pbmNpZGlyLWhpLiJdLCAiZXJyIjogWyIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiTl9NQUxfQ09NUFRBVCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyJTdW1hIHRvdGFsOiAkNlxcY2RvdDEyPTcyJCIsICJTdW1hIGNvbmVndWRhOiAkMTIrOCsxNSsxMSs5PTU1JCIsICJEYWRhIHF1ZSBmYWx0YTogJDcyLTU1PTE3JCJdfQ=="
+  },
+  {
+   "id": "268a",
+   "ex": 268,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el recorregut (o rang) de cada llista: la diferència entre la dada més gran i la més petita.",
+   "enunciat": "$12,\\;5,\\;9,\\;20,\\;7$",
+   "opcions": [
+    "$15$",
+    "$\\dfrac{53}{5}$",
+    "$20$",
+    "$25$"
+   ],
+   "pistes": [
+    "Busca la dada més gran i la més petita.",
+    "Aquí són $20$ i $5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIG1pdGphbmEsIHF1ZSBkaXUgb24gw6lzIGVsIGNlbnRyZS4gRWwgcmVjb3JyZWd1dCBkaXUgY29tIGQnZXN0ZXNlcyBlc3RhbiBsZXMgZGFkZXMuIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgbcOpcyBncmFuLiBFbCByZWNvcnJlZ3V0IMOpcyBsYSBkaXN0w6BuY2lhIGVudHJlIGwnZXh0cmVtIGRlIGRhbHQgaSBlbCBkZSBiYWl4OiAkMjAtNSQuIiwgIkVsIHJlY29ycmVndXQgw6lzIHVuYSBSRVNUQTogZWwgbcOpcyBncmFuIG1lbnlzIGVsIG3DqXMgcGV0aXQuIl0sICJlcnIiOiBbIiIsICJNRVNVUkFfTUFMX1RSSUFEQSIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyIkUj14X3tcXG1heH0teF97XFxtaW59PTIwLTU9MTUkIl19"
+  },
+  {
+   "id": "268b",
+   "ex": 268,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el recorregut (o rang) de cada llista: la diferència entre la dada més gran i la més petita.",
+   "enunciat": "$3,\\;3,\\;3,\\;3$",
+   "opcions": [
+    "$3$",
+    "$6$",
+    "No es pot calcular: totes les dades són iguals.",
+    "$0$"
+   ],
+   "pistes": [
+    "Busca la dada més gran i la més petita.",
+    "Aquí són $3$ i $3$."
+   ],
+   "nota": "Totes les dades són iguals, així que no hi ha cap dispersió: el recorregut val $0$.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHZhbG9yIG3DqXMgZ3Jhbi4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBsJ2V4dHJlbSBkZSBkYWx0IGkgZWwgZGUgYmFpeDogJDMtMyQuIiwgIkVsIHJlY29ycmVndXQgw6lzIHVuYSBSRVNUQTogZWwgbcOpcyBncmFuIG1lbnlzIGVsIG3DqXMgcGV0aXQuIiwgIlPDrSBxdWUgZXMgcG90OiBzaSB0b3RlcyBsZXMgZGFkZXMgdmFsZW4gZWwgbWF0ZWl4LCBlbCBtw6lzIGdyYW4gaSBlbCBtw6lzIHBldGl0IGNvaW5jaWRlaXhlbiBpIGVsIHJlY29ycmVndXQgdmFsICQwJC4gWmVybyBubyB2b2wgZGlyIFwiaW1wb3NzaWJsZVwiLCB2b2wgZGlyIHF1ZSBubyBoaSBoYSBnZW5zIGRlIGRpc3BlcnNpw7MuIiwgIiJdLCAiZXJyIjogWyJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJTSUdORV9GSU5BTCIsICJFU19QT1RfREVURVJNSU5BUiIsICIiXSwgInJlcyI6IFsiJFI9eF97XFxtYXh9LXhfe1xcbWlufT0zLTM9MCQiXX0="
+  },
+  {
+   "id": "268c",
+   "ex": 268,
+   "ap": "c",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el recorregut (o rang) de cada llista: la diferència entre la dada més gran i la més petita.",
+   "enunciat": "$-4,\\;10,\\;0,\\;6,\\;-1$",
+   "opcions": [
+    "$6$",
+    "$10$",
+    "$14$",
+    "$\\dfrac{11}{5}$"
+   ],
+   "pistes": [
+    "Busca la dada més gran i la més petita.",
+    "Aquí són $10$ i $-4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZWNvcnJlZ3V0IMOpcyB1bmEgUkVTVEE6IGVsIG3DqXMgZ3JhbiBtZW55cyBlbCBtw6lzIHBldGl0LiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIG3DqXMgZ3Jhbi4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBsJ2V4dHJlbSBkZSBkYWx0IGkgZWwgZGUgYmFpeDogJDEwLS00JC4iLCAiIiwgIkFpeMOyIMOpcyBsYSBtaXRqYW5hLCBxdWUgZGl1IG9uIMOpcyBlbCBjZW50cmUuIEVsIHJlY29ycmVndXQgZGl1IGNvbSBkJ2VzdGVzZXMgZXN0YW4gbGVzIGRhZGVzLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICIiLCAiTUVTVVJBX01BTF9UUklBREEiXSwgInJlcyI6IFsiJFI9eF97XFxtYXh9LXhfe1xcbWlufT0xMC0oLTQpPTE0JCJdfQ=="
+  },
+  {
+   "id": "269a",
+   "ex": 269,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Per a la llista $2,\\;4,\\;4,\\;4,\\;5,\\;5,\\;7,\\;9$, que té mitjana $\\bar{x}=5$:",
+   "enunciat": "Quant sumen les desviacions $x_i-\\bar{x}$?",
+   "opcions": [
+    "$0$",
+    "$12$",
+    "$32$",
+    "$40$"
+   ],
+   "pistes": [
+    "Calcula $x_i-5$ per a cada dada i suma-ho tot.",
+    "Fixa't en el signe de cada desviació: n'hi ha de negatives."
+   ],
+   "nota": "Que la suma de desviacions doni sempre $0$ no és casualitat d'aquesta llista: passa amb qualsevol conjunt de dades, perquè la mitjana és justament el punt que equilibra les desviacions. És el motiu pel qual la variància les eleva al quadrat.",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIHN1bWEgZGVscyB2YWxvcnMgYWJzb2x1dHMuIExlcyBkZXN2aWFjaW9ucyB2YW4gYW1iIHNpZ25lLCBpIGxlcyBuZWdhdGl2ZXMgY29tcGVuc2VuIGxlcyBwb3NpdGl2ZXMuIiwgIkFpeMOyIMOpcyBsYSBzdW1hIGRlbHMgcXVhZHJhdHMgZGUgbGVzIGRlc3ZpYWNpb25zLCBxdWUgw6lzIGVsIHBhcyBzZWfDvGVudC4gQXF1w60gZXMgZGVtYW5lbiBsZXMgZGVzdmlhY2lvbnMgdGFsIGNvbSBzw7NuLiIsICJBcXVlc3RhIMOpcyBsYSBzdW1hIGRlIGxlcyBkYWRlcywgbm8gbGEgZGUgbGVzIGRlc3ZpYWNpb25zLiJdLCAiZXJyIjogWyIiLCAiVkFMT1JfQUJTT0xVVF9JTkRFR1VUIiwgIkRFU1ZJQUNJT05TX0FMX1FVQURSQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiRGVzdmlhY2lvbnM6ICQtMyxcXDstMSxcXDstMSxcXDstMSxcXDsrMCxcXDsrMCxcXDsrMixcXDsrNCQiLCAiU3VtYTogJDAkLiBTZW1wcmUgZG9uYSB6ZXJvLCBpIHBlciBhaXjDsiBsZXMgZGVzdmlhY2lvbnMgbm8gc2VydmVpeGVuIGRpcmVjdGFtZW50IHBlciBtZXN1cmFyIGxhIGRpc3BlcnNpw7M6IGNhbCBlbGV2YXItbGVzIGFsIHF1YWRyYXQuIl19"
+  },
+  {
+   "id": "269b",
+   "ex": 269,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Per a la llista $2,\\;4,\\;4,\\;4,\\;5,\\;5,\\;7,\\;9$, que té mitjana $\\bar{x}=5$:",
+   "enunciat": "I quant sumen els quadrats de les desviacions, $\\sum(x_i-\\bar{x})^2$?",
+   "opcions": [
+    "$4$",
+    "$32$",
+    "$0$",
+    "$12$"
+   ],
+   "pistes": [
+    "Eleva cada desviació al quadrat abans de sumar.",
+    "Recorda que $(-3)^2=9$, no $-9$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIGphIMOpcyBsYSB2YXJpw6BuY2lhIChsYSBzdW1hIGRpdmlkaWRhIGVudHJlICROJCkuIEFxdcOtIGVzIGRlbWFuYSBub23DqXMgbGEgc3VtYS4iLCAiIiwgIlplcm8gw6lzIGxhIHN1bWEgZGUgbGVzIGRlc3ZpYWNpb25zIFNFTlNFIGVsZXZhciBhbCBxdWFkcmF0LiBFbiBlbGV2YXItbGVzLCB0b3RlcyBlcyB0b3JuZW4gcG9zaXRpdmVzIGkgamEgbm8gZXMgY29tcGVuc2VuLiIsICJBaXjDsiDDqXMgbGEgc3VtYSBkZWxzIHZhbG9ycyBhYnNvbHV0cy4gRWwgcXVhZHJhdCBkZSAkLTMkIMOpcyAkOSQsIG5vICQzJC4iXSwgImVyciI6IFsiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiIiwgIkRFU1ZJQUNJT05TX1NFTlNFX1FVQURSQVQiLCAiVkFMT1JfQUJTT0xVVF9JTkRFR1VUIl0sICJyZXMiOiBbIlF1YWRyYXRzOiAkOSxcXDsxLFxcOzEsXFw7MSxcXDswLFxcOzAsXFw7NCxcXDsxNiQiLCAiU3VtYTogJDkrMSsxKzErMCswKzQrMTY9MzIkIl19"
+  },
+  {
+   "id": "270a",
+   "ex": 270,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variància i la desviació típica de cada llista. Arrodoneix la desviació típica a les centèsimes.",
+   "enunciat": "$2,\\;4,\\;4,\\;4,\\;5,\\;5,\\;7,\\;9$",
+   "opcions": [
+    "$\\sigma^2=4$, $\\sigma\\approx4{,}00$",
+    "$\\sigma^2=32$, $\\sigma\\approx5{,}66$",
+    "$\\sigma^2=4$, $\\sigma\\approx2{,}00$",
+    "$\\sigma^2=0$, $\\sigma=0$"
+   ],
+   "pistes": [
+    "Calcula primer la mitjana: $\\bar{x}=5$.",
+    "Després $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBkZXN2aWFjacOzIHTDrXBpY2Egw6lzIGwnQVJSRUwgZGUgbGEgdmFyacOgbmNpYSwgbm8gbGEgdmFyacOgbmNpYSB1bmEgYWx0cmEgdmVnYWRhOiAkXFxzaWdtYT1cXHNxcnR7NH0kLiIsICJUJ2hhcyBxdWVkYXQgYW1iIGxhIHN1bWEgZGVscyBxdWFkcmF0cyBzZW5zZSBkaXZpZGlyLWxhIGVudHJlICROPTgkLiIsICIiLCAiU2kgZXQgZG9uYSB6ZXJvIMOpcyBxdWUgaGFzIHN1bWF0IGxlcyBkZXN2aWFjaW9ucyBzZW5zZSBlbGV2YXItbGVzIGFsIHF1YWRyYXQ6IGFxdWVzdGEgc3VtYSBzZW1wcmUgdmFsIHplcm8uIl0sICJlcnIiOiBbIkFSUkVMX09CTElEQURBIiwgIkRJVklTSU9fT0JMSURBREEiLCAiIiwgIkRFU1ZJQUNJT05TX1NFTlNFX1FVQURSQVQiXSwgInJlcyI6IFsiJFxcYmFye3h9PVxcZGZyYWN7NDB9ezh9PTUkIiwgIiRcXHN1bSh4X2ktXFxiYXJ7eH0pXjI9OSsxKzErMSswKzArNCsxNj0zMiQiLCAiJFxcc2lnbWFeMj1cXGRmcmFjezMyfXs4fT00JCIsICIkXFxzaWdtYT1cXHNxcnR7NH1cXGFwcHJveDJ7LH0wMCQiXX0="
+  },
+  {
+   "id": "270b",
+   "ex": 270,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variància i la desviació típica de cada llista. Arrodoneix la desviació típica a les centèsimes.",
+   "enunciat": "$10,\\;12,\\;14,\\;16,\\;18$",
+   "opcions": [
+    "$\\sigma^2=8$, $\\sigma\\approx8{,}00$",
+    "$\\sigma^2=40$, $\\sigma\\approx6{,}32$",
+    "$\\sigma^2=0$, $\\sigma=0$",
+    "$\\sigma^2=8$, $\\sigma\\approx2{,}83$"
+   ],
+   "pistes": [
+    "Calcula primer la mitjana: $\\bar{x}=14$.",
+    "Després $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBkZXN2aWFjacOzIHTDrXBpY2Egw6lzIGwnQVJSRUwgZGUgbGEgdmFyacOgbmNpYSwgbm8gbGEgdmFyacOgbmNpYSB1bmEgYWx0cmEgdmVnYWRhOiAkXFxzaWdtYT1cXHNxcnR7OH0kLiIsICJUJ2hhcyBxdWVkYXQgYW1iIGxhIHN1bWEgZGVscyBxdWFkcmF0cyBzZW5zZSBkaXZpZGlyLWxhIGVudHJlICROPTUkLiIsICJTaSBldCBkb25hIHplcm8gw6lzIHF1ZSBoYXMgc3VtYXQgbGVzIGRlc3ZpYWNpb25zIHNlbnNlIGVsZXZhci1sZXMgYWwgcXVhZHJhdDogYXF1ZXN0YSBzdW1hIHNlbXByZSB2YWwgemVyby4iLCAiIl0sICJlcnIiOiBbIkFSUkVMX09CTElEQURBIiwgIkRJVklTSU9fT0JMSURBREEiLCAiREVTVklBQ0lPTlNfU0VOU0VfUVVBRFJBVCIsICIiXSwgInJlcyI6IFsiJFxcYmFye3h9PVxcZGZyYWN7NzB9ezV9PTE0JCIsICIkXFxzdW0oeF9pLVxcYmFye3h9KV4yPTE2KzQrMCs0KzE2PTQwJCIsICIkXFxzaWdtYV4yPVxcZGZyYWN7NDB9ezV9PTgkIiwgIiRcXHNpZ21hPVxcc3FydHs4fVxcYXBwcm94MnssfTgzJCJdfQ=="
+  },
+  {
+   "id": "270c",
+   "ex": 270,
+   "ap": "c",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variància i la desviació típica de cada llista. Arrodoneix la desviació típica a les centèsimes.",
+   "enunciat": "$4,\\;8,\\;6,\\;5,\\;3,\\;2,\\;8,\\;4$",
+   "opcions": [
+    "$\\sigma^2=\\dfrac{17}{4}$, $\\sigma\\approx2{,}06$",
+    "$\\sigma^2=34$, $\\sigma\\approx5{,}83$",
+    "$\\sigma^2=0$, $\\sigma=0$",
+    "$\\sigma^2=\\dfrac{17}{4}$, $\\sigma\\approx4{,}25$"
+   ],
+   "pistes": [
+    "Calcula primer la mitjana: $\\bar{x}=5$.",
+    "Després $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2}{N}$, i la desviació típica és l'arrel quadrada d'això."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVCdoYXMgcXVlZGF0IGFtYiBsYSBzdW1hIGRlbHMgcXVhZHJhdHMgc2Vuc2UgZGl2aWRpci1sYSBlbnRyZSAkTj04JC4iLCAiU2kgZXQgZG9uYSB6ZXJvIMOpcyBxdWUgaGFzIHN1bWF0IGxlcyBkZXN2aWFjaW9ucyBzZW5zZSBlbGV2YXItbGVzIGFsIHF1YWRyYXQ6IGFxdWVzdGEgc3VtYSBzZW1wcmUgdmFsIHplcm8uIiwgIkxhIGRlc3ZpYWNpw7MgdMOtcGljYSDDqXMgbCdBUlJFTCBkZSBsYSB2YXJpw6BuY2lhLCBubyBsYSB2YXJpw6BuY2lhIHVuYSBhbHRyYSB2ZWdhZGE6ICRcXHNpZ21hPVxcc3FydHtcXGRmcmFjezE3fXs0fX0kLiJdLCAiZXJyIjogWyIiLCAiRElWSVNJT19PQkxJREFEQSIsICJERVNWSUFDSU9OU19TRU5TRV9RVUFEUkFUIiwgIkFSUkVMX09CTElEQURBIl0sICJyZXMiOiBbIiRcXGJhcnt4fT1cXGRmcmFjezQwfXs4fT01JCIsICIkXFxzdW0oeF9pLVxcYmFye3h9KV4yPTErOSsxKzArNCs5KzkrMT0zNCQiLCAiJFxcc2lnbWFeMj1cXGRmcmFjezM0fXs4fT1cXGRmcmFjezE3fXs0fSQiLCAiJFxcc2lnbWE9XFxzcXJ0e1xcZGZyYWN7MTd9ezR9fVxcYXBwcm94MnssfTA2JCJdfQ=="
+  },
+  {
+   "id": "271a",
+   "ex": 271,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Torna a les talles de calçat de l'exercici 227. La taula és: $x_i=37$ amb $f_i=5$, $x_i=38$ amb $f_i=8$, $x_i=39$ amb $f_i=1$, $x_i=40$ amb $f_i=3$, $x_i=41$ amb $f_i=1$, $x_i=42$ amb $f_i=1$, $x_i=43$ amb $f_i=1$, amb $N=20$ i $\\bar{x}=38{,}7$.",
+   "enunciat": "Calcula la variància.",
+   "opcions": [
+    "$58{,}20$",
+    "$1{,}71$",
+    "$4{,}00$",
+    "$2{,}91$"
+   ],
+   "pistes": [
+    "Amb taula de freqüències, $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2 f_i}{N}$.",
+    "Calcula $(x_i-38{,}7)^2$ per a cada talla, multiplica'l per la seva freqüència i suma-ho tot."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBzdW1hICRcXHN1bSh4X2ktXFxiYXJ7eH0pXjIgZl9pJCBzZW5zZSBkaXZpZGlyIGVudHJlICROPTIwJC4iLCAiQWl4w7IgamEgw6lzIGxhIGRlc3ZpYWNpw7MgdMOtcGljYS4gTGEgdmFyacOgbmNpYSDDqXMgZWwgdmFsb3IgYWJhbnMgZGUgZmVyIGwnYXJyZWwuIiwgIkhhcyBmZXQgc2VydmlyIGVscyB2YWxvcnMgZGlmZXJlbnRzIHNlbnNlIHBlc2FyLWxvcyBwZXIgbGEgc2V2YSBmcmVxw7zDqG5jaWEuIENhZGEgcXVhZHJhdCAkKHhfaS1cXGJhcnt4fSleMiQgcydoYSBkZSBtdWx0aXBsaWNhciBwZXIgJGZfaSQgYWJhbnMgZGUgc3VtYXIuIiwgIiJdLCAiZXJyIjogWyJESVZJU0lPX09CTElEQURBIiwgIlZBUklBTkNJQV9QRVJfREVTVklBQ0lPIiwgIkZSRVFVRU5DSUFfTk9fUE9OREVSQURBIiwgIiJdLCAicmVzIjogWyIkXFxzdW0oeF9pLVxcYmFye3h9KV4yIGZfaT01OHssfTIkIiwgIiRcXHNpZ21hXjI9XFxkZnJhY3s1OHssfTJ9ezIwfT0yeyx9OTEkIl19"
+  },
+  {
+   "id": "271b",
+   "ex": 271,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Torna a les talles de calçat de l'exercici 227. La taula és: $x_i=37$ amb $f_i=5$, $x_i=38$ amb $f_i=8$, $x_i=39$ amb $f_i=1$, $x_i=40$ amb $f_i=3$, $x_i=41$ amb $f_i=1$, $x_i=42$ amb $f_i=1$, $x_i=43$ amb $f_i=1$, amb $N=20$ i $\\bar{x}=38{,}7$.",
+   "enunciat": "I la desviació típica?",
+   "opcions": [
+    "$\\approx8{,}47$",
+    "$\\approx1{,}71$",
+    "$6$",
+    "$2{,}91$"
+   ],
+   "pistes": [
+    "$\\sigma=\\sqrt{\\sigma^2}$.",
+    "Fes l'arrel quadrada de $2{,}91$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZWxldmF0IGFsIHF1YWRyYXQgZW4gY29tcHRlcyBkZSBmZXIgbCdhcnJlbDogbGEgZGVzdmlhY2nDsyB0w61waWNhIMOpcyBtw6lzIFBFVElUQSBxdWUgbGEgdmFyacOgbmNpYSBxdWFuIGFxdWVzdGEgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICIiLCAiQWl4w7Igw6lzIGVsIHJlY29ycmVndXQuIFRhbWLDqSBtZXN1cmEgZGlzcGVyc2nDsywgcGVyw7Igbm8gw6lzIGxhIGRlc3ZpYWNpw7MgdMOtcGljYS4iLCAiQXF1ZXN0YSDDqXMgbGEgdmFyacOgbmNpYS4gTGEgZGVzdmlhY2nDsyB0w61waWNhIG4nw6lzIGwnYXJyZWwgcXVhZHJhZGEuIl0sICJlcnIiOiBbIkFSUkVMX01BTF9BUExJQ0FEQSIsICIiLCAiTUVTVVJBX01BTF9UUklBREEiLCAiVkFSSUFOQ0lBX1BFUl9ERVNWSUFDSU8iXSwgInJlcyI6IFsiJFxcc2lnbWE9XFxzcXJ0ezJ7LH05MX1cXGFwcHJveDF7LH03MSQgdGFsbGVzIiwgIlZvbCBkaXIgcXVlLCBkZSBtaXRqYW5hLCBsZXMgdGFsbGVzIHZlbnVkZXMgc2Ugc2VwYXJlbiBwb2MgbcOpcyBkJ3VuYSB0YWxsYSBkZSBsYSBtaXRqYW5hIl19"
+  },
+  {
+   "id": "272a",
+   "ex": 272,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\\;5,\\;5,\\;5,\\;5,\\;5. Grup B: 1,\\;3,\\;5,\\;5,\\;7,\\;9.",
+   "enunciat": "Compara'n les mitjanes.",
+   "opcions": [
+    "La del grup A és més alta.",
+    "La del grup B és més alta, perquè hi ha un $9$.",
+    "No es poden comparar perquè les dades són diferents.",
+    "Són iguals: totes dues valen $5$."
+   ],
+   "pistes": [
+    "Calcula la mitjana de cada grup.",
+    "Suma les notes de cada grup: totes dues sumen el mateix."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUb3RlcyBkdWVzIHN1bWVuICQzMCQgZW50cmUgJDYkIGFsdW1uZXM6IGxhIG1pdGphbmEgw6lzICQ1JCBhbHMgZG9zIGdydXBzLiIsICJFbCAkOSQgZGVsIGdydXAgQiBlcyBjb21wZW5zYSBhbWIgbCckMSQ6IGxhIHN1bWEgY29udGludWEgc2VudCAkMzAkLiIsICJFcyBwb2RlbiBjb21wYXJhciBwZXJmZWN0YW1lbnQ6IHBlciBhaXjDsiBzZXJ2ZWl4ZW4gbGVzIG1lc3VyZXMgZGUgY2VudHJhbGl0emFjacOzLiIsICIiXSwgImVyciI6IFsiVkVSRURJQ1RFX0lOVkVSVElUIiwgIkVYVFJFTV9TRU5TRV9FRkVDVEUiLCAiRVNfUE9UX0RFVEVSTUlOQVIiLCAiIl0sICJyZXMiOiBbIkdydXAgQTogJFxcZGZyYWN7MzB9ezZ9PTUkIiwgIkdydXAgQjogJFxcZGZyYWN7MzB9ezZ9PTUkIl19"
+  },
+  {
+   "id": "272b",
+   "ex": 272,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\\;5,\\;5,\\;5,\\;5,\\;5. Grup B: 1,\\;3,\\;5,\\;5,\\;7,\\;9.",
+   "enunciat": "Quin grup és més regular, i com ho justifiques amb un número?",
+   "opcions": [
+    "El grup A, però no es pot posar cap número.",
+    "El grup A: té $\\sigma=0$ i el B, $\\sigma\\approx2{,}58$.",
+    "Són igual de regulars, perquè tenen la mateixa mitjana.",
+    "El grup B, perquè té notes més altes."
+   ],
+   "pistes": [
+    "Calcula la desviació típica de cada grup.",
+    "Al grup A totes les dades valen igual que la mitjana."
+   ],
+   "nota": "Aquest parell d'exercicis és el motiu de ser de tot el bloc: dues distribucions poden tenir la mateixa mitjana i no assemblar-se gens. La mitjana tota sola gairebé mai no descriu prou bé un conjunt de dades.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTw60gcXVlIHNlJ24gcG90IHBvc2FyOiBsYSBkZXN2aWFjacOzIHTDrXBpY2Egw6lzIGV4YWN0YW1lbnQgZWwgbsO6bWVybyBxdWUgbWVzdXJhIGFpeMOyLiIsICIiLCAiTGEgbWl0amFuYSBkaXUgb24gw6lzIGVsIGNlbnRyZSwgbm8gY29tIGQnYWdydXBhZGVzIGVzdGFuIGxlcyBkYWRlcyBhbCBzZXUgdm9sdGFudC4gUGVyIGFpeMOyIGNhbGVuIGxlcyBtZXN1cmVzIGRlIGRpc3BlcnNpw7M6IGRvcyBncnVwcyBhbWIgbGEgbWF0ZWl4YSBtaXRqYW5hIHBvZGVuIHNlciBjb21wbGV0YW1lbnQgZGlmZXJlbnRzLiIsICJTZXIgcmVndWxhciB2b2wgZGlyIHF1ZSBsZXMgbm90ZXMgcydhc3NlbWJsZW4gZW50cmUgc2ksIG5vIHF1ZSBzaWd1aW4gYWx0ZXMuIEFsIGdydXAgQiB2YW4gZGUgbCckMSQgYWwgJDkkLiJdLCAiZXJyIjogWyJFU19QT1RfREVURVJNSU5BUiIsICIiLCAiTUlUSkFOQV9OT19ESVVfRElTUEVSU0lPIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJHcnVwIEE6IHRvdGVzIGxlcyBkZXN2aWFjaW9ucyBzw7NuICQwJCwgYWl4w60gcXVlICRcXHNpZ21hXjI9MCQgaSAkXFxzaWdtYT0wJCIsICJHcnVwIEI6ICRcXHNpZ21hXjI9XFxkZnJhY3syMH17M30kIGkgJFxcc2lnbWE9XFxzcXJ0e1xcZGZyYWN7MjB9ezN9fVxcYXBwcm94MnssfTU4JCIsICJDb20gbcOpcyBwZXRpdGEgw6lzICRcXHNpZ21hJCwgbcOpcyBhZ3J1cGFkZXMgZXN0YW4gbGVzIGRhZGVzOiBlbCBncnVwIEEgw6lzIHBlcmZlY3RhbWVudCByZWd1bGFyIl19"
+  },
+  {
+   "id": "273a",
+   "ex": 273,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un grup de persones s'han mesurat l'alçada (mitjana $170$ cm, $\\sigma=8$ cm) i el pes (mitjana $65$ kg, $\\sigma=8$ kg).",
+   "enunciat": "Les dues desviacions típiques valen $8$. Vol dir que les dues variables estan igual de disperses?",
+   "opcions": [
+    "No: el pes està menys dispers perquè la seva mitjana és més petita.",
+    "No: $8$ cm sobre una mitjana de $170$ és molt menys, en proporció, que $8$ kg sobre una mitjana de $65$.",
+    "No es pot saber sense les dades originals.",
+    "Sí, perquè totes dues valen $8$."
+   ],
+   "pistes": [
+    "Pensa si $8$ cm de diferència en l'alçada d'una persona et sembla molt o poc, i compara-ho amb $8$ kg de diferència en el pes.",
+    "Per comparar dispersions de magnituds diferents es divideix $\\sigma$ entre la mitjana."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyLDiXMgYWwgcmV2w6lzOiBsYSBtYXRlaXhhIGRlc3ZpYWNpw7Mgc29icmUgdW5hIG1pdGphbmEgbcOpcyBwZXRpdGEgcmVwcmVzZW50YSB1bmEgdmFyaWFjacOzIHJlbGF0aXZhIE3DiVMgZ3Jhbi4iLCAiIiwgIkFtYiBsYSBtaXRqYW5hIGkgbGEgZGVzdmlhY2nDsyB0w61waWNhIGphIG4naGkgaGEgcHJvdTogZWwgY29lZmljaWVudCBkZSB2YXJpYWNpw7Mgw6lzICRcXGRmcmFje1xcc2lnbWF9e1xcYmFye3h9fSQuIiwgIkxhIGRlc3ZpYWNpw7MgdMOtcGljYSB2YSBlbiBsZXMgbWF0ZWl4ZXMgdW5pdGF0cyBxdWUgbGVzIGRhZGVzLCBpIHBlciBhaXjDsiBubyBlcyBwb2RlbiBjb21wYXJhciBkaXJlY3RhbWVudCBkdWVzIHZhcmlhYmxlcyBkaWZlcmVudHMuIENhbCBtaXJhciBxdWFudCByZXByZXNlbnRhICRcXHNpZ21hJCByZXNwZWN0ZSBkZSBsYSBzZXZhIG1pdGphbmEuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiRVNfUE9UX0RFVEVSTUlOQVIiLCAiQ1ZfU0VOU0VfRElWSURJUiJdLCAicmVzIjogWyJBbMOnYWRhOiAkXFxkZnJhY3s4fXsxNzB9XFxhcHByb3gweyx9MDQ3MSQiLCAiUGVzOiAkXFxkZnJhY3s4fXs2NX1cXGFwcHJveDB7LH0xMjMxJCIsICJFbCBwZXMgZXN0w6AgcmVsYXRpdmFtZW50IG3DqXMgZGlzcGVycywgdG90IGkgdGVuaXIgbGEgbWF0ZWl4YSAkXFxzaWdtYSQiXX0="
+  },
+  {
+   "id": "273b",
+   "ex": 273,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un grup de persones s'han mesurat l'alçada (mitjana $170$ cm, $\\sigma=8$ cm) i el pes (mitjana $65$ kg, $\\sigma=8$ kg).",
+   "enunciat": "Calcula el coeficient de variació de cada variable, en percentatge.",
+   "opcions": [
+    "Totes dues $\\approx8\\,\\%$",
+    "Alçada $\\approx2125{,}0\\,\\%$, pes $\\approx812{,}5\\,\\%$",
+    "Alçada $\\approx4{,}7\\,\\%$, pes $\\approx12{,}3\\,\\%$",
+    "Alçada $\\approx0{,}047\\,\\%$, pes $\\approx0{,}123\\,\\%$"
+   ],
+   "pistes": [
+    "$CV=\\dfrac{\\sigma}{\\bar{x}}$, i per posar-ho en percentatge es multiplica per $100$.",
+    "Alçada: $\\dfrac{8}{170}$. Pes: $\\dfrac{8}{65}$."
+   ],
+   "nota": "El coeficient de variació no té unitats, i per això serveix per comparar la dispersió de coses que es mesuren en unitats diferents. És el que et permet dir si un grup és més irregular en alçada o en pes sense comparar centímetres amb quilograms.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkOCQgw6lzIGxhIGRlc3ZpYWNpw7MgdMOtcGljYSwgbm8gZWwgY29lZmljaWVudC4gRWwgY29lZmljaWVudCBzdXJ0IGRlIGRpdmlkaXItbGEgZW50cmUgbGEgbWl0amFuYS4iLCAiSGFzIGRpdmlkaXQgbGEgbWl0amFuYSBlbnRyZSBsYSBkZXN2aWFjacOzIHTDrXBpY2EuIEVsIGNvZWZpY2llbnQgZGUgdmFyaWFjacOzIMOpcyAkQ1Y9XFxkZnJhY3tcXHNpZ21hfXtcXGJhcnt4fX0kLCBubyBhbCByZXbDqXMuIiwgIiIsICJBcXVlc3RzIHPDs24gZWxzIHF1b2NpZW50cyBlbiBkZWNpbWFsOiBwZXIgcGFzc2FyLWxvcyBhIHBlcmNlbnRhdGdlIGVuY2FyYSBmYWx0YSBtdWx0aXBsaWNhciBwZXIgJDEwMCQuIl0sICJlcnIiOiBbIkNWX1NFTlNFX0RJVklESVIiLCAiSU5WRVJUSURBIiwgIiIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCJdLCAicmVzIjogWyJBbMOnYWRhOiAkQ1Y9XFxkZnJhY3s4fXsxNzB9XFxjZG90MTAwXFxhcHByb3g0eyx9N1xcLFxcJSQiLCAiUGVzOiAkQ1Y9XFxkZnJhY3s4fXs2NX1cXGNkb3QxMDBcXGFwcHJveDEyeyx9M1xcLFxcJSQiLCAiRWwgcGVzIHZhcmlhIGdhaXJlYsOpIGVsIGRvYmxlLCBlbiB0ZXJtZXMgcmVsYXRpdXMiXX0="
+  },
+  {
+   "id": "274a",
+   "ex": 274,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un conjunt de dades té mitjana $\\bar{x}=20$ i desviació típica $\\sigma=4$. Digues què passa en cada cas.",
+   "enunciat": "Sumem $5$ a totes les dades.",
+   "opcions": [
+    "La mitjana passa a $25$ i la desviació típica es queda a $4$.",
+    "Totes dues pugen $5$: mitjana $25$ i $\\sigma=9$.",
+    "La mitjana es queda a $20$ i $\\sigma$ passa a $9$.",
+    "No canvia res."
+   ],
+   "pistes": [
+    "Imagina't les dades sobre una recta i desplaça-les totes $5$ unitats.",
+    "La distància entre dues dades qualssevol, canvia?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiU3VtYXIgZWwgbWF0ZWl4IGEgdG90ZXMgbGVzIGRhZGVzIGxlcyBkZXNwbGHDp2EgdG90ZXMgaWd1YWw6IGxlcyBkaXN0w6BuY2llcyBlbnRyZSBlbGxlcyBubyBjYW52aWVuLCBpIGxhIGRpc3BlcnNpw7MgdGFtcG9jLiIsICLDiXMganVzdCBhbCByZXbDqXM6IGVsIHF1ZSBlcyBtb3Ugw6lzIGVsIGNlbnRyZSwgbm8gbCdhbXBsYWRhLiIsICJMYSBtaXRqYW5hIHPDrSBxdWUgY2FudmlhOiBzaSB0b3RlcyBsZXMgZGFkZXMgcHVnZW4gJDUkLCBlbCBzZXUgY2VudHJlIHRhbWLDqS4iXSwgImVyciI6IFsiIiwgIkNPTlNUQU5UX0FGRUNUQV9ESVNQRVJTSU8iLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJOb3ZhIG1pdGphbmE6ICQyMCs1PTI1JCIsICJMZXMgZGVzdmlhY2lvbnMgJHhfaS1cXGJhcnt4fSQgbm8gY2FudmllbiwgcGVycXXDqCBsZXMgZGFkZXMgaSBsYSBtaXRqYW5hIHMnaGFuIG1vZ3V0IGlndWFsOiAkXFxzaWdtYSQgZXMgbWFudMOpIGEgJDQkIl19"
+  },
+  {
+   "id": "274b",
+   "ex": 274,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un conjunt de dades té mitjana $\\bar{x}=20$ i desviació típica $\\sigma=4$. Digues què passa en cada cas.",
+   "enunciat": "Multipliquem totes les dades per $3$.",
+   "opcions": [
+    "Mitjana $23$ i $\\sigma=7$.",
+    "La mitjana passa a $60$ i la desviació típica, a $12$.",
+    "Mitjana $60$ i $\\sigma=4$.",
+    "Mitjana $60$ i $\\sigma=36$."
+   ],
+   "pistes": [
+    "Si totes les dades es multipliquen per $3$, on va a parar el centre?",
+    "I les distàncies entre dades, què els passa?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJNdWx0aXBsaWNhciBwZXIgJDMkIG5vIMOpcyBzdW1hciAkMyQuIiwgIiIsICJNdWx0aXBsaWNhciBzw60gcXVlIGNhbnZpYSBsYSBkaXNwZXJzacOzOiBzaSB0b3RlcyBsZXMgZGFkZXMgcydlc3RpcmVuIHBlbCB0cmlwbGUsIGxlcyBkaXN0w6BuY2llcyBlbnRyZSBlbGxlcyB0YW1iw6kuIiwgIkVsIHF1ZSBxdWVkYSBtdWx0aXBsaWNhdCBwZXIgJDNeMj05JCDDqXMgbGEgVkFSScOATkNJQSAoJDE2XFx0bzE0NCQpLiBMYSBkZXN2aWFjacOzIHTDrXBpY2EgcXVlZGEgbXVsdGlwbGljYWRhIHBlciAkMyQ6ICRcXHNpZ21hPTEyJC4iXSwgImVyciI6IFsiUFJPRFVDVEVfUEVSX1NVTUEiLCAiIiwgIkNPTlNUQU5UX0FGRUNUQV9ESVNQRVJTSU8iLCAiVkFSSUFOQ0lBX1BFUl9ERVNWSUFDSU8iXSwgInJlcyI6IFsiTm92YSBtaXRqYW5hOiAkMjBcXGNkb3QzPTYwJCIsICJDYWRhIGRlc3ZpYWNpw7MgcXVlZGEgbXVsdGlwbGljYWRhIHBlciAkMyQsIGkgcGVyIHRhbnQgJFxcc2lnbWEkIHRhbWLDqTogJDRcXGNkb3QzPTEyJCIsICJMYSB2YXJpw6BuY2lhLCBlbiBjYW52aSwgcXVlZGEgbXVsdGlwbGljYWRhIHBlciAkM14yPTkkOiAkMTZcXGNkb3Q5PTE0ND0xMl4yJCJdfQ=="
+  },
+  {
+   "id": "274c",
+   "ex": 274,
+   "ap": "c",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un conjunt de dades té mitjana $\\bar{x}=20$ i desviació típica $\\sigma=4$. Digues què passa en cada cas.",
+   "enunciat": "Afegim una dada nova que val exactament $20$.",
+   "opcions": [
+    "La mitjana baixa i $\\sigma$ es queda igual.",
+    "La mitjana es queda a $20$ i $\\sigma$ puja.",
+    "No canvia res, ni la mitjana ni $\\sigma$.",
+    "La mitjana es queda a $20$ i la desviació típica baixa una mica."
+   ],
+   "pistes": [
+    "Quina desviació aporta una dada que val exactament el mateix que la mitjana?",
+    "La suma dels quadrats no canvia, però el nombre de dades sí."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBZmVnaXIgdW5hIGRhZGEgaWd1YWwgYSBsYSBtaXRqYW5hIG5vIGxhIG1vdSBlbiBjYXAgZGlyZWNjacOzLiIsICJBZmVnaXIgdW5hIGRhZGEgcXVlIGNvaW5jaWRlaXggYW1iIGxhIG1pdGphbmEgbm8gcG90IGF1Z21lbnRhciBsYSBkaXNwZXJzacOzOiBhcG9ydGEgdW5hIGRlc3ZpYWNpw7MgZGUgJDAkLiIsICJMYSBtaXRqYW5hIG5vIGVzIG1vdSwgYWl4w7Igw6lzIGNlcnQuIFBlcsOyIGFyYSBoaSBoYSB1bmEgZGFkYSBtw6lzIHF1ZSBlc3TDoCBleGFjdGFtZW50IGFsIGNlbnRyZSwgaSBhaXjDsiBmYSBxdWUsIGRlIG1pdGphbmEsIGxlcyBkYWRlcyBlc3RpZ3VpbiB1bmEgbWljYSBtZW55cyBlc3Rlc2VzOiAkXFxzaWdtYSQgYmFpeGEuIiwgIiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIkVYVFJFTV9TRU5TRV9FRkVDVEUiLCAiIl0sICJyZXMiOiBbIkxhIGRhZGEgbm92YSBhcG9ydGEgdW5hIGRlc3ZpYWNpw7MgJDIwLTIwPTAkLCBhaXjDrSBxdWUgJFxcc3VtKHhfaS1cXGJhcnt4fSleMiQgbm8gY2FudmlhIiwgIkVuIGNhbnZpICROJCBhdWdtZW50YSBlbiAkMSQsIGkgY29tIHF1ZSBsYSB2YXJpw6BuY2lhIMOpcyBhcXVlc3RhIHN1bWEgZGl2aWRpZGEgZW50cmUgJE4kLCBsYSB2YXJpw6BuY2lhIGJhaXhhOyBpIGFtYiBlbGxhLCAkXFxzaWdtYSQiXX0="
   }
  ]
 };
