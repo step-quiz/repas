@@ -927,17 +927,31 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       });
       /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
          anterior al període com a línia de base. */
-      var prev = abans.length ? abans[abans.length - 1].mapa : {};
+      var prev = {};
+      if (abans.length) Object.keys(abans[abans.length - 1].mapa).forEach(function (id) {
+        prev[id] = abans[abans.length - 1].mapa[id];
+      });
 
+      /* La línia de base és ACUMULATIVA: la unió de tot el que s'ha vist fins
+         ara, no l'últim codi tot sol. Normalment és el mateix, perquè cada
+         codi conté l'anterior. Deixa de ser-ho si l'alumne perd les dades del
+         navegador (les esborra, canvia de dispositiu, finestra privada) i
+         torna a començar: llavors el seu codi següent porta MENYS exercicis
+         que el previ. Amb una línia de base acumulativa, allò que repeteix no
+         es torna a comptar; amb l'últim codi tot sol, sí, i el volum del
+         trimestre sortia inflat. */
+      var perduda = [];
       var passos = [];
       dins.forEach(function (c) {
-        var nous = [], repetits = [];
+        var nous = [], repetits = [], vistos = Object.keys(c.mapa).length;
+        var previs = Object.keys(prev).length;
         Object.keys(c.mapa).forEach(function (id) {
           if (!prev[id]) nous.push(c.mapa[id]);
           else if (prev[id].e !== c.mapa[id].e) repetits.push({ e: c.mapa[id].e, d: c.mapa[id].d, abans: prev[id].e });
         });
-        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: Object.keys(c.mapa).length });
-        prev = c.mapa;
+        if (previs && vistos < previs) perduda.push({ quan: c.quan, abans: previs, ara: vistos });
+        passos.push({ quan: c.quan, nous: nous, repetits: repetits, codi: c.r, total: vistos });
+        Object.keys(c.mapa).forEach(function (id) { prev[id] = c.mapa[id]; });
       });
 
       /* Un enviament només compta com a dia de feina si porta exercicis nous.
@@ -1000,7 +1014,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         dies: nDies, setmanes: nSetm, passos: ambFeina,
         exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
         dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
-        comp: comp, nota: nota,
+        comp: comp, nota: nota, perduda: perduda,
         primer: dins.length ? dins[0].quan : null,
         ultim: dins.length ? dins[dins.length - 1].quan : null
       };
@@ -1114,7 +1128,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             ' <span class="xip" title="Té codis al full, però cap en aquest període">'
             + "res en aquest període</span>") + "</td>"
         + '<td class="apagat">' + (a.grup || "—") + "</td>"
-        + "<td>" + a.dies + (a.enviaments > a.ambFeina
+        + "<td>" + (a.perduda.length
+            ? '<span class="marca avis" title="En algun moment el seu codi va portar menys '
+              + 'exercicis que abans: sembla que va perdre les dades del navegador">!</span> ' : "")
+        + a.dies + (a.enviaments > a.ambFeina
             ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
               + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
         + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
@@ -1150,6 +1167,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + dada("Milloren l'encert", mesurables ? milloren + " de " + mesurables : "—")
       + dada("Constància fluixa", pocaConst + " de " + res.length)
       + "</div>";
+
+    var perduts = res.filter(function (a) { return a.perduda.length; });
+    if (perduts.length) {
+      h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
+        + "<b>Han perdut el progrés del navegador</b> en algun moment: "
+        + perduts.map(function (a) { return a.alumne; }).join(", ")
+        + ". Convé recordar-los que facin servir sempre el mateix navegador.</p>";
+    }
 
     if (concentrat.length) {
       h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
@@ -1230,6 +1255,19 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         + '</td><td class="apagat">' + (p.repetits.length || "") + "</td><td>" + p.total + "</td></tr>";
     });
     h += "</table></div>";
+
+    if (a.perduda.length) {
+      h += '<p class="petit" style="margin-top:.6rem"><span class="marca avis">!</span> '
+        + "<b>Sembla que ha perdut el progrés del navegador.</b> ";
+      a.perduda.forEach(function (x) {
+        h += "El " + x.quan.toISOString().slice(0, 10) + " el seu codi va passar de portar "
+          + x.abans + " exercicis a portar-ne " + x.ara + ". ";
+      });
+      h += "El progrés es desa al navegador: esborrar-ne les dades, canviar de "
+        + "dispositiu o treballar en una finestra privada el fa començar de zero. "
+        + "El que ja tenia comptat no s'ha perdut (els codis anteriors el porten), "
+        + "i el que ha repetit no s'ha tornat a comptar.</p>";
+    }
 
     if (a.enviaments > a.ambFeina) {
       h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
