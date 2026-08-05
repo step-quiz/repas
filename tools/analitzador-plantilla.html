@@ -357,9 +357,41 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var m = String(ts).match(/(\d{1,2}):(\d{2})/);
     return m ? (+m[1]) * 60 + (+m[2]) : null;
   }
+  /* Google exporta la data amb el format del full, que pot ser d/m/Y (català)
+     o m/d/Y (anglès). Amb dies del 1 al 12 no es poden distingir mirant la
+     data tota sola: "8/5/2026" tant pot ser el 8 de maig com el 5 d'agost.
+
+     Sí que es poden distingir comparant-la amb la data que el codi porta a
+     dins, perquè entre generar-lo i enviar-lo passen minuts, no mesos. Es
+     decideix una vegada per a tot el full i per majoria, que és molt més
+     robust que fila a fila. */
+  var FORMAT_DATA = "dm";
+
+  function detectaFormatData(brut) {
+    var dm = 0, md = 0;
+    brut.forEach(function (r) {
+      var p = RE_CODI.llegeix(r.codi);
+      if (!p.ok) return;
+      var m = String(r.enviat).match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
+      if (!m) return;
+      var a = +m[1], b = +m[2], any = +m[3];
+      if (a > 12) { dm++; return; }              /* el primer no pot ser mes */
+      if (b > 12) { md++; return; }
+      var base = p.data.getTime();
+      var v1 = Math.abs(new Date(any, b - 1, a).getTime() - base);   /* d/m/Y */
+      var v2 = Math.abs(new Date(any, a - 1, b).getTime() - base);   /* m/d/Y */
+      if (v1 < v2) dm++; else if (v2 < v1) md++;
+    });
+    return md > dm ? "md" : "dm";
+  }
+
   function dataEnviament(ts) {
     var s = String(ts), m = s.match(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/);
-    if (m) return m[3] + "-" + ("0" + m[2]).slice(-2) + "-" + ("0" + m[1]).slice(-2);
+    if (m) {
+      var dia = FORMAT_DATA === "md" ? m[2] : m[1];
+      var mes = FORMAT_DATA === "md" ? m[1] : m[2];
+      return m[3] + "-" + ("0" + mes).slice(-2) + "-" + ("0" + dia).slice(-2);
+    }
     m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
     return m ? m[0] : "";
   }
@@ -476,6 +508,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + dada("Amb pista", p.resum.comptes.pista)
       + dada("Al segon intent", p.resum.comptes.segon)
       + dada("Fallats", p.resum.comptes.fallat)
+      + dada("Oberts i deixats", p.resum.comptes.vist)
       + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
       + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
       + "</div>";
@@ -652,6 +685,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         + "Els codis comencen per RC1.</span>";
       return;
     }
+    FORMAT_DATA = detectaFormatData(brut);
     files = processa(brut);
     obert = null;
     var sel = $("#f-full");
@@ -660,7 +694,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     vistos.sort(function (a, b) { return a - b; });
     sel.innerHTML = '<option value="">Tots els fulls</option>'
       + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
-    $("#estat-carrega").innerHTML = '<span class="ok">' + files.length + " codis llegits</span>";
+    $("#estat-carrega").innerHTML = '<span class="ok">' + files.length + " codis llegits</span>"
+      + ' <span class="apagat petit">· dates en format '
+      + (FORMAT_DATA === "md" ? "mes/dia/any" : "dia/mes/any") + "</span>";
     $("#resultats").hidden = false;
     obertP = null;
     pinta();
