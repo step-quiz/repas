@@ -652,7 +652,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     p.fulls.forEach(function (f) {
       h += '<div class="bloc-fila"><h4>' + f.titol + "</h4>";
       f.blocs.forEach(function (b) {
-        var dins = f.items.slice(b[1], b[2] + 1);
+        /* b[1] és la LLISTA de posicions del bloc, no un rang: en aquest
+           ordre els blocs no són contigus (vegeu build_codi.py). */
+        var dins = b[1].map(function (k) { return f.items[k]; });
         var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
         if (!fets) return;
         var mal = dins.filter(function (x) { return x.estat === "fallat"; });
@@ -770,7 +772,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           }
         });
         f.blocs.forEach(function (b) {
-          var dins = f.items.slice(b[1], b[2] + 1);
+          var dins = b[1].map(function (k) { return f.items[k]; });
           var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
           if (!fets) return;
           var mal = dins.filter(function (x) { return x.estat === "fallat"; }).length;

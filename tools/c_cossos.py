@@ -54,6 +54,7 @@ massa incerta (vegeu més amunt), la resta són enunciats de fórmules d'àrea
 i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia.
 """
 import math
+from figures import prisma_regular, cub, ortoedre
 from lib import Q, D, DT, tria, dificultats
 
 # --------------------------------------------------------------------
@@ -169,6 +170,7 @@ Q("170a", 170, "a", B1, "A",
    "$A=2(a\\cdot b+a\\cdot c+b\\cdot c)$, amb $a=7$, $b=2$, $c=4$."],
   ["$A=2(7\\cdot2+7\\cdot4+2\\cdot4)=2(14+28+8)$",
    "$A=2\\cdot50=100$ cm$^2$"],
+  figura=ortoedre(7, 2, 4),
   ex_text=E170)
 
 # 170b: triangular equilater costat 5, altura 9 -> A~156.65
@@ -194,30 +196,42 @@ Q("170b", 170, "b", B1, "A",
   [r"$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$",
    "$A_{\\text{lateral}}=15\\cdot9=135$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot10{,}83+135\\approx156{,}65$ cm$^2$"],
+  figura=prisma_regular(3, 5, 9),
   ex_text=E170)
 
 # 170c: hexagonal costat 8 apotema 5.2 altura 6 -> A=537.6 (exacte)
+# 170c: hexagonal costat 6 apotema 5,2 altura 8 -> A=475,2 (exacte)
+#
+# LECTURA CORREGIDA. Al primer intent es va llegir "costat 8, apotema 5,2,
+# altura 6", però un hexàgon regular de costat 8 té apotema 6,93, no 5,2: la
+# lectura no podia ser bona. Amb costat 6 la fórmula dona 5,196, que és el
+# 5,2 del llibre arrodonit. La cota de 8 cm és, doncs, l'altura.
+#
+# Aquesta comprovació —contrastar l'apotema que dona el llibre amb la que
+# surt de la fórmula— val per a tots els prismes i piràmides de base regular,
+# i és el que permet llegir una figura escanejada sense endevinar.
 Q("170c", 170, "c", B1, "A",
-  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
-  "$5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
-  val(537.6, 2, "cm$^2$"),
+  f"{E170} un prisma de base hexagonal regular de $6$ cm de costat i "
+  "$5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
+  val(475.2, 2, "cm$^2$"),
   [D(val(288, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
-     "Aquest valor és només l'àrea lateral ($48\\cdot6$): encara "
+     "Aquest valor és només l'àrea lateral ($36\\cdot8$): encara "
      "falta sumar-hi les dues bases hexagonals."),
-   D(val(374.4, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+   D(val(381.6, 2, "cm$^2$"), "FACTOR_OBLIDAT",
      "Sembla que només has comptat UNA base hexagonal en lloc de "
      "dues: un prisma sempre en té dues, una a cada extrem."),
    D(val(662.4, 2, "cm$^2$"), "PRODUCTE_MAL",
-     "No coincideix amb $2\\cdot124{,}8+48\\cdot6$: revisa per "
+     "No coincideix amb $2\\cdot93{,}6+36\\cdot8$: revisa per "
      "separat l'àrea de la base hexagonal i l'àrea lateral.")],
   ["L'àrea d'un polígon regular és "
    "$A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; "
-   "amb perímetre $6\\cdot8=48$ cm i apotema $5{,}2$ cm, "
-   "$A_{\\text{base}}=124{,}8$ cm$^2$.",
-   "L'àrea lateral és $48\\cdot6=288$ cm$^2$."],
-  [r"$A_{\text{base}}=\dfrac{48\cdot5{,}2}{2}=124{,}8$ cm$^2$",
-   "$A_{\\text{lateral}}=48\\cdot6=288$ cm$^2$",
-   "$A_{\\text{total}}=2\\cdot124{,}8+288=537{,}6$ cm$^2$"],
+   "amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, "
+   "$A_{\\text{base}}=93{,}6$ cm$^2$.",
+   "L'àrea lateral és $36\\cdot8=288$ cm$^2$."],
+  [r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$",
+   "$A_{\\text{lateral}}=36\\cdot8=288$ cm$^2$",
+   "$A_{\\text{total}}=2\\cdot93{,}6+288=475{,}2$ cm$^2$"],
+  figura=prisma_regular(6, 6, 8, apotema=5.2),
   ex_text=E170)
 
 # 170d: pentagonal costat 5 apotema 3.44 altura 12 -> A=386 (exacte)
@@ -240,6 +254,7 @@ Q("170d", 170, "d", B1, "A",
   [r"$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$",
    "$A_{\\text{lateral}}=25\\cdot12=300$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot43+300=386$ cm$^2$"],
+  figura=prisma_regular(5, 5, 12, apotema=3.44),
   ex_text=E170)
 
 # 170e: triangular rectangle catets 6,8 altura 5 -> A=168 (exacte)
@@ -266,6 +281,104 @@ Q("170e", 170, "e", B1, "A",
    "Hipotenusa: $\\sqrt{6^2+8^2}=10$ cm; perímetre $=24$ cm",
    "$A_{\\text{total}}=2\\cdot24+24\\cdot5=48+120=168$ cm$^2$"],
   ex_text=E170)
+
+
+# ---- 170f-i: RECUPERATS ------------------------------------------------
+# Aquests quatre apartats havien quedat fora perquè les cotes només eren al
+# dibuix. S'han pogut llegir perquè el llibre dona l'apotema, i l'apotema es
+# pot CONTRASTAR amb la fórmula del polígon regular, a=s/(2·tan(π/n)):
+#
+#   170g  hexàgon de costat 8   -> 6,93   (el llibre en diu 6,93)
+#   170h  hexàgon de costat 5   -> 4,33   (el llibre en diu 4,25; arrodoniment)
+#   170i  octàgon de costat 6   -> 7,243  (el llibre en diu 7,24)
+#
+# Quan la lectura i la fórmula quadren, la cota està ben assignada. Quan no
+# quadren, vol dir que s'ha llegit malament: va passar amb el 170c, que
+# s'havia transcrit com a hexàgon de costat 8 amb apotema 5,2 quan un hexàgon
+# de costat 8 té apotema 6,93. La cota de 8 era l'altura.
+
+# 170f: cub d'aresta 7 -> A = 6·49 = 294 (exacte)
+Q("170f", 170, "f", B1, "A",
+  f"{E170} un cub d'aresta $7$ cm.",
+  val(294, 0, "cm$^2$"),
+  [D(val(49, 0, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+     "Aquesta és l'àrea d'UNA cara. Un cub en té sis, totes iguals."),
+   D(val(343, 0, "cm$^2$"), "DIMENSIO_EXPONENT_MAL",
+     "$7^3=343$ és el VOLUM del cub. L'àrea total va amb el quadrat: "
+     "$6\\cdot7^2$."),
+   D(val(196, 0, "cm$^2$"), "FACTOR_OBLIDAT",
+     "Sembla que has comptat quatre cares. Un cub en té sis: les quatre "
+     "laterals més la de dalt i la de baix.")],
+  ["Totes les cares d'un cub són quadrats iguals.",
+   "Calcula l'àrea d'una cara i multiplica-la pel nombre de cares."],
+  ["Cada cara: $7^2=49$ cm$^2$",
+   "$A_{\\text{total}}=6\\cdot49=294$ cm$^2$"],
+  figura=cub(7),
+  ex_text=E170)
+
+# 170g: hexagonal costat 8 apotema 6,93 altura 12 -> A = 908,64
+Q("170g", 170, "g", B1, "A",
+  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
+  "$6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
+  val(908.64, 2, "cm$^2$"),
+  [D(val(576, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+     "Aquest valor és només l'àrea lateral ($48\\cdot12$): falten les "
+     "dues bases hexagonals."),
+   D(val(742.32, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+     "Només has comptat una base. Un prisma en té dues, una a cada extrem."),
+   D(val(332.64, 2, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+     "Aquesta és l'àrea de les dues bases: encara falta sumar-hi la "
+     "lateral.")],
+  ["El perímetre de la base és $6\\cdot8=48$ cm.",
+   "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i "
+   "$A_{\\text{lateral}}=48\\cdot12$."],
+  [r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$",
+   "$A_{\\text{lateral}}=48\\cdot12=576$ cm$^2$",
+   "$A_{\\text{total}}=2\\cdot166{,}32+576=908{,}64$ cm$^2$"],
+  figura=prisma_regular(6, 8, 12, apotema=6.93),
+  ex_text=E170)
+
+# 170h: hexagonal costat 5 apotema 4,25 altura 11 -> A = 457,5 (exacte)
+Q("170h", 170, "h", B1, "A",
+  f"{E170} un prisma de base hexagonal regular de $5$ cm de costat i "
+  "$4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
+  val(457.5, 1, "cm$^2$"),
+  [D(val(330, 1, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+     "Aquest valor és només l'àrea lateral ($30\\cdot11$)."),
+   D(val(393.75, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+     "Només has comptat una base hexagonal en lloc de dues."),
+   D(val(127.5, 1, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+     "Aquesta és l'àrea de les dues bases, sense la lateral.")],
+  ["Perímetre de la base: $6\\cdot5=30$ cm.",
+   "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i "
+   "$A_{\\text{lateral}}=30\\cdot11$."],
+  [r"$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$",
+   "$A_{\\text{lateral}}=30\\cdot11=330$ cm$^2$",
+   "$A_{\\text{total}}=2\\cdot63{,}75+330=457{,}5$ cm$^2$"],
+  figura=prisma_regular(6, 5, 11, apotema=4.25),
+  ex_text=E170)
+
+# 170i: octogonal costat 6 apotema 7,24 altura 15 -> A = 1067,52
+Q("170i", 170, "i", B1, "A",
+  f"{E170} un prisma de base octogonal regular de $6$ cm de costat i "
+  "$7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
+  val(1067.52, 2, "cm$^2$"),
+  [D(val(720, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+     "Aquest valor és només l'àrea lateral ($48\\cdot15$)."),
+   D(val(893.76, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+     "Només has comptat una base octogonal en lloc de dues."),
+   D(val(800.64, 2, "cm$^2$"), "N_MAL_COMPTAT",
+     "Sembla que has fet servir sis costats en comptes de vuit: el "
+     "perímetre d'un octàgon de costat $6$ és $8\\cdot6=48$ cm.")],
+  ["Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
+   "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i "
+   "$A_{\\text{lateral}}=48\\cdot15$."],
+  [r"$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$",
+   "$A_{\\text{lateral}}=48\\cdot15=720$ cm$^2$",
+   "$A_{\\text{total}}=2\\cdot173{,}76+720=1\\,067{,}52$ cm$^2$"],
+  figura=prisma_regular(8, 6, 15, apotema=7.24),
+  ex_text=E170)
+
 
 # ---- exercici 171: prisma triangular equilàter, costat 2 cm, altura 3 cm ----
 # Ab=sqrt3~1.7321, Alat=18, Atot~21.46

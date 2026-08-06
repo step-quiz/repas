@@ -72,29 +72,94 @@ def etiquetes_ordenades():
 # ---------------------------------------------------------------------
 # Ordre d'ítems de cada full
 # ---------------------------------------------------------------------
+FITXER_ORDRE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "codi-ordre.json")
+
+
+def ordre_estable(fulls_actuals):
+    """Ordre APPEND-ONLY dels ítems de cada full, per al codi de verificació.
+
+    El codi guarda l'estat de cada exercici per POSICIÓ. Si l'ordre canviés,
+    tots els codis ja emesos passarien a llegir-se malament, i en silenci.
+
+    Al principi això s'aconseguia amb una regla de disciplina —"el contingut
+    nou va sempre al final del full"—, però la regla es trenca sola: quan es
+    recupera un exercici que faltava, el seu lloc natural és entre els seus
+    germans, no al final. El 170f va just després del 170e, i posar-lo al
+    final del Full 9 seria absurd per a qui l'ha de fer.
+
+    Per això l'ordre de CODIFICACIÓ es desa aquí i és append-only, separat de
+    l'ordre de PRESENTACIÓ, que és el de `data/fullN.js`. Un exercici nou
+    s'insereix on toca per a l'alumne i s'afegeix al final d'aquesta llista
+    per al codi. Les dues coses deixen de dependre l'una de l'altra.
+    """
+    if os.path.exists(FITXER_ORDRE):
+        with open(FITXER_ORDRE, encoding="utf-8") as f:
+            previ = json.load(f)
+    else:
+        previ = {}
+
+    ordre, avisos = {}, []
+    for n, ids in fulls_actuals.items():
+        k = str(n)
+        anterior = previ.get(k, [])
+        vius = set(ids)
+        # Els que ja hi eren es queden EXACTAMENT on eren, encara que hagin
+        # desaparegut del full: buidar-los mouria tota la resta.
+        nou = list(anterior)
+        for i in ids:
+            if i not in nou:
+                nou.append(i)
+        morts = [i for i in anterior if i not in vius]
+        if morts:
+            avisos.append("full %s: %d ítems ja no hi són però es mantenen a "
+                          "l'ordre per no moure la resta (%s)"
+                          % (k, len(morts), ", ".join(morts[:5])))
+        ordre[k] = nou
+
+    with open(FITXER_ORDRE, "w", encoding="utf-8") as f:
+        json.dump(ordre, f, ensure_ascii=False, indent=0)
+    for a in avisos:
+        print("  ⚠ " + a)
+    return ordre
+
+
 def taula_fulls():
     """{full: {items: [id...], blocs: [[titol, primer, últim]...], dif: "12321..."}}
 
-    L'ordre dels ítems és el de `data/fullN.js`, que és l'ordre en què els
-    recorre l'app. La posició i del codi és, doncs, l'ítem i d'aquesta llista:
-    és el que permet a l'analitzador dir "ha fallat el 67e" i no "la 9a".
+    `items` va en l'ordre APPEND-ONLY de `codi-ordre.json`, no en el de
+    `data/fullN.js`: vegeu ordre_estable().
+
+    Cada bloc es dona com la LLISTA de posicions que li pertoquen, no com un
+    rang. Un rang només valdria si els blocs fossin contigus en aquest ordre,
+    i deixen de ser-ho tan bon punt es recupera un exercici: el 170f va al
+    final de l'ordre de codificació però al bloc dels prismes, que comença a
+    la posició 0. Amb rangs, aquell bloc s'empassaria mig full.
     """
-    out = {}
+    fulls, dades = {}, {}
     for n in range(1, 13):
         ruta = os.path.join(ARREL, "data", "full%d.js" % n)
         if not os.path.exists(ruta):
             continue
-        s = open(ruta, encoding="utf-8").read()
+        with open(ruta, encoding="utf-8") as f:
+            s = f.read()
         d = json.loads(s[s.index("{"):s.rindex("}") + 1])
-        ids = [it["id"] for it in d["items"]]
-        pos = {it["id"]: i for i, it in enumerate(d["items"])}
-        difs = "".join(str(it["dif"]) for it in d["items"])
+        dades[n] = d
+        fulls[n] = [it["id"] for it in d["items"]]
+
+    ordre = ordre_estable(fulls)
+
+    out = {}
+    for n, d in dades.items():
+        ids = ordre[str(n)]
+        info = {it["id"]: it for it in d["items"]}
+        pos = {i: k for k, i in enumerate(ids)}
+        difs = "".join(str(info[i]["dif"]) if i in info else "1" for i in ids)
         blocs = []
         for b in d["blocs"]:
-            if not b["items"]:
-                continue
-            idxs = [pos[i] for i in b["items"] if i in pos]
-            blocs.append([b["titol"], min(idxs), max(idxs)])
+            idxs = sorted(pos[i] for i in b["items"] if i in pos)
+            if idxs:
+                blocs.append([b["titol"], idxs])
         out[n] = {"titol": d["titol"], "items": ids, "blocs": blocs, "dif": difs}
     return out
 
