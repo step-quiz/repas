@@ -1,118 +1,116 @@
-# Punt 8 complet: contingut nou als Fulls 6, 8, 10 i 11
+# Fases 0 i 1: xarxa de proves i antifrau honest
 
-**Puja aquests 25 fitxers.** El paquet és autosuficient i substitueix
-qualsevol dels anteriors: inclou també l'analitzador, el format RC2, el full
-d'exemple i tota la resta que quedava pendent.
+**Puja aquests 34 fitxers.** El paquet és autosuficient: inclou també el
+contingut nou del punt 8 (fulls 6, 8, 10 i 11) per si encara no l'havies
+pujat.
 
-**121 exercicis nous.** El banc passa de 739 a **860 preguntes**.
-
-| Full | Ex. | De → a | Blocs nous |
-|---|---|---|---|
-| 11 · Estadística | 260–274 | 52 → 91 | Mitjana, mediana i moda · Recorregut i desviació típica |
-| 6 · Proporcionalitat | 275–284 | 21 → 48 | El factor multiplicador · Descomptes, IVA i interessos |
-| 8 · Tales i semblança | 285–294 | 32 → 59 | Càlcul amb escales · Raó de semblança, àrees i volums |
-| 10 · Funcions | 295–304 | 45 → 73 | Construir rectes · Construir paràboles i problemes |
+```sh
+sh tests/executa.sh          # 107 comprovacions, sense instal·lar res
+```
 
 ---
 
-## Full 11 — el buit més gros
+## Fase 0 — La xarxa
 
-No hi havia **cap** mesura de centralització ni de dispersió. Un alumne podia
-fer el full sencer i sortir-ne sabent muntar taules de freqüències i sense
-saber calcular una mitjana.
+### Objectiu 1 · Suite de proves (7 fitxers nous a `tests/`)
 
-Els que expliquen per què serveix el bloc: el **272** (dos grups amb la
-mateixa mitjana i dispersió oposada), el **266** (cinc amics que han llegit
-3–7 llibres i n'arriba un amb 60: la mitjana gairebé es duplica, la mediana es
-mou mig punt), el **269** (les desviacions sumen zero *sempre*, que és el
-motiu de la variància) i el **264**, que no demana calcular sinó **triar** la
-mesura.
+**107 comprovacions**, sense dependències. Es fa servir `unittest` de la
+biblioteca estàndard i no `pytest`: el projecte no en té cap, de dependència,
+i afegir-ne una perquè les assercions siguin més boniques seria canviar una
+propietat que val la pena per comoditat. Les de l'analitzador necessiten un
+DOM; si `jsdom` no hi és, se salten amb un avís i la resta continua.
 
-Reutilitza les dades que ja surten al full: els viatges del 222, les talles
-del 227.
+| Fitxer | | Comprova |
+|---|---:|---|
+| `test_lib.py` | 31 | Ajudants de `lib.py` i que `_valida()` aturi el que diu |
+| `test_banc.py` | 30 | El banc compilat: estructura, matemàtiques i coherència de taules |
+| `codi.test.js` | 22 | Format del codi: empaquetat, control, compatibilitat RC1 |
+| `analitzador.test.js` | 24 | L'analitzador amb DOM real |
 
-## Full 6 — el factor multiplicador
+**Dues decisions que fan que serveixin de res.** Les de matemàtiques
+**recalculen la resposta de zero**, amb `Fraction` i sense importar res de
+`tools/`: comprovar `lib.py` amb `lib.py` no detectaria mai una errada del
+motor. I cada prova de `Presentacio` **és una cicatriu**, no una regla d'estil
+inventada: els `$$` doblats del 4/64a, el `36--64` del discriminant, les
+opcions sense delimitadors del 4/72a, les notes amb rastres de `.tex`, els
+170a–e sense enunciat.
 
-El full tenia 21 preguntes. La idea que vertebra els blocs nous és que pujar
-un 15 % és multiplicar per 1,15 i baixar-lo és multiplicar per 0,85: qui ho
-interioritza deixa de sumar percentatges que no se sumen.
+> **Escrivint-les, la prova del `36--64` va atrapar un cas nou.** Al Full 11,
+> el diagnòstic del 268c deia `$10--4$`: jo mateix havia reintroduït al punt 8
+> el defecte que havia corregit al punt 9. Està corregit.
 
-El **284** i el **280** ho diuen des de dos costats: pujar i baixar el mateix
-tant per cent **sempre** deixa el preu per sota del de partida, i dos
-descomptes del 20 % i el 10 % no fan un 30 % sinó un 28 %. El **277** ataca
-l'error més habitual: per desfer una pujada del 10 % no es baixa un 10 %, es
-divideix.
+### Objectiu 2 · `.gitignore`
 
-També hi ha IVA amb descompte, interès simple i repartiment proporcional.
+Per a `tools/_taules.json`, `__pycache__/` i `node_modules/` (que només
+apareix si instal·les jsdom per a les proves).
 
-## Full 8 — el que li passa a les àrees i als volums
+Una correcció a l'informe: **el teu GitHub sí que és control de versions**. El
+que passa és que el ZIP que exportes no porta `.git`, i qui l'analitzi des del
+ZIP conclou que no n'hi ha.
 
-El material no deia enlloc que si les longituds es multipliquen per *k*, les
-àrees ho fan per *k*² i els volums per *k*³. És el malentès més tossut de tota
-la semblança: mitja classe contesta que una maqueta a escala 1:2 té la meitat
-de volum.
+### Objectiu 3 · Les taules de recompte
 
-El **294** ho tanca amb una maqueta d'un edifici: la mateixa escala 1:50 dona
-tres factors diferents (50, 2 500 i 125 000) segons si el que mesures té una,
-dues o tres dimensions. I el **293** va a l'inrevés: de la raó d'àrees o de
-volums a la de longituds, amb arrel quadrada o cúbica.
+N'hi havia **tres**, no dues, i la tercera la veu l'alumne: `js/inici.js`
+portava els totals escrits a mà i la portada deia **«0/21»** d'un full que en
+té 48. Passava als quatre fulls que va créixer el punt 8.
 
-## Full 10 — producció, no reconeixement
-
-De 45 preguntes, només 8 demanaven construir alguna cosa. Els 25 exercicis
-nous són tots de producció: de dues dades a l'equació, d'una recta a la seva
-paral·lela o perpendicular, de dues rectes al punt de tall, del vèrtex a
-l'equació de la paràbola, i d'un enunciat en text a la funció que el descriu
-(**303**, tarifa amb quota fixa; **304**, el corral amb màxima àrea, que és
-un problema de 1r de batxillerat resolt sense derivades).
+- `js/inici.js` ara els **deriva de `RE_TAULES`**, que la portada ja carrega
+  per al botó del codi. La còpia desapareix; el número escrit es queda només
+  com a xarxa.
+- El `HANDOVER` guanya les columnes **de la font / nous / total**, perquè els
+  dos números que no quadraven comptaven coses diferents a posta.
+- `TaulesCoherents` compara els tres llocs a cada execució de les proves.
 
 ---
 
-## El que també calia tocar
+## Fase 1 — Antifrau
 
-- **El tutor hi ha d'apuntar.** Un bloc nou no serveix de res si el test
-  inicial no hi porta ningú. S'han ampliat les proves de percentatges,
-  escales, paràboles i estadística; els blocs abastables pel tutor passen de
-  34 a **42 de 54**.
-- **La prova d'estadística del test inicial** ara és la mitjana des d'una
-  taula de freqüències, que és la destresa pont: no la pots fer sense
-  entendre què és una freqüència.
-- **56 etiquetes d'error noves** al catàleg, més 25 de preexistents al Full 10
-  que no en tenien. La cobertura del catàleg passa del 94 % al **97 %**.
+### Objectiu 7 · El mateix codi sota alumnes diferents
 
-## Els codis ja emesos segueixen valent
+Marca **⇄** quan una mateixa cadena apareix sota dos correus. Un codi és la
+fotografia d'un navegador: si surt dues vegades, o se l'han passat o
+comparteixen ordinador i sessió.
 
-El codi de verificació guarda els estats **per posició**, i afegir exercicis a
-un full podria desplaçar-los tots. Per això els mòduls nous van **els últims**
-a la llista de mòduls de cada full. Comprovat als quatre:
+- **Que un alumne reenviï el seu no es marca.** Passa cada setmana amb qui
+  envia dos cops per si de cas, i marcar-ho seria soroll.
+- Hi ha resum a sobre de la taula (*«anna = bru»*) i filtre propi.
+- **La integritat mana sobre l'origen**: un codi trencat surt com a ✗ encara
+  que estigui repetit. Si el ⇄ tapés el ✗, es perdria la marca que de veritat
+  diu que hi ha un problema. El ⇄ sí que s'acumula amb el `!`, perquè diuen
+  coses diferents.
 
-```
-full 6   21 -> 48   els 21 primers intactes
-full 8   32 -> 59   els 32 primers intactes
-full 10  45 -> 73   els 45 primers intactes
-full 11  52 -> 91   els 52 primers intactes
-```
+### Objectiu 9 · Què verifica el ✓ i què no
 
-I el codi de prova que em vas enviar es continua llegint igual, amb els seus
-7 exercicis i els identificadors correctes.
+La pestanya d'ajuda ara ho diu sense embuts, amb els tres forats coneguts:
 
-## Verificació
+> **El que NO verifica: qui ha fet la feina.** El ✓ diu que el codi és
+> autèntic, no que l'hagi guanyat qui l'envia.
+>
+> - Fer els exercicis **al navegador d'un altre**: cadascú se n'emporta un codi
+>   diferent i el ⇄ no hi arriba.
+> - **Fabricar un codi des de la consola**: tot el que cal és a `js/codi.js`,
+>   que ha de ser públic perquè el botó funcioni. Amb servidor s'evitaria;
+>   sense, no.
+> - Fer els exercicis **amb ajuda al costat**: la forma de les dades és
+>   idèntica a la de qui treballa sol.
+>
+> Serveixen per veure la feina i atrapar la còpia mandrosa, no per garantir
+> l'autoria.
 
-- **77 comprovacions independents** dels fulls 6, 8 i 10, recalculant-ho tot
-  de fora amb `Fraction` i SymPy i contrastant-ho amb el banc compilat:
-  factors, percentatges inversos, variacions, descomptes encadenats, IVA,
-  interessos, repartiments, escales, raons *k*/*k*²/*k*³, equacions de rectes,
-  punts de tall, vèrtexs, talls amb els eixos i paràboles des del vèrtex.
-- **29 comprovacions independents** del Full 11 (mitjanes, medianes, modes,
-  recorreguts, variàncies, desviacions típiques, coeficient de variació).
-- Les 110 comprovacions funcionals de sempre (botó, analitzador, integració,
-  trimestre), totes en verd.
-- Compilació determinista dels 12 fulls.
+---
 
-## Un avís
+## El que NO he fet, i per què
 
-Aquests 121 exercicis són **material nou escrit per mi**, no transcrit de cap
-font verificada. L'aritmètica està comprovada de manera independent, però la
-redacció, la tria de distractors i el criteri pedagògic no els ha revisat
-ningú més. Convindria que els llegissis abans de posar-los davant d'alumnes,
-sobretot el 264, el 273, el 281b i el 304, que són els més interpretatius.
+Els objectius **2 i 3 del teu informe antifrau** (relleu progressiu, fabricar
+codis des de la consola) i el **6** (fer-se arreglar els ítems fallats) **no
+tenen solució** amb aquesta arquitectura. No és que siguin difícils: sense
+servidor i sense un secret que el navegador de l'alumne no vegi, qualsevol
+cosa que hi fes seria teatre. La decisió ha estat **documentar-ho a la cara**
+en comptes de fingir que es tapa, i és el que fa l'objectiu 9.
+
+Els objectius **8** (comparació de patrons entre alumnes) i **10** (agrupació
+temporal) els he deixat fora d'aquesta fase a propòsit. Són més cars, tenen
+fals positiu real, i abans de construir-los val la pena decidir fins on vols
+que l'eina s'assembli a un sistema de vigilància: això és repàs formatiu, i
+com més ho sembli, més canviarà el que els alumnes hi fan. El 7 val la pena
+perquè és barat i atrapa el cas mandrós; el 8 i el 10 ja són una altra cosa.

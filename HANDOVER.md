@@ -36,23 +36,30 @@ fitxers `enunciats/imN.tex` (enunciats) i 13 `enunciats/r-imN.tex`
 recull dos fitxers font. Això fa que, a partir del Full 6, el número del full
 vagi un per sota del número de fitxer:
 
-| Full | Tema | Font | Exercicis | Preguntes |
-|---|---|---|---|---:|
-| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 140 |
-| 2 | Potències | `im2.tex` | 35–46 | 76 |
-| 3 | Successions i progressions | `im3.tex` | 47–61 | 50 |
-| 4 | Polinomis | `im4.tex` | 62–74 | 59 |
-| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 |
-| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 |
-| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 |
-| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 |
-| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 |
-| 10 | Funcions | `im11.tex` | 200–217 | 45 |
-| 11 | Estadística | `im12.tex` | 218–235 | 52 |
-| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 |
+| Full | Tema | Font | Exercicis | De la font | Nous | Total |
+|---|---|---|---|---:|---:|---:|
+| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 140 | — | 140 |
+| 2 | Potències | `im2.tex` | 35–46 | 76 | — | 76 |
+| 3 | Successions i progressions | `im3.tex` | 47–61 | 50 | — | 50 |
+| 4 | Polinomis | `im4.tex` | 62–74 | 59 | — | 59 |
+| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 | — | 99 |
+| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 | +27 | 48 |
+| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 | — | 55 |
+| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 | +27 | 59 |
+| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | — | 43 |
+| 10 | Funcions | `im11.tex` | 200–217 | 45 | +28 | 73 |
+| 11 | Estadística | `im12.tex` | 218–235 | 52 | +39 | 91 |
+| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 | — | 67 |
 
 **Aquesta taula és normativa.** Està repetida al capdamunt de `js/inici.js`
 perquè qui hi arribi primer la trobi sense buscar-la.
+
+Les tres últimes columnes compten coses diferents i per això no coincideixen
+amb un sol número: **de la font** són els ítems transcrits del material de
+partida, **nous** els que s'han escrit per tapar buits (§3.3bis) i **total**
+el que hi ha ara a `data/fullN.js`. El `README.md` dona només el total, que és
+el que li interessa a qui fa servir el lloc. Si algun dia les dues taules
+deixen de quadrar, la de veritat és aquesta i el total el diu `data/`.
 
 ### 2.1 Exercicis sense cap pregunta
 
@@ -541,6 +548,29 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
    tocat més del compte.
 
 ---
+
+## 6bis. Proves
+
+`sh tests/executa.sh`, sense instal·lar res. Es fa servir `unittest` i no
+`pytest` perquè el projecte no té dependències, i afegir-ne una perquè les
+assercions siguin més boniques seria canviar una propietat que val la pena per
+comoditat. Les de l'analitzador necessiten `jsdom`; si no hi és, se salten i
+la resta continua.
+
+Dues decisions que les fan servir de res:
+
+- **Les de matemàtiques recalculen de zero**, amb `Fraction` i sense importar
+  res de `tools/`. Comprovar `lib.py` amb `lib.py` no detectaria mai una
+  errada del motor.
+- **Cada prova de `Presentacio` és una cicatriu**: els `$$` doblats del 4/64a,
+  el `36--64` del discriminant, les opcions sense delimitadors del 4/72a, les
+  notes amb rastres de `.tex`, els 170a–e sense enunciat. Escrivint-les, la de
+  `36--64` va atrapar un cas nou al Full 11 que se m'havia colat.
+
+També hi ha `TaulesCoherents`, que compara els recomptes del `README`, del
+`HANDOVER` i de `data/`. Existeix perquè van desfasar-se de debò i la portada
+va arribar a dir «0/21» d'un full que en tenia 48; ara `js/inici.js` els
+deriva de `RE_TAULES` en comptes de portar-los escrits.
 
 ## 7. Límits coneguts
 

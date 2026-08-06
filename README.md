@@ -151,6 +151,13 @@ s'encalla la classe i si el codi és autèntic.
   detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
   de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
   de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
+  L'analitzador marca amb ⇄ els codis que apareixen sota més d'un correu.
+- **Què NO verifica.** El ✓ diu que el codi és autèntic, no que l'hagi guanyat
+  qui l'envia. Qui faci els exercicis al navegador d'un altre, o es fabriqui un
+  codi des de la consola, passa el control sense deixar rastre; això últim és
+  inevitable sense servidor, i el lloc funciona sense servidor a posta. La
+  pestanya d'ajuda de l'analitzador ho explica sencer. És una eina de
+  seguiment, no un certificat d'autoria.
 - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
   servidor ni connexió. No envia res enlloc. Hi ha un full de respostes
   d'exemple a `exemple-respostes.csv` per veure'l funcionar; vegeu
@@ -204,6 +211,20 @@ nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
 
 Res d'això és una decisió tancada: si es recuperen les figures originals,
 els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
+
+## Proves
+
+```sh
+sh tests/executa.sh
+```
+
+107 comprovacions, sense instal·lar res: `unittest` de la biblioteca estàndard
+per al Python i Node pelat per al JavaScript. Les de l'analitzador necessiten
+un DOM i se salten soles si `jsdom` no hi és (`npm install --no-save jsdom`).
+
+Les de matemàtiques **recalculen la resposta de zero**, sense importar res de
+`tools/`: si per comprovar el motor es fes servir el motor, una errada passaria
+per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
 
 ## Abans de publicar
 

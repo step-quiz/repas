@@ -1,7 +1,69 @@
+diff -ru a/.gitignore b/.gitignore
+--- a/.gitignore	2026-08-06 09:00:01.557963705 +0000
++++ b/.gitignore	2026-08-06 09:00:01.561344787 +0000
+@@ -0,0 +1,12 @@
++# Intermedis de compilació: es regeneren amb `cd tools && python3 build_tot.py`
++tools/_taules.json
++__pycache__/
++*.py[cod]
++
++# Dependència NOMÉS de les proves de l'analitzador (npm install --no-save jsdom)
++node_modules/
++package-lock.json
++
++# Fitxers del sistema
++.DS_Store
++Thumbs.db
 diff -ru a/HANDOVER.md b/HANDOVER.md
---- a/HANDOVER.md	2026-08-05 22:07:33.084929961 +0000
-+++ b/HANDOVER.md	2026-08-05 22:07:33.086370207 +0000
-@@ -153,6 +153,42 @@
+--- a/HANDOVER.md	2026-08-06 09:00:01.577963704 +0000
++++ b/HANDOVER.md	2026-08-06 09:00:01.580330948 +0000
+@@ -36,24 +36,31 @@
+ recull dos fitxers font. Això fa que, a partir del Full 6, el número del full
+ vagi un per sota del número de fitxer:
+ 
+-| Full | Tema | Font | Exercicis | Preguntes |
+-|---|---|---|---|---:|
+-| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 140 |
+-| 2 | Potències | `im2.tex` | 35–46 | 76 |
+-| 3 | Successions i progressions | `im3.tex` | 47–61 | 50 |
+-| 4 | Polinomis | `im4.tex` | 62–74 | 59 |
+-| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 |
+-| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 |
+-| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 |
+-| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 |
+-| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 |
+-| 10 | Funcions | `im11.tex` | 200–217 | 45 |
+-| 11 | Estadística | `im12.tex` | 218–235 | 52 |
+-| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 |
++| Full | Tema | Font | Exercicis | De la font | Nous | Total |
++|---|---|---|---|---:|---:|---:|
++| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 140 | — | 140 |
++| 2 | Potències | `im2.tex` | 35–46 | 76 | — | 76 |
++| 3 | Successions i progressions | `im3.tex` | 47–61 | 50 | — | 50 |
++| 4 | Polinomis | `im4.tex` | 62–74 | 59 | — | 59 |
++| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 | — | 99 |
++| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 | +27 | 48 |
++| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 | — | 55 |
++| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 | +27 | 59 |
++| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | — | 43 |
++| 10 | Funcions | `im11.tex` | 200–217 | 45 | +28 | 73 |
++| 11 | Estadística | `im12.tex` | 218–235 | 52 | +39 | 91 |
++| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 | — | 67 |
+ 
+ **Aquesta taula és normativa.** Està repetida al capdamunt de `js/inici.js`
+ perquè qui hi arribi primer la trobi sense buscar-la.
+ 
++Les tres últimes columnes compten coses diferents i per això no coincideixen
++amb un sol número: **de la font** són els ítems transcrits del material de
++partida, **nous** els que s'han escrit per tapar buits (§3.3bis) i **total**
++el que hi ha ara a `data/fullN.js`. El `README.md` dona només el total, que és
++el que li interessa a qui fa servir el lloc. Si algun dia les dues taules
++deixen de quadrar, la de veritat és aquesta i el total el diu `data/`.
++
+ ### 2.1 Exercicis sense cap pregunta
+ 
+ Onze dels 259 exercicis no han generat cap ítem, sempre pel mateix motiu: la
+@@ -153,6 +160,42 @@
  
  ---
  
@@ -44,7 +106,7 @@ diff -ru a/HANDOVER.md b/HANDOVER.md
  ### 3.4 El codi de verificació
  
  `js/codi.js` conté **el generador i el lector al mateix fitxer**, i això és
-@@ -204,11 +240,48 @@
+@@ -204,11 +247,48 @@
    un alumne que passa dels exercicis directes als problemes semblaria que
    empitjora;
    (d) la feina anterior al trimestre no compta: la línia de base és l'últim
@@ -94,9 +156,39 @@ diff -ru a/HANDOVER.md b/HANDOVER.md
  - **L'hora té resolució de 2 minuts.** És el que cabia en dos caràcters, i per
    a la comprovació de "quant ha trigat entre generar-lo i enviar-lo" (llindar
    de 30 min) la precisió al minut no aporta res.
+@@ -469,6 +549,29 @@
+ 
+ ---
+ 
++## 6bis. Proves
++
++`sh tests/executa.sh`, sense instal·lar res. Es fa servir `unittest` i no
++`pytest` perquè el projecte no té dependències, i afegir-ne una perquè les
++assercions siguin més boniques seria canviar una propietat que val la pena per
++comoditat. Les de l'analitzador necessiten `jsdom`; si no hi és, se salten i
++la resta continua.
++
++Dues decisions que les fan servir de res:
++
++- **Les de matemàtiques recalculen de zero**, amb `Fraction` i sense importar
++  res de `tools/`. Comprovar `lib.py` amb `lib.py` no detectaria mai una
++  errada del motor.
++- **Cada prova de `Presentacio` és una cicatriu**: els `$$` doblats del 4/64a,
++  el `36--64` del discriminant, les opcions sense delimitadors del 4/72a, les
++  notes amb rastres de `.tex`, els 170a–e sense enunciat. Escrivint-les, la de
++  `36--64` va atrapar un cas nou al Full 11 que se m'havia colat.
++
++També hi ha `TaulesCoherents`, que compara els recomptes del `README`, del
++`HANDOVER` i de `data/`. Existeix perquè van desfasar-se de debò i la portada
++va arribar a dir «0/21» d'un full que en tenia 48; ara `js/inici.js` els
++deriva de `RE_TAULES` en comptes de portar-los escrits.
++
+ ## 7. Límits coneguts
+ 
+ - **Un sol navegador.** Tot és `localStorage`: no hi ha comptes ni
 diff -ru a/README.md b/README.md
---- a/README.md	2026-08-05 22:07:32.968737427 +0000
-+++ b/README.md	2026-08-05 22:07:32.970344285 +0000
+--- a/README.md	2026-08-06 09:00:01.585963704 +0000
++++ b/README.md	2026-08-06 09:00:01.589075787 +0000
 @@ -4,7 +4,7 @@
  batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
  dependències. Obre `index.html`.
@@ -123,7 +215,7 @@ diff -ru a/README.md b/README.md
  | 12 | Combinatòria i probabilitat | 4 | 67 |
  
  ## Navegació
-@@ -140,16 +140,21 @@
+@@ -140,16 +140,28 @@
    enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
    arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
    exercici no es pot comparar amb un 6,6 sobre quaranta.
@@ -141,6 +233,13 @@ diff -ru a/README.md b/README.md
    detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
    de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
    de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
++  L'analitzador marca amb ⇄ els codis que apareixen sota més d'un correu.
++- **Què NO verifica.** El ✓ diu que el codi és autèntic, no que l'hagi guanyat
++  qui l'envia. Qui faci els exercicis al navegador d'un altre, o es fabriqui un
++  codi des de la consola, passa el control sense deixar rastre; això últim és
++  inevitable sense servidor, i el lloc funciona sense servidor a posta. La
++  pestanya d'ajuda de l'analitzador ho explica sencer. És una eina de
++  seguiment, no un certificat d'autoria.
  - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
 -  servidor ni connexió. No envia res enlloc.
 +  servidor ni connexió. No envia res enlloc. Hi ha un full de respostes
@@ -149,7 +248,7 @@ diff -ru a/README.md b/README.md
  - **Progrés del trimestre.** Com que els codis són acumulatius, la diferència
    entre dos codis seguits d'un mateix alumne és exactament la feina feta
    entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes
-@@ -176,6 +181,24 @@
+@@ -176,12 +188,44 @@
  | 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
  | 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
  
@@ -174,9 +273,29 @@ diff -ru a/README.md b/README.md
  Els exercicis on només falten alguns apartats (145, 152, 195) porten una
  nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
  
+ Res d'això és una decisió tancada: si es recuperen les figures originals,
+ els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
+ 
++## Proves
++
++```sh
++sh tests/executa.sh
++```
++
++107 comprovacions, sense instal·lar res: `unittest` de la biblioteca estàndard
++per al Python i Node pelat per al JavaScript. Les de l'analitzador necessiten
++un DOM i se salten soles si `jsdom` no hi és (`npm install --no-save jsdom`).
++
++Les de matemàtiques **recalculen la resposta de zero**, sense importar res de
++`tools/`: si per comprovar el motor es fes servir el motor, una errada passaria
++per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
++
+ ## Abans de publicar
+ 
+ - **Repassa els `REVISIO-fullN.html`.** És la clau de respostes completa:
 diff -ru a/REVISIO-full10.html b/REVISIO-full10.html
---- a/REVISIO-full10.html	2026-08-05 22:07:32.960392923 +0000
-+++ b/REVISIO-full10.html	2026-08-05 22:07:32.961957161 +0000
+--- a/REVISIO-full10.html	2026-08-06 09:00:01.594017908 +0000
++++ b/REVISIO-full10.html	2026-08-06 09:00:01.595495080 +0000
 @@ -38,7 +38,7 @@
  @media print{.it{border-color:#bbb}}
  </style>
@@ -562,8 +681,8 @@ diff -ru a/REVISIO-full10.html b/REVISIO-full10.html
  </table></html>
 \ No newline at end of file
 diff -ru a/REVISIO-full11.html b/REVISIO-full11.html
---- a/REVISIO-full11.html	2026-08-05 22:07:32.982772082 +0000
-+++ b/REVISIO-full11.html	2026-08-05 22:07:32.984308576 +0000
+--- a/REVISIO-full11.html	2026-08-06 09:00:01.600699569 +0000
++++ b/REVISIO-full11.html	2026-08-06 09:00:01.602000247 +0000
 @@ -38,7 +38,7 @@
  @media print{.it{border-color:#bbb}}
  </style>
@@ -837,7 +956,7 @@ diff -ru a/REVISIO-full11.html b/REVISIO-full11.html
 +<div class="enun">$-4,\;10,\;0,\;6,\;-1$</div>
 +<ol class="op"><li><span class="ok">$14$</span> — resposta correcta</li>
 +<li>$6$<br><span class="err">SIGNE_FINAL</span><span class="fb">El recorregut és una RESTA: el més gran menys el més petit.</span></li>
-+<li>$10$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el valor més gran. El recorregut és la distància entre l'extrem de dalt i el de baix: $10--4$.</span></li>
++<li>$10$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el valor més gran. El recorregut és la distància entre l'extrem de dalt i el de baix: $10-(-4)$.</span></li>
 +<li>$\dfrac{11}{5}$<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">Això és la mitjana, que diu on és el centre. El recorregut diu com d'esteses estan les dades.</span></li>
 +</ol>
 +<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la dada més gran i la més petita.</li><li>Aquí són $10$ i $-4$.</li></ol>
@@ -1052,8 +1171,8 @@ diff -ru a/REVISIO-full11.html b/REVISIO-full11.html
  </table></html>
 \ No newline at end of file
 diff -ru a/REVISIO-full6.html b/REVISIO-full6.html
---- a/REVISIO-full6.html	2026-08-05 22:07:33.112636088 +0000
-+++ b/REVISIO-full6.html	2026-08-05 22:07:33.114139741 +0000
+--- a/REVISIO-full6.html	2026-08-06 09:00:01.606995903 +0000
++++ b/REVISIO-full6.html	2026-08-06 09:00:01.608305820 +0000
 @@ -38,7 +38,7 @@
  @media print{.it{border-color:#bbb}}
  </style>
@@ -1400,8 +1519,8 @@ diff -ru a/REVISIO-full6.html b/REVISIO-full6.html
  </table></html>
 \ No newline at end of file
 diff -ru a/REVISIO-full8.html b/REVISIO-full8.html
---- a/REVISIO-full8.html	2026-08-05 22:07:32.974045885 +0000
-+++ b/REVISIO-full8.html	2026-08-05 22:07:32.977443786 +0000
+--- a/REVISIO-full8.html	2026-08-06 09:00:01.613182984 +0000
++++ b/REVISIO-full8.html	2026-08-06 09:00:01.614493549 +0000
 @@ -38,7 +38,7 @@
  @media print{.it{border-color:#bbb}}
  </style>
@@ -1742,9 +1861,19 @@ diff -ru a/REVISIO-full8.html b/REVISIO-full8.html
  </table></html>
 \ No newline at end of file
 diff -ru a/analitzador-repas.html b/analitzador-repas.html
---- a/analitzador-repas.html	2026-08-05 22:07:32.989993561 +0000
-+++ b/analitzador-repas.html	2026-08-05 22:07:32.991535515 +0000
-@@ -73,6 +73,12 @@
+--- a/analitzador-repas.html	2026-08-06 09:00:01.619433513 +0000
++++ b/analitzador-repas.html	2026-08-06 09:00:01.620770152 +0000
+@@ -51,6 +51,9 @@
+ .llegenda{display:flex;gap:.9rem;flex-wrap:wrap;font-size:12px;color:var(--apagat);margin-top:.5rem}
+ .llegenda i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:.3rem;background:#EDEAE4}
+ .marca{font-weight:700}
++.marca.compartit{color:#7B3FA0}
++.avis-compartit{background:#F3EAF8;border:1px solid #DDC7EA;color:#5B2E78;
++  border-radius:9px;padding:.6rem .8rem;font-size:13.5px;margin:.9rem 0}
+ .ok{color:var(--verd)} .avis{color:var(--ambre)} .mal{color:var(--vermell)}
+ .buit{padding:2.4rem 1rem;text-align:center;color:var(--apagat);border:1px dashed var(--vora);border-radius:12px}
+ .filtres{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.9rem 0}
+@@ -73,6 +76,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
  .ajuda li{margin-bottom:.45rem}
@@ -1757,7 +1886,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  </style>
  </head>
  <body>
-@@ -101,7 +107,7 @@
+@@ -101,7 +110,7 @@
          obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
          marca temporal o grup, també les farà servir.
        </p>
@@ -1766,7 +1895,28 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
          <button class="btn" id="btn-llegeix">Llegeix</button>
          <label class="btn buit" style="position:relative;overflow:hidden">
-@@ -157,30 +163,45 @@
+@@ -124,6 +133,7 @@
+           <option value="avis">Amb avís</option>
+           <option value="mal">Amb problema</option>
+           <option value="poca">Feina insuficient</option>
++          <option value="compartit">Codi repetit entre alumnes</option>
+         </select>
+         <label class="petit apagat" style="display:inline-flex;align-items:center;gap:.35rem">
+           Feina mínima demanada
+@@ -148,6 +158,12 @@
+         <span><i style="background:#C9C4BA"></i>començat</span>
+         <span><i></i>per fer</span>
+       </div>
++      <p class="petit apagat" style="margin-top:.5rem">
++        <span class="marca ok">✓</span> íntegre ·
++        <span class="marca avis">!</span> enviat molt després de generar-lo ·
++        <span class="marca mal">✗</span> el control no quadra ·
++        <span class="marca compartit">⇄</span> el mateix codi sota més d'un alumne
++      </p>
+ 
+       <h2>Què falla més</h2>
+       <div id="agregat"></div>
+@@ -157,30 +173,45 @@
    <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
    <section id="v-progres" hidden>
      <div class="targeta">
@@ -1832,7 +1982,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        </div>
        <details style="margin-top:.4rem">
          <summary class="petit apagat" style="cursor:pointer">Pesos de la qualificació</summary>
-@@ -203,6 +224,10 @@
+@@ -203,6 +234,10 @@
            què estàs incentivant.
          </p>
        </details>
@@ -1843,7 +1993,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      </div>
  
      <div id="p-resultats" style="margin-top:1rem"></div>
-@@ -212,7 +237,7 @@
+@@ -212,7 +247,7 @@
    <section id="v-un" hidden>
      <div class="targeta">
        <h3>Enganxa un codi</h3>
@@ -1852,7 +2002,69 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
      </div>
      <div id="un-resultat" style="margin-top:1rem"></div>
-@@ -265,7 +290,7 @@
+@@ -238,23 +273,50 @@
+         <li><span class="marca ok">✓</span> El codi és íntegre i s'ha enviat poc després de generar-lo.</li>
+         <li><span class="marca avis">!</span> Íntegre, però han passat més de 30 minuts entre
+             generar-lo i enviar-lo. Sol ser innocent (l'alumne el va desar i el va enviar
+-            més tard), però és on es veuria un codi passat d'un company.</li>
++            més tard).</li>
+         <li><span class="marca mal">✗</span> Els caràcters de control no quadren: o s'ha copiat
+             malament, o s'ha modificat.</li>
++        <li><span class="marca compartit">⇄</span> Aquest mateix codi, caràcter per caràcter,
++            també l'ha enviat un altre alumne. Val la pena preguntar-ho: pot ser que se
++            l'hagin passat o que comparteixin ordinador i sessió.</li>
+       </ul>
+ 
+-      <h3 style="margin-top:1.2rem">Sobre l'antifrau</h3>
++      <h3 style="margin-top:1.2rem">Què verifica el ✓ i què no</h3>
++      <p class="petit" style="margin:0 0 .7rem">
++        Val la pena llegir això una vegada, perquè el ✓ pot suggerir més del que diu.
++      </p>
+       <p class="petit apagat" style="margin:0">
+-        El codi acaba amb dos caràcters calculats a partir de tots els altres, en l'esperit
+-        de la lletra del DNI però amb un mòdul primer i pesos per posició. Detecta
+-        <b>totes</b> les substitucions d'un caràcter i <b>totes</b> les transposicions de dos:
+-        si l'alumne canvia un "fallat" per un "a la primera", surt. Un canvi a l'atzar
+-        s'escaparia una vegada de cada mil.
++        <b>El que sí que verifica: que el contingut no s'hagi tocat.</b> El codi acaba amb
++        dos caràcters calculats a partir de tots els altres, en l'esperit de la lletra del
++        DNI però amb mòdul primer i pesos per posició. Detecta <b>totes</b> les substitucions
++        d'un caràcter i <b>totes</b> les transposicions de dos: si algú canvia un "fallat" per
++        un "a la primera", surt. A més, la nota no viatja dins del codi —es calcula aquí a
++        partir del detall— i per això no hi pot haver un codi on la nota i el detall es
++        contradiguin.
++      </p>
++      <p class="petit" style="margin:.8rem 0 0;padding:.7rem .85rem;background:var(--ambre-suau);
++                border:1px solid #EBD3A3;border-radius:9px;color:#5A3800">
++        <b>El que NO verifica: qui ha fet la feina.</b> El ✓ diu que el codi és autèntic, no
++        que l'hagi guanyat qui l'envia. Tot això passa el control sense deixar rastre:
+       </p>
+-      <p class="petit apagat" style="margin:.6rem 0 0">
+-        La nota no viatja dins del codi: es calcula aquí a partir del detall exercici a
+-        exercici. Així no hi pot haver un codi on la nota i el detall es contradiguin, que és
+-        per on s'esmuny la manipulació en aquesta mena de sistemes.
++      <ul class="ajuda petit apagat" style="margin-top:.6rem">
++        <li>Un alumne fa els exercicis <b>al navegador d'un altre</b> i cadascú se n'emporta
++            un codi generat en moments diferents. Les cadenes són diferents, i la marca ⇄ no
++            hi arriba.</li>
++        <li>Algú <b>fabrica un codi des de la consola</b> del navegador. Tot el que cal per
++            generar-ne un és a <code>js/codi.js</code>, que és públic i s'ha de carregar a la
++            pàgina de l'alumne perquè el botó funcioni. Amb un servidor es podria evitar;
++            sense servidor, no. És una conseqüència inevitable d'haver triat que el lloc
++            funcioni sol, sense comptes ni connexió, i és millor saber-ho que confiar-hi.</li>
++        <li>Algú fa els exercicis <b>amb ajuda al costat</b>, o els torna a fer un cop sap la
++            resposta. La forma de les dades és exactament la mateixa que la de qui treballa
++            sol: aquí no hi ha res a detectar, ni amb aquest sistema ni amb cap altre.</li>
++      </ul>
++      <p class="petit apagat" style="margin:.8rem 0 0">
++        Dit d'una altra manera: aquestes marques serveixen per <b>veure la feina</b> i per
++        atrapar la còpia mandrosa, no per garantir l'autoria. Si el que et cal és una nota
++        certificada, ha de sortir d'alguna cosa feta a classe. Això és, i val més que ho
++        sigui, una eina de seguiment.
+       </p>
+     </div>
+   </section>
+@@ -265,7 +327,7 @@
    </p>
  </main>
  
@@ -1861,7 +2073,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  <script>/* codi.js — codi de verificació de repàs-ESO: generació i lectura.
  
     Les dues meitats viuen al mateix fitxer a propòsit. Si el generador i el
-@@ -284,11 +309,11 @@
+@@ -284,11 +346,11 @@
  
     ── FORMAT ────────────────────────────────────────────────────────────────
  
@@ -1876,7 +2088,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
       HH    2   hora (minuts/2 des de mitjanit)
       MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
       G     1   nombre de grups d'aquest full
-@@ -343,6 +368,14 @@
+@@ -343,6 +405,14 @@
    var ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
  
    var EPOCA = Date.UTC(2025, 8, 1);           /* 1 de setembre de 2025 */
@@ -1891,7 +2103,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
    var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
  
-@@ -401,14 +434,14 @@
+@@ -401,14 +471,14 @@
      for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
  
      var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
@@ -1908,7 +2120,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  
      fulls.forEach(function (f) {
        var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
-@@ -465,8 +498,9 @@
+@@ -465,8 +535,9 @@
      var T = window.RE_TAULES;
      var s = neteja(raw);
      if (!s) return { ok: false, error: "Codi buit" };
@@ -1920,7 +2132,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      }
      if (s.length < 15) return { ok: false, error: "Codi massa curt" };
  
-@@ -477,7 +511,7 @@
+@@ -477,7 +548,7 @@
  
      var p = 3;
      var salt = s.slice(p, p + 3); p += 3;
@@ -1929,7 +2141,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      var hora = dec(s.slice(p, p + 2)); p += 2;
      var mask = dec(s.slice(p, p + 3)); p += 3;
  
-@@ -530,7 +564,7 @@
+@@ -530,7 +601,7 @@
      }
  
      r = {
@@ -1938,7 +2150,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
        fulls: fulls, diag: diag, errs: errs,
        error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
-@@ -627,7 +661,7 @@
+@@ -627,7 +698,7 @@
        $("#v-full").hidden = b.dataset.mode !== "full";
        $("#v-progres").hidden = b.dataset.mode !== "progres";
        $("#v-un").hidden = b.dataset.mode !== "un";
@@ -1947,7 +2159,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
      };
    });
-@@ -649,7 +683,7 @@
+@@ -649,7 +720,7 @@
       columna es digui de cap manera concreta: si les capçaleres no ajuden,
       es busca la columna que conté un codi. */
    function buscaCodi(text) {
@@ -1956,7 +2168,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      return m ? m[0].trim() : null;
    }
  
-@@ -693,9 +727,41 @@
+@@ -693,13 +764,74 @@
      var m = String(ts).match(/(\d{1,2}):(\d{2})/);
      return m ? (+m[1]) * 60 + (+m[2]) : null;
    }
@@ -1999,7 +2211,137 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
      return m ? m[0] : "";
    }
-@@ -812,6 +878,7 @@
+ 
++  /* Un codi és una fotografia del progrés d'UN navegador. Si la mateixa
++     cadena apareix sota dos correus, o bé se l'han passat, o bé dos alumnes
++     comparteixen ordinador i sessió. Que un mateix alumne reenviï el seu no
++     té res de sospitós —passa cada setmana amb qui envia dos cops per si de
++     cas—, així que només es marca quan els correus difereixen.
++
++     Això NO és una acusació: és l'únic senyal d'origen que el sistema pot
++     donar, i el que vol dir exactament ho explica la pestanya d'ajuda. */
++  function marcaCompartits(files) {
++    var per = {};
++    files.forEach(function (r) {
++      if (!r.p.ok) return;
++      var k = RE_CODI.neteja(r.brut.codi);
++      (per[k] = per[k] || []).push(r);
++    });
++    Object.keys(per).forEach(function (k) {
++      var grup = per[k];
++      var correus = {};
++      grup.forEach(function (r) { correus[(r.brut.correu || r.brut.alumne || "?").toLowerCase()] = 1; });
++      var noms = Object.keys(correus);
++      if (noms.length < 2) return;
++      grup.forEach(function (r) {
++        r.compartit = noms.filter(function (c) {
++          return c !== (r.brut.correu || r.brut.alumne || "?").toLowerCase();
++        });
++      });
++    });
++  }
++
+   function processa(brut) {
+     return brut.map(function (r, i) {
+       var p = RE_CODI.llegeix(r.codi);
+@@ -707,6 +839,7 @@
+       var hEnv = horaEnviament(r.enviat);
+       var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
+       var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
++      /* `compartit` l'omple marcaCompartits() després, quan ja hi són tots. */
+       return { i: i, brut: r, p: p, forat: forat, estat: estat,
+                dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
+                dataEnv: dataEnviament(r.enviat) };
+@@ -714,10 +847,25 @@
+   }
+ 
+   // ── pintat ─────────────────────────────────────────────────────────────
+-  function marca(e) {
+-    if (e === "ok") return '<span class="marca ok" title="Codi íntegre">✓</span>';
+-    if (e === "avis") return '<span class="marca avis" title="Més de ' + FORAT + ' min entre generar-lo i enviar-lo">!</span>';
+-    return '<span class="marca mal" title="El control no quadra">✗</span>';
++  /* Ordre de prioritat: primer si el codi és llegible i íntegre, que és una
++     propietat del codi mateix; després l'origen i el temps, que són indicis.
++     Un codi trencat que a més estigui repetit ha de sortir com a trencat: si
++     el ⇄ tapés el ✗, la marca més important es perdria. El ⇄ sí que es pot
++     acumular amb el "!", perquè diuen coses diferents. */
++  function marca(e, r) {
++    if (e === "mal") return '<span class="marca mal" title="El control no quadra">✗</span>';
++    var out = "";
++    if (r && r.compartit && r.compartit.length) {
++      out += '<span class="marca compartit" title="Aquest mateix codi també '
++        + "l'han enviat: " + r.compartit.join(", ") + '">⇄</span>';
++    }
++    if (e === "avis") {
++      out += '<span class="marca avis" title="Més de ' + FORAT
++        + ' min entre generar-lo i enviar-lo">!</span>';
++    } else if (!out) {
++      out = '<span class="marca ok" title="Codi íntegre">✓</span>';
++    }
++    return out;
+   }
+   function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
+ 
+@@ -751,7 +899,8 @@
+     var t = $("#f-text").value.trim().toLowerCase();
+     var f = $("#f-full").value, e = $("#f-estat").value;
+     return files.filter(function (r) {
+-      if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
++      if (e === "compartit") { if (!r.compartit || !r.compartit.length) return false; }
++      else if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
+       else if (e && r.estat !== e) return false;
+       if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
+       if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
+@@ -762,11 +911,39 @@
+   function pinta() {
+     var fs = filtra();
+     $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
++    pintaCompartits();
+     pintaEnviaments(fs);
+     pintaAlumnes(fs);
+     pintaAgregat(fs);
+   }
+ 
++  /* El resum dels codis repetits va a sobre de la taula i no dins d'una
++     columna, perquè és una cosa que passa entre files i no en una de sola. */
++  function pintaCompartits() {
++    var cap = $("#avis-compartits");
++    if (!cap) {
++      cap = document.createElement("div");
++      cap.id = "avis-compartits";
++      $("#t-env").parentNode.parentNode.insertBefore(cap, $("#t-env").parentNode);
++    }
++    var grups = {};
++    files.forEach(function (r) {
++      if (!r.compartit || !r.compartit.length) return;
++      var k = RE_CODI.neteja(r.brut.codi);
++      (grups[k] = grups[k] || []).push(r.brut.alumne || r.brut.correu);
++    });
++    var claus = Object.keys(grups);
++    if (!claus.length) { cap.innerHTML = ""; return; }
++    cap.innerHTML = '<div class="avis-compartit"><b>⇄ '
++      + claus.length + (claus.length === 1 ? " codi apareix" : " codis apareixen")
++      + " sota més d'un alumne.</b> "
++      + claus.map(function (k) { return grups[k].join(" = "); }).join(" · ")
++      + '<br><span class="petit">Un codi és la fotografia d\'un navegador. Que la '
++      + "mateixa cadena surti sota dos correus vol dir que se l'han passat o que "
++      + "comparteixen ordinador i sessió. Val la pena preguntar-ho abans de donar-ho "
++      + "per fet.</span></div>";
++  }
++
+   function pintaEnviaments(fs) {
+     if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
+     var min = feinaMinima();
+@@ -778,7 +955,7 @@
+       var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
+       var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
+       h += '<tr class="clic" data-i="' + r.i + '">'
+-        + "<td>" + marca(r.estat) + "</td>"
++        + "<td>" + marca(r.estat, r) + "</td>"
+         + "<td>" + (r.brut.alumne || "—") + "</td>"
+         + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
+         + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
+@@ -812,6 +989,7 @@
        + dada("Amb pista", p.resum.comptes.pista)
        + dada("Al segon intent", p.resum.comptes.segon)
        + dada("Fallats", p.resum.comptes.fallat)
@@ -2007,7 +2349,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
        + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
        + "</div>";
-@@ -985,9 +1052,10 @@
+@@ -985,10 +1163,12 @@
      var brut = llegeixFull(txt);
      if (!brut.length) {
        $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
@@ -2017,9 +2359,11 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      }
 +    FORMAT_DATA = detectaFormatData(brut);
      files = processa(brut);
++    marcaCompartits(files);
      obert = null;
      var sel = $("#f-full");
-@@ -996,11 +1064,16 @@
+     var vistos = [];
+@@ -996,11 +1176,16 @@
      vistos.sort(function (a, b) { return a - b; });
      sel.innerHTML = '<option value="">Tots els fulls</option>'
        + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
@@ -2038,7 +2382,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    }
  
    $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
-@@ -1017,9 +1090,26 @@
+@@ -1017,9 +1202,26 @@
  
    ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
     "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
@@ -2067,7 +2411,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
  
    /* Els trimestres es dedueixen de l'any que tenen les dades, no d'un any
       fix: així el fitxer segueix servint el curs vinent. */
-@@ -1041,7 +1131,11 @@
+@@ -1041,7 +1243,11 @@
      } else if (v === "1") { posa((any - 1) + "-09-01", (any - 1) + "-12-22", 14); }
      else if (v === "2") { posa(any + "-01-08", any + "-03-31", 11); }
      else { posa(any + "-04-01", any + "-06-20", 11); }
@@ -2080,7 +2424,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
    };
  
    $("#btn-csv").onclick = function () {
-@@ -1178,17 +1272,31 @@
+@@ -1178,17 +1384,31 @@
        });
        /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
           anterior al període com a línia de base. */
@@ -2116,7 +2460,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
        });
  
        /* Un enviament només compta com a dia de feina si porta exercicis nous.
-@@ -1251,7 +1359,7 @@
+@@ -1251,7 +1471,7 @@
          dies: nDies, setmanes: nSetm, passos: ambFeina,
          exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
          dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
@@ -2125,7 +2469,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
          primer: dins.length ? dins[0].quan : null,
          ultim: dins.length ? dins[dins.length - 1].quan : null
        };
-@@ -1270,19 +1378,90 @@
+@@ -1270,19 +1490,90 @@
        Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
    }
  
@@ -2174,14 +2518,14 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
 -      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes '
 +        + "a la pestanya <b>Full de respostes</b>.</div>";
-       return;
-     }
--    var cfg = cfgProgres();
++      return;
++    }
 +    if (!cfgAplicada) {
 +      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
 +        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
-+      return;
-+    }
+       return;
+     }
+-    var cfg = cfgProgres();
 +    var cfg = cfgAplicada;
      var res = analitzaTrimestre(files, cfg);
      if (!res.length) {
@@ -2220,7 +2564,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
        + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
        + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
-@@ -1290,8 +1469,14 @@
+@@ -1290,8 +1581,14 @@
  
      res.forEach(function (a, i) {
        h += '<tr class="clic" data-p="' + i + '">'
@@ -2237,7 +2581,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
              ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
                + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
          + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
-@@ -1328,6 +1513,14 @@
+@@ -1328,6 +1625,14 @@
        + dada("Constància fluixa", pocaConst + " de " + res.length)
        + "</div>";
  
@@ -2252,7 +2596,7 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      if (concentrat.length) {
        h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
          + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
-@@ -1408,6 +1601,19 @@
+@@ -1408,6 +1713,19 @@
      });
      h += "</table></div>";
  
@@ -2272,9 +2616,18 @@ diff -ru a/analitzador-repas.html b/analitzador-repas.html
      if (a.enviaments > a.ambFeina) {
        h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
          + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
+@@ -1424,7 +1742,7 @@
+     var r = files[0];
+     var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
+                                        : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
+-    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat) + " "
++    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat, r) + " "
+       + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
+       + "</div>" + h;
+   };
 diff -ru a/data/full10.js b/data/full10.js
---- a/data/full10.js	2026-08-05 22:07:33.009978788 +0000
-+++ b/data/full10.js	2026-08-05 22:07:33.011643874 +0000
+--- a/data/full10.js	2026-08-06 09:00:01.625733794 +0000
++++ b/data/full10.js	2026-08-06 09:00:01.627154078 +0000
 @@ -51,6 +51,48 @@
     ]
    },
@@ -3012,8 +3365,8 @@ diff -ru a/data/full10.js b/data/full10.js
   ]
  };
 diff -ru a/data/full11.js b/data/full11.js
---- a/data/full11.js	2026-08-05 22:07:33.003442237 +0000
-+++ b/data/full11.js	2026-08-05 22:07:33.004927007 +0000
+--- a/data/full11.js	2026-08-06 09:00:01.632382981 +0000
++++ b/data/full11.js	2026-08-06 09:00:01.633824786 +0000
 @@ -2,7 +2,7 @@
  window.FULL = {
   "full": 11,
@@ -3686,7 +4039,7 @@ diff -ru a/data/full11.js b/data/full11.js
 +    "Aquí són $10$ i $-4$."
 +   ],
 +   "nota": "",
-+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZWNvcnJlZ3V0IMOpcyB1bmEgUkVTVEE6IGVsIG3DqXMgZ3JhbiBtZW55cyBlbCBtw6lzIHBldGl0LiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIG3DqXMgZ3Jhbi4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBsJ2V4dHJlbSBkZSBkYWx0IGkgZWwgZGUgYmFpeDogJDEwLS00JC4iLCAiIiwgIkFpeMOyIMOpcyBsYSBtaXRqYW5hLCBxdWUgZGl1IG9uIMOpcyBlbCBjZW50cmUuIEVsIHJlY29ycmVndXQgZGl1IGNvbSBkJ2VzdGVzZXMgZXN0YW4gbGVzIGRhZGVzLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICIiLCAiTUVTVVJBX01BTF9UUklBREEiXSwgInJlcyI6IFsiJFI9eF97XFxtYXh9LXhfe1xcbWlufT0xMC0oLTQpPTE0JCJdfQ=="
++   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZWNvcnJlZ3V0IMOpcyB1bmEgUkVTVEE6IGVsIG3DqXMgZ3JhbiBtZW55cyBlbCBtw6lzIHBldGl0LiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIG3DqXMgZ3Jhbi4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBsJ2V4dHJlbSBkZSBkYWx0IGkgZWwgZGUgYmFpeDogJDEwLSgtNCkkLiIsICIiLCAiQWl4w7Igw6lzIGxhIG1pdGphbmEsIHF1ZSBkaXUgb24gw6lzIGVsIGNlbnRyZS4gRWwgcmVjb3JyZWd1dCBkaXUgY29tIGQnZXN0ZXNlcyBlc3RhbiBsZXMgZGFkZXMuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIiIsICJNRVNVUkFfTUFMX1RSSUFEQSJdLCAicmVzIjogWyIkUj14X3tcXG1heH0teF97XFxtaW59PTEwLSgtNCk9MTQkIl19"
 +  },
 +  {
 +   "id": "269a",
@@ -3999,8 +4352,8 @@ diff -ru a/data/full11.js b/data/full11.js
   ]
  };
 diff -ru a/data/full6.js b/data/full6.js
---- a/data/full6.js	2026-08-05 22:07:33.016790848 +0000
-+++ b/data/full6.js	2026-08-05 22:07:33.018219003 +0000
+--- a/data/full6.js	2026-08-06 09:00:01.639027187 +0000
++++ b/data/full6.js	2026-08-06 09:00:01.640321874 +0000
 @@ -34,6 +34,47 @@
     ]
    },
@@ -4681,8 +5034,8 @@ diff -ru a/data/full6.js b/data/full6.js
   ]
  };
 diff -ru a/data/full8.js b/data/full8.js
---- a/data/full8.js	2026-08-05 22:07:32.996930232 +0000
-+++ b/data/full8.js	2026-08-05 22:07:32.998334541 +0000
+--- a/data/full8.js	2026-08-06 09:00:01.645393095 +0000
++++ b/data/full8.js	2026-08-06 09:00:01.646762043 +0000
 @@ -49,6 +49,47 @@
     ]
    },
@@ -5360,8 +5713,8 @@ diff -ru a/data/full8.js b/data/full8.js
   ]
  };
 diff -ru a/exemple-respostes.csv b/exemple-respostes.csv
---- a/exemple-respostes.csv	2026-08-05 22:07:33.074334419 +0000
-+++ b/exemple-respostes.csv	2026-08-05 22:07:33.079600250 +0000
+--- a/exemple-respostes.csv	2026-08-06 09:00:01.646762043 +0000
++++ b/exemple-respostes.csv	2026-08-06 09:00:01.651613765 +0000
 @@ -0,0 +1,27 @@
 +﻿Marca de temps;Adreça electrònica;Selecciona la classe;Enganxa aquí el codi que has copiat a step-quiz
 +9/22/2026 18:40:28;aina.puig@insterrassa.cat;1r BAT A;RC2R8-R0C2H-G4011-70BR6-JD9C1-5VFP4-C3ZZ0-ZZ0YH
@@ -5391,15 +5744,15 @@ diff -ru a/exemple-respostes.csv b/exemple-respostes.csv
 +12/3/2026 14:45:17;dani.serra@insterrassa.cat;1r BAT B;RC22T-F0DEE-C0012-4HW72-BY04C-3ZZ0Z-Z0RB
 +12/4/2026 16:10:43;claudia.moya@insterrassa.cat;1r BAT B;RC2J3-W0EBF-50053-716D5-MN171-6R34X-VQ4V5-348P0-4Z63V-3ZZ04-P
 diff -ru a/js/codi-taules.js b/js/codi-taules.js
---- a/js/codi-taules.js	2026-08-05 22:07:33.098831907 +0000
-+++ b/js/codi-taules.js	2026-08-05 22:07:33.100364757 +0000
+--- a/js/codi-taules.js	2026-08-06 09:00:01.656712767 +0000
++++ b/js/codi-taules.js	2026-08-06 09:00:01.658032255 +0000
 @@ -1,2 +1,2 @@
  /* Generat per tools/build_codi.py — no editeu aquest fitxer a mà. */
 -window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",0,18],["Divisibilitat",19,44],["Fraccions",45,85],["Decimals",86,139]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",0,22],["Exponent negatiu i equacions",23,41],["Verifica, corregeix i simplifica",42,61],["Combina potències",62,75]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",0,19],["Progressions aritmètiques",20,32],["Progressions geomètriques",33,43],["Aplicacions",44,49]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",0,13],["Divisió de polinomis i regla de Ruffini",14,34],["Igualtats notables",35,46],["Factor comú i simplificació",47,58]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",0,26],["Segon grau: fórmula i discriminant",27,40],["Segon grau: factor comú i factorització",41,62],["Sistemes d'equacions",63,87],["Problemes amb equacions i sistemes",88,98]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118"],"blocs":[["Proporcionalitat directa i inversa",0,9],["Percentatges",10,14],["Augments i disminucions encadenats",15,20]],"dif":"122122222311222333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",0,24],["Àrees amb el teorema de Pitàgores",25,33],["Àrees de quadrilàters i polígons regulars",34,47],["Problemes d'aplicació",48,54]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e"],"blocs":[["Teorema de Tales",0,7],["Semblança de triangles",8,31],["Escales",14,19],["Aplicacions de la semblança",20,28]],"dif":"11111222111122112222333333333222"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199"],"blocs":[["Prismes i el cub",0,11],["Piràmides i tetraedres",12,22],["Cilindres, cons i l'esfera",23,33],["Volums i problemes aplicats",34,42]],"dif":"1111122233332222222333221133122233111133333"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b"],"blocs":[["Concepte de funció",0,17],["Funcions lineals i afins",18,31],["Funcions quadràtiques",32,44]],"dif":"222111111112222333111111111122221111223333322"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c"],"blocs":[["Variables estadístiques",0,11],["Taules de freqüències",12,50],["Gràfics estadístics",36,51]],"dif":"1111111111111112222223332222221111221333222222333222"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",0,19],["Combinatòria: principi multiplicatiu",20,30],["Regla de Laplace i freqüència relativa",31,49],["Esdeveniments compostos",50,66]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};
 +window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT","ACUMULADA_MAL_LLEGIDA","CONSTANT_AFECTA_DISPERSIO","CV_SENSE_DIVIDIR","DESVIACIONS_AL_QUADRAT","DESVIACIONS_SENSE_QUADRAT","DIVIDIT_PER_VALORS_DIFERENTS","DIVISIO_OBLIDADA","DIVISIO_SOBRERA","EXTREM_SENSE_EFECTE","FREQUENCIA_NO_PONDERADA","MEDIANA_PER_MITJANA","MEDIANA_PER_MODA","MEDIANA_SENSE_ORDENAR","MESURA_MAL_TRIADA","MITJANA_NO_DIU_DISPERSIO","MODA_PER_FREQUENCIA","N_MAL_COMPTAT","PES_IGNORAT","PES_MAL_APLICAT","PRODUCTE_PER_SUMA","RANG_PER_MEDIANA","VALOR_ABSOLUT_INDEGUT","VARIANCIA_PER_DESVIACIO","ASIMPTOTA_COM_LIMIT","BASE_MAL_TRIADA","CATET_HIPOTENUSA_CONFOSOS","COEFICIENT_A_MAL_CALCULAT","COEFICIENT_MAL_TRIAT","COORDENADES_INTERCANVIADES","CREIXEMENT_INVERTIT","DADES_MAL_TRIADES","EIX_SIMETRIA_MAL_CALCULAT","ESCALA_INVERTIDA","EXTREMS_OBLIDATS","EXTREM_INVERTIT","FACTOR_INVERS_OBLIDAT","FACTOR_PER_PERCENTATGE","OBERTURA_INVERTIDA","OBERTURA_I_AMPLADA_INVERTIDES","OPERACIO_INVERSA","ORDENADA_NULA_OBLIDADA","ORDENADA_PER_COORDENADA","ORDENADES_PER_TALL","ORDRE_DELS_FACTORS","PARABOLA_AMB_A_ZERO","PARALLELA_MATEIXA_RECTA","PARALLELA_PER_PERPENDICULAR","PART_FIXA_VARIABLE_BARREJADES","PART_MAL_ASSIGNADA","PENDENT_INVERTIT","PENDENT_MAL_TRIAT","PENDENT_NOMES_CANVIAT_DE_SIGNE","PERCENTATGES_SUMATS","POTENCIA_APLICADA_MALAMENT","PUNT_ORDENADA_CONFOS","RAO_AL_CUB","RAO_AL_QUADRAT","RAO_NOMES_UN_COSTAT","RAO_SENSE_QUADRAT","RECTA_VERTICAL_CONFOSA","RELATIU_COM_ABSOLUT","REPARTIMENT_A_PARTS_IGUALS","RESTA_PER_QUOCIENT","RESTRICCIO_INVENTADA","RESTRICCIO_OBLIDADA","SIGNE_ARRELS","SIGNE_COEFICIENT_PRINCIPAL","SIGNE_ORDENADA_INVERTIT","SIGNE_VERTEX","SIMPLE_PER_COMPOST","SUBSTITUCIO_MAL_FETA","TALL_COM_EXTREM","TALL_ORIGEN_OBLIDAT","TERMES_NO_REDUITS","TERME_INDEPENDENT_IGNORAT","VALOR_C_CONFOS","VALOR_DUPLICAT","VERTEX_COM_COEFICIENTS","VERTEX_PER_ARREL"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",0,18],["Divisibilitat",19,44],["Fraccions",45,85],["Decimals",86,139]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",0,22],["Exponent negatiu i equacions",23,41],["Verifica, corregeix i simplifica",42,61],["Combina potències",62,75]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",0,19],["Progressions aritmètiques",20,32],["Progressions geomètriques",33,43],["Aplicacions",44,49]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",0,13],["Divisió de polinomis i regla de Ruffini",14,34],["Igualtats notables",35,46],["Factor comú i simplificació",47,58]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",0,26],["Segon grau: fórmula i discriminant",27,40],["Segon grau: factor comú i factorització",41,62],["Sistemes d'equacions",63,87],["Problemes amb equacions i sistemes",88,98]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118","275a","275b","275c","275d","276a","276b","276c","276d","277a","277b","277c","278a","278b","278c","278d","279a","279b","279c","280a","280b","281a","281b","282a","282b","283a","283b","284"],"blocs":[["Proporcionalitat directa i inversa",0,9],["Percentatges",10,14],["El factor multiplicador",21,38],["Descomptes, IVA i interessos",39,47],["Augments i disminucions encadenats",15,20]],"dif":"122122222311222333333111111112222222222333333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",0,24],["Àrees amb el teorema de Pitàgores",25,33],["Àrees de quadrilàters i polígons regulars",34,47],["Problemes d'aplicació",48,54]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e","285a","285b","285c","286a","286b","286c","286d","287a","287b","287c","288a","288b","288c","289","290a","290b","290c","291a","291b","291c","292a","292b","293a","293b","294a","294b","294c"],"blocs":[["Teorema de Tales",0,7],["Semblança de triangles",8,31],["Escales",14,19],["Càlcul amb escales",32,45],["Raó de semblança, àrees i volums",46,58],["Aplicacions de la semblança",20,28]],"dif":"11111222111122112222333333333222111222222222231112222233333"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199"],"blocs":[["Prismes i el cub",0,11],["Piràmides i tetraedres",12,22],["Cilindres, cons i l'esfera",23,33],["Volums i problemes aplicats",34,42]],"dif":"1111122233332222222333221133122233111133333"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b","295a","295b","295c","295d","296a","296b","296c","297a","297b","297c","298a","298b","299a","299b","299c","300a","300b","300c","300d","301a","301b","301c","302a","302b","303a","303b","303c","304"],"blocs":[["Concepte de funció",0,17],["Funcions lineals i afins",18,31],["Construir rectes",45,59],["Construir paràboles i problemes",60,72],["Funcions quadràtiques",32,44]],"dif":"2221111111122223331111111111222211112233333222222222222333332222333333333"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c","260a","260b","260c","260d","261a","261b","261c","261d","262a","262b","262c","262d","263a","263b","263c","264","265a","265b","266a","266b","267a","267b","268a","268b","268c","269a","269b","270a","270b","270c","271a","271b","272a","272b","273a","273b","274a","274b","274c"],"blocs":[["Variables estadístiques",0,11],["Taules de freqüències",12,50],["Gràfics estadístics",36,51],["Mitjana, mediana i moda",52,73],["Recorregut i desviació típica",74,90]],"dif":"1111111111111112222223332222221111221333222222333222111111111111222322333311122222332233333"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",0,19],["Combinatòria: principi multiplicatiu",20,30],["Regla de Laplace i freqüència relativa",31,49],["Esdeveniments compostos",50,66]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències i mesures de centralització"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};
 diff -ru a/js/codi.js b/js/codi.js
---- a/js/codi.js	2026-08-05 22:07:33.090045882 +0000
-+++ b/js/codi.js	2026-08-05 22:07:33.093390852 +0000
+--- a/js/codi.js	2026-08-06 09:00:01.662896087 +0000
++++ b/js/codi.js	2026-08-06 09:00:01.664139947 +0000
 @@ -16,11 +16,11 @@
  
     ── FORMAT ────────────────────────────────────────────────────────────────
@@ -5477,9 +5830,56 @@ diff -ru a/js/codi.js b/js/codi.js
        data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
        fulls: fulls, diag: diag, errs: errs,
        error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
+diff -ru a/js/inici.js b/js/inici.js
+--- a/js/inici.js	2026-08-06 09:00:01.668933716 +0000
++++ b/js/inici.js	2026-08-06 09:00:01.670156354 +0000
+@@ -28,19 +28,31 @@
+   "use strict";
+   var $ = function (s) { return document.querySelector(s); };
+ 
++  /* El `total` de cada full és el nombre de preguntes que té. Estava escrit
++     a mà, i quan els fulls 6, 8, 10 i 11 van créixer va quedar desfasat: la
++     portada deia "0/21" d'un full que en té 48. Ara es llegeix de
++     `RE_TAULES`, que la portada ja carrega per al botó del codi i que surt
++     directament de `data/`. El número escrit es manté només com a xarxa per
++     si algun dia la portada deixés de carregar aquell fitxer. */
++  function total(n, perDefecte) {
++    var t = window.RE_TAULES && window.RE_TAULES.fulls
++          && (window.RE_TAULES.fulls[n] || window.RE_TAULES.fulls[String(n)]);
++    return (t && t.items) ? t.items.length : perDefecte;
++  }
++
+   var FULLS = [
+-    { n: 1,  titol: "Nombres enters, fraccions i decimals",  total: 140, disponible: true },
+-    { n: 2,  titol: "Potències",                             total: 76,   disponible: true },
+-    { n: 3,  titol: "Successions i progressions",             total: 50,   disponible: true },
+-    { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
+-    { n: 5,  titol: "Equacions i sistemes",                   total: 99,   disponible: true },
+-    { n: 6,  titol: "Proporcionalitat i percentatges",        total: 21,   disponible: true },
+-    { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: 55,   disponible: true },
+-    { n: 8,  titol: "Teorema de Tales. Semblança",            total: 32,   disponible: true },
+-    { n: 9,  titol: "Cossos geomètrics. Àrea i volum",        total: 43,   disponible: true },
+-    { n: 10, titol: "Funcions",                               total: 45,   disponible: true },
+-    { n: 11, titol: "Estadística",                            total: 52,   disponible: true },
+-    { n: 12, titol: "Combinatòria i probabilitat",            total: 67,   disponible: true }
++    { n: 1, titol: "Nombres enters, fraccions i decimals", total: total(1, 140), disponible: true },
++    { n: 2, titol: "Potències", total: total(2, 76), disponible: true },
++    { n: 3, titol: "Successions i progressions", total: total(3, 50), disponible: true },
++    { n: 4, titol: "Polinomis", total: total(4, 59), disponible: true },
++    { n: 5, titol: "Equacions i sistemes", total: total(5, 99), disponible: true },
++    { n: 6, titol: "Proporcionalitat i percentatges", total: total(6, 21), disponible: true },
++    { n: 7, titol: "Teorema de Pitàgores. Àrees", total: total(7, 55), disponible: true },
++    { n: 8, titol: "Teorema de Tales. Semblança", total: total(8, 32), disponible: true },
++    { n: 9, titol: "Cossos geomètrics. Àrea i volum", total: total(9, 43), disponible: true },
++    { n: 10, titol: "Funcions", total: total(10, 45), disponible: true },
++    { n: 11, titol: "Estadística", total: total(11, 52), disponible: true },
++    { n: 12, titol: "Combinatòria i probabilitat", total: total(12, 67), disponible: true }
+   ];
+ 
+   function fets(n) {
 diff -ru a/js/proves-inicials.js b/js/proves-inicials.js
---- a/js/proves-inicials.js	2026-08-05 22:07:33.105568812 +0000
-+++ b/js/proves-inicials.js	2026-08-05 22:07:33.106988188 +0000
+--- a/js/proves-inicials.js	2026-08-06 09:00:01.675305613 +0000
++++ b/js/proves-inicials.js	2026-08-06 09:00:01.676571346 +0000
 @@ -137,7 +137,9 @@
        tema: "Augments i descomptes percentuals",
        encap: "Un preu de 50 € puja un 20 % i tot seguit baixa un 20 %.",
@@ -5535,10 +5935,1293 @@ diff -ru a/js/proves-inicials.js b/js/proves-inicials.js
        ok: 0
      },
      {
+diff -ru a/tests/analitzador.test.js b/tests/analitzador.test.js
+--- a/tests/analitzador.test.js	2026-08-06 09:00:01.677963702 +0000
++++ b/tests/analitzador.test.js	2026-08-06 09:00:01.681476198 +0000
+@@ -0,0 +1,306 @@
++/* tests/analitzador.test.js — proves de l'analitzador del professorat.
++
++   Aquestes SÍ que necessiten un DOM, perquè el que es prova és el
++   comportament de la pàgina, no una funció. La dependència (`jsdom`) no és
++   del projecte sinó de les proves, i si no hi és les proves se salten amb un
++   avís en comptes de petar:
++
++       npm install --no-save jsdom
++       node tests/analitzador.test.js
++
++   Sense jsdom, `tests/executa.sh` continua i la resta de proves corren
++   igualment. */
++"use strict";
++const fs = require("fs"), path = require("path");
++
++let JSDOM;
++try {
++  JSDOM = require("jsdom").JSDOM;
++} catch (e) {
++  console.log("\n\x1b[33m⊘ Proves de l'analitzador saltades: falta jsdom.\x1b[0m");
++  console.log("  Per passar-les:  npm install --no-save jsdom\n");
++  process.exit(0);
++}
++
++const { assert, seccio, prova, resum } = require("./arnes.js");
++const ARREL = path.join(__dirname, "..");
++const HTML = fs.readFileSync(path.join(ARREL, "analitzador-repas.html"), "utf8");
++
++function obre() {
++  const dom = new JSDOM(HTML, { runScripts: "dangerously", url: "file:///a.html" });
++  return { w: dom.window, d: dom.window.document };
++}
++
++/* Un full de respostes fabricat amb el mateix motor que fa servir l'app: els
++   codis són reals i validen. */
++function fabrica(w, files) {
++  let tsv = "Marca de temps\tAdreça electrònica\tGrup\tCodi\n";
++  files.forEach(f => { tsv += f.join("\t") + "\n"; });
++  return tsv;
++}
++function codiDe(w, quins, quants, quan) {
++  const T = w.RE_TAULES;
++  return w.RE_CODI.genera({
++    fulls: quins.map(n => ({
++      n, estats: T.fulls[n].items.map((_, i) =>
++        (i < quants ? ["net", "net", "segon", "pista", "fallat"][i % 5] : ""))
++    })),
++    ara: quan
++  });
++}
++const marca = d =>
++  `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()} ` +
++  `${("0" + d.getHours()).slice(-2)}:${("0" + d.getMinutes()).slice(-2)}:00`;
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Càrrega d'un full de respostes");
++
++{
++  const { w, d } = obre();
++  const ara = new Date(2026, 9, 20, 18, 0);
++  const c1 = codiDe(w, [4], 30, ara);
++  const c2 = codiDe(w, [4, 7], 20, ara);
++  d.getElementById("entrada").value = fabrica(w, [
++    [marca(ara), "anna@e.cat", "1rA", c1],
++    [marca(ara), "bru@e.cat", "1rA", c2],
++    /* codi propi i diferent: així el retard es veu sense que el ⇄ hi entri */
++    [marca(new Date(2026, 9, 20, 21, 30)), "cesc@e.cat", "1rB", codiDe(w, [11], 15, ara)],
++    [marca(ara), "dina@e.cat", "1rB", c1.slice(0, 20) + "X" + c1.slice(21)],
++  ]);
++  d.getElementById("btn-llegeix").click();
++
++  prova("llegeix les quatre files", () => {
++    assert.strictEqual(d.querySelectorAll("#t-env tbody tr.clic").length, 4);
++  });
++  prova("detecta el codi mal copiat", () => {
++    assert.strictEqual(d.querySelectorAll("#t-env .marca.mal").length, 1);
++  });
++  prova("avisa de l'enviament tardà", () => {
++    assert.strictEqual(d.querySelectorAll("#t-env .marca.avis").length, 1);
++  });
++  prova("el correu surt encara que no sigui a la primera columna", () => {
++    assert.ok(/anna/.test(d.getElementById("t-env").textContent));
++  });
++  prova("detecta el format de data del full", () => {
++    assert.ok(/mes\/dia\/any/.test(d.getElementById("estat-carrega").textContent));
++  });
++  prova("el detall diu quins exercicis s'han fallat, amb identificador", () => {
++    const tr = d.querySelectorAll("#t-env tbody tr.clic")[0];
++    tr.dispatchEvent(new w.MouseEvent("click", { bubbles: true }));
++    const t = d.querySelector("#t-env tr.detall").textContent.replace(/\s+/g, " ");
++    assert.ok(/fallats:\s*6\d[a-f]/.test(t), "no hi surten els identificadors");
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Feina mínima demanada");
++
++{
++  const { w, d } = obre();
++  const ara = new Date(2026, 9, 20, 18, 0);
++  d.getElementById("entrada").value = fabrica(w, [
++    [marca(ara), "poc@e.cat", "1rA", codiDe(w, [4], 3, ara)],
++    [marca(ara), "molt@e.cat", "1rA", codiDe(w, [4], 40, ara)],
++  ]);
++  d.getElementById("btn-llegeix").click();
++  d.getElementById("f-min").value = "10";
++  d.getElementById("f-min").dispatchEvent(new w.Event("input"));
++
++  prova("marca en vermell qui no arriba al mínim", () => {
++    assert.strictEqual(d.querySelectorAll("#t-alumnes .poca").length, 1);
++  });
++  prova("la nota de qui ha fet poc surt amb asterisc", () => {
++    assert.ok(/\*/.test(d.getElementById("t-alumnes").textContent));
++  });
++  prova("el filtre de feina insuficient l'aïlla", () => {
++    d.getElementById("f-estat").value = "poca";
++    d.getElementById("f-estat").dispatchEvent(new w.Event("change"));
++    assert.strictEqual(d.querySelectorAll("#t-env tr.clic").length, 1);
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Progrés del trimestre");
++
++{
++  const { w, d } = obre();
++  const T = w.RE_TAULES, ids = T.fulls[4].items;
++  const INI = new Date(2026, 8, 21);
++  const files = [];
++  /* regular: 6 exercicis cada setmana durant 10 setmanes */
++  let est = {};
++  for (let s = 0; s < 10; s++) {
++    for (let k = 0; k < 6; k++) est[ids[s * 6 + k]] = s < 5 ? "pista" : "net";
++    const t = new Date(INI); t.setDate(t.getDate() + s * 7 + 1); t.setHours(18, 0);
++    files.push([marca(t), "regular@e.cat", "1rA",
++      w.RE_CODI.genera({ fulls: [{ n: 4, estats: ids.map(i => est[i] || "") }], ara: t })]);
++  }
++  /* concentrat: 55 exercicis en tres dies de la mateixa setmana */
++  est = {};
++  for (let dia = 0; dia < 3; dia++) {
++    for (let k = 0; k < 18; k++) est[ids[dia * 18 + k]] = "net";
++    const t = new Date(INI); t.setDate(t.getDate() + 40 + dia); t.setHours(23, 0);
++    files.push([marca(t), "cop@e.cat", "1rA",
++      w.RE_CODI.genera({ fulls: [{ n: 4, estats: ids.map(i => est[i] || "") }], ara: t })]);
++  }
++  d.getElementById("entrada").value = fabrica(w, files);
++  d.getElementById("btn-llegeix").click();
++  d.querySelectorAll(".pestanya")[1].click();
++
++  prova("no calcula res fins que es prem el botó", () => {
++    assert.ok(/Digues quin període/.test(d.getElementById("p-resultats").textContent));
++  });
++
++  d.getElementById("p-ini").value = "2026-09-21";
++  d.getElementById("p-fi").value = "2026-12-05";
++  d.getElementById("p-setm").value = "11";
++  d.getElementById("p-exerc").value = "60";
++  d.getElementById("p-accepta").click();
++
++  const nota = nom => {
++    let r = null;
++    d.querySelectorAll("#t-progres tbody tr.clic").forEach(tr => {
++      const c = tr.querySelectorAll("td");
++      if (c[0].textContent.trim() === nom) r = parseFloat(c[8].textContent.replace(",", "."));
++    });
++    return r;
++  };
++
++  prova("la capçalera diu amb quines condicions s'ha calculat", () => {
++    const t = d.querySelector(".capçalera-res").textContent.replace(/\s+/g, " ");
++    assert.ok(/21\/09\/2026 – 05\/12\/2026/.test(t));
++    assert.ok(/11 setmanes/.test(t) && /60 exercicis/.test(t));
++  });
++
++  prova("qui ve cada setmana treu més nota que qui ho fa tot de cop", () => {
++    assert.ok(nota("regular") > nota("cop"),
++      "regular=" + nota("regular") + " cop=" + nota("cop"));
++  });
++
++  prova("el resum avisa de la feina concentrada", () => {
++    assert.ok(/Feina concentrada en pocs dies/.test(d.getElementById("p-resultats").textContent));
++  });
++
++  prova("canviar un paràmetre no recalcula tot sol", () => {
++    const abans = nota("cop");
++    d.getElementById("p-exerc").value = "200";
++    d.getElementById("p-exerc").dispatchEvent(new w.Event("input"));
++    assert.strictEqual(nota("cop"), abans);
++    assert.ok(d.getElementById("p-accepta").className.includes("pendent"));
++    d.getElementById("p-accepta").click();
++    assert.ok(nota("cop") < abans);
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Pèrdua del progrés del navegador");
++
++{
++  const { w, d } = obre();
++  const T = w.RE_TAULES, ids = T.fulls[4].items;
++  const cod = (q, dia) => w.RE_CODI.genera({
++    fulls: [{ n: 4, estats: ids.map((_, i) => (i < q ? "net" : "")) }],
++    ara: new Date(2026, 9, dia, 18, 0)
++  });
++  const files = [[20, 12], [27, 28], [30, 40], [31, 6], [48, 13]].map(
++    ([dia, q]) => [marca(new Date(2026, 9, dia, 18, 5)), "perdut@e.cat", "1rA", cod(q, dia)]);
++  d.getElementById("entrada").value = fabrica(w, files);
++  d.getElementById("btn-llegeix").click();
++  d.querySelectorAll(".pestanya")[1].click();
++  d.getElementById("p-ini").value = "2026-10-01";
++  d.getElementById("p-fi").value = "2026-11-30";
++  d.getElementById("p-setm").value = "8";
++  d.getElementById("p-exerc").value = "40";
++  d.getElementById("p-accepta").click();
++
++  prova("no compta dues vegades el que l'alumne refà", () => {
++    const c = d.querySelectorAll("#t-progres tbody tr.clic")[0].querySelectorAll("td");
++    assert.strictEqual(c[4].textContent.trim().split(" ")[0], "40",
++      "hauria de comptar 40 exercicis, no els refets");
++  });
++  prova("avisa que ha perdut el progrés", () => {
++    assert.ok(/Han perdut el progrés del navegador/.test(
++      d.getElementById("p-resultats").textContent));
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Codis compartits entre alumnes");
++
++{
++  const { w, d } = obre();
++  const ara = new Date(2026, 9, 20, 18, 0);
++  const compartit = codiDe(w, [4], 25, ara);
++  const propi = codiDe(w, [4], 12, ara);
++  d.getElementById("entrada").value = fabrica(w, [
++    [marca(ara), "anna@e.cat", "1rA", compartit],
++    [marca(ara), "bru@e.cat", "1rA", compartit],
++    [marca(ara), "cesc@e.cat", "1rB", propi],
++    [marca(ara), "cesc@e.cat", "1rB", propi],   /* reenviament propi: no compta */
++  ]);
++  d.getElementById("btn-llegeix").click();
++
++  prova("marca el codi que apareix sota dos correus", () => {
++    assert.strictEqual(d.querySelectorAll("#t-env .marca.compartit").length, 2);
++  });
++
++  prova("el reenviament del propi codi NO es marca", () => {
++    const files = [...d.querySelectorAll("#t-env tbody tr.clic")];
++    const cesc = files.filter(tr => /cesc/.test(tr.textContent));
++    assert.strictEqual(cesc.length, 2);
++    cesc.forEach(tr => assert.ok(!tr.querySelector(".marca.compartit"),
++      "un alumne que reenvia el seu codi no fa res sospitós"));
++  });
++
++  prova("el resum diu qui comparteix amb qui", () => {
++    const t = d.getElementById("avis-compartits").textContent;
++    assert.ok(/anna = bru|bru = anna/.test(t), t.slice(0, 120));
++  });
++
++  prova("un codi trencat es marca com a trencat encara que estigui repetit", () => {
++    /* La integritat mana sobre l'origen: si el ⇄ tapés el ✗, es perdria la
++       marca que de veritat diu que hi ha un problema amb el codi. */
++    const { w: w2, d: d2 } = obre();
++    const ara2 = new Date(2026, 9, 20, 18, 0);
++    const bo = codiDe(w2, [4], 25, ara2);
++    const trencat = bo.slice(0, 20) + "X" + bo.slice(21);
++    d2.getElementById("entrada").value = fabrica(w2, [
++      [marca(ara2), "u@e.cat", "1rA", trencat],
++      [marca(ara2), "dos@e.cat", "1rA", trencat],
++    ]);
++    d2.getElementById("btn-llegeix").click();
++    assert.strictEqual(d2.querySelectorAll("#t-env .marca.mal").length, 2);
++    assert.strictEqual(d2.querySelectorAll("#t-env .marca.compartit").length, 0);
++  });
++
++  prova("el filtre aïlla els codis repetits", () => {
++    d.getElementById("f-estat").value = "compartit";
++    d.getElementById("f-estat").dispatchEvent(new w.Event("change"));
++    assert.strictEqual(d.querySelectorAll("#t-env tr.clic").length, 2);
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Honestedat sobre el que el ✓ no verifica");
++
++{
++  const { d } = obre();
++  const t = d.getElementById("v-ajuda").textContent.replace(/\s+/g, " ");
++
++  prova("l'ajuda diu explícitament què NO verifica", () => {
++    assert.ok(/El que NO verifica: qui ha fet la feina/.test(t));
++  });
++
++  prova("adverteix dels tres forats coneguts", () => {
++    assert.ok(/al navegador d'un altre/.test(t), "falta el forat del navegador compartit");
++    assert.ok(/fabrica un codi des de la consola/.test(t), "falta el forat de la consola");
++    assert.ok(/amb ajuda al costat/.test(t), "falta el forat de l'ajuda externa");
++  });
++
++  prova("no promet garantir l'autoria", () => {
++    assert.ok(/no per garantir l'autoria/.test(t));
++    assert.ok(/eina de seguiment/.test(t));
++  });
++}
++
++process.exit(resum() ? 0 : 1);
+diff -ru a/tests/arnes.js b/tests/arnes.js
+--- a/tests/arnes.js	2026-08-06 09:00:01.681963702 +0000
++++ b/tests/arnes.js	2026-08-06 09:00:01.686231875 +0000
+@@ -0,0 +1,36 @@
++/* tests/arnes.js — l'arnès de proves més petit que fa la feina.
++
++   No es fa servir cap biblioteca de proves a propòsit: el projecte no té
++   dependències i afegir-ne una perquè `assert.equal` sigui més bonic seria
++   canviar una propietat que val la pena per comoditat. Node ja porta
++   `assert`; això només hi posa el compte i els colors. */
++"use strict";
++const assert = require("assert");
++
++let totals = 0, fallades = 0, grup = "";
++const VERD = "\x1b[32m", VERMELL = "\x1b[31m", GRIS = "\x1b[90m", ZERO = "\x1b[0m";
++
++function seccio(nom) {
++  grup = nom;
++  console.log("\n" + GRIS + nom + ZERO);
++}
++
++function prova(nom, fn) {
++  totals++;
++  try {
++    fn();
++    console.log("  " + VERD + "✓" + ZERO + " " + nom);
++  } catch (e) {
++    fallades++;
++    console.log("  " + VERMELL + "✗ " + nom + ZERO);
++    console.log("      " + String(e.message).split("\n").slice(0, 4).join("\n      "));
++  }
++}
++
++function resum() {
++  const l = totals + " comprovacions, " + fallades + " fallades";
++  console.log("\n" + (fallades ? VERMELL + "✗ " : VERD + "✓ ") + l + ZERO);
++  return fallades === 0;
++}
++
++module.exports = { assert, seccio, prova, resum, get fallades() { return fallades; } };
+diff -ru a/tests/codi.test.js b/tests/codi.test.js
+--- a/tests/codi.test.js	2026-08-06 09:00:01.686231875 +0000
++++ b/tests/codi.test.js	2026-08-06 09:00:01.691028747 +0000
+@@ -0,0 +1,263 @@
++/* tests/codi.test.js — proves del codi de verificació (js/codi.js).
++
++   No necessiten DOM ni cap dependència: només Node.
++
++       node tests/codi.test.js
++
++   Les propietats que es comproven aquí no són d'estil sinó de correcció del
++   format: si alguna cau, hi ha codis d'alumnes que es llegeixen malament. */
++"use strict";
++const fs = require("fs"), path = require("path");
++const { assert, seccio, prova, resum } = require("./arnes.js");
++
++const ARREL = path.join(__dirname, "..");
++global.window = global;
++eval(fs.readFileSync(path.join(ARREL, "js/codi-taules.js"), "utf8"));
++eval(fs.readFileSync(path.join(ARREL, "js/codi.js"), "utf8"));
++const T = global.RE_TAULES, RE = global.RE_CODI;
++
++const ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
++const ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
++
++/* Generador amb llavor: les proves han de sortir igual sempre. */
++let llavor = 1234567;
++const rnd = () => { llavor = (llavor * 1103515245 + 12345) & 0x7fffffff; return llavor / 0x7fffffff; };
++
++function fullsAleatoris(quins) {
++  return quins.map(n => ({
++    n, estats: T.fulls[n].items.map(() => ESTATS[Math.floor(rnd() * 6)])
++  }));
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Empaquetat: 7 exercicis en 4 caràcters");
++
++prova("6^7 cap en 32^4, o sigui que la correspondència pot ser injectiva", () => {
++  assert.ok(Math.pow(6, 7) <= Math.pow(32, 4));
++});
++
++prova("les 279.936 combinacions donen 279.936 cadenes diferents", () => {
++  const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
++  const vist = new Set();
++  for (let g = 0; g < Math.pow(6, 7); g++) vist.add(enc(g, 4));
++  assert.strictEqual(vist.size, Math.pow(6, 7), "hi ha col·lisions a l'empaquetat");
++});
++
++prova("cap grup no es desempaqueta malament", () => {
++  const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
++  const dec = s => { let n = 0; for (const c of s) n = n * 32 + ALF.indexOf(c); return n; };
++  for (let g = 0; g < Math.pow(6, 7); g += 7) {   /* mostra densa, no exhaustiva */
++    let num = dec(enc(g, 4)), tros = [];
++    for (let k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
++    let o = g, esp = [];
++    for (let k = 0; k < 7; k++) { esp.unshift(o % 6); o = Math.floor(o / 6); }
++    assert.deepStrictEqual(tros, esp);
++  }
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Anada i tornada");
++
++prova("un full parcialment fet torna exactament igual", () => {
++  const f = fullsAleatoris([4]);
++  const p = RE.llegeix(RE.genera({ fulls: f }));
++  assert.ok(p.integre);
++  p.fulls[0].items.forEach((it, i) => assert.strictEqual(it.estat, f[0].estats[i]));
++});
++
++prova("el banc sencer torna exactament igual (200 sortejos)", () => {
++  const tots = Object.keys(T.fulls).map(Number);
++  for (let k = 0; k < 200; k++) {
++    const f = fullsAleatoris(tots);
++    const p = RE.llegeix(RE.genera({ fulls: f }));
++    assert.ok(p.integre, "el control no quadra");
++    const m = {};
++    p.fulls.forEach(x => x.items.forEach(i => { m[x.n + ":" + i.id] = i.estat; }));
++    f.forEach(x => T.fulls[x.n].items.forEach((id, i) => {
++      assert.strictEqual(m[x.n + ":" + id] || "", x.estats[i]);
++    }));
++  }
++});
++
++prova("el diagnòstic del test inicial torna exactament igual", () => {
++  const diag = Array.from({ length: 15 }, (_, i) => ({ estat: i % 4, encert: i % 3 !== 0 }));
++  const p = RE.llegeix(RE.genera({ fulls: fullsAleatoris([2]), diag }));
++  assert.strictEqual(p.diag.length, 15);
++  p.diag.forEach((d, i) => {
++    assert.strictEqual(d.estat, diag[i].estat);
++    assert.strictEqual(d.encert, diag[i].encert);
++  });
++});
++
++prova("les etiquetes d'error més repetides tornen igual", () => {
++  const errs = [["SIGNE_FINAL", 9], ["ARREL_OBLIDADA", 4], ["ES_POT_DETERMINAR", 2]];
++  const p = RE.llegeix(RE.genera({ fulls: fullsAleatoris([7]), errs }));
++  assert.strictEqual(p.errs.length, 3);
++  p.errs.forEach((e, i) => {
++    assert.strictEqual(e.etiqueta, errs[i][0]);
++    assert.strictEqual(e.compte, errs[i][1]);
++  });
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Caràcters de control");
++
++/* El codi de proves ha de ser prou llarg perquè la comprovació exhaustiva
++   tingui sentit: amb 34 caràcters només hi ha un miler de mutacions possibles
++   i el resultat no diria gran cosa. Amb tres fulls en surten unes 5.000. */
++const base = RE.genera({
++  fulls: [4, 6, 11].map(n => ({
++    n, estats: T.fulls[n].items.map((_, i) => (i < 40 ? ESTATS[1 + (i % 5)] : ""))
++  }))
++});
++const cru = RE.neteja(base);
++
++prova("TOTES les substitucions d'un caràcter es detecten", () => {
++  let passen = 0, total = 0;
++  for (let i = 0; i < cru.length - 2; i++) {
++    for (const c of ALF) {
++      if (c === cru[i]) continue;
++      total++;
++      if (RE.llegeix(cru.slice(0, i) + c + cru.slice(i + 1)).integre) passen++;
++    }
++  }
++  assert.ok(total > 3000, "la prova no ha provat prou casos: " + total);
++  assert.strictEqual(passen, 0, passen + " substitucions de " + total + " passen el control");
++});
++
++prova("TOTES les transposicions de dos caràcters es detecten", () => {
++  let passen = 0, total = 0;
++  for (let i = 0; i < cru.length - 3; i++) {
++    for (let j = i + 1; j < cru.length - 2; j++) {
++      if (cru[i] === cru[j]) continue;
++      total++;
++      const a = cru.split("");
++      [a[i], a[j]] = [a[j], a[i]];
++      if (RE.llegeix(a.join("")).integre) passen++;
++    }
++  }
++  assert.ok(total > 3000, "només " + total + " transposicions provades");
++  assert.strictEqual(passen, 0, passen + " transposicions de " + total + " passen");
++});
++
++prova("canviar un estat de fallat a net trenca el control", () => {
++  const p0 = RE.llegeix(base);
++  const i = 12;                       /* dins de la càrrega, no de la capçalera */
++  const mut = cru.slice(0, i) + (cru[i] === "0" ? "1" : "0") + cru.slice(i + 1);
++  const p1 = RE.llegeix(mut);
++  assert.ok(!p1.integre || p1.resum.fets === p0.resum.fets);
++});
++
++prova("esborrar o afegir un caràcter es detecta", () => {
++  assert.ok(!RE.llegeix(cru.slice(0, 17) + cru.slice(18)).integre);
++  assert.ok(!RE.llegeix(cru.slice(0, 17) + "K" + cru.slice(17)).integre);
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Robustesa en llegir el que enganxa una persona");
++
++prova("tolera minúscules, guions i espais", () => {
++  const brut = "  " + base.toLowerCase().replace(/-/g, " — ") + "  ";
++  assert.ok(RE.llegeix(brut).integre);
++});
++
++prova("tolera les confusions de teclat O/0, I/1, L/1", () => {
++  const brut = base.replace(/0/g, "O").replace(/1/g, "l");
++  assert.ok(RE.llegeix(brut).integre);
++});
++
++prova("un text que no és un codi es rebutja amb un missatge clar", () => {
++  const r = RE.llegeix("hola què tal");
++  assert.strictEqual(r.ok, false);
++  assert.ok(/RC2/.test(r.error), "el missatge hauria de dir per què comencen els codis");
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Dates i compatibilitat de versions");
++
++prova("la data no satura fins ben entrat el segle", () => {
++  [[2026, 5, 15], [2028, 5, 21], [2035, 10, 30], [2099, 0, 15]].forEach(([a, m, d]) => {
++    const dt = new Date(a, m, d);
++    const p = RE.llegeix(RE.genera({ fulls: fullsAleatoris([6]), ara: dt }));
++    assert.strictEqual(p.data.toISOString().slice(0, 10),
++      dt.toISOString().slice(0, 10).length === 10
++        ? new Date(Date.UTC(a, m, d)).toISOString().slice(0, 10) : null);
++  });
++});
++
++prova("els codis RC1 antics encara es llegeixen", () => {
++  /* Codi real generat abans d'ampliar el camp de data a 3 caràcters. Si
++     aquesta prova cau, els codis que el professorat ja hagi recollit deixen
++     de servir. */
++  const antic = "RC1DH-8AJA5-00B90-00000-00000-Y0000-00000-00000-00000-0010M-"
++              + "12KH0-773T0-00000-00000-00000-01QNV-2KH03-W14C1-ZZ096";
++  const r = RE.llegeix(antic);
++  assert.ok(r.ok && r.integre, "un codi RC1 vàlid ha deixat de llegir-se");
++  assert.strictEqual(r.versio, "RC1");
++  assert.strictEqual(r.resum.fets, 7);
++  assert.strictEqual(r.data.toISOString().slice(0, 10), "2026-08-05");
++  const ids = r.fulls.map(f => f.n + ":" + f.items.filter(i => i.estat).map(i => i.id).join(","));
++  assert.deepStrictEqual(ids, ["1:5a,21b,21c", "2:35a,35b",
++    "4:62a,70a,70b,70c,70d,71a,71b,71c,71d,71e"]);
++});
++
++prova("l'ordre d'ítems de cada full no s'ha mogut per davant", () => {
++  /* Els primers ítems de cada full, tal com eren quan es va emetre el primer
++     codi. El format guarda els estats per POSICIÓ: si alguna d'aquestes
++     canvia, tots els codis anteriors passen a llegir-se malament. */
++  const ancora = { 1: "1a", 2: "35a", 3: "47a", 4: "62a", 5: "75a", 6: "101",
++                   7: "119", 8: "152a", 9: "170a", 10: "200a", 11: "218a", 12: "236a" };
++  Object.keys(ancora).forEach(n => {
++    assert.strictEqual(T.fulls[n].items[0], ancora[n],
++      "el full " + n + " ja no comença pel mateix ítem");
++  });
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("La nota es deriva del detall, no hi viatja");
++
++prova("dos codis amb el mateix detall donen la mateixa nota", () => {
++  const f = fullsAleatoris([5]);
++  const a = RE.llegeix(RE.genera({ fulls: f }));
++  const b = RE.llegeix(RE.genera({ fulls: f }));
++  assert.strictEqual(a.resum.nota, b.resum.nota);
++  assert.notStrictEqual(RE.neteja(RE.genera({ fulls: f })).slice(3, 6),
++    "###", "el salt hauria de fer que dos codis iguals no siguin idèntics");
++});
++
++prova("la nota surt dels pesos publicats", () => {
++  const n = 6, ids = T.fulls[n].items;
++  const estats = ids.map((_, i) => (i < 10 ? ["net", "segon", "pista", "fallat", "net"][i % 5] : ""));
++  const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
++  const c = p.resum.comptes;
++  const esperat = (10 * c.net + 7 * c.segon + 6 * c.pista) / (10 * p.resum.fets) * 10;
++  assert.ok(Math.abs(p.resum.nota - esperat) < 0.05);
++});
++
++prova("els exercicis oberts i no contestats no compten com a feina", () => {
++  const n = 3, ids = T.fulls[n].items;
++  const estats = ids.map((_, i) => (i < 5 ? "net" : (i < 12 ? "vist" : "")));
++  const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
++  assert.strictEqual(p.resum.fets, 5);
++  assert.strictEqual(p.resum.comptes.vist, 7);
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Llargada");
++
++prova("un full a mitges cap en menys de 60 caràcters", () => {
++  const n = 4, ids = T.fulls[n].items;
++  const c = RE.genera({ fulls: [{ n, estats: ids.map((_, i) => (i < 30 ? "net" : "")) }] });
++  assert.ok(c.replace(/-/g, "").length < 60, "són " + c.replace(/-/g, "").length);
++});
++
++prova("el banc sencer cap en menys de 600 caràcters", () => {
++  const tots = Object.keys(T.fulls).map(Number);
++  const c = RE.genera({
++    fulls: tots.map(n => ({ n, estats: T.fulls[n].items.map(() => "net") })),
++    diag: Array.from({ length: 15 }, () => ({ estat: 0, encert: true }))
++  });
++  assert.ok(c.replace(/-/g, "").length < 600, "són " + c.replace(/-/g, "").length);
++});
++
++process.exit(resum() ? 0 : 1);
+diff -ru a/tests/executa.sh b/tests/executa.sh
+--- a/tests/executa.sh	2026-08-06 09:00:01.691028747 +0000
++++ b/tests/executa.sh	2026-08-06 09:00:01.695712191 +0000
+@@ -0,0 +1,34 @@
++#!/bin/sh
++# tests/executa.sh — passa totes les proves del projecte.
++#
++#     sh tests/executa.sh
++#
++# Les de Python van amb `unittest` de la biblioteca estàndard i les de
++# JavaScript amb Node pelat: no cal instal·lar res. L'única excepció són les
++# de l'analitzador, que necessiten un DOM; si `jsdom` no hi és, se salten amb
++# un avís i la resta continua.
++#
++#     npm install --no-save jsdom     # per passar també les de l'analitzador
++set -e
++cd "$(dirname "$0")/.."
++
++fallades=0
++
++echo "── Python: motor i banc compilat ─────────────────────────────"
++python3 -m unittest discover -s tests -q || fallades=1
++
++echo
++echo "── JavaScript: codi de verificació ───────────────────────────"
++node tests/codi.test.js || fallades=1
++
++echo
++echo "── JavaScript: analitzador ───────────────────────────────────"
++node tests/analitzador.test.js || fallades=1
++
++echo
++if [ "$fallades" -eq 0 ]; then
++  printf '\033[32m✓ Tot en verd.\033[0m\n'
++else
++  printf '\033[31m✗ Hi ha proves que fallen.\033[0m\n'
++  exit 1
++fi
+diff -ru a/tests/test_banc.py b/tests/test_banc.py
+--- a/tests/test_banc.py	2026-08-06 09:00:01.697963701 +0000
++++ b/tests/test_banc.py	2026-08-06 09:00:01.700461120 +0000
+@@ -0,0 +1,367 @@
++# -*- coding: utf-8 -*-
++"""tests/test_banc.py — proves sobre el banc ja compilat (`data/fullN.js`).
++
++La diferència amb `test_lib.py` és que aquestes no miren el codi que genera
++els ítems sinó el RESULTAT: carreguen els fitxers que es publiquen i els
++comproven com ho faria algú de fora.
++
++Les comprovacions de matemàtiques recalculen la resposta amb `Fraction` de la
++biblioteca estàndard, sense fer servir res de `tools/`. És l'única manera que
++serveixin de res: si per comprovar `lib.py` fes servir `lib.py`, una errada
++al motor passaria per les dues bandes i no la veuria ningú.
++
++    python3 -m unittest discover -s tests -v
++"""
++import base64
++import json
++import os
++import re
++import unittest
++from collections import Counter
++from fractions import Fraction as F
++
++ARREL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
++
++
++def carrega(n):
++    ruta = os.path.join(ARREL, "data", "full%d.js" % n)
++    with open(ruta, encoding="utf-8") as f:
++        s = f.read()
++    return json.loads(s[s.index("{"):s.rindex("}") + 1])
++
++
++def items(n):
++    d = carrega(n)
++    out = []
++    for it in d["items"]:
++        k = json.loads(base64.b64decode(it["clau"]))
++        out.append(dict(it, **k))
++    return out
++
++
++TOTS = {n: items(n) for n in range(1, 13)}
++PLANS = [it for n in sorted(TOTS) for it in TOTS[n]]
++
++
++def clau(it):
++    return it["opcions"][it["ok"]]
++
++
++def num(t):
++    """Primer valor numèric d'una cadena LaTeX: fracció o decimal català."""
++    t = t.replace("\\,", "").replace("\\ ", "")
++    m = re.search(r"(-?)\\d?frac\{(-?\d+)\}\{(-?\d+)\}", t)
++    if m:
++        v = F(int(m.group(2)), int(m.group(3)))
++        return -v if m.group(1) == "-" else v
++    m = re.search(r"(-?\d+(?:\{,\}\d+)?)", t)
++    return F(m.group(1).replace("{,}", ".")) if m else None
++
++
++# ---------------------------------------------------------------- estructura
++
++class Estructura(unittest.TestCase):
++    def test_tots_els_fulls_carreguen(self):
++        self.assertEqual(len(TOTS), 12)
++        self.assertGreater(len(PLANS), 800)
++
++    def test_identificadors_unics_dins_de_cada_full(self):
++        for n, its in TOTS.items():
++            ids = [it["id"] for it in its]
++            self.assertEqual(len(ids), len(set(ids)), "ids repetits al full %d" % n)
++
++    def test_quatre_opcions_diferents_a_cada_item(self):
++        for it in PLANS:
++            o = [re.sub(r"\s+", "", x) for x in it["opcions"]]
++            self.assertEqual(len(o), 4, "%s no té 4 opcions" % it["id"])
++            self.assertEqual(len(set(o)), 4, "%s té opcions repetides: %s"
++                             % (it["id"], it["opcions"]))
++
++    def test_index_de_la_correcta_dins_de_rang(self):
++        for it in PLANS:
++            self.assertIn(it["ok"], (0, 1, 2, 3), "%s: ok fora de rang" % it["id"])
++
++    def test_cada_distractor_te_diagnostic_i_etiqueta(self):
++        for it in PLANS:
++            for i in range(4):
++                if i == it["ok"]:
++                    continue
++                self.assertTrue(it["diag"][i].strip(),
++                                "%s: distractor %d sense diagnòstic" % (it["id"], i))
++                self.assertTrue(it["err"][i].strip(),
++                                "%s: distractor %d sense etiqueta" % (it["id"], i))
++
++    def test_tots_els_items_tenen_dificultat(self):
++        for it in PLANS:
++            self.assertIn(it["dif"], (1, 2, 3), "%s sense dificultat" % it["id"])
++
++    def test_tots_els_items_son_a_algun_bloc(self):
++        for n, its in TOTS.items():
++            d = carrega(n)
++            en_blocs = set()
++            for b in d["blocs"]:
++                en_blocs |= set(b["items"])
++            ids = {it["id"] for it in its}
++            self.assertEqual(ids - en_blocs, set(), "full %d: ítems fora de bloc" % n)
++            self.assertEqual(en_blocs - ids, set(), "full %d: blocs amb ítems fantasma" % n)
++
++
++# ------------------------------------------------------------ presentació
++
++class Presentacio(unittest.TestCase):
++    """Errors de renderitzat que ja van arribar a producció un cop i que no
++    hi han de tornar. Cadascuna d'aquestes proves correspon a una troballa
++    real de l'auditoria."""
++
++    def _tot_el_text(self, it):
++        return ([it["enunciat"], it.get("encapcalament", ""), it.get("nota", "")]
++                + list(it["opcions"]) + [str(r) for r in it["res"]]
++                + [str(d) for d in it["diag"]])
++
++    def test_cap_dolar_doble(self):
++        """El bug de 4/64a-d: `$$[P(x)]$\\cdot...$`, amb els $ doblats."""
++        for it in PLANS:
++            for t in self._tot_el_text(it):
++                self.assertNotIn("$$", t, "%s: dòlars doblats" % it["id"])
++
++    def test_cap_doble_menys(self):
++        """El `36--64` de les resolucions del discriminant."""
++        for it in PLANS:
++            for t in self._tot_el_text(it):
++                self.assertIsNone(re.search(r"\d\s*--\s*\d", t),
++                                  "%s: doble menys" % it["id"])
++
++    def test_cap_coeficient_1x(self):
++        for it in PLANS:
++            self.assertIsNone(re.search(r"(?<![\d.\w])1x\b", it["enunciat"]),
++                              "%s: coeficient 1x" % it["id"])
++
++    def test_cap_opcio_amb_latex_sense_delimitadors(self):
++        """Si una opció porta LaTeX sense $, es renderitza com a text pla i
++        canta: l'alumne veu quina és la bona sense fer el problema."""
++        for it in PLANS:
++            for o in it["opcions"]:
++                if "$" in o:
++                    continue
++                self.assertIsNone(re.search(r"\^\{|\\d?frac|\\cdot|\\sqrt|\^\d", o),
++                                  "%s: opció amb LaTeX sense delimitadors: %r"
++                                  % (it["id"], o))
++
++    def test_cap_nota_visible_amb_rastres_interns(self):
++        for it in PLANS:
++            t = it.get("nota", "")
++            self.assertIsNone(re.search(r"\.tex\b|abans de publicar|cal confirmar", t, re.I),
++                              "%s: nota amb rastres interns" % it["id"])
++
++    def test_tots_els_enunciats_diuen_alguna_cosa(self):
++        """Els 170a-e del Full 9 tenien l'enunciat idèntic a l'encapçalament
++        i no es podien resoldre: les dades només sortien a les pistes."""
++        for it in PLANS:
++            enc = (it.get("encapcalament") or "").strip()
++            self.assertNotEqual(it["enunciat"].strip(), enc,
++                                "%s: l'enunciat no diu res que no digui la capçalera"
++                                % it["id"])
++
++
++# --------------------------------------------------------------- contingut
++
++class MatematiquesFull1(unittest.TestCase):
++    """Recàlcul independent d'una mostra ampla del Full 1. Es fa amb
++    `Fraction` i prou: cap import de `tools/`."""
++
++    def test_fraccions_generatrius(self):
++        """Els ítems que van d'un decimal a la seva fracció (27, 28, 30)."""
++        provats = 0
++        for it in TOTS[1]:
++            m = re.fullmatch(r"\$(-?)(\d+)\{,\}(\d*)(?:\\overline\{(\d+)\})?\$",
++                             it["enunciat"].strip())
++            if not m:
++                continue
++            esperat = num(clau(it))
++            if esperat is None:
++                continue
++            sg, ent, ante, per = m.group(1), m.group(2), m.group(3) or "", m.group(4)
++            if per is None:
++                v = F(int(ent + ante), 10 ** len(ante))
++            else:
++                v = F(int(ent + ante + per) - int(ent + ante),
++                      int("9" * len(per) + "0" * len(ante)))
++            if sg:
++                v = -v
++            self.assertEqual(v, esperat, "%s: %s no val %s"
++                             % (it["id"], it["enunciat"], clau(it)))
++            provats += 1
++        self.assertGreater(provats, 20, "esperava provar més generatrius")
++
++    def test_descomposicions_factorials(self):
++        provats = 0
++        for it in TOTS[1]:
++            if not it["id"].startswith("5"):
++                continue
++            m = re.fullmatch(r"\$(-?\d+)\$", it["enunciat"].strip())
++            if not m:
++                continue
++            n = abs(int(m.group(1)))
++            prod = 1
++            for p, e in re.findall(r"(\d+)(?:\^\{(\d+)\})?", clau(it)):
++                prod *= int(p) ** (int(e) if e else 1)
++            self.assertEqual(prod, n, "%s: la descomposició no reconstrueix %d"
++                             % (it["id"], n))
++            provats += 1
++        self.assertGreaterEqual(provats, 3)
++
++
++class MatematiquesFull11(unittest.TestCase):
++    """Els estadístics del bloc nou, recalculats de zero."""
++
++    L260 = {"a": [3, 5, 5, 8, 9], "b": [6, 2, 7, 4, 6],
++            "c": [5, 7, 7, 9, 2, 6], "d": [8, 3, 5, 5, 9]}
++    L261 = {"a": [3, 6, 19, 2, 10], "b": [18, 4, 14, 12],
++            "c": [14, 14, 15, 1, 8, 7, 18], "d": [9, 5, 17, 7, 2, 20]}
++    L270 = {"a": [2, 4, 4, 4, 5, 5, 7, 9], "b": [10, 12, 14, 16, 18],
++            "c": [4, 8, 6, 5, 3, 2, 8, 4]}
++
++    def _it(self, i):
++        return [x for x in TOTS[11] if x["id"] == i][0]
++
++    def test_mitjanes(self):
++        for a, v in self.L260.items():
++            self.assertEqual(F(sum(v), len(v)), num(clau(self._it("260" + a))))
++
++    def test_medianes(self):
++        for a, v in self.L261.items():
++            o, n = sorted(v), len(v)
++            esp = F(o[n // 2]) if n % 2 else F(o[n // 2 - 1] + o[n // 2], 2)
++            self.assertEqual(esp, num(clau(self._it("261" + a))))
++
++    def test_variancies_i_desviacions(self):
++        for a, v in self.L270.items():
++            m = F(sum(v), len(v))
++            var = F(sum((F(x) - m) ** 2 for x in v), len(v))
++            t = clau(self._it("270" + a))
++            mv = re.search(r"sigma\^2=([^,$]+)", t)
++            ms = re.search(r"sigma\\approx([\d{},]+)", t)
++            self.assertEqual(var, num("$" + mv.group(1) + "$"), "270%s variància" % a)
++            self.assertEqual("%.2f" % (float(var) ** 0.5),
++                             ms.group(1).replace("{,}", "."), "270%s desviació" % a)
++
++
++class MatematiquesFull6(unittest.TestCase):
++    """Percentatges: el factor multiplicador i les seves aplicacions."""
++
++    def _it(self, i):
++        return [x for x in TOTS[6] if x["id"] == i][0]
++
++    def test_factors_multiplicadors(self):
++        for a, p, puja in [("a", 20, True), ("b", 35, False),
++                           ("c", 7, True), ("d", 4, False)]:
++            esp = F(100 + p, 100) if puja else F(100 - p, 100)
++            self.assertEqual(esp, num(clau(self._it("275" + a))))
++
++    def test_variacio_inversa(self):
++        """De quant costava abans: dividir pel factor, no fer la contrària."""
++        for a, final, p, puja in [("a", 66, 10, True), ("b", 51, 15, False),
++                                  ("c", 189, 10, False)]:
++            f = F(100 + p, 100) if puja else F(100 - p, 100)
++            self.assertEqual(F(final) / f, num(clau(self._it("277" + a))))
++
++    def test_descomptes_encadenats_no_se_sumen(self):
++        self.assertEqual(F(200) * F(8, 10) * F(9, 10), num(clau(self._it("280a"))))
++        self.assertEqual(F(28), num(clau(self._it("280b"))))
++        self.assertEqual(F(480), num(clau(self._it("284"))))
++
++
++class MatematiquesFull8(unittest.TestCase):
++    """Escales i raó de semblança."""
++
++    def _it(self, i):
++        return [x for x in TOTS[8] if x["id"] == i][0]
++
++    def test_del_plano_a_la_realitat(self):
++        for a, cm in [("a", 4), ("b", 12), ("c", 2.5), ("d", 30)]:
++            esp = F(str(cm)) * 25000 / 100000
++            self.assertEqual(esp, num(clau(self._it("286" + a))))
++
++    def test_arees_van_amb_k_al_quadrat(self):
++        for a, k, area in [("a", F(2), 15), ("b", F(3), 8), ("c", F(5, 2), 12)]:
++            self.assertEqual(area * k ** 2, num(clau(self._it("291" + a))))
++
++    def test_volums_van_amb_k_al_cub(self):
++        for a, k, vol in [("a", F(2), 30), ("b", F(3), 5)]:
++            self.assertEqual(vol * k ** 3, num(clau(self._it("292" + a))))
++
++
++# ------------------------------------------------------- catàleg d'errors
++
++class Etiquetes(unittest.TestCase):
++    def test_cap_etiqueta_es_calaix_de_sastre(self):
++        """SIMPLIFICACIO_INCOMPLETA va arribar a tenir 119 usos, dels quals
++        només 7 tenien res a veure amb simplificar. El panell d'errors
++        repetits agrupa per etiqueta, així que una etiqueta que ho vol dir
++        tot no diu res. El llindar és generós a posta: no és una regla
++        d'estil, és una alarma."""
++        c = Counter(e for it in PLANS for e in it["err"] if e)
++        total = sum(c.values())
++        for etiqueta, n in c.most_common(5):
++            self.assertLess(n / total, 0.09,
++                            "%s té el %.0f %% de tots els distractors: sospita "
++                            "de calaix de sastre" % (etiqueta, 100 * n / total))
++
++    def test_cobertura_del_cataleg(self):
++        import sys
++        sys.path.insert(0, os.path.join(ARREL, "tools"))
++        import lib
++        c = Counter(e for it in PLANS for e in it["err"] if e)
++        cob = sum(v for k, v in c.items() if k in lib.TAX)
++        self.assertGreater(cob / sum(c.values()), 0.90,
++                           "menys del 90 %% dels distractors tenen text de catàleg: "
++                           "el panell d'errors repetits cau al diagnòstic d'un ítem")
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)
++
++
++class TaulesCoherents(unittest.TestCase):
++    """La mateixa taula de recomptes viu a tres llocs: `HANDOVER.md` (que és
++    la normativa), `README.md` i `js/inici.js` (que és el que veu l'alumne a
++    la portada). Ja van desfasar-se un cop, i la portada va arribar a dir
++    "0/21" d'un full que en tenia 48. Aquesta prova hi és perquè no torni a
++    passar sense que ningú se n'adoni."""
++
++    def _llegeix(self, ruta):
++        with open(os.path.join(ARREL, ruta), encoding="utf-8") as f:
++            return f.read()
++
++    def test_el_readme_dona_el_total_de_cada_full(self):
++        s = self._llegeix("README.md")
++        for n, its in TOTS.items():
++            m = re.search(r"^\|\s*%d\s*\|[^|]*\|\s*\d+\s*\|\s*(\d+)\s*\|" % n, s, re.M)
++            self.assertIsNotNone(m, "el README no té fila per al full %d" % n)
++            self.assertEqual(int(m.group(1)), len(its),
++                             "README, full %d: diu %s i n'hi ha %d"
++                             % (n, m.group(1), len(its)))
++
++    def test_el_handover_dona_el_total_de_cada_full(self):
++        s = self._llegeix("HANDOVER.md")
++        for n, its in TOTS.items():
++            m = re.search(r"^\|\s*%d\s*\|[^|]*\|[^|]*\|[^|]*\|\s*\d+\s*\|[^|]*\|\s*(\d+)\s*\|"
++                          % n, s, re.M)
++            self.assertIsNotNone(m, "el HANDOVER no té fila per al full %d" % n)
++            self.assertEqual(int(m.group(1)), len(its),
++                             "HANDOVER, full %d: diu %s i n'hi ha %d"
++                             % (n, m.group(1), len(its)))
++
++    def test_la_portada_no_torna_a_portar_els_totals_a_ma(self):
++        """Ara es deriven de `RE_TAULES`. Si algú els hi torna a escriure,
++        això ho atrapa abans que la portada torni a mentir."""
++        s = self._llegeix("js/inici.js")
++        self.assertNotRegex(s, r"total:\s*\d+\s*,",
++                            "js/inici.js torna a tenir totals escrits a mà")
++        self.assertIn("window.RE_TAULES", s)
++
++    def test_el_readme_diu_el_total_del_projecte(self):
++        s = self._llegeix("README.md")
++        m = re.search(r"(\d+)\s+preguntes en total", s)
++        self.assertIsNotNone(m)
++        self.assertEqual(int(m.group(1)), len(PLANS))
+diff -ru a/tests/test_lib.py b/tests/test_lib.py
+--- a/tests/test_lib.py	2026-08-06 09:00:01.701963701 +0000
++++ b/tests/test_lib.py	2026-08-06 09:00:01.705365907 +0000
+@@ -0,0 +1,243 @@
++# -*- coding: utf-8 -*-
++"""tests/test_lib.py — proves dels ajudants de tools/lib.py.
++
++Es fan servir `unittest` de la biblioteca estàndard i no `pytest`, perquè el
++projecte no té dependències i afegir-ne una només per a les proves aniria en
++contra del que és. S'executa amb:
++
++    python3 -m unittest discover -s tests -v
++
++o, més senzill, amb `tests/executa.sh`, que a més passa les de JavaScript.
++
++QUÈ PROVEN: els ajudants de càlcul i renderitzat, un per un, amb valors
++calculats a mà o amb `Fraction` de la biblioteca estàndard. La gràcia és
++justament NO fer servir la lògica de `lib.py` per comprovar `lib.py`: si una
++prova es limités a comparar la funció amb ella mateixa no detectaria res.
++"""
++import os
++import sys
++import unittest
++from fractions import Fraction as F
++
++sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
++                                "..", "tools"))
++import lib  # noqa: E402
++
++
++class Aritmetica(unittest.TestCase):
++    def test_ev_divideix_exacte(self):
++        """ev() no ha de perdre precisió: les divisions són racionals."""
++        self.assertEqual(lib.ev("(-54)/9"), F(-6))
++        self.assertEqual(lib.ev("1/3+2/5"), F(11, 15))
++        self.assertEqual(lib.ev("2/6"), F(1, 3))
++        # el perill que justifica la funció: amb float, 0.1+0.2 != 0.3
++        self.assertEqual(lib.ev("1/10+2/10"), F(3, 10))
++
++    def test_mcd_i_mcm(self):
++        self.assertEqual(lib.mcd(45, 27), 9)
++        self.assertEqual(lib.mcd(6, 8, 12), 2)
++        self.assertEqual(lib.mcm(12, 18), 36)
++        self.assertEqual(lib.mcm(2, 3, 5), 30)
++
++    def test_mcd_i_mcm_ignoren_el_signe(self):
++        """Els fulls tenen exercicis amb negatius i la nota diu que el signe
++        no hi afecta: cal que el codi hi estigui d'acord."""
++        self.assertEqual(lib.mcd(45, -27), 9)
++        self.assertEqual(lib.mcm(-12, 18), 36)
++
++    def test_factors(self):
++        self.assertEqual(lib.factors(3850), [(2, 1), (5, 2), (7, 1), (11, 1)])
++        self.assertEqual(lib.factors(97), [(97, 1)])       # primer
++        self.assertEqual(lib.factors(64), [(2, 6)])
++        self.assertEqual(lib.factors(-12), [(2, 2), (3, 1)])
++
++    def test_factors_reconstrueixen_el_nombre(self):
++        for n in (12, 100, 3850, 999, 1024, 7919):
++            prod = 1
++            for p, e in lib.factors(n):
++                prod *= p ** e
++            self.assertEqual(prod, n, "la descomposició de %d no el reconstrueix" % n)
++
++
++class Renderitzat(unittest.TestCase):
++    def test_tex_enters_i_fraccions(self):
++        self.assertEqual(lib.tex(5), "5")
++        self.assertEqual(lib.tex(-5), "-5")
++        self.assertEqual(lib.tex(F(3, 4)), r"\dfrac{3}{4}")
++
++    def test_tex_posa_el_signe_al_davant(self):
++        """Convenció del quadern: -3/4 i no 3/-4 ni \\dfrac{-3}{4}."""
++        self.assertEqual(lib.tex(F(-3, 4)), r"-\dfrac{3}{4}")
++        self.assertEqual(lib.tex(F(3, -4)), r"-\dfrac{3}{4}")
++
++    def test_tex_simplifica(self):
++        self.assertEqual(lib.tex(F(2, 4)), r"\dfrac{1}{2}")
++        self.assertEqual(lib.tex(F(4, 2)), "2")
++
++    def test_texd_coma_catalana(self):
++        self.assertEqual(lib.texd(F(1, 2)), "0{,}5")
++        self.assertEqual(lib.texd(F(1, 3), 2), "0{,}33")
++        self.assertEqual(lib.texd(5), "5")
++        self.assertNotIn(".", lib.texd(F(22, 7), 4))
++
++    def test_tex_factors(self):
++        self.assertEqual(lib.tex_factors(432), r"2^{4}\cdot 3^{3}")
++        self.assertEqual(lib.tex_factors(-432), r"-2^{4}\cdot 3^{3}")
++        self.assertEqual(lib.tex_factors(-432, sign=False), r"2^{4}\cdot 3^{3}")
++
++
++class Decimals(unittest.TestCase):
++    def test_dec_ex(self):
++        self.assertEqual(lib.dec_ex("5,25"), F(21, 4))
++        self.assertEqual(lib.dec_ex("5{,}25"), F(21, 4))
++        self.assertEqual(lib.dec_ex("-0,5"), F(-1, 2))
++        self.assertEqual(lib.dec_ex("7"), F(7))
++
++    def test_per_frac(self):
++        self.assertEqual(lib.per_frac(3, "", "5"), F(32, 9))          # 3,5̅
++        self.assertEqual(lib.per_frac(5, "9", "02"), F(5843, 990))    # 5,902̅
++        self.assertEqual(lib.per_frac(0, "", "3"), F(1, 3))           # 0,3̅
++
++    def test_per_frac_el_cas_famos(self):
++        """0,9̅ = 1 i 1,9̅ = 2. Si això falla, tot el bloc de decimals cau."""
++        self.assertEqual(lib.per_frac(0, "", "9"), F(1))
++        self.assertEqual(lib.per_frac(1, "", "9"), F(2))
++        self.assertEqual(lib.per_frac(12, "9", "9"), F(13))
++
++    def test_per_frac_anada_i_tornada(self):
++        """La fracció generatriu ha de reproduir el decimal que la genera.
++        Es comprova desenvolupant la divisió a mà fins a prou xifres."""
++        casos = [(3, "", "5"), (5, "9", "02"), (15, "3", "2"), (0, "", "142857")]
++        for ent, ante, per in casos:
++            q = lib.per_frac(ent, ante, per)
++            # xifres decimals esperades: anteperíode + període repetit
++            esperat = (ante + per * 25)[:20]
++            obtingut = ""
++            r = (q - int(q)) if q >= 0 else None
++            for _ in range(20):
++                r *= 10
++                obtingut += str(int(r))
++                r -= int(r)
++            self.assertEqual(obtingut, esperat,
++                             "%s no desenvolupa com %s,%s(%s)" % (q, ent, ante, per))
++
++    def test_den_gen(self):
++        self.assertEqual(lib.den_gen("", "5"), 9)
++        self.assertEqual(lib.den_gen("9", "02"), 990)
++        self.assertEqual(lib.den_gen("", "142857"), 999999)
++
++
++class Distractors(unittest.TestCase):
++    def test_tria_descarta_els_que_valen_com_la_clau(self):
++        cands = [lib.D("5", "A", "f"), lib.D("6", "B", "f"),
++                 lib.D("7", "C", "f"), lib.D("8", "D", "f")]
++        out = lib.tria(5, cands, n=3)
++        self.assertEqual([c["tex"] for c in out], ["6", "7", "8"])
++
++    def test_tria_descarta_els_repetits_entre_ells(self):
++        cands = [lib.D("6", "A", "f"), lib.D("6", "B", "f"),
++                 lib.D("7", "C", "f"), lib.D("8", "D", "f")]
++        out = lib.tria(5, cands, n=3)
++        self.assertEqual([c["tex"] for c in out], ["6", "7", "8"])
++
++    def test_tria_es_queixa_si_no_n_hi_ha_prou(self):
++        cands = [lib.D("6", "A", "f"), lib.D("6", "B", "f")]
++        with self.assertRaises(AssertionError):
++            lib.tria(5, cands, n=3)
++
++    def test_fx(self):
++        latex, val = lib.fx((2, 4), (3, 3))
++        self.assertEqual(val, 432)
++        self.assertEqual(latex, r"2^{4}\cdot 3^{3}")
++
++
++class Validacio(unittest.TestCase):
++    """_valida() és l'única xarxa que hi havia abans d'aquestes proves.
++    Val la pena comprovar que de veritat atura el que diu que atura."""
++
++    def _item(self, **canvis):
++        base = dict(qid="99z", ex=99, ap="z", bloc="b", tipus="A",
++                    enunciat="$1+1$", correcta="$2$",
++                    distractors=[lib.D("$3$", "E1", "f"), lib.D("$4$", "E2", "f"),
++                                 lib.D("$5$", "E3", "f")],
++                    pistes=["p"], resolucio=["r"], ex_text="", nota="",
++                    dif=1, nota_interna="")
++        base.update(canvis)
++        it = dict(base)
++        it["id"] = it.pop("qid")
++        it["opcions"] = [it["correcta"]] + [d["tex"] for d in it["distractors"]]
++        return it
++
++    def test_accepta_un_item_ben_format(self):
++        lib._valida(self._item())
++
++    def test_rebutja_menys_de_tres_distractors(self):
++        it = self._item(distractors=[lib.D("$3$", "E", "f")])
++        it["opcions"] = [it["correcta"]] + ["$3$"]
++        with self.assertRaises(AssertionError):
++            lib._valida(it)
++
++    def test_rebutja_opcions_repetides(self):
++        """_valida() reconstrueix les opcions des de `correcta` +
++        `distractors`, així que el duplicat s'ha de provocar aquí."""
++        it = self._item(distractors=[lib.D("$3$", "E1", "f"), lib.D("$3$", "E2", "f"),
++                                     lib.D("$5$", "E3", "f")])
++        with self.assertRaises(AssertionError):
++            lib._valida(it)
++
++    def test_rebutja_un_distractor_igual_que_la_clau(self):
++        """El cas que va aparèixer de debò a l'auditoria: un distractor que
++        val exactament el mateix que la resposta correcta."""
++        it = self._item(distractors=[lib.D("$2$", "E1", "f"), lib.D("$4$", "E2", "f"),
++                                     lib.D("$5$", "E3", "f")])
++        with self.assertRaises(AssertionError):
++            lib._valida(it)
++
++    def test_rebutja_un_distractor_sense_feedback(self):
++        it = self._item(distractors=[lib.D("$3$", "E1", ""), lib.D("$4$", "E2", "f"),
++                                     lib.D("$5$", "E3", "f")])
++        with self.assertRaises(AssertionError):
++            lib._valida(it)
++
++    def test_rebutja_sense_dificultat(self):
++        with self.assertRaises(AssertionError):
++            lib._valida(self._item(dif=None))
++
++    def test_rebutja_una_nota_visible_amb_rastres_interns(self):
++        """Aquesta regla existeix perquè van arribar a producció catorze notes
++        que parlaven de fitxers .tex i de feina pendent."""
++        for text in ["vegeu r-im8.tex", "cal confirmar-ho", "abans de publicar"]:
++            with self.assertRaises(AssertionError):
++                lib._valida(self._item(nota=text))
++
++    def test_deixa_passar_aquests_rastres_a_la_nota_interna(self):
++        lib._valida(self._item(nota_interna="vegeu r-im8.tex, cal confirmar"))
++
++
++class Dificultats(unittest.TestCase):
++    def test_rebutja_un_nivell_fora_d_escala(self):
++        with self.assertRaises(AssertionError):
++            lib.dificultats({999: 4})
++
++    def test_rebutja_registrar_dues_vegades_amb_valors_diferents(self):
++        """El Full 1 el componen quatre mòduls i la taula s'acumula: registrar
++        el mateix exercici amb dos nivells diferents ha de petar."""
++        lib.dificultats({998: 1})
++        lib.dificultats({998: 1})          # repetir amb el mateix valor és lícit
++        with self.assertRaises(AssertionError):
++            lib.dificultats({998: 3})
++
++
++class Catalog(unittest.TestCase):
++    def test_les_etiquetes_del_tax_tenen_forma_d_etiqueta(self):
++        for k in lib.TAX:
++            self.assertRegex(k, r"^[A-Z][A-Z0-9_]*$", "etiqueta rara: %s" % k)
++
++    def test_cap_text_del_tax_es_buit_ni_minuscul(self):
++        for k, v in lib.TAX.items():
++            self.assertTrue(v.strip(), "%s no té text" % k)
++            self.assertGreater(len(v), 30, "%s té un text massa curt per servir" % k)
++
++
++if __name__ == "__main__":
++    unittest.main(verbosity=2)
 diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
---- a/tools/analitzador-plantilla.html	2026-08-05 22:07:33.023745626 +0000
-+++ b/tools/analitzador-plantilla.html	2026-08-05 22:07:33.025347258 +0000
-@@ -73,6 +73,12 @@
+--- a/tools/analitzador-plantilla.html	2026-08-06 09:00:01.710234899 +0000
++++ b/tools/analitzador-plantilla.html	2026-08-06 09:00:01.711606041 +0000
+@@ -51,6 +51,9 @@
+ .llegenda{display:flex;gap:.9rem;flex-wrap:wrap;font-size:12px;color:var(--apagat);margin-top:.5rem}
+ .llegenda i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:.3rem;background:#EDEAE4}
+ .marca{font-weight:700}
++.marca.compartit{color:#7B3FA0}
++.avis-compartit{background:#F3EAF8;border:1px solid #DDC7EA;color:#5B2E78;
++  border-radius:9px;padding:.6rem .8rem;font-size:13.5px;margin:.9rem 0}
+ .ok{color:var(--verd)} .avis{color:var(--ambre)} .mal{color:var(--vermell)}
+ .buit{padding:2.4rem 1rem;text-align:center;color:var(--apagat);border:1px dashed var(--vora);border-radius:12px}
+ .filtres{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.9rem 0}
+@@ -73,6 +76,12 @@
  .n-mitja{background:var(--ambre-suau);color:#6B4200}
  .n-baixa{background:var(--vermell-suau);color:var(--vermell)}
  .ajuda li{margin-bottom:.45rem}
@@ -5551,7 +7234,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
  </style>
  </head>
  <body>
-@@ -101,7 +107,7 @@
+@@ -101,7 +110,7 @@
          obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
          marca temporal o grup, també les farà servir.
        </p>
@@ -5560,7 +7243,28 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
          <button class="btn" id="btn-llegeix">Llegeix</button>
          <label class="btn buit" style="position:relative;overflow:hidden">
-@@ -157,30 +163,45 @@
+@@ -124,6 +133,7 @@
+           <option value="avis">Amb avís</option>
+           <option value="mal">Amb problema</option>
+           <option value="poca">Feina insuficient</option>
++          <option value="compartit">Codi repetit entre alumnes</option>
+         </select>
+         <label class="petit apagat" style="display:inline-flex;align-items:center;gap:.35rem">
+           Feina mínima demanada
+@@ -148,6 +158,12 @@
+         <span><i style="background:#C9C4BA"></i>començat</span>
+         <span><i></i>per fer</span>
+       </div>
++      <p class="petit apagat" style="margin-top:.5rem">
++        <span class="marca ok">✓</span> íntegre ·
++        <span class="marca avis">!</span> enviat molt després de generar-lo ·
++        <span class="marca mal">✗</span> el control no quadra ·
++        <span class="marca compartit">⇄</span> el mateix codi sota més d'un alumne
++      </p>
+ 
+       <h2>Què falla més</h2>
+       <div id="agregat"></div>
+@@ -157,30 +173,45 @@
    <!-- ── PROGRÉS DEL TRIMESTRE ────────────────────────────────────────── -->
    <section id="v-progres" hidden>
      <div class="targeta">
@@ -5626,7 +7330,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        </div>
        <details style="margin-top:.4rem">
          <summary class="petit apagat" style="cursor:pointer">Pesos de la qualificació</summary>
-@@ -203,6 +224,10 @@
+@@ -203,6 +234,10 @@
            què estàs incentivant.
          </p>
        </details>
@@ -5637,7 +7341,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      </div>
  
      <div id="p-resultats" style="margin-top:1rem"></div>
-@@ -212,7 +237,7 @@
+@@ -212,7 +247,7 @@
    <section id="v-un" hidden>
      <div class="targeta">
        <h3>Enganxa un codi</h3>
@@ -5646,7 +7350,69 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
      </div>
      <div id="un-resultat" style="margin-top:1rem"></div>
-@@ -291,7 +316,7 @@
+@@ -238,23 +273,50 @@
+         <li><span class="marca ok">✓</span> El codi és íntegre i s'ha enviat poc després de generar-lo.</li>
+         <li><span class="marca avis">!</span> Íntegre, però han passat més de 30 minuts entre
+             generar-lo i enviar-lo. Sol ser innocent (l'alumne el va desar i el va enviar
+-            més tard), però és on es veuria un codi passat d'un company.</li>
++            més tard).</li>
+         <li><span class="marca mal">✗</span> Els caràcters de control no quadren: o s'ha copiat
+             malament, o s'ha modificat.</li>
++        <li><span class="marca compartit">⇄</span> Aquest mateix codi, caràcter per caràcter,
++            també l'ha enviat un altre alumne. Val la pena preguntar-ho: pot ser que se
++            l'hagin passat o que comparteixin ordinador i sessió.</li>
+       </ul>
+ 
+-      <h3 style="margin-top:1.2rem">Sobre l'antifrau</h3>
++      <h3 style="margin-top:1.2rem">Què verifica el ✓ i què no</h3>
++      <p class="petit" style="margin:0 0 .7rem">
++        Val la pena llegir això una vegada, perquè el ✓ pot suggerir més del que diu.
++      </p>
+       <p class="petit apagat" style="margin:0">
+-        El codi acaba amb dos caràcters calculats a partir de tots els altres, en l'esperit
+-        de la lletra del DNI però amb un mòdul primer i pesos per posició. Detecta
+-        <b>totes</b> les substitucions d'un caràcter i <b>totes</b> les transposicions de dos:
+-        si l'alumne canvia un "fallat" per un "a la primera", surt. Un canvi a l'atzar
+-        s'escaparia una vegada de cada mil.
++        <b>El que sí que verifica: que el contingut no s'hagi tocat.</b> El codi acaba amb
++        dos caràcters calculats a partir de tots els altres, en l'esperit de la lletra del
++        DNI però amb mòdul primer i pesos per posició. Detecta <b>totes</b> les substitucions
++        d'un caràcter i <b>totes</b> les transposicions de dos: si algú canvia un "fallat" per
++        un "a la primera", surt. A més, la nota no viatja dins del codi —es calcula aquí a
++        partir del detall— i per això no hi pot haver un codi on la nota i el detall es
++        contradiguin.
++      </p>
++      <p class="petit" style="margin:.8rem 0 0;padding:.7rem .85rem;background:var(--ambre-suau);
++                border:1px solid #EBD3A3;border-radius:9px;color:#5A3800">
++        <b>El que NO verifica: qui ha fet la feina.</b> El ✓ diu que el codi és autèntic, no
++        que l'hagi guanyat qui l'envia. Tot això passa el control sense deixar rastre:
+       </p>
+-      <p class="petit apagat" style="margin:.6rem 0 0">
+-        La nota no viatja dins del codi: es calcula aquí a partir del detall exercici a
+-        exercici. Així no hi pot haver un codi on la nota i el detall es contradiguin, que és
+-        per on s'esmuny la manipulació en aquesta mena de sistemes.
++      <ul class="ajuda petit apagat" style="margin-top:.6rem">
++        <li>Un alumne fa els exercicis <b>al navegador d'un altre</b> i cadascú se n'emporta
++            un codi generat en moments diferents. Les cadenes són diferents, i la marca ⇄ no
++            hi arriba.</li>
++        <li>Algú <b>fabrica un codi des de la consola</b> del navegador. Tot el que cal per
++            generar-ne un és a <code>js/codi.js</code>, que és públic i s'ha de carregar a la
++            pàgina de l'alumne perquè el botó funcioni. Amb un servidor es podria evitar;
++            sense servidor, no. És una conseqüència inevitable d'haver triat que el lloc
++            funcioni sol, sense comptes ni connexió, i és millor saber-ho que confiar-hi.</li>
++        <li>Algú fa els exercicis <b>amb ajuda al costat</b>, o els torna a fer un cop sap la
++            resposta. La forma de les dades és exactament la mateixa que la de qui treballa
++            sol: aquí no hi ha res a detectar, ni amb aquest sistema ni amb cap altre.</li>
++      </ul>
++      <p class="petit apagat" style="margin:.8rem 0 0">
++        Dit d'una altra manera: aquestes marques serveixen per <b>veure la feina</b> i per
++        atrapar la còpia mandrosa, no per garantir l'autoria. Si el que et cal és una nota
++        certificada, ha de sortir d'alguna cosa feta a classe. Això és, i val més que ho
++        sigui, una eina de seguiment.
+       </p>
+     </div>
+   </section>
+@@ -291,7 +353,7 @@
        $("#v-full").hidden = b.dataset.mode !== "full";
        $("#v-progres").hidden = b.dataset.mode !== "progres";
        $("#v-un").hidden = b.dataset.mode !== "un";
@@ -5655,7 +7421,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
      };
    });
-@@ -313,7 +338,7 @@
+@@ -313,7 +375,7 @@
       columna es digui de cap manera concreta: si les capçaleres no ajuden,
       es busca la columna que conté un codi. */
    function buscaCodi(text) {
@@ -5664,7 +7430,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      return m ? m[0].trim() : null;
    }
  
-@@ -357,9 +382,41 @@
+@@ -357,13 +419,74 @@
      var m = String(ts).match(/(\d{1,2}):(\d{2})/);
      return m ? (+m[1]) * 60 + (+m[2]) : null;
    }
@@ -5707,7 +7473,137 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      m = s.match(/(\d{4})-(\d{2})-(\d{2})/);
      return m ? m[0] : "";
    }
-@@ -476,6 +533,7 @@
+ 
++  /* Un codi és una fotografia del progrés d'UN navegador. Si la mateixa
++     cadena apareix sota dos correus, o bé se l'han passat, o bé dos alumnes
++     comparteixen ordinador i sessió. Que un mateix alumne reenviï el seu no
++     té res de sospitós —passa cada setmana amb qui envia dos cops per si de
++     cas—, així que només es marca quan els correus difereixen.
++
++     Això NO és una acusació: és l'únic senyal d'origen que el sistema pot
++     donar, i el que vol dir exactament ho explica la pestanya d'ajuda. */
++  function marcaCompartits(files) {
++    var per = {};
++    files.forEach(function (r) {
++      if (!r.p.ok) return;
++      var k = RE_CODI.neteja(r.brut.codi);
++      (per[k] = per[k] || []).push(r);
++    });
++    Object.keys(per).forEach(function (k) {
++      var grup = per[k];
++      var correus = {};
++      grup.forEach(function (r) { correus[(r.brut.correu || r.brut.alumne || "?").toLowerCase()] = 1; });
++      var noms = Object.keys(correus);
++      if (noms.length < 2) return;
++      grup.forEach(function (r) {
++        r.compartit = noms.filter(function (c) {
++          return c !== (r.brut.correu || r.brut.alumne || "?").toLowerCase();
++        });
++      });
++    });
++  }
++
+   function processa(brut) {
+     return brut.map(function (r, i) {
+       var p = RE_CODI.llegeix(r.codi);
+@@ -371,6 +494,7 @@
+       var hEnv = horaEnviament(r.enviat);
+       var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
+       var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
++      /* `compartit` l'omple marcaCompartits() després, quan ja hi són tots. */
+       return { i: i, brut: r, p: p, forat: forat, estat: estat,
+                dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
+                dataEnv: dataEnviament(r.enviat) };
+@@ -378,10 +502,25 @@
+   }
+ 
+   // ── pintat ─────────────────────────────────────────────────────────────
+-  function marca(e) {
+-    if (e === "ok") return '<span class="marca ok" title="Codi íntegre">✓</span>';
+-    if (e === "avis") return '<span class="marca avis" title="Més de ' + FORAT + ' min entre generar-lo i enviar-lo">!</span>';
+-    return '<span class="marca mal" title="El control no quadra">✗</span>';
++  /* Ordre de prioritat: primer si el codi és llegible i íntegre, que és una
++     propietat del codi mateix; després l'origen i el temps, que són indicis.
++     Un codi trencat que a més estigui repetit ha de sortir com a trencat: si
++     el ⇄ tapés el ✗, la marca més important es perdria. El ⇄ sí que es pot
++     acumular amb el "!", perquè diuen coses diferents. */
++  function marca(e, r) {
++    if (e === "mal") return '<span class="marca mal" title="El control no quadra">✗</span>';
++    var out = "";
++    if (r && r.compartit && r.compartit.length) {
++      out += '<span class="marca compartit" title="Aquest mateix codi també '
++        + "l'han enviat: " + r.compartit.join(", ") + '">⇄</span>';
++    }
++    if (e === "avis") {
++      out += '<span class="marca avis" title="Més de ' + FORAT
++        + ' min entre generar-lo i enviar-lo">!</span>';
++    } else if (!out) {
++      out = '<span class="marca ok" title="Codi íntegre">✓</span>';
++    }
++    return out;
+   }
+   function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
+ 
+@@ -415,7 +554,8 @@
+     var t = $("#f-text").value.trim().toLowerCase();
+     var f = $("#f-full").value, e = $("#f-estat").value;
+     return files.filter(function (r) {
+-      if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
++      if (e === "compartit") { if (!r.compartit || !r.compartit.length) return false; }
++      else if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
+       else if (e && r.estat !== e) return false;
+       if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
+       if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
+@@ -426,11 +566,39 @@
+   function pinta() {
+     var fs = filtra();
+     $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
++    pintaCompartits();
+     pintaEnviaments(fs);
+     pintaAlumnes(fs);
+     pintaAgregat(fs);
+   }
+ 
++  /* El resum dels codis repetits va a sobre de la taula i no dins d'una
++     columna, perquè és una cosa que passa entre files i no en una de sola. */
++  function pintaCompartits() {
++    var cap = $("#avis-compartits");
++    if (!cap) {
++      cap = document.createElement("div");
++      cap.id = "avis-compartits";
++      $("#t-env").parentNode.parentNode.insertBefore(cap, $("#t-env").parentNode);
++    }
++    var grups = {};
++    files.forEach(function (r) {
++      if (!r.compartit || !r.compartit.length) return;
++      var k = RE_CODI.neteja(r.brut.codi);
++      (grups[k] = grups[k] || []).push(r.brut.alumne || r.brut.correu);
++    });
++    var claus = Object.keys(grups);
++    if (!claus.length) { cap.innerHTML = ""; return; }
++    cap.innerHTML = '<div class="avis-compartit"><b>⇄ '
++      + claus.length + (claus.length === 1 ? " codi apareix" : " codis apareixen")
++      + " sota més d'un alumne.</b> "
++      + claus.map(function (k) { return grups[k].join(" = "); }).join(" · ")
++      + '<br><span class="petit">Un codi és la fotografia d\'un navegador. Que la '
++      + "mateixa cadena surti sota dos correus vol dir que se l'han passat o que "
++      + "comparteixen ordinador i sessió. Val la pena preguntar-ho abans de donar-ho "
++      + "per fet.</span></div>";
++  }
++
+   function pintaEnviaments(fs) {
+     if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
+     var min = feinaMinima();
+@@ -442,7 +610,7 @@
+       var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
+       var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
+       h += '<tr class="clic" data-i="' + r.i + '">'
+-        + "<td>" + marca(r.estat) + "</td>"
++        + "<td>" + marca(r.estat, r) + "</td>"
+         + "<td>" + (r.brut.alumne || "—") + "</td>"
+         + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
+         + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
+@@ -476,6 +644,7 @@
        + dada("Amb pista", p.resum.comptes.pista)
        + dada("Al segon intent", p.resum.comptes.segon)
        + dada("Fallats", p.resum.comptes.fallat)
@@ -5715,7 +7611,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
        + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
        + "</div>";
-@@ -649,9 +707,10 @@
+@@ -649,10 +818,12 @@
      var brut = llegeixFull(txt);
      if (!brut.length) {
        $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
@@ -5725,9 +7621,11 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      }
 +    FORMAT_DATA = detectaFormatData(brut);
      files = processa(brut);
++    marcaCompartits(files);
      obert = null;
      var sel = $("#f-full");
-@@ -660,11 +719,16 @@
+     var vistos = [];
+@@ -660,11 +831,16 @@
      vistos.sort(function (a, b) { return a - b; });
      sel.innerHTML = '<option value="">Tots els fulls</option>'
        + vistos.map(function (n) { return '<option value="' + n + '">Full ' + n + "</option>"; }).join("");
@@ -5746,7 +7644,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
    }
  
    $("#btn-llegeix").onclick = function () { carrega($("#entrada").value); };
-@@ -681,9 +745,26 @@
+@@ -681,9 +857,26 @@
  
    ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
     "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
@@ -5775,7 +7673,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
  
    /* Els trimestres es dedueixen de l'any que tenen les dades, no d'un any
       fix: així el fitxer segueix servint el curs vinent. */
-@@ -705,7 +786,11 @@
+@@ -705,7 +898,11 @@
      } else if (v === "1") { posa((any - 1) + "-09-01", (any - 1) + "-12-22", 14); }
      else if (v === "2") { posa(any + "-01-08", any + "-03-31", 11); }
      else { posa(any + "-04-01", any + "-06-20", 11); }
@@ -5788,7 +7686,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
    };
  
    $("#btn-csv").onclick = function () {
-@@ -842,17 +927,31 @@
+@@ -842,17 +1039,31 @@
        });
        /* La feina d'abans del trimestre no compta: es parteix de l'últim codi
           anterior al període com a línia de base. */
@@ -5824,7 +7722,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
        });
  
        /* Un enviament només compta com a dia de feina si porta exercicis nous.
-@@ -915,7 +1014,7 @@
+@@ -915,7 +1126,7 @@
          dies: nDies, setmanes: nSetm, passos: ambFeina,
          exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
          dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
@@ -5833,7 +7731,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
          primer: dins.length ? dins[0].quan : null,
          ultim: dins.length ? dins[dins.length - 1].quan : null
        };
-@@ -934,19 +1033,90 @@
+@@ -934,19 +1145,90 @@
        Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
    }
  
@@ -5882,14 +7780,14 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
 -      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes.</div>';
 +      $("#p-resultats").innerHTML = '<div class="buit">Primer llegeix un full de respostes '
 +        + "a la pestanya <b>Full de respostes</b>.</div>";
-       return;
-     }
--    var cfg = cfgProgres();
++      return;
++    }
 +    if (!cfgAplicada) {
 +      $("#p-resultats").innerHTML = '<div class="buit">Digues quin període vols avaluar '
 +        + "i quanta feina hi demanes, i prem <b>Accepta i calcula</b>.</div>";
-+      return;
-+    }
+       return;
+     }
+-    var cfg = cfgProgres();
 +    var cfg = cfgAplicada;
      var res = analitzaTrimestre(files, cfg);
      if (!res.length) {
@@ -5928,7 +7826,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
        + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
        + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
-@@ -954,8 +1124,14 @@
+@@ -954,8 +1236,14 @@
  
      res.forEach(function (a, i) {
        h += '<tr class="clic" data-p="' + i + '">'
@@ -5945,7 +7843,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
              ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
                + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
          + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
-@@ -992,6 +1168,14 @@
+@@ -992,6 +1280,14 @@
        + dada("Constància fluixa", pocaConst + " de " + res.length)
        + "</div>";
  
@@ -5960,7 +7858,7 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      if (concentrat.length) {
        h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
          + "<b>Feina concentrada en pocs dies</b> (molt volum, poca constància): "
-@@ -1072,6 +1256,19 @@
+@@ -1072,6 +1368,19 @@
      });
      h += "</table></div>";
  
@@ -5980,9 +7878,18 @@ diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
      if (a.enviaments > a.ambFeina) {
        h += '<p class="petit apagat" style="margin-top:.6rem">Hi ha ' + (a.enviaments - a.ambFeina)
          + " enviament(s) que no portaven cap exercici nou: no compten com a dia de feina.</p>";
+@@ -1088,7 +1397,7 @@
+     var r = files[0];
+     var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
+                                        : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
+-    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat) + " "
++    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat, r) + " "
+       + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
+       + "</div>" + h;
+   };
 diff -ru a/tools/build.py b/tools/build.py
---- a/tools/build.py	2026-08-05 22:07:33.072924271 +0000
-+++ b/tools/build.py	2026-08-05 22:07:33.074334419 +0000
+--- a/tools/build.py	2026-08-06 09:00:01.716348052 +0000
++++ b/tools/build.py	2026-08-06 09:00:01.717662571 +0000
 @@ -112,13 +112,22 @@
          "titol": "Full 6 — Proporcionalitat i percentatges",
          "subtitol": "Proporcionalitat directa i inversa, i problemes de "
@@ -6082,9 +7989,9 @@ diff -ru a/tools/build.py b/tools/build.py
      },
      12: {
 diff -ru a/tools/c_centralitzacio.py b/tools/c_centralitzacio.py
---- a/tools/c_centralitzacio.py	2026-08-05 22:07:33.026045883 +0000
-+++ b/tools/c_centralitzacio.py	2026-08-05 22:07:33.030395237 +0000
-@@ -0,0 +1,802 @@
+--- a/tools/c_centralitzacio.py	2026-08-06 09:00:01.717963701 +0000
++++ b/tools/c_centralitzacio.py	2026-08-06 09:00:01.722357046 +0000
+@@ -0,0 +1,805 @@
 +# -*- coding: utf-8 -*-
 +"""c_centralitzacio.py — Full 11, blocs de centralització i dispersió.
 +
@@ -6558,8 +8465,11 @@ diff -ru a/tools/c_centralitzacio.py b/tools/c_centralitzacio.py
 +      [D("$%d$" % (max(_v) + min(_v)), "SIGNE_FINAL",
 +         "El recorregut és una RESTA: el més gran menys el més petit."),
 +       D("$%d$" % max(_v), "PAS_INTERMEDI_PER_RESPOSTA",
++         # Amb un mínim negatiu, "%d-%d" escriuria "10--4". Els parèntesis
++         # són obligatoris: és el mateix defecte que la resolució ja evita.
 +         "Aquest és el valor més gran. El recorregut és la distància entre "
-+         "l'extrem de dalt i el de baix: $%d-%d$." % (max(_v), min(_v))),
++         "l'extrem de dalt i el de baix: $%d-%s$."
++         % (max(_v), ("(%d)" % min(_v)) if min(_v) < 0 else str(min(_v)))),
 +       # Amb totes les dades iguals, la mitjana val el mateix que el màxim i
 +       # no serveix de distractor; el parany que hi toca és un altre.
 +       (D("No es pot calcular: totes les dades són iguals.", "ES_POT_DETERMINAR",
@@ -6888,8 +8798,8 @@ diff -ru a/tools/c_centralitzacio.py b/tools/c_centralitzacio.py
 +   "dividida entre $N$, la variància baixa; i amb ella, $\\sigma$"],
 +  ex_text=E274)
 diff -ru a/tools/c_escales.py b/tools/c_escales.py
---- a/tools/c_escales.py	2026-08-05 22:07:33.042265706 +0000
-+++ b/tools/c_escales.py	2026-08-05 22:07:33.048049019 +0000
+--- a/tools/c_escales.py	2026-08-06 09:00:01.722357046 +0000
++++ b/tools/c_escales.py	2026-08-06 09:00:01.727166219 +0000
 @@ -0,0 +1,393 @@
 +# -*- coding: utf-8 -*-
 +"""c_escales.py — Full 8, blocs de càlcul amb escales i de raó de semblança
@@ -7285,8 +9195,8 @@ diff -ru a/tools/c_escales.py b/tools/c_escales.py
 +       "factors diferents segons si el que mesures té una, dues o tres "
 +       "dimensions.")
 diff -ru a/tools/c_funcions_prod.py b/tools/c_funcions_prod.py
---- a/tools/c_funcions_prod.py	2026-08-05 22:07:33.054985861 +0000
-+++ b/tools/c_funcions_prod.py	2026-08-05 22:07:33.060466315 +0000
+--- a/tools/c_funcions_prod.py	2026-08-06 09:00:01.727166219 +0000
++++ b/tools/c_funcions_prod.py	2026-08-06 09:00:01.731755509 +0000
 @@ -0,0 +1,454 @@
 +# -*- coding: utf-8 -*-
 +"""c_funcions_prod.py — Full 10, blocs de construir rectes i paràboles.
@@ -7743,8 +9653,8 @@ diff -ru a/tools/c_funcions_prod.py b/tools/c_funcions_prod.py
 +       "buscar-ne el màxim— és el que es fa a 1r de batxillerat amb "
 +       "derivades. Amb una paràbola no calen: n'hi ha prou amb el vèrtex.")
 diff -ru a/tools/c_percentatges.py b/tools/c_percentatges.py
---- a/tools/c_percentatges.py	2026-08-05 22:07:33.030395237 +0000
-+++ b/tools/c_percentatges.py	2026-08-05 22:07:33.035538649 +0000
+--- a/tools/c_percentatges.py	2026-08-06 09:00:01.733963701 +0000
++++ b/tools/c_percentatges.py	2026-08-06 09:00:01.736578978 +0000
 @@ -0,0 +1,438 @@
 +# -*- coding: utf-8 -*-
 +"""c_percentatges.py — Full 6, blocs del factor multiplicador i aplicacions.
@@ -8185,8 +10095,8 @@ diff -ru a/tools/c_percentatges.py b/tools/c_percentatges.py
 +       "sobre una base diferent. Pujar i baixar el mateix tant per cent "
 +       "SEMPRE deixa el preu per sota del de partida.")
 diff -ru a/tools/codi-etiquetes.txt b/tools/codi-etiquetes.txt
---- a/tools/codi-etiquetes.txt	2026-08-05 22:07:33.040767630 +0000
-+++ b/tools/codi-etiquetes.txt	2026-08-05 22:07:33.042265706 +0000
+--- a/tools/codi-etiquetes.txt	2026-08-06 09:00:01.741347534 +0000
++++ b/tools/codi-etiquetes.txt	2026-08-06 09:00:01.742586291 +0000
 @@ -168,3 +168,82 @@
  UNITATS_NO_CONVERTIDES
  VARIACIONS_SENSE_REPETICIO_MAL
@@ -8271,8 +10181,8 @@ diff -ru a/tools/codi-etiquetes.txt b/tools/codi-etiquetes.txt
 +VERTEX_COM_COEFICIENTS
 +VERTEX_PER_ARREL
 diff -ru a/tools/fes-exemple.js b/tools/fes-exemple.js
---- a/tools/fes-exemple.js	2026-08-05 22:07:33.062045882 +0000
-+++ b/tools/fes-exemple.js	2026-08-05 22:07:33.065682473 +0000
+--- a/tools/fes-exemple.js	2026-08-06 09:00:01.742586291 +0000
++++ b/tools/fes-exemple.js	2026-08-06 09:00:01.747807204 +0000
 @@ -0,0 +1,159 @@
 +/* Genera un full de respostes versemblant per provar l'analitzador.
 +   Els codis són reals: els fa el mateix js/codi.js del projecte, i per tant
@@ -8434,8 +10344,8 @@ diff -ru a/tools/fes-exemple.js b/tools/fes-exemple.js
 +});
 +process.stdout.write("\ufeff" + linies.join("\n") + "\n");
 diff -ru a/tools/lib.py b/tools/lib.py
---- a/tools/lib.py	2026-08-05 22:07:33.053510513 +0000
-+++ b/tools/lib.py	2026-08-05 22:07:33.054985861 +0000
+--- a/tools/lib.py	2026-08-06 09:00:01.752681513 +0000
++++ b/tools/lib.py	2026-08-06 09:00:01.754034906 +0000
 @@ -878,6 +878,282 @@
          "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i "
          "no $6$.",
