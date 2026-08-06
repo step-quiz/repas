@@ -28,19 +28,31 @@
   "use strict";
   var $ = function (s) { return document.querySelector(s); };
 
+  /* El `total` de cada full és el nombre de preguntes que té. Estava escrit
+     a mà, i quan els fulls 6, 8, 10 i 11 van créixer va quedar desfasat: la
+     portada deia "0/21" d'un full que en té 48. Ara es llegeix de
+     `RE_TAULES`, que la portada ja carrega per al botó del codi i que surt
+     directament de `data/`. El número escrit es manté només com a xarxa per
+     si algun dia la portada deixés de carregar aquell fitxer. */
+  function total(n, perDefecte) {
+    var t = window.RE_TAULES && window.RE_TAULES.fulls
+          && (window.RE_TAULES.fulls[n] || window.RE_TAULES.fulls[String(n)]);
+    return (t && t.items) ? t.items.length : perDefecte;
+  }
+
   var FULLS = [
-    { n: 1,  titol: "Nombres enters, fraccions i decimals",  total: 140, disponible: true },
-    { n: 2,  titol: "Potències",                             total: 76,   disponible: true },
-    { n: 3,  titol: "Successions i progressions",             total: 50,   disponible: true },
-    { n: 4,  titol: "Polinomis",                              total: 59,   disponible: true },
-    { n: 5,  titol: "Equacions i sistemes",                   total: 99,   disponible: true },
-    { n: 6,  titol: "Proporcionalitat i percentatges",        total: 21,   disponible: true },
-    { n: 7,  titol: "Teorema de Pitàgores. Àrees",            total: 55,   disponible: true },
-    { n: 8,  titol: "Teorema de Tales. Semblança",            total: 32,   disponible: true },
-    { n: 9,  titol: "Cossos geomètrics. Àrea i volum",        total: 43,   disponible: true },
-    { n: 10, titol: "Funcions",                               total: 45,   disponible: true },
-    { n: 11, titol: "Estadística",                            total: 52,   disponible: true },
-    { n: 12, titol: "Combinatòria i probabilitat",            total: 67,   disponible: true }
+    { n: 1, titol: "Nombres enters, fraccions i decimals", total: total(1, 140), disponible: true },
+    { n: 2, titol: "Potències", total: total(2, 76), disponible: true },
+    { n: 3, titol: "Successions i progressions", total: total(3, 50), disponible: true },
+    { n: 4, titol: "Polinomis", total: total(4, 59), disponible: true },
+    { n: 5, titol: "Equacions i sistemes", total: total(5, 99), disponible: true },
+    { n: 6, titol: "Proporcionalitat i percentatges", total: total(6, 21), disponible: true },
+    { n: 7, titol: "Teorema de Pitàgores. Àrees", total: total(7, 55), disponible: true },
+    { n: 8, titol: "Teorema de Tales. Semblança", total: total(8, 32), disponible: true },
+    { n: 9, titol: "Cossos geomètrics. Àrea i volum", total: total(9, 43), disponible: true },
+    { n: 10, titol: "Funcions", total: total(10, 45), disponible: true },
+    { n: 11, titol: "Estadística", total: total(11, 52), disponible: true },
+    { n: 12, titol: "Combinatòria i probabilitat", total: total(12, 67), disponible: true }
   ];
 
   function fets(n) {
