@@ -328,7 +328,7 @@ def compila():
         etiq = [""] + [d["err"] for d in it["distractors"]]
         ordre = list(range(4))
         random.Random("repas-eso::" + it["id"]).shuffle(ordre)
-        items.append({
+        item = {
             "id": it["id"],
             "ex": it["ex"],
             "ap": it["ap"],
@@ -346,7 +346,14 @@ def compila():
                 "err": [etiq[i] for i in ordre],
                 "res": it["resolucio"],
             }),
-        })
+        }
+        # La figura només hi va si n'hi ha. Guardar-hi `"figura": ""` a cada
+        # ítem faria créixer els dotze fitxers de dades per no dir res, i
+        # deixaria de ser cert que un full sense figures compila igual que
+        # abans d'existir aquest camp.
+        if it["figura"]:
+            item["figura"] = it["figura"]
+        items.append(item)
 
     blocs = [{"id": b, "titol": t, "descripcio": d,
               "items": [i["id"] for i in items if i["bloc"] == b]} for b, t, d in BLOCS]
@@ -406,6 +413,11 @@ ol.op li{margin:.15rem 0}
 table{border-collapse:collapse;font-size:13px;width:100%}
 td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
+.fig{margin:.6rem 0;text-align:center}
+.fig svg{max-width:18rem;height:auto;color:#243447;overflow:visible}
+.fig .fig-etq{font:600 12px ui-monospace,Menlo,Consolas,monospace;fill:#243447}
+.fig .fig-etq.petita{font-size:10.5px;fill:#6B7480}
+:root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 """
 
 KATEX = """
@@ -451,6 +463,8 @@ def revisio(dades):
                      % (it["id"], it["tipus"], it["dif"],
                         {1: "directa", 2: "encadenada", 3: "completa"}[it["dif"]]))
             p.append('<div class="enun">%s</div>' % it["enunciat"])
+            if it["figura"]:
+                p.append('<div class="fig">%s</div>' % it["figura"])
             p.append('<ol class="op"><li><span class="ok">%s</span> — resposta correcta</li>'
                      % mathify(it["correcta"]))
             for d in it["distractors"]:

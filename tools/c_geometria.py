@@ -65,6 +65,7 @@ dins d'una resolució o pista que ja porta els seus propis delimitadors.
 """
 import math
 from lib import Q, D, DT, tex, dificultats
+from figures import quadrat_diagonal, rectangle_diagonal
 
 # --------------------------------------------------------------------
 # Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
@@ -409,6 +410,9 @@ E123 = "Calcula la longitud de $x$ en aquestes figures."
 
 Q("123a", 123, "a", B1, "A",
   "Quadrat de costat 4 cm, $x$ és la diagonal.",
+  # La figura ACOMPANYA l'enunciat: les mesures continuen dites amb
+  # paraules perquè l'exercici es pugui fer amb un lector de pantalla.
+
   arrel_tex(32, aprox=True),
   [D(tex(4 + 4), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat els dos costats directament ($4+4$) en lloc d'aplicar "
@@ -424,6 +428,7 @@ Q("123a", 123, "a", B1, "A",
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{4^2+4^2}$."],
   [r"$x=%s$" % pitagores_tex_raw(4, 4)],
+  figura=quadrat_diagonal(4),
   ex_text=E123)
 
 Q("123b", 123, "b", B1, "A",
@@ -442,6 +447,7 @@ Q("123b", 123, "b", B1, "A",
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{10^2+10^2}$."],
   [r"$x=%s$" % pitagores_tex_raw(10, 10)],
+  figura=quadrat_diagonal(10),
   ex_text="")
 
 Q("123c", 123, "c", B1, "A",
@@ -460,6 +466,7 @@ Q("123c", 123, "c", B1, "A",
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{5^2+8^2}$."],
   [r"$x=%s$" % pitagores_tex_raw(5, 8)],
+  figura=rectangle_diagonal(8, 5),
   ex_text="")
 
 Q("123d", 123, "d", B1, "A",
@@ -481,6 +488,8 @@ Q("123d", 123, "d", B1, "A",
    "s'aïlla restant, no sumant.",
    "Aïlla l'altre costat: $x=\\sqrt{117-9^2}$."],
   [r"$x=\sqrt{117-9^2}=\sqrt{117-81}=\sqrt{36}=6$ cm"],
+  figura=rectangle_diagonal(9, 6, etq_altura="x",
+                     etq_diagonal="\u221a117 cm"),
   ex_text="")
 
 # ---- exercici 124: Pitàgores en triangles isòsceles/equilàters ----

@@ -181,7 +181,7 @@ def dificultats(taula):
 
 def Q(qid, ex, ap, bloc, tipus, enunciat,
       correcta, distractors, pistes, resolucio, ex_text="", nota="", dif=None,
-      nota_interna=""):
+      nota_interna="", figura=""):
     """Registra una pregunta al banc, validant-la."""
     item = {
         "id": qid,
@@ -204,6 +204,11 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
         # que a l'alumne no li diuen res i el desconcerten.
         "nota": nota,
         "nota_interna": nota_interna,
+        # SVG que acompanya l'enunciat, generat per tools/figures.py. La
+        # figura ACOMPANYA l'enunciat, no el substitueix: les mesures han de
+        # continuar dites amb paraules perquè l'exercici es pugui resoldre
+        # amb un lector de pantalla. _valida() ho comprova.
+        "figura": figura,
     }
     _valida(item)
     _BANC.append(item)
@@ -230,6 +235,22 @@ def _valida(it):
     assert not fuita, (
         f"{qid}: la nota visible parla de la font o de feina pendent "
         f"({fuita.group(0)!r}); això va a nota_interna=")
+    fig = it["figura"]
+    if fig:
+        assert fig.lstrip().startswith("<svg"), f"{qid}: la figura no és un SVG"
+        assert "role=\"img\"" in fig and "<title>" in fig, (
+            f"{qid}: la figura no té role=\"img\" ni <title>: amb un lector de "
+            f"pantalla no es podria saber què hi ha dibuixat")
+        assert "$" not in fig, (
+            f"{qid}: la figura porta $: dins d'un SVG, KaTeX no hi entra i els "
+            f"dòlars es veurien tal qual")
+        # L'amplada fixa es mira NOMÉS a l'etiqueta <svg> d'obertura: els
+        # <rect> de dins en porten, i han de portar-ne.
+        obertura = fig[fig.index("<svg"):fig.index(">", fig.index("<svg")) + 1]
+        assert "viewBox" in obertura, f"{qid}: la figura no porta viewBox"
+        assert 'width="' not in obertura and 'height="' not in obertura, (
+            f"{qid}: la figura porta amplada o alçada fixa a l'etiqueta <svg>; "
+            f"amb viewBox tota sola s'adapta a la pantalla")
     assert it["dif"] in (DIRECTA, ENCADENADA, COMPLETA), (
         f"{qid}: sense dificultat (l'exercici {it['ex']} no és a la taula "
         f"dificultats() del full, i el Q() no porta dif=)")
