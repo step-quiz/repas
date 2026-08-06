@@ -46,7 +46,7 @@ vagi un per sota del número de fitxer:
 | 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 | +27 | 48 |
 | 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 | — | 55 |
 | 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 | +27 | 59 |
-| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | — | 43 |
+| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | +4 | 47 |
 | 10 | Funcions | `im11.tex` | 200–217 | 45 | +28 | 73 |
 | 11 | Estadística | `im12.tex` | 218–235 | 52 | +39 | 91 |
 | 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 | — | 67 |
@@ -176,12 +176,16 @@ Tres coses per saber si s'hi torna:
 
 - **Numeració a partir del 260.** Els números 1–259 són els de la font.
   Barrejar-hi material nou faria impossible saber d'on surt cada exercici.
-- **Els mòduls nous van SEMPRE els últims** a la llista `moduls` del seu full.
-  L'ordre dels ítems al banc és l'ordre d'inscripció, i el codi de verificació
-  guarda els estats per POSICIÓ: si els ítems nous no s'afegissin al final,
-  tots els codis ja emesos passarien a llegir-se malament. Comprovat als
-  quatre fulls ampliats: els ítems que hi havia segueixen exactament a les
-  mateixes posicions, i el codi de proves d'abans es continua llegint igual.
+- **L'ordre de codificació ja no lliga l'ordre de presentació.** El codi de
+  verificació guarda els estats per POSICIÓ, i al principi això s'aconseguia
+  amb una regla de disciplina: el contingut nou anava sempre al final del
+  full. La regla es trenca sola quan es recupera un exercici que faltava,
+  perquè el 170f va entre el 170e i el 171, no al final. Ara
+  `tools/codi-ordre.json` desa l'ordre de CODIFICACIÓ i és **append-only**:
+  un exercici nou s'insereix on toca per a l'alumne i s'afegeix al final
+  d'aquella llista per al codi. Ho gestiona `build_codi.py` tot sol.
+  Conseqüència: els blocs de `codi-taules.js` es donen com a **llista de
+  posicions**, no com a rang, perquè en aquest ordre no són contigus.
 - **El tutor hi ha d'apuntar.** Els blocs nous no serveixen de res si el test
   inicial no hi porta ningú. S'ha ampliat la llista `blocs` de les proves de
   percentatges, escales, paràboles i estadística; els blocs abastables pel

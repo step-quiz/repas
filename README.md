@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 860 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 864 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -21,7 +21,7 @@ personalitzat d'exercicis.
 | 6 | Proporcionalitat i percentatges | 5 | 48 |
 | 7 | Teorema de Pitàgores. Àrees | 4 | 55 |
 | 8 | Teorema de Tales. Semblança | 6 | 59 |
-| 9 | Cossos geomètrics. Àrea i volum | 4 | 43 |
+| 9 | Cossos geomètrics. Àrea i volum | 4 | 47 |
 | 10 | Funcions | 5 | 73 |
 | 11 | Estadística | 5 | 91 |
 | 12 | Combinatòria i probabilitat | 4 | 67 |
@@ -185,7 +185,7 @@ d'inventar-ne les mesures. Els motius concrets són al docstring de cada
 |---|---|---|
 | 7 | 139 sencer, 145a/b/d | La font no arriba a cap valor numèric per a aquestes figures |
 | 8 | 152d/g/h, 157 sencer | Tres rectes paral·leles il·legibles; el 157 demana mesurar amb regle sobre el dibuix |
-| 9 | 170f–j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
+| 9 | 170j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
 | 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
 | 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
 
@@ -202,16 +202,24 @@ saber d'on surt cada cosa.
 | 8 | 285–294 | Càlcul amb escales · Raó de semblança, àrees i volums | No es deia enlloc que si les longituds es multipliquen per *k*, les àrees ho fan per *k*² i els volums per *k*³ |
 | 10 | 295–304 | Construir rectes · Construir paràboles i problemes | De 45 preguntes, només 8 demanaven construir alguna cosa: la resta era reconeixement |
 
-Els mòduls nous van **sempre els últims** a la llista de `moduls` del seu full,
-perquè els seus ítems s'afegeixin al final del banc: el codi de verificació
-guarda els estats per posició, i moure'ls invalidaria tots els codis ja
-emesos.
+El codi de verificació guarda els estats per posició, i per això
+`tools/codi-ordre.json` desa un ordre **append-only** separat del de
+presentació: un exercici nou s'insereix on toca per a l'alumne i s'afegeix al
+final d'aquell ordre per al codi. Els codis ja emesos segueixen valent.
 
 Els exercicis on només falten alguns apartats (145, 152, 195) porten una
 nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
 
-Res d'això és una decisió tancada: si es recuperen les figures originals,
-els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
+Res d'això és una decisió tancada. Els **170f, 170g, 170h i 170i** ja s'han
+recuperat: es va poder perquè el llibre en dona l'apotema, i una apotema es
+pot contrastar amb la fórmula del polígon regular, $a=s/(2\tan(\pi/n))$. Quan
+la lectura i la fórmula quadren, la cota està ben assignada; quan no, s'ha
+llegit malament. Això últim va passar amb el **170c**, transcrit com a hexàgon
+de costat 8 amb apotema 5,2 quan un hexàgon de costat 8 té apotema 6,93: la
+cota de 8 era l'altura, i està corregit.
+
+La resta de figures d'aquesta taula no donen cap dada que es pugui contrastar
+així, i endevinar-les seria pitjor que deixar-les fora.
 
 ## Proves
 
