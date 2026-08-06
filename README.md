@@ -81,6 +81,7 @@ hi ha comptes ni sincronització entre dispositius.
     REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
 
     tools/lib.py          motor: Q()/D()/DT(), catàleg d'errors TAX, validació
+    tools/figures.py      figures SVG dels enunciats, generades amb paràmetres
     tools/build_tot.py    compila fulls + taules del codi + analitzador
     tools/build_codi.py   taules compartides pel codi de verificació
     tools/build_analitzador.py  munta analitzador-repas.html (fitxer únic)

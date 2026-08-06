@@ -36,6 +36,11 @@ ol.op li{margin:.15rem 0}
 table{border-collapse:collapse;font-size:13px;width:100%}
 td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
+.fig{margin:.6rem 0;text-align:center}
+.fig svg{max-width:18rem;height:auto;color:#243447;overflow:visible}
+.fig .fig-etq{font:600 12px ui-monospace,Menlo,Consolas,monospace;fill:#243447}
+.fig .fig-etq.petita{font-size:10.5px;fill:#6B7480}
+:root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 7</h1>
 <p class="meta">55 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
@@ -138,6 +143,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Exercici 123.</strong> Calcula la longitud de $x$ en aquestes figures.</p>
 <div class="it"><div class="cap"><span class="cod">123a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Quadrat de costat 4 cm, $x$ és la diagonal.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 172 172" role="img" xmlns="http://www.w3.org/2000/svg"><title>Quadrat de costat 4 cm amb la diagonal marcada.</title><rect x="26" y="26" width="120" height="120" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><line x1="26" y1="146" x2="146" y2="26" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="86" y="164" text-anchor="middle" class="fig-etq">4 cm</text><text x="102" y="80" text-anchor="middle" class="fig-etq">x</text></svg></div>
 <ol class="op"><li><span class="ok">$4\sqrt{2}\approx5{,}66$</span> — resposta correcta</li>
 <li>$8$<br><span class="err">SUMA_CATETS_SENSE_QUADRAT</span><span class="fb">Has sumat els dos costats directament ($4+4$) en lloc d'aplicar Pitàgores: cal elevar-los al quadrat, sumar-los, i fer l'arrel quadrada del resultat.</span></li>
 <li>$32$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Has calculat $4^2+4^2=32$ correctament, però t'has deixat l'arrel quadrada final: la diagonal és $\sqrt{32}$, no $32$.</span></li>
@@ -148,6 +154,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <div class="it"><div class="cap"><span class="cod">123b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Quadrat de costat 10 cm, $x$ és la diagonal.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 172 172" role="img" xmlns="http://www.w3.org/2000/svg"><title>Quadrat de costat 10 cm amb la diagonal marcada.</title><rect x="26" y="26" width="120" height="120" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><line x1="26" y1="146" x2="146" y2="26" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="86" y="164" text-anchor="middle" class="fig-etq">10 cm</text><text x="102" y="80" text-anchor="middle" class="fig-etq">x</text></svg></div>
 <ol class="op"><li><span class="ok">$10\sqrt{2}\approx14{,}14$</span> — resposta correcta</li>
 <li>$20$<br><span class="err">SUMA_CATETS_SENSE_QUADRAT</span><span class="fb">Has sumat els dos costats directament ($10+10$) en lloc d'aplicar Pitàgores.</span></li>
 <li>$200$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Has calculat $10^2+10^2=200$ correctament, però t'has deixat l'arrel quadrada final.</span></li>
@@ -158,6 +165,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <div class="it"><div class="cap"><span class="cod">123c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Rectangle de costats 5 cm i 8 cm, $x$ és la diagonal.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 232 164" role="img" xmlns="http://www.w3.org/2000/svg"><title>Rectangle de 8 cm per 5 cm amb la diagonal marcada.</title><rect x="26" y="26" width="180" height="112.5" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><line x1="26" y1="138.5" x2="206" y2="26" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="116" y="156.5" text-anchor="middle" class="fig-etq">8 cm</text><text x="18" y="86.25" text-anchor="end" class="fig-etq">5 cm</text><text x="130" y="76.25" text-anchor="middle" class="fig-etq">x</text></svg></div>
 <ol class="op"><li><span class="ok">$\sqrt{89}\approx9{,}43$</span> — resposta correcta</li>
 <li>$13$<br><span class="err">SUMA_CATETS_SENSE_QUADRAT</span><span class="fb">Has sumat els dos costats directament ($5+8$) en lloc d'aplicar Pitàgores.</span></li>
 <li>$89$<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Has calculat $5^2+8^2=89$ correctament, però t'has deixat l'arrel quadrada final.</span></li>
@@ -168,6 +176,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <div class="it"><div class="cap"><span class="cod">123d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">Rectangle de diagonal $\sqrt{117}$ cm i un costat de 9 cm, $x$ és l'altre costat.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 232 172" role="img" xmlns="http://www.w3.org/2000/svg"><title>Rectangle de 9 cm per x amb la diagonal marcada.</title><rect x="26" y="26" width="180" height="120" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><line x1="26" y1="146" x2="206" y2="26" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="116" y="164" text-anchor="middle" class="fig-etq">9 cm</text><text x="18" y="90" text-anchor="end" class="fig-etq">x</text><text x="130" y="80" text-anchor="middle" class="fig-etq">√117 cm</text></svg></div>
 <ol class="op"><li><span class="ok">$6$ cm</span> — resposta correcta</li>
 <li>$\sqrt{117+9^2}\approx14{,}07$ cm<br><span class="err">SIGNE_PITAGORES</span><span class="fb">Coneixent la diagonal i un costat, l'altre costat s'obté RESTANT el quadrat del costat conegut al quadrat de la diagonal, no sumant-lo: $x=\sqrt{117-9^2}$, no $\sqrt{117+9^2}$.</span></li>
 <li>$36$ cm<br><span class="err">ARREL_OBLIDADA</span><span class="fb">Has calculat $117-9^2=36$ correctament, però t'has deixat l'arrel quadrada final: l'altre costat és $\sqrt{36}=6$ cm, no $36$ cm.</span></li>

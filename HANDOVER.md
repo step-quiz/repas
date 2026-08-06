@@ -196,6 +196,35 @@ Tres coses per saber si s'hi torna:
 La variància i la desviació típica es calculen dividint per $N$ (les de la
 població), que és la convenció de l'ESO. La versió amb $N-1$ no hi surt.
 
+### 3.3ter Figures dels enunciats
+
+`tools/figures.py` genera els SVG i `Q()` els rep amb `figura=`. Van a
+`data/fullN.js` com a cadena i els pinta `practica.js` sota l'enunciat; el
+`REVISIO` també els mostra.
+
+Es **generen**, no es dibuixen: cada funció rep les mesures i en treu l'SVG.
+És el mateix criteri que la resta del projecte —les respostes es calculen, no
+s'escriuen— i té el mateix efecte: canviar el costat d'un quadrat de 4 a 10 no
+demana redibuixar res.
+
+Cinc regles, i `lib._valida()` atura la compilació si alguna falla:
+
+- **`viewBox` i cap mida fixa a l'etiqueta `<svg>`.** El CSS li dona
+  l'amplada. (Els `<rect>` de dins sí que en porten, i la comprovació mira
+  només l'etiqueta d'obertura.)
+- **`role="img"` i un `<title>` que descrigui la figura amb paraules.**
+- **Cap `$` a dins.** KaTeX no entra dins d'un SVG i els dòlars es veurien
+  tal qual.
+- **`currentColor` als traços** i `--fig-plena` / `--fig-marca` als
+  ompliments: la figura hereta el color del text i no cal mantenir dues
+  paletes.
+- **La figura ACOMPANYA l'enunciat, no el substitueix.** L'enunciat ha de
+  continuar dient les mesures perquè l'exercici es pugui resoldre amb un
+  lector de pantalla; hi ha una prova que ho comprova.
+
+Ara mateix només la fan servir els 123a–d, com a cas de prova d'extrem a
+extrem. Els altres ~40 ítems que en necessiten són la feina pendent.
+
 ### 3.4 El codi de verificació
 
 `js/codi.js` conté **el generador i el lector al mateix fitxer**, i això és
