@@ -45,6 +45,17 @@
   $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
   $("#encap").textContent = item.encapcalament;
   $("#enunciat").innerHTML = item.enunciat;
+  /* La figura va DESPRÉS de l'enunciat, no al lloc: l'enunciat ha de poder
+     resoldre's tot sol amb un lector de pantalla, i el dibuix hi és per
+     entendre-ho més de pressa. Si no n'hi ha, el contenidor queda amagat i no
+     deixa cap forat. */
+  if (item.figura) {
+    $("#figura").innerHTML = item.figura;
+    $("#figura").hidden = false;
+  } else {
+    $("#figura").innerHTML = "";
+    $("#figura").hidden = true;
+  }
   if (item.nota) { $("#nota").innerHTML = "<strong>Nota:</strong> " + item.nota; $("#nota").hidden = false; }
   RE.mat(document.body);
   if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
