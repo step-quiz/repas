@@ -471,8 +471,11 @@ for _ap, _v in _268.items():
       [D("$%d$" % (max(_v) + min(_v)), "SIGNE_FINAL",
          "El recorregut és una RESTA: el més gran menys el més petit."),
        D("$%d$" % max(_v), "PAS_INTERMEDI_PER_RESPOSTA",
+         # Amb un mínim negatiu, "%d-%d" escriuria "10--4". Els parèntesis
+         # són obligatoris: és el mateix defecte que la resolució ja evita.
          "Aquest és el valor més gran. El recorregut és la distància entre "
-         "l'extrem de dalt i el de baix: $%d-%d$." % (max(_v), min(_v))),
+         "l'extrem de dalt i el de baix: $%d-%s$."
+         % (max(_v), ("(%d)" % min(_v)) if min(_v) < 0 else str(min(_v)))),
        # Amb totes les dades iguals, la mitjana val el mateix que el màxim i
        # no serveix de distractor; el parany que hi toca és un altre.
        (D("No es pot calcular: totes les dades són iguals.", "ES_POT_DETERMINAR",

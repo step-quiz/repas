@@ -51,6 +51,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 .llegenda{display:flex;gap:.9rem;flex-wrap:wrap;font-size:12px;color:var(--apagat);margin-top:.5rem}
 .llegenda i{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:.3rem;background:#EDEAE4}
 .marca{font-weight:700}
+.marca.compartit{color:#7B3FA0}
+.avis-compartit{background:#F3EAF8;border:1px solid #DDC7EA;color:#5B2E78;
+  border-radius:9px;padding:.6rem .8rem;font-size:13.5px;margin:.9rem 0}
 .ok{color:var(--verd)} .avis{color:var(--ambre)} .mal{color:var(--vermell)}
 .buit{padding:2.4rem 1rem;text-align:center;color:var(--apagat);border:1px dashed var(--vora);border-radius:12px}
 .filtres{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;margin:.9rem 0}
@@ -130,6 +133,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           <option value="avis">Amb avís</option>
           <option value="mal">Amb problema</option>
           <option value="poca">Feina insuficient</option>
+          <option value="compartit">Codi repetit entre alumnes</option>
         </select>
         <label class="petit apagat" style="display:inline-flex;align-items:center;gap:.35rem">
           Feina mínima demanada
@@ -154,6 +158,12 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <span><i style="background:#C9C4BA"></i>començat</span>
         <span><i></i>per fer</span>
       </div>
+      <p class="petit apagat" style="margin-top:.5rem">
+        <span class="marca ok">✓</span> íntegre ·
+        <span class="marca avis">!</span> enviat molt després de generar-lo ·
+        <span class="marca mal">✗</span> el control no quadra ·
+        <span class="marca compartit">⇄</span> el mateix codi sota més d'un alumne
+      </p>
 
       <h2>Què falla més</h2>
       <div id="agregat"></div>
@@ -263,23 +273,50 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <li><span class="marca ok">✓</span> El codi és íntegre i s'ha enviat poc després de generar-lo.</li>
         <li><span class="marca avis">!</span> Íntegre, però han passat més de 30 minuts entre
             generar-lo i enviar-lo. Sol ser innocent (l'alumne el va desar i el va enviar
-            més tard), però és on es veuria un codi passat d'un company.</li>
+            més tard).</li>
         <li><span class="marca mal">✗</span> Els caràcters de control no quadren: o s'ha copiat
             malament, o s'ha modificat.</li>
+        <li><span class="marca compartit">⇄</span> Aquest mateix codi, caràcter per caràcter,
+            també l'ha enviat un altre alumne. Val la pena preguntar-ho: pot ser que se
+            l'hagin passat o que comparteixin ordinador i sessió.</li>
       </ul>
 
-      <h3 style="margin-top:1.2rem">Sobre l'antifrau</h3>
-      <p class="petit apagat" style="margin:0">
-        El codi acaba amb dos caràcters calculats a partir de tots els altres, en l'esperit
-        de la lletra del DNI però amb un mòdul primer i pesos per posició. Detecta
-        <b>totes</b> les substitucions d'un caràcter i <b>totes</b> les transposicions de dos:
-        si l'alumne canvia un "fallat" per un "a la primera", surt. Un canvi a l'atzar
-        s'escaparia una vegada de cada mil.
+      <h3 style="margin-top:1.2rem">Què verifica el ✓ i què no</h3>
+      <p class="petit" style="margin:0 0 .7rem">
+        Val la pena llegir això una vegada, perquè el ✓ pot suggerir més del que diu.
       </p>
-      <p class="petit apagat" style="margin:.6rem 0 0">
-        La nota no viatja dins del codi: es calcula aquí a partir del detall exercici a
-        exercici. Així no hi pot haver un codi on la nota i el detall es contradiguin, que és
-        per on s'esmuny la manipulació en aquesta mena de sistemes.
+      <p class="petit apagat" style="margin:0">
+        <b>El que sí que verifica: que el contingut no s'hagi tocat.</b> El codi acaba amb
+        dos caràcters calculats a partir de tots els altres, en l'esperit de la lletra del
+        DNI però amb mòdul primer i pesos per posició. Detecta <b>totes</b> les substitucions
+        d'un caràcter i <b>totes</b> les transposicions de dos: si algú canvia un "fallat" per
+        un "a la primera", surt. A més, la nota no viatja dins del codi —es calcula aquí a
+        partir del detall— i per això no hi pot haver un codi on la nota i el detall es
+        contradiguin.
+      </p>
+      <p class="petit" style="margin:.8rem 0 0;padding:.7rem .85rem;background:var(--ambre-suau);
+                border:1px solid #EBD3A3;border-radius:9px;color:#5A3800">
+        <b>El que NO verifica: qui ha fet la feina.</b> El ✓ diu que el codi és autèntic, no
+        que l'hagi guanyat qui l'envia. Tot això passa el control sense deixar rastre:
+      </p>
+      <ul class="ajuda petit apagat" style="margin-top:.6rem">
+        <li>Un alumne fa els exercicis <b>al navegador d'un altre</b> i cadascú se n'emporta
+            un codi generat en moments diferents. Les cadenes són diferents, i la marca ⇄ no
+            hi arriba.</li>
+        <li>Algú <b>fabrica un codi des de la consola</b> del navegador. Tot el que cal per
+            generar-ne un és a <code>js/codi.js</code>, que és públic i s'ha de carregar a la
+            pàgina de l'alumne perquè el botó funcioni. Amb un servidor es podria evitar;
+            sense servidor, no. És una conseqüència inevitable d'haver triat que el lloc
+            funcioni sol, sense comptes ni connexió, i és millor saber-ho que confiar-hi.</li>
+        <li>Algú fa els exercicis <b>amb ajuda al costat</b>, o els torna a fer un cop sap la
+            resposta. La forma de les dades és exactament la mateixa que la de qui treballa
+            sol: aquí no hi ha res a detectar, ni amb aquest sistema ni amb cap altre.</li>
+      </ul>
+      <p class="petit apagat" style="margin:.8rem 0 0">
+        Dit d'una altra manera: aquestes marques serveixen per <b>veure la feina</b> i per
+        atrapar la còpia mandrosa, no per garantir l'autoria. Si el que et cal és una nota
+        certificada, ha de sortir d'alguna cosa feta a classe. Això és, i val més que ho
+        sigui, una eina de seguiment.
       </p>
     </div>
   </section>
@@ -421,6 +458,35 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return m ? m[0] : "";
   }
 
+  /* Un codi és una fotografia del progrés d'UN navegador. Si la mateixa
+     cadena apareix sota dos correus, o bé se l'han passat, o bé dos alumnes
+     comparteixen ordinador i sessió. Que un mateix alumne reenviï el seu no
+     té res de sospitós —passa cada setmana amb qui envia dos cops per si de
+     cas—, així que només es marca quan els correus difereixen.
+
+     Això NO és una acusació: és l'únic senyal d'origen que el sistema pot
+     donar, i el que vol dir exactament ho explica la pestanya d'ajuda. */
+  function marcaCompartits(files) {
+    var per = {};
+    files.forEach(function (r) {
+      if (!r.p.ok) return;
+      var k = RE_CODI.neteja(r.brut.codi);
+      (per[k] = per[k] || []).push(r);
+    });
+    Object.keys(per).forEach(function (k) {
+      var grup = per[k];
+      var correus = {};
+      grup.forEach(function (r) { correus[(r.brut.correu || r.brut.alumne || "?").toLowerCase()] = 1; });
+      var noms = Object.keys(correus);
+      if (noms.length < 2) return;
+      grup.forEach(function (r) {
+        r.compartit = noms.filter(function (c) {
+          return c !== (r.brut.correu || r.brut.alumne || "?").toLowerCase();
+        });
+      });
+    });
+  }
+
   function processa(brut) {
     return brut.map(function (r, i) {
       var p = RE_CODI.llegeix(r.codi);
@@ -428,6 +494,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var hEnv = horaEnviament(r.enviat);
       var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
       var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
+      /* `compartit` l'omple marcaCompartits() després, quan ja hi són tots. */
       return { i: i, brut: r, p: p, forat: forat, estat: estat,
                dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
                dataEnv: dataEnviament(r.enviat) };
@@ -435,10 +502,25 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   }
 
   // ── pintat ─────────────────────────────────────────────────────────────
-  function marca(e) {
-    if (e === "ok") return '<span class="marca ok" title="Codi íntegre">✓</span>';
-    if (e === "avis") return '<span class="marca avis" title="Més de ' + FORAT + ' min entre generar-lo i enviar-lo">!</span>';
-    return '<span class="marca mal" title="El control no quadra">✗</span>';
+  /* Ordre de prioritat: primer si el codi és llegible i íntegre, que és una
+     propietat del codi mateix; després l'origen i el temps, que són indicis.
+     Un codi trencat que a més estigui repetit ha de sortir com a trencat: si
+     el ⇄ tapés el ✗, la marca més important es perdria. El ⇄ sí que es pot
+     acumular amb el "!", perquè diuen coses diferents. */
+  function marca(e, r) {
+    if (e === "mal") return '<span class="marca mal" title="El control no quadra">✗</span>';
+    var out = "";
+    if (r && r.compartit && r.compartit.length) {
+      out += '<span class="marca compartit" title="Aquest mateix codi també '
+        + "l'han enviat: " + r.compartit.join(", ") + '">⇄</span>';
+    }
+    if (e === "avis") {
+      out += '<span class="marca avis" title="Més de ' + FORAT
+        + ' min entre generar-lo i enviar-lo">!</span>';
+    } else if (!out) {
+      out = '<span class="marca ok" title="Codi íntegre">✓</span>';
+    }
+    return out;
   }
   function classeNota(n) { return n >= 7 ? "n-alta" : (n >= 5 ? "n-mitja" : "n-baixa"); }
 
@@ -472,7 +554,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var t = $("#f-text").value.trim().toLowerCase();
     var f = $("#f-full").value, e = $("#f-estat").value;
     return files.filter(function (r) {
-      if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
+      if (e === "compartit") { if (!r.compartit || !r.compartit.length) return false; }
+      else if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
       else if (e && r.estat !== e) return false;
       if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
       if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
@@ -483,9 +566,37 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   function pinta() {
     var fs = filtra();
     $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
+    pintaCompartits();
     pintaEnviaments(fs);
     pintaAlumnes(fs);
     pintaAgregat(fs);
+  }
+
+  /* El resum dels codis repetits va a sobre de la taula i no dins d'una
+     columna, perquè és una cosa que passa entre files i no en una de sola. */
+  function pintaCompartits() {
+    var cap = $("#avis-compartits");
+    if (!cap) {
+      cap = document.createElement("div");
+      cap.id = "avis-compartits";
+      $("#t-env").parentNode.parentNode.insertBefore(cap, $("#t-env").parentNode);
+    }
+    var grups = {};
+    files.forEach(function (r) {
+      if (!r.compartit || !r.compartit.length) return;
+      var k = RE_CODI.neteja(r.brut.codi);
+      (grups[k] = grups[k] || []).push(r.brut.alumne || r.brut.correu);
+    });
+    var claus = Object.keys(grups);
+    if (!claus.length) { cap.innerHTML = ""; return; }
+    cap.innerHTML = '<div class="avis-compartit"><b>⇄ '
+      + claus.length + (claus.length === 1 ? " codi apareix" : " codis apareixen")
+      + " sota més d'un alumne.</b> "
+      + claus.map(function (k) { return grups[k].join(" = "); }).join(" · ")
+      + '<br><span class="petit">Un codi és la fotografia d\'un navegador. Que la '
+      + "mateixa cadena surti sota dos correus vol dir que se l'han passat o que "
+      + "comparteixen ordinador i sessió. Val la pena preguntar-ho abans de donar-ho "
+      + "per fet.</span></div>";
   }
 
   function pintaEnviaments(fs) {
@@ -499,7 +610,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
       var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
       h += '<tr class="clic" data-i="' + r.i + '">'
-        + "<td>" + marca(r.estat) + "</td>"
+        + "<td>" + marca(r.estat, r) + "</td>"
         + "<td>" + (r.brut.alumne || "—") + "</td>"
         + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
         + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
@@ -712,6 +823,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     }
     FORMAT_DATA = detectaFormatData(brut);
     files = processa(brut);
+    marcaCompartits(files);
     obert = null;
     var sel = $("#f-full");
     var vistos = [];
@@ -1285,7 +1397,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var r = files[0];
     var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
                                        : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
-    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat) + " "
+    $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat, r) + " "
       + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
       + "</div>" + h;
   };
