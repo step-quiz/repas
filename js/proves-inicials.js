@@ -137,7 +137,9 @@ window.RE_PROVES = (function () {
       tema: "Augments i descomptes percentuals",
       encap: "Un preu de 50 € puja un 20 % i tot seguit baixa un 20 %.",
       enunciat: "Quant val al final?",
-      blocs: [{ full: 6, bloc: "encadenats" }, { full: 6, bloc: "percentatges" },
+      blocs: [{ full: 6, bloc: "factor_multiplicador" },
+              { full: 6, bloc: "encadenats" }, { full: 6, bloc: "percentatges" },
+              { full: 6, bloc: "aplicacions_percentatge" },
               { full: 6, bloc: "directa_inversa" }],
       opcions: ["48 €", "50 €", "52 €", "40 €"],
       ok: 0
@@ -156,7 +158,8 @@ window.RE_PROVES = (function () {
       tema: "Escales i semblança",
       encap: "En un mapa d'escala $1:50\\,000$,",
       enunciat: "a quants km equivalen 3 cm?",
-      blocs: [{ full: 8, bloc: "escales" }, { full: 8, bloc: "semblanca" },
+      blocs: [{ full: 8, bloc: "escales_calcul" }, { full: 8, bloc: "escales" },
+              { full: 8, bloc: "semblanca_arees" }, { full: 8, bloc: "semblanca" },
               { full: 8, bloc: "tales" }],
       opcions: ["1,5 km", "15 km", "150 km", "0,15 km"],
       ok: 0
@@ -176,7 +179,9 @@ window.RE_PROVES = (function () {
       tema: "Paràboles: vèrtex i talls",
       encap: "De la paràbola $y=x^2-4x+3$,",
       enunciat: "quines són les coordenades del vèrtex?",
-      blocs: [{ full: 10, bloc: "funcions_quadratiques" },
+      blocs: [{ full: 10, bloc: "parabola_produccio" },
+              { full: 10, bloc: "funcions_quadratiques" },
+              { full: 10, bloc: "rectes_produccio" },
               { full: 10, bloc: "concepte_funcio" }],
       opcions: ["$(2,-1)$", "$(-2,15)$", "$(2,3)$", "$(4,3)$"],
       ok: 0
