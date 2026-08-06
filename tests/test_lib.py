@@ -15,6 +15,7 @@ justament NO fer servir la lògica de `lib.py` per comprovar `lib.py`: si una
 prova es limités a comparar la funció amb ella mateixa no detectaria res.
 """
 import os
+import re
 import sys
 import unittest
 from fractions import Fraction as F
@@ -161,7 +162,7 @@ class Validacio(unittest.TestCase):
                     distractors=[lib.D("$3$", "E1", "f"), lib.D("$4$", "E2", "f"),
                                  lib.D("$5$", "E3", "f")],
                     pistes=["p"], resolucio=["r"], ex_text="", nota="",
-                    dif=1, nota_interna="")
+                    dif=1, nota_interna="", figura="")
         base.update(canvis)
         it = dict(base)
         it["id"] = it.pop("qid")
@@ -212,6 +213,52 @@ class Validacio(unittest.TestCase):
 
     def test_deixa_passar_aquests_rastres_a_la_nota_interna(self):
         lib._valida(self._item(nota_interna="vegeu r-im8.tex, cal confirmar"))
+
+
+class Figures(unittest.TestCase):
+    """Les regles que ha de complir una figura per entrar al banc."""
+
+    OK = ('<svg class="figura" viewBox="0 0 10 10" role="img">'
+          '<title>Un quadrat amb la diagonal marcada.</title>'
+          '<rect x="1" y="1" width="8" height="8"/></svg>')
+
+    def _item(self, fig):
+        it = dict(id="99z", ex=99, ap="z", bloc="b", tipus="A",
+                  enunciat="$1+1$", correcta="$2$",
+                  distractors=[lib.D("$3$", "E1", "f"), lib.D("$4$", "E2", "f"),
+                               lib.D("$5$", "E3", "f")],
+                  pistes=["p"], resolucio=["r"], ex_text="", nota="",
+                  dif=1, nota_interna="", figura=fig)
+        it["opcions"] = [it["correcta"]] + [d["tex"] for d in it["distractors"]]
+        return it
+
+    def test_accepta_una_figura_ben_feta(self):
+        lib._valida(self._item(self.OK))
+
+    def test_rebutja_el_que_no_es_un_svg(self):
+        with self.assertRaises(AssertionError):
+            lib._valida(self._item("<img src='fig.png'>"))
+
+    def test_rebutja_una_figura_sense_alternativa_textual(self):
+        with self.assertRaises(AssertionError):
+            lib._valida(self._item(self.OK.replace('role="img"', "")))
+        with self.assertRaises(AssertionError):
+            lib._valida(self._item(re.sub(r"<title>.*?</title>", "", self.OK)))
+
+    def test_rebutja_latex_dins_de_la_figura(self):
+        """KaTeX no entra dins d'un SVG: els $ es veurien tal qual."""
+        with self.assertRaises(AssertionError):
+            lib._valida(self._item(self.OK.replace("<title>U", "<title>$x$ u")))
+
+    def test_rebutja_amplada_fixa_a_l_svg(self):
+        with self.assertRaises(AssertionError):
+            lib._valida(self._item(self.OK.replace("<svg ", '<svg width="300" ')))
+
+    def test_el_width_dels_rect_de_dins_no_molesta(self):
+        """La comprovació d'amplada mira NOMÉS l'etiqueta <svg>: els <rect>
+        en porten i han de portar-ne."""
+        self.assertIn('width="8"', self.OK)
+        lib._valida(self._item(self.OK))
 
 
 class Dificultats(unittest.TestCase):

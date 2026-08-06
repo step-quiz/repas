@@ -365,3 +365,53 @@ class TaulesCoherents(unittest.TestCase):
         m = re.search(r"(\d+)\s+preguntes en total", s)
         self.assertIsNotNone(m)
         self.assertEqual(int(m.group(1)), len(PLANS))
+
+
+class Figures(unittest.TestCase):
+    """La canonada de figures (§3.5 del HANDOVER). Les regles no són d'estil:
+    cadascuna evita que una figura trenqui alguna cosa que ja funciona."""
+
+    def _amb_figura(self):
+        return [it for it in PLANS if it.get("figura")]
+
+    def test_hi_ha_figures(self):
+        self.assertGreater(len(self._amb_figura()), 0,
+                           "cap ítem amb figura: la canonada no s'està fent servir")
+
+    def test_totes_son_svg_amb_viewbox_i_sense_mida_fixa(self):
+        for it in self._amb_figura():
+            f = it["figura"].lstrip()
+            self.assertTrue(f.startswith("<svg"), "%s: no comença per <svg" % it["id"])
+            obertura = f[:f.index(">") + 1]
+            self.assertIn("viewBox", obertura, "%s: sense viewBox" % it["id"])
+            self.assertNotIn('width="', obertura,
+                             "%s: amplada fixa a l'<svg>, no s'adaptarà" % it["id"])
+
+    def test_totes_tenen_alternativa_per_a_lectors_de_pantalla(self):
+        for it in self._amb_figura():
+            self.assertIn('role="img"', it["figura"], "%s: sense role" % it["id"])
+            self.assertIn("<title>", it["figura"], "%s: sense <title>" % it["id"])
+            m = re.search(r"<title>(.*?)</title>", it["figura"], re.S)
+            self.assertGreater(len(m.group(1).strip()), 15,
+                               "%s: el <title> no descriu res" % it["id"])
+
+    def test_cap_figura_no_porta_latex(self):
+        """Dins d'un SVG, KaTeX no hi entra: els $ es veurien tal qual."""
+        for it in self._amb_figura():
+            self.assertNotIn("$", it["figura"], "%s: la figura porta $" % it["id"])
+
+    def test_l_enunciat_es_resol_sense_veure_la_figura(self):
+        """La figura ACOMPANYA l'enunciat, no el substitueix: qui faci servir
+        un lector de pantalla ha de poder resoldre l'exercici igualment. Es
+        comprova que l'enunciat continuï portant els números."""
+        for it in self._amb_figura():
+            self.assertTrue(re.search(r"\d", it["enunciat"]),
+                            "%s: l'enunciat no diu cap mesura i la figura sí; "
+                            "sense veure-la no es pot resoldre" % it["id"])
+
+    def test_les_figures_no_disparen_l_arrodoniment_del_json(self):
+        """Comprovació de sanitat: la figura ha de tornar del JSON tal com
+        va entrar-hi, sense que cap cometa la trenqui."""
+        for it in self._amb_figura():
+            self.assertEqual(it["figura"].count("<svg"), 1)
+            self.assertEqual(it["figura"].count("</svg>"), 1)
