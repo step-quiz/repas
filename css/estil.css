@@ -169,3 +169,14 @@ a.full:hover{border-color:var(--blau)}
 .tutor-targeta.destacada .cta{display:inline-block;margin-top:1rem;background:#fff;
   color:var(--blau);font-weight:700;font-size:.95rem;border-radius:9px;padding:.6rem 1rem}
 .tutor-targeta.destacada:hover .cta{background:#F2F6FC}
+
+/* ---- figures dels enunciats ------------------------------------------
+   L'SVG el genera tools/figures.py i s'incrusta a data/fullN.js. Hereta el
+   color del text (`currentColor` als traços), de manera que no cal mantenir
+   una paleta a part ni tocar res si el lloc canvia de colors. */
+.figura-cont{margin:1rem 0 0;padding:0;text-align:center}
+.figura{max-width:min(100%,20rem);height:auto;color:var(--tinta);overflow:visible}
+.fig-etq{font:600 12px var(--mono);fill:var(--tinta)}
+.fig-etq.petita{font-size:10.5px;fill:var(--apagat)}
+:root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
+@media (max-width:520px){ .figura{max-width:100%} }
