@@ -34,6 +34,47 @@ window.FULL = {
    ]
   },
   {
+   "id": "factor_multiplicador",
+   "titol": "El factor multiplicador",
+   "descripcio": "Pujar un 15 % és multiplicar per 1,15 i baixar-lo, per 0,85: una sola operació per a cada variació, i com desfer-la.",
+   "items": [
+    "275a",
+    "275b",
+    "275c",
+    "275d",
+    "276a",
+    "276b",
+    "276c",
+    "276d",
+    "277a",
+    "277b",
+    "277c",
+    "278a",
+    "278b",
+    "278c",
+    "278d",
+    "279a",
+    "279b",
+    "279c"
+   ]
+  },
+  {
+   "id": "aplicacions_percentatge",
+   "titol": "Descomptes, IVA i interessos",
+   "descripcio": "Descomptes encadenats, IVA, interès simple i repartiments proporcionals.",
+   "items": [
+    "280a",
+    "280b",
+    "281a",
+    "281b",
+    "282a",
+    "282b",
+    "283a",
+    "283b",
+    "284"
+   ]
+  },
+  {
    "id": "encadenats",
    "titol": "Augments i disminucions encadenats",
    "descripcio": "Augments i rebaixes percentuals aplicats seguits, i comparacions \"en proporció\".",
@@ -48,16 +89,29 @@ window.FULL = {
   }
  ],
  "errors": {
+  "BASE_MAL_TRIADA": "Has calculat el percentatge sobre la base que no toca. Una variació percentual sempre es mesura respecte del valor de PARTIDA.",
   "COMPARA_TERMES": "Dues fraccions equivalents gairebé mai tenen els mateixos termes: el que ha de coincidir és el valor, no les xifres.",
   "CREUAMENT_INVERTIT": "Has creuat els termes al revés en aïllar la incògnita.",
   "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
   "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
+  "FACTOR_INVERS_OBLIDAT": "Per desfer una variació percentual no es fa la contrària: es DIVIDEIX pel factor. Si un preu ha pujat un 10 %, baixar-lo un 10 % no el torna al punt de partida.",
+  "FACTOR_PER_PERCENTATGE": "Has donat NOMÉS la part que puja o baixa, no la quantitat final. El factor multiplicador és $1+p$ per augmentar i $1-p$ per rebaixar: d'un sol cop et dona el resultat, no la variació.",
   "FRACCIO_COM_PERCENTATGE": "Has pres el numerador de la fracció com si ja fos el percentatge. Per arribar-hi cal portar la fracció sencera a denominador $100$.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "MAGNITUD_NO_CONVERTIDA": "Has donat el mateix número per a dues magnituds diferents. Fes servir la constant que les relaciona (densitat, preu unitari, velocitat) per passar d'una a l'altra.",
+  "ORDRE_DELS_FACTORS": "Has donat per fet que l'ordre canvia el resultat. Quan les variacions s'encadenen com a factors, el producte és el mateix en qualsevol ordre.",
   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
+  "PART_MAL_ASSIGNADA": "El càlcul és bo però l'has atribuït a qui no toca: comprova a quina part correspon cada resultat.",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "PERCENTATGES_SUMATS": "Has sumat o restat els percentatges entre si. No se sumen mai: cadascun es calcula sobre una base diferent. El que sí que es pot fer és multiplicar els factors.",
   "PERCENTATGE_DECIMAL_MAL": "El pas de tant per cent a decimal no és correcte: es divideix per $100$, així que $0{,}8\\,\\%=0{,}008$ i $8\\,\\%=0{,}08$. Compta les xifres.",
+  "PERCENTATGE_MAL_CALCULAT": "El percentatge d'un valor s'obté multiplicant la seva freqüència relativa per $100$ (o, equivalentment, $\\frac{f_i}{N}\\cdot100$).",
   "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
+  "REPARTIMENT_A_PARTS_IGUALS": "Has repartit a parts iguals. En un repartiment PROPORCIONAL, a cadascú li toca segons el que ha posat.",
+  "RESTA_PER_QUOCIENT": "Has restat les dues quantitats. Un percentatge i una raó surten d'una DIVISIÓ: diuen quantes vegades, no quant més.",
+  "SIMPLE_PER_COMPOST": "Has fet servir interès compost on l'enunciat diu simple. Amb interès simple els interessos es calculen sempre sobre el capital inicial i cada període dona el mateix.",
   "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
   "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
@@ -524,6 +578,600 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obyBhbWIgdW4gJDI1XFwsXFwlJCByZWFsOiAkMVxcY2RvdDF7LH0yNT0xeyx9MjUkIGtnLCBubyAkMXssfTIkIGtnLiBFbCBwZXMgYW51bmNpYXQgbm8gY29pbmNpZGVpeCBhbWIgdW4gaW5jcmVtZW50IGRlbCAkMjVcXCxcXCUkLiIsICJTaSBlbCBwZXMgZGUgY2FkYSBnYWxldGEgZXMgbWFudMOpIGNvbnN0YW50IChjb20gZG9uYSBhIGVudGVuZHJlIGwnZW51bmNpYXQpLCBlbCBwZXJjZW50YXRnZSBkJ2F1Z21lbnQgZGUgUEVTIGkgZWwgZGUgTk9NQlJFIGRlIGdhbGV0ZXMgY29pbmNpZGVpeGVuOiBubyBjYWwgY29uw6hpeGVyIGVsIHBlcyBkJ3VuYSBnYWxldGEgcGVyIHJlc3BvbmRyZS4iLCAiJDB7LH0yXFxjZG90MTAwPTIwJCwgbm8gJDI1JDogcmV2aXNhIGFxdWVzdCBkYXJyZXIgcGFzIGRlbCBjw6BsY3VsIGRlbCBwZXJjZW50YXRnZSByZWFsIGQnaW5jcmVtZW50LiIsICIiXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIkVTX1BPVF9ERVRFUk1JTkFSIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICIiXSwgInJlcyI6IFsiVW4gJDI1XFwsXFwlJCByZWFsIGRvbmFyaWEgJDFcXGNkb3Qxeyx9MjU9MXssfTI1JCBrZywgcGVyw7IgbCdlbnbDoHMgYWN0dWFsIHBlc2Egbm9tw6lzICQxeyx9MiQga2ciLCAiSW5jcmVtZW50IHJlYWw6ICRcXGRmcmFjezF7LH0yLTF9ezF9PTB7LH0yMFxcUmlnaHRhcnJvdzIwXFwsXFwlJCIsICJQZXIgdGFudCBlbCBwZXMgKGkgZWwgbm9tYnJlIGRlIGdhbGV0ZXMsIHNpIGNhZGEgdW5hIHBlc2EgaWd1YWwpIG5vbcOpcyBoYSBhdWdtZW50YXQgdW4gJDIwXFwsXFwlJCwgbm8gdW4gJDI1XFwsXFwlJCJdfQ=="
+  },
+  {
+   "id": "275a",
+   "ex": 275,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Per quin nombre s'ha de multiplicar una quantitat per fer-hi aquesta variació?",
+   "enunciat": "Augmentar-la un $20\\,\\%$.",
+   "opcions": [
+    "$0{,}80$",
+    "$1{,}20$",
+    "$0{,}20$",
+    "$20$"
+   ],
+   "pistes": [
+    "Un percentatge es passa a decimal dividint-lo entre $100$: $20\\,\\%\\to0{,}20$.",
+    "Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal."
+   ],
+   "nota": "Aquest és el bloc sencer resumit: el factor multiplicador és el nombre pel qual multipliques d'un sol cop. Puja un $20\\,\\%$ $\\to$ $\\times1{,}2$; baixa un $20\\,\\%$ $\\to$ $\\times0{,}8$.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIGZhY3RvciBkZSByZWJhaXhhci4gU2kgbGEgcXVhbnRpdGF0IHB1amEsIGVsIGZhY3RvciBoYSBkZSBzZXIgbcOpcyBncmFuIHF1ZSAkMSQuIiwgIiIsICJBcXVlc3QgZmFjdG9yIGV0IGRvbmEgTk9Nw4lTIGxhIHBhcnQgcXVlIHB1amEgbyBiYWl4YSwgbm8gbGEgcXVhbnRpdGF0IGZpbmFsLiBQZXIgdGVuaXIgZWwgdG90YWwgY2FsIHN1bWFyLWhpIGwnb3JpZ2luYWw6ICQxKzB7LH0yMD0xeyx9MjAkLiIsICJFbCAkMjAkIMOpcyBlbCB0YW50IHBlciBjZW50LCBubyBlbCBmYWN0b3IuIFBlciBwYXNzYXItbG8gYSBmYWN0b3IgY2FsIGRpdmlkaXItbG8gZW50cmUgJDEwMCQgaSBzdW1hci1sbyBhICQxJC4iXSwgImVyciI6IFsiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiIsICJGQUNUT1JfUEVSX1BFUkNFTlRBVEdFIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIl0sICJyZXMiOiBbIiQyMFxcLFxcJT0weyx9MjAkIiwgIkZhY3RvciAkPTErMHssfTIwPTF7LH0yMCQiXX0="
+  },
+  {
+   "id": "275b",
+   "ex": 275,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Per quin nombre s'ha de multiplicar una quantitat per fer-hi aquesta variació?",
+   "enunciat": "Rebaixar-la un $35\\,\\%$.",
+   "opcions": [
+    "$0{,}35$",
+    "$35$",
+    "$0{,}65$",
+    "$1{,}35$"
+   ],
+   "pistes": [
+    "Un percentatge es passa a decimal dividint-lo entre $100$: $35\\,\\%\\to0{,}35$.",
+    "Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgZmFjdG9yIGV0IGRvbmEgTk9Nw4lTIGxhIHBhcnQgcXVlIHB1amEgbyBiYWl4YSwgbm8gbGEgcXVhbnRpdGF0IGZpbmFsLiBQZXIgdGVuaXIgZWwgdG90YWwgY2FsIHJlc3Rhci1sYSBkZSBsJ29yaWdpbmFsOiAkMS0weyx9MzU9MHssfTY1JC4iLCAiRWwgJDM1JCDDqXMgZWwgdGFudCBwZXIgY2VudCwgbm8gZWwgZmFjdG9yLiBQZXIgcGFzc2FyLWxvIGEgZmFjdG9yIGNhbCBkaXZpZGlyLWxvIGVudHJlICQxMDAkIGkgcmVzdGFyLWxvIGEgJDEkLiIsICIiLCAiQXF1ZXN0IMOpcyBlbCBmYWN0b3IgZGUgYXVnbWVudGFyLiBTaSBsYSBxdWFudGl0YXQgYmFpeGEsIGVsIGZhY3RvciBoYSBkZSBzZXIgbcOpcyBwZXRpdCBxdWUgJDEkLiJdLCAiZXJyIjogWyJGQUNUT1JfUEVSX1BFUkNFTlRBVEdFIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDM1XFwsXFwlPTB7LH0zNSQiLCAiRmFjdG9yICQ9MS0weyx9MzU9MHssfTY1JCJdfQ=="
+  },
+  {
+   "id": "275c",
+   "ex": 275,
+   "ap": "c",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Per quin nombre s'ha de multiplicar una quantitat per fer-hi aquesta variació?",
+   "enunciat": "Augmentar-la un $7\\,\\%$.",
+   "opcions": [
+    "$1{,}07$",
+    "$0{,}93$",
+    "$7$",
+    "$0{,}07$"
+   ],
+   "pistes": [
+    "Un percentatge es passa a decimal dividint-lo entre $100$: $7\\,\\%\\to0{,}07$.",
+    "Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IMOpcyBlbCBmYWN0b3IgZGUgcmViYWl4YXIuIFNpIGxhIHF1YW50aXRhdCBwdWphLCBlbCBmYWN0b3IgaGEgZGUgc2VyIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICJFbCAkNyQgw6lzIGVsIHRhbnQgcGVyIGNlbnQsIG5vIGVsIGZhY3Rvci4gUGVyIHBhc3Nhci1sbyBhIGZhY3RvciBjYWwgZGl2aWRpci1sbyBlbnRyZSAkMTAwJCBpIHN1bWFyLWxvIGEgJDEkLiIsICJBcXVlc3QgZmFjdG9yIGV0IGRvbmEgTk9Nw4lTIGxhIHBhcnQgcXVlIHB1amEgbyBiYWl4YSwgbm8gbGEgcXVhbnRpdGF0IGZpbmFsLiBQZXIgdGVuaXIgZWwgdG90YWwgY2FsIHN1bWFyLWhpIGwnb3JpZ2luYWw6ICQxKzB7LH0wNz0xeyx9MDckLiJdLCAiZXJyIjogWyIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIkZBQ1RPUl9QRVJfUEVSQ0VOVEFUR0UiXSwgInJlcyI6IFsiJDdcXCxcXCU9MHssfTA3JCIsICJGYWN0b3IgJD0xKzB7LH0wNz0xeyx9MDckIl19"
+  },
+  {
+   "id": "275d",
+   "ex": 275,
+   "ap": "d",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Per quin nombre s'ha de multiplicar una quantitat per fer-hi aquesta variació?",
+   "enunciat": "Rebaixar-la un $4\\,\\%$.",
+   "opcions": [
+    "$0{,}04$",
+    "$4$",
+    "$0{,}96$",
+    "$1{,}04$"
+   ],
+   "pistes": [
+    "Un percentatge es passa a decimal dividint-lo entre $100$: $4\\,\\%\\to0{,}04$.",
+    "Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgZmFjdG9yIGV0IGRvbmEgTk9Nw4lTIGxhIHBhcnQgcXVlIHB1amEgbyBiYWl4YSwgbm8gbGEgcXVhbnRpdGF0IGZpbmFsLiBQZXIgdGVuaXIgZWwgdG90YWwgY2FsIHJlc3Rhci1sYSBkZSBsJ29yaWdpbmFsOiAkMS0weyx9MDQ9MHssfTk2JC4iLCAiRWwgJDQkIMOpcyBlbCB0YW50IHBlciBjZW50LCBubyBlbCBmYWN0b3IuIFBlciBwYXNzYXItbG8gYSBmYWN0b3IgY2FsIGRpdmlkaXItbG8gZW50cmUgJDEwMCQgaSByZXN0YXItbG8gYSAkMSQuIiwgIiIsICJBcXVlc3Qgw6lzIGVsIGZhY3RvciBkZSBhdWdtZW50YXIuIFNpIGxhIHF1YW50aXRhdCBiYWl4YSwgZWwgZmFjdG9yIGhhIGRlIHNlciBtw6lzIHBldGl0IHF1ZSAkMSQuIl0sICJlcnIiOiBbIkZBQ1RPUl9QRVJfUEVSQ0VOVEFUR0UiLCAiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkNFxcLFxcJT0weyx9MDQkIiwgIkZhY3RvciAkPTEtMHssfTA0PTB7LH05NiQiXX0="
+  },
+  {
+   "id": "276a",
+   "ex": 276,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aplica la variació amb un sol producte.",
+   "enunciat": "$250$ €, i puja un $15\\,\\%$.",
+   "opcions": [
+    "$37{,}50$ €",
+    "$287{,}50$ €",
+    "$265{,}00$ €",
+    "$212{,}50$ €"
+   ],
+   "pistes": [
+    "Fes servir el factor multiplicador: $1{,}15$.",
+    "Multiplica $250$ per aquest factor, tot d'un cop."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiDDqXMgbm9tw6lzIGVsIHF1ZSBwdWphICgkMTVcXCxcXCUkIGRlICQyNTAkKS4gRWwgcmVzdWx0YXQgw6lzIGxhIHF1YW50aXRhdCBmaW5hbCwgbm8gbGEgdmFyaWFjacOzLiIsICIiLCAiSGFzIHN1bWF0IG8gcmVzdGF0IGVsICQxNSQgZGlyZWN0YW1lbnQuIEVsICQxNSQgw6lzIHVuIHRhbnQgcGVyIGNlbnQsIG5vIGV1cm9zOiBjYWwgY2FsY3VsYXItbmUgZWwgJDE1XFwsXFwlJCBkZSAkMjUwJC4iLCAiSGFzIGFwbGljYXQgbGEgdmFyaWFjacOzIGFsIHJldsOpczogc2kgcHVqYSwgZWwgcmVzdWx0YXQgaGEgZGUgc2VyIG3DqXMgZ3JhbiBxdWUgJDI1MCQuIl0sICJlcnIiOiBbIkZBQ1RPUl9QRVJfUEVSQ0VOVEFUR0UiLCAiIiwgIlBST0RVQ1RFX1BFUl9TVU1BIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkMjUwXFxjZG90MXssfTE1PTI4N3ssfTUwJCDigqwiXX0="
+  },
+  {
+   "id": "276b",
+   "ex": 276,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aplica la variació amb un sol producte.",
+   "enunciat": "$80$ €, i baixa un $25\\,\\%$.",
+   "opcions": [
+    "$100{,}00$ €",
+    "$55{,}00$ €",
+    "$20{,}00$ €",
+    "$60{,}00$ €"
+   ],
+   "pistes": [
+    "Fes servir el factor multiplicador: $0{,}75$.",
+    "Multiplica $80$ per aquest factor, tot d'un cop."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgYWwgcmV2w6lzOiBzaSBiYWl4YSwgZWwgcmVzdWx0YXQgaGEgZGUgc2VyIG3DqXMgcGV0aXQgcXVlICQ4MCQuIiwgIkhhcyBzdW1hdCBvIHJlc3RhdCBlbCAkMjUkIGRpcmVjdGFtZW50LiBFbCAkMjUkIMOpcyB1biB0YW50IHBlciBjZW50LCBubyBldXJvczogY2FsIGNhbGN1bGFyLW5lIGVsICQyNVxcLFxcJSQgZGUgJDgwJC4iLCAiQWl4w7Igw6lzIG5vbcOpcyBlbCBxdWUgYmFpeGEgKCQyNVxcLFxcJSQgZGUgJDgwJCkuIEVsIHJlc3VsdGF0IMOpcyBsYSBxdWFudGl0YXQgZmluYWwsIG5vIGxhIHZhcmlhY2nDsy4iLCAiIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJQUk9EVUNURV9QRVJfU1VNQSIsICJGQUNUT1JfUEVSX1BFUkNFTlRBVEdFIiwgIiJdLCAicmVzIjogWyIkODBcXGNkb3Qweyx9NzU9NjB7LH0wMCQg4oKsIl19"
+  },
+  {
+   "id": "276c",
+   "ex": 276,
+   "ap": "c",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aplica la variació amb un sol producte.",
+   "enunciat": "$1200$ €, i puja un $8\\,\\%$.",
+   "opcions": [
+    "$1104{,}00$ €",
+    "$1208{,}00$ €",
+    "$96{,}00$ €",
+    "$1296{,}00$ €"
+   ],
+   "pistes": [
+    "Fes servir el factor multiplicador: $1{,}08$.",
+    "Multiplica $1200$ per aquest factor, tot d'un cop."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgYWwgcmV2w6lzOiBzaSBwdWphLCBlbCByZXN1bHRhdCBoYSBkZSBzZXIgbcOpcyBncmFuIHF1ZSAkMTIwMCQuIiwgIkhhcyBzdW1hdCBvIHJlc3RhdCBlbCAkOCQgZGlyZWN0YW1lbnQuIEVsICQ4JCDDqXMgdW4gdGFudCBwZXIgY2VudCwgbm8gZXVyb3M6IGNhbCBjYWxjdWxhci1uZSBlbCAkOFxcLFxcJSQgZGUgJDEyMDAkLiIsICJBaXjDsiDDqXMgbm9tw6lzIGVsIHF1ZSBwdWphICgkOFxcLFxcJSQgZGUgJDEyMDAkKS4gRWwgcmVzdWx0YXQgw6lzIGxhIHF1YW50aXRhdCBmaW5hbCwgbm8gbGEgdmFyaWFjacOzLiIsICIiXSwgImVyciI6IFsiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlBST0RVQ1RFX1BFUl9TVU1BIiwgIkZBQ1RPUl9QRVJfUEVSQ0VOVEFUR0UiLCAiIl0sICJyZXMiOiBbIiQxMjAwXFxjZG90MXssfTA4PTEyOTZ7LH0wMCQg4oKsIl19"
+  },
+  {
+   "id": "276d",
+   "ex": 276,
+   "ap": "d",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aplica la variació amb un sol producte.",
+   "enunciat": "$45$ €, i baixa un $40\\,\\%$.",
+   "opcions": [
+    "$63{,}00$ €",
+    "$18{,}00$ €",
+    "$5{,}00$ €",
+    "$27{,}00$ €"
+   ],
+   "pistes": [
+    "Fes servir el factor multiplicador: $0{,}60$.",
+    "Multiplica $45$ per aquest factor, tot d'un cop."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgYWwgcmV2w6lzOiBzaSBiYWl4YSwgZWwgcmVzdWx0YXQgaGEgZGUgc2VyIG3DqXMgcGV0aXQgcXVlICQ0NSQuIiwgIkFpeMOyIMOpcyBub23DqXMgZWwgcXVlIGJhaXhhICgkNDBcXCxcXCUkIGRlICQ0NSQpLiBFbCByZXN1bHRhdCDDqXMgbGEgcXVhbnRpdGF0IGZpbmFsLCBubyBsYSB2YXJpYWNpw7MuIiwgIkhhcyBzdW1hdCBvIHJlc3RhdCBlbCAkNDAkIGRpcmVjdGFtZW50LiBFbCAkNDAkIMOpcyB1biB0YW50IHBlciBjZW50LCBubyBldXJvczogY2FsIGNhbGN1bGFyLW5lIGVsICQ0MFxcLFxcJSQgZGUgJDQ1JC4iLCAiIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJGQUNUT1JfUEVSX1BFUkNFTlRBVEdFIiwgIlBST0RVQ1RFX1BFUl9TVU1BIiwgIiJdLCAicmVzIjogWyIkNDVcXGNkb3Qweyx9NjA9Mjd7LH0wMCQg4oKsIl19"
+  },
+  {
+   "id": "277a",
+   "ex": 277,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "A l'inrevés: es coneix el preu DESPRÉS de la variació i es busca el de partida.",
+   "enunciat": "Un article costa $66$ € després de pujar un $10\\,\\%$. Quant costava abans?",
+   "opcions": [
+    "$60{,}00$ €",
+    "$66$ €",
+    "$72{,}60$ €",
+    "$59{,}40$ €"
+   ],
+   "pistes": [
+    "El preu de partida, multiplicat pel factor $1{,}10$, dona $66$.",
+    "Per trobar el de partida, divideix: $\\dfrac{66}{1{,}10}$."
+   ],
+   "nota": "Aquest és l'error més habitual amb els percentatges: si un preu ha pujat un $10\\,\\%$, per tornar enrere NO es baixa un $10\\,\\%$. Comprova-ho: $60\\to66\\to59{,}4$, i no torna a $60$.",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IMOpcyBlbCBwcmV1IHF1ZSBqYSBldCBkb25hdmVuLCBlbCBkJ2FyYS4iLCAiSGFzIHRvcm5hdCBhIG11bHRpcGxpY2FyIHBlbCBmYWN0b3IsIGkgYWl4w7IgZXQgcG9ydGEgZW5jYXJhIG3DqXMgbGx1bnkuIFBlciBkZXNmZXIgdW5hIG11bHRpcGxpY2FjacOzIGNhbCBkaXZpZGlyLiIsICJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgY29udHLDoHJpYSBhbCBwcmV1IGZpbmFsLiBBbmFyIGVucmVyZSBubyDDqXMgcmVzdGFyIGVsIG1hdGVpeCBwZXJjZW50YXRnZTogw6lzIERJVklESVIgcGVsIGZhY3RvciwgJFxcZGZyYWN7NjZ9ezF7LH0xMH0kLiJdLCAiZXJyIjogWyIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiSU5WRVJUSURBIiwgIkZBQ1RPUl9JTlZFUlNfT0JMSURBVCJdLCAicmVzIjogWyJTaSAkeCQgw6lzIGVsIHByZXUgZGUgcGFydGlkYTogJHhcXGNkb3Qxeyx9MTA9NjYkIiwgIiR4PVxcZGZyYWN7NjZ9ezF7LH0xMH09NjB7LH0wMCQg4oKsIl19"
+  },
+  {
+   "id": "277b",
+   "ex": 277,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "A l'inrevés: es coneix el preu DESPRÉS de la variació i es busca el de partida.",
+   "enunciat": "Un article costa $51$ € després d'una rebaixa del $15\\,\\%$. Quant costava abans?",
+   "opcions": [
+    "$58{,}65$ €",
+    "$43{,}35$ €",
+    "$51$ €",
+    "$60{,}00$ €"
+   ],
+   "pistes": [
+    "El preu de partida, multiplicat pel factor $0{,}85$, dona $51$.",
+    "Per trobar el de partida, divideix: $\\dfrac{51}{0{,}85}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgY29udHLDoHJpYSBhbCBwcmV1IGZpbmFsLiBBbmFyIGVucmVyZSBubyDDqXMgc3VtYXIgZWwgbWF0ZWl4IHBlcmNlbnRhdGdlOiDDqXMgRElWSURJUiBwZWwgZmFjdG9yLCAkXFxkZnJhY3s1MX17MHssfTg1fSQuIiwgIkhhcyB0b3JuYXQgYSBtdWx0aXBsaWNhciBwZWwgZmFjdG9yLCBpIGFpeMOyIGV0IHBvcnRhIGVuY2FyYSBtw6lzIGxsdW55LiBQZXIgZGVzZmVyIHVuYSBtdWx0aXBsaWNhY2nDsyBjYWwgZGl2aWRpci4iLCAiQXF1ZXN0IMOpcyBlbCBwcmV1IHF1ZSBqYSBldCBkb25hdmVuLCBlbCBkJ2FyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9JTlZFUlNfT0JMSURBVCIsICJJTlZFUlRJREEiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiIl0sICJyZXMiOiBbIlNpICR4JCDDqXMgZWwgcHJldSBkZSBwYXJ0aWRhOiAkeFxcY2RvdDB7LH04NT01MSQiLCAiJHg9XFxkZnJhY3s1MX17MHssfTg1fT02MHssfTAwJCDigqwiXX0="
+  },
+  {
+   "id": "277c",
+   "ex": 277,
+   "ap": "c",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "A l'inrevés: es coneix el preu DESPRÉS de la variació i es busca el de partida.",
+   "enunciat": "Un article costa $189$ € després d'un descompte del $10\\,\\%$. Quant costava abans?",
+   "opcions": [
+    "$170{,}10$ €",
+    "$210{,}00$ €",
+    "$207{,}90$ €",
+    "$189$ €"
+   ],
+   "pistes": [
+    "El preu de partida, multiplicat pel factor $0{,}90$, dona $189$.",
+    "Per trobar el de partida, divideix: $\\dfrac{189}{0{,}90}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgdG9ybmF0IGEgbXVsdGlwbGljYXIgcGVsIGZhY3RvciwgaSBhaXjDsiBldCBwb3J0YSBlbmNhcmEgbcOpcyBsbHVueS4gUGVyIGRlc2ZlciB1bmEgbXVsdGlwbGljYWNpw7MgY2FsIGRpdmlkaXIuIiwgIiIsICJIYXMgYXBsaWNhdCBsYSB2YXJpYWNpw7MgY29udHLDoHJpYSBhbCBwcmV1IGZpbmFsLiBBbmFyIGVucmVyZSBubyDDqXMgc3VtYXIgZWwgbWF0ZWl4IHBlcmNlbnRhdGdlOiDDqXMgRElWSURJUiBwZWwgZmFjdG9yLCAkXFxkZnJhY3sxODl9ezB7LH05MH0kLiIsICJBcXVlc3Qgw6lzIGVsIHByZXUgcXVlIGphIGV0IGRvbmF2ZW4sIGVsIGQnYXJhLiJdLCAiZXJyIjogWyJJTlZFUlRJREEiLCAiIiwgIkZBQ1RPUl9JTlZFUlNfT0JMSURBVCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyJTaSAkeCQgw6lzIGVsIHByZXUgZGUgcGFydGlkYTogJHhcXGNkb3Qweyx9OTA9MTg5JCIsICIkeD1cXGRmcmFjezE4OX17MHssfTkwfT0yMTB7LH0wMCQg4oKsIl19"
+  },
+  {
+   "id": "278a",
+   "ex": 278,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Quin percentatge representa la primera quantitat de la segona?",
+   "enunciat": "$18$ de $60$.",
+   "opcions": [
+    "$42\\,\\%$",
+    "$0{,}3\\,\\%$",
+    "$30\\,\\%$",
+    "$333{,}33\\,\\%$"
+   ],
+   "pistes": [
+    "Divideix la part entre el total.",
+    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICIiLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRcXGRmcmFjezE4fXs2MH09MHssfTMwMDAkIiwgIiQweyx9MzAwMFxcY2RvdDEwMD0zMFxcLFxcJSQiXX0="
+  },
+  {
+   "id": "278b",
+   "ex": 278,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Quin percentatge representa la primera quantitat de la segona?",
+   "enunciat": "$7$ de $28$.",
+   "opcions": [
+    "$0{,}25\\,\\%$",
+    "$21\\,\\%$",
+    "$400\\,\\%$",
+    "$25\\,\\%$"
+   ],
+   "pistes": [
+    "Divideix la part entre el total.",
+    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJJTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezd9ezI4fT0weyx9MjUwMCQiLCAiJDB7LH0yNTAwXFxjZG90MTAwPTI1XFwsXFwlJCJdfQ=="
+  },
+  {
+   "id": "278c",
+   "ex": 278,
+   "ap": "c",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Quin percentatge representa la primera quantitat de la segona?",
+   "enunciat": "$45$ de $300$.",
+   "opcions": [
+    "$15\\,\\%$",
+    "$255\\,\\%$",
+    "$666{,}67\\,\\%$",
+    "$0{,}15\\,\\%$"
+   ],
+   "pistes": [
+    "Divideix la part entre el total.",
+    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHJlc3RhdCBsZXMgZHVlcyBxdWFudGl0YXRzLiBVbiBwZXJjZW50YXRnZSBzdXJ0IGQndW5hIGRpdmlzacOzLCBubyBkJ3VuYSByZXN0YS4iLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIiwgIkFxdWVzdCDDqXMgZWwgcXVvY2llbnQgZW4gZGVjaW1hbDogcGVyIHBhc3Nhci1sbyBhIHBlcmNlbnRhdGdlIGVuY2FyYSBmYWx0YSBtdWx0aXBsaWNhciBwZXIgJDEwMCQuIl0sICJlcnIiOiBbIiIsICJSRVNUQV9QRVJfUVVPQ0lFTlQiLCAiSU5WRVJUSURBIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIl0sICJyZXMiOiBbIiRcXGRmcmFjezQ1fXszMDB9PTB7LH0xNTAwJCIsICIkMHssfTE1MDBcXGNkb3QxMDA9MTVcXCxcXCUkIl19"
+  },
+  {
+   "id": "278d",
+   "ex": 278,
+   "ap": "d",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Quin percentatge representa la primera quantitat de la segona?",
+   "enunciat": "$12$ de $15$.",
+   "opcions": [
+    "$125\\,\\%$",
+    "$0{,}8\\,\\%$",
+    "$80\\,\\%$",
+    "$3\\,\\%$"
+   ],
+   "pistes": [
+    "Divideix la part entre el total.",
+    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiQXF1ZXN0IMOpcyBlbCBxdW9jaWVudCBlbiBkZWNpbWFsOiBwZXIgcGFzc2FyLWxvIGEgcGVyY2VudGF0Z2UgZW5jYXJhIGZhbHRhIG11bHRpcGxpY2FyIHBlciAkMTAwJC4iLCAiIiwgIkhhcyByZXN0YXQgbGVzIGR1ZXMgcXVhbnRpdGF0cy4gVW4gcGVyY2VudGF0Z2Ugc3VydCBkJ3VuYSBkaXZpc2nDsywgbm8gZCd1bmEgcmVzdGEuIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiUkVTVEFfUEVSX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRcXGRmcmFjezEyfXsxNX09MHssfTgwMDAkIiwgIiQweyx9ODAwMFxcY2RvdDEwMD04MFxcLFxcJSQiXX0="
+  },
+  {
+   "id": "279a",
+   "ex": 279,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variació percentual entre els dos valors, i digues si és un augment o una disminució.",
+   "enunciat": "De $40$ a $50$.",
+   "opcions": [
+    "Disminució del $25\\,\\%$",
+    "Augment del $20\\,\\%$",
+    "Augment del $10\\,\\%$",
+    "Augment del $25\\,\\%$"
+   ],
+   "pistes": [
+    "Calcula primer la diferència: $50-40=10$.",
+    "Divideix-la entre el valor de PARTIDA i multiplica per $100$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZXJjZW50YXRnZSDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHNlbnRpdCBubzogZGUgJDQwJCBhICQ1MCQgbGEgcXVhbnRpdGF0IHB1amEuIiwgIkhhcyBkaXZpZGl0IGVudHJlIGVsIHZhbG9yIEZJTkFMLiBMYSB2YXJpYWNpw7MgcGVyY2VudHVhbCBzZW1wcmUgZXMgbWVzdXJhIHJlc3BlY3RlIGRlbCB2YWxvciBkZSBQQVJUSURBLCBxdWUgYXF1w60gw6lzICQ0MCQuIiwgIkVsICQxMCQgw6lzIGxhIGRpZmVyw6huY2lhIGVuIHVuaXRhdHMsIG5vIGVuIHRhbnQgcGVyIGNlbnQuIFBlciBwYXNzYXItbGEgYSBwZXJjZW50YXRnZSBjYWwgZGl2aWRpci1sYSBlbnRyZSBlbCB2YWxvciBkZSBwYXJ0aWRhIGkgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICIiXSwgImVyciI6IFsiVkVSRURJQ1RFX0lOVkVSVElUIiwgIkJBU0VfTUFMX1RSSUFEQSIsICJQRVJDRU5UQVRHRV9NQUxfQ0FMQ1VMQVQiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhOiAkNTAtNDA9MTAkIiwgIiRcXGRmcmFjezEwfXs0MH1cXGNkb3QxMDA9MjVcXCxcXCUkIiwgIkF1Z21lbnQgZGVsICQyNVxcLFxcJSQiXX0="
+  },
+  {
+   "id": "279b",
+   "ex": 279,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variació percentual entre els dos valors, i digues si és un augment o una disminució.",
+   "enunciat": "De $80$ a $60$.",
+   "opcions": [
+    "Augment del $25\\,\\%$",
+    "Disminució del $25\\,\\%$",
+    "Disminució del $33{,}33\\,\\%$",
+    "Disminució del $20\\,\\%$"
+   ],
+   "pistes": [
+    "Calcula primer la diferència: $60-80=-20$.",
+    "Divideix-la entre el valor de PARTIDA i multiplica per $100$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZXJjZW50YXRnZSDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHNlbnRpdCBubzogZGUgJDgwJCBhICQ2MCQgbGEgcXVhbnRpdGF0IGJhaXhhLiIsICIiLCAiSGFzIGRpdmlkaXQgZW50cmUgZWwgdmFsb3IgRklOQUwuIExhIHZhcmlhY2nDsyBwZXJjZW50dWFsIHNlbXByZSBlcyBtZXN1cmEgcmVzcGVjdGUgZGVsIHZhbG9yIGRlIFBBUlRJREEsIHF1ZSBhcXXDrSDDqXMgJDgwJC4iLCAiRWwgJDIwJCDDqXMgbGEgZGlmZXLDqG5jaWEgZW4gdW5pdGF0cywgbm8gZW4gdGFudCBwZXIgY2VudC4gUGVyIHBhc3Nhci1sYSBhIHBlcmNlbnRhdGdlIGNhbCBkaXZpZGlyLWxhIGVudHJlIGVsIHZhbG9yIGRlIHBhcnRpZGEgaSBtdWx0aXBsaWNhciBwZXIgJDEwMCQuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiQkFTRV9NQUxfVFJJQURBIiwgIlBFUkNFTlRBVEdFX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyJEaWZlcsOobmNpYTogJDYwLTgwPS0yMCQiLCAiJFxcZGZyYWN7LTIwfXs4MH1cXGNkb3QxMDA9LTI1XFwsXFwlJCIsICJEaXNtaW51Y2nDsyBkZWwgJDI1XFwsXFwlJCJdfQ=="
+  },
+  {
+   "id": "279c",
+   "ex": 279,
+   "ap": "c",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Calcula la variació percentual entre els dos valors, i digues si és un augment o una disminució.",
+   "enunciat": "De $120$ a $150$.",
+   "opcions": [
+    "Augment del $30\\,\\%$",
+    "Augment del $25\\,\\%$",
+    "Disminució del $25\\,\\%$",
+    "Augment del $20\\,\\%$"
+   ],
+   "pistes": [
+    "Calcula primer la diferència: $150-120=30$.",
+    "Divideix-la entre el valor de PARTIDA i multiplica per $100$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkMzAkIMOpcyBsYSBkaWZlcsOobmNpYSBlbiB1bml0YXRzLCBubyBlbiB0YW50IHBlciBjZW50LiBQZXIgcGFzc2FyLWxhIGEgcGVyY2VudGF0Z2UgY2FsIGRpdmlkaXItbGEgZW50cmUgZWwgdmFsb3IgZGUgcGFydGlkYSBpIG11bHRpcGxpY2FyIHBlciAkMTAwJC4iLCAiIiwgIkVsIHBlcmNlbnRhdGdlIMOpcyBjb3JyZWN0ZSwgcGVyw7IgZWwgc2VudGl0IG5vOiBkZSAkMTIwJCBhICQxNTAkIGxhIHF1YW50aXRhdCBwdWphLiIsICJIYXMgZGl2aWRpdCBlbnRyZSBlbCB2YWxvciBGSU5BTC4gTGEgdmFyaWFjacOzIHBlcmNlbnR1YWwgc2VtcHJlIGVzIG1lc3VyYSByZXNwZWN0ZSBkZWwgdmFsb3IgZGUgUEFSVElEQSwgcXVlIGFxdcOtIMOpcyAkMTIwJC4iXSwgImVyciI6IFsiUEVSQ0VOVEFUR0VfTUFMX0NBTENVTEFUIiwgIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiQkFTRV9NQUxfVFJJQURBIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhOiAkMTUwLTEyMD0zMCQiLCAiJFxcZGZyYWN7MzB9ezEyMH1cXGNkb3QxMDA9MjVcXCxcXCUkIiwgIkF1Z21lbnQgZGVsICQyNVxcLFxcJSQiXX0="
+  },
+  {
+   "id": "280a",
+   "ex": 280,
+   "ap": "a",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Una botiga fa un $20\\,\\%$ de descompte i, damunt del preu ja rebaixat, un $10\\,\\%$ més per pagar en efectiu.",
+   "enunciat": "Un article de $200$ €, quant costa al final?",
+   "opcions": [
+    "$180$ €",
+    "$144$ €",
+    "$140$ €",
+    "$160$ €"
+   ],
+   "pistes": [
+    "Aplica el primer descompte: $200\\cdot0{,}8$.",
+    "Sobre el resultat, aplica el segon: $\\cdot\\,0{,}9$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgYXBsaWNhdCBlbCAkMTBcXCxcXCUkLiBFbHMgZGVzY29tcHRlcyBzw7NuIGRvcywgdW4gZGFycmVyZSBsJ2FsdHJlLiIsICIiLCAiSGFzIHN1bWF0IGVscyBkb3MgZGVzY29tcHRlcyBjb20gc2kgZm9zc2luIHVuICQzMFxcLFxcJSQuIEVsIHNlZ29uIGRlc2NvbXB0ZSBzJ2FwbGljYSBzb2JyZSAkMTYwJCDigqwsIG5vIHNvYnJlICQyMDAkIOKCrDogJDE2MFxcY2RvdDB7LH05PTE0NCQuIiwgIkFxdWVzdCDDqXMgZWwgcHJldSBkZXNwcsOpcyBkZWwgcHJpbWVyIGRlc2NvbXB0ZS4gRW5jYXJhIGZhbHRhIGFwbGljYXItaGkgZWwgc2Vnb24uIl0sICJlcnIiOiBbIkZBQ1RPUl9QRVJfUEVSQ0VOVEFUR0UiLCAiIiwgIlBFUkNFTlRBVEdFU19TVU1BVFMiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiJDIwMFxcY2RvdDB7LH04PTE2MCQg4oKsIiwgIiQxNjBcXGNkb3Qweyx9OT0xNDQkIOKCrCJdfQ=="
+  },
+  {
+   "id": "280b",
+   "ex": 280,
+   "ap": "b",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Una botiga fa un $20\\,\\%$ de descompte i, damunt del preu ja rebaixat, un $10\\,\\%$ més per pagar en efectiu.",
+   "enunciat": "A quin descompte únic equival?",
+   "opcions": [
+    "Al $72\\,\\%$",
+    "Al $28\\,\\%$",
+    "Al $30\\,\\%$",
+    "Al $2\\,\\%$"
+   ],
+   "pistes": [
+    "Multiplica els dos factors: $0{,}8\\cdot0{,}9$.",
+    "El descompte és el que falta perquè el factor arribi a $1$."
+   ],
+   "nota": "Que dos descomptes del $20\\,\\%$ i el $10\\,\\%$ no facin un $30\\,\\%$ és el motiu de ser del factor multiplicador. Amb factors es veu de seguida; sumant percentatges, mai.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkNzJcXCxcXCUkIMOpcyBlbCBxdWUgRVMgUEFHQSwgbm8gZWwgcXVlIGVzIGRlc2NvbXB0YS4gRWwgZGVzY29tcHRlIMOpcyBlbCBxdWUgZmFsdGEgZmlucyBhICQxMDAkLiIsICIiLCAiRWxzIHBlcmNlbnRhdGdlcyBlbmNhZGVuYXRzIG5vIHNlIHN1bWVuLiBFbCBmYWN0b3IgY29uanVudCDDqXMgJDB7LH04XFxjZG90MHssfTk9MHssfTcyJCwgaSAkMS0weyx9NzI9MHssfTI4JCwgbyBzaWd1aSB1biAkMjhcXCxcXCUkLiIsICJObyDDqXMgbGEgZGlmZXLDqG5jaWEgZW50cmUgZWxzIGRvcyBkZXNjb21wdGVzOiDDqXMgZWwgcmVzdWx0YXQgZCdhcGxpY2FyLWxvcyB0b3RzIGRvcy4iXSwgImVyciI6IFsiRkFDVE9SX1BFUl9QRVJDRU5UQVRHRSIsICIiLCAiUEVSQ0VOVEFUR0VTX1NVTUFUUyIsICJQUk9EVUNURV9QRVJfU1VNQSJdLCAicmVzIjogWyJGYWN0b3IgY29uanVudDogJDB7LH04XFxjZG90MHssfTk9MHssfTcyJCIsICIkMS0weyx9NzI9MHssfTI4XFx0bzI4XFwsXFwlJCIsICJDb21wcm92YWNpw7M6ICQyMDBcXGNkb3Qweyx9NzI9MTQ0JCDigqwsIGVsIG1hdGVpeCBkJ2FiYW5zIl19"
+  },
+  {
+   "id": "281a",
+   "ex": 281,
+   "ap": "a",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Un ordinador val $650$ € sense IVA. L'IVA és del $21\\,\\%$ i la botiga fa un $12\\,\\%$ de descompte sobre el preu sense IVA.",
+   "enunciat": "Quin és el preu final que paga el client?",
+   "opcions": [
+    "$786{,}50$ €",
+    "$572{,}00$ €",
+    "$708{,}50$ €",
+    "$692{,}12$ €"
+   ],
+   "pistes": [
+    "Aplica primer el descompte sobre el preu sense IVA: $650\\cdot0{,}88$.",
+    "Sobre el resultat, afegeix-hi l'IVA: $\\cdot\\,1{,}21$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYXBsaWNhdCBsJ0lWQSBwZXLDsiB0J2hhcyBkZWl4YXQgZWwgZGVzY29tcHRlLiIsICJBcXVlc3Qgw6lzIGVsIHByZXUgYW1iIGVsIGRlc2NvbXB0ZSBwZXLDsiBzZW5zZSBJVkEuIEVuY2FyYSBmYWx0YSBhZmVnaXItbCdoaS4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0ICQyMS0xMj05JCBpIGhhcyBhcGxpY2F0IHVuICQ5XFwsXFwlJC4gRWxzIHBlcmNlbnRhdGdlcyBubyBzZSBzdW1lbiBuaSBlcyByZXN0ZW4gZW50cmUgc2k6IGNhZGEgdW4gbXVsdGlwbGljYSBwZWwgc2V1IGZhY3Rvci4iLCAiIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiUEVSQ0VOVEFUR0VTX1NVTUFUUyIsICIiXSwgInJlcyI6IFsiQW1iIGRlc2NvbXB0ZTogJDY1MFxcY2RvdDB7LH04OD01NzJ7LH0wMCQg4oKsIiwgIkFtYiBJVkE6ICQ1NzJ7LH0wMFxcY2RvdDF7LH0yMT02OTJ7LH0xMiQg4oKsIl19"
+  },
+  {
+   "id": "281b",
+   "ex": 281,
+   "ap": "b",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Un ordinador val $650$ € sense IVA. L'IVA és del $21\\,\\%$ i la botiga fa un $12\\,\\%$ de descompte sobre el preu sense IVA.",
+   "enunciat": "Si la botiga apliqués primer l'IVA i després el descompte, el client pagaria el mateix?",
+   "opcions": [
+    "Depèn de si l'IVA es calcula abans o després d'arrodonir.",
+    "No: sortiria més car, perquè el descompte s'aplicaria sobre una quantitat més gran.",
+    "Sí: multiplicar per $0{,}88$ i per $1{,}21$ dona el mateix en qualsevol ordre.",
+    "No: sortiria més barat."
+   ],
+   "pistes": [
+    "Escriu les dues operacions com un producte de factors.",
+    "La multiplicació, canvia si en canvies l'ordre?"
+   ],
+   "nota": "Compte: això val quan totes dues variacions es fan sobre la MATEIXA base encadenada. Si el descompte fos sobre el preu sense IVA i l'IVA es calculés sempre sobre el preu de tarifa, ja no serien factors encadenats i sí que canviaria.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2Fycm9kb25pbWVudCBwb3QgbW91cmUgYWxndW4gY8OobnRpbSwgcGVyw7IgbGEgcHJlZ3VudGEgw6lzIHNvYnJlIGVsIGPDoGxjdWw6IGFtYiBmYWN0b3JzLCBsJ29yZHJlIG5vIGhpIGZhIHJlcy4iLCAiRWwgZGVzY29tcHRlIHMnYXBsaWNhcmlhIHNvYnJlIHVuYSBxdWFudGl0YXQgbcOpcyBncmFuLCBzw60sIHBlcsOyIHRhbWLDqSBzZXJpYSB1biBkZXNjb21wdGUgbcOpcyBncmFuLiBFbCBwcm9kdWN0ZSBubyBkZXDDqG4gZGUgbCdvcmRyZTogJDY1MFxcY2RvdDB7LH04OFxcY2RvdDF7LH0yMT02NTBcXGNkb3Qxeyx9MjFcXGNkb3Qweyx9ODgkLiIsICIiLCAiTGEgbXVsdGlwbGljYWNpw7Mgw6lzIGNvbW11dGF0aXZhOiBjYW52aWFyIGwnb3JkcmUgZGVscyBmYWN0b3JzIG5vIGNhbnZpYSBlbCByZXN1bHRhdC4iXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiT1JEUkVfREVMU19GQUNUT1JTIiwgIiIsICJPUkRSRV9ERUxTX0ZBQ1RPUlMiXSwgInJlcyI6IFsiT3JkcmUgMTogJDY1MFxcY2RvdDB7LH04OFxcY2RvdDF7LH0yMSQiLCAiT3JkcmUgMjogJDY1MFxcY2RvdDF7LH0yMVxcY2RvdDB7LH04OCQiLCAiU8OzbiBlbCBtYXRlaXggcHJvZHVjdGU6ICQ2OTJ7LH0xMiQg4oKsIGVuIHRvdHMgZG9zIGNhc29zIl19"
+  },
+  {
+   "id": "282a",
+   "ex": 282,
+   "ap": "a",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un compte que dona un $3\\,\\%$ d'interès simple anual s'hi ingressen $2\\,400$ €.",
+   "enunciat": "Quants interessos genera en un any?",
+   "opcions": [
+    "$7{,}2$ €",
+    "$2\\,472$ €",
+    "$800$ €",
+    "$72$ €"
+   ],
+   "pistes": [
+    "El $3\\,\\%$ de $2\\,400$ és $2400\\cdot0{,}03$.",
+    "Els interessos són la part que s'afegeix, no el total."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUJ2hhcyBkZXNwbGHDp2F0IHVuIGxsb2M6ICQzXFwsXFwlJCBkZSAkMlxcLDQwMCQgw6lzICQyNDAwXFxjZG90MHssfTAzPTcyJCwgbm8gJDI0MDBcXGNkb3Qweyx9MDAzJC4iLCAiQXF1ZXN0IMOpcyBlbCBjYXBpdGFsIGZpbmFsLCBubyBlbHMgaW50ZXJlc3Nvcy4gRWxzIGludGVyZXNzb3Mgc8OzbiBub23DqXMgZWwgcXVlIHMnaGkgaGEgYWZlZ2l0LiIsICJTZW1ibGEgcXVlIGhhcyBkaXZpZGl0IGVudHJlICQzJC4gRWwgJDNcXCxcXCUkIMOpcyAkXFxkZnJhY3szfXsxMDB9JCwgbm8gJFxcZGZyYWN7MX17M30kLiIsICIiXSwgImVyciI6IFsiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiUEVSQ0VOVEFUR0VfTUFMX0NBTENVTEFUIiwgIiJdLCAicmVzIjogWyIkST0yNDAwXFxjZG90MHssfTAzPTcyJCDigqwiXX0="
+  },
+  {
+   "id": "282b",
+   "ex": 282,
+   "ap": "b",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un compte que dona un $3\\,\\%$ d'interès simple anual s'hi ingressen $2\\,400$ €.",
+   "enunciat": "I en $5$ anys, amb interès simple?",
+   "opcions": [
+    "$1\\,080$ €",
+    "$382{,}26$ €",
+    "$2\\,760$ €",
+    "$360$ €"
+   ],
+   "pistes": [
+    "Amb interès simple, cada any genera el mateix que el primer.",
+    "Multiplica els interessos d'un any pel nombre d'anys."
+   ],
+   "nota": "Interès SIMPLE vol dir que els interessos no es reinverteixen: cada any es calculen sempre sobre el capital inicial. Si es reinvertissin (interès compost), en $5$ anys no serien $360$ € sinó uns $382$ €.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBmZXQgZWwgJDQ1XFwsXFwlJC4gQ2luYyBhbnlzIGFsICQzXFwsXFwlJCBzw7NuIHVuICQxNVxcLFxcJSQgZW4gdG90YWwsIG5vIHVuICQ0NVxcLFxcJSQuIiwgIkFpeMOyIMOpcyBpbnRlcsOocyBDT01QT1NULCBxdWUgw6lzIHF1YW4gZWxzIGludGVyZXNzb3MgZ2VuZXJlbiBtw6lzIGludGVyZXNzb3MuIEFtYiBpbnRlcsOocyBzaW1wbGUsIGNhZGEgYW55IGVzIGdlbmVyYSBlbCBtYXRlaXg6ICQ3MlxcY2RvdDUkLiIsICJBcXVlc3Qgw6lzIGVsIGNhcGl0YWwgZmluYWwgKCQyNDAwKzM2MCQpLCBubyBlbHMgaW50ZXJlc3Nvcy4iLCAiIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX01BTF9DQUxDVUxBVCIsICJTSU1QTEVfUEVSX0NPTVBPU1QiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiIl0sICJyZXMiOiBbIiRJPTI0MDBcXGNkb3Qweyx9MDNcXGNkb3Q1PTM2MCQg4oKsIl19"
+  },
+  {
+   "id": "283a",
+   "ex": 283,
+   "ap": "a",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Tres socis han posat $3\\,000$ €, $5\\,000$ € i $2\\,000$ € en un negoci que ha donat $12\\,000$ € de benefici, que es reparteix proporcionalment al que ha posat cadascú.",
+   "enunciat": "Quant li toca al que va posar $5\\,000$ €?",
+   "opcions": [
+    "$4\\,000$ €",
+    "$3600$ €",
+    "$5\\,000$ €",
+    "$6000$ €"
+   ],
+   "pistes": [
+    "Calcula quina fracció del capital total va posar: $\\dfrac{5000}{10000}$.",
+    "Aplica aquesta fracció als $12\\,000$ € de benefici."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgcmVwYXJ0aXIgYSBwYXJ0cyBpZ3VhbHMgKCQxMjAwMDozJCkuIEVsIHJlcGFydGltZW50IMOpcyBQUk9QT1JDSU9OQUw6IHF1aSBoYSBwb3NhdCBtw6lzLCBjb2JyYSBtw6lzLiIsICJBcXVlc3Qgw6lzIGVsIHF1ZSBsaSB0b2NhIGFsIHF1ZSB2YSBwb3NhciAkM1xcLDAwMCQg4oKsLiBDb21wdGUgYSBxdWluIHNvY2kgY29ycmVzcG9uIGNhZGEgcGFydC4iLCAiQXF1ZXN0cyBzw7NuIGVscyBkaW5lcnMgcXVlIHZhIHBvc2FyLCBubyBlbCBxdWUgbGkgdG9jYSBkZSBiZW5lZmljaS4iLCAiIl0sICJlcnIiOiBbIlJFUEFSVElNRU5UX0FfUEFSVFNfSUdVQUxTIiwgIlBBUlRfTUFMX0FTU0lHTkFEQSIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICIiXSwgInJlcyI6IFsiQ2FwaXRhbCB0b3RhbDogJDMwMDArNTAwMCsyMDAwPTEwXFwsMDAwJCDigqwiLCAiTGkgY29ycmVzcG9uICRcXGRmcmFjezUwMDB9ezEwMDAwfT1cXGRmcmFjezF9ezJ9JCBkZWwgYmVuZWZpY2kiLCAiJDEyMDAwXFxjZG90XFxkZnJhY3sxfXsyfT02MDAwJCDigqwiXX0="
+  },
+  {
+   "id": "283b",
+   "ex": 283,
+   "ap": "b",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Tres socis han posat $3\\,000$ €, $5\\,000$ € i $2\\,000$ € en un negoci que ha donat $12\\,000$ € de benefici, que es reparteix proporcionalment al que ha posat cadascú.",
+   "enunciat": "I quin percentatge del benefici li toca al que va posar $2\\,000$ €?",
+   "opcions": [
+    "El $33{,}3\\,\\%$",
+    "El $2\\,\\%$",
+    "El $50\\,\\%$",
+    "El $20\\,\\%$"
+   ],
+   "pistes": [
+    "Compara el que va posar amb el capital total.",
+    "$\\dfrac{2000}{10000}$, passat a percentatge."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiBzZXJpYSBzaSBlcyByZXBhcnTDrXMgYSBwYXJ0cyBpZ3VhbHMgZW50cmUgZWxzIHRyZXMgc29jaXMuIEFxdcOtIGVzIHJlcGFydGVpeCBzZWdvbnMgZWwgcXVlIGhhIHBvc2F0IGNhZGFzY8O6LiIsICJFbCAkMiQgZGUgJDJcXCwwMDAkIG5vIMOpcyBlbCBwZXJjZW50YXRnZS4gQ2FsIGNvbXBhcmFyLWxvIGFtYiBlbCBjYXBpdGFsIHRvdGFsOiAkXFxkZnJhY3syMDAwfXsxMDAwMH0kLiIsICJBcXVlc3Qgw6lzIGVsIHBlcmNlbnRhdGdlIGRlbCBzb2NpIHF1ZSB2YSBwb3NhciAkNVxcLDAwMCQg4oKsLiIsICIiXSwgImVyciI6IFsiUkVQQVJUSU1FTlRfQV9QQVJUU19JR1VBTFMiLCAiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiUEFSVF9NQUxfQVNTSUdOQURBIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3syMDAwfXsxMDAwMH09MHssfTJcXHRvMjBcXCxcXCUkIiwgIkNvbXByb3ZhY2nDszogJDEyMDAwXFxjZG90MHssfTI9MlxcLDQwMCQg4oKsLCBpICQ2MDAwKzI0MDArMzYwMD0xMlxcLDAwMCQg4oKsIl19"
+  },
+  {
+   "id": "284",
+   "ex": 284,
+   "ap": "",
+   "bloc": "aplicacions_percentatge",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "Quin és el preu final?",
+   "opcions": [
+    "$500$ €: torna al preu de partida.",
+    "$480$ €: no torna als $500$ €",
+    "$520$ €",
+    "$400$ €"
+   ],
+   "pistes": [
+    "Calcula el preu després de la pujada.",
+    "Aplica la baixada sobre AQUEST preu nou, no sobre el de partida."
+   ],
+   "nota": "Aquest exercici i el 280 diuen el mateix des de dos costats: els percentatges no se sumen ni es compensen, perquè cadascun es calcula sobre una base diferent. Pujar i baixar el mateix tant per cent SEMPRE deixa el preu per sota del de partida.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkMjBcXCxcXCUkIGRlIHB1amFkYSBlcyBjYWxjdWxhIHNvYnJlICQ1MDAkICgkKzEwMCQg4oKsKSwgcGVyw7IgZWwgJDIwXFwsXFwlJCBkZSBiYWl4YWRhIGVzIGNhbGN1bGEgc29icmUgJDYwMCQgKCQtMTIwJCDigqwpLiBDb20gcXVlIGxlcyBiYXNlcyBzw7NuIGRpZmVyZW50cywgbm8gZXMgY29tcGVuc2VuLiIsICIiLCAiRWwgcHJldSBmaW5hbCDDqXMgbcOpcyBCQUlYIHF1ZSBlbCBkZSBwYXJ0aWRhLCBubyBtw6lzIGFsdDogbGEgYmFpeGFkYSBzJ2FwbGljYSBzb2JyZSB1bmEgcXVhbnRpdGF0IG3DqXMgZ3JhbiBxdWUgbGEgcHVqYWRhLiIsICJTZW1ibGEgcXVlIGhhcyByZXN0YXQgdW4gJDIwXFwsXFwlJCBkZWwgcHJldSBvcmlnaW5hbC4gTGEgYmFpeGFkYSDDqXMgc29icmUgJDYwMCQg4oKsLCBubyBzb2JyZSAkNTAwJCDigqwuIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFU19TVU1BVFMiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJQRVJDRU5UQVRHRVNfU1VNQVRTIl0sICJyZXMiOiBbIiQ1MDBcXGNkb3Qxeyx9Mj02MDAkIOKCrCIsICIkNjAwXFxjZG90MHssfTg9NDgwJCDigqwiLCAiQW1iIGZhY3RvcnMgZXMgdmV1IGQndW4gY29wOiAkMXssfTJcXGNkb3Qweyx9OD0weyx9OTYkLCBvIHNpZ3VpIHVuICQ0XFwsXFwlJCBkZSBiYWl4YWRhIG5ldGEiXX0="
   }
  ]
 };

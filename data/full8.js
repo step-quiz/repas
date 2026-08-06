@@ -49,6 +49,47 @@ window.FULL = {
    ]
   },
   {
+   "id": "escales_calcul",
+   "titol": "Càlcul amb escales",
+   "descripcio": "Del plànol a la realitat i al revés, trobar l'escala, i escales amb canvi d'unitats.",
+   "items": [
+    "285a",
+    "285b",
+    "285c",
+    "286a",
+    "286b",
+    "286c",
+    "286d",
+    "287a",
+    "287b",
+    "287c",
+    "288a",
+    "288b",
+    "288c",
+    "289"
+   ]
+  },
+  {
+   "id": "semblanca_arees",
+   "titol": "Raó de semblança, àrees i volums",
+   "descripcio": "Si les longituds es multipliquen per k, les àrees ho fan per k² i els volums per k³.",
+   "items": [
+    "290a",
+    "290b",
+    "290c",
+    "291a",
+    "291b",
+    "291c",
+    "292a",
+    "292b",
+    "293a",
+    "293b",
+    "294a",
+    "294b",
+    "294c"
+   ]
+  },
+  {
    "id": "aplicacions",
    "titol": "Aplicacions de la semblança",
    "descripcio": "Ombres, reflexos i alçades o distàncies inaccessibles.",
@@ -67,14 +108,26 @@ window.FULL = {
  ],
  "errors": {
   "ARITMETICA_PAS_INTERMEDI": "El plantejament és bo, però hi ha un error de càlcul en un dels passos del mig. Refes l'operació pas a pas i comprova el resultat substituint-lo a l'enunciat original.",
+  "ARREL_MAL_APLICADA": "L'arrel no s'ha aplicat on tocava. Aïlla primer la quantitat que va sota l'arrel i fes-la al final, sobre el valor ja aïllat.",
+  "CATET_HIPOTENUSA_CONFOSOS": "Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre el costat més llarg i va sola a un costat de la igualtat.",
   "CREUAMENT_INVERTIT": "Has creuat els termes al revés en aïllar la incògnita.",
   "CRITERI_SEMBLANCA_INSUFICIENT": "Has dit que falten dades, però el criteri que toca ja es pot aplicar amb el que dona l'enunciat: tres costats, o dos costats i l'angle que formen, o dos angles.",
+  "DIVISIO_OBLIDADA": "T'has quedat amb la suma sense dividir-la entre el nombre de dades. La variància és una MITJANA de quadrats, no una suma.",
   "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
+  "ESCALA_INVERTIDA": "Has fet servir l'escala del revés. A l'escala $a:b$, el primer nombre és el DIBUIX i el segon la REALITAT: si és una reducció, la mesura real sempre surt més gran que la del plànol.",
   "ESCALA_NO_APLICADA": "Has donat la mesura tal com surt al plànol (o a la realitat) sense passar-la per l'escala. Les dues mesures només coincideixen si l'escala és $1:1$.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "POTENCIA_10": "El denominador d'un decimal exacte és una potència de $10$ amb tants zeros com xifres decimals hi ha. Torna-les a comptar.",
   "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
   "RAONAMENT_ADDITIU": "Has passat d'una fracció a l'altra sumant. Dues fraccions són equivalents quan es passa d'una a l'altra MULTIPLICANT els dos termes pel mateix nombre.",
+  "RAO_AL_CUB": "Has fet servir $k^3$ on tocava una altra potència. El cub és per als volums; les àrees van amb $k^2$.",
+  "RAO_AL_QUADRAT": "Has fet servir $k^2$ on tocava una altra potència. El quadrat és per a les àrees; les longituds van amb $k$ i els volums amb $k^3$.",
+  "RAO_NOMES_UN_COSTAT": "Has comprovat la proporció amb un sol parell de costats. La semblança demana que TOTS els costats corresponents guardin la mateixa raó.",
+  "RAO_SENSE_QUADRAT": "Has multiplicat per $k$ una àrea o un volum. Només les LONGITUDS van amb $k$: les àrees van amb $k^2$ i els volums amb $k^3$.",
+  "RESTA_PER_QUOCIENT": "Has restat les dues quantitats. Un percentatge i una raó surten d'una DIVISIÓ: diuen quantes vegades, no quant més.",
   "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
   "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
   "UNITATS_NO_CONVERTIDES": "Has barrejat unitats diferents en la mateixa operació. Passa-ho tot a la mateixa unitat abans de calcular res."
@@ -783,6 +836,600 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlIMOpcyBzdWZpY2llbnQgcGVyIHNpIHNvbDogc2kgZWxzIHRyZXMgYW5nbGVzIGNvaW5jaWRlaXhlbiwgZWxzIHRyaWFuZ2xlcyBqYSBzw7NuIHNlbWJsYW50cywgc2Vuc2UgbmVjZXNzaXRhdCBkZSBjb21wcm92YXIgZWxzIGNvc3RhdHMgYSBwYXJ0LiIsICJBbWIgZWxzIHRyZXMgYW5nbGVzIGRlIGNhZGEgdHJpYW5nbGUgKHVuIGNvcCBjYWxjdWxhdCBlbCB0ZXJjZXIpIGphIG4naGkgaGEgcHJvdSBwZXIgYXBsaWNhciBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlOiBubyBjYWxlbiBlbHMgY29zdGF0cy4iLCAiQ2FsIGNhbGN1bGFyIGVsIFRFUkNFUiBhbmdsZSBkZSBjYWRhIHRyaWFuZ2xlIGFiYW5zIGRlIGNvbmNsb3VyZSByZXM6ICQxODBeXFxjaXJjLTkwXlxcY2lyYy01MF5cXGNpcmM9NDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJCwgYWl4w60gcXVlIGVuIHJlYWxpdGF0IGVscyBkb3MgdHJpYW5nbGVzIHRlbmVuIGVscyBtYXRlaXhvcyB0cmVzIGFuZ2xlcy4iLCAiIl0sICJlcnIiOiBbIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIiJdLCAicmVzIjogWyJUcmlhbmdsZSBhbWIgYW5nbGUgYWd1dCBkZSAkNTBeXFxjaXJjJDogdMOpIGFuZ2xlcyAkOTBeXFxjaXJjJCwgJDUwXlxcY2lyYyQgaSAkMTgwXlxcY2lyYy05MF5cXGNpcmMtNTBeXFxjaXJjPTQwXlxcY2lyYyQuIiwgIlRyaWFuZ2xlIGFtYiBhbmdsZSBhZ3V0IGRlICQ0MF5cXGNpcmMkOiB0w6kgYW5nbGVzICQ5MF5cXGNpcmMkLCAkNDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJC4iLCAiRWxzIGRvcyB0cmlhbmdsZXMgdGVuZW4gZWxzIG1hdGVpeG9zIHRyZXMgYW5nbGVzOiBTw40gc8OzbiBzZW1ibGFudHMsIHBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlLiJdfQ=="
+  },
+  {
+   "id": "285a",
+   "ex": 285,
+   "ap": "a",
+   "bloc": "escales_calcul",
+   "tipus": "B",
+   "dif": 1,
+   "encapcalament": "Què vol dir aquesta escala?",
+   "enunciat": "Escala $1:50$.",
+   "opcions": [
+    "$1$ cm al plànol són $50$ m de debò.",
+    "$1$ cm al plànol són $50$ cm de debò.",
+    "$50$ cm al plànol són $1$ cm de debò.",
+    "El dibuix és $50$ vegades més gran que la realitat."
+   ],
+   "pistes": [
+    "A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.",
+    "Les dues mesures van en la mateixa unitat."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkNTAkIGNtIGRlIHJlYWxpdGF0LCBxdWUgZGVzcHLDqXMgZXMgcG9kZW4gcGFzc2FyIGEgbWV0cmVzIHNpIGNvbnbDqSAoJDUweyx9MDAgY20kKS4iLCAiIiwgIsOJcyBhbCByZXbDqXMuIEEgbCdlc2NhbGEgJDE6NTAkLCBlbCAkMSQgw6lzIGVsIHF1ZSBoaSBoYSBESUJVSVhBVCBpIGVsICQ1MCQgw6lzIGxhIHJlYWxpdGF0OiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQgcXVlIGwnb3JpZ2luYWwuIiwgIlVuYSBlc2NhbGEgJDE6NTAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkNTA6MSQpLiJdLCAiZXJyIjogWyJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIiIsICJFU0NBTEFfSU5WRVJUSURBIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6NTAkIHZvbCBkaXIgcXVlIGNhZGEgJDEkIGNtIGRlbCBkaWJ1aXggY29ycmVzcG9uIGEgJDUwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQ1MHssfTAwIGNtJCBkZSBkZWLDsiJdfQ=="
+  },
+  {
+   "id": "285b",
+   "ex": 285,
+   "ap": "b",
+   "bloc": "escales_calcul",
+   "tipus": "B",
+   "dif": 1,
+   "encapcalament": "Què vol dir aquesta escala?",
+   "enunciat": "Escala $1:25\\,000$.",
+   "opcions": [
+    "$1$ cm al plànol són $25000$ cm de debò.",
+    "$25000$ cm al plànol són $1$ cm de debò.",
+    "$1$ cm al plànol són $25000$ m de debò.",
+    "El dibuix és $25000$ vegades més gran que la realitat."
+   ],
+   "pistes": [
+    "A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.",
+    "Les dues mesures van en la mateixa unitat."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIGFsIHJldsOpcy4gQSBsJ2VzY2FsYSAkMToyNTAwMCQsIGVsICQxJCDDqXMgZWwgcXVlIGhpIGhhIERJQlVJWEFUIGkgZWwgJDI1MDAwJCDDqXMgbGEgcmVhbGl0YXQ6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdCBxdWUgbCdvcmlnaW5hbC4iLCAiTCdlc2NhbGEgcmVsYWNpb25hIG1lc3VyZXMgZW4gbGEgTUFURUlYQSB1bml0YXQ6ICQxJCBjbSBkZSBwbMOgbm9sIHPDs24gJDI1MDAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyNTB7LH0wMCBtJCkuIiwgIlVuYSBlc2NhbGEgJDE6MjUwMDAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkMjUwMDA6MSQpLiJdLCAiZXJyIjogWyIiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6MjUwMDAkIHZvbCBkaXIgcXVlIGNhZGEgJDEkIGNtIGRlbCBkaWJ1aXggY29ycmVzcG9uIGEgJDI1MDAwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQyNTB7LH0wMCBtJCBkZSBkZWLDsiJdfQ=="
+  },
+  {
+   "id": "285c",
+   "ex": 285,
+   "ap": "c",
+   "bloc": "escales_calcul",
+   "tipus": "B",
+   "dif": 1,
+   "encapcalament": "Què vol dir aquesta escala?",
+   "enunciat": "Escala $1:200$.",
+   "opcions": [
+    "$1$ cm al plànol són $200$ m de debò.",
+    "$200$ cm al plànol són $1$ cm de debò.",
+    "$1$ cm al plànol són $200$ cm de debò.",
+    "El dibuix és $200$ vegades més gran que la realitat."
+   ],
+   "pistes": [
+    "A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.",
+    "Les dues mesures van en la mateixa unitat."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkMjAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyeyx9MDAgbSQpLiIsICLDiXMgYWwgcmV2w6lzLiBBIGwnZXNjYWxhICQxOjIwMCQsIGVsICQxJCDDqXMgZWwgcXVlIGhpIGhhIERJQlVJWEFUIGkgZWwgJDIwMCQgw6lzIGxhIHJlYWxpdGF0OiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQgcXVlIGwnb3JpZ2luYWwuIiwgIiIsICJVbmEgZXNjYWxhICQxOjIwMCQgw6lzIGRlIFJFRFVDQ0nDkzogZWwgZGlidWl4IMOpcyBtw6lzIHBldGl0LiBQZXJxdcOoIGZvcyBkJ2FtcGxpYWNpw7MsIGVsIHByaW1lciBub21icmUgaGF1cmlhIGRlIHNlciBlbCBtw6lzIGdyYW4gKCQyMDA6MSQpLiJdLCAiZXJyIjogWyJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6MjAwJCB2b2wgZGlyIHF1ZSBjYWRhICQxJCBjbSBkZWwgZGlidWl4IGNvcnJlc3BvbiBhICQyMDAkIGNtIHJlYWxzIiwgIsOJcyBhIGRpciwgJDJ7LH0wMCBtJCBkZSBkZWLDsiJdfQ=="
+  },
+  {
+   "id": "286a",
+   "ex": 286,
+   "ap": "a",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
+   "enunciat": "$4$ cm al plànol.",
+   "opcions": [
+    "$0{,}000160$ km",
+    "$0{,}00100$ km",
+    "$1000{,}0$ m",
+    "$1$ km"
+   ],
+   "pistes": [
+    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
+    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhci4gQ29tIHF1ZSBlbCBwbMOgbm9sIMOpcyB1bmEgcmVkdWNjacOzLCBsYSBkaXN0w6BuY2lhIHJlYWwgaGEgZGUgc2VyIE3DiVMgZ3JhbiBxdWUgbGEgZGVsIHBsw6Bub2wuIiwgIkhhcyBkZXNwbGHDp2F0IG1hbGFtZW50IGxhIGNvbWEgZW4gcGFzc2FyIGRlIGNlbnTDrW1ldHJlcyBhIHF1aWzDsm1ldHJlcy4gUmVjb3JkYTogJDEkIGttICQ9MTAwXFwsMDAwJCBjbS4iLCAiRWwgdmFsb3Igw6lzIGNvcnJlY3RlIGVuIGNlbnTDrW1ldHJlcywgcGVyw7IgbGEgY29udmVyc2nDsyBubzogJDEwMDAwMCQgY20gc8OzbiAkMTAwMHssfTAkIG0sIGkgYWl4w7Igc8OzbiAkMXssfTAwMCQga20uIiwgIiJdLCAiZXJyIjogWyJFU0NBTEFfSU5WRVJUSURBIiwgIlBPVEVOQ0lBXzEwIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIl0sICJyZXMiOiBbIiQ0XFxjZG90MjUwMDA9MTAwMDAwJCBjbSIsICIkXFxkZnJhY3sxMDAwMDB9ezEwMDAwMH09MSQga20iXX0="
+  },
+  {
+   "id": "286b",
+   "ex": 286,
+   "ap": "b",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
+   "enunciat": "$12$ cm al plànol.",
+   "opcions": [
+    "$0{,}00300$ km",
+    "$3$ km",
+    "$3000{,}0$ m",
+    "$0{,}000480$ km"
+   ],
+   "pistes": [
+    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
+    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIiIsICJFbCB2YWxvciDDqXMgY29ycmVjdGUgZW4gY2VudMOtbWV0cmVzLCBwZXLDsiBsYSBjb252ZXJzacOzIG5vOiAkMzAwMDAwJCBjbSBzw7NuICQzMDAweyx9MCQgbSwgaSBhaXjDsiBzw7NuICQzeyx9MDAwJCBrbS4iLCAiSGFzIGRpdmlkaXQgcGVyIGwnZXNjYWxhIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXIuIENvbSBxdWUgZWwgcGzDoG5vbCDDqXMgdW5hIHJlZHVjY2nDsywgbGEgZGlzdMOgbmNpYSByZWFsIGhhIGRlIHNlciBNw4lTIGdyYW4gcXVlIGxhIGRlbCBwbMOgbm9sLiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICIiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIl0sICJyZXMiOiBbIiQxMlxcY2RvdDI1MDAwPTMwMDAwMCQgY20iLCAiJFxcZGZyYWN7MzAwMDAwfXsxMDAwMDB9PTMkIGttIl19"
+  },
+  {
+   "id": "286c",
+   "ex": 286,
+   "ap": "c",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
+   "enunciat": "$2{,}5$ cm al plànol.",
+   "opcions": [
+    "$625{,}0$ m",
+    "$0{,}625$ km",
+    "$0{,}00063$ km",
+    "$0{,}000100$ km"
+   ],
+   "pistes": [
+    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
+    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB2YWxvciDDqXMgY29ycmVjdGUgZW4gY2VudMOtbWV0cmVzLCBwZXLDsiBsYSBjb252ZXJzacOzIG5vOiAkNjI1MDAkIGNtIHPDs24gJDYyNXssfTAkIG0sIGkgYWl4w7Igc8OzbiAkMHssfTYyNSQga20uIiwgIiIsICJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iXSwgImVyciI6IFsiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICIiLCAiUE9URU5DSUFfMTAiLCAiRVNDQUxBX0lOVkVSVElEQSJdLCAicmVzIjogWyIkMi41XFxjZG90MjUwMDA9NjI1MDAkIGNtIiwgIiRcXGRmcmFjezYyNTAwfXsxMDAwMDB9PTB7LH02MjUkIGttIl19"
+  },
+  {
+   "id": "286d",
+   "ex": 286,
+   "ap": "d",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
+   "enunciat": "$30$ cm al plànol.",
+   "opcions": [
+    "$0{,}00750$ km",
+    "$0{,}001200$ km",
+    "$7500{,}0$ m",
+    "$7{,}5$ km"
+   ],
+   "pistes": [
+    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
+    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iLCAiRWwgdmFsb3Igw6lzIGNvcnJlY3RlIGVuIGNlbnTDrW1ldHJlcywgcGVyw7IgbGEgY29udmVyc2nDsyBubzogJDc1MDAwMCQgY20gc8OzbiAkNzUwMHssfTAkIG0sIGkgYWl4w7Igc8OzbiAkN3ssfTUwMCQga20uIiwgIiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJFU0NBTEFfSU5WRVJUSURBIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIl0sICJyZXMiOiBbIiQzMFxcY2RvdDI1MDAwPTc1MDAwMCQgY20iLCAiJFxcZGZyYWN7NzUwMDAwfXsxMDAwMDB9PTd7LH01JCBrbSJdfQ=="
+  },
+  {
+   "id": "287a",
+   "ex": 287,
+   "ap": "a",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
+   "enunciat": "Una paret de $8$ m.",
+   "opcions": [
+    "$160000$ cm",
+    "$4$ cm",
+    "$4$ m",
+    "$0{,}0400$ cm"
+   ],
+   "pistes": [
+    "Passa la mesura real a centímetres.",
+    "Divideix-la entre $200$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgcGVyICQyMDAkLiBQZXIgYW5hciBkZSBsYSByZWFsaXRhdCBhbCBwbMOgbm9sIGNhbCBESVZJRElSOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIiwgIiIsICJFbCBuw7ptZXJvIMOpcyBjb3JyZWN0ZSwgcGVyw7IgbGVzIHVuaXRhdHMgbm86IGFsIHBsw6Bub2wgZXMgZGlidWl4ZW4gY2VudMOtbWV0cmVzLCBubyBtZXRyZXMuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDgkIG0gJD04MDAkIGNtLiJdLCAiZXJyIjogWyJFU0NBTEFfSU5WRVJUSURBIiwgIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiXSwgInJlcyI6IFsiJDgkIG0gJD04MDAkIGNtIiwgIiRcXGRmcmFjezgwMH17MjAwfT00JCBjbSJdfQ=="
+  },
+  {
+   "id": "287b",
+   "ex": 287,
+   "ap": "b",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
+   "enunciat": "Una paret de $14$ m.",
+   "opcions": [
+    "$7$ m",
+    "$0{,}0700$ cm",
+    "$280000$ cm",
+    "$7$ cm"
+   ],
+   "pistes": [
+    "Passa la mesura real a centímetres.",
+    "Divideix-la entre $200$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBuw7ptZXJvIMOpcyBjb3JyZWN0ZSwgcGVyw7IgbGVzIHVuaXRhdHMgbm86IGFsIHBsw6Bub2wgZXMgZGlidWl4ZW4gY2VudMOtbWV0cmVzLCBubyBtZXRyZXMuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDE0JCBtICQ9MTQwMCQgY20uIiwgIkhhcyBtdWx0aXBsaWNhdCBwZXIgJDIwMCQuIFBlciBhbmFyIGRlIGxhIHJlYWxpdGF0IGFsIHBsw6Bub2wgY2FsIERJVklESVI6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4iLCAiIl0sICJlcnIiOiBbIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIiwgIiJdLCAicmVzIjogWyIkMTQkIG0gJD0xNDAwJCBjbSIsICIkXFxkZnJhY3sxNDAwfXsyMDB9PTckIGNtIl19"
+  },
+  {
+   "id": "287c",
+   "ex": 287,
+   "ap": "c",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
+   "enunciat": "Una paret de $2.4$ m.",
+   "opcions": [
+    "$1{,}2$ cm",
+    "$1{,}2$ m",
+    "$48000$ cm",
+    "$0{,}0120$ cm"
+   ],
+   "pistes": [
+    "Passa la mesura real a centímetres.",
+    "Divideix-la entre $200$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbsO6bWVybyDDqXMgY29ycmVjdGUsIHBlcsOyIGxlcyB1bml0YXRzIG5vOiBhbCBwbMOgbm9sIGVzIGRpYnVpeGVuIGNlbnTDrW1ldHJlcywgbm8gbWV0cmVzLiIsICJIYXMgbXVsdGlwbGljYXQgcGVyICQyMDAkLiBQZXIgYW5hciBkZSBsYSByZWFsaXRhdCBhbCBwbMOgbm9sIGNhbCBESVZJRElSOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDIuNCQgbSAkPTI0MCQgY20uIl0sICJlcnIiOiBbIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyJdLCAicmVzIjogWyIkMi40JCBtICQ9MjQwJCBjbSIsICIkXFxkZnJhY3syNDB9ezIwMH09MXssfTIkIGNtIl19"
+  },
+  {
+   "id": "288a",
+   "ex": 288,
+   "ap": "a",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Troba l'escala del dibuix.",
+   "enunciat": "$4$ cm al dibuix corresponen a $2$ m de debò.",
+   "opcions": [
+    "$1:50$",
+    "$1:200$",
+    "$50:1$",
+    "$1:0{,}50$"
+   ],
+   "pistes": [
+    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
+    "Divideix la mesura real entre la del dibuix."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgbWVzdXJhIHJlYWwgZW4gY2VudMOtbWV0cmVzLCBubyBsJ2VzY2FsYS4gTCdlc2NhbGEgc3VydCBkZSBkaXZpZGlyLWxhIGVudHJlIGxhIG1lc3VyYSBkZWwgZGlidWl4LiIsICJMJ2hhcyBlc2NyaXRhIGRlbCByZXbDqXMuIEEgbCdlc2NhbGEsIGVsIHByaW1lciBub21icmUgw6lzIGVsIERJQlVJWCAocXVlIGFxdcOtIMOpcyBtw6lzIHBldGl0KSBpIGVsIHNlZ29uLCBsYSByZWFsaXRhdC4iLCAiSGFzIGNvbXBhcmF0ICQ0JCBhbWIgJDIkIHNlbnNlIHBhc3Nhci1obyB0b3QgYSBsYSBtYXRlaXhhIHVuaXRhdC4gJDIkIG0gc8OzbiAkMjAwJCBjbS4iXSwgImVyciI6IFsiIiwgIkRJVklTSU9fT0JMSURBREEiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIiQyJCBtICQ9MjAwJCBjbSIsICIkXFxkZnJhY3syMDB9ezR9PTUwJCwgbyBzaWd1aSBlc2NhbGEgJDE6NTAkIl19"
+  },
+  {
+   "id": "288b",
+   "ex": 288,
+   "ap": "b",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Troba l'escala del dibuix.",
+   "enunciat": "$3$ cm al dibuix corresponen a $12$ m de debò.",
+   "opcions": [
+    "$1:1200$",
+    "$400:1$",
+    "$1:400$",
+    "$1:4{,}00$"
+   ],
+   "pistes": [
+    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
+    "Divideix la mesura real entre la del dibuix."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgcmVhbCBlbiBjZW50w61tZXRyZXMsIG5vIGwnZXNjYWxhLiBMJ2VzY2FsYSBzdXJ0IGRlIGRpdmlkaXItbGEgZW50cmUgbGEgbWVzdXJhIGRlbCBkaWJ1aXguIiwgIkwnaGFzIGVzY3JpdGEgZGVsIHJldsOpcy4gQSBsJ2VzY2FsYSwgZWwgcHJpbWVyIG5vbWJyZSDDqXMgZWwgRElCVUlYIChxdWUgYXF1w60gw6lzIG3DqXMgcGV0aXQpIGkgZWwgc2Vnb24sIGxhIHJlYWxpdGF0LiIsICIiLCAiSGFzIGNvbXBhcmF0ICQzJCBhbWIgJDEyJCBzZW5zZSBwYXNzYXItaG8gdG90IGEgbGEgbWF0ZWl4YSB1bml0YXQuICQxMiQgbSBzw7NuICQxMjAwJCBjbS4iXSwgImVyciI6IFsiRElWSVNJT19PQkxJREFEQSIsICJFU0NBTEFfSU5WRVJUSURBIiwgIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIiQxMiQgbSAkPTEyMDAkIGNtIiwgIiRcXGRmcmFjezEyMDB9ezN9PTQwMCQsIG8gc2lndWkgZXNjYWxhICQxOjQwMCQiXX0="
+  },
+  {
+   "id": "288c",
+   "ex": 288,
+   "ap": "c",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Troba l'escala del dibuix.",
+   "enunciat": "$8$ cm al dibuix corresponen a $4$ km de debò.",
+   "opcions": [
+    "$1:50000$",
+    "$50000:1$",
+    "$1:0{,}50$",
+    "$1:400000$"
+   ],
+   "pistes": [
+    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
+    "Divideix la mesura real entre la del dibuix."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCdoYXMgZXNjcml0YSBkZWwgcmV2w6lzLiBBIGwnZXNjYWxhLCBlbCBwcmltZXIgbm9tYnJlIMOpcyBlbCBESUJVSVggKHF1ZSBhcXXDrSDDqXMgbcOpcyBwZXRpdCkgaSBlbCBzZWdvbiwgbGEgcmVhbGl0YXQuIiwgIkhhcyBjb21wYXJhdCAkOCQgYW1iICQ0JCBzZW5zZSBwYXNzYXItaG8gdG90IGEgbGEgbWF0ZWl4YSB1bml0YXQuICQ0JCBrbSBzw7NuICQ0MDAwMDAkIGNtLiIsICJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgcmVhbCBlbiBjZW50w61tZXRyZXMsIG5vIGwnZXNjYWxhLiBMJ2VzY2FsYSBzdXJ0IGRlIGRpdmlkaXItbGEgZW50cmUgbGEgbWVzdXJhIGRlbCBkaWJ1aXguIl0sICJlcnIiOiBbIiIsICJFU0NBTEFfSU5WRVJUSURBIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiRElWSVNJT19PQkxJREFEQSJdLCAicmVzIjogWyIkNCQga20gJD00MDAwMDAkIGNtIiwgIiRcXGRmcmFjezQwMDAwMH17OH09NTAwMDAkLCBvIHNpZ3VpIGVzY2FsYSAkMTo1MDAwMCQiXX0="
+  },
+  {
+   "id": "289",
+   "ex": 289,
+   "ap": "",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "En un mapa a escala $1:150\\,000$, dues poblacions estan a $6{,}4$ cm. Un ciclista fa el recorregut a $24$ km/h. Quant triga?",
+   "opcions": [
+    "$2{,}5$ h",
+    "$24$ min",
+    "$9{,}6$ km",
+    "$0{,}4$ h $=4$ min"
+   ],
+   "pistes": [
+    "Troba primer la distància real en quilòmetres.",
+    "Després, temps $=\\dfrac{\\text{distància}}{\\text{velocitat}}$, i passa'l a minuts."
+   ],
+   "nota": "Aquest exercici encadena escala, canvi d'unitats i velocitat: és el format en què les escales apareixen de debò fora de la classe de matemàtiques.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXM6IGVsIHRlbXBzIMOpcyAkXFxkZnJhY3tcXHRleHR7ZGlzdMOgbmNpYX19e1xcdGV4dHt2ZWxvY2l0YXR9fSQsIG5vIGEgbCdpbnJldsOpcy4iLCAiIiwgIkFxdWVzdGEgw6lzIGxhIGRpc3TDoG5jaWEgcmVhbCwgcXVlIMOpcyBlbCBwcmltZXIgcGFzLiBFbmNhcmEgZmFsdGEgY2FsY3VsYXIgZWwgdGVtcHM6ICRcXGRmcmFjezl7LH02fXsyNH0kIGguIiwgIkVsIHRlbXBzIGVuIGhvcmVzIMOpcyAkMHssfTQkLCBpICQweyx9NCQgaCBubyBzw7NuICQ0JCBtaW4gc2luw7MgJDB7LH00XFxjZG90NjA9MjQkIG1pbi4iXSwgImVyciI6IFsiSU5WRVJUSURBIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJQT1RFTkNJQV8xMCJdLCAicmVzIjogWyIkNnssfTRcXGNkb3QxNTAwMDA9OTYwXFwsMDAwJCBjbSIsICIkOTYwMDAwJCBjbSAkPTl7LH02JCBrbSIsICIkdD1cXGRmcmFjezl7LH02fXsyNH09MHssfTQkIGggJD0weyx9NFxcY2RvdDYwPTI0JCBtaW4iXX0="
+  },
+  {
+   "id": "290a",
+   "ex": 290,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
+   "enunciat": "Un costat de la petita fa $3$ cm i el corresponent de la gran, $12$ cm.",
+   "opcions": [
+    "$k=9$",
+    "$k=36$",
+    "$k=\\dfrac{1}{4}$",
+    "$k=4$"
+   ],
+   "pistes": [
+    "La raó de semblança és el quocient entre dos costats corresponents.",
+    "De la petita a la gran: $\\dfrac{12}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcmVzdGF0IGVscyBkb3MgY29zdGF0cy4gTGEgcmHDsyBkZSBzZW1ibGFuw6dhIMOpcyB1biBRVU9DSUVOVDogZGl1IHF1YW50ZXMgdmVnYWRlcyDDqXMgbcOpcyBncmFuLCBubyBxdWFudCBtw6lzIGdyYW4gw6lzLiIsICJFbHMgaGFzIG11bHRpcGxpY2F0LiBMYSByYcOzIHN1cnQgZGUgZGl2aWRpciBlbCBjb3N0YXQgZGUgbGEgZ3JhbiBlbnRyZSBlbCBkZSBsYSBwZXRpdGEuIiwgIkFxdWVzdGEgw6lzIGxhIHJhw7MgZGUgbGEgZ3JhbiBhIGxhIHBldGl0YS4gQ29tIHF1ZSBlcyBkZW1hbmEgZGUgbGEgcGV0aXRhIGEgbGEgZ3JhbiwgJGskIGhhIGRlIHNlciBtw6lzIGdyYW4gcXVlICQxJC4iLCAiIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJQUk9EVUNURV9QRVJfU1VNQSIsICJJTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIiRrPVxcZGZyYWN7MTJ9ezN9PTQkIl19"
+  },
+  {
+   "id": "290b",
+   "ex": 290,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
+   "enunciat": "Un costat de la petita fa $5$ cm i el corresponent de la gran, $20$ cm.",
+   "opcions": [
+    "$k=15$",
+    "$k=100$",
+    "$k=4$",
+    "$k=\\dfrac{1}{4}$"
+   ],
+   "pistes": [
+    "La raó de semblança és el quocient entre dos costats corresponents.",
+    "De la petita a la gran: $\\dfrac{20}{5}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0IGVscyBkb3MgY29zdGF0cy4gTGEgcmHDsyBkZSBzZW1ibGFuw6dhIMOpcyB1biBRVU9DSUVOVDogZGl1IHF1YW50ZXMgdmVnYWRlcyDDqXMgbcOpcyBncmFuLCBubyBxdWFudCBtw6lzIGdyYW4gw6lzLiIsICJFbHMgaGFzIG11bHRpcGxpY2F0LiBMYSByYcOzIHN1cnQgZGUgZGl2aWRpciBlbCBjb3N0YXQgZGUgbGEgZ3JhbiBlbnRyZSBlbCBkZSBsYSBwZXRpdGEuIiwgIiIsICJBcXVlc3RhIMOpcyBsYSByYcOzIGRlIGxhIGdyYW4gYSBsYSBwZXRpdGEuIENvbSBxdWUgZXMgZGVtYW5hIGRlIGxhIHBldGl0YSBhIGxhIGdyYW4sICRrJCBoYSBkZSBzZXIgbcOpcyBncmFuIHF1ZSAkMSQuIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJQUk9EVUNURV9QRVJfU1VNQSIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRrPVxcZGZyYWN7MjB9ezV9PTQkIl19"
+  },
+  {
+   "id": "290c",
+   "ex": 290,
+   "ap": "c",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
+   "enunciat": "Un costat de la petita fa $6$ cm i el corresponent de la gran, $9$ cm.",
+   "opcions": [
+    "$k=54$",
+    "$k=3$",
+    "$k=\\dfrac{2}{3}$",
+    "$k=\\dfrac{3}{2}$"
+   ],
+   "pistes": [
+    "La raó de semblança és el quocient entre dos costats corresponents.",
+    "De la petita a la gran: $\\dfrac{9}{6}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbHMgaGFzIG11bHRpcGxpY2F0LiBMYSByYcOzIHN1cnQgZGUgZGl2aWRpciBlbCBjb3N0YXQgZGUgbGEgZ3JhbiBlbnRyZSBlbCBkZSBsYSBwZXRpdGEuIiwgIkhhcyByZXN0YXQgZWxzIGRvcyBjb3N0YXRzLiBMYSByYcOzIGRlIHNlbWJsYW7Dp2Egw6lzIHVuIFFVT0NJRU5UOiBkaXUgcXVhbnRlcyB2ZWdhZGVzIMOpcyBtw6lzIGdyYW4sIG5vIHF1YW50IG3DqXMgZ3JhbiDDqXMuIiwgIkFxdWVzdGEgw6lzIGxhIHJhw7MgZGUgbGEgZ3JhbiBhIGxhIHBldGl0YS4gQ29tIHF1ZSBlcyBkZW1hbmEgZGUgbGEgcGV0aXRhIGEgbGEgZ3JhbiwgJGskIGhhIGRlIHNlciBtw6lzIGdyYW4gcXVlICQxJC4iLCAiIl0sICJlcnIiOiBbIlBST0RVQ1RFX1BFUl9TVU1BIiwgIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJJTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIiRrPVxcZGZyYWN7OX17Nn09XFxkZnJhY3szfXsyfSQiXX0="
+  },
+  {
+   "id": "291a",
+   "ex": 291,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
+   "enunciat": "$k=2$ i àrea del petit $=15$ cm$^2$.",
+   "opcions": [
+    "$120$ cm$^2$",
+    "$17$ cm$^2$",
+    "$60$ cm$^2$",
+    "$30$ cm$^2$"
+   ],
+   "pistes": [
+    "Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
+    "$k^2=4$."
+   ],
+   "nota": "Val la pena veure-ho amb un quadrat: si el costat passa de $1$ a $2$, l'àrea passa d'$1$ a $4$. Dues dimensions, dos factors $k$.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAka14zJCDDqXMgcGVyIGFscyBWT0xVTVMuIFVuYSDDoHJlYSB0w6kgZHVlcyBkaW1lbnNpb25zLCBpIHBlciBhaXjDsiB2YSBhbWIgJGteMiQuIiwgIkxhIHJhw7MgbXVsdGlwbGljYSwgbm8gc3VtYS4iLCAiIiwgIkhhcyBtdWx0aXBsaWNhdCBsJ8OgcmVhIHBlciAkayQuIExlcyDDoHJlZXMgZXMgbXVsdGlwbGlxdWVuIHBlciAka14yJCwgbm8gcGVyICRrJDogc2kgbGVzIGxvbmdpdHVkcyBlcyBkdXBsaXF1ZW4sIGwnw6ByZWEgZXMgbXVsdGlwbGljYSBwZXIgJDQkLCBubyBwZXIgJDIkLiJdLCAiZXJyIjogWyJSQU9fQUxfQ1VCIiwgIlBST0RVQ1RFX1BFUl9TVU1BIiwgIiIsICJSQU9fU0VOU0VfUVVBRFJBVCJdLCAicmVzIjogWyIka14yPTJeMj00JCIsICLDgHJlYSBncmFuICQ9MTVcXGNkb3Q0PTYwJCBjbSReMiQiXX0="
+  },
+  {
+   "id": "291b",
+   "ex": 291,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
+   "enunciat": "$k=3$ i àrea del petit $=8$ cm$^2$.",
+   "opcions": [
+    "$72$ cm$^2$",
+    "$216$ cm$^2$",
+    "$11$ cm$^2$",
+    "$24$ cm$^2$"
+   ],
+   "pistes": [
+    "Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
+    "$k^2=9$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJGteMyQgw6lzIHBlciBhbHMgVk9MVU1TLiBVbmEgw6ByZWEgdMOpIGR1ZXMgZGltZW5zaW9ucywgaSBwZXIgYWl4w7IgdmEgYW1iICRrXjIkLiIsICJMYSByYcOzIG11bHRpcGxpY2EsIG5vIHN1bWEuIiwgIkhhcyBtdWx0aXBsaWNhdCBsJ8OgcmVhIHBlciAkayQuIExlcyDDoHJlZXMgZXMgbXVsdGlwbGlxdWVuIHBlciAka14yJCwgbm8gcGVyICRrJDogc2kgbGVzIGxvbmdpdHVkcyBlcyBkdXBsaXF1ZW4sIGwnw6ByZWEgZXMgbXVsdGlwbGljYSBwZXIgJDQkLCBubyBwZXIgJDIkLiJdLCAiZXJyIjogWyIiLCAiUkFPX0FMX0NVQiIsICJQUk9EVUNURV9QRVJfU1VNQSIsICJSQU9fU0VOU0VfUVVBRFJBVCJdLCAicmVzIjogWyIka14yPTNeMj05JCIsICLDgHJlYSBncmFuICQ9OFxcY2RvdDk9NzIkIGNtJF4yJCJdfQ=="
+  },
+  {
+   "id": "291c",
+   "ex": 291,
+   "ap": "c",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
+   "enunciat": "$k=\\dfrac{5}{2}$ i àrea del petit $=12$ cm$^2$.",
+   "opcions": [
+    "$75$ cm$^2$",
+    "$187{,}5$ cm$^2$",
+    "$30$ cm$^2$",
+    "$14{,}5$ cm$^2$"
+   ],
+   "pistes": [
+    "Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
+    "$k^2=\\dfrac{25}{4}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJGteMyQgw6lzIHBlciBhbHMgVk9MVU1TLiBVbmEgw6ByZWEgdMOpIGR1ZXMgZGltZW5zaW9ucywgaSBwZXIgYWl4w7IgdmEgYW1iICRrXjIkLiIsICJIYXMgbXVsdGlwbGljYXQgbCfDoHJlYSBwZXIgJGskLiBMZXMgw6ByZWVzIGVzIG11bHRpcGxpcXVlbiBwZXIgJGteMiQsIG5vIHBlciAkayQ6IHNpIGxlcyBsb25naXR1ZHMgZXMgZHVwbGlxdWVuLCBsJ8OgcmVhIGVzIG11bHRpcGxpY2EgcGVyICQ0JCwgbm8gcGVyICQyJC4iLCAiTGEgcmHDsyBtdWx0aXBsaWNhLCBubyBzdW1hLiJdLCAiZXJyIjogWyIiLCAiUkFPX0FMX0NVQiIsICJSQU9fU0VOU0VfUVVBRFJBVCIsICJQUk9EVUNURV9QRVJfU1VNQSJdLCAicmVzIjogWyIka14yPVxcZGZyYWN7NX17Mn1eMj1cXGRmcmFjezI1fXs0fSQiLCAiw4ByZWEgZ3JhbiAkPTEyXFxjZG90XFxkZnJhY3syNX17NH09NzUkIGNtJF4yJCJdfQ=="
+  },
+  {
+   "id": "292a",
+   "ex": 292,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos cossos són semblants amb raó $k$. Si el volum del petit és el que es diu, quin és el del gran?",
+   "enunciat": "$k=2$ i volum del petit $=30$ cm$^3$.",
+   "opcions": [
+    "$240$ cm$^3$",
+    "$120$ cm$^3$",
+    "$38$ cm$^3$",
+    "$60$ cm$^3$"
+   ],
+   "pistes": [
+    "Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.",
+    "$k^3=8$."
+   ],
+   "nota": "Aquest és el que més sorprèn: doblar totes les mides multiplica el volum per $8$. És el motiu pel qual una maqueta a escala $1:2$ no pesa la meitat, sinó una vuitena part.",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJGteMiQgw6lzIHBlciBhIGxlcyDDgFJFRVMuIEVscyB2b2x1bXMgdmFuIGFtYiAka14zJC4iLCAiTGEgcmHDsyBtdWx0aXBsaWNhIGVsIHZvbHVtLCBubyBzJ2hpIHN1bWEuIiwgIkhhcyBtdWx0aXBsaWNhdCBwZWwgJGskIHRvdCBzb2wuIFVuIHZvbHVtIHTDqSB0cmVzIGRpbWVuc2lvbnM6IHNpIGxlcyBsb25naXR1ZHMgZXMgbXVsdGlwbGlxdWVuIHBlciAkMiQsIGVsIHZvbHVtIGhvIGZhIHBlciAkMl4zPTgkLiJdLCAiZXJyIjogWyIiLCAiUkFPX0FMX1FVQURSQVQiLCAiUFJPRFVDVEVfUEVSX1NVTUEiLCAiUkFPX1NFTlNFX1FVQURSQVQiXSwgInJlcyI6IFsiJGteMz0yXjM9OCQiLCAiVm9sdW0gZ3JhbiAkPTMwXFxjZG90OD0yNDAkIGNtJF4zJCJdfQ=="
+  },
+  {
+   "id": "292b",
+   "ex": 292,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Dos cossos són semblants amb raó $k$. Si el volum del petit és el que es diu, quin és el del gran?",
+   "enunciat": "$k=3$ i volum del petit $=5$ cm$^3$.",
+   "opcions": [
+    "$45$ cm$^3$",
+    "$135$ cm$^3$",
+    "$15$ cm$^3$",
+    "$32$ cm$^3$"
+   ],
+   "pistes": [
+    "Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.",
+    "$k^3=27$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAka14yJCDDqXMgcGVyIGEgbGVzIMOAUkVFUy4gRWxzIHZvbHVtcyB2YW4gYW1iICRrXjMkLiIsICIiLCAiSGFzIG11bHRpcGxpY2F0IHBlbCAkayQgdG90IHNvbC4gVW4gdm9sdW0gdMOpIHRyZXMgZGltZW5zaW9uczogc2kgbGVzIGxvbmdpdHVkcyBlcyBtdWx0aXBsaXF1ZW4gcGVyICQzJCwgZWwgdm9sdW0gaG8gZmEgcGVyICQzXjM9MjckLiIsICJMYSByYcOzIG11bHRpcGxpY2EgZWwgdm9sdW0sIG5vIHMnaGkgc3VtYS4iXSwgImVyciI6IFsiUkFPX0FMX1FVQURSQVQiLCAiIiwgIlJBT19TRU5TRV9RVUFEUkFUIiwgIlBST0RVQ1RFX1BFUl9TVU1BIl0sICJyZXMiOiBbIiRrXjM9M14zPTI3JCIsICJWb2x1bSBncmFuICQ9NVxcY2RvdDI3PTEzNSQgY20kXjMkIl19"
+  },
+  {
+   "id": "293a",
+   "ex": 293,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "A l'inrevés: del que saps de les àrees, dedueix la raó de longituds.",
+   "enunciat": "Dos triangles semblants tenen àrees de $12$ cm$^2$ i $108$ cm$^2$. Quina és la raó entre els seus costats?",
+   "opcions": [
+    "$k=96$",
+    "$k=3$",
+    "$k=9$",
+    "$k=\\sqrt{108-12}$"
+   ],
+   "pistes": [
+    "La raó entre les àrees és $k^2$.",
+    "Divideix les àrees i fes l'arrel quadrada del resultat."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcmVzdGF0IGxlcyDDoHJlZXMuIExhIHJhw7Mgw6lzIHVuIHF1b2NpZW50LiIsICIiLCAiRWwgJDkkIMOpcyBsYSByYcOzIGVudHJlIGxlcyDDgFJFRVMgKCQxMDg6MTIkKS4gTGEgcmHDsyBlbnRyZSBlbHMgY29zdGF0cyBuJ8OpcyBsJ2FycmVsIHF1YWRyYWRhOiAkaz1cXHNxcnR7OX09MyQuIiwgIk5pIHJlc3RhIG5pIGFycmVsIGRlIGxhIHJlc3RhOiBwcmltZXIgZXMgZGl2aWRlaXhlbiBsZXMgw6ByZWVzIGkgZGVzcHLDqXMgZXMgZmEgbCdhcnJlbCBkZWwgcXVvY2llbnQuIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICIiLCAiUkFPX0FMX1FVQURSQVQiLCAiUkVTVEFfUEVSX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRcXGRmcmFjezEwOH17MTJ9PTkkLCBpIGFpeMOyIMOpcyAka14yJCIsICIkaz1cXHNxcnR7OX09MyQiXX0="
+  },
+  {
+   "id": "293b",
+   "ex": 293,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "A l'inrevés: del que saps de les àrees, dedueix la raó de longituds.",
+   "enunciat": "Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina és la raó entre els seus radis?",
+   "opcions": [
+    "$k=\\sqrt{27}$",
+    "$k=27$",
+    "$k=3$",
+    "$k=208$"
+   ],
+   "pistes": [
+    "La raó entre els volums és $k^3$.",
+    "Divideix els volums i fes-ne l'arrel cúbica."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2FycmVsIHF1YWRyYWRhIHNlcnZpcmlhIHNpIGNvbXBhcsOpc3NpbSDDoHJlZXMuIEFtYiB2b2x1bXMgY2FsIGwnYXJyZWwgY8O6YmljYS4iLCAiRWwgJDI3JCDDqXMgbGEgcmHDsyBlbnRyZSBlbHMgVk9MVU1TICgkMjE2OjgkKS4gTGEgcmHDsyBlbnRyZSBlbHMgcmFkaXMgbifDqXMgbCdhcnJlbCBDw5pCSUNBOiAkaz1cXHNxcnRbM117Mjd9PTMkLiIsICIiLCAiSGFzIHJlc3RhdCBlbHMgdm9sdW1zIGVuIGNvbXB0ZXMgZGUgZGl2aWRpci1sb3MuIl0sICJlcnIiOiBbIkFSUkVMX01BTF9BUExJQ0FEQSIsICJSQU9fQUxfQ1VCIiwgIiIsICJSRVNUQV9QRVJfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJFxcZGZyYWN7MjE2fXs4fT0yNyQsIGkgYWl4w7Igw6lzICRrXjMkIiwgIiRrPVxcc3FydFszXXsyN309MyQiXX0="
+  },
+  {
+   "id": "294a",
+   "ex": 294,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
+   "enunciat": "Quina alçada fa la maqueta?",
+   "opcions": [
+    "$1\\,500$ m",
+    "$60$ m",
+    "$0{,}6$ m $=6$ cm",
+    "$60$ cm"
+   ],
+   "pistes": [
+    "Divideix l'alçada real entre $50$.",
+    "Passa el resultat a centímetres."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgcGVyICQ1MCQuIExhIG1hcXVldGEgw6lzIHVuYSBSRURVQ0NJw5M6IGNhbCBkaXZpZGlyLiIsICJFbCBuw7ptZXJvIMOpcyBjb3JyZWN0ZSBwZXLDsiBsYSB1bml0YXQgbm86ICQweyx9NiQgbSBzw7NuICQ2MCQgY2VudMOtbWV0cmVzLiIsICIkMzA6NTA9MHssfTYkIG0sIGkgJDB7LH02JCBtIHPDs24gJDYwJCBjbSwgbm8gJDYkLiIsICIiXSwgImVyciI6IFsiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIlBPVEVOQ0lBXzEwIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3szMH17NTB9PTB7LH02JCBtIiwgIiQweyx9NiQgbSAkPTYwJCBjbSJdfQ=="
+  },
+  {
+   "id": "294b",
+   "ex": 294,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
+   "enunciat": "I quina superfície té la façana de la maqueta?",
+   "opcions": [
+    "$0{,}24$ m$^2$ (és a dir, $2\\,400$ cm$^2$)",
+    "$0{,}0048$ m$^2$",
+    "$600$ m$^2$",
+    "$12$ m$^2$"
+   ],
+   "pistes": [
+    "La raó de longituds és $\\dfrac{1}{50}$; la d'àrees, $\\left(\\dfrac{1}{50}\\right)^2$.",
+    "$50^2=2\\,500$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGRpdmlkaXQgZW50cmUgJDUwXjMkLiBFbCBjdWIgw6lzIHBlciBhbHMgdm9sdW1zOyB1bmEgZmHDp2FuYSDDqXMgdW5hIMOgcmVhIGkgdmEgYW1iIGVsIHF1YWRyYXQuIiwgIkFxdWVzdGEgw6lzIGxhIGZhw6dhbmEgcmVhbCwgbGEgcXVlIGphIGV0IGRvbmF2ZW4uIiwgIkhhcyBkaXZpZGl0IGwnw6ByZWEgZW50cmUgJDUwJC4gTGVzIMOgcmVlcyB2YW4gYW1iICRrXjIkOiBjYWwgZGl2aWRpciBlbnRyZSAkNTBeMj0yXFwsNTAwJC4iXSwgImVyciI6IFsiIiwgIlJBT19BTF9DVUIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiUkFPX1NFTlNFX1FVQURSQVQiXSwgInJlcyI6IFsiJFxcZGZyYWN7NjAwfXs1MF4yfT1cXGRmcmFjezYwMH17MjUwMH09MHssfTI0JCBtJF4yJCIsICIkMHssfTI0JCBtJF4yPTJcXCw0MDAkIGNtJF4yJCJdfQ=="
+  },
+  {
+   "id": "294c",
+   "ex": 294,
+   "ap": "c",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
+   "enunciat": "I el volum?",
+   "opcions": [
+    "$180$ m$^3$",
+    "$0{,}072$ m$^3$ (és a dir, $72\\,000$ cm$^3$)",
+    "$3{,}6$ m$^3$",
+    "$72$ m$^3$"
+   ],
+   "pistes": [
+    "La raó de volums és $\\left(\\dfrac{1}{50}\\right)^3$.",
+    "$50^3=125\\,000$."
+   ],
+   "nota": "Els tres apartats junts són el resum del bloc: una sola escala, tres factors diferents segons si el que mesures té una, dues o tres dimensions.",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBlbnRyZSAkNTAkLiBFbHMgdm9sdW1zIHZhbiBhbWIgJGteMyQ6IGVudHJlICQ1MF4zPTEyNVxcLDAwMCQuIiwgIiIsICJIYXMgZGl2aWRpdCBlbnRyZSAkNTBeMiQuIEVsIHF1YWRyYXQgw6lzIHBlciBhIGxlcyDDoHJlZXMuIiwgIlQnaGFzIGRlc3BsYcOnYXQgdHJlcyBsbG9jczogJFxcZGZyYWN7OTAwMH17MTI1MDAwfT0weyx9MDcyJCwgbm8gJDcyJC4iXSwgImVyciI6IFsiUkFPX1NFTlNFX1FVQURSQVQiLCAiIiwgIlJBT19BTF9RVUFEUkFUIiwgIlBPVEVOQ0lBXzEwIl0sICJyZXMiOiBbIiRcXGRmcmFjezkwMDB9ezUwXjN9PVxcZGZyYWN7OTAwMH17MTI1MDAwfT0weyx9MDcyJCBtJF4zJCIsICIkMHssfTA3MiQgbSReMz03MlxcLDAwMCQgY20kXjMkIiwgIkxhIG1hcXVldGEgw6lzICQ1MCQgdmVnYWRlcyBtw6lzIGN1cnRhLCAkMlxcLDUwMCQgdmVnYWRlcyBtw6lzIHBldGl0YSBkZSBmYcOnYW5hIGkgJDEyNVxcLDAwMCQgdmVnYWRlcyBtw6lzIHBldGl0YSBkZSB2b2x1bSJdfQ=="
   }
  ]
 };
