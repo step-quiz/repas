@@ -689,9 +689,12 @@ Git would report conflicts in `figures.py` and `lib.py` on almost every pair of
 agents. Worse, some conflicts are *semantic*: two agents each adding a tag named
 `SIGNE_MAL` with different meanings merges cleanly and is wrong.
 
-## 9.2 Preparatory refactor (single-threaded, ~1 session)
+## 9.2 Preparatory refactor — **DONE**
 
-Do this before dispatching anyone.
+R1–R5 are complete. `build_tot.py` produces byte-identical output to before
+the refactor, verified over all 26 generated files, and the build is still
+deterministic. What follows describes what was done, so that anyone extending
+it knows the shape.
 
 **R1 · Split `figures.py` into a package.**
 
@@ -734,7 +737,12 @@ Tag the repository state that all agents branch from, and record in each brief
 the SHA or the ZIP name. Merging outputs from different baselines is where this
 goes wrong.
 
-After R1–R5, the file-ownership map is disjoint for the tracks below.
+The file-ownership map below is now disjoint. Two additions worth knowing:
+
+- Each test file carries a `sys.path` guard, so `python3 -m unittest
+  tests.test_figures` works as well as discovery. Agents can run just theirs.
+- `tests/comu.py` loads the bank once and exposes `TOTS`, `PLANS`, `clau()`,
+  `per_id()` and `num()`. It imports nothing from `tools/`, deliberately.
 
 ## 9.3 Track definitions
 
