@@ -14,6 +14,10 @@ window.FULL = {
     "170c",
     "170d",
     "170e",
+    "170f",
+    "170g",
+    "170h",
+    "170i",
     "171",
     "172",
     "173",
@@ -84,6 +88,7 @@ window.FULL = {
   "DIVISIO_REPETIDA": "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula ja porta la divisió incorporada i se li torna a aplicar al final: escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
   "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
   "FACTOR_TRES_VOLUM": "El terç del volum va només amb piràmides i cons. Prismes, cilindres i cubs són base per altura, sense dividir.",
+  "N_MAL_COMPTAT": "Has fet servir un nombre de dades que no és el que toca. Compta'l bé: sovint la trampa és comptar només les dades conegudes i oblidar la que es busca.",
   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
   "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
@@ -115,7 +120,8 @@ window.FULL = {
     "$A=2(a\\cdot b+a\\cdot c+b\\cdot c)$, amb $a=7$, $b=2$, $c=4$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHJlc3VsdGF0IGRlICQ3XFxjZG90Mis3XFxjZG90NCsyXFxjZG90NCQgc2Vuc2UgbXVsdGlwbGljYXIgcGVyICQyJDogY2FkYSBjYXJhIGQndW4gb3J0b2VkcmUgw6lzIGlndWFsIGEgbGEgc2V2YSBvcG9zYWRhLCBhaXjDrSBxdWUgY2FsIGNvbXB0YXItbGVzIHRvdGVzIGR1ZXMuIiwgIlQnaGFzIGRlaXhhdCB1bmEgcGFyZWxsYSBkZSBjYXJlcyBwZWwgY2Ftw606IHVuIG9ydG9lZHJlIGVuIHTDqSBUUkVTIHBhcmVsbGVzIGRpZmVyZW50cyAoJDdcXHRpbWVzMiQsICQ3XFx0aW1lczQkIGkgJDJcXHRpbWVzNCQpLCBubyBub23DqXMgZHVlcy4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KSQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZSBjYWRhIHBhcmVsbGEgZGUgY2FyZXMgcGVyIHNlcGFyYXQgYWJhbnMgZGUgc3VtYXItbGVzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV9QUk9EVUNURV9VTl9GQUNUT1IiLCAiRkFDVE9SX09CTElEQVQiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQT0yKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KT0yKDE0KzI4KzgpJCIsICIkQT0yXFxjZG90NTA9MTAwJCBjbSReMiQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHJlc3VsdGF0IGRlICQ3XFxjZG90Mis3XFxjZG90NCsyXFxjZG90NCQgc2Vuc2UgbXVsdGlwbGljYXIgcGVyICQyJDogY2FkYSBjYXJhIGQndW4gb3J0b2VkcmUgw6lzIGlndWFsIGEgbGEgc2V2YSBvcG9zYWRhLCBhaXjDrSBxdWUgY2FsIGNvbXB0YXItbGVzIHRvdGVzIGR1ZXMuIiwgIlQnaGFzIGRlaXhhdCB1bmEgcGFyZWxsYSBkZSBjYXJlcyBwZWwgY2Ftw606IHVuIG9ydG9lZHJlIGVuIHTDqSBUUkVTIHBhcmVsbGVzIGRpZmVyZW50cyAoJDdcXHRpbWVzMiQsICQ3XFx0aW1lczQkIGkgJDJcXHRpbWVzNCQpLCBubyBub23DqXMgZHVlcy4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KSQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZSBjYWRhIHBhcmVsbGEgZGUgY2FyZXMgcGVyIHNlcGFyYXQgYWJhbnMgZGUgc3VtYXItbGVzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV9QUk9EVUNURV9VTl9GQUNUT1IiLCAiRkFDVE9SX09CTElEQVQiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQT0yKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KT0yKDE0KzI4KzgpJCIsICIkQT0yXFxjZG90NTA9MTAwJCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 223 150\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Ortoedre d'arestes 7 cm, 2 cm i 4 cm, en perspectiva.</title><polygon points=\"28.0,59.4 138.0,59.4 138.0,122.3 28.0,122.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"28.0,59.4 59.4,28.0 169.4,28.0 138.0,59.4\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"138.0,59.4 169.4,28.0 169.4,90.9 138.0,122.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"83\" y=\"140.286\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text><text x=\"20\" y=\"94.8571\" text-anchor=\"end\" class=\"fig-etq\">4 cm</text><text x=\"165.714\" y=\"41.7143\" text-anchor=\"start\" class=\"fig-etq petita\">2 cm</text></svg>"
   },
   {
    "id": "170b",
@@ -137,7 +143,8 @@ window.FULL = {
     "El perímetre de la base és $3\\cdot5=15$ cm; l'àrea lateral és $15\\cdot9=135$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base triangular regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,63.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,213.0 119.8,63.0 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 40.2,213.0 40.2,63.0 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 80.0,184.0 80.0,34.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,63.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,213.0 40.2,213.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">9 cm</text></svg>"
   },
   {
    "id": "170c",
@@ -147,19 +154,20 @@ window.FULL = {
    "tipus": "A",
    "dif": 1,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
-   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $6$ cm de costat i $5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
    "opcions": [
-    "$374{,}4$ cm$^2$",
+    "$381{,}6$ cm$^2$",
     "$288$ cm$^2$",
-    "$537{,}6$ cm$^2$",
+    "$475{,}2$ cm$^2$",
     "$662{,}4$ cm$^2$"
    ],
    "pistes": [
-    "L'àrea d'un polígon regular és $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; amb perímetre $6\\cdot8=48$ cm i apotema $5{,}2$ cm, $A_{\\text{base}}=124{,}8$ cm$^2$.",
-    "L'àrea lateral és $48\\cdot6=288$ cm$^2$."
+    "L'àrea d'un polígon regular és $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, $A_{\\text{base}}=93{,}6$ cm$^2$.",
+    "L'àrea lateral és $36\\cdot8=288$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzOiB1biBwcmlzbWEgc2VtcHJlIGVuIHTDqSBkdWVzLCB1bmEgYSBjYWRhIGV4dHJlbS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkNDhcXGNkb3Q2JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXGNkb3QxMjR7LH04KzQ4XFxjZG90NiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaGV4YWdvbmFsIGkgbCfDoHJlYSBsYXRlcmFsLiJdLCAiZXJyIjogWyJGQUNUT1JfT0JMSURBVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDV7LH0yfXsyfT0xMjR7LH04JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3Q2PTI4OCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90MTI0eyx9OCsyODg9NTM3eyx9NiQgY20kXjIkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzOiB1biBwcmlzbWEgc2VtcHJlIGVuIHTDqSBkdWVzLCB1bmEgYSBjYWRhIGV4dHJlbS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMzZcXGNkb3Q4JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXGNkb3Q5M3ssfTYrMzZcXGNkb3Q4JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwgaSBsJ8OgcmVhIGxhdGVyYWwuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9PTkzeyx9NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTM2XFxjZG90OD0yODgkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDkzeyx9NisyODg9NDc1eyx9MiQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 215\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,181.2 119.8,190.9 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,190.9 119.8,210.2 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,210.2 80.0,219.8 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,219.8 40.2,210.2 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,210.2 40.2,190.9 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,190.9 80.0,181.2 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,181.2 119.8,190.9 119.8,210.2 80.0,219.8 40.2,210.2 40.2,190.9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"161.9\" x2=\"80.0\" y2=\"181.2\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"177.2\" text-anchor=\"middle\" class=\"fig-etq petita\">5.2 cm</text><text x=\"80\" y=\"201.2\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"181.2\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"111.6\" text-anchor=\"start\" class=\"fig-etq\">8 cm</text></svg>"
   },
   {
    "id": "170d",
@@ -181,7 +189,8 @@ window.FULL = {
     "Àrea lateral: $25\\cdot12=300$ cm$^2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQyNVxcY2RvdDEyJCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBwZW50YWdvbmFscy4iLCAiU2VtYmxhIHF1ZSBub23DqXMgaGFzIGNvbXB0YXQgVU5BIGJhc2UgcGVudGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90NDMrMjVcXGNkb3QxMiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syNVxcY2RvdDN7LH00NH17Mn09NDMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0yNVxcY2RvdDEyPTMwMCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90NDMrMzAwPTM4NiQgY20kXjIkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQyNVxcY2RvdDEyJCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBwZW50YWdvbmFscy4iLCAiU2VtYmxhIHF1ZSBub23DqXMgaGFzIGNvbXB0YXQgVU5BIGJhc2UgcGVudGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90NDMrMjVcXGNkb3QxMiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syNVxcY2RvdDN7LH00NH17Mn09NDMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0yNVxcY2RvdDEyPTMwMCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90NDMrMzAwPTM4NiQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base pentagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 123.7,197.3 123.7,47.3 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"123.7,197.3 107.0,219.0 107.0,69.0 123.7,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"107.0,219.0 53.0,219.0 53.0,69.0 107.0,69.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"53.0,219.0 36.3,197.3 36.3,47.3 53.0,69.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"36.3,197.3 80.0,184.0 80.0,34.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 123.7,197.3 107.0,219.0 53.0,219.0 36.3,197.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">3.44 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">12 cm</text></svg>"
   },
   {
    "id": "170e",
@@ -204,6 +213,98 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm8gaGFzIGZldCBzZXJ2aXIgbGEgaGlwb3RlbnVzYSAoJDEwJCBjbSwgcGVyIFBpdMOgZ29yZXMpIGVuIGVsIHBlcsOtbWV0cmUgZGUgbGEgYmFzZTogZWwgcGVyw61tZXRyZSBkZWwgdHJpYW5nbGUgcmVjdGFuZ2xlIMOpcyAkNis4KzEwPTI0JCBjbSwgbm8gJDYrOD0xNCQgY20uIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90MjQrMjRcXGNkb3Q1JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMjRcXGNkb3Q1JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyB0cmlhbmd1bGFycy4iXSwgImVyciI6IFsiIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIiwgIlBST0RVQ1RFX01BTCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NlxcY2RvdDh9ezJ9PTI0JCBjbSReMiQiLCAiSGlwb3RlbnVzYTogJFxcc3FydHs2XjIrOF4yfT0xMCQgY207IHBlcsOtbWV0cmUgJD0yNCQgY20iLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QyNCsyNFxcY2RvdDU9NDgrMTIwPTE2OCQgY20kXjIkIl19"
+  },
+  {
+   "id": "170f",
+   "ex": 170,
+   "ap": "f",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un cub d'aresta $7$ cm.",
+   "opcions": [
+    "$343$ cm$^2$",
+    "$196$ cm$^2$",
+    "$49$ cm$^2$",
+    "$294$ cm$^2$"
+   ],
+   "pistes": [
+    "Totes les cares d'un cub són quadrats iguals.",
+    "Calcula l'àrea d'una cara i multiplica-la pel nombre de cares."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkN14zPTM0MyQgw6lzIGVsIFZPTFVNIGRlbCBjdWIuIEwnw6ByZWEgdG90YWwgdmEgYW1iIGVsIHF1YWRyYXQ6ICQ2XFxjZG90N14yJC4iLCAiU2VtYmxhIHF1ZSBoYXMgY29tcHRhdCBxdWF0cmUgY2FyZXMuIFVuIGN1YiBlbiB0w6kgc2lzOiBsZXMgcXVhdHJlIGxhdGVyYWxzIG3DqXMgbGEgZGUgZGFsdCBpIGxhIGRlIGJhaXguIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgZCdVTkEgY2FyYS4gVW4gY3ViIGVuIHTDqSBzaXMsIHRvdGVzIGlndWFscy4iLCAiIl0sICJlcnIiOiBbIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICJGQUNUT1JfT0JMSURBVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiJdLCAicmVzIjogWyJDYWRhIGNhcmE6ICQ3XjI9NDkkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NlxcY2RvdDQ5PTI5NCQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 182 182\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cub d'aresta 7 cm, dibuixat en perspectiva.</title><polygon points=\"26.0,60.0 122.0,60.0 122.0,156.0 26.0,156.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"26.0,60.0 60.0,26.0 156.0,26.0 122.0,60.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"122.0,60.0 156.0,26.0 156.0,122.0 122.0,156.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 26.0 156.0 l 34.0 -34.0 M 60.0 122.0 v 0.0 M 60.0 122.0 h 96.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><text x=\"74\" y=\"174\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text></svg>"
+  },
+  {
+   "id": "170g",
+   "ex": 170,
+   "ap": "g",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
+   "opcions": [
+    "$576$ cm$^2$",
+    "$908{,}64$ cm$^2$",
+    "$742{,}32$ cm$^2$",
+    "$332{,}64$ cm$^2$"
+   ],
+   "pistes": [
+    "El perímetre de la base és $6\\cdot8=48$ cm.",
+    "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i $A_{\\text{lateral}}=48\\cdot12$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDEyJCk6IGZhbHRlbiBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm9tw6lzIGhhcyBjb21wdGF0IHVuYSBiYXNlLiBVbiBwcmlzbWEgZW4gdMOpIGR1ZXMsIHVuYSBhIGNhZGEgZXh0cmVtLiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbGEgbGF0ZXJhbC4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiRkFDVE9SX09CTElEQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDZ7LH05M317Mn09MTY2eyx9MzIkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT00OFxcY2RvdDEyPTU3NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90MTY2eyx9MzIrNTc2PTkwOHssfTY0JCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">6.93 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">8 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">12 cm</text></svg>"
+  },
+  {
+   "id": "170h",
+   "ex": 170,
+   "ap": "h",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $5$ cm de costat i $4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
+   "opcions": [
+    "$330$ cm$^2$",
+    "$457{,}5$ cm$^2$",
+    "$127{,}5$ cm$^2$",
+    "$393{,}75$ cm$^2$"
+   ],
+   "pistes": [
+    "Perímetre de la base: $6\\cdot5=30$ cm.",
+    "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i $A_{\\text{lateral}}=30\\cdot11$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQzMFxcY2RvdDExJCkuIiwgIiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzLCBzZW5zZSBsYSBsYXRlcmFsLiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2UgaGV4YWdvbmFsIGVuIGxsb2MgZGUgZHVlcy4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3szMFxcY2RvdDR7LH0yNX17Mn09NjN7LH03NSQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTMwXFxjZG90MTE9MzMwJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3Q2M3ssfTc1KzMzMD00NTd7LH01JCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">4.25 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">11 cm</text></svg>"
+  },
+  {
+   "id": "170i",
+   "ex": 170,
+   "ap": "i",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base octogonal regular de $6$ cm de costat i $7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
+   "opcions": [
+    "$720$ cm$^2$",
+    "$1067{,}52$ cm$^2$",
+    "$893{,}76$ cm$^2$",
+    "$800{,}64$ cm$^2$"
+   ],
+   "pistes": [
+    "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
+    "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i $A_{\\text{lateral}}=48\\cdot15$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDE1JCkuIiwgIiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2Ugb2N0b2dvbmFsIGVuIGxsb2MgZGUgZHVlcy4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBzaXMgY29zdGF0cyBlbiBjb21wdGVzIGRlIHZ1aXQ6IGVsIHBlcsOtbWV0cmUgZCd1biBvY3TDoGdvbiBkZSBjb3N0YXQgJDYkIMOpcyAkOFxcY2RvdDY9NDgkIGNtLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJGQUNUT1JfT0JMSURBVCIsICJOX01BTF9DT01QVEFUIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NDhcXGNkb3Q3eyx9MjR9ezJ9PTE3M3ssfTc2JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3QxNT03MjAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDE3M3ssfTc2KzcyMD0xXFwsMDY3eyx9NTIkIGNtJF4yJCJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base octogonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 112.5,189.7 112.5,39.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"112.5,189.7 126.0,203.3 126.0,53.3 112.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"126.0,203.3 112.5,217.0 112.5,67.0 126.0,53.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"112.5,217.0 80.0,222.6 80.0,72.6 112.5,67.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 47.5,217.0 47.5,67.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"47.5,217.0 34.0,203.3 34.0,53.3 47.5,67.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"34.0,203.3 47.5,189.7 47.5,39.7 34.0,53.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"47.5,189.7 80.0,184.0 80.0,34.0 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 112.5,189.7 126.0,203.3 112.5,217.0 80.0,222.6 47.5,217.0 34.0,203.3 47.5,189.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">7.24 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">15 cm</text></svg>"
   },
   {
    "id": "171",
