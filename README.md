@@ -82,6 +82,7 @@ hi ha comptes ni sincronització entre dispositius.
 
     tools/lib.py          motor: Q()/D()/DT(), catàleg d'errors TAX, validació
     tools/figures.py      figures SVG dels enunciats, generades amb paràmetres
+                          (prismes, piràmides, cilindres, cons, esferes...)
     tools/build_tot.py    compila fulls + taules del codi + analitzador
     tools/build_codi.py   taules compartides pel codi de verificació
     tools/build_analitzador.py  munta analitzador-repas.html (fitxer únic)

@@ -226,8 +226,26 @@ Cinc regles, i `lib._valida()` atura la compilació si alguna falla:
   continuar dient les mesures perquè l'exercici es pugui resoldre amb un
   lector de pantalla; hi ha una prova que ho comprova.
 
-Ara mateix només la fan servir els 123a–d, com a cas de prova d'extrem a
-extrem. Els altres ~40 ítems que en necessiten són la feina pendent.
+`figures.py` té ara vuit plantilles: `quadrat_diagonal`,
+`rectangle_diagonal`, `triangle_rectangle`, `ortoedre`, `cub`,
+`prisma_regular`, `piramide_regular`, `tetraedre`, `cilindre`, `con` i
+`esfera`. Les dels cossos comparteixen convenció —perspectiva cavallera, base
+aplanada, arestes del darrere discontínues— perquè el conjunt sembli d'una
+peça.
+
+Dues decisions que val la pena mantenir:
+
+- **S'acota el que diu l'enunciat, no el que seria "més complet".** Si
+  l'enunciat dona el diàmetre, la figura marca el diàmetre; si dona el radi,
+  el radi. Obligar l'alumne a convertir-lo abans de poder llegir el dibuix el
+  fa inútil.
+- **Mai no es marquen alhora el radi, l'altura i la generatriu d'un con.**
+  Amb els tres marcats, Pitàgores queda regalat i l'exercici deixa de ser-ho.
+
+Cobertura actual: **42 dels 47 ítems del Full 9** i els 123a–d del Full 7.
+Els cinc del Full 9 que en queden fora són cossos compostos (170e, 182, 196,
+198) que necessitarien plantilles d'un sol ús. La resta del Full 7 i els
+polígons del 140–144 són la feina pendent.
 
 ### 3.4 El codi de verificació
 
