@@ -415,3 +415,43 @@ class Figures(unittest.TestCase):
         for it in self._amb_figura():
             self.assertEqual(it["figura"].count("<svg"), 1)
             self.assertEqual(it["figura"].count("</svg>"), 1)
+
+
+class ApotemesCoherents(unittest.TestCase):
+    """L'apotema d'un polígon regular és a = s / (2·tan(π/n)). Sempre que un
+    enunciat en doni una, ha de quadrar amb la fórmula.
+
+    Aquesta prova hi és perquè és la tècnica que va permetre llegir les
+    figures escanejades sense endevinar: quan la lectura i la fórmula no
+    quadren, la cota s'ha assignat malament. Va atrapar el 170c, transcrit
+    com a hexàgon de costat 8 amb apotema 5,2 quan un hexàgon de costat 8 té
+    apotema 6,93. La cota de 8 era l'altura.
+
+    El marge del 3 % és per l'arrodoniment del llibre: el 170h dona 4,25 on
+    la fórmula diu 4,33."""
+
+    NOMS = {"triangular": 3, "quadrangular": 4, "pentagonal": 5,
+            "hexagonal": 6, "octogonal": 8}
+
+    def test_les_apotemes_dels_enunciats_quadren_amb_la_formula(self):
+        import math
+        provats = 0
+        for it in PLANS:
+            t = it["enunciat"]
+            m = re.search(r"(\w+) regular de \$(\d+(?:\{,\}\d+)?)\$ cm de costat "
+                          r"i\s*\$(\d+(?:\{,\}\d+)?)\$ cm d'apotema", t)
+            if not m:
+                continue
+            n = self.NOMS.get(m.group(1))
+            if not n:
+                continue
+            s = float(m.group(2).replace("{,}", "."))
+            a = float(m.group(3).replace("{,}", "."))
+            calc = s / (2 * math.tan(math.pi / n))
+            self.assertLess(abs(calc - a) / a, 0.03,
+                            "%s: %s regular de costat %g hauria de tenir apotema "
+                            "%.2f, i l'enunciat en diu %.2f. O el polígon no és "
+                            "el que diu, o les cotes estan intercanviades."
+                            % (it["id"], m.group(1), s, calc, a))
+            provats += 1
+        self.assertGreaterEqual(provats, 5, "esperava trobar més apotemes a comprovar")

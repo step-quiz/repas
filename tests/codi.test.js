@@ -201,6 +201,46 @@ prova("els codis RC1 antics encara es llegeixen", () => {
     "4:62a,70a,70b,70c,70d,71a,71b,71c,71d,71e"]);
 });
 
+prova("l'ordre de codificació és append-only", () => {
+  /* Aquesta és LA propietat que fa que els codis emesos segueixin valent.
+     L'ordre de codificació (codi-ordre.json) i el de presentació
+     (data/fullN.js) són coses diferents a propòsit: quan es recupera un
+     exercici que faltava, va al seu lloc per a l'alumne i al final de
+     l'ordre per al codi. Comprovat sobre el Full 9, on el 170f-i es van
+     recuperar entre el 170e i el 171. */
+  const f9 = T.fulls[9].items;
+  const rec = ["170f", "170g", "170h", "170i"];
+  assert.deepStrictEqual(f9.slice(-4), rec,
+    "els exercicis recuperats han d'anar al final de l'ordre de codificació");
+  assert.strictEqual(f9.indexOf("171"), 5,
+    "els que ja hi eren no s'han pogut moure de lloc");
+});
+
+prova("els blocs es donen com a llista de posicions, no com a rang", () => {
+  /* Amb l'ordre append-only els blocs deixen de ser contigus: el bloc dels
+     prismes conté la posició 0 i també la 46. Un rang se n'empassaria mig
+     full. */
+  Object.keys(T.fulls).forEach(n => {
+    T.fulls[n].blocs.forEach(b => {
+      assert.ok(Array.isArray(b[1]), "full " + n + ": el bloc " + b[0] + " no és una llista");
+      b[1].forEach(k => assert.ok(k >= 0 && k < T.fulls[n].items.length));
+    });
+  });
+  const prismes = T.fulls[9].blocs.filter(b => /prismes|Prismes/i.test(b[0]))[0];
+  assert.ok(prismes[1].indexOf(0) >= 0 && Math.max.apply(null, prismes[1]) > 40,
+    "el bloc dels prismes hauria d'abastar posicions molt separades");
+});
+
+prova("cap posició no queda en dos blocs alhora", () => {
+  Object.keys(T.fulls).forEach(n => {
+    const vist = new Set();
+    T.fulls[n].blocs.forEach(b => b[1].forEach(k => {
+      assert.ok(!vist.has(k), "full " + n + ": la posició " + k + " és a dos blocs");
+      vist.add(k);
+    }));
+  });
+});
+
 prova("l'ordre d'ítems de cada full no s'ha mogut per davant", () => {
   /* Els primers ítems de cada full, tal com eren quan es va emetre el primer
      codi. El format guarda els estats per POSICIÓ: si alguna d'aquestes
