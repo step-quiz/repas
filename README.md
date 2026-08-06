@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 778 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 860 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -18,11 +18,11 @@ personalitzat d'exercicis.
 | 3 | Successions i progressions | 4 | 50 |
 | 4 | Polinomis | 4 | 59 |
 | 5 | Equacions i sistemes | 5 | 99 |
-| 6 | Proporcionalitat i percentatges | 3 | 21 |
+| 6 | Proporcionalitat i percentatges | 5 | 48 |
 | 7 | Teorema de Pitàgores. Àrees | 4 | 55 |
-| 8 | Teorema de Tales. Semblança | 4 | 32 |
+| 8 | Teorema de Tales. Semblança | 6 | 59 |
 | 9 | Cossos geomètrics. Àrea i volum | 4 | 43 |
-| 10 | Funcions | 3 | 45 |
+| 10 | Funcions | 5 | 73 |
 | 11 | Estadística | 5 | 91 |
 | 12 | Combinatòria i probabilitat | 4 | 67 |
 
@@ -181,12 +181,23 @@ d'inventar-ne les mesures. Els motius concrets són al docstring de cada
 | 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
 | 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
 
-Al Full 11 hi ha, a més, **dos blocs de contingut nou** (exercicis 260–274)
-que no surten de la font: mitjana, mediana, moda, recorregut, variància,
-desviació típica i coeficient de variació. El material de partida no en porta
-cap, i és contingut de 4t d'ESO i prerequisit directe de l'estadística de 1r
-de batxillerat. Van numerats a partir del 260 perquè els números 1–259 són els
-de la font i convé poder saber d'on surt cada cosa.
+## Contingut nou
+
+Quatre fulls porten blocs que **no surten de la font**, numerats a partir del
+260 perquè els números 1–259 són els del material de partida i convé poder
+saber d'on surt cada cosa.
+
+| Full | Exercicis | Blocs nous | Per què |
+|---|---|---|---|
+| 11 | 260–274 | Mitjana, mediana i moda · Recorregut i desviació típica | No hi havia **cap** mesura de centralització ni de dispersió. És contingut de 4t d'ESO i prerequisit directe de l'estadística de 1r de batxillerat |
+| 6 | 275–284 | El factor multiplicador · Descomptes, IVA i interessos | El full tenia 21 preguntes, i els percentatges són el que més s'oblida i el que més surt després |
+| 8 | 285–294 | Càlcul amb escales · Raó de semblança, àrees i volums | No es deia enlloc que si les longituds es multipliquen per *k*, les àrees ho fan per *k*² i els volums per *k*³ |
+| 10 | 295–304 | Construir rectes · Construir paràboles i problemes | De 45 preguntes, només 8 demanaven construir alguna cosa: la resta era reconeixement |
+
+Els mòduls nous van **sempre els últims** a la llista de `moduls` del seu full,
+perquè els seus ítems s'afegeixin al final del banc: el codi de verificació
+guarda els estats per posició, i moure'ls invalidaria tots els codis ja
+emesos.
 
 Els exercicis on només falten alguns apartats (145, 152, 195) porten una
 nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.

@@ -38,7 +38,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
 </style>
 <h1>Clau de respostes — Full 10</h1>
-<p class="meta">45 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">73 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Concepte de funció <span class="tip">· 18 preguntes</span></h2>
 <p class="sec"><strong>Exercici 200.</strong> Raona quines de les relacions següents corresponen a funcions.</p>
@@ -372,6 +372,301 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}=\dfrac{-3-(-1)}{1-(0)}=-2$.</li><li>Com que el punt $(0,\ -1)$ té $x=0$, la seva $y$ ja és l'ordenada a l'origen: $n=-1$.</li><li>L'expressió és $y=-2x-1$.</li></ol>
 </div>
+<h2>Construir rectes <span class="tip">· 15 preguntes</span></h2>
+<p class="sec"><strong>Exercici 295.</strong> Escriu l&#x27;equació de la recta que té aquest pendent i passa per aquest punt.</p>
+<div class="it"><div class="cap"><span class="cod">295a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Pendent $m=2$, punt $(3,1)$.</div>
+<ol class="op"><li><span class="ok">$y=2x-5$</span> — resposta correcta</li>
+<li>$y=2x+1$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has posat la $y$ del punt com a ordenada a l'origen. El $1$ és el valor de la funció a $x=3$, no a $x=0$: cal aïllar $n$ de $1=2\cdot3+n$.</span></li>
+<li>$y=2x+5$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat: revisa el pas d'aïllar $n$.</span></li>
+<li>$y=3x-5$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">El pendent és el que et donaven, $m=2$: no es calcula, es col·loca.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Parteix de $y=mx+n$ amb el pendent que et donen: $y=2x+n$.</li><li>Substitueix-hi el punt i aïlla $n$: $1=2\cdot3+n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1=2\cdot(3)+n$</li><li>$n=1-(6)=-5$</li><li>$y=2x-5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">295b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Pendent $m=-3$, punt $(1,5)$.</div>
+<ol class="op"><li><span class="ok">$y=-3x+8$</span> — resposta correcta</li>
+<li>$y=-3x+5$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has posat la $y$ del punt com a ordenada a l'origen. El $5$ és el valor de la funció a $x=1$, no a $x=0$: cal aïllar $n$ de $5=-3\cdot1+n$.</span></li>
+<li>$y=-3x-8$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat: revisa el pas d'aïllar $n$.</span></li>
+<li>$y=x+8$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">El pendent és el que et donaven, $m=-3$: no es calcula, es col·loca.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Parteix de $y=mx+n$ amb el pendent que et donen: $y=-3x+n$.</li><li>Substitueix-hi el punt i aïlla $n$: $5=-3\cdot1+n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$5=-3\cdot(1)+n$</li><li>$n=5-(-3)=8$</li><li>$y=-3x+8$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">295c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Pendent $m=\dfrac{1}{2}$, punt $(4,0)$.</div>
+<ol class="op"><li><span class="ok">$y=\dfrac{1}{2}x-2$</span> — resposta correcta</li>
+<li>$y=\dfrac{1}{2}x$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has posat la $y$ del punt com a ordenada a l'origen. El $0$ és el valor de la funció a $x=4$, no a $x=0$: cal aïllar $n$ de $0=\dfrac{1}{2}\cdot4+n$.</span></li>
+<li>$y=\dfrac{1}{2}x+2$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat: revisa el pas d'aïllar $n$.</span></li>
+<li>$y=4x-2$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">El pendent és el que et donaven, $m=\dfrac{1}{2}$: no es calcula, es col·loca.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Parteix de $y=mx+n$ amb el pendent que et donen: $y=\dfrac{1}{2}x+n$.</li><li>Substitueix-hi el punt i aïlla $n$: $0=\dfrac{1}{2}\cdot4+n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0=\dfrac{1}{2}\cdot(4)+n$</li><li>$n=0-(2)=-2$</li><li>$y=\dfrac{1}{2}x-2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">295d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Pendent $m=-1$, punt $(-2,3)$.</div>
+<ol class="op"><li><span class="ok">$y=-x+1$</span> — resposta correcta</li>
+<li>$y=-x+3$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has posat la $y$ del punt com a ordenada a l'origen. El $3$ és el valor de la funció a $x=-2$, no a $x=0$: cal aïllar $n$ de $3=-1\cdot-2+n$.</span></li>
+<li>$y=-x-1$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat: revisa el pas d'aïllar $n$.</span></li>
+<li>$y=-2x+1$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">El pendent és el que et donaven, $m=-1$: no es calcula, es col·loca.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Parteix de $y=mx+n$ amb el pendent que et donen: $y=-1x+n$.</li><li>Substitueix-hi el punt i aïlla $n$: $3=-1\cdot-2+n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3=-1\cdot(-2)+n$</li><li>$n=3-(2)=1$</li><li>$y=-x+1$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 296.</strong> Escriu l&#x27;equació de la recta que passa pels dos punts.</p>
+<div class="it"><div class="cap"><span class="cod">296a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$(1,2)$ i $(3,8)$.</div>
+<ol class="op"><li><span class="ok">$y=3x-1$</span> — resposta correcta</li>
+<li>$y=\dfrac{1}{3}x+\dfrac{5}{3}$<br><span class="err">PENDENT_INVERTIT</span><span class="fb">Has calculat $\dfrac{\Delta x}{\Delta y}$. El pendent és $\dfrac{\Delta y}{\Delta x}$: el que puja entre el que avança.</span></li>
+<li>$y=-3x-1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: comprova en quin sentit vas de $(1,2)$ a $(3,8)$.</span></li>
+<li>$y=3x+2$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has pres la $y$ del primer punt com a ordenada a l'origen. Només serviria si aquell punt fos a $x=0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula el pendent: $m=\dfrac{y_2-y_1}{x_2-x_1}$.</li><li>Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$m=\dfrac{8-(2)}{3-(1)}=\dfrac{6}{2}=3$</li><li>$2=3\cdot(1)+n\;\Longrightarrow\;n=-1$</li><li>$y=3x-1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">296b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$(-2,5)$ i $(2,-3)$.</div>
+<ol class="op"><li><span class="ok">$y=-2x+1$</span> — resposta correcta</li>
+<li>$y=-\dfrac{1}{2}x+4$<br><span class="err">PENDENT_INVERTIT</span><span class="fb">Has calculat $\dfrac{\Delta x}{\Delta y}$. El pendent és $\dfrac{\Delta y}{\Delta x}$: el que puja entre el que avança.</span></li>
+<li>$y=2x+1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: comprova en quin sentit vas de $(-2,5)$ a $(2,-3)$.</span></li>
+<li>$y=-2x+5$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has pres la $y$ del primer punt com a ordenada a l'origen. Només serviria si aquell punt fos a $x=0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula el pendent: $m=\dfrac{y_2-y_1}{x_2-x_1}$.</li><li>Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$m=\dfrac{-3-(5)}{2-(-2)}=\dfrac{-8}{4}=-2$</li><li>$5=-2\cdot(-2)+n\;\Longrightarrow\;n=1$</li><li>$y=-2x+1$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">296c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$(2,-1)$ i $(6,1)$.</div>
+<ol class="op"><li><span class="ok">$y=\dfrac{1}{2}x-2$</span> — resposta correcta</li>
+<li>$y=2x-5$<br><span class="err">PENDENT_INVERTIT</span><span class="fb">Has calculat $\dfrac{\Delta x}{\Delta y}$. El pendent és $\dfrac{\Delta y}{\Delta x}$: el que puja entre el que avança.</span></li>
+<li>$y=-\dfrac{1}{2}x-2$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: comprova en quin sentit vas de $(2,-1)$ a $(6,1)$.</span></li>
+<li>$y=\dfrac{1}{2}x-1$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has pres la $y$ del primer punt com a ordenada a l'origen. Només serviria si aquell punt fos a $x=0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula el pendent: $m=\dfrac{y_2-y_1}{x_2-x_1}$.</li><li>Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$m=\dfrac{1-(-1)}{6-(2)}=\dfrac{2}{4}=\dfrac{1}{2}$</li><li>$-1=\dfrac{1}{2}\cdot(2)+n\;\Longrightarrow\;n=-2$</li><li>$y=\dfrac{1}{2}x-2$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 297.</strong> D&#x27;una recta se&#x27;n sap això. Escriu-ne l&#x27;equació.</p>
+<div class="it"><div class="cap"><span class="cod">297a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Talla l'eix $Y$ a $-4$ i puja $3$ unitats cada vegada que avança $1$.</div>
+<ol class="op"><li><span class="ok">$y=3x-4$</span> — resposta correcta</li>
+<li>$y=-4x+3$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Has intercanviat el pendent i l'ordenada a l'origen. El pendent és el que multiplica la $x$; l'ordenada, el terme que va sol.</span></li>
+<li>$y=-3x-4$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: si la recta puja, el pendent és positiu; si baixa, negatiu.</span></li>
+<li>$y=3x+4$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.</li><li>L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Pendent: $m=3$</li><li>Ordenada a l'origen: $n=-4$</li><li>$y=3x-4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">297b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Talla l'eix $Y$ a $2$ i baixa $1$ unitat cada vegada que avança $4$.</div>
+<ol class="op"><li><span class="ok">$y=-\dfrac{1}{4}x+2$</span> — resposta correcta</li>
+<li>$y=2x-\dfrac{1}{4}$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Has intercanviat el pendent i l'ordenada a l'origen. El pendent és el que multiplica la $x$; l'ordenada, el terme que va sol.</span></li>
+<li>$y=\dfrac{1}{4}x+2$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: si la recta puja, el pendent és positiu; si baixa, negatiu.</span></li>
+<li>$y=-\dfrac{1}{4}x-2$<br><span class="err">SIGNE_FINAL</span><span class="fb">L'ordenada a l'origen té el signe canviat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.</li><li>L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Pendent: $m=-\dfrac{1}{4}$</li><li>Ordenada a l'origen: $n=2$</li><li>$y=-\dfrac{1}{4}x+2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">297c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">És horitzontal i passa per $(7,-3)$.</div>
+<ol class="op"><li><span class="ok">$y=-3$</span> — resposta correcta</li>
+<li>$y=-3x$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Has intercanviat el pendent i l'ordenada a l'origen. El pendent és el que multiplica la $x$; l'ordenada, el terme que va sol.</span></li>
+<li>$y=x-3$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: una recta horitzontal té pendent $0$, no $1$.</span></li>
+<li>$x=-3$<br><span class="err">RECTA_VERTICAL_CONFOSA</span><span class="fb">Una recta HORITZONTAL és $y=$ constant. La forma $x=$ constant és una recta vertical, i aquella no és cap funció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.</li><li>L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Pendent: $m=0$</li><li>Ordenada a l'origen: $n=-3$</li><li>$y=-3$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 298.</strong> Donada la recta $r:\;y=2x-3$, escriu l&#x27;equació de la recta demanada.</p>
+<div class="it"><div class="cap"><span class="cod">298a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">La paral·lela a $r$ que passa per $(1,4)$.</div>
+<ol class="op"><li><span class="ok">$y=2x+2$</span> — resposta correcta</li>
+<li>$y=2x-3$<br><span class="err">PARALLELA_MATEIXA_RECTA</span><span class="fb">Aquesta és la recta $r$ mateixa, que no passa per $(1,4)$. Una paral·lela té el mateix pendent però una altra ordenada a l'origen.</span></li>
+<li>$y=-\dfrac{1}{2}x+\dfrac{9}{2}$<br><span class="err">PARALLELA_PER_PERPENDICULAR</span><span class="fb">Aquesta és la PERPENDICULAR. Les paral·leles comparteixen pendent; les perpendiculars el tenen invers i canviat de signe.</span></li>
+<li>$y=2x+4$<br><span class="err">ORDENADA_PER_COORDENADA</span><span class="fb">Has posat el $4$ com a ordenada a l'origen, però és el valor de $y$ a $x=1$, no a $x=0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Dues rectes són paral·leles quan tenen el MATEIX pendent: $m=2$.</li><li>Amb $m=2$, substitueix $(1,4)$ a $y=2x+n$ i aïlla $n$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Paral·lela $\Rightarrow m=2$</li><li>$4=2\cdot1+n\;\Longrightarrow\;n=2$</li><li>$y=2x+2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">298b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">La perpendicular a $r$ que passa per $(4,1)$.</div>
+<ol class="op"><li><span class="ok">$y=-\dfrac{1}{2}x+3$</span> — resposta correcta</li>
+<li>$y=2x-7$<br><span class="err">PARALLELA_PER_PERPENDICULAR</span><span class="fb">Aquesta és una PARAL·LELA a $r$. Perquè sigui perpendicular, el pendent ha de ser $-\dfrac{1}{2}$: l'invers de $2$ i canviat de signe.</span></li>
+<li>$y=-2x+9$<br><span class="err">PENDENT_NOMES_CANVIAT_DE_SIGNE</span><span class="fb">Només has canviat el signe del pendent. Per ser perpendicular cal invertir-lo TAMBÉ: de $2$ a $-\dfrac{1}{2}$, perquè $2\cdot\left(-\dfrac{1}{2}\right)=-1$.</span></li>
+<li>$y=\dfrac{1}{2}x-1$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">Has invertit el pendent però no li has canviat el signe. El producte dels pendents de dues perpendiculars ha de valer $-1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Dues rectes són perpendiculars quan el producte dels pendents val $-1$.</li><li>Si $m_r=2$, el pendent que busques és $-\dfrac{1}{2}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Perpendicular $\Rightarrow m=-\dfrac{1}{2}$ (perquè $2\cdot\left(-\dfrac{1}{2}\right)=-1$)</li><li>$1=-\dfrac{1}{2}\cdot4+n\;\Longrightarrow\;n=3$</li><li>$y=-\dfrac{1}{2}x+3$</li></ol>
+<p class="nota"><strong>Nota:</strong> La condició de perpendicularitat ($m_1\cdot m_2=-1$) no surt al material de partida i és de batxillerat, però va aquí perquè és el pas natural després de les paral·leles i costa poc d'afegir.</p>
+</div>
+<p class="sec"><strong>Exercici 299.</strong> Troba el punt de tall de les dues rectes.</p>
+<div class="it"><div class="cap"><span class="cod">299a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=2x+1$ i $y=-x+7$.</div>
+<ol class="op"><li><span class="ok">$(2,5)$</span> — resposta correcta</li>
+<li>$(5,2)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés. Primer va la $x$ i després la $y$.</span></li>
+<li>$(2,6)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ és correcta, però la $y$ no surt: substitueix-la a qualsevol de les dues rectes i comprova que dona el mateix a totes dues.</span></li>
+<li>$(1,7)$<br><span class="err">ORDENADES_PER_TALL</span><span class="fb">Aquestes són les dues ordenades a l'origen, és a dir, on talla cada recta l'eix $Y$. El punt de tall entre elles és on les dues $y$ coincideixen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.</li><li>Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2x+1=-x+7$</li><li>$x=2$</li><li>$y=2\cdot2+1=5$</li><li>Punt de tall: $(2,5)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">299b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=3x-2$ i $y=x+2$.</div>
+<ol class="op"><li><span class="ok">$(2,4)$</span> — resposta correcta</li>
+<li>$(4,2)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés. Primer va la $x$ i després la $y$.</span></li>
+<li>$(2,5)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ és correcta, però la $y$ no surt: substitueix-la a qualsevol de les dues rectes i comprova que dona el mateix a totes dues.</span></li>
+<li>$(-2,2)$<br><span class="err">ORDENADES_PER_TALL</span><span class="fb">Aquestes són les dues ordenades a l'origen, és a dir, on talla cada recta l'eix $Y$. El punt de tall entre elles és on les dues $y$ coincideixen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.</li><li>Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3x-2=x+2$</li><li>$x=2$</li><li>$y=3\cdot2-2=4$</li><li>Punt de tall: $(2,4)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">299c</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=-x+6$ i $y=\dfrac{1}{2}x+3$.</div>
+<ol class="op"><li><span class="ok">$(2,4)$</span> — resposta correcta</li>
+<li>$(4,2)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés. Primer va la $x$ i després la $y$.</span></li>
+<li>$(2,5)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ és correcta, però la $y$ no surt: substitueix-la a qualsevol de les dues rectes i comprova que dona el mateix a totes dues.</span></li>
+<li>$(6,3)$<br><span class="err">ORDENADES_PER_TALL</span><span class="fb">Aquestes són les dues ordenades a l'origen, és a dir, on talla cada recta l'eix $Y$. El punt de tall entre elles és on les dues $y$ coincideixen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.</li><li>Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$-x+6=\dfrac{1}{2}x+3$</li><li>$x=2$</li><li>$y=-1\cdot2+6=4$</li><li>Punt de tall: $(2,4)$</li></ol>
+</div>
+<h2>Construir paràboles i problemes <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 300.</strong> Troba el vèrtex de cada paràbola.</p>
+<div class="it"><div class="cap"><span class="cod">300a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$y=x^2-6x+5$</div>
+<ol class="op"><li><span class="ok">$(3,-4)$</span> — resposta correcta</li>
+<li>$(-3,32)$<br><span class="err">SIGNE_VERTEX</span><span class="fb">T'has deixat el signe menys: $x_v=\dfrac{-b}{2a}$, i aquí $b=-6$.</span></li>
+<li>$(-4,3)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés: primer la $x$ del vèrtex i després la $y$.</span></li>
+<li>$(3,5)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ del vèrtex és correcta, però la $y$ no és el terme independent: cal substituir $x_v$ a la funció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La $x$ del vèrtex és $x_v=\dfrac{-b}{2a}$.</li><li>La $y$ s'obté substituint aquest valor a la funció.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x_v=\dfrac{-(-6)}{2\cdot1}=3$</li><li>$y_v=-4$</li><li>Vèrtex: $(3,-4)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">300b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$y=2x^2+4x-1$</div>
+<ol class="op"><li><span class="ok">$(-1,-3)$</span> — resposta correcta</li>
+<li>$(1,5)$<br><span class="err">SIGNE_VERTEX</span><span class="fb">T'has deixat el signe menys: $x_v=\dfrac{-b}{2a}$, i aquí $b=4$.</span></li>
+<li>$(-3,-1)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés: primer la $x$ del vèrtex i després la $y$.</span></li>
+<li>$(-1,-1)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ del vèrtex és correcta, però la $y$ no és el terme independent: cal substituir $x_v$ a la funció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La $x$ del vèrtex és $x_v=\dfrac{-b}{2a}$.</li><li>La $y$ s'obté substituint aquest valor a la funció.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x_v=\dfrac{-(4)}{2\cdot2}=-1$</li><li>$y_v=-3$</li><li>Vèrtex: $(-1,-3)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">300c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$y=-x^2+2x+3$</div>
+<ol class="op"><li><span class="ok">$(1,4)$</span> — resposta correcta</li>
+<li>$(-1,0)$<br><span class="err">SIGNE_VERTEX</span><span class="fb">T'has deixat el signe menys: $x_v=\dfrac{-b}{2a}$, i aquí $b=2$.</span></li>
+<li>$(4,1)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés: primer la $x$ del vèrtex i després la $y$.</span></li>
+<li>$(1,3)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ del vèrtex és correcta, però la $y$ no és el terme independent: cal substituir $x_v$ a la funció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La $x$ del vèrtex és $x_v=\dfrac{-b}{2a}$.</li><li>La $y$ s'obté substituint aquest valor a la funció.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x_v=\dfrac{-(2)}{2\cdot-1}=1$</li><li>$y_v=4$</li><li>Vèrtex: $(1,4)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">300d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$y=x^2+8x-9$</div>
+<ol class="op"><li><span class="ok">$(-4,-25)$</span> — resposta correcta</li>
+<li>$(4,39)$<br><span class="err">SIGNE_VERTEX</span><span class="fb">T'has deixat el signe menys: $x_v=\dfrac{-b}{2a}$, i aquí $b=8$.</span></li>
+<li>$(-25,-4)$<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Has posat les coordenades al revés: primer la $x$ del vèrtex i després la $y$.</span></li>
+<li>$(-4,-9)$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ del vèrtex és correcta, però la $y$ no és el terme independent: cal substituir $x_v$ a la funció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La $x$ del vèrtex és $x_v=\dfrac{-b}{2a}$.</li><li>La $y$ s'obté substituint aquest valor a la funció.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x_v=\dfrac{-(8)}{2\cdot1}=-4$</li><li>$y_v=-25$</li><li>Vèrtex: $(-4,-25)$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 301.</strong> Troba els talls amb els eixos de cada paràbola.</p>
+<div class="it"><div class="cap"><span class="cod">301a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=x^2-5x+6$</div>
+<ol class="op"><li><span class="ok">Amb $X$: $(2,0)$, $(3,0)$. Amb $Y$: $(0,6)$.</span> — resposta correcta</li>
+<li>Amb $X$: $(-2,0)$, $(-3,0)$. Amb $Y$: $(0,6)$.<br><span class="err">SIGNE_ARRELS</span><span class="fb">Els talls amb l'eix $X$ tenen el signe canviat. Comprova'ls substituint-los: han de fer que $y$ valgui $0$.</span></li>
+<li>Amb $X$: $(2,0)$, $(3,0)$. Amb $Y$: $(0,-6)$.<br><span class="err">SIGNE_FINAL</span><span class="fb">El tall amb l'eix $Y$ és el valor de la funció a $x=0$, que és el terme independent tal com és: $6$.</span></li>
+<li>Amb $X$: $(0,2)$, $(0,3)$. Amb $Y$: $(0,6)$.<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Els talls amb l'eix $X$ tenen la segona coordenada igual a $0$, no la primera: són de la forma $(x,0)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ surten de resoldre $y=0$.</li><li>El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2-5x+6=0$ dona $x=2,\;3$</li><li>Talls amb $X$: $(2,0)$, $(3,0)$</li><li>A $x=0$: $y=6$, o sigui el punt $(0,6)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">301b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=x^2+2x-8$</div>
+<ol class="op"><li><span class="ok">Amb $X$: $(-4,0)$, $(2,0)$. Amb $Y$: $(0,-8)$.</span> — resposta correcta</li>
+<li>Amb $X$: $(4,0)$, $(-2,0)$. Amb $Y$: $(0,-8)$.<br><span class="err">SIGNE_ARRELS</span><span class="fb">Els talls amb l'eix $X$ tenen el signe canviat. Comprova'ls substituint-los: han de fer que $y$ valgui $0$.</span></li>
+<li>Amb $X$: $(-4,0)$, $(2,0)$. Amb $Y$: $(0,8)$.<br><span class="err">SIGNE_FINAL</span><span class="fb">El tall amb l'eix $Y$ és el valor de la funció a $x=0$, que és el terme independent tal com és: $-8$.</span></li>
+<li>Amb $X$: $(0,-4)$, $(0,2)$. Amb $Y$: $(0,-8)$.<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Els talls amb l'eix $X$ tenen la segona coordenada igual a $0$, no la primera: són de la forma $(x,0)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ surten de resoldre $y=0$.</li><li>El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2+2x-8=0$ dona $x=-4,\;2$</li><li>Talls amb $X$: $(-4,0)$, $(2,0)$</li><li>A $x=0$: $y=-8$, o sigui el punt $(0,-8)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">301c</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">$y=x^2-4x+4$</div>
+<ol class="op"><li><span class="ok">Amb $X$: $(2,0)$. Amb $Y$: $(0,4)$. (l'arrel és doble)</span> — resposta correcta</li>
+<li>Amb $X$: $(-2,0)$. Amb $Y$: $(0,4)$.<br><span class="err">SIGNE_ARRELS</span><span class="fb">Els talls amb l'eix $X$ tenen el signe canviat. Comprova'ls substituint-los: han de fer que $y$ valgui $0$.</span></li>
+<li>Amb $X$: $(2,0)$. Amb $Y$: $(0,-4)$.<br><span class="err">SIGNE_FINAL</span><span class="fb">El tall amb l'eix $Y$ és el valor de la funció a $x=0$, que és el terme independent tal com és: $4$.</span></li>
+<li>Amb $X$: $(0,2)$. Amb $Y$: $(0,4)$.<br><span class="err">COORDENADES_INTERCANVIADES</span><span class="fb">Els talls amb l'eix $X$ tenen la segona coordenada igual a $0$, no la primera: són de la forma $(x,0)$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ surten de resoldre $y=0$.</li><li>El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2-4x+4=0$ dona $x=2$</li><li>Talls amb $X$: $(2,0)$</li><li>A $x=0$: $y=4$, o sigui el punt $(0,4)$</li></ol>
+<p class="nota"><strong>Nota:</strong> Quan l'equació té una arrel doble, la paràbola no travessa l'eix $X$: només el toca, i justament al vèrtex.</p>
+</div>
+<p class="sec"><strong>Exercici 302.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">302a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Una paràbola té el vèrtex a $(2,-1)$ i passa per $(0,3)$. Quina és la seva equació?</div>
+<ol class="op"><li><span class="ok">$y=x^2-4x+3$</span> — resposta correcta</li>
+<li>$y=x^2+4x+3$<br><span class="err">SIGNE_VERTEX</span><span class="fb">Amb aquest signe el vèrtex quedaria a $x=-2$, no a $x=2$. Comprova-ho amb $x_v=\dfrac{-b}{2a}$.</span></li>
+<li>$y=(x-2)^2-1$ però amb $a=4$: $y=4x^2-16x+15$<br><span class="err">COEFICIENT_MAL_TRIAT</span><span class="fb">El coeficient $a$ no és $4$: se'l troba imposant que la paràbola passi per $(0,3)$, i surt $a=1$.</span></li>
+<li>$y=x^2-2x-1$<br><span class="err">VERTEX_COM_COEFICIENTS</span><span class="fb">Sembla que has col·locat el $2$ i el $-1$ del vèrtex directament com a coeficients. El vèrtex no són els coeficients: cal fer servir la forma $y=a(x-x_v)^2+y_v$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comença per la forma de vèrtex: $y=a(x-2)^2-1$.</li><li>Substitueix-hi el punt $(0,3)$ per trobar $a$, i després desenvolupa.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=a(x-2)^2-1$</li><li>Amb $(0,3)$: $3=a(0-2)^2-1=4a-1\;\Longrightarrow\;a=1$</li><li>$y=(x-2)^2-1=x^2-4x+4-1=x^2-4x+3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">302b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I una amb el vèrtex a $(-1,4)$ que passa per $(1,0)$?</div>
+<ol class="op"><li><span class="ok">$y=-x^2-2x+3$</span> — resposta correcta</li>
+<li>$y=x^2+2x+5$<br><span class="err">SIGNE_COEFICIENT_PRINCIPAL</span><span class="fb">Amb $a>0$ la paràbola s'obre cap amunt i el vèrtex seria un mínim. Aquí el vèrtex ($y=4$) queda per damunt del punt ($y=0$), així que ha de ser un màxim i $a$ ha de ser negatiu.</span></li>
+<li>$y=-x^2+2x+3$<br><span class="err">SIGNE_VERTEX</span><span class="fb">Amb aquest signe el vèrtex quedaria a $x=1$, no a $x=-1$.</span></li>
+<li>$y=-4x^2-8x$<br><span class="err">COEFICIENT_MAL_TRIAT</span><span class="fb">El coeficient $a$ surt d'imposar el punt: $0=a(1+1)^2+4=4a+4$, o sigui $a=-1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Forma de vèrtex: $y=a(x+1)^2+4$.</li><li>Substitueix-hi $(1,0)$ i troba $a$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=a(x+1)^2+4$</li><li>Amb $(1,0)$: $0=a\cdot4+4\;\Longrightarrow\;a=-1$</li><li>$y=-(x+1)^2+4=-(x^2+2x+1)+4=-x^2-2x+3$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 303.</strong> Una companyia de telèfon cobra $12$ € fixos al mes més $0{,}05$ € per minut de trucada.</p>
+<div class="it"><div class="cap"><span class="cod">303a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Escriu la funció que dona el preu segons els minuts.</div>
+<ol class="op"><li><span class="ok">$y=0{,}05x+12$</span> — resposta correcta</li>
+<li>$y=12x+0{,}05$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Els has intercanviat. El que depèn dels minuts és el $0{,}05$ (per cada minut), i el $12$ es paga sempre, encara que no truquis: és l'ordenada a l'origen.</span></li>
+<li>$y=12{,}05x$<br><span class="err">PART_FIXA_VARIABLE_BARREJADES</span><span class="fb">Has sumat la quota fixa al preu per minut. La quota es paga un cop, no cada minut.</span></li>
+<li>$y=0{,}05x$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">T'has deixat els $12$ € fixos: amb $0$ minuts la factura no és $0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina part de la factura no depèn dels minuts?</li><li>Aquesta part és el terme independent; el preu per minut és el pendent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Part fixa: $12$ € $\to$ ordenada a l'origen</li><li>Part variable: $0{,}05$ € per minut $\to$ pendent</li><li>$y=0{,}05x+12$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">303b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quant paga algú que ha parlat $340$ minuts?</div>
+<ol class="op"><li><span class="ok">$29$ €</span> — resposta correcta</li>
+<li>$17$ €<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has calculat només la part variable ($340\cdot0{,}05$). Falta sumar-hi els $12$ € fixos.</span></li>
+<li>$4\,092$ €<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Sembla que has multiplicat els minuts per $12$. El $12$ és fix; el que es multiplica pels minuts és $0{,}05$.</span></li>
+<li>$352$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat els minuts als euros. Cal multiplicar-los primer pel preu per minut.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $x=340$ a la funció.</li><li>$0{,}05\cdot340+12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=0{,}05\cdot340+12=17+12=29$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">303c</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Amb quants minuts la factura arriba a $30$ €?</div>
+<ol class="op"><li><span class="ok">$360$ minuts</span> — resposta correcta</li>
+<li>$600$ minuts<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has fet $\dfrac{30}{0{,}05}$ sense restar abans els $12$ € fixos, que es paguen igualment.</span></li>
+<li>$1{,}5$ minuts<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés en algun pas: comprova que $0{,}05\cdot1{,}5+12$ no arriba a $30$.</span></li>
+<li>$18$ minuts<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">El $18$ és el que queda després de restar la quota ($30-12$), en EUROS. Encara falta dividir-lo entre el preu per minut.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Planteja l'equació $0{,}05x+12=30$.</li><li>Resta primer els $12$ i després divideix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0{,}05x+12=30$</li><li>$0{,}05x=18$</li><li>$x=\dfrac{18}{0{,}05}=360$ minuts</li></ol>
+</div>
+<p class="sec"><strong>Exercici 304.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">304</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Es vol tancar un corral rectangular amb $40$ m de tanca, aprofitant un mur que ja hi ha com un dels costats llargs. Si un dels costats perpendiculars al mur fa $x$ metres, l'àrea és $A(x)=x(40-2x)$. Quina $x$ dona l'àrea més gran?</div>
+<ol class="op"><li><span class="ok">$x=10$ m, amb una àrea de $200$ m$^2$</span> — resposta correcta</li>
+<li>$x=20$ m, amb una àrea de $400$ m$^2$<br><span class="err">VERTEX_PER_ARREL</span><span class="fb">Amb $x=20$ l'altre costat val $40-40=0$: no hi ha corral. El $20$ és una de les arrels de la paràbola, on l'àrea val zero, no el vèrtex.</span></li>
+<li>$x=10$ m, amb una àrea de $100$ m$^2$<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">La $x$ és correcta, però l'àrea no: $A(10)=10\cdot(40-20)=10\cdot20=200$.</span></li>
+<li>$x=40$ m<br><span class="err">DADES_MAL_TRIADES</span><span class="fb">El $40$ és la tanca total, no un costat. Amb $x=40$ l'altre costat sortiria negatiu.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.</li><li>És una paràbola amb $a<0$: el punt més alt és el vèrtex.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A(x)=40x-2x^2$, o sigui $a=-2$ i $b=40$</li><li>Com que $a<0$, la paràbola s'obre cap avall i el vèrtex és un MÀXIM</li><li>$x_v=\dfrac{-40}{2\cdot(-2)}=10$</li><li>$A(10)=10\cdot(40-20)=200$ m$^2$</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest tipus de problema —muntar una funció a partir d'un enunciat i buscar-ne el màxim— és el que es fa a 1r de batxillerat amb derivades. Amb una paràbola no calen: n'hi ha prou amb el vèrtex.</p>
+</div>
 <h2>Funcions quadràtiques <span class="tip">· 13 preguntes</span></h2>
 <p class="sec"><strong>Exercici 212.</strong> Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.</p>
 <div class="it"><div class="cap"><span class="cod">212a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
@@ -511,16 +806,22 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>
 <tr><td>Concepte de funció</td><td>8</td><td>7</td><td>3</td></tr>
 <tr><td>Funcions lineals i afins</td><td>10</td><td>4</td><td>0</td></tr>
+<tr><td>Construir rectes</td><td>0</td><td>10</td><td>5</td></tr>
+<tr><td>Construir paràboles i problemes</td><td>0</td><td>4</td><td>9</td></tr>
 <tr><td>Funcions quadràtiques</td><td>4</td><td>4</td><td>5</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>SIGNE_FINAL</code></td><td>16</td><td>201a, 201d, 202b, 202c, 203b, 203c, 203d, 206a, 214a, 214b, 215, 216a, 216b, 216c…</td></tr>
-<tr><td><code>SIGNE_PENDENT_INVERTIT</code></td><td>15</td><td>207a, 207b, 207c, 207d, 208a, 208b, 208c, 208d, 208e, 208f, 209a, 209b, 209c, 209d…</td></tr>
-<tr><td><code>PENDENT_ORDENADA_INTERCANVIATS</code></td><td>8</td><td>207a, 207b, 207c, 207d, 209a, 209b, 209c, 209d</td></tr>
+<tr><td><code>SIGNE_FINAL</code></td><td>25</td><td>201a, 201d, 202b, 202c, 203b, 203c, 203d, 206a, 214a, 214b, 215, 216a, 216b, 216c…</td></tr>
+<tr><td><code>SIGNE_PENDENT_INVERTIT</code></td><td>22</td><td>207a, 207b, 207c, 207d, 208a, 208b, 208c, 208d, 208e, 208f, 209a, 209b, 209c, 209d…</td></tr>
+<tr><td><code>PENDENT_ORDENADA_INTERCANVIATS</code></td><td>13</td><td>207a, 207b, 207c, 207d, 209a, 209b, 209c, 209d, 297a, 297b, 297c, 303a, 303b</td></tr>
+<tr><td><code>COORDENADES_INTERCANVIADES</code></td><td>11</td><td>206c, 299a, 299b, 299c, 300a, 300b, 300c, 300d, 301a, 301b, 301c</td></tr>
+<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>9</td><td>201a, 201c, 202a, 202b, 202c, 202d, 303a, 303b, 303c</td></tr>
+<tr><td><code>ORDENADA_PER_COORDENADA</code></td><td>8</td><td>295a, 295b, 295c, 295d, 296a, 296b, 296c, 298a</td></tr>
+<tr><td><code>SUBSTITUCIO_MAL_FETA</code></td><td>8</td><td>299a, 299b, 299c, 300a, 300b, 300c, 300d, 304</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>7</td><td>200a, 200a, 200a, 200b, 200c, 200c, 200c</td></tr>
-<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>6</td><td>201a, 201c, 202a, 202b, 202c, 202d</td></tr>
 <tr><td><code>PENDENT_COM_NUL</code></td><td>6</td><td>208a, 208b, 208c, 208d, 208e, 208f</td></tr>
 <tr><td><code>REPRESENTACIO_INNECESSARIA</code></td><td>6</td><td>208a, 208b, 208c, 208d, 208e, 208f</td></tr>
+<tr><td><code>SIGNE_VERTEX</code></td><td>6</td><td>300a, 300b, 300c, 300d, 302a, 302b</td></tr>
 <tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>5</td><td>201a, 201b, 201c, 201d, 202a</td></tr>
 <tr><td><code>DOMINI_RECORREGUT_INTERCANVIATS</code></td><td>5</td><td>203a, 203b, 203c, 203d, 206b</td></tr>
 <tr><td><code>AMPLADA_INVERTIDA</code></td><td>5</td><td>212a, 212b, 212c, 212d, 217a</td></tr>
@@ -529,17 +830,23 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>OBERTURA_I_AMPLADA_INVERTIDES</code></td><td>4</td><td>212a, 212b, 212c, 212d</td></tr>
 <tr><td><code>TALL_ORIGEN_OBLIDAT</code></td><td>4</td><td>216a, 216b, 216c, 216d</td></tr>
 <tr><td><code>EIX_SIMETRIA_MAL_CALCULAT</code></td><td>4</td><td>216a, 216b, 216c, 216d</td></tr>
+<tr><td><code>PENDENT_MAL_TRIAT</code></td><td>4</td><td>295a, 295b, 295c, 295d</td></tr>
 <tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>3</td><td>201c, 201d, 202d</td></tr>
 <tr><td><code>EXTREMS_OBLIDATS</code></td><td>3</td><td>203b, 203c, 203d</td></tr>
 <tr><td><code>SIGNE_ORDENADA_INVERTIT</code></td><td>3</td><td>207a, 207c, 217b</td></tr>
+<tr><td><code>PENDENT_INVERTIT</code></td><td>3</td><td>296a, 296b, 296c</td></tr>
+<tr><td><code>ORDENADES_PER_TALL</code></td><td>3</td><td>299a, 299b, 299c</td></tr>
+<tr><td><code>SIGNE_ARRELS</code></td><td>3</td><td>301a, 301b, 301c</td></tr>
 <tr><td><code>DOMINI_MAL_LLEGIT</code></td><td>2</td><td>200b, 200b</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>201b, 202d</td></tr>
 <tr><td><code>POTENCIA_APLICADA_MALAMENT</code></td><td>2</td><td>201b, 202a</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>2</td><td>202b, 303c</td></tr>
 <tr><td><code>CREIXEMENT_INVERTIT</code></td><td>2</td><td>206b, 206c</td></tr>
 <tr><td><code>ORDENADA_NULA_OBLIDADA</code></td><td>2</td><td>207b, 207d</td></tr>
 <tr><td><code>TERME_INDEPENDENT_IGNORAT</code></td><td>2</td><td>214a, 214b</td></tr>
 <tr><td><code>VALOR_DUPLICAT</code></td><td>2</td><td>214a, 214b</td></tr>
-<tr><td><code>INVERTIDA</code></td><td>1</td><td>202b</td></tr>
+<tr><td><code>PARALLELA_PER_PERPENDICULAR</code></td><td>2</td><td>298a, 298b</td></tr>
+<tr><td><code>COEFICIENT_MAL_TRIAT</code></td><td>2</td><td>302a, 302b</td></tr>
 <tr><td><code>OPERACIO_INVERSA</code></td><td>1</td><td>202c</td></tr>
 <tr><td><code>ASIMPTOTA_COM_LIMIT</code></td><td>1</td><td>203a</td></tr>
 <tr><td><code>RESTRICCIO_OBLIDADA</code></td><td>1</td><td>203a</td></tr>
@@ -547,9 +854,18 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>RESTRICCIO_INVENTADA</code></td><td>1</td><td>206a</td></tr>
 <tr><td><code>EXTREM_INVERTIT</code></td><td>1</td><td>206b</td></tr>
 <tr><td><code>RELATIU_COM_ABSOLUT</code></td><td>1</td><td>206c</td></tr>
-<tr><td><code>COORDENADES_INTERCANVIADES</code></td><td>1</td><td>206c</td></tr>
 <tr><td><code>VALOR_C_CONFOS</code></td><td>1</td><td>215</td></tr>
 <tr><td><code>COEFICIENT_A_MAL_CALCULAT</code></td><td>1</td><td>215</td></tr>
 <tr><td><code>TERMES_NO_REDUITS</code></td><td>1</td><td>217a</td></tr>
 <tr><td><code>PARABOLA_AMB_A_ZERO</code></td><td>1</td><td>217b</td></tr>
+<tr><td><code>RECTA_VERTICAL_CONFOSA</code></td><td>1</td><td>297c</td></tr>
+<tr><td><code>PARALLELA_MATEIXA_RECTA</code></td><td>1</td><td>298a</td></tr>
+<tr><td><code>PENDENT_NOMES_CANVIAT_DE_SIGNE</code></td><td>1</td><td>298b</td></tr>
+<tr><td><code>VERTEX_COM_COEFICIENTS</code></td><td>1</td><td>302a</td></tr>
+<tr><td><code>SIGNE_COEFICIENT_PRINCIPAL</code></td><td>1</td><td>302b</td></tr>
+<tr><td><code>PART_FIXA_VARIABLE_BARREJADES</code></td><td>1</td><td>303a</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>1</td><td>303b</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>1</td><td>303c</td></tr>
+<tr><td><code>VERTEX_PER_ARREL</code></td><td>1</td><td>304</td></tr>
+<tr><td><code>DADES_MAL_TRIADES</code></td><td>1</td><td>304</td></tr>
 </table></html>

@@ -38,7 +38,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
 </style>
 <h1>Clau de respostes — Full 6</h1>
-<p class="meta">21 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">48 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Proporcionalitat directa i inversa <span class="tip">· 10 preguntes</span></h2>
 <p class="sec"><strong>Exercici 101.</strong> </p>
@@ -204,6 +204,294 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La comissió és el $0{,}8\,\%$ de les vendes: $0{,}008\cdot45\,000$.</li><li>Multiplica amb cura la posició de la coma decimal.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0{,}008\cdot45\,000$</li><li>$360$ €</li></ol>
 </div>
+<h2>El factor multiplicador <span class="tip">· 18 preguntes</span></h2>
+<p class="sec"><strong>Exercici 275.</strong> Per quin nombre s&#x27;ha de multiplicar una quantitat per fer-hi aquesta variació?</p>
+<div class="it"><div class="cap"><span class="cod">275a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Augmentar-la un $20\,\%$.</div>
+<ol class="op"><li><span class="ok">$1{,}20$</span> — resposta correcta</li>
+<li>$0{,}20$<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Aquest factor et dona NOMÉS la part que puja o baixa, no la quantitat final. Per tenir el total cal sumar-hi l'original: $1+0{,}20=1{,}20$.</span></li>
+<li>$0{,}80$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Aquest és el factor de rebaixar. Si la quantitat puja, el factor ha de ser més gran que $1$.</span></li>
+<li>$20$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $20$ és el tant per cent, no el factor. Per passar-lo a factor cal dividir-lo entre $100$ i sumar-lo a $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un percentatge es passa a decimal dividint-lo entre $100$: $20\,\%\to0{,}20$.</li><li>Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$20\,\%=0{,}20$</li><li>Factor $=1+0{,}20=1{,}20$</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest és el bloc sencer resumit: el factor multiplicador és el nombre pel qual multipliques d'un sol cop. Puja un $20\,\%$ $\to$ $\times1{,}2$; baixa un $20\,\%$ $\to$ $\times0{,}8$.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">275b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Rebaixar-la un $35\,\%$.</div>
+<ol class="op"><li><span class="ok">$0{,}65$</span> — resposta correcta</li>
+<li>$0{,}35$<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Aquest factor et dona NOMÉS la part que puja o baixa, no la quantitat final. Per tenir el total cal restar-la de l'original: $1-0{,}35=0{,}65$.</span></li>
+<li>$1{,}35$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Aquest és el factor de augmentar. Si la quantitat baixa, el factor ha de ser més petit que $1$.</span></li>
+<li>$35$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $35$ és el tant per cent, no el factor. Per passar-lo a factor cal dividir-lo entre $100$ i restar-lo a $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un percentatge es passa a decimal dividint-lo entre $100$: $35\,\%\to0{,}35$.</li><li>Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$35\,\%=0{,}35$</li><li>Factor $=1-0{,}35=0{,}65$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">275c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Augmentar-la un $7\,\%$.</div>
+<ol class="op"><li><span class="ok">$1{,}07$</span> — resposta correcta</li>
+<li>$0{,}07$<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Aquest factor et dona NOMÉS la part que puja o baixa, no la quantitat final. Per tenir el total cal sumar-hi l'original: $1+0{,}07=1{,}07$.</span></li>
+<li>$0{,}93$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Aquest és el factor de rebaixar. Si la quantitat puja, el factor ha de ser més gran que $1$.</span></li>
+<li>$7$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $7$ és el tant per cent, no el factor. Per passar-lo a factor cal dividir-lo entre $100$ i sumar-lo a $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un percentatge es passa a decimal dividint-lo entre $100$: $7\,\%\to0{,}07$.</li><li>Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$7\,\%=0{,}07$</li><li>Factor $=1+0{,}07=1{,}07$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">275d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Rebaixar-la un $4\,\%$.</div>
+<ol class="op"><li><span class="ok">$0{,}96$</span> — resposta correcta</li>
+<li>$0{,}04$<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Aquest factor et dona NOMÉS la part que puja o baixa, no la quantitat final. Per tenir el total cal restar-la de l'original: $1-0{,}04=0{,}96$.</span></li>
+<li>$1{,}04$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Aquest és el factor de augmentar. Si la quantitat baixa, el factor ha de ser més petit que $1$.</span></li>
+<li>$4$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $4$ és el tant per cent, no el factor. Per passar-lo a factor cal dividir-lo entre $100$ i restar-lo a $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un percentatge es passa a decimal dividint-lo entre $100$: $4\,\%\to0{,}04$.</li><li>Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, és $1-$ aquest decimal.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4\,\%=0{,}04$</li><li>Factor $=1-0{,}04=0{,}96$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 276.</strong> Aplica la variació amb un sol producte.</p>
+<div class="it"><div class="cap"><span class="cod">276a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$250$ €, i puja un $15\,\%$.</div>
+<ol class="op"><li><span class="ok">$287{,}50$ €</span> — resposta correcta</li>
+<li>$37{,}50$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és només el que puja ($15\,\%$ de $250$). El resultat és la quantitat final, no la variació.</span></li>
+<li>$212{,}50$ €<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Has aplicat la variació al revés: si puja, el resultat ha de ser més gran que $250$.</span></li>
+<li>$265{,}00$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat o restat el $15$ directament. El $15$ és un tant per cent, no euros: cal calcular-ne el $15\,\%$ de $250$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir el factor multiplicador: $1{,}15$.</li><li>Multiplica $250$ per aquest factor, tot d'un cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$250\cdot1{,}15=287{,}50$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">276b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$80$ €, i baixa un $25\,\%$.</div>
+<ol class="op"><li><span class="ok">$60{,}00$ €</span> — resposta correcta</li>
+<li>$20{,}00$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és només el que baixa ($25\,\%$ de $80$). El resultat és la quantitat final, no la variació.</span></li>
+<li>$100{,}00$ €<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Has aplicat la variació al revés: si baixa, el resultat ha de ser més petit que $80$.</span></li>
+<li>$55{,}00$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat o restat el $25$ directament. El $25$ és un tant per cent, no euros: cal calcular-ne el $25\,\%$ de $80$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir el factor multiplicador: $0{,}75$.</li><li>Multiplica $80$ per aquest factor, tot d'un cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$80\cdot0{,}75=60{,}00$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">276c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$1200$ €, i puja un $8\,\%$.</div>
+<ol class="op"><li><span class="ok">$1296{,}00$ €</span> — resposta correcta</li>
+<li>$96{,}00$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és només el que puja ($8\,\%$ de $1200$). El resultat és la quantitat final, no la variació.</span></li>
+<li>$1104{,}00$ €<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Has aplicat la variació al revés: si puja, el resultat ha de ser més gran que $1200$.</span></li>
+<li>$1208{,}00$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat o restat el $8$ directament. El $8$ és un tant per cent, no euros: cal calcular-ne el $8\,\%$ de $1200$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir el factor multiplicador: $1{,}08$.</li><li>Multiplica $1200$ per aquest factor, tot d'un cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1200\cdot1{,}08=1296{,}00$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">276d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">$45$ €, i baixa un $40\,\%$.</div>
+<ol class="op"><li><span class="ok">$27{,}00$ €</span> — resposta correcta</li>
+<li>$18{,}00$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és només el que baixa ($40\,\%$ de $45$). El resultat és la quantitat final, no la variació.</span></li>
+<li>$63{,}00$ €<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Has aplicat la variació al revés: si baixa, el resultat ha de ser més petit que $45$.</span></li>
+<li>$5{,}00$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat o restat el $40$ directament. El $40$ és un tant per cent, no euros: cal calcular-ne el $40\,\%$ de $45$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Fes servir el factor multiplicador: $0{,}60$.</li><li>Multiplica $45$ per aquest factor, tot d'un cop.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$45\cdot0{,}60=27{,}00$ €</li></ol>
+</div>
+<p class="sec"><strong>Exercici 277.</strong> A l&#x27;inrevés: es coneix el preu DESPRÉS de la variació i es busca el de partida.</p>
+<div class="it"><div class="cap"><span class="cod">277a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Un article costa $66$ € després de pujar un $10\,\%$. Quant costava abans?</div>
+<ol class="op"><li><span class="ok">$60{,}00$ €</span> — resposta correcta</li>
+<li>$59{,}40$ €<br><span class="err">FACTOR_INVERS_OBLIDAT</span><span class="fb">Has aplicat la variació contrària al preu final. Anar enrere no és restar el mateix percentatge: és DIVIDIR pel factor, $\dfrac{66}{1{,}10}$.</span></li>
+<li>$72{,}60$ €<br><span class="err">INVERTIDA</span><span class="fb">Has tornat a multiplicar pel factor, i això et porta encara més lluny. Per desfer una multiplicació cal dividir.</span></li>
+<li>$66$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el preu que ja et donaven, el d'ara.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El preu de partida, multiplicat pel factor $1{,}10$, dona $66$.</li><li>Per trobar el de partida, divideix: $\dfrac{66}{1{,}10}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Si $x$ és el preu de partida: $x\cdot1{,}10=66$</li><li>$x=\dfrac{66}{1{,}10}=60{,}00$ €</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest és l'error més habitual amb els percentatges: si un preu ha pujat un $10\,\%$, per tornar enrere NO es baixa un $10\,\%$. Comprova-ho: $60\to66\to59{,}4$, i no torna a $60$.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">277b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Un article costa $51$ € després d'una rebaixa del $15\,\%$. Quant costava abans?</div>
+<ol class="op"><li><span class="ok">$60{,}00$ €</span> — resposta correcta</li>
+<li>$58{,}65$ €<br><span class="err">FACTOR_INVERS_OBLIDAT</span><span class="fb">Has aplicat la variació contrària al preu final. Anar enrere no és sumar el mateix percentatge: és DIVIDIR pel factor, $\dfrac{51}{0{,}85}$.</span></li>
+<li>$43{,}35$ €<br><span class="err">INVERTIDA</span><span class="fb">Has tornat a multiplicar pel factor, i això et porta encara més lluny. Per desfer una multiplicació cal dividir.</span></li>
+<li>$51$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el preu que ja et donaven, el d'ara.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El preu de partida, multiplicat pel factor $0{,}85$, dona $51$.</li><li>Per trobar el de partida, divideix: $\dfrac{51}{0{,}85}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Si $x$ és el preu de partida: $x\cdot0{,}85=51$</li><li>$x=\dfrac{51}{0{,}85}=60{,}00$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">277c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Un article costa $189$ € després d'un descompte del $10\,\%$. Quant costava abans?</div>
+<ol class="op"><li><span class="ok">$210{,}00$ €</span> — resposta correcta</li>
+<li>$207{,}90$ €<br><span class="err">FACTOR_INVERS_OBLIDAT</span><span class="fb">Has aplicat la variació contrària al preu final. Anar enrere no és sumar el mateix percentatge: és DIVIDIR pel factor, $\dfrac{189}{0{,}90}$.</span></li>
+<li>$170{,}10$ €<br><span class="err">INVERTIDA</span><span class="fb">Has tornat a multiplicar pel factor, i això et porta encara més lluny. Per desfer una multiplicació cal dividir.</span></li>
+<li>$189$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el preu que ja et donaven, el d'ara.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El preu de partida, multiplicat pel factor $0{,}90$, dona $189$.</li><li>Per trobar el de partida, divideix: $\dfrac{189}{0{,}90}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Si $x$ és el preu de partida: $x\cdot0{,}90=189$</li><li>$x=\dfrac{189}{0{,}90}=210{,}00$ €</li></ol>
+</div>
+<p class="sec"><strong>Exercici 278.</strong> Quin percentatge representa la primera quantitat de la segona?</p>
+<div class="it"><div class="cap"><span class="cod">278a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$18$ de $60$.</div>
+<ol class="op"><li><span class="ok">$30\,\%$</span> — resposta correcta</li>
+<li>$333{,}33\,\%$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés. El percentatge és $\dfrac{\text{part}}{\text{total}}\cdot100$, i la part va a dalt.</span></li>
+<li>$0{,}3\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Aquest és el quocient en decimal: per passar-lo a percentatge encara falta multiplicar per $100$.</span></li>
+<li>$42\,\%$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat les dues quantitats. Un percentatge surt d'una divisió, no d'una resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix la part entre el total.</li><li>Multiplica el resultat per $100$ per expressar-lo en tant per cent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{18}{60}=0{,}3000$</li><li>$0{,}3000\cdot100=30\,\%$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">278b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$7$ de $28$.</div>
+<ol class="op"><li><span class="ok">$25\,\%$</span> — resposta correcta</li>
+<li>$400\,\%$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés. El percentatge és $\dfrac{\text{part}}{\text{total}}\cdot100$, i la part va a dalt.</span></li>
+<li>$0{,}25\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Aquest és el quocient en decimal: per passar-lo a percentatge encara falta multiplicar per $100$.</span></li>
+<li>$21\,\%$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat les dues quantitats. Un percentatge surt d'una divisió, no d'una resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix la part entre el total.</li><li>Multiplica el resultat per $100$ per expressar-lo en tant per cent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{7}{28}=0{,}2500$</li><li>$0{,}2500\cdot100=25\,\%$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">278c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$45$ de $300$.</div>
+<ol class="op"><li><span class="ok">$15\,\%$</span> — resposta correcta</li>
+<li>$666{,}67\,\%$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés. El percentatge és $\dfrac{\text{part}}{\text{total}}\cdot100$, i la part va a dalt.</span></li>
+<li>$0{,}15\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Aquest és el quocient en decimal: per passar-lo a percentatge encara falta multiplicar per $100$.</span></li>
+<li>$255\,\%$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat les dues quantitats. Un percentatge surt d'una divisió, no d'una resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix la part entre el total.</li><li>Multiplica el resultat per $100$ per expressar-lo en tant per cent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{45}{300}=0{,}1500$</li><li>$0{,}1500\cdot100=15\,\%$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">278d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$12$ de $15$.</div>
+<ol class="op"><li><span class="ok">$80\,\%$</span> — resposta correcta</li>
+<li>$125\,\%$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés. El percentatge és $\dfrac{\text{part}}{\text{total}}\cdot100$, i la part va a dalt.</span></li>
+<li>$0{,}8\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Aquest és el quocient en decimal: per passar-lo a percentatge encara falta multiplicar per $100$.</span></li>
+<li>$3\,\%$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat les dues quantitats. Un percentatge surt d'una divisió, no d'una resta.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix la part entre el total.</li><li>Multiplica el resultat per $100$ per expressar-lo en tant per cent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{12}{15}=0{,}8000$</li><li>$0{,}8000\cdot100=80\,\%$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 279.</strong> Calcula la variació percentual entre els dos valors, i digues si és un augment o una disminució.</p>
+<div class="it"><div class="cap"><span class="cod">279a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">De $40$ a $50$.</div>
+<ol class="op"><li><span class="ok">Augment del $25\,\%$</span> — resposta correcta</li>
+<li>Augment del $20\,\%$<br><span class="err">BASE_MAL_TRIADA</span><span class="fb">Has dividit entre el valor FINAL. La variació percentual sempre es mesura respecte del valor de PARTIDA, que aquí és $40$.</span></li>
+<li>Augment del $10\,\%$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">El $10$ és la diferència en unitats, no en tant per cent. Per passar-la a percentatge cal dividir-la entre el valor de partida i multiplicar per $100$.</span></li>
+<li>Disminució del $25\,\%$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El percentatge és correcte, però el sentit no: de $40$ a $50$ la quantitat puja.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la diferència: $50-40=10$.</li><li>Divideix-la entre el valor de PARTIDA i multiplica per $100$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Diferència: $50-40=10$</li><li>$\dfrac{10}{40}\cdot100=25\,\%$</li><li>Augment del $25\,\%$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">279b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">De $80$ a $60$.</div>
+<ol class="op"><li><span class="ok">Disminució del $25\,\%$</span> — resposta correcta</li>
+<li>Disminució del $33{,}33\,\%$<br><span class="err">BASE_MAL_TRIADA</span><span class="fb">Has dividit entre el valor FINAL. La variació percentual sempre es mesura respecte del valor de PARTIDA, que aquí és $80$.</span></li>
+<li>Disminució del $20\,\%$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">El $20$ és la diferència en unitats, no en tant per cent. Per passar-la a percentatge cal dividir-la entre el valor de partida i multiplicar per $100$.</span></li>
+<li>Augment del $25\,\%$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El percentatge és correcte, però el sentit no: de $80$ a $60$ la quantitat baixa.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la diferència: $60-80=-20$.</li><li>Divideix-la entre el valor de PARTIDA i multiplica per $100$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Diferència: $60-80=-20$</li><li>$\dfrac{-20}{80}\cdot100=-25\,\%$</li><li>Disminució del $25\,\%$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">279c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">De $120$ a $150$.</div>
+<ol class="op"><li><span class="ok">Augment del $25\,\%$</span> — resposta correcta</li>
+<li>Augment del $20\,\%$<br><span class="err">BASE_MAL_TRIADA</span><span class="fb">Has dividit entre el valor FINAL. La variació percentual sempre es mesura respecte del valor de PARTIDA, que aquí és $120$.</span></li>
+<li>Augment del $30\,\%$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">El $30$ és la diferència en unitats, no en tant per cent. Per passar-la a percentatge cal dividir-la entre el valor de partida i multiplicar per $100$.</span></li>
+<li>Disminució del $25\,\%$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El percentatge és correcte, però el sentit no: de $120$ a $150$ la quantitat puja.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la diferència: $150-120=30$.</li><li>Divideix-la entre el valor de PARTIDA i multiplica per $100$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Diferència: $150-120=30$</li><li>$\dfrac{30}{120}\cdot100=25\,\%$</li><li>Augment del $25\,\%$</li></ol>
+</div>
+<h2>Descomptes, IVA i interessos <span class="tip">· 9 preguntes</span></h2>
+<p class="sec"><strong>Exercici 280.</strong> Una botiga fa un $20\,\%$ de descompte i, damunt del preu ja rebaixat, un $10\,\%$ més per pagar en efectiu.</p>
+<div class="it"><div class="cap"><span class="cod">280a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Un article de $200$ €, quant costa al final?</div>
+<ol class="op"><li><span class="ok">$144$ €</span> — resposta correcta</li>
+<li>$140$ €<br><span class="err">PERCENTATGES_SUMATS</span><span class="fb">Has sumat els dos descomptes com si fossin un $30\,\%$. El segon descompte s'aplica sobre $160$ €, no sobre $200$ €: $160\cdot0{,}9=144$.</span></li>
+<li>$160$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el preu després del primer descompte. Encara falta aplicar-hi el segon.</span></li>
+<li>$180$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Sembla que només has aplicat el $10\,\%$. Els descomptes són dos, un darrere l'altre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aplica el primer descompte: $200\cdot0{,}8$.</li><li>Sobre el resultat, aplica el segon: $\cdot\,0{,}9$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$200\cdot0{,}8=160$ €</li><li>$160\cdot0{,}9=144$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">280b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">A quin descompte únic equival?</div>
+<ol class="op"><li><span class="ok">Al $28\,\%$</span> — resposta correcta</li>
+<li>Al $30\,\%$<br><span class="err">PERCENTATGES_SUMATS</span><span class="fb">Els percentatges encadenats no se sumen. El factor conjunt és $0{,}8\cdot0{,}9=0{,}72$, i $1-0{,}72=0{,}28$, o sigui un $28\,\%$.</span></li>
+<li>Al $72\,\%$<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">El $72\,\%$ és el que ES PAGA, no el que es descompta. El descompte és el que falta fins a $100$.</span></li>
+<li>Al $2\,\%$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">No és la diferència entre els dos descomptes: és el resultat d'aplicar-los tots dos.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica els dos factors: $0{,}8\cdot0{,}9$.</li><li>El descompte és el que falta perquè el factor arribi a $1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Factor conjunt: $0{,}8\cdot0{,}9=0{,}72$</li><li>$1-0{,}72=0{,}28\to28\,\%$</li><li>Comprovació: $200\cdot0{,}72=144$ €, el mateix d'abans</li></ol>
+<p class="nota"><strong>Nota:</strong> Que dos descomptes del $20\,\%$ i el $10\,\%$ no facin un $30\,\%$ és el motiu de ser del factor multiplicador. Amb factors es veu de seguida; sumant percentatges, mai.</p>
+</div>
+<p class="sec"><strong>Exercici 281.</strong> Un ordinador val $650$ € sense IVA. L&#x27;IVA és del $21\,\%$ i la botiga fa un $12\,\%$ de descompte sobre el preu sense IVA.</p>
+<div class="it"><div class="cap"><span class="cod">281a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quin és el preu final que paga el client?</div>
+<ol class="op"><li><span class="ok">$692{,}12$ €</span> — resposta correcta</li>
+<li>$708{,}50$ €<br><span class="err">PERCENTATGES_SUMATS</span><span class="fb">Sembla que has fet $21-12=9$ i has aplicat un $9\,\%$. Els percentatges no se sumen ni es resten entre si: cada un multiplica pel seu factor.</span></li>
+<li>$572{,}00$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el preu amb el descompte però sense IVA. Encara falta afegir-l'hi.</span></li>
+<li>$786{,}50$ €<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Has aplicat l'IVA però t'has deixat el descompte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aplica primer el descompte sobre el preu sense IVA: $650\cdot0{,}88$.</li><li>Sobre el resultat, afegeix-hi l'IVA: $\cdot\,1{,}21$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Amb descompte: $650\cdot0{,}88=572{,}00$ €</li><li>Amb IVA: $572{,}00\cdot1{,}21=692{,}12$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">281b</span><span class="tip">tipus B · dificultat 3 (completa)</span></div>
+<div class="enun">Si la botiga apliqués primer l'IVA i després el descompte, el client pagaria el mateix?</div>
+<ol class="op"><li><span class="ok">Sí: multiplicar per $0{,}88$ i per $1{,}21$ dona el mateix en qualsevol ordre.</span> — resposta correcta</li>
+<li>No: sortiria més car, perquè el descompte s'aplicaria sobre una quantitat més gran.<br><span class="err">ORDRE_DELS_FACTORS</span><span class="fb">El descompte s'aplicaria sobre una quantitat més gran, sí, però també seria un descompte més gran. El producte no depèn de l'ordre: $650\cdot0{,}88\cdot1{,}21=650\cdot1{,}21\cdot0{,}88$.</span></li>
+<li>No: sortiria més barat.<br><span class="err">ORDRE_DELS_FACTORS</span><span class="fb">La multiplicació és commutativa: canviar l'ordre dels factors no canvia el resultat.</span></li>
+<li>Depèn de si l'IVA es calcula abans o després d'arrodonir.<br><span class="err">ES_POT_DETERMINAR</span><span class="fb">L'arrodoniment pot moure algun cèntim, però la pregunta és sobre el càlcul: amb factors, l'ordre no hi fa res.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Escriu les dues operacions com un producte de factors.</li><li>La multiplicació, canvia si en canvies l'ordre?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Ordre 1: $650\cdot0{,}88\cdot1{,}21$</li><li>Ordre 2: $650\cdot1{,}21\cdot0{,}88$</li><li>Són el mateix producte: $692{,}12$ € en tots dos casos</li></ol>
+<p class="nota"><strong>Nota:</strong> Compte: això val quan totes dues variacions es fan sobre la MATEIXA base encadenada. Si el descompte fos sobre el preu sense IVA i l'IVA es calculés sempre sobre el preu de tarifa, ja no serien factors encadenats i sí que canviaria.</p>
+</div>
+<p class="sec"><strong>Exercici 282.</strong> En un compte que dona un $3\,\%$ d&#x27;interès simple anual s&#x27;hi ingressen $2\,400$ €.</p>
+<div class="it"><div class="cap"><span class="cod">282a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quants interessos genera en un any?</div>
+<ol class="op"><li><span class="ok">$72$ €</span> — resposta correcta</li>
+<li>$2\,472$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el capital final, no els interessos. Els interessos són només el que s'hi ha afegit.</span></li>
+<li>$800$ €<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">Sembla que has dividit entre $3$. El $3\,\%$ és $\dfrac{3}{100}$, no $\dfrac{1}{3}$.</span></li>
+<li>$7{,}2$ €<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">T'has desplaçat un lloc: $3\,\%$ de $2\,400$ és $2400\cdot0{,}03=72$, no $2400\cdot0{,}003$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $3\,\%$ de $2\,400$ és $2400\cdot0{,}03$.</li><li>Els interessos són la part que s'afegeix, no el total.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$I=2400\cdot0{,}03=72$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">282b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I en $5$ anys, amb interès simple?</div>
+<ol class="op"><li><span class="ok">$360$ €</span> — resposta correcta</li>
+<li>$382{,}26$ €<br><span class="err">SIMPLE_PER_COMPOST</span><span class="fb">Això és interès COMPOST, que és quan els interessos generen més interessos. Amb interès simple, cada any es genera el mateix: $72\cdot5$.</span></li>
+<li>$2\,760$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquest és el capital final ($2400+360$), no els interessos.</span></li>
+<li>$1\,080$ €<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">Sembla que has fet el $45\,\%$. Cinc anys al $3\,\%$ són un $15\,\%$ en total, no un $45\,\%$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb interès simple, cada any genera el mateix que el primer.</li><li>Multiplica els interessos d'un any pel nombre d'anys.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$I=2400\cdot0{,}03\cdot5=360$ €</li></ol>
+<p class="nota"><strong>Nota:</strong> Interès SIMPLE vol dir que els interessos no es reinverteixen: cada any es calculen sempre sobre el capital inicial. Si es reinvertissin (interès compost), en $5$ anys no serien $360$ € sinó uns $382$ €.</p>
+</div>
+<p class="sec"><strong>Exercici 283.</strong> Tres socis han posat $3\,000$ €, $5\,000$ € i $2\,000$ € en un negoci que ha donat $12\,000$ € de benefici, que es reparteix proporcionalment al que ha posat cadascú.</p>
+<div class="it"><div class="cap"><span class="cod">283a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quant li toca al que va posar $5\,000$ €?</div>
+<ol class="op"><li><span class="ok">$6000$ €</span> — resposta correcta</li>
+<li>$4\,000$ €<br><span class="err">REPARTIMENT_A_PARTS_IGUALS</span><span class="fb">Això és repartir a parts iguals ($12000:3$). El repartiment és PROPORCIONAL: qui ha posat més, cobra més.</span></li>
+<li>$5\,000$ €<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquests són els diners que va posar, no el que li toca de benefici.</span></li>
+<li>$3600$ €<br><span class="err">PART_MAL_ASSIGNADA</span><span class="fb">Aquest és el que li toca al que va posar $3\,000$ €. Compte a quin soci correspon cada part.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula quina fracció del capital total va posar: $\dfrac{5000}{10000}$.</li><li>Aplica aquesta fracció als $12\,000$ € de benefici.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Capital total: $3000+5000+2000=10\,000$ €</li><li>Li correspon $\dfrac{5000}{10000}=\dfrac{1}{2}$ del benefici</li><li>$12000\cdot\dfrac{1}{2}=6000$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">283b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I quin percentatge del benefici li toca al que va posar $2\,000$ €?</div>
+<ol class="op"><li><span class="ok">El $20\,\%$</span> — resposta correcta</li>
+<li>El $2\,\%$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $2$ de $2\,000$ no és el percentatge. Cal comparar-lo amb el capital total: $\dfrac{2000}{10000}$.</span></li>
+<li>El $33{,}3\,\%$<br><span class="err">REPARTIMENT_A_PARTS_IGUALS</span><span class="fb">Això seria si es repartís a parts iguals entre els tres socis. Aquí es reparteix segons el que ha posat cadascú.</span></li>
+<li>El $50\,\%$<br><span class="err">PART_MAL_ASSIGNADA</span><span class="fb">Aquest és el percentatge del soci que va posar $5\,000$ €.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compara el que va posar amb el capital total.</li><li>$\dfrac{2000}{10000}$, passat a percentatge.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{2000}{10000}=0{,}2\to20\,\%$</li><li>Comprovació: $12000\cdot0{,}2=2\,400$ €, i $6000+2400+3600=12\,000$ €</li></ol>
+</div>
+<p class="sec"><strong>Exercici 284.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">284</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quin és el preu final?</div>
+<ol class="op"><li><span class="ok">$480$ €: no torna als $500$ €</span> — resposta correcta</li>
+<li>$500$ €: torna al preu de partida.<br><span class="err">PERCENTATGES_SUMATS</span><span class="fb">El $20\,\%$ de pujada es calcula sobre $500$ ($+100$ €), però el $20\,\%$ de baixada es calcula sobre $600$ ($-120$ €). Com que les bases són diferents, no es compensen.</span></li>
+<li>$520$ €<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El preu final és més BAIX que el de partida, no més alt: la baixada s'aplica sobre una quantitat més gran que la pujada.</span></li>
+<li>$400$ €<br><span class="err">PERCENTATGES_SUMATS</span><span class="fb">Sembla que has restat un $20\,\%$ del preu original. La baixada és sobre $600$ €, no sobre $500$ €.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula el preu després de la pujada.</li><li>Aplica la baixada sobre AQUEST preu nou, no sobre el de partida.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$500\cdot1{,}2=600$ €</li><li>$600\cdot0{,}8=480$ €</li><li>Amb factors es veu d'un cop: $1{,}2\cdot0{,}8=0{,}96$, o sigui un $4\,\%$ de baixada neta</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest exercici i el 280 diuen el mateix des de dos costats: els percentatges no se sumen ni es compensen, perquè cadascun es calcula sobre una base diferent. Pujar i baixar el mateix tant per cent SEMPRE deixa el preu per sota del de partida.</p>
+</div>
 <h2>Augments i disminucions encadenats <span class="tip">· 6 preguntes</span></h2>
 <p class="sec"><strong>Exercici 113.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">113</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
@@ -274,20 +562,35 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>
 <tr><td>Proporcionalitat directa i inversa</td><td>2</td><td>7</td><td>1</td></tr>
 <tr><td>Percentatges</td><td>2</td><td>3</td><td>0</td></tr>
+<tr><td>El factor multiplicador</td><td>8</td><td>10</td><td>0</td></tr>
+<tr><td>Descomptes, IVA i interessos <span class="err">un sol nivell</span></td><td>0</td><td>0</td><td>9</td></tr>
 <tr><td>Augments i disminucions encadenats <span class="err">un sol nivell</span></td><td>0</td><td>0</td><td>6</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>15</td><td>110, 115, 116, 275a, 275b, 275c, 275d, 276a, 276b, 276c, 276d, 279a, 279b, 279c…</td></tr>
+<tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>14</td><td>112a, 112a, 112b, 112b, 275a, 275b, 275c, 275d, 278a, 278b, 278c, 278d, 282a, 283b</td></tr>
 <tr><td><code>CREUAMENT_INVERTIT</code></td><td>13</td><td>101, 102, 103, 104, 105a, 105b, 106a, 106b, 107, 108, 111, 112a, 112b</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>10</td><td>102, 106b, 107, 108, 109, 110, 111, 114, 115, 118</td></tr>
+<tr><td><code>FACTOR_PER_PERCENTATGE</code></td><td>10</td><td>275a, 275b, 275c, 275d, 276a, 276b, 276c, 276d, 280a, 280b</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>8</td><td>277a, 277b, 277c, 280a, 281a, 282a, 282b, 283a</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>7</td><td>101, 104, 106a, 110, 113, 116, 117</td></tr>
-<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>6</td><td>103, 104, 105b, 108, 113, 115</td></tr>
+<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>7</td><td>103, 104, 105b, 108, 113, 115, 281a</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>7</td><td>277a, 277b, 277c, 278a, 278b, 278c, 278d</td></tr>
 <tr><td><code>PRODUCTE_MAL</code></td><td>5</td><td>101, 109, 114, 116, 118</td></tr>
 <tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>5</td><td>102, 103, 105a, 106a, 107</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>5</td><td>276a, 276b, 276c, 276d, 280b</td></tr>
+<tr><td><code>PERCENTATGE_MAL_CALCULAT</code></td><td>5</td><td>279a, 279b, 279c, 282a, 282b</td></tr>
+<tr><td><code>PERCENTATGES_SUMATS</code></td><td>5</td><td>280a, 280b, 281a, 284, 284</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>4</td><td>106b, 111, 113, 114</td></tr>
-<tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>4</td><td>112a, 112a, 112b, 112b</td></tr>
-<tr><td><code>VEREDICTE_INVERTIT</code></td><td>3</td><td>110, 115, 116</td></tr>
+<tr><td><code>RESTA_PER_QUOCIENT</code></td><td>4</td><td>278a, 278b, 278c, 278d</td></tr>
+<tr><td><code>ES_POT_DETERMINAR</code></td><td>3</td><td>117, 118, 281b</td></tr>
+<tr><td><code>FACTOR_INVERS_OBLIDAT</code></td><td>3</td><td>277a, 277b, 277c</td></tr>
+<tr><td><code>BASE_MAL_TRIADA</code></td><td>3</td><td>279a, 279b, 279c</td></tr>
 <tr><td><code>MAGNITUD_NO_CONVERTIDA</code></td><td>2</td><td>105a, 105b</td></tr>
-<tr><td><code>ES_POT_DETERMINAR</code></td><td>2</td><td>117, 118</td></tr>
+<tr><td><code>ORDRE_DELS_FACTORS</code></td><td>2</td><td>281b, 281b</td></tr>
+<tr><td><code>REPARTIMENT_A_PARTS_IGUALS</code></td><td>2</td><td>283a, 283b</td></tr>
+<tr><td><code>PART_MAL_ASSIGNADA</code></td><td>2</td><td>283a, 283b</td></tr>
 <tr><td><code>FRACCIO_COM_PERCENTATGE</code></td><td>1</td><td>109</td></tr>
 <tr><td><code>COMPARA_TERMES</code></td><td>1</td><td>117</td></tr>
+<tr><td><code>SIMPLE_PER_COMPOST</code></td><td>1</td><td>282b</td></tr>
 </table></html>

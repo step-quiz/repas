@@ -153,24 +153,32 @@ controladors surten amb un `if (!window.FULL) return;`.
 
 ---
 
-### 3.3bis Contingut nou: centralització i dispersió (Full 11)
+### 3.3bis Contingut nou (Fulls 6, 8, 10 i 11)
 
-`c_centralitzacio.py` és l'únic mòdul que **no transcriu res de la font**: hi
-ha els exercicis 260–274, amb mitjana, mediana, moda, recorregut, variància,
-desviació típica i coeficient de variació. El material de partida no en porta
-cap, i sense això un alumne podia fer el Full 11 sencer i acabar sabent muntar
-taules de freqüències però no calcular una mitjana.
+Quatre mòduls **no transcriuen res de la font**; són material escrit per tapar
+els buits que va detectar l'auditoria:
+
+| Mòdul | Full | Exercicis | Buit que tapa |
+|---|---|---|---|
+| `c_centralitzacio.py` | 11 | 260–274 | Cap mesura de centralització ni de dispersió |
+| `c_percentatges.py` | 6 | 275–284 | El full sencer tenia 21 preguntes |
+| `c_escales.py` | 8 | 285–294 | Res sobre com afecta la raó *k* a àrees i volums |
+| `c_funcions_prod.py` | 10 | 295–304 | Només 8 de 45 preguntes demanaven construir res |
 
 Tres coses per saber si s'hi torna:
 
 - **Numeració a partir del 260.** Els números 1–259 són els de la font.
   Barrejar-hi material nou faria impossible saber d'on surt cada exercici.
-- **El mòdul va SEMPRE l'últim** a `FULLS[11]["moduls"]`. L'ordre dels ítems
-  al banc és l'ordre d'inscripció, i el codi de verificació guarda els estats
-  per POSICIÓ: si els ítems nous no s'afegissin al final, tots els codis ja
-  emesos passarien a llegir-se malament. Comprovat: els 52 ítems que hi havia
-  segueixen a les mateixes posicions i el codi de proves d'abans es continua
-  llegint igual.
+- **Els mòduls nous van SEMPRE els últims** a la llista `moduls` del seu full.
+  L'ordre dels ítems al banc és l'ordre d'inscripció, i el codi de verificació
+  guarda els estats per POSICIÓ: si els ítems nous no s'afegissin al final,
+  tots els codis ja emesos passarien a llegir-se malament. Comprovat als
+  quatre fulls ampliats: els ítems que hi havia segueixen exactament a les
+  mateixes posicions, i el codi de proves d'abans es continua llegint igual.
+- **El tutor hi ha d'apuntar.** Els blocs nous no serveixen de res si el test
+  inicial no hi porta ningú. S'ha ampliat la llista `blocs` de les proves de
+  percentatges, escales, paràboles i estadística; els blocs abastables pel
+  tutor passen de 34 a 42.
 - **Les llistes de dades estan triades perquè les quatre opcions surtin
   diferents.** A la mitjana, per exemple, la mitjana, la mediana, la suma i la
   "mitjana dels valors diferents" han de donar quatre nombres distints; si no,

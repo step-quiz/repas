@@ -38,7 +38,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 @media print{.it{border-color:#bbb}}
 </style>
 <h1>Clau de respostes — Full 8</h1>
-<p class="meta">32 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">59 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Teorema de Tales <span class="tip">· 8 preguntes</span></h2>
 <p class="sec"><strong>Exercici 152.</strong> Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.</p>
@@ -295,6 +295,292 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Converteix els $7{,}5$ m a centímetres: $750$ cm.</li><li>Divideix-los per $60$ per passar de la mesura real a la del plànol.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$7{,}5\text{ m}=750$ cm</li><li>$750:60=12{,}5$ cm</li></ol>
 </div>
+<h2>Càlcul amb escales <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 285.</strong> Què vol dir aquesta escala?</p>
+<div class="it"><div class="cap"><span class="cod">285a</span><span class="tip">tipus B · dificultat 1 (directa)</span></div>
+<div class="enun">Escala $1:50$.</div>
+<ol class="op"><li><span class="ok">$1$ cm al plànol són $50$ cm de debò.</span> — resposta correcta</li>
+<li>$50$ cm al plànol són $1$ cm de debò.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">És al revés. A l'escala $1:50$, el $1$ és el que hi ha DIBUIXAT i el $50$ és la realitat: el dibuix és més petit que l'original.</span></li>
+<li>$1$ cm al plànol són $50$ m de debò.<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">L'escala relaciona mesures en la MATEIXA unitat: $1$ cm de plànol són $50$ cm de realitat, que després es poden passar a metres si convé ($50{,}00 cm$).</span></li>
+<li>El dibuix és $50$ vegades més gran que la realitat.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Una escala $1:50$ és de REDUCCIÓ: el dibuix és més petit. Perquè fos d'ampliació, el primer nombre hauria de ser el més gran ($50:1$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.</li><li>Les dues mesures van en la mateixa unitat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1:50$ vol dir que cada $1$ cm del dibuix correspon a $50$ cm reals</li><li>És a dir, $50{,}00 cm$ de debò</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">285b</span><span class="tip">tipus B · dificultat 1 (directa)</span></div>
+<div class="enun">Escala $1:25\,000$.</div>
+<ol class="op"><li><span class="ok">$1$ cm al plànol són $25000$ cm de debò.</span> — resposta correcta</li>
+<li>$25000$ cm al plànol són $1$ cm de debò.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">És al revés. A l'escala $1:25000$, el $1$ és el que hi ha DIBUIXAT i el $25000$ és la realitat: el dibuix és més petit que l'original.</span></li>
+<li>$1$ cm al plànol són $25000$ m de debò.<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">L'escala relaciona mesures en la MATEIXA unitat: $1$ cm de plànol són $25000$ cm de realitat, que després es poden passar a metres si convé ($250{,}00 m$).</span></li>
+<li>El dibuix és $25000$ vegades més gran que la realitat.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Una escala $1:25000$ és de REDUCCIÓ: el dibuix és més petit. Perquè fos d'ampliació, el primer nombre hauria de ser el més gran ($25000:1$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.</li><li>Les dues mesures van en la mateixa unitat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1:25000$ vol dir que cada $1$ cm del dibuix correspon a $25000$ cm reals</li><li>És a dir, $250{,}00 m$ de debò</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">285c</span><span class="tip">tipus B · dificultat 1 (directa)</span></div>
+<div class="enun">Escala $1:200$.</div>
+<ol class="op"><li><span class="ok">$1$ cm al plànol són $200$ cm de debò.</span> — resposta correcta</li>
+<li>$200$ cm al plànol són $1$ cm de debò.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">És al revés. A l'escala $1:200$, el $1$ és el que hi ha DIBUIXAT i el $200$ és la realitat: el dibuix és més petit que l'original.</span></li>
+<li>$1$ cm al plànol són $200$ m de debò.<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">L'escala relaciona mesures en la MATEIXA unitat: $1$ cm de plànol són $200$ cm de realitat, que després es poden passar a metres si convé ($2{,}00 m$).</span></li>
+<li>El dibuix és $200$ vegades més gran que la realitat.<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Una escala $1:200$ és de REDUCCIÓ: el dibuix és més petit. Perquè fos d'ampliació, el primer nombre hauria de ser el més gran ($200:1$).</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.</li><li>Les dues mesures van en la mateixa unitat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1:200$ vol dir que cada $1$ cm del dibuix correspon a $200$ cm reals</li><li>És a dir, $2{,}00 m$ de debò</li></ol>
+</div>
+<p class="sec"><strong>Exercici 286.</strong> Un plànol està fet a escala $1:25\,000$. Quina distància real correspon a cada mesura del plànol?</p>
+<div class="it"><div class="cap"><span class="cod">286a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$4$ cm al plànol.</div>
+<ol class="op"><li><span class="ok">$1$ km</span> — resposta correcta</li>
+<li>$1000{,}0$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El valor és correcte en centímetres, però la conversió no: $100000$ cm són $1000{,}0$ m, i això són $1{,}000$ km.</span></li>
+<li>$0{,}00100$ km<br><span class="err">POTENCIA_10</span><span class="fb">Has desplaçat malament la coma en passar de centímetres a quilòmetres. Recorda: $1$ km $=100\,000$ cm.</span></li>
+<li>$0{,}000160$ km<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has dividit per l'escala en comptes de multiplicar. Com que el plànol és una reducció, la distància real ha de ser MÉS gran que la del plànol.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica la mesura del plànol per $25\,000$: dona centímetres reals.</li><li>Després passa'ls a quilòmetres dividint entre $100\,000$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4\cdot25000=100000$ cm</li><li>$\dfrac{100000}{100000}=1$ km</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">286b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$12$ cm al plànol.</div>
+<ol class="op"><li><span class="ok">$3$ km</span> — resposta correcta</li>
+<li>$3000{,}0$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El valor és correcte en centímetres, però la conversió no: $300000$ cm són $3000{,}0$ m, i això són $3{,}000$ km.</span></li>
+<li>$0{,}00300$ km<br><span class="err">POTENCIA_10</span><span class="fb">Has desplaçat malament la coma en passar de centímetres a quilòmetres. Recorda: $1$ km $=100\,000$ cm.</span></li>
+<li>$0{,}000480$ km<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has dividit per l'escala en comptes de multiplicar. Com que el plànol és una reducció, la distància real ha de ser MÉS gran que la del plànol.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica la mesura del plànol per $25\,000$: dona centímetres reals.</li><li>Després passa'ls a quilòmetres dividint entre $100\,000$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$12\cdot25000=300000$ cm</li><li>$\dfrac{300000}{100000}=3$ km</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">286c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$2{,}5$ cm al plànol.</div>
+<ol class="op"><li><span class="ok">$0{,}625$ km</span> — resposta correcta</li>
+<li>$625{,}0$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El valor és correcte en centímetres, però la conversió no: $62500$ cm són $625{,}0$ m, i això són $0{,}625$ km.</span></li>
+<li>$0{,}00063$ km<br><span class="err">POTENCIA_10</span><span class="fb">Has desplaçat malament la coma en passar de centímetres a quilòmetres. Recorda: $1$ km $=100\,000$ cm.</span></li>
+<li>$0{,}000100$ km<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has dividit per l'escala en comptes de multiplicar. Com que el plànol és una reducció, la distància real ha de ser MÉS gran que la del plànol.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica la mesura del plànol per $25\,000$: dona centímetres reals.</li><li>Després passa'ls a quilòmetres dividint entre $100\,000$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2.5\cdot25000=62500$ cm</li><li>$\dfrac{62500}{100000}=0{,}625$ km</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">286d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$30$ cm al plànol.</div>
+<ol class="op"><li><span class="ok">$7{,}5$ km</span> — resposta correcta</li>
+<li>$7500{,}0$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El valor és correcte en centímetres, però la conversió no: $750000$ cm són $7500{,}0$ m, i això són $7{,}500$ km.</span></li>
+<li>$0{,}00750$ km<br><span class="err">POTENCIA_10</span><span class="fb">Has desplaçat malament la coma en passar de centímetres a quilòmetres. Recorda: $1$ km $=100\,000$ cm.</span></li>
+<li>$0{,}001200$ km<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has dividit per l'escala en comptes de multiplicar. Com que el plànol és una reducció, la distància real ha de ser MÉS gran que la del plànol.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Multiplica la mesura del plànol per $25\,000$: dona centímetres reals.</li><li>Després passa'ls a quilòmetres dividint entre $100\,000$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$30\cdot25000=750000$ cm</li><li>$\dfrac{750000}{100000}=7{,}5$ km</li></ol>
+</div>
+<p class="sec"><strong>Exercici 287.</strong> Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?</p>
+<div class="it"><div class="cap"><span class="cod">287a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Una paret de $8$ m.</div>
+<ol class="op"><li><span class="ok">$4$ cm</span> — resposta correcta</li>
+<li>$160000$ cm<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has multiplicat per $200$. Per anar de la realitat al plànol cal DIVIDIR: el dibuix és més petit.</span></li>
+<li>$0{,}0400$ cm<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has dividit els metres directament. Primer cal passar-los a centímetres: $8$ m $=800$ cm.</span></li>
+<li>$4$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El número és correcte, però les unitats no: al plànol es dibuixen centímetres, no metres.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa la mesura real a centímetres.</li><li>Divideix-la entre $200$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$8$ m $=800$ cm</li><li>$\dfrac{800}{200}=4$ cm</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">287b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Una paret de $14$ m.</div>
+<ol class="op"><li><span class="ok">$7$ cm</span> — resposta correcta</li>
+<li>$280000$ cm<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has multiplicat per $200$. Per anar de la realitat al plànol cal DIVIDIR: el dibuix és més petit.</span></li>
+<li>$0{,}0700$ cm<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has dividit els metres directament. Primer cal passar-los a centímetres: $14$ m $=1400$ cm.</span></li>
+<li>$7$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El número és correcte, però les unitats no: al plànol es dibuixen centímetres, no metres.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa la mesura real a centímetres.</li><li>Divideix-la entre $200$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$14$ m $=1400$ cm</li><li>$\dfrac{1400}{200}=7$ cm</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">287c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">Una paret de $2.4$ m.</div>
+<ol class="op"><li><span class="ok">$1{,}2$ cm</span> — resposta correcta</li>
+<li>$48000$ cm<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has multiplicat per $200$. Per anar de la realitat al plànol cal DIVIDIR: el dibuix és més petit.</span></li>
+<li>$0{,}0120$ cm<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has dividit els metres directament. Primer cal passar-los a centímetres: $2.4$ m $=240$ cm.</span></li>
+<li>$1{,}2$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El número és correcte, però les unitats no: al plànol es dibuixen centímetres, no metres.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa la mesura real a centímetres.</li><li>Divideix-la entre $200$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2.4$ m $=240$ cm</li><li>$\dfrac{240}{200}=1{,}2$ cm</li></ol>
+</div>
+<p class="sec"><strong>Exercici 288.</strong> Troba l&#x27;escala del dibuix.</p>
+<div class="it"><div class="cap"><span class="cod">288a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$4$ cm al dibuix corresponen a $2$ m de debò.</div>
+<ol class="op"><li><span class="ok">$1:50$</span> — resposta correcta</li>
+<li>$1:0{,}50$<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has comparat $4$ amb $2$ sense passar-ho tot a la mateixa unitat. $2$ m són $200$ cm.</span></li>
+<li>$50:1$<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">L'has escrita del revés. A l'escala, el primer nombre és el DIBUIX (que aquí és més petit) i el segon, la realitat.</span></li>
+<li>$1:200$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">Aquesta és la mesura real en centímetres, no l'escala. L'escala surt de dividir-la entre la mesura del dibuix.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa les dues mesures a la mateixa unitat, normalment centímetres.</li><li>Divideix la mesura real entre la del dibuix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2$ m $=200$ cm</li><li>$\dfrac{200}{4}=50$, o sigui escala $1:50$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">288b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$3$ cm al dibuix corresponen a $12$ m de debò.</div>
+<ol class="op"><li><span class="ok">$1:400$</span> — resposta correcta</li>
+<li>$1:4{,}00$<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has comparat $3$ amb $12$ sense passar-ho tot a la mateixa unitat. $12$ m són $1200$ cm.</span></li>
+<li>$400:1$<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">L'has escrita del revés. A l'escala, el primer nombre és el DIBUIX (que aquí és més petit) i el segon, la realitat.</span></li>
+<li>$1:1200$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">Aquesta és la mesura real en centímetres, no l'escala. L'escala surt de dividir-la entre la mesura del dibuix.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa les dues mesures a la mateixa unitat, normalment centímetres.</li><li>Divideix la mesura real entre la del dibuix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$12$ m $=1200$ cm</li><li>$\dfrac{1200}{3}=400$, o sigui escala $1:400$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">288c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$8$ cm al dibuix corresponen a $4$ km de debò.</div>
+<ol class="op"><li><span class="ok">$1:50000$</span> — resposta correcta</li>
+<li>$1:0{,}50$<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">Has comparat $8$ amb $4$ sense passar-ho tot a la mateixa unitat. $4$ km són $400000$ cm.</span></li>
+<li>$50000:1$<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">L'has escrita del revés. A l'escala, el primer nombre és el DIBUIX (que aquí és més petit) i el segon, la realitat.</span></li>
+<li>$1:400000$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">Aquesta és la mesura real en centímetres, no l'escala. L'escala surt de dividir-la entre la mesura del dibuix.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Passa les dues mesures a la mateixa unitat, normalment centímetres.</li><li>Divideix la mesura real entre la del dibuix.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4$ km $=400000$ cm</li><li>$\dfrac{400000}{8}=50000$, o sigui escala $1:50000$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 289.</strong> </p>
+<div class="it"><div class="cap"><span class="cod">289</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">En un mapa a escala $1:150\,000$, dues poblacions estan a $6{,}4$ cm. Un ciclista fa el recorregut a $24$ km/h. Quant triga?</div>
+<ol class="op"><li><span class="ok">$24$ min</span> — resposta correcta</li>
+<li>$9{,}6$ km<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la distància real, que és el primer pas. Encara falta calcular el temps: $\dfrac{9{,}6}{24}$ h.</span></li>
+<li>$0{,}4$ h $=4$ min<br><span class="err">POTENCIA_10</span><span class="fb">El temps en hores és $0{,}4$, i $0{,}4$ h no són $4$ min sinó $0{,}4\cdot60=24$ min.</span></li>
+<li>$2{,}5$ h<br><span class="err">INVERTIDA</span><span class="fb">Has dividit al revés: el temps és $\dfrac{\text{distància}}{\text{velocitat}}$, no a l'inrevés.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Troba primer la distància real en quilòmetres.</li><li>Després, temps $=\dfrac{\text{distància}}{\text{velocitat}}$, i passa'l a minuts.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$6{,}4\cdot150000=960\,000$ cm</li><li>$960000$ cm $=9{,}6$ km</li><li>$t=\dfrac{9{,}6}{24}=0{,}4$ h $=0{,}4\cdot60=24$ min</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest exercici encadena escala, canvi d'unitats i velocitat: és el format en què les escales apareixen de debò fora de la classe de matemàtiques.</p>
+</div>
+<h2>Raó de semblança, àrees i volums <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 290.</strong> Dues figures són semblants. Troba&#x27;n la raó de semblança $k$ (de la petita a la gran).</p>
+<div class="it"><div class="cap"><span class="cod">290a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Un costat de la petita fa $3$ cm i el corresponent de la gran, $12$ cm.</div>
+<ol class="op"><li><span class="ok">$k=4$</span> — resposta correcta</li>
+<li>$k=\dfrac{1}{4}$<br><span class="err">INVERTIDA</span><span class="fb">Aquesta és la raó de la gran a la petita. Com que es demana de la petita a la gran, $k$ ha de ser més gran que $1$.</span></li>
+<li>$k=9$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat els dos costats. La raó de semblança és un QUOCIENT: diu quantes vegades és més gran, no quant més gran és.</span></li>
+<li>$k=36$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Els has multiplicat. La raó surt de dividir el costat de la gran entre el de la petita.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó de semblança és el quocient entre dos costats corresponents.</li><li>De la petita a la gran: $\dfrac{12}{3}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k=\dfrac{12}{3}=4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">290b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Un costat de la petita fa $5$ cm i el corresponent de la gran, $20$ cm.</div>
+<ol class="op"><li><span class="ok">$k=4$</span> — resposta correcta</li>
+<li>$k=\dfrac{1}{4}$<br><span class="err">INVERTIDA</span><span class="fb">Aquesta és la raó de la gran a la petita. Com que es demana de la petita a la gran, $k$ ha de ser més gran que $1$.</span></li>
+<li>$k=15$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat els dos costats. La raó de semblança és un QUOCIENT: diu quantes vegades és més gran, no quant més gran és.</span></li>
+<li>$k=100$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Els has multiplicat. La raó surt de dividir el costat de la gran entre el de la petita.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó de semblança és el quocient entre dos costats corresponents.</li><li>De la petita a la gran: $\dfrac{20}{5}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k=\dfrac{20}{5}=4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">290c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
+<div class="enun">Un costat de la petita fa $6$ cm i el corresponent de la gran, $9$ cm.</div>
+<ol class="op"><li><span class="ok">$k=\dfrac{3}{2}$</span> — resposta correcta</li>
+<li>$k=\dfrac{2}{3}$<br><span class="err">INVERTIDA</span><span class="fb">Aquesta és la raó de la gran a la petita. Com que es demana de la petita a la gran, $k$ ha de ser més gran que $1$.</span></li>
+<li>$k=3$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat els dos costats. La raó de semblança és un QUOCIENT: diu quantes vegades és més gran, no quant més gran és.</span></li>
+<li>$k=54$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Els has multiplicat. La raó surt de dividir el costat de la gran entre el de la petita.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó de semblança és el quocient entre dos costats corresponents.</li><li>De la petita a la gran: $\dfrac{9}{6}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k=\dfrac{9}{6}=\dfrac{3}{2}$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 291.</strong> Dos polígons són semblants amb raó $k$. Si l&#x27;àrea del petit és la que es diu, quina és la del gran?</p>
+<div class="it"><div class="cap"><span class="cod">291a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$k=2$ i àrea del petit $=15$ cm$^2$.</div>
+<ol class="op"><li><span class="ok">$60$ cm$^2$</span> — resposta correcta</li>
+<li>$30$ cm$^2$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has multiplicat l'àrea per $k$. Les àrees es multipliquen per $k^2$, no per $k$: si les longituds es dupliquen, l'àrea es multiplica per $4$, no per $2$.</span></li>
+<li>$120$ cm$^2$<br><span class="err">RAO_AL_CUB</span><span class="fb">El $k^3$ és per als VOLUMS. Una àrea té dues dimensions, i per això va amb $k^2$.</span></li>
+<li>$17$ cm$^2$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">La raó multiplica, no suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les longituds es multipliquen per $k$; les àrees, per $k^2$.</li><li>$k^2=4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k^2=2^2=4$</li><li>Àrea gran $=15\cdot4=60$ cm$^2$</li></ol>
+<p class="nota"><strong>Nota:</strong> Val la pena veure-ho amb un quadrat: si el costat passa de $1$ a $2$, l'àrea passa d'$1$ a $4$. Dues dimensions, dos factors $k$.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">291b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$k=3$ i àrea del petit $=8$ cm$^2$.</div>
+<ol class="op"><li><span class="ok">$72$ cm$^2$</span> — resposta correcta</li>
+<li>$24$ cm$^2$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has multiplicat l'àrea per $k$. Les àrees es multipliquen per $k^2$, no per $k$: si les longituds es dupliquen, l'àrea es multiplica per $4$, no per $2$.</span></li>
+<li>$216$ cm$^2$<br><span class="err">RAO_AL_CUB</span><span class="fb">El $k^3$ és per als VOLUMS. Una àrea té dues dimensions, i per això va amb $k^2$.</span></li>
+<li>$11$ cm$^2$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">La raó multiplica, no suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les longituds es multipliquen per $k$; les àrees, per $k^2$.</li><li>$k^2=9$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k^2=3^2=9$</li><li>Àrea gran $=8\cdot9=72$ cm$^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">291c</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$k=\dfrac{5}{2}$ i àrea del petit $=12$ cm$^2$.</div>
+<ol class="op"><li><span class="ok">$75$ cm$^2$</span> — resposta correcta</li>
+<li>$30$ cm$^2$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has multiplicat l'àrea per $k$. Les àrees es multipliquen per $k^2$, no per $k$: si les longituds es dupliquen, l'àrea es multiplica per $4$, no per $2$.</span></li>
+<li>$187{,}5$ cm$^2$<br><span class="err">RAO_AL_CUB</span><span class="fb">El $k^3$ és per als VOLUMS. Una àrea té dues dimensions, i per això va amb $k^2$.</span></li>
+<li>$14{,}5$ cm$^2$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">La raó multiplica, no suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les longituds es multipliquen per $k$; les àrees, per $k^2$.</li><li>$k^2=\dfrac{25}{4}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k^2=\dfrac{5}{2}^2=\dfrac{25}{4}$</li><li>Àrea gran $=12\cdot\dfrac{25}{4}=75$ cm$^2$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 292.</strong> Dos cossos són semblants amb raó $k$. Si el volum del petit és el que es diu, quin és el del gran?</p>
+<div class="it"><div class="cap"><span class="cod">292a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$k=2$ i volum del petit $=30$ cm$^3$.</div>
+<ol class="op"><li><span class="ok">$240$ cm$^3$</span> — resposta correcta</li>
+<li>$60$ cm$^3$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has multiplicat pel $k$ tot sol. Un volum té tres dimensions: si les longituds es multipliquen per $2$, el volum ho fa per $2^3=8$.</span></li>
+<li>$120$ cm$^3$<br><span class="err">RAO_AL_QUADRAT</span><span class="fb">El $k^2$ és per a les ÀREES. Els volums van amb $k^3$.</span></li>
+<li>$38$ cm$^3$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">La raó multiplica el volum, no s'hi suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.</li><li>$k^3=8$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k^3=2^3=8$</li><li>Volum gran $=30\cdot8=240$ cm$^3$</li></ol>
+<p class="nota"><strong>Nota:</strong> Aquest és el que més sorprèn: doblar totes les mides multiplica el volum per $8$. És el motiu pel qual una maqueta a escala $1:2$ no pesa la meitat, sinó una vuitena part.</p>
+</div>
+<div class="it"><div class="cap"><span class="cod">292b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
+<div class="enun">$k=3$ i volum del petit $=5$ cm$^3$.</div>
+<ol class="op"><li><span class="ok">$135$ cm$^3$</span> — resposta correcta</li>
+<li>$15$ cm$^3$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has multiplicat pel $k$ tot sol. Un volum té tres dimensions: si les longituds es multipliquen per $3$, el volum ho fa per $3^3=27$.</span></li>
+<li>$45$ cm$^3$<br><span class="err">RAO_AL_QUADRAT</span><span class="fb">El $k^2$ és per a les ÀREES. Els volums van amb $k^3$.</span></li>
+<li>$32$ cm$^3$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">La raó multiplica el volum, no s'hi suma.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.</li><li>$k^3=27$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$k^3=3^3=27$</li><li>Volum gran $=5\cdot27=135$ cm$^3$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 293.</strong> A l&#x27;inrevés: del que saps de les àrees, dedueix la raó de longituds.</p>
+<div class="it"><div class="cap"><span class="cod">293a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Dos triangles semblants tenen àrees de $12$ cm$^2$ i $108$ cm$^2$. Quina és la raó entre els seus costats?</div>
+<ol class="op"><li><span class="ok">$k=3$</span> — resposta correcta</li>
+<li>$k=9$<br><span class="err">RAO_AL_QUADRAT</span><span class="fb">El $9$ és la raó entre les ÀREES ($108:12$). La raó entre els costats n'és l'arrel quadrada: $k=\sqrt{9}=3$.</span></li>
+<li>$k=96$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat les àrees. La raó és un quocient.</span></li>
+<li>$k=\sqrt{108-12}$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Ni resta ni arrel de la resta: primer es divideixen les àrees i després es fa l'arrel del quocient.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó entre les àrees és $k^2$.</li><li>Divideix les àrees i fes l'arrel quadrada del resultat.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{108}{12}=9$, i això és $k^2$</li><li>$k=\sqrt{9}=3$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">293b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina és la raó entre els seus radis?</div>
+<ol class="op"><li><span class="ok">$k=3$</span> — resposta correcta</li>
+<li>$k=27$<br><span class="err">RAO_AL_CUB</span><span class="fb">El $27$ és la raó entre els VOLUMS ($216:8$). La raó entre els radis n'és l'arrel CÚBICA: $k=\sqrt[3]{27}=3$.</span></li>
+<li>$k=\sqrt{27}$<br><span class="err">ARREL_MAL_APLICADA</span><span class="fb">L'arrel quadrada serviria si comparéssim àrees. Amb volums cal l'arrel cúbica.</span></li>
+<li>$k=208$<br><span class="err">RESTA_PER_QUOCIENT</span><span class="fb">Has restat els volums en comptes de dividir-los.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó entre els volums és $k^3$.</li><li>Divideix els volums i fes-ne l'arrel cúbica.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{216}{8}=27$, i això és $k^3$</li><li>$k=\sqrt[3]{27}=3$</li></ol>
+</div>
+<p class="sec"><strong>Exercici 294.</strong> Una maqueta d&#x27;un edifici està feta a escala $1:50$. L&#x27;edifici de debò fa $30$ m d&#x27;alçada, té una façana de $600$ m$^2$ i un volum de $9\,000$ m$^3$.</p>
+<div class="it"><div class="cap"><span class="cod">294a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">Quina alçada fa la maqueta?</div>
+<ol class="op"><li><span class="ok">$60$ cm</span> — resposta correcta</li>
+<li>$1\,500$ m<br><span class="err">ESCALA_INVERTIDA</span><span class="fb">Has multiplicat per $50$. La maqueta és una REDUCCIÓ: cal dividir.</span></li>
+<li>$0{,}6$ m $=6$ cm<br><span class="err">POTENCIA_10</span><span class="fb">$30:50=0{,}6$ m, i $0{,}6$ m són $60$ cm, no $6$.</span></li>
+<li>$60$ m<br><span class="err">UNITATS_NO_CONVERTIDES</span><span class="fb">El número és correcte però la unitat no: $0{,}6$ m són $60$ centímetres.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Divideix l'alçada real entre $50$.</li><li>Passa el resultat a centímetres.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{30}{50}=0{,}6$ m</li><li>$0{,}6$ m $=60$ cm</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">294b</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I quina superfície té la façana de la maqueta?</div>
+<ol class="op"><li><span class="ok">$0{,}24$ m$^2$ (és a dir, $2\,400$ cm$^2$)</span> — resposta correcta</li>
+<li>$12$ m$^2$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has dividit l'àrea entre $50$. Les àrees van amb $k^2$: cal dividir entre $50^2=2\,500$.</span></li>
+<li>$0{,}0048$ m$^2$<br><span class="err">RAO_AL_CUB</span><span class="fb">Has dividit entre $50^3$. El cub és per als volums; una façana és una àrea i va amb el quadrat.</span></li>
+<li>$600$ m$^2$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la façana real, la que ja et donaven.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó de longituds és $\dfrac{1}{50}$; la d'àrees, $\left(\dfrac{1}{50}\right)^2$.</li><li>$50^2=2\,500$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{600}{50^2}=\dfrac{600}{2500}=0{,}24$ m$^2$</li><li>$0{,}24$ m$^2=2\,400$ cm$^2$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">294c</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
+<div class="enun">I el volum?</div>
+<ol class="op"><li><span class="ok">$0{,}072$ m$^3$ (és a dir, $72\,000$ cm$^3$)</span> — resposta correcta</li>
+<li>$180$ m$^3$<br><span class="err">RAO_SENSE_QUADRAT</span><span class="fb">Has dividit entre $50$. Els volums van amb $k^3$: entre $50^3=125\,000$.</span></li>
+<li>$3{,}6$ m$^3$<br><span class="err">RAO_AL_QUADRAT</span><span class="fb">Has dividit entre $50^2$. El quadrat és per a les àrees.</span></li>
+<li>$72$ m$^3$<br><span class="err">POTENCIA_10</span><span class="fb">T'has desplaçat tres llocs: $\dfrac{9000}{125000}=0{,}072$, no $72$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó de volums és $\left(\dfrac{1}{50}\right)^3$.</li><li>$50^3=125\,000$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{9000}{50^3}=\dfrac{9000}{125000}=0{,}072$ m$^3$</li><li>$0{,}072$ m$^3=72\,000$ cm$^3$</li><li>La maqueta és $50$ vegades més curta, $2\,500$ vegades més petita de façana i $125\,000$ vegades més petita de volum</li></ol>
+<p class="nota"><strong>Nota:</strong> Els tres apartats junts són el resum del bloc: una sola escala, tres factors diferents segons si el que mesures té una, dues o tres dimensions.</p>
+</div>
 <h2>Aplicacions de la semblança <span class="tip">· 9 preguntes</span></h2>
 <p class="sec"><strong>Exercici 161.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">161</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
@@ -401,21 +687,33 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td>Teorema de Tales</td><td>5</td><td>3</td><td>0</td></tr>
 <tr><td>Semblança de triangles</td><td>4</td><td>5</td><td>0</td></tr>
 <tr><td>Escales</td><td>2</td><td>4</td><td>0</td></tr>
+<tr><td>Càlcul amb escales</td><td>3</td><td>10</td><td>1</td></tr>
+<tr><td>Raó de semblança, àrees i volums</td><td>3</td><td>5</td><td>5</td></tr>
 <tr><td>Aplicacions de la semblança <span class="err">un sol nivell</span></td><td>0</td><td>0</td><td>9</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>CREUAMENT_INVERTIT</code></td><td>22</td><td>152a, 152b, 152c, 152e, 152f, 153a, 153b, 153c, 154a, 154b, 154c, 158, 159, 160a…</td></tr>
+<tr><td><code>UNITATS_NO_CONVERTIDES</code></td><td>19</td><td>156a, 156b, 285a, 285b, 285c, 286a, 286b, 286c, 286d, 287a, 287a, 287b, 287b, 287c…</td></tr>
+<tr><td><code>ESCALA_INVERTIDA</code></td><td>17</td><td>285a, 285a, 285b, 285b, 285c, 285c, 286a, 286b, 286c, 286d, 287a, 287b, 287c, 288a…</td></tr>
 <tr><td><code>CRITERI_SEMBLANCA_INSUFICIENT</code></td><td>15</td><td>154d, 154d, 155a, 155a, 155b, 155b, 155b, 155c, 155c, 155c, 155d, 155d, 155e, 155e…</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>13</td><td>152a, 152b, 152c, 152e, 152f, 154a, 154b, 154c, 158, 159, 166, 168, 169</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>13</td><td>152b, 153a, 153a, 153b, 153b, 153c, 153c, 154a, 154b, 154c, 161, 163, 165</td></tr>
 <tr><td><code>PRODUCTE_MAL</code></td><td>12</td><td>152e, 156a, 156b, 158, 159, 160a, 160b, 161, 162, 166, 167, 167</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>8</td><td>290a, 290b, 290c, 291a, 291b, 291c, 292a, 292b</td></tr>
+<tr><td><code>POTENCIA_10</code></td><td>7</td><td>286a, 286b, 286c, 286d, 289, 294a, 294c</td></tr>
+<tr><td><code>RAO_SENSE_QUADRAT</code></td><td>7</td><td>291a, 291b, 291c, 292a, 292b, 294b, 294c</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>6</td><td>156a, 156b, 289, 290a, 290b, 290c</td></tr>
+<tr><td><code>RESTA_PER_QUOCIENT</code></td><td>6</td><td>290a, 290b, 290c, 293a, 293a, 293b</td></tr>
 <tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>5</td><td>152a, 152c, 152f, 164, 169</td></tr>
+<tr><td><code>RAO_AL_CUB</code></td><td>5</td><td>291a, 291b, 291c, 293b, 294b</td></tr>
+<tr><td><code>RAO_AL_QUADRAT</code></td><td>4</td><td>292a, 292b, 293a, 294c</td></tr>
 <tr><td><code>RAO_NOMES_UN_COSTAT</code></td><td>3</td><td>154d, 155a, 155d</td></tr>
-<tr><td><code>UNITATS_NO_CONVERTIDES</code></td><td>2</td><td>156a, 156b</td></tr>
-<tr><td><code>INVERTIDA</code></td><td>2</td><td>156a, 156b</td></tr>
+<tr><td><code>DIVISIO_OBLIDADA</code></td><td>3</td><td>288a, 288b, 288c</td></tr>
 <tr><td><code>ESCALA_NO_APLICADA</code></td><td>2</td><td>160a, 160b</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>162, 165</td></tr>
 <tr><td><code>CATET_HIPOTENUSA_CONFOSOS</code></td><td>2</td><td>162, 167</td></tr>
 <tr><td><code>RAONAMENT_ADDITIU</code></td><td>2</td><td>163, 164</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>2</td><td>289, 294b</td></tr>
 <tr><td><code>ARITMETICA_PAS_INTERMEDI</code></td><td>1</td><td>165</td></tr>
+<tr><td><code>ARREL_MAL_APLICADA</code></td><td>1</td><td>293b</td></tr>
 </table></html>
