@@ -966,6 +966,194 @@ TAX = {
         "Has tornat a dividir per alguna cosa que ja estava tinguda en compte. "
         "Escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
 
+    # ---- percentatges: el factor multiplicador (Full 6) ----
+    "FACTOR_PER_PERCENTATGE":
+        "Has donat NOMÉS la part que puja o baixa, no la quantitat final. El "
+        "factor multiplicador és $1+p$ per augmentar i $1-p$ per rebaixar: d'un "
+        "sol cop et dona el resultat, no la variació.",
+    "FACTOR_INVERS_OBLIDAT":
+        "Per desfer una variació percentual no es fa la contrària: es DIVIDEIX "
+        "pel factor. Si un preu ha pujat un 10 %, baixar-lo un 10 % no el torna "
+        "al punt de partida.",
+    "PERCENTATGES_SUMATS":
+        "Has sumat o restat els percentatges entre si. No se sumen mai: "
+        "cadascun es calcula sobre una base diferent. El que sí que es pot fer "
+        "és multiplicar els factors.",
+    "BASE_MAL_TRIADA":
+        "Has calculat el percentatge sobre la base que no toca. Una variació "
+        "percentual sempre es mesura respecte del valor de PARTIDA.",
+    "RESTA_PER_QUOCIENT":
+        "Has restat les dues quantitats. Un percentatge i una raó surten d'una "
+        "DIVISIÓ: diuen quantes vegades, no quant més.",
+    "ORDRE_DELS_FACTORS":
+        "Has donat per fet que l'ordre canvia el resultat. Quan les variacions "
+        "s'encadenen com a factors, el producte és el mateix en qualsevol "
+        "ordre.",
+    "SIMPLE_PER_COMPOST":
+        "Has fet servir interès compost on l'enunciat diu simple. Amb interès "
+        "simple els interessos es calculen sempre sobre el capital inicial i "
+        "cada període dona el mateix.",
+    "REPARTIMENT_A_PARTS_IGUALS":
+        "Has repartit a parts iguals. En un repartiment PROPORCIONAL, a cadascú "
+        "li toca segons el que ha posat.",
+    "PART_MAL_ASSIGNADA":
+        "El càlcul és bo però l'has atribuït a qui no toca: comprova a quina "
+        "part correspon cada resultat.",
+
+    # ---- escales i semblança (Full 8) ----
+    "ESCALA_INVERTIDA":
+        "Has fet servir l'escala del revés. A l'escala $a:b$, el primer nombre "
+        "és el DIBUIX i el segon la REALITAT: si és una reducció, la mesura "
+        "real sempre surt més gran que la del plànol.",
+    "RAO_SENSE_QUADRAT":
+        "Has multiplicat per $k$ una àrea o un volum. Només les LONGITUDS van "
+        "amb $k$: les àrees van amb $k^2$ i els volums amb $k^3$.",
+    "RAO_AL_QUADRAT":
+        "Has fet servir $k^2$ on tocava una altra potència. El quadrat és per a "
+        "les àrees; les longituds van amb $k$ i els volums amb $k^3$.",
+    "RAO_AL_CUB":
+        "Has fet servir $k^3$ on tocava una altra potència. El cub és per als "
+        "volums; les àrees van amb $k^2$.",
+
+    # ---- construir rectes i paràboles (Full 10) ----
+    "ORDENADA_PER_COORDENADA":
+        "Has pres la $y$ d'un punt com a ordenada a l'origen. Només "
+        "coincideixen si aquell punt és sobre l'eix $Y$, és a dir, si té $x=0$.",
+    "PENDENT_INVERTIT":
+        "Has calculat $\\frac{\\Delta x}{\\Delta y}$. El pendent és "
+        "$\\frac{\\Delta y}{\\Delta x}$: el que puja entre el que avança.",
+    "PENDENT_MAL_TRIAT":
+        "El pendent que has fet servir no és el que toca. Si te'l donen, es "
+        "col·loca tal com és; si no, es calcula amb dos punts.",
+    "PENDENT_NOMES_CANVIAT_DE_SIGNE":
+        "Per a una perpendicular no n'hi ha prou de canviar el signe del "
+        "pendent: també cal invertir-lo, perquè el producte dels dos pendents "
+        "ha de valer $-1$.",
+    "PARALLELA_PER_PERPENDICULAR":
+        "Has confós paral·lela amb perpendicular. Les paral·leles comparteixen "
+        "pendent; les perpendiculars el tenen invers i canviat de signe.",
+    "PARALLELA_MATEIXA_RECTA":
+        "La recta que has donat és la de partida. Una paral·lela té el mateix "
+        "pendent però una altra ordenada a l'origen, o serien la mateixa recta.",
+    "RECTA_VERTICAL_CONFOSA":
+        "Has confós una recta horitzontal amb una de vertical. Les horitzontals "
+        "són $y=$ constant; les verticals, $x=$ constant, i aquestes no són "
+        "funcions.",
+    "COORDENADES_INTERCANVIADES":
+        "Has posat les coordenades al revés. Un punt s'escriu $(x,y)$: primer "
+        "l'horitzontal i després la vertical.",
+    "ORDENADES_PER_TALL":
+        "Has donat on talla cada recta l'eix $Y$. El punt de tall ENTRE dues "
+        "rectes és on totes dues valen el mateix alhora.",
+    "SUBSTITUCIO_MAL_FETA":
+        "La primera part surt bé, però en substituir per trobar la segona hi ha "
+        "un error. Comprova el resultat posant-lo a l'expressió original.",
+    "SIGNE_VERTEX":
+        "T'has deixat el signe menys de $x_v=\\frac{-b}{2a}$. És l'error més "
+        "habitual amb el vèrtex, i es detecta de seguida mirant si el vèrtex "
+        "cau on hauria de caure.",
+    "VERTEX_COM_COEFICIENTS":
+        "Has col·locat les coordenades del vèrtex com a coeficients de la "
+        "funció. Per anar del vèrtex a l'equació cal la forma "
+        "$y=a(x-x_v)^2+y_v$.",
+    "VERTEX_PER_ARREL":
+        "Has donat una arrel (on la funció val zero) en comptes del vèrtex (on "
+        "arriba al màxim o al mínim). Són coses diferents.",
+    "COEFICIENT_MAL_TRIAT":
+        "El coeficient principal no es tria: es troba imposant que la corba "
+        "passi pel punt que et donen.",
+    "SIGNE_COEFICIENT_PRINCIPAL":
+        "El signe de $a$ no encaixa amb la forma de la paràbola. Si $a>0$ "
+        "s'obre cap amunt i el vèrtex és un mínim; si $a<0$, cap avall i és un "
+        "màxim.",
+    "SIGNE_ARRELS":
+        "Les arrels tenen el signe canviat. Comprova-les substituint-les: han "
+        "de fer que la funció valgui $0$.",
+    "PART_FIXA_VARIABLE_BARREJADES":
+        "Has barrejat la part fixa amb la variable. La que es paga sempre és el "
+        "terme independent; la que depèn de la quantitat és el pendent.",
+    "DADES_MAL_TRIADES":
+        "Has fet servir una dada de l'enunciat que no és la que toca. Torna a "
+        "llegir què representa cada número abans de col·locar-lo.",
+
+    # ---- etiquetes ja en ús al Full 10 que no tenien text ----
+    "OBERTURA_INVERTIDA":
+        "Com més gran és $|a|$, més ESTRETA és la paràbola, no més ampla: el "
+        "coeficient estira la corba cap amunt.",
+    "OBERTURA_I_AMPLADA_INVERTIDES":
+        "Has invertit la relació entre el coeficient i la forma de la corba: "
+        "compara dues paràboles concretes ($y=x^2$ i $y=3x^2$) i mira quina és "
+        "més estreta.",
+    "EIX_SIMETRIA_MAL_CALCULAT":
+        "L'eix de simetria és la recta vertical que passa pel vèrtex: "
+        "$x=\\frac{-b}{2a}$. És una recta, no un número solt ni un punt.",
+    "TALL_ORIGEN_OBLIDAT":
+        "T'has deixat el tall amb un dels eixos. Amb l'eix $Y$ n'hi ha sempre "
+        "un i només un: el valor de la funció a $x=0$.",
+    "TALL_COM_EXTREM":
+        "Has confós un tall amb l'eix amb el màxim o el mínim. Als talls la "
+        "funció val zero; a l'extrem hi arriba al seu valor més alt o més baix.",
+    "PUNT_ORDENADA_CONFOS":
+        "Has confós un punt de la gràfica amb l'ordenada a l'origen. Només "
+        "coincideixen si el punt té $x=0$.",
+    "ORDENADA_NULA_OBLIDADA":
+        "Quan la recta passa per l'origen, l'ordenada a l'origen val $0$ i el "
+        "terme independent desapareix: $y=mx$.",
+    "SIGNE_ORDENADA_INVERTIT":
+        "L'ordenada a l'origen té el signe canviat: mira si la recta talla "
+        "l'eix vertical per damunt o per sota del zero.",
+    "TERME_INDEPENDENT_IGNORAT":
+        "T'has deixat el terme independent. Encara que vagi sol, forma part de "
+        "la funció.",
+    "VALOR_C_CONFOS":
+        "El terme independent $c$ és el valor de la funció a $x=0$, no cap "
+        "altra cosa.",
+    "COEFICIENT_A_MAL_CALCULAT":
+        "El coeficient principal no encaixa: comprova'l imposant que la corba "
+        "passi per un punt que en coneguis.",
+    "PARABOLA_AMB_A_ZERO":
+        "Si $a=0$ no hi ha terme en $x^2$ i allò no és cap paràbola, sinó una "
+        "recta.",
+    "CREIXEMENT_INVERTIT":
+        "Has dit que creix on decreix, o al revés. Mira si la $y$ puja o baixa "
+        "a mesura que la $x$ avança cap a la dreta.",
+    "EXTREM_INVERTIT":
+        "Has confós el màxim amb el mínim. Amb una paràbola ho decideix el "
+        "signe de $a$: positiu, mínim; negatiu, màxim.",
+    "EXTREMS_OBLIDATS":
+        "T'has deixat els extrems de l'interval. Quan el domini està limitat, "
+        "els valors dels extrems compten.",
+    "RESTRICCIO_OBLIDADA":
+        "T'has deixat una restricció del domini: hi ha valors de $x$ que la "
+        "funció no admet.",
+    "RESTRICCIO_INVENTADA":
+        "Has exclòs valors que sí que són al domini. Comprova què impedeix de "
+        "debò calcular la imatge.",
+    "ASIMPTOTA_COM_LIMIT":
+        "Has tractat una asímptota com un valor que la funció arriba a agafar. "
+        "La corba s'hi acosta tant com vulguis, però no hi arriba.",
+    "RELATIU_COM_ABSOLUT":
+        "Has comparat valors absoluts on calia comparar-los en proporció, o al "
+        "revés.",
+    "OPERACIO_INVERSA":
+        "Has fet l'operació contrària a la que tocava per desfer el pas "
+        "anterior.",
+    "POTENCIA_APLICADA_MALAMENT":
+        "La potència no s'ha aplicat a tot el que havia d'afectar: mira bé què "
+        "queda dins del parèntesi.",
+    "TERMES_NO_REDUITS":
+        "Falta reduir els termes semblants abans de treure conclusions: "
+        "l'expressió encara es pot simplificar.",
+    "VALOR_DUPLICAT":
+        "Has comptat dues vegades el mateix valor. Quan dues condicions donen "
+        "la mateixa solució, la solució és una de sola.",
+    "RAO_NOMES_UN_COSTAT":
+        "Has comprovat la proporció amb un sol parell de costats. La semblança "
+        "demana que TOTS els costats corresponents guardin la mateixa raó.",
+    "CATET_HIPOTENUSA_CONFOSOS":
+        "Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre "
+        "el costat més llarg i va sola a un costat de la igualtat.",
+
 }
 
 def DT(valor, tag, extra=""):

@@ -112,13 +112,22 @@ FULLS = {
         "titol": "Full 6 — Proporcionalitat i percentatges",
         "subtitol": "Proporcionalitat directa i inversa, i problemes de "
                     "percentatges, augments i disminucions encadenats.",
-        "moduls": ["c_proporcionalitat"],
+        # c_percentatges va l'últim: contingut nou, i els seus ítems s'han
+        # d'afegir al final perquè els codis de verificació ja emesos
+        # segueixin llegint-se bé (guarden els estats per posició).
+        "moduls": ["c_proporcionalitat", "c_percentatges"],
         "blocs": [
             ("directa_inversa", "Proporcionalitat directa i inversa",
              "Regla de tres directa i inversa amb repartiments i problemes."),
             ("percentatges", "Percentatges",
              "Percentatge d'una quantitat, i trobar el total o la quantitat "
              "original a partir d'un percentatge."),
+            ("factor_multiplicador", "El factor multiplicador",
+             "Pujar un 15 % és multiplicar per 1,15 i baixar-lo, per 0,85: "
+             "una sola operació per a cada variació, i com desfer-la."),
+            ("aplicacions_percentatge", "Descomptes, IVA i interessos",
+             "Descomptes encadenats, IVA, interès simple i repartiments "
+             "proporcionals."),
             ("encadenats", "Augments i disminucions encadenats",
              "Augments i rebaixes percentuals aplicats seguits, i "
              "comparacions \"en proporció\"."),
@@ -150,7 +159,8 @@ FULLS = {
         "subtitol": "Teorema de Tales, triangles semblants, escales i "
                     "aplicacions de la semblança a problemes d'altures i "
                     "distàncies inaccessibles.",
-        "moduls": ["c_semblanca"],
+        # c_escales va l'últim: contingut nou, ítems al final del banc.
+        "moduls": ["c_semblanca", "c_escales"],
         "blocs": [
             ("tales", "Teorema de Tales",
              "Segments proporcionals entre rectes paral·leles i triangles "
@@ -160,6 +170,12 @@ FULLS = {
              "triangles són semblants."),
             ("escales", "Escales",
              "Escala numèrica i problemes de mapes i plànols."),
+            ("escales_calcul", "Càlcul amb escales",
+             "Del plànol a la realitat i al revés, trobar l'escala, i "
+             "escales amb canvi d'unitats."),
+            ("semblanca_arees", "Raó de semblança, àrees i volums",
+             "Si les longituds es multipliquen per k, les àrees ho fan per "
+             "k² i els volums per k³."),
             ("aplicacions", "Aplicacions de la semblança",
              "Ombres, reflexos i alçades o distàncies inaccessibles."),
         ],
@@ -188,7 +204,8 @@ FULLS = {
         "titol": "Full 10 — Funcions",
         "subtitol": "Concepte de funció, domini i recorregut, creixement, "
                     "i funcions lineals i quadràtiques.",
-        "moduls": ["c_funcions"],
+        # c_funcions_prod va l'últim: contingut nou, ítems al final del banc.
+        "moduls": ["c_funcions", "c_funcions_prod"],
         "blocs": [
             ("concepte_funcio", "Concepte de funció",
              "Relacions que són o no funcions, càlcul d'imatges, i "
@@ -196,6 +213,12 @@ FULLS = {
             ("funcions_lineals", "Funcions lineals i afins",
              "Pendent i ordenada a l'origen, creixement sense "
              "representar, i equació de la recta a partir de dos punts."),
+            ("rectes_produccio", "Construir rectes",
+             "De les dades a l'equació: pendent i punt, dos punts, "
+             "paral·leles i perpendiculars, i punts de tall."),
+            ("parabola_produccio", "Construir paràboles i problemes",
+             "Vèrtex, talls amb els eixos, l'equació a partir del vèrtex, "
+             "i problemes que es resolen muntant la funció."),
             ("funcions_quadratiques", "Funcions quadràtiques",
              "Obertura i amplada de la paràbola, vèrtex, talls amb els "
              "eixos i eix de simetria."),
