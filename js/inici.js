@@ -95,7 +95,7 @@
       cont.innerHTML =
         '<a class="tutor-targeta" href="diagnostic.html">' +
           '<span class="pastilla pastilla-blau">Nou</span>' +
-          "<h2>No saps per on començar?</h2>" +
+          '<h3 class="tutor-titol">No saps per on començar?</h3>' +
           '<p class="petit apagat" style="margin:.35rem 0 0">Fes un test curt de 15 preguntes ' +
           "i et diem quins blocs et convé repassar primer.</p>" +
         "</a>";
@@ -106,7 +106,7 @@
     var noms = reco.map(function (b) { return b.titol; }).join(", ");
     cont.innerHTML =
       '<a class="tutor-targeta" href="resultat.html">' +
-        "<h2>Segons el teu test inicial</h2>" +
+        '<h3 class="tutor-titol">Segons el teu test inicial</h3>' +
         '<p class="petit apagat" style="margin:.35rem 0 0">' +
           (reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.") +
         "</p>" +

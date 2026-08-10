@@ -43,6 +43,31 @@
     return c;
   }
 
+  /* Navegació amb fletxes per a un radiogroup fet de <button role="radio">:
+     mou el focus i el roving tabindex sense seleccionar (Space/Enter, ja
+     natius al <button>, confirmen la tria). Es fa servir tant per les
+     quatre opcions de resposta com pel grup d'autoavaluació — són el
+     mateix patró de control encara que un no tingui resposta correcta. */
+  function fesNavegableAmbFletxes(caixa) {
+    return function (e) {
+      var n = caixa.children.length;
+      var actual = Array.prototype.indexOf.call(caixa.children, document.activeElement);
+      if (actual < 0) return;
+      var seguent = -1;
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") seguent = (actual + 1) % n;
+      else if (e.key === "ArrowUp" || e.key === "ArrowLeft") seguent = (actual - 1 + n) % n;
+      else if (e.key === "Home") seguent = 0;
+      else if (e.key === "End") seguent = n - 1;
+      else return;
+      e.preventDefault();
+      e.stopPropagation();
+      caixa.children[actual].tabIndex = -1;
+      var el = caixa.children[seguent];
+      el.tabIndex = 0;
+      el.focus();
+    };
+  }
+
   function pintaProgres() {
     $("#progres-test").textContent = "Pregunta " + (idx + 1) + " de " + PROVES.length;
     $("#barra-test i").style.width = Math.round(100 * idx / PROVES.length) + "%";
@@ -83,9 +108,9 @@
 
     var cont = $("#comprovacio");
     cont.hidden = false;
-    cont.innerHTML = '<p class="petit apagat" style="margin:0 0 .5rem">' +
+    cont.innerHTML = '<p class="petit apagat" style="margin:0 0 .5rem" id="pregunta-resposta">' +
       DEMANA[estat] + "</p>" +
-      '<div class="opcions" id="opcions-test"></div>';
+      '<div class="opcions" id="opcions-test" role="radiogroup" aria-labelledby="pregunta-resposta"></div>';
     var caixa = $("#opcions-test");
     barreja(prova.opcions.map(function (o, i) { return { text: o, orig: i }; }))
       .forEach(function (o, i) {
@@ -93,16 +118,21 @@
         b.type = "button";
         b.className = "opcio";
         b.setAttribute("data-orig", o.orig);
+        b.setAttribute("role", "radio");
+        b.setAttribute("aria-checked", "false");
+        b.tabIndex = i === 0 ? 0 : -1;
         b.innerHTML = '<span class="lletra">' + LLETRES[i] + "</span>" +
                       '<span class="cos">' + o.text + "</span>";
         b.onclick = function () {
           if ($("#targeta-test").classList.contains("inert")) return;
           b.classList.add("tria");
+          b.setAttribute("aria-checked", "true");
           respon(prova, estat, o.orig === prova.ok);
         };
         caixa.appendChild(b);
       });
     RE.mat(caixa);
+    caixa.onkeydown = fesNavegableAmbFletxes(caixa);
     /* Amb el panell amagat la targeta sencera hi cap: portem-la amunt, no
        les opcions, perquè l'enunciat continuï a la vista mentre es respon. */
     var targeta = $("#targeta-test");
@@ -121,16 +151,23 @@
 
     var cont = $("#estats-test");
     cont.innerHTML = "";
-    ESTATS.forEach(function (e) {
+    ESTATS.forEach(function (e, i) {
       var b = document.createElement("button");
       b.type = "button";
       b.className = "opcio opcio-estat";
       b.setAttribute("data-estat", e.id);
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", "false");
+      b.tabIndex = i === 0 ? 0 : -1;
       b.innerHTML = '<span class="cos">' + e.text + "</span>";
       b.onclick = function () {
         if ($("#targeta-test").classList.contains("inert")) return;
-        [].forEach.call(cont.children, function (x) { x.classList.remove("triada"); });
+        [].forEach.call(cont.children, function (x) {
+          x.classList.remove("triada");
+          x.setAttribute("aria-checked", "false");
+        });
         b.classList.add("triada");
+        b.setAttribute("aria-checked", "true");
         if (e.id === "mai") {
           /* No ho ha vist mai: no hi ha res a preguntar. */
           $("#comprovacio").hidden = true;
@@ -142,6 +179,7 @@
       };
       cont.appendChild(b);
     });
+    cont.onkeydown = fesNavegableAmbFletxes(cont);
 
     RE.mat($("#targeta-test"));
     try { window.scrollTo(0, 0); } catch (e) { /* entorns sense scroll */ }

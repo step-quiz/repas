@@ -75,13 +75,27 @@
     }
   };
 
-  /* ---- opcions ---- */
+  /* ---- opcions ----
+     Les quatre opcions formen un radiogroup ARIA: una sola es pot triar, i
+     cal que s'anunciï com a tal. `aria-checked` porta l'estat; el roving
+     tabindex (només la triada, o la primera si encara no n'hi ha cap, és
+     tabulable) és el patró estàndard perquè Tab entri i surti del grup d'un
+     sol pas i les fletxes es moguin per dins. */
   var caixa = $("#opcions");
+  function marca(pos) {
+    Array.prototype.forEach.call(caixa.children, function (c, i) {
+      c.setAttribute("aria-checked", i === pos ? "true" : "false");
+      c.tabIndex = i === pos ? 0 : -1;
+    });
+  }
   ordre.forEach(function (orig, pos) {
     var b = document.createElement("button");
     b.className = "opcio";
     b.type = "button";
     b.dataset.orig = orig;
+    b.setAttribute("role", "radio");
+    b.setAttribute("aria-checked", "false");
+    b.tabIndex = pos === 0 ? 0 : -1;
     b.innerHTML = '<span class="lletra">' + LLETRES[pos] + "</span><span>" +
       item.opcions[orig] + "</span>";
     b.onclick = function () {
@@ -89,11 +103,37 @@
       Array.prototype.forEach.call(caixa.children, function (c) { c.classList.remove("tria"); });
       b.classList.add("tria");
       triada = pos;
+      marca(pos);
       $("#comprova").disabled = false;
     };
     caixa.appendChild(b);
   });
   RE.mat(caixa);
+
+  /* Fletxes amunt/avall i esquerra/dreta mouen el focus (i la tria de
+     tabindex) dins del grup, sense activar la selecció — el patró habitual
+     de radiogroup és moure't lliurement i deixar que Space/Enter (natius a
+     <button>) confirmin. S'atura la propagació perquè aquestes mateixes
+     fletxes no arribin també al listener de navegació d'exercici de més
+     avall: dins del grup, primer són seves. */
+  caixa.addEventListener("keydown", function (e) {
+    if (tancat) return;
+    var n = caixa.children.length;
+    var actual = Array.prototype.indexOf.call(caixa.children, document.activeElement);
+    if (actual < 0) return;
+    var seguent = -1;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") seguent = (actual + 1) % n;
+    else if (e.key === "ArrowUp" || e.key === "ArrowLeft") seguent = (actual - 1 + n) % n;
+    else if (e.key === "Home") seguent = 0;
+    else if (e.key === "End") seguent = n - 1;
+    else return;
+    e.preventDefault();
+    e.stopPropagation();
+    caixa.children[actual].tabIndex = -1;
+    var el = caixa.children[seguent];
+    el.tabIndex = 0;
+    el.focus();
+  });
 
   $("#mostra").onclick = function () {
     $("#mostra").hidden = true;
@@ -112,6 +152,7 @@
     if (encert) {
       tancat = true;
       btn.classList.remove("tria"); btn.classList.add("bona");
+      btn.setAttribute("aria-describedby", "veredicte");
       var estat = pistes ? "pista" : (intents > 1 ? "segon" : "net");
       RE.apunta(D.full, item.id, { estat: estat, pistes: pistes, intents: intents, err: "" });
       v.className = "veredicte be";
@@ -125,6 +166,7 @@
       RE.apunta(D.full, item.id, { err: k.err[orig] });
       v.className = "veredicte malament";
       if (intents === 1) {
+        btn.setAttribute("aria-describedby", "veredicte");
         v.innerHTML = "<h2>Encara no</h2>" + k.diag[orig] +
           "<p class='petit apagat' style='margin:.4rem 0 0'>Tens un intent més.</p>";
         triada = -1;
@@ -132,13 +174,14 @@
       } else {
         tancat = true;
         RE.apunta(D.full, item.id, { estat: "fallat", pistes: pistes, intents: intents });
-        caixa.children[ordre.indexOf(k.ok)].classList.add("bona");
+        var btnOk = caixa.children[ordre.indexOf(k.ok)];
+        btnOk.classList.add("bona");
+        btnOk.setAttribute("aria-describedby", "veredicte");
         v.innerHTML = "<h2>La resposta correcta és la " +
           LLETRES[ordre.indexOf(k.ok)] + "</h2>" + k.diag[orig] +
           "<p style='margin:.4rem 0 0'>Mira't la resolució amb calma.</p>";
       }
     }
-    v.hidden = false;
     RE.mat(v);
     if (tancat) {
       Array.prototype.forEach.call(caixa.children, function (c) { c.disabled = true; });
@@ -156,7 +199,6 @@
     var r = $("#resolucio");
     r.innerHTML = "<h2>Resolució</h2><ol>" +
       k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>";
-    r.hidden = false;
     RE.mat(r);
     r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
