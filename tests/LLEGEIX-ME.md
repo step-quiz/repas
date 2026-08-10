@@ -19,13 +19,27 @@ npm install --no-save jsdom
 
 ## Què hi ha
 
-| Fitxer | Comprova |
-|---|---|
-| `test_lib.py` | Els ajudants de `tools/lib.py`: aritmètica exacta, fracció generatriu, renderitzat LaTeX, i que `_valida()` aturi de veritat el que diu que atura |
-| `test_banc.py` | El banc **ja compilat**: estructura, i recàlcul independent d'una mostra de respostes |
-| `codi.test.js` | El format del codi de verificació: empaquetat, anada i tornada, caràcters de control, compatibilitat amb els codis RC1 antics |
-| `analitzador.test.js` | L'analitzador, amb un DOM real: lectura del full, feina mínima, progrés del trimestre, pèrdua del navegador |
-| `arnes.js` | L'arnès de proves de JavaScript, quinze línies |
+| Fitxer | | Comprova |
+|---|---:|---|
+| `comu.py` | — | Carrega el banc un cop i el deixa a `TOTS` i `PLANS`. No importa res de `tools/` |
+| `test_lib.py` | 37 | Els ajudants de `tools/lib.py` i que `_valida()` aturi de veritat el que diu que atura |
+| `test_banc.py` | 19 | El banc compilat: estructura, presentació, catàleg d'errors, coherència de les taules |
+| `test_matematiques.py` | 11 | Recàlcul independent de les respostes, full per full |
+| `test_figures.py` | 9 | Les figures i la coherència geomètrica dels enunciats |
+| `codi.test.js` | 25 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1 |
+| `analitzador.test.js` | 24 | L'analitzador amb un DOM real |
+| `arnes.js` | — | L'arnès de proves de JavaScript, quinze línies |
+
+Cada fitxer es pot executar sol:
+
+```sh
+python3 -m unittest tests.test_figures -v
+node tests/codi.test.js
+```
+
+**Si escrius contingut nou**, afegeix la teva classe a `test_matematiques.py` o
+crea `tests/test_<el_teu_tema>.py`: la descoberta els troba tots dos, i un
+fitxer propi evita conflictes si algú altre hi treballa alhora.
 
 ## Dues coses que fan que serveixin de res
 

@@ -1,64 +1,24 @@
 # -*- coding: utf-8 -*-
-"""tests/test_banc.py — proves sobre el banc ja compilat (`data/fullN.js`).
+"""tests/test_banc.py — el banc compilat: estructura, presentació,
+catàleg d'errors i coherència de les taules de recompte.
 
-La diferència amb `test_lib.py` és que aquestes no miren el codi que genera
-els ítems sinó el RESULTAT: carreguen els fitxers que es publiquen i els
-comproven com ho faria algú de fora.
-
-Les comprovacions de matemàtiques recalculen la resposta amb `Fraction` de la
-biblioteca estàndard, sense fer servir res de `tools/`. És l'única manera que
-serveixin de res: si per comprovar `lib.py` fes servir `lib.py`, una errada
-al motor passaria per les dues bandes i no la veuria ningú.
-
-    python3 -m unittest discover -s tests -v
-"""
-import base64
-import json
+Les comprovacions de matemàtiques són a test_matematiques.py i les de
+figures a test_figures.py."""
 import os
+import sys
+
+# Perquè `python3 -m unittest tests.test_x` funcioni igual que la descoberta:
+# `comu` és germà d'aquest fitxer, no del directori des d'on s'executa.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 import re
 import unittest
-from collections import Counter
-from fractions import Fraction as F
 
-ARREL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-
-
-def carrega(n):
-    ruta = os.path.join(ARREL, "data", "full%d.js" % n)
-    with open(ruta, encoding="utf-8") as f:
-        s = f.read()
-    return json.loads(s[s.index("{"):s.rindex("}") + 1])
+from comu import ARREL, TOTS, PLANS, carrega, clau, num, per_id  # noqa: F401
+from fractions import Fraction as F  # noqa: F401
+from collections import Counter  # noqa: F401
 
 
-def items(n):
-    d = carrega(n)
-    out = []
-    for it in d["items"]:
-        k = json.loads(base64.b64decode(it["clau"]))
-        out.append(dict(it, **k))
-    return out
-
-
-TOTS = {n: items(n) for n in range(1, 13)}
-PLANS = [it for n in sorted(TOTS) for it in TOTS[n]]
-
-
-def clau(it):
-    return it["opcions"][it["ok"]]
-
-
-def num(t):
-    """Primer valor numèric d'una cadena LaTeX: fracció o decimal català."""
-    t = t.replace("\\,", "").replace("\\ ", "")
-    m = re.search(r"(-?)\\d?frac\{(-?\d+)\}\{(-?\d+)\}", t)
-    if m:
-        v = F(int(m.group(2)), int(m.group(3)))
-        return -v if m.group(1) == "-" else v
-    m = re.search(r"(-?\d+(?:\{,\}\d+)?)", t)
-    return F(m.group(1).replace("{,}", ".")) if m else None
-
-
-# ---------------------------------------------------------------- estructura
 
 class Estructura(unittest.TestCase):
     def test_tots_els_fulls_carreguen(self):
@@ -107,6 +67,8 @@ class Estructura(unittest.TestCase):
 
 
 # ------------------------------------------------------------ presentació
+
+
 
 class Presentacio(unittest.TestCase):
     """Errors de renderitzat que ja van arribar a producció un cop i que no
@@ -165,133 +127,7 @@ class Presentacio(unittest.TestCase):
 
 # --------------------------------------------------------------- contingut
 
-class MatematiquesFull1(unittest.TestCase):
-    """Recàlcul independent d'una mostra ampla del Full 1. Es fa amb
-    `Fraction` i prou: cap import de `tools/`."""
 
-    def test_fraccions_generatrius(self):
-        """Els ítems que van d'un decimal a la seva fracció (27, 28, 30)."""
-        provats = 0
-        for it in TOTS[1]:
-            m = re.fullmatch(r"\$(-?)(\d+)\{,\}(\d*)(?:\\overline\{(\d+)\})?\$",
-                             it["enunciat"].strip())
-            if not m:
-                continue
-            esperat = num(clau(it))
-            if esperat is None:
-                continue
-            sg, ent, ante, per = m.group(1), m.group(2), m.group(3) or "", m.group(4)
-            if per is None:
-                v = F(int(ent + ante), 10 ** len(ante))
-            else:
-                v = F(int(ent + ante + per) - int(ent + ante),
-                      int("9" * len(per) + "0" * len(ante)))
-            if sg:
-                v = -v
-            self.assertEqual(v, esperat, "%s: %s no val %s"
-                             % (it["id"], it["enunciat"], clau(it)))
-            provats += 1
-        self.assertGreater(provats, 20, "esperava provar més generatrius")
-
-    def test_descomposicions_factorials(self):
-        provats = 0
-        for it in TOTS[1]:
-            if not it["id"].startswith("5"):
-                continue
-            m = re.fullmatch(r"\$(-?\d+)\$", it["enunciat"].strip())
-            if not m:
-                continue
-            n = abs(int(m.group(1)))
-            prod = 1
-            for p, e in re.findall(r"(\d+)(?:\^\{(\d+)\})?", clau(it)):
-                prod *= int(p) ** (int(e) if e else 1)
-            self.assertEqual(prod, n, "%s: la descomposició no reconstrueix %d"
-                             % (it["id"], n))
-            provats += 1
-        self.assertGreaterEqual(provats, 3)
-
-
-class MatematiquesFull11(unittest.TestCase):
-    """Els estadístics del bloc nou, recalculats de zero."""
-
-    L260 = {"a": [3, 5, 5, 8, 9], "b": [6, 2, 7, 4, 6],
-            "c": [5, 7, 7, 9, 2, 6], "d": [8, 3, 5, 5, 9]}
-    L261 = {"a": [3, 6, 19, 2, 10], "b": [18, 4, 14, 12],
-            "c": [14, 14, 15, 1, 8, 7, 18], "d": [9, 5, 17, 7, 2, 20]}
-    L270 = {"a": [2, 4, 4, 4, 5, 5, 7, 9], "b": [10, 12, 14, 16, 18],
-            "c": [4, 8, 6, 5, 3, 2, 8, 4]}
-
-    def _it(self, i):
-        return [x for x in TOTS[11] if x["id"] == i][0]
-
-    def test_mitjanes(self):
-        for a, v in self.L260.items():
-            self.assertEqual(F(sum(v), len(v)), num(clau(self._it("260" + a))))
-
-    def test_medianes(self):
-        for a, v in self.L261.items():
-            o, n = sorted(v), len(v)
-            esp = F(o[n // 2]) if n % 2 else F(o[n // 2 - 1] + o[n // 2], 2)
-            self.assertEqual(esp, num(clau(self._it("261" + a))))
-
-    def test_variancies_i_desviacions(self):
-        for a, v in self.L270.items():
-            m = F(sum(v), len(v))
-            var = F(sum((F(x) - m) ** 2 for x in v), len(v))
-            t = clau(self._it("270" + a))
-            mv = re.search(r"sigma\^2=([^,$]+)", t)
-            ms = re.search(r"sigma\\approx([\d{},]+)", t)
-            self.assertEqual(var, num("$" + mv.group(1) + "$"), "270%s variància" % a)
-            self.assertEqual("%.2f" % (float(var) ** 0.5),
-                             ms.group(1).replace("{,}", "."), "270%s desviació" % a)
-
-
-class MatematiquesFull6(unittest.TestCase):
-    """Percentatges: el factor multiplicador i les seves aplicacions."""
-
-    def _it(self, i):
-        return [x for x in TOTS[6] if x["id"] == i][0]
-
-    def test_factors_multiplicadors(self):
-        for a, p, puja in [("a", 20, True), ("b", 35, False),
-                           ("c", 7, True), ("d", 4, False)]:
-            esp = F(100 + p, 100) if puja else F(100 - p, 100)
-            self.assertEqual(esp, num(clau(self._it("275" + a))))
-
-    def test_variacio_inversa(self):
-        """De quant costava abans: dividir pel factor, no fer la contrària."""
-        for a, final, p, puja in [("a", 66, 10, True), ("b", 51, 15, False),
-                                  ("c", 189, 10, False)]:
-            f = F(100 + p, 100) if puja else F(100 - p, 100)
-            self.assertEqual(F(final) / f, num(clau(self._it("277" + a))))
-
-    def test_descomptes_encadenats_no_se_sumen(self):
-        self.assertEqual(F(200) * F(8, 10) * F(9, 10), num(clau(self._it("280a"))))
-        self.assertEqual(F(28), num(clau(self._it("280b"))))
-        self.assertEqual(F(480), num(clau(self._it("284"))))
-
-
-class MatematiquesFull8(unittest.TestCase):
-    """Escales i raó de semblança."""
-
-    def _it(self, i):
-        return [x for x in TOTS[8] if x["id"] == i][0]
-
-    def test_del_plano_a_la_realitat(self):
-        for a, cm in [("a", 4), ("b", 12), ("c", 2.5), ("d", 30)]:
-            esp = F(str(cm)) * 25000 / 100000
-            self.assertEqual(esp, num(clau(self._it("286" + a))))
-
-    def test_arees_van_amb_k_al_quadrat(self):
-        for a, k, area in [("a", F(2), 15), ("b", F(3), 8), ("c", F(5, 2), 12)]:
-            self.assertEqual(area * k ** 2, num(clau(self._it("291" + a))))
-
-    def test_volums_van_amb_k_al_cub(self):
-        for a, k, vol in [("a", F(2), 30), ("b", F(3), 5)]:
-            self.assertEqual(vol * k ** 3, num(clau(self._it("292" + a))))
-
-
-# ------------------------------------------------------- catàleg d'errors
 
 class Etiquetes(unittest.TestCase):
     def test_cap_etiqueta_es_calaix_de_sastre(self):
@@ -317,9 +153,6 @@ class Etiquetes(unittest.TestCase):
                            "menys del 90 %% dels distractors tenen text de catàleg: "
                            "el panell d'errors repetits cau al diagnòstic d'un ítem")
 
-
-if __name__ == "__main__":
-    unittest.main(verbosity=2)
 
 
 class TaulesCoherents(unittest.TestCase):
@@ -367,91 +200,5 @@ class TaulesCoherents(unittest.TestCase):
         self.assertEqual(int(m.group(1)), len(PLANS))
 
 
-class Figures(unittest.TestCase):
-    """La canonada de figures (§3.5 del HANDOVER). Les regles no són d'estil:
-    cadascuna evita que una figura trenqui alguna cosa que ja funciona."""
-
-    def _amb_figura(self):
-        return [it for it in PLANS if it.get("figura")]
-
-    def test_hi_ha_figures(self):
-        self.assertGreater(len(self._amb_figura()), 0,
-                           "cap ítem amb figura: la canonada no s'està fent servir")
-
-    def test_totes_son_svg_amb_viewbox_i_sense_mida_fixa(self):
-        for it in self._amb_figura():
-            f = it["figura"].lstrip()
-            self.assertTrue(f.startswith("<svg"), "%s: no comença per <svg" % it["id"])
-            obertura = f[:f.index(">") + 1]
-            self.assertIn("viewBox", obertura, "%s: sense viewBox" % it["id"])
-            self.assertNotIn('width="', obertura,
-                             "%s: amplada fixa a l'<svg>, no s'adaptarà" % it["id"])
-
-    def test_totes_tenen_alternativa_per_a_lectors_de_pantalla(self):
-        for it in self._amb_figura():
-            self.assertIn('role="img"', it["figura"], "%s: sense role" % it["id"])
-            self.assertIn("<title>", it["figura"], "%s: sense <title>" % it["id"])
-            m = re.search(r"<title>(.*?)</title>", it["figura"], re.S)
-            self.assertGreater(len(m.group(1).strip()), 15,
-                               "%s: el <title> no descriu res" % it["id"])
-
-    def test_cap_figura_no_porta_latex(self):
-        """Dins d'un SVG, KaTeX no hi entra: els $ es veurien tal qual."""
-        for it in self._amb_figura():
-            self.assertNotIn("$", it["figura"], "%s: la figura porta $" % it["id"])
-
-    def test_l_enunciat_es_resol_sense_veure_la_figura(self):
-        """La figura ACOMPANYA l'enunciat, no el substitueix: qui faci servir
-        un lector de pantalla ha de poder resoldre l'exercici igualment. Es
-        comprova que l'enunciat continuï portant els números."""
-        for it in self._amb_figura():
-            self.assertTrue(re.search(r"\d", it["enunciat"]),
-                            "%s: l'enunciat no diu cap mesura i la figura sí; "
-                            "sense veure-la no es pot resoldre" % it["id"])
-
-    def test_les_figures_no_disparen_l_arrodoniment_del_json(self):
-        """Comprovació de sanitat: la figura ha de tornar del JSON tal com
-        va entrar-hi, sense que cap cometa la trenqui."""
-        for it in self._amb_figura():
-            self.assertEqual(it["figura"].count("<svg"), 1)
-            self.assertEqual(it["figura"].count("</svg>"), 1)
-
-
-class ApotemesCoherents(unittest.TestCase):
-    """L'apotema d'un polígon regular és a = s / (2·tan(π/n)). Sempre que un
-    enunciat en doni una, ha de quadrar amb la fórmula.
-
-    Aquesta prova hi és perquè és la tècnica que va permetre llegir les
-    figures escanejades sense endevinar: quan la lectura i la fórmula no
-    quadren, la cota s'ha assignat malament. Va atrapar el 170c, transcrit
-    com a hexàgon de costat 8 amb apotema 5,2 quan un hexàgon de costat 8 té
-    apotema 6,93. La cota de 8 era l'altura.
-
-    El marge del 3 % és per l'arrodoniment del llibre: el 170h dona 4,25 on
-    la fórmula diu 4,33."""
-
-    NOMS = {"triangular": 3, "quadrangular": 4, "pentagonal": 5,
-            "hexagonal": 6, "octogonal": 8}
-
-    def test_les_apotemes_dels_enunciats_quadren_amb_la_formula(self):
-        import math
-        provats = 0
-        for it in PLANS:
-            t = it["enunciat"]
-            m = re.search(r"(\w+) regular de \$(\d+(?:\{,\}\d+)?)\$ cm de costat "
-                          r"i\s*\$(\d+(?:\{,\}\d+)?)\$ cm d'apotema", t)
-            if not m:
-                continue
-            n = self.NOMS.get(m.group(1))
-            if not n:
-                continue
-            s = float(m.group(2).replace("{,}", "."))
-            a = float(m.group(3).replace("{,}", "."))
-            calc = s / (2 * math.tan(math.pi / n))
-            self.assertLess(abs(calc - a) / a, 0.03,
-                            "%s: %s regular de costat %g hauria de tenir apotema "
-                            "%.2f, i l'enunciat en diu %.2f. O el polígon no és "
-                            "el que diu, o les cotes estan intercanviades."
-                            % (it["id"], m.group(1), s, calc, a))
-            provats += 1
-        self.assertGreaterEqual(provats, 5, "esperava trobar més apotemes a comprovar")
+if __name__ == "__main__":
+    unittest.main(verbosity=2)
