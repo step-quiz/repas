@@ -65,7 +65,10 @@ dins d'una resolució o pista que ja porta els seus propis delimitadors.
 """
 import math
 from lib import Q, D, DT, tex, dificultats
-from figures import quadrat_diagonal, rectangle_diagonal
+from figures import (quadrat_diagonal, rectangle_diagonal, triangle_rectangle,
+                     triangle_isosceles, triangle_isosceles_angle, trapezi,
+                     poligon_regular, sector_circular, corona,
+                     rectangle_amb_forat, rectangle_amb_rombe)
 
 # --------------------------------------------------------------------
 # Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
@@ -213,7 +216,8 @@ Q("119", 119, "", B1, "A",
    "entre els dos angles iguals."],
   [r"$180^\circ-50^\circ=130^\circ$ entre els dos angles iguals",
    r"$\dfrac{130^\circ}{2}=65^\circ$ cadascun"],
-  ex_text="")
+  ex_text="",
+  figura=triangle_isosceles_angle(50))
 
 # ---- exercici 120: desigualtat triangular (a, b, c) ----
 E120 = ("Analitza, en cada cas, les mesures i esbrina amb quines es pot "
@@ -517,7 +521,8 @@ Q("124a", 124, "a", B1, "A",
    "$x=\\sqrt{10^2-5^2}$."],
   [r"Semibase: $\dfrac{10}{2}=5$ cm",
    r"$x=%s$" % catet_tex_raw(10, 5)],
-  ex_text=E124)
+  ex_text=E124,
+  figura=triangle_isosceles(10, costat=10, etq_altura="x"))
 
 Q("124b", 124, "b", B1, "A",
   r"Triangle isòsceles de base 8 cm i alçada $\sqrt{48}$ cm; $x$ és la "
@@ -541,7 +546,9 @@ Q("124b", 124, "b", B1, "A",
    r"catets $4$ i $\sqrt{48}$: $x=\sqrt{4^2+(\sqrt{48})^2}$."],
   [r"Semibase: $\dfrac{8}{2}=4$ cm",
    r"$x=\sqrt{4^2+(\sqrt{48})^2}=\sqrt{16+48}=\sqrt{64}=8$ cm"],
-  ex_text="")
+  ex_text="",
+  figura=triangle_isosceles(8, costat=8, altura=6.928203230275509,
+                            etq_costat="x", etq_altura="√48 cm"))
 
 Q("124c", 124, "c", B1, "A",
   "Triangle isòsceles de costats iguals 12 cm i base 7 cm; $x$ és "
@@ -564,7 +571,8 @@ Q("124c", 124, "c", B1, "A",
   ["Semibase: $\\dfrac{7}{2}=3{,}5$ cm",
    "$x=\\sqrt{12^2-3{,}5^2}=\\sqrt{144-12{,}25}=\\sqrt{131{,}75}"
    "\\approx11{,}48$ cm"],
-  ex_text="")
+  ex_text="",
+  figura=triangle_isosceles(7, costat=12, etq_altura="x"))
 
 # ---- exercici 125: alçada de triangle equilàter donat el perímetre ----
 Q("125", 125, "", B1, "A",
@@ -588,7 +596,8 @@ Q("125", 125, "", B1, "A",
    "formen un triangle rectangle: $h=\\sqrt{16^2-8^2}$."],
   [r"Costat: $\dfrac{48}{3}=16$ cm",
    r"$h=%s$" % catet_tex_raw(16, 8)],
-  ex_text="")
+  ex_text="",
+  figura=triangle_isosceles(16, costat=16, etq_costat="?", etq_altura="?"))
 
 # ---- exercici 126: perímetre de figures ----
 E126 = "Calcula el perímetre de les figures següents."
@@ -652,7 +661,8 @@ Q("127a", 127, "a", B1, "A",
    "equilàters de costat $L$ en què el centre el divideix.",
    "Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$, amb $L=10$ cm."],
   [r"$a=\dfrac{10\sqrt3}{2}=%s$" % arrel_tex_raw(75, aprox=True)],
-  ex_text=E127)
+  ex_text=E127,
+  figura=poligon_regular(6, costat=10, apotema=8.660254, etq_apotema="?"))
 
 Q("127b", 127, "b", B1, "A",
   "16 cm",
@@ -670,7 +680,8 @@ Q("127b", 127, "b", B1, "A",
   ["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
    "Amb $L=16$ cm: $a=\\dfrac{16\\sqrt3}{2}$."],
   [r"$a=\dfrac{16\sqrt3}{2}=8\sqrt3=%s$" % arrel_tex_raw(192, aprox=True)],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(6, costat=16, apotema=13.856406, etq_apotema="?"))
 
 Q("127c", 127, "c", B1, "A",
   "7 cm",
@@ -688,7 +699,8 @@ Q("127c", 127, "c", B1, "A",
   ["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
    "Amb $L=7$ cm: $a=\\dfrac{7\\sqrt3}{2}$."],
   ["$a=\\dfrac{7\\sqrt3}{2}\\approx6{,}06$ cm"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(6, costat=7, apotema=6.0621778, etq_apotema="?"))
 
 # ---- exercici 128: rombe inscrit en un rectangle ----
 Q("128a", 128, "a", B1, "A",
@@ -714,7 +726,9 @@ Q("128a", 128, "a", B1, "A",
    "aplica Pitàgores."],
   ["Catets: $\\dfrac{12}{2}=6$ cm i $\\dfrac{16}{2}=8$ cm",
    r"Costat del rombe: $%s$" % pitagores_tex_raw(6, 8, aprox=False)],
-  ex_text="")
+  ex_text="",
+  figura=rectangle_amb_rombe(12, 16, etq_base="AB = 12 cm",
+                            etq_altura="AC = 16 cm"))
 
 Q("128b", 128, "b", B1, "A",
   "En un rectangle, dos costats consecutius es diuen $AB=12$ cm (la "
@@ -740,7 +754,9 @@ Q("128b", 128, "b", B1, "A",
    "La hipotenusa $BC$ s'obté amb Pitàgores: "
    "$BC=\\sqrt{AB^2+AC^2}$."],
   [r"$BC=%s$" % pitagores_tex_raw(12, 16, aprox=False)],
-  ex_text="")
+  ex_text="",
+  figura=rectangle_diagonal(12, 16, etq_base="AB = 12 cm",
+                            etq_altura="AC = 16 cm", etq_diagonal="BC"))
 
 # ---- exercici 129: rectangle inscrit en circumferència ----
 Q("129", 129, "", B1, "A",
@@ -763,7 +779,13 @@ Q("129", 129, "", B1, "A",
    "i després divideix-la per $2$ per obtenir el radi."],
   [r"Diagonal: $%s$" % pitagores_tex_raw(15, 20, aprox=False),
    "Radi: $\\dfrac{25}{2}=12{,}5$ cm"],
-  ex_text="")
+  ex_text="",
+  # Correcció post-lliurament (revisió externa): l'etiqueta original era
+  # "diàmetre", que regala sense demanar-la la relació clau de l'exercici
+  # (diagonal del rectangle = diàmetre de la circumferència circumscrita),
+  # ja disponible com a primera pista però no com a dada de l'enunciat.
+  # "x" és neutre: marca l'existència del segment sense dir-ne la funció.
+  figura=rectangle_diagonal(20, 15, etq_diagonal="x"))
 
 
 # =====================================================================
@@ -794,7 +816,10 @@ Q("130", 130, "", B2, "A",
    "hipotenusa) formen un triangle rectangle: aplica Pitàgores."],
   ["Alçada: $24=\\dfrac{6\\cdot h}{2}\\Rightarrow h=8$ m",
    r"Costat lateral: $%s$ m" % pitagores_tex_raw(3, 8)],
-  ex_text="")
+  ex_text="",
+  # unitat="m": l'enunciat va en metres i la figura deia "6 cm".
+  figura=triangle_isosceles(6, altura=8, costat=8.544003745, unitat="m",
+                            etq_altura="?", etq_costat="?"))
 
 Q("131", 131, "", B2, "A",
   "L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets "
@@ -815,7 +840,9 @@ Q("131", 131, "", B2, "A",
    "hipotenusa."],
   ["Altre catet: $12=\\dfrac{6\\cdot c}{2}\\Rightarrow c=4$ cm",
    r"Hipotenusa: $%s$ cm" % pitagores_tex_raw(6, 4)],
-  ex_text="")
+  ex_text="",
+  figura=triangle_rectangle(6, 4, etq_a="6 cm", etq_b="?",
+                            etq_hip="?"))
 
 Q("132", 132, "", B2, "A",
   "Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
@@ -836,7 +863,8 @@ Q("132", 132, "", B2, "A",
   ["Costat: $\\dfrac{90}{3}=30$ cm",
    "$A=\\dfrac{30^2\\sqrt3}{4}=\\dfrac{900\\sqrt3}{4}=225\\sqrt3"
    "\\approx389{,}71$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(3, costat=30, mostra_costat=False))
 
 Q("133", 133, "", B2, "A",
   "Si l'àrea d'un triangle equilàter és $30$ cm$^2$, troba la "
@@ -860,7 +888,8 @@ Q("133", 133, "", B2, "A",
    "l'arrel quadrada."],
   ["$L^2=\\dfrac{4\\cdot30}{\\sqrt3}=\\dfrac{120}{\\sqrt3}=40\\sqrt3$",
    "$L=\\sqrt{40\\sqrt3}\\approx8{,}32$ cm"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(3, costat=8.32, mostra_costat=False))
 
 Q("134", 134, "", B2, "A",
   "Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un "
@@ -884,7 +913,9 @@ Q("134", 134, "", B2, "A",
    "$\\dfrac{\\text{catet}_1\\cdot\\text{catet}_2}{2}$."],
   [r"Altre catet: $%s$ cm" % catet_tex_raw(13, 5, aprox=False),
    "Àrea: $\\dfrac{5\\cdot12}{2}=30$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=triangle_rectangle(5, 12, etq_a="5 cm", etq_b="?",
+                            etq_hip="13 cm"))
 
 Q("135", 135, "", B2, "A",
   "Calcula l'àrea d'un quadrat sabent que la seva diagonal mesura "
@@ -906,7 +937,9 @@ Q("135", 135, "", B2, "A",
    "Calcula $\\dfrac{7{,}07^2}{2}$."],
   ["$A=\\dfrac{7{,}07^2}{2}=\\dfrac{49{,}9849}{2}\\approx24{,}99$ "
    "cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=quadrat_diagonal(5, etiqueta_costat="?",
+                          etiqueta_diagonal="7,07 cm"))
 
 Q("136", 136, "", B2, "A",
   "Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels "
@@ -928,7 +961,9 @@ Q("136", 136, "", B2, "A",
    "L'àrea d'un rectangle és el producte dels dos costats."],
   ["Altre costat: $\\sqrt{41-4^2}=\\sqrt{25}=5$ cm",
    "Àrea: $4\\cdot5=20$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=rectangle_diagonal(4, 5, etq_base="4 cm", etq_altura="?",
+                            etq_diagonal="√41 cm"))
 
 Q("137", 137, "", B2, "A",
   "Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal "
@@ -950,7 +985,9 @@ Q("137", 137, "", B2, "A",
    "L'àrea d'un rectangle és base per alçada."],
   ["Alçada: $\\sqrt{116-10^2}=\\sqrt{16}=4$ cm",
    "Àrea: $10\\cdot4=40$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=rectangle_diagonal(10, 4, etq_base="10 cm", etq_altura="?",
+                            etq_diagonal="√116 cm"))
 
 Q("138", 138, "", B2, "A",
   "Determina l'àrea d'un rectangle de base $7$ cm i perímetre "
@@ -973,7 +1010,9 @@ Q("138", 138, "", B2, "A",
    "Amb perímetre $24$ i base $7$: alçada $=\\dfrac{24}{2}-7$."],
   ["Alçada: $\\dfrac{24}{2}-7=12-7=5$ cm",
    "Àrea: $7\\cdot5=35$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=rectangle_diagonal(7, 5, etq_base="7 cm", etq_altura="?",
+                            mostra_diagonal=False))
 
 
 # =====================================================================
@@ -1005,7 +1044,8 @@ Q("140a", 140, "a", B3, "A",
    "són les dues bases i $h$ l'alçada.",
    "Calcula $\\dfrac{(3+10)\\cdot6}{2}$."],
   ["$A=\\dfrac{(3+10)\\cdot6}{2}=\\dfrac{78}{2}=39$ cm$^2$"],
-  ex_text=E140)
+  ex_text=E140,
+  figura=trapezi(10, 3, 6))
 
 Q("140b", 140, "b", B3, "A",
   r"Bases de $16$ m i $24$ m, alçada de $\sqrt{164}$ m.",
@@ -1027,7 +1067,9 @@ Q("140b", 140, "b", B3, "A",
    r"$\sqrt{164}=2\sqrt{41}$ abans de multiplicar si vols."],
   [r"$A=\dfrac{(16+24)\cdot\sqrt{164}}{2}=\dfrac{40\cdot2\sqrt{41}}{2}"
    r"=40\sqrt{41}\approx256{,}12$ m$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=trapezi(24, 16, 12.806248474865697, unitat="m",
+                 etq_altura="√164 m"))
 
 Q("140c", 140, "c", B3, "A",
   "Bases de $3{,}5$ m i $4{,}13$ m, alçada de $7$ m.",
@@ -1047,7 +1089,8 @@ Q("140c", 140, "c", B3, "A",
    "Calcula $\\dfrac{(3{,}5+4{,}13)\\cdot7}{2}$."],
   ["$A=\\dfrac{(3{,}5+4{,}13)\\cdot7}{2}=\\dfrac{53{,}41}{2}"
    "=26{,}705$ m$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=trapezi(4.13, 3.5, 7, unitat="m"))
 
 Q("140d", 140, "d", B3, "A",
   "Bases de $4$ m i $14$ m, alçada de $3$ m.",
@@ -1065,7 +1108,8 @@ Q("140d", 140, "d", B3, "A",
   ["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
    "Calcula $\\dfrac{(4+14)\\cdot3}{2}$."],
   ["$A=\\dfrac{(4+14)\\cdot3}{2}=\\dfrac{54}{2}=27$ m$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=trapezi(14, 4, 3, unitat="m"))
 
 E141 = "Calcula l'àrea de:"
 
@@ -1091,7 +1135,8 @@ Q("141a", 141, "a", B3, "A",
   ["Apotema: $a=\\dfrac{2\\sqrt3}{2}=\\sqrt3$ cm",
    "Perímetre: $6\\cdot2=12$ cm",
    "Àrea: $\\dfrac{12\\cdot\\sqrt3}{2}=6\\sqrt3\\approx10{,}39$ cm$^2$"],
-  ex_text=E141)
+  ex_text=E141,
+  figura=poligon_regular(6, costat=2))
 
 Q("141b", 141, "b", B3, "A",
   "Un octàgon regular de perímetre $48$ cm.",
@@ -1114,7 +1159,8 @@ Q("141b", 141, "b", B3, "A",
    "Apotema: $\\dfrac{6}{2}(1+\\sqrt2)=3(1+\\sqrt2)\\approx7{,}24$ cm",
    "Àrea: $\\dfrac{48\\cdot3(1+\\sqrt2)}{2}=72(1+\\sqrt2)"
    "\\approx173{,}82$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(8, costat=6, mostra_costat=False))
 
 Q("142", 142, "", B3, "A",
   "Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la "
@@ -1141,7 +1187,8 @@ Q("142", 142, "", B3, "A",
    "coincideix amb el costat ($6$ cm), perquè el polígon es "
    "descompon en $6$ triangles equilàters",
    "La diagonal que passa pel centre és $2\\cdot6=12$ cm"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(6, costat=6, diagonal=True))
 
 E143 = "Determina l'àrea dels triangles descrits a continuació."
 
@@ -1163,7 +1210,8 @@ Q("143a", 143, "a", B3, "A",
    "Àrea del quadrat: $5^2=25$ cm$^2$; divideix-la per $2$."],
   ["Àrea del quadrat: $5^2=25$ cm$^2$",
    "Àrea del triangle: $\\dfrac{25}{2}=12{,}5$ cm$^2$"],
-  ex_text=E143)
+  ex_text=E143,
+  figura=quadrat_diagonal(5))
 
 Q("143b", 143, "b", B3, "A",
   "Un pentàgon regular de costat $4$ cm i apotema "
@@ -1186,7 +1234,8 @@ Q("143b", 143, "b", B3, "A",
    "alçada l'apotema.",
    "Àrea del triangle: $\\dfrac{4\\cdot2{,}75}{2}$."],
   ["$A=\\dfrac{4\\cdot2{,}75}{2}=\\dfrac{11}{2}=5{,}5$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(5, costat=4, triangle_central=True))
 
 Q("143c", 143, "c", B3, "A",
   "Un hexàgon regular de costat $3$ cm queda dividit en sis triangles "
@@ -1209,7 +1258,8 @@ Q("143c", 143, "c", B3, "A",
    "$\\dfrac{L^2\\sqrt3}{4}$, amb $L=3$."],
   ["$A=\\dfrac{3^2\\sqrt3}{4}=\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ "
    "cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(6, costat=3, triangle_central=True))
 
 Q("143d", 143, "d", B3, "A",
   "Un octàgon regular de costat $3$ cm i apotema $5{,}54$ cm queda "
@@ -1230,7 +1280,8 @@ Q("143d", 143, "d", B3, "A",
    "alçada l'apotema.",
    "Àrea del triangle: $\\dfrac{3\\cdot5{,}54}{2}$."],
   ["$A=\\dfrac{3\\cdot5{,}54}{2}=\\dfrac{16{,}62}{2}=8{,}31$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(8, costat=3, triangle_central=True))
 
 E144 = "Calcula l'àrea de les figures següents."
 
@@ -1260,6 +1311,12 @@ Q("144a", 144, "a", B3, "A",
    "Diferència: $18\\pi-4{,}5\\pi=13{,}5\\pi=\\dfrac{27\\pi}{2}"
    "\\approx42{,}41$ cm$^2$"],
   ex_text=E144,
+  # Correcció post-lliurament: quan mig=True, corona() ja declara "diàm.
+  # ext."/"diàm. int." com a prefix intern i "de diàmetre %s" al títol
+  # (vegeu figures/planes.py): l'etiqueta original "diàmetre 12 cm" hi
+  # duplicava la paraula. Només cal el valor net.
+  figura=corona(6, 3, mig=True, etq_ext="12 cm",
+               etq_int="6 cm"),
   nota="La figura de partida no deixa clar el diàmetre de l'arc "
        "interior; aquí es pren $6$ cm, que és la meitat de l'exterior.",
   nota_interna="La imatge de la font no permet determinar el diàmetre "
@@ -1291,6 +1348,12 @@ Q("144b", 144, "b", B3, "A",
    "Àrea final (tres quarts del cercle): "
    "$\\dfrac34\\cdot4\\pi=3\\pi\\approx9{,}42$ cm$^2$"],
   ex_text="",
+  # Correcció post-lliurament: el títol de sector_circular() ja diu
+  # "Cercle de radi %s" (vegeu figures/planes.py); passar-hi
+  # etq_radi="radi 2 cm" duplicava la paraula al títol ("de radi radi
+  # 2 cm"). Només cal el valor net.
+  figura=sector_circular(2, 90, ombreja_restant=True,
+                         etq_radi="2 cm"),
   nota="La figura de partida no deixa clar quin angle abasta el sector "
        "retallat; aquí es pren un quart de volta ($90^\\circ$), que és el "
        "que ja diu l'enunciat.",
@@ -1327,6 +1390,7 @@ Q("145c", 145, "c", B3, "A",
    "$\\pi\\cdot1^2=\\pi$ cm$^2$",
    "Àrea de la figura: $25-\\pi\\approx21{,}86$ cm$^2$"],
   ex_text="Determina l'àrea de la figura descrita.",
+  figura=rectangle_amb_forat(5, 5, 1, etq_radi="diàmetre 2 cm"),
   nota="D'aquest exercici només hi ha l'apartat c: els altres tres eren "
        "figures esglaonades en forma de L i de T que no es poden "
        "descriure sense el dibuix.",
@@ -1361,7 +1425,8 @@ Q("146", 146, "", B4, "A",
    "triangle rectangle; la distància demanada n'és la hipotenusa.",
    "Aplica Pitàgores: $\\sqrt{150^2+200^2}$."],
   [r"$%s$ m" % pitagores_tex_raw(150, 200, aprox=False)],
-  ex_text="")
+  ex_text="",
+  figura=triangle_rectangle(200, 150, etq_a="200 m", etq_b="150 m"))
 
 Q("147", 147, "", B4, "A",
   "Una escala de 10 m de longitud està recolzada sobre una paret. El "
@@ -1382,7 +1447,9 @@ Q("147", 147, "", B4, "A",
    "l'altura on arriba són els dos catets.",
    "Aplica Pitàgores: $\\sqrt{10^2-6^2}$."],
   [r"$%s$ m" % catet_tex_raw(10, 6, aprox=False)],
-  ex_text="")
+  ex_text="",
+  figura=triangle_rectangle(6, 8, etq_a="6 m", etq_b="?",
+                            etq_hip="10 m"))
 
 Q("148a", 148, "a", B4, "A",
   "Als costats d'un camp quadrangular s'han plantat 32 arbres, "
@@ -1404,7 +1471,8 @@ Q("148a", 148, "a", B4, "A",
    "$=\\dfrac{\\text{perímetre}}{4}$."],
   ["Perímetre: $32\\times5=160$ m",
    "Costat: $\\dfrac{160}{4}=40$ m"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(4, costat=1, mostra_costat=False))
 
 Q("148b", 148, "b", B4, "A",
   "Amb les mateixes dades de l'apartat anterior (32 arbres, separats "
@@ -1424,7 +1492,8 @@ Q("148b", 148, "b", B4, "A",
    "L'àrea d'un quadrat és costat al quadrat: $40^2$."],
   ["Costat: $\\dfrac{160}{4}=40$ m",
    "Àrea: $40^2=1\\,600$ m$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(4, costat=40))
 
 Q("149", 149, "", B4, "A",
   "Un senyal de trànsit d'STOP té forma d'octàgon regular, amb una "
@@ -1452,7 +1521,8 @@ Q("149", 149, "", B4, "A",
   ["Apotema: $\\dfrac{90}{2}=45$ cm",
    "Perímetre: $8\\times37=296$ cm",
    "Àrea: $\\dfrac{296\\times45}{2}=6\\,660$ cm$^2$"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(8, costat=37, apotema=45))
 
 Q("150", 150, "", B4, "A",
   "Cada un dels 50 pisos d'un edifici té la planta d'un hexàgon "
@@ -1479,7 +1549,8 @@ Q("150", 150, "", B4, "A",
    "Cost d'un pis: $2\\,338{,}27\\times20\\approx46\\,765{,}37$ €",
    "Cost total ($50$ pisos): $46\\,765{,}37\\times50"
    "\\approx2\\,338\\,268{,}59$ €"],
-  ex_text="")
+  ex_text="",
+  figura=poligon_regular(6, costat=30))
 
 Q("151", 151, "", B4, "A",
   "Un pastisser ha cobert de sucre la part superior de 200 "
@@ -1511,6 +1582,13 @@ Q("151", 151, "", B4, "A",
    "Sucre per cm$^2$: $\\dfrac{5\\,000}{1\\,727{,}88}"
    "\\approx2{,}89$ g/cm$^2$"],
   ex_text="",
+  # Correcció post-lliurament: la crida original passava etiquetes
+  # personalitzades ("diàm. ext. 6 cm") que xocaven amb el prefix
+  # intern "ext."/"int." de corona(), duplicant paraules. Els paràmetres
+  # posicionals (3, 2.5) ja són els radis correctes (6/2 i 5/2), així
+  # que és més net no personalitzar l'etiqueta: la funció ja diu "radi
+  # exterior 3 cm, radi interior 2.5 cm", exacte i sense ambigüitat.
+  figura=corona(3, 2.5),
   nota="La \"rosquilla\" es tracta com una corona circular plana (només "
        "la cara de dalt, que és la que es cobreix de sucre), no com un "
        "cos de tres dimensions: els $6$ cm i els $5$ cm són diàmetres, "

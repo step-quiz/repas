@@ -280,7 +280,34 @@ for _m in CFG["moduls"]:
 
 ARREL = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 BANC = lib.banc()
-BLOCS = CFG["blocs"]
+def _fusiona_blocs(central, registrats):
+    """Els blocs de FULLS[N] més els que hagin declarat els mòduls.
+
+    Es fa DESPRÉS d'importar-los, perquè fins llavors no s'han registrat. Un
+    bloc registrat amb `despres="x"` s'insereix just darrere del bloc `x`;
+    sense `despres`, va al final. Si el bloc de referència no existeix, s'atura:
+    val més un build trencat que un full amb els blocs desordenats sense que
+    ningú se n'adoni.
+    """
+    out = list(central)
+    for despres, llista in registrats:
+        if despres is None:
+            out.extend(llista)
+            continue
+        ids = [b[0] for b in out]
+        assert despres in ids, (
+            "un mòdul vol col·locar blocs darrere de %r, que no existeix en "
+            "aquest full. Blocs disponibles: %s" % (despres, ", ".join(ids)))
+        k = ids.index(despres) + 1
+        out[k:k] = llista
+    vist = set()
+    for b in out:
+        assert b[0] not in vist, "bloc declarat dues vegades: %s" % b[0]
+        vist.add(b[0])
+    return out
+
+
+BLOCS = _fusiona_blocs(CFG["blocs"], lib.blocs_registrats())
 
 # ------------------------------------------------------ math vs text mixt
 _NETEJA = re.compile(r"\\(dfrac|cdot|overline|operatorname|quad|mathbf|ne|rightarrow)")

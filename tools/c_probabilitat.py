@@ -49,7 +49,8 @@ sense trobar-hi cap discrepància.
 """
 from fractions import Fraction as F
 from math import comb
-from lib import Q, D, DT, tex, TAX, dificultats
+from lib import Q, D, DT, tex, TAX, dificultats, blocs
+from figures import arbre, taula_doble
 
 # --------------------------------------------------------------------
 # Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
@@ -2068,3 +2069,1006 @@ Q("259", 259, "", B4, "A",
    "l'inclouen: $5\\cdot6=30$ casos",
    "$P(\\text{coincidir }2\\text{ dies})=\\dfrac{30}{50}=\\dfrac35$"],
   ex_text="")
+
+# =====================================================================
+# CONTINGUT NOU — via «tarr» — probabilitat composta i condicionada
+# =====================================================================
+# Exercicis 305-320, numeració en exclusiva d'aquesta via (vegeu
+# briefs/BRIEF-tarr.md). Dos blocs nous, declarats amb el registrador
+# `blocs()` perquè aquest full ja existia abans del refactor R1-R5 i els
+# seus 4 blocs originals encara viuen a `FULLS[12]["blocs"]` de build.py:
+# aquests dos s'hi afegeixen darrere del bloc `esdeveniments`, sense tocar
+# aquell fitxer.
+#
+# El full tenia un forat curricular real: cap ítem de probabilitat
+# condicionada pròpiament dita, cap diagrama d'arbre, cap experiment sense
+# reposició. Són contingut de 4t d'ESO i el prerequisit directe del bloc de
+# probabilitat de 1r de batxillerat. Vegeu NOTES-tarr.md per a les
+# decisions pedagògiques completes.
+#
+# Totes les respostes d'aquesta secció s'han calculat amb `fractions.Fraction`
+# i s'han contrastat per una via independent (enumeració exhaustiva dels
+# espais mostrals finits, o la relació de Bayes quan calia una condicionada
+# inversa) abans d'escriure cap Q(). `tests/test_probabilitat_nou.py` en fa
+# el mateix recàlcul, per separat i sense importar res d'aquest fitxer.
+
+blocs([
+    ("probabilitat_composta", "Probabilitat composta: dos experiments",
+     "Experiments amb i sense reposició, diagrames d'arbre, i la "
+     "probabilitat d'\"almenys un\" a través del contrari."),
+    ("probabilitat_condicionada", "Probabilitat condicionada",
+     "La probabilitat d'un esdeveniment quan ja se'n sap un altre: "
+     "P(B|A), i per què no és el mateix que P(A|B)."),
+], despres="esdeveniments")
+
+dificultats({
+    305: 1,  # amb reposició: aplicar P(A)·P(B) directament, dades a punt
+    306: 2,  # sense reposició: cal veure que el denominador canvia
+    307: 3,  # comparar amb/sense reposició i justificar per què difereixen
+    308: 1,  # llegir un arbre ja fet i multiplicar el camí
+    309: 2,  # completar la branca que falta (1-suma) i després multiplicar
+    310: 3,  # construir l'arbre des de l'enunciat en paraules
+    311: 2,  # almenys un via complement, cas clàssic (monedes)
+    312: 2,  # almenys un via complement (daus)
+    313: 3,  # almenys un via complement, sense reposició (dos passos)
+    314: 2,  # taula de doble entrada donada, llegir files i columnes
+    315: 3,  # arbre de dues caixes: cal muntar la probabilitat total
+    316: 2,  # taula donada, aplicar les definicions de conjunta i condicionada
+    317: 3,  # mateixes dades, un pas més (condicionada inversa)
+    318: 3,  # daus: comptar casos afavorables ja condicionats
+    319: 1,  # llegir la probabilitat donada directament de l'enunciat
+    320: 3,  # combinar-ho tot per obtenir la probabilitat inversa
+})
+
+BC1 = "probabilitat_composta"
+BC2 = "probabilitat_condicionada"
+
+# =====================================================================
+# BLOC: probabilitat_composta
+# =====================================================================
+
+# ---- exercici 305: amb reposició, dos experiments independents ----
+E305 = ("Una bossa té 4 boles vermelles i 6 de blaves. En traiem una "
+        "bola, apuntem el color, la TORNEM a la bossa, remenem, i en "
+        "traiem una altra.")
+
+Q("305a", 305, "a", BC1, "A",
+  "Quina és la probabilitat que les dues boles siguin vermelles?",
+  "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
+  [DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
+      "REEMPLACAMENT_MAL_CONSIDERAT",
+      "Aquí SÍ que es reposa la bola: la segona extracció torna a "
+      "tenir $10$ boles a la bossa, $4$ de vermelles, exactament "
+      "igual que la primera."),
+   D("$P(V,V)=\\dfrac{4}{10}+\\dfrac{4}{10}=\\dfrac{8}{10}$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "La probabilitat de dos esdeveniments seguits \"i\" es "
+     "multiplica, no se suma: sumar-les donaria una probabilitat "
+     "més gran que la de treure'n només una."),
+   D("$P(V,V)=\\dfrac{4}{10}$, com si la segona extracció no "
+     "comptés", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal tenir en compte TOTES DUES extraccions, no només la "
+     "primera: la probabilitat que passin les dues coses alhora és "
+     "més petita que la d'una de sola.")],
+  ["Com que la bola es reposa, les dues extraccions tenen exactament "
+   "la mateixa probabilitat: $\\dfrac{4}{10}$ de vermella cada "
+   "vegada.",
+   "\"I\" (les dues coses alhora) es tradueix en multiplicar les "
+   "probabilitats."],
+  ["Amb reposició, cada extracció és independent de l'altra: "
+   "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{16}{100}"
+   "=\\dfrac{4}{25}$"],
+  ex_text=E305)
+
+Q("305b", 305, "b", BC1, "A",
+  "Quina és la probabilitat que la primera sigui vermella i la "
+  "segona blava?",
+  "$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{6}{25}$",
+  [D("$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{5}{9}=\\dfrac{2}{9}$",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "La bola es reposa: a la segona extracció hi torna a haver "
+     "$10$ boles en total, $6$ de blaves, com a la primera."),
+   # SUBSTITUÏT AL MERGE. El distractor original era
+   # $\frac{6}{10}\cdot\frac{4}{10}=\frac{6}{25}$ («canviant l'ordre»), i la
+   # seva pròpia retroacció admetia que «el resultat numèric coincideix per
+   # casualitat». Aquest és el defecte que l'auditoria del projecte va trobar
+   # cinc vegades: una opció que val EXACTAMENT el mateix que la clau no es
+   # pot marcar com a errònia, digui el que digui la retroacció, perquè
+   # l'alumne que la tria ha calculat bé.
+   #
+   # A canvi, es modela un error que sí que dona un número diferent i que és
+   # molt més freqüent: comptar els dos ordres quan l'enunciat en demana un.
+   D("$P(V,B)=2\\cdot\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{12}{25}$, "
+     "comptant els dos ordres",
+     "ORDRE_NO_DEMANAT",
+     "Això és la probabilitat de treure una de cada color en QUALSEVOL "
+     "ordre: suma el camí (V,B) i el camí (B,V). L'enunciat en demana un "
+     "de concret, primera vermella i segona blava, que és un sol camí de "
+     "l'arbre."),
+   D("$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$, "
+     "repetint la probabilitat de vermella",
+     "CASOS_FAVORABLES_MAL_COMPTATS",
+     "La segona bola ha de ser BLAVA, no vermella una altra vegada: "
+     "la seva probabilitat és $6/10$, no $4/10$.")],
+  ["La primera extracció (vermella) té probabilitat $4/10$.",
+   "La segona (blava) té probabilitat $6/10$, i com que la bola "
+   "s'ha reposat, aquesta xifra no canvia respecte de l'inici."],
+  ["$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{24}{100}"
+   "=\\dfrac{6}{25}$"],
+  ex_text=E305)
+
+Q("305c", 305, "c", BC1, "A",
+  "Quina és la probabilitat que les dues boles siguin blaves?",
+  "$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{9}{25}$",
+  [DT("$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{5}{9}=\\dfrac{1}{3}$",
+      "REEMPLACAMENT_MAL_CONSIDERAT",
+      "La bola es reposa: la segona extracció torna a tenir $10$ "
+      "boles en total, $6$ de blaves."),
+   D("$P(B,B)=1-\\dfrac{4}{25}=\\dfrac{21}{25}$, com si fos el "
+     "contrari de l'apartat a)", "COMPLEMENT_ALMENYS_UN_MAL",
+     "\"Les dues blaves\" no és el contrari de \"les dues "
+     "vermelles\": entre aquests dos casos encara hi ha les "
+     "combinacions amb un color de cada."),
+   D("$P(B,B)=\\dfrac{6}{10}=0{,}6$, calculant només una extracció",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal que TOTES DUES boles siguin blaves, no només una: "
+     "s'han de multiplicar les probabilitats de les dues "
+     "extraccions.")],
+  ["Cada extracció té probabilitat $6/10$ de sortir blava, i com "
+   "que es reposa, això no canvia a la segona.",
+   "Multiplica-les: $\\dfrac{6}{10}\\cdot\\dfrac{6}{10}$."],
+  ["$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{36}{100}"
+   "=\\dfrac{9}{25}$"],
+  ex_text=E305)
+
+# ---- exercici 306: sense reposició, el denominador canvia ----
+E306 = ("La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en "
+        "traiem una, apuntem el color, i SENSE tornar-la a la bossa, "
+        "en traiem una altra.")
+
+Q("306a", 306, "a", BC1, "A",
+  "Quina és la probabilitat que la primera sigui vermella?",
+  "$P(V_1)=\\dfrac{4}{10}=\\dfrac{2}{5}$",
+  [D("$P(V_1)=\\dfrac{4}{9}$, ja descomptant la bola que encara no "
+     "s'ha tret", "REEMPLACAMENT_MAL_CONSIDERAT",
+     "La PRIMERA extracció encara es fa amb totes les boles a la "
+     "bossa: $10$ en total, $4$ de vermelles. El denominador només "
+     "canvia a partir de la segona extracció."),
+   D("$P(V_1)=\\dfrac{4}{6}$, comparant-la amb les blaves",
+     "CASOS_POSSIBLES_MAL_COMPTATS",
+     "El denominador ha de ser el TOTAL de boles a la bossa "
+     "($4+6=10$), no només el nombre de blaves."),
+   D("$P(V_1)=\\dfrac{6}{10}$, calculant la de blava",
+     "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Es demana la probabilitat de VERMELLA, i n'hi ha $4$ de $10$; "
+     "$6/10$ és la de blava.")],
+  ["A la primera extracció encara hi ha totes les boles: $10$ en "
+   "total, $4$ de vermelles."],
+  ["$P(V_1)=\\dfrac{4}{10}=\\dfrac25$"],
+  ex_text=E306)
+
+Q("306b", 306, "b", BC1, "A",
+  "Si la primera ha sortit vermella, quina és ara la probabilitat "
+  "que la segona també ho sigui?",
+  "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac{1}{3}$",
+  [DT("$P(V_2|V_1)=\\dfrac{4}{9}$, sense descomptar la vermella ja "
+      "treta", "REEMPLACAMENT_MAL_CONSIDERAT",
+      "La bola vermella que ha sortit primer NO torna a la bossa: "
+      "de les $4$ vermelles inicials, ara en queden $3$."),
+   D("$P(V_2|V_1)=\\dfrac{4}{10}$, com si res no hagués canviat",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "El total de boles a la bossa també ha baixat: ja no en queden "
+     "$10$, sinó $9$, perquè n'hem tret una i no l'hem tornada."),
+   D("$P(V_2|V_1)=\\dfrac{3}{10}$, descomptant només el numerador",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "Si es descompta la bola vermella treta del numerador ($4\\to"
+     "3$), també cal descomptar-la del total de boles a la bossa "
+     "($10\\to9$): els dos nombres baixen alhora.")],
+  ["Un cop treta la vermella, a la bossa ja no en queden $10$ "
+   "boles, sinó $9$.",
+   "De les $4$ vermelles inicials, ara en queden $3$."],
+  ["Han quedat $9$ boles a la bossa, $3$ de vermelles: "
+   "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac13$"],
+  ex_text=E306)
+
+Q("306c", 306, "c", BC1, "A",
+  "Quina és la probabilitat que les dues boles siguin vermelles?",
+  "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
+  [DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
+      "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
+      "Aquí NO es reposa la bola: la segona extracció es fa amb "
+      "una bola vermella menys i una bola menys en total, així que "
+      "la seva probabilitat no és la mateixa que la primera."),
+   D("$P(V,V)=\\dfrac{4}{10}+\\dfrac{3}{9}=\\dfrac{29}{30}$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "\"I\" (les dues coses alhora) es tradueix en multiplicar les "
+     "probabilitats, no en sumar-les."),
+   D("$P(V,V)=\\dfrac{3}{9}=\\dfrac13$, agafant només la segona "
+     "probabilitat", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal tenir en compte TOTES DUES extraccions: la probabilitat "
+     "que la primera també surti vermella s'ha de multiplicar, no "
+     "descartar.")],
+  ["La primera extracció té probabilitat $4/10$.",
+   "Un cop treta la vermella, la segona té probabilitat $3/9$.",
+   "Multiplica-les."],
+  ["$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{12}{90}"
+   "=\\dfrac{2}{15}$"],
+  ex_text=E306)
+
+# ---- exercici 307: comparar amb reposició i sense (conceptual) ----
+Q("307", 307, "", BC1, "B",
+  "«A la mateixa bossa de 4 vermelles i 6 blaves, la probabilitat de "
+  "treure dues vermelles seguides val el mateix es reposi la bola o "
+  "no»",
+  "Fals: amb reposició és $\\dfrac{4}{25}=0{,}16$ i sense reposició "
+  "és $\\dfrac{2}{15}\\approx0{,}133$; sense reposició la segona "
+  "probabilitat baixa (queden menys vermelles i menys boles en "
+  "total), així que el producte final és més petit",
+  [D("Cert: en tots dos casos la probabilitat de cada extracció és "
+     "$4/10$", "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
+     "Això només és veritat amb reposició. Sense reposició, un cop "
+     "treta la primera vermella, en queden $3$ de $9$ boles per a "
+     "la segona, no $4$ de $10$."),
+   D("Cert: sense reposició la probabilitat és més gran, perquè hi "
+     "ha menys boles entre les quals triar", "REEMPLACAMENT_MAL_CONSIDERAT",
+     "Hi ha menys boles EN TOTAL, però també menys vermelles "
+     "(se n'ha tret una): els dos nombres baixen a la vegada, i el "
+     "resultat net és una probabilitat més petita, no més gran."),
+   D("Fals: amb reposició dona $\\dfrac{2}{15}$ i sense reposició "
+     "dona $\\dfrac{4}{25}$, al revés del que es podria pensar",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "És a l'inrevés: amb reposició cada extracció manté la "
+     "mateixa probabilitat inicial ($4/10$ les dues vegades), que "
+     "és més gran que la segona probabilitat quan no es reposa "
+     "($3/9$).")],
+  ["Calcula per separat el cas amb reposició ($4/10$ dues vegades) "
+   "i el cas sense reposició ($4/10$ i després $3/9$).",
+   "Compara els dos resultats en decimal si costa comparar les "
+   "fraccions a ull."],
+  ["Amb reposició: $\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}"
+   "{25}=0{,}16$. Sense reposició: $\\dfrac{4}{10}\\cdot\\dfrac{3}"
+   "{9}=\\dfrac{2}{15}\\approx0{,}133$. Són diferents, i la segona "
+   "és més petita perquè, un cop treta una vermella, en queden "
+   "relativament menys per triar-ne una altra"],
+  ex_text=E305)
+
+# ---- exercici 308: llegir un arbre ja fet (moneda + dau) ----
+FIG308 = arbre([
+    [{"etq": "Cara", "prob": "1/2"}, {"etq": "Creu", "prob": "1/2"}],
+    [
+        [{"etq": "surt 6", "prob": "1/6"}, {"etq": "no surt 6", "prob": "5/6"}],
+        [{"etq": "parell", "prob": "1/2"}, {"etq": "senar", "prob": "1/2"}],
+    ],
+])
+
+E308 = ("Llancem una moneda. Si surt cara, tirem un dau i mirem si "
+        "surt el $6$. Si surt creu, tirem el dau i mirem si el "
+        "resultat és parell. L'arbre mostra totes les probabilitats.")
+
+Q("308a", 308, "a", BC1, "A",
+  "Quina és la probabilitat de treure cara i després un $6$?",
+  "$P(\\text{Cara},6)=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}=\\dfrac{1}{12}$",
+  [D("$P(\\text{Cara},6)=\\dfrac12+\\dfrac16=\\dfrac23$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "La probabilitat d'un camí de l'arbre (cara, i després un $6$) "
+     "és el PRODUCTE de les dues branques, no la seva suma."),
+   D("$P(\\text{Cara},6)=\\dfrac16$, agafant només la branca del "
+     "dau", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal seguir tot el camí des de l'arrel: primer la branca de "
+     "\"Cara\" ($1/2$) i després la de \"surt 6\" ($1/6$), "
+     "multiplicant-les totes dues."),
+   D("$P(\\text{Cara},6)=\\dfrac12\\cdot\\dfrac56=\\dfrac{5}{12}$, "
+     "agafant la branca de \"no surt 6\"",
+     "CASOS_FAVORABLES_MAL_COMPTATS",
+     "La pregunta demana la probabilitat que SURTI el $6$, que és "
+     "la branca $1/6$, no la de \"no surt 6\" ($5/6$).")],
+  ["Segueix el camí de l'arbre: primer la branca \"Cara\", després "
+   "la branca \"surt 6\".",
+   "Multiplica les dues probabilitats del camí."],
+  ["$P(\\text{Cara},6)=\\dfrac12\\cdot\\dfrac16=\\dfrac{1}{12}$"],
+  figura=FIG308, ex_text=E308)
+
+Q("308b", 308, "b", BC1, "A",
+  "Quina és la probabilitat de treure creu i després un número "
+  "parell (de l'$1$ al $6$)?",
+  "$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{2}"
+  "=\\dfrac{1}{4}$",
+  [D("$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}"
+     "=\\dfrac{1}{12}$, seguint la branca del $6$ per error",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Un cop surt CREU, la branca del dau que toca és la de "
+     "\"parell\" ($1/2$), no la de \"surt 6\" ($1/6$): aquesta "
+     "última només penja de la branca de \"Cara\"."),
+   D("$P(\\text{Creu},\\text{parell})=\\dfrac12$, agafant només la "
+     "probabilitat de creu", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal completar el camí sencer fins al final: la probabilitat "
+     "de creu ($1/2$) multiplicada per la de \"parell\" un cop ha "
+     "sortit creu ($1/2$)."),
+   D("$P(\\text{Creu},\\text{parell})=\\dfrac12+\\dfrac12=1$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Les branques d'un mateix camí es multipliquen, no se sumen: "
+     "sumar-les mai pot donar la probabilitat d'un camí concret.")],
+  ["Un cop surt creu, la branca del dau que segueix és la de "
+   "\"parell\".",
+   "Multiplica la probabilitat de creu per la de \"parell\"."],
+  ["$P(\\text{Creu},\\text{parell})=\\dfrac12\\cdot\\dfrac12"
+   "=\\dfrac14$"],
+  figura=FIG308, ex_text=E308)
+
+# ---- exercici 309: completar la branca que falta d'un arbre ----
+FIG309 = arbre([
+    [{"etq": "V", "prob": "2/5"}, {"etq": "B", "prob": "3/5"}],
+    [
+        [{"etq": "V", "prob": None}, {"etq": "B", "prob": "3/4"}],
+        [{"etq": "V", "prob": "2/4"}, {"etq": "B", "prob": "2/4"}],
+    ],
+])
+
+E309 = ("Una urna té 2 boles vermelles i 3 de blaves. En traiem una "
+        "SENSE reposar-la i després una altra. A l'arbre falta una "
+        "probabilitat, marcada amb un interrogant.")
+
+Q("309a", 309, "a", BC1, "A",
+  "Quina probabilitat falta a la branca marcada amb «?», sabent que "
+  "la seva branca veïna (la de «B») val $3/4$?",
+  "$P(V_2|V_1)=\\dfrac{1}{4}$",
+  [DT("$P(V_2|V_1)=\\dfrac{3}{4}$, copiant la branca veïna «B» del "
+      "mateix node", "BRANCA_ARBRE_MAL_CALCULADA",
+      "Les dues branques que surten d'un mateix node han de sumar "
+      "$1$: si la de «B» és $3/4$, la de «V» ha de ser "
+      "$1-3/4=1/4$, no la mateixa xifra."),
+   D("$P(V_2|V_1)=\\dfrac{2}{5}$, repetint la probabilitat de la "
+     "primera extracció", "REEMPLACAMENT_MAL_CONSIDERAT",
+     "Un cop treta una vermella sense reposar-la, ja no queden "
+     "$5$ boles ni $2$ vermelles: en queden $4$ en total i $1$ "
+     "vermella."),
+   D("$P(V_2|V_1)=\\dfrac{1}{5}$, com si només quedés 1 bola de "
+     "cada 5", "BRANCA_ARBRE_MAL_CALCULADA",
+     "Un cop treta la primera bola, en queden $4$ a l'urna (no "
+     "$5$): d'aquestes $4$, en queda $1$ de vermella.")],
+  ["Les dues branques que surten d'un mateix node sumen $1$.",
+   "La branca veïna («B» després de «V») val $3/4$: la que falta "
+   "és $1-3/4$."],
+  ["Les branques d'un node sumen $1$: $1-\\dfrac{3}{4}=\\dfrac{1}{4}$"],
+  figura=FIG309, ex_text=E309)
+
+Q("309b", 309, "b", BC1, "A",
+  "Sabent que $P(V_1)=2/5$ i que la branca que acabes de calcular "
+  "val $1/4$, quina és la probabilitat de treure dues boles "
+  "vermelles?",
+  "$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{1}{4}=\\dfrac{1}{10}$",
+  [D("$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{2}{5}=\\dfrac{4}{25}$, "
+     "repetint la probabilitat inicial a la segona branca",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "La segona probabilitat, un cop treta una vermella sense "
+     "reposar-la, és $1/4$ (la que acabes de calcular), no $2/5$ "
+     "una altra vegada."),
+   D("$P(V,V)=\\dfrac{2}{5}+\\dfrac{1}{4}=\\dfrac{13}{20}$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "La probabilitat d'un camí de l'arbre és el producte de les "
+     "seves branques, no la suma."),
+   D("$P(V,V)=\\dfrac{1}{4}$, agafant només la segona branca",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal seguir el camí sencer des de l'arrel: la probabilitat de "
+     "la primera vermella ($2/5$) també compta, multiplicada per "
+     "la segona.")],
+  ["Segueix el camí sencer: la branca «V» inicial ($2/5$) i la "
+   "branca «V» que acabes de calcular ($1/4$).",
+   "Multiplica-les."],
+  ["$P(V,V)=\\dfrac25\\cdot\\dfrac14=\\dfrac{2}{20}=\\dfrac{1}{10}$"],
+  figura=FIG309, ex_text=E309)
+
+# ---- exercici 310: construir un arbre des de l'enunciat (sense figura, l'alumne l'ha de muntar) ----
+E310 = ("Un calaix té 5 mitjons negres i 3 de blancs, tots solts. "
+        "Se'n treuen 2 SENSE reposar-los.")
+
+Q("310a", 310, "a", BC1, "A",
+  "Quina és la probabilitat que els dos mitjons siguin negres?",
+  "$P(N,N)=\\dfrac{5}{8}\\cdot\\dfrac{4}{7}=\\dfrac{5}{14}$",
+  [DT("$P(N,N)=\\dfrac58\\cdot\\dfrac58=\\dfrac{25}{64}$",
+      "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
+      "Els mitjons no es reposen: un cop tret un mitjó negre, en "
+      "queden $4$ de $7$ per a la segona extracció, no $5$ de "
+      "$8$ una altra vegada."),
+   D("$P(N,N)=\\dfrac58\\cdot\\dfrac48=\\dfrac{5}{16}$, sense "
+     "descomptar el total del calaix a la segona extracció",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "Un cop tret un mitjó, al calaix ja no en queden $8$, sinó "
+     "$7$: el denominador de la segona branca també baixa."),
+   D("$P(N,N)=\\dfrac58+\\dfrac47=\\dfrac{67}{56}$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "\"I\" (els dos mitjons alhora) es tradueix en multiplicar les "
+     "probabilitats, no en sumar-les (i el resultat, a més, seria "
+     "més gran que $1$, cosa impossible per a una probabilitat).")],
+  ["Comença per la probabilitat de treure un mitjó negre d'entre "
+   "$8$: $5/8$.",
+   "Un cop tret, al calaix en queden $7$, dels quals $4$ són "
+   "negres.",
+   "Multiplica les dues probabilitats."],
+  ["Primer mitjó negre: $\\dfrac58$. Segon, sense reposar-lo: "
+   "$\\dfrac47$ (en queden $4$ negres de $7$ en total). "
+   "$P(N,N)=\\dfrac58\\cdot\\dfrac47=\\dfrac{20}{56}=\\dfrac{5}{14}$"],
+  ex_text=E310)
+
+Q("310b", 310, "b", BC1, "A",
+  "Quina és la probabilitat que els dos mitjons siguin del mateix "
+  "color?",
+  "$P(N,N)+P(B,B)=\\dfrac{5}{14}+\\dfrac{3}{28}=\\dfrac{13}{28}$",
+  [D("$P(N,N)\\cdot P(B,B)=\\dfrac{5}{14}\\cdot\\dfrac{3}{28}"
+     "=\\dfrac{15}{392}$, multiplicant els dos casos en lloc de "
+     "sumar-los", "UNIO_INTERSECCIO_CONFOSES",
+     "\"Del mateix color\" vol dir «tots dos negres» O «tots dos "
+     "blancs»: com que són dues maneres diferents (i incompatibles "
+     "entre si) d'aconseguir-ho, les probabilitats se sumen, no es "
+     "multipliquen."),
+   D("$P(N,N)=\\dfrac{5}{14}$ només, oblidant el cas dels dos "
+     "blancs", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "\"Del mateix color\" inclou TOTES DUES possibilitats: que "
+     "surtin dos mitjons negres o que en surtin dos blancs, no "
+     "només la primera."),
+   D("$P(B,B)=\\dfrac38\\cdot\\dfrac38=\\dfrac{9}{64}$, calculant-la "
+     "com si es reposessin els mitjons",
+     "REEMPLACAMENT_MAL_CONSIDERAT",
+     "Els mitjons no es reposen: un cop tret un mitjó blanc, en "
+     "queden $2$ de $7$ per a la segona extracció, no $3$ de "
+     "$8$ una altra vegada.")],
+  ["\"Del mateix color\" és «dos negres» o «dos blancs»: calcula "
+   "les dues probabilitats per separat.",
+   "$P(N,N)$ ja la tens de l'apartat anterior: $5/14$.",
+   "$P(B,B)=\\dfrac38\\cdot\\dfrac27$: calcula-la i suma-la a "
+   "l'anterior."],
+  ["$P(B,B)=\\dfrac38\\cdot\\dfrac27=\\dfrac{6}{56}=\\dfrac{3}{28}$. "
+   "Sumant-hi $P(N,N)=\\dfrac{5}{14}=\\dfrac{10}{28}$: "
+   "$\\dfrac{10}{28}+\\dfrac{3}{28}=\\dfrac{13}{28}$"],
+  ex_text=E310)
+
+# ---- exercici 311: almenys un, cas clàssic (monedes) ----
+E311 = ("Llancem 3 monedes a l'aire.")
+
+Q("311", 311, "", BC1, "A",
+  "Quina és la probabilitat de treure almenys una cara?",
+  "$P(\\text{almenys 1 cara})=1-P(\\text{cap cara})=1-\\dfrac{1}{8}"
+  "=\\dfrac{7}{8}$",
+  [D("$P(\\text{almenys 1 cara})=3\\cdot\\dfrac12=\\dfrac32$, "
+     "multiplicant la probabilitat d'una moneda pel nombre "
+     "d'intents", "COMPLEMENT_ALMENYS_UN_MAL",
+     "Aquest càlcul dona més d'$1$, cosa impossible per a una "
+     "probabilitat: \"almenys un\" no es calcula multiplicant la "
+     "probabilitat d'un sol intent pel nombre d'intents."),
+   D("$P(\\text{almenys 1 cara})=\\dfrac12+\\dfrac12+\\dfrac12"
+     "=\\dfrac32$, sumant la probabilitat de cada moneda",
+     "COMPLEMENT_ALMENYS_UN_MAL",
+     "Sumar les probabilitats de cada moneda per separat tampoc "
+     "funciona (i tornaria a donar més d'$1$): cal fer servir el "
+     "contrari, \"cap cara\", i restar-lo d'$1$."),
+   D("$P(\\text{almenys 1 cara})=P(\\text{cap cara})=\\dfrac18$, "
+     "confonent l'esdeveniment amb el seu contrari",
+     "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "$1/8$ és la probabilitat que NO surti cap cara (les 3 "
+     "creus): la que es demana, \"almenys una cara\", és tot el "
+     "contrari, $1$ menys aquesta xifra.")],
+  ["El contrari de \"almenys una cara\" és \"cap cara\", és a dir, "
+   "les tres monedes surten creu.",
+   "$P(\\text{cap cara})=\\dfrac12\\cdot\\dfrac12\\cdot\\dfrac12"
+   "=\\dfrac18$.",
+   "$P(\\text{almenys 1 cara})=1-\\dfrac18$."],
+  ["El contrari de \"almenys una cara\" és que surtin les tres "
+   "creus: $P(\\text{3 creus})=\\left(\\dfrac12\\right)^3=\\dfrac18$. "
+   "$P(\\text{almenys 1 cara})=1-\\dfrac18=\\dfrac78$"],
+  ex_text=E311)
+
+# ---- exercici 312: almenys un, dos daus ----
+E312 = ("Llancem un dau 2 vegades.")
+
+Q("312", 312, "", BC1, "A",
+  "Quina és la probabilitat de treure almenys un $6$?",
+  "$P(\\text{almenys un }6)=1-\\left(\\dfrac{5}{6}\\right)^2"
+  "=1-\\dfrac{25}{36}=\\dfrac{11}{36}$",
+  [D("$P(\\text{almenys un }6)=2\\cdot\\dfrac16=\\dfrac13$, "
+     "multiplicant la probabilitat d'un $6$ pel nombre de tirades",
+     "COMPLEMENT_ALMENYS_UN_MAL",
+     "\"Almenys un\" no es calcula multiplicant la probabilitat "
+     "d'un sol intent pel nombre d'intents: cal fer servir el "
+     "contrari, \"cap 6 en les dues tirades\", i restar-lo d'$1$."),
+   D("$P(\\text{almenys un }6)=\\left(\\dfrac{1}{6}\\right)^2"
+     "=\\dfrac{1}{36}$, calculant la probabilitat de treure DOS "
+     "sisos", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "\"Almenys un $6$\" inclou també el cas de treure'n només un "
+     "(i no dos): $1/36$ és la probabilitat de \"exactament dos "
+     "sisos\", una possibilitat més restrictiva."),
+   D("$P(\\text{almenys un }6)=\\dfrac56$, calculant només la "
+     "probabilitat de NO treure un $6$ en una tirada",
+     "COMPLEMENT_ALMENYS_UN_MAL",
+     "$5/6$ és la probabilitat de no treure un $6$ en UNA sola "
+     "tirada: falta elevar-ho al quadrat per a les dues tirades, i "
+     "després restar-ho d'$1$.")],
+  ["El contrari de \"almenys un $6$\" és \"cap 6 en cap de les dues "
+   "tirades\".",
+   "$P(\\text{cap }6)=\\dfrac56\\cdot\\dfrac56=\\dfrac{25}{36}$.",
+   "$P(\\text{almenys un }6)=1-\\dfrac{25}{36}$."],
+  ["$P(\\text{cap }6\\text{ en les 2 tirades})=\\left(\\dfrac56"
+   "\\right)^2=\\dfrac{25}{36}$. "
+   "$P(\\text{almenys un }6)=1-\\dfrac{25}{36}=\\dfrac{11}{36}$"],
+  ex_text=E312)
+
+# ---- exercici 313: almenys un, sense reposició (dos passos) ----
+E313 = ("D'una capsa amb 12 bombetes, 3 són defectuoses. Se'n trien "
+        "2 a l'atzar, SENSE reposar-les.")
+
+Q("313", 313, "", BC1, "A",
+  "Quina és la probabilitat que almenys una de les 2 bombetes sigui "
+  "defectuosa?",
+  "$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot\\dfrac"
+  "{8}{11}=1-\\dfrac{6}{11}=\\dfrac{5}{11}$",
+  [DT("$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot"
+      "\\dfrac{9}{12}=1-\\dfrac{9}{16}=\\dfrac{7}{16}$",
+      "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
+      "Les bombetes no es reposen: un cop triada la primera bona, "
+      "en queden $8$ de bones i $11$ en total per a la segona, "
+      "no $9$ de $12$ una altra vegada."),
+   D("$P(\\text{almenys 1 defectuosa})=\\dfrac{3}{12}+\\dfrac{3}{12}"
+     "=\\dfrac12$, sumant la probabilitat de cada extracció",
+     "COMPLEMENT_ALMENYS_UN_MAL",
+     "\"Almenys una\" es calcula amb el contrari, \"cap "
+     "defectuosa\", i restant-lo d'$1$; no sumant directament la "
+     "probabilitat de defectuosa a cada extracció."),
+   D("$P(\\text{almenys 1 defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac"
+     "{8}{11}=\\dfrac{6}{11}$, oblidant restar-ho d'$1$ al final",
+     "COMPLEMENT_ALMENYS_UN_MAL",
+     "$\\dfrac{9}{12}\\cdot\\dfrac{8}{11}=\\dfrac{6}{11}$ és la "
+     "probabilitat que CAP de les dues sigui defectuosa (les dues "
+     "bones): la que es demana és el contrari, encara falta "
+     "restar-la d'$1$.")],
+  ["El contrari de \"almenys una defectuosa\" és \"cap de les dues "
+   "defectuosa\" (les dues bones).",
+   "$P(\\text{cap defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac{8}{11}$ "
+   "(sense reposar-les).",
+   "Resta el resultat d'$1$."],
+  ["$P(\\text{cap defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac{8}{11}"
+   "=\\dfrac{72}{132}=\\dfrac{6}{11}$. "
+   "$P(\\text{almenys 1 defectuosa})=1-\\dfrac{6}{11}=\\dfrac{5}"
+   "{11}$"],
+  ex_text=E313)
+
+# =====================================================================
+# BLOC: probabilitat_condicionada
+# =====================================================================
+
+# ---- exercici 314: P(B|A) a partir d'una taula de doble entrada ----
+# Reutilitza EXACTAMENT les dades de l'exercici 254 (28 homes, 32 dones,
+# 16 homes carn, 20 dones carn, per tant 12 homes peix i 12 dones peix):
+# el mateix context, ara mirat des de la probabilitat condicionada.
+FIG314 = taula_doble(["Homes", "Dones"], ["Carn", "Peix"],
+                      [[16, 12], [20, 12]])
+
+E314 = ("En el mateix dinar de l'exercici 254 (28 homes i 32 dones; "
+        "16 homes i 20 dones han menjat carn, i la resta, peix), ara "
+        "ens fixem només en un grup cada vegada.")
+
+Q("314a", 314, "a", BC2, "A",
+  "D'entre els $28$ HOMES només, quina és la probabilitat que hagi "
+  "menjat peix? (és a dir, $P(\\text{peix}|\\text{home})$)",
+  "$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac{3}{7}$",
+  [DT("$P(\\text{peix}|\\text{home})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
+      "dividint pel total de persones en lloc del total d'homes",
+      "PROBABILITAT_CONDICIONADA_MAL",
+      "\"D'entre els homes\" fixa el grup de referència en els "
+      "homes ($28$ persones), no en el total del dinar ($60$): el "
+      "denominador ha de ser $28$."),
+   D("$P(\\text{peix}|\\text{home})=\\dfrac{20}{28}$, agafant els "
+     "homes que han menjat carn en lloc de peix",
+     "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "$20$ és el nombre de DONES que han menjat carn: dels $28$ "
+     "homes, els que han menjat peix són $28-16=12$."),
+   D("$P(\\text{peix}|\\text{home})=\\dfrac{12}{32}$, dividint pel "
+     "total de dones en lloc del total d'homes",
+     "CASOS_POSSIBLES_MAL_COMPTATS",
+     "El denominador ha de ser el nombre d'HOMES ($28$), que és el "
+     "grup sobre el qual es demana la probabilitat, no el de "
+     "dones.")],
+  ["\"D'entre els homes\" vol dir que el denominador és el total "
+   "d'homes, $28$, no el total del dinar.",
+   "Dels $28$ homes, $16$ han menjat carn i la resta, peix: "
+   "$28-16=12$."],
+  ["Dels $28$ homes, $12$ han menjat peix ($28-16$): "
+   "$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac{3}{7}$"],
+  figura=FIG314, ex_text=E314)
+
+Q("314b", 314, "b", BC2, "A",
+  "D'entre les $24$ persones que han menjat PEIX, quina és la "
+  "probabilitat que sigui home? (és a dir, "
+  "$P(\\text{home}|\\text{peix})$)",
+  "$P(\\text{home}|\\text{peix})=\\dfrac{12}{24}=\\dfrac{1}{2}$",
+  [DT("$P(\\text{home}|\\text{peix})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
+      "dividint pel total de persones en lloc del total que ha "
+      "menjat peix", "PROBABILITAT_CONDICIONADA_MAL",
+      "\"D'entre qui ha menjat peix\" fixa el grup en les persones "
+      "que han menjat peix ($24$), no en el total del dinar "
+      "($60$)."),
+   D("$P(\\text{home}|\\text{peix})=\\dfrac{12}{28}$, fent servir el "
+     "denominador de l'apartat anterior per error",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$28$ és el total d'homes, el denominador que toca quan la "
+     "condició és \"ser home\". Aquí la condició és \"haver menjat "
+     "peix\": el denominador ha de ser el total de peix, $24$."),
+   D("$P(\\text{home}|\\text{peix})=\\dfrac{24}{60}$, calculant en "
+     "realitat $P(\\text{peix})$",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$\\dfrac{24}{60}$ és la probabilitat de menjar peix EN "
+     "GENERAL, no la d'ésser home entre qui ha menjat peix.")],
+  ["El total de persones que han menjat peix és $24$ ($12$ homes + "
+   "$12$ dones): aquest és el denominador.",
+   "D'aquestes $24$, $12$ són homes."],
+  ["En total han menjat peix $24$ persones, de les quals $12$ són "
+   "homes: $P(\\text{home}|\\text{peix})=\\dfrac{12}{24}=\\dfrac{1}{2}$"],
+  figura=FIG314, ex_text=E314)
+
+Q("314c", 314, "c", BC2, "B",
+  "«En un dinar de $60$ persones, $P(\\text{peix}|\\text{home})$ i "
+  "$P(\\text{home i peix})$ valen el mateix, perquè totes dues "
+  "parlen d'homes que mengen peix»",
+  "Fals: $P(\\text{peix}|\\text{home})=\\dfrac{3}{7}$ es calcula "
+  "només sobre els homes ($28$), mentre que $P(\\text{home i "
+  "peix})=\\dfrac{12}{60}=\\dfrac{1}{5}$ es calcula sobre el total "
+  "del dinar ($60$); són preguntes diferents i, de fet, donen "
+  "resultats diferents",
+  [D("Cert: com que les dues fan referència als mateixos $12$ "
+     "homes que han menjat peix, el resultat ha de ser idèntic",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "El numerador ($12$) sí que coincideix, però el denominador "
+     "no: $P(\\text{peix}|\\text{home})$ divideix per $28$ (només "
+     "homes) i $P(\\text{home i peix})$ divideix per $60$ (tothom). "
+     "Denominadors diferents donen resultats diferents."),
+   D("Cert: totes dues probabilitats es calculen dividint per $60$, "
+     "el total del dinar", "PROBABILITAT_CONDICIONADA_MAL",
+     "$P(\\text{peix}|\\text{home})$ NO divideix pel total del "
+     "dinar: com que ja se sap que és home, el denominador es "
+     "restringeix als $28$ homes, no als $60$ comensals."),
+   D("Fals, perquè en realitat val més $P(\\text{home i peix})$ que "
+     "$P(\\text{peix}|\\text{home})$", "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "És al revés: $P(\\text{peix}|\\text{home})=3/7\\approx0{,}43$ "
+     "és més gran que $P(\\text{home i peix})=1/5=0{,}2$, perquè "
+     "dividir per un grup més petit ($28$ homes) dona un resultat "
+     "més gran que dividir pel total ($60$ persones).")],
+  ["Calcula totes dues probabilitats per separat i compara-les.",
+   "Fixa't especialment en el denominador que fa servir cadascuna."],
+  ["$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac37"
+   "\\approx0{,}43$ (denominador: només homes). "
+   "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15=0{,}2$ "
+   "(denominador: tothom). Són diferents"],
+  figura=FIG314, ex_text=E314)
+
+# ---- exercici 315: P(B|A) a partir d'un arbre (dues caixes) ----
+FIG315 = arbre([
+    [{"etq": "Caixa A", "prob": "1/2"}, {"etq": "Caixa B", "prob": "1/2"}],
+    [
+        [{"etq": "V", "prob": "2/3"}, {"etq": "B", "prob": "1/3"}],
+        [{"etq": "V", "prob": "1/4"}, {"etq": "B", "prob": "3/4"}],
+    ],
+])
+
+E315 = ("Hi ha dues caixes. La caixa A té 2 boles vermelles i 1 "
+        "blava; la caixa B té 1 bola vermella i 3 de blaves. "
+        "Triem una caixa a l'atzar (mateixa probabilitat per a "
+        "totes dues) i, sense mirar quina és, en traiem una bola.")
+
+Q("315a", 315, "a", BC2, "A",
+  "La caixa A té $2$ boles vermelles i $1$ de blava. Quina és la "
+  "probabilitat de triar la caixa A i treure'n una bola vermella?",
+  "$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{1}{3}$",
+  [D("$P(A,V)=\\dfrac{2}{3}$, agafant només la probabilitat de la "
+     "caixa A", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Cal seguir el camí sencer: primer triar la caixa A ($1/2$) i "
+     "després treure'n una vermella ($2/3$), multiplicant-les."),
+   D("$P(A,V)=\\dfrac{1}{2}+\\dfrac{2}{3}=\\dfrac{7}{6}$",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "La probabilitat d'un camí de l'arbre és el producte de les "
+     "seves branques, no la suma (i el resultat, a més, seria més "
+     "gran que $1$, cosa impossible)."),
+   D("$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{1}{4}=\\dfrac{1}{8}$, fent "
+     "servir la proporció de vermelles de la caixa B per error",
+     "CASOS_FAVORABLES_MAL_COMPTATS",
+     "La branca «V» que toca és la que penja de la caixa A "
+     "($2/3$, perquè hi ha $2$ vermelles de $3$ boles), no la de "
+     "la caixa B ($1/4$).")],
+  ["Segueix el camí: primer la branca «Caixa A» ($1/2$), després "
+   "la branca «V» que en penja ($2/3$).",
+   "Multiplica-les."],
+  ["$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{2}{6}"
+   "=\\dfrac{1}{3}$"],
+  figura=FIG315, ex_text=E315)
+
+Q("315b", 315, "b", BC2, "A",
+  "Amb $P(A,V)=1/3$ ja calculat, i sabent que la caixa B dona una "
+  "vermella amb probabilitat $1/4$, quina és la probabilitat, en "
+  "total, de treure una bola vermella (sigui de la caixa que "
+  "sigui)?",
+  "$P(V)=\\dfrac{1}{3}+\\dfrac{1}{8}=\\dfrac{11}{24}$",
+  [D("$P(V)=\\dfrac{2}{3}+\\dfrac{1}{4}=\\dfrac{11}{12}$, sumant "
+     "les dues branques «V» directament, sense multiplicar-les "
+     "abans per la probabilitat de triar cada caixa",
+     "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Abans de sumar els dos camins, cal calcular la probabilitat "
+     "de CADA camí sencer (triar la caixa I després la bola "
+     "vermella), no només la branca final del dau."),
+   D("$P(V)=\\dfrac{1}{3}\\cdot\\dfrac{1}{8}=\\dfrac{1}{24}$, "
+     "multiplicant els dos camins en lloc de sumar-los",
+     "UNIO_INTERSECCIO_CONFOSES",
+     "Hi ha dues maneres DIFERENTS i incompatibles d'acabar amb "
+     "una bola vermella (per la caixa A o per la caixa B): quan un "
+     "resultat es pot obtenir per camins que exclouen l'altre, les "
+     "probabilitats se sumen."),
+   D("$P(V)=\\dfrac{1}{3}$, oblidant el camí que passa per la "
+     "caixa B", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "Una bola vermella també es pot treure triant la caixa B "
+     "(encara que hi hagi menys probabilitat): cal sumar-hi també "
+     "aquest camí, $1/8$.")],
+  ["Hi ha dos camins que acaben en «vermella»: per la caixa A "
+   "($1/3$, calculat a l'apartat anterior) i per la caixa B.",
+   "Calcula el camí per la caixa B: $\\dfrac{1}{2}\\cdot"
+   "\\dfrac{1}{4}$.",
+   "Suma els dos camins."],
+  ["Camí per B: $P(B,V)=\\dfrac{1}{2}\\cdot\\dfrac{1}{4}"
+   "=\\dfrac{1}{8}$. Sumant-hi el de A ($1/3$): $\\dfrac{1}{3}"
+   "+\\dfrac{1}{8}=\\dfrac{8}{24}+\\dfrac{3}{24}=\\dfrac{11}{24}$"],
+  figura=FIG315, ex_text=E315)
+
+Q("315c", 315, "c", BC2, "A",
+  "Sabent que la bola ha sortit vermella (amb $P(V)=11/24$ en "
+  "total), quina és la probabilitat que vingués de la caixa A?",
+  "$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{8}{11}$",
+  [D("$P(A|V)=\\dfrac{1}{2}$, com si un cop sabent el color, cada "
+     "caixa tornés a tenir la mateixa probabilitat",
+     "ASIMETRIA_CONDICIONADA_MAL",
+     "Saber que la bola és vermella SÍ que canvia les "
+     "probabilitats: la caixa A té més vermelles que la B, així "
+     "que és més probable que la bola vingués d'A un cop se sap "
+     "que és vermella."),
+   D("$P(A|V)=P(A,V)=\\dfrac{1}{3}$, confonent la condicionada amb "
+     "la conjunta", "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$P(A,V)=1/3$ és la probabilitat de \"caixa A I vermella\" "
+     "sobre TOTS els casos possibles; $P(A|V)$ pregunta només "
+     "sobre els casos on ja ha sortit vermella, i per això cal "
+     "dividir per $P(V)$, no deixar-ho tal qual."),
+   D("$P(A|V)=\\dfrac{2}{3}$, agafant la probabilitat de vermella "
+     "dins la caixa A sense combinar-la amb res més",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$2/3$ és $P(V|A)$ (la probabilitat de vermella SABENT que és "
+     "la caixa A), que és una pregunta diferent de $P(A|V)$ (la "
+     "probabilitat que sigui la caixa A sabent que ha sortit "
+     "vermella).")],
+  ["$P(A|V)$ es calcula dividint la probabilitat del camí «A i "
+   "vermella» entre la probabilitat total de «vermella».",
+   "Ja tens totes dues xifres dels apartats anteriors: "
+   "$P(A,V)=1/3$ i $P(V)=11/24$."],
+  ["$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{1}{3}"
+   "\\cdot\\dfrac{24}{11}=\\dfrac{8}{11}$"],
+  figura=FIG315, ex_text=E315)
+
+# ---- exercici 316: P(A i B) vs P(B|A), taula fumadors/tos ----
+FIG316 = taula_doble(["Fumador", "No fumador"], ["Tos", "No tos"],
+                      [[14, 6], [9, 21]])
+
+E316 = ("En una revisió mèdica a 50 persones, 20 són fumadores. "
+        "Tenen tos 14 de les fumadores i 9 de les no fumadores.")
+
+Q("316a", 316, "a", BC2, "A",
+  "D'entre les $50$ persones enquestades, quina és la probabilitat "
+  "que una triada a l'atzar sigui fumadora I tingui tos?",
+  "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$",
+  [DT("$P(\\text{F i T})=\\dfrac{14}{20}=\\dfrac{7}{10}$, dividint "
+      "pel total de fumadores en lloc del total de persones",
+      "PROBABILITAT_CONDICIONADA_MAL",
+      "\"Triada a l'atzar\" sense cap condició prèvia vol dir que "
+      "el denominador és el total de persones enquestades ($50$), "
+      "no només el de fumadores."),
+   D("$P(\\text{F i T})=\\dfrac{20}{50}+\\dfrac{23}{50}"
+     "=\\dfrac{43}{50}$, sumant la probabilitat de fumar amb la "
+     "de tenir tos", "UNIO_INTERSECCIO_CONFOSES",
+     "\"Fumadora I tos\" (amb la I) és una intersecció, no una "
+     "unió: no es couen sumant les probabilitats individuals, cal "
+     "comptar directament quantes persones compleixen totes dues "
+     "condicions alhora."),
+   D("$P(\\text{F i T})=\\dfrac{9}{50}$, agafant les no fumadores "
+     "amb tos per error", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "$9$ són les persones NO fumadores amb tos: les fumadores amb "
+     "tos són $14$.")],
+  ["\"Fumadora i tos\" alhora: quantes persones compleixen totes "
+   "dues coses?",
+   "El denominador és el total de persones enquestades, $50$."],
+  ["$14$ de les $50$ persones són fumadores i tenen tos: "
+   "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$"],
+  figura=FIG316, ex_text=E316)
+
+Q("316b", 316, "b", BC2, "A",
+  "D'entre les $20$ persones FUMADORES, quina és la probabilitat "
+  "que tinguin tos?",
+  "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$",
+  [DT("$P(\\text{T}|\\text{F})=\\dfrac{14}{50}=\\dfrac{7}{25}$, "
+      "dividint pel total de persones en lloc del total de "
+      "fumadores", "PROBABILITAT_CONDICIONADA_MAL",
+      "\"D'entre les fumadores\" fixa el grup en les $20$ "
+      "fumadores, no en el total de les $50$ persones "
+      "enquestades."),
+   D("$P(\\text{T}|\\text{F})=\\dfrac{23}{50}$, calculant en "
+     "realitat la probabilitat general de tenir tos",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$23/50$ és la probabilitat de tenir tos EN GENERAL (sense "
+     "restringir-se a les fumadores): aquí es demana només "
+     "d'entre les $20$ fumadores."),
+   D("$P(\\text{T}|\\text{F})=\\dfrac{14}{23}$, dividint pel total "
+     "de persones amb tos en lloc del total de fumadores",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$23$ és el total de persones amb tos (fumadores i no "
+     "fumadores): el denominador que toca aquí és el de "
+     "fumadores, $20$, perquè la condició és \"ser fumadora\".")],
+  ["El grup de referència són les $20$ fumadores: aquest és el "
+   "denominador.",
+   "D'aquestes $20$, en tenen tos $14$."],
+  ["De les $20$ fumadores, en tenen tos $14$: "
+   "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$"],
+  figura=FIG316, ex_text=E316)
+
+# ---- exercici 317: la condicionada inversa, mateixes dades ----
+Q("317", 317, "", BC2, "A",
+  "D'entre les $23$ persones que TENEN TOS, quina és la "
+  "probabilitat que siguin fumadores? Compara el resultat amb el "
+  "de l'apartat anterior.",
+  "$P(\\text{F}|\\text{T})=\\dfrac{14}{23}$, diferent de "
+  "$P(\\text{T}|\\text{F})=\\dfrac{7}{10}$ de l'exercici anterior",
+  [DT("$P(\\text{F}|\\text{T})=\\dfrac{7}{10}$, el mateix resultat "
+      "que $P(\\text{T}|\\text{F})$", "ASIMETRIA_CONDICIONADA_MAL",
+      "$P(\\text{F}|\\text{T})$ i $P(\\text{T}|\\text{F})$ es "
+      "calculen sobre denominadors diferents (persones amb tos en "
+      "un cas, fumadores en l'altre): no hi ha cap motiu perquè "
+      "coincideixin."),
+   D("$P(\\text{F}|\\text{T})=\\dfrac{14}{50}$, dividint pel total "
+     "de persones en lloc del total amb tos",
+     "PROBABILITAT_CONDICIONADA_MAL",
+     "\"D'entre qui té tos\" fixa el grup en les $23$ persones amb "
+     "tos, no en el total de $50$."),
+   D("$P(\\text{F}|\\text{T})=\\dfrac{9}{23}$, agafant les persones "
+     "amb tos que NO fumen", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "$9$ són les persones amb tos que NO fumen: les que fumen I "
+     "tenen tos són $14$, no $9$.")],
+  ["El total de persones amb tos és $14+9=23$: aquest és ara el "
+   "denominador.",
+   "D'aquestes $23$, quantes fumen?",
+   "Compara aquest resultat amb $P(\\text{T}|\\text{F})=7/10$ de "
+   "l'apartat anterior: són el mateix?"],
+  ["Tenen tos $14+9=23$ persones, de les quals $14$ fumen: "
+   "$P(\\text{F}|\\text{T})=\\dfrac{14}{23}\\approx0{,}61$, que no "
+   "coincideix amb $P(\\text{T}|\\text{F})=\\dfrac{7}{10}=0{,}7$ de "
+   "l'apartat anterior: cadascuna es calcula sobre un grup de "
+   "referència diferent"],
+  figura=FIG316, ex_text=E316)
+
+# ---- exercici 318: comptar casos ja condicionats (dos daus) ----
+E318 = ("Llancem dos daus. Sigui $A$ l'esdeveniment «el primer dau "
+        "surt parell» i $B$ l'esdeveniment «la suma dels dos daus "
+        "és $8$».")
+
+Q("318", 318, "", BC2, "A",
+  "Sabent que el primer dau ha sortit parell, quina és la "
+  "probabilitat que la suma sigui $8$? (és a dir, $P(B|A)$)",
+  "$P(B|A)=\\dfrac{3}{18}=\\dfrac{1}{6}$",
+  [DT("$P(B|A)=\\dfrac{5}{36}$, calculant en realitat "
+      "$P(B)$ sense fer servir la condició del primer dau",
+      "PROBABILITAT_CONDICIONADA_MAL",
+      "$5/36$ és la probabilitat que la suma sigui $8$ SENSE cap "
+      "condició prèvia (hi ha $5$ parelles de $36$ que sumen $8$): "
+      "aquí ja se sap que el primer dau és parell, així que el "
+      "denominador s'ha de restringir a aquests casos."),
+   D("$P(B|A)=\\dfrac{1}{12}$, confonent-ho amb $P(A\\text{ i }B)$",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "$1/12$ és $P(A\\text{ i }B)$, la probabilitat que passin "
+     "totes dues coses sobre el total de $36$ resultats possibles. "
+     "$P(B|A)$ ja parteix del fet que $A$ s'ha complert, i el "
+     "denominador ha de ser els casos amb primer dau parell "
+     "($18$), no els $36$ inicials."),
+   D("$P(B|A)=\\dfrac{2}{18}=\\dfrac{1}{9}$, oblidant-ne una de les "
+     "tres parelles que sumen $8$",
+     "CASOS_POSSIBLES_MAL_COMPTATS",
+     "El denominador ($18$, els casos amb primer dau parell) és "
+     "correcte, però al numerador falta comptar $(2,6)$: amb "
+     "primer dau parell hi ha tres parelles que sumen $8$, no dues "
+     "— $(2,6)$, $(4,4)$ i $(6,2)$.")],
+  ["Un cop sabem que el primer dau és parell, només queden $18$ "
+   "resultats possibles (dels $36$ inicials).",
+   "D'aquests $18$, quants tenen suma $8$? (primer dau $2$, $4$ o "
+   "$6$, i el segon el que calgui per arribar a $8$)"],
+  ["Amb el primer dau parell hi ha $18$ resultats possibles. "
+   "D'aquests, sumen $8$ les parelles $(2,6)$, $(4,4)$ i $(6,2)$: "
+   "$3$ casos. $P(B|A)=\\dfrac{3}{18}=\\dfrac16$"],
+  ex_text=E318)
+
+# ---- exercici 319-320: P(B|A) != P(A|B), test mèdic (asimetria forta) ----
+FIG319 = taula_doble(["Malalt", "Sa"], ["Positiu", "Negatiu"],
+                      [[9, 1], [99, 891]])
+
+E319 = ("D'una població de 1000 persones, 10 tenen una malaltia "
+        "poc freqüent. Hi ha un test per detectar-la: si la persona "
+        "és malalta, el test dona positiu 9 de cada 10 vegades; si "
+        "la persona és sana, el test dona positiu (fals positiu) 1 "
+        "de cada 10 vegades.")
+
+Q("319", 319, "", BC2, "A",
+  "Segons l'enunciat, si la persona és malalta el test dona "
+  "positiu $9$ de cada $10$ vegades. Quina és la probabilitat que "
+  "el test doni positiu SABENT que la persona és malalta? (és a "
+  "dir, $P(\\text{positiu}|\\text{malalt})$)",
+  "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$",
+  [D("$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, "
+     "dividint pel total de la població en lloc del total de "
+     "malalts", "PROBABILITAT_CONDICIONADA_MAL",
+     "\"Sabent que la persona és malalta\" fixa el grup en les "
+     "$10$ persones malaltes, no en tota la població de $1000$: "
+     "el denominador ha de ser $10$, no $1000$."),
+   D("$P(\\text{positiu}|\\text{malalt})=\\dfrac{1}{10}$, agafant "
+     "la probabilitat de fals positiu per error",
+     "ASIMETRIA_CONDICIONADA_MAL",
+     "$1/10$ és la probabilitat de positiu ENTRE ELS SANS (el fals "
+     "positiu): entre els malalts, la probabilitat de positiu és "
+     "$9/10$, l'altra dada de l'enunciat."),
+   D("$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{108}$, dividint "
+     "pel total de positius en lloc del total de malalts",
+     "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "El denominador que toca aquí és el de MALALTS ($10$), perquè "
+     "la condició de la pregunta és \"ser malalt\"; el total de "
+     "positius ($108$) és el denominador d'una pregunta diferent.")],
+  ["Aquesta dada la dona directament l'enunciat: la probabilitat "
+   "de positiu entre els malalts."],
+  ["L'enunciat ho diu directament: si la persona és malalta, el "
+   "test dona positiu $9$ de cada $10$ vegades, "
+   "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$"],
+  figura=FIG319, ex_text=E319)
+
+Q("320", 320, "", BC2, "A",
+  "Recorda que el test dona positiu $9$ de cada $10$ vegades quan "
+  "la persona és malalta, i $1$ de cada $10$ quan és sana (fals "
+  "positiu). Ara al revés: si el test ha donat POSITIU, quina és "
+  "la probabilitat que la persona realment estigui malalta? "
+  "Compara-ho amb el resultat de l'exercici anterior.",
+  "$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{108}=\\dfrac{1}{12}"
+  "\\approx0{,}083$, molt més petita que $P(\\text{positiu}|"
+  "\\text{malalt})=\\dfrac{9}{10}=0{,}9$ de l'exercici anterior",
+  [DT("$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{10}$, el mateix "
+      "resultat que $P(\\text{positiu}|\\text{malalt})$",
+      "ASIMETRIA_CONDICIONADA_MAL",
+      "Encara que el test sigui molt fiable (\"positiu sabent que "
+      "és malalt\" val $9/10$), això no vol dir que \"malalt sabent "
+      "que és positiu\" valgui el mateix: com que la malaltia és "
+      "poc freqüent, la majoria de positius són falsos positius "
+      "de gent sana."),
+   D("$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{1000}$, "
+     "dividint pel total de la població en lloc del total de "
+     "positius", "PROBABILITAT_CONDICIONADA_MAL",
+     "\"Sabent que el test ha donat positiu\" fixa el grup en les "
+     "persones amb positiu ($9+99=108$), no en tota la població "
+     "($1000$)."),
+   D("$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{99}=\\dfrac{1}{11}"
+     "$, comparant els malalts positius només amb els sans "
+     "positius", "CASOS_POSSIBLES_MAL_COMPTATS",
+     "El denominador ha de ser el total de PERSONES amb positiu "
+     "($99$ sans positius MÉS els $9$ malalts positius, "
+     "$99+9=108$), no només els sans positius.")],
+  ["Primer, quantes persones en total donen positiu? (malalts "
+   "positius més sans positius, és a dir, falsos positius)",
+   "$9$ malalts donen positiu; dels $990$ sans, en donen positiu "
+   "$990\\cdot\\dfrac{1}{10}=99$ (falsos positius).",
+   "D'entre tots els positius, quina proporció són realment "
+   "malalts?"],
+  ["Donen positiu $9$ malalts i $990\\cdot\\dfrac{1}{10}=99$ sans "
+   "(falsos positius): en total, $9+99=108$ positius. D'aquests, "
+   "només $9$ són malalts de veritat: "
+   "$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{108}=\\dfrac{1}{12}"
+   "\\approx0{,}083$. És molt més petita que "
+   "$P(\\text{positiu}|\\text{malalt})=0{,}9$: encara que el test "
+   "sigui fiable amb els malalts, com que hi ha poquíssims malalts "
+   "de veritat ($10$ de $1000$), la majoria de positius acaben "
+   "sent falsos positius de gent sana"],
+  nota="Aquest és l'exemple clàssic que mostra per què $P(B|A)$ i "
+       "$P(A|B)$ poden ser molt diferents: un test molt fiable pot "
+       "donar, tot i així, més falsos positius que positius certs "
+       "quan la condició que es busca és poc freqüent.",
+  figura=FIG319, ex_text=E319)

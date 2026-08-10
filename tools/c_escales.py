@@ -18,6 +18,7 @@ Exercicis 285–294. Tota l'aritmètica va amb `fractions.Fraction`.
 """
 from fractions import Fraction as F
 from lib import Q, D, tex, texd, dificultats
+from figures.semblanca import escala_regla, figures_semblants_k
 
 dificultats({
     285: 1,  # llegir què vol dir una escala
@@ -53,6 +54,18 @@ _285 = [
     ("b", "1:25\\,000", 25000, "reducció"),
     ("c", "1:200", 200, "reducció"),
 ]
+
+
+def _unitat_llegible(cm):
+    """Com `km_tex`, però en text pla (sense `$`/LaTeX): per a les
+    etiquetes de figura, que no passen per MathJax."""
+    if cm >= 100000:
+        return "%g km" % (cm / 100000)
+    if cm >= 100:
+        return "%g m" % (cm / 100)
+    return "%g cm" % cm
+
+
 for _ap, _txt, _k, _tipus in _285:
     Q("285%s" % _ap, 285, _ap, B1, "B",
       "Escala $%s$." % _txt,
@@ -76,7 +89,8 @@ for _ap, _txt, _k, _tipus in _285:
       ["$1:%d$ vol dir que cada $1$ cm del dibuix correspon a $%d$ cm reals"
        % (_k, _k),
        "És a dir, $%s$ de debò" % km_tex(_k)],
-      ex_text=E285)
+      ex_text=E285,
+      figura=escala_regla(1, "cm", _unitat_llegible(_k)))
 
 
 # =============================================================== Exercici 286
@@ -173,7 +187,8 @@ for _ap, _dib, _real, _ud, _ur in _288:
       ["$%g$ %s $=%s$ cm" % (_real, _ur, texd(_cm, 0)),
        "$\\dfrac{%s}{%g}=%s$, o sigui escala $1:%s$"
        % (texd(_cm, 0), _dib, texd(_k, 0), texd(_k, 0))],
-      ex_text=E288)
+      ex_text=E288,
+      figura=escala_regla(_dib, _ud, "%g %s" % (_real, _ur)))
 
 
 # =============================================================== Exercici 289
@@ -225,7 +240,8 @@ for _ap, _a, _b in _290:
       ["La raó de semblança és el quocient entre dos costats corresponents.",
        "De la petita a la gran: $\\dfrac{%d}{%d}$." % (_b, _a)],
       ["$k=\\dfrac{%d}{%d}=%s$" % (_b, _a, tex(_k))],
-      ex_text=E290)
+      ex_text=E290,
+      figura=figures_semblants_k(float(_k), "triangle"))
 
 
 # =============================================================== Exercici 291
@@ -257,6 +273,7 @@ for _ap, _k, _area in _291:
        "Àrea gran $=%d\\cdot%s=%s$ cm$^2$"
        % (_area, tex(_k ** 2), texd(_gran, 2).rstrip("0").rstrip("{,}"))],
       ex_text=E291,
+      figura=figures_semblants_k(float(_k), "quadrat"),
       nota=("Val la pena veure-ho amb un quadrat: si el costat passa de $1$ a "
             "$2$, l'àrea passa d'$1$ a $4$. Dues dimensions, dos factors "
             "$k$." if _ap == "a" else ""))
@@ -286,6 +303,7 @@ for _ap, _k, _vol in _292:
       ["$k^3=%s^3=%s$" % (tex(_k), tex(_k ** 3)),
        "Volum gran $=%d\\cdot%s=%s$ cm$^3$" % (_vol, tex(_k ** 3), texd(_gran, 0))],
       ex_text=E292,
+      figura=figures_semblants_k(float(_k), "cub"),
       nota=("Aquest és el que més sorprèn: doblar totes les mides multiplica "
             "el volum per $8$. És el motiu pel qual una maqueta a escala "
             "$1:2$ no pesa la meitat, sinó una vuitena part."
@@ -311,7 +329,8 @@ Q("293a", 293, "a", B2, "A",
    "Divideix les àrees i fes l'arrel quadrada del resultat."],
   ["$\\dfrac{108}{12}=9$, i això és $k^2$",
    "$k=\\sqrt{9}=3$"],
-  ex_text=E293)
+  ex_text=E293,
+  figura=figures_semblants_k(3, "quadrat"))
 
 Q("293b", 293, "b", B2, "A",
   "Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina "
@@ -329,7 +348,8 @@ Q("293b", 293, "b", B2, "A",
    "Divideix els volums i fes-ne l'arrel cúbica."],
   ["$\\dfrac{216}{8}=27$, i això és $k^3$",
    "$k=\\sqrt[3]{27}=3$"],
-  ex_text=E293)
+  ex_text=E293,
+  figura=figures_semblants_k(3, "cub"))
 
 
 # =============================================================== Exercici 294
@@ -338,7 +358,8 @@ E294 = ("Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de "
         "de $9\\,000$ m$^3$.")
 
 Q("294a", 294, "a", B2, "A",
-  "Quina alçada fa la maqueta?",
+  "Amb l'escala $1:50$, quina alçada fa la maqueta si l'edifici real "
+  "fa $30$ m?",
   "$60$ cm",
   [D("$1\\,500$ m", "ESCALA_INVERTIDA",
      "Has multiplicat per $50$. La maqueta és una REDUCCIÓ: cal dividir."),
@@ -351,10 +372,12 @@ Q("294a", 294, "a", B2, "A",
    "Passa el resultat a centímetres."],
   ["$\\dfrac{30}{50}=0{,}6$ m",
    "$0{,}6$ m $=60$ cm"],
-  ex_text=E294)
+  ex_text=E294,
+  figura=figures_semblants_k(1 / 50, "triangle"))
 
 Q("294b", 294, "b", B2, "A",
-  "I quina superfície té la façana de la maqueta?",
+  "Amb la mateixa escala $1:50$, quina superfície té la façana de la "
+  "maqueta, si la de l'edifici real és de $600$ m$^2$?",
   "$0{,}24$ m$^2$ (és a dir, $2\\,400$ cm$^2$)",
   [D("$12$ m$^2$", "RAO_SENSE_QUADRAT",
      "Has dividit l'àrea entre $50$. Les àrees van amb $k^2$: cal dividir "
@@ -369,10 +392,12 @@ Q("294b", 294, "b", B2, "A",
    "$50^2=2\\,500$."],
   ["$\\dfrac{600}{50^2}=\\dfrac{600}{2500}=0{,}24$ m$^2$",
    "$0{,}24$ m$^2=2\\,400$ cm$^2$"],
-  ex_text=E294)
+  ex_text=E294,
+  figura=figures_semblants_k(1 / 50, "quadrat"))
 
 Q("294c", 294, "c", B2, "A",
-  "I el volum?",
+  "Amb la mateixa escala $1:50$, quin volum té la maqueta, si "
+  "l'edifici real en fa $9\\,000$ m$^3$?",
   "$0{,}072$ m$^3$ (és a dir, $72\\,000$ cm$^3$)",
   [D("$180$ m$^3$", "RAO_SENSE_QUADRAT",
      "Has dividit entre $50$. Els volums van amb $k^3$: entre "
@@ -388,6 +413,7 @@ Q("294c", 294, "c", B2, "A",
    "La maqueta és $50$ vegades més curta, $2\\,500$ vegades més petita de "
    "façana i $125\\,000$ vegades més petita de volum"],
   ex_text=E294,
+  figura=figures_semblants_k(1 / 50, "cub"),
   nota="Els tres apartats junts són el resum del bloc: una sola escala, tres "
        "factors diferents segons si el que mesures té una, dues o tres "
        "dimensions.")

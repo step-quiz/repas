@@ -54,7 +54,8 @@ massa incerta (vegeu més amunt), la resta són enunciats de fórmules d'àrea
 i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia.
 """
 import math
-from figures import prisma_regular, cub, ortoedre
+from figures import (prisma_regular, cub, ortoedre, cilindre, con,
+                     esfera, piramide_regular, tetraedre)
 from lib import Q, D, DT, tria, dificultats
 
 # --------------------------------------------------------------------
@@ -401,7 +402,8 @@ Q("171", 171, "", B1, "A",
    "$=6\\cdot3=18$ cm$^2$."],
   [r"$A_{\text{base}}=\dfrac{2^2\sqrt3}{4}\approx1{,}73$ cm$^2$",
    "$A_{\\text{lateral}}=6\\cdot3=18$ cm$^2$",
-   "$A_{\\text{total}}\\approx2\\cdot1{,}73+18\\approx21{,}46$ cm$^2$"])
+   "$A_{\\text{total}}\\approx2\\cdot1{,}73+18\\approx21{,}46$ cm$^2$"],
+  figura=prisma_regular(3, 2, 3))
 
 # ---- exercici 172: prisma hexagonal, costat 8 cm, altura 10 cm ----
 # apotema=4sqrt3~6.93, Ab~166.28, Alat=480, Atot~812.55
@@ -426,7 +428,8 @@ Q("172", 172, "", B1, "A",
   [r"$a=\dfrac{8\sqrt3}{2}\approx6{,}93$ cm",
    r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}\approx166{,}28$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot10=480$ cm$^2$",
-   "$A_{\\text{total}}\\approx2\\cdot166{,}28+480\\approx812{,}55$ cm$^2$"])
+   "$A_{\\text{total}}\\approx2\\cdot166{,}28+480\\approx812{,}55$ cm$^2$"],
+  figura=prisma_regular(6, 8, 10))
 
 # ---- exercici 173: prisma hexagonal, costat 6 cm, altura 10 cm ----
 # apotema=3sqrt3~5.2, Ab~93.53, Alat=360, Atot~547.06
@@ -449,7 +452,8 @@ Q("173", 173, "", B1, "A",
   [r"$a=\dfrac{6\sqrt3}{2}\approx5{,}2$ cm",
    r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ cm$^2$",
    "$A_{\\text{lateral}}=36\\cdot10=360$ cm$^2$",
-   "$A_{\\text{total}}\\approx2\\cdot93{,}53+360\\approx547{,}06$ cm$^2$"])
+   "$A_{\\text{total}}\\approx2\\cdot93{,}53+360\\approx547{,}06$ cm$^2$"],
+  figura=prisma_regular(6, 6, 10))
 
 # ---- exercici 174: cub d'àrea total 24 cm^2, troba la diagonal ----
 # L=2, dcub=2sqrt3~3.46
@@ -472,7 +476,8 @@ Q("174", 174, "", B1, "A",
    "$6L^2=24 \\Rightarrow L^2=4 \\Rightarrow L=2$ cm.",
    "La diagonal del cub és $d=L\\sqrt3$."],
   [r"$L=\sqrt{24:6}=\sqrt4=2$ cm",
-   r"$d=L\sqrt3=2\sqrt3\approx3{,}46$ cm"])
+   r"$d=L\sqrt3=2\sqrt3\approx3{,}46$ cm"],
+  figura=cub(0, etq="a"))
 
 # ---- exercici 175: cub d'àrea total 150 m^2, troba la diagonal ----
 # L=5, d=5sqrt3~8.66
@@ -492,7 +497,8 @@ Q("175", 175, "", B1, "A",
   ["Aresta: $6L^2=150 \\Rightarrow L^2=25 \\Rightarrow L=5$ m.",
    "Diagonal: $d=L\\sqrt3$."],
   [r"$L=\sqrt{150:6}=\sqrt{25}=5$ m",
-   r"$d=L\sqrt3=5\sqrt3\approx8{,}66$ m"])
+   r"$d=L\sqrt3=5\sqrt3\approx8{,}66$ m"],
+  figura=cub(0, etq="a"))
 
 
 # =====================================================================
@@ -526,6 +532,7 @@ Q("176a", 176, "a", B1, "A",
    "Àrea lateral d'un prisma: perímetre de la base per l'altura."],
   [r"$A_{\text{lateral}}=18\cdot20$",
    "$A_{\\text{lateral}}=360$ m$^2$"],
+  figura=prisma_regular(3, 6, 20, etq_costat="6 m", etq_altura="20 m"),
   ex_text=E176)
 
 # 176b: area total -> A~391.18
@@ -548,6 +555,7 @@ Q("176b", 176, "b", B1, "A",
    "més les dues bases."],
   [r"$A_{\text{base}}=\dfrac{6^2\sqrt3}{4}\approx15{,}59$ m$^2$",
    "$A_{\\text{total}}=360+2\\cdot15{,}59\\approx391{,}18$ m$^2$"],
+  figura=prisma_regular(3, 6, 20, etq_costat="6 m", etq_altura="20 m"),
   ex_text=E176)
 
 # ---- exercici 177: piràmide pentagonal ----
@@ -572,7 +580,8 @@ Q("177", 177, "", B2, "A",
    "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}=118{,}3$ cm$^2$."],
   [r"$A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$",
    r"$A_{\text{lateral}}=\dfrac{20\cdot11{,}83}{2}=118{,}3$ cm$^2$",
-   "$A_{\\text{total}}=27{,}5+118{,}3=145{,}8$ cm$^2$"])
+   "$A_{\\text{total}}=27{,}5+118{,}3=145{,}8$ cm$^2$"],
+  figura=piramide_regular(5, 4, apotema_piramide=11.83))
 
 # ---- exercici 179: dues piràmides (quadrangular i hexagonal) ----
 # 179a: piramide quadrangular costat 25 apotema piramide 34
@@ -594,6 +603,8 @@ Q("179a", 179, "a", B2, "A",
   [r"$A_{\text{base}}=25^2=625$ m$^2$",
    r"$A_{\text{lateral}}=\dfrac{100\cdot34}{2}=1700$ m$^2$",
    "$A_{\\text{total}}=625+1700=2325$ m$^2$"],
+  figura=piramide_regular(4, 25, apotema_piramide=34, etq_costat="25 m",
+                   etq_apotema="34 m"),
   ex_text="Dues piràmides regulars.")
 
 # 179b: piramide hexagonal costat 6 altura 9 -> Atot~280.59
@@ -622,6 +633,7 @@ Q("179b", 179, "b", B2, "A",
    r"$a_{\text{piràmide}}=\sqrt{9^2+5{,}2^2}\approx10{,}39$ m",
    r"$A_{\text{lateral}}=\dfrac{36\cdot10{,}39}{2}\approx187{,}06$ m$^2$",
    "$A_{\\text{total}}\\approx93{,}53+187{,}06\\approx280{,}59$ m$^2$"],
+  figura=piramide_regular(6, 6, altura=9, etq_costat="6 m", etq_altura="9 m"),
   ex_text="Dues piràmides regulars.")
 
 # ---- exercici 180: quatre tetraedres regulars (àrea total = L^2*sqrt3) ----
@@ -647,6 +659,7 @@ for qid, letra, L, area in [
        "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."],
       [f"$A=L^2\\sqrt3={dz(L)}^2\\cdot\\sqrt3$",
        f"$A\\approx{dz(area)}$ cm$^2$"],
+      figura=tetraedre(L, etq=f"{dz(L)} cm"),
       ex_text=E180)
 
 # ---- exercici 181: dues piràmides (quadrangular i hexagonal) ----
@@ -672,6 +685,7 @@ Q("181a", 181, "a", B2, "A",
   [r"$a_{\text{piràmide}}=\sqrt{10^2+4^2}\approx10{,}77$ m",
    r"$A_{\text{lateral}}=\dfrac{32\cdot10{,}77}{2}\approx172{,}33$ m$^2$",
    "$A_{\\text{total}}\\approx64+172{,}33\\approx236{,}33$ m$^2$"],
+  figura=piramide_regular(4, 8, altura=10, etq_costat="8 m", etq_altura="10 m"),
   ex_text="Dues piràmides regulars.")
 
 # 181b: piramide hexagonal costat 6 altura 8 -> Atot~265.24 (vegeu nota
@@ -698,6 +712,7 @@ Q("181b", 181, "b", B2, "A",
    r"$a_{\text{piràmide}}=\sqrt{8^2+5{,}2^2}\approx9{,}54$ m",
    r"$A_{\text{lateral}}\approx\dfrac{36\cdot9{,}54}{2}\approx171{,}71$ m$^2$",
    "$A_{\\text{total}}\\approx93{,}53+171{,}71\\approx265{,}24$ m$^2$"],
+  figura=piramide_regular(6, 6, altura=8, etq_costat="6 m", etq_altura="8 m"),
   ex_text="Dues piràmides regulars.")
 
 # ---- exercici 182: cub amb la mateixa àrea total que una piràmide ----
@@ -747,7 +762,8 @@ Q("183", 183, "", B2, "A",
    r"$A_{\text{lateral}}=\dfrac{18\cdot10}{2}=90$ cm$^2$",
    r"$A_{\text{total,piràmide}}\approx23{,}38+90\approx113{,}38$ cm$^2$",
    r"$L^2\sqrt3\approx113{,}38 \Rightarrow L^2\approx65{,}46$",
-   "$L\\approx8{,}09$ cm"])
+   "$L\\approx8{,}09$ cm"],
+  figura=piramide_regular(6, 3, apotema_piramide=10))
 
 
 # =====================================================================
@@ -779,7 +795,8 @@ Q("184", 184, "", B3, "A",
   ["El diàmetre és $6$ cm, així que el radi és $3$ cm.",
    "La longitud de la circumferència és $L=2\\pi r$."],
   [r"$L=2\pi r=2\cdot3{,}14\cdot3$",
-   "$L\\approx18{,}84$ cm"])
+   "$L\\approx18{,}84$ cm"],
+  figura=cilindre(diametre=6, altura=9))
 
 # ---- exercici 185: dos cilindres, àrea total ----
 # 185a: r=7 h=10
@@ -801,7 +818,8 @@ Q("185a", 185, "a", B3, "A",
    "Àrea lateral: $A_{\\text{lateral}}=2\\pi rh\\approx439{,}6$ m$^2$."],
   [r"$A_{\text{base}}=\pi\cdot7^2\approx153{,}86$ m$^2$",
    r"$A_{\text{lateral}}=2\pi\cdot7\cdot10\approx439{,}6$ m$^2$",
-   "$A_{\\text{total}}\\approx2\\cdot153{,}86+439{,}6\\approx747{,}32$ m$^2$"])
+   "$A_{\\text{total}}\\approx2\\cdot153{,}86+439{,}6\\approx747{,}32$ m$^2$"],
+  figura=cilindre(radi=7, altura=10, etq_radi="7 m", etq_altura="10 m"))
 
 # 185b: diametre=12 (r=6) h=5
 Q("185b", 185, "b", B3, "A",
@@ -823,7 +841,8 @@ Q("185b", 185, "b", B3, "A",
   [r"$r=12:2=6$ m",
    r"$A_{\text{base}}=\pi\cdot6^2\approx113{,}04$ m$^2$",
    r"$A_{\text{lateral}}=2\pi\cdot6\cdot5\approx188{,}4$ m$^2$",
-   "$A_{\\text{total}}\\approx2\\cdot113{,}04+188{,}4\\approx414{,}48$ m$^2$"])
+   "$A_{\\text{total}}\\approx2\\cdot113{,}04+188{,}4\\approx414{,}48$ m$^2$"],
+  figura=cilindre(diametre=12, altura=5, etq_radi="12 m", etq_altura="5 m"))
 
 # ---- exercici 186: cilindre Alat=756,6 cm^2, r=10 cm -> h ----
 Q("186", 186, "", B3, "A",
@@ -843,7 +862,8 @@ Q("186", 186, "", B3, "A",
   ["L'àrea lateral d'un cilindre és $A_{\\text{lateral}}=2\\pi rh$.",
    "Aïlla $h$: $h=\\dfrac{A_{\\text{lateral}}}{2\\pi r}$."],
   [r"$h=\dfrac{756{,}6}{2\cdot3{,}14\cdot10}$",
-   "$h\\approx12{,}05$ cm"])
+   "$h\\approx12{,}05$ cm"],
+  figura=cilindre(radi=10, altura=0, etq_altura="h"))
 
 # ---- exercici 187: cilindre Atot=471, altura=2·radi -> r, h ----
 Q("187", 187, "", B3, "A",
@@ -865,7 +885,8 @@ Q("187", 187, "", B3, "A",
    "=6\\pi r^2$.",
    "Aïlla $r^2=\\dfrac{471}{6\\pi}$ i fes l'arrel quadrada."],
   [r"$6\pi r^2=471 \Rightarrow r^2=\dfrac{471}{6\cdot3{,}14}=25$",
-   "$r=\\sqrt{25}=5$ cm $\\Rightarrow h=2\\cdot5=10$ cm"])
+   "$r=\\sqrt{25}=5$ cm $\\Rightarrow h=2\\cdot5=10$ cm"],
+  figura=cilindre(radi=0, altura=0, etq_radi="r", etq_altura="2r"))
 
 # ---- exercici 188: con r=4 cm, generatriu=15 cm ----
 Q("188", 188, "", B3, "A",
@@ -888,7 +909,8 @@ Q("188", 188, "", B3, "A",
    "del con, $4$ cm (la generatriu no hi intervé).",
    "Longitud: $L=2\\pi r$."],
   [r"$L=2\pi r=2\cdot3{,}14\cdot4$",
-   "$L\\approx25{,}12$ cm"])
+   "$L\\approx25{,}12$ cm"],
+  figura=con(radi=4, generatriu=15))
 
 # ---- exercici 189: con diàmetre=8 cm, generatriu=12 cm -> Atot ----
 Q("189", 189, "", B3, "A",
@@ -911,7 +933,8 @@ Q("189", 189, "", B3, "A",
   [r"$r=8:2=4$ cm",
    r"$A_{\text{base}}=\pi\cdot4^2\approx50{,}24$ cm$^2$",
    r"$A_{\text{lateral}}=\pi\cdot4\cdot12\approx150{,}72$ cm$^2$",
-   "$A_{\\text{total}}\\approx50{,}24+150{,}72\\approx200{,}96$ cm$^2$"])
+   "$A_{\\text{total}}\\approx50{,}24+150{,}72\\approx200{,}96$ cm$^2$"],
+  figura=con(diametre=8, generatriu=12))
 
 # ---- exercici 190: con generatriu=13 cm, radi=5 cm -> altura ----
 Q("190", 190, "", B3, "A",
@@ -933,7 +956,8 @@ Q("190", 190, "", B3, "A",
    "compleixen $g^2=r^2+h^2$ (Pitàgores).",
    "Aïlla $h$: $h=\\sqrt{g^2-r^2}$."],
   [r"$h=\sqrt{13^2-5^2}=\sqrt{169-25}=\sqrt{144}$",
-   "$h=12$ cm"])
+   "$h=12$ cm"],
+  figura=con(radi=5, generatriu=13))
 
 # ---- exercici 191: esfera d'àrea 803,84 cm^2 -> radi ----
 Q("191", 191, "", B3, "A",
@@ -952,7 +976,8 @@ Q("191", 191, "", B3, "A",
   ["L'àrea d'una esfera és $A=4\\pi r^2$.",
    "Aïlla $r^2=\\dfrac{A}{4\\pi}$ i fes l'arrel quadrada."],
   [r"$r^2=\dfrac{803{,}84}{4\cdot3{,}14}=64$",
-   "$r=\\sqrt{64}=8$ cm"])
+   "$r=\\sqrt{64}=8$ cm"],
+  figura=esfera(0, etq_radi="r"))
 
 
 # =====================================================================
@@ -988,6 +1013,7 @@ Q("193a", 193, "a", B3, "A",
    "Iguala-la a l'àrea lateral del con, $\\pi rg$, i aïlla $g$."],
   [r"$2\pi\cdot10\cdot10=\pi\cdot10\cdot g$",
    "$g=\\dfrac{2\\cdot10\\cdot10}{10}=20$ cm"],
+  figura=cilindre(radi=10, altura=10),
   ex_text=E193)
 
 # 193b: mateixa Atot -> g=30
@@ -1014,6 +1040,7 @@ Q("193b", 193, "b", B3, "A",
   [r"$\pi\cdot10^2+\pi\cdot10\cdot g=2\pi\cdot10^2+2\pi\cdot10\cdot10$",
    r"$10g=2\cdot10^2+2\cdot10\cdot10-10^2=300$",
    "$g=30$ cm"],
+  figura=cilindre(radi=10, altura=10),
   ex_text=E193)
 
 # ---- exercici 195: volums de diversos cossos (només a, c, e, f) ----
@@ -1039,6 +1066,7 @@ Q("195a", 195, "a", B4, "A",
    "Volum d'una piràmide: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
   [r"$V=\dfrac{16\cdot2}{3}$",
    "$V\\approx10{,}67$ cm$^3$"],
+  figura=piramide_regular(4, 4, altura=2),
   ex_text=E195,
   nota="D'aquest exercici hi ha els apartats a, c, e i f: els altres eren "
        "cossos que no es poden identificar amb seguretat sense la figura.")
@@ -1060,6 +1088,7 @@ Q("195c", 195, "c", B4, "A",
    "Volum d'un cilindre: $V=A_{\\text{base}}\\cdot h$."],
   [r"$V=\pi\cdot4^2\cdot4$",
    "$V\\approx200{,}96$ cm$^3$"],
+  figura=cilindre(radi=4, altura=4),
   ex_text=E195)
 
 # 195e: con r=1.5 h=5 -> V~11.775 -> 11.78
@@ -1082,6 +1111,7 @@ Q("195e", 195, "e", B4, "A",
    "Volum d'un con: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
   [r"$V=\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$",
    "$V\\approx11{,}78$ cm$^3$"],
+  figura=con(radi=3, altura=5),
   ex_text=E195)
 
 # 195f: cub aresta 4 -> V=64
@@ -1100,6 +1130,7 @@ Q("195f", 195, "f", B4, "A",
   ["El volum d'un cub d'aresta $L$ és $V=L^3$."],
   [r"$V=4^3=4\cdot4\cdot4$",
    "$V=64$ cm$^3$"],
+  figura=cub(6),
   ex_text=E195)
 
 # ---- exercici 196: pintar una habitació de 4x6x3 m ----
@@ -1181,7 +1212,9 @@ Q("197", 197, "", B4, "A",
    "formen un triangle rectangle: "
    "$a_{\\text{piràmide}}^2=a_{\\text{base}}^2+h^2$."],
   [r"$h=\sqrt{179{,}37^2-107{,}625^2}$",
-   "$h\\approx143{,}49$ m"])
+   "$h\\approx143{,}49$ m"],
+  figura=piramide_regular(4, 215.25, apotema_piramide=179.37,
+                   etq_costat="215,25 m", etq_apotema="179,37 m"))
 
 # ---- exercici 198: torre (cub + teulada piramidal) ----
 Q("198", 198, "", B4, "A",
@@ -1242,4 +1275,5 @@ Q("199", 199, "", B4, "A",
    r"(Per comparar: l'esfera del mateix volum té radi "
    r"$r=\sqrt[3]{\frac{3\cdot125}{4\pi}}\approx3{,}10$ cm i àrea "
    r"$4\pi r^2\approx120{,}88$ cm$^2$, menor que la del cub: a "
-   r"igualtat de volum, l'esfera necessita menys material.)"])
+   r"igualtat de volum, l'esfera necessita menys material.)"],
+  figura=esfera(0, etq_radi="r"))

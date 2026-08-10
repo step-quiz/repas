@@ -15,6 +15,7 @@ Exercicis 295–304. Tota l'aritmètica va amb `fractions.Fraction`.
 """
 from fractions import Fraction as F
 from lib import Q, D, tex, texd, dificultats
+from figures import grafica_recta, grafica_parabola, nuvol_de_punts
 
 dificultats({
     295: 2,  # recta a partir del pendent i un punt
@@ -81,7 +82,12 @@ for _ap, _m, (_x0, _y0) in _295:
       ["$%d=%s\\cdot(%d)+n$" % (_y0, tex(_m), _x0),
        "$n=%d-(%s)=%s$" % (_y0, tex(_m * _x0), tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
-      ex_text=E295)
+      ex_text=E295,
+      # El pendent i el punt fixen la recta sense ambigüitat: mostrar-la
+      # ja construïda no revela res que l'enunciat no doni; el punt
+      # donat es marca perquè és la dada de partida.
+      figura=grafica_recta(float(_m), float(_n),
+                            punts_marcats=[(float(_x0), float(_y0))]))
 
 
 # =============================================================== Exercici 296
@@ -117,7 +123,11 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
        % (_y2, _y1, _x2, _x1, _y2 - _y1, _x2 - _x1, tex(_m)),
        "$%d=%s\\cdot(%d)+n\\;\\Longrightarrow\\;n=%s$" % (_y1, tex(_m), _x1, tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
-      ex_text=E296)
+      ex_text=E296,
+      # nuvol_de_punts, no grafica_recta: els dos punts són la dada, la
+      # recta (m i n) és la incògnita que es demana calcular.
+      figura=nuvol_de_punts([(float(_x1), float(_y1)),
+                              (float(_x2), float(_y2))]))
 
 
 # =============================================================== Exercici 297
@@ -179,7 +189,11 @@ Q("298a", 298, "a", B1, "A",
   ["Paral·lela $\\Rightarrow m=2$",
    "$4=2\\cdot1+n\\;\\Longrightarrow\\;n=2$",
    "$y=2x+2$"],
-  ex_text=E298)
+  ex_text=E298,
+  # Es dibuixa NOMÉS r (la recta donada a l'enunciat, dada fixa), amb
+  # el punt (1,4) marcat; la paral·lela demanada NO es dibuixa, és la
+  # resposta.
+  figura=grafica_recta(2, -3, punts_marcats=[(1, 4)]))
 
 Q("298b", 298, "b", B1, "A",
   "La perpendicular a $r$ que passa per $(4,1)$.",
@@ -202,6 +216,7 @@ Q("298b", 298, "b", B1, "A",
    "$1=-\\dfrac{1}{2}\\cdot4+n\\;\\Longrightarrow\\;n=3$",
    "$y=-\\dfrac{1}{2}x+3$"],
   ex_text=E298,
+  figura=grafica_recta(2, -3, punts_marcats=[(4, 1)]),
   nota="La condició de perpendicularitat ($m_1\\cdot m_2=-1$) no surt al "
        "material de partida i és de batxillerat, però va aquí perquè és el "
        "pas natural després de les paral·leles i costa poc d'afegir.")
@@ -241,7 +256,10 @@ for _ap, _m1, _n1, _m2, _n2 in _299:
        "$y=%s\\cdot%s%s%s=%s$" % (tex(_m1), tex(_x), "+" if _n1 > 0 else "-",
                                   tex(abs(_n1)), tex(_y)),
        "Punt de tall: $(%s,%s)$" % (tex(_x), tex(_y))],
-      ex_text=E299)
+      ex_text=E299,
+      # Dues rectes dibuixades, SENSE marcar el punt de tall: és
+      # exactament la resposta que es demana calcular.
+      figura=grafica_recta(float(_m1), float(_n1), float(_m2), float(_n2)))
 
 
 # =============================================================== Exercici 300
@@ -279,7 +297,9 @@ for _ap, _a, _b, _c in _300:
       ["$x_v=\\dfrac{-(%s)}{2\\cdot%s}=%s$" % (tex(_b), tex(_a), tex(_xv)),
        "$y_v=%s$" % tex(_yv),
        "Vèrtex: $(%s,%s)$" % (tex(_xv), tex(_yv))],
-      ex_text=E300)
+      ex_text=E300,
+      # SENSE marca_vertex: el vèrtex és exactament la resposta.
+      figura=grafica_parabola(float(_a), float(_b), float(_c)))
 
 
 # =============================================================== Exercici 301
@@ -322,6 +342,12 @@ for _ap, _a, _b, _c, _arrels in _301:
       nota=("Quan l'equació té una arrel doble, la paràbola no travessa "
             "l'eix $X$: només el toca, i justament al vèrtex."
             if len(_arrels) == 1 else ""))
+# SENSE FIGURA, decidit al merge. La gràfica no marcava res, però amb la
+# corba dibuixada dos dels tres distractors s'eliminen només mirant-la: el
+# d'arrels negatives (es veu per quin costat creua l'eix X) i el del tall
+# amb Y canviat de signe (es veu si creua per damunt o per sota de l'origen).
+# L'ítem passava de quatre opcions a dues sense fer cap operació, i el que
+# s'hi practica és justament resoldre l'equació.
 
 
 # =============================================================== Exercici 302
@@ -344,7 +370,11 @@ Q("302a", 302, "a", B2, "A",
   ["$y=a(x-2)^2-1$",
    "Amb $(0,3)$: $3=a(0-2)^2-1=4a-1\\;\\Longrightarrow\\;a=1$",
    "$y=(x-2)^2-1=x^2-4x+4-1=x^2-4x+3$"],
-  ex_text="")
+  ex_text="",
+  # nuvol_de_punts, no grafica_parabola: encara no es coneix "a" (és
+  # la incògnita), així que no es pot dibuixar la paràbola sencera.
+  # Es marquen només els dos punts donats (el vèrtex i el punt de pas).
+  figura=nuvol_de_punts([(2, -1), (0, 3)], etiquetes=["vèrtex", None]))
 
 Q("302b", 302, "b", B2, "A",
   "I una amb el vèrtex a $(-1,4)$ que passa per $(1,0)$?",
@@ -363,7 +393,8 @@ Q("302b", 302, "b", B2, "A",
   ["$y=a(x+1)^2+4$",
    "Amb $(1,0)$: $0=a\\cdot4+4\\;\\Longrightarrow\\;a=-1$",
    "$y=-(x+1)^2+4=-(x^2+2x+1)+4=-x^2-2x+3$"],
-  ex_text="")
+  ex_text="",
+  figura=nuvol_de_punts([(-1, 4), (1, 0)], etiquetes=["vèrtex", None]))
 
 
 # =============================================================== Exercici 303

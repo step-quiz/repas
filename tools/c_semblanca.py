@@ -53,6 +53,7 @@ deixant-ne constància amb `nota` en lloc de silenciar la incertesa.
 from fractions import Fraction as F
 import sympy as sp
 from lib import Q, D, DT, tex, texd, dificultats
+from figures.semblanca import tales, parella_semblants, escala_regla, ombra
 
 # --------------------------------------------------------------------
 # Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
@@ -143,7 +144,8 @@ Q("152a", 152, "a", B1, "A",
   [r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{2{,}5\cdot3}{2}$",
    "$x=3{,}75$ cm"],
-  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
+  figura=tales([("A", 2.5), ("B", (3.75, "x"))], [("A'", 2), ("B'", 3)], "x"))
 
 Q("152b", 152, "b", B1, "A",
   "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ "
@@ -166,7 +168,8 @@ Q("152b", 152, "b", B1, "A",
   [r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot3}{2}$",
    "$x=6$ cm"],
-  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
+  figura=tales([("A", 2), ("B", 4)], [("A'", 3), ("B'", (6, "x"))], "x"))
 
 Q("152c", 152, "c", B1, "A",
   "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm "
@@ -189,7 +192,8 @@ Q("152c", 152, "c", B1, "A",
   [r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{8\cdot6}{4}$",
    "$x=12$ cm"],
-  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
+  figura=tales([("A", 8), ("B", 4)], [("A'", (12, "x")), ("B'", 6)], "x"))
 
 Q("152e", 152, "e", B1, "A",
   "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i "
@@ -211,7 +215,8 @@ Q("152e", 152, "e", B1, "A",
   [r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
    r"x=\dfrac{10\cdot5}{8}$",
    "$x=6{,}25$ cm"],
-  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
+  figura=tales([("A", (6.25, "x")), ("B", 10)], [("A'", 5), ("B'", 8)], "x"))
 
 Q("152f", 152, "f", B1, "A",
   "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i "
@@ -234,7 +239,8 @@ Q("152f", 152, "f", B1, "A",
   [r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4{,}8\cdot3}{2}$",
    "$x=7{,}2$ cm"],
-  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT)
+  ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
+  figura=tales([("A", 4.8), ("B", 2)], [("A'", (7.2, "x")), ("B'", 3)], "x"))
 
 
 # ---- exercici 153: figures en posició de Tales (triangles O-A-B i
@@ -265,7 +271,9 @@ Q("153a", 153, "a", B1, "A",
   [r"$k=\dfrac{OA'}{OA}=\dfrac{2{,}6}{2}=1{,}3$",
    r"$OC=\dfrac{OC'}{k}=\dfrac{11{,}7}{1{,}3}=9$ cm",
    "$BC=OC-OB=9-5=4$ cm"],
-  ex_text=E153)
+  ex_text=E153,
+  figura=tales([("A", 2), ("B", 5), ("C", None)],
+              [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC"))
 
 Q("153b", 153, "b", B1, "A",
   "Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val "
@@ -288,7 +296,9 @@ Q("153b", 153, "b", B1, "A",
   [r"$k=\dfrac{OB'}{OB}=\dfrac{12}{9}=\dfrac{4}{3}$",
    r"$OA=\dfrac{OA'}{k}=4\cdot\dfrac{3}{4}=3$ cm",
    "$AB=OB-OA=9-3=6$ cm"],
-  ex_text=E153)
+  ex_text=E153,
+  figura=tales([("A", None), ("B", 9), ("C", None)],
+              [("A'", 4), ("B'", 12), ("C'", 18)], "AB"))
 
 Q("153c", 153, "c", B1, "A",
   "Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant "
@@ -311,7 +321,9 @@ Q("153c", 153, "c", B1, "A",
   [r"$k=\dfrac{OC'}{OC}=\dfrac{36}{22{,}5}=1{,}6$",
    r"$OB=\dfrac{OB'}{k}=\dfrac{24}{1{,}6}=15$ cm",
    "$AB=OB-OA=15-5=10$ cm"],
-  ex_text=E153)
+  ex_text=E153,
+  figura=tales([("A", 5), ("B", None), ("C", 22.5)],
+              [("A'", None), ("B'", 24), ("C'", 36)], "AB"))
 
 
 # =====================================================================
@@ -351,7 +363,9 @@ Q("154a", 154, "a", B2, "A",
    "Aplica aquesta raó al costat de $5$ cm: $x=5\\cdot k$."],
   [r"$k=\dfrac{4}{3}$",
    r"$x=5\cdot\dfrac{4}{3}=\dfrac{20}{3}\approx6{,}67$ cm"],
-  ex_text=E154, nota=NOTA154)
+  ex_text=E154, nota=NOTA154,
+  figura=parella_semblants([("", 3), ("", 5), ("", None)],
+                           [("", 4), ("", "x"), ("", None)]))
 
 Q("154b", 154, "b", B2, "A",
   "Triangle petit de costats $8$ cm, $10$ cm i $7$ cm; triangle "
@@ -376,7 +390,9 @@ Q("154b", 154, "b", B2, "A",
    "Aplica aquesta raó als costats de $10$ cm i $7$ cm."],
   [r"$k=\dfrac{6}{8}=0{,}75$",
    r"$10\cdot0{,}75=7{,}5$ cm$\qquad 7\cdot0{,}75=5{,}25$ cm"],
-  ex_text=E154, nota=NOTA154)
+  ex_text=E154, nota=NOTA154,
+  figura=parella_semblants([("", 8), ("", 10), ("", 7)],
+                           [("", 6), ("", "x"), ("", "x")]))
 
 Q("154c", 154, "c", B2, "A",
   "Triangle petit de costat $6$ cm (desconegut als altres dos); "
@@ -404,7 +420,9 @@ Q("154c", 154, "c", B2, "A",
    "($3$ cm i $4$ cm)."],
   [r"$k=\dfrac{6}{5}=1{,}2$",
    r"$3\cdot1{,}2=3{,}6$ cm$\qquad 4\cdot1{,}2=4{,}8$ cm"],
-  ex_text=E154, nota=NOTA154)
+  ex_text=E154, nota=NOTA154,
+  figura=parella_semblants([("", 5), ("", 3), ("", 4)],
+                           [("", 6), ("", "x"), ("", "x")]))
 
 Q("154d", 154, "d", B2, "B",
   "Dos triangles isòsceles tenen els costats iguals de $5$ cm "
@@ -435,7 +453,9 @@ Q("154d", 154, "d", B2, "B",
   [r"Raó dels costats iguals: $\dfrac{5}{5}=1$",
    r"Raó de les bases: $\dfrac{3{,}2}{2}=1{,}6$",
    "Com que $1\\ne1{,}6$, els triangles NO són semblants."],
-  ex_text=E154, nota=NOTA154)
+  ex_text=E154, nota=NOTA154,
+  figura=parella_semblants([("", 2), ("", 5), ("", 5)],
+                           [("", 3.2), ("", 5), ("", 5)]))
 
 
 # ---- exercici 155: determinar si dos triangles són semblants ----
@@ -469,7 +489,10 @@ Q("155a", 155, "a", B2, "B",
    "Calcula $\\frac{5}{4}$ i $\\frac{6}{5}$ i compara-les."],
   [r"$\dfrac{5}{4}=1{,}25 \qquad \dfrac{6}{5}=1{,}2$",
    "Com que $1{,}25\\ne1{,}2$, els triangles NO són semblants."],
-  ex_text=E155)
+  ex_text=E155,
+  figura=parella_semblants([("", 4), ("", 5), ("", None)],
+                           [("", 5), ("", 6), ("", None)],
+                           angle_igual=("base_esq", "base_esq")))
 
 Q("155b", 155, "b", B2, "B",
   "Triangle de costats $11$ cm i $9{,}1$ cm amb angle comprès de "
@@ -500,7 +523,10 @@ Q("155b", 155, "b", B2, "B",
   [r"$\dfrac{9}{11}\approx0{,}818 \qquad \dfrac{7}{9{,}1}\approx0{,}769$",
    "Com que $0{,}818\\ne0{,}769$, els triangles NO són semblants "
    "pel criteri costat-angle-costat."],
-  ex_text=E155)
+  ex_text=E155,
+  figura=parella_semblants([("", 11), ("", 9.1), ("", None)],
+                           [("", 9), ("", 7), ("", None)],
+                           angle_igual=("base_esq", "base_esq")))
 
 
 # =====================================================================
@@ -533,7 +559,8 @@ Q("156a", 156, "a", B3, "A",
    "centímetres."],
   [r"$2\text{ km}=200\,000$ cm",
    r"Escala numèrica: $1:200\,000$"],
-  ex_text=E156)
+  ex_text=E156,
+  figura=escala_regla(1, "cm", "2 km"))
 
 Q("156b", 156, "b", B3, "A",
   "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és "
@@ -556,7 +583,8 @@ Q("156b", 156, "b", B3, "A",
    "centímetres."],
   [r"$50\text{ km}=5\,000\,000$ cm",
    r"Escala numèrica: $1:5\,000\,000$"],
-  ex_text=E156)
+  ex_text=E156,
+  figura=escala_regla(1, "cm", "50 km"))
 
 
 # ---- exercici 158: distància real -> distància al mapa ----
@@ -694,7 +722,8 @@ Q("161", 161, "", B4, "A",
   [r"$\dfrac{8}{10}=\dfrac{15}{x} \;\Longrightarrow\; "
    r"x=\dfrac{15\cdot10}{8}$",
    "$x=18{,}75$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(8, 10, 15, "x", "arbre petit", "arbre gran"))
 
 
 # ---- exercici 162: antena amb dos cables perpendiculars (Pitàgores) ----
@@ -749,7 +778,8 @@ Q("163", 163, "", B4, "A",
   [r"$\dfrac{6}{5}=\dfrac{10}{x} \;\Longrightarrow\; "
    r"x=\dfrac{5\cdot10}{6}=\dfrac{50}{6}$",
    "$x\\approx8{,}33$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(5, 6, "x", 10, "arbre", "edifici"))
 
 
 # ---- exercici 164: ombra pal -> ombra edifici ----
@@ -776,7 +806,8 @@ Q("164", 164, "", B4, "A",
   [r"$\dfrac{1}{1{,}5}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{1\cdot6}{1{,}5}$",
    "$x=4$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(1, 1.5, "x", 6, "pal", "edifici"))
 
 
 # ---- exercici 165: alçada de la pilota a mig recorregut (trajectòria
@@ -849,7 +880,8 @@ Q("166", 166, "", B4, "A",
    r"$\dfrac{1{,}70}{5}=\dfrac{x}{3\,000} \;\Longrightarrow\; "
    r"x=\dfrac{1{,}70\cdot3\,000}{5}$",
    "$x=1\\,020$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(1.70, 5, "x", 3000, "Anna", "muntanya"))
 
 
 # ---- exercici 167: altura d'edifici a partir de dues ombres i angles
@@ -916,7 +948,8 @@ Q("168", 168, "", B4, "A",
   [r"$\dfrac{1{,}6}{2}=\dfrac{450}{x} \;\Longrightarrow\; "
    r"x=\dfrac{2\cdot450}{1{,}6}=\dfrac{900}{1{,}6}$",
    "$x=562{,}5$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(1.6, 2, 450, "x", "Pere", "poble"))
 
 
 # ---- exercici 169: reflex d'un edifici en un bassal ----
@@ -944,7 +977,8 @@ Q("169", 169, "", B4, "A",
   [r"$\dfrac{1{,}75}{4}=\dfrac{52{,}5}{x} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot52{,}5}{1{,}75}$",
    "$x=120$ m"],
-  ex_text="")
+  ex_text="",
+  figura=ombra(1.75, 4, 52.5, "x", "home", "edifici"))
 
 Q("155c", 155, "c", B2, "B",
   "Triangle de costats $5$ cm i $7$ cm; triangle de costats $8$ cm "
@@ -982,7 +1016,9 @@ Q("155c", 155, "c", B2, "B",
    "no es pot afirmar que siguin semblants: calen els tres costats "
    "o un angle comprès per aplicar amb seguretat un criteri de "
    "semblança."],
-  ex_text=E155)
+  ex_text=E155,
+  figura=parella_semblants([("", 5), ("", 7), ("", None)],
+                           [("", 8), ("", 12.8), ("", None)]))
 
 Q("155d", 155, "d", B2, "B",
   "Triangle rectangle de catets $3$ cm i $5$ cm; triangle "
@@ -1014,7 +1050,15 @@ Q("155d", 155, "d", B2, "B",
    "Com que $3{,}33\\ne2{,}6$, els triangles NO són semblants pel "
    "criteri costat-angle-costat amb l'angle recte com a angle "
    "comprès."],
-  ex_text=E155)
+  ex_text=E155,
+  # `angle_recte=True` fa que la figura dibuixi el vèrtex "base_esq" amb
+  # angle recte de veritat (vegeu `mida_triangle` a figures/semblanca.py),
+  # sense necessitat de conèixer ni etiquetar la hipotenusa, que
+  # l'enunciat no dona.
+  figura=parella_semblants(
+      [("", 3), ("", 5), ("", None)],
+      [("", 10), ("", 13), ("", None)],
+      angle_igual=("base_esq", "base_esq"), angle_recte=True))
 
 Q("155e", 155, "e", B2, "B",
   "Triangle rectangle amb un angle agut de $50^\\circ$; triangle "

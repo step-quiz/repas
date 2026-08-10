@@ -50,8 +50,10 @@ irracionals, math.sqrt per contrastar l'arrodoniment) contrastant contra
 r-im11.tex abans d'escriure cap codi — coincidència exacta en els 45 casos,
 sense cap error trobat al solucionari font.
 """
+import math
 from fractions import Fraction as F
 from lib import Q, D, DT, tex, dificultats
+from figures import grafica_recta, grafica_parabola, nuvol_de_punts, grafica_funcio
 
 # --------------------------------------------------------------------
 # Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
@@ -292,7 +294,12 @@ Q("201a", 201, "a", B1, "A",
    r"$f(2)=5\cdot 4-1=19$, $f(-2)=5\cdot 4-1=19$ (el quadrat elimina "
    r"el signe).",
    r"$f(3)=5\cdot 9-1=44$, $f(-3)=44$, $f(1)=4$, $f(-1)=4$."],
-  ex_text=E201)
+  ex_text=E201,
+  # La resposta és la taula d'imatges (valors concrets de f(2), f(-2)...),
+  # no la forma de la paràbola: dibuixar-la sense marques no en revela
+  # cap valor, i com que l'expressió ja porta l'exponent, la corba no fa
+  # més que il·lustrar-la, no substituir el càlcul.
+  figura=grafica_parabola(5.0, 0.0, -1.0))
 
 Q("201b", 201, "b", B1, "A",
   r"$f(x)=2x^2-x$",
@@ -480,7 +487,11 @@ Q("203a", 203, "a", B1, "B",
    r"$\mathbb{R}-\{2\}$.",
    r"Tampoc toca mai la recta horitzontal $y=0$: el recorregut és "
    r"$\mathbb{R}-\{0\}$."],
-  ex_text=E203)
+  ex_text=E203,
+  figura=grafica_funcio(
+      lambda x: 1 / (x - 2), -3, 7, -5, 5,
+      "Gràfica amb dues branques que s'apropen a x=2 i a y=0 sense "
+      "tocar-les mai."))
 
 Q("203b", 203, "b", B1, "B",
   "Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems "
@@ -506,7 +517,11 @@ Q("203b", 203, "b", B1, "B",
    r"$[-3,4]$.",
    r"L'alçada oscil·la entre $-2$ i $3$, també inclosos: recorregut "
    r"$[-2,3]$."],
-  ex_text=E203)
+  ex_text=E203,
+  figura=grafica_funcio(
+      lambda x: 0.5 + 2.5 * __import__("math").sin(1.15 * (x + 3)),
+      -3, 4, -2.6, 3.6,
+      "Gràfica definida entre x=-3 i x=4, oscil·lant entre -2 i 3."))
 
 Q("203c", 203, "c", B1, "B",
   "Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense "
@@ -535,7 +550,11 @@ Q("203c", 203, "c", B1, "B",
    r"$\mathbb{R}$.",
    r"El valor més baix que assoleix $y$ és $-1$ (inclòs), i puja sense "
    r"límit: recorregut $[-1,+\infty)$."],
-  ex_text=E203)
+  ex_text=E203,
+  figura=grafica_funcio(
+      lambda x: x * x - 1, -4, 4, -2, 8,
+      "Gràfica amb un punt més baix, que puja indefinidament cap als "
+      "dos costats."))
 
 Q("203d", 203, "d", B1, "B",
   "Una gràfica que només existeix per a valors de $x$ fins a $5$ "
@@ -562,7 +581,13 @@ Q("203d", 203, "d", B1, "B",
    r"$(-\infty,5]$.",
    r"En alçada no hi ha cap límit, ni per amunt ni per avall: "
    r"recorregut $\mathbb{R}$."],
-  ex_text=E203)
+  ex_text=E203,
+  figura=grafica_funcio(
+      lambda x: math.sqrt(5 - x) if x <= 5 else None,
+      -4, 6, -6, 6,
+      "Gràfica que existeix fins a x=5, estenent-se indefinidament "
+      "amunt i avall.",
+      f2=lambda x: -math.sqrt(5 - x) if x <= 5 else None))
 
 
 # ---- exercici 206: estudi qualitatiu complet (domini, recorregut, "
@@ -599,6 +624,10 @@ Q("206a", 206, "a", B1, "B",
    r"tot el domini.",
    r"Com que no canvia mai de pujar a baixar, no té cap màxim ni "
    r"mínim."],
+  # SENSE figura: l'enunciat d'aquest apartat és purament qualitatiu
+  # (cap número), a diferència de 203a-d i 206b-c. Amb figura, un
+  # lector de pantalla no podria resoldre l'exercici sense veure-la
+  # (test_l_enunciat_es_resol_sense_veure_la_figura ho detecta).
   ex_text=E206)
 
 Q("206b", 206, "b", B1, "B",
@@ -635,7 +664,11 @@ Q("206b", 206, "b", B1, "B",
    r"creix: decreixent a $(-\infty,1)$, creixent a $(1,+\infty)$.",
    r"El punt $(1,-3)$, on canvia de decréixer a créixer, és un mínim "
    r"absolut."],
-  ex_text=E206)
+  ex_text=E206,
+  figura=grafica_funcio(
+      lambda x: (x - 1) ** 2 - 3, -3, 5, -4, 6,
+      "Paràbola oberta cap amunt, que baixa fins a un punt i després "
+      "torna a pujar."))
 
 Q("206c", 206, "c", B1, "B",
   "Una gràfica que puja fins a un punt més alt en $(0,2)$, després "
@@ -681,7 +714,17 @@ Q("206c", 206, "c", B1, "B",
    r"d'arribar a $(0,2)$ ja havia passat per valors per sota de "
    r"$y=-1$: el mínim $(3,-1)$ tampoc és el punt més baix de tota la "
    r"gràfica (també és relatiu)."],
-  ex_text=E206)
+  ex_text=E206,
+  # Rang ajustat als dos extrems locals (no al comportament asimptòtic
+  # sencer que la resposta llarga descriu): amb un rang més ample el
+  # tram creixent de fora de [0,3] domina el dibuix i el màxim/mínim
+  # locals deixen de distingir-se a ull. f(x)=(2/9)x³-x²+2 resol
+  # f(0)=2, f(3)=-1, f'(0)=f'(3)=0 amb f''(0)<0<f''(3) (màxim i mínim,
+  # no punts d'inflexió) — comprovat amb sympy abans d'integrar-ho.
+  figura=grafica_funcio(
+      lambda x: (2 / 9) * x ** 3 - x ** 2 + 2, -1.2, 4.2, -2.5, 3.5,
+      "Gràfica que puja fins a un punt més alt, després baixa fins a "
+      "un punt més baix, i torna a pujar."))
 
 
 # =====================================================================
@@ -725,7 +768,11 @@ for _ap, (_m, _n) in _207.items():
       [r"A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.",
        r"$%s$ té $m=%s$ i $n=%s$."
        % (_207_EXPR[_ap], frac_tex(_m), frac_tex(_n))],
-      ex_text=E207)
+      ex_text=E207,
+      # m i n ja són explícits a l'expressió donada (no cal "llegir-los"
+      # del dibuix): la figura només il·lustra una dada ja completa, a
+      # diferència de 297, on m/n eren la incògnita descrita amb paraules.
+      figura=grafica_recta(float(_m), float(_n)))
 
 
 # ---- exercici 208: creixent o decreixent, sense representar ----
@@ -804,7 +851,12 @@ for _ap, (_p1, _p2) in _209.items():
        r"Com que el punt $%s$ té $x=0$, la seva $y$ ja és l'ordenada "
        r"a l'origen: $n=%s$." % (punt_tex(_x1, _y1), frac_tex(_n)),
        r"L'expressió és %s." % recta_tex(_m, _n)],
-      ex_text=E209)
+      ex_text=E209,
+      # nuvol_de_punts, no grafica_recta: els dos punts són la dada i
+      # la recta que els uneix és la incògnita (l'expressió y=mx+n
+      # sencera). Traçar-hi la recta regalaria la resposta.
+      figura=nuvol_de_punts([(float(_x1), float(_y1)),
+                              (float(_x2), float(_y2))]))
 
 
 # =====================================================================
@@ -884,7 +936,11 @@ for _ap, _c in _214.items():
        r"Per això el vèrtex passa de $(0,0)$ a $(0,c)$: si el vèrtex "
        r"donat és $%s$, aleshores $c=%s$."
        % (punt_tex(0, _c), frac_tex(_c))],
-      ex_text=E214)
+      ex_text=E214,
+      # marca_vertex=True: el vèrtex (0,c) és la DADA (l'enunciat el
+      # dona en paraules); la incògnita és el número c, no la posició
+      # del vèrtex, així que marcar-lo no regala la resposta.
+      figura=grafica_parabola(1, 0, float(_c), marca_vertex=True))
 
 
 # ---- exercici 215: expressió d'una paràbola des del vèrtex i un punt ----
@@ -906,7 +962,10 @@ Q("215", 215, "", B3, "A",
   [r"El vèrtex $(0,1)$ dona $c=1$: l'expressió és $y=ax^2+1$.",
    r"Substituint el punt $(1,2)$: $2=a\cdot 1^2+1$, per tant $a=1$.",
    r"L'expressió és $y=x^2+1$."],
-  ex_text="Calcula l'expressió algebraica de la paràbola.")
+  ex_text="Calcula l'expressió algebraica de la paràbola.",
+  # marca_vertex=True: (0,1) és una dada de l'enunciat, no la resposta
+  # (la resposta és l'expressió y=x²+1 sencera, amb els coeficients a i c).
+  figura=grafica_parabola(1, 0, 1, marca_vertex=True))
 
 
 # ---- exercici 216: talls, vèrtex i eix de simetria ----
@@ -964,7 +1023,13 @@ for _ap, (_expr, _a, _b) in _216.items():
        r"$x=%s$." % frac_tex(_eix),
        r"El vèrtex és $%s$, substituint $x=%s$ a l'expressió."
        % (punt_tex(_eix, _vy), frac_tex(_eix))],
-      ex_text=E216)
+      ex_text=E216,
+      # SENSE marca_vertex ni marca_talls: aquí el vèrtex, els talls I
+      # l'eix de simetria són exactament el que es demana calcular.
+      # Una figura "més informativa" que els marqués respondria
+      # l'exercici sencer pel dibuix (vegeu la nota al capdamunt del
+      # mòdul grafics.py i el brief de l'agent xtec).
+      figura=grafica_parabola(float(_a), float(_b), 0.0))
 
 
 # ---- exercici 217: analitza sense representar ----
@@ -1002,6 +1067,10 @@ Q("217a", 217, "a", B3, "B",
    r"El coeficient de $x^2$ és $-2$: negatiu, oberta cap avall; "
    r"$|-2|>1$, més estreta que $y=x^2$.",
    r"El vèrtex és $(0,4)$, ja que no hi ha terme en $x$."],
+  # SENSE FIGURA, decidit al merge: l'enunciat diu literalment «sense
+  # representar-les», i posar-hi la gràfica el contradiu. L'exercici demana
+  # deduir la forma de la corba del signe dels coeficients; ensenyar-la
+  # converteix una deducció en una lectura.
   ex_text=E217)
 
 Q("217b", 217, "b", B3, "B",
@@ -1027,4 +1096,8 @@ Q("217b", 217, "b", B3, "B",
    r"una paràbola.",
    r"El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a "
    r"l'origen és $-3$."],
+  # SENSE FIGURA, decidit al merge: l'enunciat diu literalment «sense
+  # representar-les», i posar-hi la gràfica el contradiu. L'exercici demana
+  # deduir la forma de la corba del signe dels coeficients; ensenyar-la
+  # converteix una deducció en una lectura.
   ex_text=E217)
