@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Exercici — Repàs d'ESO</title>
 <link rel="stylesheet" href="css/estil.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
 </head>
 <body>
 <main class="embolcall" id="main">
@@ -25,7 +25,7 @@
     <figure class="figura-cont" id="figura" hidden></figure>
     <div class="nota" id="nota" hidden></div>
 
-    <div class="pistes" id="pistes"></div>
+    <div class="pistes" id="pistes" aria-live="polite"></div>
 
     <div class="accions">
       <button class="btn pista" id="pista">Demana una pista</button>
@@ -33,17 +33,17 @@
     </div>
 
     <div id="zona-resposta" hidden>
-      <div class="opcions" id="opcions"></div>
+      <div class="opcions" id="opcions" role="radiogroup" aria-labelledby="enunciat"></div>
       <div class="accions">
         <button class="btn" id="comprova" disabled>Comprova la resposta</button>
       </div>
     </div>
 
-    <div class="veredicte" id="veredicte" hidden></div>
+    <div class="veredicte" id="veredicte" aria-live="polite"></div>
     <div class="accions">
       <button class="btn buit" id="veure" hidden>Mostra la resolució</button>
     </div>
-    <div class="resolucio" id="resolucio" hidden></div>
+    <div class="resolucio" id="resolucio" aria-live="polite"></div>
 
     <div class="accions">
       <button class="btn buit" id="anterior">← Anterior</button>

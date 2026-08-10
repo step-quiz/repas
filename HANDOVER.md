@@ -49,7 +49,7 @@ vagi un per sota del número de fitxer:
 | 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | +4 | 47 |
 | 10 | Funcions | `im11.tex` | 200–217 | 45 | +28 | 73 |
 | 11 | Estadística | `im12.tex` | 218–235 | 52 | +39 | 91 |
-| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 | — | 67 |
+| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259, 305–320 | 67 | +28 | 95 |
 
 **Aquesta taula és normativa.** Està repetida al capdamunt de `js/inici.js`
 perquè qui hi arribi primer la trobi sense buscar-la.
@@ -160,7 +160,7 @@ controladors surten amb un `if (!window.FULL) return;`.
 
 ---
 
-### 3.3bis Contingut nou (Fulls 6, 8, 10 i 11)
+### 3.3bis Contingut nou (Fulls 6, 8, 10, 11 i 12)
 
 Quatre mòduls **no transcriuen res de la font**; són material escrit per tapar
 els buits que va detectar l'auditoria:
@@ -171,6 +171,13 @@ els buits que va detectar l'auditoria:
 | `c_percentatges.py` | 6 | 275–284 | El full sencer tenia 21 preguntes |
 | `c_escales.py` | 8 | 285–294 | Res sobre com afecta la raó *k* a àrees i volums |
 | `c_funcions_prod.py` | 10 | 295–304 | Només 8 de 45 preguntes demanaven construir res |
+
+Un cinquè bloc de contingut nou, 305–320, es va afegir més tard al mòdul
+`c_probabilitat.py` que ja existia (a diferència dels quatre de dalt, no és
+un fitxer nou: els 236–259 originals de la font hi conviuen amb els 305–320
+escrits després), per tapar el buit de probabilitat composta i condicionada
+que el full 12 no cobria. Numeració a partir del 305, no del 260, perquè el
+260–304 ja estava ocupat pels quatre blocs anteriors.
 
 Tres coses per saber si s'hi torna:
 
@@ -600,6 +607,28 @@ Si algun dia arriba material nou (un `im14.tex`), el circuit és:
 
 ---
 
+## 6ter. Com està preparat per treballar-hi en paral·lel
+
+Quatre peces del projecte són estat compartit que tothom qui afegeix contingut
+vol tocar. Estan repartides perquè diverses persones (o diversos agents)
+puguin treballar-hi alhora sense trepitjar-se:
+
+| Peça | Abans | Ara |
+|---|---|---|
+| Figures | `tools/figures.py`, un fitxer | Paquet `tools/figures/` amb un mòdul per tema |
+| Catàleg d'errors | `TAX = {...}` dins de `lib.py` | Paquet `tools/tax/`, fusionat, **avortant si una clau es duplica amb text diferent** |
+| Blocs d'un full | `FULLS[N]["blocs"]` a build.py | També `lib.blocs([...], despres=...)` des del mòdul |
+| Proves del banc | `tests/test_banc.py` | `comu.py` + quatre fitxers per tema |
+
+La protecció que importa és la del catàleg: dos autors que defineixen la
+mateixa etiqueta volent dir coses diferents es fusionarien **sense soroll**, i
+el panell «els errors que repeteixes» passaria a dir una cosa que no toca. Amb
+l'avortament, això és un build trencat amb un missatge que diu on són les dues.
+
+Les llistes centrals segueixen funcionant: el que ja hi era no s'ha mogut, i
+`build_tot.py` produeix exactament els mateixos bytes que abans del repartiment.
+Vegeu `TECHNICAL-STATE.md` §9 per al pla de vies i el protocol de merge.
+
 ## 6bis. Proves
 
 `sh tests/executa.sh`, sense instal·lar res. Es fa servir `unittest` i no
@@ -622,6 +651,29 @@ També hi ha `TaulesCoherents`, que compara els recomptes del `README`, del
 `HANDOVER` i de `data/`. Existeix perquè van desfasar-se de debò i la portada
 va arribar a dir «0/21» d'un full que en tenia 48; ara `js/inici.js` els
 deriva de `RE_TAULES` en comptes de portar-los escrits.
+
+## 6quater. Esmenes fetes al tancament del merge
+
+Quatre defectes que cap prova automàtica va atrapar i que es van trobar
+llegint. Val la pena saber-los perquè són els patrons que es repeteixen:
+
+1. **12/305b** — un distractor valia `6/25`, exactament el mateix que la
+   clau (`6/10·4/10` contra `4/10·6/10`). La seva pròpia retroacció ho
+   admetia: «el resultat numèric coincideix per casualitat». Una opció amb
+   el valor correcte no es pot marcar com a errònia, digui el que digui el
+   text. Substituït per `2·(4/10)(6/10)=12/25`, que modela comptar els dos
+   ordres quan se'n demana un. **Hi ha prova nova**: vegeu
+   `tests/test_opcions_distintes.py`.
+2. **Unitats de les figures** — el patró `"%g cm" % valor` portava la unitat
+   cablejada i el separador decimal amb punt. El 7/130 i el 7/140b-d deien
+   metres a l'enunciat i centímetres a la figura, i el 140c mostrava
+   `4.13 cm`. Ara totes les cotes passen per `figures.mesura(valor, unitat)`,
+   i les plantilles accepten `unitat=`.
+3. **10/301a-c** — la gràfica no marcava res, però amb la corba dibuixada
+   dos dels tres distractors s'eliminaven només mirant per quin costat
+   creuava els eixos. Retirada.
+4. **10/217a-b** — l'enunciat diu «sense representar-les» i portaven
+   gràfica. Retirada, i hi ha prova que ho vigila.
 
 ## 7. Límits coneguts
 

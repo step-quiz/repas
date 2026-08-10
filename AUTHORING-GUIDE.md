@@ -211,14 +211,20 @@ esmenta els números concrets de l'exercici. Afegir l'etiqueta a `TAX` val la
 pena igualment, encara que cap ús acabi sent `DT()`: documenta la taxonomia
 del malentès i permet agregar-lo entre fulls.
 
-### 4.3 Etiquetes noves a `TAX`
+### 4.3 Etiquetes noves al catàleg
 
-Afegiu-les **al final** del diccionari, just abans de la clau de tancament.
-No reordeneu, renombreu ni esborreu cap etiqueta existent: els
-`REVISIO-fullN.html` ja generats les referencien per cadena exacta.
+El catàleg viu a `tools/tax/`, repartit en mòduls per tema. **Creeu el vostre
+`tax_<tema>.py`** amb un diccionari `TAX = {...}` i prou; `tax/__init__.py` el
+troba sol. No toqueu `tax_nucli.py`, que està congelat.
 
-Agrupeu-les sota una capçalera d'una línia, `# ---- <tema> (Full <N>) ----`,
-com fan les de potències, successions, polinomis, estadística i probabilitat.
+No reanomeneu ni esborreu cap etiqueta existent: els `REVISIO-fullN.html` ja
+generats les referencien per cadena exacta, i el codi de verificació en guarda
+l'ÍNDEX (vegeu `tools/codi-etiquetes.txt`).
+
+Si el nom que voleu ja existeix en un altre mòdul amb un text diferent, **la
+compilació s'atura** i us diu on són les dues. És a posta: dues etiquetes amb
+el mateix nom i sentits diferents es fusionarien en silenci i el panell d'errors
+repetits diria una cosa que no toca.
 
 ### 4.4 L'etiqueta ha de dir QUIN error és, no només que n'hi ha un
 

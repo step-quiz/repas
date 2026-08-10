@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 864 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 892 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -24,7 +24,7 @@ personalitzat d'exercicis.
 | 9 | Cossos geomètrics. Àrea i volum | 4 | 47 |
 | 10 | Funcions | 5 | 73 |
 | 11 | Estadística | 5 | 91 |
-| 12 | Combinatòria i probabilitat | 4 | 67 |
+| 12 | Combinatòria i probabilitat | 4 | 95 |
 
 ## Navegació
 
