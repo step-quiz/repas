@@ -187,9 +187,17 @@
       Array.prototype.forEach.call(caixa.children, function (c) { c.disabled = true; });
       $("#comprova").hidden = true;
       $("#pista").hidden = true;
+      /* La resolució NO es mostra mai tota sola, encertis o fallis: és
+         l'alumne qui l'ha de demanar prement aquest botó, igual que demanar
+         una pista és decisió seva. Abans hi havia un
+         `if (!encert) $("#veure").click()` que la mostrava d'ofici quan
+         s'esgotaven els dos intents, i això té dos problemes: converteix
+         "mirar la resolució" en una cosa que li PASSA a l'alumne en lloc
+         d'una cosa que ell fa, i trenca la simetria amb el cas d'encert
+         (si respons bé, ningú et clica el botó per tu). El botó es queda
+         sempre visible i sempre per prémer; mai premut per l'aplicació. */
       $("#veure").hidden = false;
       $("#seguent").hidden = false;
-      if (!encert) $("#veure").click();
     }
   };
 
