@@ -28,6 +28,8 @@ npm install --no-save jsdom
 | `test_figures.py` | 9 | Les figures i la coherència geomètrica dels enunciats |
 | `codi.test.js` | 25 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1 |
 | `analitzador.test.js` | 24 | L'analitzador amb un DOM real |
+| `test_a11y.js` | 28 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex |
+| `test_flux_resolucio.js` | 15 | La resolució no s'ofereix mai sense una acció explícita de l'alumne |
 | `arnes.js` | — | L'arnès de proves de JavaScript, quinze línies |
 
 Cada fitxer es pot executar sol:

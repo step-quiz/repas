@@ -26,6 +26,14 @@ echo "── JavaScript: analitzador ──────────────�
 node tests/analitzador.test.js || fallades=1
 
 echo
+echo "── JavaScript: accessibilitat de practica.html i diagnostic.html ──"
+node tests/test_a11y.js || fallades=1
+
+echo
+echo "── JavaScript: la resolució no s'ofereix sola ────────────────"
+node tests/test_flux_resolucio.js || fallades=1
+
+echo
 if [ "$fallades" -eq 0 ]; then
   printf '\033[32m✓ Tot en verd.\033[0m\n'
 else
