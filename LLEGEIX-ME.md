@@ -1,107 +1,68 @@
-# Fase 3: recuperació d'exercicis exclosos
+# Bug de UX/pedagogia: la resolució no s'ofereix sola
 
-**Puja aquests 13 fitxers** sobre l'estat de la fase 2.
+**Puja aquests 5 fitxers** sobre l'estat que ja tens publicat.
 
-Quatre exercicis recuperats, **un error trobat**, i un problema d'arquitectura
-resolt que hauria petat a la primera recuperació.
+## El bug
 
----
+A `js/practica.js`, dins de `$("#comprova").onclick`, quan l'exercici es
+tancava:
 
-## La tècnica: contrastar l'apotema
+```js
+if (!encert) $("#veure").click();
+```
 
-Els exercicis del 170 estaven exclosos perquè les cotes només eren al dibuix i
-no es podia saber quina anava a quina aresta. Però quan el llibre dona
-l'**apotema** d'un polígon regular, la lectura es pot **verificar**: l'apotema
-ha de complir
+Si l'últim intent era erroni, el propi codi **clicava el botó "Mostra la
+resolució" en nom de l'alumne**. La resolució apareixia sense que ell
+l'hagués demanada.
 
-$$a = \frac{s}{2\tan(\pi/n)}$$
+És un bug real, no d'estil, per dos motius:
 
-Si la lectura i la fórmula quadren, la cota està ben assignada. Si no, s'ha
-llegit malament. No cal endevinar res.
+- **Mirar la resolució ha de ser una decisió de l'alumne**, presa amb un
+  gest propi — igual que demanar una pista és decisió seva. Que
+  l'aplicació la mostri sola converteix «veure la resolució» en una cosa
+  que li **passa** a l'alumne, no en una cosa que **ell fa**.
+- **Trenca la simetria amb el cas d'encert.** Si respons bé, ningú et
+  clica el botó per tu. Si falles els dos intents, sí. No hi ha cap raó
+  pedagògica per al tracte diferent.
 
-| Exercici | Lectura | Fórmula | Llibre | |
-|---|---|---:|---:|---|
-| 170d | pentàgon de costat 5 | 3,441 | 3,44 | ✔ |
-| 170g | hexàgon de costat 8 | 6,928 | 6,93 | ✔ |
-| 170h | hexàgon de costat 5 | 4,330 | 4,25 | ✔ (arrodoniment) |
-| 170i | octàgon de costat 6 | 7,243 | 7,24 | ✔ |
-| **170c** | **hexàgon de costat 8** | **6,928** | **5,20** | **✗** |
+La línia ve de lluny —hi era ja abans del treball en paral·lel— i va
+sobreviure perquè cap prova mirava aquest camí concret: `test_a11y.js`
+audita el DOM de `practica.html` a fons, però comprova ATRIBUTS
+(role, aria-checked, aria-live...), no el MOMENT en què es dispara
+l'acció, i per això no el va atrapar.
 
-## L'error trobat
+## La correcció
 
-**El 170c estava malament, i l'hi havia posat jo al punt 9.** Estava transcrit
-com a «hexàgon de costat 8 cm i apotema 5,2 cm, amb 6 cm d'altura», i un
-hexàgon de costat 8 té apotema 6,93, no 5,2 — un 33 % de diferència. Amb
-costat 6 la fórmula dona 5,196, que és el 5,2 del llibre. **La cota de 8 era
-l'altura.**
+Treure la línia i prou. El botó queda sempre visible i sempre per prémer;
+mai premut per l'aplicació.
 
-La resposta passa de 537,6 cm² a **475,2 cm²**, i els distractors s'han refet.
+## Prova nova
 
-Hi ha una prova nova (`ApotemesCoherents`) que comprova això a tot el banc a
-cada execució, i que hauria atrapat l'error el dia que es va introduir.
+`tests/test_flux_resolucio.js`, 15 comprovacions amb un DOM real
+(jsdom), que fixen la propietat perquè no hi torni:
 
-## Els quatre recuperats
+- `#resolucio` i `#veredicte` buits en obrir l'exercici
+- Segueixen buits triant i comprovant una opció incorrecta (1r intent)
+- **El punt clau**: quan l'exercici es tanca després del 2n intent
+  erroni, el botó «Mostra la resolució» és visible però `#resolucio`
+  **segueix buit** — ningú l'ha premut encara
+- Només prement el botó explícitament apareix la resolució
+- El mateix per al cas d'encert (simetria)
 
-| | Enunciat | Resposta |
-|---|---|---|
-| 170f | Cub d'aresta 7 cm | 294 cm² |
-| 170g | Prisma hexagonal, costat 8, apotema 6,93, altura 12 | 908,64 cm² |
-| 170h | Prisma hexagonal, costat 5, apotema 4,25, altura 11 | 457,5 cm² |
-| 170i | Prisma octogonal, costat 6, apotema 7,24, altura 15 | 1 067,52 cm² |
+Reprodueix el bug del codi original abans d'arreglar-lo: amb la línia
+`if (!encert) $("#veure").click();` posada, **2 de les 15 fallen**
+exactament als punts que l'esperaven.
 
-Tots quatre amb figura, i **també s'han posat figures als 170a–d**, que ja hi
-eren però es descrivien només amb paraules. Dues plantilles noves a
-`figures.py`: `prisma_regular(n, costat, altura, apotema)` i `cub(aresta)`,
-totes dues en perspectiva cavallera com al llibre. Més `ortoedre(a, b, c)`.
+## De propina
 
-## El problema d'arquitectura, i com s'ha resolt
+`tests/test_a11y.js` (de l'agent d'accessibilitat) existia però **no
+estava connectat** a `tests/executa.sh` — les seves 28 comprovacions no
+corrien mai amb la resta. Ara sí. La suite completa puja de 173+49=222 a
+**265 comprovacions**, totes en verd.
 
-Fins ara la regla era **«el contingut nou va sempre al final del full»**,
-perquè el codi de verificació guarda els estats per posició i moure'ls
-invalidaria tots els codis emesos.
+## Provar-ho
 
-**Aquesta regla es trenca sola en recuperar exercicis.** El 170f va entre el
-170e i el 171, no al final del Full 9. Posar-lo al final seria absurd per a
-l'alumne; posar-lo al seu lloc desplaça 30 posicions.
-
-La solució ha estat **separar les dues coses**:
-
-- **Ordre de presentació** — el de `data/fullN.js`, pedagògic. El bloc dels
-  prismes va `170a 170b … 170i 171 172 …`.
-- **Ordre de codificació** — `tools/codi-ordre.json`, **append-only**. Els
-  recuperats hi van al final; els que ja hi eren no es mouen mai.
-
-`build_codi.py` ho gestiona sol. Efecte comprovat: **el codi de prova que em
-vas enviar es continua llegint idèntic**, amb els seus 7 exercicis i els
-identificadors correctes.
-
-Com a conseqüència, els blocs de `codi-taules.js` passen de ser un **rang** a
-una **llista de posicions**: en aquest ordre ja no són contigus, i un rang
-s'empassaria mig full. L'analitzador s'hi ha adaptat.
-
-## Què NO s'ha recuperat, i per què
-
-Dels 22 exclosos, en queden fora aquests, i no per manca de ganes:
-
-| | Per què |
-|---|---|
-| 7 · 139, 145a/b/d | Figures compostes sense cap dada contrastable: quina cota va a quina aresta és exactament el que no es pot llegir |
-| 8 · 152d/g/h | Tres rectes paral·leles amb tres incògnites i cotes minúscules |
-| 8 · 157 | Demana amidar el dibuix amb un regle: no té resposta fixa |
-| 9 · 170j, 178, 192, 194, 195b/d/g | Cossos compostos sense apotema ni cap altra dada que permeti verificar la lectura |
-| 10 · 204, 205, 210, 211, 213 | La pàgina del Full 10 no és al PDF que em vas passar |
-| 11 · 233 | Ídem, i a més depèn d'un gràfic de línies |
-
-**Per als del Full 10 i l'11 només caldria la pàgina corresponent del llibre.**
-Per als altres, endevinar quina cota va a quina aresta donaria exercicis amb
-la resposta equivocada, que és pitjor que un buit documentat.
-
-## Verificació
-
-- Els sis prismes regulars del banc, **recalculats de zero** amb `Fraction`:
-  cap discrepància.
-- Les cinc apotemes, contrastades amb la fórmula.
-- Prova nova `ApotemesCoherents` sobre tot el banc.
-- Tres proves noves sobre l'ordre append-only i els blocs com a llista.
-- La suite passa de 119 a **123 comprovacions**, totes en verd.
-- El codi RC1 de prova segueix llegint-se idèntic.
+```sh
+npm install --no-save jsdom     # si encara no hi és
+sh tests/executa.sh
+```

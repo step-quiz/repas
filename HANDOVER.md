@@ -675,6 +675,46 @@ llegint. Val la pena saber-los perquè són els patrons que es repeteixen:
 4. **10/217a-b** — l'enunciat diu «sense representar-les» i portaven
    gràfica. Retirada, i hi ha prova que ho vigila.
 
+## 6quinquies. Bug de UX/pedagogia corregit: la resolució no s'ofereix sola
+
+`js/practica.js` tenia aquesta línia dins de `$("#comprova").onclick`, quan
+l'exercici es tancava:
+
+```js
+if (!encert) $("#veure").click();
+```
+
+Si l'últim intent era erroni, el propi codi CLICAVA el botó "Mostra la
+resolució" en nom de l'alumne: la resolució apareixia sense que ell l'hagués
+demanada. És un bug real, no només d'estil, per dos motius:
+
+- Converteix "mirar la resolució" en una cosa que li **passa** a l'alumne, en
+  comptes d'una cosa que **ell decideix fer**, trencant la mateixa lògica que
+  fa que les pistes siguin sempre una petició explícita.
+- Trenca la simetria amb el cas d'encert: si respons bé, ningú et clica el
+  botó per tu; si falles els dos intents, sí. No hi ha cap raó pedagògica per
+  al tracte diferent.
+
+**Arrel del bug.** La línia és de sempre (hi era ja a `js/practica.js` abans
+del treball en paral·lel), però va sobreviure sense que cap prova la
+detectés perquè cap prova mirava aquest camí. `tests/test_a11y.js` (la via
+d'accessibilitat) prova el DOM de `practica.html` en profunditat i tampoc no
+el va atrapar, perquè no és un problema d'accessibilitat: els atributs eren
+correctes, el que fallava és QUAN es disparava l'acció.
+
+**La correcció** és treure la línia i prou: el botó es queda visible i
+sempre per prémer, mai premut per l'aplicació.
+
+**`tests/test_flux_resolucio.js` és nou** i fixa la propietat perquè no hi
+torni: comprova, amb un DOM real, que `#resolucio` es queda buit fins que
+l'alumne prem el botó explícitament, tant si l'última resposta és correcta
+com si no. Es descobreix la fila d'opcions correcta/incorrectes llegint
+`data-orig` contra `RE.clau(item).ok`, no per posició (les opcions es
+pinten barrejades a cada càrrega).
+
+Aquest fitxer i `tests/test_a11y.js` (que ja existia però no estava
+connectat) ara formen part de `tests/executa.sh`.
+
 ## 7. Límits coneguts
 
 - **Un sol navegador.** Tot és `localStorage`: no hi ha comptes ni

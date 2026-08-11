@@ -1,1879 +1,254 @@
 diff -ru a/HANDOVER.md b/HANDOVER.md
---- a/HANDOVER.md	2026-08-06 09:54:48.384495916 +0000
-+++ b/HANDOVER.md	2026-08-06 09:54:48.386264162 +0000
-@@ -46,7 +46,7 @@
- | 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 21 | +27 | 48 |
- | 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 55 | — | 55 |
- | 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 32 | +27 | 59 |
--| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | — | 43 |
-+| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 43 | +4 | 47 |
- | 10 | Funcions | `im11.tex` | 200–217 | 45 | +28 | 73 |
- | 11 | Estadística | `im12.tex` | 218–235 | 52 | +39 | 91 |
- | 12 | Combinatòria i probabilitat | `im13.tex` | 236–259 | 67 | — | 67 |
-@@ -176,12 +176,16 @@
+--- a/HANDOVER.md	2026-08-11 06:37:40.015193673 +0000
++++ b/HANDOVER.md	2026-08-11 06:37:40.016715270 +0000
+@@ -675,6 +675,46 @@
+ 4. **10/217a-b** — l'enunciat diu «sense representar-les» i portaven
+    gràfica. Retirada, i hi ha prova que ho vigila.
  
- - **Numeració a partir del 260.** Els números 1–259 són els de la font.
-   Barrejar-hi material nou faria impossible saber d'on surt cada exercici.
--- **Els mòduls nous van SEMPRE els últims** a la llista `moduls` del seu full.
--  L'ordre dels ítems al banc és l'ordre d'inscripció, i el codi de verificació
--  guarda els estats per POSICIÓ: si els ítems nous no s'afegissin al final,
--  tots els codis ja emesos passarien a llegir-se malament. Comprovat als
--  quatre fulls ampliats: els ítems que hi havia segueixen exactament a les
--  mateixes posicions, i el codi de proves d'abans es continua llegint igual.
-+- **L'ordre de codificació ja no lliga l'ordre de presentació.** El codi de
-+  verificació guarda els estats per POSICIÓ, i al principi això s'aconseguia
-+  amb una regla de disciplina: el contingut nou anava sempre al final del
-+  full. La regla es trenca sola quan es recupera un exercici que faltava,
-+  perquè el 170f va entre el 170e i el 171, no al final. Ara
-+  `tools/codi-ordre.json` desa l'ordre de CODIFICACIÓ i és **append-only**:
-+  un exercici nou s'insereix on toca per a l'alumne i s'afegeix al final
-+  d'aquella llista per al codi. Ho gestiona `build_codi.py` tot sol.
-+  Conseqüència: els blocs de `codi-taules.js` es donen com a **llista de
-+  posicions**, no com a rang, perquè en aquest ordre no són contigus.
- - **El tutor hi ha d'apuntar.** Els blocs nous no serveixen de res si el test
-   inicial no hi porta ningú. S'ha ampliat la llista `blocs` de les proves de
-   percentatges, escales, paràboles i estadística; els blocs abastables pel
-diff -ru a/README.md b/README.md
---- a/README.md	2026-08-06 09:54:48.392017549 +0000
-+++ b/README.md	2026-08-06 09:54:48.393658420 +0000
-@@ -4,7 +4,7 @@
- batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
- dependències. Obre `index.html`.
++## 6quinquies. Bug de UX/pedagogia corregit: la resolució no s'ofereix sola
++
++`js/practica.js` tenia aquesta línia dins de `$("#comprova").onclick`, quan
++l'exercici es tancava:
++
++```js
++if (!encert) $("#veure").click();
++```
++
++Si l'últim intent era erroni, el propi codi CLICAVA el botó "Mostra la
++resolució" en nom de l'alumne: la resolució apareixia sense que ell l'hagués
++demanada. És un bug real, no només d'estil, per dos motius:
++
++- Converteix "mirar la resolució" en una cosa que li **passa** a l'alumne, en
++  comptes d'una cosa que **ell decideix fer**, trencant la mateixa lògica que
++  fa que les pistes siguin sempre una petició explícita.
++- Trenca la simetria amb el cas d'encert: si respons bé, ningú et clica el
++  botó per tu; si falles els dos intents, sí. No hi ha cap raó pedagògica per
++  al tracte diferent.
++
++**Arrel del bug.** La línia és de sempre (hi era ja a `js/practica.js` abans
++del treball en paral·lel), però va sobreviure sense que cap prova la
++detectés perquè cap prova mirava aquest camí. `tests/test_a11y.js` (la via
++d'accessibilitat) prova el DOM de `practica.html` en profunditat i tampoc no
++el va atrapar, perquè no és un problema d'accessibilitat: els atributs eren
++correctes, el que fallava és QUAN es disparava l'acció.
++
++**La correcció** és treure la línia i prou: el botó es queda visible i
++sempre per prémer, mai premut per l'aplicació.
++
++**`tests/test_flux_resolucio.js` és nou** i fixa la propietat perquè no hi
++torni: comprova, amb un DOM real, que `#resolucio` es queda buit fins que
++l'alumne prem el botó explícitament, tant si l'última resposta és correcta
++com si no. Es descobreix la fila d'opcions correcta/incorrectes llegint
++`data-orig` contra `RE.clau(item).ok`, no per posició (les opcions es
++pinten barrejades a cada càrrega).
++
++Aquest fitxer i `tests/test_a11y.js` (que ja existia però no estava
++connectat) ara formen part de `tests/executa.sh`.
++
+ ## 7. Límits coneguts
  
--**Els 12 fulls tenen banc de preguntes: 860 preguntes en total**, cobrint els
-+**Els 12 fulls tenen banc de preguntes: 864 preguntes en total**, cobrint els
- 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
- de 15 destreses clau que situa l'alumne i li genera un itinerari
- personalitzat d'exercicis.
-@@ -21,7 +21,7 @@
- | 6 | Proporcionalitat i percentatges | 5 | 48 |
- | 7 | Teorema de Pitàgores. Àrees | 4 | 55 |
- | 8 | Teorema de Tales. Semblança | 6 | 59 |
--| 9 | Cossos geomètrics. Àrea i volum | 4 | 43 |
-+| 9 | Cossos geomètrics. Àrea i volum | 4 | 47 |
- | 10 | Funcions | 5 | 73 |
- | 11 | Estadística | 5 | 91 |
- | 12 | Combinatòria i probabilitat | 4 | 67 |
-@@ -185,7 +185,7 @@
- |---|---|---|
- | 7 | 139 sencer, 145a/b/d | La font no arriba a cap valor numèric per a aquestes figures |
- | 8 | 152d/g/h, 157 sencer | Tres rectes paral·leles il·legibles; el 157 demana mesurar amb regle sobre el dibuix |
--| 9 | 170f–j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
-+| 9 | 170j, 178, 192, 194, 195b/d/g | Mesures no assignables amb seguretat a cada peça de la figura |
- | 10 | 204, 205, 210, 211, 213 | Demanen dibuixar o relacionar gràfiques: no es poden convertir en pregunta de resposta fixa |
- | 11 | 233 sencer | Depèn d'un gràfic de línies del qual no es poden llegir les xifres |
+ - **Un sol navegador.** Tot és `localStorage`: no hi ha comptes ni
+diff -ru a/js/practica.js b/js/practica.js
+--- a/js/practica.js	2026-08-11 06:37:40.021754492 +0000
++++ b/js/practica.js	2026-08-11 06:37:40.023106748 +0000
+@@ -187,9 +187,17 @@
+       Array.prototype.forEach.call(caixa.children, function (c) { c.disabled = true; });
+       $("#comprova").hidden = true;
+       $("#pista").hidden = true;
++      /* La resolució NO es mostra mai tota sola, encertis o fallis: és
++         l'alumne qui l'ha de demanar prement aquest botó, igual que demanar
++         una pista és decisió seva. Abans hi havia un
++         `if (!encert) $("#veure").click()` que la mostrava d'ofici quan
++         s'esgotaven els dos intents, i això té dos problemes: converteix
++         "mirar la resolució" en una cosa que li PASSA a l'alumne en lloc
++         d'una cosa que ell fa, i trenca la simetria amb el cas d'encert
++         (si respons bé, ningú et clica el botó per tu). El botó es queda
++         sempre visible i sempre per prémer; mai premut per l'aplicació. */
+       $("#veure").hidden = false;
+       $("#seguent").hidden = false;
+-      if (!encert) $("#veure").click();
+     }
+   };
  
-@@ -202,16 +202,24 @@
- | 8 | 285–294 | Càlcul amb escales · Raó de semblança, àrees i volums | No es deia enlloc que si les longituds es multipliquen per *k*, les àrees ho fan per *k*² i els volums per *k*³ |
- | 10 | 295–304 | Construir rectes · Construir paràboles i problemes | De 45 preguntes, només 8 demanaven construir alguna cosa: la resta era reconeixement |
+diff -ru a/tests/executa.sh b/tests/executa.sh
+--- a/tests/executa.sh	2026-08-11 06:37:40.003557223 +0000
++++ b/tests/executa.sh	2026-08-11 06:37:40.004996673 +0000
+@@ -26,6 +26,14 @@
+ node tests/analitzador.test.js || fallades=1
  
--Els mòduls nous van **sempre els últims** a la llista de `moduls` del seu full,
--perquè els seus ítems s'afegeixin al final del banc: el codi de verificació
--guarda els estats per posició, i moure'ls invalidaria tots els codis ja
--emesos.
-+El codi de verificació guarda els estats per posició, i per això
-+`tools/codi-ordre.json` desa un ordre **append-only** separat del de
-+presentació: un exercici nou s'insereix on toca per a l'alumne i s'afegeix al
-+final d'aquell ordre per al codi. Els codis ja emesos segueixen valent.
- 
- Els exercicis on només falten alguns apartats (145, 152, 195) porten una
- nota que ho diu, perquè l'alumne no es pensi que se n'ha perdut cap.
- 
--Res d'això és una decisió tancada: si es recuperen les figures originals,
--els ítems es poden escriure i afegir seguint `AUTHORING-GUIDE.md`.
-+Res d'això és una decisió tancada. Els **170f, 170g, 170h i 170i** ja s'han
-+recuperat: es va poder perquè el llibre en dona l'apotema, i una apotema es
-+pot contrastar amb la fórmula del polígon regular, $a=s/(2\tan(\pi/n))$. Quan
-+la lectura i la fórmula quadren, la cota està ben assignada; quan no, s'ha
-+llegit malament. Això últim va passar amb el **170c**, transcrit com a hexàgon
-+de costat 8 amb apotema 5,2 quan un hexàgon de costat 8 té apotema 6,93: la
-+cota de 8 era l'altura, i està corregit.
+ echo
++echo "── JavaScript: accessibilitat de practica.html i diagnostic.html ──"
++node tests/test_a11y.js || fallades=1
 +
-+La resta de figures d'aquesta taula no donen cap dada que es pugui contrastar
-+així, i endevinar-les seria pitjor que deixar-les fora.
- 
- ## Proves
- 
-diff -ru a/REVISIO-full9.html b/REVISIO-full9.html
---- a/REVISIO-full9.html	2026-08-06 09:54:48.405246897 +0000
-+++ b/REVISIO-full9.html	2026-08-06 09:54:48.407007280 +0000
-@@ -43,12 +43,13 @@
- :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
- </style>
- <h1>Clau de respostes — Full 9</h1>
--<p class="meta">43 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
-+<p class="meta">47 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
- <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
--<h2>Prismes i el cub <span class="tip">· 12 preguntes</span></h2>
-+<h2>Prismes i el cub <span class="tip">· 16 preguntes</span></h2>
- <p class="sec"><strong>Exercici 170.</strong> Calcula l&#x27;àrea total d&#x27;aquest prisma recte:</p>
- <div class="it"><div class="cap"><span class="cod">170a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
- <div class="enun">Calcula l'àrea total d'aquest prisma recte: un ortoedre (prisma recte de base rectangular) d'arestes $7$ cm, $2$ cm i $4$ cm.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 223 150" role="img" xmlns="http://www.w3.org/2000/svg"><title>Ortoedre d'arestes 7 cm, 2 cm i 4 cm, en perspectiva.</title><polygon points="28.0,59.4 138.0,59.4 138.0,122.3 28.0,122.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="28.0,59.4 59.4,28.0 169.4,28.0 138.0,59.4" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="138.0,59.4 169.4,28.0 169.4,90.9 138.0,122.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><text x="83" y="140.286" text-anchor="middle" class="fig-etq">7 cm</text><text x="20" y="94.8571" text-anchor="end" class="fig-etq">4 cm</text><text x="165.714" y="41.7143" text-anchor="start" class="fig-etq petita">2 cm</text></svg></div>
- <ol class="op"><li><span class="ok">$100$ cm$^2$</span> — resposta correcta</li>
- <li>$56$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">T'has deixat una parella de cares pel camí: un ortoedre en té TRES parelles diferents ($7\times2$, $7\times4$ i $2\times4$), no només dues.</span></li>
- <li>$50$ cm$^2$<br><span class="err">POTENCIA_PRODUCTE_UN_FACTOR</span><span class="fb">Aquest és el resultat de $7\cdot2+7\cdot4+2\cdot4$ sense multiplicar per $2$: cada cara d'un ortoedre és igual a la seva oposada, així que cal comptar-les totes dues.</span></li>
-@@ -59,6 +60,7 @@
- </div>
- <div class="it"><div class="cap"><span class="cod">170b</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
- <div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base triangular equilàtera de $5$ cm de costat i $9$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 218" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base triangular regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 119.8,63.0 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,213.0 119.8,63.0 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,213.0 40.2,213.0 40.2,63.0 119.8,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,213.0 80.0,184.0 80.0,34.0 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 119.8,63.0 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,213.0 40.2,213.0" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><text x="80" y="204" text-anchor="middle" class="fig-etq">5 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="184.0" stroke="currentColor" stroke-width="1.2"/><text x="148" y="113" text-anchor="start" class="fig-etq">9 cm</text></svg></div>
- <ol class="op"><li><span class="ok">$\approx156{,}65$ cm$^2$</span> — resposta correcta</li>
- <li>$\approx146{,}25$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Falta comptar les DUES bases triangulars, no només una: l'àrea total inclou $2\cdot A_{\text{base}}$, no $1$ sola.</span></li>
- <li>$\approx67{,}5$ cm$^2$<br><span class="err">DIVISIO_REPETIDA</span><span class="fb">Aquest valor només és l'àrea lateral ($15\cdot9:2$, a més amb una divisió de més); l'àrea lateral d'un prisma no es divideix entre $2$, i encara cal sumar-hi les dues bases.</span></li>
-@@ -68,17 +70,19 @@
- <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$</li><li>$A_{\text{lateral}}=15\cdot9=135$ cm$^2$</li><li>$A_{\text{total}}=2\cdot10{,}83+135\approx156{,}65$ cm$^2$</li></ol>
- </div>
- <div class="it"><div class="cap"><span class="cod">170c</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
--<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $5{,}2$ cm d'apotema, amb $6$ cm d'altura.</div>
--<ol class="op"><li><span class="ok">$537{,}6$ cm$^2$</span> — resposta correcta</li>
--<li>$288$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($48\cdot6$): encara falta sumar-hi les dues bases hexagonals.</span></li>
--<li>$374{,}4$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que només has comptat UNA base hexagonal en lloc de dues: un prisma sempre en té dues, una a cada extrem.</span></li>
--<li>$662{,}4$ cm$^2$<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $2\cdot124{,}8+48\cdot6$: revisa per separat l'àrea de la base hexagonal i l'àrea lateral.</span></li>
-+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $6$ cm de costat i $5{,}2$ cm d'apotema, amb $8$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 215" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,181.2 119.8,190.9 119.8,43.7 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,190.9 119.8,210.2 119.8,63.0 119.8,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,210.2 80.0,219.8 80.0,72.6 119.8,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,219.8 40.2,210.2 40.2,63.0 80.0,72.6" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,210.2 40.2,190.9 40.2,43.7 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,190.9 80.0,181.2 80.0,34.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,181.2 119.8,190.9 119.8,210.2 80.0,219.8 40.2,210.2 40.2,190.9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="80.0" y1="161.9" x2="80.0" y2="181.2" stroke="var(--fig-marca, #B3453C)" stroke-width="2"/><text x="110" y="177.2" text-anchor="middle" class="fig-etq petita">5.2 cm</text><text x="80" y="201.2" text-anchor="middle" class="fig-etq">6 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="181.2" stroke="currentColor" stroke-width="1.2"/><text x="148" y="111.6" text-anchor="start" class="fig-etq">8 cm</text></svg></div>
-+<ol class="op"><li><span class="ok">$475{,}2$ cm$^2$</span> — resposta correcta</li>
-+<li>$288$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($36\cdot8$): encara falta sumar-hi les dues bases hexagonals.</span></li>
-+<li>$381{,}6$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que només has comptat UNA base hexagonal en lloc de dues: un prisma sempre en té dues, una a cada extrem.</span></li>
-+<li>$662{,}4$ cm$^2$<br><span class="err">PRODUCTE_MAL</span><span class="fb">No coincideix amb $2\cdot93{,}6+36\cdot8$: revisa per separat l'àrea de la base hexagonal i l'àrea lateral.</span></li>
- </ol>
--<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea d'un polígon regular és $A_{\text{base}}=\dfrac{\text{perímetre}\cdot\text{apotema}}{2}$; amb perímetre $6\cdot8=48$ cm i apotema $5{,}2$ cm, $A_{\text{base}}=124{,}8$ cm$^2$.</li><li>L'àrea lateral és $48\cdot6=288$ cm$^2$.</li></ol>
--<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{48\cdot5{,}2}{2}=124{,}8$ cm$^2$</li><li>$A_{\text{lateral}}=48\cdot6=288$ cm$^2$</li><li>$A_{\text{total}}=2\cdot124{,}8+288=537{,}6$ cm$^2$</li></ol>
-+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea d'un polígon regular és $A_{\text{base}}=\dfrac{\text{perímetre}\cdot\text{apotema}}{2}$; amb perímetre $6\cdot6=36$ cm i apotema $5{,}2$ cm, $A_{\text{base}}=93{,}6$ cm$^2$.</li><li>L'àrea lateral és $36\cdot8=288$ cm$^2$.</li></ol>
-+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$</li><li>$A_{\text{lateral}}=36\cdot8=288$ cm$^2$</li><li>$A_{\text{total}}=2\cdot93{,}6+288=475{,}2$ cm$^2$</li></ol>
- </div>
- <div class="it"><div class="cap"><span class="cod">170d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
- <div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base pentagonal regular de $5$ cm de costat i $3{,}44$ cm d'apotema, amb $12$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 218" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base pentagonal regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 123.7,197.3 123.7,47.3 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="123.7,197.3 107.0,219.0 107.0,69.0 123.7,47.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="107.0,219.0 53.0,219.0 53.0,69.0 107.0,69.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="53.0,219.0 36.3,197.3 36.3,47.3 53.0,69.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="36.3,197.3 80.0,184.0 80.0,34.0 36.3,47.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 123.7,197.3 107.0,219.0 53.0,219.0 36.3,197.3" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="80.0" y1="164.7" x2="80.0" y2="184.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2"/><text x="110" y="180" text-anchor="middle" class="fig-etq petita">3.44 cm</text><text x="80" y="204" text-anchor="middle" class="fig-etq">5 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="184.0" stroke="currentColor" stroke-width="1.2"/><text x="148" y="113" text-anchor="start" class="fig-etq">12 cm</text></svg></div>
- <ol class="op"><li><span class="ok">$386$ cm$^2$</span> — resposta correcta</li>
- <li>$300$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($25\cdot12$): encara falta sumar-hi les dues bases pentagonals.</span></li>
- <li>$343$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que només has comptat UNA base pentagonal en lloc de dues.</span></li>
-@@ -97,6 +101,50 @@
- <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'àrea de la base (triangle rectangle) és $A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$.</li><li>La hipotenusa, per Pitàgores, és $\sqrt{6^2+8^2}=10$ cm, així que el perímetre és $6+8+10=24$ cm i l'àrea lateral, $24\cdot5=120$ cm$^2$.</li></ol>
- <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$</li><li>Hipotenusa: $\sqrt{6^2+8^2}=10$ cm; perímetre $=24$ cm</li><li>$A_{\text{total}}=2\cdot24+24\cdot5=48+120=168$ cm$^2$</li></ol>
- </div>
-+<div class="it"><div class="cap"><span class="cod">170f</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un cub d'aresta $7$ cm.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 182 182" role="img" xmlns="http://www.w3.org/2000/svg"><title>Cub d'aresta 7 cm, dibuixat en perspectiva.</title><polygon points="26.0,60.0 122.0,60.0 122.0,156.0 26.0,156.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="26.0,60.0 60.0,26.0 156.0,26.0 122.0,60.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="122.0,60.0 156.0,26.0 156.0,122.0 122.0,156.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><path d="M 26.0 156.0 l 34.0 -34.0 M 60.0 122.0 v 0.0 M 60.0 122.0 h 96.0" fill="none" stroke="currentColor" stroke-width="1.1" stroke-dasharray="4 3"/><text x="74" y="174" text-anchor="middle" class="fig-etq">7 cm</text></svg></div>
-+<ol class="op"><li><span class="ok">$294$ cm$^2$</span> — resposta correcta</li>
-+<li>$49$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquesta és l'àrea d'UNA cara. Un cub en té sis, totes iguals.</span></li>
-+<li>$343$ cm$^2$<br><span class="err">DIMENSIO_EXPONENT_MAL</span><span class="fb">$7^3=343$ és el VOLUM del cub. L'àrea total va amb el quadrat: $6\cdot7^2$.</span></li>
-+<li>$196$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Sembla que has comptat quatre cares. Un cub en té sis: les quatre laterals més la de dalt i la de baix.</span></li>
-+</ol>
-+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Totes les cares d'un cub són quadrats iguals.</li><li>Calcula l'àrea d'una cara i multiplica-la pel nombre de cares.</li></ol>
-+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Cada cara: $7^2=49$ cm$^2$</li><li>$A_{\text{total}}=6\cdot49=294$ cm$^2$</li></ol>
-+</div>
-+<div class="it"><div class="cap"><span class="cod">170g</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $6{,}93$ cm d'apotema, amb $12$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 218" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="80.0" y1="164.7" x2="80.0" y2="184.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2"/><text x="110" y="180" text-anchor="middle" class="fig-etq petita">6.93 cm</text><text x="80" y="204" text-anchor="middle" class="fig-etq">8 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="184.0" stroke="currentColor" stroke-width="1.2"/><text x="148" y="113" text-anchor="start" class="fig-etq">12 cm</text></svg></div>
-+<ol class="op"><li><span class="ok">$908{,}64$ cm$^2$</span> — resposta correcta</li>
-+<li>$576$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($48\cdot12$): falten les dues bases hexagonals.</span></li>
-+<li>$742{,}32$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Només has comptat una base. Un prisma en té dues, una a cada extrem.</span></li>
-+<li>$332{,}64$ cm$^2$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és l'àrea de les dues bases: encara falta sumar-hi la lateral.</span></li>
-+</ol>
-+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El perímetre de la base és $6\cdot8=48$ cm.</li><li>$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}$ i $A_{\text{lateral}}=48\cdot12$.</li></ol>
-+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$</li><li>$A_{\text{lateral}}=48\cdot12=576$ cm$^2$</li><li>$A_{\text{total}}=2\cdot166{,}32+576=908{,}64$ cm$^2$</li></ol>
-+</div>
-+<div class="it"><div class="cap"><span class="cod">170h</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $5$ cm de costat i $4{,}25$ cm d'apotema, amb $11$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 218" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="80.0" y1="164.7" x2="80.0" y2="184.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2"/><text x="110" y="180" text-anchor="middle" class="fig-etq petita">4.25 cm</text><text x="80" y="204" text-anchor="middle" class="fig-etq">5 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="184.0" stroke="currentColor" stroke-width="1.2"/><text x="148" y="113" text-anchor="start" class="fig-etq">11 cm</text></svg></div>
-+<ol class="op"><li><span class="ok">$457{,}5$ cm$^2$</span> — resposta correcta</li>
-+<li>$330$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($30\cdot11$).</span></li>
-+<li>$393{,}75$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Només has comptat una base hexagonal en lloc de dues.</span></li>
-+<li>$127{,}5$ cm$^2$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és l'àrea de les dues bases, sense la lateral.</span></li>
-+</ol>
-+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Perímetre de la base: $6\cdot5=30$ cm.</li><li>$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}$ i $A_{\text{lateral}}=30\cdot11$.</li></ol>
-+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$</li><li>$A_{\text{lateral}}=30\cdot11=330$ cm$^2$</li><li>$A_{\text{total}}=2\cdot63{,}75+330=457{,}5$ cm$^2$</li></ol>
-+</div>
-+<div class="it"><div class="cap"><span class="cod">170i</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-+<div class="enun">Calcula l'àrea total d'aquest prisma recte: un prisma de base octogonal regular de $6$ cm de costat i $7{,}24$ cm d'apotema, amb $15$ cm d'altura.</div>
-+<div class="fig"><svg class="figura" viewBox="0 0 196 218" role="img" xmlns="http://www.w3.org/2000/svg"><title>Prisma recte de base octogonal regular, dibuixat en perspectiva.</title><polygon points="80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 112.5,189.7 112.5,39.7 80.0,34.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="112.5,189.7 126.0,203.3 126.0,53.3 112.5,39.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="126.0,203.3 112.5,217.0 112.5,67.0 126.0,53.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="112.5,217.0 80.0,222.6 80.0,72.6 112.5,67.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,222.6 47.5,217.0 47.5,67.0 80.0,72.6" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="47.5,217.0 34.0,203.3 34.0,53.3 47.5,67.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="34.0,203.3 47.5,189.7 47.5,39.7 34.0,53.3" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="47.5,189.7 80.0,184.0 80.0,34.0 47.5,39.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><polygon points="80.0,184.0 112.5,189.7 126.0,203.3 112.5,217.0 80.0,222.6 47.5,217.0 34.0,203.3 47.5,189.7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 3"/><line x1="80.0" y1="164.7" x2="80.0" y2="184.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2"/><text x="110" y="180" text-anchor="middle" class="fig-etq petita">7.24 cm</text><text x="80" y="204" text-anchor="middle" class="fig-etq">6 cm</text><line x1="140.0" y1="34.0" x2="140.0" y2="184.0" stroke="currentColor" stroke-width="1.2"/><text x="148" y="113" text-anchor="start" class="fig-etq">15 cm</text></svg></div>
-+<ol class="op"><li><span class="ok">$1067{,}52$ cm$^2$</span> — resposta correcta</li>
-+<li>$720$ cm$^2$<br><span class="err">TERME_OBLIDAT_OPERACIO</span><span class="fb">Aquest valor és només l'àrea lateral ($48\cdot15$).</span></li>
-+<li>$893{,}76$ cm$^2$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Només has comptat una base octogonal en lloc de dues.</span></li>
-+<li>$800{,}64$ cm$^2$<br><span class="err">N_MAL_COMPTAT</span><span class="fb">Sembla que has fet servir sis costats en comptes de vuit: el perímetre d'un octàgon de costat $6$ és $8\cdot6=48$ cm.</span></li>
-+</ol>
-+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un octàgon té VUIT costats: el perímetre és $8\cdot6=48$ cm.</li><li>$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}$ i $A_{\text{lateral}}=48\cdot15$.</li></ol>
-+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$</li><li>$A_{\text{lateral}}=48\cdot15=720$ cm$^2$</li><li>$A_{\text{total}}=2\cdot173{,}76+720=1\,067{,}52$ cm$^2$</li></ol>
-+</div>
- <p class="sec"><strong>Exercici 171.</strong> </p>
- <div class="it"><div class="cap"><span class="cod">171</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
- <div class="enun">Calcula l'àrea total d'un prisma recte de base triangular equilàtera de costat $2$ cm i altura $3$ cm.</div>
-@@ -508,26 +556,27 @@
- <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$L=\sqrt[3]{125}=5$ cm</li><li>$A=6\cdot5^2$</li><li>$A=150$ cm$^2$</li><li>(Per comparar: l'esfera del mateix volum té radi $r=\sqrt[3]{\frac{3\cdot125}{4\pi}}\approx3{,}10$ cm i àrea $4\pi r^2\approx120{,}88$ cm$^2$, menor que la del cub: a igualtat de volum, l'esfera necessita menys material.)</li></ol>
- </div>
- <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>
--<tr><td>Prismes i el cub</td><td>5</td><td>3</td><td>4</td></tr>
-+<tr><td>Prismes i el cub</td><td>9</td><td>3</td><td>4</td></tr>
- <tr><td>Piràmides i tetraedres</td><td>0</td><td>8</td><td>3</td></tr>
- <tr><td>Cilindres, cons i l&#x27;esfera</td><td>3</td><td>4</td><td>4</td></tr>
- <tr><td>Volums i problemes aplicats</td><td>4</td><td>0</td><td>5</td></tr>
- </table>
- <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
--<tr><td><code>FACTOR_OBLIDAT</code></td><td>27</td><td>170a, 170c, 170d, 171, 172, 173, 176a, 176b, 180a, 180b, 180c, 180d, 184, 185a…</td></tr>
--<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>21</td><td>170b, 170c, 170d, 170e, 171, 172, 173, 174, 175, 176a, 176b, 177, 179a, 179b…</td></tr>
-+<tr><td><code>FACTOR_OBLIDAT</code></td><td>31</td><td>170a, 170c, 170d, 170f, 170g, 170h, 170i, 171, 172, 173, 176a, 176b, 180a, 180b…</td></tr>
-+<tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>25</td><td>170b, 170c, 170d, 170e, 170f, 170g, 170h, 170i, 171, 172, 173, 174, 175, 176a…</td></tr>
- <tr><td><code>PRODUCTE_MAL</code></td><td>18</td><td>170a, 170b, 170c, 170d, 170e, 171, 176b, 180a, 180b, 180c, 180d, 184, 188, 193a…</td></tr>
- <tr><td><code>ARREL_MAL_APLICADA</code></td><td>18</td><td>174, 175, 179b, 180a, 180b, 180c, 180d, 181a, 181b, 182, 183, 186, 187, 190…</td></tr>
- <tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>10</td><td>170e, 172, 173, 177, 179a, 185b, 190, 190, 193b, 197</td></tr>
- <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>10</td><td>182, 183, 185a, 186, 187, 191, 195a, 195e, 195f, 196b</td></tr>
-+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>7</td><td>170g, 170h, 174, 175, 176a, 193a, 196b</td></tr>
- <tr><td><code>SUMA_DE_PARTS_INCOMPLETA</code></td><td>6</td><td>177, 179a, 179b, 181a, 181b, 189</td></tr>
--<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>5</td><td>174, 175, 176a, 193a, 196b</td></tr>
- <tr><td><code>ARREL_OBLIDADA</code></td><td>4</td><td>182, 183, 191, 199</td></tr>
- <tr><td><code>FACTOR_TRES_VOLUM</code></td><td>3</td><td>195a, 195c, 195e</td></tr>
-+<tr><td><code>DIMENSIO_EXPONENT_MAL</code></td><td>2</td><td>170f, 195f</td></tr>
- <tr><td><code>PI_OBLIDAT</code></td><td>2</td><td>184, 188</td></tr>
- <tr><td><code>POTENCIA_PRODUCTE_UN_FACTOR</code></td><td>1</td><td>170a</td></tr>
- <tr><td><code>DIVISIO_REPETIDA</code></td><td>1</td><td>170b</td></tr>
-+<tr><td><code>N_MAL_COMPTAT</code></td><td>1</td><td>170i</td></tr>
- <tr><td><code>PAPERS_INTERCANVIATS</code></td><td>1</td><td>187</td></tr>
--<tr><td><code>DIMENSIO_EXPONENT_MAL</code></td><td>1</td><td>195f</td></tr>
- <tr><td><code>ARRODONIMENT_CONTEXT</code></td><td>1</td><td>196a</td></tr>
- </table></html>
-\ No newline at end of file
-diff -ru a/analitzador-repas.html b/analitzador-repas.html
---- a/analitzador-repas.html	2026-08-06 09:54:48.412307280 +0000
-+++ b/analitzador-repas.html	2026-08-06 09:54:48.414030538 +0000
-@@ -327,7 +327,7 @@
-   </p>
- </main>
- 
--<script>window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT","ACUMULADA_MAL_LLEGIDA","CONSTANT_AFECTA_DISPERSIO","CV_SENSE_DIVIDIR","DESVIACIONS_AL_QUADRAT","DESVIACIONS_SENSE_QUADRAT","DIVIDIT_PER_VALORS_DIFERENTS","DIVISIO_OBLIDADA","DIVISIO_SOBRERA","EXTREM_SENSE_EFECTE","FREQUENCIA_NO_PONDERADA","MEDIANA_PER_MITJANA","MEDIANA_PER_MODA","MEDIANA_SENSE_ORDENAR","MESURA_MAL_TRIADA","MITJANA_NO_DIU_DISPERSIO","MODA_PER_FREQUENCIA","N_MAL_COMPTAT","PES_IGNORAT","PES_MAL_APLICAT","PRODUCTE_PER_SUMA","RANG_PER_MEDIANA","VALOR_ABSOLUT_INDEGUT","VARIANCIA_PER_DESVIACIO","ASIMPTOTA_COM_LIMIT","BASE_MAL_TRIADA","CATET_HIPOTENUSA_CONFOSOS","COEFICIENT_A_MAL_CALCULAT","COEFICIENT_MAL_TRIAT","COORDENADES_INTERCANVIADES","CREIXEMENT_INVERTIT","DADES_MAL_TRIADES","EIX_SIMETRIA_MAL_CALCULAT","ESCALA_INVERTIDA","EXTREMS_OBLIDATS","EXTREM_INVERTIT","FACTOR_INVERS_OBLIDAT","FACTOR_PER_PERCENTATGE","OBERTURA_INVERTIDA","OBERTURA_I_AMPLADA_INVERTIDES","OPERACIO_INVERSA","ORDENADA_NULA_OBLIDADA","ORDENADA_PER_COORDENADA","ORDENADES_PER_TALL","ORDRE_DELS_FACTORS","PARABOLA_AMB_A_ZERO","PARALLELA_MATEIXA_RECTA","PARALLELA_PER_PERPENDICULAR","PART_FIXA_VARIABLE_BARREJADES","PART_MAL_ASSIGNADA","PENDENT_INVERTIT","PENDENT_MAL_TRIAT","PENDENT_NOMES_CANVIAT_DE_SIGNE","PERCENTATGES_SUMATS","POTENCIA_APLICADA_MALAMENT","PUNT_ORDENADA_CONFOS","RAO_AL_CUB","RAO_AL_QUADRAT","RAO_NOMES_UN_COSTAT","RAO_SENSE_QUADRAT","RECTA_VERTICAL_CONFOSA","RELATIU_COM_ABSOLUT","REPARTIMENT_A_PARTS_IGUALS","RESTA_PER_QUOCIENT","RESTRICCIO_INVENTADA","RESTRICCIO_OBLIDADA","SIGNE_ARRELS","SIGNE_COEFICIENT_PRINCIPAL","SIGNE_ORDENADA_INVERTIT","SIGNE_VERTEX","SIMPLE_PER_COMPOST","SUBSTITUCIO_MAL_FETA","TALL_COM_EXTREM","TALL_ORIGEN_OBLIDAT","TERMES_NO_REDUITS","TERME_INDEPENDENT_IGNORAT","VALOR_C_CONFOS","VALOR_DUPLICAT","VERTEX_COM_COEFICIENTS","VERTEX_PER_ARREL"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",0,18],["Divisibilitat",19,44],["Fraccions",45,85],["Decimals",86,139]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",0,22],["Exponent negatiu i equacions",23,41],["Verifica, corregeix i simplifica",42,61],["Combina potències",62,75]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",0,19],["Progressions aritmètiques",20,32],["Progressions geomètriques",33,43],["Aplicacions",44,49]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",0,13],["Divisió de polinomis i regla de Ruffini",14,34],["Igualtats notables",35,46],["Factor comú i simplificació",47,58]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",0,26],["Segon grau: fórmula i discriminant",27,40],["Segon grau: factor comú i factorització",41,62],["Sistemes d'equacions",63,87],["Problemes amb equacions i sistemes",88,98]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118","275a","275b","275c","275d","276a","276b","276c","276d","277a","277b","277c","278a","278b","278c","278d","279a","279b","279c","280a","280b","281a","281b","282a","282b","283a","283b","284"],"blocs":[["Proporcionalitat directa i inversa",0,9],["Percentatges",10,14],["El factor multiplicador",21,38],["Descomptes, IVA i interessos",39,47],["Augments i disminucions encadenats",15,20]],"dif":"122122222311222333333111111112222222222333333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",0,24],["Àrees amb el teorema de Pitàgores",25,33],["Àrees de quadrilàters i polígons regulars",34,47],["Problemes d'aplicació",48,54]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e","285a","285b","285c","286a","286b","286c","286d","287a","287b","287c","288a","288b","288c","289","290a","290b","290c","291a","291b","291c","292a","292b","293a","293b","294a","294b","294c"],"blocs":[["Teorema de Tales",0,7],["Semblança de triangles",8,31],["Escales",14,19],["Càlcul amb escales",32,45],["Raó de semblança, àrees i volums",46,58],["Aplicacions de la semblança",20,28]],"dif":"11111222111122112222333333333222111222222222231112222233333"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199"],"blocs":[["Prismes i el cub",0,11],["Piràmides i tetraedres",12,22],["Cilindres, cons i l'esfera",23,33],["Volums i problemes aplicats",34,42]],"dif":"1111122233332222222333221133122233111133333"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b","295a","295b","295c","295d","296a","296b","296c","297a","297b","297c","298a","298b","299a","299b","299c","300a","300b","300c","300d","301a","301b","301c","302a","302b","303a","303b","303c","304"],"blocs":[["Concepte de funció",0,17],["Funcions lineals i afins",18,31],["Construir rectes",45,59],["Construir paràboles i problemes",60,72],["Funcions quadràtiques",32,44]],"dif":"2221111111122223331111111111222211112233333222222222222333332222333333333"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c","260a","260b","260c","260d","261a","261b","261c","261d","262a","262b","262c","262d","263a","263b","263c","264","265a","265b","266a","266b","267a","267b","268a","268b","268c","269a","269b","270a","270b","270c","271a","271b","272a","272b","273a","273b","274a","274b","274c"],"blocs":[["Variables estadístiques",0,11],["Taules de freqüències",12,50],["Gràfics estadístics",36,51],["Mitjana, mediana i moda",52,73],["Recorregut i desviació típica",74,90]],"dif":"1111111111111112222223332222221111221333222222333222111111111111222322333311122222332233333"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",0,19],["Combinatòria: principi multiplicatiu",20,30],["Regla de Laplace i freqüència relativa",31,49],["Esdeveniments compostos",50,66]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències i mesures de centralització"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};</script>
-+<script>window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT","ACUMULADA_MAL_LLEGIDA","CONSTANT_AFECTA_DISPERSIO","CV_SENSE_DIVIDIR","DESVIACIONS_AL_QUADRAT","DESVIACIONS_SENSE_QUADRAT","DIVIDIT_PER_VALORS_DIFERENTS","DIVISIO_OBLIDADA","DIVISIO_SOBRERA","EXTREM_SENSE_EFECTE","FREQUENCIA_NO_PONDERADA","MEDIANA_PER_MITJANA","MEDIANA_PER_MODA","MEDIANA_SENSE_ORDENAR","MESURA_MAL_TRIADA","MITJANA_NO_DIU_DISPERSIO","MODA_PER_FREQUENCIA","N_MAL_COMPTAT","PES_IGNORAT","PES_MAL_APLICAT","PRODUCTE_PER_SUMA","RANG_PER_MEDIANA","VALOR_ABSOLUT_INDEGUT","VARIANCIA_PER_DESVIACIO","ASIMPTOTA_COM_LIMIT","BASE_MAL_TRIADA","CATET_HIPOTENUSA_CONFOSOS","COEFICIENT_A_MAL_CALCULAT","COEFICIENT_MAL_TRIAT","COORDENADES_INTERCANVIADES","CREIXEMENT_INVERTIT","DADES_MAL_TRIADES","EIX_SIMETRIA_MAL_CALCULAT","ESCALA_INVERTIDA","EXTREMS_OBLIDATS","EXTREM_INVERTIT","FACTOR_INVERS_OBLIDAT","FACTOR_PER_PERCENTATGE","OBERTURA_INVERTIDA","OBERTURA_I_AMPLADA_INVERTIDES","OPERACIO_INVERSA","ORDENADA_NULA_OBLIDADA","ORDENADA_PER_COORDENADA","ORDENADES_PER_TALL","ORDRE_DELS_FACTORS","PARABOLA_AMB_A_ZERO","PARALLELA_MATEIXA_RECTA","PARALLELA_PER_PERPENDICULAR","PART_FIXA_VARIABLE_BARREJADES","PART_MAL_ASSIGNADA","PENDENT_INVERTIT","PENDENT_MAL_TRIAT","PENDENT_NOMES_CANVIAT_DE_SIGNE","PERCENTATGES_SUMATS","POTENCIA_APLICADA_MALAMENT","PUNT_ORDENADA_CONFOS","RAO_AL_CUB","RAO_AL_QUADRAT","RAO_NOMES_UN_COSTAT","RAO_SENSE_QUADRAT","RECTA_VERTICAL_CONFOSA","RELATIU_COM_ABSOLUT","REPARTIMENT_A_PARTS_IGUALS","RESTA_PER_QUOCIENT","RESTRICCIO_INVENTADA","RESTRICCIO_OBLIDADA","SIGNE_ARRELS","SIGNE_COEFICIENT_PRINCIPAL","SIGNE_ORDENADA_INVERTIT","SIGNE_VERTEX","SIMPLE_PER_COMPOST","SUBSTITUCIO_MAL_FETA","TALL_COM_EXTREM","TALL_ORIGEN_OBLIDAT","TERMES_NO_REDUITS","TERME_INDEPENDENT_IGNORAT","VALOR_C_CONFOS","VALOR_DUPLICAT","VERTEX_COM_COEFICIENTS","VERTEX_PER_ARREL"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]],["Divisibilitat",[19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44]],["Fraccions",[45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85]],["Decimals",[86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139]]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]],["Exponent negatiu i equacions",[23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]],["Verifica, corregeix i simplifica",[42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61]],["Combina potències",[62,63,64,65,66,67,68,69,70,71,72,73,74,75]]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]],["Progressions aritmètiques",[20,21,22,23,24,25,26,27,28,29,30,31,32]],["Progressions geomètriques",[33,34,35,36,37,38,39,40,41,42,43]],["Aplicacions",[44,45,46,47,48,49]]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",[0,1,2,3,4,5,6,7,8,9,10,11,12,13]],["Divisió de polinomis i regla de Ruffini",[14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34]],["Igualtats notables",[35,36,37,38,39,40,41,42,43,44,45,46]],["Factor comú i simplificació",[47,48,49,50,51,52,53,54,55,56,57,58]]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]],["Segon grau: fórmula i discriminant",[27,28,29,30,31,32,33,34,35,36,37,38,39,40]],["Segon grau: factor comú i factorització",[41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62]],["Sistemes d'equacions",[63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87]],["Problemes amb equacions i sistemes",[88,89,90,91,92,93,94,95,96,97,98]]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118","275a","275b","275c","275d","276a","276b","276c","276d","277a","277b","277c","278a","278b","278c","278d","279a","279b","279c","280a","280b","281a","281b","282a","282b","283a","283b","284"],"blocs":[["Proporcionalitat directa i inversa",[0,1,2,3,4,5,6,7,8,9]],["Percentatges",[10,11,12,13,14]],["El factor multiplicador",[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]],["Descomptes, IVA i interessos",[39,40,41,42,43,44,45,46,47]],["Augments i disminucions encadenats",[15,16,17,18,19,20]]],"dif":"122122222311222333333111111112222222222333333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]],["Àrees amb el teorema de Pitàgores",[25,26,27,28,29,30,31,32,33]],["Àrees de quadrilàters i polígons regulars",[34,35,36,37,38,39,40,41,42,43,44,45,46,47]],["Problemes d'aplicació",[48,49,50,51,52,53,54]]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e","285a","285b","285c","286a","286b","286c","286d","287a","287b","287c","288a","288b","288c","289","290a","290b","290c","291a","291b","291c","292a","292b","293a","293b","294a","294b","294c"],"blocs":[["Teorema de Tales",[0,1,2,3,4,5,6,7]],["Semblança de triangles",[8,9,10,11,12,13,29,30,31]],["Escales",[14,15,16,17,18,19]],["Càlcul amb escales",[32,33,34,35,36,37,38,39,40,41,42,43,44,45]],["Raó de semblança, àrees i volums",[46,47,48,49,50,51,52,53,54,55,56,57,58]],["Aplicacions de la semblança",[20,21,22,23,24,25,26,27,28]]],"dif":"11111222111122112222333333333222111222222222231112222233333"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199","170f","170g","170h","170i"],"blocs":[["Prismes i el cub",[0,1,2,3,4,5,6,7,8,9,10,11,43,44,45,46]],["Piràmides i tetraedres",[12,13,14,15,16,17,18,19,20,21,22]],["Cilindres, cons i l'esfera",[23,24,25,26,27,28,29,30,31,32,33]],["Volums i problemes aplicats",[34,35,36,37,38,39,40,41,42]]],"dif":"11111222333322222223332211331222331111333331111"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b","295a","295b","295c","295d","296a","296b","296c","297a","297b","297c","298a","298b","299a","299b","299c","300a","300b","300c","300d","301a","301b","301c","302a","302b","303a","303b","303c","304"],"blocs":[["Concepte de funció",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]],["Funcions lineals i afins",[18,19,20,21,22,23,24,25,26,27,28,29,30,31]],["Construir rectes",[45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]],["Construir paràboles i problemes",[60,61,62,63,64,65,66,67,68,69,70,71,72]],["Funcions quadràtiques",[32,33,34,35,36,37,38,39,40,41,42,43,44]]],"dif":"2221111111122223331111111111222211112233333222222222222333332222333333333"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c","260a","260b","260c","260d","261a","261b","261c","261d","262a","262b","262c","262d","263a","263b","263c","264","265a","265b","266a","266b","267a","267b","268a","268b","268c","269a","269b","270a","270b","270c","271a","271b","272a","272b","273a","273b","274a","274b","274c"],"blocs":[["Variables estadístiques",[0,1,2,3,4,5,6,7,8,9,10,11]],["Taules de freqüències",[12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,49,50]],["Gràfics estadístics",[36,37,38,39,40,41,42,43,44,45,46,47,48,51]],["Mitjana, mediana i moda",[52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73]],["Recorregut i desviació típica",[74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]]],"dif":"1111111111111112222223332222221111221333222222333222111111111111222322333311122222332233333"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]],["Combinatòria: principi multiplicatiu",[20,21,22,23,24,25,26,27,28,29,30]],["Regla de Laplace i freqüència relativa",[31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]],["Esdeveniments compostos",[50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66]]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències i mesures de centralització"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};</script>
- <script>/* codi.js — codi de verificació de repàs-ESO: generació i lectura.
- 
-    Les dues meitats viuen al mateix fitxer a propòsit. Si el generador i el
-@@ -997,7 +997,9 @@
-     p.fulls.forEach(function (f) {
-       h += '<div class="bloc-fila"><h4>' + f.titol + "</h4>";
-       f.blocs.forEach(function (b) {
--        var dins = f.items.slice(b[1], b[2] + 1);
-+        /* b[1] és la LLISTA de posicions del bloc, no un rang: en aquest
-+           ordre els blocs no són contigus (vegeu build_codi.py). */
-+        var dins = b[1].map(function (k) { return f.items[k]; });
-         var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
-         if (!fets) return;
-         var mal = dins.filter(function (x) { return x.estat === "fallat"; });
-@@ -1115,7 +1117,7 @@
-           }
-         });
-         f.blocs.forEach(function (b) {
--          var dins = f.items.slice(b[1], b[2] + 1);
-+          var dins = b[1].map(function (k) { return f.items[k]; });
-           var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
-           if (!fets) return;
-           var mal = dins.filter(function (x) { return x.estat === "fallat"; }).length;
-diff -ru a/data/full9.js b/data/full9.js
---- a/data/full9.js	2026-08-06 09:54:48.419718679 +0000
-+++ b/data/full9.js	2026-08-06 09:54:48.421140922 +0000
-@@ -14,6 +14,10 @@
-     "170c",
-     "170d",
-     "170e",
-+    "170f",
-+    "170g",
-+    "170h",
-+    "170i",
-     "171",
-     "172",
-     "173",
-@@ -84,6 +88,7 @@
-   "DIVISIO_REPETIDA": "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula ja porta la divisió incorporada i se li torna a aplicar al final: escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
-   "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
-   "FACTOR_TRES_VOLUM": "El terç del volum va només amb piràmides i cons. Prismes, cilindres i cubs són base per altura, sense dividir.",
-+  "N_MAL_COMPTAT": "Has fet servir un nombre de dades que no és el que toca. Compta'l bé: sovint la trampa és comptar només les dades conegudes i oblidar la que es busca.",
-   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
-   "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
-   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
-@@ -115,7 +120,8 @@
-     "$A=2(a\\cdot b+a\\cdot c+b\\cdot c)$, amb $a=7$, $b=2$, $c=4$."
-    ],
-    "nota": "",
--   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHJlc3VsdGF0IGRlICQ3XFxjZG90Mis3XFxjZG90NCsyXFxjZG90NCQgc2Vuc2UgbXVsdGlwbGljYXIgcGVyICQyJDogY2FkYSBjYXJhIGQndW4gb3J0b2VkcmUgw6lzIGlndWFsIGEgbGEgc2V2YSBvcG9zYWRhLCBhaXjDrSBxdWUgY2FsIGNvbXB0YXItbGVzIHRvdGVzIGR1ZXMuIiwgIlQnaGFzIGRlaXhhdCB1bmEgcGFyZWxsYSBkZSBjYXJlcyBwZWwgY2Ftw606IHVuIG9ydG9lZHJlIGVuIHTDqSBUUkVTIHBhcmVsbGVzIGRpZmVyZW50cyAoJDdcXHRpbWVzMiQsICQ3XFx0aW1lczQkIGkgJDJcXHRpbWVzNCQpLCBubyBub23DqXMgZHVlcy4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KSQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZSBjYWRhIHBhcmVsbGEgZGUgY2FyZXMgcGVyIHNlcGFyYXQgYWJhbnMgZGUgc3VtYXItbGVzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV9QUk9EVUNURV9VTl9GQUNUT1IiLCAiRkFDVE9SX09CTElEQVQiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQT0yKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KT0yKDE0KzI4KzgpJCIsICIkQT0yXFxjZG90NTA9MTAwJCBjbSReMiQiXX0="
-+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHJlc3VsdGF0IGRlICQ3XFxjZG90Mis3XFxjZG90NCsyXFxjZG90NCQgc2Vuc2UgbXVsdGlwbGljYXIgcGVyICQyJDogY2FkYSBjYXJhIGQndW4gb3J0b2VkcmUgw6lzIGlndWFsIGEgbGEgc2V2YSBvcG9zYWRhLCBhaXjDrSBxdWUgY2FsIGNvbXB0YXItbGVzIHRvdGVzIGR1ZXMuIiwgIlQnaGFzIGRlaXhhdCB1bmEgcGFyZWxsYSBkZSBjYXJlcyBwZWwgY2Ftw606IHVuIG9ydG9lZHJlIGVuIHTDqSBUUkVTIHBhcmVsbGVzIGRpZmVyZW50cyAoJDdcXHRpbWVzMiQsICQ3XFx0aW1lczQkIGkgJDJcXHRpbWVzNCQpLCBubyBub23DqXMgZHVlcy4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KSQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZSBjYWRhIHBhcmVsbGEgZGUgY2FyZXMgcGVyIHNlcGFyYXQgYWJhbnMgZGUgc3VtYXItbGVzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV9QUk9EVUNURV9VTl9GQUNUT1IiLCAiRkFDVE9SX09CTElEQVQiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQT0yKDdcXGNkb3QyKzdcXGNkb3Q0KzJcXGNkb3Q0KT0yKDE0KzI4KzgpJCIsICIkQT0yXFxjZG90NTA9MTAwJCBjbSReMiQiXX0=",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 223 150\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Ortoedre d'arestes 7 cm, 2 cm i 4 cm, en perspectiva.</title><polygon points=\"28.0,59.4 138.0,59.4 138.0,122.3 28.0,122.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"28.0,59.4 59.4,28.0 169.4,28.0 138.0,59.4\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"138.0,59.4 169.4,28.0 169.4,90.9 138.0,122.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"83\" y=\"140.286\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text><text x=\"20\" y=\"94.8571\" text-anchor=\"end\" class=\"fig-etq\">4 cm</text><text x=\"165.714\" y=\"41.7143\" text-anchor=\"start\" class=\"fig-etq petita\">2 cm</text></svg>"
-   },
-   {
-    "id": "170b",
-@@ -137,7 +143,8 @@
-     "El perímetre de la base és $3\\cdot5=15$ cm; l'àrea lateral és $15\\cdot9=135$ cm$^2$."
-    ],
-    "nota": "",
--   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ=="
-+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ==",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base triangular regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,63.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,213.0 119.8,63.0 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 40.2,213.0 40.2,63.0 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 80.0,184.0 80.0,34.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,63.0 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,213.0 40.2,213.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">9 cm</text></svg>"
-   },
-   {
-    "id": "170c",
-@@ -147,19 +154,20 @@
-    "tipus": "A",
-    "dif": 1,
-    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
--   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
-+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $6$ cm de costat i $5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
-    "opcions": [
--    "$374{,}4$ cm$^2$",
-+    "$381{,}6$ cm$^2$",
-     "$288$ cm$^2$",
--    "$537{,}6$ cm$^2$",
-+    "$475{,}2$ cm$^2$",
-     "$662{,}4$ cm$^2$"
-    ],
-    "pistes": [
--    "L'àrea d'un polígon regular és $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; amb perímetre $6\\cdot8=48$ cm i apotema $5{,}2$ cm, $A_{\\text{base}}=124{,}8$ cm$^2$.",
--    "L'àrea lateral és $48\\cdot6=288$ cm$^2$."
-+    "L'àrea d'un polígon regular és $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, $A_{\\text{base}}=93{,}6$ cm$^2$.",
-+    "L'àrea lateral és $36\\cdot8=288$ cm$^2$."
-    ],
-    "nota": "",
--   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzOiB1biBwcmlzbWEgc2VtcHJlIGVuIHTDqSBkdWVzLCB1bmEgYSBjYWRhIGV4dHJlbS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkNDhcXGNkb3Q2JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXGNkb3QxMjR7LH04KzQ4XFxjZG90NiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaGV4YWdvbmFsIGkgbCfDoHJlYSBsYXRlcmFsLiJdLCAiZXJyIjogWyJGQUNUT1JfT0JMSURBVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDV7LH0yfXsyfT0xMjR7LH04JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3Q2PTI4OCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90MTI0eyx9OCsyODg9NTM3eyx9NiQgY20kXjIkIl19"
-+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzOiB1biBwcmlzbWEgc2VtcHJlIGVuIHTDqSBkdWVzLCB1bmEgYSBjYWRhIGV4dHJlbS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMzZcXGNkb3Q4JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXGNkb3Q5M3ssfTYrMzZcXGNkb3Q4JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwgaSBsJ8OgcmVhIGxhdGVyYWwuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9PTkzeyx9NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTM2XFxjZG90OD0yODgkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDkzeyx9NisyODg9NDc1eyx9MiQgY20kXjIkIl19",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 215\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,181.2 119.8,190.9 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,190.9 119.8,210.2 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,210.2 80.0,219.8 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,219.8 40.2,210.2 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,210.2 40.2,190.9 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,190.9 80.0,181.2 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,181.2 119.8,190.9 119.8,210.2 80.0,219.8 40.2,210.2 40.2,190.9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"161.9\" x2=\"80.0\" y2=\"181.2\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"177.2\" text-anchor=\"middle\" class=\"fig-etq petita\">5.2 cm</text><text x=\"80\" y=\"201.2\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"181.2\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"111.6\" text-anchor=\"start\" class=\"fig-etq\">8 cm</text></svg>"
-   },
-   {
-    "id": "170d",
-@@ -181,7 +189,8 @@
-     "Àrea lateral: $25\\cdot12=300$ cm$^2$."
-    ],
-    "nota": "",
--   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQyNVxcY2RvdDEyJCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBwZW50YWdvbmFscy4iLCAiU2VtYmxhIHF1ZSBub23DqXMgaGFzIGNvbXB0YXQgVU5BIGJhc2UgcGVudGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90NDMrMjVcXGNkb3QxMiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syNVxcY2RvdDN7LH00NH17Mn09NDMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0yNVxcY2RvdDEyPTMwMCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90NDMrMzAwPTM4NiQgY20kXjIkIl19"
-+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQyNVxcY2RvdDEyJCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBwZW50YWdvbmFscy4iLCAiU2VtYmxhIHF1ZSBub23DqXMgaGFzIGNvbXB0YXQgVU5BIGJhc2UgcGVudGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90NDMrMjVcXGNkb3QxMiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syNVxcY2RvdDN7LH00NH17Mn09NDMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0yNVxcY2RvdDEyPTMwMCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90NDMrMzAwPTM4NiQgY20kXjIkIl19",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base pentagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 123.7,197.3 123.7,47.3 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"123.7,197.3 107.0,219.0 107.0,69.0 123.7,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"107.0,219.0 53.0,219.0 53.0,69.0 107.0,69.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"53.0,219.0 36.3,197.3 36.3,47.3 53.0,69.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"36.3,197.3 80.0,184.0 80.0,34.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 123.7,47.3 107.0,69.0 53.0,69.0 36.3,47.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 123.7,197.3 107.0,219.0 53.0,219.0 36.3,197.3\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">3.44 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">12 cm</text></svg>"
-   },
-   {
-    "id": "170e",
-@@ -206,6 +215,98 @@
-    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm8gaGFzIGZldCBzZXJ2aXIgbGEgaGlwb3RlbnVzYSAoJDEwJCBjbSwgcGVyIFBpdMOgZ29yZXMpIGVuIGVsIHBlcsOtbWV0cmUgZGUgbGEgYmFzZTogZWwgcGVyw61tZXRyZSBkZWwgdHJpYW5nbGUgcmVjdGFuZ2xlIMOpcyAkNis4KzEwPTI0JCBjbSwgbm8gJDYrOD0xNCQgY20uIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90MjQrMjRcXGNkb3Q1JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMjRcXGNkb3Q1JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyB0cmlhbmd1bGFycy4iXSwgImVyciI6IFsiIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIiwgIlBST0RVQ1RFX01BTCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NlxcY2RvdDh9ezJ9PTI0JCBjbSReMiQiLCAiSGlwb3RlbnVzYTogJFxcc3FydHs2XjIrOF4yfT0xMCQgY207IHBlcsOtbWV0cmUgJD0yNCQgY20iLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QyNCsyNFxcY2RvdDU9NDgrMTIwPTE2OCQgY20kXjIkIl19"
-   },
-   {
-+   "id": "170f",
-+   "ex": 170,
-+   "ap": "f",
-+   "bloc": "prismes",
-+   "tipus": "A",
-+   "dif": 1,
-+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
-+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un cub d'aresta $7$ cm.",
-+   "opcions": [
-+    "$343$ cm$^2$",
-+    "$196$ cm$^2$",
-+    "$49$ cm$^2$",
-+    "$294$ cm$^2$"
-+   ],
-+   "pistes": [
-+    "Totes les cares d'un cub són quadrats iguals.",
-+    "Calcula l'àrea d'una cara i multiplica-la pel nombre de cares."
-+   ],
-+   "nota": "",
-+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkN14zPTM0MyQgw6lzIGVsIFZPTFVNIGRlbCBjdWIuIEwnw6ByZWEgdG90YWwgdmEgYW1iIGVsIHF1YWRyYXQ6ICQ2XFxjZG90N14yJC4iLCAiU2VtYmxhIHF1ZSBoYXMgY29tcHRhdCBxdWF0cmUgY2FyZXMuIFVuIGN1YiBlbiB0w6kgc2lzOiBsZXMgcXVhdHJlIGxhdGVyYWxzIG3DqXMgbGEgZGUgZGFsdCBpIGxhIGRlIGJhaXguIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgZCdVTkEgY2FyYS4gVW4gY3ViIGVuIHTDqSBzaXMsIHRvdGVzIGlndWFscy4iLCAiIl0sICJlcnIiOiBbIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICJGQUNUT1JfT0JMSURBVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiJdLCAicmVzIjogWyJDYWRhIGNhcmE6ICQ3XjI9NDkkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NlxcY2RvdDQ5PTI5NCQgY20kXjIkIl19",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 182 182\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cub d'aresta 7 cm, dibuixat en perspectiva.</title><polygon points=\"26.0,60.0 122.0,60.0 122.0,156.0 26.0,156.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"26.0,60.0 60.0,26.0 156.0,26.0 122.0,60.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"122.0,60.0 156.0,26.0 156.0,122.0 122.0,156.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 26.0 156.0 l 34.0 -34.0 M 60.0 122.0 v 0.0 M 60.0 122.0 h 96.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><text x=\"74\" y=\"174\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text></svg>"
-+  },
-+  {
-+   "id": "170g",
-+   "ex": 170,
-+   "ap": "g",
-+   "bloc": "prismes",
-+   "tipus": "A",
-+   "dif": 1,
-+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
-+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
-+   "opcions": [
-+    "$576$ cm$^2$",
-+    "$908{,}64$ cm$^2$",
-+    "$742{,}32$ cm$^2$",
-+    "$332{,}64$ cm$^2$"
-+   ],
-+   "pistes": [
-+    "El perímetre de la base és $6\\cdot8=48$ cm.",
-+    "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i $A_{\\text{lateral}}=48\\cdot12$."
-+   ],
-+   "nota": "",
-+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDEyJCk6IGZhbHRlbiBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm9tw6lzIGhhcyBjb21wdGF0IHVuYSBiYXNlLiBVbiBwcmlzbWEgZW4gdMOpIGR1ZXMsIHVuYSBhIGNhZGEgZXh0cmVtLiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbGEgbGF0ZXJhbC4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiRkFDVE9SX09CTElEQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDZ7LH05M317Mn09MTY2eyx9MzIkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT00OFxcY2RvdDEyPTU3NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90MTY2eyx9MzIrNTc2PTkwOHssfTY0JCBjbSReMiQiXX0=",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">6.93 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">8 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">12 cm</text></svg>"
-+  },
-+  {
-+   "id": "170h",
-+   "ex": 170,
-+   "ap": "h",
-+   "bloc": "prismes",
-+   "tipus": "A",
-+   "dif": 1,
-+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
-+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $5$ cm de costat i $4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
-+   "opcions": [
-+    "$330$ cm$^2$",
-+    "$457{,}5$ cm$^2$",
-+    "$127{,}5$ cm$^2$",
-+    "$393{,}75$ cm$^2$"
-+   ],
-+   "pistes": [
-+    "Perímetre de la base: $6\\cdot5=30$ cm.",
-+    "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i $A_{\\text{lateral}}=30\\cdot11$."
-+   ],
-+   "nota": "",
-+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQzMFxcY2RvdDExJCkuIiwgIiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzLCBzZW5zZSBsYSBsYXRlcmFsLiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2UgaGV4YWdvbmFsIGVuIGxsb2MgZGUgZHVlcy4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3szMFxcY2RvdDR7LH0yNX17Mn09NjN7LH03NSQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTMwXFxjZG90MTE9MzMwJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3Q2M3ssfTc1KzMzMD00NTd7LH01JCBjbSReMiQiXX0=",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base hexagonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,43.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,193.7 119.8,213.0 119.8,63.0 119.8,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"119.8,213.0 80.0,222.6 80.0,72.6 119.8,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 40.2,213.0 40.2,63.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,213.0 40.2,193.7 40.2,43.7 40.2,63.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"40.2,193.7 80.0,184.0 80.0,34.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 119.8,43.7 119.8,63.0 80.0,72.6 40.2,63.0 40.2,43.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 119.8,193.7 119.8,213.0 80.0,222.6 40.2,213.0 40.2,193.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">4.25 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">11 cm</text></svg>"
-+  },
-+  {
-+   "id": "170i",
-+   "ex": 170,
-+   "ap": "i",
-+   "bloc": "prismes",
-+   "tipus": "A",
-+   "dif": 1,
-+   "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
-+   "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base octogonal regular de $6$ cm de costat i $7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
-+   "opcions": [
-+    "$720$ cm$^2$",
-+    "$1067{,}52$ cm$^2$",
-+    "$893{,}76$ cm$^2$",
-+    "$800{,}64$ cm$^2$"
-+   ],
-+   "pistes": [
-+    "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
-+    "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i $A_{\\text{lateral}}=48\\cdot15$."
-+   ],
-+   "nota": "",
-+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDE1JCkuIiwgIiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2Ugb2N0b2dvbmFsIGVuIGxsb2MgZGUgZHVlcy4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBzaXMgY29zdGF0cyBlbiBjb21wdGVzIGRlIHZ1aXQ6IGVsIHBlcsOtbWV0cmUgZCd1biBvY3TDoGdvbiBkZSBjb3N0YXQgJDYkIMOpcyAkOFxcY2RvdDY9NDgkIGNtLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJGQUNUT1JfT0JMSURBVCIsICJOX01BTF9DT01QVEFUIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NDhcXGNkb3Q3eyx9MjR9ezJ9PTE3M3ssfTc2JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3QxNT03MjAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDE3M3ssfTc2KzcyMD0xXFwsMDY3eyx9NTIkIGNtJF4yJCJdfQ==",
-+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 218\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base octogonal regular, dibuixat en perspectiva.</title><polygon points=\"80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 112.5,189.7 112.5,39.7 80.0,34.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"112.5,189.7 126.0,203.3 126.0,53.3 112.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"126.0,203.3 112.5,217.0 112.5,67.0 126.0,53.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"112.5,217.0 80.0,222.6 80.0,72.6 112.5,67.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,222.6 47.5,217.0 47.5,67.0 80.0,72.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"47.5,217.0 34.0,203.3 34.0,53.3 47.5,67.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"34.0,203.3 47.5,189.7 47.5,39.7 34.0,53.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"47.5,189.7 80.0,184.0 80.0,34.0 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,34.0 112.5,39.7 126.0,53.3 112.5,67.0 80.0,72.6 47.5,67.0 34.0,53.3 47.5,39.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"80.0,184.0 112.5,189.7 126.0,203.3 112.5,217.0 80.0,222.6 47.5,217.0 34.0,203.3 47.5,189.7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><line x1=\"80.0\" y1=\"164.7\" x2=\"80.0\" y2=\"184.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"110\" y=\"180\" text-anchor=\"middle\" class=\"fig-etq petita\">7.24 cm</text><text x=\"80\" y=\"204\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text><line x1=\"140.0\" y1=\"34.0\" x2=\"140.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.2\"/><text x=\"148\" y=\"113\" text-anchor=\"start\" class=\"fig-etq\">15 cm</text></svg>"
-+  },
-+  {
-    "id": "171",
-    "ex": 171,
-    "ap": "",
-diff -ru a/js/codi-taules.js b/js/codi-taules.js
---- a/js/codi-taules.js	2026-08-06 09:54:48.426849001 +0000
-+++ b/js/codi-taules.js	2026-08-06 09:54:48.428265546 +0000
-@@ -1,2 +1,2 @@
- /* Generat per tools/build_codi.py — no editeu aquest fitxer a mà. */
--window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT","ACUMULADA_MAL_LLEGIDA","CONSTANT_AFECTA_DISPERSIO","CV_SENSE_DIVIDIR","DESVIACIONS_AL_QUADRAT","DESVIACIONS_SENSE_QUADRAT","DIVIDIT_PER_VALORS_DIFERENTS","DIVISIO_OBLIDADA","DIVISIO_SOBRERA","EXTREM_SENSE_EFECTE","FREQUENCIA_NO_PONDERADA","MEDIANA_PER_MITJANA","MEDIANA_PER_MODA","MEDIANA_SENSE_ORDENAR","MESURA_MAL_TRIADA","MITJANA_NO_DIU_DISPERSIO","MODA_PER_FREQUENCIA","N_MAL_COMPTAT","PES_IGNORAT","PES_MAL_APLICAT","PRODUCTE_PER_SUMA","RANG_PER_MEDIANA","VALOR_ABSOLUT_INDEGUT","VARIANCIA_PER_DESVIACIO","ASIMPTOTA_COM_LIMIT","BASE_MAL_TRIADA","CATET_HIPOTENUSA_CONFOSOS","COEFICIENT_A_MAL_CALCULAT","COEFICIENT_MAL_TRIAT","COORDENADES_INTERCANVIADES","CREIXEMENT_INVERTIT","DADES_MAL_TRIADES","EIX_SIMETRIA_MAL_CALCULAT","ESCALA_INVERTIDA","EXTREMS_OBLIDATS","EXTREM_INVERTIT","FACTOR_INVERS_OBLIDAT","FACTOR_PER_PERCENTATGE","OBERTURA_INVERTIDA","OBERTURA_I_AMPLADA_INVERTIDES","OPERACIO_INVERSA","ORDENADA_NULA_OBLIDADA","ORDENADA_PER_COORDENADA","ORDENADES_PER_TALL","ORDRE_DELS_FACTORS","PARABOLA_AMB_A_ZERO","PARALLELA_MATEIXA_RECTA","PARALLELA_PER_PERPENDICULAR","PART_FIXA_VARIABLE_BARREJADES","PART_MAL_ASSIGNADA","PENDENT_INVERTIT","PENDENT_MAL_TRIAT","PENDENT_NOMES_CANVIAT_DE_SIGNE","PERCENTATGES_SUMATS","POTENCIA_APLICADA_MALAMENT","PUNT_ORDENADA_CONFOS","RAO_AL_CUB","RAO_AL_QUADRAT","RAO_NOMES_UN_COSTAT","RAO_SENSE_QUADRAT","RECTA_VERTICAL_CONFOSA","RELATIU_COM_ABSOLUT","REPARTIMENT_A_PARTS_IGUALS","RESTA_PER_QUOCIENT","RESTRICCIO_INVENTADA","RESTRICCIO_OBLIDADA","SIGNE_ARRELS","SIGNE_COEFICIENT_PRINCIPAL","SIGNE_ORDENADA_INVERTIT","SIGNE_VERTEX","SIMPLE_PER_COMPOST","SUBSTITUCIO_MAL_FETA","TALL_COM_EXTREM","TALL_ORIGEN_OBLIDAT","TERMES_NO_REDUITS","TERME_INDEPENDENT_IGNORAT","VALOR_C_CONFOS","VALOR_DUPLICAT","VERTEX_COM_COEFICIENTS","VERTEX_PER_ARREL"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",0,18],["Divisibilitat",19,44],["Fraccions",45,85],["Decimals",86,139]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",0,22],["Exponent negatiu i equacions",23,41],["Verifica, corregeix i simplifica",42,61],["Combina potències",62,75]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",0,19],["Progressions aritmètiques",20,32],["Progressions geomètriques",33,43],["Aplicacions",44,49]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",0,13],["Divisió de polinomis i regla de Ruffini",14,34],["Igualtats notables",35,46],["Factor comú i simplificació",47,58]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",0,26],["Segon grau: fórmula i discriminant",27,40],["Segon grau: factor comú i factorització",41,62],["Sistemes d'equacions",63,87],["Problemes amb equacions i sistemes",88,98]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118","275a","275b","275c","275d","276a","276b","276c","276d","277a","277b","277c","278a","278b","278c","278d","279a","279b","279c","280a","280b","281a","281b","282a","282b","283a","283b","284"],"blocs":[["Proporcionalitat directa i inversa",0,9],["Percentatges",10,14],["El factor multiplicador",21,38],["Descomptes, IVA i interessos",39,47],["Augments i disminucions encadenats",15,20]],"dif":"122122222311222333333111111112222222222333333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",0,24],["Àrees amb el teorema de Pitàgores",25,33],["Àrees de quadrilàters i polígons regulars",34,47],["Problemes d'aplicació",48,54]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e","285a","285b","285c","286a","286b","286c","286d","287a","287b","287c","288a","288b","288c","289","290a","290b","290c","291a","291b","291c","292a","292b","293a","293b","294a","294b","294c"],"blocs":[["Teorema de Tales",0,7],["Semblança de triangles",8,31],["Escales",14,19],["Càlcul amb escales",32,45],["Raó de semblança, àrees i volums",46,58],["Aplicacions de la semblança",20,28]],"dif":"11111222111122112222333333333222111222222222231112222233333"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199"],"blocs":[["Prismes i el cub",0,11],["Piràmides i tetraedres",12,22],["Cilindres, cons i l'esfera",23,33],["Volums i problemes aplicats",34,42]],"dif":"1111122233332222222333221133122233111133333"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b","295a","295b","295c","295d","296a","296b","296c","297a","297b","297c","298a","298b","299a","299b","299c","300a","300b","300c","300d","301a","301b","301c","302a","302b","303a","303b","303c","304"],"blocs":[["Concepte de funció",0,17],["Funcions lineals i afins",18,31],["Construir rectes",45,59],["Construir paràboles i problemes",60,72],["Funcions quadràtiques",32,44]],"dif":"2221111111122223331111111111222211112233333222222222222333332222333333333"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c","260a","260b","260c","260d","261a","261b","261c","261d","262a","262b","262c","262d","263a","263b","263c","264","265a","265b","266a","266b","267a","267b","268a","268b","268c","269a","269b","270a","270b","270c","271a","271b","272a","272b","273a","273b","274a","274b","274c"],"blocs":[["Variables estadístiques",0,11],["Taules de freqüències",12,50],["Gràfics estadístics",36,51],["Mitjana, mediana i moda",52,73],["Recorregut i desviació típica",74,90]],"dif":"1111111111111112222223332222221111221333222222333222111111111111222322333311122222332233333"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",0,19],["Combinatòria: principi multiplicatiu",20,30],["Regla de Laplace i freqüència relativa",31,49],["Esdeveniments compostos",50,66]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències i mesures de centralització"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};
-+window.RE_TAULES = {"v":1,"etiquetes":["AGRUPACIO_TERMES_MAL","AILLAMENT_INCOMPLET","AMPLADA_INVERTIDA","ARITMETICA_PAS_INTERMEDI","ARREL_FACTOR_OBLIDAT","ARREL_MAL_APLICADA","ARREL_OBLIDADA","ARRODONIMENT_CONTEXT","BASES_DIFERENTS_COMBINADES","BASE_ALTERADA","BASE_EXPONENT_INTERCANVIATS","BASE_SIGNE_PERDUT","CAP_ERROR","CARTES_REPETIDES_CONFOSES","CASOS_FAVORABLES_MAL_COMPTATS","CASOS_POSSIBLES_MAL_COMPTATS","CATET_MAL_IDENTIFICAT","COMBINACIONS_MAL_COMPTADES","COMPARA_TERMES","COMPATIBLE_INCOMPATIBLE_CONFOSOS","COSTATS_MAL_TRIATS","CREUAMENT_INVERTIT","CRITERI_AGRUPACIO_MAL","CRITERI_SEMBLANCA_INSUFICIENT","DENOMINADOR_NO_ELIMINAT","DESPLACAMENT_INDEX","DIAGRAMA_HISTOGRAMA_CONFOSOS","DIFERENCIA_QUADRATS_MAL","DIMENSIO_EXPONENT_MAL","DISCRETA_CONTINUA_CONFOSES","DISTRIBUCIO_INCOMPLETA","DIVISIO_QUOCIENT_RESIDU_CANVIATS","DIVISIO_REPETIDA","DOBLE_NEGATIU","DOMINI_MAL_LLEGIT","DOMINI_RECORREGUT_INTERCANVIATS","ELEMENTAL_NO_ELEMENTAL_CONFOSOS","EL_MES_GRAN","EL_MES_PETIT","ENTER_AL_NUMERADOR","ENTER_MULTIPLICA_DENOMINADOR","EQUACIO_EXPONENT_MULTIPLICAT","EQUACIO_NO_SIMPLIFICADA","ESCALA_ALTERA_DADES","ESCALA_NO_APLICADA","ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS","ESDEVENIMENT_CONTRARI_MAL_CALCULAT","ESPAI_MOSTRAL_MAL_COMPTAT","ES_POT_DETERMINAR","EXPONENTS_MULTIPLICATS","EXPONENTS_RESTATS_PRODUCTE","EXPONENTS_SUMATS_QUOCIENT","EXPONENT_APLICAT_A_TOT","EXPONENT_COM_PRODUCTE","EXPONENT_MULTIPLICAT","EXPONENT_NEGATIU_SIGNE","EXPONENT_SENSE_DESPLACAR","EXPONENT_ZERO","FACTORIAL_MAL_APLICAT","FACTOR_COMU_INCOMPLET","FACTOR_COMU_MAL_DIVIDIT","FACTOR_COMU_SIGNE","FACTOR_OBLIDAT","FACTOR_TRES_VOLUM","FORMULA_INVERTIDA","FRACCIO_COM_PERCENTATGE","FRACCIO_DE_CERCLE_MAL","FRACCIO_NO_INVERTIDA","FREQ_ABSOLUTA_ACUMULADA_CONFOSES","FREQ_RELATIVA_MAL_CALCULADA","FREQ_RELATIVA_PROBABILITAT_CONFOSES","F_ACUMULADA_NO_CREIXENT","GRAUS_MAL_AGRUPATS","GRAU_PRODUCTE_MAL","HIPOTENUSA_MAL_IDENTIFICADA","IGUALTAT_NOTABLE_DOBLE_OBLIDAT","IGUALTAT_NOTABLE_SIGNE","INTERVAL_LIMIT_MAL_ASSIGNAT","INVERTIDA","JERARQUIA","MAGNITUD_NO_CONVERTIDA","MCD_EN_LLOC_DE_MCM","MCM_EN_LLOC_DE_MCD","MEITAT_OBLIDADA","MENYS_PARENTESI","MENYS_SENSE_PARENTESI","MOSTRA_POBLACIO_INVERTIDES","NOUS_I_ZEROS","NO_RESTA_ANTEPERIODE","NUMERADORS_SENSE_AJUSTAR","ORDRE_ARREL_DIVISIO","ORDRE_DIVISIONS","ORDRE_MULTIPLICACIO_DIVISIO","ORDRE_NO_CONSIDERAT","ORDRE_RESTA","PAPERS_INTERCANVIATS","PARELLS_VALORS_CONFOSOS","PARENTESI_NO_DISTRIBUIT","PARENTESI_NO_DISTRIBUIT_POLI","PARITAT_EXPONENT","PART_ENTERA_OBLIDADA","PART_PEL_TOT","PAS_INTERMEDI_PER_RESPOSTA","PENDENT_COM_NUL","PENDENT_ORDENADA_INTERCANVIATS","PERCENTATGE_DECIMAL_MAL","PERCENTATGE_MAL_CALCULAT","PERIODE_MAL_IDENTIFICAT","PI_OBLIDAT","POLIGON_MAL_CONSTRUIT","POTENCIA_10","POTENCIA_COM_PRODUCTE","POTENCIA_DE_SUMA","POTENCIA_POTENCIA_SUMADA","POTENCIA_PRODUCTE_UN_FACTOR","POTENCIA_QUOCIENT_UN_FACTOR","PRINCIPI_MULTIPLICATIU_MAL_APLICAT","PROBABILITAT_CONDICIONADA_MAL","PRODUCTE","PRODUCTES_CREUATS","PRODUCTES_MAL_CREUATS","PRODUCTE_CREUAT","PRODUCTE_MAL","PROGRESSIO_INVENTADA","QUADRAT_INCOMPLET","QUALITATIVA_QUANTITATIVA_CONFOSES","RAONAMENT_ADDITIU","RAO_MAL_APLICADA","RECOMPTE_MAL_FET","REGLA_NOMES_PRODUCTE","REGLA_NOMES_QUOCIENT","REPRESENTACIO_INNECESSARIA","RESTA_NEGATIU","RUFFINI_DIVISOR_NO_MONIC","RUFFINI_PAS_MAL","RUFFINI_QUOCIENT_GRAU","RUFFINI_RESIDU_COM_QUOCIENT","RUFFINI_SIGNE_ARREL","RUFFINI_TERME_OBLIDAT","SECTOR_ANGLE_MAL_CALCULAT","SIGNE_FINAL","SIGNE_PENDENT_INVERTIT","SIGNE_PRODUCTE","SIGNE_QUOCIENT","SIGNE_SUMA","SIGNE_TERME_INDEPENDENT","SIMPLIFICACIO_ABANS_OBLIDADA","SIMPLIFICACIO_INCOMPLETA","SIMPLIFICACIO_INVENTADA","SIMPLIFICAR_RESTANT","SIMPLIFICA_NOMES_NUMERADOR","SUMA_CATETS_SENSE_QUADRAT","SUMA_DE_PARTS_INCOMPLETA","SUMA_EN_LLOC_RESTA","SUMA_NUMERADORS","SUMA_PER_DIFERENCIA_MAL","TERME_MAL_CALCULAT","TERME_OBLIDAT_OPERACIO","TOTAL_DADES_MAL_CALCULAT","TRACTAT_COM_EXACTE","TRACTAT_COM_PERIODIC","UNIO_DOBLE_COMPTADA","UNIO_INTERSECCIO_CONFOSES","UNITATS_NO_CONVERTIDES","VARIACIONS_SENSE_REPETICIO_MAL","VEREDICTE_INVERTIT","ACUMULADA_MAL_LLEGIDA","CONSTANT_AFECTA_DISPERSIO","CV_SENSE_DIVIDIR","DESVIACIONS_AL_QUADRAT","DESVIACIONS_SENSE_QUADRAT","DIVIDIT_PER_VALORS_DIFERENTS","DIVISIO_OBLIDADA","DIVISIO_SOBRERA","EXTREM_SENSE_EFECTE","FREQUENCIA_NO_PONDERADA","MEDIANA_PER_MITJANA","MEDIANA_PER_MODA","MEDIANA_SENSE_ORDENAR","MESURA_MAL_TRIADA","MITJANA_NO_DIU_DISPERSIO","MODA_PER_FREQUENCIA","N_MAL_COMPTAT","PES_IGNORAT","PES_MAL_APLICAT","PRODUCTE_PER_SUMA","RANG_PER_MEDIANA","VALOR_ABSOLUT_INDEGUT","VARIANCIA_PER_DESVIACIO","ASIMPTOTA_COM_LIMIT","BASE_MAL_TRIADA","CATET_HIPOTENUSA_CONFOSOS","COEFICIENT_A_MAL_CALCULAT","COEFICIENT_MAL_TRIAT","COORDENADES_INTERCANVIADES","CREIXEMENT_INVERTIT","DADES_MAL_TRIADES","EIX_SIMETRIA_MAL_CALCULAT","ESCALA_INVERTIDA","EXTREMS_OBLIDATS","EXTREM_INVERTIT","FACTOR_INVERS_OBLIDAT","FACTOR_PER_PERCENTATGE","OBERTURA_INVERTIDA","OBERTURA_I_AMPLADA_INVERTIDES","OPERACIO_INVERSA","ORDENADA_NULA_OBLIDADA","ORDENADA_PER_COORDENADA","ORDENADES_PER_TALL","ORDRE_DELS_FACTORS","PARABOLA_AMB_A_ZERO","PARALLELA_MATEIXA_RECTA","PARALLELA_PER_PERPENDICULAR","PART_FIXA_VARIABLE_BARREJADES","PART_MAL_ASSIGNADA","PENDENT_INVERTIT","PENDENT_MAL_TRIAT","PENDENT_NOMES_CANVIAT_DE_SIGNE","PERCENTATGES_SUMATS","POTENCIA_APLICADA_MALAMENT","PUNT_ORDENADA_CONFOS","RAO_AL_CUB","RAO_AL_QUADRAT","RAO_NOMES_UN_COSTAT","RAO_SENSE_QUADRAT","RECTA_VERTICAL_CONFOSA","RELATIU_COM_ABSOLUT","REPARTIMENT_A_PARTS_IGUALS","RESTA_PER_QUOCIENT","RESTRICCIO_INVENTADA","RESTRICCIO_OBLIDADA","SIGNE_ARRELS","SIGNE_COEFICIENT_PRINCIPAL","SIGNE_ORDENADA_INVERTIT","SIGNE_VERTEX","SIMPLE_PER_COMPOST","SUBSTITUCIO_MAL_FETA","TALL_COM_EXTREM","TALL_ORIGEN_OBLIDAT","TERMES_NO_REDUITS","TERME_INDEPENDENT_IGNORAT","VALOR_C_CONFOS","VALOR_DUPLICAT","VERTEX_COM_COEFICIENTS","VERTEX_PER_ARREL"],"fulls":{"1":{"titol":"Full 1 — Nombres enters, fraccions i decimals","items":["1a","1b","1c","1d","1e","1f","2a","2b","2c","2d","3a","3b","3c","3d","4a","4b","4c","4d","4e","5a","5b","5c","6a","6b","6c","7a","7b","7c","8","9a","9b","9c","9d","10a","10b","10c","10d","11","12a","12b","13","14","15","16","17","18a","18b","18c","18d","18e","18f","19a","19b","19c","19d","20a","20b","20c","21a","21b","21c","21d","21e","21f","22a","22b","22c","22d","22e","22f","23a","23b","23c","23d","24a","24b","24c","24d","24e","24f","25a","25b","25c","25d","25e","25f","26a","26b","26c","26d","26e","26f","27a","27b","27c","27d","27e","27f","27g","27h","28a","28b","28c","28d","28e","28f","28g","28h","28i","28j","28k","28l","29a","29b","29c","29d","29e","29f","30a","30b","30c","30d","30e","30f","31a","31b","31c","31d","31e","31f","32a","32b","32c","32d","33a","33b","33c","33d","33e","34"],"blocs":[["Nombres enters",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]],["Divisibilitat",[19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44]],["Fraccions",[45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85]],["Decimals",[86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139]]],"dif":"11111122222222333331111111112111111112333333311111122221112222221111112222222222222222111111111111112222222222222222222222223333333333333333"},"2":{"titol":"Full 2 — Potències","items":["35a","35b","35c","35d","35e","35f","36a","36b","36c","36d","36e","36f","36g","37a","37b","37c","37d","37e","37f","37g","37h","37i","37j","38a","38b","38c","38d","38e","38f","38g","38h","38i","39a","39b","39c","39d","39e","39f","40a","40b","40c","40d","41a","41b","41c","41d","41e","41f","41g","41h","42a","42b","42c","42d","42e","42f","43a","43b","43c","43d","43e","43f","44a","44b","45a","45b","45c","45d","45e","45f","45g","45h","46a","46b","46c","46d"],"blocs":[["Càlcul de potències",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22]],["Exponent negatiu i equacions",[23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]],["Verifica, corregeix i simplifica",[42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61]],["Combina potències",[62,63,64,65,66,67,68,69,70,71,72,73,74,75]]],"dif":"1111112222222222222222222222222222222233333333333322222211111122333333333333"},"3":{"titol":"Full 3 — Successions i progressions","items":["47a","47b","47c","47d","47e","47f","47g","48a","48b","48c","48d","49a","49b","49c","49d","50a","50b","50c","51a","51b","52a","52b","52c","52d","53a","53b","53c","54a","54b","54c","54d","54e","54f","55","56a","56b","56c","57a","57b","57c","58a","58b","58c","58d","59a","59b","59c","59d","60","61"],"blocs":[["Termes d'una successió",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]],["Progressions aritmètiques",[20,21,22,23,24,25,26,27,28,29,30,31,32]],["Progressions geomètriques",[33,34,35,36,37,38,39,40,41,42,43]],["Aplicacions",[44,45,46,47,48,49]]],"dif":"11111112222222222222222233322222231112223333333333"},"4":{"titol":"Full 4 — Polinomis","items":["62a","62b","62c","62d","63a","63b","63c","63d","63e","63f","64a","64b","64c","64d","65a","65b","66a","66b","66c","66d","66e","67a","67b","67c","67d","67e","67f","68a","68b","68c","68d","69a","69b","69c","69d","70a","70b","70c","70d","71a","71b","71c","71d","71e","71f","72a","72b","73a","73b","73c","73d","74a","74b","74c","74d","74e","74f","74g","74h"],"blocs":[["Operacions amb polinomis",[0,1,2,3,4,5,6,7,8,9,10,11,12,13]],["Divisió de polinomis i regla de Ruffini",[14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34]],["Igualtats notables",[35,36,37,38,39,40,41,42,43,44,45,46]],["Factor comú i simplificació",[47,48,49,50,51,52,53,54,55,56,57,58]]],"dif":"22222222223333222222233333322223333222211111133111133333333"},"5":{"titol":"Full 5 — Equacions i sistemes","items":["75a","75b","75c","75d","75e","75f","76a","76b","76c","76d","76e","76f","77a","77b","77c","77d","78a","78b","78c","78d","78e","78f","79a","79b","79c","79d","79e","80a","80b","80c","80d","80e","80f","80g","81a","81b","81c","81d","81e","81f","81g","82a","82b","82c","82d","82e","82f","82g","82h","82i","83a","83b","83c","83d","83e","83f","84a","84b","84c","84d","84e","84f","84g","85a","85b","85c","85d","85e","85f","85g","85h","86a","86b","86c","86d","86e","86f","87","88a","88b","88c","88d","88e","88f","89a","89b","89c","89d","90","91","92","93","94","95","96","97","98","99","100"],"blocs":[["Equacions de primer grau",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26]],["Segon grau: fórmula i discriminant",[27,28,29,30,31,32,33,34,35,36,37,38,39,40]],["Segon grau: factor comú i factorització",[41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62]],["Sistemes d'equacions",[63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87]],["Problemes amb equacions i sistemes",[88,89,90,91,92,93,94,95,96,97,98]]],"dif":"222222111111111122222233333111111122222221111111111111112222222111111112222223222222222233333333333"},"6":{"titol":"Full 6 — Proporcionalitat i percentatges","items":["101","102","103","104","105a","105b","106a","106b","107","108","109","110","111","112a","112b","113","114","115","116","117","118","275a","275b","275c","275d","276a","276b","276c","276d","277a","277b","277c","278a","278b","278c","278d","279a","279b","279c","280a","280b","281a","281b","282a","282b","283a","283b","284"],"blocs":[["Proporcionalitat directa i inversa",[0,1,2,3,4,5,6,7,8,9]],["Percentatges",[10,11,12,13,14]],["El factor multiplicador",[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38]],["Descomptes, IVA i interessos",[39,40,41,42,43,44,45,46,47]],["Augments i disminucions encadenats",[15,16,17,18,19,20]]],"dif":"122122222311222333333111111112222222222333333333"},"7":{"titol":"Full 7 — Teorema de Pitàgores. Àrees","items":["119","120a","120b","120c","121a","121b","121c","121d","122","123a","123b","123c","123d","124a","124b","124c","125","126a","126b","127a","127b","127c","128a","128b","129","130","131","132","133","134","135","136","137","138","140a","140b","140c","140d","141a","141b","142","143a","143b","143c","143d","144a","144b","145c","146","147","148a","148b","149","150","151"],"blocs":[["Triangles i teorema de Pitàgores",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]],["Àrees amb el teorema de Pitàgores",[25,26,27,28,29,30,31,32,33]],["Àrees de quadrilàters i polígons regulars",[34,35,36,37,38,39,40,41,42,43,44,45,46,47]],["Problemes d'aplicació",[48,49,50,51,52,53,54]]],"dif":"1111222221111222222222333322322222222222222223333333333"},"8":{"titol":"Full 8 — Teorema de Tales. Semblança","items":["152a","152b","152c","152e","152f","153a","153b","153c","154a","154b","154c","154d","155a","155b","156a","156b","158","159","160a","160b","161","162","163","164","165","166","167","168","169","155c","155d","155e","285a","285b","285c","286a","286b","286c","286d","287a","287b","287c","288a","288b","288c","289","290a","290b","290c","291a","291b","291c","292a","292b","293a","293b","294a","294b","294c"],"blocs":[["Teorema de Tales",[0,1,2,3,4,5,6,7]],["Semblança de triangles",[8,9,10,11,12,13,29,30,31]],["Escales",[14,15,16,17,18,19]],["Càlcul amb escales",[32,33,34,35,36,37,38,39,40,41,42,43,44,45]],["Raó de semblança, àrees i volums",[46,47,48,49,50,51,52,53,54,55,56,57,58]],["Aplicacions de la semblança",[20,21,22,23,24,25,26,27,28]]],"dif":"11111222111122112222333333333222111222222222231112222233333"},"9":{"titol":"Full 9 — Cossos geomètrics. Àrea i volum","items":["170a","170b","170c","170d","170e","171","172","173","174","175","176a","176b","177","179a","179b","180a","180b","180c","180d","181a","181b","182","183","184","185a","185b","186","187","188","189","190","191","193a","193b","195a","195c","195e","195f","196a","196b","197","198","199","170f","170g","170h","170i"],"blocs":[["Prismes i el cub",[0,1,2,3,4,5,6,7,8,9,10,11,43,44,45,46]],["Piràmides i tetraedres",[12,13,14,15,16,17,18,19,20,21,22]],["Cilindres, cons i l'esfera",[23,24,25,26,27,28,29,30,31,32,33]],["Volums i problemes aplicats",[34,35,36,37,38,39,40,41,42]]],"dif":"11111222333322222223332211331222331111333331111"},"10":{"titol":"Full 10 — Funcions","items":["200a","200b","200c","201a","201b","201c","201d","202a","202b","202c","202d","203a","203b","203c","203d","206a","206b","206c","207a","207b","207c","207d","208a","208b","208c","208d","208e","208f","209a","209b","209c","209d","212a","212b","212c","212d","214a","214b","215","216a","216b","216c","216d","217a","217b","295a","295b","295c","295d","296a","296b","296c","297a","297b","297c","298a","298b","299a","299b","299c","300a","300b","300c","300d","301a","301b","301c","302a","302b","303a","303b","303c","304"],"blocs":[["Concepte de funció",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]],["Funcions lineals i afins",[18,19,20,21,22,23,24,25,26,27,28,29,30,31]],["Construir rectes",[45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]],["Construir paràboles i problemes",[60,61,62,63,64,65,66,67,68,69,70,71,72]],["Funcions quadràtiques",[32,33,34,35,36,37,38,39,40,41,42,43,44]]],"dif":"2221111111122223331111111111222211112233333222222222222333332222333333333"},"11":{"titol":"Full 11 — Estadística","items":["218a","218b","218c","218d","218e","218f","218g","219a","219b","219c","219d","219e","220a","220b","220c","221a","221b","221c","221d","222a","222b","223a","223b","223c","224a","224b","224c","224d","225a","225b","226a","226b","226c","226d","235a","235b","227","228a","228b","228c","229","230a","230b","230c","230d","231","232a","232b","232c","234a","234b","234c","260a","260b","260c","260d","261a","261b","261c","261d","262a","262b","262c","262d","263a","263b","263c","264","265a","265b","266a","266b","267a","267b","268a","268b","268c","269a","269b","270a","270b","270c","271a","271b","272a","272b","273a","273b","274a","274b","274c"],"blocs":[["Variables estadístiques",[0,1,2,3,4,5,6,7,8,9,10,11]],["Taules de freqüències",[12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,49,50]],["Gràfics estadístics",[36,37,38,39,40,41,42,43,44,45,46,47,48,51]],["Mitjana, mediana i moda",[52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73]],["Recorregut i desviació típica",[74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]]],"dif":"1111111111111112222223332222221111221333222222333222111111111111222322333311122222332233333"},"12":{"titol":"Full 12 — Combinatòria i probabilitat","items":["236a","236b","236c","236d","236e","236f","236g","237","238a","238b","239a","239b","239c","239d","239e","240a","240b","240c","240d","240e","242","243","244","245","246","247","248a","248b","248c","248d","248e","241a","241b","241c","241d","241e","249a","249b","249c","249d","250a","250b","250c","250d","251a","251b","251c","252a","252b","252c","253a","253b","253c","253d","253e","254a","254b","254c","255","256a","256b","256c","257a","257b","257c","258","259"],"blocs":[["Espais mostrals i esdeveniments",[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]],["Combinatòria: principi multiplicatiu",[20,21,22,23,24,25,26,27,28,29,30]],["Regla de Laplace i freqüència relativa",[31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49]],["Esdeveniments compostos",[50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66]]],"dif":"1111111233222222222232123222222111112222222233333322222222333311133"}},"proves":[{"id":"signes","tema":"Signes i potències de nombres negatius"},{"id":"fraccions","tema":"Sumar i restar fraccions"},{"id":"potencies","tema":"Propietats de les potències"},{"id":"progressions","tema":"Progressions aritmètiques"},{"id":"factoritzar","tema":"Factoritzar amb igualtats notables"},{"id":"eq1grau","tema":"Equacions de primer grau amb denominadors"},{"id":"eq2grau","tema":"Equacions de segon grau"},{"id":"sistemes","tema":"Sistemes de dues equacions"},{"id":"percentatges","tema":"Augments i descomptes percentuals"},{"id":"pitagores","tema":"Teorema de Pitàgores"},{"id":"escales","tema":"Escales i semblança"},{"id":"volums","tema":"Volum dels cossos geomètrics"},{"id":"parabola","tema":"Paràboles: vèrtex i talls"},{"id":"frequencies","tema":"Taules de freqüències i mesures de centralització"},{"id":"laplace","tema":"Probabilitat: regla de Laplace"}]};
-diff -ru a/tests/codi.test.js b/tests/codi.test.js
---- a/tests/codi.test.js	2026-08-06 09:54:48.434203196 +0000
-+++ b/tests/codi.test.js	2026-08-06 09:54:48.435727373 +0000
-@@ -201,6 +201,46 @@
-     "4:62a,70a,70b,70c,70d,71a,71b,71c,71d,71e"]);
- });
- 
-+prova("l'ordre de codificació és append-only", () => {
-+  /* Aquesta és LA propietat que fa que els codis emesos segueixin valent.
-+     L'ordre de codificació (codi-ordre.json) i el de presentació
-+     (data/fullN.js) són coses diferents a propòsit: quan es recupera un
-+     exercici que faltava, va al seu lloc per a l'alumne i al final de
-+     l'ordre per al codi. Comprovat sobre el Full 9, on el 170f-i es van
-+     recuperar entre el 170e i el 171. */
-+  const f9 = T.fulls[9].items;
-+  const rec = ["170f", "170g", "170h", "170i"];
-+  assert.deepStrictEqual(f9.slice(-4), rec,
-+    "els exercicis recuperats han d'anar al final de l'ordre de codificació");
-+  assert.strictEqual(f9.indexOf("171"), 5,
-+    "els que ja hi eren no s'han pogut moure de lloc");
-+});
++echo
++echo "── JavaScript: la resolució no s'ofereix sola ────────────────"
++node tests/test_flux_resolucio.js || fallades=1
 +
-+prova("els blocs es donen com a llista de posicions, no com a rang", () => {
-+  /* Amb l'ordre append-only els blocs deixen de ser contigus: el bloc dels
-+     prismes conté la posició 0 i també la 46. Un rang se n'empassaria mig
-+     full. */
-+  Object.keys(T.fulls).forEach(n => {
-+    T.fulls[n].blocs.forEach(b => {
-+      assert.ok(Array.isArray(b[1]), "full " + n + ": el bloc " + b[0] + " no és una llista");
-+      b[1].forEach(k => assert.ok(k >= 0 && k < T.fulls[n].items.length));
-+    });
-+  });
-+  const prismes = T.fulls[9].blocs.filter(b => /prismes|Prismes/i.test(b[0]))[0];
-+  assert.ok(prismes[1].indexOf(0) >= 0 && Math.max.apply(null, prismes[1]) > 40,
-+    "el bloc dels prismes hauria d'abastar posicions molt separades");
-+});
++echo
+ if [ "$fallades" -eq 0 ]; then
+   printf '\033[32m✓ Tot en verd.\033[0m\n'
+ else
+diff -ru a/tests/test_flux_resolucio.js b/tests/test_flux_resolucio.js
+--- a/tests/test_flux_resolucio.js	2026-08-11 06:37:40.004996673 +0000
++++ b/tests/test_flux_resolucio.js	2026-08-11 06:37:40.009986471 +0000
+@@ -0,0 +1,160 @@
++/* tests/test_flux_resolucio.js — la resolució no s'ofereix mai tota sola.
 +
-+prova("cap posició no queda en dos blocs alhora", () => {
-+  Object.keys(T.fulls).forEach(n => {
-+    const vist = new Set();
-+    T.fulls[n].blocs.forEach(b => b[1].forEach(k => {
-+      assert.ok(!vist.has(k), "full " + n + ": la posició " + k + " és a dos blocs");
-+      vist.add(k);
-+    }));
-+  });
-+});
++   BUG QUE ARREGLA AQUESTA PROVA
 +
- prova("l'ordre d'ítems de cada full no s'ha mogut per davant", () => {
-   /* Els primers ítems de cada full, tal com eren quan es va emetre el primer
-      codi. El format guarda els estats per POSICIÓ: si alguna d'aquestes
-diff -ru a/tests/test_banc.py b/tests/test_banc.py
---- a/tests/test_banc.py	2026-08-06 09:54:48.441190438 +0000
-+++ b/tests/test_banc.py	2026-08-06 09:54:48.442726110 +0000
-@@ -415,3 +415,43 @@
-         for it in self._amb_figura():
-             self.assertEqual(it["figura"].count("<svg"), 1)
-             self.assertEqual(it["figura"].count("</svg>"), 1)
++   Dins de `$("#comprova").onclick`, quan es tanca l'exercici (`tancat`),
++   hi havia aquesta línia:
 +
++       if (!encert) $("#veure").click();
 +
-+class ApotemesCoherents(unittest.TestCase):
-+    """L'apotema d'un polígon regular és a = s / (2·tan(π/n)). Sempre que un
-+    enunciat en doni una, ha de quadrar amb la fórmula.
++   És a dir: si l'últim intent era erroni, el propi codi CLICAVA el botó
++   "Mostra la resolució" en nom de l'alumne, i la resolució apareixia sense
++   que ell hagués demanat res. El botó quedava visible igualment, però ja no
++   calia prémer-lo: la resolució ja hi era.
 +
-+    Aquesta prova hi és perquè és la tècnica que va permetre llegir les
-+    figures escanejades sense endevinar: quan la lectura i la fórmula no
-+    quadren, la cota s'ha assignat malament. Va atrapar el 170c, transcrit
-+    com a hexàgon de costat 8 amb apotema 5,2 quan un hexàgon de costat 8 té
-+    apotema 6,93. La cota de 8 era l'altura.
++   Això és un bug real de UX i de pedagogia. Mirar la resolució ha de ser
++   una decisió de l'alumne, presa amb un gest propi — igual que demanar una
++   pista és una decisió seva. Que l'aplicació la mostri tota sola, encara
++   que sigui després de dos intents fallits, converteix "veure la resolució"
++   en una cosa que li PASSA a l'alumne en lloc d'una cosa que ELL fa. I
++   trenca la simetria amb el cas d'encert: si respons bé, ningú et clica el
++   botó per tu.
 +
-+    El marge del 3 % és per l'arrodoniment del llibre: el 170h dona 4,25 on
-+    la fórmula diu 4,33."""
++   La prova comprova, amb un DOM real, que:
 +
-+    NOMS = {"triangular": 3, "quadrangular": 4, "pentagonal": 5,
-+            "hexagonal": 6, "octogonal": 8}
++     1. La resolució i el veredicte estan buits abans de triar cap opció.
++     2. Continuen buits mentre es trien i comproven opcions.
++     3. Quan l'exercici es tanca (per encert o per esgotar els dos intents),
++        el botó "Mostra la resolució" queda VISIBLE però la resolució
++        segueix BUIDA: apareix el botó, no el contingut.
++     4. Només prement el botó explícitament apareix la resolució.
 +
-+    def test_les_apotemes_dels_enunciats_quadren_amb_la_formula(self):
-+        import math
-+        provats = 0
-+        for it in PLANS:
-+            t = it["enunciat"]
-+            m = re.search(r"(\w+) regular de \$(\d+(?:\{,\}\d+)?)\$ cm de costat "
-+                          r"i\s*\$(\d+(?:\{,\}\d+)?)\$ cm d'apotema", t)
-+            if not m:
-+                continue
-+            n = self.NOMS.get(m.group(1))
-+            if not n:
-+                continue
-+            s = float(m.group(2).replace("{,}", "."))
-+            a = float(m.group(3).replace("{,}", "."))
-+            calc = s / (2 * math.tan(math.pi / n))
-+            self.assertLess(abs(calc - a) / a, 0.03,
-+                            "%s: %s regular de costat %g hauria de tenir apotema "
-+                            "%.2f, i l'enunciat en diu %.2f. O el polígon no és "
-+                            "el que diu, o les cotes estan intercanviades."
-+                            % (it["id"], m.group(1), s, calc, a))
-+            provats += 1
-+        self.assertGreaterEqual(provats, 5, "esperava trobar més apotemes a comprovar")
-diff -ru a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
---- a/tools/analitzador-plantilla.html	2026-08-06 09:54:48.449065175 +0000
-+++ b/tools/analitzador-plantilla.html	2026-08-06 09:54:48.450781982 +0000
-@@ -652,7 +652,9 @@
-     p.fulls.forEach(function (f) {
-       h += '<div class="bloc-fila"><h4>' + f.titol + "</h4>";
-       f.blocs.forEach(function (b) {
--        var dins = f.items.slice(b[1], b[2] + 1);
-+        /* b[1] és la LLISTA de posicions del bloc, no un rang: en aquest
-+           ordre els blocs no són contigus (vegeu build_codi.py). */
-+        var dins = b[1].map(function (k) { return f.items[k]; });
-         var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
-         if (!fets) return;
-         var mal = dins.filter(function (x) { return x.estat === "fallat"; });
-@@ -770,7 +772,7 @@
-           }
-         });
-         f.blocs.forEach(function (b) {
--          var dins = f.items.slice(b[1], b[2] + 1);
-+          var dins = b[1].map(function (k) { return f.items[k]; });
-           var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
-           if (!fets) return;
-           var mal = dins.filter(function (x) { return x.estat === "fallat"; }).length;
-diff -ru a/tools/build_codi.py b/tools/build_codi.py
---- a/tools/build_codi.py	2026-08-06 09:54:48.456702609 +0000
-+++ b/tools/build_codi.py	2026-08-06 09:54:48.458308451 +0000
-@@ -72,29 +72,94 @@
- # ---------------------------------------------------------------------
- # Ordre d'ítems de cada full
- # ---------------------------------------------------------------------
-+FITXER_ORDRE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-+                            "codi-ordre.json")
++   Mateix criteri que la resta de l'arnès: sense jsdom, se salta amb un avís.
 +
++       npm install --no-save jsdom
++       node tests/test_flux_resolucio.js
++*/
++"use strict";
++const fs = require("fs"), path = require("path");
 +
-+def ordre_estable(fulls_actuals):
-+    """Ordre APPEND-ONLY dels ítems de cada full, per al codi de verificació.
-+
-+    El codi guarda l'estat de cada exercici per POSICIÓ. Si l'ordre canviés,
-+    tots els codis ja emesos passarien a llegir-se malament, i en silenci.
-+
-+    Al principi això s'aconseguia amb una regla de disciplina —"el contingut
-+    nou va sempre al final del full"—, però la regla es trenca sola: quan es
-+    recupera un exercici que faltava, el seu lloc natural és entre els seus
-+    germans, no al final. El 170f va just després del 170e, i posar-lo al
-+    final del Full 9 seria absurd per a qui l'ha de fer.
-+
-+    Per això l'ordre de CODIFICACIÓ es desa aquí i és append-only, separat de
-+    l'ordre de PRESENTACIÓ, que és el de `data/fullN.js`. Un exercici nou
-+    s'insereix on toca per a l'alumne i s'afegeix al final d'aquesta llista
-+    per al codi. Les dues coses deixen de dependre l'una de l'altra.
-+    """
-+    if os.path.exists(FITXER_ORDRE):
-+        with open(FITXER_ORDRE, encoding="utf-8") as f:
-+            previ = json.load(f)
-+    else:
-+        previ = {}
-+
-+    ordre, avisos = {}, []
-+    for n, ids in fulls_actuals.items():
-+        k = str(n)
-+        anterior = previ.get(k, [])
-+        vius = set(ids)
-+        # Els que ja hi eren es queden EXACTAMENT on eren, encara que hagin
-+        # desaparegut del full: buidar-los mouria tota la resta.
-+        nou = list(anterior)
-+        for i in ids:
-+            if i not in nou:
-+                nou.append(i)
-+        morts = [i for i in anterior if i not in vius]
-+        if morts:
-+            avisos.append("full %s: %d ítems ja no hi són però es mantenen a "
-+                          "l'ordre per no moure la resta (%s)"
-+                          % (k, len(morts), ", ".join(morts[:5])))
-+        ordre[k] = nou
-+
-+    with open(FITXER_ORDRE, "w", encoding="utf-8") as f:
-+        json.dump(ordre, f, ensure_ascii=False, indent=0)
-+    for a in avisos:
-+        print("  ⚠ " + a)
-+    return ordre
-+
-+
- def taula_fulls():
-     """{full: {items: [id...], blocs: [[titol, primer, últim]...], dif: "12321..."}}
- 
--    L'ordre dels ítems és el de `data/fullN.js`, que és l'ordre en què els
--    recorre l'app. La posició i del codi és, doncs, l'ítem i d'aquesta llista:
--    és el que permet a l'analitzador dir "ha fallat el 67e" i no "la 9a".
-+    `items` va en l'ordre APPEND-ONLY de `codi-ordre.json`, no en el de
-+    `data/fullN.js`: vegeu ordre_estable().
-+
-+    Cada bloc es dona com la LLISTA de posicions que li pertoquen, no com un
-+    rang. Un rang només valdria si els blocs fossin contigus en aquest ordre,
-+    i deixen de ser-ho tan bon punt es recupera un exercici: el 170f va al
-+    final de l'ordre de codificació però al bloc dels prismes, que comença a
-+    la posició 0. Amb rangs, aquell bloc s'empassaria mig full.
-     """
--    out = {}
-+    fulls, dades = {}, {}
-     for n in range(1, 13):
-         ruta = os.path.join(ARREL, "data", "full%d.js" % n)
-         if not os.path.exists(ruta):
-             continue
--        s = open(ruta, encoding="utf-8").read()
-+        with open(ruta, encoding="utf-8") as f:
-+            s = f.read()
-         d = json.loads(s[s.index("{"):s.rindex("}") + 1])
--        ids = [it["id"] for it in d["items"]]
--        pos = {it["id"]: i for i, it in enumerate(d["items"])}
--        difs = "".join(str(it["dif"]) for it in d["items"])
-+        dades[n] = d
-+        fulls[n] = [it["id"] for it in d["items"]]
-+
-+    ordre = ordre_estable(fulls)
-+
-+    out = {}
-+    for n, d in dades.items():
-+        ids = ordre[str(n)]
-+        info = {it["id"]: it for it in d["items"]}
-+        pos = {i: k for k, i in enumerate(ids)}
-+        difs = "".join(str(info[i]["dif"]) if i in info else "1" for i in ids)
-         blocs = []
-         for b in d["blocs"]:
--            if not b["items"]:
--                continue
--            idxs = [pos[i] for i in b["items"] if i in pos]
--            blocs.append([b["titol"], min(idxs), max(idxs)])
-+            idxs = sorted(pos[i] for i in b["items"] if i in pos)
-+            if idxs:
-+                blocs.append([b["titol"], idxs])
-         out[n] = {"titol": d["titol"], "items": ids, "blocs": blocs, "dif": difs}
-     return out
- 
-diff -ru a/tools/c_cossos.py b/tools/c_cossos.py
---- a/tools/c_cossos.py	2026-08-06 09:54:48.463759782 +0000
-+++ b/tools/c_cossos.py	2026-08-06 09:54:48.465242973 +0000
-@@ -54,6 +54,7 @@
- i volum amb una lectura numèrica única, sense ambigüitat matemàtica pròpia.
- """
- import math
-+from figures import prisma_regular, cub, ortoedre
- from lib import Q, D, DT, tria, dificultats
- 
- # --------------------------------------------------------------------
-@@ -169,6 +170,7 @@
-    "$A=2(a\\cdot b+a\\cdot c+b\\cdot c)$, amb $a=7$, $b=2$, $c=4$."],
-   ["$A=2(7\\cdot2+7\\cdot4+2\\cdot4)=2(14+28+8)$",
-    "$A=2\\cdot50=100$ cm$^2$"],
-+  figura=ortoedre(7, 2, 4),
-   ex_text=E170)
- 
- # 170b: triangular equilater costat 5, altura 9 -> A~156.65
-@@ -194,30 +196,42 @@
-   [r"$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$",
-    "$A_{\\text{lateral}}=15\\cdot9=135$ cm$^2$",
-    "$A_{\\text{total}}=2\\cdot10{,}83+135\\approx156{,}65$ cm$^2$"],
-+  figura=prisma_regular(3, 5, 9),
-   ex_text=E170)
- 
- # 170c: hexagonal costat 8 apotema 5.2 altura 6 -> A=537.6 (exacte)
-+# 170c: hexagonal costat 6 apotema 5,2 altura 8 -> A=475,2 (exacte)
-+#
-+# LECTURA CORREGIDA. Al primer intent es va llegir "costat 8, apotema 5,2,
-+# altura 6", però un hexàgon regular de costat 8 té apotema 6,93, no 5,2: la
-+# lectura no podia ser bona. Amb costat 6 la fórmula dona 5,196, que és el
-+# 5,2 del llibre arrodonit. La cota de 8 cm és, doncs, l'altura.
-+#
-+# Aquesta comprovació —contrastar l'apotema que dona el llibre amb la que
-+# surt de la fórmula— val per a tots els prismes i piràmides de base regular,
-+# i és el que permet llegir una figura escanejada sense endevinar.
- Q("170c", 170, "c", B1, "A",
--  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
--  "$5{,}2$ cm d'apotema, amb $6$ cm d'altura.",
--  val(537.6, 2, "cm$^2$"),
-+  f"{E170} un prisma de base hexagonal regular de $6$ cm de costat i "
-+  "$5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
-+  val(475.2, 2, "cm$^2$"),
-   [D(val(288, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
--     "Aquest valor és només l'àrea lateral ($48\\cdot6$): encara "
-+     "Aquest valor és només l'àrea lateral ($36\\cdot8$): encara "
-      "falta sumar-hi les dues bases hexagonals."),
--   D(val(374.4, 2, "cm$^2$"), "FACTOR_OBLIDAT",
-+   D(val(381.6, 2, "cm$^2$"), "FACTOR_OBLIDAT",
-      "Sembla que només has comptat UNA base hexagonal en lloc de "
-      "dues: un prisma sempre en té dues, una a cada extrem."),
-    D(val(662.4, 2, "cm$^2$"), "PRODUCTE_MAL",
--     "No coincideix amb $2\\cdot124{,}8+48\\cdot6$: revisa per "
-+     "No coincideix amb $2\\cdot93{,}6+36\\cdot8$: revisa per "
-      "separat l'àrea de la base hexagonal i l'àrea lateral.")],
-   ["L'àrea d'un polígon regular és "
-    "$A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; "
--   "amb perímetre $6\\cdot8=48$ cm i apotema $5{,}2$ cm, "
--   "$A_{\\text{base}}=124{,}8$ cm$^2$.",
--   "L'àrea lateral és $48\\cdot6=288$ cm$^2$."],
--  [r"$A_{\text{base}}=\dfrac{48\cdot5{,}2}{2}=124{,}8$ cm$^2$",
--   "$A_{\\text{lateral}}=48\\cdot6=288$ cm$^2$",
--   "$A_{\\text{total}}=2\\cdot124{,}8+288=537{,}6$ cm$^2$"],
-+   "amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, "
-+   "$A_{\\text{base}}=93{,}6$ cm$^2$.",
-+   "L'àrea lateral és $36\\cdot8=288$ cm$^2$."],
-+  [r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$",
-+   "$A_{\\text{lateral}}=36\\cdot8=288$ cm$^2$",
-+   "$A_{\\text{total}}=2\\cdot93{,}6+288=475{,}2$ cm$^2$"],
-+  figura=prisma_regular(6, 6, 8, apotema=5.2),
-   ex_text=E170)
- 
- # 170d: pentagonal costat 5 apotema 3.44 altura 12 -> A=386 (exacte)
-@@ -240,6 +254,7 @@
-   [r"$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$",
-    "$A_{\\text{lateral}}=25\\cdot12=300$ cm$^2$",
-    "$A_{\\text{total}}=2\\cdot43+300=386$ cm$^2$"],
-+  figura=prisma_regular(5, 5, 12, apotema=3.44),
-   ex_text=E170)
- 
- # 170e: triangular rectangle catets 6,8 altura 5 -> A=168 (exacte)
-@@ -267,6 +282,104 @@
-    "$A_{\\text{total}}=2\\cdot24+24\\cdot5=48+120=168$ cm$^2$"],
-   ex_text=E170)
- 
-+
-+# ---- 170f-i: RECUPERATS ------------------------------------------------
-+# Aquests quatre apartats havien quedat fora perquè les cotes només eren al
-+# dibuix. S'han pogut llegir perquè el llibre dona l'apotema, i l'apotema es
-+# pot CONTRASTAR amb la fórmula del polígon regular, a=s/(2·tan(π/n)):
-+#
-+#   170g  hexàgon de costat 8   -> 6,93   (el llibre en diu 6,93)
-+#   170h  hexàgon de costat 5   -> 4,33   (el llibre en diu 4,25; arrodoniment)
-+#   170i  octàgon de costat 6   -> 7,243  (el llibre en diu 7,24)
-+#
-+# Quan la lectura i la fórmula quadren, la cota està ben assignada. Quan no
-+# quadren, vol dir que s'ha llegit malament: va passar amb el 170c, que
-+# s'havia transcrit com a hexàgon de costat 8 amb apotema 5,2 quan un hexàgon
-+# de costat 8 té apotema 6,93. La cota de 8 era l'altura.
-+
-+# 170f: cub d'aresta 7 -> A = 6·49 = 294 (exacte)
-+Q("170f", 170, "f", B1, "A",
-+  f"{E170} un cub d'aresta $7$ cm.",
-+  val(294, 0, "cm$^2$"),
-+  [D(val(49, 0, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
-+     "Aquesta és l'àrea d'UNA cara. Un cub en té sis, totes iguals."),
-+   D(val(343, 0, "cm$^2$"), "DIMENSIO_EXPONENT_MAL",
-+     "$7^3=343$ és el VOLUM del cub. L'àrea total va amb el quadrat: "
-+     "$6\\cdot7^2$."),
-+   D(val(196, 0, "cm$^2$"), "FACTOR_OBLIDAT",
-+     "Sembla que has comptat quatre cares. Un cub en té sis: les quatre "
-+     "laterals més la de dalt i la de baix.")],
-+  ["Totes les cares d'un cub són quadrats iguals.",
-+   "Calcula l'àrea d'una cara i multiplica-la pel nombre de cares."],
-+  ["Cada cara: $7^2=49$ cm$^2$",
-+   "$A_{\\text{total}}=6\\cdot49=294$ cm$^2$"],
-+  figura=cub(7),
-+  ex_text=E170)
-+
-+# 170g: hexagonal costat 8 apotema 6,93 altura 12 -> A = 908,64
-+Q("170g", 170, "g", B1, "A",
-+  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
-+  "$6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
-+  val(908.64, 2, "cm$^2$"),
-+  [D(val(576, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
-+     "Aquest valor és només l'àrea lateral ($48\\cdot12$): falten les "
-+     "dues bases hexagonals."),
-+   D(val(742.32, 2, "cm$^2$"), "FACTOR_OBLIDAT",
-+     "Només has comptat una base. Un prisma en té dues, una a cada extrem."),
-+   D(val(332.64, 2, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
-+     "Aquesta és l'àrea de les dues bases: encara falta sumar-hi la "
-+     "lateral.")],
-+  ["El perímetre de la base és $6\\cdot8=48$ cm.",
-+   "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i "
-+   "$A_{\\text{lateral}}=48\\cdot12$."],
-+  [r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$",
-+   "$A_{\\text{lateral}}=48\\cdot12=576$ cm$^2$",
-+   "$A_{\\text{total}}=2\\cdot166{,}32+576=908{,}64$ cm$^2$"],
-+  figura=prisma_regular(6, 8, 12, apotema=6.93),
-+  ex_text=E170)
-+
-+# 170h: hexagonal costat 5 apotema 4,25 altura 11 -> A = 457,5 (exacte)
-+Q("170h", 170, "h", B1, "A",
-+  f"{E170} un prisma de base hexagonal regular de $5$ cm de costat i "
-+  "$4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
-+  val(457.5, 1, "cm$^2$"),
-+  [D(val(330, 1, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
-+     "Aquest valor és només l'àrea lateral ($30\\cdot11$)."),
-+   D(val(393.75, 2, "cm$^2$"), "FACTOR_OBLIDAT",
-+     "Només has comptat una base hexagonal en lloc de dues."),
-+   D(val(127.5, 1, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
-+     "Aquesta és l'àrea de les dues bases, sense la lateral.")],
-+  ["Perímetre de la base: $6\\cdot5=30$ cm.",
-+   "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i "
-+   "$A_{\\text{lateral}}=30\\cdot11$."],
-+  [r"$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$",
-+   "$A_{\\text{lateral}}=30\\cdot11=330$ cm$^2$",
-+   "$A_{\\text{total}}=2\\cdot63{,}75+330=457{,}5$ cm$^2$"],
-+  figura=prisma_regular(6, 5, 11, apotema=4.25),
-+  ex_text=E170)
-+
-+# 170i: octogonal costat 6 apotema 7,24 altura 15 -> A = 1067,52
-+Q("170i", 170, "i", B1, "A",
-+  f"{E170} un prisma de base octogonal regular de $6$ cm de costat i "
-+  "$7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
-+  val(1067.52, 2, "cm$^2$"),
-+  [D(val(720, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
-+     "Aquest valor és només l'àrea lateral ($48\\cdot15$)."),
-+   D(val(893.76, 2, "cm$^2$"), "FACTOR_OBLIDAT",
-+     "Només has comptat una base octogonal en lloc de dues."),
-+   D(val(800.64, 2, "cm$^2$"), "N_MAL_COMPTAT",
-+     "Sembla que has fet servir sis costats en comptes de vuit: el "
-+     "perímetre d'un octàgon de costat $6$ és $8\\cdot6=48$ cm.")],
-+  ["Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
-+   "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i "
-+   "$A_{\\text{lateral}}=48\\cdot15$."],
-+  [r"$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$",
-+   "$A_{\\text{lateral}}=48\\cdot15=720$ cm$^2$",
-+   "$A_{\\text{total}}=2\\cdot173{,}76+720=1\\,067{,}52$ cm$^2$"],
-+  figura=prisma_regular(8, 6, 15, apotema=7.24),
-+  ex_text=E170)
-+
-+
- # ---- exercici 171: prisma triangular equilàter, costat 2 cm, altura 3 cm ----
- # Ab=sqrt3~1.7321, Alat=18, Atot~21.46
- Q("171", 171, "", B1, "A",
-diff -ru a/tools/codi-ordre.json b/tools/codi-ordre.json
---- a/tools/codi-ordre.json	2026-08-06 09:54:48.465242973 +0000
-+++ b/tools/codi-ordre.json	2026-08-06 09:54:48.470820286 +0000
-@@ -0,0 +1,890 @@
-+{
-+"1": [
-+"1a",
-+"1b",
-+"1c",
-+"1d",
-+"1e",
-+"1f",
-+"2a",
-+"2b",
-+"2c",
-+"2d",
-+"3a",
-+"3b",
-+"3c",
-+"3d",
-+"4a",
-+"4b",
-+"4c",
-+"4d",
-+"4e",
-+"5a",
-+"5b",
-+"5c",
-+"6a",
-+"6b",
-+"6c",
-+"7a",
-+"7b",
-+"7c",
-+"8",
-+"9a",
-+"9b",
-+"9c",
-+"9d",
-+"10a",
-+"10b",
-+"10c",
-+"10d",
-+"11",
-+"12a",
-+"12b",
-+"13",
-+"14",
-+"15",
-+"16",
-+"17",
-+"18a",
-+"18b",
-+"18c",
-+"18d",
-+"18e",
-+"18f",
-+"19a",
-+"19b",
-+"19c",
-+"19d",
-+"20a",
-+"20b",
-+"20c",
-+"21a",
-+"21b",
-+"21c",
-+"21d",
-+"21e",
-+"21f",
-+"22a",
-+"22b",
-+"22c",
-+"22d",
-+"22e",
-+"22f",
-+"23a",
-+"23b",
-+"23c",
-+"23d",
-+"24a",
-+"24b",
-+"24c",
-+"24d",
-+"24e",
-+"24f",
-+"25a",
-+"25b",
-+"25c",
-+"25d",
-+"25e",
-+"25f",
-+"26a",
-+"26b",
-+"26c",
-+"26d",
-+"26e",
-+"26f",
-+"27a",
-+"27b",
-+"27c",
-+"27d",
-+"27e",
-+"27f",
-+"27g",
-+"27h",
-+"28a",
-+"28b",
-+"28c",
-+"28d",
-+"28e",
-+"28f",
-+"28g",
-+"28h",
-+"28i",
-+"28j",
-+"28k",
-+"28l",
-+"29a",
-+"29b",
-+"29c",
-+"29d",
-+"29e",
-+"29f",
-+"30a",
-+"30b",
-+"30c",
-+"30d",
-+"30e",
-+"30f",
-+"31a",
-+"31b",
-+"31c",
-+"31d",
-+"31e",
-+"31f",
-+"32a",
-+"32b",
-+"32c",
-+"32d",
-+"33a",
-+"33b",
-+"33c",
-+"33d",
-+"33e",
-+"34"
-+],
-+"2": [
-+"35a",
-+"35b",
-+"35c",
-+"35d",
-+"35e",
-+"35f",
-+"36a",
-+"36b",
-+"36c",
-+"36d",
-+"36e",
-+"36f",
-+"36g",
-+"37a",
-+"37b",
-+"37c",
-+"37d",
-+"37e",
-+"37f",
-+"37g",
-+"37h",
-+"37i",
-+"37j",
-+"38a",
-+"38b",
-+"38c",
-+"38d",
-+"38e",
-+"38f",
-+"38g",
-+"38h",
-+"38i",
-+"39a",
-+"39b",
-+"39c",
-+"39d",
-+"39e",
-+"39f",
-+"40a",
-+"40b",
-+"40c",
-+"40d",
-+"41a",
-+"41b",
-+"41c",
-+"41d",
-+"41e",
-+"41f",
-+"41g",
-+"41h",
-+"42a",
-+"42b",
-+"42c",
-+"42d",
-+"42e",
-+"42f",
-+"43a",
-+"43b",
-+"43c",
-+"43d",
-+"43e",
-+"43f",
-+"44a",
-+"44b",
-+"45a",
-+"45b",
-+"45c",
-+"45d",
-+"45e",
-+"45f",
-+"45g",
-+"45h",
-+"46a",
-+"46b",
-+"46c",
-+"46d"
-+],
-+"3": [
-+"47a",
-+"47b",
-+"47c",
-+"47d",
-+"47e",
-+"47f",
-+"47g",
-+"48a",
-+"48b",
-+"48c",
-+"48d",
-+"49a",
-+"49b",
-+"49c",
-+"49d",
-+"50a",
-+"50b",
-+"50c",
-+"51a",
-+"51b",
-+"52a",
-+"52b",
-+"52c",
-+"52d",
-+"53a",
-+"53b",
-+"53c",
-+"54a",
-+"54b",
-+"54c",
-+"54d",
-+"54e",
-+"54f",
-+"55",
-+"56a",
-+"56b",
-+"56c",
-+"57a",
-+"57b",
-+"57c",
-+"58a",
-+"58b",
-+"58c",
-+"58d",
-+"59a",
-+"59b",
-+"59c",
-+"59d",
-+"60",
-+"61"
-+],
-+"4": [
-+"62a",
-+"62b",
-+"62c",
-+"62d",
-+"63a",
-+"63b",
-+"63c",
-+"63d",
-+"63e",
-+"63f",
-+"64a",
-+"64b",
-+"64c",
-+"64d",
-+"65a",
-+"65b",
-+"66a",
-+"66b",
-+"66c",
-+"66d",
-+"66e",
-+"67a",
-+"67b",
-+"67c",
-+"67d",
-+"67e",
-+"67f",
-+"68a",
-+"68b",
-+"68c",
-+"68d",
-+"69a",
-+"69b",
-+"69c",
-+"69d",
-+"70a",
-+"70b",
-+"70c",
-+"70d",
-+"71a",
-+"71b",
-+"71c",
-+"71d",
-+"71e",
-+"71f",
-+"72a",
-+"72b",
-+"73a",
-+"73b",
-+"73c",
-+"73d",
-+"74a",
-+"74b",
-+"74c",
-+"74d",
-+"74e",
-+"74f",
-+"74g",
-+"74h"
-+],
-+"5": [
-+"75a",
-+"75b",
-+"75c",
-+"75d",
-+"75e",
-+"75f",
-+"76a",
-+"76b",
-+"76c",
-+"76d",
-+"76e",
-+"76f",
-+"77a",
-+"77b",
-+"77c",
-+"77d",
-+"78a",
-+"78b",
-+"78c",
-+"78d",
-+"78e",
-+"78f",
-+"79a",
-+"79b",
-+"79c",
-+"79d",
-+"79e",
-+"80a",
-+"80b",
-+"80c",
-+"80d",
-+"80e",
-+"80f",
-+"80g",
-+"81a",
-+"81b",
-+"81c",
-+"81d",
-+"81e",
-+"81f",
-+"81g",
-+"82a",
-+"82b",
-+"82c",
-+"82d",
-+"82e",
-+"82f",
-+"82g",
-+"82h",
-+"82i",
-+"83a",
-+"83b",
-+"83c",
-+"83d",
-+"83e",
-+"83f",
-+"84a",
-+"84b",
-+"84c",
-+"84d",
-+"84e",
-+"84f",
-+"84g",
-+"85a",
-+"85b",
-+"85c",
-+"85d",
-+"85e",
-+"85f",
-+"85g",
-+"85h",
-+"86a",
-+"86b",
-+"86c",
-+"86d",
-+"86e",
-+"86f",
-+"87",
-+"88a",
-+"88b",
-+"88c",
-+"88d",
-+"88e",
-+"88f",
-+"89a",
-+"89b",
-+"89c",
-+"89d",
-+"90",
-+"91",
-+"92",
-+"93",
-+"94",
-+"95",
-+"96",
-+"97",
-+"98",
-+"99",
-+"100"
-+],
-+"6": [
-+"101",
-+"102",
-+"103",
-+"104",
-+"105a",
-+"105b",
-+"106a",
-+"106b",
-+"107",
-+"108",
-+"109",
-+"110",
-+"111",
-+"112a",
-+"112b",
-+"113",
-+"114",
-+"115",
-+"116",
-+"117",
-+"118",
-+"275a",
-+"275b",
-+"275c",
-+"275d",
-+"276a",
-+"276b",
-+"276c",
-+"276d",
-+"277a",
-+"277b",
-+"277c",
-+"278a",
-+"278b",
-+"278c",
-+"278d",
-+"279a",
-+"279b",
-+"279c",
-+"280a",
-+"280b",
-+"281a",
-+"281b",
-+"282a",
-+"282b",
-+"283a",
-+"283b",
-+"284"
-+],
-+"7": [
-+"119",
-+"120a",
-+"120b",
-+"120c",
-+"121a",
-+"121b",
-+"121c",
-+"121d",
-+"122",
-+"123a",
-+"123b",
-+"123c",
-+"123d",
-+"124a",
-+"124b",
-+"124c",
-+"125",
-+"126a",
-+"126b",
-+"127a",
-+"127b",
-+"127c",
-+"128a",
-+"128b",
-+"129",
-+"130",
-+"131",
-+"132",
-+"133",
-+"134",
-+"135",
-+"136",
-+"137",
-+"138",
-+"140a",
-+"140b",
-+"140c",
-+"140d",
-+"141a",
-+"141b",
-+"142",
-+"143a",
-+"143b",
-+"143c",
-+"143d",
-+"144a",
-+"144b",
-+"145c",
-+"146",
-+"147",
-+"148a",
-+"148b",
-+"149",
-+"150",
-+"151"
-+],
-+"8": [
-+"152a",
-+"152b",
-+"152c",
-+"152e",
-+"152f",
-+"153a",
-+"153b",
-+"153c",
-+"154a",
-+"154b",
-+"154c",
-+"154d",
-+"155a",
-+"155b",
-+"156a",
-+"156b",
-+"158",
-+"159",
-+"160a",
-+"160b",
-+"161",
-+"162",
-+"163",
-+"164",
-+"165",
-+"166",
-+"167",
-+"168",
-+"169",
-+"155c",
-+"155d",
-+"155e",
-+"285a",
-+"285b",
-+"285c",
-+"286a",
-+"286b",
-+"286c",
-+"286d",
-+"287a",
-+"287b",
-+"287c",
-+"288a",
-+"288b",
-+"288c",
-+"289",
-+"290a",
-+"290b",
-+"290c",
-+"291a",
-+"291b",
-+"291c",
-+"292a",
-+"292b",
-+"293a",
-+"293b",
-+"294a",
-+"294b",
-+"294c"
-+],
-+"9": [
-+"170a",
-+"170b",
-+"170c",
-+"170d",
-+"170e",
-+"171",
-+"172",
-+"173",
-+"174",
-+"175",
-+"176a",
-+"176b",
-+"177",
-+"179a",
-+"179b",
-+"180a",
-+"180b",
-+"180c",
-+"180d",
-+"181a",
-+"181b",
-+"182",
-+"183",
-+"184",
-+"185a",
-+"185b",
-+"186",
-+"187",
-+"188",
-+"189",
-+"190",
-+"191",
-+"193a",
-+"193b",
-+"195a",
-+"195c",
-+"195e",
-+"195f",
-+"196a",
-+"196b",
-+"197",
-+"198",
-+"199",
-+"170f",
-+"170g",
-+"170h",
-+"170i"
-+],
-+"10": [
-+"200a",
-+"200b",
-+"200c",
-+"201a",
-+"201b",
-+"201c",
-+"201d",
-+"202a",
-+"202b",
-+"202c",
-+"202d",
-+"203a",
-+"203b",
-+"203c",
-+"203d",
-+"206a",
-+"206b",
-+"206c",
-+"207a",
-+"207b",
-+"207c",
-+"207d",
-+"208a",
-+"208b",
-+"208c",
-+"208d",
-+"208e",
-+"208f",
-+"209a",
-+"209b",
-+"209c",
-+"209d",
-+"212a",
-+"212b",
-+"212c",
-+"212d",
-+"214a",
-+"214b",
-+"215",
-+"216a",
-+"216b",
-+"216c",
-+"216d",
-+"217a",
-+"217b",
-+"295a",
-+"295b",
-+"295c",
-+"295d",
-+"296a",
-+"296b",
-+"296c",
-+"297a",
-+"297b",
-+"297c",
-+"298a",
-+"298b",
-+"299a",
-+"299b",
-+"299c",
-+"300a",
-+"300b",
-+"300c",
-+"300d",
-+"301a",
-+"301b",
-+"301c",
-+"302a",
-+"302b",
-+"303a",
-+"303b",
-+"303c",
-+"304"
-+],
-+"11": [
-+"218a",
-+"218b",
-+"218c",
-+"218d",
-+"218e",
-+"218f",
-+"218g",
-+"219a",
-+"219b",
-+"219c",
-+"219d",
-+"219e",
-+"220a",
-+"220b",
-+"220c",
-+"221a",
-+"221b",
-+"221c",
-+"221d",
-+"222a",
-+"222b",
-+"223a",
-+"223b",
-+"223c",
-+"224a",
-+"224b",
-+"224c",
-+"224d",
-+"225a",
-+"225b",
-+"226a",
-+"226b",
-+"226c",
-+"226d",
-+"235a",
-+"235b",
-+"227",
-+"228a",
-+"228b",
-+"228c",
-+"229",
-+"230a",
-+"230b",
-+"230c",
-+"230d",
-+"231",
-+"232a",
-+"232b",
-+"232c",
-+"234a",
-+"234b",
-+"234c",
-+"260a",
-+"260b",
-+"260c",
-+"260d",
-+"261a",
-+"261b",
-+"261c",
-+"261d",
-+"262a",
-+"262b",
-+"262c",
-+"262d",
-+"263a",
-+"263b",
-+"263c",
-+"264",
-+"265a",
-+"265b",
-+"266a",
-+"266b",
-+"267a",
-+"267b",
-+"268a",
-+"268b",
-+"268c",
-+"269a",
-+"269b",
-+"270a",
-+"270b",
-+"270c",
-+"271a",
-+"271b",
-+"272a",
-+"272b",
-+"273a",
-+"273b",
-+"274a",
-+"274b",
-+"274c"
-+],
-+"12": [
-+"236a",
-+"236b",
-+"236c",
-+"236d",
-+"236e",
-+"236f",
-+"236g",
-+"237",
-+"238a",
-+"238b",
-+"239a",
-+"239b",
-+"239c",
-+"239d",
-+"239e",
-+"240a",
-+"240b",
-+"240c",
-+"240d",
-+"240e",
-+"242",
-+"243",
-+"244",
-+"245",
-+"246",
-+"247",
-+"248a",
-+"248b",
-+"248c",
-+"248d",
-+"248e",
-+"241a",
-+"241b",
-+"241c",
-+"241d",
-+"241e",
-+"249a",
-+"249b",
-+"249c",
-+"249d",
-+"250a",
-+"250b",
-+"250c",
-+"250d",
-+"251a",
-+"251b",
-+"251c",
-+"252a",
-+"252b",
-+"252c",
-+"253a",
-+"253b",
-+"253c",
-+"253d",
-+"253e",
-+"254a",
-+"254b",
-+"254c",
-+"255",
-+"256a",
-+"256b",
-+"256c",
-+"257a",
-+"257b",
-+"257c",
-+"258",
-+"259"
-+]
++let JSDOM;
++try {
++  JSDOM = require("jsdom").JSDOM;
++} catch (e) {
++  console.log("\n\x1b[33m⊘ Proves del flux de resolució saltades: falta jsdom.\x1b[0m");
++  console.log("  Per passar-les:  npm install --no-save jsdom\n");
++  process.exit(0);
 +}
-\ No newline at end of file
-diff -ru a/tools/figures.py b/tools/figures.py
---- a/tools/figures.py	2026-08-06 09:54:48.476235554 +0000
-+++ b/tools/figures.py	2026-08-06 09:54:48.477760264 +0000
-@@ -117,3 +117,111 @@
-         cos += _text(x0 + ample / 2 + 10, y0 - alt / 2 - 4, etq_hip)
-     return _svg(int(ample + 2 * m), int(alt + 2 * m), cos,
-                 "Triangle rectangle de catets %s i %s." % (ea, eb))
 +
++const { assert, seccio, prova, resum } = require("./arnes.js");
++const ARREL = path.join(__dirname, "..");
 +
-+# ---------------------------------------------------------------------
-+def _poligon(cx, cy, r, n, gir=-90):
-+    from math import cos, sin, radians
-+    return [(cx + r * cos(radians(gir + 360.0 * k / n)),
-+             cy + r * sin(radians(gir + 360.0 * k / n))) for k in range(n)]
++function espera(ms) { return new Promise(res => setTimeout(res, ms)); }
 +
++async function obrePractica(query) {
++  const dom = await JSDOM.fromFile(path.join(ARREL, "practica.html"), {
++    runScripts: "dangerously",
++    resources: "usable",
++    url: "file://" + path.join(ARREL, "practica.html") + (query || "?full=4&q=62a")
++  });
++  await espera(600);
++  return { w: dom.window, d: dom.window.document, tanca: () => dom.window.close() };
++}
 +
-+def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
-+                   etq_altura=None, etq_apotema=None):
-+    """Prisma recte de base un polígon regular de n costats, dibuixat en
-+    perspectiva cavallera com al llibre: la base al davant, l'altura cap
-+    amunt i les arestes del darrere de traç discontinu.
++/* Les opcions es pinten barrejades; `data-orig` porta l'índex original, que
++   és el que cal comparar amb `k.ok` per saber quin botó és el correcte. */
++function trobaOpcions(w, d) {
++  const item = w.FULL.items.filter(it => it.id === "62a")[0];
++  const k = w.RE.clau(item);
++  const botons = [...d.querySelectorAll("#opcions .opcio")];
++  const correcta = botons.find(b => +b.dataset.orig === k.ok);
++  const incorrectes = botons.filter(b => b !== correcta);
++  return { correcta, incorrectes };
++}
 +
-+    La base es dibuixa aplanada (el·lipse, no cercle) perquè es vegi que és
-+    horitzontal; és la convenció de qualsevol llibre de geometria i estalvia
-+    haver d'explicar què s'està mirant.
-+    """
-+    R = 46.0                      # radi de la base al dibuix
-+    APLANAT = 0.42                # com d'aixafada es veu la base
-+    H = max(70.0, min(150.0, R * 2.4 * float(altura) / max(float(costat), 1)))
-+    H = min(H, 160.0)
-+    m, mx = 34, 70                # marges (a la dreta hi caben les cotes)
-+    cx, cyb = m + R, m + H + R * APLANAT
-+    base = [(x, m + H + (y - cyb) * 1 + R * APLANAT) for x, y in
-+            [(cx + (px - cx), cyb + (py - cyb) * APLANAT)
-+             for px, py in _poligon(cx, cyb, R, n)]]
-+    dalt = [(x, y - H) for x, y in base]
++function buit(el) { return el.innerHTML.trim() === ""; }
 +
-+    def poli(pts, extra=""):
-+        return ('<polygon points="%s" %s/>'
-+                % (" ".join("%.1f,%.1f" % p for p in pts), extra))
++(async () => {
++  seccio("La resolució i el veredicte estan buits en obrir l'exercici");
++  {
++    const { d, tanca } = await obrePractica();
++    prova("#veredicte és buit", () => assert.ok(buit(d.getElementById("veredicte"))));
++    prova("#resolucio és buit", () => assert.ok(buit(d.getElementById("resolucio"))));
++    prova("#veure està amagat", () => assert.strictEqual(d.getElementById("veure").hidden, true));
++    tanca();
++  }
 +
-+    ple = 'fill="%s" stroke="currentColor" stroke-width="2"' % OMPLERT
-+    cos = poli(dalt, ple)
-+    # cares laterals visibles: les de la meitat de davant
-+    for k in range(n):
-+        a, b = base[k], base[(k + 1) % n]
-+        if (a[1] + b[1]) / 2 < base[0][1] - 1 and n > 4:
-+            continue
-+        cos += poli([a, b, (b[0], b[1] - H), (a[0], a[1] - H)], ple)
-+    cos += poli(dalt, ple)        # el sostre, per damunt de les cares
-+    cos += poli(base, 'fill="none" stroke="currentColor" stroke-width="1.2" '
-+                      'stroke-dasharray="4 3"')
-+    if apotema is not None:
-+        cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-+                'stroke-width="2"/>' % (cx, base[0][1] - R * APLANAT, cx,
-+                                        base[0][1], MARCA))
-+        cos += _text(cx + 30, base[0][1] - 4,
-+                     etq_apotema or ("%g cm" % apotema), petit=True)
-+    cos += _text(cx, base[0][1] + 20, etq_costat or ("%g cm" % costat))
-+    xa = m + 2 * R + 14
-+    cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="currentColor" '
-+            'stroke-width="1.2"/>' % (xa, base[0][1] - H, xa, base[0][1]))
-+    cos += _text(xa + 8, base[0][1] - H / 2 + 4,
-+                 etq_altura or ("%g cm" % altura), ancora="start")
-+    noms = {3: "triangular", 4: "quadrangular", 5: "pentagonal",
-+            6: "hexagonal", 8: "octogonal"}
-+    return _svg(int(2 * R + m + mx), int(base[0][1] + m),
-+                cos, "Prisma recte de base %s regular, dibuixat en perspectiva."
-+                % noms.get(n, "de %d costats" % n))
++  seccio("Triar una opció, sense comprovar-la, no revela res");
++  {
++    const { w, d, tanca } = await obrePractica();
++    d.getElementById("mostra").click();
++    const { incorrectes } = trobaOpcions(w, d);
++    incorrectes[0].click();
++    prova("#veredicte segueix buit", () => assert.ok(buit(d.getElementById("veredicte"))));
++    prova("#resolucio segueix buit", () => assert.ok(buit(d.getElementById("resolucio"))));
++    prova("#veure segueix amagat", () => assert.strictEqual(d.getElementById("veure").hidden, true));
++    tanca();
++  }
 +
++  seccio("El primer intent erroni no revela la resolució");
++  {
++    const { w, d, tanca } = await obrePractica();
++    d.getElementById("mostra").click();
++    const { incorrectes } = trobaOpcions(w, d);
++    incorrectes[0].click();
++    d.getElementById("comprova").click();
++    prova("l'exercici no es tanca encara (queda un intent)",
++      () => assert.strictEqual(d.getElementById("veure").hidden, true));
++    prova("#resolucio segueix buit", () => assert.ok(buit(d.getElementById("resolucio"))));
++    tanca();
++  }
 +
-+def cub(aresta, etq=None):
-+    """Cub en perspectiva cavallera, amb una sola aresta acotada."""
-+    L, d = 96.0, 34.0
-+    m = 26
-+    x, y = m, m + d
-+    e = etq or ("%g cm" % aresta)
-+    q = lambda pts, extra: ('<polygon points="%s" %s/>'
-+                            % (" ".join("%.1f,%.1f" % p for p in pts), extra))
-+    ple = 'fill="%s" stroke="currentColor" stroke-width="2"' % OMPLERT
-+    cos = (q([(x, y), (x + L, y), (x + L, y + L), (x, y + L)], ple)
-+           + q([(x, y), (x + d, y - d), (x + L + d, y - d), (x + L, y)], ple)
-+           + q([(x + L, y), (x + L + d, y - d), (x + L + d, y + L - d), (x + L, y + L)], ple)
-+           + '<path d="M %.1f %.1f l %.1f %.1f M %.1f %.1f v %.1f M %.1f %.1f h %.1f" '
-+             'fill="none" stroke="currentColor" stroke-width="1.1" '
-+             'stroke-dasharray="4 3"/>'
-+             % (x, y + L, d, -d, x + d, y - d + L, -L + 0.0 + L, x + d, y + L - d, L)
-+           + _text(x + L / 2, y + L + 18, e))
-+    return _svg(int(L + d + 2 * m), int(L + d + 2 * m), cos,
-+                "Cub d'aresta %s, dibuixat en perspectiva." % e)
++  seccio("BUG QUE ES CORREGEIX: el segon intent erroni NO mostra la resolució sola");
++  {
++    const { w, d, tanca } = await obrePractica();
++    d.getElementById("mostra").click();
++    const { incorrectes } = trobaOpcions(w, d);
++    incorrectes[0].click();
++    d.getElementById("comprova").click();     // 1r intent, erroni
++    incorrectes[1].click();
++    d.getElementById("comprova").click();     // 2n intent, erroni: es tanca
 +
++    prova("el botó \"Mostra la resolució\" ara és VISIBLE", () => {
++      assert.strictEqual(d.getElementById("veure").hidden, false);
++    });
++    prova("però #resolucio encara està BUIT: ningú l'ha premut", () => {
++      assert.ok(buit(d.getElementById("resolucio")),
++        "la resolució s'ha mostrat sola, sense que l'alumne premés el botó");
++    });
++    prova("el veredicte sí que diu quina era la correcta (això és feedback, no la resolució)", () => {
++      assert.ok(!buit(d.getElementById("veredicte")));
++    });
 +
-+# ---------------------------------------------------------------------
-+def ortoedre(a, b, c, etq_a=None, etq_b=None, etq_c=None):
-+    """Prisma de base rectangular (ortoedre) en perspectiva cavallera, amb
-+    les tres arestes acotades. `a` és l'amplada, `b` la profunditat i `c`
-+    l'alçada."""
-+    esc = 110.0 / max(a, b, c)
-+    A, B, C = a * esc, min(b * esc, 46.0), c * esc
-+    m = 28
-+    x, y = m, m + B
-+    ea = etq_a if etq_a is not None else "%g cm" % a
-+    eb = etq_b if etq_b is not None else "%g cm" % b
-+    ec = etq_c if etq_c is not None else "%g cm" % c
-+    q = lambda pts: ('<polygon points="%s" fill="%s" stroke="currentColor" '
-+                     'stroke-width="2"/>'
-+                     % (" ".join("%.1f,%.1f" % p for p in pts), OMPLERT))
-+    cos = (q([(x, y), (x + A, y), (x + A, y + C), (x, y + C)])
-+           + q([(x, y), (x + B, y - B), (x + A + B, y - B), (x + A, y)])
-+           + q([(x + A, y), (x + A + B, y - B), (x + A + B, y + C - B), (x + A, y + C)])
-+           + _text(x + A / 2, y + C + 18, ea)
-+           + _text(x - 8, y + C / 2 + 4, ec, ancora="end")
-+           + _text(x + A + B / 2 + 12, y - B / 2 - 2, eb, ancora="start", petit=True))
-+    return _svg(int(A + B + 2 * m + 26), int(C + B + 2 * m),
-+                cos, "Ortoedre d'arestes %s, %s i %s, en perspectiva." % (ea, eb, ec))
++    d.getElementById("veure").click();
++    prova("prement el botó explícitament, ARA sí que apareix", () => {
++      assert.ok(!buit(d.getElementById("resolucio")));
++    });
++    tanca();
++  }
++
++  seccio("Encertar tampoc no revela la resolució sola (simetria amb el cas d'error)");
++  {
++    const { w, d, tanca } = await obrePractica();
++    d.getElementById("mostra").click();
++    const { correcta } = trobaOpcions(w, d);
++    correcta.click();
++    d.getElementById("comprova").click();     // encert al primer intent: es tanca
++
++    prova("el botó \"Mostra la resolució\" és visible", () => {
++      assert.strictEqual(d.getElementById("veure").hidden, false);
++    });
++    prova("#resolucio segueix buit fins que es premi el botó", () => {
++      assert.ok(buit(d.getElementById("resolucio")));
++    });
++    d.getElementById("veure").click();
++    prova("prement el botó, apareix", () => assert.ok(!buit(d.getElementById("resolucio"))));
++    tanca();
++  }
++
++  process.exit(resum() ? 0 : 1);
++})();
