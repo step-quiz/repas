@@ -390,6 +390,81 @@ seccio("diagnostic.html — cada element interactiu té nom accessible");
   tanca();
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("El paràmetre ?full no és un forat d'injecció");
+
+{
+  /* `document.write('<script src="data/full' + FULL_N + ...')` amb el
+     paràmetre en cru permetia tancar l'atribut i l'etiqueta i injectar
+     JavaScript arbitrari. En un lloc estàtic sense comptes la gravetat és
+     baixa, però n'hi havia prou amb un enllaç per escriure el localStorage
+     d'un alumne, i el localStorage és el que genera el codi que es qualifica. */
+  const atac = "?full=1%22%3E%3C%2Fscript%3E%3Cscript%3Ewindow.PWNED%3D1%3C%2Fscript%3E%3Cscript%20src%3D%22x";
+  const { w, d, tanca } = await obrePractica(atac);
+
+  prova("no s'executa res del que porta el paràmetre", () => {
+    assert.ok(!w.PWNED, "s'ha executat codi vingut de la URL");
+  });
+  prova("tampoc es carrega cap banc", () => {
+    assert.ok(!w.FULL, "s'ha carregat un full amb un paràmetre invàlid");
+  });
+  prova("es mostra el missatge de full inexistent, no una pàgina en blanc", () => {
+    const h1 = d.querySelector("h1");
+    assert.ok(h1 && /no està preparat/.test(h1.textContent), "cap missatge a l'usuari");
+  });
+  tanca();
+}
+
+{
+  const { w, tanca } = await obrePractica("?full=..%2F..%2Fetc%2Fpasswd");
+  prova("un recorregut de directoris tampoc passa", () => {
+    assert.ok(!w.FULL);
+  });
+  tanca();
+}
+
+{
+  const { w, tanca } = await obrePractica("?full=9&q=170a");
+  prova("un full vàlid segueix carregant amb normalitat", () => {
+    assert.ok(w.FULL && w.FULL.items.length > 0, "el full 9 no s'ha carregat");
+  });
+  tanca();
+}
+
+
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("practica.html — el grup d'opcions segueix accessible amb teclat després de fallar");
+
+{
+  /* En fallar el primer intent, l'opció triada es desactiva. Si conserva el
+     tabIndex 0 (i totes les altres el -1), el grup sencer queda fora de
+     l'abast del tabulador, perquè un botó `disabled` no és focusable: amb
+     teclat era impossible tornar-hi per fer el segon intent. */
+  const { w, d, tanca } = await obrePractica("?full=1&q=1a");
+  d.getElementById("mostra").click();
+  const caixa = d.getElementById("opcions");
+  const opcions = [...caixa.children];
+  const k = w.RE.clau(w.FULL.items[0]);
+  const dolenta = opcions.find(c => +c.dataset.orig !== k.ok);
+  dolenta.click();
+  d.getElementById("comprova").click();
+
+  prova("hi ha exactament una opció tabulable, i no està desactivada", () => {
+    const tabulables = opcions.filter(c => c.tabIndex === 0);
+    assert.equal(tabulables.length, 1, "n'hi ha " + tabulables.length);
+    assert.ok(!tabulables[0].disabled, "l'única opció tabulable està desactivada");
+  });
+  prova("cap opció desactivada segueix dient aria-checked=true", () => {
+    const mentida = opcions.filter(c => c.disabled && c.getAttribute("aria-checked") === "true");
+    assert.equal(mentida.length, 0,
+      "una opció desactivada encara es declara seleccionada mentre «Comprova» està bloquejat");
+  });
+  tanca();
+}
+
+
 process.exit(resum() ? 0 : 1);
 
 })().catch(e => {

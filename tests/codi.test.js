@@ -12,9 +12,21 @@ const { assert, seccio, prova, resum } = require("./arnes.js");
 
 const ARREL = path.join(__dirname, "..");
 global.window = global;
+/* localStorage mínim: RE_CODI.recull() llegeix el progrés a través de
+   js/nucli.js, i nucli.js necessita un magatzem. No cal jsdom per a això. */
+const magatzem = {};
+global.localStorage = {
+  getItem: k => (k in magatzem ? magatzem[k] : null),
+  setItem: (k, v) => { magatzem[k] = String(v); },
+  removeItem: k => { delete magatzem[k]; }
+};
+global.atob = s => Buffer.from(s, "base64").toString("binary");
+global.addEventListener = () => {};        /* nucli.js s'enganxa a load */
+global.document = { body: null };
 eval(fs.readFileSync(path.join(ARREL, "js/codi-taules.js"), "utf8"));
+eval(fs.readFileSync(path.join(ARREL, "js/nucli.js"), "utf8"));
 eval(fs.readFileSync(path.join(ARREL, "js/codi.js"), "utf8"));
-const T = global.RE_TAULES, RE = global.RE_CODI;
+const T = global.RE_TAULES, RE = global.RE_CODI, RE_NUCLI = global.RE;
 
 const ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
 const ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
@@ -265,12 +277,20 @@ prova("dos codis amb el mateix detall donen la mateixa nota", () => {
     "###", "el salt hauria de fer que dos codis iguals no siguin idèntics");
 });
 
+prova("demanar una pista no pot penalitzar més que fallar al primer intent", () => {
+  /* Si `pista` valgués menys que `segon`, la taula premiaria endevinar per
+     damunt de demanar ajuda. Aquesta comprovació fixa l'ordre correcte. */
+  assert.ok(RE.PES.net > RE.PES.pista, "encertar a la primera ha de valer més que amb pista");
+  assert.ok(RE.PES.pista >= RE.PES.segon, "una pista no pot valer menys que un intent fallat");
+});
+
 prova("la nota surt dels pesos publicats", () => {
   const n = 6, ids = T.fulls[n].items;
   const estats = ids.map((_, i) => (i < 10 ? ["net", "segon", "pista", "fallat", "net"][i % 5] : ""));
   const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
   const c = p.resum.comptes;
-  const esperat = (10 * c.net + 7 * c.segon + 6 * c.pista) / (10 * p.resum.fets) * 10;
+  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista)
+    / (RE.PES.net * p.resum.fets) * 10;
   assert.ok(Math.abs(p.resum.nota - esperat) < 0.05);
 });
 
@@ -299,5 +319,32 @@ prova("el banc sencer cap en menys de 600 caràcters", () => {
   });
   assert.ok(c.replace(/-/g, "").length < 600, "són " + c.replace(/-/g, "").length);
 });
+
+
+seccio("L'error del primer intent no s'esborra en encertar al segon");
+
+prova("errs conserva l'error encara que l'ítem acabi correcte", () => {
+  /* Abans, en encertar s'escrivia err:"" i el panell "els errors que
+     repeteixes" filtrava els buits. Resultat: l'error que l'alumne comet
+     sempre però rectifica al segon intent -- el més interessant de tots --
+     no arribava mai al panell ni al codi. */
+  const n = 5, ids = T.fulls[n].items;
+  RE_NUCLI.esborra(n);
+  RE_NUCLI.apuntaError(n, ids[0], "SIGNE_FINAL");
+  RE_NUCLI.apunta(n, ids[0], { estat: "segon", err: "" });
+  RE_NUCLI.apuntaError(n, ids[1], "SIGNE_FINAL");
+  RE_NUCLI.apunta(n, ids[1], { estat: "segon", err: "" });
+
+  const it = RE_NUCLI.llegeix(n).items[ids[0]];
+  assert.deepEqual(it.errs, ["SIGNE_FINAL"], "l'historial s'ha perdut");
+  assert.equal(it.estat, "segon");
+
+  const p = RE.llegeix(RE.genera(RE.recull([n])));
+  const e = p.errs.filter(x => x.etiqueta === "SIGNE_FINAL")[0];
+  assert.ok(e && e.compte === 2,
+    "el codi hauria de comptar els 2 errors rectificats, i en compta "
+    + (e ? e.compte : 0));
+});
+
 
 process.exit(resum() ? 0 : 1);

@@ -303,4 +303,244 @@ seccio("Honestedat sobre el que el ✓ no verifica");
   });
 }
 
+
+// ═════════════════════════════════════════════════════════════════════════
+// PROVA ESCRITA
+// ═════════════════════════════════════════════════════════════════════════
+
+/* Obre la pestanya i hi enganxa un codi. Torna una funció que genera la
+   prova i retorna els ids que hi han sortit. */
+function provaEscrita(w, d, codi, ajust) {
+  d.querySelectorAll(".pestanya").forEach(b => { if (b.dataset.mode === "prova") b.click(); });
+  const camp = d.getElementById("pr-codi");
+  camp.value = codi;
+  camp.dispatchEvent(new w.Event("input"));
+  // el camp de codi va amb debounce de 300 ms; les proves no esperen rellotge,
+  // així que es força el refresc igual que fa el canvi de llindar.
+  if (ajust) ajust(d, w);
+  d.getElementById("pr-min-bloc").dispatchEvent(new w.Event("change"));
+  d.getElementById("pr-genera").click();
+  return idsProva(w, d);
+}
+
+/* Els ids no s'escriuen al DOM de l'examen (l'alumne no els ha de veure):
+   es recuperen creuant encapçalament + enunciat contra RE_BANC. */
+function idsProva(w, d) {
+  const index = {};
+  Object.keys(w.RE_BANC).forEach(id => {
+    const b = w.RE_BANC[id];
+    index[(b.encapcalament || "") + "|" + b.enunciat] = id;
+  });
+  return [...d.querySelectorAll("#pr-examen .pr-preg")].map(p => {
+    const cap = p.querySelector(".cap").textContent.replace(/^\s*\d+\.\s*/, "").trim();
+    const en = p.querySelector(".enun").textContent;
+    return index[cap + "|" + en] || index["|" + en] || "?";
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — només exercicis que l'alumne ha fet de veritat");
+
+{
+  /* Aquesta és LA comprovació d'aquesta pestanya, i es fa amb el Full 9 a
+     propòsit. El projecte manté dos ordres dels ítems: el de presentació
+     (data/fullN.js) i l'append-only del codi (codi-ordre.json). Al Full 9 no
+     coincideixen en 42 de 47 posicions, perquè el 170f-170i es van recuperar
+     després i van al final de l'ordre de codificació. Qualsevol implementació
+     que indexi el banc per POSICIÓ en lloc de per ID passa desapercebuda a
+     onze fulls i falla al novè, posant a l'examen exercicis que l'alumne no
+     ha vist mai. */
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const estats = T.fulls[9].items.map((_, i) => (i < 14 ? (i % 4 === 0 ? "fallat" : "net") : ""));
+  const fets = T.fulls[9].items.slice(0, 14);
+  const codi = w.RE_CODI.genera({ fulls: [{ n: 9, estats }] });
+  const ids = provaEscrita(w, d, codi, dd => { dd.getElementById("pr-min-bloc").value = "1"; });
+
+  prova("la prova no és buida", () => {
+    assert.ok(ids.length > 0, "no s'ha generat cap pregunta");
+  });
+  prova("cap pregunta és d'un exercici que l'alumne no ha treballat", () => {
+    const fora = ids.filter(x => fets.indexOf(x) < 0);
+    assert.deepEqual(fora, [], "exercicis que no ha fet mai: " + fora.join(", "));
+  });
+  prova("cap pregunta s'ha quedat sense identificar", () => {
+    assert.equal(ids.filter(x => x === "?").length, 0);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — la mida triada es respecta");
+
+{
+  /* Amb un mínim d'una pregunta per bloc, un alumne que ha treballat els dotze
+     fulls té 56 blocs admesos i una prova "curta" de 8 se n'anava a 56. */
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const fulls = [];
+  for (let n = 1; n <= 12; n++) {
+    const t = T.fulls[n], e = new Array(t.items.length).fill("");
+    t.blocs.forEach(b => b[1].slice(0, 6).forEach(i => { e[i] = "net"; }));
+    fulls.push({ n, estats: e });
+  }
+  const codi = w.RE_CODI.genera({ fulls });
+  const ids = provaEscrita(w, d, codi, dd => {
+    dd.querySelector('input[name="pr-mida"][value="curta"]').checked = true;
+  });
+
+  prova("una prova curta són 8 preguntes encara que hi hagi 56 blocs", () => {
+    assert.equal(ids.length, 8, "n'han sortit " + ids.length);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — varietat dins d'un bloc");
+
+{
+  /* Un bloc es desglossa en apartats del mateix exercici mare (1a…1f). Agafar
+     "els primers per prioritat" donava proves com 1a,1b,1c,1d,1e,1f,2a,2b:
+     vuit preguntes, dos problemes. */
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const t = T.fulls[1], e = new Array(t.items.length).fill("");
+  t.blocs[0][1].forEach(i => { e[i] = "net"; });
+  const codi = w.RE_CODI.genera({ fulls: [{ n: 1, estats: e }] });
+  const ids = provaEscrita(w, d, codi, dd => {
+    dd.querySelector('input[name="pr-mida"][value="curta"]').checked = true;
+  });
+  const mares = new Set(ids.map(i => i.match(/^\d+/)[0]));
+
+  prova("no s'esgota la prova amb apartats del mateix exercici mare", () => {
+    assert.ok(mares.size >= 4, "només " + mares.size + " exercicis mare: " + ids.join(", "));
+  });
+
+  prova("«torna a triar exercicis» dona una selecció diferent", () => {
+    /* Amb ordre estricte per estat la selecció era determinista i el botó no
+       feia res. Es prova unes quantes vegades perquè és aleatori. */
+    let diferent = false;
+    for (let k = 0; k < 8 && !diferent; k++) {
+      d.getElementById("pr-regenera").click();
+      if (idsProva(w, d).join(",") !== ids.join(",")) diferent = true;
+    }
+    assert.ok(diferent, "la selecció no canvia mai entre generacions");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — un codi que no és íntegre no genera res");
+
+{
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+  const e = T.fulls[1].items.map((_, i) => (i < 20 ? "net" : ""));
+  const net = w.RE_CODI.genera({ fulls: [{ n: 1, estats: e }] }).replace(/-/g, "");
+  const dolent = net.slice(0, 10) + ALF[(ALF.indexOf(net[10]) + 1) % 32] + net.slice(11);
+
+  prova("el codi de prova és realment llegible però no íntegre", () => {
+    const r = w.RE_CODI.llegeix(dolent);
+    assert.ok(r.ok && !r.integre, "el cas de prova no és el que toca");
+  });
+
+  const ids = provaEscrita(w, d, dolent);
+  prova("no es compon cap prova", () => {
+    assert.equal(ids.length, 0, "s'han generat " + ids.length + " preguntes");
+  });
+  prova("s'explica per què, en lloc de deixar-ho en blanc", () => {
+    assert.ok(/integritat/.test(d.getElementById("pr-estat").textContent));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — es diu quan la prova surt més curta del que s'ha triat");
+
+{
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const e = T.fulls[1].items.map((_, i) => (i < 5 ? "net" : ""));
+  const codi = w.RE_CODI.genera({ fulls: [{ n: 1, estats: e }] });
+  const ids = provaEscrita(w, d, codi, dd => {
+    dd.getElementById("pr-min-bloc").value = "1";
+    dd.querySelector('input[name="pr-mida"][value="llarga"]').checked = true;
+  });
+
+  prova("no s'inventa preguntes que l'alumne no ha treballat", () => {
+    assert.ok(ids.length <= 5, "n'han sortit " + ids.length + " amb 5 exercicis fets");
+  });
+  prova("avisa que se n'han demanat 20 i n'han sortit menys", () => {
+    const t = d.getElementById("pr-estat").textContent;
+    assert.ok(/20/.test(t) && /no hi ha prou exercicis/.test(t),
+      "cap avís: «" + t + "»");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — l'enunciat s'entén fora del seu full");
+
+{
+  /* Uns quants apartats no porten encapçalament perquè el porta el primer
+     germà del mateix exercici (ex_text=""). Dins del full es llegeixen
+     seguits i no passa res; en una prova on l'exercici surt sol, l'enunciat
+     es quedava en "16 cm". El banc l'hereta del germà. */
+  const { w } = obre();
+  const B = w.RE_BANC;
+  prova("cap ítem del banc es queda sense enunciat aprofitable", () => {
+    const buits = Object.keys(B).filter(id => {
+      const b = B[id];
+      return !b.encapcalament && b.enunciat.replace(/\$[^$]*\$/g, "").trim().length < 12
+        && !b.figura;
+    });
+    assert.deepEqual(buits, [], "enunciats incomprensibles sols: " + buits.join(", "));
+  });
+  prova("el 127b hereta l'encapçalament del 127a", () => {
+    assert.equal(B["127b"].encapcalament, B["127a"].encapcalament);
+    assert.ok(B["127b"].encapcalament.length > 20);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — el full de correcció no s'imprimeix amb l'examen");
+
+{
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const e = T.fulls[4].items.map((_, i) => (i < 20 ? "net" : ""));
+  provaEscrita(w, d, w.RE_CODI.genera({ fulls: [{ n: 4, estats: e }] }));
+
+  prova("són dues seccions separades amb botó d'impressió propi", () => {
+    assert.ok(d.getElementById("pr-examen"), "falta la secció de l'examen");
+    assert.ok(d.getElementById("pr-correccio"), "falta el full de correcció");
+    assert.ok(d.getElementById("pr-imprimeix"));
+    assert.ok(d.getElementById("pr-imprimeix-clau"));
+  });
+  prova("l'examen no porta les respostes", () => {
+    assert.ok(!/Resposta:/.test(d.getElementById("pr-examen").textContent));
+  });
+  prova("el full de correcció sí", () => {
+    assert.ok(/Resposta:/.test(d.getElementById("pr-correccio").textContent));
+  });
+  prova("imprimir l'examen deixa fora la correcció", () => {
+    let imprès = false;
+    w.print = () => { imprès = true; };
+    d.getElementById("pr-imprimeix").click();
+    assert.ok(imprès);
+    assert.equal(d.body.getAttribute("data-imprimeix"), "examen");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Prova escrita — les figures de geometria arriben a l'examen");
+
+{
+  const { w, d } = obre();
+  const T = w.RE_TAULES;
+  const e = T.fulls[9].items.map((_, i) => (i < 20 ? "net" : ""));
+  provaEscrita(w, d, w.RE_CODI.genera({ fulls: [{ n: 9, estats: e }] }));
+  prova("hi ha SVG a la prova generada", () => {
+    assert.ok(d.querySelectorAll("#pr-examen .figura svg").length > 0,
+      "cap figura ha arribat a l'examen");
+  });
+}
+
+
 process.exit(resum() ? 0 : 1);
