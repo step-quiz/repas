@@ -192,12 +192,22 @@ FULLS = {
             ("piramides", "Piràmides i tetraedres",
              "Àrea total de piràmides regulars i tetraedres, amb "
              "Pitàgores per trobar l'apotema quan cal."),
+            # DEUTE CONEGUT: els valors aproximats d'aquest bloc i del
+            # següent es van calcular amb π = 3,14, i alguns enunciats estan
+            # construïts a l'inrevés perquè amb aquest valor surti un número
+            # rodó (l'esfera de 803,84 cm² dona radi 8 exacte amb 3,14 i
+            # 7,998 amb la π de la calculadora). Mentre no es regeneri el
+            # full amb math.pi, el conveni s'ha de dir explícitament: si no,
+            # l'alumne que fa servir la calculadora no reconeix la seva
+            # resposta a cap opció. Vegeu tools/c_cossos.py.
             ("cossos_rodons", "Cilindres, cons i l'esfera",
              "Àrea total de cossos de revolució i problemes inversos "
-             "per trobar radi, altura o generatriu."),
+             "per trobar radi, altura o generatriu. "
+             "En aquest bloc prenem π ≈ 3,14."),
             ("volums_aplicacions", "Volums i problemes aplicats",
              "Volum de prismes, piràmides, cilindres, cons, l'esfera i "
-             "el cub, i problemes de la vida real."),
+             "el cub, i problemes de la vida real. "
+             "En els cossos rodons prenem π ≈ 3,14."),
         ],
     },
     10: {
@@ -447,10 +457,16 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 """
 
+# KaTeX es serveix des de `vendor/katex/`, no des d'un CDN. Motiu: a molts
+# centres el filtre de contingut bloqueja jsdelivr, i la degradació "elegant"
+# a LaTeX en cru ($\\dfrac{2}{3}$) no és llegible per a un alumne d'ESO.
+# Amb la còpia local el lloc també funciona sense connexió, i cap IP d'alumne
+# viatja a un tercer. Per actualitzar la versió: `npm pack katex@X` i copiar
+# katex.min.{js,css}, contrib/auto-render.min.js i fonts/*.woff2 a vendor/katex/.
 KATEX = """
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"
  onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
  throwOnError:false})"></script>
 """

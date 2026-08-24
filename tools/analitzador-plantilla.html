@@ -82,6 +82,43 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 .btn.pendent{background:var(--ambre);border-color:var(--ambre)}
 .capçalera-res{background:var(--blau-suau);border:1px solid #CBDCEA;border-radius:10px;
   padding:.6rem .8rem;font-size:13.5px;margin-bottom:1rem}
+/* ── prova escrita ─────────────────────────────────────────────────────── */
+.pr-check{display:flex;align-items:flex-start;gap:.45rem;background:var(--card);
+  border:1px solid var(--vora);border-radius:9px;padding:.5rem .65rem;font-size:13px}
+.pr-check input{margin-top:.2rem;width:18px;height:18px}
+.pr-check .n{color:var(--apagat);font-size:11.5px;display:block}
+.pr-accions{display:flex;gap:.5rem;margin-bottom:.8rem;flex-wrap:wrap}
+.pr-paper{background:#fff;border:1px solid var(--vora);border-radius:12px;
+  padding:1.6rem 1.8rem;max-width:780px;margin-bottom:1.2rem}
+.pr-paper h2{font-size:1.15rem;margin:0 0 .15rem}
+.pr-paper .capc{border-bottom:2px solid var(--tinta);padding-bottom:.7rem;margin-bottom:1.1rem;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
+.pr-sec{font:600 11px/1.6 var(--mono);letter-spacing:.05em;text-transform:uppercase;
+  color:var(--apagat);margin:1.4rem 0 .6rem;border-top:1px solid var(--vora);padding-top:.7rem}
+.pr-sec:first-of-type{border-top:none;margin-top:0}
+.pr-preg{margin:0 0 1.35rem;page-break-inside:avoid;break-inside:avoid}
+.pr-preg .cap{font-weight:700;font-size:14px;margin-bottom:.35rem}
+.pr-preg .cap .num{display:inline-block;min-width:1.6em}
+.pr-preg .meta{font-size:11px;color:var(--apagat);font-weight:400;font-family:var(--mono)}
+.pr-preg .enun{margin:.2rem 0 .6rem}
+.pr-preg .figura{max-width:230px;display:block;margin:.4rem 0}
+.pr-preg .figura svg{width:100%;height:auto}
+.pr-preg .ratlla{border-bottom:1px solid var(--vora);height:1.9rem;margin-top:.3rem}
+.pr-preg .passos{margin:.3rem 0 0 1.1rem;padding:0;font-size:13.5px;color:var(--apagat)}
+#pr-estat .mal{color:#A32B22}
+
+/* L'examen i el full de correcció s'imprimeixen per separat: el botó posa
+   data-imprimeix al <body> i només surt per la impressora la secció que toca.
+   Un full de solucions no pot sortir mai al costat de l'examen per descuit. */
+@media print{
+  body *{visibility:hidden}
+  body[data-imprimeix="examen"] #pr-examen, body[data-imprimeix="examen"] #pr-examen *,
+  body[data-imprimeix="correccio"] #pr-correccio, body[data-imprimeix="correccio"] #pr-correccio *{
+    visibility:visible}
+  body[data-imprimeix] .pr-paper{position:absolute;left:0;top:0;width:100%;
+    border:none;padding:0;max-width:100%;margin:0}
+  .pr-accions,.pestanyes,.cimera,h1{display:none!important}
+}
 </style>
 </head>
 <body>
@@ -98,6 +135,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     <button class="pestanya activa" data-mode="full">Full de respostes</button>
     <button class="pestanya" data-mode="progres">Progrés del trimestre</button>
     <button class="pestanya" data-mode="un">Un sol codi</button>
+    <button class="pestanya" data-mode="prova">Prova escrita</button>
     <button class="pestanya" data-mode="ajuda">Com funciona</button>
   </div>
 
@@ -254,6 +292,60 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   </section>
 
   <!-- ── AJUDA ────────────────────────────────────────────────────────── -->
+
+  <!-- ── PROVA ESCRITA ──────────────────────────────────────────────────── -->
+  <section id="v-prova" hidden>
+    <div class="targeta">
+      <h3 style="margin-top:0">Genera una prova a mida</h3>
+      <p class="petit apagat" style="margin:0 0 .9rem">
+        La prova només pregunta sobre temes que l'alumne ha treballat de debò,
+        segons el seu últim codi, i en proporció a la feina que hi ha fet.
+        Els enunciats són els mateixos del banc, sense les opcions: l'alumne
+        ha d'escriure la resolució a mà.
+      </p>
+
+      <div class="camp" style="border-top:none;padding-top:0">
+        <b>Alumne</b>
+        <div class="filtres" style="margin:0">
+          <select id="pr-alumne" style="min-width:260px"><option value="">Tria un alumne del full carregat…</option></select>
+          <span class="petit apagat">o</span>
+          <input type="text" id="pr-codi" placeholder="…enganxa un codi directament" style="flex:1;min-width:220px;font-family:var(--mono)">
+        </div>
+      </div>
+
+      <div class="camp">
+        <b>Mida de la prova</b>
+        <div class="filtres" style="margin:0">
+          <label class="petit"><input type="radio" name="pr-mida" value="curta"> Curta · 8 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="mitja" checked> Mitjana · 14 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="llarga"> Llarga · 20 preguntes</label>
+        </div>
+      </div>
+
+      <div class="camp">
+        <b>Llindar mínim per bloc</b>
+        <div class="filtres" style="margin:0">
+          <label class="petit apagat">Un bloc només entra si l'alumne hi ha fet almenys
+            <input type="number" id="pr-min-bloc" value="3" min="1" max="20" style="width:56px"> exercicis</label>
+          <label class="petit apagat"><input type="checkbox" id="pr-tema" checked> Escriure el tema a l'examen</label>
+        </div>
+      </div>
+
+      <div class="camp" id="pr-blocs-camp" hidden>
+        <b>Blocs que hi entren</b>
+        <p class="petit apagat" style="margin:0 0 .5rem">Desmarca els que no vulguis a la prova.</p>
+        <div id="pr-blocs" class="graella" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"></div>
+      </div>
+
+      <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1rem">
+        <button class="btn" id="pr-genera">Genera la prova</button>
+        <span class="petit" id="pr-estat" role="status"></span>
+      </div>
+    </div>
+
+    <div id="pr-resultat" style="margin-top:1rem"></div>
+  </section>
+
   <section id="v-ajuda" hidden>
     <div class="targeta">
       <h3>Com funciona</h3>
@@ -329,6 +421,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
 <script>/*__TAULES__*/</script>
 <script>/*__CODI__*/</script>
+<script>/*__BANC__*/</script>
 <script>
 (function () {
   "use strict";
@@ -354,6 +447,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       $("#v-progres").hidden = b.dataset.mode !== "progres";
       $("#v-un").hidden = b.dataset.mode !== "un";
       if (b.dataset.mode === "progres") { proposaPeriode(); pintaProgres(); }
+      $("#v-prova").hidden = b.dataset.mode !== "prova";
+      if (b.dataset.mode === "prova") { omplePrAlumnes(); }
       $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
     };
   });
@@ -1403,6 +1498,416 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
       + "</div>" + h;
   };
+
+  // ── PROVA ESCRITA ──────────────────────────────────────────────────────
+  //
+  // Compon un examen en paper amb exercicis que l'alumne ha treballat de
+  // veritat, a partir del seu últim codi. Tres decisions expliquen la resta:
+  //
+  // 1. S'indexa el banc per ID (RE_BANC[id]), mai per posició dins del full.
+  //    El projecte manté dos ordres dels ítems -- el de presentació de
+  //    data/fullN.js i l'append-only de codi-ordre.json -- i al Full 9 no
+  //    coincideixen en 42 de 47 posicions. Indexant per posició, l'alumne que
+  //    havia fet el 171 rebia el 170f, un exercici que podia no haver vist
+  //    mai. Amb l'id, la pregunta és sempre la que va fer.
+  //
+  // 2. Un bloc entra en proporció a la feina que hi ha feta, amb un llindar
+  //    mínim: si de trenta exercicis només un és de probabilitat, no hi ha
+  //    d'haver cap pregunta de probabilitat. El repartiment quadra amb la
+  //    mida triada, i si no hi arriba (perquè no hi ha prou exercicis fets)
+  //    es diu en veu alta en lloc de treure una prova curta en silenci.
+  //
+  // 3. Dins d'un bloc no es posen sis apartats del mateix exercici mare.
+  //    Al banc, el 63 % dels exercicis tenen més d'un apartat (2,9 de
+  //    mitjana), així que agafar "els primers per prioritat" donava proves
+  //    com 1a, 1b, 1c, 1d, 1e, 1f, 2a, 2b: la mateixa mecànica vuit vegades.
+
+  var MIDES_PROVA = { curta: 8, mitja: 14, llarga: 20 };
+  var prCodi = null;      /* últim codi llegit (RE_CODI.llegeix), base de la prova */
+  var prError = null;     /* per què no s'ha pogut llegir, si és el cas */
+  var prDisp = null;      /* blocs disponibles del càlcul vigent */
+
+  /* Rèplica local de RE.clau() de js/nucli.js: l'analitzador no carrega
+     nucli.js, i la desxifra del blob de resposta és autocontinguda. */
+  function clauItem(item) {
+    var bin = atob(item.clau), b = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+    return JSON.parse(new TextDecoder().decode(b));
+  }
+
+  function mat(node) {
+    if (!node || !window.renderMathInElement) return;
+    try {
+      renderMathInElement(node, {
+        delimiters: [{ left: "$", right: "$", display: false }],
+        throwOnError: false
+      });
+    } catch (e) { /* es queda el LaTeX en cru */ }
+  }
+
+  /* KaTeX sota petició: primer la còpia local de `vendor/katex/` (si
+     l'analitzador és al costat del lloc), i si no hi és, el CDN. Si falla tot
+     dos, el LaTeX es queda en cru i la prova continua sent usable -- aquest
+     fitxer ha de funcionar sense connexió. */
+  var katexProvat = false;
+  function intentaKatex() {
+    if (katexProvat || window.renderMathInElement) { mat($("#pr-resultat")); return; }
+    katexProvat = true;
+    var CDN = "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/";
+    function css(base) {
+      var l = document.createElement("link");
+      l.rel = "stylesheet"; l.href = base + "katex.min.css";
+      document.head.appendChild(l);
+    }
+    function js(src, ok, mal) {
+      var s = document.createElement("script");
+      s.src = src; s.onload = ok; s.onerror = mal;
+      document.head.appendChild(s);
+    }
+    function auto(base) {
+      js(base + "contrib/auto-render.min.js", function () { mat($("#pr-resultat")); }, function () {});
+    }
+    try {
+      css("vendor/katex/");
+      js("vendor/katex/katex.min.js",
+        function () { auto("vendor/katex/"); },
+        function () { css(CDN); js(CDN + "katex.min.js", function () { auto(CDN); }, function () {}); });
+    } catch (e) { /* sense xarxa ni còpia local: LaTeX en cru */ }
+  }
+
+  function escapa(s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  }
+
+  /* L'exercici mare d'un ítem. Ve del banc (`ex`), i si un banc antic no el
+     porta es dedueix de l'id: els 892 ítems segueixen el patró <número><lletra>
+     i el número coincideix amb `ex` en tots els casos. */
+  function exMare(id) {
+    var b = RE_BANC[id];
+    if (b && b.ex != null) return String(b.ex);
+    var m = String(id).match(/^\d+/);
+    return m ? m[0] : String(id);
+  }
+
+  /* Blocs amb prou feina feta. "Fet" exclou "" (no tocat) i "vist" (obert
+     però sense respondre): un exercici que l'alumne ha obert i ha abandonat
+     no diu res de si el sap fer. */
+  function blocsDisponibles(p, minBloc) {
+    var out = [];
+    p.fulls.forEach(function (f) {
+      f.blocs.forEach(function (b) {
+        var fets = b[1].map(function (k) { return f.items[k]; })
+          .filter(function (it) { return it && it.estat && it.estat !== "vist" && RE_BANC[it.id]; });
+        if (fets.length >= minBloc) {
+          out.push({ full: f.n, titolFull: f.titol, bloc: b[0], fets: fets });
+        }
+      });
+    });
+    return out;
+  }
+
+  function clauBloc(d) { return d.full + "|" + d.bloc; }
+
+  /* Reparteix `total` preguntes entre els blocs, proporcionalment a la feina
+     feta a cadascun (mètode dels residus més grans), sense demanar a un bloc
+     més preguntes de les que té. Si un bloc satura, el que li sobra es torna
+     a repartir entre els que encara tenen marge, de manera que la suma arriba
+     a `total` sempre que globalment hi hagi prou exercicis. */
+  function reparteix(disp, total) {
+    var sostre = disp.map(function (d) { return d.fets.length; });
+    var cap = sostre.reduce(function (a, b) { return a + b; }, 0);
+    total = Math.min(total, cap);
+    if (!total) return sostre.map(function () { return 0; });
+
+    var quota = disp.map(function (d) { return total * d.fets.length / cap; });
+    var out = quota.map(function (q, i) { return Math.min(Math.floor(q), sostre[i]); });
+    var ordre = quota.map(function (q, i) { return { i: i, r: q - Math.floor(q) }; })
+      .sort(function (a, b) { return b.r - a.r; }).map(function (x) { return x.i; });
+
+    var assignat = out.reduce(function (a, b) { return a + b; }, 0);
+    var volta = 0;
+    while (assignat < total && volta < total + disp.length) {
+      var mogut = false;
+      for (var j = 0; j < ordre.length && assignat < total; j++) {
+        var i = ordre[j];
+        if (out[i] < sostre[i]) { out[i]++; assignat++; mogut = true; }
+      }
+      if (!mogut) break;              /* tots saturats: no es pot arribar a `total` */
+      volta++;
+    }
+    return out;
+  }
+
+  /* Tria `quants` ítems d'un bloc.
+
+     Pes aleatori cap al que li ha costat (fallat > pista > segon > net) en
+     lloc d'un ordre estricte: amb ordre estricte la selecció era determinista
+     i el botó "torna a triar exercicis" no canviava res. I es passa d'un
+     exercici mare només quan ja no queden mares nous, perquè una prova de
+     vuit preguntes no pot ser el mateix problema vuit vegades. */
+  function tria(d, quants) {
+    var PES = { fallat: 3, pista: 2.2, segon: 1.6, net: 1 };
+    var cand = d.fets.map(function (it) {
+      return { it: it, p: (PES[it.estat] || 1) + Math.random() * 1.2 };
+    }).sort(function (a, b) { return b.p - a.p; });
+
+    var triats = [], mares = {};
+    cand.forEach(function (c) {
+      if (triats.length >= quants) return;
+      var m = exMare(c.it.id);
+      if (mares[m]) return;
+      mares[m] = true; triats.push(c.it);
+    });
+    /* Si els mares diferents no arriben, es completa amb la resta. */
+    cand.forEach(function (c) {
+      if (triats.length >= quants) return;
+      if (triats.indexOf(c.it) < 0) triats.push(c.it);
+    });
+    return triats;
+  }
+
+  function omplePrAlumnes() {
+    var sel = $("#pr-alumne"), actual = sel.value;
+    var ult = ultimPerAlumne(files);
+    sel.innerHTML = '<option value="">Tria un alumne del full carregat…</option>'
+      + ult.map(function (r) {
+          return '<option value="' + r.i + '">' + (r.brut.alumne || r.brut.correu)
+            + (r.brut.grup ? " · " + r.brut.grup : "")
+            + (r.p.integre ? "" : "  ⚠ codi alterat") + "</option>";
+        }).join("");
+    if (ult.some(function (r) { return String(r.i) === actual; })) sel.value = actual;
+  }
+
+  function estatPr(html, mal) {
+    $("#pr-estat").innerHTML = mal ? '<span class="mal">' + html + "</span>" : html;
+  }
+
+  /* Un codi que es llegeix però el control del qual no quadra NO serveix per
+     compondre una prova: l'estat que declara no es pot donar per bo, i tot
+     l'objectiu d'aquesta pestanya és examinar sobre feina real. Es bloqueja
+     en els dos camins (desplegable i camp de text), i es diu per què. */
+  function motiuBloqueig() {
+    if (!prCodi) return prError || "Tria un alumne o enganxa un codi vàlid.";
+    if (!prCodi.integre) {
+      return "Aquest codi es llegeix, però el control d'integritat no quadra: "
+        + "s'ha copiat a mitges o s'ha modificat. No compongo una prova a partir "
+        + "d'un estat que no es pot donar per bo — demana'l de nou a l'alumne.";
+    }
+    return null;
+  }
+
+  function refrescaBlocs() {
+    sincronitza();
+    var min = Math.max(1, parseInt($("#pr-min-bloc").value, 10) || 1);
+    var motiu = motiuBloqueig();
+    estatPr(motiu || "", !!motiu);
+    if (motiu) { prDisp = null; $("#pr-blocs-camp").hidden = true; return; }
+    prDisp = blocsDisponibles(prCodi, min);
+    pintaBlocsCamp(prDisp);
+  }
+
+  function pintaBlocsCamp(disp) {
+    var cont = $("#pr-blocs");
+    if (!disp.length) { $("#pr-blocs-camp").hidden = true; cont.innerHTML = ""; return; }
+    $("#pr-blocs-camp").hidden = false;
+    cont.innerHTML = disp.map(function (d) {
+      return '<label class="pr-check"><input type="checkbox" checked data-k="'
+        + clauBloc(d) + '"><span><b>' + escapa(d.bloc) + "</b>"
+        + '<span class="n">Full ' + d.full + " · " + d.fets.length + " exercicis fets</span>"
+        + "</span></label>";
+    }).join("");
+  }
+
+  function generaProva() {
+    sincronitza();
+    var motiu = motiuBloqueig();
+    if (motiu) { estatPr(motiu, true); $("#pr-resultat").innerHTML = ""; return; }
+
+    var min = Math.max(1, parseInt($("#pr-min-bloc").value, 10) || 1);
+    var mida = ($$('input[name="pr-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
+    var demanades = MIDES_PROVA[mida];
+
+    var tots = blocsDisponibles(prCodi, min);
+    if (!tots.length) {
+      prDisp = null; $("#pr-blocs-camp").hidden = true;
+      $("#pr-resultat").innerHTML = '<div class="buit">Cap bloc arriba als ' + min
+        + " exercicis mínims. Baixa el llindar, o aquest alumne encara no té prou "
+        + "feina feta per examinar-lo.</div>";
+      estatPr("");
+      return;
+    }
+    /* Els checkboxes es repinten només si la llista de blocs ha canviat, per
+       no perdre el que el professor hagi desmarcat a mà. */
+    var mateixa = prDisp && prDisp.length === tots.length
+      && prDisp.every(function (d, i) { return clauBloc(d) === clauBloc(tots[i]); });
+    if (!mateixa) { prDisp = tots; pintaBlocsCamp(tots); }
+
+    var marcats = {};
+    $$("#pr-blocs input[type=checkbox]").forEach(function (c) { marcats[c.dataset.k] = c.checked; });
+    var actius = tots.filter(function (d) { return marcats[clauBloc(d)] !== false; });
+    if (!actius.length) {
+      $("#pr-resultat").innerHTML = '<div class="buit">Has desmarcat tots els blocs. '
+        + "Marca'n almenys un.</div>";
+      estatPr("");
+      return;
+    }
+
+    var repart = reparteix(actius, demanades);
+    var seleccio = [];
+    actius.forEach(function (d, i) {
+      tria(d, repart[i]).forEach(function (it) {
+        seleccio.push({ full: d.full, titolFull: d.titolFull, bloc: d.bloc, id: it.id, estat: it.estat });
+      });
+    });
+    if (!seleccio.length) {
+      $("#pr-resultat").innerHTML = '<div class="buit">No hi ha prou exercicis fets per '
+        + "compondre la prova.</div>";
+      return;
+    }
+
+    /* Transparència: si surten menys preguntes de les triades, es diu. Abans
+       la prova sortia curta en silenci i el professor no ho sabia. */
+    if (seleccio.length < demanades) {
+      estatPr("Has triat " + demanades + " preguntes i n'han sortit <b>" + seleccio.length
+        + "</b>: entre els blocs marcats no hi ha prou exercicis fets. Baixa el llindar "
+        + "per bloc, marca més blocs, o tria una mida més curta.");
+    } else {
+      estatPr(seleccio.length + " preguntes, de " + actius.length + " bloc"
+        + (actius.length === 1 ? "" : "s") + " diferent" + (actius.length === 1 ? "" : "s") + ".");
+    }
+    pintaProva(seleccio);
+    intentaKatex();
+  }
+
+  function pintaProva(seleccio) {
+    var nom = $("#pr-alumne").selectedIndex > 0
+      ? $("#pr-alumne").options[$("#pr-alumne").selectedIndex].textContent.replace(/\s*⚠.*$/, "")
+      : "";
+    var ara = new Date();
+    var data = ara.getFullYear() + "-" + ("0" + (ara.getMonth() + 1)).slice(-2)
+      + "-" + ("0" + ara.getDate()).slice(-2);
+    var ambTema = $("#pr-tema").checked;
+
+    /* Agrupat per bloc: en un examen en paper, saltar de tema cada pregunta
+       fa perdre temps a l'alumne en coses que no estem avaluant. */
+    var grups = [], per = {};
+    seleccio.forEach(function (s) {
+      var k = clauBloc(s);
+      if (!per[k]) { per[k] = { titolFull: s.titolFull, bloc: s.bloc, items: [] }; grups.push(per[k]); }
+      per[k].items.push(s);
+    });
+
+    var h = '<div class="pr-accions">'
+      + '<button class="btn" id="pr-imprimeix">Imprimeix l\'examen</button>'
+      + '<button class="btn buit" id="pr-imprimeix-clau">Imprimeix el full de correcció</button>'
+      + '<button class="btn buit" id="pr-regenera">Torna a triar exercicis</button>'
+      + '</div><p class="petit apagat" style="margin:-.3rem 0 .9rem">Són dues '
+      + "impressions separades a propòsit: el full de correcció no ha de sortir "
+      + "mai per la impressora al costat de l'examen.</p>";
+
+    var n = 1, ordinals = [];
+    h += '<div class="pr-paper" id="pr-examen">'
+      + '<div class="capc"><div><h2>Prova de repàs</h2>'
+      + '<div class="petit apagat">' + (nom ? escapa(nom) + " · " : "") + seleccio.length
+      + " preguntes · resposta oberta, cal escriure la resolució</div></div>"
+      + '<div class="petit apagat" style="text-align:right">Data: ' + data
+      + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
+
+    grups.forEach(function (g) {
+      if (ambTema) {
+        h += '<div class="pr-sec">' + escapa(g.titolFull) + " · " + escapa(g.bloc) + "</div>";
+      }
+      g.items.forEach(function (s) {
+        var b = RE_BANC[s.id];
+        if (!b) return;
+        ordinals.push({ n: n, s: s, b: b });
+        h += '<div class="pr-preg"><div class="cap"><span class="num">' + (n++) + ".</span>"
+          + (b.encapcalament ? " " + escapa(b.encapcalament) : "") + "</div>"
+          + '<div class="enun">' + escapa(b.enunciat) + "</div>"
+          + (b.figura ? '<div class="figura">' + b.figura + "</div>" : "")
+          + '<div class="ratlla"></div><div class="ratlla"></div><div class="ratlla"></div>'
+          + "</div>";
+      });
+    });
+    h += "</div>";
+
+    /* Full de correcció: secció a part i impressió a part. */
+    h += '<div class="pr-paper" id="pr-correccio"><div class="capc"><div>'
+      + "<h2>Full de correcció</h2>"
+      + '<div class="petit apagat">' + (nom ? escapa(nom) + " · " : "") + data
+      + " · NO repartir</div></div></div>";
+    ordinals.forEach(function (o) {
+      var k = null;
+      try { k = clauItem(o.b); } catch (e) { k = null; }
+      var correcta = k && o.b.opcions ? o.b.opcions[k.ok] : "";
+      h += '<div class="pr-preg"><div class="cap"><span class="num">' + o.n + ".</span> "
+        + '<span class="meta">' + escapa(o.s.bloc) + " · id " + o.s.id
+        + " · a la pràctica: " + o.s.estat + "</span></div>"
+        + (correcta ? '<div class="enun"><b>Resposta:</b> ' + correcta + "</div>" : "")
+        + (k && k.res && k.res.length
+            ? "<ol class=\"passos\">" + k.res.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ol>"
+            : "")
+        + "</div>";
+    });
+    h += "</div>";
+
+    $("#pr-resultat").innerHTML = h;
+    mat($("#pr-resultat"));
+
+    function imprimeix(quin) {
+      document.body.setAttribute("data-imprimeix", quin);
+      window.print();
+    }
+    window.onafterprint = function () { document.body.removeAttribute("data-imprimeix"); };
+    $("#pr-imprimeix").onclick = function () { imprimeix("examen"); };
+    $("#pr-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
+    $("#pr-regenera").onclick = generaProva;
+  }
+
+  /* Lectura del codi actiu.
+
+     El camp de text va amb un retard de 300 ms per no rellegir a cada tecla,
+     però la lectura NO pot dependre que aquest retard hagi passat: el
+     professor pot enganxar el codi i clicar "Genera la prova" immediatament,
+     i llavors encara no hi hauria res llegit. Per això `sincronitza()` és una
+     funció a part que llegeix el que hi ha ARA MATEIX, i tant el retard com
+     `generaProva()` la criden. El retard només decideix quan es repinten els
+     blocs, no què val el codi. */
+  var prBrut = null;      /* darrer text ja processat, per no rellegir per res */
+
+  function sincronitza() {
+    var sel = $("#pr-alumne").value;
+    if (sel !== "") {
+      prBrut = null;
+      var nou = files[+sel] ? files[+sel].p : null;
+      if (nou !== prCodi) { prCodi = nou; prDisp = null; }
+      return;
+    }
+    var brut = $("#pr-codi").value.trim();
+    if (brut === prBrut) return;
+    prBrut = brut;
+    prDisp = null;
+    if (!brut) { prCodi = null; prError = null; return; }
+    var r = RE_CODI.llegeix(brut);
+    prCodi = r.ok ? r : null;
+    prError = r.ok ? null : (r.error || "Aquest codi no es pot llegir.");
+  }
+
+  $("#pr-alumne").onchange = function () {
+    $("#pr-codi").value = "";
+    prBrut = null; prError = null;
+    sincronitza();
+    refrescaBlocs();
+  };
+  var esperaPr = null;
+  $("#pr-codi").oninput = function () {
+    $("#pr-alumne").value = "";
+    clearTimeout(esperaPr);
+    esperaPr = setTimeout(function () { sincronitza(); refrescaBlocs(); }, 300);
+  };
+  $("#pr-min-bloc").onchange = function () { prDisp = null; refrescaBlocs(); };
+  $("#pr-genera").onclick = generaProva;
+
 })();
 </script>
 </body>

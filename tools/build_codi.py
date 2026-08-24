@@ -161,7 +161,50 @@ def taula_fulls():
             if idxs:
                 blocs.append([b["titol"], idxs])
         out[n] = {"titol": d["titol"], "items": ids, "blocs": blocs, "dif": difs}
-    return out
+    return out, dades
+
+
+# ---------------------------------------------------------------------
+# Banc d'enunciats per a la pestanya "Prova escrita" de l'analitzador.
+#
+# RE_TAULES només porta l'ordre i l'estat per posició, que és el que viatja
+# dins del codi; per compondre un examen en paper cal el text real de cada
+# exercici. S'indexa per ID, no per posició dins del full: la posició depèn
+# de quin dels dos ordres es miri (el de presentació de data/fullN.js o
+# l'append-only de codi-ordre.json) i al Full 9 no coincideixen en 42 de 47
+# posicions. Indexant per id, la pregunta que surt a la prova és sempre la
+# que l'alumne va fer de veritat.
+#
+# `ex` (l'exercici mare del qual l'ítem és un apartat) hi va perquè la prova
+# no reparteixi sis variants del mateix problema; `pistes`, `nota` i la resta
+# no hi van perquè la prova no els fa servir.
+# ---------------------------------------------------------------------
+def taula_banc(dades):
+    """{id: {ex, bloc, dif, encapcalament, enunciat, opcions, clau, figura?}}"""
+    banc = {}
+    for n, d in dades.items():
+        # Un apartat pot no dur encapçalament perquè el porta el primer germà
+        # del mateix exercici (ex_text=""): dins d'un full és indiferent,
+        # perquè es llegeixen seguits, però en una prova on l'exercici surt
+        # sol l'enunciat es queda en "16 cm" i no vol dir res. Aquí s'hereta
+        # del primer germà que en tingui.
+        cap_mare = {}
+        for it in d["items"]:
+            cap = (it.get("encapcalament") or "").strip()
+            if cap and it["ex"] not in cap_mare:
+                cap_mare[it["ex"]] = cap
+        for it in d["items"]:
+            entrada = {
+                "ex": it["ex"], "bloc": it["bloc"], "dif": it["dif"],
+                "encapcalament": (it.get("encapcalament") or "").strip()
+                                 or cap_mare.get(it["ex"], ""),
+                "enunciat": it["enunciat"],
+                "opcions": it.get("opcions", []), "clau": it["clau"],
+            }
+            if it.get("figura"):
+                entrada["figura"] = it["figura"]
+            banc[it["id"]] = entrada
+    return banc
 
 
 # ---------------------------------------------------------------------
@@ -180,7 +223,8 @@ def taula_proves():
 
 def main():
     etiq = etiquetes_ordenades()
-    fulls = taula_fulls()
+    fulls, dades_fulls = taula_fulls()
+    banc = taula_banc(dades_fulls)
     proves = taula_proves()
 
     dades = {"v": 1, "etiquetes": etiq, "fulls": fulls, "proves": proves}
@@ -198,10 +242,16 @@ def main():
     with open(jj, "w", encoding="utf-8") as f:
         json.dump(dades, f, ensure_ascii=False, separators=(",", ":"))
 
+    # --- banc d'enunciats, també per injectar a l'analitzador ---
+    bb = os.path.join(os.path.dirname(os.path.abspath(__file__)), "_banc.json")
+    with open(bb, "w", encoding="utf-8") as f:
+        json.dump(banc, f, ensure_ascii=False, separators=(",", ":"))
+
     tot = sum(len(v["items"]) for v in fulls.values())
     print("✓ %s (%d fulls, %d ítems, %d etiquetes, %d proves, %.1f kB)"
           % (js, len(fulls), tot, len(etiq), len(proves),
              os.path.getsize(js) / 1024))
+    print("✓ %s (%d ítems, %.1f kB)" % (bb, len(banc), os.path.getsize(bb) / 1024))
 
 
 if __name__ == "__main__":
