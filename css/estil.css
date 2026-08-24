@@ -12,7 +12,11 @@
   --pas:26px;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0}
+html,/* Els estats :hover van tots dins de @media (hover:hover). En una pantalla
+   tàctil (Chromebook en mode tauleta) Chrome deixa el hover "enganxat" després
+   del toc: una opció ja tocada es quedava ressaltada en blau, el mateix blau
+   que marca l'opció TRIADA, i l'alumne no sabia què tenia seleccionat. */
+body{margin:0;padding:0}
 body{
   font-family:var(--cos); color:var(--tinta); background:var(--paper);
   font-size:16.5px; line-height:var(--pas); -webkit-font-smoothing:antialiased;
@@ -34,10 +38,10 @@ button{font:inherit;font-family:var(--cos)}
 .btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--tinta);
   background:var(--tinta);color:#fff;border-radius:9px;padding:.62rem 1.05rem;
   font-weight:600;cursor:pointer;transition:transform .12s,filter .12s}
-.btn:hover{filter:brightness(1.15)} .btn:active{transform:translateY(1px)}
+@media (hover:hover){.btn:hover{filter:brightness(1.15)}} .btn:active{transform:translateY(1px)}
 .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
 .btn.buit{background:transparent;color:var(--tinta);border-color:var(--vora)}
-.btn.buit:hover{border-color:var(--tinta);filter:none}
+@media (hover:hover){.btn.buit:hover{border-color:var(--tinta);filter:none}}
 .btn.pista{background:var(--ambre-suau);color:#6B4200;border-color:#EBD3A3}
 .btn.gran{width:100%;justify-content:center;padding:.8rem;font-size:1.02rem}
 /* Focus visible: traç fosc separat per un halo blanc en comptes d'un sol
@@ -47,25 +51,48 @@ button{font:inherit;font-family:var(--cos)}
    sempre té alguna cosa clara al costat, sigui quin sigui el fons. */
 :focus-visible{outline:2.5px solid var(--tinta);outline-offset:2px;
   box-shadow:0 0 0 2px #fff}
-.mapa{display:flex;flex-wrap:wrap;gap:3px;margin:.5rem 0 .1rem}
-.mapa .cel{width:15px;height:15px;border:1px solid var(--graf);border-radius:2px;
-  background:#fff;padding:0;cursor:pointer;transition:transform .12s}
-.mapa .cel:hover{transform:scale(1.35);z-index:2;border-color:var(--tinta)}
+/* Mapa d'apartats.
+
+   Mida: 26 px, no 15. El mapa és el primer que toca un alumne en una pantalla
+   tàctil, i amb 15 px i 3 px de separació tocar la casella que es vol és
+   impossible en un Chromebook en mode tauleta. La WCAG 2.2 (SC 2.5.8) demana
+   24 px com a mínim.
+
+   Forma, no només color: cada estat porta un signe propi. Amb la paleta
+   anterior, sota deuteranòpia -- una persona de cada dotze, un o dos alumnes
+   per aula -- l'ambre de "al segon intent" i el vermell de "per revisar"
+   tenien un contrast d'1,11:1 entre ells: literalment el mateix color. El
+   signe fa que el mapa es pugui llegir sense distingir cap to. */
+.mapa{display:flex;flex-wrap:wrap;gap:4px;margin:.5rem 0 .1rem}
+.mapa .cel{width:26px;height:26px;border:1px solid var(--graf);border-radius:4px;
+  background:#fff;padding:0;cursor:pointer;transition:transform .12s;
+  display:inline-flex;align-items:center;justify-content:center}
+@media (hover:hover){
+  .mapa .cel:hover{transform:scale(1.25);z-index:2;border-color:var(--tinta)}
+}
+.cel::after{font:700 14px/1 var(--mono);color:var(--tinta)}
 .cel.net{background:var(--verd);border-color:var(--verd)}
+.cel.net::after{content:"\2713";color:#fff}                 /* ✓ a la primera */
 .cel.pista{background:var(--verd-suau);border-color:var(--verd)}
+.cel.pista::after{content:"\2713";color:var(--verd)}        /* ✓ amb pista */
 .cel.segon{background:var(--ambre);border-color:var(--ambre)}
+.cel.segon::after{content:"2";color:#fff}                   /* al segon intent */
 .cel.fallat{background:var(--vermell);border-color:var(--vermell)}
+.cel.fallat::after{content:"\00D7";color:#fff}              /* × per revisar */
 .cel.vist{background:var(--graf);border-color:var(--graf)}
+.cel.vist::after{content:"\2026";color:var(--tinta)}        /* … començada */
 .grup{margin-bottom:.55rem}
 .grup h3{font:600 12px/1.6 var(--mono);color:var(--apagat);letter-spacing:.04em}
 .llegenda{display:flex;flex-wrap:wrap;gap:.15rem 1rem;font-size:.78rem;color:var(--apagat);margin-top:.7rem}
 .llegenda span{display:flex;align-items:center;gap:.32rem}
-.llegenda i{width:11px;height:11px;border-radius:2px;border:1px solid var(--graf);display:inline-block}
+.llegenda i{width:20px;height:20px;border-radius:4px;border:1px solid var(--graf);
+  display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.llegenda i::after{font-size:11px}
 .blocs{display:grid;gap:.6rem;margin:.9rem 0}
 .bloc{display:flex;align-items:center;gap:.9rem;text-align:left;width:100%;
   background:var(--card);border:1px solid var(--vora);border-radius:11px;
   padding:.75rem .9rem;cursor:pointer;color:inherit}
-.bloc:hover{border-color:var(--blau)}
+@media (hover:hover){.bloc:hover{border-color:var(--blau)}}
 .bloc .num{font:800 1.15rem/1 var(--display);color:var(--blau);min-width:1.4rem}
 .bloc .cos{flex:1;min-width:0}
 .bloc .tit{font-weight:700}
@@ -82,7 +109,7 @@ button{font:inherit;font-family:var(--cos)}
 .opcio{display:flex;align-items:flex-start;gap:.7rem;text-align:left;width:100%;
   background:var(--card);border:1.5px solid var(--vora);border-radius:10px;
   padding:.7rem .85rem;cursor:pointer;color:inherit;font-size:1.02rem}
-.opcio:hover{border-color:var(--blau)}
+@media (hover:hover){.opcio:hover{border-color:var(--blau)}}
 .opcio .lletra{font:700 .82rem/1.35 var(--mono);background:var(--blau-suau);color:var(--blau);
   width:1.5rem;height:1.5rem;border-radius:5px;display:grid;place-items:center;flex:none}
 .opcio.tria{border-color:var(--blau);background:var(--blau-suau)}
@@ -118,7 +145,7 @@ button{font:inherit;font-family:var(--cos)}
 .fulls{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.7rem;margin:1rem 0}
 .full{display:block;background:var(--card);border:1px solid var(--vora);border-radius:12px;
   padding:.85rem .95rem;color:inherit;text-decoration:none;transition:border-color .12s}
-a.full:hover{border-color:var(--blau)}
+@media (hover:hover){a.full:hover{border-color:var(--blau)}}
 .full .num{font:800 1.4rem/1 var(--display);color:var(--blau)}
 .full .tit{font-weight:700;margin:.32rem 0 .1rem;font-size:.96rem;line-height:1.25}
 .full .barra{margin-top:.6rem}
@@ -144,12 +171,12 @@ a.full:hover{border-color:var(--blau)}
 .tutor-targeta{display:block;background:var(--blau-suau);border:1px solid #C7D7EE;
   border-radius:12px;padding:.95rem 1.1rem;color:inherit;text-decoration:none;
   margin:.9rem 0 0;transition:border-color .12s}
-.tutor-targeta:hover{border-color:var(--blau)}
+@media (hover:hover){.tutor-targeta:hover{border-color:var(--blau)}}
 .tutor-targeta .tutor-titol{font-size:1.02rem;font-family:var(--display);font-weight:700;line-height:1.15;margin:0}
 .pastilla-blau{background:var(--blau);color:#fff;margin-bottom:.5rem}
 .link-refer-test{display:block;background:none;border:none;padding:.5rem 0 0;
   color:var(--apagat);text-decoration:underline;cursor:pointer;font-family:inherit}
-.link-refer-test:hover{color:var(--tinta)}
+@media (hover:hover){.link-refer-test:hover{color:var(--tinta)}}
 
 
 /* ---- full.html: bloc destacat en arribar des d'una recomanació del tutor ---- */
@@ -177,12 +204,12 @@ a.full:hover{border-color:var(--blau)}
 /* ---- resultat.html: la targeta de l'itinerari, l'acció principal ---- */
 .tutor-targeta.destacada{background:var(--blau);border-color:var(--blau);
   padding:1.2rem 1.25rem 1.35rem;box-shadow:0 2px 0 rgba(36,85,164,.35)}
-.tutor-targeta.destacada:hover{background:#1E4790;border-color:#1E4790}
+@media (hover:hover){.tutor-targeta.destacada:hover{background:#1E4790;border-color:#1E4790}}
 .tutor-targeta.destacada h2{color:#fff;font-size:1.24rem;letter-spacing:-.01em}
 .tutor-targeta.destacada .sub{color:#D7E3F7;font-size:.92rem;margin:.45rem 0 0}
 .tutor-targeta.destacada .cta{display:inline-block;margin-top:1rem;background:#fff;
   color:var(--blau);font-weight:700;font-size:.95rem;border-radius:9px;padding:.6rem 1rem}
-.tutor-targeta.destacada:hover .cta{background:#F2F6FC}
+@media (hover:hover){.tutor-targeta.destacada:hover .cta{background:#F2F6FC}}
 
 /* ---- figures dels enunciats ------------------------------------------
    L'SVG el genera tools/figures.py i s'incrusta a data/fullN.js. Hereta el
