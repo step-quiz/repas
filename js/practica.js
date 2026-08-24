@@ -82,10 +82,22 @@
      tabulable) és el patró estàndard perquè Tab entri i surti del grup d'un
      sol pas i les fletxes es moguin per dins. */
   var caixa = $("#opcions");
+  /* Roving tabindex: només UN botó del grup és tabulable.
+
+     Amb `pos = -1` (cap opció triada) el tabindex se'n va a la primera opció
+     que encara es pugui prémer. Sense això, en fallar el primer intent l'única
+     opció amb tabIndex 0 era la que s'acabava de desactivar, i com que un botó
+     `disabled` no és focusable el grup sencer quedava fora de l'abast del
+     tabulador: amb teclat era impossible tornar-hi per fer el segon intent. */
   function marca(pos) {
-    Array.prototype.forEach.call(caixa.children, function (c, i) {
-      c.setAttribute("aria-checked", i === pos ? "true" : "false");
-      c.tabIndex = i === pos ? 0 : -1;
+    var fill = Array.prototype.slice.call(caixa.children);
+    var tab = pos;
+    if (tab < 0 || fill[tab].disabled) {
+      tab = fill.findIndex(function (c) { return !c.disabled; });
+    }
+    fill.forEach(function (c, i) {
+      c.setAttribute("aria-checked", i === pos && !c.disabled ? "true" : "false");
+      c.tabIndex = i === tab ? 0 : -1;
     });
   }
   ordre.forEach(function (orig, pos) {
@@ -154,6 +166,10 @@
       btn.classList.remove("tria"); btn.classList.add("bona");
       btn.setAttribute("aria-describedby", "veredicte");
       var estat = pistes ? "pista" : (intents > 1 ? "segon" : "net");
+      /* `err: ""` buida l'ÚLTIM error (l'ítem ja no està pendent), però
+         `errs` -- l'historial -- es manté: si l'alumne repeteix sempre el
+         mateix error i sempre el rectifica al segon intent, això és
+         precisament el que li hem de dir. */
       RE.apunta(D.full, item.id, { estat: estat, pistes: pistes, intents: intents, err: "" });
       v.className = "veredicte be";
       v.innerHTML = "<h2>Correcte</h2>" + (
@@ -163,13 +179,14 @@
     } else {
       btn.classList.remove("tria"); btn.classList.add("dolenta");
       btn.disabled = true;
-      RE.apunta(D.full, item.id, { err: k.err[orig] });
+      RE.apuntaError(D.full, item.id, k.err[orig]);
       v.className = "veredicte malament";
       if (intents === 1) {
         btn.setAttribute("aria-describedby", "veredicte");
         v.innerHTML = "<h2>Encara no</h2>" + k.diag[orig] +
           "<p class='petit apagat' style='margin:.4rem 0 0'>Tens un intent més.</p>";
         triada = -1;
+        marca(-1);          /* torna el focus tabulable a una opció encara viva */
         $("#comprova").disabled = true;
       } else {
         tancat = true;

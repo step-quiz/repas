@@ -84,7 +84,14 @@ window.RE_CODI = (function () {
   var CAR_DIA = { RC1: 2, RC2: 3 };
   var VERSIO = "RC2";
   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
-  var PES = { net: 10, segon: 7, pista: 6, fallat: 0, vist: 0, "": 0 };
+  /* `pista` val MÉS que `segon`, no menys. Amb 6 la taula premiava
+     endevinar per damunt de demanar ajuda: amb quatre opcions i dos intents,
+     provar a l'atzar acaba en `segon` la meitat de les vegades (7 punts),
+     mentre que llegir la pista i respondre bé en donava 6 garantits. Com que
+     d'aquests estats en surt una nota, l'alumne que calcula aprenia a no
+     demanar mai una pista, que és exactament el contrari del que volem.
+     Ara: encertar a la primera (10) > amb pista (8) > al segon intent (7). */
+  var PES = { net: 10, segon: 7, pista: 8, fallat: 0, vist: 0, "": 0 };
 
   function val(c) { return ALF.indexOf(c); }
 
@@ -313,7 +320,12 @@ window.RE_CODI = (function () {
       var p = window.RE.llegeix(n).items || {};
       var estats = taula.items.map(function (id) {
         var it = p[id] || {};
-        if (it.err) compte[it.err] = (compte[it.err] || 0) + 1;
+        /* Es compta l'historial sencer (`errs`), no només l'error pendent:
+           un error rectificat al segon intent segueix sent un error comès, i
+           si es repeteix el professorat l'ha de veure. `err` és el format
+           antic i només s'usa si l'ítem encara no té historial. */
+        var errsIt = it.errs && it.errs.length ? it.errs : (it.err ? [it.err] : []);
+        errsIt.forEach(function (e) { compte[e] = (compte[e] || 0) + 1; });
         return it.estat || "";
       });
       fulls.push({ n: n, estats: estats });

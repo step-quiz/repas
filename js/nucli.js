@@ -30,6 +30,23 @@ window.RE = (function () {
     desa(full, p);
   }
 
+  /* Acumula una etiqueta d'error a l'historial de l'ítem.
+
+     `err` (l'últim error) es conserva pel format antic, però la llista `errs`
+     és la que compta: abans l'error del primer intent s'esborrava en encertar
+     al segon, i el resultat era que l'error més interessant de tots -- el que
+     l'alumne repeteix però acaba corregint -- no arribava mai al panell "els
+     errors que repeteixes". Un error comès és un error comès, encara que
+     després es rectifiqui. */
+  function apuntaError(full, id, etiqueta) {
+    if (!etiqueta) return;
+    var p = llegeix(full), it = p.items[id] || {};
+    var errs = (it.errs || []).slice();
+    errs.push(etiqueta);
+    if (errs.length > 12) errs = errs.slice(-12);   /* prou per a l'anàlisi */
+    apunta(full, id, { err: etiqueta, errs: errs });
+  }
+
   function esborra(full) { desa(full, { v: 1, items: {} }); }
 
   /* Desxifra el bloc de solucions (base64 de JSON en UTF-8).
@@ -88,7 +105,8 @@ window.RE = (function () {
   window.addEventListener("load", function () { mat(document.body); });
 
   return {
-    llegeix: llegeix, desa: desa, apunta: apunta, estat: estat, esborra: esborra,
+    llegeix: llegeix, desa: desa, apunta: apunta, apuntaError: apuntaError,
+    estat: estat, esborra: esborra,
     clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ
   };
 })();

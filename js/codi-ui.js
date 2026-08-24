@@ -37,6 +37,13 @@ window.RE_CODI_UI = (function () {
     "color:#fff;border-radius:9px;padding:.5rem .85rem;font:600 14px system-ui,sans-serif;cursor:pointer}",
     "#re-codi-fin .re-btn.buit{background:transparent;color:var(--tinta,#1F2933);border-color:var(--vora,#E4E1DB)}",
     "#re-codi-fin .re-petit{font-size:13px;color:var(--apagat,#6B7480)}",
+    "#re-codi-rec{border-top:1px solid var(--vora,#E4E1DB);margin-top:1rem;padding-top:.85rem}",
+    "#re-codi-rec summary{cursor:pointer;font:600 13px system-ui,sans-serif;color:var(--tinta,#1F2933)}",
+    "#re-codi-rec input{width:100%;box-sizing:border-box;margin:.55rem 0;padding:.55rem .6rem;",
+    "font:600 13px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;",
+    "border:1px solid var(--vora,#E4E1DB);border-radius:9px;background:var(--fons,#FBFAF8)}",
+    "#re-codi-rec .re-btn{font-size:13px;padding:.45rem .7rem}",
+    "#re-codi-rec-estat{margin:.55rem 0 0;font-size:13px}",
     "#re-codi-fin .re-avis{background:#FBF3DF;border:1px solid #EBD3A3;color:#6B4200;",
     "border-radius:9px;padding:.55rem .7rem;font-size:13px;margin:.75rem 0 0}",
     /* El botó és fix a dalt a la dreta i el contingut del lloc comença just
@@ -86,7 +93,16 @@ window.RE_CODI_UI = (function () {
         '<div id="re-codi-fin"><div id="re-codi-cap"><h2>Encara no hi ha codi</h2>' +
         '<button id="re-codi-tanca" aria-label="Tanca">&times;</button></div>' +
         '<p class="re-petit">El codi recull la feina que has fet. Fes algun ' +
-        "exercici i torna aqu\u00ed: apareixer\u00e0 tot sol.</p></div>";
+        "exercici i torna aqu\u00ed: apareixer\u00e0 tot sol.</p>" +
+        '<details id="re-codi-rec"><summary>Canvies d\'ordinador? Recupera la teva feina</summary>' +
+        '<p class="re-petit">El progrés es desa en aquest navegador, no al núvol: en un ' +
+        "Chromebook compartit o si el navegador esborra les dades, es perd. Enganxa aqu\u00ed " +
+        "un codi teu anterior i el torno a col\u00b7locar." +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC2\u2026" ' +
+        'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
+        '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
+        '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
+        '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
     } else {
       codi = window.RE_CODI.genera(window.RE_CODI.recull(null));
       var pc = Math.round(100 * x.fets / x.total);
@@ -109,7 +125,16 @@ window.RE_CODI_UI = (function () {
         '<p class="re-petit" style="margin-top:.75rem">El codi recull tota la ' +
         "teva feina fins ara, exercici per exercici. Cada codi nou substitueix " +
         "l'anterior: si n'has enviat un abans, no passa res.</p>" +
-        '<p class="re-petit" id="re-codi-avis"></p></div>';
+        '<p class="re-petit" id="re-codi-avis"></p>' +
+        '<details id="re-codi-rec"><summary>Canvies d\'ordinador? Recupera la teva feina</summary>' +
+        '<p class="re-petit">El progrés es desa en aquest navegador, no al núvol: en un ' +
+        "Chromebook compartit o si el navegador esborra les dades, es perd. Enganxa aqu\u00ed " +
+        "un codi teu anterior i el torno a col\u00b7locar." +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC2\u2026" ' +
+        'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
+        '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
+        '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
+        '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
     }
 
     document.body.appendChild(fons);
@@ -143,6 +168,70 @@ window.RE_CODI_UI = (function () {
         navigator.clipboard.writeText(codi).then(be, manual);
       } else { manual(); }
     };
+
+    muntaRecuperacio();
+  }
+
+  /* ── recuperar el progrés a partir d'un codi ────────────────────────────
+
+     El progrés viu al localStorage d'un sol navegador. En un institut amb
+     carros de Chromebooks compartits, o amb una política que esborra les
+     dades de lloc en tancar sessió, un trimestre de feina pot desapareixer
+     sense avís. El codi que l'alumne ja genera porta l'estat de cada exercici
+     i RE_CODI.llegeix() el sap tornar a muntar, així que recuperar-lo no
+     costa res: només faltava el camí de tornada.
+
+     Dues accions distintes a propòsit, en lloc d'una de "sincronitza" que
+     hauria de decidir en silenci quin estat guanya:
+       · "Afegeix el que em falti" -- només omple exercicis sense estat aquí.
+         És l'opció segura i la que gairebé sempre es vol.
+       · "Substitueix-ho tot" -- esborra i escriu el que digui el codi.
+         Demana confirmació perquè és destructiva. */
+  function muntaRecuperacio() {
+    var camp = document.getElementById("re-codi-rec-camp");
+    if (!camp) return;
+    var estat = document.getElementById("re-codi-rec-estat");
+
+    function diu(txt, mal) {
+      estat.textContent = txt;
+      estat.style.color = mal ? "#A32B22" : "var(--apagat,#6B7480)";
+    }
+
+    function aplica(nomesBuits) {
+      var brut = camp.value.trim();
+      if (!brut) { diu("Enganxa primer un codi.", true); return; }
+      var p = window.RE_CODI.llegeix(brut);
+      if (!p.ok) { diu(p.error || "Aquest codi no es pot llegir.", true); return; }
+      if (!p.integre) {
+        diu("El codi es llegeix, per\u00f2 el control no quadra: s'ha copiat "
+          + "a mitges o li falta algun car\u00e0cter. Torna a copiar-lo sencer.", true);
+        return;
+      }
+      if (!nomesBuits && !window.confirm(
+        "Aix\u00f2 esborrar\u00e0 el progr\u00e9s que hi ha en aquest navegador i hi "
+        + "posar\u00e0 el del codi. Vols continuar?")) return;
+
+      var posats = 0, saltats = 0;
+      p.fulls.forEach(function (f) {
+        if (!nomesBuits) window.RE.esborra(f.n);
+        var actual = window.RE.llegeix(f.n).items || {};
+        f.items.forEach(function (it) {
+          if (!it.estat) return;
+          if (nomesBuits && actual[it.id] && actual[it.id].estat) { saltats++; return; }
+          window.RE.apunta(f.n, it.id, { estat: it.estat });
+          posats++;
+        });
+      });
+
+      if (!posats && !saltats) { diu("Aquest codi no porta cap exercici fet.", true); return; }
+      diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
+        + (posats === 1 ? "" : "s")
+        + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
+        + ". Recarrega la p\u00e0gina per veure-ho.");
+    }
+
+    document.getElementById("re-codi-rec-afegeix").onclick = function () { aplica(true); };
+    document.getElementById("re-codi-rec-tot").onclick = function () { aplica(false); };
   }
 
   /* El botó es posa sol a qualsevol pàgina que carregui aquest fitxer, per no
