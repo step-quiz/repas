@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Repàs d'ESO</title>
 <link rel="stylesheet" href="css/estil.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/contrib/auto-render.min.js"></script>
 </head>
 <body>
 <main class="embolcall" id="main">
@@ -63,8 +63,21 @@
       'per a aquest full. Torna més endavant o tria\'n un altre.</p>' +
       '<a class="btn" href="index.html">← Tots els fulls</a>';
   };
+  /* El número de full es valida abans de fer-lo servir enlloc. Amb
+     `document.write` i el paràmetre enganxat en cru, n'hi havia prou amb un
+     ?full= que tanqués l'atribut i l'etiqueta per
+     injectar JavaScript arbitrari a la pàgina: en un lloc estàtic sense
+     comptes la gravetat és baixa, però n'hi havia prou amb un enllaç per
+     escriure el localStorage d'un alumne, i el localStorage és el que genera
+     el codi que el professorat qualifica. A més, `document.write` bloqueja el
+     parseig; amb createElement el full es demana igual i sense aturar-lo. */
   var FULL_N = new URLSearchParams(location.search).get("full") || "1";
-  document.write('<script src="data/full' + FULL_N + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
+  if (!/^([1-9]|1[0-2])$/.test(FULL_N)) {
+    document.addEventListener("DOMContentLoaded", function () { RE_FULL_ABSENT(); });
+  } else {
+    document.write('<script src="data/full' + FULL_N
+      + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
+  }
 </script>
 <script src="js/nucli.js"></script>
 <script src="js/proves-inicials.js"></script>

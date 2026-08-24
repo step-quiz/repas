@@ -76,6 +76,11 @@ hi ha comptes ni sincronització entre dispositius.
     js/itinerari-dades.js generació i estat de la ruta
     js/itinerari.js       controlador de l'itinerari
     css/estil.css         tot l'estil del lloc
+    vendor/katex/         KaTeX servit en local (no CDN): un filtre de centre
+                          el bloqueja i el LaTeX en cru no és llegible per a
+                          un alumne d'ESO. Per actualitzar-lo: `npm pack
+                          katex@X` i copiar katex.min.{js,css},
+                          contrib/auto-render.min.js i fonts/*.woff2
 
     data/fullN.js         banc de preguntes d'un full — GENERAT, no editar
     REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
@@ -84,7 +89,8 @@ hi ha comptes ni sincronització entre dispositius.
     tools/figures.py      figures SVG dels enunciats, generades amb paràmetres
                           (prismes, piràmides, cilindres, cons, esferes...)
     tools/build_tot.py    compila fulls + taules del codi + analitzador
-    tools/build_codi.py   taules compartides pel codi de verificació
+    tools/build_codi.py   taules compartides pel codi + _banc.json
+                          (enunciats indexats per id, per a la prova escrita)
     tools/build_analitzador.py  munta analitzador-repas.html (fitxer únic)
     js/codi.js            codi de verificació: generació I lectura
     js/codi-ui.js         el panell del codi que veu l'alumne
@@ -171,9 +177,53 @@ s'encalla la classe i si el codi és autèntic.
   pistes, estandarditzats per dificultat) i, amb poc pes, l'**encert**. Els
   pesos i els objectius es toquen des de la mateixa pàgina.
 
+- **Recuperar el progrés.** El progrés viu al `localStorage` d'un navegador. En
+  un carro de Chromebooks compartits, o amb una política que esborra les dades
+  de lloc en tancar sessió, un trimestre de feina pot desaparèixer. La finestra
+  del codi porta un desplegable *«Canvies d'ordinador? Recupera la teva feina»*
+  on l'alumne enganxa un codi seu anterior. Dues accions separades a propòsit:
+  **afegir només el que falti** (segura, no toca res del que ja hi ha) o
+  **substituir-ho tot** (amb confirmació). Un codi amb el control trencat es
+  rebutja: no es recupera un estat que no es pot donar per bo.
+
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
 l'analitzador carrega aquest mateix fitxer.
+
+## Prova escrita a partir del que s'ha practicat
+
+Un alumne pot demanar de fer un **examen presencial en paper** sobre la feina
+que ha anat fent al lloc. La pestanya **Prova escrita** de
+`analitzador-repas.html` el composa a partir del seu últim codi.
+
+- **Només pregunta el que ha treballat.** Un exercici hi pot entrar si el codi
+  el dona per fet (exclou els oberts i abandonats). El banc s'indexa per **id**
+  d'ítem, mai per posició: el projecte manté dos ordres dels exercicis — el de
+  presentació de `data/fullN.js` i l'append-only de `codi-ordre.json` — i al
+  Full 9 no coincideixen en 42 de 47 posicions. Indexar per posició funciona a
+  onze fulls i posa exercicis no vistos al novè.
+- **Cada tema hi surt en proporció a la feina feta**, amb un llindar mínim
+  configurable: si de trenta exercicis només un és de probabilitat, no hi ha
+  cap pregunta de probabilitat. La mida triada es respecta encara que hi hagi
+  més blocs que preguntes, i si no s'hi arriba perquè no hi ha prou exercicis
+  fets, **es diu**, en lloc de treure una prova curta en silenci.
+- **Varietat dins d'un bloc.** El 63 % dels exercicis del banc tenen més d'un
+  apartat (2,9 de mitjana). La tria dona pes als que van costar (fallat >
+  pista > segon > net) amb un component aleatori, i no repeteix exercici mare
+  mentre en quedin de nous: així una prova de vuit preguntes no és el mateix
+  problema vuit vegades, i *«torna a triar exercicis»* dona una selecció
+  diferent de debò.
+- **Resposta oberta.** L'enunciat és el del banc sense les opcions: l'alumne ha
+  d'escriure la resolució. Els apartats que no porten encapçalament propi
+  l'hereten del primer germà del mateix exercici, perquè fora del seu full un
+  enunciat com «16 cm» no vol dir res.
+- **Un codi que no és íntegre no genera cap prova.** Es bloqueja tant si
+  l'alumne s'ha triat del desplegable com si s'ha enganxat el codi a mà, i es
+  diu per què. Tot el sentit d'aquesta pestanya és examinar sobre feina real.
+- **L'examen i el full de correcció s'imprimeixen per separat**, amb dos botons
+  distints. Un full de solucions no pot sortir mai per la impressora al costat
+  de l'examen per descuit.
+
 
 ## Què no hi és
 
@@ -228,9 +278,16 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-107 comprovacions, sense instal·lar res: `unittest` de la biblioteca estàndard
-per al Python i Node pelat per al JavaScript. Les de l'analitzador necessiten
-un DOM i se salten soles si `jsdom` no hi és (`npm install --no-save jsdom`).
+291 comprovacions. Les de Python i les del codi de verificació no demanen
+instal·lar res: `unittest` de la biblioteca estàndard i Node pelat. Tres blocs
+(analitzador, accessibilitat i flux de la resolució) necessiten un DOM i se
+salten sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no
+declara «tot en verd»**, perquè un verd que amaga 92 comprovacions no
+executades és pitjor que un avís:
+
+```sh
+npm install --no-save jsdom     # per passar-les totes
+```
 
 Les de matemàtiques **recalculen la resposta de zero**, sense importar res de
 `tools/`: si per comprovar el motor es fes servir el motor, una errada passaria
@@ -244,9 +301,16 @@ per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
   compleixin, no que les matemàtiques i la redacció siguin bones.
 - **Mira el catàleg d'errors** del peu del `REVISIO-fullN.html`. Una etiqueta
   amb molts usos escampats per blocs molt diferents sol voler dir que s'ha
-  fet servir de calaix de sastre, i llavors el panell «els errors que
-  repeteixes» del full mostra un consell que no té res a veure amb el que
-  l'alumne ha fallat.
+  fet servir de calaix de sastre. El panell «els errors que repeteixes» ja no
+  hi cau — si una etiqueta viu en més d'un bloc del full, mostra el diagnòstic
+  de l'exercici real en comptes del text genèric del catàleg — però l'etiqueta
+  segueix sent mentida per a l'anàlisi agregada del professorat, i val la pena
+  partir-la. Ara mateix 47 etiquetes s'usen en 4 blocs o més i concentren el
+  51 % dels usos; les pitjors són `TERME_OBLIDAT_OPERACIO` (parla de polinomis
+  i etiqueta oblits de cares d'un prisma), `FACTOR_OBLIDAT` (parla d'exponents
+  i etiqueta densitats i volums), `DESPLACAMENT_INDEX` (parla d'un exponent
+  que en una progressió aritmètica no existeix) i `PROGRESSIO_INVENTADA`
+  (etiqueta un distractor sobre la desigualtat triangular).
 - **Comprova la taula «Graduació per bloc»** que hi ha al peu de cada
   `REVISIO-fullN.html`. Diu quants exercicis té cada bloc a cada nivell de
   dificultat (1 directa, 2 encadenada, 3 completa) i marca en vermell els que
