@@ -48,7 +48,7 @@ window.FULL = {
   {
    "id": "cossos_rodons",
    "titol": "Cilindres, cons i l'esfera",
-   "descripcio": "Àrea total de cossos de revolució i problemes inversos per trobar radi, altura o generatriu.",
+   "descripcio": "Àrea total de cossos de revolució i problemes inversos per trobar radi, altura o generatriu. En aquest bloc prenem π ≈ 3,14.",
    "items": [
     "184",
     "185a",
@@ -66,7 +66,7 @@ window.FULL = {
   {
    "id": "volums_aplicacions",
    "titol": "Volums i problemes aplicats",
-   "descripcio": "Volum de prismes, piràmides, cilindres, cons, l'esfera i el cub, i problemes de la vida real.",
+   "descripcio": "Volum de prismes, piràmides, cilindres, cons, l'esfera i el cub, i problemes de la vida real. En els cossos rodons prenem π ≈ 3,14.",
    "items": [
     "195a",
     "195c",
