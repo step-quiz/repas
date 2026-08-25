@@ -87,9 +87,19 @@ inferred later from what the code shows they actually practised.
 
 ### 1.3 Submission format (step 3, the transport part) → a specific 4-column sheet
 
-`tools/fes-exemple.js` and the two example CSVs at the repo root
-(`exemple-respostes.csv`, `exemple-respostes-reals.csv`) show the exact shape
-a real Google Form response sheet has:
+`tools/fes-exemple.js` and the example CSV at the repo root
+(`exemple-respostes-reals.csv`) show the exact shape a real Google Form
+response sheet has. A second, richer fixture is *generated*, not shipped:
+
+```sh
+node tools/fes-exemple.js > exemple-respostes.csv
+```
+
+(Until 2026-08 that generator emitted valid but **empty** codes — it still
+assumed the old block format `[name, first, last]`, while `js/codi-taules.js`
+now uses `[name, [indices…]]`, so its loop never ran and no student in the
+fixture had a single exercise. Fixed; if you are reading an older checkout,
+check that line before trusting the fixture.)
 
 ```
 Marca de temps;Adreça electrònica;Selecciona la classe;Enganxa aquí el codi que has copiat a step-quiz
@@ -111,7 +121,10 @@ history.** You must create one from scratch in a real Google account — see
 
 `analitzador-repas.html` is a single self-contained generated file (built
 from `tools/analitzador-plantilla.html` by `tools/build_analitzador.py`) that
-opens by double-click, needs no server, and sends nothing over the network.
+opens by double-click and needs no server. It sends **no student data**
+anywhere, but it is not network-silent: maths rendering pulls KaTeX from
+`vendor/katex/` next to the file, falling back to the jsDelivr CDN — see
+§3.3, this matters for printing.
 It has a **Prova escrita** tab that does exactly what the workflow asks for,
 already implemented:
 
@@ -238,10 +251,22 @@ existing parsing of the four core columns is unaffected by extra columns.
 
 ### 3.3 Give the teacher `analitzador-repas.html`
 
-It is already built and present at the repo root, fully self-contained
-(confirmed: it embeds `js/codi.js` and the compiled item bank; opening it
-requires no other file in the same folder and no network — see the four
-`<script>` blocks in the file). Hand the teacher this one file. They:
+It is already built and present at the repo root and it embeds `js/codi.js`
+and the compiled item bank in its four `<script>` blocks, so all the exam
+logic and every question travel inside the file.
+
+**It is not, however, a single self-sufficient file for printing.** 777 of
+the 892 items (87 %) carry LaTeX in their statement, and the file renders it
+with KaTeX loaded at run time: first `vendor/katex/` relative to itself, then
+the jsDelivr CDN, and if neither answers the LaTeX is left raw. A teacher who
+gets only the HTML and works offline will print `$3x-4x^2-6x^3$` on the exam
+paper. So hand over **two things, kept together**:
+
+- `analitzador-repas.html`
+- the `vendor/katex/` folder, in the same directory
+
+`python3 tools/fes-paquet-professorat.py` builds exactly that as a zip, with
+the teacher-facing guide (`GUIA-PROFESSORAT.md`) inside. Then they:
 
 1. Open the class Google Form's response Sheet, `Ctrl+A`/`Ctrl+C`.
 2. Open `analitzador-repas.html`, tab **Full de respostes**, paste.
@@ -274,17 +299,19 @@ deterministic: unchanged inputs reproduce byte-identical output.
 sh tests/executa.sh
 ```
 
-Confirmed in this sandbox: 199 checks pass clean using only Python's stdlib
-`unittest` and bare Node — no install required for that subset. A further 92
-checks (the analyser's own DOM behaviour, accessibility, and one UX-flow
-regression test) need `jsdom` and will report as skipped, in yellow, not as
-passed — the script is explicit about this distinction on purpose (see its
-comments); do not read a "skipped in yellow" run as "all green." If your
-environment has network access:
+Confirmed in this sandbox: 200 checks pass clean (173 Python `unittest` +
+27 in `tests/codi.test.js`) using only the stdlib and bare Node — no install
+required for that subset. A further 92 checks (analyser DOM behaviour 42,
+accessibility 35, UX-flow regression 15) need `jsdom` and will report as
+skipped, in yellow, not as passed — the script is explicit about this
+distinction on purpose (see its comments); do not read a "skipped in yellow"
+run as "all green." Total is therefore **292**, not the 291 (and 284) the
+script used to print; those three hard-coded totals were off by one and have
+been corrected. If your environment has network access:
 
 ```sh
 npm install --no-save jsdom
-sh tests/executa.sh    # now reports the full 291
+sh tests/executa.sh    # now reports the full 292
 ```
 
 ---
@@ -304,6 +331,12 @@ sh tests/executa.sh    # now reports the full 291
   project name, harmless, not a sign you have the wrong file — it appears
   identically in `tools/fes-exemple.js` and in example CSVs. Fixing it is
   cosmetic and optional, not required for the workflow to function.
+- **Three claims in the first version of this document were wrong**, and the
+  corrections are folded in above: the analyser does reach the network (for
+  KaTeX only, §1.4/§3.3), `exemple-respostes.csv` is generated rather than
+  shipped and its generator was broken (§1.3), and the check totals were 200
+  executed / 92 skipped / 292 total, not 199 / 92 / 291 (§3.5). Everything
+  else in §1–§4 was verified against the code and holds.
 - **This document is the piece that was missing.** Nothing in the repository
   previously stated, end to end, "here is how a teacher actually runs the
   request-an-exam cycle with a real Google Form for a real class." §1–§3
