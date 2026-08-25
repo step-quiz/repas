@@ -291,10 +291,6 @@ sh tests/executa.sh    # now reports the full 291
 
 ## 4. Things that will misdirect you if you skim instead of read
 
-- **`LLEGEIX-ME.md` at the repo root is not a general "read me first" file.**
-  It is a point-in-time bug report/fix log for one already-resolved UX bug
-  (a resolution panel that revealed itself automatically). Do not treat it
-  as project orientation; `README.md` is that document.
 - **`HANDOVER.md` and `TECHNICAL-STATE.md` are architecture/dev-handover
   documents**, written for someone continuing engineering work on the
   question-generation engine, not for someone standing up this specific
@@ -306,7 +302,7 @@ sh tests/executa.sh    # now reports the full 291
   `tools/c_<tema>.py` and rebuild (§3.4).
 - **The Form column header still says "step-quiz."** That is a leftover
   project name, harmless, not a sign you have the wrong file — it appears
-  identically in `tools/fes-exemple.js` and both example CSVs. Fixing it is
+  identically in `tools/fes-exemple.js` and in example CSVs. Fixing it is
   cosmetic and optional, not required for the workflow to function.
 - **This document is the piece that was missing.** Nothing in the repository
   previously stated, end to end, "here is how a teacher actually runs the
