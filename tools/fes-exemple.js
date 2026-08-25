@@ -28,7 +28,13 @@ function cua(blocs) {
   blocs.forEach(([n, id]) => {
     const t = T.fulls[n], b = t.blocs.filter(x => x[0].toLowerCase().indexOf(id) >= 0)[0];
     if (!b) throw new Error("bloc no trobat: " + n + "/" + id);
-    for (let i = b[1]; i <= b[2]; i++) q.push({ n, id: t.items[i], d: +t.dif[i] });
+    /* Un bloc de `js/codi-taules.js` és [nom, [índexs...]]: la llista de
+       posicions que en formen part. Abans aquí es feia
+       `for (i = b[1]; i <= b[2]; i++)`, que donava per fet el format antic
+       [nom, inici, fi]; amb el format actual `b[2]` és `undefined`, la
+       comparació surt falsa, la cua quedava buida i el fitxer d'exemple
+       sortia amb codis vàlids però sense cap exercici fet. */
+    b[1].forEach(function (i) { q.push({ n, id: t.items[i], d: +t.dif[i] }); });
   });
   return q;
 }
