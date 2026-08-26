@@ -12,6 +12,25 @@
   --pas:26px;
 }
 *{box-sizing:border-box}
+
+/* [hidden] ha de guanyar SEMPRE, per damunt de qualsevol classe de
+   component. El navegador amaga `[hidden]` amb una regla pròpia
+   (`display:none`) que té la mateixa especificitat que una classe (0,1,0).
+   Si aquesta classe TAMBÉ fixa `display` -- com fa `.btn`, amb
+   `inline-flex` -- guanya ella: el full d'estil de l'autor s'aplica
+   després del full d'estil per defecte del navegador, i en un empat
+   d'especificitat guanya qui ve després en la cascada. Efecte real i ja
+   detectat: `<button class="btn" hidden>` es renderitzava IGUALMENT visible
+   i clicable -- l'atribut hi era, la propietat `.hidden` de JS deia `true`,
+   però `display` era `inline-flex` de totes maneres. És exactament el que
+   li passava a #veure ("Mostra la resolució") i #seguent dins de
+   practica.html: tots dos visibles i prement-se des del primer instant de
+   cada exercici, abans de triar cap opció. Cap prova ho detectava perquè
+   totes comprovaven l'atribut o la propietat, mai el render real (vegeu
+   tests/test_visibilitat_real.js). Aquesta única regla, amb !important,
+   ho tanca per a qualsevol element `hidden`, amb qualsevol classe, a
+   qualsevol pàgina -- no només als dos botons on s'ha vist el bug. */
+[hidden]{display:none!important}
 html,/* Els estats :hover van tots dins de @media (hover:hover). En una pantalla
    tàctil (Chromebook en mode tauleta) Chrome deixa el hover "enganxat" després
    del toc: una opció ja tocada es quedava ressaltada en blau, el mateix blau
