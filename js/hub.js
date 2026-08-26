@@ -14,7 +14,7 @@
   document.title = D.titol + " — Repàs d'ESO";
   $("#titol-full").textContent = D.titol;
   $("#subtitol-full").textContent = D.subtitol;
-  $("#etiqueta-full").textContent = "Full " + D.full;
+  if ($("#etiqueta-full")) $("#etiqueta-full").textContent = "Full " + D.full;
 
   function ves(id) {
     location.href = "practica.html?full=" + D.full + "&q=" + encodeURIComponent(id);
@@ -68,6 +68,8 @@
   }
 
   function pintaErrors() {
+    var cont = $("#errades");
+    if (!cont) return;   /* secció retirada de la interfície; es manté la lògica per si es recupera */
     var p = RE.llegeix(D.full).items, tally = {}, mostra = {};
     Object.keys(p).forEach(function (id) {
       /* Historial sencer: un error rectificat al segon intent segueix comptant
@@ -80,7 +82,6 @@
       });
     });
     var tops = Object.keys(tally).sort(function (a, b) { return tally[b] - tally[a]; });
-    var cont = $("#errades");
     if (!tops.length) { cont.hidden = true; return; }
 
     /* D'on surt el text.
@@ -131,7 +132,9 @@
 
   function pinta() {
     var n = comptes(), fets = n.net + n.pista + n.segon;
-    $("#comptador-linia").innerHTML = "<strong>" + fets + " de " + D.items.length + "</strong> resoltes";
+    if ($("#comptador-linia")) {
+      $("#comptador-linia").innerHTML = "<strong>" + fets + " de " + D.items.length + "</strong> resoltes";
+    }
     $("#detall").textContent = n.fallat
       ? n.fallat + " per revisar · " + n.vist + " començades sense acabar"
       : "Cada quadret és un apartat. Toca'n un per anar-hi directament.";
@@ -145,12 +148,14 @@
     };
   }
 
-  $("#reinicia").onclick = function () {
-    if (confirm("Vols esborrar el teu progrés d'aquest full? Els altres fulls no es toquen.")) {
-      RE.esborra(D.full);
-      pinta();
-    }
-  };
+  if ($("#reinicia")) {
+    $("#reinicia").onclick = function () {
+      if (confirm("Vols esborrar el teu progrés d'aquest full? Els altres fulls no es toquen.")) {
+        RE.esborra(D.full);
+        pinta();
+      }
+    };
+  }
 
   pinta();
 })();

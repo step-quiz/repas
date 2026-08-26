@@ -64,10 +64,6 @@
     return c;
   }
 
-  var disponibles = FULLS.filter(function (f) { return f.disponible; }).length;
-  $("#resum").textContent = disponibles + " de " + FULLS.length + " fulls a punt. " +
-    "Els altres s'aniran afegint a mesura que es preparin.";
-
   var cont = $("#fulls");
   FULLS.forEach(function (f) {
     var el = document.createElement(f.disponible ? "a" : "div");
@@ -77,8 +73,9 @@
     var cos = '<span class="num">' + f.n + '</span><div class="tit">' + f.titol + "</div>";
     if (f.disponible) {
       var n = fets(f.n), pct = Math.round(100 * n / f.total);
+      var etiqueta = n === 1 ? "activitat resolta" : "activitats resoltes";
       cos += '<div class="barra"><i style="width:' + pct + '%"></i></div>' +
-             '<div class="meta">' + n + " de " + f.total + " resoltes</div>";
+             '<div class="meta">' + n + " " + etiqueta + "</div>";
     } else {
       cos += '<span class="pastilla">Properament</span>';
     }
