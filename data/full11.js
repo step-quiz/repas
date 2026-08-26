@@ -453,7 +453,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
+   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: 3, 4, 3, 5, 5, 2, 1, 3, 2, 0, 1, 1, 1, 1, 2, 0, 3, 2, 2, 1, 3, 4, 5, 0, 2, 1, 2, 1, 4, 3.",
    "enunciat": "Quina és la freqüència absoluta del valor $x_i=1$ hora?",
    "opcions": [
     "$7$",
@@ -475,7 +475,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
+   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: 3, 4, 3, 5, 5, 2, 1, 3, 2, 0, 1, 1, 1, 1, 2, 0, 3, 2, 2, 1, 3, 4, 5, 0, 2, 1, 2, 1, 4, 3.",
    "enunciat": "Quina és la freqüència absoluta acumulada $F_i$ del valor $x_i=2$ hores?",
    "opcions": [
     "$11$",
@@ -497,7 +497,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: $3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.",
+   "encapcalament": "El nombre d'hores diàries d'estudi de 30 alumnes és: 3, 4, 3, 5, 5, 2, 1, 3, 2, 0, 1, 1, 1, 1, 2, 0, 3, 2, 2, 1, 3, 4, 5, 0, 2, 1, 2, 1, 4, 3.",
    "enunciat": "Què signifiquen les freqüències absolutes acumulades ($F_i$) d'aquesta taula?",
    "opcions": [
     "Que $F_i$ indica quants alumnes estudien exactament $x_i$ hores al dia",

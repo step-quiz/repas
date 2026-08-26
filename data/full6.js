@@ -191,7 +191,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 1,
    "encapcalament": "",
-   "enunciat": "Un coet espacial tarda 2 minuts a assolir una velocitat de 30\\,000 km/h. A aquest mateix ritme, quina velocitat pot assolir en 5 minuts?",
+   "enunciat": "Un coet espacial tarda 2 minuts a assolir una velocitat de $30\\,000$ km/h. A aquest mateix ritme, quina velocitat pot assolir en 5 minuts?",
    "opcions": [
     "$60\\,000$ km/h",
     "$45\\,000$ km/h",
@@ -543,7 +543,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "En escalfar una barra de metall d'1 m a $200\\,^\\circ$C, s'ha dilatat fins a mesurar 1,04 m. Una barra de 60 cm d'un altre metall, en escalfar-la a la mateixa temperatura, s'ha dilatat fins a mesurar 61,9 cm. Quin metall es dilata menys?",
+   "enunciat": "En escalfar una barra de metall d'1 m a $200^\\circ$C, s'ha dilatat fins a mesurar 1,04 m. Una barra de 60 cm d'un altre metall, en escalfar-la a la mateixa temperatura, s'ha dilatat fins a mesurar 61,9 cm. Quin metall es dilata menys?",
    "opcions": [
     "Els dos metalls es dilaten exactament igual, perquè tots dos han augmentat uns 2 o 4 centèsimes per unitat",
     "El primer metall (l'$1$ m), perquè el seu factor de dilatació, $1{,}04$, és més petit que $61{,}9$",
