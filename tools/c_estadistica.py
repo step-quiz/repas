@@ -418,7 +418,8 @@ Q("219e", 219, "e", B1, "A",
 
 # ---- exercici 220: hores d'estudi (30 alumnes) ----
 E220 = ("El nombre d'hores diàries d'estudi de 30 alumnes és: "
-        "$3,4,3,5,5,2,1,3,2,0,1,1,1,1,2,0,3,2,2,1,3,4,5,0,2,1,2,1,4,3$.")
+        "3, 4, 3, 5, 5, 2, 1, 3, 2, 0, 1, 1, 1, 1, 2, 0, 3, 2, 2, 1, 3, 4, "
+        "5, 0, 2, 1, 2, 1, 4, 3.")
 
 Q("220a", 220, "a", B2, "A",
   "Quina és la freqüència absoluta del valor $x_i=1$ hora?",

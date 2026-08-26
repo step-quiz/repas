@@ -143,7 +143,7 @@ Q("103", 103, "", B1, "A",
 # ---- exercici 104: coet (directa) ----
 Q("104", 104, "", B1, "A",
   "Un coet espacial tarda 2 minuts a assolir una velocitat de "
-  "30\\,000 km/h. A aquest mateix ritme, quina velocitat pot assolir "
+  "$30\\,000$ km/h. A aquest mateix ritme, quina velocitat pot assolir "
   "en 5 minuts?",
   "$75\\,000$ km/h",
   [D("$12\\,000$ km/h", "CREUAMENT_INVERTIT",
@@ -576,7 +576,7 @@ Q("116", 116, "", B3, "A",
 
 # ---- exercici 117: comparar dilatacions com a factor, no com a diferència ----
 Q("117", 117, "", B3, "A",
-  "En escalfar una barra de metall d'1 m a $200\\,^\\circ$C, s'ha "
+  "En escalfar una barra de metall d'1 m a $200^\\circ$C, s'ha "
   "dilatat fins a mesurar 1,04 m. Una barra de 60 cm d'un altre "
   "metall, en escalfar-la a la mateixa temperatura, s'ha dilatat "
   "fins a mesurar 61,9 cm. Quin metall es dilata menys?",
