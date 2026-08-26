@@ -220,6 +220,16 @@
 
   /* ---- resolució ---- */
   $("#veure").onclick = function () {
+    /* La visibilitat del botó (`hidden`) ja hauria de bastar per impedir
+       que això es premi abans d'hora, però ha quedat demostrat que un sol
+       punt de control és fràgil (vegeu la regla `[hidden]` a estil.css):
+       una classe amb `display` propi n'hi va haver prou per fer-lo visible
+       i clicable des del principi. Aquesta comprovació és el segon punt de
+       control, independent del render: encara que algú tornés a amagar
+       accidentalment aquest botó només amb CSS, o el disparés per una via
+       que no sigui un clic normal (consola, extensió, etc.), la resolució
+       només es construeix quan l'exercici ja està `tancat`. */
+    if (!tancat) return;
     $("#veure").hidden = true;
     var r = $("#resolucio");
     r.innerHTML = "<h2>Resolució</h2><ol>" +
@@ -228,7 +238,10 @@
     r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
-  $("#seguent").onclick = function () { ves(idx + 1); };
+  /* Mateix motiu que a #veure: el botó ja hauria d'estar amagat fins que
+     l'exercici es tanca, però que "Següent" depengui NOMÉS de si es veu o
+     no permetia saltar-se l'exercici sense respondre'l. */
+  $("#seguent").onclick = function () { if (!tancat) return; ves(idx + 1); };
   $("#anterior").onclick = function () { ves(idx - 1); };
   document.addEventListener("keydown", function (e) {
     if (e.key === "ArrowRight" && tancat) ves(idx + 1);
