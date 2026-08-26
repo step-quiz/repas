@@ -214,7 +214,6 @@
          (si respons bé, ningú et clica el botó per tu). El botó es queda
          sempre visible i sempre per prémer; mai premut per l'aplicació. */
       $("#veure").hidden = false;
-      $("#seguent").hidden = false;
     }
   };
 
@@ -238,13 +237,15 @@
     r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
-  /* Mateix motiu que a #veure: el botó ja hauria d'estar amagat fins que
-     l'exercici es tanca, però que "Següent" depengui NOMÉS de si es veu o
-     no permetia saltar-se l'exercici sense respondre'l. */
-  $("#seguent").onclick = function () { if (!tancat) return; ves(idx + 1); };
+  /* "Següent" és sempre disponible, hagi respost l'alumne o no: avançar
+     d'exercici no s'ha de bloquejar per obligar-lo a contestar. És diferent
+     de #veure ("Mostra la resolució"), que sí que ha de restar amagat fins
+     que `tancat` — veure la solució abans d'hora buida l'exercici de sentit,
+     saltar-se'l no. */
+  $("#seguent").onclick = function () { ves(idx + 1); };
   $("#anterior").onclick = function () { ves(idx - 1); };
   document.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowRight" && tancat) ves(idx + 1);
+    if (e.key === "ArrowRight") ves(idx + 1);
     if (e.key === "ArrowLeft") ves(idx - 1);
   });
 })();
