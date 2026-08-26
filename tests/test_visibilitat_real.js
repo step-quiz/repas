@@ -102,7 +102,7 @@ const PAGINES = [
     await page.close();
   }
 
-  seccio("BUG CONCRET: #veure i #seguent, a practica.html, abans de respondre");
+  seccio("BUG CONCRET: #veure abans de respondre; #seguent SEMPRE disponible");
   {
     const page = await obre(browser, "practica.html", "?full=1&q=1a");
     const veureDisplay = await page.evaluate(() => getComputedStyle(document.getElementById("veure")).display);
@@ -112,14 +112,14 @@ const PAGINES = [
     prova("#veure es renderitza amb display:none abans de respondre", () => {
       assert.strictEqual(veureDisplay, "none");
     });
-    prova("#seguent es renderitza amb display:none abans de respondre", () => {
-      assert.strictEqual(seguentDisplay, "none");
+    prova("#seguent NO porta display:none: ja és visible abans de respondre", () => {
+      assert.notStrictEqual(seguentDisplay, "none");
     });
     prova("#veure no és visible per a un usuari real (page.isVisible)", () => {
       assert.strictEqual(veureVisible, false);
     });
-    prova("#seguent no és visible per a un usuari real (page.isVisible)", () => {
-      assert.strictEqual(seguentVisible, false);
+    prova("#seguent SÍ és visible per a un usuari real, abans de respondre (page.isVisible)", () => {
+      assert.strictEqual(seguentVisible, true);
     });
     await page.close();
   }
@@ -137,7 +137,7 @@ const PAGINES = [
     await page.close();
   }
 
-  seccio("Un cop tancat l'exercici (encert net), #veure i #seguent SÍ es veuen i funcionen");
+  seccio("Un cop tancat l'exercici (encert net), #veure ja es veu; #seguent seguia visible des del principi");
   {
     const page = await obre(browser, "practica.html", "?full=1&q=1a");
     await page.click("#mostra");
@@ -153,7 +153,7 @@ const PAGINES = [
     const veureVisible = await page.isVisible("#veure");
     const seguentVisible = await page.isVisible("#seguent");
     prova("#veure es veu després de tancar l'exercici", () => assert.strictEqual(veureVisible, true));
-    prova("#seguent es veu després de tancar l'exercici", () => assert.strictEqual(seguentVisible, true));
+    prova("#seguent es continua veient després de tancar l'exercici", () => assert.strictEqual(seguentVisible, true));
     await page.click("#veure");
     await espera(150);
     const resolucioOmplerta = (await page.textContent("#resolucio")).trim().length > 0;
