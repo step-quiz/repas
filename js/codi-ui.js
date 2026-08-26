@@ -105,12 +105,11 @@ window.RE_CODI_UI = (function () {
         '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
     } else {
       codi = window.RE_CODI.genera(window.RE_CODI.recull(null));
-      var pc = Math.round(100 * x.fets / x.total);
       fons.innerHTML =
         '<div id="re-codi-fin"><div id="re-codi-cap">' +
         "<div><h2>El teu codi</h2>" +
-        '<p class="re-petit">' + frase(x) + " Aix\u00f2 \u00e9s el " + pc +
-        " % de tots els exercicis del lloc.</p></div>" +
+        '<p class="re-petit">' + x.fets +
+        " exercicis fets des de que vas comen\u00e7ar a anotar-ho.</p></div>" +
         '<button id="re-codi-tanca" aria-label="Tanca">&times;</button></div>' +
         '<div id="re-codi-caixa"></div>' +
         '<div class="re-acc"><button class="re-btn" id="re-codi-copia">Copia el codi</button>' +
