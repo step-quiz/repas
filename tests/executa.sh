@@ -17,7 +17,7 @@ saltades=0
 
 # Les proves que necessiten jsdom surten amb codi 0 quan se salten, per no
 # tombar la resta. Això vol dir que "Tot en verd" podia significar "92 de les
-# 292 comprovacions no s'han arribat a executar" -- exactament el tipus de
+# 307 comprovacions no s'han arribat a executar" -- exactament el tipus de
 # silenci que aquest projecte no es pot permetre. Es detecta i es diu.
 if node -e "require('jsdom')" >/dev/null 2>&1; then
   hi_ha_jsdom=1
@@ -31,6 +31,10 @@ python3 -m unittest discover -s tests -q || fallades=1
 echo
 echo "── JavaScript: codi de verificació ───────────────────────────"
 node tests/codi.test.js || fallades=1
+
+echo
+echo "── JavaScript: el registre no es pot rentar ──────────────────"
+node tests/test_registre.js || fallades=1
 
 echo
 echo "── JavaScript: analitzador ───────────────────────────────────"
@@ -51,9 +55,9 @@ if [ "$fallades" -ne 0 ]; then
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
   printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
-  printf '  són 92 comprovacions de 292 que no s\047han arribat a executar.\n'
+  printf '  són 92 comprovacions de 307 que no s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0
 else
-  printf '\033[32m✓ Tot en verd (292 comprovacions).\033[0m\n'
+  printf '\033[32m✓ Tot en verd.\033[0m\n'
 fi
