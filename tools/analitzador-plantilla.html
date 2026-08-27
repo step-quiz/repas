@@ -200,8 +200,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <span class="marca ok">✓</span> íntegre ·
         <span class="marca avis">!</span> enviat molt després de generar-lo ·
         <span class="marca mal">✗</span> el control no quadra ·
-        <span class="marca compartit">⇄</span> el mateix codi sota més d'un alumne
+        <span class="marca compartit">⇄</span> el mateix codi sota més d'un alumne ·
+        <span class="marca compartit">⇩</span> part de la feina ve d'un codi importat ·
+        <span class="marca avis">⏱</span> ritme de feina difícil d'explicar
       </p>
+      <div id="senyals"></div>
 
       <h2>Què falla més</h2>
       <div id="agregat"></div>
@@ -244,11 +247,17 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             <input type="number" id="p-exerc" value="60" min="1" max="999" style="width:74px"></label>
           <label class="petit apagat" title="Els de nivell 3 compten 1,3 i els de nivell 1, 0,8">
             <input type="checkbox" id="p-dif" checked> pondera per dificultat</label>
+          <label class="petit apagat" title="Una setmana amb un sol exercici nou no és una setmana de feina">
+            Mínim per setmana
+            <input type="number" id="p-minsetm" value="3" min="1" max="20" style="width:56px"></label>
         </div>
         <p class="petit apagat" style="margin:.35rem 0 0">
           Qui arribi a les dues xifres té el màxim d'aquests dos apartats. Les
           setmanes compten només si porten feina <b>nova</b>: reenviar el mateix
-          codi no suma.
+          codi no suma. I una setmana només compta si porta almenys el mínim
+          d'exercicis nous que hi diguis: amb el llindar a 1, degotar un
+          exercici cada dilluns dona la constància màxima sense haver-hi
+          treballat cap setmana.
         </p>
       </div>
       <details style="margin-top:.4rem">
@@ -329,6 +338,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             <input type="number" id="pr-min-bloc" value="3" min="1" max="20" style="width:56px"> exercicis</label>
           <label class="petit apagat"><input type="checkbox" id="pr-tema" checked> Escriure el tema a l'examen</label>
         </div>
+        <div class="filtres" style="margin:.4rem 0 0">
+          <label class="petit apagat" title="Els exercicis que va obrir i no va contestar no compten com a feina, però els va llegir">
+            <input type="checkbox" id="pr-oberts"> Inclou-hi també els que va <b>obrir i no contestar</b></label>
+        </div>
+        <p class="petit apagat" style="margin:.35rem 0 0" id="pr-oberts-nota"></p>
       </div>
 
       <div class="camp" id="pr-blocs-camp" hidden>
@@ -371,6 +385,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <li><span class="marca compartit">⇄</span> Aquest mateix codi, caràcter per caràcter,
             també l'ha enviat un altre alumne. Val la pena preguntar-ho: pot ser que se
             l'hagin passat o que comparteixin ordinador i sessió.</li>
+        <li><span class="marca compartit">⇩</span> Part de la feina d'aquest codi ve d'un
+            codi importat amb «Recupera la teva feina». Passa el ratolí per sobre i et dirà
+            quants exercicis i, si el codi d'origen també és al full, <b>de qui era</b>.
+            Si era d'ell mateix, és una recuperació normal i no cal fer-hi res.</li>
+        <li><span class="marca avis">⏱</span> Molts exercicis per als minuts de feina
+            activa que el codi declara. El rellotge del lloc només corre amb la pestanya
+            visible, així que això no és una acusació de res: és una xifra que abans no
+            es podia ni mirar.</li>
       </ul>
 
       <h3 style="margin-top:1.2rem">Què verifica el ✓ i què no</h3>
@@ -394,21 +416,36 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <ul class="ajuda petit apagat" style="margin-top:.6rem">
         <li>Un alumne fa els exercicis <b>al navegador d'un altre</b> i cadascú se n'emporta
             un codi generat en moments diferents. Les cadenes són diferents, i la marca ⇄ no
-            hi arriba.</li>
+            hi arriba. Si els dos acaben amb el mateix conjunt d'exercicis, això sí que surt
+            a «Coses que val la pena mirar».</li>
         <li>Algú <b>fabrica un codi des de la consola</b> del navegador. Tot el que cal per
             generar-ne un és a <code>js/codi.js</code>, que és públic i s'ha de carregar a la
             pàgina de l'alumne perquè el botó funcioni. Amb un servidor es podria evitar;
             sense servidor, no. És una conseqüència inevitable d'haver triat que el lloc
             funcioni sol, sense comptes ni connexió, i és millor saber-ho que confiar-hi.</li>
-        <li>Algú fa els exercicis <b>amb ajuda al costat</b>, o els torna a fer un cop sap la
-            resposta. La forma de les dades és exactament la mateixa que la de qui treballa
-            sol: aquí no hi ha res a detectar, ni amb aquest sistema ni amb cap altre.</li>
+        <li>Algú fa els exercicis <b>amb ajuda al costat</b>. La forma de les dades és
+            exactament la mateixa que la de qui treballa sol: aquí no hi ha res a detectar,
+            ni amb aquest sistema ni amb cap altre.</li>
       </ul>
+      <p class="petit apagat" style="margin:.8rem 0 0">
+        <b>Una cosa que abans passava i ara no.</b> Fins ara, fallar un exercici, mirar-se la
+        resolució i tornar-lo a fer el deixava com a encertat a la primera, i recarregar la
+        pàgina després d'un error el deixava com si no hagués passat res. Això s'ha tancat al
+        lloc mateix: un exercici es tanca al primer desenllaç i el seu estat ja no canvia mai
+        més. Tornar-hi segueix estant molt bé —i el codi ho compta a part com a repàs— però
+        ja no reescriu com va anar la primera vegada.
+      </p>
       <p class="petit apagat" style="margin:.8rem 0 0">
         Dit d'una altra manera: aquestes marques serveixen per <b>veure la feina</b> i per
         atrapar la còpia mandrosa, no per garantir l'autoria. Si el que et cal és una nota
         certificada, ha de sortir d'alguna cosa feta a classe. Això és, i val més que ho
         sigui, una eina de seguiment.
+      </p>
+      <p class="petit apagat" style="margin:.8rem 0 0">
+        I el que de debò tanca el cercle no és cap d'aquestes marques: és que la nota del
+        lloc i la de la prova escrita s'assemblin. Un codi inflat no fa l'examen més fàcil
+        —al contrari, amplia la llista d'exercicis d'on pot sortir— i un 8,5 al seguiment amb
+        un 3 al paper ja s'explica sol, sense que calgui investigar res.
       </p>
     </div>
   </section>
@@ -428,6 +465,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   var $ = function (s, d) { return (d || document).querySelector(s); };
   var $$ = function (s, d) { return Array.prototype.slice.call((d || document).querySelectorAll(s)); };
   var FORAT = 30;                 /* minuts entre generar i enviar abans d'avisar */
+  /* Minuts de feina activa per exercici per sota dels quals val la pena
+     mirar-s'ho. És una cota MOLT baixa a posta: el rellotge del lloc només
+     corre amb la pestanya visible, i un exercici d'ESO no es llegeix, es
+     pensa i es contesta en menys d'un minut ni anant molt sobrat. */
+  var RITME_MINIM = 1;
 
   /* Quants exercicis s'han demanat. La nota sola enganya: qui fa un exercici
      i l'encerta surt amb un 10, i qui en fa quaranta amb un 6,6. Aquest
@@ -470,7 +512,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      columna es digui de cap manera concreta: si les capçaleres no ajuden,
      es busca la columna que conté un codi. */
   function buscaCodi(text) {
-    var m = String(text || "").toUpperCase().match(/RC[12][0-9A-Z\-\s]{10,}/);
+    var m = String(text || "").toUpperCase().match(/RC[123][0-9A-Z\-\s]{10,}/);
     return m ? m[0].trim() : null;
   }
 
@@ -582,6 +624,54 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     });
   }
 
+  /* ── D'ON VE LA FEINA IMPORTADA ───────────────────────────────────────
+
+     Un codi RC3 que ha importat feina en porta l'empremta (dia + salt) del
+     codi d'origen. Com que el salt és aleatori, creuar-lo amb els codis que
+     ja tenim al full identifica l'origen sense cap ambigüitat.
+
+     Tres desenllaços, i els tres importen:
+       · l'origen és un codi del MATEIX alumne  -> recuperació normal, callem;
+       · l'origen és un codi d'UN ALTRE alumne  -> es diu de qui, i és un fet,
+         no una sospita;
+       · l'origen no és al full                 -> no se'n sap res: pot ser un
+         codi seu d'un altre dispositiu que no va arribar a enviar mai. Es
+         diu que hi ha feina importada i prou. */
+  function creuaOrigens(files) {
+    var per = {};
+    files.forEach(function (r) {
+      if (!r.p.ok) return;
+      var e = RE_CODI.empremta(r.p);
+      if (!e) return;
+      var k = e.dia + ":" + e.salt;
+      (per[k] = per[k] || []).push(correuDe(r));
+    });
+    files.forEach(function (r) {
+      var m = r.p.ok && r.p.meta;
+      if (!m || !m.imports) return;
+      r.importada = { items: m.itemsImportats, imports: m.imports, de: null, propi: false };
+      if (!m.origen) return;
+      var qui = per[m.origen.dia + ":" + m.origen.salt];
+      if (!qui || !qui.length) return;
+      var altres = qui.filter(function (c) { return c !== correuDe(r); });
+      r.importada.propi = qui.indexOf(correuDe(r)) >= 0;
+      if (altres.length) r.importada.de = altres;
+    });
+  }
+
+  function correuDe(r) {
+    return String(r.brut.correu || r.brut.alumne || "?").toLowerCase();
+  }
+
+  /* Ritme: minuts de feina activa per exercici fet. No mesura temps de
+     pantalla oberta —el rellotge del lloc només corre amb la pestanya
+     visible— així que és una cota inferior molt generosa. Per sota d'un
+     minut per exercici, alguna cosa no quadra: ni llegir l'enunciat hi cap. */
+  function ritme(p) {
+    if (!p.ok || !p.meta || !p.resum || !p.resum.fets) return null;
+    return p.meta.minuts / p.resum.fets;
+  }
+
   function processa(brut) {
     return brut.map(function (r, i) {
       var p = RE_CODI.llegeix(r.codi);
@@ -589,8 +679,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var hEnv = horaEnviament(r.enviat);
       var forat = (hGen !== null && hEnv !== null) ? hEnv - hGen : null;
       var estat = !p.ok || !p.integre ? "mal" : (forat !== null && forat > FORAT ? "avis" : "ok");
+      var rit = ritme(p);
       /* `compartit` l'omple marcaCompartits() després, quan ja hi són tots. */
-      return { i: i, brut: r, p: p, forat: forat, estat: estat,
+      return { i: i, brut: r, p: p, forat: forat, estat: estat, ritme: rit,
+               ritmeRar: rit !== null && rit < RITME_MINIM && p.resum.fets >= 10,
                dataGen: p.ok ? p.data.toISOString().slice(0, 10) : "",
                dataEnv: dataEnviament(r.enviat) };
     });
@@ -608,6 +700,17 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     if (r && r.compartit && r.compartit.length) {
       out += '<span class="marca compartit" title="Aquest mateix codi també '
         + "l'han enviat: " + r.compartit.join(", ") + '">⇄</span>';
+    }
+    if (r && r.importada) {
+      var t = r.importada.items + " exercicis d'aquest codi venen d'una importació";
+      if (r.importada.de) t += ", d'un codi de: " + r.importada.de.join(", ");
+      else if (r.importada.propi) t += " d'un codi seu anterior (recuperació normal)";
+      else t += " d'un codi que no és en aquest full";
+      out += '<span class="marca compartit" title="' + t + '">⇩</span>';
+    }
+    if (r && r.ritmeRar) {
+      out += '<span class="marca avis" title="' + r.p.resum.fets + ' exercicis en '
+        + r.p.meta.minuts + ' minuts de feina activa">⏱</span>';
     }
     if (e === "avis") {
       out += '<span class="marca avis" title="Més de ' + FORAT
@@ -662,10 +765,118 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var fs = filtra();
     $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
     pintaCompartits();
+    pintaSenyals(fs);
     pintaEnviaments(fs);
     pintaAlumnes(fs);
     pintaAgregat(fs);
   }
+
+  /* ── SENYALS ──────────────────────────────────────────────────────────
+
+     Un sol lloc per a les coses que no caben en una columna perquè passen
+     ENTRE files o perquè són aritmètica sobre un codi sencer. Cap d'aquestes
+     línies és una acusació: totes tres tenen explicacions innocents i totes
+     tres es resolen preguntant. El que no es pot fer és no veure-les.
+
+     El to importa. Aquesta eina la fa servir un professor amb trenta
+     adolescents, i marcar algú per error costa molt més car que deixar passar
+     una còpia. Per això els llindars són conservadors i el text diu sempre
+     què s'ha mesurat, no què s'ha conclòs. */
+  function pintaSenyals(fs) {
+    var cont = $("#senyals");
+    if (!cont) return;
+    var linies = [];
+
+    /* 1. Feina importada d'un codi d'un altre alumne. Això no és un indici:
+          l'empremta del codi d'origen viatja dins del codi que ho importa. */
+    fs.forEach(function (r) {
+      if (r.importada && r.importada.de) {
+        linies.push(['<b>⇩ ' + escapa(nomDe(r)) + '</b> ha importat '
+          + r.importada.items + " exercicis d'un codi de <b>"
+          + escapa(r.importada.de.join(", ")) + "</b>.", "mal"]);
+      }
+    });
+
+    /* 2. Ritme impossible. */
+    fs.forEach(function (r) {
+      if (r.ritmeRar) {
+        linies.push(["<b>⏱ " + escapa(nomDe(r)) + "</b>: " + r.p.resum.fets
+          + " exercicis amb " + r.p.meta.minuts
+          + " minuts de feina activa comptats. Pot ser que treballi molt "
+          + "estona amb la pestanya de fons, o que la feina no s'hagi fet aquí.", "avis"]);
+      }
+    });
+
+    /* 3. Errors que cap estat no justifica.
+
+       Cada exercici pot justificar com a molt: 2 errors si va quedar fallat,
+       i 1 si va quedar en segon intent, amb pista o obert. Si el codi declara
+       MÉS errors comesos que això, és que hi ha hagut intents que no es veuen
+       enlloc: exercicis fallats i tornats a fer fins a sortir nets. Els
+       comptadors del codi saturen a 31, així que això és una cota inferior i
+       només salta quan la diferència és clara. */
+    fs.forEach(function (r) {
+      if (!r.p.ok || !r.p.integre) return;
+      var c = r.p.resum.comptes;
+      var errs = r.p.errs.reduce(function (a, e) { return a + e.compte; }, 0);
+      if (r.p.errs.some(function (e) { return e.compte >= 31; })) return;   /* saturat */
+      var sostre = 2 * c.fallat + c.segon + c.pista + c.vist;
+      if (errs > sostre) {
+        linies.push(["<b>" + escapa(nomDe(r)) + "</b>: el codi compta " + errs
+          + " errors comesos i els estats només en poden justificar " + sostre
+          + ". Vol dir que hi ha exercicis fallats i tornats a fer.", "avis"]);
+      }
+    });
+
+    /* 4. Fulls reiniciats. */
+    fs.forEach(function (r) {
+      if (r.p.ok && r.p.meta && r.p.meta.esborrats) {
+        linies.push(["<b>" + escapa(nomDe(r)) + "</b> ha reiniciat un full "
+          + r.p.meta.esborrats + (r.p.meta.esborrats === 1 ? " vegada" : " vegades")
+          + ". Reiniciar per tornar a practicar és normal; fer-ho sovint just "
+          + "abans d'enviar el codi, no tant.", "apagat"]);
+      }
+    });
+
+    /* 5. Dos alumnes amb el MATEIX conjunt d'exercicis fets.
+
+       És l'única manera de veure el repartiment de feina en grup: quatre
+       alumnes que es reparteixen els exercicis i s'importen els codis creuats
+       acaben amb quatre codis diferents, tots íntegres, i amb el mateix
+       conjunt d'exercicis fets fins a l'últim apartat. Que dos alumnes que
+       segueixen el mateix itinerari coincideixin molt és normal; que
+       coincideixin en el 90 % de seixanta exercicis, no. */
+    var ult = ultimPerAlumne(fs).filter(function (r) { return r.p.ok && r.p.integre; });
+    for (var a = 0; a < ult.length; a++) {
+      for (var b = a + 1; b < ult.length; b++) {
+        var A = Object.keys(mapaEstats(ult[a].p)), B = Object.keys(mapaEstats(ult[b].p));
+        if (A.length < 15 || B.length < 15) continue;
+        var setB = {};
+        B.forEach(function (k) { setB[k] = 1; });
+        var comuns = A.filter(function (k) { return setB[k]; }).length;
+        var j = comuns / (A.length + B.length - comuns);
+        if (j >= 0.85) {
+          linies.push(["<b>" + escapa(nomDe(ult[a])) + "</b> i <b>"
+            + escapa(nomDe(ult[b])) + "</b> han fet pràcticament els mateixos "
+            + comuns + " exercicis (" + Math.round(100 * j)
+            + " % de coincidència). Pot ser que treballin junts.", "avis"]);
+        }
+      }
+    }
+
+    if (!linies.length) { cont.innerHTML = ""; return; }
+    cont.innerHTML = '<div class="avis-compartit" style="margin-top:.6rem">'
+      + "<b>Coses que val la pena mirar</b><ul class=\"ajuda petit\" style=\"margin:.5rem 0 0\">"
+      + linies.map(function (l) {
+          return '<li class="' + l[1] + '">' + l[0] + "</li>";
+        }).join("")
+      + "</ul><p class=\"petit apagat\" style=\"margin:.6rem 0 0\">Cap d'aquestes "
+      + "línies demostra res per si sola tret de la primera, que sí: l'empremta "
+      + "del codi d'origen viatja dins del codi. Les altres es resolen "
+      + "preguntant-ho.</p></div>";
+  }
+
+  function nomDe(r) { return r.brut.alumne || r.brut.correu || "?"; }
 
   /* El resum dels codis repetits va a sobre de la taula i no dins d'una
      columna, perquè és una cosa que passa entre files i no en una de sola. */
@@ -915,12 +1126,13 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var brut = llegeixFull(txt);
     if (!brut.length) {
       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
-        + "Els codis comencen per RC2 (o RC1, els antics).</span>";
+        + "Els codis comencen per RC3 (o RC2 i RC1, els antics).</span>";
       return;
     }
     FORMAT_DATA = detectaFormatData(brut);
     files = processa(brut);
     marcaCompartits(files);
+    creuaOrigens(files);
     obert = null;
     var sel = $("#f-full");
     var vistos = [];
@@ -1072,6 +1284,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       ini: $("#p-ini").value ? new Date($("#p-ini").value + "T00:00:00") : null,
       fi: $("#p-fi").value ? new Date($("#p-fi").value + "T23:59:59") : null,
       setmanes: Math.max(1, +$("#p-setm").value || 10),
+      minSetm: Math.max(1, +$("#p-minsetm").value || 1),
       exercicis: Math.max(1, +$("#p-exerc").value || 60),
       difPes: $("#p-dif").checked,
       pesos: w, suma: suma || 1
@@ -1164,15 +1377,27 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       });
 
       /* Un enviament només compta com a dia de feina si porta exercicis nous.
-         Reenviar el mateix codi vint vegades no és constància. */
+         Reenviar el mateix codi vint vegades no és constància.
+
+         I no n'hi ha prou amb "algun": el llindar `minSetm` existeix perquè
+         amb un sol exercici nou per setmana s'aconseguia la constància
+         màxima sense haver treballat cap setmana, i la constància és el
+         component que més pesa. La feina de tots els enviaments d'una setmana
+         se suma abans de mirar el llindar, que si no es penalitzaria qui
+         envia el codi dos cops. */
       var ambFeina = passos.filter(function (p) { return p.nous.length; });
       var dies = {}, setmanes = {};
       ambFeina.forEach(function (p) {
         dies[p.quan.toISOString().slice(0, 10)] = 1;
         var base = cfg.ini || (ambFeina[0] && ambFeina[0].quan) || p.quan;
-        setmanes[Math.floor((p.quan - base) / 604800000)] = 1;
+        var k = Math.floor((p.quan - base) / 604800000);
+        setmanes[k] = (setmanes[k] || 0) + p.nous.length;
       });
-      var nDies = Object.keys(dies).length, nSetm = Object.keys(setmanes).length;
+      var setmanesBones = Object.keys(setmanes).filter(function (k) {
+        return setmanes[k] >= cfg.minSetm;
+      });
+      var nDies = Object.keys(dies).length, nSetm = setmanesBones.length;
+      var setmanesFluixes = Object.keys(setmanes).length - nSetm;
 
       var tots = [];
       ambFeina.forEach(function (p) { tots = tots.concat(p.nous); });
@@ -1185,10 +1410,30 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var tall = Math.floor(tots.length / 2);
       var A = taxes(tots.slice(0, tall)), B = taxes(tots.slice(tall));
       var mesurable = tots.length >= 20 && ambFeina.length >= 2 && A.n && B.n;
-      var dEncert = null, dPistes = null;
+      var dEncert = null, dPistes = null, credit = null;
       if (mesurable) {
         dEncert = encertEstand(B, mix) - encertEstand(A, mix);
         dPistes = B.pistes - A.pistes;
+
+        /* La baixada de pistes només compta com a millora si es pot llegir
+           com a millora.
+
+           Tal com estava, obrir totes les pistes dels primers vint exercicis
+           i cap dels últims saturava aquest component sense tocar l'encert:
+           la manera òptima de puntuar era fer-se el fluix al principi. Dues
+           condicions ho tanquen sense castigar ningú que millori de debò:
+
+             · si a la primera meitat es demanava pista en més del 60 % dels
+               exercicis, allò no és una línia de base, és una sortida
+               preparada, i la baixada no dona crèdit;
+             · si l'encert ha BAIXAT, deixar de demanar pistes no és millorar:
+               és deixar de demanar ajuda mentre es va enrere.
+
+           Demanar menys pistes segueix comptant fins a 20 punts, que és el
+           mateix sostre que tenia. El que ja no compta és el trampolí. */
+        var baixada = Math.max(0, -dPistes);
+        if (A.pistes > 0.6 || dEncert < -0.02) baixada = 0;
+        credit = dEncert + Math.min(0.20, baixada);
       }
 
       var repetits = 0;
@@ -1205,7 +1450,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         encert: glob.encert === null ? null : Math.max(0, Math.min(1, (glob.encert - 0.30) / 0.60)),
         /* 0,5 vol dir "igual que abans". Una millora de 20 punts d'encert (o
            20 menys de dependència de pistes) arriba al màxim. */
-        progres: mesurable ? Math.max(0, Math.min(1, 0.5 + (dEncert - dPistes) / 0.80)) : null
+        progres: mesurable ? Math.max(0, Math.min(1, 0.5 + credit / 0.80)) : null
       };
 
       var ordre = ["constancia", "volum", "progres", "encert"];
@@ -1220,7 +1465,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         clau: k, alumne: (k.split("@")[0] || k), correu: k,
         grup: (codis[codis.length - 1] || {}).r ? codis[codis.length - 1].r.brut.grup : "",
         enviaments: dins.length, ambFeina: ambFeina.length,
-        dies: nDies, setmanes: nSetm, passos: ambFeina,
+        dies: nDies, setmanes: nSetm, setmanesFluixes: setmanesFluixes, passos: ambFeina,
         exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
         dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
         comp: comp, nota: nota, perduda: perduda,
@@ -1344,7 +1589,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             ? ' <span class="apagat petit" title="' + (a.enviaments - a.ambFeina)
               + ' enviament(s) sense feina nova">(+' + (a.enviaments - a.ambFeina) + ")</span>" : "") + "</td>"
         + "<td>" + a.setmanes + '<span class="apagat"> / ' + cfg.setmanes + "</span> "
-        + barra(a.comp.constancia) + "</td>"
+        + barra(a.comp.constancia)
+        + (a.setmanesFluixes
+            ? ' <span class="apagat petit" title="' + a.setmanesFluixes
+              + ' setmana(es) amb feina nova per sota del mínim demanat">(+'
+              + a.setmanesFluixes + " fluixes)</span>" : "") + "</td>"
         + "<td>" + a.exercicis + (cfg.difPes && a.exercicis
             ? ' <span class="apagat petit">(' + a.volum.toFixed(0) + ")</span>" : "") + " "
         + barra(a.comp.volum) + "</td>"
@@ -1592,12 +1841,22 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   /* Blocs amb prou feina feta. "Fet" exclou "" (no tocat) i "vist" (obert
      però sense respondre): un exercici que l'alumne ha obert i ha abandonat
      no diu res de si el sap fer. */
-  function blocsDisponibles(p, minBloc) {
+  /* `ambOberts` inclou els exercicis en estat "vist": oberts i no contestats.
+
+     Per defecte no hi entren, perquè no són feina feta. Però deixar-los fora
+     sempre té un efecte lleig: obrir un exercici difícil i no contestar-lo el
+     treu del sorteig de la prova, de manera que qui evita sistemàticament el
+     que li fa por s'acaba dissenyant un examen fàcil. La casella deixa que
+     això ho decideixi el professor i no el silenci del sistema. */
+  function blocsDisponibles(p, minBloc, ambOberts) {
     var out = [];
     p.fulls.forEach(function (f) {
       f.blocs.forEach(function (b) {
         var fets = b[1].map(function (k) { return f.items[k]; })
-          .filter(function (it) { return it && it.estat && it.estat !== "vist" && RE_BANC[it.id]; });
+          .filter(function (it) {
+            return it && it.estat && RE_BANC[it.id]
+              && (ambOberts || it.estat !== "vist");
+          });
         if (fets.length >= minBloc) {
           out.push({ full: f.n, titolFull: f.titol, bloc: b[0], fets: fets });
         }
@@ -1646,9 +1905,17 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      exercici mare només quan ja no queden mares nous, perquè una prova de
      vuit preguntes no pot ser el mateix problema vuit vegades. */
   function tria(d, quants) {
-    var PES = { fallat: 3, pista: 2.2, segon: 1.6, net: 1 };
+    /* `vist` va amb el pes més alt de tots: un exercici que es va obrir i no
+       es va contestar és, per definició, el que menys clar es tenia. */
+    var PES = { vist: 3.4, fallat: 3, pista: 2.2, segon: 1.6, net: 1 };
+    /* Inclinació lleu cap als exercicis de més nivell dins del mateix estat.
+       Lleu a posta: no es pot examinar del que no s'ha practicat, i si tota
+       la feina és de nivell 1, la prova serà de nivell 1 —això no ho arregla
+       el sorteig, ho arregla dir-ho, i per això la barreja surt escrita al
+       full de correcció. */
     var cand = d.fets.map(function (it) {
-      return { it: it, p: (PES[it.estat] || 1) + Math.random() * 1.2 };
+      return { it: it, p: (PES[it.estat] || 1) * (0.9 + 0.1 * (it.dif || 2))
+                          + Math.random() * 1.2 };
     }).sort(function (a, b) { return b.p - a.p; });
 
     var triats = [], mares = {};
@@ -1696,13 +1963,31 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return null;
   }
 
+  function ambOberts() { return !!$("#pr-oberts").checked; }
+
+  /* Quants exercicis va obrir i no contestar. Es diu SEMPRE, encara que la
+     casella estigui desmarcada: és una decisió que ha de prendre el
+     professor sabent-la, no una exclusió silenciosa. */
+  function notaOberts() {
+    var n = $("#pr-oberts-nota");
+    if (!n) return;
+    if (!prCodi || !prCodi.ok) { n.innerHTML = ""; return; }
+    var oberts = prCodi.resum.comptes.vist || 0;
+    n.innerHTML = oberts
+      ? "Va obrir <b>" + oberts + "</b> exercici" + (oberts === 1 ? "" : "s")
+        + " i no contestar-lo" + (oberts === 1 ? "" : "s")
+        + (ambOberts() ? ": hi entren." : ": per defecte no hi entren.")
+      : "";
+  }
+
   function refrescaBlocs() {
     sincronitza();
     var min = Math.max(1, parseInt($("#pr-min-bloc").value, 10) || 1);
     var motiu = motiuBloqueig();
     estatPr(motiu || "", !!motiu);
+    notaOberts();
     if (motiu) { prDisp = null; $("#pr-blocs-camp").hidden = true; return; }
-    prDisp = blocsDisponibles(prCodi, min);
+    prDisp = blocsDisponibles(prCodi, min, ambOberts());
     pintaBlocsCamp(prDisp);
   }
 
@@ -1727,7 +2012,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var mida = ($$('input[name="pr-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
     var demanades = MIDES_PROVA[mida];
 
-    var tots = blocsDisponibles(prCodi, min);
+    var tots = blocsDisponibles(prCodi, min, ambOberts());
     if (!tots.length) {
       prDisp = null; $("#pr-blocs-camp").hidden = true;
       $("#pr-resultat").innerHTML = '<div class="buit">Cap bloc arriba als ' + min
@@ -1756,7 +2041,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var seleccio = [];
     actius.forEach(function (d, i) {
       tria(d, repart[i]).forEach(function (it) {
-        seleccio.push({ full: d.full, titolFull: d.titolFull, bloc: d.bloc, id: it.id, estat: it.estat });
+        seleccio.push({ full: d.full, titolFull: d.titolFull, bloc: d.bloc,
+                        id: it.id, estat: it.estat, dif: it.dif });
       });
     });
     if (!seleccio.length) {
@@ -1832,10 +2118,17 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     h += "</div>";
 
     /* Full de correcció: secció a part i impressió a part. */
+    /* La barreja de dificultat va al full de correcció, no a l'examen: diu
+       de què s'està examinant realment. Una prova composta només d'exercicis
+       de nivell 1 és una prova de nivell 1 per molt que tingui vint
+       preguntes, i el sorteig no ho pot arreglar —només ho pot dir. */
+    var mix = { 1: 0, 2: 0, 3: 0 };
+    seleccio.forEach(function (x) { mix[x.dif || 2] = (mix[x.dif || 2] || 0) + 1; });
     h += '<div class="pr-paper" id="pr-correccio"><div class="capc"><div>'
       + "<h2>Full de correcció</h2>"
       + '<div class="petit apagat">' + (nom ? escapa(nom) + " · " : "") + data
-      + " · NO repartir</div></div></div>";
+      + " · NO repartir<br>Nivells: " + mix[1] + " directes · " + mix[2]
+      + " encadenats · " + mix[3] + " complets</div></div></div>";
     ordinals.forEach(function (o) {
       var k = null;
       try { k = clauItem(o.b); } catch (e) { k = null; }
@@ -1906,6 +2199,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     esperaPr = setTimeout(function () { sincronitza(); refrescaBlocs(); }, 300);
   };
   $("#pr-min-bloc").onchange = function () { prDisp = null; refrescaBlocs(); };
+  $("#pr-oberts").onchange = function () { prDisp = null; refrescaBlocs(); };
   $("#pr-genera").onclick = generaProva;
 
 })();
