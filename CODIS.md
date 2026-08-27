@@ -27,19 +27,28 @@ Una fotografia **completa** del progrés: quins exercicis s'han fet i com han
 anat, un per un, amb els identificadors reals (`67e`, `216c`, `144b`).
 
 ```
-RC1 SSS DD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  KK
+RC3 SSS DDD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  [META]  KK
 
-RC1   marca i versió
+RC3   marca i versió (RC1 i RC2 es continuen llegint)
 SSS   salt aleatori
-DD    dia (dies des de l'1/9/2025)
+DDD   dia (dies des de l'1/9/2025)
 HH    hora (minuts/2 des de mitjanit)
-MMM   màscara de fulls presents + si hi ha diagnòstic
+MMM   màscara: fulls presents + si hi ha diagnòstic + si hi ha META
 G     nombre de grups d'aquest full
 ····  un grup = 7 exercicis en base 6
 DIAG  les 15 destreses del test inicial (si n'hi ha)
 EEEE  les 3 etiquetes d'error més repetides, amb el compte
+META  com s'ha fet la feina: minuts actius, importacions, exercicis que en
+      venen, repeticions, fulls reiniciats i —si hi ha hagut importació—
+      l'empremta (dia + salt) del codi d'origen
 KK    dos caràcters de control
 ```
+
+**Per què hi ha META.** Fins a RC2 el codi deia *què* s'havia fet i no deia res
+de *com*. Dues coses molt diferents hi arribaven idèntiques: un trimestre de
+feina propi i el codi d'un company importat i continuat des d'allà. L'empremta
+del codi d'origen ho desfà: l'analitzador la creua amb els codis que ja té i,
+si l'origen era un codi del mateix alumne, calla. Vegeu `DESPLEGAMENT.md`.
 
 Estat de cada exercici: `0` per fer · `1` a la primera · `2` al segon intent ·
 `3` amb pista · `4` fallat · `5` començat sense respondre. Són exactament els

@@ -84,6 +84,7 @@ hi ha comptes ni sincronització entre dispositius.
 
     data/fullN.js         banc de preguntes d'un full — GENERAT, no editar
     REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
+                          NO ES PUBLICA: vegeu DESPLEGAMENT.md
 
     tools/lib.py          motor: Q()/D()/DT(), catàleg d'errors TAX, validació
     tools/figures.py      figures SVG dels enunciats, generades amb paràmetres
@@ -95,6 +96,8 @@ hi ha comptes ni sincronització entre dispositius.
     js/codi.js            codi de verificació: generació I lectura
     js/codi-ui.js         el panell del codi que veu l'alumne
     analitzador-repas.html  GENERAT — eina del professorat, autònoma
+    tools/fes-paquet-alumnat.py  el que SÍ que es publica (public/), sense
+                          claus de respostes ni analitzador
     tools/build.py        compilador: registre FULLS i generació de sortides
     tools/c_<tema>.py     el contingut d'un full (un fitxer per full)
 
@@ -166,6 +169,13 @@ s'encalla la classe i si el codi és autèntic.
   inevitable sense servidor, i el lloc funciona sense servidor a posta. La
   pestanya d'ajuda de l'analitzador ho explica sencer. És una eina de
   seguiment, no un certificat d'autoria.
+- **El que sí que ha deixat de passar.** El registre és d'una sola direcció:
+  un exercici es tanca al primer desenllaç i el seu estat ja no canvia. Fallar
+  i refer-lo després de veure la resolució, o recarregar la pàgina entre el
+  primer error i el segon, ja no serveix de res. I el codi porta ara com s'ha
+  fet la feina —minuts actius, importacions i d'on venien, repeticions,
+  reinicis—, no només quina s'ha fet. Tot plegat a **`DESPLEGAMENT.md`**, que
+  també diu què no s'ha de publicar mai.
 - **L'analitzador és un sol fitxer** i funciona obrint-lo des del disc, sense
   servidor ni connexió. No envia res enlloc. Hi ha un full de respostes
   d'exemple a `exemple-respostes.csv` per veure'l funcionar; vegeu
@@ -278,7 +288,7 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-291 comprovacions. Les de Python i les del codi de verificació no demanen
+306 comprovacions. Les de Python i les del codi de verificació no demanen
 instal·lar res: `unittest` de la biblioteca estàndard i Node pelat. Tres blocs
 (analitzador, accessibilitat i flux de la resolució) necessiten un DOM i se
 salten sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no
@@ -343,3 +353,5 @@ per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
   itinerari, claus de `localStorage`, i on tocar cada cosa.
 - **`AUTHORING-GUIDE.md`** — com escriure el contingut d'un full nou a
   partir del material LaTeX font.
+- **`DESPLEGAMENT.md`** — què es publica i què no, i què passa quan un alumne
+  intenta que el registre digui més del que ha fet.
