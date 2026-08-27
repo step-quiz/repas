@@ -23,7 +23,19 @@
     ordre[i] = ordre[j]; ordre[j] = t;
   }
   var LLETRES = ["A", "B", "C", "D"];
-  var pistes = 0, intents = 0, triada = -1, tancat = false;
+
+  /* L'estat de l'exercici NO comença de zero a cada càrrega de pàgina: es
+     llegeix del registre. Si en una visita anterior s'havia fallat un intent
+     o s'havien obert pistes, això segueix comptant ara. Recarregar deixa de
+     ser una manera de tornar a començar. */
+  var reg = RE.item(D.full, item.id);
+  var pistes = reg.npis || 0;            /* pistes ja obertes, de sempre */
+  var mostrades = 0;                     /* pistes visibles en aquesta pàgina */
+  var intents = reg.nint || 0;           /* intents ja gastats, de sempre */
+  var triada = -1;
+  var repas = !!reg.tancat;              /* ja té estat definitiu: això és repàs */
+  var tancat = false;                    /* aquesta pantalla ja ha donat veredicte */
+  var intentsPagina = 0;
 
   /* Si s'ha arribat des de l'itinerari (?origen=itinerari), TOTA la
      navegació de sortida (Següent, Anterior, i el "← Full X" de dalt) torna
@@ -59,17 +71,46 @@
   if (item.nota) { $("#nota").innerHTML = "<strong>Nota:</strong> " + item.nota; $("#nota").hidden = false; }
   RE.mat(document.body);
   if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
+  RE.rellotge();
+
+  /* Si l'exercici ja té estat definitiu, o si en una visita anterior es va
+     deixar a mitges després d'un error, cal dir-ho abans que l'alumne
+     respongui: el que passi ara no val el mateix que la primera vegada, i
+     amagar-ho seria convidar-lo a jugar-hi. */
+  function avisEstat(txt) {
+    var d = document.createElement("p");
+    d.className = "petit apagat";
+    d.style.margin = ".2rem 0 .6rem";
+    d.innerHTML = txt;
+    var enc = $("#encap");
+    if (enc && enc.parentNode) enc.parentNode.insertBefore(d, enc.nextSibling);
+  }
+  if (repas) {
+    avisEstat("Aquest exercici ja el vas <strong>" + (RE.ETIQ[reg.estat] || "fer") +
+      "</strong>. Tornar-hi va molt bé, però el registre ja no canvia: "
+      + "el que queda anotat és com et va anar la primera vegada.");
+  } else if (intents || pistes) {
+    avisEstat("D'una estona anterior en aquest exercici ja portes " +
+      (intents ? intents + (intents === 1 ? " intent" : " intents") : "") +
+      (intents && pistes ? " i " : "") +
+      (pistes ? pistes + (pistes === 1 ? " pista" : " pistes") : "") +
+      ". Compten igual que si no haguessis marxat.");
+  }
 
   /* ---- pistes ---- */
   $("#pista").onclick = function () {
-    if (pistes >= item.pistes.length) return;
+    if (mostrades >= item.pistes.length) return;
     var d = document.createElement("div");
     d.className = "pista-txt";
-    d.innerHTML = "<strong>Pista " + (pistes + 1) + ".</strong> " + item.pistes[pistes];
+    d.innerHTML = "<strong>Pista " + (mostrades + 1) + ".</strong> " + item.pistes[mostrades];
     $("#pistes").appendChild(d);
     RE.mat(d);
-    pistes++;
-    if (pistes >= item.pistes.length) {
+    mostrades++;
+    /* Es desa el NOMBRE de pistes obertes, no un increment: qui ja n'havia
+       obert dues i torna a la pàgina pot rellegir-les sense que el comptador
+       es dispari, i tampoc no el pot posar a zero recarregant. */
+    if (!repas) pistes = RE.pista(D.full, item.id, mostrades);
+    if (mostrades >= item.pistes.length) {
       $("#pista").disabled = true;
       $("#pista").textContent = "No queden més pistes";
     }
@@ -156,41 +197,55 @@
   /* ---- comprovació ---- */
   $("#comprova").onclick = function () {
     if (triada < 0 || tancat) return;
-    intents++;
+    intentsPagina++;
     var orig = ordre[triada], encert = orig === k.ok;
     var btn = caixa.children[triada];
     var v = $("#veredicte");
+
+    /* Qui decideix l'estat és nucli.js a partir dels comptadors acumulats de
+       l'ítem, no aquesta pantalla a partir del que ha passat des que s'ha
+       carregat. Aquí només es pinta el resultat. */
+    if (!encert) RE.apuntaError(D.full, item.id, k.err[orig]);
+    var r = RE.intent(D.full, item.id, encert);
+    intents = (RE.item(D.full, item.id).nint) || intents + 1;
+    /* Queda un segon intent si el registre encara no s'ha tancat I aquesta
+       pantalla tampoc no ha gastat els dos intents. La segona condició no és
+       redundant: si el navegador no deixa desar res (mode privat estricte,
+       quota plena, política del centre), el registre torna buit a cada
+       lectura i sense això l'exercici no es tancaria mai. Amb magatzem, mana
+       el registre; sense, almenys la pantalla es comporta bé. */
+    var quedaIntent = intentsPagina < 2 && (repas || !r.tancat);
 
     if (encert) {
       tancat = true;
       btn.classList.remove("tria"); btn.classList.add("bona");
       btn.setAttribute("aria-describedby", "veredicte");
-      var estat = pistes ? "pista" : (intents > 1 ? "segon" : "net");
-      /* `err: ""` buida l'ÚLTIM error (l'ítem ja no està pendent), però
-         `errs` -- l'historial -- es manté: si l'alumne repeteix sempre el
-         mateix error i sempre el rectifica al segon intent, això és
-         precisament el que li hem de dir. */
-      RE.apunta(D.full, item.id, { estat: estat, pistes: pistes, intents: intents, err: "" });
       v.className = "veredicte be";
       v.innerHTML = "<h2>Correcte</h2>" + (
-        pistes ? "Ho has resolt amb ajuda. Torna-hi d'aquí a uns dies sense demanar pistes."
-        : intents > 1 ? "Bé al segon intent: el primer error ja saps quin era."
+        r.repas ? "Repàs fet. Al registre hi continua constant com et va anar la "
+                  + "primera vegada (<strong>" + (RE.ETIQ[r.estat] || "?") + "</strong>), "
+                  + "que és el que té sentit que hi consti."
+        : r.estat === "pista" ? "Ho has resolt amb ajuda. Torna-hi d'aquí a uns dies sense demanar pistes."
+        : r.estat === "segon" ? "Bé al segon intent: el primer error ja saps quin era."
         : "A la primera i sense pistes.");
     } else {
       btn.classList.remove("tria"); btn.classList.add("dolenta");
       btn.disabled = true;
-      RE.apuntaError(D.full, item.id, k.err[orig]);
       v.className = "veredicte malament";
-      if (intents === 1) {
+      if (quedaIntent) {
         btn.setAttribute("aria-describedby", "veredicte");
         v.innerHTML = "<h2>Encara no</h2>" + k.diag[orig] +
-          "<p class='petit apagat' style='margin:.4rem 0 0'>Tens un intent més.</p>";
+          "<p class='petit apagat' style='margin:.4rem 0 0'>Tens un intent més." +
+          (repas ? "" : " Aquest error ja ha quedat anotat: si te'n vas ara, "
+            + "l'exercici es queda com a fallat.") + "</p>";
         triada = -1;
         marca(-1);          /* torna el focus tabulable a una opció encara viva */
         $("#comprova").disabled = true;
       } else {
+        /* L'estat "fallat" ja el va desar RE.intent() al PRIMER error: aquí
+           no cal tornar-hi, i sobretot no cal que aquesta pantalla decideixi
+           res sobre el registre. */
         tancat = true;
-        RE.apunta(D.full, item.id, { estat: "fallat", pistes: pistes, intents: intents });
         var btnOk = caixa.children[ordre.indexOf(k.ok)];
         btnOk.classList.add("bona");
         btnOk.setAttribute("aria-describedby", "veredicte");
@@ -228,7 +283,7 @@
        accidentalment aquest botó només amb CSS, o el disparés per una via
        que no sigui un clic normal (consola, extensió, etc.), la resolució
        només es construeix quan l'exercici ja està `tancat`. */
-    if (!tancat) return;
+    if (!tancat && !repas) return;
     $("#veure").hidden = true;
     var r = $("#resolucio");
     r.innerHTML = "<h2>Resolució</h2><ol>" +
@@ -242,6 +297,11 @@
      de #veure ("Mostra la resolució"), que sí que ha de restar amagat fins
      que `tancat` — veure la solució abans d'hora buida l'exercici de sentit,
      saltar-se'l no. */
+  /* Si l'exercici ja està tancat al registre, la resolució ja se l'ha
+     guanyada: el botó hi és des del principi. No és cap regal —l'estat ja no
+     pot canviar— i evita que hagi de tornar a respondre per llegir-la. */
+  if (repas) $("#veure").hidden = false;
+
   $("#seguent").onclick = function () { ves(idx + 1); };
   $("#anterior").onclick = function () { ves(idx - 1); };
   document.addEventListener("keydown", function (e) {

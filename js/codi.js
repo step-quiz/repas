@@ -16,18 +16,41 @@
 
    ── FORMAT ────────────────────────────────────────────────────────────────
 
-     RC2 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE KK
+     RC3 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE [ META ] KK
 
-     RC2   3   marca i versió
+     RC3   3   marca i versió
      SSS   3   salt aleatori
      DDD   3   dia (dies des de l'1/9/2025)
      HH    2   hora (minuts/2 des de mitjanit)
-     MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic
+     MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic,
+               bit 13 = hi ha bloc META
      G     1   nombre de grups d'aquest full
      ····  4   un grup = 7 ítems en base 6
      DIAG  9   15 destreses del test inicial, en base 8 (si el bit 12 és actiu)
      EEEE  9   les 3 etiquetes d'error més repetides (índex 2 car. + compte 1)
+     META  8   com s'ha fet la feina (si el bit 13 és actiu):
+                 MMM  minuts de feina activa
+                 I    importacions de codi (0-31)
+                 NN   exercicis que venen d'una importació (0-1023)
+                 R    exercicis repetits un cop ja tancats (0-31)
+                 S    vegades que s'ha reiniciat un full (0-31)
+     ORIG  6   només si I > 0: dia (3) + salt (3) de l'ÚLTIM codi importat
      KK    2   dos caràcters de control
+
+   ── PER QUÈ HI HA EL BLOC META ────────────────────────────────────────────
+
+   Fins a RC2 el codi deia QUÈ s'havia fet i com havia anat, i no deia res de
+   COM s'havia fet. Dues coses molt diferents hi arribaven idèntiques: un
+   trimestre de feina propi i el codi d'un company importat i continuat des
+   d'allà. El bloc META no acusa ningú —importar un codi és una funció
+   legítima i necessària en un carro de Chromebooks— però fa que la
+   diferència es vegi, que és tot el que un sistema sense servidor pot fer
+   honestament.
+
+   `ORIG` és la peça que ho tanca: com que hi viatja el dia i el salt del codi
+   importat, i el salt és aleatori de 3 caràcters, l'analitzador pot creuar-lo
+   amb els codis que ja té al full de respostes i dir de qui era. Si era d'un
+   altre alumne, ho sap del cert; si era d'ell mateix, també, i llavors calla.
 
    Estat de cada ítem (base 6): 0 per fer · 1 net · 2 al segon intent ·
    3 amb pista · 4 fallat · 5 començat sense respondre.
@@ -81,8 +104,8 @@ window.RE_CODI = (function () {
      tots els codis haurien dit la mateixa data, en silenci i sense que res
      avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
      caràcter arreglar-ho. El lector accepta les dues versions. */
-  var CAR_DIA = { RC1: 2, RC2: 3 };
-  var VERSIO = "RC2";
+  var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3 };
+  var VERSIO = "RC3";
   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
   /* `pista` val MÉS que `segon`, no menys. Amb 6 la taula premiava
      endevinar per damunt de demanar ajuda: amb quatre opcions i dos intents,
@@ -151,9 +174,12 @@ window.RE_CODI = (function () {
     dia = Math.max(0, Math.min(32767, dia));
     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
 
+    var meta = opcions.meta || null;
+
     var mask = 0;
     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
     if (diag) mask |= (1 << 12);
+    if (meta) mask |= (1 << 13);
 
     var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
 
@@ -203,6 +229,22 @@ window.RE_CODI = (function () {
       }
     }
 
+    if (meta) {
+      var top = function (x, m) { return Math.max(0, Math.min(m, Math.floor(x || 0))); };
+      var nImp = top(meta.imports, 31);
+      cos += enc(top(meta.minuts, 32767), 3)
+           + enc(nImp, 1)
+           + enc(top(meta.itemsImportats, 1023), 2)
+           + enc(top(meta.repeticions, 31), 1)
+           + enc(top(meta.esborrats, 31), 1);
+      if (nImp > 0) {
+        var o = meta.origen || {};
+        var salt = String(o.salt || "000").toUpperCase().slice(0, 3);
+        if (salt.length < 3 || salt.split("").some(function (c) { return val(c) < 0; })) salt = "000";
+        cos += enc(top(o.dia, 32767), 3) + salt;
+      }
+    }
+
     return formata(cos + control(cos));
   }
 
@@ -214,7 +256,7 @@ window.RE_CODI = (function () {
     if (!s) return { ok: false, error: "Codi buit" };
     var versio = s.slice(0, 3);
     if (!CAR_DIA[versio]) {
-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2)" };
+      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2 o RC3)" };
     }
     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
 
@@ -277,10 +319,32 @@ window.RE_CODI = (function () {
       if (T.etiquetes[idx]) errs.push({ etiqueta: T.etiquetes[idx], compte: cnt });
     }
 
+    /* El bloc META és opcional i porta la seva pròpia marca a la màscara: els
+       codis RC1/RC2 anteriors no en tenen i s'han de continuar llegint igual,
+       sense inventar-los cap dada. `meta: null` vol dir "aquest codi no ho
+       diu", que no és el mateix que "val zero". */
+    var meta = null;
+    if (mask & (1 << 13)) {
+      if (p + 8 > cos.length) return { ok: false, error: "El codi s'acaba abans d'hora" };
+      meta = {
+        minuts: dec(s.slice(p, p + 3)),
+        imports: dec(s.charAt(p + 3)),
+        itemsImportats: dec(s.slice(p + 4, p + 6)),
+        repeticions: dec(s.charAt(p + 6)),
+        esborrats: dec(s.charAt(p + 7)),
+        origen: null
+      };
+      p += 8;
+      if (meta.imports > 0 && p + 6 <= cos.length) {
+        var oDia = dec(s.slice(p, p + 3)), oSalt = s.slice(p + 3, p + 6); p += 6;
+        meta.origen = { dia: oDia, salt: oSalt, data: new Date(EPOCA + oDia * 86400000) };
+      }
+    }
+
     r = {
       ok: true, integre: integre, salt: salt, versio: versio,
       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
-      fulls: fulls, diag: diag, errs: errs,
+      fulls: fulls, diag: diag, errs: errs, meta: meta,
       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
     };
     r.resum = resum(r);
@@ -310,9 +374,22 @@ window.RE_CODI = (function () {
 
   /* Munta l'argument de genera() a partir del que hi ha a localStorage.
      `quins` és una llista de números de full, o null per a tots. */
+  /* Empremta d'un codi ja llegit: el que cal per reconèixer-lo més tard des
+     d'un altre codi que digui "d'aquí ve la meva feina importada". Dia i salt
+     n'hi ha prou: el salt són 3 caràcters aleatoris (32.768 combinacions) i
+     només s'ha de distingir entre els codis d'una classe. */
+  function empremta(p) {
+    if (!p || !p.ok) return null;
+    return {
+      dia: Math.round((p.data.getTime() - EPOCA) / 86400000),
+      salt: p.salt
+    };
+  }
+
   function recull(quins) {
     var T = window.RE_TAULES, fulls = [], compte = {};
     var llista = quins || Object.keys(T.fulls).map(Number).sort(function (a, b) { return a - b; });
+    var importats = 0, repeticions = 0;
 
     llista.forEach(function (n) {
       var taula = T.fulls[n] || T.fulls[String(n)];
@@ -320,6 +397,8 @@ window.RE_CODI = (function () {
       var p = window.RE.llegeix(n).items || {};
       var estats = taula.items.map(function (id) {
         var it = p[id] || {};
+        if (it.imp && it.estat) importats++;
+        repeticions += (it.rep || 0);
         /* Es compta l'historial sencer (`errs`), no només l'error pendent:
            un error rectificat al segon intent segueix sent un error comès, i
            si es repeteix el professorat l'ha de veure. `err` és el format
@@ -347,11 +426,21 @@ window.RE_CODI = (function () {
         });
       }
     }
-    return { fulls: fulls, errs: errs, diag: diag };
+    var g = (window.RE.meta && window.RE.meta()) || {};
+    var meta = {
+      minuts: g.min || Math.floor((g.seg || 0) / 60),
+      imports: g.imp || 0,
+      itemsImportats: importats,
+      repeticions: repeticions,
+      esborrats: g.esb || 0,
+      origen: g.orig || null
+    };
+
+    return { fulls: fulls, errs: errs, diag: diag, meta: meta };
   }
 
   return {
-    genera: genera, llegeix: llegeix, recull: recull,
+    genera: genera, llegeix: llegeix, recull: recull, empremta: empremta,
     neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES
   };
 })();

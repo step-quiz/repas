@@ -97,8 +97,11 @@ window.RE_CODI_UI = (function () {
         '<details id="re-codi-rec"><summary>Canvies d\'ordinador? Recupera la teva feina</summary>' +
         '<p class="re-petit">El progrés es desa en aquest navegador, no al núvol: en un ' +
         "Chromebook compartit o si el navegador esborra les dades, es perd. Enganxa aqu\u00ed " +
-        "un codi teu anterior i el torno a col\u00b7locar." +
-        '<input type="text" id="re-codi-rec-camp" placeholder="RC2\u2026" ' +
+        "un codi <b>teu</b> anterior i el torno a col\u00b7locar. El codi que generis " +
+        "despr\u00e9s dir\u00e0 quants exercicis has recuperat i de quin codi venien: " +
+        "recuperar la teva feina no t\u00e9 cap problema, fer passar la d'un altre per " +
+        "teva es veu." +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC3\u2026" ' +
         'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
         '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
         '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
@@ -128,8 +131,11 @@ window.RE_CODI_UI = (function () {
         '<details id="re-codi-rec"><summary>Canvies d\'ordinador? Recupera la teva feina</summary>' +
         '<p class="re-petit">El progrés es desa en aquest navegador, no al núvol: en un ' +
         "Chromebook compartit o si el navegador esborra les dades, es perd. Enganxa aqu\u00ed " +
-        "un codi teu anterior i el torno a col\u00b7locar." +
-        '<input type="text" id="re-codi-rec-camp" placeholder="RC2\u2026" ' +
+        "un codi <b>teu</b> anterior i el torno a col\u00b7locar. El codi que generis " +
+        "despr\u00e9s dir\u00e0 quants exercicis has recuperat i de quin codi venien: " +
+        "recuperar la teva feina no t\u00e9 cap problema, fer passar la d'un altre per " +
+        "teva es veu." +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC3\u2026" ' +
         'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
         '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
         '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
@@ -217,10 +223,26 @@ window.RE_CODI_UI = (function () {
         f.items.forEach(function (it) {
           if (!it.estat) return;
           if (nomesBuits && actual[it.id] && actual[it.id].estat) { saltats++; return; }
-          window.RE.apunta(f.n, it.id, { estat: it.estat });
+          /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
+             que compti com a ja resolt: recuperar la feina no ha de tornar a
+             obrir tots els exercicis com si s'haguessin de fer. */
+          window.RE.apunta(f.n, it.id, { estat: it.estat, imp: 1, tancat: 1 });
           posats++;
         });
       });
+
+      /* Es desa d'on ve. No per desconfiança: recuperar la pròpia feina és
+         l'ús normal d'això i el més freqüent. Però el codi que surti d'aquest
+         navegador ha de poder dir que una part de la feina ve d'un altre
+         lloc, perquè si no, importar el codi d'un company és exactament
+         indistingible d'haver-la fet. L'analitzador ho creua amb els codis
+         que ja té i, si l'origen és un codi del mateix alumne, no diu res. */
+      if (posats) {
+        var g = window.RE.meta();
+        g.imp = (g.imp || 0) + 1;
+        g.orig = window.RE_CODI.empremta(p);
+        window.RE.desaMeta(g);
+      }
 
       if (!posats && !saltats) { diu("Aquest codi no porta cap exercici fet.", true); return; }
       diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"

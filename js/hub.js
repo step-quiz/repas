@@ -150,7 +150,10 @@
 
   if ($("#reinicia")) {
     $("#reinicia").onclick = function () {
-      if (confirm("Vols esborrar el teu progrés d'aquest full? Els altres fulls no es toquen.")) {
+      if (confirm("Vols esborrar el teu progrés d'aquest full? Els altres fulls no "
+                + "es toquen.\n\nEl codi que enviïs al professorat dirà que has "
+                + "reiniciat un full: reiniciar per tornar a practicar està bé, "
+                + "reiniciar per fer desaparèixer com et va anar no.")) {
         RE.esborra(D.full);
         pinta();
       }
