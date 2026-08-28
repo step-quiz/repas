@@ -129,5 +129,56 @@ class ApotemesCoherents(unittest.TestCase):
         self.assertGreaterEqual(provats, 5, "esperava trobar més apotemes a comprovar")
 
 
+class ApotemaPiramideNoCoincideixAmbLAltura(unittest.TestCase):
+    """L'apotema d'una piràmide (l'altura d'una CARA) i l'altura del cos
+    (àpex al centre de la base) són dos segments diferents. Si es
+    dibuixen amb el mateix segment, l'alumne veu una única línia amb dos
+    noms i mai arriba a distingir-los —que és justament el que aquest
+    apartat de la geometria vol que aprengui.
+
+    La línia marcada (color `--fig-marca`) és sempre l'apotema (vegeu
+    `piramide_regular`, que mai dibuixa alçada i apotema alhora). Aquesta
+    prova en llegeix els dos extrems del SVG compilat i comprova que NO
+    sigui un segment vertical (mateixa x als dos extrems): l'altura sí
+    que ho és sempre (àpex al centre de la base, en vertical), així que
+    un apotema vertical és el senyal exacte que s'ha confós amb l'altura.
+    Només aplica als ítems amb piràmide de base amb un nombre parell de
+    costats (4, 6, 8...), que és on àpex i punt més baix de la base
+    cauen en la mateixa vertical i el bug queda amagat; amb base de 3 o
+    5 costats l'apotema real ÉS vertical per geometria, no per error."""
+
+    # Base parella coneguda a cada ítem, perquè la prova no hagi de
+    # tornar a interpretar l'enunciat per endevinar quants costats té
+    # la base: 179a i 197 són quadrangulars, 183 és hexagonal.
+    BASE_PARELLA = {"179a": 4, "183": 6, "197": 4}
+
+    def test_apotema_no_es_dibuixa_vertical_amb_base_parella(self):
+        f9 = TOTS[9]
+        per_id_f9 = {it["id"]: it for it in f9}
+        provats = 0
+        for qid in self.BASE_PARELLA:
+            it = per_id_f9.get(qid)
+            if it is None or not it.get("figura"):
+                continue
+            m = re.search(
+                r'<line x1="([\-\d.]+)" y1="([\-\d.]+)" x2="([\-\d.]+)" '
+                r'y2="([\-\d.]+)" stroke="var\(--fig-marca[^"]*"',
+                it["figura"])
+            self.assertIsNotNone(m, "%s: no s'hi troba cap línia d'apotema "
+                                     "marcada (--fig-marca)" % qid)
+            x1, _, x2, _ = (float(v) for v in m.groups())
+            self.assertNotAlmostEqual(
+                x1, x2, places=1,
+                msg="%s: l'apotema es dibuixa vertical (x1=%.1f, x2=%.1f), "
+                    "és a dir exactament on aniria l'altura del cos; amb "
+                    "base de %d costats l'apotema hauria d'anar al punt "
+                    "mig d'una aresta frontal, no al centre de la base."
+                    % (qid, x1, x2, self.BASE_PARELLA[qid]))
+            provats += 1
+        self.assertGreaterEqual(provats, 3,
+                                "esperava comprovar els 3 ítems coneguts "
+                                "amb base parella (179a, 183, 197)")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

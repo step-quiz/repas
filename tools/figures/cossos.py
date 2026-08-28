@@ -244,6 +244,15 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
     Distingir-les és justament el que costa a l'alumne —l'apotema de la
     piràmide és l'altura d'una CARA, no la del cos— i per això mai no es
     dibuixen totes dues alhora: es marca la que es dona.
+
+    L'altura va de l'àpex al CENTRE de la base (vertical, cx). L'apotema de
+    la piràmide va de l'àpex al PUNT MIG d'una aresta frontal de la base
+    (sobre una cara lateral visible), que en general NO és vertical: només
+    coincideix amb la vertical de l'àpex quan n és senar i hi ha una única
+    aresta frontal centrada (n=3, 5). Calcular-los amb el mateix segment
+    (cx, baix) —com si el punt més baix de la base fos sempre el punt mig
+    d'una aresta— dibuixaria l'apotema exactament on va l'altura per a
+    n=4, 6, 8, que és l'error que aquesta funció ha d'evitar.
     """
     from math import cos as _cos, sin as _sin, radians
     R = 50.0
@@ -259,10 +268,16 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
     cos_svg = ('<polygon points="%s" fill="%s" stroke="currentColor" '
                'stroke-width="1.1" stroke-dasharray="4 3"/>'
                % (" ".join("%.1f,%.1f" % p for p in base), OMPLERT))
+    # Arestes frontals: les que formen una cara lateral VISIBLE (mateix
+    # criteri que decideix quines cares es pinten més avall). Es guarden
+    # perquè l'apotema de la piràmide s'ha de recolzar sobre una d'aquestes,
+    # mai sobre una aresta del darrere.
+    arestes_frontals = []
     for k in range(len(base)):
         a, b = base[k], base[(k + 1) % len(base)]
         if (a[1] + b[1]) / 2 < cyb - 1:
             continue
+        arestes_frontals.append((a, b))
         cos_svg += ('<polygon points="%.1f,%.1f %.1f,%.1f %.1f,%.1f" fill="%s" '
                     'stroke="currentColor" stroke-width="2"/>'
                     % (apex[0], apex[1], a[0], a[1], b[0], b[1], OMPLERT))
@@ -280,9 +295,17 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
                     + _text(cx - 8, (apex[1] + cyb) / 2, etq_altura or (mesura(altura, unitat)),
                             ancora="end", petit=True))
     if apotema_piramide is not None:
+        # Punt mig de l'aresta frontal més centrada (la que queda més a
+        # prop de la vertical de l'àpex). Amb un nombre parell de cares
+        # visibles n'hi ha sempre dues d'igual de centrades, simètriques
+        # a banda i banda de cx: es tria la de l'esquerra de manera
+        # determinista, sense dependre de l'arrodoniment de coma flotant.
+        mx_ap, my_ap = min(
+            (((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in arestes_frontals),
+            key=lambda p: (round(abs(p[0] - cx), 6), p[0]))
         cos_svg += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                    'stroke-width="2"/>' % (apex[0], apex[1], cx, baix, MARCA)
-                    + _text(cx + 14, (apex[1] + baix) / 2,
+                    'stroke-width="2"/>' % (apex[0], apex[1], mx_ap, my_ap, MARCA)
+                    + _text(max(apex[0], mx_ap) + 14, (apex[1] + my_ap) / 2,
                             etq_apotema or (mesura(apotema_piramide, unitat)),
                             ancora="start", petit=True))
     cos_svg += _text(cx, baix + 20, etq_costat or (mesura(costat, unitat)))

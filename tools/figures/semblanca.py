@@ -799,19 +799,45 @@ def ombra(altura_1, ombra_1, altura_2, ombra_2, etq_1="", etq_2="",
         assert v == "x" or isinstance(v, (int, float)), \
             "ombra(): cada valor ha de ser un nombre o \"x\""
 
-    # Alçades i ombres es reescalen CADA GRUP per separat (totes les
-    # alçades entre elles, totes les ombres entre elles) i no barrejades,
-    # perquè el que ha de quedar comparable a cop d'ull és alçada-1 vs.
-    # alçada-2 i ombra-1 vs. ombra-2 —que és la proporció que l'exercici
-    # demana llegir— i no alçada vs. ombra dins del mateix objecte, que no
-    # té per què guardar cap relació visual concreta. Es reutilitza
-    # `_escalat`, la mateixa eina que fa servir `tales()`.
-    x_alt = {i for i, v in enumerate((altura_1, altura_2)) if v == "x"}
-    x_omb = {i for i, v in enumerate((ombra_1, ombra_2)) if v == "x"}
-    alts_dibuix = [0 if v == "x" else v for v in (altura_1, altura_2)]
-    ombres_dibuix = [0 if v == "x" else v for v in (ombra_1, ombra_2)]
-    h1, h2 = _escalat(alts_dibuix, 40, 95, x_alt or None)
-    s1, s2 = _escalat(ombres_dibuix, 50, 110, x_omb or None)
+    # El pendent hipotenusa/base (alçada:ombra) és el MATEIX als dos
+    # triangles (és tota la base matemàtica de l'exercici: dos triangles
+    # rectangles semblants), així que primer es calcula el valor REAL de
+    # la incògnita, si n'hi ha, a partir d'aquest pendent —mai un valor
+    # "raonable" triat a ull—, i després es dibuixen els DOS triangles amb
+    # el mateix pendent EXACTE. Reescalar alçades i ombres per separat amb
+    # `_escalat` (com es feia abans) trenca el pendent perquè cada grup es
+    # normalitza al seu propi rang, i és justament el pendent el que
+    # l'enunciat i el <title> diuen que s'ha de poder comparar a cop d'ull.
+    if altura_1 == "x":
+        pendent = altura_2 / ombra_2
+        altura_1_real, ombra_1_real = pendent * ombra_1, ombra_1
+        altura_2_real, ombra_2_real = altura_2, ombra_2
+    elif ombra_1 == "x":
+        pendent = altura_2 / ombra_2
+        altura_1_real, ombra_1_real = altura_1, altura_1 / pendent
+        altura_2_real, ombra_2_real = altura_2, ombra_2
+    elif altura_2 == "x":
+        pendent = altura_1 / ombra_1
+        altura_1_real, ombra_1_real = altura_1, ombra_1
+        altura_2_real, ombra_2_real = pendent * ombra_2, ombra_2
+    elif ombra_2 == "x":
+        pendent = altura_1 / ombra_1
+        altura_1_real, ombra_1_real = altura_1, ombra_1
+        altura_2_real, ombra_2_real = altura_2, altura_2 / pendent
+    else:
+        pendent = altura_1 / ombra_1
+        altura_1_real, ombra_1_real = altura_1, ombra_1
+        altura_2_real, ombra_2_real = altura_2, ombra_2
+
+    # Cada triangle es dimensiona per separat perquè quedi llegible encara
+    # que els dos objectes reals siguin de mides molt diferents (una
+    # muntanya i una persona, a 166): l'ombra de cada triangle es porta a
+    # un rang de dibuix fix segons la seva mida REAL relativa a l'altra
+    # ombra, i l'alçada de dibuix es DERIVA sempre d'aquesta ombra de
+    # dibuix multiplicant pel `pendent` real —mai a l'inrevés—, que és el
+    # que garanteix que els dos triangles surtin amb la mateixa inclinació.
+    s1, s2 = _escalat([ombra_1_real, ombra_2_real], 50, 110)
+    h1, h2 = s1 * pendent, s2 * pendent
 
     def triangle_ombra(h, s, x0):
         """Peu a (x0, 0), costat vertical fins a (x0, -h), costat

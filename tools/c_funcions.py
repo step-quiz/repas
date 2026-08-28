@@ -558,19 +558,20 @@ Q("203c", 203, "c", B1, "B",
 
 Q("203d", 203, "d", B1, "B",
   "Una gràfica que només existeix per a valors de $x$ fins a $5$ "
-  "(inclòs, cap a l'esquerra sense límit), i que en alçada s'estén "
-  "indefinidament tant cap amunt com cap avall.",
-  r"Domini: $(-\infty,5]$. Recorregut: $\mathbb{R}$.",
-  [D(r"Domini: $\mathbb{R}$. Recorregut: $(-\infty,5]$.",
+  "(inclòs, cap a l'esquerra sense límit), amb un punt més baix a "
+  "alçada $0$ (quan $x=5$) i que a partir d'aquí puja indefinidament "
+  "com més ens allunyem cap a l'esquerra.",
+  r"Domini: $(-\infty,5]$. Recorregut: $[0,+\infty)$.",
+  [D(r"Domini: $[0,+\infty)$. Recorregut: $(-\infty,5]$.",
      "DOMINI_RECORREGUT_INTERCANVIATS",
      r"Que existeixi fins a $x=5$ descriu el domini (valors de $x$); "
-     r"que s'estengui indefinidament en alçada descriu el recorregut "
-     r"(valors de $y$): estan intercanviats."),
-   D(r"Domini: $(-\infty,5)$. Recorregut: $\mathbb{R}$.",
+     r"que tingui un punt més baix a $0$ descriu el recorregut (valors "
+     r"de $y$): estan intercanviats."),
+   D(r"Domini: $(-\infty,5)$. Recorregut: $[0,+\infty)$.",
      "EXTREMS_OBLIDATS",
      r"El $5$ està inclòs (la gràfica hi arriba): l'interval és "
      r"$(-\infty,5]$, tancat per aquest costat, no obert."),
-   D(r"Domini: $[5,+\infty)$. Recorregut: $\mathbb{R}$.",
+   D(r"Domini: $[5,+\infty)$. Recorregut: $[0,+\infty)$.",
      "SIGNE_FINAL",
      r"La gràfica existeix cap a l'ESQUERRA de $x=5$ (sense límit "
      r"cap a l'esquerra), no cap a la dreta: és $(-\infty,5]$, no "
@@ -579,15 +580,15 @@ Q("203d", 203, "d", B1, "B",
    "si l'extrem $x=5$ forma part o no de la gràfica."],
   [r"La gràfica existeix per a $x\leq 5$, amb el $5$ inclòs: domini "
    r"$(-\infty,5]$.",
-   r"En alçada no hi ha cap límit, ni per amunt ni per avall: "
-   r"recorregut $\mathbb{R}$."],
+   r"El valor més baix que assoleix $y$ és $0$ (a $x=5$, inclòs), i "
+   r"puja sense límit com més s'allunya cap a l'esquerra: recorregut "
+   r"$[0,+\infty)$."],
   ex_text=E203,
   figura=grafica_funcio(
       lambda x: math.sqrt(5 - x) if x <= 5 else None,
-      -4, 6, -6, 6,
-      "Gràfica que existeix fins a x=5, estenent-se indefinidament "
-      "amunt i avall.",
-      f2=lambda x: -math.sqrt(5 - x) if x <= 5 else None))
+      -4, 6, -1, 6,
+      "Gràfica que existeix fins a x=5, amb un punt més baix a "
+      "alçada 0 en aquest extrem, pujant cap a l'esquerra."))
 
 
 # ---- exercici 206: estudi qualitatiu complet (domini, recorregut, "
