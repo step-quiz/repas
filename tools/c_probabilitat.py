@@ -26,15 +26,14 @@ el patró d'"ítems amagats" descrit a AUTHORING-GUIDE.md. Cap exclusió: les
 il·lustracions d'aquest full (daus, moneda, claus...) són decoratives i no
 aporten cap dada que no sigui ja al text.
 
-Dos exercicis necessiten una decisió explícita, ja documentada al mateix
+Un exercici necessita una decisió explícita, ja documentada al mateix
 `im13.tex`/`r-im13.tex`:
-  - Exercici 240: els apartats c) i d) repeteixen literalment el mateix
-    enunciat, «Nombre més petit que 7» (errata editorial molt probable,
-    ja que un dau de l'1 al 6 no permet cap altre matís interessant amb
-    aquest text). Es couen tal com apareixen: el 240d es converteix en
-    una pregunta idèntica en contingut al 240c, ambdues amb resposta
-    P=1. No es fusionen ni s'exclou cap dels dos, per mantenir la
-    numeració d'apartats consistent amb l'original.
+  - Exercici 240: els apartats c) i d) repetien literalment el mateix
+    enunciat a la font, «Nombre més petit que 7» (errata editorial molt
+    probable). Aquí el 240d s'ha convertit en «Nombre més gran que 7»
+    (esdeveniment impossible, P=0), que completa l'escala de
+    probabilitats 0..1 que l'exercici demana ordenar i que amb l'errata
+    original quedava coixa (dos apartats amb P=1 i cap amb P=0).
   - Exercici 243: l'enunciat no precisa com s'agrupa la roba en una
     "combinació"; s'adopta el mateix criteri que `r-im13.tex` (tres
     nivells: peça de baix, peça de dalt, barret), documentat amb
@@ -614,36 +613,28 @@ Q("240c", 240, "c", B1, "A",
                "apartats amb el mateix esdeveniment, com fa r-im12.")
 
 Q("240d", 240, "d", B1, "A",
-  "«Nombre més petit que $7$»",
-  "$P=\\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho "
-  "compleixen: és un esdeveniment segur)",
-  [D("$P=\\dfrac{5}{6}$, perquè el $6$ no compta",
+  "«Nombre més gran que $7$»",
+  "$P=\\dfrac{0}{6}=0$ (cap resultat del dau, de l'$1$ al $6$, supera "
+  "el $7$: és un esdeveniment impossible)",
+  [D("$P=\\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i "
+     "per tant és un esdeveniment segur", "VEREDICTE_INVERTIT",
+     "Que cap resultat del dau compleixi la condició és exactament el "
+     "motiu pel qual aquest esdeveniment és IMPOSSIBLE ($P=0$), no "
+     "segur: si cap cas és favorable, la probabilitat és $0$, no $1$."),
+   D("$P=\\dfrac{1}{6}$, comptant el $6$ com a cas favorable",
      "CASOS_FAVORABLES_MAL_COMPTATS",
-     "El $6$ SÍ és més petit que $7$: també compta com a cas "
-     "favorable. Tots els resultats del dau ($1$ a $6$) compleixen "
-     "aquesta condició."),
-   D("$P=\\dfrac{1}{6}$, comptant només el valor $6$ com a límit",
-     "CASOS_FAVORABLES_MAL_COMPTATS",
-     "L'esdeveniment no demana \"ser exactament $6$\": demana \"ser "
-     "més petit que $7$\", que compleixen tots els $6$ resultats "
-     "possibles del dau."),
-   D("Aquest esdeveniment és impossible, $P=0$, perquè el dau no "
-     "arriba a $7$", "VEREDICTE_INVERTIT",
-     "Que el dau no arribi a $7$ és exactament el motiu pel qual "
-     "TOTS els seus resultats són més petits que $7$: aquest "
-     "esdeveniment és segur ($P=1$), no impossible.")],
-  ["Aquest apartat repeteix literalment el mateix enunciat que "
-   "l'anterior: el raonament és idèntic.",
-   "Quins valors del $1$ al $6$ són més petits que $7$?"],
-  ["«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho "
-   "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
-   "(esdeveniment segur)"],
-  ex_text=E240,
-  nota="Aquest apartat té el mateix text que el c) al full de partida, "
-       "i per tant la mateixa resposta: en un dau de l'1 al 6, cap "
-       "resultat arriba a $7$.",
-  nota_interna="Repetició literal del text del 240c a la font, "
-               "probablement una errata editorial.")
+     "El $6$ NO és més gran que $7$: cap resultat del dau ho "
+     "compleix, són $0$ casos favorables, no $1$."),
+   D("$P=\\dfrac{1}{6}$, considerant el $7$ com un resultat possible "
+     "del dau", "CASOS_POSSIBLES_MAL_COMPTATS",
+     "Un dau només té $6$ cares, numerades de l'$1$ al $6$: el $7$ "
+     "no és cap resultat possible, ni compta com a cas favorable ni "
+     "com a possible.")],
+  ["Quins valors del $1$ al $6$ són més grans que $7$?"],
+  ["«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho "
+   "compleix, $0$ casos favorables. $P=\\dfrac{0}{6}=0$ "
+   "(esdeveniment impossible)"],
+  ex_text=E240)
 
 Q("240e", 240, "e", B1, "A",
   "«Nombre més gran o igual que $2$»",
@@ -1994,9 +1985,9 @@ Q("257c", 257, "c", B4, "A",
 # ---- exercici 258: claus i panys ----
 Q("258", 258, "", B4, "A",
   "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé "
-  "quina és la que obre cada pany, quina és la probabilitat que "
-  "encerti la combinació al primer intent? I si tingués 3 claus i "
-  "només 2 panys (una clau no obre cap pany)?",
+  "quina és la que obre cada pany, quina és la probabilitat "
+  "d'encertar, al primer intent, la clau d'un dels panys? I si "
+  "tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
   "En tots dos casos, $P(\\text{encertar})=\\dfrac13$",
   [D("Amb $3$ claus i $3$ panys, $P=\\dfrac13$; però amb $3$ claus "
      "i $2$ panys, $P=\\dfrac12$, perquè hi ha menys panys",

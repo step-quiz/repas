@@ -23,7 +23,7 @@ espacial, que és la part que costa d'imaginar sense veure-la.
 """
 import math
 
-from . import OMPLERT, MARCA, _svg, _text
+from . import OMPLERT, MARCA, _svg, _text, mesura
 
 
 # ---------------------------------------------------------------------
@@ -39,7 +39,7 @@ def _fmt(v, unitat="cm"):
     quilòmetres convertits a metres, no de centímetres."""
     if isinstance(v, str):
         return v
-    return "%g %s" % (v, unitat)
+    return mesura(v, unitat)
 
 
 def _escalat(valors, minim, maxim, buit=None):
@@ -144,16 +144,16 @@ def _tercer_vertex(base, lat_esq, lat_dre):
 
 
 # ---------------------------------------------------------------------
-def tales(segments_a, segments_b, incognita, angle=25):
+def tales(segments_a, segments_b, incognita, angle=25, acumulat=True):
     """Dues secants que surten d'un vèrtex comú `O`, tallades per un joc de
     rectes paral·leles: la configuració de Tales de 152/153.
 
     `segments_a` i `segments_b` descriuen els punts marcats a cada secant,
-    en ordre des d'`O` cap enfora, com a llista de parells `(etiqueta,
-    distancia_des_de_O)`. `distancia_des_de_O` pot ser:
+    en ordre des d'`O` cap enfora, com a llista de parells `(etiqueta, valor)`.
+    `valor` pot ser:
 
-    - un nombre: la distància real des d'`O` fins aquest punt, que
-      s'etiqueta amb aquesta mateixa mesura;
+    - un nombre: la mesura d'aquell punt (vegeu `acumulat` per saber com
+      s'interpreta exactament), que s'etiqueta amb aquesta mateixa mesura;
     - `None`: el punt no es dibuixa (l'apartat no el fa servir);
     - una TUPLA `(valor_real, "x")`: és la incògnita. `valor_real` és el
       valor numèric autèntic (el que resol l'exercici), que la funció fa
@@ -165,9 +165,27 @@ def tales(segments_a, segments_b, incognita, angle=25):
       Qui crida `tales()` ja coneix aquest valor perquè l'ha calculat per
       escriure la resolució de l'exercici.
 
+    `acumulat` distingeix les dues maneres en què l'enunciat pot donar les
+    mesures d'una secant (bug real detectat en revisió de 153, on totes
+    dues es van arribar a confondre):
+
+    - `acumulat=True` (per defecte, el cas de 152): cada `valor` és la
+      longitud del TRAM entre el punt anterior i aquest —"segments de 2,5
+      cm i 2 cm" vol dir OA=2,5 i AB=2, no OA=2,5 i OB=2—, així que la
+      posició de cada punt és la SUMA dels trams que el precedeixen.
+    - `acumulat=False` (el cas de 153): cada `valor` ja és la distància
+      ABSOLUTA des d'O fins aquell punt —"OB=9, OC'=18" es dibuixen
+      exactament a 9 i a 18 des d'O, sense sumar-hi res més—, tal com
+      l'enunciat les anomena (OA, OB, OC', etc., totes mesurades des del
+      mateix origen). Sumar-les com si fossin trams (el bug que tenia
+      aquesta funció) dibuixa cada punt més enllà d'on toca i trenca la
+      proporció que la figura hauria d'il·lustrar.
+
     Com a màxim un punt per secant pot ser la incògnita, i a cada secant
-    hi ha d'haver com a mínim dos punts DIBUIXATS (numèrics o la
-    incògnita), per fixar-hi una recta identificable.
+    hi ha d'haver com a mínim DOS punts DIBUIXATS (numèrics o la
+    incògnita) —no n'hi ha prou amb un de sol—, perquè la figura mostri
+    sempre almenys un parell complet de paral·leles: el contingut mínim
+    que il·lustra el teorema de Tales.
 
     Les paral·leles s'uneixen entre els punts que comparteixen POSICIÓ dins
     de la llista (el primer de `segments_a` amb el primer de `segments_b`,
@@ -182,12 +200,13 @@ def tales(segments_a, segments_b, incognita, angle=25):
     però el títol deixa clar sobre quins punts cal treballar.
 
     tales([("A", 2.5), ("B", (3.75, "x"))], [("A'", 2), ("B'", 3)], "x")
-        -> proporció directa de dos punts a cada secant, 152a. La
+        -> proporció directa de dos trams a cada secant, 152a. La
         incògnita val 3.75 (2.5:2 = 3.75:3), i és aquest valor —no un de
         triat a l'atzar— el que manté les dues transversals paral·leles.
     tales([("A", 2), ("B", 5), ("C", None)],
-        [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC")
-        -> posició de Tales des d'O amb tres punts per secant, 153a
+        [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC", acumulat=False)
+        -> posició de Tales des d'O amb tres punts per secant, donats com a
+        distàncies absolutes des d'O (153a)
     """
     assert len(segments_a) == len(segments_b) and len(segments_a) in (2, 3), \
         "tales(): calen 2 o 3 punts marcats, en el mateix nombre a cada secant"
@@ -217,17 +236,29 @@ def tales(segments_a, segments_b, incognita, angle=25):
         for _, v in seg:
             assert v is None or isinstance(v, (int, float)) or es_incognita(v), \
                 'tales(): cada valor ha de ser un nombre, None, o (nombre, "x")'
-    # Cada secant necessita com a mínim UN punt dibuixat (a més d'O, que
-    # ja és comú a totes dues) per quedar geomètricament definida: les
-    # paral·leles uneixen punts d'una secant amb l'altra, no dos punts
-    # dins la mateixa secant, així que no calen dos punts propis.
-    assert n - len(buit_a) >= 1, \
-        "tales(): cal com a mínim un punt dibuixat a la secant a"
-    assert n - len(buit_b) >= 1, \
-        "tales(): cal com a mínim un punt dibuixat a la secant b"
-    assert (n - len(buit_a)) + (n - len(buit_b)) >= 3, \
-        "tales(): calen com a mínim tres punts dibuixats en total, o no " \
-        "hi ha prou parelles per fixar cap proporció"
+    # Cada secant necessita com a mínim DOS punts DIBUIXATS (numèrics o la
+    # incògnita) per garantir que la figura mostri sempre almenys un parell
+    # complet de paral·leles —el contingut mínim que il·lustra el teorema
+    # de Tales. Amb només un punt per secant (bug real detectat a 153a: hi
+    # havia prou per fixar cadascuna de les dues rectes, però cap parella
+    # de punts compartia posició als dos costats) el dibuix no arriba a
+    # mostrar cap transversal, que és tot el que l'exercici vol ensenyar.
+    assert n - len(buit_a) >= 2, \
+        "tales(): calen com a mínim dos punts dibuixats a la secant a, " \
+        "per poder-hi ancorar almenys una parella de paral·leles"
+    assert n - len(buit_b) >= 2, \
+        "tales(): calen com a mínim dos punts dibuixats a la secant b, " \
+        "per poder-hi ancorar almenys una parella de paral·leles"
+    # A més, cal que com a mínim DUES posicions (índexs) tinguin els dos
+    # extrems coneguts alhora (a i b), perquè es dibuixin almenys dues
+    # transversals paral·leles —una de sola no il·lustra res, ja que el
+    # teorema parla precisament de la relació ENTRE parelles.
+    posicions_completes = sum(
+        1 for i in range(n) if i not in buit_a and i not in buit_b)
+    assert posicions_completes >= 2, \
+        "tales(): calen com a mínim dues posicions amb punt conegut a " \
+        "totes dues secants, per dibuixar almenys dues transversals " \
+        "paral·leles"
 
     # Escala ÚNICA i purament multiplicativa (dibuix = k · real, sense
     # terme additiu) aplicada a TOTES DUES secants alhora, INCLOENT EL
@@ -272,9 +303,17 @@ def tales(segments_a, segments_b, incognita, angle=25):
     ang_a, ang_b = -angle / 2.0, angle / 2.0
 
     def acumula(dibuix, ang):
+        """Posiciona cada punt al llarg de la secant `ang`. Amb
+        `acumulat=True` (152) cada element de `dibuix` és un TRAM des del
+        punt anterior, i cal sumar-los per obtenir la posició; amb
+        `acumulat=False` (153) cada element JA és la posició absoluta des
+        d'O, i sumar-los seria el bug real detectat en revisió (dibuixava
+        OB=5 a una distància 7 = OA+OB, i OC'=11,7 a 14,3 = OA'+OC', en
+        lloc de a 5 i a 11,7): la proporció que la figura ha d'il·lustrar
+        depèn de posicionar cada punt exactament on l'enunciat el dona."""
         pts, acc = [ORIGEN], 0.0
         for d in dibuix:
-            acc += d
+            acc = acc + d if acumulat else d
             pts.append(_punt(ORIGEN, ang, acc))
         return pts
 
@@ -570,8 +609,7 @@ def parella_semblants(costats_a, costats_b, angle_igual=None, angle_recte=False)
     return _svg(int(math.ceil(amplada)), int(math.ceil(alcada)),
                 '<g transform="translate(%.2f,%.2f)">%s</g>'
                 % (despl[0], despl[1], cos),
-                "Dos triangles semblants amb els costats corresponents "
-                "marcats.")
+                "Dos triangles amb els costats corresponents marcats.")
 
 
 # ---------------------------------------------------------------------
@@ -646,12 +684,26 @@ def figures_semblants_k(k, tipus="quadrat"):
     l'alumnat creu que una maqueta a escala $1:2$ té la meitat de volum, i
     una figura que ja respongués la pregunta desactivaria l'exercici. Per
     això, igual que a `parella_semblants`, la mida VISUAL de la segona
-    figura es capa (mai passa de 3 vegades la primera, encara que `k`
-    sigui més gran), i la mida no és mai el mitjà pel qual es podria
-    deduir l'àrea o el volum: només hi ha una etiqueta de longitud a cada
-    figura, amb el mateix valor simbòlic `1` i `k` —mai un número real de
-    l'enunciat, que és el que canvia segons l'apartat i el que la figura
-    no ha de fer visible.
+    figura es capa per a raons molt extremes (per exemple k=20, que no
+    apareix a cap exercici real d'aquest bloc però es contempla com a cas
+    límit), i la mida no és mai el mitjà pel qual es podria deduir l'àrea
+    o el volum: només hi ha una etiqueta de longitud a cada figura, amb el
+    mateix valor simbòlic `1` i `k` —mai un número real de l'enunciat, que
+    és el que canvia segons l'apartat i el que la figura no ha de fer
+    visible.
+
+    El llindar del capat (4, i el seu recíproc 1/4) s'ha triat perquè
+    cobreixi SENSE distorsionar-la tota la raó que fan servir de veritat
+    els exercicis 290-294 (el valor més gran que hi apareix és k=4, a
+    290a i 290b): amb un llindar més curt (3, com tenia abans aquesta
+    funció), 290a i 290b —tots dos amb k=4— es dibuixaven amb una raó
+    visual d'exactament 3,0, idèntica a la d'un exercici amb k=3 de
+    veritat, mentre que 290c (k=1,5, per sota del llindar) sí que sortia
+    a escala real. Aquesta inconsistència és pitjor que un capat
+    uniforme: de vegades la figura és fiable i de vegades no, sense cap
+    manera de distingir-ho només mirant-la. Per sota del llindar, doncs,
+    la raó visual és sempre la raó real; només per damunt (cap valor
+    d'exercici hi arriba) es capa per mantenir-ho llegible.
 
     `tipus` tria la forma: `"quadrat"` o `"rectangle"` (dues dimensions,
     per als exercicis d'àrea, 290/291/293a) o `"cub"` (tres dimensions,
@@ -668,7 +720,8 @@ def figures_semblants_k(k, tipus="quadrat"):
     assert k > 0, "figures_semblants_k(): la raó ha de ser positiva"
 
     MIDA_A = 60.0
-    raó_visual = max(1 / 3.0, min(3.0, k))
+    LLINDAR = 4.0  # cobreix sencer el rang real dels exercicis (max k=4)
+    raó_visual = max(1 / LLINDAR, min(LLINDAR, k))
     MIDA_B = MIDA_A * raó_visual
 
     def cara_plana(mida, x0):

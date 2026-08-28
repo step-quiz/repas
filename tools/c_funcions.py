@@ -491,7 +491,13 @@ Q("203a", 203, "a", B1, "B",
   figura=grafica_funcio(
       lambda x: 1 / (x - 2), -3, 7, -5, 5,
       "Gràfica amb dues branques que s'apropen a x=2 i a y=0 sense "
-      "tocar-les mai."))
+      "tocar-les mai.",
+      # Les branques arriben senceres als dos costats del quadre (no es
+      # tallen abans per sortir del marge vertical): un tram discontinu
+      # hi indica que continuen, perquè el domini no s'acaba on s'acaba
+      # el dibuix (auditoria, punt E — abans no hi havia cap indicació
+      # de continuïtat).
+      continua_esq=True, continua_dreta=True))
 
 Q("203b", 203, "b", B1, "B",
   "Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems "
@@ -521,7 +527,11 @@ Q("203b", 203, "b", B1, "B",
   figura=grafica_funcio(
       lambda x: 0.5 + 2.5 * __import__("math").sin(1.15 * (x + 3)),
       -3, 4, -2.6, 3.6,
-      "Gràfica definida entre x=-3 i x=4, oscil·lant entre -2 i 3."))
+      "Gràfica definida entre x=-3 i x=4, oscil·lant entre -2 i 3.",
+      # Els dos extrems són inclosos: l'enunciat ja ho diu en paraules
+      # ("extrems inclosos"), així que marcar-los amb un punt ple no
+      # afegeix cap dada nova, només l'il·lustra (auditoria, punt E).
+      tancat_esq=True, tancat_dreta=True))
 
 Q("203c", 203, "c", B1, "B",
   "Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense "
@@ -554,7 +564,12 @@ Q("203c", 203, "c", B1, "B",
   figura=grafica_funcio(
       lambda x: x * x - 1, -4, 4, -2, 8,
       "Gràfica amb un punt més baix, que puja indefinidament cap als "
-      "dos costats."))
+      "dos costats.",
+      # La paràbola surt del marge vertical molt abans d'arribar a
+      # x=-4/4 (puja de pressa): sense això es tallava a mitja figura
+      # sense cap indicació que seguia, com si el domini s'acabés allà
+      # (auditoria, punt E — l'enunciat ja diu "sense límit").
+      continua_esq=True, continua_dreta=True))
 
 Q("203d", 203, "d", B1, "B",
   "Una gràfica que només existeix per a valors de $x$ fins a $5$ "

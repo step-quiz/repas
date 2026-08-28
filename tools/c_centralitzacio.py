@@ -375,7 +375,7 @@ _ampl = _base + [60]
 
 Q("266a", 266, "a", B1, "A",
   "Què li passa a la mitjana?",
-  "Puja de $%s$ a $%s$: gairebé es duplica."
+  "Puja de $%s$ a $%s$: gairebé es triplica."
   % (tex(mitjana(_base)), texd(mitjana(_ampl), 2)),
   [D("Es queda pràcticament igual.", "EXTREM_SENSE_EFECTE",
      "La mitjana sí que se'n ressent, i molt: passa de $%s$ a $%s$. Com que "

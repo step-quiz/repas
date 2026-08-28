@@ -96,11 +96,14 @@ def ortoedre(a, b, c, etq_a=None, etq_b=None, etq_c=None, unitat="cm"):
     l'alçada."""
     esc = 110.0 / max(a, b, c)
     A, B, C = a * esc, min(b * esc, 46.0), c * esc
-    m = 28
-    x, y = m, m + B
     ea = etq_a if etq_a is not None else mesura(a, unitat)
     eb = etq_b if etq_b is not None else mesura(b, unitat)
     ec = etq_c if etq_c is not None else mesura(c, unitat)
+    # Marge esquerre dinàmic (vegeu planes.rectangle_diagonal): ec es
+    # dibuixa amb text-anchor="end" cap a l'esquerra i un marge fix el
+    # retallava per a etiquetes llargues (AUDITORIA C4).
+    m = max(28, int(len(ec) * 7.3) + 14)
+    x, y = m, m + B
     q = lambda pts: ('<polygon points="%s" fill="%s" stroke="currentColor" '
                      'stroke-width="2"/>'
                      % (" ".join("%.1f,%.1f" % p for p in pts), OMPLERT))
@@ -166,16 +169,20 @@ def cilindre(radi=None, altura=None, diametre=None, etq_radi=None,
              'stroke="currentColor" stroke-width="2"/>'
              % (cx - R, ydalt, H, cx + R, ydalt, H)
            + _el·lipse(cx, ydalt, R))
+    # Etiqueta per damunt del punt més alt de l'el·lipse superior (no del
+    # seu centre `ydalt`): a `ydalt - 8` queda a sobre de l'el·lipse i el
+    # seu traç la tallava per la meitat (AUDITORIA C4).
+    y_etq = ydalt - R * APLANAT - 6
     if diametre is not None:
         e = etq_radi or (mesura(diametre, unitat))
         cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
                 'stroke-width="2"/>' % (cx - R, ydalt, cx + R, ydalt, MARCA)
-                + _text(cx, ydalt - 8, e, petit=True))
+                + _text(cx, y_etq, e, petit=True))
     elif radi is not None:
         e = etq_radi or (mesura(radi, unitat))
         cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
                 'stroke-width="2"/>' % (cx, ydalt, cx + R, ydalt, MARCA)
-                + _text(cx + R / 2, ydalt - 8, e, petit=True))
+                + _text(cx + R / 2, y_etq, e, petit=True))
     if altura is not None:
         cos += _cota_vertical(cx + R + 16, ydalt, ybaix,
                               etq_altura or (mesura(altura, unitat)))

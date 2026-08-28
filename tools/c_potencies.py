@@ -1247,25 +1247,21 @@ Q("46a", 46, "a", B4, "A",
   ex_text=E46)
 
 Q("46b", 46, "b", B4, "A",
-  r"$(\square^2)^5\cdot\square^4=(-3)^{14}$",
+  r"$(\square^2)^5\cdot\square^3=(-3)^{13}$",
   -3,
   [D("3", "PARITAT_EXPONENT",
-     "L'exponent final, $14$, és parell, però això no vol dir que la base "
-     "hagi de ser positiva: la base ha de coincidir amb la del segon membre, "
-     "$-3$."),
-   D("-14", "BASE_EXPONENT_INTERCANVIATS",
-     "Has confós l'exponent final, $14$, amb la base que falta."),
-   D("14", "BASE_EXPONENT_INTERCANVIATS",
-     "Has confós l'exponent final, $14$, amb la base que falta.")],
-  ["$(\\square^2)^5\\cdot\\square^4=\\square^{10}\\cdot\\square^4=\\square^{14}$.",
-   "$\\square^{14}=(-3)^{14}$: la base que falta és $-3$."],
-  ["$(\\square^2)^5\\cdot\\square^4=\\square^{10+4}=\\square^{14}=(-3)^{14}\\Rightarrow"
+     "Amb exponent senar, el signe de la base es conserva en el "
+     "resultat: $3^{13}$ és positiu i $(-3)^{13}$ és negatiu, no són "
+     "iguals. La base ha de ser $-3$."),
+   D("-13", "BASE_EXPONENT_INTERCANVIATS",
+     "Has confós l'exponent final, $13$, amb la base que falta."),
+   D("13", "BASE_EXPONENT_INTERCANVIATS",
+     "Has confós l'exponent final, $13$, amb la base que falta.")],
+  ["$(\\square^2)^5\\cdot\\square^3=\\square^{10}\\cdot\\square^3=\\square^{13}$.",
+   "$\\square^{13}=(-3)^{13}$: la base que falta és $-3$."],
+  ["$(\\square^2)^5\\cdot\\square^3=\\square^{10+3}=\\square^{13}=(-3)^{13}\\Rightarrow"
    "\\square=-3$"],
-  ex_text=E46,
-  nota="Numèricament, $3^{14}=(-3)^{14}$ també compliria la igualtat (l'exponent "
-       "$14$ és parell). Interpretem que l'exercici demana identificar la base "
-       "que apareix al segon membre, $-3$, no totes les solucions numèriques "
-       "possibles.")
+  ex_text=E46)
 
 Q("46c", 46, "c", B4, "A",
   r"$\left(7^3\right)^5:7^{\square}=1$",

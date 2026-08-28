@@ -83,11 +83,15 @@ for _ap, _m, (_x0, _y0) in _295:
        "$n=%d-(%s)=%s$" % (_y0, tex(_m * _x0), tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
       ex_text=E295,
-      # El pendent i el punt fixen la recta sense ambigüitat: mostrar-la
-      # ja construïda no revela res que l'enunciat no doni; el punt
-      # donat es marca perquè és la dada de partida.
-      figura=grafica_recta(float(_m), float(_n),
-                            punts_marcats=[(float(_x0), float(_y0))]))
+      # nuvol_de_punts, NO grafica_recta (auditoria, punt E — "fuita de
+      # resposta"): el pendent és una dada (ja surt en paraules a
+      # l'enunciat), però la recta encara no es coneix del tot, perquè
+      # `n` és precisament la incògnita que cal aïllar. Dibuixar-la ja
+      # construïda (com es feia abans) mostrava on tallava l'eix Y, que
+      # ÉS la resposta. Només es marca el punt donat, sense traçar-hi
+      # cap recta — el mateix patró que 209/296 quan els punts són la
+      # dada i la recta la incògnita.
+      figura=nuvol_de_punts([(float(_x0), float(_y0))]))
 
 
 # =============================================================== Exercici 296

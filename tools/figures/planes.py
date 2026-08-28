@@ -42,9 +42,13 @@ def rectangle_diagonal(base, altura, etq_base=None, etq_altura=None,
     escala = costat_max / max(b, h)
     ample = max(60.0, b * escala)
     alt = max(60.0, h * escala)
-    m = 26
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
+    # Marge esquerre dinàmic: l'etiqueta ea es dibuixa amb text-anchor="end"
+    # cap a l'esquerra, així que un marge fix no li dona prou espai quan és
+    # llarga (p. ex. "AC = 16 cm") i queda tallada pel viewBox (AUDITORIA
+    # C4). ~7.3px/caràcter cobreix la font mono 12px 600 amb marge de sobra.
+    m = max(26, int(len(ea) * 7.3) + 14)
     cos = (
         '<rect x="%d" y="%d" width="%g" height="%g" fill="%s" '
         'stroke="currentColor" stroke-width="2"/>'
@@ -69,9 +73,12 @@ def triangle_rectangle(catet_a, catet_b, etq_a=None, etq_b=None,
     """Triangle rectangle amb l'angle recte marcat amb el quadradet."""
     ample = 170.0
     alt = max(55.0, min(170.0, ample * float(catet_b) / float(catet_a)))
-    m = 28
     ea = etq_a if etq_a is not None else mesura(catet_a, unitat)
     eb = etq_b if etq_b is not None else mesura(catet_b, unitat)
+    # Marge esquerre dinàmic (vegeu rectangle_diagonal): eb es dibuixa amb
+    # text-anchor="end" cap a l'esquerra i un marge fix el retallava per a
+    # etiquetes llargues (AUDITORIA C4).
+    m = max(28, int(len(eb) * 7.3) + 14)
     x0, y0 = m, m + alt                       # vèrtex de l'angle recte
     cos = (
         '<polygon points="%g,%g %g,%g %g,%g" fill="%s" stroke="currentColor" '
@@ -360,14 +367,17 @@ def rectangle_amb_forat(base, altura, radi_forat, cx_forat=None, cy_forat=None,
     escala = ample_max / max(float(base), float(altura))
     B, A = float(base) * escala, float(altura) * escala
     r = float(radi_forat) * escala
-    m = 28
-    x0, y0 = m, m
-    cx = cx_forat * escala + x0 if cx_forat is not None else x0 + B / 2
-    cy = cy_forat * escala + y0 if cy_forat is not None else y0 + A / 2
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
     er = etq_radi if etq_radi is not None else (
-        "diàm. %g cm" % (2 * radi_forat))
+        "diàm. " + mesura(2 * radi_forat, unitat))
+    # Marge esquerre dinàmic (vegeu rectangle_diagonal): ea es dibuixa amb
+    # text-anchor="end" cap a l'esquerra i un marge fix el retallava per a
+    # etiquetes llargues (AUDITORIA C4).
+    m = max(28, int(len(ea) * 7.3) + 14)
+    x0, y0 = m, m
+    cx = cx_forat * escala + x0 if cx_forat is not None else x0 + B / 2
+    cy = cy_forat * escala + y0 if cy_forat is not None else y0 + A / 2
     # even-odd: rectangle ple menys el cercle interior
     cos = ('<path d="M%g,%g h%g v%g h-%g Z '
            'M%g,%g m-%g,0 a%g,%g 0 1,0 %g,0 a%g,%g 0 1,0 -%g,0" '
@@ -436,7 +446,8 @@ def triangle_isosceles(base, costat=None, altura=None,
         cos += _text(xm + 8, m + (y0 - m) / 2, ea)
     w = int(B + 2 * m)
     hh = int(y0 + m)
-    tipus = "equilàter" if (costat is not None and abs(costat - base) < 1e-9) \
+    tipus = "equilàter" if (costat is not None and etq_costat is None
+                            and abs(costat - base) < 1e-9) \
         else "isòsceles"
     detall = ""
     if ec is not None:
@@ -463,9 +474,11 @@ def rectangle_amb_rombe(base, altura, etq_base=None, etq_altura=None, unitat="cm
     # Marge esquerre dinàmic: l'etiqueta de l'altura es dibuixa amb
     # text-anchor="end" cap a l'esquerra, així que si és llarga (per
     # exemple "AC = 16 cm") el marge fix de 26px no li dona prou espai
-    # i queda tallada. S'estima ample de caràcter ~6.5px (font mono 12px).
+    # i queda tallada (AUDITORIA C4). ~7.3px/caràcter cobreix la font mono
+    # 12px 600 amb marge de sobra (6.5px es quedava curt i encara tallava
+    # el primer caràcter en etiquetes llargues).
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
-    m = max(26, int(len(ea) * 6.5) + 12)
+    m = max(26, int(len(ea) * 7.3) + 14)
     x0, y0 = m, 26
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     # punts mitjans dels quatre costats, en sentit horari des de dalt

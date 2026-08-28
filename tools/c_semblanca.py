@@ -272,8 +272,17 @@ Q("153a", 153, "a", B1, "A",
    r"$OC=\dfrac{OC'}{k}=\dfrac{11{,}7}{1{,}3}=9$ cm",
    "$BC=OC-OB=9-5=4$ cm"],
   ex_text=E153,
-  figura=tales([("A", 2), ("B", 5), ("C", None)],
-              [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC"))
+  # `acumulat=False`: OA, OB i OC' són distàncies ABSOLUTES des d'O (com
+  # les anomena l'enunciat), no trams consecutius — a diferència de 152,
+  # on "segments de 2,5 i 2 cm" sí que són trams. `C` s'hi afegeix amb el
+  # seu valor derivat (OC=9, calculat a la resolució) perquè hi hagi una
+  # segona posició completa (a més d'A-A') i es dibuixin dues transversals
+  # paral·leles; sense C, l'única parella completa era A-A' i el dibuix no
+  # arribava a mostrar cap joc de paral·leles (bug real detectat en
+  # revisió visual).
+  figura=tales([("A", 2), ("B", 5), ("C", 9)],
+              [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC",
+              acumulat=False))
 
 Q("153b", 153, "b", B1, "A",
   "Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val "
@@ -297,8 +306,13 @@ Q("153b", 153, "b", B1, "A",
    r"$OA=\dfrac{OA'}{k}=4\cdot\dfrac{3}{4}=3$ cm",
    "$AB=OB-OA=9-3=6$ cm"],
   ex_text=E153,
-  figura=tales([("A", None), ("B", 9), ("C", None)],
-              [("A'", 4), ("B'", 12), ("C'", 18)], "AB"))
+  # `acumulat=False`: OB, OA', OB' i OC' són distàncies absolutes des d'O.
+  # `A` s'hi afegeix amb el seu valor derivat (OA=3, calculat a la
+  # resolució i ja usat com a distractor) perquè hi hagi dues posicions
+  # completes (A-A' i B-B') i es dibuixin dues transversals paral·leles.
+  figura=tales([("A", 3), ("B", 9), ("C", None)],
+              [("A'", 4), ("B'", 12), ("C'", 18)], "AB",
+              acumulat=False))
 
 Q("153c", 153, "c", B1, "A",
   "Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant "
@@ -322,8 +336,13 @@ Q("153c", 153, "c", B1, "A",
    r"$OB=\dfrac{OB'}{k}=\dfrac{24}{1{,}6}=15$ cm",
    "$AB=OB-OA=15-5=10$ cm"],
   ex_text=E153,
-  figura=tales([("A", 5), ("B", None), ("C", 22.5)],
-              [("A'", None), ("B'", 24), ("C'", 36)], "AB"))
+  # `acumulat=False`: OA, OC, OB' i OC' són distàncies absolutes des d'O.
+  # `B` s'hi afegeix amb el seu valor derivat (OB=15, calculat a la
+  # resolució i ja usat com a distractor) perquè hi hagi dues posicions
+  # completes (B-B' i C-C') i es dibuixin dues transversals paral·leles.
+  figura=tales([("A", 5), ("B", 15), ("C", 22.5)],
+              [("A'", None), ("B'", 24), ("C'", 36)], "AB",
+              acumulat=False))
 
 
 # =====================================================================
@@ -368,14 +387,14 @@ Q("154a", 154, "a", B2, "A",
                            [("", 4), ("", "x"), ("", None)]))
 
 Q("154b", 154, "b", B2, "A",
-  "Triangle petit de costats $8$ cm, $10$ cm i $7$ cm; triangle "
-  "gran de costat $6$ cm (correspon al de $8$ cm), amb els altres "
+  "Triangle gran de costats $8$ cm, $10$ cm i $7$ cm; triangle "
+  "petit de costat $6$ cm (correspon al de $8$ cm), amb els altres "
   "dos costats desconeguts. Quant valen?",
   "$7{,}5$ cm i $5{,}25$ cm",
   [D("$13{,}33$ cm i $9{,}33$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó invertida "
      "$k=\\frac{8}{6}$ als costats de $10$ i $7$ cm; la raó és "
-     "$k=\\frac{6}{8}=0{,}75$ (del costat gran conegut al petit "
+     "$k=\\frac{6}{8}=0{,}75$ (del costat petit conegut al gran "
      "conegut), no la inversa."),
    D("$8$ cm i $5$ cm", "PROGRESSIO_INVENTADA",
      "Aquests valors no surten de la proporció: calcula "
@@ -395,19 +414,19 @@ Q("154b", 154, "b", B2, "A",
                            [("", 6), ("", "x"), ("", "x")]))
 
 Q("154c", 154, "c", B2, "A",
-  "Triangle petit de costat $6$ cm (desconegut als altres dos); "
-  "triangle gran de costats $3$ cm, $5$ cm i $4$ cm, on el de $5$ "
+  "Triangle gran de costat $6$ cm (desconegut als altres dos); "
+  "triangle petit de costats $3$ cm, $5$ cm i $4$ cm, on el de $5$ "
   "cm (el més llarg) correspon al de $6$ cm. Quant valen els altres "
-  "dos costats del triangle petit?",
+  "dos costats del triangle gran?",
   "$3{,}6$ cm i $4{,}8$ cm",
   [D("$2{,}5$ cm i $3{,}33$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó invertida "
      "$k=\\frac{5}{6}$ als costats de $3$ i $4$ cm; la raó és "
      "$k=\\frac{6}{5}=1{,}2$ (del costat conegut del triangle "
-     "petit al del gran), no la inversa."),
+     "gran al del petit), no la inversa."),
    D("$3$ cm i $4$ cm", "PROGRESSIO_INVENTADA",
-     "Aquests valors són els costats del triangle GRAN, no els "
-     "del triangle petit que calen: encara has d'aplicar-hi la "
+     "Aquests valors són els costats del triangle PETIT, no els "
+     "del triangle gran que calen: encara has d'aplicar-hi la "
      "raó de semblança."),
    D("$18$ cm i $24$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquests valors surten de $3\\cdot6$ i $4\\cdot6$ sense "
@@ -416,7 +435,7 @@ Q("154c", 154, "c", B2, "A",
   ["La raó de semblança és $k=\\dfrac{6}{5}=1{,}2$ (el costat de "
    "$6$ cm correspon al de $5$ cm, el més llarg del triangle "
    "petit).",
-   "Aplica aquesta raó als altres dos costats del triangle gran "
+   "Aplica aquesta raó als altres dos costats del triangle petit "
    "($3$ cm i $4$ cm)."],
   [r"$k=\dfrac{6}{5}=1{,}2$",
    r"$3\cdot1{,}2=3{,}6$ cm$\qquad 4\cdot1{,}2=4{,}8$ cm"],

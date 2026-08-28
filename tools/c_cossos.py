@@ -659,7 +659,7 @@ for qid, letra, L, area in [
        "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."],
       [f"$A=L^2\\sqrt3={dz(L)}^2\\cdot\\sqrt3$",
        f"$A\\approx{dz(area)}$ cm$^2$"],
-      figura=tetraedre(L, etq=f"{dz(L)} cm"),
+      figura=tetraedre(L),
       ex_text=E180)
 
 # ---- exercici 181: dues piràmides (quadrangular i hexagonal) ----
@@ -1130,7 +1130,7 @@ Q("195f", 195, "f", B4, "A",
   ["El volum d'un cub d'aresta $L$ és $V=L^3$."],
   [r"$V=4^3=4\cdot4\cdot4$",
    "$V=64$ cm$^3$"],
-  figura=cub(6),
+  figura=cub(4),
   ex_text=E195)
 
 # ---- exercici 196: pintar una habitació de 4x6x3 m ----
@@ -1276,4 +1276,4 @@ Q("199", 199, "", B4, "A",
    r"$r=\sqrt[3]{\frac{3\cdot125}{4\pi}}\approx3{,}10$ cm i àrea "
    r"$4\pi r^2\approx120{,}88$ cm$^2$, menor que la del cub: a "
    r"igualtat de volum, l'esfera necessita menys material.)"],
-  figura=esfera(0, etq_radi="r"))
+  figura=cub(5, etq="?"))

@@ -1734,7 +1734,7 @@ window.FULL = {
    "opcions": [
     "Puja de $5$ a $60$.",
     "Es queda pràcticament igual.",
-    "Puja de $5$ a $14{,}17$: gairebé es duplica.",
+    "Puja de $5$ a $14{,}17$: gairebé es triplica.",
     "Baixa, perquè ara hi ha més dades."
    ],
    "pistes": [

@@ -1211,7 +1211,7 @@ Q("143a", 143, "a", B3, "A",
   ["Àrea del quadrat: $5^2=25$ cm$^2$",
    "Àrea del triangle: $\\dfrac{25}{2}=12{,}5$ cm$^2$"],
   ex_text=E143,
-  figura=quadrat_diagonal(5))
+  figura=quadrat_diagonal(5, etiqueta_diagonal=""))
 
 Q("143b", 143, "b", B3, "A",
   "Un pentàgon regular de costat $4$ cm i apotema "
@@ -1262,24 +1262,24 @@ Q("143c", 143, "c", B3, "A",
   figura=poligon_regular(6, costat=3, triangle_central=True))
 
 Q("143d", 143, "d", B3, "A",
-  "Un octàgon regular de costat $3$ cm i apotema $5{,}54$ cm queda "
+  "Un octàgon regular de costat $3$ cm i apotema $3{,}62$ cm queda "
   "dividit en vuit triangles iguals unint el centre amb cada vèrtex. "
   "Quina és l'àrea d'un d'aquests triangles?",
-  "$8{,}31$ cm$^2$",
-  [D("$66{,}48$ cm$^2$", "PART_PEL_TOT",
+  "$5{,}43$ cm$^2$",
+  [D("$43{,}44$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea de l'OCTÀGON sencer (els $8$ triangles "
      "junts), no d'un sol triangle: divideix-la per $8$."),
-   D("$16{,}62$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+   D("$10{,}86$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un dels triangles és "
      "$\\dfrac{\\text{costat}\\cdot\\text{apotema}}{2}$, no el "
      "producte sencer."),
-   D("$4{,}155$ cm$^2$", "DIVISIO_REPETIDA",
+   D("$2{,}715$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
-     "has calculat $3\\cdot5{,}54$ abans de dividir per $2$.")],
+     "has calculat $3\\cdot3{,}62$ abans de dividir per $2$.")],
   ["Cada triangle té com a base el costat de l'octàgon i com a "
    "alçada l'apotema.",
-   "Àrea del triangle: $\\dfrac{3\\cdot5{,}54}{2}$."],
-  ["$A=\\dfrac{3\\cdot5{,}54}{2}=\\dfrac{16{,}62}{2}=8{,}31$ cm$^2$"],
+   "Àrea del triangle: $\\dfrac{3\\cdot3{,}62}{2}$."],
+  ["$A=\\dfrac{3\\cdot3{,}62}{2}=\\dfrac{10{,}86}{2}=5{,}43$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(8, costat=3, triangle_central=True))
 
@@ -1493,7 +1493,7 @@ Q("148b", 148, "b", B4, "A",
   ["Costat: $\\dfrac{160}{4}=40$ m",
    "Àrea: $40^2=1\\,600$ m$^2$"],
   ex_text="",
-  figura=poligon_regular(4, costat=40))
+  figura=poligon_regular(4, costat=40, unitat="m"))
 
 Q("149", 149, "", B4, "A",
   "Un senyal de trànsit d'STOP té forma d'octàgon regular, amb una "
@@ -1550,7 +1550,7 @@ Q("150", 150, "", B4, "A",
    "Cost total ($50$ pisos): $46\\,765{,}37\\times50"
    "\\approx2\\,338\\,268{,}59$ €"],
   ex_text="",
-  figura=poligon_regular(6, costat=30))
+  figura=poligon_regular(6, costat=30, unitat="m"))
 
 Q("151", 151, "", B4, "A",
   "Un pastisser ha cobert de sucre la part superior de 200 "

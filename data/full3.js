@@ -520,20 +520,19 @@ window.FULL = {
    "bloc": "termes",
    "tipus": "B",
    "dif": 2,
-   "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$:",
-   "enunciat": "Comprova que $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$ és una progressió aritmètica.",
+   "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$:",
+   "enunciat": "Comprova que $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$ és una progressió aritmètica.",
    "opcions": [
-    "No, perquè $0-\\dfrac23=-\\dfrac23$, que no coincideix amb la diferència $-\\dfrac13$ dels altres termes.",
+    "No, perquè $1-\\dfrac53=-\\dfrac23$, que no coincideix amb la diferència $-\\dfrac13$ dels altres termes.",
     "No, perquè els termes van disminuint.",
-    "Sí, perquè la diferència entre termes consecutius coneguts és sempre la mateixa: $d=-\\dfrac13$ (el $0$ que ve després no és el cinquè terme immediat, sinó un terme posterior de la successió).",
+    "Sí, perquè la diferència entre termes consecutius és sempre la mateixa: $d=-\\dfrac13$.",
     "Sí, perquè tots els termes són fraccions amb denominador $3$."
    ],
    "pistes": [
-    "Calcula la diferència entre els termes consecutius que coneixes amb seguretat: els quatre primers.",
-    "$\\dfrac43-\\dfrac53=-\\dfrac13$, $1-\\dfrac43=-\\dfrac13$, $\\dfrac23-1=-\\dfrac13$: sempre la mateixa."
+    "Calcula la diferència entre cada terme i el següent."
    ],
-   "nota": "Els punts suspensius amaguen un terme intermedi: amb $d=-\\dfrac13$, el terme que segueix $\\dfrac23$ és $\\dfrac13$ (cinquè), i el $0$ de l'enunciat és en realitat el sisè terme, no el cinquè. La progressió és consistent igualment, com confirmen els quatre primers termes.",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyLDiXMgY2VydCBxdWUgYXF1ZXN0YSByZXN0YSBubyBkb25hICQtXFxkZnJhYzEzJCwgcGVyw7Igw6lzIHBlcnF1w6ggZWwgJDAkIE5PIMOpcyBlbCB0ZXJtZSBpbW1lZGlhdGFtZW50IHNlZ8O8ZW50IGEgJFxcZGZyYWMyMyQgZW4gYXF1ZXN0YSBzdWNjZXNzacOzIChoaSBoYSB1biB0ZXJtZSBpbnRlcm1lZGksICRcXGRmcmFjMTMkLCBxdWUgbm8gcydlc2NyaXUgZXhwbMOtY2l0YW1lbnQpOiBlbHMgcXVhdHJlIHByaW1lcnMgdGVybWVzIGphIGNvbmZpcm1lbiBxdWUgc8OtIHF1ZSDDqXMgdW5hIFBBLiIsICJRdWUgZWxzIHRlcm1lcyBkaXNtaW51ZWl4aW4gbm8gaW1wZWRlaXggcXVlIHNpZ3VpIHVuYSBQQTogdW5hIGRpZmVyw6huY2lhIG5lZ2F0aXZhIGkgY29uc3RhbnQgdGFtYsOpIGRlZmluZWl4IHVuYSBwcm9ncmVzc2nDsyBhcml0bcOodGljYS4iLCAiIiwgIkVsIGZldCBxdWUgZWwgZGVub21pbmFkb3Igc2lndWkgJDMkIMOpcyBub23DqXMgdW5hIG1hbmVyYSBkJ2VzY3JpdXJlIGVscyB0ZXJtZXMgKCQxPVxcZGZyYWMzMyQpOiBlbCBxdWUgY2FsIGNvbXByb3ZhciDDqXMgcXVlIGxhIGRpZmVyw6huY2lhIGVudHJlIHRlcm1lcyBjb25zZWN1dGl1cyBzaWd1aSBjb25zdGFudC4iXSwgImVyciI6IFsiREVTUExBQ0FNRU5UX0lOREVYIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiUkFPTkFNRU5UX0FERElUSVUiXSwgInJlcyI6IFsiJFxcZGZyYWM0My1cXGRmcmFjNTM9LVxcZGZyYWMxMyQsICQxLVxcZGZyYWM0Mz0tXFxkZnJhYzEzJCwgJFxcZGZyYWMyMy0xPS1cXGRmcmFjMTMkOiBsYSBkaWZlcsOobmNpYSBlbnRyZSBlbHMgcXVhdHJlIHByaW1lcnMgdGVybWVzIMOpcyBjb25zdGFudCwgJGQ9LVxcZGZyYWMxMyQsIHBlciB0YW50IHPDrSBxdWUgw6lzIHVuYSBwcm9ncmVzc2nDsyBhcml0bcOodGljYSIsICJFbCAkMCQgZGUgbCdlbnVuY2lhdCDDqXMgdW4gdGVybWUgcG9zdGVyaW9yIChubyBlbCBjaW5xdcOoKTogY29udGludWFudCBhIHJlc3RhciAkXFxkZnJhYzEzJCBkZXMgZGUgJFxcZGZyYWMyMyQgcydvYnTDqSAkXFxkZnJhYzEzJCAoZWwgY2lucXXDqCB0ZXJtZSkgaSBkZXNwcsOpcyBzw60sICQwJCAoZWwgc2lzw6gpIl19"
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFc3TDoHMgcmVzdGFudCB0ZXJtZXMgcXVlIG5vIHPDs24gY29uc2VjdXRpdXM6ICQxJCDDqXMgZWwgdGVyY2VyIHRlcm1lIGkgJFxcZGZyYWM1MyQgZWwgcHJpbWVyLCBlbHMgc2VwYXJlbiBkdWVzIHBvc2ljaW9ucy4gRW50cmUgdGVybWVzIGNvbnNlY3V0aXVzLCBjb20gJFxcZGZyYWM0My1cXGRmcmFjNTM9LVxcZGZyYWMxMyQsIGxhIGRpZmVyw6huY2lhIHPDrSBxdWUgw6lzIGNvbnN0YW50LiIsICJRdWUgZWxzIHRlcm1lcyBkaXNtaW51ZWl4aW4gbm8gaW1wZWRlaXggcXVlIHNpZ3VpIHVuYSBQQTogdW5hIGRpZmVyw6huY2lhIG5lZ2F0aXZhIGkgY29uc3RhbnQgdGFtYsOpIGRlZmluZWl4IHVuYSBwcm9ncmVzc2nDsyBhcml0bcOodGljYS4iLCAiIiwgIkVsIGZldCBxdWUgZWwgZGVub21pbmFkb3Igc2lndWkgJDMkIMOpcyBub23DqXMgdW5hIG1hbmVyYSBkJ2VzY3JpdXJlIGVscyB0ZXJtZXMgKCQxPVxcZGZyYWMzMyQpOiBlbCBxdWUgY2FsIGNvbXByb3ZhciDDqXMgcXVlIGxhIGRpZmVyw6huY2lhIGVudHJlIHRlcm1lcyBjb25zZWN1dGl1cyBzaWd1aSBjb25zdGFudC4iXSwgImVyciI6IFsiQ09NUEFSQV9URVJNRVMiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhYzQzLVxcZGZyYWM1Mz0tXFxkZnJhYzEzJCwgJDEtXFxkZnJhYzQzPS1cXGRmcmFjMTMkLCAkXFxkZnJhYzIzLTE9LVxcZGZyYWMxMyQsICRcXGRmcmFjMTMtXFxkZnJhYzIzPS1cXGRmcmFjMTMkOiBsYSBkaWZlcsOobmNpYSDDqXMgY29uc3RhbnQsICRkPS1cXGRmcmFjMTMkLCBwZXIgdGFudCBzw60gcXVlIMOpcyB1bmEgcHJvZ3Jlc3Npw7MgYXJpdG3DqHRpY2EiXX0="
   },
   {
    "id": "51b",
@@ -542,8 +541,8 @@ window.FULL = {
    "bloc": "termes",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$:",
-   "enunciat": "Terme general de $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;0,\\dots$",
+   "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$:",
+   "enunciat": "Terme general de $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$",
    "opcions": [
     "$a_n=\\dfrac53-\\dfrac{n}{3}$",
     "$a_n=\\dfrac53-(n-1)\\cdot\\dfrac13$",

@@ -1753,19 +1753,19 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "Completa les igualtats.",
-   "enunciat": "$(\\square^2)^5\\cdot\\square^4=(-3)^{14}$",
+   "enunciat": "$(\\square^2)^5\\cdot\\square^3=(-3)^{13}$",
    "opcions": [
-    "$-14$",
+    "$-13$",
     "$-3$",
     "$3$",
-    "$14$"
+    "$13$"
    ],
    "pistes": [
-    "$(\\square^2)^5\\cdot\\square^4=\\square^{10}\\cdot\\square^4=\\square^{14}$.",
-    "$\\square^{14}=(-3)^{14}$: la base que falta és $-3$."
+    "$(\\square^2)^5\\cdot\\square^3=\\square^{10}\\cdot\\square^3=\\square^{13}$.",
+    "$\\square^{13}=(-3)^{13}$: la base que falta és $-3$."
    ],
-   "nota": "Numèricament, $3^{14}=(-3)^{14}$ també compliria la igualtat (l'exponent $14$ és parell). Interpretem que l'exercici demana identificar la base que apareix al segon membre, $-3$, no totes les solucions numèriques possibles.",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29uZsOzcyBsJ2V4cG9uZW50IGZpbmFsLCAkMTQkLCBhbWIgbGEgYmFzZSBxdWUgZmFsdGEuIiwgIiIsICJMJ2V4cG9uZW50IGZpbmFsLCAkMTQkLCDDqXMgcGFyZWxsLCBwZXLDsiBhaXjDsiBubyB2b2wgZGlyIHF1ZSBsYSBiYXNlIGhhZ2kgZGUgc2VyIHBvc2l0aXZhOiBsYSBiYXNlIGhhIGRlIGNvaW5jaWRpciBhbWIgbGEgZGVsIHNlZ29uIG1lbWJyZSwgJC0zJC4iLCAiSGFzIGNvbmbDs3MgbCdleHBvbmVudCBmaW5hbCwgJDE0JCwgYW1iIGxhIGJhc2UgcXVlIGZhbHRhLiJdLCAiZXJyIjogWyJCQVNFX0VYUE9ORU5UX0lOVEVSQ0FOVklBVFMiLCAiIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiQkFTRV9FWFBPTkVOVF9JTlRFUkNBTlZJQVRTIl0sICJyZXMiOiBbIiQoXFxzcXVhcmVeMileNVxcY2RvdFxcc3F1YXJlXjQ9XFxzcXVhcmVeezEwKzR9PVxcc3F1YXJlXnsxNH09KC0zKV57MTR9XFxSaWdodGFycm93XFxzcXVhcmU9LTMkIl19"
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29uZsOzcyBsJ2V4cG9uZW50IGZpbmFsLCAkMTMkLCBhbWIgbGEgYmFzZSBxdWUgZmFsdGEuIiwgIiIsICJBbWIgZXhwb25lbnQgc2VuYXIsIGVsIHNpZ25lIGRlIGxhIGJhc2UgZXMgY29uc2VydmEgZW4gZWwgcmVzdWx0YXQ6ICQzXnsxM30kIMOpcyBwb3NpdGl1IGkgJCgtMyleezEzfSQgw6lzIG5lZ2F0aXUsIG5vIHPDs24gaWd1YWxzLiBMYSBiYXNlIGhhIGRlIHNlciAkLTMkLiIsICJIYXMgY29uZsOzcyBsJ2V4cG9uZW50IGZpbmFsLCAkMTMkLCBhbWIgbGEgYmFzZSBxdWUgZmFsdGEuIl0sICJlcnIiOiBbIkJBU0VfRVhQT05FTlRfSU5URVJDQU5WSUFUUyIsICIiLCAiUEFSSVRBVF9FWFBPTkVOVCIsICJCQVNFX0VYUE9ORU5UX0lOVEVSQ0FOVklBVFMiXSwgInJlcyI6IFsiJChcXHNxdWFyZV4yKV41XFxjZG90XFxzcXVhcmVeMz1cXHNxdWFyZV57MTArM309XFxzcXVhcmVeezEzfT0oLTMpXnsxM31cXFJpZ2h0YXJyb3dcXHNxdWFyZT0tMyQiXX0="
   },
   {
    "id": "46c",

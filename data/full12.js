@@ -577,19 +577,18 @@ window.FULL = {
    "tipus": "A",
    "dif": 2,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
-   "enunciat": "«Nombre més petit que $7$»",
+   "enunciat": "«Nombre més gran que $7$»",
    "opcions": [
-    "$P=\\dfrac{1}{6}$, comptant només el valor $6$ com a límit",
-    "$P=\\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho compleixen: és un esdeveniment segur)",
-    "Aquest esdeveniment és impossible, $P=0$, perquè el dau no arriba a $7$",
-    "$P=\\dfrac{5}{6}$, perquè el $6$ no compta"
+    "$P=\\dfrac{1}{6}$, comptant el $6$ com a cas favorable",
+    "$P=\\dfrac{0}{6}=0$ (cap resultat del dau, de l'$1$ al $6$, supera el $7$: és un esdeveniment impossible)",
+    "$P=\\dfrac{1}{6}$, considerant el $7$ com un resultat possible del dau",
+    "$P=\\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i per tant és un esdeveniment segur"
    ],
    "pistes": [
-    "Aquest apartat repeteix literalment el mateix enunciat que l'anterior: el raonament és idèntic.",
-    "Quins valors del $1$ al $6$ són més petits que $7$?"
+    "Quins valors del $1$ al $6$ són més grans que $7$?"
    ],
-   "nota": "Aquest apartat té el mateix text que el c) al full de partida, i per tant la mateixa resposta: en un dau de l'1 al 6, cap resultat arriba a $7$.",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2VzZGV2ZW5pbWVudCBubyBkZW1hbmEgXCJzZXIgZXhhY3RhbWVudCAkNiRcIjogZGVtYW5hIFwic2VyIG3DqXMgcGV0aXQgcXVlICQ3JFwiLCBxdWUgY29tcGxlaXhlbiB0b3RzIGVscyAkNiQgcmVzdWx0YXRzIHBvc3NpYmxlcyBkZWwgZGF1LiIsICIiLCAiUXVlIGVsIGRhdSBubyBhcnJpYmkgYSAkNyQgw6lzIGV4YWN0YW1lbnQgZWwgbW90aXUgcGVsIHF1YWwgVE9UUyBlbHMgc2V1cyByZXN1bHRhdHMgc8OzbiBtw6lzIHBldGl0cyBxdWUgJDckOiBhcXVlc3QgZXNkZXZlbmltZW50IMOpcyBzZWd1ciAoJFA9MSQpLCBubyBpbXBvc3NpYmxlLiIsICJFbCAkNiQgU8ONIMOpcyBtw6lzIHBldGl0IHF1ZSAkNyQ6IHRhbWLDqSBjb21wdGEgY29tIGEgY2FzIGZhdm9yYWJsZS4gVG90cyBlbHMgcmVzdWx0YXRzIGRlbCBkYXUgKCQxJCBhICQ2JCkgY29tcGxlaXhlbiBhcXVlc3RhIGNvbmRpY2nDsy4iXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyLCq05vbWJyZSBtw6lzIHBldGl0IHF1ZSAkNyTCuzogdG90cyBlbHMgcmVzdWx0YXRzICQxLDIsMyw0LDUsNiQgaG8gY29tcGxlaXhlbiwgJDYkIGNhc29zIGZhdm9yYWJsZXMuICRQPVxcZGZyYWN7Nn17Nn09MSQgKGVzZGV2ZW5pbWVudCBzZWd1cikiXX0="
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkNiQgTk8gw6lzIG3DqXMgZ3JhbiBxdWUgJDckOiBjYXAgcmVzdWx0YXQgZGVsIGRhdSBobyBjb21wbGVpeCwgc8OzbiAkMCQgY2Fzb3MgZmF2b3JhYmxlcywgbm8gJDEkLiIsICIiLCAiVW4gZGF1IG5vbcOpcyB0w6kgJDYkIGNhcmVzLCBudW1lcmFkZXMgZGUgbCckMSQgYWwgJDYkOiBlbCAkNyQgbm8gw6lzIGNhcCByZXN1bHRhdCBwb3NzaWJsZSwgbmkgY29tcHRhIGNvbSBhIGNhcyBmYXZvcmFibGUgbmkgY29tIGEgcG9zc2libGUuIiwgIlF1ZSBjYXAgcmVzdWx0YXQgZGVsIGRhdSBjb21wbGVpeGkgbGEgY29uZGljacOzIMOpcyBleGFjdGFtZW50IGVsIG1vdGl1IHBlbCBxdWFsIGFxdWVzdCBlc2RldmVuaW1lbnQgw6lzIElNUE9TU0lCTEUgKCRQPTAkKSwgbm8gc2VndXI6IHNpIGNhcCBjYXMgw6lzIGZhdm9yYWJsZSwgbGEgcHJvYmFiaWxpdGF0IMOpcyAkMCQsIG5vICQxJC4iXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIiwgIkNBU09TX1BPU1NJQkxFU19NQUxfQ09NUFRBVFMiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIsKrTm9tYnJlIG3DqXMgZ3JhbiBxdWUgJDckwrs6IGNhcCByZXN1bHRhdCBkZWwgZGF1ICgkMSQgYSAkNiQpIGhvIGNvbXBsZWl4LCAkMCQgY2Fzb3MgZmF2b3JhYmxlcy4gJFA9XFxkZnJhY3swfXs2fT0wJCAoZXNkZXZlbmltZW50IGltcG9zc2libGUpIl19"
   },
   {
    "id": "240e",
@@ -1611,7 +1610,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat que encerti la combinació al primer intent? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
+   "enunciat": "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat d'encertar, al primer intent, la clau d'un dels panys? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
    "opcions": [
     "Amb $3$ claus i $3$ panys, $P=\\dfrac13$; però amb $3$ claus i $2$ panys, $P=\\dfrac12$, perquè hi ha menys panys",
     "No es pot calcular sense saber en quin ordre es proven les claus",

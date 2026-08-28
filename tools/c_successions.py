@@ -438,11 +438,10 @@ Q("50c", 50, "c", B1, "A",
 
 
 Q("51a", 51, "a", B1, "B",
-  r"Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$ és una "
-  r"progressió aritmètica.",
-  "Sí, perquè la diferència entre termes consecutius coneguts és sempre "
-  "la mateixa: $d=-\\dfrac13$ (el $0$ que ve després no és el cinquè "
-  "terme immediat, sinó un terme posterior de la successió).",
+  r"Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ "
+  r"és una progressió aritmètica.",
+  "Sí, perquè la diferència entre termes consecutius és sempre la "
+  "mateixa: $d=-\\dfrac13$.",
   [D("No, perquè els termes van disminuint.", "VEREDICTE_INVERTIT",
      "Que els termes disminueixin no impedeix que sigui una PA: una "
      "diferència negativa i constant també defineix una progressió "
@@ -452,34 +451,23 @@ Q("51a", 51, "a", B1, "B",
      "El fet que el denominador sigui $3$ és només una manera "
      "d'escriure els termes ($1=\\dfrac33$): el que cal comprovar és "
      "que la diferència entre termes consecutius sigui constant."),
-   D("No, perquè $0-\\dfrac23=-\\dfrac23$, que no coincideix amb la "
-     "diferència $-\\dfrac13$ dels altres termes.", "DESPLACAMENT_INDEX",
-     "És cert que aquesta resta no dona $-\\dfrac13$, però és perquè "
-     "el $0$ NO és el terme immediatament següent a $\\dfrac23$ en "
-     "aquesta successió (hi ha un terme intermedi, $\\dfrac13$, que "
-     "no s'escriu explícitament): els quatre primers termes ja "
-     "confirmen que sí que és una PA.")],
-  ["Calcula la diferència entre els termes consecutius que coneixes "
-   "amb seguretat: els quatre primers.",
-   "$\\dfrac43-\\dfrac53=-\\dfrac13$, $1-\\dfrac43=-\\dfrac13$, "
-   "$\\dfrac23-1=-\\dfrac13$: sempre la mateixa."],
+   D("No, perquè $1-\\dfrac53=-\\dfrac23$, que no coincideix amb la "
+     "diferència $-\\dfrac13$ dels altres termes.", "COMPARA_TERMES",
+     "Estàs restant termes que no són consecutius: $1$ és el tercer "
+     "terme i $\\dfrac53$ el primer, els separen dues posicions. "
+     "Entre termes consecutius, com $\\dfrac43-\\dfrac53=-\\dfrac13$, "
+     "la diferència sí que és constant.")],
+  ["Calcula la diferència entre cada terme i el següent."],
   ["$\\dfrac43-\\dfrac53=-\\dfrac13$, $1-\\dfrac43=-\\dfrac13$, "
-   "$\\dfrac23-1=-\\dfrac13$: la diferència entre els quatre primers "
-   "termes és constant, $d=-\\dfrac13$, per tant sí que és una "
-   "progressió aritmètica",
-   "El $0$ de l'enunciat és un terme posterior (no el cinquè): "
-   "continuant a restar $\\dfrac13$ des de $\\dfrac23$ s'obté "
-   "$\\dfrac13$ (el cinquè terme) i després sí, $0$ (el sisè)"],
+   "$\\dfrac23-1=-\\dfrac13$, $\\dfrac13-\\dfrac23=-\\dfrac13$: la "
+   "diferència és constant, $d=-\\dfrac13$, per tant sí que és una "
+   "progressió aritmètica"],
   ex_text=r"Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,"
-          r"\;0,\dots$:",
-  nota="Els punts suspensius amaguen un terme intermedi: amb "
-       "$d=-\\dfrac13$, el terme que segueix $\\dfrac23$ és "
-       "$\\dfrac13$ (cinquè), i el $0$ de l'enunciat és en realitat "
-       "el sisè terme, no el cinquè. La progressió és consistent "
-       "igualment, com confirmen els quatre primers termes.")
+          r"\;\dfrac13,\dots$:")
 
 Q("51b", 51, "b", B1, "A",
-  r"Terme general de $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$",
+  r"Terme general de $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,"
+  r"\dots$",
   r"$a_n=\dfrac53-(n-1)\cdot\dfrac13$",
   [DT(r"$a_n=\dfrac53+(n-1)\cdot\dfrac13$", "SIGNE_FINAL"),
    D(r"$a_n=\dfrac53-\dfrac{n}{3}$", "DESPLACAMENT_INDEX",
@@ -493,7 +481,7 @@ Q("51b", 51, "b", B1, "A",
    "$a_n=a_1+(n-1)d=\\dfrac53+(n-1)\\cdot\\left(-\\dfrac13\\right)$."],
   ["$a_n=a_1+(n-1)d=\\dfrac53-(n-1)\\cdot\\dfrac13$"],
   ex_text=r"Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,"
-          r"\;0,\dots$:")
+          r"\;\dfrac13,\dots$:")
 
 
 # =====================================================================

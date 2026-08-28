@@ -69,19 +69,22 @@ class Tales(unittest.TestCase):
         self.assertNotIn(">3.75<", svg)
         self.assertNotIn(">3.75 cm<", svg)
 
-    def test_tres_punts_amb_forats(self):
-        """153a: cap de les dues secants dona els 3 punts complets."""
-        svg = tales([("A", 2), ("B", 5), ("C", None)],
-                   [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC")
-        _assert_svg_valid(self, svg, "tales 3 punts amb forats")
+    def test_tres_punts_amb_un_forat(self):
+        """153a: OA, OB, OA', OC' coneguts, més OC derivat (=9) perquè hi
+        hagi dues posicions completes; B' és l'únic forat real."""
+        svg = tales([("A", 2), ("B", 5), ("C", 9)],
+                   [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC",
+                   acumulat=False)
+        _assert_svg_valid(self, svg, "tales 3 punts amb un forat")
 
-    def test_nomes_un_punt_a_una_secant(self):
-        """153b: la secant 'a' només dona un punt (B); A i C hi falten.
-        Geomètricament n'hi ha prou (un punt, més O, ja fixa la recta), i
-        la funció no ho hauria de rebutjar."""
-        svg = tales([("A", None), ("B", 9), ("C", None)],
-                   [("A'", 4), ("B'", 12), ("C'", 18)], "AB")
-        _assert_svg_valid(self, svg, "tales un sol punt")
+    def test_dos_punts_a_cada_secant_minim(self):
+        """153b: calen com a mínim dos punts DIBUIXATS a cada secant (a
+        més d'O) perquè hi hagi almenys una parella de paral·leles; un de
+        sol no basta encara que geomètricament ja fixi la recta."""
+        svg = tales([("A", 3), ("B", 9), ("C", None)],
+                   [("A'", 4), ("B'", 12), ("C'", 18)], "AB",
+                   acumulat=False)
+        _assert_svg_valid(self, svg, "tales dos punts per secant")
 
     def test_rao_extrema(self):
         """Un dels criteris d'acceptació del brief: una relació de Tales
@@ -106,6 +109,24 @@ class Tales(unittest.TestCase):
         cap proporció per plantejar: la funció ho ha de rebutjar."""
         with self.assertRaises(AssertionError):
             tales([("A", None), ("B", None)], [("A'", 5), ("B'", None)], "x")
+
+    def test_cal_almenys_dos_punts_per_secant(self):
+        """Un sol punt dibuixat en una secant (encara que fixi la recta
+        geomètricament) no permet cap parella de paral·leles: la funció ho
+        ha de rebutjar (bug real detectat a 153, on una crida així es
+        colava sense dibuixar cap transversal)."""
+        with self.assertRaises(AssertionError):
+            tales([("A", None), ("B", 9), ("C", None)],
+                 [("A'", 4), ("B'", 12), ("C'", 18)], "AB", acumulat=False)
+
+    def test_cal_almenys_dues_posicions_completes(self):
+        """Encara que cada secant tingui dos punts dibuixats, si no
+        comparteixen posició amb l'altra secant no hi ha cap parella per
+        formar una transversal."""
+        with self.assertRaises(AssertionError):
+            tales([("A", 2), ("B", 5), ("C", None)],
+                 [("A'", None), ("B'", None), ("C'", 11.7)], "BC",
+                 acumulat=False)
 
     def test_nombre_de_punts_ha_de_coincidir(self):
         with self.assertRaises(AssertionError):
@@ -141,36 +162,75 @@ class Tales(unittest.TestCase):
                                   "pendents %r" % pendents)
 
     def test_transversals_son_paral·leles_tres_punts(self):
-        """153a amb tres punts marcats (un forat a cada secant): només es
-        dibuixa UNA transversal (A-A'; ni B tampoc C en porten, perquè B'
-        no es dona i el forat trenca la parella), i per tant no hi ha res
-        a comparar entre elles —el test només confirma que la funció no
-        dibuixa cap transversal fantasma allà on falta un extrem."""
-        svg = tales([("A", 2), ("B", 5), ("C", None)],
-                   [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC")
+        """153a amb el punt C derivat afegit (OC=9): ara hi ha DUES
+        posicions completes (A-A' i C-C'), i totes dues transversals han
+        de sortir paral·leles (bug real: abans només es dibuixava A-A', i
+        la figura no arribava a mostrar cap parell de paral·leles)."""
+        svg = tales([("A", 2), ("B", 5), ("C", 9)],
+                   [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC",
+                   acumulat=False)
         pendents = self._pendents_transversals(svg)
-        self.assertEqual(len(pendents), 1,
-                        "hauria d'haver-hi exactament una transversal "
-                        "(A-A'); qualsevol altra seria fantasma")
+        self.assertEqual(len(pendents), 2,
+                        "haurien d'haver-hi exactament dues transversals "
+                        "(A-A' i C-C')")
+        self.assertAlmostEqual(pendents[0], pendents[1], places=1,
+                              msg="les dues transversals no són paral·leles: "
+                                  "pendents %r" % pendents)
 
     def test_transversal_nomes_on_hi_ha_els_dos_extrems(self):
-        """153c: A i C coneguts a la secant a (B forat); B' i C' coneguts
-        a la secant b (A' forat). Només C-C' té els dos extrems, així que
-        només aquesta transversal s'ha de dibuixar."""
-        svg = tales([("A", 5), ("B", None), ("C", 22.5)],
-                   [("A'", None), ("B'", 24), ("C'", 36)], "AB")
+        """153c: A, B (derivat) i C coneguts a la secant a; B' i C' a la
+        secant b (A' forat). B-B' i C-C' tenen els dos extrems coneguts,
+        així que han de sortir exactament aquestes dues transversals,
+        paral·leles entre si."""
+        svg = tales([("A", 5), ("B", 15), ("C", 22.5)],
+                   [("A'", None), ("B'", 24), ("C'", 36)], "AB",
+                   acumulat=False)
         pendents = self._pendents_transversals(svg)
-        self.assertEqual(len(pendents), 1,
-                        "només C-C' té els dos extrems coneguts")
+        self.assertEqual(len(pendents), 2,
+                        "B-B' i C-C' tenen els dos extrems coneguts")
+        self.assertAlmostEqual(pendents[0], pendents[1], places=1,
+                              msg="les dues transversals no són paral·leles: "
+                                  "pendents %r" % pendents)
 
     def test_transversal_unica_quan_nomes_una_posicio_completa(self):
-        """153b: només B (secant a) i B' (secant b) coincideixen amb els
-        dos extrems coneguts a la mateixa posició (A i C hi falten a la
-        secant a); ha de sortir exactament una transversal, B-B'."""
-        svg = tales([("A", None), ("B", 9), ("C", None)],
-                   [("A'", 4), ("B'", 12), ("C'", 18)], "AB")
+        """153b: A (derivat), B coneguts a la secant a; A', B' coneguts a
+        la secant b (C forat a totes dues). A-A' i B-B' tenen els dos
+        extrems coneguts, així que han de sortir exactament aquestes dues
+        transversals, paral·leles entre si."""
+        svg = tales([("A", 3), ("B", 9), ("C", None)],
+                   [("A'", 4), ("B'", 12), ("C'", 18)], "AB",
+                   acumulat=False)
         pendents = self._pendents_transversals(svg)
-        self.assertEqual(len(pendents), 1, "només B-B' té els dos extrems")
+        self.assertEqual(len(pendents), 2, "A-A' i B-B' tenen els dos extrems")
+        self.assertAlmostEqual(pendents[0], pendents[1], places=1,
+                              msg="les dues transversals no són paral·leles: "
+                                  "pendents %r" % pendents)
+
+    def test_acumulat_false_no_suma_les_distancies(self):
+        """LA comprovació central del bug de 153: amb `acumulat=False`,
+        OB=5 s'ha de dibuixar a distància proporcional a 5 des d'O, NO a
+        distància proporcional a 7 (=OA+OB, el que passava quan la funció
+        tractava sempre els valors com a trams a sumar)."""
+        svg = tales([("A", 2), ("B", 5), ("C", 9)],
+                   [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC",
+                   acumulat=False)
+        coords = re.findall(
+            r'<line x1="([-\d.]+)" y1="([-\d.]+)" x2="([-\d.]+)" y2="([-\d.]+)"',
+            svg)
+        ox, oy = (float(v) for v in coords[0][:2])
+        # coords[0] és O->C (últim punt de la secant a, distància real 9);
+        # coords[1] és O->C' (secant b, distància real 11.7): la raó entre
+        # les dues longituds de dibuix ha de ser igual a la raó real 9:11.7,
+        # no a cap altra combinació que sortiria de sumar els trams.
+        x1a, y1a = (float(v) for v in coords[0][2:])
+        x1b, y1b = (float(v) for v in coords[1][2:])
+        len_a = math.hypot(x1a - ox, y1a - oy)
+        len_b = math.hypot(x1b - ox, y1b - oy)
+        self.assertAlmostEqual(len_a / len_b, 9.0 / 11.7, places=2,
+                              msg="la proporció de les longituds dibuixades "
+                                  "no coincideix amb OC:OC'=9:11.7 — sembla "
+                                  "que s'estan sumant les distàncies en "
+                                  "lloc de fer-les servir com a absolutes")
 
     def test_incognita_amb_valor_real_incorrecte_trenca_paral·lelisme(self):
         """Comprovació negativa, per deixar constància del mecanisme: si
@@ -319,6 +379,44 @@ class FiguresSemblantsK(unittest.TestCase):
         m = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
         amplada = int(m.group(1))
         self.assertLess(amplada, 600, "viewBox massa ample per k=20 capat")
+
+    def test_k4_no_es_capa_com_k3(self):
+        """290a i 290b (k=4): el llindar de capat ha de cobrir sencer el
+        rang real dels exercicis del bloc, perquè k=4 es dibuixi a la
+        seva pròpia mida i no quedi indistingible d'un exercici amb k=3
+        de veritat (bug real: amb un llindar de 3, tant k=3 com k=4 es
+        dibuixaven amb la mateixa raó visual de 3,0, cosa que ensenyava
+        una raó equivocada precisament a l'ítem que la pregunta)."""
+        svg3 = figures_semblants_k(3, "triangle")
+        svg4 = figures_semblants_k(4, "triangle")
+
+        def amplada(svg):
+            m = re.search(r'viewBox="0 0 (\d+) ', svg)
+            return int(m.group(1))
+        self.assertNotEqual(amplada(svg3), amplada(svg4),
+                            "k=3 i k=4 es dibuixen amb la mateixa mida: "
+                            "el capat visual esborra la diferència entre "
+                            "dues raons diferents que apareixen totes dues "
+                            "en exercicis reals (290)")
+
+    def test_rao_real_es_proporcional_per_sota_del_llindar(self):
+        """Per sota del llindar de capat, la raó visual ha de ser
+        exactament la raó real k (mesurada com a amplada del bounding box
+        de la figura gran respecte a la petita), no una aproximació."""
+        for k in (1.5, 2, 2.5, 3, 4):
+            svg = figures_semblants_k(k, "quadrat")
+            polys = re.findall(r'<polygon points="([^"]+)"', svg)
+            self.assertEqual(len(polys), 2)
+
+            def amplada_poligon(pts_str):
+                xs = [float(p.split(",")[0]) for p in pts_str.split()]
+                return max(xs) - min(xs)
+            mida_a = amplada_poligon(polys[0])
+            mida_b = amplada_poligon(polys[1])
+            self.assertAlmostEqual(mida_b / mida_a, k, places=2,
+                                  msg="amb k=%s per sota del llindar, la "
+                                      "raó visual (%.3f) hauria de ser "
+                                      "exactament k" % (k, mida_b / mida_a))
 
     def test_rao_petita_tambe_funciona(self):
         """294: una maqueta a escala 1:50 és k=1/50, molt per sota de 1."""
