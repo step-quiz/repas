@@ -234,16 +234,14 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="nota"><strong>Nota interna (no es publica):</strong> Molt probablement una errata editorial de la font (el text es repeteix literalment). Es mantenen els dos apartats amb el mateix esdeveniment, com fa r-im12.</p>
 </div>
 <div class="it"><div class="cap"><span class="cod">240d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
-<div class="enun">«Nombre més petit que $7$»</div>
-<ol class="op"><li><span class="ok">$P=\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho compleixen: és un esdeveniment segur)</span> — resposta correcta</li>
-<li>$P=\dfrac{5}{6}$, perquè el $6$ no compta<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $6$ SÍ és més petit que $7$: també compta com a cas favorable. Tots els resultats del dau ($1$ a $6$) compleixen aquesta condició.</span></li>
-<li>$P=\dfrac{1}{6}$, comptant només el valor $6$ com a límit<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">L'esdeveniment no demana "ser exactament $6$": demana "ser més petit que $7$", que compleixen tots els $6$ resultats possibles del dau.</span></li>
-<li>Aquest esdeveniment és impossible, $P=0$, perquè el dau no arriba a $7$<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que el dau no arribi a $7$ és exactament el motiu pel qual TOTS els seus resultats són més petits que $7$: aquest esdeveniment és segur ($P=1$), no impossible.</span></li>
+<div class="enun">«Nombre més gran que $7$»</div>
+<ol class="op"><li><span class="ok">$P=\dfrac{0}{6}=0$ (cap resultat del dau, de l'$1$ al $6$, supera el $7$: és un esdeveniment impossible)</span> — resposta correcta</li>
+<li>$P=\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i per tant és un esdeveniment segur<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que cap resultat del dau compleixi la condició és exactament el motiu pel qual aquest esdeveniment és IMPOSSIBLE ($P=0$), no segur: si cap cas és favorable, la probabilitat és $0$, no $1$.</span></li>
+<li>$P=\dfrac{1}{6}$, comptant el $6$ com a cas favorable<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $6$ NO és més gran que $7$: cap resultat del dau ho compleix, són $0$ casos favorables, no $1$.</span></li>
+<li>$P=\dfrac{1}{6}$, considerant el $7$ com un resultat possible del dau<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">Un dau només té $6$ cares, numerades de l'$1$ al $6$: el $7$ no és cap resultat possible, ni compta com a cas favorable ni com a possible.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquest apartat repeteix literalment el mateix enunciat que l'anterior: el raonament és idèntic.</li><li>Quins valors del $1$ al $6$ són més petits que $7$?</li></ol>
-<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho compleixen, $6$ casos favorables. $P=\dfrac{6}{6}=1$ (esdeveniment segur)</li></ol>
-<p class="nota"><strong>Nota:</strong> Aquest apartat té el mateix text que el c) al full de partida, i per tant la mateixa resposta: en un dau de l'1 al 6, cap resultat arriba a $7$.</p>
-<p class="nota"><strong>Nota interna (no es publica):</strong> Repetició literal del text del 240c a la font, probablement una errata editorial.</p>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins valors del $1$ al $6$ són més grans que $7$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho compleix, $0$ casos favorables. $P=\dfrac{0}{6}=0$ (esdeveniment impossible)</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">240e</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">«Nombre més gran o igual que $2$»</div>
@@ -728,7 +726,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 258.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">258</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
-<div class="enun">Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat que encerti la combinació al primer intent? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?</div>
+<div class="enun">Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat d'encertar, al primer intent, la clau d'un dels panys? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?</div>
 <ol class="op"><li><span class="ok">En tots dos casos, $P(\text{encertar})=\dfrac13$</span> — resposta correcta</li>
 <li>Amb $3$ claus i $3$ panys, $P=\dfrac13$; però amb $3$ claus i $2$ panys, $P=\dfrac12$, perquè hi ha menys panys<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El que compta no és quants panys hi ha, sinó quantes CLAUS tens per triar (sempre $3$) i quantes d'elles obren el pany concret que proves (sempre només $1$): el resultat no canvia encara que hi hagi menys panys.</span></li>
 <li>Amb $3$ claus i $3$ panys, $P=\dfrac33=1$, perquè totes les claus obren algun pany<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Que totes les claus obrin ALGUN pany no vol dir que qualsevol clau obri EL pany concret que estàs provant: només $1$ de les $3$ claus obre aquell pany en particular.</span></li>
@@ -1071,14 +1069,14 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td>Probabilitat condicionada</td><td>1</td><td>5</td><td>6</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>CASOS_FAVORABLES_MAL_COMPTATS</code></td><td>60</td><td>240a, 240a, 240b, 240b, 240b, 240c, 240c, 240d, 240d, 240e, 240e, 240e, 242, 242…</td></tr>
+<tr><td><code>CASOS_FAVORABLES_MAL_COMPTATS</code></td><td>59</td><td>240a, 240a, 240b, 240b, 240b, 240c, 240c, 240d, 240e, 240e, 240e, 242, 242, 248c…</td></tr>
 <tr><td><code>ESPAI_MOSTRAL_MAL_COMPTAT</code></td><td>27</td><td>236a, 236a, 236a, 236b, 236b, 236b, 236c, 236c, 236c, 236d, 236d, 236d, 236e, 236e…</td></tr>
 <tr><td><code>PRINCIPI_MULTIPLICATIU_MAL_APLICAT</code></td><td>22</td><td>237, 237, 243, 243, 243, 244, 244, 244, 245, 245, 245, 246, 247, 248a…</td></tr>
 <tr><td><code>UNIO_INTERSECCIO_CONFOSES</code></td><td>19</td><td>249b, 249b, 249c, 249c, 249c, 249d, 249d, 254c, 254c, 254c, 255, 255, 256a, 256b…</td></tr>
 <tr><td><code>PROBABILITAT_CONDICIONADA_MAL</code></td><td>18</td><td>254a, 254b, 254b, 257b, 257b, 257b, 257c, 257c, 257c, 314a, 314b, 314c, 316a, 316b…</td></tr>
 <tr><td><code>CAMI_ARBRE_MAL_MULTIPLICAT</code></td><td>16</td><td>305a, 305a, 305c, 306c, 306c, 308a, 308a, 308b, 308b, 308b, 309b, 309b, 310a, 315a…</td></tr>
 <tr><td><code>CARTES_REPETIDES_CONFOSES</code></td><td>15</td><td>239a, 239a, 239a, 239b, 239b, 239b, 239c, 239c, 239c, 239d, 239d, 239d, 239e, 239e…</td></tr>
-<tr><td><code>CASOS_POSSIBLES_MAL_COMPTATS</code></td><td>14</td><td>242, 246, 241c, 252a, 252b, 254a, 257a, 258, 258, 259, 306a, 314a, 318, 320</td></tr>
+<tr><td><code>CASOS_POSSIBLES_MAL_COMPTATS</code></td><td>15</td><td>240d, 242, 246, 241c, 252a, 252b, 254a, 257a, 258, 258, 259, 306a, 314a, 318…</td></tr>
 <tr><td><code>ESDEVENIMENT_CONTRARI_MAL_CALCULAT</code></td><td>14</td><td>250c, 250d, 251b, 252c, 252c, 252c, 254b, 256a, 256b, 306a, 311, 312, 314a, 317</td></tr>
 <tr><td><code>REEMPLACAMENT_MAL_CONSIDERAT</code></td><td>13</td><td>305a, 305b, 305c, 306a, 306b, 306b, 306b, 307, 307, 309a, 309b, 310a, 310b</td></tr>
 <tr><td><code>CONDICIONADA_I_CONJUNTA_CONFOSES</code></td><td>10</td><td>314b, 314b, 314c, 314c, 315c, 315c, 316b, 316b, 318, 319</td></tr>

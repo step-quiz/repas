@@ -230,20 +230,19 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb $a_n=2n$, substitueix $n=30$.</li><li>$a_{30}=2\cdot30$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_n=2n\Rightarrow a_{30}=2\cdot30=60$</li></ol>
 </div>
-<p class="sec"><strong>Exercici 51.</strong> Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$:</p>
+<p class="sec"><strong>Exercici 51.</strong> Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$:</p>
 <div class="it"><div class="cap"><span class="cod">51a</span><span class="tip">tipus B · dificultat 2 (encadenada)</span></div>
-<div class="enun">Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$ és una progressió aritmètica.</div>
-<ol class="op"><li><span class="ok">Sí, perquè la diferència entre termes consecutius coneguts és sempre la mateixa: $d=-\dfrac13$ (el $0$ que ve després no és el cinquè terme immediat, sinó un terme posterior de la successió).</span> — resposta correcta</li>
+<div class="enun">Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ és una progressió aritmètica.</div>
+<ol class="op"><li><span class="ok">Sí, perquè la diferència entre termes consecutius és sempre la mateixa: $d=-\dfrac13$.</span> — resposta correcta</li>
 <li>No, perquè els termes van disminuint.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes disminueixin no impedeix que sigui una PA: una diferència negativa i constant també defineix una progressió aritmètica.</span></li>
 <li>Sí, perquè tots els termes són fraccions amb denominador $3$.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">El fet que el denominador sigui $3$ és només una manera d'escriure els termes ($1=\dfrac33$): el que cal comprovar és que la diferència entre termes consecutius sigui constant.</span></li>
-<li>No, perquè $0-\dfrac23=-\dfrac23$, que no coincideix amb la diferència $-\dfrac13$ dels altres termes.<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">És cert que aquesta resta no dona $-\dfrac13$, però és perquè el $0$ NO és el terme immediatament següent a $\dfrac23$ en aquesta successió (hi ha un terme intermedi, $\dfrac13$, que no s'escriu explícitament): els quatre primers termes ja confirmen que sí que és una PA.</span></li>
+<li>No, perquè $1-\dfrac53=-\dfrac23$, que no coincideix amb la diferència $-\dfrac13$ dels altres termes.<br><span class="err">COMPARA_TERMES</span><span class="fb">Estàs restant termes que no són consecutius: $1$ és el tercer terme i $\dfrac53$ el primer, els separen dues posicions. Entre termes consecutius, com $\dfrac43-\dfrac53=-\dfrac13$, la diferència sí que és constant.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre els termes consecutius que coneixes amb seguretat: els quatre primers.</li><li>$\dfrac43-\dfrac53=-\dfrac13$, $1-\dfrac43=-\dfrac13$, $\dfrac23-1=-\dfrac13$: sempre la mateixa.</li></ol>
-<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac43-\dfrac53=-\dfrac13$, $1-\dfrac43=-\dfrac13$, $\dfrac23-1=-\dfrac13$: la diferència entre els quatre primers termes és constant, $d=-\dfrac13$, per tant sí que és una progressió aritmètica</li><li>El $0$ de l'enunciat és un terme posterior (no el cinquè): continuant a restar $\dfrac13$ des de $\dfrac23$ s'obté $\dfrac13$ (el cinquè terme) i després sí, $0$ (el sisè)</li></ol>
-<p class="nota"><strong>Nota:</strong> Els punts suspensius amaguen un terme intermedi: amb $d=-\dfrac13$, el terme que segueix $\dfrac23$ és $\dfrac13$ (cinquè), i el $0$ de l'enunciat és en realitat el sisè terme, no el cinquè. La progressió és consistent igualment, com confirmen els quatre primers termes.</p>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre cada terme i el següent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac43-\dfrac53=-\dfrac13$, $1-\dfrac43=-\dfrac13$, $\dfrac23-1=-\dfrac13$, $\dfrac13-\dfrac23=-\dfrac13$: la diferència és constant, $d=-\dfrac13$, per tant sí que és una progressió aritmètica</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">51b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
-<div class="enun">Terme general de $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;0,\dots$</div>
+<div class="enun">Terme general de $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$</div>
 <ol class="op"><li><span class="ok">$a_n=\dfrac53-(n-1)\cdot\dfrac13$</span> — resposta correcta</li>
 <li>$a_n=\dfrac53+(n-1)\cdot\dfrac13$<br><span class="err">SIGNE_FINAL</span><span class="fb">El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.</span></li>
 <li>$a_n=\dfrac53-\dfrac{n}{3}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">El terme general és $a_1+(n-1)d$, no $a_1+nd$: revisa l'exponent de $(n-1)$.</span></li>
@@ -578,8 +577,8 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td>Aplicacions <span class="err">un sol nivell</span></td><td>0</td><td>0</td><td>6</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>DESPLACAMENT_INDEX</code></td><td>36</td><td>47a, 47d, 47e, 47f, 48d, 49a, 49b, 49c, 49d, 50b, 50c, 51a, 51b, 52a…</td></tr>
-<tr><td><code>COMPARA_TERMES</code></td><td>15</td><td>49a, 49b, 49c, 52a, 52b, 52c, 52d, 53b, 54c, 55, 58a, 58b, 59a, 60…</td></tr>
+<tr><td><code>DESPLACAMENT_INDEX</code></td><td>35</td><td>47a, 47d, 47e, 47f, 48d, 49a, 49b, 49c, 49d, 50b, 50c, 51b, 52a, 52a…</td></tr>
+<tr><td><code>COMPARA_TERMES</code></td><td>16</td><td>49a, 49b, 49c, 51a, 52a, 52b, 52c, 52d, 53b, 54c, 55, 58a, 58b, 59a…</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>14</td><td>47c, 48a, 48b, 48d, 49d, 50b, 54a, 54b, 54c, 54d, 54e, 54f, 58a, 59a</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>14</td><td>50a, 50a, 51a, 57a, 57a, 58d, 59a, 59b, 59b, 59c, 59c, 59d, 59d, 59d</td></tr>
 <tr><td><code>SIGNE_FINAL</code></td><td>12</td><td>47c, 47g, 49a, 49c, 49d, 51b, 52b, 53b, 53c, 54b, 54e, 54f</td></tr>
