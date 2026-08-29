@@ -33,6 +33,11 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
             [(cx + (px - cx), cyb + (py - cyb) * APLANAT)
              for px, py in _poligon(cx, cyb, R, n)]]
     dalt = [(x, y - H) for x, y in base]
+    # base[0] és sempre el vèrtex del DARRERE (gir=-90 el situa dalt de tot
+    # de l'el·lipse aplanada); per a l'etiqueta del costat i per a l'alçada
+    # total del dibuix cal el punt més avançat (més avall en pantalla), no
+    # base[0][1]. Mateix criteri que ja fa servir piramide_regular.
+    baix = max(p[1] for p in base)
 
     def poli(pts, extra=""):
         return ('<polygon points="%s" %s/>'
@@ -55,7 +60,7 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
                                         base[0][1], MARCA))
         cos += _text(cx + 30, base[0][1] - 4,
                      etq_apotema or (mesura(apotema, unitat)), petit=True)
-    cos += _text(cx, base[0][1] + 20, etq_costat or (mesura(costat, unitat)))
+    cos += _text(cx, baix + 20, etq_costat or (mesura(costat, unitat)))
     xa = m + 2 * R + 14
     cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="currentColor" '
             'stroke-width="1.2"/>' % (xa, base[0][1] - H, xa, base[0][1]))
@@ -63,7 +68,7 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
                  etq_altura or (mesura(altura, unitat)), ancora="start")
     noms = {3: "triangular", 4: "quadrangular", 5: "pentagonal",
             6: "hexagonal", 8: "octogonal"}
-    return _svg(int(2 * R + m + mx), int(base[0][1] + m),
+    return _svg(int(2 * R + m + mx), int(baix + m),
                 cos, "Prisma recte de base %s regular, dibuixat en perspectiva."
                 % noms.get(n, "de %d costats" % n))
 
