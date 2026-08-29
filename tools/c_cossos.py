@@ -1111,7 +1111,7 @@ Q("195e", 195, "e", B4, "A",
    "Volum d'un con: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
   [r"$V=\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$",
    "$V\\approx11{,}78$ cm$^3$"],
-  figura=con(radi=3, altura=5),
+  figura=con(radi=1.5, altura=5),
   ex_text=E195)
 
 # 195f: cub aresta 4 -> V=64

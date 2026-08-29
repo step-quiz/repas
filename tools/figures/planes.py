@@ -436,12 +436,19 @@ def triangle_isosceles(base, costat=None, altura=None,
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     cos += _text(xm, y0 + 18, eb)
     ec = None
-    if costat is not None:
+    if costat is not None or etq_costat is not None:
         ec = etq_costat if etq_costat is not None else mesura(costat, unitat)
         cos += _text(x0 + (xm - x0) / 2 - 14, m + (y0 - m) / 2, ec,
                     ancora="end")
     ea = None
-    if mostra_altura and altura is not None:
+    # Cal admetre `etq_altura` sense `altura` real: en exercicis com "troba
+    # l'alçada", la crida vol marcar la línia discontínua amb un "x" o un
+    # "?" sense revelar el valor numèric (que és precisament la resposta).
+    # Exigir `altura is not None` per pintar l'etiqueta feia que aquesta
+    # marca desaparegués sencera en aquests casos (124a, 124c, 125): la
+    # línia discontínua hi era, però sense cap número ni incògnita al
+    # costat, així que semblava una aresta sense mesurar.
+    if mostra_altura and (altura is not None or etq_altura is not None):
         ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
         cos += _text(xm + 8, m + (y0 - m) / 2, ea)
     w = int(B + 2 * m)
