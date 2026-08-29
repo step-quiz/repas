@@ -33,11 +33,6 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
             [(cx + (px - cx), cyb + (py - cyb) * APLANAT)
              for px, py in _poligon(cx, cyb, R, n)]]
     dalt = [(x, y - H) for x, y in base]
-    # base[0] és sempre el vèrtex del DARRERE (gir=-90 el situa dalt de tot
-    # de l'el·lipse aplanada); per a l'etiqueta del costat i per a l'alçada
-    # total del dibuix cal el punt més avançat (més avall en pantalla), no
-    # base[0][1]. Mateix criteri que ja fa servir piramide_regular.
-    baix = max(p[1] for p in base)
 
     def poli(pts, extra=""):
         return ('<polygon points="%s" %s/>'
@@ -54,13 +49,28 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
     cos += poli(dalt, ple)        # el sostre, per damunt de les cares
     cos += poli(base, 'fill="none" stroke="currentColor" stroke-width="1.2" '
                       'stroke-dasharray="4 3"')
+    baix = max(p[1] for p in base)   # punt més baix real (vèrtex frontal),
+                                      # no `base[0][1]` (aquest és el del
+                                      # darrere): amb n parell hi ha ~2R*APLANAT
+                                      # de diferència, i els traços de sota
+                                      # (contorn discontinu de la base) queden
+                                      # per sota de l'alçada declarada del svg.
     if apotema is not None:
         cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
                 'stroke-width="2"/>' % (cx, base[0][1] - R * APLANAT, cx,
                                         base[0][1], MARCA))
-        cos += _text(cx + 30, base[0][1] - 4,
+        # L'etiqueta NO es pot posar al costat del segment (a banda i banda,
+        # a l'alçada del segment, només hi ha ~R*(1-cos(180/n)) px abans
+        # d'una cara lateral: per n=5,6,8 el text hi xoca sempre). Sota tot
+        # el contorn de la base no hi ha cap altra línia.
+        cos += _text(cx, baix + 20,
                      etq_apotema or (mesura(apotema, unitat)), petit=True)
-    cos += _text(cx, baix + 20, etq_costat or (mesura(costat, unitat)))
+    # Mateix motiu que l'apotema: al centre de la base (antiga posició) hi
+    # passa per darrere la costura vertical del vèrtex del darrere quan n és
+    # parell (4, 6, 8), perquè aquest vèrtex cau just al mig; a més, enmig
+    # de la cara sembla que aculli l'àrea, no un costat. Sota la base, on ja
+    # no hi ha cap aresta, queda inequívocament lligada a "un costat".
+    cos += _text(cx, baix + 38, etq_costat or (mesura(costat, unitat)))
     xa = m + 2 * R + 14
     cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="currentColor" '
             'stroke-width="1.2"/>' % (xa, base[0][1] - H, xa, base[0][1]))
@@ -68,7 +78,7 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
                  etq_altura or (mesura(altura, unitat)), ancora="start")
     noms = {3: "triangular", 4: "quadrangular", 5: "pentagonal",
             6: "hexagonal", 8: "octogonal"}
-    return _svg(int(2 * R + m + mx), int(baix + m),
+    return _svg(int(2 * R + m + mx), int(baix + m + 10),
                 cos, "Prisma recte de base %s regular, dibuixat en perspectiva."
                 % noms.get(n, "de %d costats" % n))
 
@@ -117,8 +127,14 @@ def ortoedre(a, b, c, etq_a=None, etq_b=None, etq_c=None, unitat="cm"):
            + q([(x + A, y), (x + A + B, y - B), (x + A + B, y + C - B), (x + A, y + C)])
            + _text(x + A / 2, y + C + 18, ea)
            + _text(x - 8, y + C / 2 + 4, ec, ancora="end")
-           + _text(x + A + B / 2 + 12, y - B / 2 - 2, eb, ancora="start", petit=True))
-    return _svg(int(A + B + 2 * m + 26), int(C + B + 2 * m),
+           # `eb` (aresta de profunditat) NO es pot escriure al costat del
+           # segment: a l'alçada de la diagonal (x+A,y)-(x+A+B,y-B), l'aresta
+           # vertical del darrere (x+A+B) comença just aquí, i el text hi
+           # topava (AUDITORIA: el "2" quedava tapat per aquesta vertical).
+           # Per sobre del vèrtex del darrere (y-B) ja no hi ha cap altra
+           # aresta.
+           + _text(x + A + B / 2, y - B - 10, eb, petit=True))
+    return _svg(int(A + B + 2 * m + 26), int(C + B + 2 * m + 10),
                 cos, "Ortoedre d'arestes %s, %s i %s, en perspectiva." % (ea, eb, ec))
 
 
@@ -221,7 +237,12 @@ def con(radi=None, altura=None, generatriu=None, diametre=None,
                 'stroke-width="1.4" stroke-dasharray="4 3"/>' % (cx, yapex, cx, ybaix)
                 + '<path d="M %.1f %.1f h 10 v -10" fill="none" stroke="currentColor" '
                   'stroke-width="1.2"/>' % (cx, ybaix)
-                + _text(cx - 8, (yapex + ybaix) / 2, etq_altura or (mesura(altura, unitat)),
+                # A mitja alçada (posició antiga) la vora obliqua del con ja
+                # s'ha allunyat de l'eix central un ~50% de R: amb el text
+                # "petit" habitual (uns 25-30px) hi acaba xocant sempre.
+                # Prop de l'àpex la vora encara és a tocar de l'eix, i queda
+                # espai lliure (marge del dibuix) a banda i banda.
+                + _text(cx - 8, yapex + 8, etq_altura or (mesura(altura, unitat)),
                         ancora="end", petit=True))
     if generatriu is not None:
         cos += _text(cx + R / 2 + 16, (yapex + ybaix) / 2 - 6,
@@ -304,8 +325,13 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
                     % (cx, apex[1], cx, cyb)
                     + '<path d="M %.1f %.1f h 10 v -10" fill="none" '
                       'stroke="currentColor" stroke-width="1.2"/>' % (cx, cyb)
-                    + _text(cx - 8, (apex[1] + cyb) / 2, etq_altura or (mesura(altura, unitat)),
-                            ancora="end", petit=True))
+                    # Igual que amb l'apotema: a mitja alçada de l'eix, per a
+                    # piràmides de base quadrada o hexagonal, alguna cara
+                    # frontal veïna hi arriba igualment (AUDITORIA: "9 m",
+                    # "10 m", "8 m" tapats a 179b/181a/181b/195a). Sota la
+                    # base sempre hi ha lloc.
+                    + _text(cx, baix + 38, etq_altura or (mesura(altura, unitat)),
+                            petit=True))
     if apotema_piramide is not None:
         # Punt mig de l'aresta frontal més centrada (la que queda més a
         # prop de la vertical de l'àpex). Amb un nombre parell de cares
@@ -316,10 +342,14 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
             (((a[0] + b[0]) / 2, (a[1] + b[1]) / 2) for a, b in arestes_frontals),
             key=lambda p: (round(abs(p[0] - cx), 6), p[0]))
         cos_svg += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                    'stroke-width="2"/>' % (apex[0], apex[1], mx_ap, my_ap, MARCA)
-                    + _text(max(apex[0], mx_ap) + 14, (apex[1] + my_ap) / 2,
-                            etq_apotema or (mesura(apotema_piramide, unitat)),
-                            ancora="start", petit=True))
+                    'stroke-width="2"/>' % (apex[0], apex[1], mx_ap, my_ap, MARCA))
+        # Cap punt del segment apex-mx_ap és segur: totes les cares laterals
+        # veïnes també surten del mateix àpex i s'obren en ventall, així que
+        # qualsevol etiqueta a prop seu (a mitja alçada o més avall) hi acaba
+        # topant tard o d'hora. Sota la base, on el ventall ja s'ha tancat,
+        # sempre hi ha lloc — és on ja s'hi posa el costat.
+        cos_svg += _text(cx, baix + 38,
+                    etq_apotema or (mesura(apotema_piramide, unitat)), petit=True)
     cos_svg += _text(cx, baix + 20, etq_costat or (mesura(costat, unitat)))
     noms = {3: "triangular", 4: "quadrangular", 5: "pentagonal",
             6: "hexagonal", 8: "octogonal"}
