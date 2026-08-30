@@ -24,6 +24,7 @@ espacial, que és la part que costa d'imaginar sense veure-la.
 import math
 
 from . import OMPLERT, MARCA, _svg, _text, mesura
+from .etiquetatge import Escena
 
 
 # ---------------------------------------------------------------------
@@ -327,83 +328,85 @@ def tales(segments_a, segments_b, incognita, angle=25, acumulat=True):
     pts_b = acumula(dibuix_b, ang_b)
 
     def etiqueta_de(seg, i):
-        """El text (posició, valor -> mida i contingut) de l'etiqueta pel
-        punt i-èsim d'una secant, o `None` si aquell punt no se n'ha de
-        posar (és un `None` de l'entrada). La incògnita es mostra sempre
-        com a "x", encara que internament es faci servir el seu valor
-        numèric real per situar el punt correctament."""
+        """El text de la mesura del punt i-essim d'una secant, o `None` si
+        aquell punt no se n'ha de posar. La incognita es mostra sempre com a
+        "x", encara que internament se'n faci servir el valor numeric real
+        per situar el punt correctament."""
         _, v = seg[i]
         if v is None:
             return None
         return "x" if es_incognita(v) else _fmt(v)
 
-    # Bounding box: el vèrtex O, els punts finals de cada secant, i cada
-    # etiqueta (aproximant-ne l'amplada segons el nombre de caràcters).
-    caixa_x = [ORIGEN[0], pts_a[-1][0], pts_b[-1][0]]
-    caixa_y = [ORIGEN[1], pts_a[-1][1], pts_b[-1][1]]
+    e = Escena("Dues rectes secants que surten d'un mateix punt O, "
+               "tallades per un joc de rectes paral·leles, amb els punts "
+               "%s marcats." % incognita)
 
-    def afegeix_caixa_etiqueta(p, txt, signe):
-        y = p[1] + signe * 14
-        mig_ample = 2.4 * len(txt) + 2
-        caixa_x.extend((p[0] - mig_ample, p[0] + mig_ample))
-        caixa_y.extend((y - 8, y + 8))
+    # La secant arriba fins a l'ULTIM PUNT DIBUIXAT, no fins a l'ultim
+    # element de la llista. Un `None` final (el cas de ("C", None) a 153b)
+    # es posiciona a l'origen, de manera que `pts[-1]` valia O i la recta
+    # es dibuixava d'O a O: una linia de longitud zero. A 153b la segona
+    # secant, doncs, no hi era —nomes s'hi veien les dues paral·leles
+    # flotant— i cap comprovacio ho detectava, perque una linia degenerada
+    # no es cap problema d'etiquetes.
+    def ultim_dibuixat(pts, seg):
+        for i in range(len(seg), 0, -1):
+            if seg[i - 1][1] is not None:
+                return pts[i]
+        return pts[-1]
 
-    for i in range(n):
-        txt = etiqueta_de(segments_a, i)
-        if txt is not None:
-            afegeix_caixa_etiqueta(pts_a[i + 1], txt, +1)
-        txt = etiqueta_de(segments_b, i)
-        if txt is not None:
-            afegeix_caixa_etiqueta(pts_b[i + 1], txt, -1)
-    # la lletra "O" al costat del vèrtex
-    caixa_x.append(ORIGEN[0] - 16)
-    caixa_y.extend((ORIGEN[1] - 8, ORIGEN[1] + 8))
+    fi_a = ultim_dibuixat(pts_a, segments_a)
+    fi_b = ultim_dibuixat(pts_b, segments_b)
+    e.segment(ORIGEN, fi_a)
+    e.segment(ORIGEN, fi_b)
 
-    marge = 8
-    despl = (marge - min(caixa_x), marge - min(caixa_y))
-    amplada = max(caixa_x) - min(caixa_x) + 2 * marge
-    alcada = max(caixa_y) - min(caixa_y) + 2 * marge
-
-    def tr(p):
-        return (p[0] + despl[0], p[1] + despl[1])
-
-    O2 = tr(ORIGEN)
-    pts_a = [tr(p) for p in pts_a]
-    pts_b = [tr(p) for p in pts_b]
-
-    # -------------------------------------------------------------
-    # Fase 2: ara sí, generar el marcatge, amb totes les coordenades ja
-    # definitives.
-    # -------------------------------------------------------------
-    cos = _linia(O2, pts_a[-1]) + _linia(O2, pts_b[-1])
     for i in range(1, n + 1):
-        # Només es dibuixa la transversal si TOTS DOS extrems tenen un
-        # valor real (conegut o la incògnita): si un dels dos és `None`,
-        # la línia no representaria cap dada de l'exercici i només
-        # confonia (bug real detectat en revisió: a 153a, la posició
-        # buida B/B' es dibuixava igualment com una diagonal que no és
-        # paral·lela a res, perquè no hi ha cap proporció darrere).
+        # Nomes es dibuixa la transversal si TOTS DOS extrems tenen un
+        # valor real (conegut o la incognita): si un dels dos es `None`,
+        # la linia no representaria cap dada de l'exercici.
         if segments_a[i - 1][1] is None or segments_b[i - 1][1] is None:
             continue
         marcada = (i - 1 in x_a) or (i - 1 in x_b)
-        cos += _linia(pts_a[i], pts_b[i],
-                      color=MARCA if marcada else "currentColor")
-    cos += _text(O2[0] - 6, O2[1] + 4, "O", ancora="end")
+        e.segment(pts_a[i], pts_b[i],
+                  color=MARCA if marcada else "currentColor")
 
-    for i in range(n):
-        txt = etiqueta_de(segments_a, i)
-        if txt is not None:
-            p = pts_a[i + 1]
-            cos += _text(p[0], p[1] + 14, txt, petit=True)
-        txt = etiqueta_de(segments_b, i)
-        if txt is not None:
-            p = pts_b[i + 1]
-            cos += _text(p[0], p[1] - 14, txt, petit=True)
+    e.etq_punt(ORIGEN, "O", direccio=(-1, 0))
 
-    return _svg(int(math.ceil(amplada)), int(math.ceil(alcada)), cos,
-                "Dues rectes secants que surten d'un mateix punt O, "
-                "tallades per un joc de rectes paral·leles, amb els punts "
-                "%s marcats." % incognita)
+    # Les mesures s'expressen de dues maneres, segons com les doni
+    # l'enunciat, i han de DISTINGIR-SE a simple vista: confondre els dos
+    # modes va ser un bug real d'aquesta funcio, i mentre totes dues
+    # versions es dibuixessin igual (un numero sota cada punt) res no
+    # ajudava el lector a notar la diferencia.
+    for seg, pts, banda in ((segments_a, pts_a, 1), (segments_b, pts_b, -1)):
+        anterior = ORIGEN
+        for i in range(n):
+            txt = etiqueta_de(seg, i)
+            punt = pts[i + 1]
+            nom = seg[i][0]
+            if txt is None:
+                continue
+            e.etq_punt(punt, nom, petit=True, direccio=(0.4, banda * 0.92))
+            if acumulat:
+                # Trams consecutius: cada cota abraça exactament el tros
+                # que mesura, del punt anterior a aquest.
+                e.cota(anterior, punt, txt, despl=18, costat=banda,
+                       petit=True)
+            else:
+                # Distancies absolutes des d'O. Aqui NO s'hi posen cotes:
+                # totes arrencarien del mateix punt i quedarien encaixades
+                # les unes dins de les altres, que es il·legible. S'escriu
+                # el nom del segment davant del valor ("OA = 5 cm"), de
+                # manera que el text mateix diu que mesura i no cal cap
+                # claudator ni cap nota que ho expliqui.
+                # Sense direccio forcada: es una etiqueta llarga
+                # ("OC' = 18 cm" fa uns 70 px) i, obligant-la a una sola
+                # banda, el motor l'havia d'allunyar fins a 35 px per
+                # trobar-hi lloc i quedava despenjada del seu punt. Deixant
+                # que triï entre totes les direccions, en troba una de mes
+                # arran.
+                e.etq_punt(punt, "O%s = %s" % (nom, txt), petit=True)
+            anterior = punt
+
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -524,62 +527,29 @@ def parella_semblants(costats_a, costats_b, angle_igual=None, angle_recte=False)
     B2 = (B2[0] + despl2, B2[1])
     C2 = (C2[0] + despl2, C2[1])
 
-    cos = _triangle(A1, B1, C1) + _triangle(A2, B2, C2)
+    e = Escena("Dos triangles amb els costats corresponents marcats.")
+    e.poligon([A1, B1, C1])
+    e.poligon([A2, B2, C2])
 
     def etiquetes_triangle(costats, A, B, C):
-        out = ""
-        caixes = []
-        vertexs_costat = [(A, B), (A, C), (B, C)]
-        for (etq, v), (p1, p2) in zip(costats, vertexs_costat):
+        """Acota els costats del triangle amb el seu valor (o `x`).
+
+        Abans l'etiqueta anava a una distancia FIXA (18 o 20 px) sobre la
+        normal exterior del costat. La direccio era correcta, pero la
+        distancia no mirava on queien els altres dos costats: en triangles
+        aguts, l'etiqueta acabava tan a prop del costat vei com del seu
+        (a 155b, el "9 cm" era a 13,8 px del seu costat i a 16,0 px de
+        l'altre) i no es podia saber quin dels dos mesurava. Ara ho decideix
+        el motor, que prova banda, fraccio i distancia fins a trobar una
+        posicio inequivoca.
+        """
+        for (etq, v), (p1, p2) in zip(costats, [(A, B), (A, C), (B, C)]):
             if v is None:
                 continue
-            mig = ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
-            # desplaça l'etiqueta cap enfora del triangle (perpendicular
-            # al costat, en la direcció oposada al tercer vèrtex): si el
-            # vector (mig - tercer) ja té projecció positiva sobre la
-            # normal (nx,ny), aquesta normal ja apunta cap enfora i no
-            # s'ha d'invertir; si la projecció és negativa, apunta cap
-            # endins i cal girar-la.
-            altres = [q for q in (A, B, C) if q not in (p1, p2)]
-            tercer = altres[0]
-            vx, vy = p2[0] - p1[0], p2[1] - p1[1]
-            norma = math.hypot(vx, vy) or 1
-            nx, ny = -vy / norma, vx / norma
-            apunta_endins = ((mig[0] - tercer[0]) * nx
-                            + (mig[1] - tercer[1]) * ny) < 0
-            if apunta_endins:
-                nx, ny = -nx, -ny
-            txt = "x" if v == "x" else _fmt(v)
-            # L'ancoratge per defecte de `_text` és centrat: en un costat
-            # que s'inclina cap a l'esquerra (normal amb nx clarament
-            # negativa), un text centrat encara envaeix el triangle amb la
-            # seva meitat dreta. S'ancora a "end" en aquest cas (tot el
-            # text cau a l'esquerra del punt) i a "start" en el cas
-            # simètric; en costats gairebé verticals o horitzontals es
-            # deixa centrat, que ja queda bé.
-            dist = 18
-            if nx < -0.3:
-                ancora, dist = "end", 20
-            elif nx > 0.3:
-                ancora, dist = "start", 20
-            else:
-                ancora = "middle"
-            px, py = mig[0] + nx * dist, mig[1] + ny * dist + 4
-            out += _text(px, py, txt, petit=True, ancora=ancora)
-            # caixa aproximada del text, segons l'ancoratge real fet servir
-            ample_txt = 5.2 * len(txt)
-            if ancora == "start":
-                caixes.append((px, px + ample_txt, py - 9, py + 3))
-            elif ancora == "end":
-                caixes.append((px - ample_txt, px, py - 9, py + 3))
-            else:
-                caixes.append((px - ample_txt / 2, px + ample_txt / 2,
-                               py - 9, py + 3))
-        return out, caixes
+            e.etq_segment(p1, p2, "x" if v == "x" else _fmt(v), petit=True)
 
-    svg_a, caixes_a = etiquetes_triangle(costats_a, A1, B1, C1)
-    svg_b, caixes_b = etiquetes_triangle(costats_b, A2, B2, C2)
-    cos += svg_a + svg_b
+    etiquetes_triangle(costats_a, A1, B1, C1)
+    etiquetes_triangle(costats_b, A2, B2, C2)
 
     if angle_igual is not None:
         nom_a, nom_b = angle_igual
@@ -589,27 +559,9 @@ def parella_semblants(costats_a, costats_b, angle_igual=None, angle_recte=False)
         mapa2 = {"A": A2, "B": B2, "C": C2}
         v1, p1a, p1b = vertex_de[nom_a]
         v2, p2a, p2b = vertex_de[nom_b]
-        cos += _arc_angle(mapa1[v1], mapa1[p1a], mapa1[p1b], 15, MARCA)
-        cos += _arc_angle(mapa2[v2], mapa2[p2a], mapa2[p2b], 15, MARCA)
-
-    caixa_x = [p[0] for p in (A1, B1, C1, A2, B2, C2)]
-    caixa_y = [p[1] for p in (A1, B1, C1, A2, B2, C2)]
-    for x0, x1, y0, y1 in caixes_a + caixes_b:
-        caixa_x += [x0, x1]
-        caixa_y += [y0, y1]
-    marge = 12
-    amplada = max(caixa_x) - min(caixa_x) + 2 * marge
-    alcada = max(caixa_y) - min(caixa_y) + 2 * marge
-    # Els vèrtexs es calculen amb A=(0,0) de cada triangle com a origen
-    # local; com que el triangle pot pujar per sobre de y=0 (el cim va
-    # amb y negativa) o el segon triangle pot començar en x>0, es
-    # trasllada tot el grup un únic cop amb <g transform>, en lloc de
-    # repintar cada coordenada ja generada.
-    despl = (marge - min(caixa_x), marge - min(caixa_y))
-    return _svg(int(math.ceil(amplada)), int(math.ceil(alcada)),
-                '<g transform="translate(%.2f,%.2f)">%s</g>'
-                % (despl[0], despl[1], cos),
-                "Dos triangles amb els costats corresponents marcats.")
+        e.crua(_arc_angle(mapa1[v1], mapa1[p1a], mapa1[p1b], 15, MARCA))
+        e.crua(_arc_angle(mapa2[v2], mapa2[p2a], mapa2[p2b], 15, MARCA))
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -656,11 +608,20 @@ def escala_regla(unitat_dibuix_num, unitat_dibuix_text, valor_real_text,
         cos += _linia((x_de(i), y0 - alt), (x_de(i), y0 + alt))
     cos += _linia((x_de(0), y0), (x_de(marques), y0))
 
-    cos += _text(x_de(0), y0 + alt + 18, "0", petit=True)
+    # Els números de la regla marquen la POSICIÓ d'una graduació, igual que
+    # els números d'un eix: no mesuren la distància entre dos punts, i per
+    # tant no té sentit demanar-los que estiguin més a prop d'un traç que
+    # d'un altre (cauen sota una marca, que és on toca, i allà la marca i la
+    # línia de la regla hi conflueixen). `fig-etq-marc` ho declara.
+    def _marca_txt(x, y, txt):
+        return ('<text x="%.1f" y="%.1f" text-anchor="middle" '
+                'class="fig-etq petita fig-etq-marc">%s</text>' % (x, y, txt))
+
+    cos += _marca_txt(x_de(0), y0 + alt + 18, "0")
     for i in range(1, marques + 1):
-        cos += _text(x_de(i), y0 + alt + 18,
-                    "%g %s" % (i * unitat_dibuix_num, unitat_dibuix_text),
-                    petit=True)
+        cos += _marca_txt(x_de(i), y0 + alt + 18,
+                          "%g %s" % (i * unitat_dibuix_num,
+                                     unitat_dibuix_text))
     cos += _text(x_de(marques) / 2, y0 - alt - 10,
                 "cada interval = %s" % valor_real_text, petit=True)
 
@@ -773,36 +734,31 @@ def figures_semblants_k(k, tipus="quadrat"):
     x0_b = MIDA_A + buit
     svg_b, costat_b, verts_b = dibuixa(MIDA_B, x0_b)
 
-    cos = svg_a + svg_b
+    noms = {"quadrat": "quadrats", "rectangle": "rectangles",
+            "triangle": "triangles", "cub": "cubs"}
+    e = Escena("Dues figures semblants, amb la raó entre una longitud i "
+               "la seva corresponent marcada: dos %s."
+               % noms.get(tipus, "figures"))
+
+    def segs_de(verts):
+        return [(verts[i][0], verts[i][1],
+                 verts[(i + 1) % len(verts)][0], verts[(i + 1) % len(verts)][1])
+                for i in range(len(verts))]
+
+    e.crua(svg_a, segs_de(verts_a))
+    e.crua(svg_b, segs_de(verts_b))
 
     # Etiqueta de longitud SIMBÒLICA a cada figura: "1" a la petita, "k" a
     # la gran. Mai un valor numèric real, perquè aquest bloc precisament
     # amaga la relació d'àrees/volums fins que l'alumne l'ha treballada.
-    def etiqueta_costat(p1, p2, txt):
-        mig = ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
-        return _text(mig[0], mig[1] + 16, txt, petit=True)
-
-    cos += etiqueta_costat(costat_a[0], costat_a[1], "1")
-    cos += etiqueta_costat(costat_b[0], costat_b[1], "k")
-
-    # Marc final a partir del bounding box REAL de tots els vèrtexs (de
-    # totes dues figures) més un marge fix, incloent l'espai que ocupa
-    # l'etiqueta per sota de la base (que és on sempre cauen: la base és
-    # sempre y=0, el punt més avall de cada figura).
-    tots_x = [p[0] for p in verts_a + verts_b]
-    tots_y = [p[1] for p in verts_a + verts_b]
-    marge = 16
-    x_min, x_max = min(tots_x) - marge, max(tots_x) + marge
-    y_min, y_max = min(tots_y) - marge, max(tots_y) + marge + 20  # +20: etiqueta sota la base
-    amplada = x_max - x_min
-    alcada = y_max - y_min
-    despl = (-x_min, -y_min)
-
-    return _svg(int(math.ceil(amplada)), int(math.ceil(alcada)),
-                '<g transform="translate(%.2f,%.2f)">%s</g>'
-                % (despl[0], despl[1], cos),
-                "Dues figures semblants, amb la raó entre un parell de "
-                "costats corresponents marcada.")
+    #
+    # Van acotades sobre el costat que mesuren. Abans anaven 16 px per sota
+    # del seu punt mig, i en un cub aquell punt cau just on arrenquen les
+    # arestes de la cara lateral: la "k" quedava tan a prop d'una com de
+    # l'altra i no es podia saber quina longitud designava.
+    e.etq_segment(costat_a[0], costat_a[1], "1", petit=True)
+    e.etq_segment(costat_b[0], costat_b[1], "k", petit=True)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -892,59 +848,51 @@ def ombra(altura_1, ombra_1, altura_2, ombra_2, etq_1="", etq_2="",
     s1, s2 = _escalat([ombra_1_real, ombra_2_real], 50, 110)
     h1, h2 = s1 * pendent, s2 * pendent
 
+    e = Escena("Dos triangles rectangles semblants, cadascun amb un "
+               "costat vertical i un costat horitzontal, units per una "
+               "mateixa línia de referència amb la mateixa inclinació.")
+
     def triangle_ombra(h, s, x0):
         """Peu a (x0, 0), costat vertical fins a (x0, -h), costat
-        horitzontal fins a (x0+s, 0): la diagonal que els uneix (discontínua)
-        és la línia de referència —sol, visual o reflex, segons l'exercici."""
+        horitzontal fins a (x0+s, 0): la diagonal que els uneix
+        (discontínua) és la línia de referència —sol, visual o reflex,
+        segons l'exercici."""
         peu = (x0, 0.0)
         cim = (x0, -h)
         extrem = (x0 + s, 0.0)
-        svg = (_linia(peu, cim)          # el costat vertical
-               + _linia(peu, extrem)     # el costat horitzontal
-               + _linia(cim, extrem, guions=not linia_solida))  # la diagonal
-        return svg, peu, cim, extrem
+        e.segment(peu, cim)
+        e.segment(peu, extrem)
+        e.segment(cim, extrem, discontinu=not linia_solida)
+        return peu, cim, extrem
 
     buit = 40
-    svg1, peu1, cim1, extrem1 = triangle_ombra(h1, s1, 0)
-    svg2, peu2, cim2, extrem2 = triangle_ombra(h2, s2, extrem1[0] + buit)
+    peu1, cim1, extrem1 = triangle_ombra(h1, s1, 0)
+    peu2, cim2, extrem2 = triangle_ombra(h2, s2, extrem1[0] + buit)
 
-    cos = svg1 + svg2
+    def etiqueta_valor(p1, p2, v, banda):
+        """Acota el costat p1-p2 amb el seu valor (o `x`).
 
-    def etiqueta_valor(p1, p2, v, sota=True):
-        """Etiqueta el costat p1-p2 amb el seu valor (o `x`). Els costats
-        verticals (l'alçada de l'objecte, p1[0]==p2[0]) es lleigen amb
-        l'etiqueta desplaçada a l'esquerra de la línia; els horitzontals
-        (l'ombra), centrada per sota."""
-        mig = ((p1[0] + p2[0]) / 2, (p1[1] + p2[1]) / 2)
+        Les mesures van acotades. Abans anaven a un desplaçament fix (10 px
+        a l'esquerra dels costats verticals, 15 px sota els horitzontals) i
+        quedaven equidistants del seu costat i del veí: a 166, l'1,7 m
+        d'Anna era a 10,0 px del seu costat i a 10,9 px de l'altre, i res
+        no deia quin dels dos mesurava."""
         txt = "x" if v == "x" else _fmt(v, unitat)
-        vertical = p1[0] == p2[0]
-        if vertical:
-            return _text(mig[0] - 10, mig[1] + 4, txt, petit=True, ancora="end")
-        signe = 1 if sota else -1
-        return _text(mig[0], mig[1] + signe * 15, txt, petit=True)
+        e.cota(p1, p2, txt, despl=15, costat=banda, petit=True)
 
-    cos += etiqueta_valor(peu1, cim1, altura_1)
-    cos += etiqueta_valor(peu1, extrem1, ombra_1)
-    cos += etiqueta_valor(peu2, cim2, altura_2)
-    cos += etiqueta_valor(peu2, extrem2, ombra_2)
+    etiqueta_valor(cim1, peu1, altura_1, 1)
+    etiqueta_valor(peu1, extrem1, ombra_1, -1)
+    etiqueta_valor(cim2, peu2, altura_2, 1)
+    etiqueta_valor(peu2, extrem2, ombra_2, -1)
 
+    # `etq_1`/`etq_2` són NOMS d'objecte ("arbre gran", "Anna", "pal"), no
+    # mesures: designen el triangle sencer i no cap dels seus costats. Van
+    # com a etiqueta de punt sota la base de cada triangle.
     if etq_1:
-        cos += _text((peu1[0] + extrem1[0]) / 2, 34, etq_1, petit=True)
+        e.etq_punt(((peu1[0] + extrem1[0]) / 2, 0.0), etq_1, petit=True,
+                   direccio=(0, 1))
     if etq_2:
-        cos += _text((peu2[0] + extrem2[0]) / 2, 34, etq_2, petit=True)
+        e.etq_punt(((peu2[0] + extrem2[0]) / 2, 0.0), etq_2, petit=True,
+                   direccio=(0, 1))
+    return e.svg()
 
-    marge = 30
-    tots_x = [peu1[0], cim1[0], extrem1[0], peu2[0], cim2[0], extrem2[0]]
-    tots_y = [peu1[1], cim1[1], extrem1[1], peu2[1], cim2[1], extrem2[1]]
-    x_min, x_max = min(tots_x) - marge - 22, max(tots_x) + marge
-    y_min, y_max = min(tots_y) - marge, max(tots_y) + marge + (18 if (etq_1 or etq_2) else 0)
-    amplada = x_max - x_min
-    alcada = y_max - y_min
-    despl = (-x_min, -y_min)
-
-    return _svg(int(math.ceil(amplada)), int(math.ceil(alcada)),
-                '<g transform="translate(%.2f,%.2f)">%s</g>'
-                % (despl[0], despl[1], cos),
-                "Dos triangles rectangles semblants, cadascun amb un "
-                "costat vertical i un costat horitzontal, units per una "
-                "mateixa línia de referència amb la mateixa inclinació.")

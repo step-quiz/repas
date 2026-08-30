@@ -136,23 +136,28 @@ class ApotemaPiramideNoCoincideixAmbLAltura(unittest.TestCase):
     noms i mai arriba a distingir-los —que és justament el que aquest
     apartat de la geometria vol que aprengui.
 
-    La línia marcada (color `--fig-marca`) és sempre l'apotema (vegeu
-    `piramide_regular`, que mai dibuixa alçada i apotema alhora). Aquesta
-    prova en llegeix els dos extrems del SVG compilat i comprova que NO
-    sigui un segment vertical (mateixa x als dos extrems): l'altura sí
-    que ho és sempre (àpex al centre de la base, en vertical), així que
-    un apotema vertical és el senyal exacte que s'ha confós amb l'altura.
-    Només aplica als ítems amb piràmide de base amb un nombre parell de
-    costats (4, 6, 8...), que és on àpex i punt més baix de la base
-    cauen en la mateixa vertical i el bug queda amagat; amb base de 3 o
-    5 costats l'apotema real ÉS vertical per geometria, no per error."""
+    COM ES GARANTEIX ARA. Abans l'apotema es dibuixava dins de la
+    perspectiva, i llavors la comprovació era geomètrica: que el segment
+    marcat no fos vertical, perquè vertical és on va l'altura. Aquella
+    representació s'ha abandonat —dins de la perspectiva l'apotema queda
+    escurçada i indistingible de l'aresta lateral que té al costat— i
+    ara, quan l'enunciat dona l'apotema, es desplega una CARA LATERAL en
+    veritable magnitud i s'hi acota allà. En aquesta vista l'apotema sí
+    que és vertical, perquè és l'altura d'un triangle isòsceles dibuixat
+    dret: comprovar que no ho sigui ja no vol dir res.
+
+    La separació es garanteix d'una altra manera, més forta que abans:
+    en aquests ítems no s'ha de dibuixar CAP altura del cos. Si no hi ha
+    eix vertical des de l'àpex fins al centre de la base, no hi pot haver
+    confusió possible entre els dos segments. Es comprova, doncs, que la
+    figura porti la vista auxiliar i que no hi hagi l'eix del cos."""
 
     # Base parella coneguda a cada ítem, perquè la prova no hagi de
     # tornar a interpretar l'enunciat per endevinar quants costats té
     # la base: 179a i 197 són quadrangulars, 183 és hexagonal.
     BASE_PARELLA = {"179a": 4, "183": 6, "197": 4}
 
-    def test_apotema_no_es_dibuixa_vertical_amb_base_parella(self):
+    def test_apotema_va_a_la_vista_auxiliar_i_no_es_dibuixa_cap_altura(self):
         f9 = TOTS[9]
         per_id_f9 = {it["id"]: it for it in f9}
         provats = 0
@@ -160,20 +165,32 @@ class ApotemaPiramideNoCoincideixAmbLAltura(unittest.TestCase):
             it = per_id_f9.get(qid)
             if it is None or not it.get("figura"):
                 continue
-            m = re.search(
-                r'<line x1="([\-\d.]+)" y1="([\-\d.]+)" x2="([\-\d.]+)" '
-                r'y2="([\-\d.]+)" stroke="var\(--fig-marca[^"]*"',
-                it["figura"])
-            self.assertIsNotNone(m, "%s: no s'hi troba cap línia d'apotema "
-                                     "marcada (--fig-marca)" % qid)
-            x1, _, x2, _ = (float(v) for v in m.groups())
-            self.assertNotAlmostEqual(
-                x1, x2, places=1,
-                msg="%s: l'apotema es dibuixa vertical (x1=%.1f, x2=%.1f), "
-                    "és a dir exactament on aniria l'altura del cos; amb "
-                    "base de %d costats l'apotema hauria d'anar al punt "
-                    "mig d'una aresta frontal, no al centre de la base."
-                    % (qid, x1, x2, self.BASE_PARELLA[qid]))
+            fig = it["figura"]
+            self.assertIn(
+                "veritable magnitud", fig,
+                "%s: l'enunciat dona l'apotema de la piràmide, així que la "
+                "figura ha de portar la cara lateral desplegada en veritable "
+                "magnitud; sense ella l'apotema torna a quedar dins de la "
+                "perspectiva, on no es distingeix de l'aresta lateral." % qid)
+            self.assertIsNotNone(
+                re.search(r'stroke="var\(--fig-marca[^"]*"', fig),
+                "%s: no s'hi troba cap segment d'apotema marcat "
+                "(--fig-marca)" % qid)
+            # Cap segment vertical discontinu: seria l'eix del cos, i
+            # dibuixar-lo aquí tornaria a posar altura i apotema a la
+            # mateixa figura.
+            for m in re.finditer(
+                    r'<line[^>]*x1="([\-\d.]+)" y1="([\-\d.]+)" '
+                    r'x2="([\-\d.]+)" y2="([\-\d.]+)"[^>]*'
+                    r'stroke-dasharray', fig):
+                x1, y1, x2, y2 = (float(v) for v in m.groups())
+                if abs(x1 - x2) < 0.1 and abs(y1 - y2) > 20:
+                    self.fail(
+                        "%s: hi ha un eix vertical discontinu (x=%.1f, de "
+                        "y=%.1f a y=%.1f). En un ítem que dona l'apotema no "
+                        "s'hi ha de dibuixar l'altura del cos: tenir-les "
+                        "totes dues a la mateixa figura és el que fa que "
+                        "l'alumne les confongui." % (qid, x1, y1, y2))
             provats += 1
         self.assertGreaterEqual(provats, 3,
                                 "esperava comprovar els 3 ítems coneguts "

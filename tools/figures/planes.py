@@ -5,27 +5,28 @@ Vegeu `figures/__init__.py` per a les convencions comunes: viewBox sense mida
 fixa, `currentColor` als traços, `role="img"` amb `<title>`, i cap `$` a dins.
 `lib._valida()` atura la compilació si alguna no es compleix.
 """
+import math
+
 from . import OMPLERT, MARCA, _svg, _text, mesura
+from .etiquetatge import Escena
 
 def quadrat_diagonal(costat, etiqueta_costat=None, etiqueta_diagonal="x", unitat="cm"):
     """Quadrat amb una diagonal marcada.
 
     quadrat_diagonal(4)  ->  quadrat de costat 4 cm amb la diagonal en roig
     """
-    L = 120                      # el dibuix sempre fa el mateix; canvien les cotes
-    m = 26                       # marge per a les etiquetes
-    w = L + 2 * m
+    L = 120.0
     lc = etiqueta_costat if etiqueta_costat is not None else mesura(costat, unitat)
-    cos = (
-        '<rect x="%d" y="%d" width="%d" height="%d" fill="%s" '
-        'stroke="currentColor" stroke-width="2"/>'
-        % (m, m, L, L, OMPLERT)
-        + '<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="2.5"/>'
-        % (m, m + L, m + L, m, MARCA)
-        + _text(m + L / 2, m + L + 18, lc)
-        + _text(m + L / 2 + 16, m + L / 2 - 6, etiqueta_diagonal)
-    )
-    return _svg(w, w, cos, "Quadrat de costat %s amb la diagonal marcada." % lc)
+    e = Escena("Quadrat de costat %s amb la diagonal marcada." % lc)
+    e.poligon([(0.0, 0.0), (L, 0.0), (L, L), (0.0, L)])
+    e.marca((0.0, L), (L, 0.0))
+    e.cota((0.0, L), (L, L), lc, despl=16)
+    # L'etiqueta de la diagonal la col·loca el motor, perpendicularment al
+    # seu segment. Abans anava a un desplaçament fix de (+16, -6), que és
+    # gairebé PARAL·LEL a la diagonal d'un quadrat: el text hi queia al
+    # damunt en comptes de quedar-hi al costat.
+    e.etq_segment((0.0, L), (L, 0.0), etiqueta_diagonal)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -38,33 +39,23 @@ def rectangle_diagonal(base, altura, etq_base=None, etq_altura=None,
     el rectangle sense la diagonal (útil quan l'enunciat no la menciona i
     marcar-la seria afegir una dada que l'enunciat no dona)."""
     b, h = float(base), float(altura)
-    costat_max = 180.0
-    escala = costat_max / max(b, h)
+    escala = 180.0 / max(b, h)
     ample = max(60.0, b * escala)
     alt = max(60.0, h * escala)
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
-    # Marge esquerre dinàmic: l'etiqueta ea es dibuixa amb text-anchor="end"
-    # cap a l'esquerra, així que un marge fix no li dona prou espai quan és
-    # llarga (p. ex. "AC = 16 cm") i queda tallada pel viewBox (AUDITORIA
-    # C4). ~7.3px/caràcter cobreix la font mono 12px 600 amb marge de sobra.
-    m = max(26, int(len(ea) * 7.3) + 14)
-    cos = (
-        '<rect x="%d" y="%d" width="%g" height="%g" fill="%s" '
-        'stroke="currentColor" stroke-width="2"/>'
-        % (m, m, ample, alt, OMPLERT)
-        + _text(m + ample / 2, m + alt + 18, eb)
-        + _text(m - 8, m + alt / 2 + 4, ea, ancora="end")
-    )
-    titol_extra = ""
+    titol_extra = " amb la diagonal marcada" if mostra_diagonal else ""
+    e = Escena("Rectangle de %s per %s%s." % (eb, ea, titol_extra))
+    e.poligon([(0.0, 0.0), (ample, 0.0), (ample, alt), (0.0, alt)])
+    e.cota((0.0, alt), (ample, alt), eb, despl=16)
+    e.cota((0.0, 0.0), (0.0, alt), ea, despl=16)
     if mostra_diagonal:
-        cos += ('<line x1="%d" y1="%g" x2="%g" y2="%d" stroke="%s" '
-                'stroke-width="2.5"/>'
-                % (m, m + alt, m + ample, m, MARCA)
-                + _text(m + ample / 2 + 14, m + alt / 2 - 6, etq_diagonal))
-        titol_extra = " amb la diagonal marcada"
-    return _svg(int(ample + 2 * m), int(alt + 2 * m), cos,
-                "Rectangle de %s per %s%s." % (eb, ea, titol_extra))
+        e.marca((0.0, alt), (ample, 0.0))
+        # El desplaçament fix de (+14, -6) que hi havia abans és gairebé
+        # paral·lel a la diagonal per a les proporcions habituals, i deixava
+        # el text damunt del traç. El motor el col·loca perpendicularment.
+        e.etq_segment((0.0, alt), (ample, 0.0), etq_diagonal)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -75,27 +66,20 @@ def triangle_rectangle(catet_a, catet_b, etq_a=None, etq_b=None,
     alt = max(55.0, min(170.0, ample * float(catet_b) / float(catet_a)))
     ea = etq_a if etq_a is not None else mesura(catet_a, unitat)
     eb = etq_b if etq_b is not None else mesura(catet_b, unitat)
-    # Marge esquerre dinàmic (vegeu rectangle_diagonal): eb es dibuixa amb
-    # text-anchor="end" cap a l'esquerra i un marge fix el retallava per a
-    # etiquetes llargues (AUDITORIA C4).
-    m = max(28, int(len(eb) * 7.3) + 14)
-    x0, y0 = m, m + alt                       # vèrtex de l'angle recte
-    cos = (
-        '<polygon points="%g,%g %g,%g %g,%g" fill="%s" stroke="currentColor" '
-        'stroke-width="2"/>'
-        % (x0, y0, x0 + ample, y0, x0, y0 - alt, OMPLERT)
-        + '<path d="M %g %g h 12 v -12" fill="none" stroke="currentColor" '
-        'stroke-width="1.5"/>' % (x0, y0 - 0.5)
-        + _text(x0 + ample / 2, y0 + 18, ea)
-        + _text(x0 - 8, y0 - alt / 2 + 4, eb, ancora="end")
-    )
+    x0, y0 = 0.0, alt                         # vèrtex de l'angle recte
+    e = Escena("Triangle rectangle de catets %s i %s." % (ea, eb))
+    e.poligon([(x0, y0), (x0 + ample, y0), (x0, y0 - alt)])
+    e.angle_recte((x0, y0), (1, 0), (0, -1), mida=12)
+    e.cota((x0, y0), (x0 + ample, y0), ea, despl=16)
+    e.cota((x0, y0 - alt), (x0, y0), eb, despl=16)
     if etq_hip is not None:
-        cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-                'stroke-width="2.5"/>' % (x0 + ample, y0, x0, y0 - alt, MARCA)
-                if marca_hip else "")
-        cos += _text(x0 + ample / 2 + 10, y0 - alt / 2 - 4, etq_hip)
-    return _svg(int(ample + 2 * m), int(alt + 2 * m), cos,
-                "Triangle rectangle de catets %s i %s." % (ea, eb))
+        if marca_hip:
+            e.marca((x0 + ample, y0), (x0, y0 - alt), gruix=2.5)
+        # Perpendicular a la hipotenusa, no al costat: el desplaçament fix
+        # de (+10, -4) que hi havia queia sobre el traç per a les
+        # proporcions més freqüents (3-4-5 i 5-12-13).
+        e.etq_segment((x0 + ample, y0), (x0, y0 - alt), etq_hip)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -103,39 +87,35 @@ def trapezi(base_gran, base_petita, altura, isosceles=True,
            etq_base_gran=None, etq_base_petita=None, etq_altura=None, unitat="cm"):
     """Trapezi (isòsceles per defecte) amb les tres mesures etiquetades.
 
-    trapezi(10, 3, 6)  ->  trapezi de bases 10 i 3 cm, alçada 6 cm."""
+    trapezi(10, 3, 6)  ->  trapezi de bases 10 i 3 cm, alçada 6 cm.
+
+    L'alçada s'etiqueta per DINS del trapezi, a la dreta del segment
+    discontinu. A l'esquerra hi passa el costat obliqu, que a mitja alçada
+    cau a (base_gran - base_petita)/4 px del segment: just on queia el text
+    abans, i per això el tallava.
+    """
     Bg, bp = float(base_gran), float(base_petita)
-    ample_max = 190.0
-    escala = ample_max / max(Bg, 1.0)
+    escala = 190.0 / max(Bg, 1.0)
     Bg_px, bp_px = Bg * escala, bp * escala
     alt_px = max(45.0, min(150.0, altura * escala))
-    m = 26
     despl = (Bg_px - bp_px) / 2.0        # isòsceles: centrat
-    y_top, y_bot = m, m + alt_px
-    x_bl, x_br = m, m + Bg_px            # base gran, a baix
-    x_tl, x_tr = m + despl, m + despl + bp_px   # base petita, a dalt
+    y_top, y_bot = 0.0, alt_px
+    x_bl, x_br = 0.0, Bg_px
+    x_tl, x_tr = despl, despl + bp_px
     eBg = etq_base_gran if etq_base_gran is not None else mesura(base_gran, unitat)
     ebp = etq_base_petita if etq_base_petita is not None else mesura(base_petita, unitat)
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
-    cos = (
-        '<polygon points="%g,%g %g,%g %g,%g %g,%g" fill="%s" '
-        'stroke="currentColor" stroke-width="2"/>'
-        % (x_bl, y_bot, x_br, y_bot, x_tr, y_top, x_tl, y_top, OMPLERT)
-        # alçada, marcada com a segment vertical discontinu des del
-        # vèrtex superior esquerre fins a la base gran
-        + '<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-          'stroke-width="1.5" stroke-dasharray="4 3"/>'
-          % (x_tl, y_top, x_tl, y_bot, MARCA)
-        + _text((x_bl + x_br) / 2, y_bot + 18, eBg)
-        + _text((x_tl + x_tr) / 2, y_top - 8, ebp)
-        + _text(x_tl - 8, (y_top + y_bot) / 2, ea, ancora="end")
-    )
-    w = int(max(x_br, x_tr) + m)
-    h = int(y_bot + m)
     tipus = "isòsceles" if isosceles else ""
-    return _svg(w, h, cos,
-                ("Trapezi %s de bases %s i %s, alçada %s."
-                 % (tipus, eBg, ebp, ea)).replace("  ", " "))
+    e = Escena(("Trapezi %s de bases %s i %s, alçada %s."
+                % (tipus, eBg, ebp, ea)).replace("  ", " "))
+    e.poligon([(x_bl, y_bot), (x_br, y_bot), (x_tr, y_top), (x_tl, y_top)])
+    e.segment((x_tl, y_top), (x_tl, y_bot), gruix=1.5, discontinu=True,
+              color=MARCA)
+    e.angle_recte((x_tl, y_bot), (1, 0), (0, -1), mida=9)
+    e.cota((x_bl, y_bot), (x_br, y_bot), eBg, despl=16)
+    e.cota((x_tl, y_top), (x_tr, y_top), ebp, despl=16)
+    e.etq_segment((x_tl, y_top), (x_tl, y_bot), ea, costat=-1)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -160,11 +140,10 @@ def poligon_regular(n, costat=None, apotema=None, diagonal=False,
     poligon_regular(8, costat=6, mostra_costat=False) -> octàgon sense etiqueta
     poligon_regular(6, costat=3, triangle_central=True) -> un triangle ombrejat
     """
-    import math
     n = int(n)
     assert n >= 3, "un polígon necessita com a mínim 3 costats"
     R = 90.0                              # radi de dibuix, constant
-    cx, cy = R + 30, R + 30
+    cx, cy = 0.0, 0.0
     # El punt mitjà (angular) del costat 0-1 ha de caure a baix (90° en
     # aquest sistema, on 0°=amunt i es creix en sentit horari): amb els
     # vèrtexs a gir + k*360/n, el punt mitjà del primer costat és a
@@ -172,58 +151,15 @@ def poligon_regular(n, costat=None, apotema=None, diagonal=False,
     # Vàlid per qualsevol n (parell o senar): sense això, un polígon de
     # n senar surt cap per avall (comprovat amb n=3).
     gir = 90 - 180.0 / n
-    punts = []
-    for k in range(n):
-        ang = math.radians(gir + k * 360.0 / n)
-        punts.append((cx + R * math.cos(ang), cy + R * math.sin(ang)))
-    pts_str = " ".join("%g,%g" % p for p in punts)
-    cos = ('<polygon points="%s" fill="%s" stroke="currentColor" '
-           'stroke-width="2"/>' % (pts_str, OMPLERT))
-
-    if triangle_central:
-        # tots els radis, en gris fi, per suggerir la subdivisió completa
-        for (px, py) in punts:
-            cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" '
-                    'stroke="currentColor" stroke-width="0.75" '
-                    'stroke-opacity="0.45"/>' % (cx, cy, px, py))
-        # un dels N triangles (centre, vèrtex 0, vèrtex 1) ombrejat
-        x0, y0 = punts[0]
-        x1, y1 = punts[1]
-        cos += ('<polygon points="%g,%g %g,%g %g,%g" fill="%s" '
-                'stroke="currentColor" stroke-width="2"/>'
-                % (cx, cy, x0, y0, x1, y1, MARCA))
+    punts = [(cx + R * math.cos(math.radians(gir + k * 360.0 / n)),
+              cy + R * math.sin(math.radians(gir + k * 360.0 / n)))
+             for k in range(n)]
 
     ec = None
     if mostra_costat:
         ec = etq_costat if etq_costat is not None else (
             mesura(costat, unitat) if costat is not None else None)
-    if ec is not None:
-        # etiqueta al mig del costat inferior (entre els vèrtexs 0 i 1,
-        # que per construcció són els dos de baix)
-        x0, y0 = punts[0]
-        x1, y1 = punts[1]
-        xm, ym = (x0 + x1) / 2, max(y0, y1)
-        cos += _text(xm, ym + 18, ec)
 
-    if diagonal:
-        assert n % 2 == 0, "la diagonal pel centre només té sentit amb n parell"
-        v_a, v_b = punts[0], punts[n // 2]
-        cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-                'stroke-width="2.5"/>' % (v_a[0], v_a[1], v_b[0], v_b[1], MARCA))
-    elif apotema is not None:
-        # peu de l'apotema: punt mig del costat 0-1; el centre ja és (cx, cy)
-        x0, y0 = punts[0]
-        x1, y1 = punts[1]
-        xm, ym = (x0 + x1) / 2, (y0 + y1) / 2
-        cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-                'stroke-width="2.5"/>' % (cx, cy, xm, ym, MARCA))
-        ea = etq_apotema if etq_apotema is not None else mesura(apotema, unitat)
-        cos += _text((cx + xm) / 2 + 12, (cy + ym) / 2, ea)
-    elif radi_marcat:
-        cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-                'stroke-width="2.5"/>' % (cx, cy, punts[0][0], punts[0][1], MARCA))
-
-    w = h = int(2 * (R + 30))
     noms = {3: "triangle equilàter", 4: "quadrat", 5: "pentàgon regular",
             6: "hexàgon regular", 7: "heptàgon regular", 8: "octàgon regular",
             9: "eneàgon regular", 10: "decàgon regular", 12: "dodecàgon regular"}
@@ -239,11 +175,42 @@ def poligon_regular(n, costat=None, apotema=None, diagonal=False,
         detall += (", dividit en %d triangles unint el centre amb cada "
                    "vèrtex, un d'ells ombrejat" % n)
     if not detall:
-        # Sense cap mesura marcada (per exemple mostra_costat=False i cap
-        # altra opció activa), el nom sol no dona un <title> prou llarg
+        # Sense cap mesura marcada el nom sol no dona un <title> prou llarg
         # per a lectors de pantalla (ex.: "Quadrat." són 8 caràcters).
         detall = " de %d costats" % n
-    return _svg(w, h, cos, ("%s%s." % (nom[0].upper() + nom[1:], detall)))
+    e = Escena("%s%s." % (nom[0].upper() + nom[1:], detall))
+    e.poligon(punts)
+
+    if triangle_central:
+        for (px, py) in punts:
+            e.crua('<line x1="%g" y1="%g" x2="%g" y2="%g" '
+                   'stroke="currentColor" stroke-width="0.75" '
+                   'stroke-opacity="0.45"/>' % (cx, cy, px, py),
+                   [(cx, cy, px, py)])
+        e.poligon([(cx, cy), punts[0], punts[1]], ple=False, color=MARCA)
+
+    if ec is not None:
+        # El costat 0-1 és per construcció el de baix.
+        e.cota(punts[0], punts[1], ec, despl=16)
+
+    if diagonal:
+        assert n % 2 == 0, "la diagonal pel centre només té sentit amb n parell"
+        e.marca(punts[0], punts[n // 2], gruix=2.5)
+    elif apotema is not None:
+        # Peu de l'apotema: punt mig del costat 0-1, que cau a baix, de
+        # manera que l'apotema surt vertical. L'etiqueta ha d'anar-hi al
+        # costat, i el desplaçament fix de +12 px que hi havia abans no
+        # arriba a apartar-la: la caixa del text queda centrada gairebé
+        # sobre el propi segment i el traç la creua pel mig.
+        mig = ((punts[0][0] + punts[1][0]) / 2,
+               (punts[0][1] + punts[1][1]) / 2)
+        e.marca((cx, cy), mig, gruix=2.5)
+        e.angle_recte(mig, (1, 0), (0, -1), mida=9)
+        ea = etq_apotema if etq_apotema is not None else mesura(apotema, unitat)
+        e.etq_segment((cx, cy), mig, ea)
+    elif radi_marcat:
+        e.marca((cx, cy), punts[0], gruix=2.5)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -257,48 +224,52 @@ def sector_circular(radi, angle, etq_radi=None, ombreja_restant=False, unitat="c
     sector_circular(2, 90)                      -> quart de cercle marcat
     sector_circular(2, 90, ombreja_restant=True) -> les tres quartes parts
     """
-    import math
     r = 80.0
-    m = 26
-    cx, cy = m + r, m + r
+    cx, cy = 0.0, 0.0
 
     def punt(ang_graus):
         a = math.radians(ang_graus - 90)      # 0° = amunt, sentit horari
         return cx + r * math.cos(a), cy + r * math.sin(a)
 
+    def arc_segs(a0, a1, n=40):
+        pts = [punt(a0 + (a1 - a0) * i / n) for i in range(n + 1)]
+        return [(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1])
+                for i in range(n)]
+
     # El sector PINTAT va sempre de 0° fins a `ang_pintat`; si es demana
     # la part restant, això és simplement el complementari a 360°.
     ang_pintat = (360.0 - angle) if ombreja_restant else angle
-    ang_retallat = angle          # el que l'enunciat anomena "retallat"
-
     x0, y0 = punt(0)
     xf, yf = punt(ang_pintat)
     gran_arc = 1 if ang_pintat > 180 else 0
-    if ang_pintat >= 359.999:
-        # cercle complet marcat: un únic <circle>, cap path calen
-        cos = ('<circle cx="%g" cy="%g" r="%g" fill="%s" '
-               'stroke="currentColor" stroke-width="2"/>' % (cx, cy, r, MARCA))
-    else:
-        sector = ('M%g,%g L%g,%g A%g,%g 0 %d,1 %g,%g Z'
-                  % (cx, cy, x0, y0, r, r, gran_arc, xf, yf))
-        cos = ('<circle cx="%g" cy="%g" r="%g" fill="%s" '
-               'stroke="currentColor" stroke-width="2"/>' % (cx, cy, r, OMPLERT)
-               + '<path d="%s" fill="%s" stroke="currentColor" '
-                 'stroke-width="2" stroke-linejoin="round"/>' % (sector, MARCA))
 
     if ombreja_restant:
         descripcio = ("amb un sector de %g° retallat (la resta, "
-                       "%g°, queda marcada)" % (ang_retallat, ang_pintat))
+                      "%g°, queda marcada)" % (angle, ang_pintat))
     else:
         descripcio = "amb un sector de %g° marcat" % angle
-
     er = etq_radi if etq_radi is not None else mesura(radi, unitat)
-    cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="currentColor" '
-            'stroke-width="1.5" stroke-dasharray="3 2"/>' % (cx, cy, x0, y0)
-            + _text((cx + x0) / 2 + 10, (cy + y0) / 2, er, petit=True))
+    e = Escena("Cercle de radi %s, %s." % (er, descripcio))
 
-    w = h = int(2 * r + 2 * m)
-    return _svg(w, h, cos, "Cercle de radi %s, %s." % (er, descripcio))
+    if ang_pintat >= 359.999:
+        e.crua('<circle cx="%g" cy="%g" r="%g" fill="%s" '
+               'stroke="currentColor" stroke-width="2"/>' % (cx, cy, r, MARCA),
+               arc_segs(0, 360))
+    else:
+        e.crua('<circle cx="%g" cy="%g" r="%g" fill="%s" '
+               'stroke="currentColor" stroke-width="2"/>' % (cx, cy, r, OMPLERT)
+               + '<path d="M%g,%g L%g,%g A%g,%g 0 %d,1 %g,%g Z" fill="%s" '
+                 'stroke="currentColor" stroke-width="2" '
+                 'stroke-linejoin="round"/>'
+                 % (cx, cy, x0, y0, r, r, gran_arc, xf, yf, MARCA),
+               arc_segs(0, 360) + [(cx, cy, x0, y0), (cx, cy, xf, yf)])
+
+    # El radi va del centre a les 12, o sigui vertical. El desplaçament fix
+    # de (+10, 0) que hi havia abans deixava la caixa del text a cavall del
+    # propi segment; el motor la col·loca perpendicular.
+    e.segment((cx, cy), (x0, y0), gruix=1.5, discontinu=True)
+    e.etq_segment((cx, cy), (x0, y0), er, petit=True)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -309,50 +280,68 @@ def corona(r_ext, r_int, etq_ext=None, etq_int=None, mig=False, unitat="cm"):
 
     corona(3, 2.5)          -> anell complet, radis 3 i 2.5 cm
     corona(6, 3, mig=True)  -> mitja lluna (dos semicercles)
+
+    Cada mesura va lligada a un segment propi. A l'anell, els dos radis es
+    dibuixen en direccions diferents; a la mitja lluna, els dos diàmetres
+    porten cotes apilades a sota, cadascuna amb les seves línies auxiliars.
+    Abans el radi interior s'escrivia al centre de la corona, equidistant
+    de les dues circumferències i sense res que digués quina mesurava.
     """
     r1, r2 = float(r_ext), float(r_int)
     assert r1 > r2 > 0, "el radi exterior ha de ser més gran que l'interior"
     escala = 80.0 / r1
     R1, R2 = r1 * escala, r2 * escala
-    m = 26
-    cx = m + R1
-    cy = m + R1 if not mig else m + R1
+    cx = cy = 0.0
     eext = etq_ext if etq_ext is not None else mesura(r_ext, unitat)
     eint = etq_int if etq_int is not None else mesura(r_int, unitat)
 
+    def cercle_segs(r, n=48):
+        pts = [(cx + r * math.cos(2 * math.pi * i / n),
+                cy + r * math.sin(2 * math.pi * i / n)) for i in range(n + 1)]
+        return [(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1])
+                for i in range(n)]
+
     if not mig:
+        e = Escena("Corona circular: radi exterior %s, radi interior %s."
+                   % (eext, eint))
         # even-odd fill: cercle gran ple, cercle petit "buit" pel mateix path
-        cos = ('<path d="M%g,%g m-%g,0 a%g,%g 0 1,0 %g,0 a%g,%g 0 1,0 -%g,0 '
+        e.crua('<path d="M%g,%g m-%g,0 a%g,%g 0 1,0 %g,0 a%g,%g 0 1,0 -%g,0 '
                'M%g,%g m-%g,0 a%g,%g 0 1,0 %g,0 a%g,%g 0 1,0 -%g,0" '
                'fill-rule="evenodd" fill="%s" stroke="currentColor" '
                'stroke-width="2"/>'
                % (cx, cy, R1, R1, R1, 2 * R1, R1, R1, 2 * R1,
-                  cx, cy, R2, R2, R2, 2 * R2, R2, R2, 2 * R2, OMPLERT))
-        cos += _text(cx, cy + R1 + 16, "ext. %s" % eext)
-        cos += _text(cx, cy + 4, "int. %s" % eint, petit=True)
-        w = h = int(2 * R1 + 2 * m)
-        titol = "Corona circular: radi exterior %s, radi interior %s." % (eext, eint)
-    else:
-        # Mig anell (creixent): un únic contorn tancat i simple —
-        # arc gran per sobre (esquerra->dreta), línia recta enrere fins
-        # a l'extrem del petit, arc petit per sobre en sentit invertit
-        # (dreta->esquerra, sweep 0) per "excavar" la mossa, línia final
-        # de tornada al punt d'inici. Sense evenodd: com que és un sol
-        # contorn sense encreuar-se, el "fill" normal ja hi talla el forat.
-        base_y = m + R1
-        cos = ('<path d="M%g,%g A%g,%g 0 0,1 %g,%g L%g,%g '
-               'A%g,%g 0 0,0 %g,%g Z" fill="%s" stroke="currentColor" '
-               'stroke-width="2" stroke-linejoin="round"/>'
-               % (cx - R1, base_y, R1, R1, cx + R1, base_y,
-                  cx + R2, base_y,
-                  R2, R2, cx - R2, base_y, OMPLERT))
-        cos += _text(cx, base_y + 18, "diàm. ext. %s" % eext)
-        cos += _text(cx, base_y - R2 - 8, "diàm. int. %s" % eint, petit=True)
-        w = int(2 * R1 + 2 * m)
-        h = int(R1 + 2 * m + 14)
-        titol = ("Mitja lluna: semicercle exterior de diàmetre %s, "
-                 "semicercle interior de diàmetre %s." % (eext, eint))
-    return _svg(w, h, cos, titol)
+                  cx, cy, R2, R2, R2, 2 * R2, R2, R2, 2 * R2, OMPLERT),
+               cercle_segs(R1) + cercle_segs(R2))
+        interior = (cx + R2, cy)
+        exterior = (cx - R1 * 0.7071, cy - R1 * 0.7071)
+        e.marca((cx, cy), interior)
+        e.marca((cx, cy), exterior)
+        e.etq_segment((cx, cy), interior, "int. %s" % eint, petit=True)
+        e.etq_segment((cx, cy), exterior, "ext. %s" % eext, petit=True)
+        return e.svg()
+
+    # Mig anell (creixent): un únic contorn tancat i simple — arc gran per
+    # sobre, línia recta enrere fins a l'extrem del petit, arc petit per
+    # sobre en sentit invertit per "excavar" la mossa, i tornada a l'inici.
+    e = Escena("Mitja lluna: semicercle exterior de diàmetre %s, "
+               "semicercle interior de diàmetre %s." % (eext, eint))
+    base_y = 0.0
+    e.crua('<path d="M%g,%g A%g,%g 0 0,1 %g,%g L%g,%g '
+           'A%g,%g 0 0,0 %g,%g Z" fill="%s" stroke="currentColor" '
+           'stroke-width="2" stroke-linejoin="round"/>'
+           % (cx - R1, base_y, R1, R1, cx + R1, base_y, cx + R2, base_y,
+              R2, R2, cx - R2, base_y, OMPLERT),
+           [s for s in cercle_segs(R1) if s[1] <= base_y and s[3] <= base_y]
+           + [s for s in cercle_segs(R2) if s[1] <= base_y and s[3] <= base_y]
+           + [(cx - R1, base_y, cx + R1, base_y)])
+    # Cotes apilades: la interior a prop i l'exterior més avall, cadascuna
+    # amb les seves línies auxiliars. Els dos diàmetres viuen sobre la
+    # mateixa horitzontal, així que sense claudàtors serien indistingibles.
+    e.cota((cx - R2, base_y), (cx + R2, base_y), "diàm. int. %s" % eint,
+           despl=16, costat=-1, petit=True)
+    e.cota((cx - R1, base_y), (cx + R1, base_y), "diàm. ext. %s" % eext,
+           despl=44, costat=-1, petit=True)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -362,37 +351,45 @@ def rectangle_amb_forat(base, altura, radi_forat, cx_forat=None, cy_forat=None,
     dins. Per defecte el forat és centrat.
 
     rectangle_amb_forat(5, 5, 1)   -> quadrat de costat 5 amb forat radi 1
+
+    La mesura del forat s'acota sobre un DIÀMETRE dibuixat, no escrita al
+    mig del forat: "diàm. 2 cm" fa uns 78 px i el forat només 34, així que
+    el text sortia per tots dos costats i la circumferència el tallava.
     """
-    ample_max = 170.0
-    escala = ample_max / max(float(base), float(altura))
+    escala = 170.0 / max(float(base), float(altura))
     B, A = float(base) * escala, float(altura) * escala
     r = float(radi_forat) * escala
     eb = etq_base if etq_base is not None else mesura(base, unitat)
     ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
     er = etq_radi if etq_radi is not None else (
         "diàm. " + mesura(2 * radi_forat, unitat))
-    # Marge esquerre dinàmic (vegeu rectangle_diagonal): ea es dibuixa amb
-    # text-anchor="end" cap a l'esquerra i un marge fix el retallava per a
-    # etiquetes llargues (AUDITORIA C4).
-    m = max(28, int(len(ea) * 7.3) + 14)
-    x0, y0 = m, m
+    x0, y0 = 0.0, 0.0
     cx = cx_forat * escala + x0 if cx_forat is not None else x0 + B / 2
     cy = cy_forat * escala + y0 if cy_forat is not None else y0 + A / 2
+
+    def cercle_segs(n=40):
+        pts = [(cx + r * math.cos(2 * math.pi * i / n),
+                cy + r * math.sin(2 * math.pi * i / n)) for i in range(n + 1)]
+        return [(pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1])
+                for i in range(n)]
+
+    forma = "Quadrat" if abs(base - altura) < 1e-9 else "Rectangle"
+    e = Escena("%s de %s per %s amb un forat circular de %s."
+               % (forma, eb, ea, er))
     # even-odd: rectangle ple menys el cercle interior
-    cos = ('<path d="M%g,%g h%g v%g h-%g Z '
+    e.crua('<path d="M%g,%g h%g v%g h-%g Z '
            'M%g,%g m-%g,0 a%g,%g 0 1,0 %g,0 a%g,%g 0 1,0 -%g,0" '
            'fill-rule="evenodd" fill="%s" stroke="currentColor" '
            'stroke-width="2"/>'
-           % (x0, y0, B, A, B,
-              cx, cy, r, r, r, 2 * r, r, r, 2 * r, OMPLERT))
-    cos += _text(x0 + B / 2, y0 + A + 18, eb)
-    cos += _text(x0 - 8, y0 + A / 2, ea, ancora="end")
-    cos += _text(cx, cy + 4, er, petit=True)
-    w = int(B + 2 * m)
-    h = int(A + 2 * m)
-    forma = "Quadrat" if abs(base - altura) < 1e-9 else "Rectangle"
-    return _svg(w, h, cos,
-                "%s de %s per %s amb un forat circular de %s." % (forma, eb, ea, er))
+           % (x0, y0, B, A, B, cx, cy, r, r, r, 2 * r, r, r, 2 * r, OMPLERT),
+           [(x0, y0, x0 + B, y0), (x0 + B, y0, x0 + B, y0 + A),
+            (x0 + B, y0 + A, x0, y0 + A), (x0, y0 + A, x0, y0)]
+           + cercle_segs())
+    e.marca((cx - r, cy), (cx + r, cy))
+    e.cota((x0, y0 + A), (x0 + B, y0 + A), eb, despl=16)
+    e.cota((x0, y0), (x0, y0 + A), ea, despl=16)
+    e.etq_segment((cx - r, cy), (cx + r, cy), er, petit=True)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -407,8 +404,11 @@ def triangle_isosceles(base, costat=None, altura=None,
     triangle_isosceles(10, costat=10)               -> equilàter
     triangle_isosceles(8, altura=6.93)               -> isòsceles, alçada
     triangle_isosceles(6, costat=12, mostra_altura=False) -> sense alçada
+
+    L'etiqueta del costat va perpendicular al costat, no a un desplaçament
+    fix cap a l'esquerra: amb triangles alts i estrets el costat s'inclina
+    fins a passar per on queia el text.
     """
-    import math
     assert costat is not None or altura is not None, (
         "cal donar costat o altura (com a mínim un) per calcular el dibuix")
     b = float(base)
@@ -417,52 +417,42 @@ def triangle_isosceles(base, costat=None, altura=None,
     else:
         c = float(costat)
         h_real = math.sqrt(max(c * c - (b / 2) ** 2, 0.0))
-    ample_max = 170.0
-    escala = ample_max / b
+    escala = 170.0 / b
     B = b * escala
     H = max(50.0, min(160.0, h_real * escala))
-    m = 26
-    x0, y0 = m, m + H              # peu esquerre de la base
-    xm = m + B / 2                 # peu de l'alçada / vèrtex superior
-    cos = (
-        '<polygon points="%g,%g %g,%g %g,%g" fill="%s" stroke="currentColor" '
-        'stroke-width="2"/>'
-        % (x0, y0, x0 + B, y0, xm, m, OMPLERT)
-    )
-    if mostra_altura:
-        cos += ('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" '
-                'stroke-width="1.5" stroke-dasharray="4 3"/>'
-                % (xm, m, xm, y0, MARCA))
+    x0, y0 = 0.0, H                # peu esquerre de la base
+    xm = B / 2                     # peu de l'alçada / vèrtex superior
+    cim = (xm, 0.0)
+
     eb = etq_base if etq_base is not None else mesura(base, unitat)
-    cos += _text(xm, y0 + 18, eb)
     ec = None
     if costat is not None or etq_costat is not None:
         ec = etq_costat if etq_costat is not None else mesura(costat, unitat)
-        cos += _text(x0 + (xm - x0) / 2 - 14, m + (y0 - m) / 2, ec,
-                    ancora="end")
     ea = None
     # Cal admetre `etq_altura` sense `altura` real: en exercicis com "troba
     # l'alçada", la crida vol marcar la línia discontínua amb un "x" o un
     # "?" sense revelar el valor numèric (que és precisament la resposta).
-    # Exigir `altura is not None` per pintar l'etiqueta feia que aquesta
-    # marca desaparegués sencera en aquests casos (124a, 124c, 125): la
-    # línia discontínua hi era, però sense cap número ni incògnita al
-    # costat, així que semblava una aresta sense mesurar.
     if mostra_altura and (altura is not None or etq_altura is not None):
         ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
-        cos += _text(xm + 8, m + (y0 - m) / 2, ea)
-    w = int(B + 2 * m)
-    hh = int(y0 + m)
+
     tipus = "equilàter" if (costat is not None and etq_costat is None
-                            and abs(costat - base) < 1e-9) \
-        else "isòsceles"
+                            and abs(costat - base) < 1e-9) else "isòsceles"
     detall = ""
     if ec is not None:
         detall += ", costats iguals %s" % ec
     if ea is not None:
         detall += ", alçada %s" % ea
-    return _svg(w, hh, cos,
-               ("Triangle %s de base %s%s." % (tipus, eb, detall)))
+    e = Escena("Triangle %s de base %s%s." % (tipus, eb, detall))
+    e.poligon([(x0, y0), (x0 + B, y0), cim])
+    if mostra_altura:
+        e.segment(cim, (xm, y0), gruix=1.5, discontinu=True, color=MARCA)
+        e.angle_recte((xm, y0), (1, 0), (0, -1), mida=9)
+    e.cota((x0, y0), (x0 + B, y0), eb, despl=16)
+    if ec is not None:
+        e.etq_segment((x0, y0), cim, ec)
+    if ea is not None:
+        e.etq_segment(cim, (xm, y0), ea, costat=-1)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------

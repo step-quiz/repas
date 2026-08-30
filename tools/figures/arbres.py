@@ -53,7 +53,10 @@ d'entre les seves filles, la branca 1. Pinta aquest camí en `MARCA` i gruixa
 el traç, perquè un ull s'hi fixi de seguida. Opcional: sense `ressaltat`,
 totes les branques es dibuixen igual.
 """
+import math
+
 from . import OMPLERT, MARCA, _svg, _text
+from .etiquetatge import Escena
 
 
 # ---------------------------------------------------------------------
@@ -109,14 +112,28 @@ def arbre(nivells, ressaltat=None):
     alt_total = max(total_fulles * ALT_FULLA, ALT_FULLA)
     ample_total = M * 2 + PAS_X * n_nivells + 90  # +90 per a l'etiqueta final
 
-    cos = ""
+    e = Escena("Diagrama d'arbre de %d nivells." % n_nivells)
+
+    def _node(cx_, cy_):
+        """Node de l'arbre: un cercle petit, registrat com a traç perque el
+        motor no hi encavalqui cap etiqueta."""
+        n_ = 12
+        segs = []
+        pts = [(cx_ + R_NODE * math.cos(2 * math.pi * i / n_),
+                cy_ + R_NODE * math.sin(2 * math.pi * i / n_))
+               for i in range(n_ + 1)]
+        for i in range(n_):
+            segs.append((pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1]))
+        e.crua('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" '
+               'stroke="currentColor" stroke-width="1.3"/>'
+               % (cx_, cy_, R_NODE, OMPLERT), segs)
+
     x0, y0 = M, M + alt_total / 2.0
 
     def dibuixa(node_x, node_y, prof, branques, y_baix, y_dalt, cami):
         """Dibuixa les branques que surten d'un node i, recursivament, les
         seves continuacions. `y_baix`/`y_dalt` acoten la franja vertical
         reservada a aquest node i els seus descendents."""
-        nonlocal cos
         n = len(branques)
         # Cada branca s'emporta una franja proporcional al nombre de fulles
         # que hi pengen, no una franja igual per a totes: així un node amb
@@ -137,29 +154,30 @@ def arbre(nivells, ressaltat=None):
             color = MARCA if marcat else "currentColor"
             gruix = "2.5" if marcat else "1.3"
 
-            cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
-                    'stroke="%s" stroke-width="%s"/>'
-                    % (node_x, node_y, fill_x, fill_y, color, gruix))
+            e.segment((node_x, node_y), (fill_x, fill_y),
+                      gruix=float(gruix), color=color)
 
-            # Etiqueta de la probabilitat: al mig de la branca, lleugerament
-            # per sobre perquè no la travessi la línia.
-            mx, my = (node_x + fill_x) / 2.0, (node_y + fill_y) / 2.0
-            desplaç = -8 if fill_y <= node_y else 12
-            cos_txt = _etiqueta_branca(b)
-            cos += _text(mx, my + desplaç, cos_txt, petit=True)
+            # La probabilitat etiqueta LA BRANCA: es una etiqueta de segment,
+            # i el motor la posa perpendicular a la branca i apartada de les
+            # germanes. Abans anava a un desplaçament vertical fix de -8/+12
+            # px, que amb branques molt inclinades queia damunt de la propia
+            # linia o de la del costat.
+            e.etq_segment((node_x, node_y), (fill_x, fill_y),
+                          _etiqueta_branca(b), petit=True)
 
-            cos += ('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" '
-                    'stroke="currentColor" stroke-width="1.3"/>'
-                    % (fill_x, fill_y, R_NODE, OMPLERT))
+            _node(fill_x, fill_y)
 
             es_fulla = prof + 1 >= n_nivells
             if es_fulla:
-                cos += _text(fill_x + 12, fill_y + 4, b["etq"], ancora="start")
+                e.etq_punt((fill_x, fill_y), b["etq"], direccio=(1, 0))
             else:
-                # L'etiqueta del node intermedi (per exemple "V") va just
-                # sota el node, petita, perquè no es confongui amb la
-                # probabilitat de la branca que hi arriba.
-                cos += _text(fill_x, fill_y - 10, b["etq"], petit=True)
+                # El nom del node intermedi ("V", "Caixa A") es una etiqueta
+                # de PUNT: designa el node, no cap longitud. Se li busca
+                # lloc lliure al voltant en comptes de clavar-la 10 px per
+                # sobre, que la deixava a menys de 4 px del cercle i de la
+                # branca que en surt.
+                e.etq_punt((fill_x, fill_y), b["etq"], petit=True,
+                           direccio=(0, -1))
                 fills_next = nivells[prof + 1][_index_node(nivells, prof, cami_k)]
                 dibuixa(fill_x, fill_y, prof + 1, fills_next,
                         fill_y - franja / 2.0, fill_y + franja / 2.0, cami_k)
@@ -184,14 +202,12 @@ def arbre(nivells, ressaltat=None):
         return pos
 
     # node arrel
-    cos += ('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" '
-            'stroke="currentColor" stroke-width="1.3"/>'
-            % (x0, y0, R_NODE, OMPLERT))
     dibuixa(x0, y0, 0, nivells[0], M, M + alt_total, [])
+    _node(x0, y0)          # arrel, per damunt de les branques que en surten
 
-    descripcio = ("Diagrama d'arbre de probabilitat de %d nivells, amb les "
-                  "probabilitats donades sobre cada branca." % n_nivells)
-    return _svg(int(ample_total), int(alt_total + 2 * M), cos, descripcio)
+    e.titol = ("Diagrama d'arbre de probabilitat de %d nivells, amb les "
+               "probabilitats donades sobre cada branca." % n_nivells)
+    return e.svg()
 
 
 # ---------------------------------------------------------------------
@@ -251,8 +267,16 @@ def taula_doble(files, columnes, valors, incognita=None):
                      'fill="%s" stroke="currentColor" stroke-width="1"/>'
                      % (x, y, w_, h_, ompl))
         etq = "?" if marcada else str(text_)
-        cos_local += _text(x + w_ / 2.0, y + h_ / 2.0 + 4, etq,
-                           petit=not cap)
+        # El text d'una cel·la ÉS el contingut de la cel·la, no una cota:
+        # va centrat al rectangle per definició i no designa cap dels
+        # quatre costats en particular. `fig-etq-nom` ho fa saber a
+        # l'auditoria, que altrament el marcava com a ambigu per tenir dues
+        # vores de la cel·la a distàncies semblants. El que sí que se li
+        # continua exigint és que no desbordi la cel·la.
+        classe = "fig-etq fig-etq-nom" + ("" if cap else " petita")
+        cos_local += ('<text x="%.1f" y="%.1f" text-anchor="middle" '
+                      'class="%s">%s</text>'
+                      % (x + w_ / 2.0, y + h_ / 2.0 + 4, classe, etq))
         return cos_local
 
     x = m

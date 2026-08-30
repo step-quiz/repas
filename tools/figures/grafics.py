@@ -95,9 +95,10 @@ def eixos(xmin, xmax, ymin, ymax, graella=True, etq_x="x", etq_y="y"):
         while x0 <= xmax + 1e-9:
             if abs(x0) > 1e-9:
                 p1, p2 = mapa(x0, ymin), mapa(x0, ymax)
-                cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
-                        'stroke="currentColor" stroke-width="0.5" '
-                        'opacity="0.18"/>' % (p1[0], p1[1], p2[0], p2[1]))
+                cos += ('<line class="fig-graella" x1="%.1f" y1="%.1f" '
+                        'x2="%.1f" y2="%.1f" stroke="currentColor" '
+                        'stroke-width="0.5" opacity="0.18"/>'
+                        % (p1[0], p1[1], p2[0], p2[1]))
             etq_x_baix.append((mapa(x0, ymin)[0], x0))
             x0 += pas_x
         pas_y = _pas_graella(ymax - ymin)
@@ -105,40 +106,95 @@ def eixos(xmin, xmax, ymin, ymax, graella=True, etq_x="x", etq_y="y"):
         while y0 <= ymax + 1e-9:
             if abs(y0) > 1e-9:
                 p1, p2 = mapa(xmin, y0), mapa(xmax, y0)
-                cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
-                        'stroke="currentColor" stroke-width="0.5" '
-                        'opacity="0.18"/>' % (p1[0], p1[1], p2[0], p2[1]))
+                cos += ('<line class="fig-graella" x1="%.1f" y1="%.1f" '
+                        'x2="%.1f" y2="%.1f" stroke="currentColor" '
+                        'stroke-width="0.5" opacity="0.18"/>'
+                        % (p1[0], p1[1], p2[0], p2[1]))
             etq_y_esq.append((mapa(xmin, y0)[1], y0))
             y0 += pas_y
     ox1, ox2 = mapa(xmin, 0), mapa(xmax, 0)
     oy1, oy2 = mapa(0, ymin), mapa(0, ymax)
-    cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
+    # `fig-eix` i `fig-graella`: eixos i quadrícula són el MARC de lectura,
+    # no el contingut. Cap etiqueta no els mesura mai, així que no poden fer
+    # de referent i no han de comptar a l'hora de decidir si una etiqueta és
+    # ambigua. Sense aquesta distinció, en una gràfica amb quadrícula
+    # qualsevol etiqueta té sempre dos traços a distància semblant i tot
+    # surt marcat com a ambigu.
+    cos += ('<line class="fig-eix" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
             'stroke="currentColor" stroke-width="1.1"/>'
             % (ox1[0], ox1[1], ox2[0], ox2[1]))
-    cos += ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
+    cos += ('<line class="fig-eix" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" '
             'stroke="currentColor" stroke-width="1.1"/>'
             % (oy1[0], oy1[1], oy2[0], oy2[1]))
     cos += ('<path d="M %.1f %.1f l -6 -3 v 6 z" fill="currentColor"/>'
             % (ox2[0] + 6, ox2[1]))
     cos += ('<path d="M %.1f %.1f l -3 6 h 6 z" fill="currentColor"/>'
             % (oy2[0], oy2[1] - 6))
-    cos += _text(ox2[0] - 4, ox2[1] + 14, etq_x, ancora="end", petit=True)
-    cos += _text(oy2[0] + 8, oy2[1] + 4, etq_y, ancora="start", petit=True)
+    # Els noms dels eixos van als MARGES, passada la punta de la fletxa, i
+    # no dins de l'area de dibuix: alla els podia travessar qualsevol corba
+    # que passes prop de l'eix (la "y" de 207b, la "x" de 299a i 299c).
+    cos += _text(ox2[0] + 12, ox2[1] + 14, etq_x, ancora="start", petit=True)
+    cos += _text(oy2[0] + 2, oy2[1] - 12, etq_y, ancora="start", petit=True)
     # Números de la graella: a la vora del quadre (inferior per a X,
     # esquerra per a Y), no directament sobre la línia de l'eix — que pot
     # caure enmig del dibuix i xocar amb la corba. Agrupats en un <g> amb
     # la classe i l'ancoratge perquè cada <text> no l'hagi de repetir.
+    # Amplada real d'una etiqueta d'eix: la font es monoespaiada de 10,5 px
+    # amb un pas de 0,61 em, aixi que es pot saber exactament que ocupara.
+    def _ample(txt):
+        return 0.61 * 10.5 * len(txt)
+
+    def _aprima(items, mida, separacio):
+        """Conserva nomes les etiquetes que no es trepitgen amb l'anterior.
+
+        Amb rangs curts i pas petit, els numeros consecutius d'un eix queden
+        a menys d'una amplada de text els uns dels altres i se superposen
+        ("-4" damunt de "-2"). Val mes ensenyar-ne la meitat i que es
+        llegeixin, que ensenyar-les totes i que no se'n llegeixi cap.
+        """
+        conservats, ocupat = [], []
+        for pos, valor in items:
+            mig = mida(_fmt_graella(valor)) / 2
+            if any(abs(pos - q) < mig + qm + separacio for q, qm in ocupat):
+                continue
+            ocupat.append((pos, mig))
+            conservats.append((pos, valor))
+        return conservats
+
+    caixes_x = []
     if etq_x_baix:
-        cos += '<g class="fig-etq petita" text-anchor="middle">'
-        for px, valor in etq_x_baix:
+        cos += '<g class="fig-etq petita fig-etq-marc" text-anchor="middle">'
+        for px, valor in _aprima(etq_x_baix, _ample, 4.0):
+            txt = _fmt_graella(valor)
+            mig = _ample(txt) / 2
+            caixes_x.append((px - mig, _H - _M + 12 - 8.2,
+                             px + mig, _H - _M + 12 + 2.3))
             cos += '<text x="%.1f" y="%d">%s</text>' % (
-                px, _H - _M + 12, _fmt_graella(valor))
+                px, _H - _M + 12, txt)
         cos += "</g>"
     if etq_y_esq:
-        cos += '<g class="fig-etq petita" text-anchor="end">'
-        for py, valor in etq_y_esq:
-            cos += '<text x="%d" y="%.1f">%s</text>' % (
-                _M - 6, py + 3.5, _fmt_graella(valor))
+        # Les etiquetes de l'eix Y van amb text-anchor="end" acabant a
+        # `_M - 6`, o sigui que creixen cap a l'esquerra. Amb valors com
+        # "-1,5" o "-0,4" (uns 26 px) el text arrencava a x negativa i
+        # quedava tallat pel marc. Es desplaca l'extrem dret el minim
+        # necessari perque la caixa comenci sempre dins del dibuix.
+        fi = _M - 6.0
+        for _, valor in etq_y_esq:
+            fi = max(fi, _ample(_fmt_graella(valor)) + 2.0)
+        cos += '<g class="fig-etq petita fig-etq-marc" text-anchor="end">'
+        for py, valor in _aprima(etq_y_esq, lambda t: 12.0, 2.0):
+            txt = _fmt_graella(valor)
+            # A la cantonada de l'origen, l'ultima etiqueta de l'eix Y i la
+            # primera de l'eix X ocupen gairebe el mateix lloc i se
+            # superposen (a 302a totes dues deien "-2", l'una damunt de
+            # l'altra). Es descarta la de l'eix Y: la de sota queda mes a
+            # prop de la seva marca de graella.
+            caixa = (fi - _ample(txt), py + 3.5 - 8.2, fi, py + 3.5 + 2.3)
+            if any(not (caixa[2] + 2 <= b[0] or b[2] + 2 <= caixa[0]
+                        or caixa[3] + 1 <= b[1] or b[3] + 1 <= caixa[1])
+                   for b in caixes_x):
+                continue
+            cos += '<text x="%.1f" y="%.1f">%s</text>' % (fi, py + 3.5, txt)
         cos += "</g>"
     return cos
 
@@ -149,15 +205,38 @@ def _mostres(mapa, f, xmin, xmax, ymin, ymax, n):
     del 15 %). `_corba()` en construeix el `<path>`; `_cua_continuacio()`
     reutilitza aquesta mateixa llista per saber on s'atura de debò cada
     tram, encara que sigui abans d'arribar a xmin/xmax."""
-    punts = []
-    marge = (ymax - ymin) * 0.15
+    brut = []
     for i in range(n + 1):
         x = xmin + (xmax - xmin) * i / n
-        y = f(x)
-        if y is not None and ymin - marge <= y <= ymax + marge:
+        brut.append((x, f(x)))
+
+    def dins(y):
+        return y is not None and ymin <= y <= ymax
+
+    # Els punts que cauen fora del rang vertical no es dibuixen a la seva
+    # posicio real: es substitueixen pel punt on la corba TALLA la vora del
+    # quadre, interpolant amb el vei que si que hi es a dins. Abans es
+    # deixava sortir la corba fins a un 15 % per sota i per sobre del rang
+    # (uns 24 px), i alla hi viuen els numeros dels eixos: una branca
+    # inclinada els travessava (216a, 203a). Amb el tall exacte la corba
+    # arriba a la vora i s'hi atura, sense escurcar-la ni deixar-hi forat.
+    punts = []
+    for i, (x, y) in enumerate(brut):
+        if dins(y):
             punts.append(mapa(x, y))
-        else:
-            punts.append(None)
+            continue
+        tall = None
+        if y is not None:
+            lim = ymax if y > ymax else ymin
+            for j in (i - 1, i + 1):
+                if not (0 <= j <= n):
+                    continue
+                xv, yv = brut[j]
+                if dins(yv) and abs(y - yv) > 1e-12:
+                    t = (lim - yv) / (y - yv)
+                    tall = (xv + (x - xv) * t, lim)
+                    break
+        punts.append(mapa(*tall) if tall else None)
     return punts
 
 
@@ -196,19 +275,33 @@ def _cua_continuacio(punts):
     if d < 1e-6:
         return ""
     ux, uy = dx / d, dy / d
-    llarg = 13
-    fi = (x2 + ux * llarg, y2 + uy * llarg)
-    return ('<path d="M %.1f %.1f L %.1f %.1f" fill="none" stroke="%s" '
-            'stroke-width="2.2" stroke-linecap="round" '
-            'stroke-dasharray="1,3.2" opacity="0.5"/>'
-            % (x2, y2, fi[0], fi[1], MARCA))
+    # Punta de fletxa AL punt de sortida, orientada com hi arribava la
+    # corba. Abans aqui hi havia un tram discontinu que s'allargava 13 px
+    # cap ENFORA del quadre; quan la corba sortia per l'esquerra, aquells
+    # 13 px queien damunt de la columna de numeros de l'eix Y i la
+    # travessaven (203a). La fletxa diu el mateix ---que la corba
+    # continua--- i no surt mai del marc.
+    px_, py_ = -uy, ux                     # perpendicular
+    llarg, mig = 7.0, 3.2
+    base = (x2 - ux * llarg, y2 - uy * llarg)
+    return ('<path d="M %.1f %.1f L %.1f %.1f L %.1f %.1f z" fill="%s" '
+            'opacity="0.75"/>'
+            % (x2, y2,
+               base[0] + px_ * mig, base[1] + py_ * mig,
+               base[0] - px_ * mig, base[1] - py_ * mig, MARCA))
 
 
-def _punt(mapa, x, y, etq=None, ancora="middle", dy=-9):
+def _punt(mapa, x, y, etq=None, ancora="middle", dy=-12):
     px, py = mapa(x, y)
     cos = '<circle cx="%.1f" cy="%.1f" r="3.6" fill="%s"/>' % (px, py, MARCA)
     if etq:
-        cos += _text(px, py + dy, etq, ancora=ancora)
+        # El nom d'un punt notable ("vèrtex", "tall") designa EL PUNT, no cap
+        # longitud: `fig-etq-nom` ho fa saber a l'auditoria. I se separa una
+        # mica més del punt (12 px en lloc de 9) perquè amb un radi de 3,6 i
+        # una corba que hi passa pel damunt quedava a menys de 3 px de traç.
+        cos += ('<text x="%.1f" y="%.1f" text-anchor="%s" '
+                'class="fig-etq fig-etq-nom">%s</text>'
+                % (px, py + dy, ancora, etq))
     return cos
 
 

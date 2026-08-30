@@ -141,13 +141,27 @@ class CoherenciaGeometrica(unittest.TestCase):
 
     def test_corona_151_usa_radis_no_diametres(self):
         """Mateix risc que 144a: l'enunciat parla del diàmetre exterior
-        (6 cm) i el del forat (5 cm); els radis reals són 3 i 2,5."""
+        (6 cm) i el del forat (5 cm); els radis reals són 3 i 2,5.
+
+        Es comprova la RAÓ entre els dos radis dibuixats, que ha de ser
+        2,5/3. Abans es mirava que el viewBox no passés de 220 px, un límit
+        que depenia d'un marge fix de 26 px que ja no existeix (el marc surt
+        del contingut). A més, la raó atrapa el bug de manera més directa:
+        si algú passés els diàmetres (6 i 5) en lloc dels radis, la raó
+        seria 5/6 i no 2,5/3, independentment de com s'escali el dibuix."""
         svg = _amb_fig("151")
-        w, h = _viewbox_wh(svg)
-        # r_ext real = 3 -> escala = 80/3 -> ample = 2*(80)+2*26 = 212
-        self.assertLess(w, 220,
-                        "151: el viewBox és massa ample: sembla que s'ha "
-                        "passat el diàmetre (6) on calia el radi (3)")
+        radis = [float(v) for v in
+                 re.findall(r'a(\d+(?:\.\d+)?),\1 0 1,0', svg)]
+        self.assertGreaterEqual(
+            len(radis), 2,
+            "151: esperava trobar els dos arcs de la corona al camí SVG")
+        r_ext, r_int = max(radis), min(radis)
+        self.assertAlmostEqual(
+            r_int / r_ext, 2.5 / 3.0, delta=0.02,
+            msg="151: la raó entre els radis dibuixats és %.4f i hauria de "
+                "ser 2,5/3 = %.4f; si val 5/6 = %.4f és que s'han passat "
+                "els diàmetres on calien els radis"
+                % (r_int / r_ext, 2.5 / 3.0, 5 / 6.0))
 
     def test_apotemes_marcades_quadren_amb_la_formula(self):
         """a = L / (2*tan(pi/n)). Es prova amb els polígons que el propi
@@ -176,18 +190,34 @@ class CoherenciaGeometrica(unittest.TestCase):
 
     def test_triangle_isosceles_124a_semibase_i_costat_coherents(self):
         """Equilàter de costat 10: l'alçada real és sqrt(10^2 - 5^2) =
-        sqrt(75). No es marca el valor (és la incògnita 'x'), però les
-        proporcions del dibuix (viewBox) sí han de reflectir-lo: amb
-        base=10, altura=sqrt(75)=~8.66, escala=170/10=17, H real=147.2,
-        dins del rang [50,160] sense topar el límit."""
+        sqrt(75), o sigui una raó alçada/base de sqrt(3)/2. No es marca el
+        valor (és la incògnita 'x'), però les proporcions del DIBUIX sí que
+        l'han de respectar.
+
+        Es mesura sobre el polígon dibuixat, no sobre el viewBox. Abans es
+        comprovava `h_viewBox == alçada*escala + 2*26`, que donava per fet
+        un marge fix de 26 px; ara el marc es calcula del contingut real
+        (les cotes incloses) i aquell número ja no hi és. La raó entre
+        l'alçada i la base del triangle, en canvi, no depèn ni del marge ni
+        de l'escala, que és justament el que aquesta prova vol vigilar."""
         svg = _amb_fig("124a")
-        w, h = _viewbox_wh(svg)
-        alcada_real = math.sqrt(10 ** 2 - 5 ** 2)
-        escala = 170.0 / 10
-        h_esperada = alcada_real * escala + 2 * 26
-        self.assertAlmostEqual(h, h_esperada, delta=2.0,
-                               msg="124a: l'alçada dibuixada no correspon "
-                               "a un triangle equilàter de costat 10")
+        m = re.search(r'<polygon points="([^"]+)"', svg)
+        self.assertIsNotNone(m, "124a: no s'hi troba el polígon del triangle")
+        pts = [tuple(float(v) for v in p.split(","))
+               for p in m.group(1).split()]
+        self.assertEqual(len(pts), 3, "124a: el triangle ha de tenir 3 vèrtexs")
+        ys = [p[1] for p in pts]
+        base_y = max(ys)
+        peus = [p for p in pts if abs(p[1] - base_y) < 0.5]
+        self.assertEqual(len(peus), 2, "124a: la base ha de ser horitzontal")
+        cim = [p for p in pts if abs(p[1] - base_y) >= 0.5][0]
+        base = abs(peus[0][0] - peus[1][0])
+        alcada = base_y - cim[1]
+        self.assertAlmostEqual(
+            alcada / base, math.sqrt(3) / 2, delta=0.02,
+            msg="124a: la raó alçada/base dibuixada és %.4f i en un "
+                "triangle equilàter ha de ser sqrt(3)/2 = %.4f"
+                % (alcada / base, math.sqrt(3) / 2))
 
     def test_rectangle_136_altre_costat_es_5_i_no_es_regala(self):
         """Diagonal sqrt(41), un costat 4: l'altre val
