@@ -122,7 +122,22 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      que si no surt un full en blanc al final de cada tirada. */
   .pr-alumne{page-break-after:always}
   .pr-alumne:last-child{page-break-after:auto}
+  /* Imprimir un sol alumne: els altres s'amaguen amb `display:none`, no amb
+     `visibility`, perquè si només es fessin invisibles seguirien ocupant el
+     seu lloc i sortirien pàgines en blanc davant del que interessa. */
+  body[data-un] .pr-alumne:not(.sol){display:none}
 }
+#lot-taula{width:100%;border-collapse:collapse;margin:.5rem 0 0}
+#lot-taula th{text-align:left;font-weight:600;font-size:.82rem;color:var(--apagat);
+  border-bottom:1px solid var(--vora);padding:.35rem .5rem}
+#lot-taula td{border-bottom:1px solid var(--vora);padding:.4rem .5rem;font-size:.9rem}
+#lot-taula tbody tr{cursor:pointer}
+#lot-taula tbody tr:hover{background:var(--fons2,#F6F4F0)}
+#lot-taula tbody tr.tria{background:#EDF2F7}
+#lot-taula .xifra{font-family:var(--mono);text-align:right;white-space:nowrap}
+#lot-taula .avis{color:#8A5A12;background:#FCF6E8;border-radius:6px;
+  padding:.05rem .4rem;font-size:.8rem;white-space:nowrap}
+#lot-taula .mal{color:#A32B22}
 /* Tria de mode de la pestanya d'exàmens. */
 #pr-tria .opcio{display:block;width:100%;text-align:left;border:1px solid var(--vora);
   background:var(--card);border-radius:12px;padding:.85rem 1rem;margin:0 0 .6rem;
@@ -594,7 +609,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       $("#v-un").hidden = b.dataset.mode !== "un";
       if (b.dataset.mode === "progres") { proposaPeriode(); pintaProgres(); }
       $("#v-prova").hidden = b.dataset.mode !== "prova";
-      if (b.dataset.mode === "prova") { modeExamen(null); }
+      if (b.dataset.mode === "prova") { modeExamen(modeRecordat); }
       $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
     };
   });
@@ -2412,7 +2427,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     });
 
     lotSel = { sortida: sortida, objectiu: objectiu, elegibles: elegibles,
-               inici: inici, perTrim: perTrim };
+               inici: inici, perTrim: perTrim, minim: minim };
     pintaLot(lotSel);
     intentaKatex();
   }
@@ -2437,20 +2452,43 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + "Cada impressió és un document a part: desa'l com a PDF des del diàleg "
       + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
 
-    h += '<div class="targeta"><b>Repartiment</b><div class="petit apagat">'
-      + "Se sorteja entre: " + escapa(trams) + ".</div>";
-    if (sense.length) {
-      h += '<div class="lot-avis petit"><b>Sense examen (' + sense.length + "):</b> "
-        + sense.map(function (s) { return escapa(s.alumne.nom || s.alumne.clau); }).join(", ")
-        + ". No tenen cap exercici fet als trams que entren.</div>";
-    }
+    /* Una fila per alumne, amb els números que decideixen si l'examen val:
+       quants exercicis nous té al tram que s'examina i quants n'acumula al
+       trimestre. Una llista d'avisos agrupats deia què anava malament, però
+       no deixava veure el grup d'un cop d'ull ni permetia comparar-los. */
+    h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
+      + "Se sorteja entre: " + escapa(trams)
+      + ". Clica una fila per veure'n l'examen i imprimir-lo sol.</div>"
+      + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
+      + '<th class="xifra">Nous al tram ' + (lot.objectiu + 1) + "</th>"
+      + '<th class="xifra">Acumulat del trimestre</th><th>Estat</th>'
+      + "</tr></thead><tbody>";
+    lot.sortida.forEach(function (x, i) {
+      var estat = x.preguntes.length
+        ? (x.avisos.length
+            ? '<span class="avis">' + escapa(x.avisos[0].split(":")[0]) + "</span>"
+            : '<span class="petit apagat">a punt</span>')
+        : '<span class="mal petit">sense examen</span>';
+      h += '<tr data-i="' + i + '"><td>' + escapa(x.alumne.nom || x.alumne.clau)
+        + "</td><td>" + escapa(x.alumne.grup || "") + "</td>"
+        + '<td class="xifra">' + x.nObjectiu
+        + (x.nObjectiu < lot.minim
+            ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
+        + '</td><td class="xifra">' + x.disponibles + "</td><td>" + estat
+        + "</td></tr>";
+    });
+    h += "</tbody></table>";
     if (ambAvis.length) {
-      h += '<div class="lot-avis petit"><b>Amb avís (' + ambAvis.length + "):</b><ul style=\"margin:.3rem 0 0;padding-left:1.1rem\">"
-        + ambAvis.map(function (s) {
-            return "<li>" + escapa(s.alumne.nom || s.alumne.clau) + ": "
-              + escapa(s.avisos.join("; ")) + "</li>";
+      h += '<div class="lot-avis petit" style="margin-top:.6rem">'
+        + "<b>Amb avís (" + ambAvis.length + "):</b> l'examen es genera igual. "
+        + "El motiu queda anotat al full de correcció, mai al de l'alumne."
+        + '<ul style="margin:.3rem 0 0;padding-left:1.1rem">'
+        + ambAvis.map(function (x) {
+            return "<li>" + escapa(x.alumne.nom || x.alumne.clau) + ": "
+              + escapa(x.avisos.join("; ")) + "</li>";
           }).join("") + "</ul></div>";
     }
+    h += '<div id="lot-un" class="petit apagat" style="margin-top:.6rem"></div>';
     h += "</div>";
 
     /* Els exàmens i les solucions van dins de #pr-examen i #pr-correccio,
@@ -2475,10 +2513,44 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       document.body.setAttribute("data-imprimeix", quin);
       window.print();
     }
-    window.onafterprint = function () { document.body.removeAttribute("data-imprimeix"); };
+    window.onafterprint = function () {
+      document.body.removeAttribute("data-imprimeix");
+      document.body.removeAttribute("data-un");
+    };
     $("#lot-imprimeix").onclick = function () { imprimeix("examen"); };
     $("#lot-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
     $("#lot-regenera").onclick = generaLot;
+
+    /* Clicar una fila marca aquell alumne i deixa imprimir-lo sol: passa
+       sovint que algú faltava el dia de l'examen i cal el seu full a part,
+       sense tornar a tirar tota la classe per la impressora. */
+    $$("#lot-taula tbody tr").forEach(function (tr) {
+      tr.onclick = function () {
+        var i = +tr.dataset.i, x = lot.sortida[i];
+        $$("#lot-taula tbody tr").forEach(function (o) { o.classList.remove("tria"); });
+        $$(".pr-alumne").forEach(function (o) { o.classList.remove("sol"); });
+        if (!x.preguntes.length) {
+          $("#lot-un").innerHTML = escapa(x.alumne.nom || x.alumne.clau)
+            + " no té cap exercici fet als trams que entren, així que no se li "
+            + "pot compondre cap examen.";
+          return;
+        }
+        tr.classList.add("tria");
+        var nom = x.alumne.nom || x.alumne.clau;
+        $$(".pr-alumne").forEach(function (o) {
+          if (o.dataset.alumne === x.alumne.clau) o.classList.add("sol");
+        });
+        $("#lot-un").innerHTML = '<b>' + escapa(nom) + "</b> · "
+          + '<button class="btn buit petit" id="lot-un-ex">Imprimeix el seu examen</button> '
+          + '<button class="btn buit petit" id="lot-un-cl">Imprimeix la seva correcció</button>';
+        function solA(quin) {
+          document.body.setAttribute("data-un", "1");
+          imprimeix(quin);
+        }
+        $("#lot-un-ex").onclick = function () { solA("examen"); };
+        $("#lot-un-cl").onclick = function () { solA("correccio"); };
+      };
+    });
   }
 
   function capcaleraLot(s, lot, titol, extra) {
@@ -2496,7 +2568,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   }
 
   function pintaExamenAlumne(s, lot) {
-    var h = '<div class="pr-alumne">'
+    var h = '<div class="pr-alumne" data-alumne="' + escapa(s.alumne.clau) + '">'
       + capcaleraLot(s, lot, "Mini-examen de repàs",
                      '<div class="petit apagat">' + s.preguntes.length
                      + " preguntes · resposta oberta, cal escriure la resolució</div>");
@@ -2522,7 +2594,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       extra += '<div class="petit" style="color:#A0651B">Avís: '
         + escapa(s.avisos.join("; ")) + "</div>";
     }
-    var h = '<div class="pr-alumne">' + capcaleraLot(s, lot, "Solucions", extra);
+    var h = '<div class="pr-alumne" data-alumne="' + escapa(s.alumne.clau) + '">'
+      + capcaleraLot(s, lot, "Solucions", extra);
     s.preguntes.forEach(function (q, i) {
       var b = RE_BANC[q.it.id];
       if (!b) return;
@@ -2814,7 +2887,13 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   /* Tria de mode de la pestanya d'exàmens. Les dues vistes són excloents i
      comparteixen els identificadors #pr-examen i #pr-correccio, de manera
      que les regles d'impressió que ja hi havia serveixen per a totes dues. */
+  /* El mode triat es recorda mentre dura la sessió: tornar a la pestanya no
+     ha de tornar a preguntar què vols fer, perquè la resposta gairebé sempre
+     és la mateixa que l'última vegada. Es canvia amb el botó de tornar. */
+  var modeRecordat = null;
+
   function modeExamen(quin) {
+    modeRecordat = quin;
     $("#pr-tria").hidden = quin !== null;
     $("#pr-lot").hidden = quin !== "lot";
     $("#pr-individual").hidden = quin !== "individual";

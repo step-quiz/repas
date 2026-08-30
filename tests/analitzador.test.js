@@ -543,4 +543,142 @@ seccio("Prova escrita — les figures de geometria arriben a l'examen");
 }
 
 
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: tria de mode i memòria");
+
+/* Deixa la pestanya d'exàmens oberta amb un full de respostes carregat. */
+function obreExamens(w, d, tsv) {
+  d.getElementById("entrada").value = tsv;
+  d.getElementById("btn-llegeix").click();
+  Array.prototype.slice.call(d.querySelectorAll(".pestanya"))
+    .filter(b => b.dataset.mode === "prova")[0].click();
+}
+
+{
+  const { w, d } = obre();
+  const ara = new Date(2026, 9, 20, 18, 0);
+  obreExamens(w, d, fabrica(w, [[marca(ara), "a@x.cat", "4tA",
+    codiDe(w, [4], 20, ara)]]));
+
+  prova("en entrar es veu la tria, cap dels dos modes", () => {
+    assert.ok(!d.getElementById("pr-tria").hidden);
+    assert.ok(d.getElementById("pr-lot").hidden);
+    assert.ok(d.getElementById("pr-individual").hidden);
+  });
+
+  prova("triant l'estàndard es veu aquest panell i no l'altre", () => {
+    d.getElementById("pr-va-lot").click();
+    assert.ok(d.getElementById("pr-tria").hidden);
+    assert.ok(!d.getElementById("pr-lot").hidden);
+    assert.ok(d.getElementById("pr-individual").hidden);
+  });
+
+  prova("tornar a la pestanya recorda el mode, no torna a preguntar", () => {
+    Array.prototype.slice.call(d.querySelectorAll(".pestanya"))
+      .filter(b => b.dataset.mode === "full")[0].click();
+    Array.prototype.slice.call(d.querySelectorAll(".pestanya"))
+      .filter(b => b.dataset.mode === "prova")[0].click();
+    assert.ok(d.getElementById("pr-tria").hidden, "torna a preguntar el mode");
+    assert.ok(!d.getElementById("pr-lot").hidden);
+  });
+
+  prova("el botó de tornar sí que torna a la tria", () => {
+    d.getElementById("pr-torna-1").click();
+    assert.ok(!d.getElementById("pr-tria").hidden);
+  });
+
+  prova("el mode personalitzat continua sent el d'abans", () => {
+    d.getElementById("pr-va-individual").click();
+    assert.ok(!d.getElementById("pr-individual").hidden);
+    assert.ok(d.getElementById("pr-alumne"), "falta el selector d'alumne");
+    assert.ok(d.getElementById("pr-genera"), "falta el botó de generar");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: la taula de la classe");
+
+/* Dos alumnes: un que treballa els tres trams i un que gairebé no fa res a
+   l'últim, que és el que ha de sortir avisat. */
+function classeDeProva(w) {
+  const INICI = new Date(2026, 8, 14);
+  const dia = n => {
+    const d = new Date(INICI.getTime() + n * 86400000);
+    d.setHours(18, 0, 0, 0);
+    return d;
+  };
+  const f = [];
+  [[19, 12], [40, 24], [61, 36]].forEach(([n, q]) => {
+    f.push([marca(dia(n)), "prou@x.cat", "4tA", codiDe(w, [4], q, dia(n))]);
+  });
+  [[19, 12], [40, 24], [61, 26]].forEach(([n, q]) => {
+    f.push([marca(dia(n)), "just@x.cat", "4tA", codiDe(w, [4], q, dia(n))]);
+  });
+  return fabrica(w, f);
+}
+
+{
+  const { w, d } = obre();
+  obreExamens(w, d, classeDeProva(w));
+  d.getElementById("pr-va-lot").click();
+  d.getElementById("lot-inici").value = "2026-09-14";
+  d.getElementById("lot-periode").innerHTML = "";
+  /* es reomple la llista de trams amb la data posada */
+  d.getElementById("lot-inici").dispatchEvent(new w.Event("change"));
+  d.getElementById("lot-periode").value = "2";
+  d.getElementById("lot-genera").click();
+
+  const files = () => Array.prototype.slice.call(
+    d.querySelectorAll("#lot-taula tbody tr"));
+
+  prova("hi ha una fila per alumne", () => {
+    assert.strictEqual(files().length, 2, d.getElementById("lot-taula").textContent);
+  });
+
+  prova("la columna del tram mostra els exercicis nous d'aquell tram", () => {
+    const tr = files().filter(r => /prou/.test(r.textContent))[0];
+    assert.ok(/^12\b/.test(tr.children[2].textContent.trim()),
+      tr.children[2].textContent);
+  });
+
+  prova("qui no arriba al mínim surt marcat amb «sota»", () => {
+    const tr = files().filter(r => /just/.test(r.textContent))[0];
+    assert.ok(/sota/.test(tr.children[2].textContent), tr.children[2].textContent);
+  });
+
+  prova("qui hi arriba no surt marcat", () => {
+    const tr = files().filter(r => /prou/.test(r.textContent))[0];
+    assert.ok(!/sota/.test(tr.children[2].textContent), tr.children[2].textContent);
+  });
+
+  prova("tot i l'avís, l'examen es genera igualment", () => {
+    const caps = Array.prototype.slice.call(
+      d.querySelectorAll("#pr-examen .pr-alumne"));
+    assert.strictEqual(caps.length, 2, "esperava dos exàmens");
+  });
+
+  prova("l'avís surt al full de correcció...", () => {
+    assert.ok(/mínim/.test(d.getElementById("pr-correccio").textContent),
+      "el motiu no consta a la correcció");
+  });
+
+  prova("...i mai a l'examen de l'alumne", () => {
+    assert.ok(!/mínim/.test(d.getElementById("pr-examen").textContent),
+      "l'avís s'ha colat a l'examen que rep l'alumne");
+  });
+
+  prova("clicar una fila la marca i ofereix imprimir-la sola", () => {
+    files()[0].click();
+    assert.ok(files()[0].classList.contains("tria"));
+    assert.ok(d.getElementById("lot-un-ex"), "falta el botó d'imprimir-ne un");
+  });
+
+  prova("cada full sap de quin alumne és", () => {
+    const amb = Array.prototype.slice.call(
+      d.querySelectorAll("#pr-examen .pr-alumne[data-alumne]"));
+    assert.strictEqual(amb.length, 2);
+  });
+}
+
+
 process.exit(resum() ? 0 : 1);

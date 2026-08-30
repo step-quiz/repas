@@ -17,7 +17,7 @@ saltades=0
 
 # Les proves que necessiten jsdom surten amb codi 0 quan se salten, per no
 # tombar la resta. Això vol dir que "Tot en verd" podia significar "92 de les
-# 307 comprovacions no s'han arribat a executar" -- exactament el tipus de
+# 321 comprovacions no s'han arribat a executar" -- exactament el tipus de
 # silenci que aquest projecte no es pot permetre. Es detecta i es diu.
 if node -e "require('jsdom')" >/dev/null 2>&1; then
   hi_ha_jsdom=1
@@ -41,6 +41,16 @@ echo "── JavaScript: analitzador ──────────────�
 node tests/analitzador.test.js || fallades=1
 
 echo
+echo "── JavaScript: mini-examen de 3 setmanes ─────────────────────"
+# Aquestes no necessiten DOM: proven el repartiment per trams, el sorteig i
+# l'exemple de mostra, que són funcions pures. Corren sempre.
+for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js \
+         tests/mini_examen_exemple.test.js tests/mini_examen_varietat.test.js; do
+  node "$t" >/dev/null || { node "$t"; fallades=1; }
+done
+printf '  \033[32m✓\033[0m 4 bateries del mini-examen\n'
+
+echo
 echo "── JavaScript: accessibilitat de practica.html i diagnostic.html ──"
 node tests/test_a11y.js || fallades=1
 
@@ -55,7 +65,7 @@ if [ "$fallades" -ne 0 ]; then
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
   printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
-  printf '  són 92 comprovacions de 307 que no s\047han arribat a executar.\n'
+  printf '  són 106 comprovacions de 321 que no s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0
 else
