@@ -1806,20 +1806,81 @@ window.RE_CODI = (function () {
        prefix: si es tornessin a sortejar a cada codi, un mateix exercici
        canviaria de resultat entre enviaments i l'analitzador ho llegiria,
        amb raó, com que l'ha repetit. */
-    function slotsDe() {
+    /* CADA ALUMNE FA EL SEU CAMÍ.
+
+       Abans tots sis compartien una única llista d'exercicis, de manera que
+       tots havien fet exactament els mateixos i en el mateix ordre. El
+       resultat era un joc d'exàmens on els sis alumnes rebien preguntes del
+       mateix tema —tots polinomis—, que no s'assembla gens a un grup real i,
+       pitjor, amagava justament allò que el mini-examen ha de demostrar: que
+       cadascú s'examina del que ha treballat ELL.
+
+       Ara cada alumne té els seus fulls i comença per un bloc diferent de
+       cadascun. Es reparteix per BLOCS senceres, no per exercicis solts,
+       perquè és com es treballa de debò: qui es posa amb les equacions fa
+       uns quants exercicis d'equacions seguits, no un de cada tema. */
+    var CATALEG = Object.keys(RE_TAULES.fulls).map(Number)
+      .sort(function (a, b) { return a - b; });
+
+    function barreja(v, llavor) {
+      var r = llavor;
+      for (var i = v.length - 1; i > 0; i--) {
+        r = (r * 1103515245 + 12345) % 2147483648;
+        var j = r % (i + 1);
+        var t = v[i]; v[i] = v[j]; v[j] = t;
+      }
+      return v;
+    }
+
+    /* L'itinerari d'un alumne: els seus fulls, INTERCALATS bloc a bloc.
+
+       Encadenar-los sencers feia que tres setmanes de feina caiguessin dins
+       d'un sol bloc, i un bloc són pocs problemes amb molts apartats: en
+       sortien 2-4 exercicis mare, insuficients per a un examen de cinc
+       preguntes sense repetir-ne cap. Alternant un bloc de cada full, les
+       mateixes tretze feines toquen dos o tres blocs de fulls diferents, que
+       és el que fa qui va combinant temes durant tres setmanes. */
+    function blocsDelFull(n, desde) {
+      var t = RE_TAULES.fulls[n];
+      if (!t) return [];
+      var blocs = (t.blocs || []).map(function (b) { return b[1]; });
+      if (!blocs.length) blocs = [t.items.map(function (_, i) { return i; })];
       var out = [];
-      [4, 7].forEach(function (n) {
-        var t = RE_TAULES.fulls[n];
-        if (!t) return;
-        t.items.forEach(function (_, i) { out.push({ full: n, i: i }); });
-      });
+      for (var k = 0; k < blocs.length; k++) {
+        out.push(blocs[(desde + k) % blocs.length].map(function (i) {
+          return { full: n, i: i };
+        }));
+      }
       return out;
     }
-    var SLOTS = slotsDe();
 
-    function fullsAmb(estats, quants) {
+    function itinerari(llavor, quantsFulls) {
+      var seus = barreja(CATALEG.slice(), llavor).slice(0, quantsFulls);
+      /* Es va alternant de full cada quatre exercicis, no cada bloc sencer:
+         el primer bloc d'un full ja sol tenir més de tretze exercicis, així
+         que rotar per blocs deixava igualment tot un tram dins d'un sol
+         tema. Amb trossos de quatre, tres setmanes de feina toquen dos o
+         tres temes de fulls diferents. */
+      var cues = seus.map(function (n, k) {
+        var pla = [];
+        blocsDelFull(n, (llavor + k * 3) % 7).forEach(function (b) {
+          pla = pla.concat(b);
+        });
+        return pla;
+      });
+      var out = [], viu = true;
+      while (viu) {
+        viu = false;
+        cues.forEach(function (c) {
+          for (var k = 0; k < 4 && c.length; k++) { out.push(c.shift()); viu = true; }
+        });
+      }
+      return out;
+    }
+
+    function fullsAmb(slots, estats, quants) {
       var per = {};
-      SLOTS.slice(0, quants).forEach(function (s, k) {
+      slots.slice(0, quants).forEach(function (s, k) {
         (per[s.full] = per[s.full] || {})[s.i] = estats[k];
       });
       return Object.keys(per).map(function (n) {
@@ -1844,12 +1905,13 @@ window.RE_CODI = (function () {
 
     var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
     PLA.forEach(function (a, k) {
-      var estats = SLOTS.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
+      var slots = itinerari(k * 977 + 13, 3 + (k % 2));
+      var estats = slots.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
       a.env.forEach(function (e, j) {
         var quan = new Date(INICI.getTime() + e.dia * 86400000);
         quan.setHours(17 + (k % 4), (k * 7 + j * 13) % 60, 0, 0);
         var codi = RE_CODI.genera({
-          fulls: fullsAmb(estats, e.acum), ara: quan,
+          fulls: fullsAmb(slots, estats, e.acum), ara: quan,
           errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
         });
         /* Un sol codi manipulat, i a mig curs: així la comprovació
@@ -2411,8 +2473,18 @@ window.RE_CODI = (function () {
      dos, el LaTeX es queda en cru i la prova continua sent usable -- aquest
      fitxer ha de funcionar sense connexió. */
   var katexProvat = false;
+  /* Es componen ELS DOS contenidors d'examen, no només el de la prova
+     individual. El mini-examen pinta a `#lot-resum`, i mentre aquí només hi
+     havia `#pr-resultat` les seves fórmules es quedaven en LaTeX cru: als
+     exàmens impresos hi sortia literalment "$P(x)=2x^5-3x^4$" en comptes del
+     polinomi compost. Renderitzar un node que no existeix no fa res, així
+     que cridar-los tots dos sempre és segur. */
+  function matExamens() {
+    mat($("#pr-resultat"));
+    mat($("#lot-resum"));
+  }
   function intentaKatex() {
-    if (katexProvat || window.renderMathInElement) { mat($("#pr-resultat")); return; }
+    if (katexProvat || window.renderMathInElement) { matExamens(); return; }
     katexProvat = true;
     var CDN = "https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/";
     function css(base) {
@@ -2426,7 +2498,7 @@ window.RE_CODI = (function () {
       document.head.appendChild(s);
     }
     function auto(base) {
-      js(base + "contrib/auto-render.min.js", function () { mat($("#pr-resultat")); }, function () {});
+      js(base + "contrib/auto-render.min.js", function () { matExamens(); }, function () {});
     }
     try {
       css("vendor/katex/");
@@ -2685,20 +2757,36 @@ window.RE_CODI = (function () {
     var sel = $("#lot-periode"), inici = iniciCurs();
     if (!sel || !inici) return;
     var perTrim = Math.max(1, parseInt($("#lot-per-trim").value, 10) || 3);
-    var ara = new Date();
-    var actual = Math.max(0, tramDe(ara, inici));
+    var actual = tramDe(new Date(), inici);
+    /* La llista arriba fins al tram més tardà que hi hagi A LES DADES, no
+       només fins al d'avui. Mirant només el rellotge, un full de respostes
+       d'un altre curs —o l'exemple, que va del setembre al novembre— deixava
+       triar només el primer tram, i l'examen sortia d'un pou d'exercicis que
+       no era el que el professor volia. */
+    var maxDades = -1;
+    files.forEach(function (r) {
+      if (r.p && r.p.ok && r.p.integre) {
+        maxDades = Math.max(maxDades, tramDe(quan(r.p), inici));
+      }
+    });
+    var fins = Math.max(0, actual, maxDades);
     var previ = sel.value;
     var h = "";
-    for (var t = 0; t <= Math.max(actual, 0); t++) {
+    for (var t = 0; t <= fins; t++) {
       var ini = new Date(inici.getTime() + t * msTram());
       var fi = new Date(inici.getTime() + (t + 1) * msTram() - 86400000);
       h += '<option value="' + t + '">Tram ' + (t + 1)
         + " · trimestre " + (Math.floor(t / perTrim) + 1)
         + " · " + dataCurta(ini) + " – " + dataCurta(fi)
-        + (t === actual ? " (en curs)" : "") + "</option>";
+        + (t === actual ? " (en curs)" : "")
+        + (t > actual && t <= maxDades ? " (hi ha dades)" : "") + "</option>";
     }
     sel.innerHTML = h;
-    sel.value = previ && previ <= actual ? previ : String(actual);
+    /* Per defecte, el tram en curs; i si el curs encara no ha començat
+       —cosa que passa mirant dades d'un altre any o l'exemple—, l'últim
+       tram del qual hi ha feina. */
+    var perDefecte = actual >= 0 && actual <= fins ? actual : Math.max(0, maxDades);
+    sel.value = previ !== "" && +previ <= fins ? previ : String(perDefecte);
   }
 
   function dataCurta(d) {
@@ -2751,6 +2839,19 @@ window.RE_CODI = (function () {
       if (preguntes.length < nPreg) {
         avisos.push("només s'han pogut sortejar " + preguntes.length + " de "
           + nPreg + " preguntes: no té prou exercicis diferents");
+      }
+      /* Un examen pot tenir cinc preguntes i ser, de fet, dos problemes
+         repetits: al banc el 63 % dels exercicis tenen més d'un apartat, i
+         si la feina d'un alumne es concentra en pocs exercicis mare, el
+         sorteig no ho pot arreglar —només ho pot dir. */
+      var maresDif = {};
+      preguntes.forEach(function (q) { maresDif[exMare(q.it.id)] = 1; });
+      var nMares = Object.keys(maresDif).length;
+      if (preguntes.length && nMares < preguntes.length) {
+        avisos.push("les " + preguntes.length + " preguntes surten de només "
+          + nMares + " problema" + (nMares === 1 ? "" : "s") + " diferent"
+          + (nMares === 1 ? "" : "s") + ": hi ha apartats repetits del mateix "
+          + "exercici perquè no ha treballat prou temes en aquest tram");
       }
       sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
                      nObjectiu: nObjectiu, disponibles: disponibles });
