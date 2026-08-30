@@ -697,11 +697,15 @@ Q("223c", 223, "c", B2, "A",
   ex_text=E223)
 
 # ---- exercici 224: cinema (50 dades) ----
+# La llista de 50 dades va en TEXT PLA. Mateix motiu que a 228: un bloc
+# `$...$` no es parteix mai de línia, i 99 caràcters seguits sobresurten de
+# la targeta.
 E224 = ("Per fer un estudi fem una enquesta entre el jovent d'un "
         "barri i els preguntem pel nombre de vegades que van al "
         "cinema cada setmana. Els resultats de l'enquesta (50 "
-        "persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,"
-        "1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.")
+        "persones) són: 0, 0, 2, 3, 5, 1, 3, 2, 0, 0, 4, 1, 2, 4, 3, "
+        "1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 2, 1, 5, 4, 0, "
+        "0, 2, 2, 4, 1, 3, 5, 2, 3, 2, 2, 0, 1, 1, 1.")
 
 Q("224a", 224, "a", B2, "A",
   "Quina i de quin tipus és la variable estadística que estem "
@@ -1032,11 +1036,17 @@ Q("227", 227, "", B3, "A",
   ex_text=E227)
 
 # ---- exercici 228: estatures (27 dades), intervals + histograma ----
+# La llista de 27 dades va en TEXT PLA, no dins de `$...$`. Un bloc
+# matemàtic és una unitat tipogràfica indivisible: KaTeX no el parteix mai,
+# de manera que els 107 caràcters de la llista sortien en una sola línia i
+# quedaven tallats per la vora de la targeta (228a). Aquí no hi ha res a
+# compondre —són números separats per comes— així que en text pla es
+# llegeixen igual i el paràgraf els reparteix en les línies que calgui.
 E228 = ("Les estatures, en centímetres, d'un grup de 27 joves són: "
-        "$155,178,170,165,173,168,160,166,176,169,158,170,179,161,"
-        "164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes "
-        "servir intervals d'amplitud $5$ per formar una taula de "
-        "freqüències.")
+        "155, 178, 170, 165, 173, 168, 160, 166, 176, 169, 158, 170, "
+        "179, 161, 164, 156, 170, 171, 167, 151, 163, 158, 164, 174, "
+        "176, 164, 154. Fes servir intervals d'amplitud $5$ per formar "
+        "una taula de freqüències.")
 
 Q("228a", 228, "a", B3, "A",
   "Quants joves tenen una estatura dins de l'interval $[160,165)$ "

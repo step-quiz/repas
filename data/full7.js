@@ -134,7 +134,7 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIG5vIHN1cnQgZGUgJDE4MF5cXGNpcmMtNTBeXFxjaXJjJCByZXBhcnRpdCBlbnRyZSBkb3M6IHJldmlzYSBsYSByZXN0YSBhYmFucyBkZSBkaXZpZGlyLWxhIHBlciAkMiQuIiwgIkFxdWVzdCDDqXMgZWwgcXVlIHN1bWVuIGVudHJlIHRvdHMgZG9zICgkMTgwXlxcY2lyYy01MF5cXGNpcmMkKSwgbm8gZWwgcXVlIHZhbCBjYWRhc2N1bjogZW5jYXJhIGNhbCByZXBhcnRpci1obyBlbnRyZSBlbHMgZG9zIGFuZ2xlcyBpZ3VhbHMuIiwgIlNlbWJsYSBxdWUgaGFzIHJlcGFydGl0IGVscyAkNTBeXFxjaXJjJCBkZSBsJ2FuZ2xlIGRlc2lndWFsIGVudHJlIGRvcywgZW4gbGxvYyBkZSByZXBhcnRpciBlbCBxdWUgcXVlZGEgZGVscyAkMTgwXlxcY2lyYyQgdG90YWxzIHVuIGNvcCB0cmV0IGwnYW5nbGUgZGVzaWd1YWwuIl0sICJlcnIiOiBbIiIsICJTVU1BX0FOR0xFU19NQUwiLCAiUkVQQVJUSU1FTlRfQU5HTEVTX01BTCIsICJTVU1BX0FOR0xFU19NQUwiXSwgInJlcyI6IFsiJDE4MF5cXGNpcmMtNTBeXFxjaXJjPTEzMF5cXGNpcmMkIGVudHJlIGVscyBkb3MgYW5nbGVzIGlndWFscyIsICIkXFxkZnJhY3sxMzBeXFxjaXJjfXsyfT02NV5cXGNpcmMkIGNhZGFzY3VuIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 222 234\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle isòsceles amb l'angle de dalt (entre els costats iguals) de 50° marcat.</title><polygon points=\"26,208.283 196,208.283 111,26\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M101.702,45.9388 A22,22 0 0,1 120.298,45.9388\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"111\" y=\"64\" text-anchor=\"middle\" class=\"fig-etq petita\">50°</text></svg>"
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 222 234\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle isòsceles amb l'angle de dalt (entre els costats iguals) de 50° marcat.</title><polygon points=\"26,208.283 196,208.283 111,26\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M101.702,45.9388 A22,22 0 0,0 120.298,45.9388\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"111\" y=\"64\" text-anchor=\"middle\" class=\"fig-etq petita\">50°</text></svg>"
   },
   {
    "id": "120a",
@@ -165,7 +165,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "",
+   "encapcalament": "Analitza, en cada cas, les mesures i esbrina amb quines es pot formar un triangle.",
    "enunciat": "$a=6$ cm, $b=6$ cm, $c=13$ cm",
    "opcions": [
     "No es pot formar cap triangle",
@@ -187,7 +187,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "",
+   "encapcalament": "Analitza, en cada cas, les mesures i esbrina amb quines es pot formar un triangle.",
    "enunciat": "$a=12$ cm, $b=14$ cm, $c=6$ cm",
    "opcions": [
     "No es pot saber sense conèixer els angles",
@@ -231,7 +231,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
    "enunciat": "Triangle de costats 6 cm, 8 cm i 12 cm.",
    "opcions": [
     "Rectangle, amb hipotenusa $8$ cm i catets $6$ cm i $12$ cm",
@@ -253,7 +253,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
    "enunciat": "Triangle de costats 5 cm, 6 cm i $\\sqrt{61}$ cm.",
    "opcions": [
     "No es pot saber perquè un dels costats és una arrel, no un nombre enter",
@@ -275,7 +275,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
    "enunciat": "Triangle de costats 7 cm, 24 cm i 25 cm.",
    "opcions": [
     "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $7$ cm",
@@ -342,7 +342,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "",
+   "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Quadrat de costat 10 cm, $x$ és la diagonal.",
    "opcions": [
     "$200$",
@@ -365,7 +365,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "",
+   "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Rectangle de costats 5 cm i 8 cm, $x$ és la diagonal.",
    "opcions": [
     "$40$",
@@ -388,7 +388,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "",
+   "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Rectangle de diagonal $\\sqrt{117}$ cm i un costat de 9 cm, $x$ és l'altre costat.",
    "opcions": [
     "$36$ cm",
@@ -434,7 +434,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina la longitud de $x$ en aquests triangles.",
    "enunciat": "Triangle isòsceles de base 8 cm i alçada $\\sqrt{48}$ cm; $x$ és la longitud dels costats iguals.",
    "opcions": [
     "$4$ cm",
@@ -457,7 +457,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina la longitud de $x$ en aquests triangles.",
    "enunciat": "Triangle isòsceles de costats iguals 12 cm i base 7 cm; $x$ és l'alçada.",
    "opcions": [
     "$\\sqrt{144-7^2}=\\sqrt{95}\\approx9{,}75$ cm",
@@ -525,7 +525,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Calcula el perímetre de les figures següents.",
    "enunciat": "Hexàgon còncau (en forma de fletxa) de costats 12 cm, 14 cm, 28 cm, 7 cm, 16 cm i 5 cm.",
    "opcions": [
     "$77$ cm",
@@ -570,7 +570,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Troba l'apotema d'un hexàgon regular el costat del qual mesura:",
    "enunciat": "16 cm",
    "opcions": [
     "$8$ cm",
@@ -593,7 +593,7 @@ window.FULL = {
    "bloc": "triangles",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Troba l'apotema d'un hexàgon regular el costat del qual mesura:",
    "enunciat": "7 cm",
    "opcions": [
     "$7$ cm",
@@ -915,7 +915,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $16$ m i $24$ m, alçada de $\\sqrt{164}$ m.",
    "opcions": [
     "$\\sqrt{164}$ m$^2$",
@@ -938,7 +938,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $3{,}5$ m i $4{,}13$ m, alçada de $7$ m.",
    "opcions": [
     "$29{,}75$ m$^2$",
@@ -961,7 +961,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $4$ m i $14$ m, alçada de $3$ m.",
    "opcions": [
     "$54$ m$^2$",
@@ -1007,7 +1007,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Calcula l'àrea de:",
    "enunciat": "Un octàgon regular de perímetre $48$ cm.",
    "opcions": [
     "$6$ cm",
@@ -1076,7 +1076,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un pentàgon regular de costat $4$ cm i apotema $a\\approx2{,}75$ cm queda dividit en cinc triangles iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
     "$27{,}5$ cm$^2$",
@@ -1099,7 +1099,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un hexàgon regular de costat $3$ cm queda dividit en sis triangles equilàters iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
     "$\\dfrac{27\\sqrt3}{2}\\approx23{,}38$ cm$^2$",
@@ -1122,7 +1122,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "",
+   "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un octàgon regular de costat $3$ cm i apotema $3{,}62$ cm queda dividit en vuit triangles iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
     "$2{,}715$ cm$^2$",
@@ -1168,7 +1168,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 3,
-   "encapcalament": "",
+   "encapcalament": "Calcula l'àrea de les figures següents.",
    "enunciat": "D'un cercle de $4$ cm de diàmetre es retalla un sector de $90^\\circ$ (una quarta part, tipus \"Pac-Man\"). Quina és l'àrea de la part que queda?",
    "opcions": [
     "$2\\pi\\approx6{,}28$ cm$^2$",

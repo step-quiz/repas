@@ -717,7 +717,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
+   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: 0, 0, 2, 3, 5, 1, 3, 2, 0, 0, 4, 1, 2, 4, 3, 1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 2, 1, 5, 4, 0, 0, 2, 2, 4, 1, 3, 5, 2, 3, 2, 2, 0, 1, 1, 1.",
    "enunciat": "Quina i de quin tipus és la variable estadística que estem estudiant?",
    "opcions": [
     "El «nombre de vegades que es va al cinema»; és quantitativa contínua",
@@ -739,7 +739,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
+   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: 0, 0, 2, 3, 5, 1, 3, 2, 0, 0, 4, 1, 2, 4, 3, 1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 2, 1, 5, 4, 0, 0, 2, 2, 4, 1, 3, 5, 2, 3, 2, 2, 0, 1, 1, 1.",
    "enunciat": "Quina és la freqüència absoluta del valor $x_i=1$ (una vegada per setmana)?",
    "opcions": [
     "$13$",
@@ -761,7 +761,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
+   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: 0, 0, 2, 3, 5, 1, 3, 2, 0, 0, 4, 1, 2, 4, 3, 1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 2, 1, 5, 4, 0, 0, 2, 2, 4, 1, 3, 5, 2, 3, 2, 2, 0, 1, 1, 1.",
    "enunciat": "Quants joves van al cinema MÉS de dues vegades per setmana?",
    "opcions": [
     "$43$ joves",
@@ -783,7 +783,7 @@ window.FULL = {
    "bloc": "frequencies",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: $0,0,2,3,5,1,3,2,0,0,4,1,2,4,3,1,2,3,2,2,1,1,1,3,2,1,1,1,1,1,2,1,5,4,0,0,2,2,4,1,3,5,2,3,2,2,0,1,1,1$.",
+   "encapcalament": "Per fer un estudi fem una enquesta entre el jovent d'un barri i els preguntem pel nombre de vegades que van al cinema cada setmana. Els resultats de l'enquesta (50 persones) són: 0, 0, 2, 3, 5, 1, 3, 2, 0, 0, 4, 1, 2, 4, 3, 1, 2, 3, 2, 2, 1, 1, 1, 3, 2, 1, 1, 1, 1, 1, 2, 1, 5, 4, 0, 0, 2, 2, 4, 1, 3, 5, 2, 3, 2, 2, 0, 1, 1, 1.",
    "enunciat": "I quants joves van al cinema, com a mínim, una vegada per setmana?",
    "opcions": [
     "$16$ joves",
@@ -1003,7 +1003,7 @@ window.FULL = {
    "bloc": "grafics",
    "tipus": "A",
    "dif": 3,
-   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
+   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: 155, 178, 170, 165, 173, 168, 160, 166, 176, 169, 158, 170, 179, 161, 164, 156, 170, 171, 167, 151, 163, 158, 164, 174, 176, 164, 154. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Quants joves tenen una estatura dins de l'interval $[160,165)$ cm?",
    "opcions": [
     "$4$ joves",
@@ -1025,7 +1025,7 @@ window.FULL = {
    "bloc": "grafics",
    "tipus": "A",
    "dif": 3,
-   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
+   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: 155, 178, 170, 165, 173, 168, 160, 166, 176, 169, 158, 170, 179, 161, 164, 156, 170, 171, 167, 151, 163, 158, 164, 174, 176, 164, 154. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Quina és la freqüència absoluta acumulada de l'interval $[165,170)$?",
    "opcions": [
     "$12$",
@@ -1047,7 +1047,7 @@ window.FULL = {
    "bloc": "grafics",
    "tipus": "A",
    "dif": 3,
-   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: $155,178,170,165,173,168,160,166,176,169,158,170,179,161,164,156,170,171,167,151,163,158,164,174,176,164,154$. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
+   "encapcalament": "Les estatures, en centímetres, d'un grup de 27 joves són: 155, 178, 170, 165, 173, 168, 160, 166, 176, 169, 158, 170, 179, 161, 164, 156, 170, 171, 167, 151, 163, 158, 164, 174, 176, 164, 154. Fes servir intervals d'amplitud $5$ per formar una taula de freqüències.",
    "enunciat": "Per representar aquestes dades agrupades en intervals, cal fer servir un diagrama de barres o un histograma? Per què?",
    "opcions": [
     "Un histograma, perquè la variable és contínua i les dades estan agrupades en intervals: les barres no porten separació entre elles",

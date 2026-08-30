@@ -383,21 +383,36 @@ class FiguresSemblantsK(unittest.TestCase):
     def test_k4_no_es_capa_com_k3(self):
         """290a i 290b (k=4): el llindar de capat ha de cobrir sencer el
         rang real dels exercicis del bloc, perquè k=4 es dibuixi a la
-        seva pròpia mida i no quedi indistingible d'un exercici amb k=3
+        seva pròpia raó i no quedi indistingible d'un exercici amb k=3
         de veritat (bug real: amb un llindar de 3, tant k=3 com k=4 es
         dibuixaven amb la mateixa raó visual de 3,0, cosa que ensenyava
-        una raó equivocada precisament a l'ítem que la pregunta)."""
-        svg3 = figures_semblants_k(3, "triangle")
-        svg4 = figures_semblants_k(4, "triangle")
+        una raó equivocada precisament a l'ítem que la pregunta).
 
-        def amplada(svg):
-            m = re.search(r'viewBox="0 0 (\d+) ', svg)
-            return int(m.group(1))
-        self.assertNotEqual(amplada(svg3), amplada(svg4),
-                            "k=3 i k=4 es dibuixen amb la mateixa mida: "
-                            "el capat visual esborra la diferència entre "
-                            "dues raons diferents que apareixen totes dues "
-                            "en exercicis reals (290)")
+        Es mesura la RAÓ entre les dues figures dibuixades, no l'amplada
+        del viewBox. L'amplada total ja no serveix de senyal: el dibuix
+        es manté a una amplada constant a propòsit, perquè les etiquetes
+        "1" i "k" no s'empetiteixin quan la raó és gran (290a es veia amb
+        el text a uns 7 px). El que ha de distingir k=3 de k=4 és la
+        proporció entre les dues figures, que és el que l'exercici
+        pregunta, i això és el que es comprova."""
+        def rao_dibuixada(k):
+            svg = figures_semblants_k(k, "triangle")
+            amples = []
+            for m in re.finditer(r'<polygon points="([^"]+)"', svg):
+                xs = [float(p.split(",")[0]) for p in m.group(1).split()]
+                amples.append(max(xs) - min(xs))
+            self.assertGreaterEqual(
+                len(amples), 2, "esperava dos triangles a la figura")
+            return max(amples) / min(amples)
+
+        r3, r4 = rao_dibuixada(3), rao_dibuixada(4)
+        self.assertAlmostEqual(r3, 3.0, delta=0.05,
+                               msg="k=3 s'hauria de dibuixar amb raó 3")
+        self.assertAlmostEqual(r4, 4.0, delta=0.05,
+                               msg="k=4 s'hauria de dibuixar amb raó 4; si "
+                                   "surt 3, el llindar de capat l'ha "
+                                   "aixafat i la figura ensenya una raó "
+                                   "equivocada a l'ítem que la pregunta")
 
     def test_rao_real_es_proporcional_per_sota_del_llindar(self):
         """Per sota del llindar de capat, la raó visual ha de ser

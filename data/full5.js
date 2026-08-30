@@ -2146,7 +2146,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "El preu d'un anell i el seu estoig és de 10\\,200 €, i l'anell val 10\\,000 € més que l'estoig. Quin és el preu de cada article?",
+   "enunciat": "El preu d'un anell i el seu estoig és de $10\\,200$ €, i l'anell val $10\\,000$ € més que l'estoig. Quin és el preu de cada article?",
    "opcions": [
     "L'anell val $10\\,100$ € i l'estoig, $10\\,000$ €",
     "L'anell val $10\\,100$ € i l'estoig, $100$ €",
@@ -2168,7 +2168,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "Una bodega va exportar al gener la meitat dels seus barrils i, al cap de dos mesos, un terç dels que li quedaven. Quants barrils tenia al començament si ara hi ha 40\\,000 barrils?",
+   "enunciat": "Una bodega va exportar al gener la meitat dels seus barrils i, al cap de dos mesos, un terç dels que li quedaven. Quants barrils tenia al començament si ara hi ha $40\\,000$ barrils?",
    "opcions": [
     "$60\\,000$ barrils",
     "$120\\,000$ barrils",

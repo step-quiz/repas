@@ -357,7 +357,44 @@ def valida_global():
 
 
 # ------------------------------------------------------------ dades del web
+def _hereta_encapcalaments():
+    """Cada apartat d'un exercici ha de portar la instrucció comuna.
+
+    L'`ex_text` ("Calcula el perímetre de les figures següents.", "Determina
+    si els triangles són rectangles…") normalment només s'escriu a
+    l'apartat `a`, perquè en un full imprès surt un sol cop damunt del grup.
+    Però l'aplicació presenta els ítems D'UN EN UN ("90 de 99"), i llavors
+    l'apartat `b` apareix sense cap instrucció: a 121b l'alumne només llegia
+    "Triangle de costats 6 cm, 8 cm i 12 cm." i a 126b, "Hexàgon còncau…",
+    sense que res li digués què n'havia de fer. Afectava 21 ítems.
+
+    Es propaga la primera instrucció no buida del grup (mateix full i mateix
+    número d'exercici) als apartats que no en tenen. Els grups on cap
+    apartat no en té es deixen com estan: no hi ha res a heretar.
+    """
+    per_ex = {}
+    for it in BANC:
+        per_ex.setdefault(it["ex"], []).append(it)
+    heretats = 0
+    for items in per_ex.values():
+        if len(items) < 2:
+            continue
+        text = next((i["ex_text"] for i in items
+                     if (i["ex_text"] or "").strip()), "")
+        if not text:
+            continue
+        for i in items:
+            if not (i["ex_text"] or "").strip():
+                i["ex_text"] = text
+                heretats += 1
+    return heretats
+
+
 def compila():
+    heretats = _hereta_encapcalaments()
+    if heretats:
+        print("  · %d apartats hereten la instrucció del seu exercici"
+              % heretats)
     items = []
     for it in BANC:
         opcions = [mathify(it["correcta"])] + [mathify(d["tex"]) for d in it["distractors"]]

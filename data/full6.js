@@ -367,7 +367,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 1,
    "encapcalament": "",
-   "enunciat": "Per un CD que costa 21 € em fan un 15\\,\\% de descompte. Quants diners m'estalvio?",
+   "enunciat": "Per un CD que costa 21 € em fan un $15\\,\\%$ de descompte. Quants diners m'estalvio?",
    "opcions": [
     "$3{,}15$ €",
     "$6$ €",
@@ -389,7 +389,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 2,
    "encapcalament": "",
-   "enunciat": "En un institut, 63 alumnes, que són el 15\\,\\% del total, han viatjat a l'estranger. Quants alumnes té l'institut?",
+   "enunciat": "En un institut, 63 alumnes, que són el $15\\,\\%$ del total, han viatjat a l'estranger. Quants alumnes té l'institut?",
    "opcions": [
     "$420$ alumnes",
     "$9{,}45$ alumnes",
@@ -410,7 +410,7 @@ window.FULL = {
    "bloc": "percentatges",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Un venedor de cotxes rep com a comissió el 0,8\\,\\% de les vendes que fa.",
+   "encapcalament": "Un venedor de cotxes rep com a comissió el $0{,}8\\,\\%$ de les vendes que fa.",
    "enunciat": "Si en un mes va rebre 300 € de comissió, quines vendes va fer?",
    "opcions": [
     "$375$ €",
@@ -432,8 +432,8 @@ window.FULL = {
    "bloc": "percentatges",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Un venedor de cotxes rep com a comissió el 0,8\\,\\% de les vendes que fa.",
-   "enunciat": "Si el mes següent va vendre per valor de 45\\,000 €, quina comissió va obtenir?",
+   "encapcalament": "Un venedor de cotxes rep com a comissió el $0{,}8\\,\\%$ de les vendes que fa.",
+   "enunciat": "Si el mes següent va vendre per valor de $45\\,000$ €, quina comissió va obtenir?",
    "opcions": [
     "$36$ €",
     "$360$ €",
@@ -455,7 +455,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "Un comerciant decideix apujar el preu d'una mercaderia, que era de 72 €, un 3\\,\\%, i a la setmana següent, un 3\\,\\% més sobre l'últim preu. Quin és el preu final de venda?",
+   "enunciat": "Un comerciant decideix apujar el preu d'una mercaderia, que era de 72 €, un $3\\,\\%$, i a la setmana següent, un $3\\,\\%$ més sobre l'últim preu. Quin és el preu final de venda?",
    "opcions": [
     "$74{,}16$ €",
     "$78{,}48$ €",
@@ -477,7 +477,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "En dues setmanes consecutives s'han aplicat al preu d'un article augments del 2\\,\\% i del 5\\,\\%. En quin percentatge s'ha incrementat l'article sobre el seu preu original?",
+   "enunciat": "En dues setmanes consecutives s'han aplicat al preu d'un article augments del $2\\,\\%$ i del $5\\,\\%$. En quin percentatge s'ha incrementat l'article sobre el seu preu original?",
    "opcions": [
     "$10{,}0\\,\\%$",
     "$7\\,\\%$",
@@ -499,7 +499,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "En una botiga apugen el preu d'un producte de 200 € un 10\\,\\%. A la setmana següent decideixen rebaixar-lo un 10\\,\\% del preu que té en aquell moment. Què ha passat amb el preu?",
+   "enunciat": "En una botiga apugen el preu d'un producte de 200 € un $10\\,\\%$. A la setmana següent decideixen rebaixar-lo un $10\\,\\%$ del preu que té en aquell moment. Què ha passat amb el preu?",
    "opcions": [
     "El preu torna a ser exactament $200$ €, els mateixos que a l'inici",
     "El preu final és $220$ €, $20$ € més que el preu inicial",
@@ -565,7 +565,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "En un envàs de galetes anuncien que conté un 25\\,\\% més de galetes pel mateix preu. Els envasos antics pesaven 1 kg i l'envàs actual amb l'oferta pesa 1,2 kg. És certa la publicitat?",
+   "enunciat": "En un envàs de galetes anuncien que conté un $25\\,\\%$ més de galetes pel mateix preu. Els envasos antics pesaven 1 kg i l'envàs actual amb l'oferta pesa 1,2 kg. És certa la publicitat?",
    "opcions": [
     "Sí: el pes ha passat d'$1$ kg a $1{,}2$ kg, i $1{,}2$ és exactament un $25\\,\\%$ més que $1$",
     "No es pot saber sense conèixer el pes exacte d'una galeta",

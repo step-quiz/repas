@@ -114,18 +114,30 @@ def _triangle(p1, p2, p3, ratlla=False, ompl=OMPLERT, gruix=2):
 def _arc_angle(vertex, p_a, p_b, radi, color="currentColor"):
     """Un petit arc que marca l'angle a `vertex`, entre les direccions cap
     a `p_a` i cap a `p_b`. Fet servir per assenyalar quin parell d'angles
-    és el que es dona igual entre els dos triangles (criteri AA)."""
+    és el que es dona igual entre els dos triangles (criteri AA).
+
+    Els angles es calculen en orientació matemàtica (amb la y invertida,
+    perquè a l'SVG creix cap avall), però l'`sweep-flag` d'un arc SVG es
+    llegeix en orientació de pantalla: recórrer de `ang_a` a `ang_b` en
+    sentit antihorari matemàtic és sentit HORARI a la pantalla, o sigui
+    `sweep=1`. Amb el `sweep=0` fix que hi havia, l'arc sortia girat i
+    quedava bombat cap al vèrtex en comptes d'obrir-se cap a l'interior de
+    l'angle (l'arc de 119 semblava una arcada damunt del vèrtex).
+
+    Sempre es dibuixa l'angle MENOR: si els dos punts arriben en l'ordre
+    contrari, s'intercanvien, en lloc de traçar l'arc reflex.
+    """
     ang_a = math.atan2(-(p_a[1] - vertex[1]), p_a[0] - vertex[0])
     ang_b = math.atan2(-(p_b[1] - vertex[1]), p_b[0] - vertex[0])
+    if (ang_b - ang_a) % (2 * math.pi) > math.pi:
+        ang_a, ang_b = ang_b, ang_a
     x1 = vertex[0] + radi * math.cos(ang_a)
     y1 = vertex[1] - radi * math.sin(ang_a)
     x2 = vertex[0] + radi * math.cos(ang_b)
     y2 = vertex[1] - radi * math.sin(ang_b)
-    diff = (ang_b - ang_a) % (2 * math.pi)
-    large = 1 if diff > math.pi else 0
-    return ('<path d="M %.2f %.2f A %.2f %.2f 0 %d 0 %.2f %.2f" fill="none" '
+    return ('<path d="M %.2f %.2f A %.2f %.2f 0 0 1 %.2f %.2f" fill="none" '
             'stroke="%s" stroke-width="2"/>'
-            % (x1, y1, radi, radi, large, x2, y2, color))
+            % (x1, y1, radi, radi, x2, y2, color))
 
 
 def _tercer_vertex(base, lat_esq, lat_dre):
@@ -369,7 +381,12 @@ def tales(segments_a, segments_b, incognita, angle=25, acumulat=True):
         e.segment(pts_a[i], pts_b[i],
                   color=MARCA if marcada else "currentColor")
 
-    e.etq_punt(ORIGEN, "O", direccio=(-1, 0))
+    if not acumulat:
+        # La "O" segueix el mateix criteri que la resta de lletres: només
+        # hi va quan l'enunciat anomena els punts. Amb mesures per trams
+        # (152) l'enunciat parla de "una secant" i "l'altra", mai del
+        # vèrtex O, així que la lletra no serveix per a res i és soroll.
+        e.etq_punt(ORIGEN, "O", direccio=(-1, 0))
 
     # Les mesures s'expressen de dues maneres, segons com les doni
     # l'enunciat, i han de DISTINGIR-SE a simple vista: confondre els dos
@@ -384,26 +401,25 @@ def tales(segments_a, segments_b, incognita, angle=25, acumulat=True):
             nom = seg[i][0]
             if txt is None:
                 continue
-            e.etq_punt(punt, nom, petit=True, direccio=(0.4, banda * 0.92))
+            # Que la figura ha de dir depen del que ja digui l'enunciat,
+            # per no repetir-ho: repetir-ho es soroll, no ajuda.
+            #
+            #  - Amb mesures per TRAMS (152), l'enunciat les dona en ordre
+            #    pero no anomena els punts ("una secant te segments de 2 cm
+            #    i 4 cm"): la figura hi posa les cotes i prescindeix de les
+            #    lletres, que no serveixen per a res.
+            #  - Amb distancies ABSOLUTES (153), l'enunciat ja les dona amb
+            #    nom i valor ("OA = 2 cm, OB = 5 cm"): la figura hi posa les
+            #    lletres, que son el que permet situar-les, i prescindeix
+            #    dels valors, que nomes serien una copia de l'enunciat.
+            if not acumulat:
+                e.etq_punt(punt, nom, petit=True,
+                           direccio=(0.4, banda * 0.92))
             if acumulat:
                 # Trams consecutius: cada cota abraça exactament el tros
                 # que mesura, del punt anterior a aquest.
                 e.cota(anterior, punt, txt, despl=18, costat=banda,
                        petit=True)
-            else:
-                # Distancies absolutes des d'O. Aqui NO s'hi posen cotes:
-                # totes arrencarien del mateix punt i quedarien encaixades
-                # les unes dins de les altres, que es il·legible. S'escriu
-                # el nom del segment davant del valor ("OA = 5 cm"), de
-                # manera que el text mateix diu que mesura i no cal cap
-                # claudator ni cap nota que ho expliqui.
-                # Sense direccio forcada: es una etiqueta llarga
-                # ("OC' = 18 cm" fa uns 70 px) i, obligant-la a una sola
-                # banda, el motor l'havia d'allunyar fins a 35 px per
-                # trobar-hi lloc i quedava despenjada del seu punt. Deixant
-                # que triï entre totes les direccions, en troba una de mes
-                # arran.
-                e.etq_punt(punt, "O%s = %s" % (nom, txt), petit=True)
             anterior = punt
 
     return e.svg()
@@ -680,9 +696,16 @@ def figures_semblants_k(k, tipus="quadrat"):
         "figures_semblants_k(): tipus no reconegut"
     assert k > 0, "figures_semblants_k(): la raó ha de ser positiva"
 
-    MIDA_A = 60.0
     LLINDAR = 4.0  # cobreix sencer el rang real dels exercicis (max k=4)
     raó_visual = max(1 / LLINDAR, min(LLINDAR, k))
+    # L'amplada total del dibuix es manté a ~300 unitats sigui quina sigui
+    # la rao. Amb una mida fixa per a la figura petita, un k gran feia un
+    # viewBox de mes de 440 unitats que el CSS despres encabeix en 20 rem:
+    # tot el dibuix es reduia al 70 % i les etiquetes "1" i "k" acabaven a
+    # uns 7 px, il·legibles (290a). Amb amplada constant, l'escala de
+    # visualitzacio tambe ho es, i el text es llegeix sempre igual.
+    AMPLE_OBJECTIU = 300.0
+    MIDA_A = min(60.0, (AMPLE_OBJECTIU - 46.0) / (1.22 * (1 + raó_visual)))
     MIDA_B = MIDA_A * raó_visual
 
     def cara_plana(mida, x0):
@@ -756,8 +779,10 @@ def figures_semblants_k(k, tipus="quadrat"):
     # del seu punt mig, i en un cub aquell punt cau just on arrenquen les
     # arestes de la cara lateral: la "k" quedava tan a prop d'una com de
     # l'altra i no es podia saber quina longitud designava.
-    e.etq_segment(costat_a[0], costat_a[1], "1", petit=True)
-    e.etq_segment(costat_b[0], costat_b[1], "k", petit=True)
+    # A mida normal, no `petit`: son dues etiquetes soles en tot el dibuix
+    # i son la informacio principal de la figura.
+    e.etq_segment(costat_a[0], costat_a[1], "1")
+    e.etq_segment(costat_b[0], costat_b[1], "k")
     return e.svg()
 
 

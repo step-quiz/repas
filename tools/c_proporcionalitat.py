@@ -345,7 +345,7 @@ Q("109", 109, "", B2, "A",
 
 # ---- exercici 110: descompte ----
 Q("110", 110, "", B2, "A",
-  "Per un CD que costa 21 € em fan un 15\\,\\% de descompte. Quants "
+  "Per un CD que costa 21 € em fan un $15\\,\\%$ de descompte. Quants "
   "diners m'estalvio?",
   "$3{,}15$ €",
   [D("$17{,}85$ €", "VEREDICTE_INVERTIT",
@@ -366,7 +366,7 @@ Q("110", 110, "", B2, "A",
 
 # ---- exercici 111: trobar el total a partir d'un percentatge ----
 Q("111", 111, "", B2, "A",
-  "En un institut, 63 alumnes, que són el 15\\,\\% del total, han "
+  "En un institut, 63 alumnes, que són el $15\\,\\%$ del total, han "
   "viatjat a l'estranger. Quants alumnes té l'institut?",
   "$420$ alumnes",
   [D("$9{,}45$ alumnes", "CREUAMENT_INVERTIT",
@@ -387,7 +387,7 @@ Q("111", 111, "", B2, "A",
   ex_text="")
 
 # ---- exercici 112: comissió (dues preguntes independents) ----
-E112 = "Un venedor de cotxes rep com a comissió el 0,8\\,\\% de les vendes que fa."
+E112 = "Un venedor de cotxes rep com a comissió el $0{,}8\\,\\%$ de les vendes que fa."
 
 # 112a: 0,008*V=300 -> V=37500
 Q("112a", 112, "a", B2, "A",
@@ -414,7 +414,7 @@ Q("112a", 112, "a", B2, "A",
 
 # 112b: 0,008*45000=360
 Q("112b", 112, "b", B2, "A",
-  "Si el mes següent va vendre per valor de 45\\,000 €, quina "
+  "Si el mes següent va vendre per valor de $45\\,000$ €, quina "
   "comissió va obtenir?",
   "$360$ €",
   [D("$3\\,600$ €", "PERCENTATGE_DECIMAL_MAL",
@@ -443,7 +443,7 @@ Q("112b", 112, "b", B2, "A",
 # ---- exercici 113: dos augments del 3% seguits ----
 Q("113", 113, "", B3, "A",
   "Un comerciant decideix apujar el preu d'una mercaderia, que era "
-  "de 72 €, un 3\\,\\%, i a la setmana següent, un 3\\,\\% més sobre "
+  "de 72 €, un $3\\,\\%$, i a la setmana següent, un $3\\,\\%$ més sobre "
   "l'últim preu. Quin és el preu final de venda?",
   "$76{,}38$ €",
   [D("$76{,}32$ €", "SUMA_EN_LLOC_RESTA",
@@ -472,7 +472,7 @@ Q("113", 113, "", B3, "A",
 # ---- exercici 114: percentatge global d'increments encadenats ----
 Q("114", 114, "", B3, "A",
   "En dues setmanes consecutives s'han aplicat al preu d'un article "
-  "augments del 2\\,\\% i del 5\\,\\%. En quin percentatge s'ha "
+  "augments del $2\\,\\%$ i del $5\\,\\%$. En quin percentatge s'ha "
   "incrementat l'article sobre el seu preu original?",
   "$7{,}1\\,\\%$",
   [D("$7\\,\\%$", "SUMA_EN_LLOC_RESTA",
@@ -501,8 +501,8 @@ Q("114", 114, "", B3, "A",
 
 # ---- exercici 115: augment i disminució del mateix % no es compensen ----
 Q("115", 115, "", B3, "A",
-  "En una botiga apugen el preu d'un producte de 200 € un 10\\,\\%. A "
-  "la setmana següent decideixen rebaixar-lo un 10\\,\\% del preu que "
+  "En una botiga apugen el preu d'un producte de 200 € un $10\\,\\%$. A "
+  "la setmana següent decideixen rebaixar-lo un $10\\,\\%$ del preu que "
   "té en aquell moment. Què ha passat amb el preu?",
   "El preu final és $198$ €, $2$ € menys que el preu inicial de "
   "$200$ €",
@@ -610,7 +610,7 @@ Q("117", 117, "", B3, "A",
 
 # ---- exercici 118: comprovar un percentatge anunciat ----
 Q("118", 118, "", B3, "A",
-  "En un envàs de galetes anuncien que conté un 25\\,\\% més de "
+  "En un envàs de galetes anuncien que conté un $25\\,\\%$ més de "
   "galetes pel mateix preu. Els envasos antics pesaven 1 kg i "
   "l'envàs actual amb l'oferta pesa 1,2 kg. És certa la publicitat?",
   "No: l'envàs només conté un $20\\,\\%$ més de galetes, no un "

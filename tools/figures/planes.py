@@ -526,9 +526,13 @@ def triangle_isosceles_angle(angle_desigual, etq_angle=None):
         '<polygon points="%g,%g %g,%g %g,%g" fill="%s" stroke="currentColor" '
         'stroke-width="2"/>' % (x0, y0, x1, y0, xm, m, OMPLERT)
     )
-    # arc que marca l'angle de dalt: petit sector centrat al vèrtex xm,m,
-    # construït directament a partir dels vectors cap als dos peus de la
-    # base (més robust que calcular angles amb atan2 i después reconvertir).
+    # Arc que marca l'angle de dalt. Aquí els vectors ja són en coordenades
+    # de PANTALLA (y cap avall), i en aquest sistema `sweep=1` recorre l'arc
+    # en sentit horari: sortint del peu esquerre, donava la volta per damunt
+    # del vèrtex i dibuixava l'angle REFLEX —a 119 es veia una arcada sobre
+    # el cim en comptes de l'angle. Amb `sweep=0` passa per sota, per dins
+    # de l'angle, que és el que marca. L'angle d'un triangle sempre és
+    # menor que 180°, així que l'arc mai no és el gran.
     r_arc = 22.0
     dir_esq = ((x0 - xm), (y0 - m))
     dir_dre = ((x1 - xm), (y0 - m))
@@ -536,10 +540,9 @@ def triangle_isosceles_angle(angle_desigual, etq_angle=None):
     norm_dre = math.hypot(*dir_dre)
     pa = (xm + r_arc * dir_esq[0] / norm_esq, m + r_arc * dir_esq[1] / norm_esq)
     pb = (xm + r_arc * dir_dre[0] / norm_dre, m + r_arc * dir_dre[1] / norm_dre)
-    gran_arc = 1 if ang > 180 else 0
-    cos += ('<path d="M%g,%g A%g,%g 0 %d,1 %g,%g" fill="none" '
+    cos += ('<path d="M%g,%g A%g,%g 0 0,0 %g,%g" fill="none" '
             'stroke="%s" stroke-width="2"/>'
-            % (pa[0], pa[1], r_arc, r_arc, gran_arc, pb[0], pb[1], MARCA))
+            % (pa[0], pa[1], r_arc, r_arc, pb[0], pb[1], MARCA))
     ea = etq_angle if etq_angle is not None else "%g°" % angle_desigual
     cos += _text(xm, m + r_arc + 16, ea, petit=True)
     w = int(2 * B + 2 * m)

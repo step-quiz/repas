@@ -429,7 +429,16 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
                       etq_apotema or mesura(apotema_piramide, unitat))
     else:
         if altura is not None:
-            e.segment(apex, (cx, cyb), gruix=1.4, discontinu=True)
+            # L'eix va en color de marca, no en discontinu neutre. Amb un
+            # nombre parell de costats, la base te un VERTEX al davant i
+            # just al mig, de manera que l'aresta apex->vertex frontal cau
+            # exactament sobre l'eix (totes dues son x = cx): l'altura hi
+            # quedava amagada a sota i la marca d'angle recte semblava
+            # penjada d'una linia que no es veia (179b). Amb el color de
+            # marca es distingeix, i a mes es coherent amb la resta del
+            # projecte, on el color de marca assenyala la mesura de la qual
+            # parla l'enunciat.
+            e.marca(apex, (cx, cyb), gruix=1.6)
             e.angle_recte((cx, cyb), (1, 0), (0, -1))
             e.cota(apex, (cx, cyb), etq_altura or mesura(altura, unitat),
                    despl=R + 18, costat=1, petit=True)

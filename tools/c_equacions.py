@@ -1788,8 +1788,8 @@ Q("90", 90, "", B5, "A",
   ex_text="")
 
 Q("91", 91, "", B5, "A",
-  "El preu d'un anell i el seu estoig és de 10\\,200 €, i l'anell val "
-  "10\\,000 € més que l'estoig. Quin és el preu de cada article?",
+  "El preu d'un anell i el seu estoig és de $10\\,200$ €, i l'anell val "
+  "$10\\,000$ € més que l'estoig. Quin és el preu de cada article?",
   "L'anell val $10\\,100$ € i l'estoig, $100$ €",
   [D("L'anell val $10\\,000$ € i l'estoig, $200$ €",
      "TERME_OBLIDAT_OPERACIO",
@@ -1816,7 +1816,7 @@ Q("91", 91, "", B5, "A",
 Q("92", 92, "", B5, "A",
   "Una bodega va exportar al gener la meitat dels seus barrils i, al "
   "cap de dos mesos, un terç dels que li quedaven. Quants barrils "
-  "tenia al començament si ara hi ha 40\\,000 barrils?",
+  "tenia al començament si ara hi ha $40\\,000$ barrils?",
   "$120\\,000$ barrils",
   [D("$60\\,000$ barrils", "EXPONENT_SENSE_DESPLACAR",
      "Aquest seria el resultat de considerar només UNA de les dues "

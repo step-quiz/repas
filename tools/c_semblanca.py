@@ -113,10 +113,12 @@ assert texirr(sp.sqrt(89)) == "9{,}43"
 # donen un valor numèric fiable (vegeu docstring del mòdul).
 E152 = ("Calcula el valor de $x$ en aquestes figures de rectes "
         "paral·leles tallades per dues rectes secants.")
-NOTA152 = ("Els segments s'aparellen en el mateix ordre a les dues secants: "
-           "el primer amb el primer i el segon amb el segon, comptant des del "
-           "vèrtex. La figura de partida no ho deixa del tot clar, i aquesta "
-           "és la lectura que s'ha pres.")
+# La nota que hi havia aqui explicava de paraula com s'havien d'aparellar
+# els segments, perque la figura no ho deixava clar: les mesures anaven
+# escrites sota els PUNTS i no sobre el tram que mesuraven. Ara cada mesura
+# porta la seva cota, amb les linies auxiliars als dos extrems del tram, i
+# la figura ho diu tota sola. Mantenir la nota seria soroll.
+NOTA152 = ""
 NOTA152_INT = ("Nota de transcripció d'im9.tex: la posició exacta de cada "
                "mesura respecte al vèrtex s'ha llegit com a proporció directa "
                "entre segments corresponents, tal com ja proposa r-im9.tex. "
@@ -280,8 +282,13 @@ Q("153a", 153, "a", B1, "A",
   # paral·leles; sense C, l'única parella completa era A-A' i el dibuix no
   # arribava a mostrar cap joc de paral·leles (bug real detectat en
   # revisió visual).
+  # B' s'hi posa amb el seu valor derivat (OB' = 5·2,6/2 = 6,5): sense ell
+  # la transversal BB' no es dibuixava i la figura ensenyava dues rectes
+  # paral·leles en comptes de tres. El valor no es publica enlloc —amb
+  # mesures absolutes la figura nomes hi escriu les lletres—, aixi que no
+  # revela res que l'alumne hagi de calcular.
   figura=tales([("A", 2), ("B", 5), ("C", 9)],
-              [("A'", 2.6), ("B'", None), ("C'", 11.7)], "BC",
+              [("A'", 2.6), ("B'", 6.5), ("C'", 11.7)], "BC",
               acumulat=False))
 
 Q("153b", 153, "b", B1, "A",
@@ -310,7 +317,9 @@ Q("153b", 153, "b", B1, "A",
   # `A` s'hi afegeix amb el seu valor derivat (OA=3, calculat a la
   # resolució i ja usat com a distractor) perquè hi hagi dues posicions
   # completes (A-A' i B-B') i es dibuixin dues transversals paral·leles.
-  figura=tales([("A", 3), ("B", 9), ("C", None)],
+  # C amb el seu valor derivat (OC = 18·3/4 = 13,5), pel mateix motiu que
+  # a 153a: sense ell faltava la transversal CC'.
+  figura=tales([("A", 3), ("B", 9), ("C", 13.5)],
               [("A'", 4), ("B'", 12), ("C'", 18)], "AB",
               acumulat=False))
 
@@ -340,8 +349,9 @@ Q("153c", 153, "c", B1, "A",
   # `B` s'hi afegeix amb el seu valor derivat (OB=15, calculat a la
   # resolució i ja usat com a distractor) perquè hi hagi dues posicions
   # completes (B-B' i C-C') i es dibuixin dues transversals paral·leles.
+  # A' amb el seu valor derivat (OA' = 5·24/15 = 8), pel mateix motiu.
   figura=tales([("A", 5), ("B", 15), ("C", 22.5)],
-              [("A'", None), ("B'", 24), ("C'", 36)], "AB",
+              [("A'", 8), ("B'", 24), ("C'", 36)], "AB",
               acumulat=False))
 
 
