@@ -118,7 +118,21 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   body[data-imprimeix] .pr-paper{position:absolute;left:0;top:0;width:100%;
     border:none;padding:0;max-width:100%;margin:0}
   .pr-accions,.pestanyes,.cimera,h1{display:none!important}
+  /* Un examen per alumne, cadascun en la seva pàgina. L'últim no porta salt,
+     que si no surt un full en blanc al final de cada tirada. */
+  .pr-alumne{page-break-after:always}
+  .pr-alumne:last-child{page-break-after:auto}
 }
+/* Tria de mode de la pestanya d'exàmens. */
+#pr-tria .opcio{display:block;width:100%;text-align:left;border:1px solid var(--vora);
+  background:var(--card);border-radius:12px;padding:.85rem 1rem;margin:0 0 .6rem;
+  cursor:pointer;font:inherit;color:inherit}
+#pr-tria .opcio:hover{border-color:var(--tinta)}
+#pr-tria .opcio b{display:block;margin-bottom:.15rem}
+.lot-avis{border-left:3px solid #C08A2E;background:#FCF6E8;padding:.5rem .75rem;
+  border-radius:0 8px 8px 0;margin:.4rem 0 0}
+.pr-alumne{margin:0 0 2rem}
+.pr-alumne+.pr-alumne{border-top:2px dashed var(--vora);padding-top:1.2rem}
 </style>
 </head>
 <body>
@@ -304,7 +318,95 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
   <!-- ── PROVA ESCRITA ──────────────────────────────────────────────────── -->
   <section id="v-prova" hidden>
+
+    <div class="targeta" id="pr-tria">
+      <h3 style="margin-top:0">Quin examen vols preparar?</h3>
+      <button class="opcio" id="pr-va-lot">
+        <b>Mini-examen estàndard de 3 setmanes</b>
+        <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
+        5 preguntes sortejades entre els exercicis que ha fet, amb més
+        probabilitat per al tram més recent. Surten dos documents per
+        imprimir: tots els exàmens i totes les solucions.</span>
+      </button>
+      <button class="opcio" id="pr-va-individual">
+        <b>Examen personalitzat a un alumne</b>
+        <span class="petit apagat">Un sol alumne, amb el contingut i la mida
+        que triïs tu, bloc per bloc.</span>
+      </button>
+    </div>
+
+    <div id="pr-lot" hidden>
+      <div class="targeta">
+        <p style="margin:0 0 .9rem">
+          <button class="btn buit petit" id="pr-torna-1">← Canvia de mode</button>
+        </p>
+        <h3 style="margin-top:0">Mini-examen de 3 setmanes</h3>
+        <p class="petit apagat" style="margin:0 0 .9rem">
+          Reparteix les preguntes entre els trams de 3 setmanes que porta el
+          trimestre, donant més pes al més recent. Quan comença un trimestre
+          nou el compte torna a zero: el primer examen del trimestre següent
+          només mira els exercicis d'aquelles 3 setmanes.
+        </p>
+
+        <div class="camp" style="border-top:none;padding-top:0">
+          <b>Calendari</b>
+          <div class="filtres" style="margin:.3rem 0 0">
+            <label class="petit apagat">Inici del curs
+              <input type="date" id="lot-inici" value="2026-09-14"></label>
+            <label class="petit apagat">Tram de
+              <input type="number" id="lot-setmanes" value="3" min="1" max="12"
+                     style="width:52px"> setmanes</label>
+            <label class="petit apagat">
+              <input type="number" id="lot-per-trim" value="3" min="1" max="10"
+                     style="width:52px"> trams per trimestre</label>
+          </div>
+          <div class="filtres" style="margin:.45rem 0 0">
+            <label class="petit apagat">Examinar del tram
+              <select id="lot-periode" style="min-width:230px"></select></label>
+          </div>
+        </div>
+
+        <div class="camp">
+          <b>Sorteig</b>
+          <div class="filtres" style="margin:.3rem 0 0">
+            <label class="petit apagat">
+              <input type="number" id="lot-preguntes" value="5" min="1" max="20"
+                     style="width:52px"> preguntes per examen</label>
+            <label class="petit apagat">Pesos dels trams
+              <input type="text" id="lot-pesos" value="3 2 1"
+                     style="width:76px;font-family:var(--mono)"></label>
+          </div>
+          <p class="petit apagat" style="margin:.35rem 0 0">
+            Els pesos van de l'últim tram cap enrere. Cada pregunta se sorteja
+            per separat, de manera que cap combinació és impossible: poden
+            sortir les cinc del mateix tram, només que és menys probable.
+          </p>
+          <div class="filtres" style="margin:.55rem 0 0">
+            <label class="petit apagat">Mínim de feina esperada
+              <input type="number" id="lot-minim" value="10" min="0" max="99"
+                     style="width:52px"> exercicis per tram</label>
+            <label class="petit apagat"><input type="checkbox" id="lot-oberts">
+              Inclou-hi els que va <b>obrir i no contestar</b></label>
+          </div>
+          <p class="petit apagat" style="margin:.35rem 0 0">
+            Qui no hi arribi tindrà l'examen igualment, amb l'avís ben visible
+            a la llista i al full de correcció.
+          </p>
+        </div>
+
+        <div class="camp">
+          <button class="btn" id="lot-genera">Genera els exàmens del grup</button>
+          <span class="petit" id="lot-estat" role="status"></span>
+        </div>
+      </div>
+      <div id="lot-resum" style="margin-top:1rem"></div>
+    </div>
+
+    <div id="pr-individual" hidden>
     <div class="targeta">
+      <p style="margin:0 0 .9rem">
+        <button class="btn buit petit" id="pr-torna-2">← Canvia de mode</button>
+      </p>
       <h3 style="margin-top:0">Genera una prova a mida</h3>
       <p class="petit apagat" style="margin:0 0 .9rem">
         La prova només pregunta sobre temes que l'alumne ha treballat de debò,
@@ -355,6 +457,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <button class="btn" id="pr-genera">Genera la prova</button>
         <span class="petit" id="pr-estat" role="status"></span>
       </div>
+    </div>
+
     </div>
 
     <div id="pr-resultat" style="margin-top:1rem"></div>
@@ -490,7 +594,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       $("#v-un").hidden = b.dataset.mode !== "un";
       if (b.dataset.mode === "progres") { proposaPeriode(); pintaProgres(); }
       $("#v-prova").hidden = b.dataset.mode !== "prova";
-      if (b.dataset.mode === "prova") { omplePrAlumnes(); }
+      if (b.dataset.mode === "prova") { modeExamen(null); }
       $("#v-ajuda").hidden = b.dataset.mode !== "ajuda";
     };
   });
@@ -1933,6 +2037,348 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return triats;
   }
 
+  // ── MINI-EXAMEN DE 3 SETMANES ─────────────────────────────────────────
+  //
+  // Un examen per a cada alumne del grup, tots de cop, amb les preguntes
+  // repartides entre els trams de 3 setmanes que porta el trimestre.
+  //
+  // EL PROBLEMA DE FONS: EL CODI NO DIU QUAN ES VA FER CADA EXERCICI.
+  //
+  // Un codi és una fotografia acumulativa. Porta UNA data —la de generació—
+  // i l'estat de cada ítem, però no la data de cada ítem. Per tant, la data
+  // en què es va fer un exercici no es pot llegir enlloc: s'ha de
+  // RECONSTRUIR comparant codis successius del mateix alumne. Un exercici
+  // que no era al codi del 3 d'octubre i sí que hi és al del 24 es va fer
+  // entremig, i se li atribueix la data del codi on apareix per primer cop.
+  //
+  // La conseqüència pràctica és que un alumne que només envia un codi al
+  // final de les nou setmanes té tota la feina concentrada en un sol tram,
+  // el de l'enviament, i el repartiment per trams no el pot repartir. No és
+  // un error del càlcul: és que la informació no existeix. Es diu a la
+  // llista, alumne per alumne, en comptes de fer veure que sí.
+  //
+  // EL SORTEIG. Cada pregunta se sorteja per separat: primer el tram (amb
+  // probabilitat proporcional al pes) i després l'exercici dins del tram.
+  // Amb pesos 3-2-1, de mitjana la meitat de les preguntes surten de l'últim
+  // tram, però qualsevol combinació és possible —fins i tot les cinc del
+  // mateix tram—, que és el que es demanava. Un tram sense exercicis
+  // disponibles queda fora del sorteig i el seu pes es reparteix entre la
+  // resta, de manera que l'examen no surt curt per això.
+
+  var lotSel = null;      /* última tirada, per poder reimprimir sense re-sortejar */
+
+  function msTram() {
+    var setm = Math.max(1, parseInt($("#lot-setmanes").value, 10) || 3);
+    return setm * 7 * 86400000;
+  }
+
+  function iniciCurs() {
+    var v = $("#lot-inici").value;
+    return v ? new Date(v + "T00:00:00") : null;
+  }
+
+  /* Índex de tram d'una data (0 = primer tram del curs). */
+  function tramDe(data, inici) {
+    return Math.floor((data - inici) / msTram());
+  }
+
+  /* Historial per alumne amb la data en què cada exercici apareix per PRIMER
+     cop. És la reconstrucció descrita a dalt: es recorren els codis en ordre
+     cronològic i es va acumulant el que ja s'havia vist. */
+  function historialAlumnes() {
+    var per = {};
+    files.forEach(function (r) {
+      if (!r.p || !r.p.ok || !r.p.integre) return;
+      var k = (r.brut.correu || r.brut.alumne || "?").toLowerCase();
+      if (!per[k]) per[k] = { nom: r.brut.alumne || r.brut.correu, grup: r.brut.grup || "", codis: [] };
+      per[k].codis.push(r);
+    });
+    return Object.keys(per).map(function (k) {
+      var a = per[k];
+      var codis = a.codis.map(function (r) {
+        return { quan: quan(r.p), mapa: mapaEstats(r.p) };
+      }).sort(function (x, y) { return x.quan - y.quan; });
+
+      var vist = {}, items = [];
+      codis.forEach(function (c) {
+        Object.keys(c.mapa).forEach(function (clau) {
+          if (vist[clau]) return;
+          vist[clau] = 1;
+          var tall = clau.indexOf(":");
+          items.push({
+            full: parseInt(clau.slice(0, tall), 10),
+            id: clau.slice(tall + 1),
+            estat: c.mapa[clau].e,
+            dif: c.mapa[clau].d,
+            quan: c.quan
+          });
+        });
+      });
+      return { clau: k, nom: a.nom, grup: a.grup, items: items,
+               nCodis: codis.length,
+               primer: codis.length ? codis[0].quan : null,
+               ultim: codis.length ? codis[codis.length - 1].quan : null };
+    }).sort(function (x, y) { return (x.nom || "").localeCompare(y.nom || ""); });
+  }
+
+  /* Quins trams entren en l'examen del tram `objectiu`, i amb quin pes.
+     Només els del MATEIX trimestre: en començar-ne un de nou, el compte torna
+     a zero i el primer examen del trimestre mira només el seu propi tram. */
+  function tramsElegibles(objectiu, perTrim, pesos) {
+    var trimestre = Math.floor(objectiu / perTrim);
+    var out = [];
+    for (var i = 0; i < pesos.length; i++) {
+      var t = objectiu - i;
+      if (t < 0 || Math.floor(t / perTrim) !== trimestre) break;
+      if (pesos[i] > 0) out.push({ tram: t, pes: pesos[i] });
+    }
+    return out;
+  }
+
+  function pesAtzar(llista) {
+    var suma = llista.reduce(function (a, x) { return a + x.pes; }, 0);
+    if (suma <= 0) return null;
+    var r = Math.random() * suma;
+    for (var i = 0; i < llista.length; i++) {
+      r -= llista[i].pes;
+      if (r <= 0) return llista[i];
+    }
+    return llista[llista.length - 1];
+  }
+
+  /* Sorteja `quantes` preguntes d'entre els exercicis d'un alumne, agrupats
+     per tram. Evita repetir exercici mare mentre queden mares sense fer
+     servir, pel mateix motiu que a la prova individual: cinc apartats del
+     mateix problema no són cinc preguntes. */
+  function sortejaPreguntes(perTram, elegibles, quantes) {
+    var restant = {};
+    elegibles.forEach(function (e) {
+      restant[e.tram] = (perTram[e.tram] || []).slice();
+    });
+    var triats = [], mares = {};
+    for (var n = 0; n < quantes; n++) {
+      var vius = elegibles.filter(function (e) { return restant[e.tram].length; });
+      if (!vius.length) break;
+      var tria_ = pesAtzar(vius);
+      var pool = restant[tria_.tram];
+      /* Primer els que no repeteixen exercici mare; si tots repeteixen, el
+         que sigui, abans que deixar la pregunta sense posar. */
+      var lliures = pool.filter(function (it) { return !mares[exMare(it.id)]; });
+      var d = (lliures.length ? lliures : pool);
+      var it = d[Math.floor(Math.random() * d.length)];
+      mares[exMare(it.id)] = true;
+      restant[tria_.tram] = pool.filter(function (x) { return x !== it; });
+      triats.push({ it: it, tram: tria_.tram });
+    }
+    return triats;
+  }
+
+  function omplePeriodes() {
+    var sel = $("#lot-periode"), inici = iniciCurs();
+    if (!sel || !inici) return;
+    var perTrim = Math.max(1, parseInt($("#lot-per-trim").value, 10) || 3);
+    var ara = new Date();
+    var actual = Math.max(0, tramDe(ara, inici));
+    var previ = sel.value;
+    var h = "";
+    for (var t = 0; t <= Math.max(actual, 0); t++) {
+      var ini = new Date(inici.getTime() + t * msTram());
+      var fi = new Date(inici.getTime() + (t + 1) * msTram() - 86400000);
+      h += '<option value="' + t + '">Tram ' + (t + 1)
+        + " · trimestre " + (Math.floor(t / perTrim) + 1)
+        + " · " + dataCurta(ini) + " – " + dataCurta(fi)
+        + (t === actual ? " (en curs)" : "") + "</option>";
+    }
+    sel.innerHTML = h;
+    sel.value = previ && previ <= actual ? previ : String(actual);
+  }
+
+  function dataCurta(d) {
+    return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
+  }
+
+  function generaLot() {
+    var inici = iniciCurs();
+    if (!inici) { $("#lot-estat").innerHTML = '<span class="mal">Falta la data d\'inici del curs.</span>'; return; }
+    if (!files.length) {
+      $("#lot-estat").innerHTML = '<span class="mal">Carrega abans el full de respostes a la primera pestanya.</span>';
+      $("#lot-resum").innerHTML = ""; return;
+    }
+    var objectiu = parseInt($("#lot-periode").value, 10) || 0;
+    var perTrim = Math.max(1, parseInt($("#lot-per-trim").value, 10) || 3);
+    var nPreg = Math.max(1, parseInt($("#lot-preguntes").value, 10) || 5);
+    var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
+    var oberts = !!$("#lot-oberts").checked;
+    var pesos = ($("#lot-pesos").value || "3 2 1").trim().split(/\s+/)
+      .map(function (x) { return Math.max(0, parseFloat(x) || 0); });
+    if (!pesos.length) pesos = [3, 2, 1];
+
+    var elegibles = tramsElegibles(objectiu, perTrim, pesos);
+    var alumnes = historialAlumnes();
+    var sortida = [];
+
+    alumnes.forEach(function (a) {
+      var perTram = {};
+      a.items.forEach(function (it) {
+        if (!RE_BANC[it.id]) return;
+        if (!it.estat || (!oberts && it.estat === "vist")) return;
+        var t = tramDe(it.quan, inici);
+        (perTram[t] = perTram[t] || []).push(it);
+      });
+      var nObjectiu = (perTram[objectiu] || []).length;
+      var disponibles = elegibles.reduce(function (n, e) {
+        return n + (perTram[e.tram] || []).length;
+      }, 0);
+      var preguntes = sortejaPreguntes(perTram, elegibles, nPreg);
+      var avisos = [];
+      if (nObjectiu < minim) {
+        avisos.push("ha fet " + nObjectiu + " exercici" + (nObjectiu === 1 ? "" : "s")
+          + " al tram examinat i el mínim és " + minim);
+      }
+      if (a.nCodis < 2) {
+        avisos.push("només ha enviat " + a.nCodis + " codi"
+          + (a.nCodis === 1 ? "" : "s") + ", així que no es pot saber en quin "
+          + "tram va fer cada exercici: tot compta com a fet el dia de l'enviament");
+      }
+      if (preguntes.length < nPreg) {
+        avisos.push("només s'han pogut sortejar " + preguntes.length + " de "
+          + nPreg + " preguntes: no té prou exercicis diferents");
+      }
+      sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
+                     nObjectiu: nObjectiu, disponibles: disponibles });
+    });
+
+    lotSel = { sortida: sortida, objectiu: objectiu, elegibles: elegibles,
+               inici: inici, perTrim: perTrim };
+    pintaLot(lotSel);
+    intentaKatex();
+  }
+
+  function pintaLot(lot) {
+    var amb = lot.sortida.filter(function (s) { return s.preguntes.length; });
+    var sense = lot.sortida.filter(function (s) { return !s.preguntes.length; });
+    var ambAvis = lot.sortida.filter(function (s) { return s.avisos.length; });
+
+    $("#lot-estat").innerHTML = amb.length + " examen" + (amb.length === 1 ? "" : "s")
+      + " a punt" + (ambAvis.length ? " · <b>" + ambAvis.length + " amb avís</b>" : "");
+
+    var trams = lot.elegibles.map(function (e) {
+      return "tram " + (e.tram + 1) + " (pes " + e.pes + ")";
+    }).join(", ");
+
+    var h = '<div class="pr-accions">'
+      + '<button class="btn" id="lot-imprimeix">Imprimeix tots els exàmens</button>'
+      + '<button class="btn buit" id="lot-imprimeix-clau">Imprimeix totes les solucions</button>'
+      + '<button class="btn buit" id="lot-regenera">Torna a sortejar</button>'
+      + '</div><p class="petit apagat" style="margin:-.3rem 0 .9rem">'
+      + "Cada impressió és un document a part: desa'l com a PDF des del diàleg "
+      + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
+
+    h += '<div class="targeta"><b>Repartiment</b><div class="petit apagat">'
+      + "Se sorteja entre: " + escapa(trams) + ".</div>";
+    if (sense.length) {
+      h += '<div class="lot-avis petit"><b>Sense examen (' + sense.length + "):</b> "
+        + sense.map(function (s) { return escapa(s.alumne.nom || s.alumne.clau); }).join(", ")
+        + ". No tenen cap exercici fet als trams que entren.</div>";
+    }
+    if (ambAvis.length) {
+      h += '<div class="lot-avis petit"><b>Amb avís (' + ambAvis.length + "):</b><ul style=\"margin:.3rem 0 0;padding-left:1.1rem\">"
+        + ambAvis.map(function (s) {
+            return "<li>" + escapa(s.alumne.nom || s.alumne.clau) + ": "
+              + escapa(s.avisos.join("; ")) + "</li>";
+          }).join("") + "</ul></div>";
+    }
+    h += "</div>";
+
+    /* Els exàmens i les solucions van dins de #pr-examen i #pr-correccio,
+       els mateixos identificadors que fa servir la prova individual, perquè
+       les regles d'impressió que ja hi ha valguin sense tocar-les. */
+    h += '<div class="pr-paper" id="pr-examen">';
+    amb.forEach(function (s) {
+      h += pintaExamenAlumne(s, lot);
+    });
+    h += "</div>";
+
+    h += '<div class="pr-paper" id="pr-correccio">';
+    amb.forEach(function (s) {
+      h += pintaClauAlumne(s, lot);
+    });
+    h += "</div>";
+
+    $("#lot-resum").innerHTML = h;
+    mat($("#lot-resum"));
+
+    function imprimeix(quin) {
+      document.body.setAttribute("data-imprimeix", quin);
+      window.print();
+    }
+    window.onafterprint = function () { document.body.removeAttribute("data-imprimeix"); };
+    $("#lot-imprimeix").onclick = function () { imprimeix("examen"); };
+    $("#lot-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
+    $("#lot-regenera").onclick = generaLot;
+  }
+
+  function capcaleraLot(s, lot, titol, extra) {
+    var ara = new Date();
+    var data = ara.getFullYear() + "-" + ("0" + (ara.getMonth() + 1)).slice(-2)
+      + "-" + ("0" + ara.getDate()).slice(-2);
+    return '<div class="capc"><div><h2>' + titol + "</h2>"
+      + '<div class="petit apagat">' + escapa(s.alumne.nom || s.alumne.clau)
+      + (s.alumne.grup ? " · " + escapa(s.alumne.grup) : "")
+      + " · tram " + (lot.objectiu + 1)
+      + " · trimestre " + (Math.floor(lot.objectiu / lot.perTrim) + 1)
+      + "</div>" + (extra || "") + "</div>"
+      + '<div class="petit apagat" style="text-align:right">Data: ' + data
+      + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
+  }
+
+  function pintaExamenAlumne(s, lot) {
+    var h = '<div class="pr-alumne">'
+      + capcaleraLot(s, lot, "Mini-examen de repàs",
+                     '<div class="petit apagat">' + s.preguntes.length
+                     + " preguntes · resposta oberta, cal escriure la resolució</div>");
+    s.preguntes.forEach(function (q, i) {
+      var b = RE_BANC[q.it.id];
+      if (!b) return;
+      h += '<div class="pr-preg"><div class="cap"><span class="num">' + (i + 1) + ".</span>"
+        + (b.encapcalament ? " " + escapa(b.encapcalament) : "") + "</div>"
+        + '<div class="enun">' + escapa(b.enunciat) + "</div>"
+        + (b.figura ? '<div class="figura">' + b.figura + "</div>" : "")
+        + '<div class="ratlla"></div><div class="ratlla"></div><div class="ratlla"></div>'
+        + "</div>";
+    });
+    return h + "</div>";
+  }
+
+  function pintaClauAlumne(s, lot) {
+    var mix = { 1: 0, 2: 0, 3: 0 };
+    s.preguntes.forEach(function (q) { mix[q.it.dif || 2] = (mix[q.it.dif || 2] || 0) + 1; });
+    var extra = '<div class="petit apagat">NO repartir · Nivells: ' + mix[1]
+      + " directes · " + mix[2] + " encadenats · " + mix[3] + " complets</div>";
+    if (s.avisos.length) {
+      extra += '<div class="petit" style="color:#A0651B">Avís: '
+        + escapa(s.avisos.join("; ")) + "</div>";
+    }
+    var h = '<div class="pr-alumne">' + capcaleraLot(s, lot, "Solucions", extra);
+    s.preguntes.forEach(function (q, i) {
+      var b = RE_BANC[q.it.id];
+      if (!b) return;
+      var k = null;
+      try { k = clauItem(b); } catch (e) { k = null; }
+      var correcta = k && b.opcions ? b.opcions[k.ok] : "";
+      h += '<div class="pr-preg"><div class="cap"><span class="num">' + (i + 1) + ".</span> "
+        + '<span class="meta">tram ' + (q.tram + 1) + " · " + escapa(b.bloc || "")
+        + " · id " + escapa(q.it.id) + " · a la pràctica: " + escapa(q.it.estat)
+        + "</span></div>"
+        + (correcta ? '<div class="enun"><b>Resposta:</b> ' + correcta + "</div>" : "")
+        + (k && k.res && k.res.length
+            ? '<ol class="passos">' + k.res.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ol>"
+            : "")
+        + "</div>";
+    });
+    return h + "</div>";
+  }
+
   function omplePrAlumnes() {
     var sel = $("#pr-alumne"), actual = sel.value;
     var ult = ultimPerAlumne(files);
@@ -2201,6 +2647,27 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   $("#pr-min-bloc").onchange = function () { prDisp = null; refrescaBlocs(); };
   $("#pr-oberts").onchange = function () { prDisp = null; refrescaBlocs(); };
   $("#pr-genera").onclick = generaProva;
+
+  /* Tria de mode de la pestanya d'exàmens. Les dues vistes són excloents i
+     comparteixen els identificadors #pr-examen i #pr-correccio, de manera
+     que les regles d'impressió que ja hi havia serveixen per a totes dues. */
+  function modeExamen(quin) {
+    $("#pr-tria").hidden = quin !== null;
+    $("#pr-lot").hidden = quin !== "lot";
+    $("#pr-individual").hidden = quin !== "individual";
+    if (quin !== "lot") { $("#lot-resum").innerHTML = ""; $("#lot-estat").innerHTML = ""; }
+    if (quin !== "individual") { $("#pr-resultat").innerHTML = ""; }
+    if (quin === "lot") { omplePeriodes(); }
+    if (quin === "individual") { omplePrAlumnes(); }
+  }
+  $("#pr-va-lot").onclick = function () { modeExamen("lot"); };
+  $("#pr-va-individual").onclick = function () { modeExamen("individual"); };
+  $("#pr-torna-1").onclick = function () { modeExamen(null); };
+  $("#pr-torna-2").onclick = function () { modeExamen(null); };
+  $("#lot-genera").onclick = generaLot;
+  ["#lot-inici", "#lot-setmanes", "#lot-per-trim"].forEach(function (sel) {
+    $(sel).addEventListener("change", omplePeriodes);
+  });
 
 })();
 </script>
