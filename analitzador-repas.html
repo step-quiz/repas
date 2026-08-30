@@ -1779,27 +1779,89 @@ window.RE_CODI = (function () {
     a.href = URL.createObjectURL(b); a.download = "repas-eso-resum.csv"; a.click();
   };
 
+  /* Exemple de mostra.
+     
+     Un curs sencer, no una fotografia. Fins ara l'exemple posava un sol codi
+     per alumne, tots amb la data d'avui: servia per veure el full de
+     respostes, però amb el mini-examen de 3 setmanes no anava enlloc, per
+     dos motius. Un: amb un únic codi no hi ha res a comparar, i la data de
+     cada exercici es dedueix precisament comparant codis successius, de
+     manera que tota la feina queia en un sol tram. I dos: la data era la
+     d'avui, que pot ser anterior a l'inici del curs, i llavors els trams
+     sortien negatius.
+     
+     Ara cada alumne envia el codi al final de cada tram, que és el que se'ls
+     demana de debò. Hi ha a posta dos casos que disparen els avisos del
+     mini-examen —un alumne que només envia un codi al final i un altre que
+     gairebé no treballa l'últim tram— perquè es vegi què fa l'eina quan
+     passa, en comptes de descobrir-ho el dia de l'examen. I es manté un codi
+     manipulat, que és el que fa visible la comprovació d'integritat a la
+     resta de pestanyes. */
   $("#btn-exemple").onclick = function () {
-    var noms = ["berta", "jordi", "laia", "marc", "nil", "ona"];
+    var INICI = new Date(2026, 8, 14);        /* 14/09/2026, dilluns */
+    var TRAM = 21 * 86400000;
     var opc = ["net", "net", "net", "segon", "pista", "fallat"];
-    var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
-    noms.forEach(function (nom, k) {
-      var quins = [4, 7].slice(0, 1 + (k % 2));
-      var fulls = quins.map(function (n) {
+
+    /* Els estats es fixen UN cop per alumne i cada enviament n'agafa un
+       prefix: si es tornessin a sortejar a cada codi, un mateix exercici
+       canviaria de resultat entre enviaments i l'analitzador ho llegiria,
+       amb raó, com que l'ha repetit. */
+    function slotsDe() {
+      var out = [];
+      [4, 7].forEach(function (n) {
         var t = RE_TAULES.fulls[n];
-        var quants = 6 + Math.floor(Math.random() * (t.items.length - 6));
-        return { n: n, estats: t.items.map(function (_, i) { return i < quants ? opc[Math.floor(Math.random() * 6)] : ""; }) };
+        if (!t) return;
+        t.items.forEach(function (_, i) { out.push({ full: n, i: i }); });
       });
-      var ara = new Date(); ara.setMinutes(ara.getMinutes() - Math.floor(Math.random() * 90));
-      var codi = RE_CODI.genera({
-        fulls: fulls, ara: ara,
-        errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
+      return out;
+    }
+    var SLOTS = slotsDe();
+
+    function fullsAmb(estats, quants) {
+      var per = {};
+      SLOTS.slice(0, quants).forEach(function (s, k) {
+        (per[s.full] = per[s.full] || {})[s.i] = estats[k];
       });
-      if (k === 5) codi = codi.slice(0, 12) + "X" + codi.slice(13);   /* un de manipulat */
-      var d = new Date();
-      l.push([("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2) + "/" + d.getFullYear()
-              + " " + ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2) + ":00",
-              nom + "@escola.cat", k < 3 ? "4tA" : "4tB", codi].join("\t"));
+      return Object.keys(per).map(function (n) {
+        var t = RE_TAULES.fulls[n];
+        return { n: +n, estats: t.items.map(function (_, i) { return per[n][i] || ""; }) };
+      });
+    }
+
+    /* dia: dies des de l'inici del curs · acum: exercicis acumulats */
+    var PLA = [
+      { nom: "berta", grup: "4tA", env: [{ dia: 19, acum: 13 }, { dia: 40, acum: 27 }, { dia: 61, acum: 41 }] },
+      { nom: "jordi", grup: "4tA", env: [{ dia: 18, acum: 11 }, { dia: 39, acum: 24 }, { dia: 60, acum: 36 }] },
+      { nom: "laia",  grup: "4tA", env: [{ dia: 20, acum: 15 }, { dia: 41, acum: 32 }, { dia: 62, acum: 48 }] },
+      { nom: "marc",  grup: "4tB", env: [{ dia: 17, acum: 12 }, { dia: 38, acum: 23 }, { dia: 59, acum: 35 }] },
+      /* Només envia el codi al final: l'eina no pot saber què va fer a cada
+         tram i ho diu. */
+      { nom: "nil",   grup: "4tB", env: [{ dia: 62, acum: 30 }] },
+      /* Treballa els dos primers trams i s'atura: no arriba al mínim del
+         tram que s'examina. */
+      { nom: "ona",   grup: "4tB", env: [{ dia: 19, acum: 14 }, { dia: 40, acum: 28 }, { dia: 61, acum: 31 }] }
+    ];
+
+    var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
+    PLA.forEach(function (a, k) {
+      var estats = SLOTS.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
+      a.env.forEach(function (e, j) {
+        var quan = new Date(INICI.getTime() + e.dia * 86400000);
+        quan.setHours(17 + (k % 4), (k * 7 + j * 13) % 60, 0, 0);
+        var codi = RE_CODI.genera({
+          fulls: fullsAmb(estats, e.acum), ara: quan,
+          errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
+        });
+        /* Un sol codi manipulat, i a mig curs: així la comprovació
+           d'integritat es veu a les altres pestanyes sense que l'alumne
+           es quedi sense examen (els seus altres codis són bons). */
+        if (k === 1 && j === 1) codi = codi.slice(0, 12) + "X" + codi.slice(13);
+        var env = new Date(quan.getTime() + 4 * 60000);
+        l.push([("0" + env.getDate()).slice(-2) + "/" + ("0" + (env.getMonth() + 1)).slice(-2)
+                + "/" + env.getFullYear() + " " + ("0" + env.getHours()).slice(-2)
+                + ":" + ("0" + env.getMinutes()).slice(-2) + ":00",
+                a.nom + "@escola.cat", a.grup, codi].join("\t"));
+      });
     });
     $("#entrada").value = l.join("\n");
     carrega($("#entrada").value);
