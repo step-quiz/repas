@@ -1664,7 +1664,7 @@ window.FULL = {
    "tipus": "B",
    "dif": 3,
    "encapcalament": "",
-   "enunciat": "Una sabateria ha venut aquestes talles de calçat en una setmana: 37,\\;37,\\;37,\\;37,\\;37,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;38,\\;39,\\;40,\\;40,\\;40,\\;41,\\;42,\\;43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?",
+   "enunciat": "Una sabateria ha venut aquestes talles de calçat en una setmana: 37, 37, 37, 37, 37, 38, 38, 38, 38, 38, 38, 38, 38, 39, 40, 40, 40, 41, 42, 43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?",
    "opcions": [
     "El RECORREGUT: $6$ talles.",
     "La MEDIANA: la talla $38$.",
@@ -2037,7 +2037,7 @@ window.FULL = {
    "bloc": "dispersio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\\;5,\\;5,\\;5,\\;5,\\;5. Grup B: 1,\\;3,\\;5,\\;5,\\;7,\\;9.",
+   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5, 5, 5, 5, 5, 5. Grup B: 1, 3, 5, 5, 7, 9.",
    "enunciat": "Compara'n les mitjanes.",
    "opcions": [
     "La del grup A és més alta.",
@@ -2059,7 +2059,7 @@ window.FULL = {
    "bloc": "dispersio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\\;5,\\;5,\\;5,\\;5,\\;5. Grup B: 1,\\;3,\\;5,\\;5,\\;7,\\;9.",
+   "encapcalament": "Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5, 5, 5, 5, 5, 5. Grup B: 1, 3, 5, 5, 7, 9.",
    "enunciat": "Quin grup és més regular, i com ho justifiques amb un número?",
    "opcions": [
     "El grup A, però no es pot posar cap número.",

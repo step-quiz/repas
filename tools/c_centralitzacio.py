@@ -291,8 +291,13 @@ _mc, _mdc = mitjana(CALCAT), mediana(CALCAT)
 _moc, _fc = modes(CALCAT)
 
 Q("264", 264, "", B1, "B",
+  # La llista va en TEXT PLA, amb comes i espais normals. Abans s'unia amb
+  # `,\;` —un espai fi de LaTeX— però fora de `$...$` no es compon: es veien
+  # els caràcters «\;» literals entre cada talla. I com que era una sola
+  # tirada sense espais on trencar, els 20 valors sortien de la targeta
+  # (885 px havent-ne demanat 704). Mateix cas que 224 i 228.
   "Una sabateria ha venut aquestes talles de calçat en una setmana: "
-  + ",\\;".join(str(x) for x in sorted(CALCAT)) +
+  + ", ".join(str(x) for x in sorted(CALCAT)) +
   ". El botiguer ha de decidir de quina talla encarrega més parells. "
   "Quina mesura l'ajuda a decidir-ho, i quin valor surt?",
   "La MODA: la talla $%d$, que és la que ha venut més vegades ($%d$ parells)."
@@ -634,9 +639,11 @@ Q("271b", 271, "b", B2, "A",
 # =============================================================== Exercici 272
 _A272 = [5, 5, 5, 5, 5, 5]
 _B272 = [1, 3, 5, 5, 7, 9]
+# Les dues llistes van en text pla, com la de 264: `\;` fora de `$...$` no
+# es compon i es veuen els caràcters literals entre cada nota.
 E272 = ("Dos grups de $6$ alumnes han fet el mateix examen. Grup A: "
-        + ",\\;".join(str(x) for x in _A272) + ". Grup B: "
-        + ",\\;".join(str(x) for x in _B272) + ".")
+        + ", ".join(str(x) for x in _A272) + ". Grup B: "
+        + ", ".join(str(x) for x in _B272) + ".")
 
 Q("272a", 272, "a", B2, "A",
   "Compara'n les mitjanes.",

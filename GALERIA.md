@@ -5,6 +5,63 @@ judge the **quality of the material**: are the statements readable, do the
 figures say what they should, does the layout hold together. Read this before
 you start, because the obvious approach does not work.
 
+## If you are the teacher opening a fresh conversation
+
+Upload **one file**: a zip of the **whole** `repas` project — every file, not
+a diff of what changed recently. About 3 MB. Exclude `galeria/`: it is
+generated output and a stale copy is worse than none.
+
+This has gone wrong once and it is worth being blunt about it. A reviewer was
+handed a zip containing only the recently modified files. It was missing
+`tools/lib.py`, `tests/comu.py`, `vendor/`, nine of the ten files in `js/`,
+and `data/full1.js`. The documented pipeline could not run at all; the
+reviewer had to reconstruct a loader from `tools/_banc.json` to do any work,
+and reported as "orphan content" a set of items that are in fact published —
+a reasonable inference from mutilated data. **A partial zip does not produce a
+partial review; it produces a confidently wrong one.** `wkhtmltoimage`
+is already in the container and KaTeX travels inside the project, so the model
+can render everything itself and then look at the images with its own eyes.
+Do not render on your machine and upload PNGs; it is slower and you would hit
+the upload limit.
+
+Then paste something like this:
+
+> This is a maths revision site for students. Everything in it is code, so you
+> cannot judge the quality of the material by reading it — the figures are SVG
+> strings, the formulas are `$…$`, and the layout only exists in a browser.
+>
+> Read `GALERIA.md` first: it explains a three-layer method for reviewing this
+> the way a human would, by rendering the items to images and looking at them.
+>
+> Then run the gallery and review [the figures / worksheet 9 / the exercises
+> about percentages]. Report what you find, and be explicit about what you
+> looked at and what you only sampled.
+
+Three things worth adding to that prompt, depending on what you want:
+
+- **To narrow the scope**: `--fulls 7,9` renders those worksheets *whole*,
+  every item, figures or not. (With no `--fulls` and no `--tot`, only items
+  that have a figure are rendered, which is the usual case for checking
+  drawings.) Worksheet sizes range from about 47 to 140 items.
+  Reviewing everything in one conversation is not realistic (see below).
+- **To check a specific worry**: name it. "I think the labels on the solids
+  are too small on a phone" gives the model something to test rather than a
+  vague hunt.
+- **To review the exams**: say so explicitly. That is a different rendering
+  path from the practice page and needs its own pass.
+
+### How much fits in one conversation
+
+Perhaps 20 to 30 images, looked at properly. A model that claims to have
+reviewed 185 has not looked at them; it has read the index. So:
+
+- Ask for **one conversation per worksheet**, or per figure family.
+- Or ask for the automatic layer over everything (fast, no images) and then
+  eyes on the flagged ones plus a sample of about twenty.
+
+Ask the model to say which items it actually opened. If the answer is vague,
+that is your signal.
+
 ## Why reading the source is not enough
 
 Everything committed here is code. Python writes SVG, JavaScript assembles
@@ -35,7 +92,18 @@ narrow it down to where looking is likely to pay.
 
 `tools/fes-galeria.py` builds one page per item using the real `css/estil.css`,
 the real vendored KaTeX in `vendor/katex/`, and the real figure SVG from the
-compiled bank, then screenshots it at mobile width. It also renders the
+compiled bank, then screenshots it.
+
+**Render at laptop width, because that is what the students use.** These
+students work on Chromebooks. The stylesheet gives `.embolcall` a
+`max-width: 44rem`, so the real content column is **704 px**, and that is the
+default. `--mobil` adds a second capture at 390 px.
+
+This is not a detail. A review done only at 390 px reported, as a defect, that
+some expressions broke across lines with a minus sign stranded at the end —
+true at that width, and false at 704 px, where the same expression fits on one
+line. Reviewing the wrong column wastes effort on things nobody sees, and
+worse, it gives you confidence about a view almost none of your readers use. It also renders the
 desktop view, and — separately — the exam print output at A4, which is a
 different rendering path with its own failure modes. (The batch-exam PDFs are
 where the most recent crop of bugs turned up.)
@@ -115,6 +183,13 @@ very little:
   neither and produces a screenshot with no styling and unrendered `$…$` that
   looks plausible and is worthless. The script already handles this; do not
   "simplify" it.
+- **KaTeX must be an old-compatible version.** `wkhtmltoimage` 0.12.6 runs an
+  old WebKit that cannot parse the JavaScript of KaTeX ≥ 0.16.22: it throws a
+  `SyntaxError` and silently renders nothing. The symptom is exactly the trap
+  described above — a screenshot with the CSS applied and the formulas left as
+  raw `$…$`, which looks fine and is worthless. The version vendored in
+  `vendor/katex/` is known to work; if you ever replace it, re-check that a
+  formula actually typesets in the gallery before trusting a single image.
 - **PNGs are quantised to 64 colours** before saving. Raw output is over 1 MB
   each; the bank would exceed a gigabyte. Line art and text survive
   quantisation unchanged.

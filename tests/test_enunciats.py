@@ -14,10 +14,34 @@ CAMPS = ("enunciat", "encapcalament", "nota")
 
 
 def _trossos_fora_de_math(text):
-    """Els bocins de `text` que NO són dins de `$...$`."""
-    parts = re.split(r"(\$[^$]*\$)", text or "")
-    return [p for p in parts
-            if not (p.startswith("$") and p.endswith("$"))]
+    """Els bocins de `text` que NO són dins de `$...$`.
+
+    Es recorre caràcter a caràcter alternant dins/fora a cada `$`, i saltant
+    el que va escapat amb barra. Amb una expressió regular que partia per
+    parelles `$...$` s'obtenien falsos positius quan un enunciat en porta
+    diversos: el text entre el tancament d'un bloc i l'obertura del següent
+    es prenia per contingut matemàtic. Amb aquell criteri sortien 31 ítems
+    afectats; amb aquest, els 3 que ho estaven de debò."""
+    out, dins, buf = [], False, []
+    i = 0
+    text = text or ""
+    while i < len(text):
+        if text[i] == "\\" and i + 1 < len(text):
+            buf.append(text[i:i + 2])
+            i += 2
+            continue
+        if text[i] == "$":
+            if not dins:
+                out.append("".join(buf))
+            buf = []
+            dins = not dins
+            i += 1
+            continue
+        buf.append(text[i])
+        i += 1
+    if not dins:
+        out.append("".join(buf))
+    return out
 
 
 class LatexNomesDinsDeModeMatematic(unittest.TestCase):
@@ -33,7 +57,7 @@ class LatexNomesDinsDeModeMatematic(unittest.TestCase):
         for it in PLANS:
             for camp in CAMPS:
                 for tros in _trossos_fora_de_math(it.get(camp)):
-                    if "\\," in tros or "\\%" in tros:
+                    if any(o in tros for o in ("\\,", "\\%", "\\;", "\\dfrac")):
                         dolents.append("%s (%s)" % (it["id"], camp))
                         break
         self.assertEqual(
