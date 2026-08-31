@@ -1,0 +1,103 @@
+{
+  "_llegiu-me": [
+    "Mapa de repàs → teoria. Relaciona un exercici d'aquest lloc amb",
+    "l'activitat del llibre de text que n'explica la teoria.",
+    "",
+    "TRES NIVELLS, del més precís al més general. Es consulta per ordre:",
+    "  1. `items`     — un ítem concret (id: '281')",
+    "  2. `exercicis` — tots els apartats d'un exercici (ex: 110)",
+    "  3. `blocs`     — tot un bloc temàtic ('percentatges')",
+    "El primer que doni resultat guanya. Així es pot començar amb quatre",
+    "regles de bloc, que cobreixen molt de terreny amb poca feina, i anar",
+    "afinant exercici per exercici quan es vegi que un cas concret demana",
+    "un altre lloc del llibre.",
+    "",
+    "PER QUÈ CAL AQUESTA FINOR. Dins d'un mateix bloc hi conviuen nivells",
+    "molt diferents. L'exercici 281 (preu amb IVA i descompte) s'explica a",
+    "2n ESO, on l'activitat es diu literalment 'Percentatges en context:",
+    "descomptes, IVA i canvis de divisa'. En canvi el 275 (factor",
+    "multiplicador) és de 4t, on hi ha una activitat que es diu 'El factor",
+    "multiplicador, a fons'. Enviar-los tots dos al mateix lloc seria",
+    "enviar-ne un dels dos al lloc equivocat.",
+    "",
+    "`act` és OPCIONAL. Quan cap activitat del llibre no correspon prou bé,",
+    "s'omet i l'enllaç obre la unitat desplegada. Val més obrir la unitat",
+    "que enviar l'alumne a una activitat que no parla del que buscava.",
+    "",
+    "Si aquest fitxer no hi és, o un exercici no hi surt, `repas` funciona",
+    "igual: simplement no apareix la icona de teoria."
+  ],
+
+  "base": "https://llibre.step-quiz.net",
+
+  "cursos": {
+    "1eso": "1r ESO",
+    "2eso": "2n ESO",
+    "3eso": "3r ESO",
+    "4eso": "4t ESO",
+    "4eso-apl": "4t ESO (aplicades)"
+  },
+
+  "items": {},
+
+  "exercicis": {
+    "109": { "curs": "1eso", "ud": 4, "act": 7,
+             "titol": "Percentatges",
+             "nota": "passar de fracció a percentatge, que és on comença tot" },
+    "110": { "curs": "2eso", "ud": 2, "act": 3, "titol": "Percentatges en context" },
+    "111": { "curs": "2eso", "ud": 2, "act": 3, "titol": "Percentatges en context" },
+    "112": { "curs": "2eso", "ud": 2, "act": 3, "titol": "Percentatges en context" },
+
+    "113": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "114": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "115": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "116": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "117": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "118": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+
+    "280": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons",
+             "nota": "descomptes encadenats: és el cas que la fórmula del factor resol" },
+    "281": { "curs": "2eso", "ud": 2, "act": 3, "titol": "Percentatges en context",
+             "nota": "IVA i descompte: l'activitat de 2n en parla explícitament" },
+    "282": { "curs": "4eso", "ud": 2, "act": 3, "titol": "Impostos, rebuts i interessos" }
+  },
+
+  "blocs": {
+    "directa_inversa": { "curs": "2eso", "ud": 2, "act": 2, "titol": "Proporcional o no?" },
+    "percentatges": { "curs": "2eso", "ud": 2, "act": 3, "titol": "Percentatges en context" },
+    "encadenats": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "factor_multiplicador": { "curs": "4eso", "ud": 2, "act": 2, "titol": "El factor multiplicador, a fons" },
+    "aplicacions_percentatge": { "curs": "4eso", "ud": 2, "act": 3, "titol": "Impostos, rebuts i interessos" },
+
+    "escales": { "curs": "2eso", "ud": 2, "act": 4, "titol": "Escales i síntesi" },
+    "escales_calcul": { "curs": "2eso", "ud": 2, "act": 4, "titol": "Escales i síntesi" },
+
+    "notables": { "curs": "3eso", "ud": 5, "act": 3, "titol": "Les identitats notables" },
+    "factor_comu": { "curs": "3eso", "ud": 5, "act": 4, "titol": "Factor comú i factoritzar" },
+    "operacions": { "curs": "3eso", "ud": 5, "act": 2, "titol": "Monomis i polinomis" },
+    "divisio": { "curs": "3eso", "ud": 5, "act": 2, "titol": "Monomis i polinomis" },
+    "primer_grau": { "curs": "3eso", "ud": 5, "act": 5, "titol": "Equacions de 1r grau" },
+    "sistemes": { "curs": "3eso", "ud": 5, "act": 8, "titol": "Mètodes de resolució de sistemes" },
+    "formula_general": { "curs": "4eso-apl", "ud": 5, "titol": "Equacions de 2n grau" },
+    "factoritzacio": { "curs": "4eso-apl", "ud": 5, "titol": "Equacions de 2n grau" },
+
+    "funcions_quadratiques": { "curs": "4eso", "ud": 5, "titol": "La paràbola: estudi de la funció quadràtica" },
+    "parabola_produccio": { "curs": "4eso", "ud": 5, "titol": "La paràbola: estudi de la funció quadràtica" },
+    "concepte_funcio": { "curs": "3eso", "ud": 6, "titol": "La funció més recta" },
+    "funcions_lineals": { "curs": "3eso", "ud": 6, "titol": "La funció més recta" },
+    "rectes_produccio": { "curs": "3eso", "ud": 6, "titol": "La funció més recta" },
+
+    "combinatoria": { "curs": "4eso", "ud": 10, "titol": "Combinatòria i probabilitat" },
+    "probabilitat_condicionada": { "curs": "4eso", "ud": 10, "titol": "Combinatòria i probabilitat" },
+    "probabilitat_composta": { "curs": "4eso", "ud": 10, "titol": "Combinatòria i probabilitat" },
+    "laplace": { "curs": "3eso", "ud": 2, "titol": "És una qüestió de sort?" },
+    "espais_mostrals": { "curs": "3eso", "ud": 2, "titol": "És una qüestió de sort?" },
+    "esdeveniments": { "curs": "3eso", "ud": 2, "titol": "És una qüestió de sort?" },
+
+    "variables": { "curs": "2eso", "ud": 6, "titol": "Dades que parlen" },
+    "frequencies": { "curs": "2eso", "ud": 6, "titol": "Dades que parlen" },
+    "grafics": { "curs": "2eso", "ud": 6, "titol": "Dades que parlen" },
+    "centralitzacio": { "curs": "2eso", "ud": 6, "titol": "Dades que parlen" },
+    "dispersio": { "curs": "4eso", "ud": 9, "titol": "Estadística de dues variables" }
+  }
+}

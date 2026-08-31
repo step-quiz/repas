@@ -42,6 +42,10 @@ echo "── JavaScript: analitzador ──────────────�
 node tests/analitzador.test.js || fallades=1
 
 echo
+echo "── JavaScript: pont cap a la teoria del llibre ───────────────"
+node tests/teoria.test.js || fallades=1
+
+echo
 echo "── JavaScript: calendari dels trams ──────────────────────────"
 node tests/calendari.test.js || fallades=1
 

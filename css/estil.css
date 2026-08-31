@@ -252,3 +252,15 @@ button{font:inherit;font-family:var(--cos)}
 .avis-tram button{background:none;border:0;font-size:1.2rem;line-height:1;
   color:#6B4200;cursor:pointer;padding:0 .2rem}
 .avis-tram button:hover{color:var(--ambre)}
+
+
+/* Icona de teoria. Discreta a posta: qui va bé no l'ha de notar, i qui
+   s'encalla la troba just a la capçalera de l'exercici. Només es desplega
+   l'enllaç quan es clica. */
+.teoria{display:inline-flex;align-items:center;gap:.4rem}
+.teoria-t{width:1.45rem;height:1.45rem;border-radius:50%;border:1px solid var(--vora);
+  background:var(--card);color:var(--apagat);font:600 .78rem/1 var(--mono);
+  cursor:pointer;padding:0}
+.teoria-t:hover{border-color:var(--blau);color:var(--blau)}
+.teoria-t[aria-expanded="true"]{background:var(--blau-suau);border-color:var(--blau);color:var(--blau)}
+.teoria-obert a{font-size:.82rem;color:var(--blau)}

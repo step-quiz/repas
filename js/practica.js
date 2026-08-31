@@ -69,6 +69,10 @@
     $("#figura").hidden = true;
   }
   if (item.nota) { $("#nota").innerHTML = "<strong>Nota:</strong> " + item.nota; $("#nota").hidden = false; }
+  /* La icona de teoria, si aquest exercici en té de mapada. Va a la
+     capçalera, al costat del codi: qui no la necessita no l'ha de veure
+     enmig de l'enunciat. */
+  if (window.RE_TEORIA) window.RE_TEORIA.mostra($("#teoria"), item);
   RE.mat(document.body);
   if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
   RE.rellotge();
