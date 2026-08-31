@@ -1,5 +1,8 @@
 # Diff de la revisió — figures
 
+> **diff-01** (2026-08-31): correcció del `min()` + 6 eines.
+> **diff-02** (2026-08-31): `_cotes.py` nou, i avís de forat a `_plantilles.py`.
+
 ## Fitxer MODIFICAT (1)
 
 **`tools/fes-galeria.py`** — deu línies afegides a la plantilla HTML.
@@ -36,6 +39,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_mida_etiquetes.py` | mida efectiva de cada etiqueta en píxels de pantalla | 1 figura a 7,1 px; 19 per sota de 12 px |
 | `_plantilles.py` | figures amb geometria idèntica i etiquetes diferents | 22 ítems on el dibuix menteix |
 | `_escala_figures.py` | dibuix contra etiquetes dins d'un mateix polígon | 3 candidats, tots per repassar a mà |
+| `_cotes.py` **(diff-02)** | mesura la línia de cota que porta cada etiqueta | 16 figures amb escales incoherents |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -56,6 +60,36 @@ maneres en què m'han enganyat. Val la pena llegir-la abans de fer-los cas:
   la mateixa forma a qualsevol aresta) de la que és un defecte, i té un
   tercer grup, «sense prou mesures per decidir», que **no vol dir correcte:
   vol dir no comprovat**.
+
+## Novetat del diff-02: `_cotes.py`
+
+`_plantilles.py` compara els **valors** de les etiquetes i no sap què mesura
+cadascuna. A `193a` les dues diuen «10 cm», raó 1,00, i el donava per bo:
+però una és el radi i l'altra l'altura, o sigui que la raó real és 2:1 i el
+dibuix la posa a 1:1. `_cotes.py` mesura la línia de cota, no llegeix el
+número, i no hi cau. Els dos programes són complementaris: l'un troba la
+plantilla reutilitzada entre figures, l'altre la incoherència dins d'una.
+
+### El detall que el fa funcionar
+
+La primera versió aparellava cada etiqueta amb la línia de cota més propera i
+donava 21 encerts, dels quals quatre prismes hexagonals eren **falsos**. A
+`170c` el «5,2 cm» anava a una línia d'extensió de 55 u en comptes de a la
+cota real de 31,2 u, i en sortia un ×1,76 inexistent. La diferència de
+distància entre les dues candidates era de **0,1 unitats**.
+
+El criteri que ho resol és estructural, no de distància: una cota de mesura té
+els **dos** extrems recolzats sobre altres línies de cota (les d'extensió, que
+van de la figura fins a la cota); una línia d'extensió en té un de lliure. Amb
+això `170c`, `170d`, `170g` i `170h` surten de la llista i `193a`, `193b` i
+`195c` hi entren, que és exactament al revés del que passava.
+
+### Límit que li queda
+
+Una figura pot contenir dos objectes dibuixats a escales diferents a propòsit
+—les de semblança del full 8, on hi ha una persona i un poble— i allà comparar
+cotes no té sentit. `166`, `168`, `169`, `164`, `163` i `161` surten a la
+llista per aquest motiu i **no són defectes**.
 
 ## Què NO hi ha
 

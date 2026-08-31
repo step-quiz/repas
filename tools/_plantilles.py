@@ -19,6 +19,19 @@ Ara be, no tota reutilitzacio es dolenta, i la diferencia importa:
             no es la de ningu.
 
 El programa separa els dos casos: nomes els del segon grup s'han de mirar.
+
+FORAT CONEGUT -- fes servir _cotes.py per tapar-lo
+--------------------------------------------------
+Aqui es comparen els VALORS de les etiquetes, sense saber que mesura
+cadascuna. A 193a les dues diuen "10 cm": rao 1,00, i el programa el dona
+per bo. Pero una es el RADI i l'altra l'ALTURA, o sigui que la rao que
+importa (diametre contra altura) es 2:1 i el dibuix la posa a 1:1. El mateix
+passa a 193b i a 195c.
+
+_cotes.py no cau en aixo perque mesura la linia de cota que porta cada
+etiqueta en comptes de llegir-ne nomes el numero. Passa els dos programes:
+aquest troba la reutilitzacio de plantilla entre figures, i l'altre la
+incoherencia d'escala dins d'una figura.
 """
 import collections
 import re
