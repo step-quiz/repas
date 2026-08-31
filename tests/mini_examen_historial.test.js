@@ -5,8 +5,9 @@
    acumulatives. Aquí es fabriquen codis sintètics amb dates conegudes i es
    comprova que cada exercici acabi al tram que li toca. */
 const fs = require("fs");
+const ARREL = require("path").join(__dirname, "..");
 const src = fs.readFileSync(
-  "/home/claude/repas/repas-main/tools/analitzador-plantilla.html", "utf8");
+  require("path").join(ARREL, "tools", "analitzador-plantilla.html"), "utf8");
 
 function extreu(nom) {
   const i = src.indexOf("  function " + nom + "(");
@@ -22,16 +23,16 @@ let files = [];
 const RE_BANC = new Proxy({}, { get: () => ({ ex: 1 }), has: () => true });
 function quan(p) { return p.quan; }
 function mapaEstats(p) { return p.mapa; }
-const $ = sel => stub[sel];
-const stub = {
-  "#lot-setmanes": { value: "3" },
-  "#lot-inici": { value: "2026-09-14" }
-};
+/* El calendari del curs, el mateix que fa servir l'aplicació. */
+const path = require("path");
+global.window = global.window || {};
+require(path.join(__dirname, "..", "js", "calendari.js"));
+const RE_CALENDARI = global.window.RE_CALENDARI;
 
-eval(extreu("historialAlumnes") + "\n" + extreu("msTram") + "\n"
-   + extreu("iniciCurs") + "\n" + extreu("tramDe")
-   + "\nglobalThis.historialAlumnes = historialAlumnes;"
-   + "globalThis.tramDe = tramDe; globalThis.iniciCurs = iniciCurs;");
+eval(extreu("historialAlumnes")
+   + "\nglobalThis.historialAlumnes = historialAlumnes;");
+const tramDe = d => RE_CALENDARI.tramDe(d);
+const iniciCurs = () => RE_CALENDARI.llista()[0].inici;
 
 let fallades = 0;
 const comprova = (nom, cond, detall) => {
@@ -59,7 +60,7 @@ files = [
 ];
 let h = historialAlumnes()[0];
 const tram = {};
-h.items.forEach(it => { tram[it.id] = tramDe(it.quan, inici); });
+h.items.forEach(it => { tram[it.id] = tramDe(it.quan); });
 comprova("1a al tram 0", tram["1a"] === 0, "surt " + tram["1a"]);
 comprova("1c al tram 0", tram["1c"] === 0);
 comprova("2a al tram 1", tram["2a"] === 1, "surt " + tram["2a"]);
@@ -71,14 +72,14 @@ console.log("\n== un exercici NO canvia de tram en reenviar el codi ==");
 files = files.concat([codi(dia(62), ["1a", "1b", "1c", "2a", "2b", "3a"])]);
 h = historialAlumnes()[0];
 const t2 = {};
-h.items.forEach(it => { t2[it.id] = tramDe(it.quan, inici); });
+h.items.forEach(it => { t2[it.id] = tramDe(it.quan); });
 comprova("1a segueix al tram 0", t2["1a"] === 0, "surt " + t2["1a"]);
 comprova("no s'han duplicat ítems", h.items.length === 6, h.items.length + " ítems");
 
 console.log("\n== alumne que només envia un codi al final ==");
 files = [codi(dia(62), ["1a", "1b", "2a", "3a"])];
 h = historialAlumnes()[0];
-const t3 = new Set(h.items.map(it => tramDe(it.quan, inici)));
+const t3 = new Set(h.items.map(it => tramDe(it.quan)));
 comprova("tot cau en un sol tram", t3.size === 1 && t3.has(2),
   "trams: " + [...t3].join(","));
 comprova("s'hi detecta que només hi ha un codi", h.nCodis === 1, "nCodis=" + h.nCodis);
@@ -92,7 +93,7 @@ h = historialAlumnes()[0];
 comprova("no es perd el que ja s'havia vist", h.items.length === 4,
   h.items.length + " ítems");
 const t4 = {};
-h.items.forEach(it => { t4[it.id] = tramDe(it.quan, inici); });
+h.items.forEach(it => { t4[it.id] = tramDe(it.quan); });
 comprova("1a conserva el seu tram original", t4["1a"] === 0, "surt " + t4["1a"]);
 comprova("9a va al tram del seu enviament", t4["9a"] === 1, "surt " + t4["9a"]);
 

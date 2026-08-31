@@ -1,8 +1,12 @@
 /* Prova de la lògica del mini-examen, extreta de la plantilla i executada
    amb node. No cal DOM: es proven les funcions pures. */
 const fs = require("fs");
+const path = require("path");
+/* Camí relatiu al fitxer de prova: amb una ruta absoluta, això només
+   funcionava a la màquina on es va escriure. */
+const ARREL = path.join(__dirname, "..");
 const src = fs.readFileSync(
-  "/home/claude/repas/repas-main/tools/analitzador-plantilla.html", "utf8");
+  path.join(ARREL, "tools", "analitzador-plantilla.html"), "utf8");
 
 /* S'extreu el bloc de funcions que no toquen el DOM. */
 function extreu(nom) {
@@ -68,14 +72,33 @@ comprova("antepenúltim ~17 %", Math.abs(pct(0) - 16.7) < 1.5, pct(0));
 comprova("sempre surten 5 preguntes", totalPreg === 50000, String(totalPreg));
 
 console.log("\n== cap combinació és impossible ==");
-const vistes = new Set();
-for (let n = 0; n < 20000; n++) {
-  vistes.add(sortejaPreguntes(perTram, eleg, 5)
-    .map(q => q.tram).sort().join(""));
+/* Aquesta comprovació era INESTABLE. Es feia sortejant 20.000 exàmens i
+   mirant si algun tenia les cinc preguntes del tram de pes 1; com que això
+   té probabilitat (1/6)^5, la de no veure'n cap en 20.000 tirades és del
+   7,6 %, i el test fallava un cop de cada tretze sense que res anés
+   malament. Un test que falla a vegades és pitjor que no tenir-lo, perquè
+   ensenya a ignorar-lo.
+
+   El que es volia comprovar és que cap tram queda EXCLÒS del sorteig. Això
+   es pot verificar sense dependre de la sort: si es deixa un sol tram amb
+   exercicis, totes les preguntes n'han de sortir; i sortejant molt, tots
+   els trams han d'aparèixer. Les dues coses juntes diuen exactament que cap
+   probabilitat és zero. */
+[0, 1, 2].forEach(t => {
+  const nomes = { 0: [], 1: [], 2: [] };
+  nomes[t] = perTram[t];
+  const q = sortejaPreguntes(nomes, eleg, 5);
+  comprova("amb només el tram " + t + " disponible, les 5 en surten",
+    q.length === 5 && q.every(x => x.tram === t),
+    q.map(x => x.tram).join(""));
+});
+
+const apareix = { 0: 0, 1: 0, 2: 0 };
+for (let n = 0; n < 3000; n++) {
+  sortejaPreguntes(perTram, eleg, 5).forEach(q => { apareix[q.tram]++; });
 }
-comprova("surt alguna tirada amb les 5 de l'últim tram", vistes.has("22222"));
-comprova("surt alguna tirada amb les 5 de l'antepenúltim", vistes.has("00000"),
-  "combinacions vistes: " + vistes.size);
+comprova("sortejant molt, els tres trams hi surten",
+  apareix[0] > 0 && apareix[1] > 0 && apareix[2] > 0, JSON.stringify(apareix));
 
 console.log("\n== un tram buit no escurça l'examen ==");
 const buit = { 2: perTram[2].slice(), 1: [], 0: perTram[0].slice() };

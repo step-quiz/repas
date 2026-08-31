@@ -681,4 +681,71 @@ function classeDeProva(w) {
 }
 
 
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: ningú no desapareix en silenci");
+
+{
+  const { w, d } = obre();
+  const INICI = new Date(2026, 8, 14);
+  const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
+    x.setHours(18, 0, 0, 0); return x; };
+  const bo = codiDe(w, [4], 20, dia(61));
+  const trencat = bo.slice(0, 12) + (bo[12] === "X" ? "Y" : "X") + bo.slice(13);
+  obreExamens(w, d, fabrica(w, [
+    [marca(dia(19)), "sana@x.cat", "4tA", codiDe(w, [4], 12, dia(19))],
+    [marca(dia(61)), "sana@x.cat", "4tA", bo],
+    [marca(dia(61)), "rota@x.cat", "4tA", trencat]
+  ]));
+  d.getElementById("pr-va-lot").click();
+  d.getElementById("lot-periode").value = "2";
+  d.getElementById("lot-genera").click();
+  const text = d.getElementById("lot-taula")
+    ? d.getElementById("lot-taula").textContent : "";
+
+  prova("l'alumne amb el codi il·legible surt a la taula", () => {
+    assert.ok(/rota/.test(text),
+      "ha desaparegut de la llista sense dir res: " + text);
+  });
+
+  prova("i se'n diu el motiu", () => {
+    const tot = d.getElementById("lot-resum").textContent;
+    assert.ok(/no s'han pogut llegir/.test(tot), tot.slice(0, 300));
+  });
+
+  prova("l'alumne amb codis bons no en queda afectat", () => {
+    assert.ok(/sana/.test(text));
+    assert.ok(d.querySelectorAll("#pr-examen .pr-alumne").length >= 1);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: un pes a zero es diu");
+
+{
+  const { w, d } = obre();
+  const INICI = new Date(2026, 8, 14);
+  const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
+    x.setHours(18, 0, 0, 0); return x; };
+  obreExamens(w, d, fabrica(w, [
+    [marca(dia(19)), "a@x.cat", "4tA", codiDe(w, [4], 12, dia(19))],
+    [marca(dia(61)), "a@x.cat", "4tA", codiDe(w, [4], 30, dia(61))]
+  ]));
+  d.getElementById("pr-va-lot").click();
+  d.getElementById("lot-periode").value = "2";
+
+  prova("amb 3 2 1 no s'avisa de res", () => {
+    d.getElementById("lot-pesos").value = "3 2 1";
+    d.getElementById("lot-genera").click();
+    assert.ok(!/no pot sortir mai/.test(d.getElementById("lot-resum").textContent));
+  });
+
+  prova("amb un pes a 0 s'avisa que aquell tram és impossible", () => {
+    d.getElementById("lot-pesos").value = "3 2 0";
+    d.getElementById("lot-genera").click();
+    const t = d.getElementById("lot-resum").textContent;
+    assert.ok(/no pot sortir mai/.test(t), t.slice(0, 300));
+  });
+}
+
+
 process.exit(resum() ? 0 : 1);

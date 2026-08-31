@@ -108,10 +108,28 @@ setmanes.
 1. Carrega el full de respostes igual que abans, **amb tot l'historial**
    d'enviaments (vegeu l'avís de més amunt).
 2. Pestanya **Prova escrita** › **Mini-examen estàndard**.
-3. Posa la **data d'inici del curs**. És l'única data que has de tocar: a
-   partir d'aquí els períodes es numeren sols. La resta de camps ja porten els
-   valors habituals (trams de 3 setmanes, 3 per trimestre, 5 preguntes, mínim
-   de 10 exercicis) i normalment no cal canviar-los.
+3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure.
+   Són aquestes:
+
+   | | 1r trimestre | 2n trimestre | 3r trimestre |
+   |---|---|---|---|
+   | Tram 1 | 14/09 – 04/10 | 28/12 – 17/01 | 22/03 – 11/04 |
+   | Tram 2 | 12/10 – 01/11 | 25/01 – 14/02 | 12/04 – 02/05 |
+   | Tram 3 | 09/11 – 29/11 | 22/02 – 14/03 | 03/05 – 23/05 |
+
+   Tots duren 21 dies i van de dilluns a diumenge, però **no són
+   consecutius**: hi ha una setmana de descans entre l'un i l'altre, quatre
+   per Nadal, i en canvi els tres del tercer trimestre van encadenats. Per
+   això les dates estan escrites una a una i no es calculen a partir d'una
+   d'inici. Amb **Veure'l o canviar-lo** les pots modificar si un any el
+   calendari canvia; **Torna a les del curs** les recupera.
+
+   La feina feta en una setmana de descans compta al tram que acaba de
+   tancar, no al següent: un codi enviat el dimecres després del tancament
+   reporta gairebé sempre feina d'aquelles tres setmanes.
+
+   La resta de camps ja porten els valors habituals (5 preguntes, pesos
+   3-2-1, mínim de 10 exercicis) i normalment no cal tocar-los.
 4. Tria **quin tram examines**. Surt marcat quin és el que toca avui; si
    generes l'examen uns dies tard, o mires dades d'un altre curs, pots triar
    qualsevol dels que tenen feina.
@@ -133,6 +151,20 @@ més probables que d'altres.
 **Ningú no queda bloquejat.** Si un alumne no arriba al mínim d'exercicis,
 l'examen se li genera igualment amb el que tingui, i el motiu queda anotat al
 **full de correcció**, mai al full que rep ell.
+
+---
+
+## L'avís que veu l'alumne
+
+Quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que entri al
+lloc hi troba un avís a dalt recordant-li la data i que enviï el codi. Es
+mostra com a molt **dues vegades per tram, en dies diferents**: un avís que
+surt cada dia deixa de llegir-se, i llavors ja no avisa de res. El compte és
+per tram, de manera que al següent torna a tenir-ne dos.
+
+No cal que hi facis res: les dates surten del mateix calendari que fas servir
+tu, així que si el canvies a l'analitzador convé que canviïs també les de
+`js/calendari.js`, que és d'on el lloc de l'alumne les llegeix.
 
 ---
 

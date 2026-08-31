@@ -6,7 +6,16 @@
    passa, el botó "Posa-hi un exemple" serveix per fer un mini-examen. */
 const fs = require("fs");
 const vm = require("vm");
-const ARREL = "/home/claude/repas/repas-main/";
+const path = require("path");
+
+/* El mateix calendari que fa servir l'aplicació: si la prova en tingués un
+   de propi, comprovaria una cosa diferent de la que passa de debò. */
+global.window = global.window || {};
+require(path.join(__dirname, "..", "js", "calendari.js"));
+const CAL = global.window.RE_CALENDARI;
+/* Camí relatiu: amb una ruta absoluta la prova només corria a la màquina
+   on es va escriure. */
+const ARREL = path.join(__dirname, "..") + path.sep;
 const src = fs.readFileSync(ARREL + "tools/analitzador-plantilla.html", "utf8");
 
 /* Entorn: taules reals + motor de codis real. */
@@ -19,6 +28,7 @@ vm.runInContext(fs.readFileSync(ARREL + "js/codi.js", "utf8"), sandbox);
 const RE_TAULES = sandbox.window.RE_TAULES;
 const RE_CODI = sandbox.window.RE_CODI;
 
+
 let fallades = 0;
 const comprova = (nom, cond, detall) => {
   if (!cond) { fallades++; console.log("  FALLA  " + nom + (detall ? " — " + detall : "")); }
@@ -30,7 +40,7 @@ const cos = src.slice(src.indexOf('$("#btn-exemple").onclick = function () {'));
 const cos2 = cos.slice(cos.indexOf("{") + 1, cos.indexOf("\n    $(\"#entrada\").value"));
 let text = null;
 const ctx = {
-  RE_TAULES, RE_CODI, Date, Math, Object, console,
+  RE_TAULES, RE_CODI, RE_CALENDARI: CAL, Date, Math, Object, console,
   $: () => ({ value: "" }), carrega: () => {}
 };
 vm.createContext(ctx);
@@ -56,9 +66,7 @@ comprova("n'hi ha exactament 1 de manipulat",
   llegits.filter(x => !x.p.ok || !x.p.integre).length === 1);
 
 /* ── 3. reconstrucció de trams ─────────────────────────────────────────── */
-const INICI = new Date(2026, 8, 14);
-const TRAM = 21 * 86400000;
-const tramDe = d => Math.floor((d - INICI) / TRAM);
+const tramDe = d => CAL.tramDe(d);
 function quan(p) { const d = new Date(p.data.getTime()); d.setHours(p.hora, p.minut, 0, 0); return d; }
 function mapaEstats(p) {
   const m = {};

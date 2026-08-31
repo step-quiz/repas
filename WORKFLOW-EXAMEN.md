@@ -6,7 +6,44 @@ teacher and their students. This document is self-contained: it tells you
 what already exists, what does not exist, and what you need to build or
 configure to close the gap. Read it before touching any code.
 
-**Read `README.md` first if you have not.** It documents the site as a
+**Read `README.md` first if you have not.**
+
+> **UPDATE — a second exam mode now exists.** The workflow described below
+> (teacher picks one student, picks blocks, prints) is still there and still
+> works, but it is now one of *two* modes behind a chooser in the **Prova
+> escrita** tab:
+>
+> - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Five
+>   questions per student, drawn at random from the exercises *that student*
+>   has done, weighted so the most recent tram is likeliest. Nine fixed trams
+>   per course, hardcoded in `js/calendari.js` and shared with the student
+>   site. Groups of three trams form a cycle; when a new one starts the count
+>   resets. Output: one printable document with every exam and another with
+>   every answer key.
+> - **Examen personalitzat a un alumne** — what this document describes.
+>
+> Three things a future agent needs to know before touching it:
+>
+> 1. **A code carries the date it was generated, not the date of each
+>    exercise.** The standard mode reconstructs when each exercise was done by
+>    diffing a student's successive codes. It therefore needs the *whole*
+>    submission history in the response sheet, not just the latest row. A
+>    student with a single submission gets an exam plus an explicit warning
+>    that the tram split means nothing for them.
+> 2. **The trams are not contiguous** — a week off between them, four at
+>    Christmas, none in the third term — so they are a table, not
+>    `floor((date - start) / 21 days)`. `js/calendari.js` is the single
+>    source of truth and the analyser injects it at build time
+>    (`/*__CALENDARI__*/`).
+> 3. **The word "trimestre" is overloaded.** In the standard exam mode it
+>    means a group of three trams; in the "Progrés del trimestre" tab it means
+>    a calendar term defined by months. They nearly coincide but not exactly.
+>
+> Tests: `tests/calendari.test.js` plus the four `tests/mini_examen*.test.js`
+> batteries, all wired into `tests/executa.sh`. The two that read
+> `tools/_taules.json` and `tools/_banc.json` skip with a message when those
+> build artefacts are absent.
+ It documents the site as a
 product. This document only covers the one workflow below, in the order a
 teacher would actually run it, and it is more explicit about the pieces a
 human would not think to write down.

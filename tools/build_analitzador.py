@@ -37,14 +37,21 @@ def main():
     taules = open(ruta_taules, encoding="utf-8").read()
     banc = open(ruta_banc, encoding="utf-8").read()
     codi = open(os.path.join(ARREL, "js", "codi.js"), encoding="utf-8").read()
+    # El calendari dels trams viu a `js/calendari.js` i el comparteixen el
+    # lloc de l'alumne i l'analitzador: si es dupliqués, un dia les dues
+    # còpies dirien coses diferents.
+    calendari = open(os.path.join(ARREL, "js", "calendari.js"),
+                     encoding="utf-8").read()
 
     assert plantilla.count("/*__TAULES__*/") == 1
     assert plantilla.count("/*__CODI__*/") == 1
+    assert plantilla.count("/*__CALENDARI__*/") == 1
     assert plantilla.count("/*__BANC__*/") == 1
 
     html = plantilla.replace(
         "/*__TAULES__*/", "window.RE_TAULES = " + taules + ";"
     ).replace("/*__CODI__*/", codi).replace(
+        "/*__CALENDARI__*/", calendari).replace(
         "/*__BANC__*/", "window.RE_BANC = " + banc + ";")
 
     ruta = os.path.join(ARREL, "analitzador-repas.html")

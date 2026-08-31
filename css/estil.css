@@ -240,3 +240,15 @@ button{font:inherit;font-family:var(--cos)}
 .fig-etq.petita{font-size:10.5px;fill:var(--apagat)}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 @media (max-width:520px){ .figura{max-width:100%} }
+
+
+/* Avís de final de tram. Ambre com la resta d'avisos del lloc, i amb el botó
+   de tancar perquè no bloquegi res: informa, no interromp. */
+.avis-tram{display:flex;gap:.75rem;align-items:flex-start;
+  background:var(--ambre-suau);border-left:3px solid var(--ambre);
+  border-radius:0 10px 10px 0;padding:.7rem .9rem;margin:0 0 1rem;
+  font-size:.95rem;line-height:1.45}
+.avis-tram span{flex:1}
+.avis-tram button{background:none;border:0;font-size:1.2rem;line-height:1;
+  color:#6B4200;cursor:pointer;padding:0 .2rem}
+.avis-tram button:hover{color:var(--ambre)}

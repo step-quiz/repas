@@ -13,6 +13,7 @@ set -e
 cd "$(dirname "$0")/.."
 
 fallades=0
+sense_taules=0
 saltades=0
 
 # Les proves que necessiten jsdom surten amb codi 0 quan se salten, per no
@@ -41,14 +42,30 @@ echo "── JavaScript: analitzador ──────────────�
 node tests/analitzador.test.js || fallades=1
 
 echo
+echo "── JavaScript: calendari dels trams ──────────────────────────"
+node tests/calendari.test.js || fallades=1
+
+echo
 echo "── JavaScript: mini-examen de 3 setmanes ─────────────────────"
-# Aquestes no necessiten DOM: proven el repartiment per trams, el sorteig i
-# l'exemple de mostra, que són funcions pures. Corren sempre.
-for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js \
-         tests/mini_examen_exemple.test.js tests/mini_examen_varietat.test.js; do
+# El repartiment per trams i el sorteig són funcions pures i corren sempre.
+for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js; do
   node "$t" >/dev/null || { node "$t"; fallades=1; }
 done
-printf '  \033[32m✓\033[0m 4 bateries del mini-examen\n'
+printf '  \033[32m✓\033[0m 2 bateries del sorteig\n'
+# Les altres dues llegeixen `tools/_taules.json` i `tools/_banc.json`, que
+# són artefactes de compilació i no van al repositori. Sense ells no es poden
+# executar: val més dir-ho que no pas petar amb un error de fitxer i que la
+# suite acabi dient que tot ha anat bé.
+if [ -f tools/_taules.json ] && [ -f tools/_banc.json ]; then
+  for t in tests/mini_examen_exemple.test.js tests/mini_examen_varietat.test.js; do
+    node "$t" >/dev/null || { node "$t"; fallades=1; }
+  done
+  printf '  \033[32m✓\033[0m 2 bateries de l\047exemple de mostra\n'
+else
+  sense_taules=1
+  printf '  \033[33m⊘\033[0m 2 bateries de l\047exemple saltades: falten els\n'
+  printf '    artefactes de compilacio. Per passar-les:  python3 tools/build_tot.py\n'
+fi
 
 echo
 echo "── JavaScript: accessibilitat de practica.html i diagnostic.html ──"
@@ -62,10 +79,14 @@ echo
 if [ "$fallades" -ne 0 ]; then
   printf '\033[31m✗ Hi ha proves que fallen.\033[0m\n'
   exit 1
+elif [ "$sense_taules" -ne 0 ]; then
+  printf '\033[33m⚠ Les proves executades passen, PERÒ falten artefactes de\n'
+  printf '  compilació i s\047han saltat proves. Executa:  python3 tools/build_tot.py\033[0m\n'
+  exit 0
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
   printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
-  printf '  són 106 comprovacions de 321 que no s\047han arribat a executar.\n'
+  printf '  són 111 comprovacions de 348 que no s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0
 else

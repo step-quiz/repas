@@ -6,7 +6,14 @@
    d'exercicis. */
 const fs = require("fs");
 const vm = require("vm");
-const A = "/home/claude/repas/repas-main/";
+const path = require("path");
+
+/* El mateix calendari que fa servir l'aplicació: si la prova en tingués un
+   de propi, comprovaria una cosa diferent de la que passa de debò. */
+global.window = global.window || {};
+require(path.join(__dirname, "..", "js", "calendari.js"));
+const CAL = global.window.RE_CALENDARI;
+const A = path.join(__dirname, "..") + path.sep;
 const src = fs.readFileSync(A + "tools/analitzador-plantilla.html", "utf8");
 
 const sb = { window: {}, console, Date, Math, JSON, parseInt, parseFloat,
@@ -20,6 +27,7 @@ vm.runInContext(fs.readFileSync(A + "js/codi.js", "utf8"), sb);
 const RE_TAULES = sb.window.RE_TAULES, RE_CODI = sb.window.RE_CODI;
 const BANC = JSON.parse(fs.readFileSync(A + "tools/_banc.json", "utf8"));
 
+
 let fallades = 0;
 const comprova = (nom, cond, detall) => {
   if (!cond) { fallades++; console.log("  FALLA  " + nom + (detall ? " — " + detall : "")); }
@@ -29,7 +37,7 @@ const comprova = (nom, cond, detall) => {
 /* S'executa el codi real del botó. */
 const cos = src.slice(src.indexOf('$("#btn-exemple").onclick = function () {'));
 const cos2 = cos.slice(cos.indexOf("{") + 1, cos.indexOf('\n    $("#entrada").value'));
-const ctx = { RE_TAULES, RE_CODI, Date, Math, Object, console,
+const ctx = { RE_TAULES, RE_CODI, RE_CALENDARI: CAL, Date, Math, Object, console,
   $: () => ({ value: "" }), carrega: () => {} };
 vm.createContext(ctx);
 vm.runInContext(cos2 + "\n globalThis.R = l.join('\\n');", ctx);
@@ -40,8 +48,9 @@ const files = ctx.R.trim().split("\n").slice(1).map(l => {
 });
 
 /* Es reconstrueix què ha fet cada alumne. */
-const INICI = new Date(2026, 8, 14), TRAM = 21 * 86400000;
-const tramDe = d => Math.floor((d - INICI) / TRAM);
+global.window = global.window || {};
+require(path.join(__dirname, "..", "js", "calendari.js"));
+const tramDe = d => CAL.tramDe(d);
 const quan = p => { const d = new Date(p.data.getTime()); d.setHours(p.hora, p.minut, 0, 0); return d; };
 
 const per = {};

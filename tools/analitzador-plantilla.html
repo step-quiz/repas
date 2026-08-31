@@ -361,23 +361,39 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           trimestre, donant més pes al més recent. Quan comença un trimestre
           nou el compte torna a zero: el primer examen del trimestre següent
           només mira els exercicis d'aquelles 3 setmanes.
+          <br><b>Compte amb la paraula «trimestre»:</b> aquí vol dir un grup
+          de tres trams del calendari de sota, i no coincideix exactament amb
+          els trimestres per mesos de la pestanya «Progrés del trimestre».
+          Un enviament del 30 de desembre, per exemple, és del 1r trimestre
+          allà i del 2n aquí.
         </p>
 
         <div class="camp" style="border-top:none;padding-top:0">
-          <b>Calendari</b>
+          <b>Calendari del curs</b>
+          <p class="petit apagat" style="margin:.2rem 0 .5rem">
+            Els nou trams ja hi són posats. Els trams no són consecutius: hi
+            ha una setmana de descans entre l'un i l'altre, quatre per Nadal,
+            i en canvi els tres del tercer trimestre van encadenats. Per això
+            les dates estan escrites una a una i no es calculen.
+          </p>
           <div class="filtres" style="margin:.3rem 0 0">
-            <label class="petit apagat">Inici del curs
-              <input type="date" id="lot-inici" value="2026-09-14"></label>
-            <label class="petit apagat">Tram de
-              <input type="number" id="lot-setmanes" value="3" min="1" max="12"
-                     style="width:52px"> setmanes</label>
-            <label class="petit apagat">
-              <input type="number" id="lot-per-trim" value="3" min="1" max="10"
-                     style="width:52px"> trams per trimestre</label>
-          </div>
-          <div class="filtres" style="margin:.45rem 0 0">
             <label class="petit apagat">Examinar del tram
-              <select id="lot-periode" style="min-width:230px"></select></label>
+              <select id="lot-periode" style="min-width:280px"></select></label>
+            <button class="btn buit petit" id="lot-veure-cal">Veure'l o canviar-lo</button>
+          </div>
+          <div id="lot-cal" hidden style="margin:.6rem 0 0">
+            <p class="petit apagat" style="margin:0 0 .35rem">
+              Una línia per tram, <code>inici fi</code> en format
+              <code>AAAA-MM-DD</code>. Els tres primers són el primer
+              trimestre, els tres següents el segon, i així.
+            </p>
+            <textarea id="lot-cal-txt" rows="11" spellcheck="false"
+                      style="width:100%;font-family:var(--mono);font-size:.85rem"></textarea>
+            <div class="filtres" style="margin:.35rem 0 0">
+              <button class="btn petit" id="lot-cal-desa">Fes servir aquestes dates</button>
+              <button class="btn buit petit" id="lot-cal-reset">Torna a les del curs</button>
+              <span class="petit" id="lot-cal-estat"></span>
+            </div>
           </div>
         </div>
 
@@ -576,7 +592,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 </main>
 
 <script>/*__TAULES__*/</script>
-<script>/*__CODI__*/</script>
+<script>/*__CODI__*/
+/*__CALENDARI__*/</script>
 <script>/*__BANC__*/</script>
 <script>
 (function () {
@@ -1367,8 +1384,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      manipulat, que és el que fa visible la comprovació d'integritat a la
      resta de pestanyes. */
   $("#btn-exemple").onclick = function () {
-    var INICI = new Date(2026, 8, 14);        /* 14/09/2026, dilluns */
-    var TRAM = 21 * 86400000;
+    /* Les dates surten del calendari del curs, no d'una aritmètica pròpia:
+       si l'exemple es construís amb trams inventats, provaria una cosa i el
+       professor n'hi veuria una altra. `envia(t, d)` és el dia `d` del tram
+       `t` (0 = primer dia). */
+    var CAL = RE_CALENDARI.llista();
+    function envia(t, d) {
+      return new Date(CAL[t].inici.getTime() + d * 86400000);
+    }
     var opc = ["net", "net", "net", "segon", "pista", "fallat"];
 
     /* Els estats es fixen UN cop per alumne i cada enviament n'agafa un
@@ -1458,18 +1481,18 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       });
     }
 
-    /* dia: dies des de l'inici del curs · acum: exercicis acumulats */
+    /* tram · dia dins del tram · exercicis acumulats */
     var PLA = [
-      { nom: "berta", grup: "4tA", env: [{ dia: 19, acum: 13 }, { dia: 40, acum: 27 }, { dia: 61, acum: 41 }] },
-      { nom: "jordi", grup: "4tA", env: [{ dia: 18, acum: 11 }, { dia: 39, acum: 24 }, { dia: 60, acum: 36 }] },
-      { nom: "laia",  grup: "4tA", env: [{ dia: 20, acum: 15 }, { dia: 41, acum: 32 }, { dia: 62, acum: 48 }] },
-      { nom: "marc",  grup: "4tB", env: [{ dia: 17, acum: 12 }, { dia: 38, acum: 23 }, { dia: 59, acum: 35 }] },
+      { nom: "berta", grup: "4tA", env: [{ t: 0, d: 19, acum: 13 }, { t: 1, d: 19, acum: 27 }, { t: 2, d: 19, acum: 41 }] },
+      { nom: "jordi", grup: "4tA", env: [{ t: 0, d: 18, acum: 11 }, { t: 1, d: 18, acum: 24 }, { t: 2, d: 18, acum: 36 }] },
+      { nom: "laia",  grup: "4tA", env: [{ t: 0, d: 20, acum: 15 }, { t: 1, d: 20, acum: 32 }, { t: 2, d: 20, acum: 48 }] },
+      { nom: "marc",  grup: "4tB", env: [{ t: 0, d: 17, acum: 12 }, { t: 1, d: 17, acum: 23 }, { t: 2, d: 17, acum: 35 }] },
       /* Només envia el codi al final: l'eina no pot saber què va fer a cada
          tram i ho diu. */
-      { nom: "nil",   grup: "4tB", env: [{ dia: 62, acum: 30 }] },
+      { nom: "nil",   grup: "4tB", env: [{ t: 2, d: 20, acum: 30 }] },
       /* Treballa els dos primers trams i s'atura: no arriba al mínim del
          tram que s'examina. */
-      { nom: "ona",   grup: "4tB", env: [{ dia: 19, acum: 14 }, { dia: 40, acum: 28 }, { dia: 61, acum: 31 }] }
+      { nom: "ona",   grup: "4tB", env: [{ t: 0, d: 19, acum: 14 }, { t: 1, d: 19, acum: 28 }, { t: 2, d: 19, acum: 31 }] }
     ];
 
     var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
@@ -1477,7 +1500,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var slots = itinerari(k * 977 + 13, 3 + (k % 2));
       var estats = slots.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
       a.env.forEach(function (e, j) {
-        var quan = new Date(INICI.getTime() + e.dia * 86400000);
+        var quan = envia(e.t, e.d);
         quan.setHours(17 + (k % 4), (k * 7 + j * 13) % 60, 0, 0);
         var codi = RE_CODI.genera({
           fulls: fullsAmb(slots, estats, e.acum), ara: quan,
@@ -2216,20 +2239,20 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
   var lotSel = null;      /* última tirada, per poder reimprimir sense re-sortejar */
 
-  function msTram() {
-    var setm = Math.max(1, parseInt($("#lot-setmanes").value, 10) || 3);
-    return setm * 7 * 86400000;
+  /* El calendari vigent. Per defecte, el del curs (`RE_CALENDARI.TRAMS`);
+     el professor el pot substituir des del quadre de text.
+
+     Abans això era una divisió: `floor((data - inici) / 21 dies)`. Amb trams
+     consecutius hauria anat bé, però no ho són —hi ha una setmana de descans
+     entre trams, quatre per Nadal i cap al tercer trimestre— i l'aritmètica
+     desplaçava tot el segon trimestre. Les dates s'han d'escriure. */
+  var calTrams = RE_CALENDARI.TRAMS.slice();
+
+  function tramDe(data) {
+    return RE_CALENDARI.tramDe(data, calTrams);
   }
 
-  function iniciCurs() {
-    var v = $("#lot-inici").value;
-    return v ? new Date(v + "T00:00:00") : null;
-  }
-
-  /* Índex de tram d'una data (0 = primer tram del curs). */
-  function tramDe(data, inici) {
-    return Math.floor((data - inici) / msTram());
-  }
+  function llistaTrams() { return RE_CALENDARI.llista(calTrams); }
 
   /* Historial per alumne amb la data en què cada exercici apareix per PRIMER
      cop. És la reconstrucció descrita a dalt: es recorren els codis en ordre
@@ -2237,9 +2260,15 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   function historialAlumnes() {
     var per = {};
     files.forEach(function (r) {
-      if (!r.p || !r.p.ok || !r.p.integre) return;
+      /* L'alumne es dona d'alta ABANS de mirar si el codi és bo. Si es
+         filtrava primer, qui només tingués enviaments il·legibles no
+         arribava mai a existir i desapareixia de la llista sense que res ho
+         digués: el professor comptava els fulls i li'n faltava un, sense
+         saber de qui ni per què. Ara hi surt, amb el motiu. */
       var k = (r.brut.correu || r.brut.alumne || "?").toLowerCase();
-      if (!per[k]) per[k] = { nom: r.brut.alumne || r.brut.correu, grup: r.brut.grup || "", codis: [] };
+      if (!per[k]) per[k] = { nom: r.brut.alumne || r.brut.correu,
+                              grup: r.brut.grup || "", codis: [], descartats: 0 };
+      if (!r.p || !r.p.ok || !r.p.integre) { per[k].descartats++; return; }
       per[k].codis.push(r);
     });
     return Object.keys(per).map(function (k) {
@@ -2264,7 +2293,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         });
       });
       return { clau: k, nom: a.nom, grup: a.grup, items: items,
-               nCodis: codis.length,
+               nCodis: codis.length, descartats: a.descartats,
                primer: codis.length ? codis[0].quan : null,
                ultim: codis.length ? codis[codis.length - 1].quan : null };
     }).sort(function (x, y) { return (x.nom || "").localeCompare(y.nom || ""); });
@@ -2323,54 +2352,75 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   }
 
   function omplePeriodes() {
-    var sel = $("#lot-periode"), inici = iniciCurs();
-    if (!sel || !inici) return;
-    var perTrim = Math.max(1, parseInt($("#lot-per-trim").value, 10) || 3);
-    var actual = tramDe(new Date(), inici);
-    /* La llista arriba fins al tram més tardà que hi hagi A LES DADES, no
-       només fins al d'avui. Mirant només el rellotge, un full de respostes
-       d'un altre curs —o l'exemple, que va del setembre al novembre— deixava
-       triar només el primer tram, i l'examen sortia d'un pou d'exercicis que
-       no era el que el professor volia. */
-    var maxDades = -1;
+    var sel = $("#lot-periode");
+    if (!sel) return;
+    var L = llistaTrams();
+    var enCurs = RE_CALENDARI.tramEnCurs(new Date(), calTrams);
+    /* Es marquen els trams que tenen feina enviada, perquè el professor vegi
+       d'un cop d'ull quins pot examinar de debò. */
+    var ambDades = {};
     files.forEach(function (r) {
-      if (r.p && r.p.ok && r.p.integre) {
-        maxDades = Math.max(maxDades, tramDe(quan(r.p), inici));
-      }
+      if (r.p && r.p.ok && r.p.integre) ambDades[tramDe(quan(r.p))] = 1;
     });
-    var fins = Math.max(0, actual, maxDades);
-    var previ = sel.value;
-    var h = "";
-    for (var t = 0; t <= fins; t++) {
-      var ini = new Date(inici.getTime() + t * msTram());
-      var fi = new Date(inici.getTime() + (t + 1) * msTram() - 86400000);
-      h += '<option value="' + t + '">Tram ' + (t + 1)
-        + " · trimestre " + (Math.floor(t / perTrim) + 1)
-        + " · " + dataCurta(ini) + " – " + dataCurta(fi)
-        + (t === actual ? " (en curs)" : "")
-        + (t > actual && t <= maxDades ? " (hi ha dades)" : "") + "</option>";
-    }
+    var previ = sel.value, h = "";
+    L.forEach(function (t) {
+      h += '<option value="' + t.i + '">Tram ' + (t.i + 1)
+        + " · trimestre " + (t.trimestre + 1)
+        + " · " + dataCurta(t.inici) + " – " + dataCurta(t.fi)
+        + (enCurs && enCurs.i === t.i ? " (en curs)" : "")
+        + (ambDades[t.i] ? " · hi ha feina" : "") + "</option>";
+    });
     sel.innerHTML = h;
-    /* Per defecte, el tram en curs; i si el curs encara no ha començat
-       —cosa que passa mirant dades d'un altre any o l'exemple—, l'últim
-       tram del qual hi ha feina. */
-    var perDefecte = actual >= 0 && actual <= fins ? actual : Math.max(0, maxDades);
-    sel.value = previ !== "" && +previ <= fins ? previ : String(perDefecte);
+    /* Per defecte, el tram en curs. Si avui som en una setmana de descans o
+       fora de curs —o si es miren dades d'un altre any—, l'últim que en
+       tingui feina. */
+    var ambFeina = Object.keys(ambDades).map(Number).sort(function (a, b) { return a - b; });
+    var perDefecte = enCurs ? enCurs.i
+      : (ambFeina.length ? ambFeina[ambFeina.length - 1] : 0);
+    sel.value = previ !== "" && previ !== null && L[+previ] ? previ : String(perDefecte);
+  }
+
+  function textCalendari(trams) {
+    return trams.map(function (t) { return t[0] + " " + t[1]; }).join("\n");
+  }
+
+  /* Llegeix el quadre de text. Es valida de debò: unes dates mal posades
+     aquí desplacen tots els exàmens del curs sense dir res. */
+  function llegeixCalendari(txt) {
+    var files_ = txt.split(/\n+/).map(function (l) { return l.trim(); })
+      .filter(function (l) { return l; });
+    if (!files_.length) throw new Error("no hi ha cap tram");
+    var out = files_.map(function (l, i) {
+      var m = l.match(/^(\d{4}-\d{2}-\d{2})[\s,;]+(\d{4}-\d{2}-\d{2})$/);
+      if (!m) throw new Error("la línia " + (i + 1) + " no té la forma "
+        + "«AAAA-MM-DD AAAA-MM-DD»");
+      if (m[1] > m[2]) throw new Error("al tram " + (i + 1)
+        + ", l'inici va després del final");
+      return [m[1], m[2]];
+    });
+    for (var i = 1; i < out.length; i++) {
+      if (out[i][0] <= out[i - 1][1]) {
+        throw new Error("el tram " + (i + 1) + " comença abans que acabi l'anterior");
+      }
+    }
+    return out;
   }
 
   function dataCurta(d) {
     return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
   }
 
+  function pintaCalendari() {
+    if ($("#lot-cal-txt")) $("#lot-cal-txt").value = textCalendari(calTrams);
+  }
+
   function generaLot() {
-    var inici = iniciCurs();
-    if (!inici) { $("#lot-estat").innerHTML = '<span class="mal">Falta la data d\'inici del curs.</span>'; return; }
     if (!files.length) {
       $("#lot-estat").innerHTML = '<span class="mal">Carrega abans el full de respostes a la primera pestanya.</span>';
       $("#lot-resum").innerHTML = ""; return;
     }
     var objectiu = parseInt($("#lot-periode").value, 10) || 0;
-    var perTrim = Math.max(1, parseInt($("#lot-per-trim").value, 10) || 3);
+    var perTrim = RE_CALENDARI.PER_TRIMESTRE;
     var nPreg = Math.max(1, parseInt($("#lot-preguntes").value, 10) || 5);
     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
     var oberts = !!$("#lot-oberts").checked;
@@ -2379,6 +2429,20 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     if (!pesos.length) pesos = [3, 2, 1];
 
     var elegibles = tramsElegibles(objectiu, perTrim, pesos);
+    /* Un pes a zero exclou el tram del sorteig. És legítim voler-ho, però
+       contradiu el criteri de partida —cap tram no ha de ser impossible— i
+       s'ha de veure abans d'imprimir trenta exàmens, no després. */
+    var possibles = 0;
+    for (var q = objectiu; q >= 0 && Math.floor(q / perTrim) === Math.floor(objectiu / perTrim); q--) {
+      possibles++;
+    }
+    var exclosos = [];
+    for (var z = 0; z < Math.min(possibles, pesos.length); z++) {
+      if (!pesos[z]) exclosos.push(objectiu - z + 1);
+    }
+    if (possibles > pesos.length) {
+      for (var z2 = pesos.length; z2 < possibles; z2++) exclosos.push(objectiu - z2 + 1);
+    }
     var alumnes = historialAlumnes();
     var sortida = [];
 
@@ -2387,7 +2451,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       a.items.forEach(function (it) {
         if (!RE_BANC[it.id]) return;
         if (!it.estat || (!oberts && it.estat === "vist")) return;
-        var t = tramDe(it.quan, inici);
+        var t = tramDe(it.quan);
         (perTram[t] = perTram[t] || []).push(it);
       });
       var nObjectiu = (perTram[objectiu] || []).length;
@@ -2400,7 +2464,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         avisos.push("ha fet " + nObjectiu + " exercici" + (nObjectiu === 1 ? "" : "s")
           + " al tram examinat i el mínim és " + minim);
       }
-      if (a.nCodis < 2) {
+      if (a.descartats) {
+        avisos.push(a.descartats + " enviament"
+          + (a.descartats === 1 ? "" : "s") + " seu"
+          + (a.descartats === 1 ? "" : "s") + " no s'han pogut llegir (codi "
+          + "alterat o mal copiat) i no compten"
+          + (a.nCodis ? "" : ": no li'n queda cap de bo"));
+      }
+      if (a.nCodis && a.nCodis < 2) {
         avisos.push("només ha enviat " + a.nCodis + " codi"
           + (a.nCodis === 1 ? "" : "s") + ", així que no es pot saber en quin "
           + "tram va fer cada exercici: tot compta com a fet el dia de l'enviament");
@@ -2427,7 +2498,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     });
 
     lotSel = { sortida: sortida, objectiu: objectiu, elegibles: elegibles,
-               inici: inici, perTrim: perTrim, minim: minim };
+               perTrim: perTrim, minim: minim, exclosos: exclosos };
     pintaLot(lotSel);
     intentaKatex();
   }
@@ -2456,6 +2527,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
        quants exercicis nous té al tram que s'examina i quants n'acumula al
        trimestre. Una llista d'avisos agrupats deia què anava malament, però
        no deixava veure el grup d'un cop d'ull ni permetia comparar-los. */
+
+    if (lot.exclosos && lot.exclosos.length) {
+      h += '<div class="lot-avis petit" style="margin:0 0 .8rem"><b>Atenció:</b> '
+        + "amb aquests pesos, el tram "
+        + lot.exclosos.map(function (t) { return t; }).join(" i el ")
+        + " no pot sortir mai. Si vols que tots els trams del trimestre "
+        + "siguin possibles, cap pes no pot ser 0.</div>";
+    }
     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
       + "Se sorteja entre: " + escapa(trams)
       + ". Clica una fila per veure'n l'examen i imprimir-lo sol.</div>"
@@ -2907,9 +2986,30 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   $("#pr-torna-1").onclick = function () { modeExamen(null); };
   $("#pr-torna-2").onclick = function () { modeExamen(null); };
   $("#lot-genera").onclick = generaLot;
-  ["#lot-inici", "#lot-setmanes", "#lot-per-trim"].forEach(function (sel) {
-    $(sel).addEventListener("change", omplePeriodes);
-  });
+  /* L'editor del calendari. Es desa només si les dates són vàlides: si no,
+     es diu què falla i no es toca res. */
+  $("#lot-veure-cal").onclick = function () {
+    var c = $("#lot-cal");
+    c.hidden = !c.hidden;
+    if (!c.hidden) pintaCalendari();
+  };
+  $("#lot-cal-desa").onclick = function () {
+    try {
+      calTrams = llegeixCalendari($("#lot-cal-txt").value);
+      $("#lot-cal-estat").innerHTML = '<span class="be">' + calTrams.length
+        + " trams desats.</span>";
+      omplePeriodes();
+    } catch (e) {
+      $("#lot-cal-estat").innerHTML = '<span class="mal">' + escapa(e.message)
+        + "</span>";
+    }
+  };
+  $("#lot-cal-reset").onclick = function () {
+    calTrams = RE_CALENDARI.TRAMS.slice();
+    pintaCalendari();
+    $("#lot-cal-estat").innerHTML = '<span class="be">Tornades les del curs.</span>';
+    omplePeriodes();
+  };
 
 })();
 </script>
