@@ -82,8 +82,18 @@ def main():
 
     items = [it for n in sorted(TOTS) for it in TOTS[n]]
 
+    per_full = {}
+    for n in sorted(TOTS):
+        for it in TOTS[n]:
+            per_full[it["id"]] = n
+
     def te_teoria(it):
-        return (mapa["items"].get(it["id"]) or mapa["exercicis"].get(str(it["ex"]))
+        # Mateixa cadena de consulta que fa el lloc: ítem, exercici, i bloc
+        # amb el full al davant abans que el bloc pelat.
+        f = per_full.get(it["id"])
+        return (mapa["items"].get(it["id"])
+                or mapa["exercicis"].get(str(it["ex"]))
+                or mapa["blocs"].get("%s:%s" % (f, it["bloc"]))
                 or mapa["blocs"].get(it["bloc"]))
 
     if args.exercicis:
@@ -101,7 +111,8 @@ def main():
                 continue
             vist.add(it["bloc"])
             mostra = [x["enunciat"] for x in items if x["bloc"] == it["bloc"]][:4]
-            pendents.append((it["bloc"], it["bloc"], " ".join(mostra)[:400]))
+            pendents.append(("%s:%s" % (per_full.get(it["id"]), it["bloc"]),
+                             it["bloc"], " ".join(mostra)[:400]))
 
     if not pendents:
         print("✓ tot mapat: no queda res per decidir")

@@ -72,7 +72,12 @@
   /* La icona de teoria, si aquest exercici en té de mapada. Va a la
      capçalera, al costat del codi: qui no la necessita no l'ha de veure
      enmig de l'enunciat. */
-  if (window.RE_TEORIA) window.RE_TEORIA.mostra($("#teoria"), item);
+  /* Se li passa el full perquè els noms de bloc no són únics entre fulls
+     (vegeu `js/teoria.js`). */
+  if (window.RE_TEORIA) {
+    window.RE_TEORIA.mostra($("#teoria"),
+      { id: item.id, ex: item.ex, bloc: item.bloc, full: D.full });
+  }
   RE.mat(document.body);
   if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
   RE.rellotge();

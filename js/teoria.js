@@ -45,9 +45,15 @@
     if (!mapa) return null;
     var id = String(item.id);
     var ex = String(item.ex);
+    /* La clau de bloc porta el full al davant («8:semblanca»). Els noms de
+       bloc NO són únics: «aplicacions» existeix al full 3 (successions) i al
+       8 (semblança), i «problemes» al 5 (equacions) i al 7 (Pitàgores).
+       Indexant només pel nom, els dos sentits compartirien destinació i un
+       dels dos enviaria l'alumne a un tema que no té res a veure. */
+    var perFull = item.full + ":" + item.bloc;
     return (mapa.items && mapa.items[id])
       || (mapa.exercicis && mapa.exercicis[ex])
-      || (mapa.blocs && mapa.blocs[item.bloc])
+      || (mapa.blocs && (mapa.blocs[perFull] || mapa.blocs[item.bloc]))
       || null;
   }
 

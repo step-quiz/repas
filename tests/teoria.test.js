@@ -55,10 +55,27 @@ prova("els blocs mapats existeixen de debò al banc", () => {
   const banc = path.join(ARREL, "tools", "_banc.json");
   if (!fs.existsSync(banc)) return;
   const B = JSON.parse(fs.readFileSync(banc, "utf8"));
-  const blocs = new Set(Object.values(B).map(i => i.bloc));
+  /* Les claus de bloc poden portar el full al davant («8:semblanca»), que
+     és el que desambigua els noms repetits entre fulls. S'accepten les dues
+     formes, però la validació ha de comprovar que la parella full+bloc
+     existeixi de debò: si algú escriu «9:tales», que no existeix, ha de
+     fallar aquí i no descobrir-se el dia que un alumne hi cliqui. */
+  const perFull = new Set();
+  const blocs = new Set();
+  Object.values(B).forEach(i => blocs.add(i.bloc));
+  /* `_banc.json` està indexat per id i no diu de quin full és cada ítem;
+     `_taules.json` sí que agrupa per full, però només en guarda els ids.
+     Es creuen els dos per obtenir les parelles full+bloc reals. */
+  Object.keys(T.fulls).forEach(n => {
+    (T.fulls[n].items || []).forEach(id => {
+      const it = B[String(id)];
+      if (it) perFull.add(n + ":" + it.bloc);
+    });
+  });
   const exs = new Set(Object.values(B).map(i => String(i.ex)));
   Object.keys(mapa.blocs).forEach(b =>
-    assert.ok(blocs.has(b), "el bloc «" + b + "» no existeix al banc"));
+    assert.ok(b.includes(":") ? perFull.has(b) : blocs.has(b),
+      "el bloc «" + b + "» no existeix al banc"));
   Object.keys(mapa.exercicis).forEach(e =>
     assert.ok(exs.has(e), "l'exercici " + e + " no existeix al banc"));
   Object.keys(mapa.items).forEach(i =>
