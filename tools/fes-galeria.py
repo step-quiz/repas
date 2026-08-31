@@ -33,7 +33,7 @@ text pla, 390 clavats.
     python3 tools/fes-galeria.py                # els ítems amb figura
     python3 tools/fes-galeria.py --tot          # els 892
     python3 tools/fes-galeria.py --fulls 7,9    # només aquests fulls
-    python3 tools/fes-galeria.py --escriptori   # també a 760 px
+    python3 tools/fes-galeria.py --mobil        # hi afegeix la vista de mòbil
 
 Cal haver compilat abans (`python3 tools/build_tot.py`).
 """
@@ -48,8 +48,24 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 ARREL = os.path.dirname(AQUI)
 SORTIDA = os.path.join(ARREL, "galeria")
 
-AMPLE_MOBIL = 390        # el que veu la majoria
-AMPLE_ESCRIPTORI = 760
+# QUINA AMPLADA ÉS LA BONA
+#
+# Els alumnes d'aquest centre treballen sobretot amb portàtil, i en concret
+# amb Chromebook. El full d'estil dona a `.embolcall` un `max-width: 44rem`,
+# o sigui 704 px de columna útil: aquesta és la vista que veurà la majoria i
+# és la que es renderitza per defecte.
+#
+# L'amplada importa més del que sembla. Una revisió feta només a 390 px va
+# reportar com a defecte que certes expressions es partien de línia amb el
+# signe menys penjat al final —cosa certa a aquella amplada— quan a 704 px
+# la mateixa expressió hi cap sencera. Revisar amb la columna equivocada fa
+# perdre el temps arreglant coses que no es veuen i, pitjor, dona confiança
+# sobre una vista que gairebé ningú no fa servir.
+#
+# El mòbil segueix important i per això hi ha `--mobil`, que hi afegeix una
+# segona captura. Però és la comprovació addicional, no la principal.
+AMPLE_PORTATIL = 704     # `.embolcall` fa max-width: 44rem
+AMPLE_MOBIL = 390
 
 # Marges de tolerància de les comprovacions automàtiques.
 VESSA_PX = 4             # més ample que això per damunt del demanat = vessa
@@ -68,6 +84,16 @@ PLANTILLA = """<!DOCTYPE html>
      captures per igual. */
   body{background:#fff;margin:0;padding:14px;width:%(ample)dpx}
   .embolcall{max-width:none;padding:0;margin:0}
+  /* CORRECCIO D'INSTRUMENT (revisio) -- wkhtmltoimage 0.12.6 no implementa la
+     funcio CSS min() i descarta sencera la declaracio
+     .figura{max-width:min(100%%,20rem)} de css/estil.css. Sense aquesta linia
+     la galeria pinta les figures a l'amplada sencera de la columna (~638 px)
+     en comptes dels 320 px que hi posa un navegador de debo: al doble de
+     mida, amb les etiquetes al doble de grans del que les veu l'alumne.
+     Com que la columna sempre passa dels 320 px, min(100%%,20rem) equival
+     aqui a 20rem. Al mobil no cal: el media query de <=520px fixa
+     max-width:100%%, que si que s'entén. */
+  .figura{max-width:20rem}
 </style></head>
 <body><main class="embolcall">
   <section class="targeta">
@@ -175,8 +201,8 @@ def main():
     ap.add_argument("--tot", action="store_true",
                     help="tots els ítems, no només els que tenen figura")
     ap.add_argument("--fulls", default="", help="p. ex. 7,9")
-    ap.add_argument("--escriptori", action="store_true",
-                    help="també una captura a %d px" % AMPLE_ESCRIPTORI)
+    ap.add_argument("--mobil", action="store_true",
+                    help="hi afegeix una segona captura a %d px" % AMPLE_MOBIL)
     ap.add_argument("--limit", type=int, default=0)
     args = ap.parse_args()
 
@@ -196,7 +222,12 @@ def main():
                  "  Executa abans:  python3 tools/build_tot.py" % e)
 
     items = list(PLANS)
-    if not args.tot:
+    # Demanar un full concret vol dir voler-lo SENCER. Si el filtre per
+    # defecte (només els que tenen figura) s'hi apliqués igualment, un
+    # `--fulls 1` no tornaria res, perquè el full 1 són nombres i no en té
+    # cap: sembla que el full no existeixi quan el que passa és que el
+    # filtre l'ha buidat.
+    if not args.tot and not args.fulls:
         items = [i for i in items if i.get("figura")]
     if args.fulls:
         vols = set(int(x) for x in args.fulls.split(","))
@@ -211,18 +242,18 @@ def main():
 
     fitxes, errors = [], []
     for n, it in enumerate(items, 1):
-        nom, err = renderitza(it, AMPLE_MOBIL, "")
+        nom, err = renderitza(it, AMPLE_PORTATIL, "")
         if err:
             errors.append((it["id"], err))
             continue
-        f = mesura(os.path.join(SORTIDA, nom), AMPLE_MOBIL)
+        f = mesura(os.path.join(SORTIDA, nom), AMPLE_PORTATIL)
         f.update({"id": it["id"], "full": it.get("full"), "bloc": it.get("bloc", ""),
                   "png": nom, "figura": bool(it.get("figura")),
                   "enunciat": (it.get("enunciat") or "")[:110]})
-        if args.escriptori:
-            nom2, err2 = renderitza(it, AMPLE_ESCRIPTORI, "-escriptori")
+        if args.mobil:
+            nom2, err2 = renderitza(it, AMPLE_MOBIL, "-mobil")
             if not err2:
-                f["png_escriptori"] = nom2
+                f["png_mobil"] = nom2
         fitxes.append(f)
         if n % 25 == 0 or n == len(items):
             print("  %d/%d" % (n, len(items)))
@@ -236,8 +267,8 @@ def main():
         "# Galeria del banc — com es veu de veritat",
         "",
         "Generat per `tools/fes-galeria.py`. Cada PNG és l'ítem renderitzat "
-        "amb el CSS real, el KaTeX real i la figura real, a %d px d'amplada "
-        "(mòbil)." % AMPLE_MOBIL,
+        "amb el CSS real, el KaTeX real i la figura real, a %d px "
+        "d'amplada, que és la columna que veu un portàtil." % AMPLE_PORTATIL,
         "",
         "**%d ítems · %d amb algun avís automàtic.**" % (len(fitxes), len(amb_avis)),
         "",
