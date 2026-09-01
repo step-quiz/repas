@@ -4,6 +4,7 @@
 > **diff-02** (2026-08-31): `_cotes.py` nou, i avís de forat a `_plantilles.py`.
 > **diff-03** (2026-08-31): `_contrast.py` nou.
 > **diff-04** (2026-09-01): `_cotes.py` reconeix les alçades fora del sistema de cotes.
+> **diff-05** (2026-09-01): `_forma.py` i `_contradiu.py` nous.
 
 ## Fitxer MODIFICAT (1)
 
@@ -44,6 +45,8 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_cotes.py` **(diff-02)** | mesura la línia de cota que porta cada etiqueta | 16 figures amb escales incoherents |
 | `_contrast.py` **(diff-03)** | contrast WCAG de cada etiqueta contra el fons on cau | 663 etiquetes, 1 per sota de 4,5:1 |
 | `_cotes.py` **(diff-04)** | ara també mesura alçades fora del sistema de cotes | 13 figures, 4 de noves |
+| `_forma.py` **(diff-05)** | la forma dibuixada contra la que anomena l'enunciat | 84 comprovades, 2 xocs |
+| `_contradiu.py` **(diff-05)** | el dibuix contradiu la resposta de l'exercici | 17 comprovades, 4 xocs |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -176,6 +179,46 @@ Vaig provar de separar-les agrupant les cotes per proximitat i **el llindar em
 va menjar quatre troballes bones**. Ho he canviat per un criteri explícit, i
 aquestes figures no es descarten: van a una segona llista, perquè s'han de
 mirar igualment sabent que la discrepància probablement és volguda.
+
+## Novetat del diff-05: dos comprovadors de contingut
+
+Els altres miren si la figura està ben feta. Aquests dos miren si **diu la
+veritat**, que és una altra cosa.
+
+### `_forma.py` — la forma dibuixada contra la que diu l'enunciat
+
+`293a` diu «Dos **triangles** semblants» i dibuixa dos **quadrats**.
+`293b` diu «Dues **esferes** semblants» i dibuixa dos **cubs**.
+
+Són traçables: `293a` comparteix dibuix byte a byte amb `291b`, que va de
+quadrats, i `293b` amb `292b`, que va de cubs. El generador reutilitza la
+plantilla «dues figures semblants» sense mirar quina forma anomena el text.
+Ni l'auditor ni cap mesura ho poden veure: la figura està ben dibuixada, ben
+etiquetada i a l'escala correcta. Només és un cub on hi hauria d'haver una
+esfera.
+
+84 figures comprovades de 185; les altres no anomenen cap forma a l'un o a
+l'altre costat i no es poden comparar.
+
+**Un fals positiu que vaig haver de matar:** buscava la subcadena `con recte`
+per detectar un con, i «Un con té 4 cm de radi» no hi encaixava. `188` sortia
+com si dibuixés un con on l'enunciat demana un cercle, quan l'enunciat diu
+totes dues coses i és correcte. Les claus ara porten frontera de paraula.
+
+### `_contradiu.py` — el dibuix contra la resposta
+
+`155a` pregunta «són semblants?», la resposta correcta és **No**, i el dibuix
+en mostra dos d'exactament semblants: el segon és el primer multiplicat per
+1,222 a tots els costats. Qui raoni mirant la figura contesta «sí», i les dues
+opcions «Sí» hi són. Igual a `155b` i `155c`. I a `154a` l'enunciat parla d'un
+triangle petit i un de gran amb k = 4/3, i els dos polígons són idèntics.
+
+L'origen és un triangle base fix, `[79,7 · 87,5 · 90,0]`, reutilitzat escalat
+sense mirar les mides etiquetades.
+
+Només salta quan el dibuix i la resposta van en direccions **contràries**. Que
+dues figures es dibuixin semblants no és cap error si la resposta és que ho
+són.
 
 ## Què NO hi ha
 
