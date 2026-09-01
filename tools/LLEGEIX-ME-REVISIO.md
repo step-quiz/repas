@@ -3,6 +3,7 @@
 > **diff-01** (2026-08-31): correcció del `min()` + 6 eines.
 > **diff-02** (2026-08-31): `_cotes.py` nou, i avís de forat a `_plantilles.py`.
 > **diff-03** (2026-08-31): `_contrast.py` nou.
+> **diff-04** (2026-09-01): `_cotes.py` reconeix les alçades fora del sistema de cotes.
 
 ## Fitxer MODIFICAT (1)
 
@@ -42,6 +43,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_escala_figures.py` | dibuix contra etiquetes dins d'un mateix polígon | 3 candidats, tots per repassar a mà |
 | `_cotes.py` **(diff-02)** | mesura la línia de cota que porta cada etiqueta | 16 figures amb escales incoherents |
 | `_contrast.py` **(diff-03)** | contrast WCAG de cada etiqueta contra el fons on cau | 663 etiquetes, 1 per sota de 4,5:1 |
+| `_cotes.py` **(diff-04)** | ara també mesura alçades fora del sistema de cotes | 13 figures, 4 de noves |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -126,6 +128,54 @@ a píxels amb una regla de tres i sense desplaçaments desconeguts.
 Una quarta trampa, més tonta: l'ordre dels atributs de `<text>` no és fix
 (`x`, `y`, `text-anchor`, `class`), i llegir-los amb una regex posicional no
 en trobava **cap**. Es llegeixen atribut a atribut.
+
+## Novetat del diff-04: `_cotes.py` veu les alçades soltes
+
+Els quatre trapezis del full 7 donaven **x1,00** i semblaven perfectes. No ho
+eren: `140c` està dibuixat a la meitat d'alçada. L'eina només en veia les dues
+bases, que sí que concorden, perquè **l'alçada no és cap `fig-cota`**: és una
+línia discontínua solta. El mateix passava als prismes triangulars del full 9,
+on l'altura és una línia pelada al costat del cos.
+
+Ara es mesuren tres menes de línia:
+
+| mena | traç | exemple | compta? |
+|---|---|---|---|
+| `cota` | sistema de claudàtors | tots | sí |
+| `auxiliar` | alçada de trapezi o triangle, discontínua vermella | `140c`, `124c` | sí |
+| `auxiliar` | alçada de prisma, línia pelada | `170b`, `172` | sí |
+| `auxiliar` | segment marcat, contínua vermella | `149` (apotema) | sí |
+| — | **aresta oculta**, discontínua fina | `170f`, `180a` | **no** |
+
+L'aresta oculta no es distingeix pel gruix del traç, que seria fràgil: no té
+cap etiqueta numèrica a prop, o sigui que no rep assignació i queda fora sola.
+
+### Troballes noves
+
+`170b` ×1,25 · `171` ×1,50 · `176a` i `176b` ×1,48 · `140c` ×2,15 · `140d` ×1,11.
+Cap d'aquestes sortia abans.
+
+### Tres correccions que ha calgut fer pel camí
+
+1. **Els costats dels polígons ara són candidats.** A `124c` el «12 cm» del
+   costat inclinat se l'emportava la línia d'alçada i sortia un fals ×1,82.
+   Amb el costat com a candidat, l'etiqueta hi va, queda classificada com a
+   obliqua i surt de la comparació del pla frontal.
+2. **Les arrels s'han de llegir.** L'alçada de `140b` és `√164 m`, amb el glif
+   `√` directament, i el patró numèric no la reconeixia.
+3. **Les regles d'escala gràfica no són dibuixos a escala.** `156a`, `285*` i
+   `288*` marquen 1, 2, 3 i 4 cm a intervals iguals. Comparar-hi unitats per
+   centímetre no vol dir res: 9 falsos positius. Es reconeixen perquè
+   diverses cotes fan exactament la mateixa llargada amb valors diferents.
+
+### Una decisió que has de conèixer
+
+Hi ha figures amb **dos objectes a escales diferents a propòsit**: tot el full
+8, on la semblança és el tema, i les bases dibuixades a part dels `170c`-`i`.
+Vaig provar de separar-les agrupant les cotes per proximitat i **el llindar em
+va menjar quatre troballes bones**. Ho he canviat per un criteri explícit, i
+aquestes figures no es descarten: van a una segona llista, perquè s'han de
+mirar igualment sabent que la discrepància probablement és volguda.
 
 ## Què NO hi ha
 
