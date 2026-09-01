@@ -2,6 +2,7 @@
 
 > **diff-01** (2026-08-31): correcció del `min()` + 6 eines.
 > **diff-02** (2026-08-31): `_cotes.py` nou, i avís de forat a `_plantilles.py`.
+> **diff-03** (2026-08-31): `_contrast.py` nou.
 
 ## Fitxer MODIFICAT (1)
 
@@ -40,6 +41,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_plantilles.py` | figures amb geometria idèntica i etiquetes diferents | 22 ítems on el dibuix menteix |
 | `_escala_figures.py` | dibuix contra etiquetes dins d'un mateix polígon | 3 candidats, tots per repassar a mà |
 | `_cotes.py` **(diff-02)** | mesura la línia de cota que porta cada etiqueta | 16 figures amb escales incoherents |
+| `_contrast.py` **(diff-03)** | contrast WCAG de cada etiqueta contra el fons on cau | 663 etiquetes, 1 per sota de 4,5:1 |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -90,6 +92,40 @@ Una figura pot contenir dos objectes dibuixats a escales diferents a propòsit
 —les de semblança del full 8, on hi ha una persona i un poble— i allà comparar
 cotes no té sentit. `166`, `168`, `169`, `164`, `163` i `161` surten a la
 llista per aquest motiu i **no són defectes**.
+
+## Novetat del diff-03: `_contrast.py`
+
+A `144b` el «2 cm» del radi cau damunt de l'ompliment vermell del sector. Text
+`--apagat` rgb(90,107,128) sobre `--fig-marca` rgb(179,69,60): **1,00:1**. Les
+dues luminàncies són pràcticament iguals i l'etiqueta no es llegeix. Ni
+l'auditor ni la capa 2 ho veuen, perquè totes dues miren posicions i mides, no
+colors.
+
+L'eina mesura les 663 etiquetes de les 185 figures. Només aquesta baixa del
+4,5:1 que demana WCAG AA per a text petit; la següent va a 4,74:1.
+
+### Tres versions llençades, per si algú hi torna a caure
+
+Vaig fer-ne tres de dolentes abans d'encertar-la, totes basades a trobar el
+text pels píxels:
+
+1. **Color dominant al voltant del glif** → el que surt és l'antialiàsing,
+   grisos intermedis entre text i fons. 15 falsos positius.
+2. **Anell al voltant del text** → salta qualsevol etiqueta amb una línia
+   vermella a prop, encara que reposi sobre paper. 30 falsos positius.
+3. **Filtrar els blocs per forma**, perquè els traços són del mateix
+   `--tinta` que les etiquetes → se'n van també les etiquetes curtes sobre
+   fons difícil. Fals **negatiu** justament a `144b`.
+
+La tercera va ser el senyal d'alarma: estava ajustant llindars perquè sortís
+el cas que ja sabia, que és la manera de construir un comprovador que no
+serveix. La versió bona pren les posicions **del SVG**, que ja les té, i
+renderitza cada figura sola omplint el llenç perquè el `viewBox` es tradueixi
+a píxels amb una regla de tres i sense desplaçaments desconeguts.
+
+Una quarta trampa, més tonta: l'ordre dels atributs de `<text>` no és fix
+(`x`, `y`, `text-anchor`, `class`), i llegir-los amb una regex posicional no
+en trobava **cap**. Es llegeixen atribut a atribut.
 
 ## Què NO hi ha
 
