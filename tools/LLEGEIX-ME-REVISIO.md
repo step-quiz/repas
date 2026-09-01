@@ -5,6 +5,7 @@
 > **diff-03** (2026-08-31): `_contrast.py` nou.
 > **diff-04** (2026-09-01): `_cotes.py` reconeix les alçades fora del sistema de cotes.
 > **diff-05** (2026-09-01): `_forma.py` i `_contradiu.py` nous.
+> **diff-06** (2026-09-01): `_contradiu.py` passa d'una comprovació a quatre.
 
 ## Fitxer MODIFICAT (1)
 
@@ -46,7 +47,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_contrast.py` **(diff-03)** | contrast WCAG de cada etiqueta contra el fons on cau | 663 etiquetes, 1 per sota de 4,5:1 |
 | `_cotes.py` **(diff-04)** | ara també mesura alçades fora del sistema de cotes | 13 figures, 4 de noves |
 | `_forma.py` **(diff-05)** | la forma dibuixada contra la que anomena l'enunciat | 84 comprovades, 2 xocs |
-| `_contradiu.py` **(diff-05)** | el dibuix contradiu la resposta de l'exercici | 17 comprovades, 4 xocs |
+| `_contradiu.py` **(diff-06)** | quatre comprovacions de dibuix i encapçalament contra dades | 6 + 4 + 2 + 1 xocs |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -219,6 +220,45 @@ sense mirar les mides etiquetades.
 Només salta quan el dibuix i la resposta van en direccions **contràries**. Que
 dues figures es dibuixin semblants no és cap error si la resposta és que ho
 són.
+
+## Novetat del diff-06: `_contradiu.py` amb quatre comprovacions
+
+La versió del diff-05 només mirava els ítems amb resposta de sí/no, i se li
+escapaven `154b` i `154c`, on la resposta és numèrica. Ara en fa quatre.
+
+**A · La forma dins d'un mateix triangle.** Dues arestes etiquetades «3 cm» i
+«5 cm» han de mesurar unitats proporcionals a 3 i a 5. Sis casos, tots al
+full 8:
+
+| ítem | desviació | detall |
+|---|---|---|
+| `154d` | ×2,00 | «2 cm» dibuixat 90 u i «5 cm» 112 u |
+| `154d` | ×1,38 | «3,2 cm» 99 u i «5 cm» 112 u |
+| `154c` | ×1,25 | «5 cm» i «4 cm» dibuixats **tots dos 90 u** |
+| `155d` | ×1,15 | «10 cm» 259 u i «13 cm» 292 u |
+| `155b` | ×1,14 | «9 cm» 72 u i «7 cm» 63 u |
+| `155b` | ×1,07 | «11 cm» 90 u i «9,1 cm» 80 u |
+
+Les línies soltes (cotes, marques, alçades) entren com a candidates rivals: una
+etiqueta que pertany a una cota no s'ha d'assignar a cap aresta. Sense aquesta
+guarda, l'alçada dibuixada dins d'un triangle se l'enduia el costat més
+proper.
+
+**B · El dibuix contra una resposta de sí/no.** És la del diff-05. Quatre
+casos: `154a`, `155a`, `155b`, `155c`.
+
+**C · L'encapçalament els declara semblants i el dibuix no ho són.** Dos
+casos, `154b` i `154c`: l'encapçalament diu «aquests parells de triangles
+semblants» i les formes dibuixades són 1,43 i 1,13.
+
+**D · L'encapçalament afirma el que la resposta nega.** Un cas a tot el banc:
+`154d`. L'encapçalament diu «parells de triangles **semblants**», l'enunciat
+pregunta «Són semblants?» i la resposta correcta és **No**. Com que cada ítem
+es carrega sol (`practica.html?full=8&q=154d`, amb recàrrega completa),
+l'alumne llegeix l'encapçalament sencer abans de respondre.
+
+C i D es podrien trepitjar a `154d`. Quan salta D, C calla: allà el dolent és
+l'encapçalament, no el dibuix, i reportar-ho dos cops despista.
 
 ## Què NO hi ha
 
