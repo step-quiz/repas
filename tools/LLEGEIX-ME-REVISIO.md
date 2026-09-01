@@ -6,6 +6,7 @@
 > **diff-04** (2026-09-01): `_cotes.py` reconeix les alçades fora del sistema de cotes.
 > **diff-05** (2026-09-01): `_forma.py` i `_contradiu.py` nous.
 > **diff-06** (2026-09-01): `_contradiu.py` passa d'una comprovació a quatre.
+> **diff-07** (2026-09-01): `_etiquetes.py` nou.
 
 ## Fitxer MODIFICAT (1)
 
@@ -48,6 +49,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_cotes.py` **(diff-04)** | ara també mesura alçades fora del sistema de cotes | 13 figures, 4 de noves |
 | `_forma.py` **(diff-05)** | la forma dibuixada contra la que anomena l'enunciat | 84 comprovades, 2 xocs |
 | `_contradiu.py` **(diff-06)** | quatre comprovacions de dibuix i encapçalament contra dades | 6 + 4 + 2 + 1 xocs |
+| `_etiquetes.py` **(diff-07)** | etiqueta a la cota d'un altre objecte · marca vermella fora de la incògnita | 1 + 5 xocs |
 | `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
@@ -259,6 +261,49 @@ l'alumne llegeix l'encapçalament sencer abans de respondre.
 
 C i D es podrien trepitjar a `154d`. Quan salta D, C calla: allà el dolent és
 l'encapçalament, no el dibuix, i reportar-ho dos cops despista.
+
+## Novetat del diff-07: `_etiquetes.py`
+
+**A · Una etiqueta plantada a la cota d'un altre objecte.** A `169` el
+«52,5 m», que és l'alçada de l'edifici, va a la cota de 22 u de l'home, i la
+cota de 48 u de l'edifici es queda buida. 1 cas de 185.
+
+**B · La marca vermella no és la línia més propera a la «x».** Les cinc
+figures de Tales marquen en vermell **una de les dues paral·leles** mentre la
+incògnita és en una altra banda. Trenca la convenció del propi projecte
+—a `123a` el vermell és la diagonal que es demana, a `185a` el radi, a `188`
+la generatriu, a `127a` l'apotema— i ni tan sols marca les dues paral·leles.
+
+### Totes dues van néixer com una idea pitjor
+
+**A** mesurava al principi la **separació** entre caixes d'etiqueta. Sortien
+quatre parells del bloc `aplicacions` separats per 1 a 5 unitats i no hi
+havia manera de dir quins eren un defecte i quins només anaven justos. Un
+llindar de proximitat no distingeix «va just» de «va malament».
+
+La formulació bona no té llindar: **una línia de cota només pot mesurar una
+cosa**. Si dues etiquetes numèriques resolen a la mateixa línia *i* la figura
+té una altra línia de mesura sense cap etiqueta, la sobrant és a la línia
+equivocada. Sense la condició de la línia òrfena sortien `154b`, `154c` i
+`189`, que no ho són.
+
+**B** reportava al principi les marques vermelles sense cap etiqueta a prop:
+28 de 64, i la majoria correctes (una diagonal marcada no ha de portar
+etiqueta si el que es demana és justament la seva llargada). La formulació
+bona compara distàncies: si la figura té una «x», la marca hauria de ser la
+línia més propera.
+
+### Un llindar que sí que importa
+
+`_cotes.py` descarta les línies de menys de 20 u perquè a les cotes normals
+això són les puntes. Aquí cal baixar-ho a **15**: l'alçada de l'Anna a `166`
+és una cota de **17,0 u**, i amb el llindar de 20 quedava fora i «1,7 m»
+anava a parar a la cota horitzontal. `166` sortia com a defecte i **no ho és**.
+La de `169` fa 21,9 u, i per això aquella sí que es conservava.
+
+`_cotes.LLARG_MINIM` és una variable de mòdul: es guarda i es torna a deixar
+com estava, perquè importar `_etiquetes` no canviï el comportament de
+`_cotes` per a qui el faci servir després.
 
 ## Què NO hi ha
 
