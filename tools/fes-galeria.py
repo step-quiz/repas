@@ -78,21 +78,33 @@ PLANTILLA = """<!DOCTYPE html>
 <link rel="stylesheet" href="css/estil.css">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <style>
-  /* La mateixa amplada útil que a la pàgina real, sense la cromia del
-     voltant (capçalera, botons de navegació): el que es revisa és el
-     CONTINGUT de l'ítem, i la resta només afegiria píxels a totes les
-     captures per igual. */
-  body{background:#fff;margin:0;padding:14px;width:%(ample)dpx}
-  .embolcall{max-width:none;padding:0;margin:0}
-  /* CORRECCIO D'INSTRUMENT (revisio) -- wkhtmltoimage 0.12.6 no implementa la
-     funcio CSS min() i descarta sencera la declaracio
-     .figura{max-width:min(100%%,20rem)} de css/estil.css. Sense aquesta linia
-     la galeria pinta les figures a l'amplada sencera de la columna (~638 px)
-     en comptes dels 320 px que hi posa un navegador de debo: al doble de
-     mida, amb les etiquetes al doble de grans del que les veu l'alumne.
-     Com que la columna sempre passa dels 320 px, min(100%%,20rem) equival
-     aqui a 20rem. Al mobil no cal: el media query de <=520px fixa
-     max-width:100%%, que si que s'entén. */
+  /* La columna ha de ser EXACTAMENT la de la pàgina real. Abans aquí
+     s'anul·lava el `padding` d'`.embolcall` i s'hi posava un `padding` de 14
+     px al `body`; com que el real és d'1,1 rem (17,6 px), la galeria
+     renderitzava una columna 7,2 px més ampla que la pàgina. Poc, però és
+     precisament el marge on es decideix si una expressió llarga es parteix
+     de línia o no, que és una de les coses que la galeria ha de detectar.
+     Ara el `body` no hi posa res i el full d'estil real fa la seva feina.
+     L'únic que es retalla és el `padding-bottom` de 5 rem, que només afegiria
+     espai en blanc al final de cada captura. */
+  body{background:#fff;margin:0;padding:0;width:%(ample)dpx}
+  .embolcall{padding-bottom:1rem}
+  /* CORRECCIÓ D'INSTRUMENT, no del lloc. `wkhtmltoimage` 0.12.6 no implementa
+     la funció CSS `min()` i, en trobar-la, descarta la declaració SENCERA:
+     `.figura{max-width:min(100%%,20rem)}` de `css/estil.css` desapareix i les
+     figures es pinten a l'amplada tota de la columna en comptes dels 320 px
+     que hi posa un navegador de debò. Comprovat amb un contenidor de 700 px:
+     amb `min(100%%,20rem)` el dibuix ocupa 700 px; amb `20rem`, 320.
+
+     Com que la columna del portàtil sempre passa dels 320 px, aquí
+     `min(100%%,20rem)` equival a `20rem` i substituir-ho no altera res del
+     que veu l'alumne. Al mòbil no caldria: el media query de <=520px ja hi
+     posa `max-width:100%%`, que sí que s'entén.
+
+     Sense això la galeria pintaria les etiquetes al doble de mida del que
+     les veu l'alumne, que és precisament el defecte que `GALERIA.md` posa
+     com a exemple del que la mesura automàtica no atrapa. La troballa i la
+     correcció són de la revisió de figures feta en paral·lel. */
   .figura{max-width:20rem}
 </style></head>
 <body><main class="embolcall">
@@ -125,10 +137,18 @@ def html_item(it, ample):
         nota = '<p class="nota">%s</p>' % it["nota"]
     ops = ""
     if it.get("opcions"):
-        ops = ('<div class="opcions" style="margin-top:.8rem">'
-               + "".join('<button class="btn buit" style="display:block;'
-                         'width:100%%;text-align:left;margin:.3rem 0">%s</button>' % o
-                         for o in it["opcions"]) + "</div>")
+        # EXACTAMENT el marcatge que genera `js/practica.js`: un
+        # `<button class="opcio">` amb la lletra en un `<span class="lletra">`.
+        # Abans aquí s'hi posava `class="btn buit"`, i com que `.btn` porta
+        # `font-weight:600` les opcions sortien en negreta a la galeria i no
+        # al lloc. Una revisió humana ho va reportar com a defecte del web:
+        # la galeria ha de reproduir la pàgina, no inventar-se-la.
+        LLETRES = "ABCD"
+        ops = ('<div class="opcions" role="radiogroup">'
+               + "".join('<button class="opcio" type="button">'
+                         '<span class="lletra">%s</span><span>%s</span></button>'
+                         % (LLETRES[i] if i < 4 else "?", o)
+                         for i, o in enumerate(it["opcions"])) + "</div>")
     return PLANTILLA % {
         "ample": ample, "id": it["id"], "full": it.get("full", "?"),
         "bloc": it.get("bloc", ""), "encap": it.get("encapcalament", "") or "",
@@ -160,12 +180,25 @@ def mesura(cami, ample_demanat):
     return {"ample": w, "alt": h, "tinta": tinta * 4, "avisos": avisos}
 
 
+def nom_fitxer(it, sufix):
+    """`003-f01-1c.png`: número correlatiu, full i identificador de l'ítem.
+
+    El número va DAVANT i és global a tota la tirada, de l'1 fins a l'últim.
+    És el que permet revisar en llista i dir «hi ha un error al 264» sense
+    haver de transcriure cap identificador: el número identifica el fitxer,
+    l'ordena, i l'índex el tradueix a l'ítem del banc. El full i
+    l'identificador hi són a continuació per poder situar-lo sense obrir
+    l'índex."""
+    return "%03d-f%02d-%s%s.png" % (it.get("_n") or 0, it.get("full") or 0,
+                                    it["id"], sufix)
+
+
 def renderitza(it, ample, sufix, verbos=False):
     """Un ítem → un PNG. L'HTML temporal ha d'anar DINS de l'arrel del
     projecte: `wkhtmltoimage` resol `css/` i `vendor/` en relatiu, i des de
     /tmp no els troba (i llavors surt una captura sense estils ni fórmules
     compostes, que sembla bona i no ho és)."""
-    nom = "%s%s.png" % (it["id"], sufix)
+    nom = nom_fitxer(it, sufix)
     desti = os.path.join(SORTIDA, nom)
     fd, tmp = tempfile.mkstemp(suffix=".html", dir=ARREL)
     try:
@@ -200,6 +233,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tot", action="store_true",
                     help="tots els ítems, no només els que tenen figura")
+    ap.add_argument("--sense-figura", action="store_true",
+                    help="només els ítems SENSE figura (text i àlgebra purs)")
     ap.add_argument("--fulls", default="", help="p. ex. 7,9")
     ap.add_argument("--mobil", action="store_true",
                     help="hi afegeix una segona captura a %d px" % AMPLE_MOBIL)
@@ -227,7 +262,12 @@ def main():
     # `--fulls 1` no tornaria res, perquè el full 1 són nombres i no en té
     # cap: sembla que el full no existeixi quan el que passa és que el
     # filtre l'ha buidat.
-    if not args.tot and not args.fulls:
+    if getattr(args, "sense_figura", False):
+        # El contrari del filtre habitual: els ítems que es veuran com a text
+        # i prou. Serveix per revisar-los en llista, sense haver de navegar
+        # pel web exercici per exercici.
+        items = [i for i in items if not i.get("figura")]
+    elif not args.tot and not args.fulls:
         items = [i for i in items if i.get("figura")]
     if args.fulls:
         vols = set(int(x) for x in args.fulls.split(","))
@@ -236,6 +276,14 @@ def main():
         items = items[:args.limit]
     if not items:
         sys.exit("✗ cap ítem que encaixi amb el filtre")
+
+    # Número correlatiu dins de la tirada, en l'ordre real del web (full i
+    # després posició dins del full). Es posa DESPRÉS de filtrar, perquè els
+    # números han de ser consecutius al que realment es renderitza: si es
+    # numerés tot el banc, una tirada dels ítems sense figura tindria forats
+    # i «el fitxer 264» no voldria dir el 264è de la carpeta.
+    for k, it in enumerate(items, 1):
+        it["_n"] = k
 
     os.makedirs(SORTIDA, exist_ok=True)
     print("Renderitzant %d ítems a %s/ …" % (len(items), os.path.basename(SORTIDA)))
@@ -247,9 +295,11 @@ def main():
             errors.append((it["id"], err))
             continue
         f = mesura(os.path.join(SORTIDA, nom), AMPLE_PORTATIL)
-        f.update({"id": it["id"], "full": it.get("full"), "bloc": it.get("bloc", ""),
-                  "png": nom, "figura": bool(it.get("figura")),
-                  "enunciat": (it.get("enunciat") or "")[:110]})
+        f.update({"n": it.get("_n"), "id": it["id"], "full": it.get("full"),
+                  "bloc": it.get("bloc", ""), "png": nom,
+                  "figura": bool(it.get("figura")),
+                  "encapcalament": (it.get("encapcalament") or "")[:90],
+                  "enunciat": (it.get("enunciat") or "")[:130]})
         if args.mobil:
             nom2, err2 = renderitza(it, AMPLE_MOBIL, "-mobil")
             if not err2:
@@ -260,7 +310,7 @@ def main():
 
     # Els sospitosos primer: així la revisió amb ulls va on hi ha
     # probabilitat de trobar-hi res, i la resta queda com a mostreig.
-    fitxes.sort(key=lambda f: (-len(f["avisos"]), -f["ample"], f["id"]))
+    fitxes.sort(key=lambda f: f.get("n") or 0)
     amb_avis = [f for f in fitxes if f["avisos"]]
 
     linies = [
@@ -283,13 +333,20 @@ def main():
                           % (f["id"], f["full"], f["bloc"], "; ".join(f["avisos"]),
                              f["png"], f["ample"], f["alt"], f["enunciat"]))
         linies.append("")
-    linies += ["## Tota la resta", "",
-               "| ítem | full | bloc | mida | imatge |", "|---|---|---|---|---|"]
+    linies += [
+        "## Totes, per ordre",
+        "",
+        "El **número** és el que has de dir per assenyalar un error: «hi ha "
+        "un error al 264». L'`id` és el de l'ítem al banc, i és el que fa "
+        "falta per anar a buscar-lo al codi font.",
+        "",
+        "| núm | id | full | bloc | enunciat | imatge |",
+        "|---:|---|---:|---|---|---|"]
     for f in fitxes:
-        if f["avisos"]:
-            continue
-        linies.append("| %s | %s | %s | %dx%d | `%s` |"
-                      % (f["id"], f["full"], f["bloc"], f["ample"], f["alt"], f["png"]))
+        text = (f.get("encapcalament") or "") + " " + (f.get("enunciat") or "")
+        text = " ".join(text.split())[:95].replace("|", "\\|")
+        linies.append("| %s | `%s` | %s | %s | %s | `%s` |"
+                      % (f.get("n"), f["id"], f["full"], f["bloc"], text, f["png"]))
     if errors:
         linies += ["", "## No s'han pogut renderitzar", ""]
         linies += ["- **%s** — %s" % e for e in errors]
