@@ -605,9 +605,9 @@ Q("240c", 240, "c", B1, "A",
    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
    "(esdeveniment segur)"],
   ex_text=E240,
-  nota="Els apartats c) i d) tenen el mateix text al full de partida, "
-       "«Nombre més petit que 7», i es conserven tots dos tal com "
-       "estan: en un dau de l'1 al 6, tots els resultats el compleixen.",
+  # Sense nota visible: explicava que els apartats c) i d) repeteixen text
+  # a la font. Això és informació per al professorat, i per això es conserva
+  # a `nota_interna`, que surt al REVISIO i no a l'enunciat de l'alumne.
   nota_interna="Molt probablement una errata editorial de la font (el "
                "text es repeteix literalment). Es mantenen els dos "
                "apartats amb el mateix esdeveniment, com fa r-im12.")
@@ -729,11 +729,15 @@ Q("243", 243, "", B2, "A",
    "Barret: $3$ opcions",
    "Pel principi multiplicatiu: $5\\cdot5\\cdot3=75$ combinacions"],
   ex_text="",
-  nota="L'enunciat original no precisa com s'agrupen les peces en "
-       "una \"combinació\" de roba. S'adopta el criteri més natural "
-       "per a un diagrama d'arbre de tres nivells (una peça de la "
-       "part de baix, una de la part de dalt i un barret), seguint "
-       "que és el que fa el diagrama d'arbre habitual.")
+  # La nota passa a INTERNA: documenta una decisió d'interpretació de la
+  # font, que el professorat ha de poder consultar, però que a l'alumne
+  # només li afegeix text al final de l'enunciat.
+  nota_interna="L'enunciat original no precisa com s'agrupen les "
+               "peces en una \"combinació\" de roba. S'adopta el "
+               "criteri més natural per a un diagrama d'arbre de "
+               "tres nivells: una peça de la part de baix, una de "
+               "la part de dalt i un barret."
+  )
 
 # ---- exercici 244: 10 tirades d'una moneda ----
 Q("244", 244, "", B2, "A",

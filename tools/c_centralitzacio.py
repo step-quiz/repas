@@ -500,8 +500,9 @@ for _ap, _v in _268.items():
        if min(_v) < 0 else
        "$R=x_{\\max}-x_{\\min}=%d-%d=%d$" % (max(_v), min(_v), _r)],
       ex_text=E268,
-      nota=("Totes les dades són iguals, així que no hi ha cap dispersió: el "
-            "recorregut val $0$." if len(set(_v)) == 1 else ""))
+      # Sense nota: deia que «el recorregut val $0$», que és literalment
+      # la resposta correcta d'aquest ítem.
+      )
 
 
 # =============================================================== Exercici 269
@@ -528,10 +529,9 @@ Q("269a", 269, "a", B2, "A",
    "Suma: $0$. Sempre dona zero, i per això les desviacions no serveixen "
    "directament per mesurar la dispersió: cal elevar-les al quadrat."],
   ex_text=E269,
-  nota="Que la suma de desviacions doni sempre $0$ no és casualitat d'aquesta "
-       "llista: passa amb qualsevol conjunt de dades, perquè la mitjana és "
-       "justament el punt que equilibra les desviacions. És el motiu pel qual "
-       "la variància les eleva al quadrat.")
+  # Sense nota: deia que la suma de desviacions dona sempre $0$, que és
+  # LITERALMENT la resposta correcta d'aquest ítem.
+  )
 
 Q("269b", 269, "b", B2, "A",
   "I quant sumen els quadrats de les desviacions, $\\sum(x_i-\\bar{x})^2$?",

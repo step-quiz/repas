@@ -1851,7 +1851,7 @@ window.FULL = {
     "Busca la dada més gran i la més petita.",
     "Aquí són $3$ i $3$."
    ],
-   "nota": "Totes les dades són iguals, així que no hi ha cap dispersió: el recorregut val $0$.",
+   "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHZhbG9yIG3DqXMgZ3Jhbi4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBsJ2V4dHJlbSBkZSBkYWx0IGkgZWwgZGUgYmFpeDogJDMtMyQuIiwgIkVsIHJlY29ycmVndXQgw6lzIHVuYSBSRVNUQTogZWwgbcOpcyBncmFuIG1lbnlzIGVsIG3DqXMgcGV0aXQuIiwgIlPDrSBxdWUgZXMgcG90OiBzaSB0b3RlcyBsZXMgZGFkZXMgdmFsZW4gZWwgbWF0ZWl4LCBlbCBtw6lzIGdyYW4gaSBlbCBtw6lzIHBldGl0IGNvaW5jaWRlaXhlbiBpIGVsIHJlY29ycmVndXQgdmFsICQwJC4gWmVybyBubyB2b2wgZGlyIFwiaW1wb3NzaWJsZVwiLCB2b2wgZGlyIHF1ZSBubyBoaSBoYSBnZW5zIGRlIGRpc3BlcnNpw7MuIiwgIiJdLCAiZXJyIjogWyJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJTSUdORV9GSU5BTCIsICJFU19QT1RfREVURVJNSU5BUiIsICIiXSwgInJlcyI6IFsiJFI9eF97XFxtYXh9LXhfe1xcbWlufT0zLTM9MCQiXX0="
   },
   {
@@ -1895,7 +1895,7 @@ window.FULL = {
     "Calcula $x_i-5$ per a cada dada i suma-ho tot.",
     "Fixa't en el signe de cada desviació: n'hi ha de negatives."
    ],
-   "nota": "Que la suma de desviacions doni sempre $0$ no és casualitat d'aquesta llista: passa amb qualsevol conjunt de dades, perquè la mitjana és justament el punt que equilibra les desviacions. És el motiu pel qual la variància les eleva al quadrat.",
+   "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIHN1bWEgZGVscyB2YWxvcnMgYWJzb2x1dHMuIExlcyBkZXN2aWFjaW9ucyB2YW4gYW1iIHNpZ25lLCBpIGxlcyBuZWdhdGl2ZXMgY29tcGVuc2VuIGxlcyBwb3NpdGl2ZXMuIiwgIkFpeMOyIMOpcyBsYSBzdW1hIGRlbHMgcXVhZHJhdHMgZGUgbGVzIGRlc3ZpYWNpb25zLCBxdWUgw6lzIGVsIHBhcyBzZWfDvGVudC4gQXF1w60gZXMgZGVtYW5lbiBsZXMgZGVzdmlhY2lvbnMgdGFsIGNvbSBzw7NuLiIsICJBcXVlc3RhIMOpcyBsYSBzdW1hIGRlIGxlcyBkYWRlcywgbm8gbGEgZGUgbGVzIGRlc3ZpYWNpb25zLiJdLCAiZXJyIjogWyIiLCAiVkFMT1JfQUJTT0xVVF9JTkRFR1VUIiwgIkRFU1ZJQUNJT05TX0FMX1FVQURSQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiRGVzdmlhY2lvbnM6ICQtMyxcXDstMSxcXDstMSxcXDstMSxcXDsrMCxcXDsrMCxcXDsrMixcXDsrNCQiLCAiU3VtYTogJDAkLiBTZW1wcmUgZG9uYSB6ZXJvLCBpIHBlciBhaXjDsiBsZXMgZGVzdmlhY2lvbnMgbm8gc2VydmVpeGVuIGRpcmVjdGFtZW50IHBlciBtZXN1cmFyIGxhIGRpc3BlcnNpw7M6IGNhbCBlbGV2YXItbGVzIGFsIHF1YWRyYXQuIl19"
   },
   {

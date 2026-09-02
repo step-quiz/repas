@@ -566,7 +566,7 @@ window.FULL = {
     "Quins valors del $1$ al $6$ són més petits que $7$?",
     "Compara-ho amb els casos possibles totals del dau."
    ],
-   "nota": "Els apartats c) i d) tenen el mateix text al full de partida, «Nombre més petit que 7», i es conserven tots dos tal com estan: en un dau de l'1 al 6, tots els resultats el compleixen.",
+   "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJDYkIFPDjSDDqXMgbcOpcyBwZXRpdCBxdWUgJDckOiB0YW1iw6kgY29tcHRhIGNvbSBhIGNhcyBmYXZvcmFibGUuIFRvdHMgZWxzIHJlc3VsdGF0cyBkZWwgZGF1ICgkMSQgYSAkNiQpIGNvbXBsZWl4ZW4gYXF1ZXN0YSBjb25kaWNpw7MuIiwgIlF1ZSBlbCBkYXUgbm8gYXJyaWJpIGEgJDckIMOpcyBleGFjdGFtZW50IGVsIG1vdGl1IHBlbCBxdWFsIFRPVFMgZWxzIHNldXMgcmVzdWx0YXRzIHPDs24gbcOpcyBwZXRpdHMgcXVlICQ3JDogYXF1ZXN0IGVzZGV2ZW5pbWVudCDDqXMgc2VndXIgKCRQPTEkKSwgbm8gaW1wb3NzaWJsZS4iLCAiTCdlc2RldmVuaW1lbnQgbm8gZGVtYW5hIFwic2VyIGV4YWN0YW1lbnQgJDYkXCI6IGRlbWFuYSBcInNlciBtw6lzIHBldGl0IHF1ZSAkNyRcIiwgcXVlIGNvbXBsZWl4ZW4gdG90cyBlbHMgJDYkIHJlc3VsdGF0cyBwb3NzaWJsZXMgZGVsIGRhdS4iXSwgImVyciI6IFsiIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyLCq05vbWJyZSBtw6lzIHBldGl0IHF1ZSAkNyTCuzogdG90cyBlbHMgcmVzdWx0YXRzICQxLDIsMyw0LDUsNiQgaG8gY29tcGxlaXhlbiwgJDYkIGNhc29zIGZhdm9yYWJsZXMuICRQPVxcZGZyYWN7Nn17Nn09MSQgKGVzZGV2ZW5pbWVudCBzZWd1cikiXX0="
   },
   {
@@ -653,7 +653,7 @@ window.FULL = {
     "Agrupa la roba en tres nivells: peça de baix (faldilla o pantalons), peça de dalt (brusa o samarreta) i barret.",
     "Compta les opcions de cada nivell per separat: $2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les."
    ],
-   "nota": "L'enunciat original no precisa com s'agrupen les peces en una \"combinació\" de roba. S'adopta el criteri més natural per a un diagrama d'arbre de tres nivells (una peça de la part de baix, una de la part de dalt i un barret), seguint que és el que fa el diagrama d'arbre habitual.",
+   "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRlcyBvcGNpb25zIGhpIGhhIGEgY2FkYSBuaXZlbGwgZGUgbCdhcmJyZTogbGEgcGFydCBkZSBiYWl4ICgkMiszPTUkIG9wY2lvbnMpIGkgbGEgcGFydCBkZSBkYWx0ICgkMiszPTUkIG9wY2lvbnMpIG5vIHRlbmVuIGVsIG1hdGVpeCBub21icmUgZCdvcGNpb25zIHBlciBjYXN1YWxpdGF0LCBjYWwgY2FsY3VsYXItbGVzIHBlciBzZXBhcmF0LiIsICJRdWFuIGVzIGNvbWJpbmVuIGRpdmVyc2VzIGVsZWNjaW9ucyBpbmRlcGVuZGVudHMgKHBhcnQgZGUgYmFpeCwgcGFydCBkZSBkYWx0LCBiYXJyZXQpLCBlbCBub21icmUgZGUgY29tYmluYWNpb25zIGVzIE1VTFRJUExJQ0EsIG5vIHNlIHN1bWEuIiwgIkwnYXJtYXJpIHRhbWLDqSBpbmNsb3UgcGFudGFsb25zIChwYXJ0IGRlIGJhaXgpIGkgc2FtYXJyZXRlcyAocGFydCBkZSBkYWx0KSBjb20gYSBhbHRlcm5hdGl2ZXM6IGNhbCBzdW1hci1sb3MgYSBsZXMgc2V2ZXMgY2F0ZWdvcmllcyByZXNwZWN0aXZlcywgbm8gaWdub3Jhci1sb3MuIiwgIiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiUGXDp2EgZGUgYmFpeDogJDIkIGZhbGRpbGxlcyAkKzMkIHBhbnRhbG9ucyAkPTUkIG9wY2lvbnMiLCAiUGXDp2EgZGUgZGFsdDogJDIkIGJydXNlcyAkKzMkIHNhbWFycmV0ZXMgJD01JCBvcGNpb25zIiwgIkJhcnJldDogJDMkIG9wY2lvbnMiLCAiUGVsIHByaW5jaXBpIG11bHRpcGxpY2F0aXU6ICQ1XFxjZG90NVxcY2RvdDM9NzUkIGNvbWJpbmFjaW9ucyJdfQ=="
   },
   {
