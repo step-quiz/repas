@@ -9,6 +9,7 @@
 > **diff-07** (2026-09-01): `_etiquetes.py` nou.
 > **diff-08** (2026-09-01): `_comprova_grafiques.py` corregit i ampliat.
 > **diff-09** (2026-09-02): `_opcions.py` nou.
+> **diff-10** (2026-09-02): `_text.py` nou. Amb això la revisió de figures queda tancada.
 
 ## Fitxer MODIFICAT (1)
 
@@ -54,6 +55,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_etiquetes.py` **(diff-07)** | etiqueta a la cota d'un altre objecte · marca vermella fora de la incògnita | 1 + 5 xocs |
 | `_comprova_grafiques.py` **(diff-08)** | corba contra fórmula · el tret demanat és al dibuix | 21/21 · 1 xoc |
 | `_opcions.py` **(diff-09)** | tres indicis que delaten la resposta | 130 ítems (15 % del banc) |
+| `_text.py` **(diff-10)** | LaTeX fora de `$…$` · apunta a una figura absent | 3 + 5 xocs |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
 
@@ -390,6 +392,36 @@ d'una opció ha de descartar primer les fórmules.
 **Un `try/except` que amagava un error.** La prova C donava **0 ítems** i em
 semblava plausible. Era una línia mal escrita, i el `except` se la menjava.
 Sense el `try`, peta i es veu: en dona 69. L'eina ja no en té cap.
+
+## Novetat del diff-10: `_text.py`
+
+Dos defectes que no depenen de cap figura, tots dos sortits del full 11.
+
+**A · Ordres de LaTeX fora de `$…$` — 3 ítems.** `264` escriu la llista de
+dades així, sense cap `$`:
+
+```
+37,\;37,\;37,\;37,\;37,\;38,\;38,\;...
+```
+
+Els `\;` són ordres d'espaiat: fora de `$…$` KaTeX no els toca i surten tal
+qual. I com que entre els números no hi ha cap espai de debò, el navegador no
+té on trencar la línia i la targeta creix fins a **880 px** amb una columna
+de 704. És **l'únic ítem del banc que vessa**. `272a` i `272b` tenen el
+mateix problema a l'encapçalament, però amb punts que donen on trencar.
+
+La capa 2 de la galeria va enxampar `264` renderitzant. Aquesta comprovació
+el troba llegint el banc, en un segon.
+
+**B · Apunten a una figura que no hi és — 5 ítems.** El bloc `grafics` del
+full 11 té 14 ítems sobre llegir diagrames de barres, polígons de freqüències
+i histogrames, i **cap figura**: les dades van descrites entre parèntesis.
+Cinc hi apunten igualment: «Observa **aquest polígon** de freqüències (amb els
+punts (1,3), (2,5)…)» i «a partir del polígon de freqüències **següent**».
+
+L'exercici es pot respondre, perquè les dades hi són, però el text promet una
+imatge que no arriba. I el full 10 té 40 figures de gràfiques: el bloc que en
+necessitaria és el que no en té cap.
 
 ## Què NO hi ha
 
