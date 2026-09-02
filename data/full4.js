@@ -179,7 +179,7 @@ window.FULL = {
     "El $Q(x)$ apareix als dos claudàtors: en restar-los, es cancel·la. El resultat és, en realitat, $P(x)-R(x)$.",
     "$[P(x)+Q(x)]-[R(x)+Q(x)]=P(x)+Q(x)-R(x)-Q(x)=P(x)-R(x)$."
    ],
-   "nota": "Aquest resultat coincideix amb el de l'apartat d) — no és una casualitat: en tots dos casos el $Q(x)$ es cancel·la i queda $P(x)-R(x)$. És intencionat: conviden a adonar-se que expressions amb aspecte diferent poden donar el mateix resultat.",
+   "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW4gcmVzdGFyIGVsIHNlZ29uIGNsYXVkw6B0b3IsIGhhcyBjYW52aWF0IGVsIHNpZ25lIG5vbcOpcyBkJ3VuIGRlbHMgZG9zIHRlcm1lczogJC1bUih4KStRKHgpXT0tUih4KS1RKHgpJCwgZWxzIGRvcyBhbWIgc2lnbmUgbWVueXMuIiwgIkhhcyBzdW1hdCBlbHMgZG9zIGNsYXVkw6B0b3JzIGVuIGxsb2MgZGUgcmVzdGFyLWxvcy4iLCAiQWwgc2Vnb24gY2xhdWTDoHRvciBoaSBoYSAkUih4KStRKHgpJCwgbm8gJFIoeCktUSh4KSQ6IHJldmlzYSBsJ2VudW5jaWF0LiJdLCAiZXJyIjogWyIiLCAiUEFSRU5URVNJX05PX0RJU1RSSUJVSVRfUE9MSSIsICJQQVJFTlRFU0lfTk9fRElTVFJJQlVJVF9QT0xJIiwgIkdSQVVTX01BTF9BR1JVUEFUUyJdLCAicmVzIjogWyIkW1AoeCkrUSh4KV0tW1IoeCkrUSh4KV09UCh4KS1SKHgpPTJ4Xns1fS0zeF57NH0rN3heezN9LTV4XnsyfSs0eC03JCJdfQ=="
   },
   {

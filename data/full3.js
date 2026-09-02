@@ -521,7 +521,7 @@ window.FULL = {
    "tipus": "B",
    "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$:",
-   "enunciat": "Comprova que $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$ és una progressió aritmètica.",
+   "enunciat": "Comprova si $\\dfrac53,\\;\\dfrac43,\\;1,\\;\\dfrac23,\\;\\dfrac13,\\dots$ és una progressió aritmètica.",
    "opcions": [
     "No, perquè $1-\\dfrac53=-\\dfrac23$, que no coincideix amb la diferència $-\\dfrac13$ dels altres termes.",
     "No, perquè els termes van disminuint.",
@@ -773,7 +773,7 @@ window.FULL = {
     "Calcula la diferència entre termes consecutius.",
     "$1-1=0$ sempre: diferència constant, $d=0$."
    ],
-   "nota": "Aquesta successió constant compleix alhora la definició de progressió aritmètica ($d=0$) i de progressió geomètrica ($r=1$): és un cas límit on totes dues coincideixen. Aquí es demana la lectura aritmètica, que és la de la resta de l'exercici; la geomètrica seria igual de vàlida.",
+   "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJtZSBnZW5lcmFsIGhhIGRlIGRvbmFyIHNlbXByZSAkMSQ6ICRhX249biQgZG9uYSAkMSwyLDMsNFxcZG90cyQsIHF1ZSBubyBjb2luY2lkZWl4IGFtYiBsYSBzdWNjZXNzacOzLiIsICJFbCBwcmltZXIgdGVybWUgKGkgdG90cyBlbHMgYWx0cmVzKSDDqXMgJDEkLCBubyAkMCQ6IHJldmlzYSBsYSBzdWJzdGl0dWNpw7MgYSAkYV9uPWFfMSsobi0xKVxcY2RvdDAkLiIsICIiLCAiTGEgZGlmZXLDqG5jaWEgc8OtIHF1ZSDDqXMgJDAkLCBwZXLDsiBsbGF2b3JzIGVsIHRlcm1lIGdlbmVyYWwgbm8gcG90IGRlcGVuZHJlIGRlICRuJDogJGFfbj1hXzErKG4tMSlcXGNkb3QwPWFfMSQsIHNlbXByZSBlbCBtYXRlaXggdmFsb3IuIl0sICJlcnIiOiBbIkNPTVBBUkFfVEVSTUVTIiwgIlRFUk1FX01BTF9DQUxDVUxBVCIsICIiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiXSwgInJlcyI6IFsiJDEtMT0wJCAoaSBpZ3VhbCBwZXIgYSBsYSByZXN0YSk6IGRpZmVyw6huY2lhIGNvbnN0YW50LCAkZD0wJCIsICIkYV9uPWFfMSsobi0xKWQ9MSsobi0xKVxcY2RvdDA9MSQiXX0="
   },
   {
@@ -862,7 +862,7 @@ window.FULL = {
     "$r=\\dfrac34$. El terme general és $a_n=a_1\\cdot r^{\\,n-1}=4\\cdot\\left(\\dfrac34\\right)^{n-1}$.",
     "Per a $a_{20}$, fes servir $n=20$: l'exponent és $19$."
    ],
-   "nota": "El valor exacte de $a_{20}$ té un denominador d'onze xifres; es dona en forma de fracció perquè el decimal seria pràcticament $0$ i amagaria la magnitud real.",
+   "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSByYcOzIMOpcyAkcj1cXGRmcmFje2FfMn17YV8xfT1cXGRmcmFjMzQkLCBubyAkXFxkZnJhYzQzJDogaGFzIGludmVydGl0IGVsIHF1b2NpZW50IGVuIGVscyBkb3MgY8OgbGN1bHMuIiwgIiIsICJFbCBwcmltZXIgdGVybWUgZGUgbGEgcHJvZ3Jlc3Npw7Mgw6lzICRhXzE9NCQsIG5vICQzJCAoYXF1ZXN0IMOpcyAkYV8yJCk6IGVsIGZhY3RvciBxdWUgdmEgZGF2YW50IGRlIGxhIHBvdMOobmNpYSBoYSBkZSBzZXIgJDQkLiIsICJMJ2V4cG9uZW50IGRlbCB0ZXJtZSBnZW5lcmFsIMOpcyAkbi0xJCwgbm8gJG4kOiBwZXIgJG49MSQgbCdleHBvbmVudCBoYSBkZSBzZXIgJDAkLCBpIHBlciBhICRhX3syMH0kIGwnZXhwb25lbnQgaGEgZGUgc2VyICQxOSQsIG5vICQyMCQuIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICIiLCAiQ09NUEFSQV9URVJNRVMiLCAiREVTUExBQ0FNRU5UX0lOREVYIl0sICJyZXMiOiBbIiRyPVxcZGZyYWN7YV8yfXthXzF9PVxcZGZyYWMzNCQiLCAiJGFfbj1hXzFcXGNkb3Qgcl57XFwsbi0xfT00XFxjZG90XFxsZWZ0KFxcZGZyYWMzNFxccmlnaHQpXntuLTF9JCIsICIkYV97MjB9PTRcXGNkb3RcXGxlZnQoXFxkZnJhYzM0XFxyaWdodCleezE5fT1cXGRmcmFjezFcXCwxNjJcXCwyNjFcXCw0Njd9ezY4XFwsNzE5XFwsNDc2XFwsNzM2fSQiLCAiw4lzIHVuIG5vbWJyZSBtb2x0IHBldGl0LCBtw6lzIGEgcHJvcCBkZSAkMCQgcXVlIGRlICQxJDogdMOpIHNlbnRpdCwgcGVycXXDqCBsYSByYcOzICRcXGRmcmFjMzQkIMOpcyBtZW5vciBxdWUgJDEkIGkgbGEgc3VjY2Vzc2nDsyB2YSBkaXNtaW51aW50LiJdfQ=="
   },
   {
@@ -872,8 +872,8 @@ window.FULL = {
    "bloc": "geometriques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula.",
-   "enunciat": "Terme general d'una PG amb $a_1=3$ i $r=5$",
+   "encapcalament": "Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$.",
+   "enunciat": "Terme general amb $a_1=3$ i $r=5$",
    "opcions": [
     "$a_n=3\\cdot5^{\\,n}$",
     "$a_n=3\\cdot5^{\\,n-1}$",
@@ -894,7 +894,7 @@ window.FULL = {
    "bloc": "geometriques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula.",
+   "encapcalament": "Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$.",
    "enunciat": "Terme que ocupa el lloc $7$ ($a_1=3$, $r=5$)",
    "opcions": [
     "$105$",
@@ -916,7 +916,7 @@ window.FULL = {
    "bloc": "geometriques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula.",
+   "encapcalament": "Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$.",
    "enunciat": "Termes $a_{10}$ i $a_{11}$ ($a_1=3$, $r=5$)",
    "opcions": [
     "$29296875, 146484375$",
@@ -939,7 +939,7 @@ window.FULL = {
    "tipus": "B",
    "dif": 2,
    "encapcalament": "Donada la successió $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$:",
-   "enunciat": "Comprova que $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$ és una progressió geomètrica.",
+   "enunciat": "Comprova si $\\dfrac23,\\;\\dfrac29,\\;\\dfrac2{27},\\;\\dfrac2{81},\\dots$ és una progressió geomètrica.",
    "opcions": [
     "Sí, perquè tots els numeradors són iguals a $2$.",
     "Sí, perquè el quocient entre termes consecutius és sempre el mateix: $r=\\dfrac13$.",
@@ -994,7 +994,7 @@ window.FULL = {
     "Comprova primer el patró amb un terme petit: $a_2=\\dfrac29=\\dfrac2{3^2}$, $a_3=\\dfrac2{27}=\\dfrac2{3^3}$.",
     "El patró és $a_n=\\dfrac{2}{3^{\\,n}}$: substitueix $n=100$ i $n=101$."
    ],
-   "nota": "El valor exacte de $3^{100}$ té $48$ xifres: es deixa en forma de potència, com ja es feia amb exponents grans a Full 2.",
+   "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRmFsdGEgY29tcHRhciBlbCBmYWN0b3IgJFxcZGZyYWMyMyQgaW5pY2lhbCBkaW5zIGRlIGxhIHBvdMOobmNpYSBkZSAkMyQgZGVsIGRlbm9taW5hZG9yOiAkYV8yPVxcZGZyYWMyM1xcY2RvdFxcZGZyYWMxMz1cXGRmcmFjMnszXjJ9JCwgbm8gJFxcZGZyYWMyezNeMX0kLiIsICJMJ2V4cG9uZW50IHF1ZSBjYWwgZmVyIHNlcnZpciBwZXIgYSAkYV97MTAwfSQgw6lzICQxMDAtMT05OSQsIHF1ZSDDqXMgZWwgcXVlIGRvbmEgJDNeezEwMH0kIGFsIGRlbm9taW5hZG9yIHVuIGNvcCBlc2NyaXQgYW1iICRhXzE9XFxkZnJhYzIzJDogcmV2aXNhIGVsIGRlc3BsYcOnYW1lbnQgYW1iIHVuIGNhcyBwZXRpdCBhYmFucywgY29tICRhXzI9XFxkZnJhYzI5PVxcZGZyYWMyezNeMn0kLiIsICJFbHMgdGVybWVzIGRlIGxhIHN1Y2Nlc3Npw7MgdmFuIGZlbnQtc2UgY2FkYSB2ZWdhZGEgbcOpcyBwZXRpdHMgKGxhIHJhw7Mgw6lzICRcXGRmcmFjMTMkLCBtZW5vciBxdWUgJDEkKTogbm8gcG9kZW4gdmFsZXIgbm9tYnJlcyBlbnRlcnMgY2FkYSB2ZWdhZGEgbcOpcyBncmFucy4iXSwgImVyciI6IFsiIiwgIkZBQ1RPUl9PQkxJREFUIiwgIkRFU1BMQUNBTUVOVF9JTkRFWCIsICJJTlZFUlRJREEiXSwgInJlcyI6IFsiQ29tIHF1ZSAkYV8xPVxcZGZyYWMyMz1cXGRmcmFjMnszXjF9JCwgJGFfMj1cXGRmcmFjMnszXjJ9JC4uLiBlbCBwYXRyw7Mgw6lzICRhX249XFxkZnJhY3syfXszXntcXCxufX0kIiwgIiRhX3sxMDB9PVxcZGZyYWN7Mn17M157MTAwfX0kIGkgJGFfezEwMX09XFxkZnJhY3syfXszXnsxMDF9fSQiXX0="
   },
   {
@@ -1082,7 +1082,7 @@ window.FULL = {
     "Els dos termes coneguts són a les posicions $2$ i $5$: la relació entre ells és $r^3$.",
     "$r^3=\\dfrac{81/4}{3/2}=\\dfrac{27}2$. Aquesta vegada $r$ no surt un nombre senzill: cal deixar-lo com una arrel cúbica."
    ],
-   "nota": "A diferència dels altres apartats d'aquest exercici, la raó d'aquesta progressió no és un nombre racional senzill ($r=\\sqrt[3]{27/2}$): és intencionat, per practicar que no totes les progressions geomètriques tenen raons \"boniques\", i que llavors cal deixar els termes expressats en funció de $r$ en lloc de calcular-los numèricament.",
+   "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkcl4zPVxcZGZyYWN7Mjd9MiQgw6lzIHVuIHBhcyBpbnRlcm1lZGksIG5vIGxhIHJhw7M6IGNhbCBlbmNhcmEgZXh0cmV1cmUgbCdhcnJlbCBjw7piaWNhLCAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQsIGkgZmVyIHNlcnZpciBhcXVlc3QgdmFsb3IgcGVyIGNvbXBsZXRhciBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4uIiwgIiIsICJBbWIgJHI9MyQgZWwgY2lucXXDqCB0ZXJtZSBkb25hcmlhICRcXGRmcmFjMzJcXGNkb3QzXjM9XFxkZnJhYzMyXFxjZG90Mjc9XFxkZnJhY3s4MX0yJCwgbm8gJFxcZGZyYWN7ODF9NCQgKGVsIHZhbG9yIHJlYWwgZGUgbCdlbnVuY2lhdCk6ICRyPTMkIG5vIGNvbXBsZWl4IGxhIHJlbGFjacOzICRyXjM9XFxkZnJhY3s4MS80fXszLzJ9PVxcZGZyYWN7Mjd9MiQuIiwgIlPDrSBxdWUgZXMgcG90IHJlc29sZHJlOiBsYSByYcOzIMOpcyAkcj1cXHNxcnRbM117XFxkZnJhY3syN30yfSQgKHVuIG5vbWJyZSBpcnJhY2lvbmFsIHBlcsOyIHBlcmZlY3RhbWVudCB2w6BsaWQpLCBpIGVscyB0ZXJtZXMgcXVlIGZhbHRlbiBlcyBwb2RlbiBleHByZXNzYXIgZW4gZnVuY2nDsyBkJ2FxdWVzdCB2YWxvciBkZSAkciQuIl0sICJlcnIiOiBbIlBBU19JTlRFUk1FRElfUEVSX1JFU1BPU1RBIiwgIiIsICJSQU9fTUFMX0FQTElDQURBIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkcl4zPVxcZGZyYWN7ODEvNH17My8yfT1cXGRmcmFjezgxfTRcXGNkb3RcXGRmcmFjMjM9XFxkZnJhY3syN30yXFxSaWdodGFycm93IHI9XFxzcXJ0WzNde1xcZGZyYWN7Mjd9Mn09XFxkZnJhY3szfXtcXHNxcnRbM10yfSQiLCAiQ29tIHF1ZSAkciQgbm8gw6lzIHVuIG5vbWJyZSByYWNpb25hbCBzZW56aWxsLCBlbHMgdGVybWVzIHF1ZSBmYWx0ZW4gZXMgZGVpeGVuIGluZGljYXRzIGVuIGZ1bmNpw7MgZGUgJHIkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzMyOnI9XFxkZnJhYzN7MnJ9JCIsICIkYV8zPWFfMlxcY2RvdCByPVxcZGZyYWMzMlxcLHIkIiwgIiRhXzQ9YV8zXFxjZG90IHI9XFxkZnJhYzMyXFwscl4yJCJdfQ=="
   },
   {
@@ -1181,7 +1181,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "Un terme d'una progressió geomètrica val $3\\,720\\,087$. Si el primer terme és $7$ i la raó és $3$, de quin terme estem parlant?",
-   "enunciat": "Terme d'una PG amb $a_1=7$, $r=3$ que val $3\\,720\\,087$",
+   "enunciat": "Terme d'una progressió geomètrica amb $a_1=7$, $r=3$ que val $3\\,720\\,087$",
    "opcions": [
     "$531441$",
     "$13$",

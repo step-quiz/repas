@@ -438,7 +438,10 @@ Q("50c", 50, "c", B1, "A",
 
 
 Q("51a", 51, "a", B1, "B",
-  r"Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ "
+  # «Comprova que ... és una progressió aritmètica» afirma el que després
+  # pregunta, i la resposta correcta és justament «Sí». Amb «Comprova si»
+  # la pregunta queda oberta, que és el que l'exercici vol que es decideixi.
+  r"Comprova si $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ "
   r"és una progressió aritmètica.",
   "Sí, perquè la diferència entre termes consecutius és sempre la "
   "mateixa: $d=-\\dfrac13$.",
@@ -714,11 +717,10 @@ Q("54c", 54, "c", B2, "A",
   ["$1-1=0$ (i igual per a la resta): diferència constant, $d=0$",
    "$a_n=a_1+(n-1)d=1+(n-1)\\cdot0=1$"],
   ex_text=E54,
-  nota="Aquesta successió constant compleix alhora la definició de "
-       "progressió aritmètica ($d=0$) i de progressió geomètrica "
-       "($r=1$): és un cas límit on totes dues coincideixen. Aquí es "
-       "demana la lectura aritmètica, que és la de la resta de "
-       "l'exercici; la geomètrica seria igual de vàlida.")
+  # Sense nota: observava que una successió constant és alhora
+  # aritmètica i geomètrica. És una remarca interessant, però va al
+  # final de l'enunciat i distreu de la pregunta.
+  )
 
 Q("54d", 54, "d", B2, "A",
   r"$16,\;8,\;4,\;2,\;1,\dots$",
@@ -822,15 +824,19 @@ Q("55", 55, "", B3, "A",
    "disminuint."],
   ex_text="En una progressió geomètrica, $a_1=4$ i $a_2=3$. Busca'n el "
           "terme general i $a_{20}$.",
-  nota="El valor exacte de $a_{20}$ té un denominador d'onze xifres; "
-       "es dona en forma de fracció perquè el decimal seria "
-       "pràcticament $0$ i amagaria la magnitud real.")
+  # Sense nota: comentava la mida del denominador de $a_{20}$, que no
+  # ajuda a resoldre res.
+  )
 
 
-E56 = "Calcula."
+# L'encapçalament el comparteixen els tres apartats de l'exercici 56, o
+# sigui que dir-hi el tipus de progressió una vegada resol 56b i 56c
+# alhora: qui hi arribi directament ja no troba un «($a_1=3$, $r=5$)»
+# sense cap context del qual deduir de què va.
+E56 = "Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$."
 
 Q("56a", 56, "a", B3, "A",
-  r"Terme general d'una PG amb $a_1=3$ i $r=5$",
+  r"Terme general amb $a_1=3$ i $r=5$",
   r"$a_n=3\cdot5^{\,n-1}$",
   [D(r"$a_n=3+(n-1)\cdot5$", "POTENCIA_DE_SUMA",
      "El terme general d'una PG és un producte amb una potència, "
@@ -884,7 +890,9 @@ Q("56c", 56, "c", B3, "A",
 
 
 Q("57a", 57, "a", B3, "B",
-  r"Comprova que $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$ "
+  # Mateix cas que 51a: la resposta correcta és «Sí» i l'enunciat ja ho
+  # afirmava abans de preguntar-ho.
+  r"Comprova si $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$ "
   r"és una progressió geomètrica.",
   "Sí, perquè el quocient entre termes consecutius és sempre el mateix: "
   "$r=\\dfrac13$.",
@@ -963,9 +971,9 @@ Q("57c", 57, "c", B3, "A",
    "$a_{100}=\\dfrac{2}{3^{100}}$ i $a_{101}=\\dfrac{2}{3^{101}}$"],
   ex_text=r"Donada la successió $\dfrac23,\;\dfrac29,\;\dfrac2{27},"
           r"\;\dfrac2{81},\dots$:",
-  nota="El valor exacte de $3^{100}$ té $48$ xifres: es deixa en "
-       "forma de potència, com ja es feia amb exponents grans a "
-       "Full 2.")
+  # Sense nota: explicava que $3^{100}$ es deixa en forma de potència.
+  # La forma de les opcions ja ho diu.
+  )
 
 
 E58 = "Troba els termes que falten a les progressions geomètriques següents."
@@ -1091,12 +1099,9 @@ Q("58d", 58, "d", B3, "B",
    "$a_3=a_2\\cdot r=\\dfrac32\\,r$",
    "$a_4=a_3\\cdot r=\\dfrac32\\,r^2$"],
   ex_text=E58,
-  nota="A diferència dels altres apartats d'aquest exercici, la raó "
-       "d'aquesta progressió no és un nombre racional senzill "
-       "($r=\\sqrt[3]{27/2}$): és intencionat, per practicar que no "
-       "totes les progressions geomètriques tenen raons \"boniques\", "
-       "i que llavors cal deixar els termes expressats en funció de "
-       "$r$ en lloc de calcular-los numèricament.")
+  # Sense nota: advertia que la raó d'aquest apartat no és entera, cosa
+  # que l'alumne ha de descobrir ell resolent-lo.
+  )
 
 
 # =====================================================================
@@ -1220,7 +1225,9 @@ Q("59d", 59, "d", B4, "B",
   ex_text=E59)
 
 Q("60", 60, "", B4, "A",
-  r"Terme d'una PG amb $a_1=7$, $r=3$ que val $3\,720\,087$",
+  # «PG» desplegat: l'abreviatura només s'entén havent llegit un altre
+  # apartat, i cada ítem es carrega sol amb la seva URL.
+  r"Terme d'una progressió geomètrica amb $a_1=7$, $r=3$ que val $3\,720\,087$",
   "13",
   [D("12", "DESPLACAMENT_INDEX",
      "$3^{12}=531\\,441$ (el resultat de dividir $3\\,720\\,087$ "

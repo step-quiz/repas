@@ -159,10 +159,9 @@ Q("62c", 62, "c", B1, "A",
   [r"$[P(x)+Q(x)]-[R(x)+Q(x)]=P(x)-R(x)=%s$"
    % poli_tex_raw(expand((P62 + Q62) - (R62 + Q62)))],
   ex_text=E62,
-  nota="Aquest resultat coincideix amb el de l'apartat d) — no és una "
-       "casualitat: en tots dos casos el $Q(x)$ es cancel·la i queda "
-       "$P(x)-R(x)$. És intencionat: conviden a adonar-se que expressions "
-       "amb aspecte diferent poden donar el mateix resultat.")
+  # Sense nota: assenyalava que el resultat coincideix amb el d'un altre
+  # apartat. Explicar-ho abans de respondre treu la gràcia de notar-ho.
+  )
 
 Q("62d", 62, "d", B1, "A",
   r"$[P(x)-Q(x)]-[R(x)-Q(x)]$",
