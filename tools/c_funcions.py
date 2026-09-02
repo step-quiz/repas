@@ -195,44 +195,46 @@ Q("200a", 200, "a", B1, "B",
   ex_text=E200)
 
 Q("200b", 200, "b", B1, "B",
-  "Cada mes d'un any concret (per exemple, el 2025) i el seu nombre "
-  "de dies.",
-  "SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, "
-  "determinat pel calendari.",
-  [D("NO és una funció: el febrer no sempre té el mateix nombre de "
-     "dies (28 o 29, segons l'any), així que un mateix mes té més "
-     "d'un valor possible.",
+  "Cada mes de l'any i el seu nombre de dies.",
+  "NO és una funció: el febrer no sempre té el mateix nombre de dies "
+  "($28$ o $29$, segons l'any), així que un mateix mes té més d'un "
+  "valor possible.",
+  [D("SÍ és una funció: cada mes té un únic nombre de dies, determinat "
+     "pel calendari.",
      "DOMINI_MAL_LLEGIT",
-     "Això seria cert si el conjunt de partida fossin els dotze mesos "
-     "SENSE dir de quin any: llavors el febrer tindria dues imatges "
-     "possibles i NO seria una funció. Però aquí l'any està fixat, i "
-     "amb l'any fixat el febrer té un únic nombre de dies."),
+     "Això valdria si l'enunciat fixés un any concret. Tal com està, el "
+     "conjunt de partida són els dotze mesos en abstracte, i el febrer "
+     "pot valer $28$ o $29$: dues imatges per a un mateix element de "
+     "partida."),
    D("NO és una funció: mesos diferents poden tenir el mateix nombre "
-     "de dies (per exemple, abril i juny en tenen 30 tots dos).",
+     "de dies (per exemple, abril i juny en tenen $30$ tots dos).",
      "VEREDICTE_INVERTIT",
-     "Que dos mesos DIFERENTS comparteixin el mateix nombre de dies "
-     "no trenca que sigui una funció: el que cal comprovar és que un "
-     "mateix mes no tingui mai dos valors alhora, i això es compleix."),
+     "El veredicte és correcte però el motiu no. Que dos elements "
+     "DIFERENTS comparteixin imatge no trenca res: una funció ho pot "
+     "fer. El que no pot passar és que un mateix element en tingui dues, "
+     "i això és el que li passa al febrer."),
    D("Depèn: només és una funció si l'any no és de traspàs.",
      "DOMINI_MAL_LLEGIT",
-     "Tant si l'any és de traspàs com si no, un cop fixat l'any el "
-     "febrer té un nombre de dies i només un ($29$ o $28$): en tots "
-     "dos casos la relació és una funció.")],
-  ["Comprova si algun mes d'aquell any podria tenir dos nombres de "
-   "dies diferents alhora.",
-   "Fixa't en què és exactament el conjunt de partida: els mesos d'un "
-   "any determinat, no \"els mesos\" en abstracte."],
-  ["Fixat l'any, cada mes té un únic nombre de dies: és una funció.",
-   "Compte amb el conjunt de partida: si fossin \"els mesos\" sense "
-   "concretar l'any, el febrer tindria dues imatges ($28$ i $29$) i "
-   "la relació NO seria una funció. Quina és la resposta depèn de com "
-   "es defineix el domini."],
+     "Un cop fixat un any, sí que seria una funció, tant si és de "
+     "traspàs com si no. Però l'enunciat no en fixa cap: parla dels "
+     "mesos en general, i per això el febrer queda amb dos valors "
+     "possibles.")],
+  ["Comprova si algun mes podria tenir dos nombres de dies diferents.",
+   "Fixa't en què és exactament el conjunt de partida: els dotze mesos, "
+   "sense dir de quin any."],
+  ["Per ser una funció, cada element del conjunt de partida ha de tenir "
+   "una imatge i només una.",
+   "El febrer en té dues de possibles, $28$ i $29$, perquè l'enunciat no "
+   "diu de quin any parlem.",
+   "N'hi ha prou amb un sol element que en tingui dues: la relació NO és "
+   "una funció."],
   ex_text=E200,
-  nota="L'enunciat original diu només \"cada mes de l'any\". Aquí "
-       "s'hi ha afegit \"d'un any concret\" perquè, sense fixar "
-       "l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) "
-       "i la relació NO seria una funció: tal com estava, l'exercici "
-       "no tenia una resposta única.")
+  nota_interna="L'enunciat original diu «cada mes de l'any» i es manté "
+               "així. Una versió anterior hi afegia «d'un any concret» "
+               "per fer-la determinista, cosa que convertia la resposta "
+               "en SÍ i esborrava justament el cas que l'exercici vol "
+               "que es reconegui.")
+
 
 Q("200c", 200, "c", B1, "B",
   "El radi d'una circumferència i la longitud del seu perímetre.",
@@ -428,8 +430,9 @@ Q("202c", 202, "c", B1, "A",
    r"$f(0)=\sqrt{5}\approx 2{,}24$, $f(1)=\sqrt{5{,}5}\approx 2{,}35$, "
    r"$f(2)=\sqrt{6}\approx 2{,}45$."],
   ex_text=E202,
-  nota="Les imatges no són exactes: s'han arrodonit a les centèsimes, "
-       "com demana l'encapçalament de l'exercici.")
+  # Sense nota: advertia de l'arrodoniment a les centèsimes, cosa que
+  # l'encapçalament ja demana.
+  )
 
 Q("202d", 202, "d", B1, "A",
   r"$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$",

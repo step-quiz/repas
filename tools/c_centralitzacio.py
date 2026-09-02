@@ -212,7 +212,10 @@ for _ap, _v, _sol, _cas in _262:
 VIATGES = [3, 5, 4, 4, 2, 6, 1, 2, 3, 3, 3, 3, 3, 5, 2, 6, 5, 4, 4, 3]
 _cv = Counter(VIATGES)
 _taula = ", ".join("$x_i=%d$ amb $f_i=%d$" % (k, _cv[k]) for k in sorted(_cv))
-E263 = ("Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La "
+# Autocontingut: no s'envia l'alumne a cap altre exercici. Les dades ja
+# hi eren senceres, o sigui que la referència creuada només obligava a
+# anar-hi per res —i cada ítem es carrega sol amb la seva URL.
+E263 = ("En un grup d'alumnes s'ha comptat quants viatges ha fet cadascun. La "
         "taula de freqüències és: " + _taula + ". Calcula, a partir de la "
         "taula:")
 

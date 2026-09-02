@@ -88,7 +88,7 @@ E218 = ("Indica el tipus de variable estadística que estudiem i raona, en "
 
 # a) talla alumnat IES: quantitativa contínua, població (grup petit)
 Q("218a", 218, "a", B1, "A",
-  "La talla de l'alumnat d'un IES.",
+  "La talla de l'alumnat d'un institut de Secundària.",
   "Variable quantitativa contínua; s'estudia tota la població (un IES "
   "té un nombre d'alumnes petit i accessible)",
   [D("Variable qualitativa; s'estudia tota la població",
@@ -1138,7 +1138,7 @@ Q("229", 229, "", B3, "A",
    D("$120^\\circ$", "SECTOR_ANGLE_MAL_CALCULAT",
      "Aquest valor no surt de $0{,}40\\cdot360^\\circ$: torna a fer "
      "el càlcul amb cura."),
-   D("$12$ persones", "PERCENTATGE_MAL_CALCULAT",
+   D("$12^\\circ$", "PERCENTATGE_MAL_CALCULAT",
      "Això és el nombre de persones que van menjar xai "
      "($30\\cdot0{,}40$), no l'angle del seu sector al gràfic.")],
   ["L'angle d'un sector s'obté multiplicant la seva freqüència "
@@ -1419,7 +1419,7 @@ Q("234b", 234, "b", B2, "A",
   "En quin percentatge de mesos es va llogar la pista MÉS de $80$ "
   "vegades?",
   "$50\\,\\%$",
-  [D("$6$", "PERCENTATGE_MAL_CALCULAT",
+  [D("$6\\,\\%$", "PERCENTATGE_MAL_CALCULAT",
      "$6$ és el NOMBRE de mesos amb més de $80$ lloguers, no el "
      "percentatge: cal dividir aquest $6$ entre el total de $12$ "
      "mesos i multiplicar per $100$."),

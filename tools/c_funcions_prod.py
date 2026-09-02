@@ -138,9 +138,9 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
 E297 = ("D'una recta se'n sap això. Escriu-ne l'equació.")
 
 _297 = [
-    ("a", "Talla l'eix $Y$ a $-4$ i puja $3$ unitats cada vegada que avança $1$",
+    ("a", "Talla l'eix d'ordenades a $-4$ i puja $3$ unitats cada vegada que avança $1$",
      F(3), F(-4)),
-    ("b", "Talla l'eix $Y$ a $2$ i baixa $1$ unitat cada vegada que avança $4$",
+    ("b", "Talla l'eix d'ordenades a $2$ i baixa $1$ unitat cada vegada que avança $4$",
      F(-1, 4), F(2)),
     ("c", "És horitzontal i passa per $(7,-3)$", F(0), F(-3)),
 ]
@@ -343,9 +343,9 @@ for _ap, _a, _b, _c, _arrels in _301:
        "Talls amb $X$: %s" % _sx,
        "A $x=0$: $y=%s$, o sigui el punt $(0,%s)$" % (tex(_c), tex(_c))],
       ex_text=E301,
-      nota=("Quan l'equació té una arrel doble, la paràbola no travessa "
-            "l'eix $X$: només el toca, i justament al vèrtex."
-            if len(_arrels) == 1 else ""))
+      # Sense nota: explicava què passa amb una arrel doble, que és
+      # justament el que l'exercici vol que l'alumne descobreixi.
+      )
 # SENSE FIGURA, decidit al merge. La gràfica no marcava res, però amb la
 # corba dibuixada dos dels tres distractors s'eliminen només mirant-la: el
 # d'arrels negatives (es veu per quin costat creua l'eix X) i el del tall
@@ -484,6 +484,6 @@ Q("304", 304, "", B2, "A",
    "$x_v=\\dfrac{-40}{2\\cdot(-2)}=10$",
    "$A(10)=10\\cdot(40-20)=200$ m$^2$"],
   ex_text="",
-  nota="Aquest tipus de problema —muntar una funció a partir d'un enunciat i "
-       "buscar-ne el màxim— és el que es fa a 1r de batxillerat amb "
-       "derivades. Amb una paràbola no calen: n'hi ha prou amb el vèrtex.")
+  # Sense nota: descrivia de quin tipus de problema es tracta. És una
+  # observació de catàleg, no una ajuda per resoldre'l.
+  )

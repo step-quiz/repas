@@ -48,7 +48,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <h2>Variables estadístiques <span class="tip">· 12 preguntes</span></h2>
 <p class="sec"><strong>Exercici 218.</strong> Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.</p>
 <div class="it"><div class="cap"><span class="cod">218a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-<div class="enun">La talla de l'alumnat d'un IES.</div>
+<div class="enun">La talla de l'alumnat d'un institut de Secundària.</div>
 <ol class="op"><li><span class="ok">Variable quantitativa contínua; s'estudia tota la població (un IES té un nombre d'alumnes petit i accessible)</span> — resposta correcta</li>
 <li>Variable qualitativa; s'estudia tota la població<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">La talla és una mesura numèrica (es pot mesurar en centímetres, amb decimals): és quantitativa, no qualitativa.</span></li>
 <li>Variable quantitativa discreta; s'estudia una mostra<br><span class="err">DISCRETA_CONTINUA_CONFOSES</span><span class="fb">La talla pot prendre qualsevol valor decimal dins d'un interval (no només valors aïllats): és contínua. I com que un IES té un nombre d'alumnes abastable, es pot estudiar tota la població, no cal recórrer a una mostra.</span></li>
@@ -431,7 +431,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <div class="it"><div class="cap"><span class="cod">234b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">En quin percentatge de mesos es va llogar la pista MÉS de $80$ vegades?</div>
 <ol class="op"><li><span class="ok">$50\,\%$</span> — resposta correcta</li>
-<li>$6$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">$6$ és el NOMBRE de mesos amb més de $80$ lloguers, no el percentatge: cal dividir aquest $6$ entre el total de $12$ mesos i multiplicar per $100$.</span></li>
+<li>$6\,\%$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">$6$ és el NOMBRE de mesos amb més de $80$ lloguers, no el percentatge: cal dividir aquest $6$ entre el total de $12$ mesos i multiplicar per $100$.</span></li>
 <li>$80\,\%$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">$80$ és el llindar de lloguers de l'enunciat, no el percentatge de mesos que el superen: no confonguis el valor llindar amb el resultat del càlcul.</span></li>
 <li>$41{,}7\,\%$<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">Aquest percentatge no surt de comptar bé els mesos amb més de $80$ lloguers: revisa la llista mes a mes (gener, març, juny, juliol, octubre i desembre en tenen més de $80$).</span></li>
 </ol>
@@ -487,7 +487,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <ol class="op"><li><span class="ok">$144^\circ$</span> — resposta correcta</li>
 <li>$40^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">$40$ és el percentatge del xai, no l'angle del sector: cal multiplicar la freqüència relativa ($0{,}40$) pels $360^\circ$ totals de la circumferència.</span></li>
 <li>$120^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">Aquest valor no surt de $0{,}40\cdot360^\circ$: torna a fer el càlcul amb cura.</span></li>
-<li>$12$ persones<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">Això és el nombre de persones que van menjar xai ($30\cdot0{,}40$), no l'angle del seu sector al gràfic.</span></li>
+<li>$12^\circ$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">Això és el nombre de persones que van menjar xai ($30\cdot0{,}40$), no l'angle del seu sector al gràfic.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'angle d'un sector s'obté multiplicant la seva freqüència relativa (el percentatge en tant per u) pels $360^\circ$ totals.</li><li>Calcula $0{,}40\cdot360^\circ$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Angle del xai: $0{,}40\cdot360^\circ=144^\circ$</li></ol>
@@ -712,7 +712,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes vegades apareix cada valor.</li><li>Recompte: $2$ surt 3 cops, $5$ surt 1 cop, $7$ surt 1 cop, $9$ surt 2 cops.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recompte: $2\to3$, $5\to1$, $7\to1$, $9\to2$</li><li>La freqüència màxima és $3$, i li correspon el valor $2$</li></ol>
 </div>
-<p class="sec"><strong>Exercici 263.</strong> Torna a l&#x27;exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:</p>
+<p class="sec"><strong>Exercici 263.</strong> En un grup d&#x27;alumnes s&#x27;ha comptat quants viatges ha fet cadascun. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:</p>
 <div class="it"><div class="cap"><span class="cod">263a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">La mitjana de viatges per alumne.</div>
 <ol class="op"><li><span class="ok">$\dfrac{71}{20}=3{,}55$</span> — resposta correcta</li>
@@ -745,7 +745,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 264.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">264</span><span class="tip">tipus B · dificultat 3 (completa)</span></div>
-<div class="enun">Una sabateria ha venut aquestes talles de calçat en una setmana: 37,\;37,\;37,\;37,\;37,\;38,\;38,\;38,\;38,\;38,\;38,\;38,\;38,\;39,\;40,\;40,\;40,\;41,\;42,\;43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?</div>
+<div class="enun">Una sabateria ha venut aquestes talles de calçat en una setmana: 37, 37, 37, 37, 37, 38, 38, 38, 38, 38, 38, 38, 38, 39, 40, 40, 40, 41, 42, 43. El botiguer ha de decidir de quina talla encarrega més parells. Quina mesura l'ajuda a decidir-ho, i quin valor surt?</div>
 <ol class="op"><li><span class="ok">La MODA: la talla $38$, que és la que ha venut més vegades ($8$ parells).</span> — resposta correcta</li>
 <li>La MITJANA: la talla $38{,}7$.<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">La mitjana val $38{,}7$, i les talles són nombres sencers: no existeix aquesta talla i no en pot encarregar cap parell. Quan les dades són categories o valors sencers que no admeten mitges, la mesura que respon és la moda.</span></li>
 <li>La MEDIANA: la talla $38$.<br><span class="err">MESURA_MAL_TRIADA</span><span class="fb">La mediana parteix les vendes en dues meitats, però no diu quina talla s'ha venut més. Aquí coincideix que val $38$, però hi arriba per un motiu que no és el que es pregunta.</span></li>
@@ -926,7 +926,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$\sigma=\sqrt{\sigma^2}$.</li><li>Fes l'arrel quadrada de $2{,}91$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\sigma=\sqrt{2{,}91}\approx1{,}71$ talles</li><li>Vol dir que, de mitjana, les talles venudes se separen poc més d'una talla de la mitjana</li></ol>
 </div>
-<p class="sec"><strong>Exercici 272.</strong> Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5,\;5,\;5,\;5,\;5,\;5. Grup B: 1,\;3,\;5,\;5,\;7,\;9.</p>
+<p class="sec"><strong>Exercici 272.</strong> Dos grups de $6$ alumnes han fet el mateix examen. Grup A: 5, 5, 5, 5, 5, 5. Grup B: 1, 3, 5, 5, 7, 9.</p>
 <div class="it"><div class="cap"><span class="cod">272a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">Compara'n les mitjanes.</div>
 <ol class="op"><li><span class="ok">Són iguals: totes dues valen $5$.</span> — resposta correcta</li>

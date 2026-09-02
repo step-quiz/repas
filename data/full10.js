@@ -202,19 +202,19 @@ window.FULL = {
    "tipus": "B",
    "dif": 2,
    "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
-   "enunciat": "Cada mes d'un any concret (per exemple, el 2025) i el seu nombre de dies.",
+   "enunciat": "Cada mes de l'any i el seu nombre de dies.",
    "opcions": [
     "Depèn: només és una funció si l'any no és de traspàs.",
-    "NO és una funció: el febrer no sempre té el mateix nombre de dies (28 o 29, segons l'any), així que un mateix mes té més d'un valor possible.",
-    "SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, determinat pel calendari.",
-    "NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen 30 tots dos)."
+    "SÍ és una funció: cada mes té un únic nombre de dies, determinat pel calendari.",
+    "NO és una funció: el febrer no sempre té el mateix nombre de dies ($28$ o $29$, segons l'any), així que un mateix mes té més d'un valor possible.",
+    "NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen $30$ tots dos)."
    ],
    "pistes": [
-    "Comprova si algun mes d'aquell any podria tenir dos nombres de dies diferents alhora.",
-    "Fixa't en què és exactament el conjunt de partida: els mesos d'un any determinat, no \"els mesos\" en abstracte."
+    "Comprova si algun mes podria tenir dos nombres de dies diferents.",
+    "Fixa't en què és exactament el conjunt de partida: els dotze mesos, sense dir de quin any."
    ],
-   "nota": "L'enunciat original diu només \"cada mes de l'any\". Aquí s'hi ha afegit \"d'un any concret\" perquè, sense fixar l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) i la relació NO seria una funció: tal com estava, l'exercici no tenia una resposta única.",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJUYW50IHNpIGwnYW55IMOpcyBkZSB0cmFzcMOgcyBjb20gc2kgbm8sIHVuIGNvcCBmaXhhdCBsJ2FueSBlbCBmZWJyZXIgdMOpIHVuIG5vbWJyZSBkZSBkaWVzIGkgbm9tw6lzIHVuICgkMjkkIG8gJDI4JCk6IGVuIHRvdHMgZG9zIGNhc29zIGxhIHJlbGFjacOzIMOpcyB1bmEgZnVuY2nDsy4iLCAiQWl4w7Igc2VyaWEgY2VydCBzaSBlbCBjb25qdW50IGRlIHBhcnRpZGEgZm9zc2luIGVscyBkb3R6ZSBtZXNvcyBTRU5TRSBkaXIgZGUgcXVpbiBhbnk6IGxsYXZvcnMgZWwgZmVicmVyIHRpbmRyaWEgZHVlcyBpbWF0Z2VzIHBvc3NpYmxlcyBpIE5PIHNlcmlhIHVuYSBmdW5jacOzLiBQZXLDsiBhcXXDrSBsJ2FueSBlc3TDoCBmaXhhdCwgaSBhbWIgbCdhbnkgZml4YXQgZWwgZmVicmVyIHTDqSB1biDDum5pYyBub21icmUgZGUgZGllcy4iLCAiIiwgIlF1ZSBkb3MgbWVzb3MgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBlbCBtYXRlaXggbm9tYnJlIGRlIGRpZXMgbm8gdHJlbmNhIHF1ZSBzaWd1aSB1bmEgZnVuY2nDszogZWwgcXVlIGNhbCBjb21wcm92YXIgw6lzIHF1ZSB1biBtYXRlaXggbWVzIG5vIHRpbmd1aSBtYWkgZG9zIHZhbG9ycyBhbGhvcmEsIGkgYWl4w7IgZXMgY29tcGxlaXguIl0sICJlcnIiOiBbIkRPTUlOSV9NQUxfTExFR0lUIiwgIkRPTUlOSV9NQUxfTExFR0lUIiwgIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiRml4YXQgbCdhbnksIGNhZGEgbWVzIHTDqSB1biDDum5pYyBub21icmUgZGUgZGllczogw6lzIHVuYSBmdW5jacOzLiIsICJDb21wdGUgYW1iIGVsIGNvbmp1bnQgZGUgcGFydGlkYTogc2kgZm9zc2luIFwiZWxzIG1lc29zXCIgc2Vuc2UgY29uY3JldGFyIGwnYW55LCBlbCBmZWJyZXIgdGluZHJpYSBkdWVzIGltYXRnZXMgKCQyOCQgaSAkMjkkKSBpIGxhIHJlbGFjacOzIE5PIHNlcmlhIHVuYSBmdW5jacOzLiBRdWluYSDDqXMgbGEgcmVzcG9zdGEgZGVww6huIGRlIGNvbSBlcyBkZWZpbmVpeCBlbCBkb21pbmkuIl19"
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBjb3AgZml4YXQgdW4gYW55LCBzw60gcXVlIHNlcmlhIHVuYSBmdW5jacOzLCB0YW50IHNpIMOpcyBkZSB0cmFzcMOgcyBjb20gc2kgbm8uIFBlcsOyIGwnZW51bmNpYXQgbm8gZW4gZml4YSBjYXA6IHBhcmxhIGRlbHMgbWVzb3MgZW4gZ2VuZXJhbCwgaSBwZXIgYWl4w7IgZWwgZmVicmVyIHF1ZWRhIGFtYiBkb3MgdmFsb3JzIHBvc3NpYmxlcy4iLCAiQWl4w7IgdmFsZHJpYSBzaSBsJ2VudW5jaWF0IGZpeMOpcyB1biBhbnkgY29uY3JldC4gVGFsIGNvbSBlc3TDoCwgZWwgY29uanVudCBkZSBwYXJ0aWRhIHPDs24gZWxzIGRvdHplIG1lc29zIGVuIGFic3RyYWN0ZSwgaSBlbCBmZWJyZXIgcG90IHZhbGVyICQyOCQgbyAkMjkkOiBkdWVzIGltYXRnZXMgcGVyIGEgdW4gbWF0ZWl4IGVsZW1lbnQgZGUgcGFydGlkYS4iLCAiIiwgIkVsIHZlcmVkaWN0ZSDDqXMgY29ycmVjdGUgcGVyw7IgZWwgbW90aXUgbm8uIFF1ZSBkb3MgZWxlbWVudHMgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBpbWF0Z2Ugbm8gdHJlbmNhIHJlczogdW5hIGZ1bmNpw7MgaG8gcG90IGZlci4gRWwgcXVlIG5vIHBvdCBwYXNzYXIgw6lzIHF1ZSB1biBtYXRlaXggZWxlbWVudCBlbiB0aW5ndWkgZHVlcywgaSBhaXjDsiDDqXMgZWwgcXVlIGxpIHBhc3NhIGFsIGZlYnJlci4iXSwgImVyciI6IFsiRE9NSU5JX01BTF9MTEVHSVQiLCAiRE9NSU5JX01BTF9MTEVHSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgc2VyIHVuYSBmdW5jacOzLCBjYWRhIGVsZW1lbnQgZGVsIGNvbmp1bnQgZGUgcGFydGlkYSBoYSBkZSB0ZW5pciB1bmEgaW1hdGdlIGkgbm9tw6lzIHVuYS4iLCAiRWwgZmVicmVyIGVuIHTDqSBkdWVzIGRlIHBvc3NpYmxlcywgJDI4JCBpICQyOSQsIHBlcnF1w6ggbCdlbnVuY2lhdCBubyBkaXUgZGUgcXVpbiBhbnkgcGFybGVtLiIsICJOJ2hpIGhhIHByb3UgYW1iIHVuIHNvbCBlbGVtZW50IHF1ZSBlbiB0aW5ndWkgZHVlczogbGEgcmVsYWNpw7MgTk8gw6lzIHVuYSBmdW5jacOzLiJdfQ=="
   },
   {
    "id": "200c",
@@ -382,7 +382,7 @@ window.FULL = {
    "pistes": [
     "Calcula primer el que hi ha dins l'arrel ($\\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora."
    ],
-   "nota": "Les imatges no són exactes: s'han arrodonit a les centèsimes, com demana l'encapçalament de l'exercici.",
+   "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2FycmVsIHF1YWRyYWRhIGQndW4gbm9tYnJlIHBvc2l0aXUgw6lzIHNlbXByZSBwb3NpdGl2YS4iLCAiUydoYSBlbGV2YXQgYWwgcXVhZHJhdCBlbiBsbG9jIGRlIGZlciBsJ2FycmVsOiBwZXIgZGVzZmVyIHVuYSBhcnJlbCBlcyBjYWxjdWxhIGwnYXJyZWwsIG5vIGVsIHF1YWRyYXQuIiwgIiIsICJGYWx0YSBkaXZpZGlyIGxhICR4JCBlbnRyZSAkMiQgYWJhbnMgZGUgc3VtYXIgJDUkOiBkaW5zIGRlIGwnYXJyZWwgaGkgaGEgJFxcZGZyYWN7eH17Mn0rNSQsIG5vICR4KzUkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJPUEVSQUNJT19JTlZFUlNBIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIlBlciBhIGNhZGEgdmFsb3IsIGNhbGN1bGEgJFxcZGZyYWN7eH17Mn0rNSQgaSBmZXMtbmUgbCdhcnJlbCBxdWFkcmFkYSwgYXJyb2RvbmludCBhIGxlcyBjZW50w6hzaW1lcy4iLCAiJGYoLTIpPVxcc3FydHs0fT0yeyx9MDAkLCAkZigtMSk9XFxzcXJ0ezR7LH01fVxcYXBwcm94IDJ7LH0xMiQsICRmKDApPVxcc3FydHs1fVxcYXBwcm94IDJ7LH0yNCQsICRmKDEpPVxcc3FydHs1eyx9NX1cXGFwcHJveCAyeyx9MzUkLCAkZigyKT1cXHNxcnR7Nn1cXGFwcHJveCAyeyx9NDUkLiJdfQ=="
   },
   {
@@ -1310,7 +1310,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 2,
    "encapcalament": "D'una recta se'n sap això. Escriu-ne l'equació.",
-   "enunciat": "Talla l'eix $Y$ a $-4$ i puja $3$ unitats cada vegada que avança $1$.",
+   "enunciat": "Talla l'eix d'ordenades a $-4$ i puja $3$ unitats cada vegada que avança $1$.",
    "opcions": [
     "$y=-3x-4$",
     "$y=-4x+3$",
@@ -1332,7 +1332,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 2,
    "encapcalament": "D'una recta se'n sap això. Escriu-ne l'equació.",
-   "enunciat": "Talla l'eix $Y$ a $2$ i baixa $1$ unitat cada vegada que avança $4$.",
+   "enunciat": "Talla l'eix d'ordenades a $2$ i baixa $1$ unitat cada vegada que avança $4$.",
    "opcions": [
     "$y=\\dfrac{1}{4}x+2$",
     "$y=-\\dfrac{1}{4}x-2$",
@@ -1638,7 +1638,7 @@ window.FULL = {
     "Els talls amb l'eix $X$ surten de resoldre $y=0$.",
     "El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent."
    ],
-   "nota": "Quan l'equació té una arrel doble, la paràbola no travessa l'eix $X$: només el toca, i justament al vèrtex.",
+   "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbHMgdGFsbHMgYW1iIGwnZWl4ICRYJCB0ZW5lbiBlbCBzaWduZSBjYW52aWF0LiBDb21wcm92YSdscyBzdWJzdGl0dWludC1sb3M6IGhhbiBkZSBmZXIgcXVlICR5JCB2YWxndWkgJDAkLiIsICJFbCB0YWxsIGFtYiBsJ2VpeCAkWSQgw6lzIGVsIHZhbG9yIGRlIGxhIGZ1bmNpw7MgYSAkeD0wJCwgcXVlIMOpcyBlbCB0ZXJtZSBpbmRlcGVuZGVudCB0YWwgY29tIMOpczogJDQkLiIsICIiLCAiRWxzIHRhbGxzIGFtYiBsJ2VpeCAkWCQgdGVuZW4gbGEgc2Vnb25hIGNvb3JkZW5hZGEgaWd1YWwgYSAkMCQsIG5vIGxhIHByaW1lcmE6IHPDs24gZGUgbGEgZm9ybWEgJCh4LDApJC4iXSwgImVyciI6IFsiU0lHTkVfQVJSRUxTIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyJdLCAicmVzIjogWyIkeF4yLTR4KzQ9MCQgZG9uYSAkeD0yJCIsICJUYWxscyBhbWIgJFgkOiAkKDIsMCkkIiwgIkEgJHg9MCQ6ICR5PTQkLCBvIHNpZ3VpIGVsIHB1bnQgJCgwLDQpJCJdfQ=="
   },
   {
@@ -1772,7 +1772,7 @@ window.FULL = {
     "Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.",
     "És una paràbola amb $a<0$: el punt més alt és el vèrtex."
    ],
-   "nota": "Aquest tipus de problema —muntar una funció a partir d'un enunciat i buscar-ne el màxim— és el que es fa a 1r de batxillerat amb derivades. Amb una paràbola no calen: n'hi ha prou amb el vèrtex.",
+   "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsJ8OgcmVhIG5vOiAkQSgxMCk9MTBcXGNkb3QoNDAtMjApPTEwXFxjZG90MjA9MjAwJC4iLCAiQW1iICR4PTIwJCBsJ2FsdHJlIGNvc3RhdCB2YWwgJDQwLTQwPTAkOiBubyBoaSBoYSBjb3JyYWwuIEVsICQyMCQgw6lzIHVuYSBkZSBsZXMgYXJyZWxzIGRlIGxhIHBhcsOgYm9sYSwgb24gbCfDoHJlYSB2YWwgemVybywgbm8gZWwgdsOocnRleC4iLCAiIiwgIkVsICQ0MCQgw6lzIGxhIHRhbmNhIHRvdGFsLCBubyB1biBjb3N0YXQuIEFtYiAkeD00MCQgbCdhbHRyZSBjb3N0YXQgc29ydGlyaWEgbmVnYXRpdS4iXSwgImVyciI6IFsiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiVkVSVEVYX1BFUl9BUlJFTCIsICIiLCAiREFERVNfTUFMX1RSSUFERVMiXSwgInJlcyI6IFsiJEEoeCk9NDB4LTJ4XjIkLCBvIHNpZ3VpICRhPS0yJCBpICRiPTQwJCIsICJDb20gcXVlICRhPDAkLCBsYSBwYXLDoGJvbGEgcydvYnJlIGNhcCBhdmFsbCBpIGVsIHbDqHJ0ZXggw6lzIHVuIE3DgFhJTSIsICIkeF92PVxcZGZyYWN7LTQwfXsyXFxjZG90KC0yKX09MTAkIiwgIiRBKDEwKT0xMFxcY2RvdCg0MC0yMCk9MjAwJCBtJF4yJCJdfQ=="
   }
  ]

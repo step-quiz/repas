@@ -58,15 +58,15 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Fixat el gruix de la pintura, cada mida de paret determina una única quantitat necessària: és una funció.</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">200b</span><span class="tip">tipus B · dificultat 2 (encadenada)</span></div>
-<div class="enun">Cada mes d'un any concret (per exemple, el 2025) i el seu nombre de dies.</div>
-<ol class="op"><li><span class="ok">SÍ és una funció: fixat l'any, cada mes té un únic nombre de dies, determinat pel calendari.</span> — resposta correcta</li>
-<li>NO és una funció: el febrer no sempre té el mateix nombre de dies (28 o 29, segons l'any), així que un mateix mes té més d'un valor possible.<br><span class="err">DOMINI_MAL_LLEGIT</span><span class="fb">Això seria cert si el conjunt de partida fossin els dotze mesos SENSE dir de quin any: llavors el febrer tindria dues imatges possibles i NO seria una funció. Però aquí l'any està fixat, i amb l'any fixat el febrer té un únic nombre de dies.</span></li>
-<li>NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen 30 tots dos).<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que dos mesos DIFERENTS comparteixin el mateix nombre de dies no trenca que sigui una funció: el que cal comprovar és que un mateix mes no tingui mai dos valors alhora, i això es compleix.</span></li>
-<li>Depèn: només és una funció si l'any no és de traspàs.<br><span class="err">DOMINI_MAL_LLEGIT</span><span class="fb">Tant si l'any és de traspàs com si no, un cop fixat l'any el febrer té un nombre de dies i només un ($29$ o $28$): en tots dos casos la relació és una funció.</span></li>
+<div class="enun">Cada mes de l'any i el seu nombre de dies.</div>
+<ol class="op"><li><span class="ok">NO és una funció: el febrer no sempre té el mateix nombre de dies ($28$ o $29$, segons l'any), així que un mateix mes té més d'un valor possible.</span> — resposta correcta</li>
+<li>SÍ és una funció: cada mes té un únic nombre de dies, determinat pel calendari.<br><span class="err">DOMINI_MAL_LLEGIT</span><span class="fb">Això valdria si l'enunciat fixés un any concret. Tal com està, el conjunt de partida són els dotze mesos en abstracte, i el febrer pot valer $28$ o $29$: dues imatges per a un mateix element de partida.</span></li>
+<li>NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen $30$ tots dos).<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">El veredicte és correcte però el motiu no. Que dos elements DIFERENTS comparteixin imatge no trenca res: una funció ho pot fer. El que no pot passar és que un mateix element en tingui dues, i això és el que li passa al febrer.</span></li>
+<li>Depèn: només és una funció si l'any no és de traspàs.<br><span class="err">DOMINI_MAL_LLEGIT</span><span class="fb">Un cop fixat un any, sí que seria una funció, tant si és de traspàs com si no. Però l'enunciat no en fixa cap: parla dels mesos en general, i per això el febrer queda amb dos valors possibles.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si algun mes d'aquell any podria tenir dos nombres de dies diferents alhora.</li><li>Fixa't en què és exactament el conjunt de partida: els mesos d'un any determinat, no "els mesos" en abstracte.</li></ol>
-<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Fixat l'any, cada mes té un únic nombre de dies: és una funció.</li><li>Compte amb el conjunt de partida: si fossin "els mesos" sense concretar l'any, el febrer tindria dues imatges ($28$ i $29$) i la relació NO seria una funció. Quina és la resposta depèn de com es defineix el domini.</li></ol>
-<p class="nota"><strong>Nota:</strong> L'enunciat original diu només "cada mes de l'any". Aquí s'hi ha afegit "d'un any concret" perquè, sense fixar l'any, el febrer té dues imatges possibles ($28$ i $29$ dies) i la relació NO seria una funció: tal com estava, l'exercici no tenia una resposta única.</p>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova si algun mes podria tenir dos nombres de dies diferents.</li><li>Fixa't en què és exactament el conjunt de partida: els dotze mesos, sense dir de quin any.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per ser una funció, cada element del conjunt de partida ha de tenir una imatge i només una.</li><li>El febrer en té dues de possibles, $28$ i $29$, perquè l'enunciat no diu de quin any parlem.</li><li>N'hi ha prou amb un sol element que en tingui dues: la relació NO és una funció.</li></ol>
+<p class="nota"><strong>Nota interna (no es publica):</strong> L'enunciat original diu «cada mes de l'any» i es manté així. Una versió anterior hi afegia «d'un any concret» per fer-la determinista, cosa que convertia la resposta en SÍ i esborrava justament el cas que l'exercici vol que es reconegui.</p>
 </div>
 <div class="it"><div class="cap"><span class="cod">200c</span><span class="tip">tipus B · dificultat 2 (encadenada)</span></div>
 <div class="enun">El radi d'una circumferència i la longitud del seu perímetre.</div>
@@ -150,7 +150,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer el que hi ha dins l'arrel ($\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Per a cada valor, calcula $\dfrac{x}{2}+5$ i fes-ne l'arrel quadrada, arrodonint a les centèsimes.</li><li>$f(-2)=\sqrt{4}=2{,}00$, $f(-1)=\sqrt{4{,}5}\approx 2{,}12$, $f(0)=\sqrt{5}\approx 2{,}24$, $f(1)=\sqrt{5{,}5}\approx 2{,}35$, $f(2)=\sqrt{6}\approx 2{,}45$.</li></ol>
-<p class="nota"><strong>Nota:</strong> Les imatges no són exactes: s'han arrodonit a les centèsimes, com demana l'encapçalament de l'exercici.</p>
 </div>
 <div class="it"><div class="cap"><span class="cod">202d</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
 <div class="enun">$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$</div>
@@ -474,7 +473,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 297.</strong> D&#x27;una recta se&#x27;n sap això. Escriu-ne l&#x27;equació.</p>
 <div class="it"><div class="cap"><span class="cod">297a</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
-<div class="enun">Talla l'eix $Y$ a $-4$ i puja $3$ unitats cada vegada que avança $1$.</div>
+<div class="enun">Talla l'eix d'ordenades a $-4$ i puja $3$ unitats cada vegada que avança $1$.</div>
 <ol class="op"><li><span class="ok">$y=3x-4$</span> — resposta correcta</li>
 <li>$y=-4x+3$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Has intercanviat el pendent i l'ordenada a l'origen. El pendent és el que multiplica la $x$; l'ordenada, el terme que va sol.</span></li>
 <li>$y=-3x-4$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: si la recta puja, el pendent és positiu; si baixa, negatiu.</span></li>
@@ -484,7 +483,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Pendent: $m=3$</li><li>Ordenada a l'origen: $n=-4$</li><li>$y=3x-4$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">297b</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
-<div class="enun">Talla l'eix $Y$ a $2$ i baixa $1$ unitat cada vegada que avança $4$.</div>
+<div class="enun">Talla l'eix d'ordenades a $2$ i baixa $1$ unitat cada vegada que avança $4$.</div>
 <ol class="op"><li><span class="ok">$y=-\dfrac{1}{4}x+2$</span> — resposta correcta</li>
 <li>$y=2x-\dfrac{1}{4}$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">Has intercanviat el pendent i l'ordenada a l'origen. El pendent és el que multiplica la $x$; l'ordenada, el terme que va sol.</span></li>
 <li>$y=\dfrac{1}{4}x+2$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent té el signe canviat: si la recta puja, el pendent és positiu; si baixa, negatiu.</span></li>
@@ -637,7 +636,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els talls amb l'eix $X$ surten de resoldre $y=0$.</li><li>El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2-4x+4=0$ dona $x=2$</li><li>Talls amb $X$: $(2,0)$</li><li>A $x=0$: $y=4$, o sigui el punt $(0,4)$</li></ol>
-<p class="nota"><strong>Nota:</strong> Quan l'equació té una arrel doble, la paràbola no travessa l'eix $X$: només el toca, i justament al vèrtex.</p>
 </div>
 <p class="sec"><strong>Exercici 302.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">302a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
@@ -703,7 +701,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.</li><li>És una paràbola amb $a<0$: el punt més alt és el vèrtex.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A(x)=40x-2x^2$, o sigui $a=-2$ i $b=40$</li><li>Com que $a<0$, la paràbola s'obre cap avall i el vèrtex és un MÀXIM</li><li>$x_v=\dfrac{-40}{2\cdot(-2)}=10$</li><li>$A(10)=10\cdot(40-20)=200$ m$^2$</li></ol>
-<p class="nota"><strong>Nota:</strong> Aquest tipus de problema —muntar una funció a partir d'un enunciat i buscar-ne el màxim— és el que es fa a 1r de batxillerat amb derivades. Amb una paràbola no calen: n'hi ha prou amb el vèrtex.</p>
 </div>
 <h2>Funcions quadràtiques <span class="tip">· 13 preguntes</span></h2>
 <p class="sec"><strong>Exercici 212.</strong> Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.</p>

@@ -190,7 +190,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 1,
    "encapcalament": "Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.",
-   "enunciat": "La talla de l'alumnat d'un IES.",
+   "enunciat": "La talla de l'alumnat d'un institut de Secundària.",
    "opcions": [
     "Variable quantitativa contínua; s'estudia tota la població (un IES té un nombre d'alumnes petit i accessible)",
     "Variable quantitativa contínua; s'estudia una mostra, perquè mesurar tothom seria massa feina",
@@ -1073,7 +1073,7 @@ window.FULL = {
    "enunciat": "Quin angle ocupa el sector corresponent al xai en el gràfic de sectors?",
    "opcions": [
     "$144^\\circ$",
-    "$12$ persones",
+    "$12^\\circ$",
     "$120^\\circ$",
     "$40^\\circ$"
    ],
@@ -1293,7 +1293,7 @@ window.FULL = {
    "enunciat": "En quin percentatge de mesos es va llogar la pista MÉS de $80$ vegades?",
    "opcions": [
     "$41{,}7\\,\\%$",
-    "$6$",
+    "$6\\,\\%$",
     "$80\\,\\%$",
     "$50\\,\\%$"
    ],
@@ -1597,7 +1597,7 @@ window.FULL = {
    "bloc": "centralitzacio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "encapcalament": "En un grup d'alumnes s'ha comptat quants viatges ha fet cadascun. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
    "enunciat": "La mitjana de viatges per alumne.",
    "opcions": [
     "$3$",
@@ -1619,7 +1619,7 @@ window.FULL = {
    "bloc": "centralitzacio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "encapcalament": "En un grup d'alumnes s'ha comptat quants viatges ha fet cadascun. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
    "enunciat": "La mediana.",
    "opcions": [
     "$\\dfrac{71}{20}$",
@@ -1641,7 +1641,7 @@ window.FULL = {
    "bloc": "centralitzacio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Torna a l'exercici 222, el dels viatges que ha fet cada alumne. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
+   "encapcalament": "En un grup d'alumnes s'ha comptat quants viatges ha fet cadascun. La taula de freqüències és: $x_i=1$ amb $f_i=1$, $x_i=2$ amb $f_i=3$, $x_i=3$ amb $f_i=7$, $x_i=4$ amb $f_i=4$, $x_i=5$ amb $f_i=3$, $x_i=6$ amb $f_i=2$. Calcula, a partir de la taula:",
    "enunciat": "La moda.",
    "opcions": [
     "$7$",
