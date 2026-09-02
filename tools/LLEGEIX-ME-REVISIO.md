@@ -7,6 +7,7 @@
 > **diff-05** (2026-09-01): `_forma.py` i `_contradiu.py` nous.
 > **diff-06** (2026-09-01): `_contradiu.py` passa d'una comprovació a quatre.
 > **diff-07** (2026-09-01): `_etiquetes.py` nou.
+> **diff-08** (2026-09-01): `_comprova_grafiques.py` corregit i ampliat.
 
 ## Fitxer MODIFICAT (1)
 
@@ -50,7 +51,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_forma.py` **(diff-05)** | la forma dibuixada contra la que anomena l'enunciat | 84 comprovades, 2 xocs |
 | `_contradiu.py` **(diff-06)** | quatre comprovacions de dibuix i encapçalament contra dades | 6 + 4 + 2 + 1 xocs |
 | `_etiquetes.py` **(diff-07)** | etiqueta a la cota d'un altre objecte · marca vermella fora de la incògnita | 1 + 5 xocs |
-| `_comprova_grafiques.py` | la corba dibuixada contra la fórmula del `<title>` | 19/19 correctes |
+| `_comprova_grafiques.py` **(diff-08)** | corba contra fórmula · el tret demanat és al dibuix | 21/21 · 1 xoc |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
 
@@ -304,6 +305,45 @@ La de `169` fa 21,9 u, i per això aquella sí que es conservava.
 `_cotes.LLARG_MINIM` és una variable de mòdul: es guarda i es torna a deixar
 com estava, perquè importar `_etiquetes` no canviï el comportament de
 `_cotes` per a qui el faci servir després.
+
+## Novetat del diff-08: `_comprova_grafiques.py` corregit i ampliat
+
+### Un error meu que va estar a punt de convertir-se en una troballa falsa
+
+A `203a` la meva extracció donava dos punts consecutius a **(1,794 · −5)** i
+**(2,206 · +5)**, i vaig concloure que hi havia una recta travessant
+l'asímptota `x = 2` i passant per `y = 0` — cosa que contradiria la resposta
+dues vegades. **Vaig obrir la imatge i és falsa.**
+
+El `d` del `<path>` conté **dos `M`**: la ploma s'aixeca entre les dues
+branques. La meva funció ignorava les lletres de comanda i aparellava tots
+els números, o sigui que fusionava els subtraçats. Al banc només hi ha dos
+casos (`151` i `203a`), però qualsevol comprovació sobre continuïtat o domini
+hi cauria. Ara cada `M` obre una corba nova.
+
+### Marques d'eix decimals
+
+El patró només acceptava enters, i `216b`, `216c`, `209a` i `209c` quedaven
+sense verificar. Admetent «0,5», la comprovació passa de **19 a 21 gràfiques,
+21/21 correctes**.
+
+### B · El tret que l'exercici demana és al dibuix
+
+`299b` diu «Troba el punt de tall de les dues rectes», la resposta és
+**(2, 4)** i les rectes van dibuixades només fins a `x = 1,6`: **al dibuix no
+es creuen mai**. La comprovació A no ho veu, perquè totes dues rectes sí que
+encaixen amb la seva fórmula. El que falla no és el que s'ha dibuixat sinó
+fins on.
+
+**Una regla que vaig haver de treure.** Hi vaig posar també els valors de
+«calcula la imatge dels valors x = …», i en sortien sis a `201a`. **No ho
+és**: allà l'enunciat dona la fórmula i les imatges es calculen, no es
+llegeixen del dibuix. Que la paràbola només es vegi entre −1 i 1 fa la figura
+poc útil, però no contradiu res.
+
+El criteri que queda és estret a propòsit: **només trets que el dibuix
+contradiria si no hi fossin**. Dues rectes pintades sense tocar-se són una
+afirmació visual que no es tallen.
 
 ## Què NO hi ha
 
