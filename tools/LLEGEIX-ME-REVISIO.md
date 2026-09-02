@@ -8,6 +8,7 @@
 > **diff-06** (2026-09-01): `_contradiu.py` passa d'una comprovació a quatre.
 > **diff-07** (2026-09-01): `_etiquetes.py` nou.
 > **diff-08** (2026-09-01): `_comprova_grafiques.py` corregit i ampliat.
+> **diff-09** (2026-09-02): `_opcions.py` nou.
 
 ## Fitxer MODIFICAT (1)
 
@@ -52,6 +53,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_contradiu.py` **(diff-06)** | quatre comprovacions de dibuix i encapçalament contra dades | 6 + 4 + 2 + 1 xocs |
 | `_etiquetes.py` **(diff-07)** | etiqueta a la cota d'un altre objecte · marca vermella fora de la incògnita | 1 + 5 xocs |
 | `_comprova_grafiques.py` **(diff-08)** | corba contra fórmula · el tret demanat és al dibuix | 21/21 · 1 xoc |
+| `_opcions.py` **(diff-09)** | tres indicis que delaten la resposta | 130 ítems (15 % del banc) |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
 
@@ -344,6 +346,50 @@ poc útil, però no contradiu res.
 El criteri que queda és estret a propòsit: **només trets que el dibuix
 contradiria si no hi fossin**. Dues rectes pintades sense tocar-se són una
 afirmació visual que no es tallen.
+
+## Novetat del diff-09: `_opcions.py`
+
+És l'única eina del conjunt que **no toca cap figura**: es calcula del banc
+directament, va en un segon, i es pot passar a cada canvi.
+
+Tres indicis que permeten encertar sense saber el tema:
+
+| prova | ítems | on |
+|---|---|---|
+| **A** · la correcta és l'única amb el seu prefix (sí/no) | 21 | fulls 1, 6, 7, 8, 12 |
+| **B** · la correcta és l'única sense explicació | 49 | full 12 (45), full 1 (4) |
+| **C** · la correcta és la més llarga | 69 | full 11 (29), full 12 (15), full 2 (9) |
+| **algun dels tres** | **130** | **15 % del banc** |
+
+Concentració per full: **full 12 al 63 %** i **full 11 al 32 %**. La resta va
+per sota del 12 %.
+
+I una xifra que val la pena tenir: sobre els 185 ítems amb opcions de text,
+**triar sempre la més llarga encerta el 39 %**, contra el 25 % de l'atzar.
+
+### El patró va al revés segons el full
+
+Al **full 12** les tres opcions dolentes porten una clàusula que descriu
+l'error i la bona va pelada. Al **full 11** és a l'inrevés: la correcta és
+l'única que ve amb justificació i les dolentes són classificacions seques.
+El generador no és consistent sobre quin costat rep la prosa, però en tots
+dos casos la correcta es distingeix per la forma.
+
+Cap dels tres és un error de contingut: totes les respostes són correctes i
+els distractors modelen errors reals. El problema és que l'exercici deixa de
+mesurar el que vol mesurar.
+
+### Dos errors meus dins d'aquesta eina
+
+**El `(positiu|malalt)` de LaTeX.** La primera versió de B buscava parèntesis
+amb text llarg a dins, i la notació matemàtica li encaixava: donava per
+«explicada» una opció pelada i `319` quedava fora. Traient els trams `$…$`
+abans de mesurar, el recompte va de 19 a 45. Qualsevol mesura sobre el text
+d'una opció ha de descartar primer les fórmules.
+
+**Un `try/except` que amagava un error.** La prova C donava **0 ítems** i em
+semblava plausible. Era una línia mal escrita, i el `except` se la menjava.
+Sense el `try`, peta i es veu: en dona 69. L'eina ja no en té cap.
 
 ## Què NO hi ha
 
