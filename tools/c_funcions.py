@@ -105,8 +105,27 @@ def dec_tex(v, dec=2):
 
 
 def punt_tex(x, y):
-    """'(x,y)' per a un punt de coordenades exactes, sense $...$."""
-    return r"(%s,\ %s)" % (frac_tex(x), frac_tex(y))
+    """'(x,y)' per a un punt de coordenades exactes, sense $...$.
+
+    Els parèntesis van amb `\\left(` i `\\right)` sempre que alguna de les
+    dues coordenades sigui una fracció. Escrits com a `(` i `)` normals,
+    KaTeX els compon a l'alçada d'una lletra i no creixen: al costat d'un
+    `\\dfrac` queden a mitja alçada i sembla que només n'abastin el
+    numerador, de manera que `(\\dfrac23,\\ 0)` no es llegeix com un punt.
+
+    És el mateix defecte que ja es va corregir a les bases de potència
+    (vegeu `pot()` a `c_potencies.py`), però aquell arranjament només
+    tocava les potències i aquests parells de coordenades van per una
+    altra banda: afecta els talls, l'eix de simetria i el vèrtex de
+    l'exercici 216.
+
+    Quan totes dues coordenades són enteres no cal: els parèntesis normals
+    ja hi van bé i `\\left(...\\right)` només afegiria soroll al LaTeX.
+    """
+    fx, fy = frac_tex(x), frac_tex(y)
+    if "\\dfrac" in fx or "\\dfrac" in fy:
+        return r"\left(%s,\ %s\right)" % (fx, fy)
+    return r"(%s,\ %s)" % (fx, fy)
 
 
 def mn_tex(m, n):
