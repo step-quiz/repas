@@ -74,7 +74,10 @@ Q("101", 101, "", B1, "A",
      "Has fet servir la regla de tres al revés: a MÉS persones els "
      "correspon MÉS salmó, no menys. Planteja "
      "$\\frac{6}{240}=\\frac{8}{x}$, no la fracció invertida."),
-   D("$7\\,\\dfrac{1}{2}$ g", "PRODUCTE_MAL",
+   # Fracció impròpia, no nombre mixt: la notació $7\\,\\frac12$ no
+   # s'ensenya a l'escola a Catalunya i l'alumne no la reconeix com un
+   # nombre.
+   D("$\\dfrac{15}{2}$ g", "PRODUCTE_MAL",
      "Sembla que has calculat $240:8\\cdot6$ o similar; el que cal és "
      "$\\dfrac{240\\cdot8}{6}$: la quantitat de salmó creix amb el "
      "nombre de persones, no en el sentit contrari."),
@@ -97,7 +100,9 @@ Q("102", 102, "", B1, "A",
   "pintura cada un, però ara només venen pots de 3 kg. Quants pots de "
   "pintura necessita per tornar-la a pintar?",
   "$8$ pots",
-  [D("$4\\,\\dfrac{1}{2}$ pots", "CREUAMENT_INVERTIT",
+  # Mateix motiu que a l'ítem anterior: fracció impròpia en comptes de
+  # nombre mixt.
+  [D("$\\dfrac{9}{2}$ pots", "CREUAMENT_INVERTIT",
      "Has plantejat la proporció com si fos directa. Aquí la mida del "
      "pot i el nombre de pots són INVERSAMENT proporcionals: a pots "
      "més petits, en calen més, no menys."),

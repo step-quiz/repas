@@ -841,10 +841,10 @@ Q("164", 164, "", B4, "A",
 
 # ---- exercici 165: alçada de la pilota a mig recorregut (trajectòria
 # simplificada com a segment rectilini; vegeu nota de transcripció) ----
-NOTA165 = ("L'enunciat de partida porta una figura amb la trajectòria corba "
-           "de la pilota; aquí es considera una trajectòria recta entre la mà "
-           "del jugador i la cistella, que és el que permeten les eines de "
-           "semblança.")
+# La nota visible d'aquest ítem s'ha suprimit: explicava que la trajectòria
+# de la pilota s'idealitza a una recta. La simplificació queda documentada a
+# `NOTA165_INT`, que és interna i no la veu l'alumne, de manera que el motiu
+# no es perd encara que el text ja no surti a l'enunciat.
 NOTA165_INT = ("Simplificació ja explicitada a la nota de transcripció "
                "d'im9.tex.")
 
@@ -878,7 +878,7 @@ Q("165", 165, "", B4, "A",
   [r"Diferència d'altura: $3{,}05-1{,}9=1{,}15$ m",
    r"$x=1{,}9+\dfrac{1{,}15}{2}=1{,}9+0{,}575$",
    "$x=2{,}475$ m"],
-  ex_text="", nota=NOTA165, nota_interna=NOTA165_INT)
+  ex_text="", nota_interna=NOTA165_INT)
 
 
 # ---- exercici 166: reflex d'una muntanya al riu ----

@@ -312,10 +312,9 @@ Q("281b", 281, "b", B2, "B",
    "Ordre 2: $650\\cdot1{,}21\\cdot0{,}88$",
    "Són el mateix producte: $%s$ € en tots dos casos" % texd(_final281, 2)],
   ex_text=E281,
-  nota="Compte: això val quan totes dues variacions es fan sobre la MATEIXA "
-       "base encadenada. Si el descompte fos sobre el preu sense IVA i l'IVA "
-       "es calculés sempre sobre el preu de tarifa, ja no serien factors "
-       "encadenats i sí que canviaria.")
+  # Sense nota: matisava quan val la regla de les variacions
+  # encadenades. El matís s'explica a la resolució, que és on toca.
+  )
 
 
 # =============================================================== Exercici 282
@@ -356,9 +355,9 @@ Q("282b", 282, "b", B2, "A",
    "Multiplica els interessos d'un any pel nombre d'anys."],
   ["$I=2400\\cdot0{,}03\\cdot5=360$ €"],
   ex_text=E282,
-  nota="Interès SIMPLE vol dir que els interessos no es reinverteixen: cada "
-       "any es calculen sempre sobre el capital inicial. Si es reinvertissin "
-       "(interès compost), en $5$ anys no serien $360$ € sinó uns $382$ €.")
+  # Sense nota: recordava què vol dir interès SIMPLE. Si l'alumne no ho
+  # sap, ho ha de buscar; si ho sap, la nota li ocupa lloc.
+  )
 
 
 # =============================================================== Exercici 283
@@ -432,7 +431,7 @@ Q("284", 284, "", B2, "A",
    "Amb factors es veu d'un cop: $1{,}2\\cdot0{,}8=0{,}96$, o sigui un "
    "$4\\,\\%$ de baixada neta"],
   ex_text="",
-  nota="Aquest exercici i el 280 diuen el mateix des de dos costats: els "
-       "percentatges no se sumen ni es compensen, perquè cadascun es calcula "
-       "sobre una base diferent. Pujar i baixar el mateix tant per cent "
-       "SEMPRE deixa el preu per sota del de partida.")
+  # Sense nota: comentava que aquest exercici i el 280 diuen el mateix
+  # des de dos costats. És una observació per al professorat, no per
+  # a qui està resolent l'exercici.
+  )

@@ -212,9 +212,9 @@ Q("289", 289, "", B1, "A",
    "$960000$ cm $=9{,}6$ km",
    "$t=\\dfrac{9{,}6}{24}=0{,}4$ h $=0{,}4\\cdot60=24$ min"],
   ex_text="",
-  nota="Aquest exercici encadena escala, canvi d'unitats i velocitat: és el "
-       "format en què les escales apareixen de debò fora de la classe de "
-       "matemàtiques.")
+  # Sense nota: descrivia el format en què les escales apareixen a les
+  # proves. No ajuda a resoldre l'exercici.
+  )
 
 
 # =============================================================== Exercici 290

@@ -699,7 +699,7 @@ window.FULL = {
     "A mig recorregut, la pilota ha pujat la meitat de la diferència total d'altura entre el llançament i la cistella.",
     "Calcula primer la diferència d'altures ($3{,}05-1{,}9$) i suma'n la meitat a l'altura inicial."
    ],
-   "nota": "L'enunciat de partida porta una figura amb la trajectòria corba de la pilota; aquí es considera una trajectòria recta entre la mà del jugador i la cistella, que és el que permeten les eines de semblança.",
+   "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIGxhIG1laXRhdCBkZSAkM3ssfTA1JCBtOiBubyB0w6kgZW4gY29tcHRlIHF1ZSBsYSBwaWxvdGEgamEgcGFydGVpeCBkJ3VuYSBhbHR1cmEgaW5pY2lhbCBkJyQxeyx9OSQgbSwgbm8gZGUgdGVycmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIHN1bWFyIGxlcyBkdWVzIGFsdHVyZXMgaSBkaXZpZGlyLWxlcyBlbnRyZSAkMiQ6IGNvbSBxdWUgbGEgcGlsb3RhIHB1amEgZGVzIGQnJDF7LH05JCBtLCBjYWwgc3VtYXItaGkgTk9Nw4lTIGxhIG1laXRhdCBkZSBsYSBkaWZlcsOobmNpYSwgbm8gZmVyIGxhIG1pdGphbmEgYXJpdG3DqHRpY2EgZGlyZWN0YSAocXVlIHBlciBhcXVlc3QgY2FzIGRvbmEgZWwgbWF0ZWl4IHJlc3VsdGF0IHBlcsOyIHBlbCBtb3RpdSBlcXVpdm9jYXQ7IGNvbXByb3ZhLWhvIGFtYiBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMpLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezN7LH0wNX17Mn0tXFxmcmFjezF7LH05fXsyfSQ6IGNhbCBwYXJ0aXIgZGUgbCdhbHR1cmEgaW5pY2lhbCAoJDF7LH05JCBtKSBpIHN1bWFyLWhpIGxhIE1FSVRBVCBkZSBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMsIG5vIGNhbGN1bGFyIGxhIG1laXRhdCBkZSBjYWRhIGFsdHVyYSBwZXIgc2VwYXJhdC4iLCAiIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJBUklUTUVUSUNBX1BBU19JTlRFUk1FREkiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhIGQnYWx0dXJhOiAkM3ssfTA1LTF7LH05PTF7LH0xNSQgbSIsICIkeD0xeyx9OStcXGRmcmFjezF7LH0xNX17Mn09MXssfTkrMHssfTU3NSQiLCAiJHg9MnssfTQ3NSQgbSJdfQ=="
   },
   {
@@ -1172,7 +1172,7 @@ window.FULL = {
     "Troba primer la distància real en quilòmetres.",
     "Després, temps $=\\dfrac{\\text{distància}}{\\text{velocitat}}$, i passa'l a minuts."
    ],
-   "nota": "Aquest exercici encadena escala, canvi d'unitats i velocitat: és el format en què les escales apareixen de debò fora de la classe de matemàtiques.",
+   "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXM6IGVsIHRlbXBzIMOpcyAkXFxkZnJhY3tcXHRleHR7ZGlzdMOgbmNpYX19e1xcdGV4dHt2ZWxvY2l0YXR9fSQsIG5vIGEgbCdpbnJldsOpcy4iLCAiIiwgIkFxdWVzdGEgw6lzIGxhIGRpc3TDoG5jaWEgcmVhbCwgcXVlIMOpcyBlbCBwcmltZXIgcGFzLiBFbmNhcmEgZmFsdGEgY2FsY3VsYXIgZWwgdGVtcHM6ICRcXGRmcmFjezl7LH02fXsyNH0kIGguIiwgIkVsIHRlbXBzIGVuIGhvcmVzIMOpcyAkMHssfTQkLCBpICQweyx9NCQgaCBubyBzw7NuICQ0JCBtaW4gc2luw7MgJDB7LH00XFxjZG90NjA9MjQkIG1pbi4iXSwgImVyciI6IFsiSU5WRVJUSURBIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJQT1RFTkNJQV8xMCJdLCAicmVzIjogWyIkNnssfTRcXGNkb3QxNTAwMDA9OTYwXFwsMDAwJCBjbSIsICIkOTYwMDAwJCBjbSAkPTl7LH02JCBrbSIsICIkdD1cXGRmcmFjezl7LH02fXsyNH09MHssfTQkIGggJD0weyx9NFxcY2RvdDYwPTI0JCBtaW4iXX0="
   },
   {

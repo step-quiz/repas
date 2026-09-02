@@ -130,7 +130,7 @@ window.FULL = {
     "$180$ g",
     "$300$ g",
     "$320$ g",
-    "$7\\,\\dfrac{1}{2}$ g"
+    "$\\dfrac{15}{2}$ g"
    ],
    "pistes": [
     "Persones i quantitat de salmó són magnituds directament proporcionals: a més persones, més salmó.",
@@ -150,7 +150,7 @@ window.FULL = {
    "enunciat": "En Carles va pintar la seva habitació amb 6 pots, de 4 kg de pintura cada un, però ara només venen pots de 3 kg. Quants pots de pintura necessita per tornar-la a pintar?",
    "opcions": [
     "$18$ pots",
-    "$4\\,\\dfrac{1}{2}$ pots",
+    "$\\dfrac{9}{2}$ pots",
     "$2$ pots",
     "$8$ pots"
    ],
@@ -1060,7 +1060,7 @@ window.FULL = {
     "Escriu les dues operacions com un producte de factors.",
     "La multiplicació, canvia si en canvies l'ordre?"
    ],
-   "nota": "Compte: això val quan totes dues variacions es fan sobre la MATEIXA base encadenada. Si el descompte fos sobre el preu sense IVA i l'IVA es calculés sempre sobre el preu de tarifa, ja no serien factors encadenats i sí que canviaria.",
+   "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2Fycm9kb25pbWVudCBwb3QgbW91cmUgYWxndW4gY8OobnRpbSwgcGVyw7IgbGEgcHJlZ3VudGEgw6lzIHNvYnJlIGVsIGPDoGxjdWw6IGFtYiBmYWN0b3JzLCBsJ29yZHJlIG5vIGhpIGZhIHJlcy4iLCAiRWwgZGVzY29tcHRlIHMnYXBsaWNhcmlhIHNvYnJlIHVuYSBxdWFudGl0YXQgbcOpcyBncmFuLCBzw60sIHBlcsOyIHRhbWLDqSBzZXJpYSB1biBkZXNjb21wdGUgbcOpcyBncmFuLiBFbCBwcm9kdWN0ZSBubyBkZXDDqG4gZGUgbCdvcmRyZTogJDY1MFxcY2RvdDB7LH04OFxcY2RvdDF7LH0yMT02NTBcXGNkb3Qxeyx9MjFcXGNkb3Qweyx9ODgkLiIsICIiLCAiTGEgbXVsdGlwbGljYWNpw7Mgw6lzIGNvbW11dGF0aXZhOiBjYW52aWFyIGwnb3JkcmUgZGVscyBmYWN0b3JzIG5vIGNhbnZpYSBlbCByZXN1bHRhdC4iXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiT1JEUkVfREVMU19GQUNUT1JTIiwgIiIsICJPUkRSRV9ERUxTX0ZBQ1RPUlMiXSwgInJlcyI6IFsiT3JkcmUgMTogJDY1MFxcY2RvdDB7LH04OFxcY2RvdDF7LH0yMSQiLCAiT3JkcmUgMjogJDY1MFxcY2RvdDF7LH0yMVxcY2RvdDB7LH04OCQiLCAiU8OzbiBlbCBtYXRlaXggcHJvZHVjdGU6ICQ2OTJ7LH0xMiQg4oKsIGVuIHRvdHMgZG9zIGNhc29zIl19"
   },
   {
@@ -1104,7 +1104,7 @@ window.FULL = {
     "Amb interès simple, cada any genera el mateix que el primer.",
     "Multiplica els interessos d'un any pel nombre d'anys."
    ],
-   "nota": "Interès SIMPLE vol dir que els interessos no es reinverteixen: cada any es calculen sempre sobre el capital inicial. Si es reinvertissin (interès compost), en $5$ anys no serien $360$ € sinó uns $382$ €.",
+   "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBmZXQgZWwgJDQ1XFwsXFwlJC4gQ2luYyBhbnlzIGFsICQzXFwsXFwlJCBzw7NuIHVuICQxNVxcLFxcJSQgZW4gdG90YWwsIG5vIHVuICQ0NVxcLFxcJSQuIiwgIkFpeMOyIMOpcyBpbnRlcsOocyBDT01QT1NULCBxdWUgw6lzIHF1YW4gZWxzIGludGVyZXNzb3MgZ2VuZXJlbiBtw6lzIGludGVyZXNzb3MuIEFtYiBpbnRlcsOocyBzaW1wbGUsIGNhZGEgYW55IGVzIGdlbmVyYSBlbCBtYXRlaXg6ICQ3MlxcY2RvdDUkLiIsICJBcXVlc3Qgw6lzIGVsIGNhcGl0YWwgZmluYWwgKCQyNDAwKzM2MCQpLCBubyBlbHMgaW50ZXJlc3Nvcy4iLCAiIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX01BTF9DQUxDVUxBVCIsICJTSU1QTEVfUEVSX0NPTVBPU1QiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiIl0sICJyZXMiOiBbIiRJPTI0MDBcXGNkb3Qweyx9MDNcXGNkb3Q1PTM2MCQg4oKsIl19"
   },
   {
@@ -1170,7 +1170,7 @@ window.FULL = {
     "Calcula el preu després de la pujada.",
     "Aplica la baixada sobre AQUEST preu nou, no sobre el de partida."
    ],
-   "nota": "Aquest exercici i el 280 diuen el mateix des de dos costats: els percentatges no se sumen ni es compensen, perquè cadascun es calcula sobre una base diferent. Pujar i baixar el mateix tant per cent SEMPRE deixa el preu per sota del de partida.",
+   "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkMjBcXCxcXCUkIGRlIHB1amFkYSBlcyBjYWxjdWxhIHNvYnJlICQ1MDAkICgkKzEwMCQg4oKsKSwgcGVyw7IgZWwgJDIwXFwsXFwlJCBkZSBiYWl4YWRhIGVzIGNhbGN1bGEgc29icmUgJDYwMCQgKCQtMTIwJCDigqwpLiBDb20gcXVlIGxlcyBiYXNlcyBzw7NuIGRpZmVyZW50cywgbm8gZXMgY29tcGVuc2VuLiIsICIiLCAiRWwgcHJldSBmaW5hbCDDqXMgbcOpcyBCQUlYIHF1ZSBlbCBkZSBwYXJ0aWRhLCBubyBtw6lzIGFsdDogbGEgYmFpeGFkYSBzJ2FwbGljYSBzb2JyZSB1bmEgcXVhbnRpdGF0IG3DqXMgZ3JhbiBxdWUgbGEgcHVqYWRhLiIsICJTZW1ibGEgcXVlIGhhcyByZXN0YXQgdW4gJDIwXFwsXFwlJCBkZWwgcHJldSBvcmlnaW5hbC4gTGEgYmFpeGFkYSDDqXMgc29icmUgJDYwMCQg4oKsLCBubyBzb2JyZSAkNTAwJCDigqwuIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFU19TVU1BVFMiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJQRVJDRU5UQVRHRVNfU1VNQVRTIl0sICJyZXMiOiBbIiQ1MDBcXGNkb3Qxeyx9Mj02MDAkIOKCrCIsICIkNjAwXFxjZG90MHssfTg9NDgwJCDigqwiLCAiQW1iIGZhY3RvcnMgZXMgdmV1IGQndW4gY29wOiAkMXssfTJcXGNkb3Qweyx9OD0weyx9OTYkLCBvIHNpZ3VpIHVuICQ0XFwsXFwlJCBkZSBiYWl4YWRhIG5ldGEiXX0="
   }
  ]
