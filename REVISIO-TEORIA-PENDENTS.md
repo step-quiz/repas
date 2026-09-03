@@ -2,65 +2,72 @@
 
 Acompanya el `repas-diff-11`, que arregla **28 fitxes** on la destinació era
 demostrablement equivocada i hi havia una destinació millor **ja present al
-mapa**. Aquí queda el que no es pot tancar sense veure el llibre, més tres
-afirmacions que hem hagut de descartar.
+mapa**.
+
+Una segona tanda n'ha tocat **22 més**, aquestes sense poder-les verificar del
+tot: els cinc cilindres del full 9 (§1), les disset de dispersió del full 11
+(§2, on el que s'ha tret és el rètol fals, no la destinació) i l'enunciat trencat
+de la `284` (§8). Les dues primeres porten al `nota` de `teoria.json` la
+comprovació concreta que les tanca.
+
+Aquí queda el que segueix obert, més tres afirmacions que hem hagut de descartar.
 
 ---
 
-## 1 · Els cilindres del full 9 — 5 fitxes
+## 1 · Els cilindres del full 9 — 5 fitxes · **APLICAT, a confirmar**
 
-`9:cossos_rodons` va a **«Con, esfera i l'efecte de la raó»** (3r ESO · U3 ·
+`9:cossos_rodons` anava a **«Con, esfera i l'efecte de la raó»** (3r ESO · U3 ·
 A5), i el bloc es diu *«Cilindres, cons i l'esfera»*. Cinc fitxes són de
-cilindres i reben una activitat que no els anomena: `184`, `185a`, `185b`,
+cilindres i rebien una activitat que no els anomena: `184`, `185a`, `185b`,
 **`186`** i `187`.
 
-**Compte amb l'argument fàcil.** Es podria dir que el repositori ja s'hi
+S'han mogut a l'A4 amb quatre regles d'exercici (`184`, `185`, `186`, `187`).
+Les de con i esfera (`188`–`191`) i les mixtes (`193a`, `193b`) es queden a l'A5.
+
+**Sobre què ho sustenta, i què no.** Es va argumentar que el repositori ja s'hi
 contradiu, perquè el volum d'un cilindre (`195c`) va a l'A4 i l'àrea a l'A5.
-Però això passa amb els tres cossos:
+Aquest argument és **fals** i no s'ha de tornar a fer servir: el repartiment és
+àrea contra volum i és consistent per als tres cossos.
 
 | cos | àrea | volum |
 |---|---|---|
-| cilindre | `184`–`187` → **A5** | `195c` → **A4** |
-| con | `188`–`190` → **A5** | `195e` → **A4** |
-| esfera | `191` → **A5** | `199` → **A4** |
+| cilindre | `184`–`187` → A5 *(ara A4)* | `195c` → A4 |
+| con | `188`–`190` → A5 | `195e` → A4 |
+| esfera | `191` → A5 | `199` → A4 |
 
-El repartiment és **àrea contra volum**, i és consistent. No hi ha cap
-contradicció, i per tant això **no demostra** que el destí correcte sigui l'A4.
+El que sí que sustenta el canvi és més modest: el títol de l'A5 enumera el con i
+l'esfera i **no** el cilindre, i el de l'A4 diu «àrees i volums dels cossos
+**bàsics**». Entre dues destinacions que no podem verificar, s'ha triat la que
+almenys no contradiu l'enunciat que l'alumne acaba de llegir.
 
-**El que cal decidir:** si l'activitat 5 del llibre cobreix l'àrea del cilindre
-o només la del con i l'esfera.
-
-- Si la cobreix → el que falla és el títol de l'A5, no el mapa.
-- Si no la cobreix → cal moure `184`, `185`, `186` i `187` a l'A4, amb quatre
-  regles d'exercici (les d'exercici guanyen a les de bloc):
-
-```json
-"184": { "curs": "3eso", "ud": 3, "act": 4, "titol": "Àrees i volums dels cossos bàsics" },
-"185": { "curs": "3eso", "ud": 3, "act": 4, "titol": "Àrees i volums dels cossos bàsics" },
-"186": { "curs": "3eso", "ud": 3, "act": 4, "titol": "Àrees i volums dels cossos bàsics" },
-"187": { "curs": "3eso", "ud": 3, "act": 4, "titol": "Àrees i volums dels cossos bàsics" }
-```
+**La comprovació que ho tanca:** obrir l'A5 del llibre i mirar si hi surt l'àrea
+lateral del cilindre. Si hi surt, esborrar les quatre regles d'exercici i el que
+falla és el títol de l'A5.
 
 A part: `193a` i `193b` comparen un cilindre amb un con, i `199` és un cub i una
-esfera amb el mateix volum (necessita l'àrea de l'esfera, que és de l'A5, i ara
-va a l'A4). Els dos casos són discutibles vagi on vagi.
+esfera amb el mateix volum (necessita l'àrea de l'esfera, que és de l'A5, i va a
+l'A4). Els dos casos són discutibles vagi on vagi.
 
 ---
 
-## 2 · La dispersió del full 11 — 17 fitxes
+## 2 · La dispersió del full 11 — 17 fitxes · **MIG TANCAT**
 
-`dispersio` va a **«Estadística de dues variables»** (4t ESO · U9). La
-descripció del bloc a `build.py` és *«Com d'esteses estan les dades: recorregut,
-variància, desviació típica i coeficient de variació»*, i les 17 fitxes
-(`268a`–`274c`) són totes d'**una sola** variable. No hi ha ni correlació, ni
-regressió, ni núvols de punts.
+`dispersio` deia **«Estadística de dues variables»** (4t ESO · U9). La descripció
+del bloc és *«Com d'esteses estan les dades: recorregut, variància, desviació
+típica i coeficient de variació»*, i les 17 fitxes (`268a`–`274c`) són totes
+d'**una sola** variable. No hi ha ni correlació, ni regressió, ni núvols de punts.
 
-És l'error més gran per volum, i no s'ha arreglat perquè **no sabem quina
-activitat del llibre cobreix la dispersió univariant**. Si a la U9 de 4t hi ha
-una activitat de desviació típica, el canvi és una línia.
+L'entrada **no té `act`**, o sigui que l'enllaç obre la U9 sencera i el títol era
+només el rètol. La unitat pot ser perfectament la bona; el que era fals era el
+rètol. S'ha tret el `titol`, i `js/teoria.js` hi posa «4t ESO · Unitat 9», que és
+exactament el que l'enllaç fa.
 
-Nota: `273a` i `273b` parlen de «les dues variables», però comparen dos
-conjunts per separat amb el coeficient de variació. Segueix sent univariant.
+Queda obert **quina activitat** de la U9 cobreix la dispersió univariant. Si n'hi
+ha una de desviació típica, afegir-hi `act` i el seu títol; si la U9 no en té cap,
+el que toca és treure l'entrada i deixar les 17 fitxes sense icona.
+
+Nota: `273a` i `273b` parlen de «les dues variables», però comparen dos conjunts
+per separat amb el coeficient de variació. Segueix sent univariant.
 
 ---
 
@@ -117,12 +124,15 @@ deixem obert perquè el títol és el del llibre i no el podem canviar des d'aqu
 
 ## 8 · Dues coses que no són d'enllaços
 
-**`284` no es pot resoldre.** L'`encapcalament` és **buit** i l'enunciat sencer
-és *«Quin és el preu final?»*. Ni preu de partida ni percentatges. El 500 € i
-la pujada i la baixada només surten a les opcions (`'$500$ €: torna al preu de
-partida.'`) i a les pistes. L'enllaç sí que s'ha corregit —ara va al factor
-multiplicador, com el `280`— però **la fitxa necessita que algú li reescrigui
-l'enunciat**.
+**`284` no es podia resoldre. Arreglat.** L'`encapcalament` era **buit** i
+l'enunciat sencer, *«Quin és el preu final?»*: ni preu de partida ni percentatges.
+
+No calia reescriure res. A `tools/c_percentatges.py` l'enunciat ja hi era, ben
+escrit i sense fer servir: la constant `E284` («Un preu de $500$ € puja un
+$20\,\%$ i, al cap d'un temps, el preu nou baixa un $20\,\%$») es definia i
+tot seguit la crida a `Q()` passava `ex_text=""`. És l'única crida del fitxer amb
+`ex_text` buit, i les altres catorze passen la seva constant. Un descuit de
+teclat, no una fitxa a mig fer. Ara passa `ex_text=E284`.
 
 **`242` està al bloc que no toca.** «Llancem un dau i sumem totes les cares
 menys la de dalt» és regla de Laplace pura, sense cap recompte combinatori, i
@@ -133,7 +143,7 @@ esborrar.
 
 ---
 
-## 9 · Les 19 entrades amb títol d'activitat i sense `act`
+## 9 · Les 18 entrades amb títol d'activitat i sense `act`
 
 Ometre `act` és **deliberat**: el `_llegiu-me` de `teoria.json` ho diu («val més
 obrir la unitat que enviar l'alumne a una activitat que no parla del que
@@ -144,7 +154,7 @@ El que sí que val la pena mirar és doble:
 1. **El rètol.** A l'alumne li surt «3r ESO · La funció més recta», que és el nom
    d'una **activitat**, i en clicar-hi arriba a la **unitat sencera**.
 2. **No es validen mai contra el llibre.** `tests/teoria.test.js:137` fa
-   `if (!d.act || !d.titol) return;`. Si el llibre canvia un títol, aquestes 19
+   `if (!d.act || !d.titol) return;`. Si el llibre canvia un títol, aquestes 18
    entrades no se n'assabenten. Una comprovació que, sense `act`, compari el
    `titol` amb el de la **unitat** ho taparia.
 

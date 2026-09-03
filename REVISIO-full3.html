@@ -232,7 +232,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 51.</strong> Donada la successió $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$:</p>
 <div class="it"><div class="cap"><span class="cod">51a</span><span class="tip">tipus B · dificultat 2 (encadenada)</span></div>
-<div class="enun">Comprova que $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ és una progressió aritmètica.</div>
+<div class="enun">Comprova si $\dfrac53,\;\dfrac43,\;1,\;\dfrac23,\;\dfrac13,\dots$ és una progressió aritmètica.</div>
 <ol class="op"><li><span class="ok">Sí, perquè la diferència entre termes consecutius és sempre la mateixa: $d=-\dfrac13$.</span> — resposta correcta</li>
 <li>No, perquè els termes van disminuint.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes disminueixin no impedeix que sigui una PA: una diferència negativa i constant també defineix una progressió aritmètica.</span></li>
 <li>Sí, perquè tots els termes són fraccions amb denominador $3$.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">El fet que el denominador sigui $3$ és només una manera d'escriure els termes ($1=\dfrac33$): el que cal comprovar és que la diferència entre termes consecutius sigui constant.</span></li>
@@ -355,7 +355,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula la diferència entre termes consecutius.</li><li>$1-1=0$ sempre: diferència constant, $d=0$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1-1=0$ (i igual per a la resta): diferència constant, $d=0$</li><li>$a_n=a_1+(n-1)d=1+(n-1)\cdot0=1$</li></ol>
-<p class="nota"><strong>Nota:</strong> Aquesta successió constant compleix alhora la definició de progressió aritmètica ($d=0$) i de progressió geomètrica ($r=1$): és un cas límit on totes dues coincideixen. Aquí es demana la lectura aritmètica, que és la de la resta de l'exercici; la geomètrica seria igual de vàlida.</p>
 </div>
 <div class="it"><div class="cap"><span class="cod">54d</span><span class="tip">tipus A · dificultat 2 (encadenada)</span></div>
 <div class="enun">$16,\;8,\;4,\;2,\;1,\dots$</div>
@@ -398,11 +397,10 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La raó és el segon terme entre el primer: $r=\dfrac{a_2}{a_1}$.</li><li>$r=\dfrac34$. El terme general és $a_n=a_1\cdot r^{\,n-1}=4\cdot\left(\dfrac34\right)^{n-1}$.</li><li>Per a $a_{20}$, fes servir $n=20$: l'exponent és $19$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=\dfrac{a_2}{a_1}=\dfrac34$</li><li>$a_n=a_1\cdot r^{\,n-1}=4\cdot\left(\dfrac34\right)^{n-1}$</li><li>$a_{20}=4\cdot\left(\dfrac34\right)^{19}=\dfrac{1\,162\,261\,467}{68\,719\,476\,736}$</li><li>És un nombre molt petit, més a prop de $0$ que de $1$: té sentit, perquè la raó $\dfrac34$ és menor que $1$ i la successió va disminuint.</li></ol>
-<p class="nota"><strong>Nota:</strong> El valor exacte de $a_{20}$ té un denominador d'onze xifres; es dona en forma de fracció perquè el decimal seria pràcticament $0$ i amagaria la magnitud real.</p>
 </div>
-<p class="sec"><strong>Exercici 56.</strong> Calcula.</p>
+<p class="sec"><strong>Exercici 56.</strong> Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$.</p>
 <div class="it"><div class="cap"><span class="cod">56a</span><span class="tip">tipus A · dificultat 1 (directa)</span></div>
-<div class="enun">Terme general d'una PG amb $a_1=3$ i $r=5$</div>
+<div class="enun">Terme general amb $a_1=3$ i $r=5$</div>
 <ol class="op"><li><span class="ok">$a_n=3\cdot5^{\,n-1}$</span> — resposta correcta</li>
 <li>$a_n=3+(n-1)\cdot5$<br><span class="err">POTENCIA_DE_SUMA</span><span class="fb">El terme general d'una PG és un producte amb una potència, $a_1\cdot r^{n-1}$, no una suma com a una PA.</span></li>
 <li>$a_n=3\cdot5^{\,n}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">L'exponent del terme general és $n-1$, no $n$: per $n=1$ l'exponent ha de ser $0$.</span></li>
@@ -433,7 +431,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 57.</strong> Donada la successió $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$:</p>
 <div class="it"><div class="cap"><span class="cod">57a</span><span class="tip">tipus B · dificultat 2 (encadenada)</span></div>
-<div class="enun">Comprova que $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$ és una progressió geomètrica.</div>
+<div class="enun">Comprova si $\dfrac23,\;\dfrac29,\;\dfrac2{27},\;\dfrac2{81},\dots$ és una progressió geomètrica.</div>
 <ol class="op"><li><span class="ok">Sí, perquè el quocient entre termes consecutius és sempre el mateix: $r=\dfrac13$.</span> — resposta correcta</li>
 <li>No, perquè els termes van disminuint.<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Que els termes disminueixin no impedeix que sigui una PG: una raó menor que $1$ i constant també defineix una progressió geomètrica.</span></li>
 <li>Sí, perquè tots els numeradors són iguals a $2$.<br><span class="err">RAONAMENT_ADDITIU</span><span class="fb">Que el numerador es mantingui $2$ és una conseqüència d'aquesta successió concreta, no la definició de progressió geomètrica: cal comprovar que el quocient entre termes consecutius és constant.</span></li>
@@ -461,7 +459,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Comprova primer el patró amb un terme petit: $a_2=\dfrac29=\dfrac2{3^2}$, $a_3=\dfrac2{27}=\dfrac2{3^3}$.</li><li>El patró és $a_n=\dfrac{2}{3^{\,n}}$: substitueix $n=100$ i $n=101$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que $a_1=\dfrac23=\dfrac2{3^1}$, $a_2=\dfrac2{3^2}$... el patró és $a_n=\dfrac{2}{3^{\,n}}$</li><li>$a_{100}=\dfrac{2}{3^{100}}$ i $a_{101}=\dfrac{2}{3^{101}}$</li></ol>
-<p class="nota"><strong>Nota:</strong> El valor exacte de $3^{100}$ té $48$ xifres: es deixa en forma de potència, com ja es feia amb exponents grans a Full 2.</p>
 </div>
 <p class="sec"><strong>Exercici 58.</strong> Troba els termes que falten a les progressions geomètriques següents.</p>
 <div class="it"><div class="cap"><span class="cod">58a</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
@@ -504,7 +501,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $5$: la relació entre ells és $r^3$.</li><li>$r^3=\dfrac{81/4}{3/2}=\dfrac{27}2$. Aquesta vegada $r$ no surt un nombre senzill: cal deixar-lo com una arrel cúbica.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r^3=\dfrac{81/4}{3/2}=\dfrac{81}4\cdot\dfrac23=\dfrac{27}2\Rightarrow r=\sqrt[3]{\dfrac{27}2}=\dfrac{3}{\sqrt[3]2}$</li><li>Com que $r$ no és un nombre racional senzill, els termes que falten es deixen indicats en funció de $r$</li><li>$a_1=a_2:r=\dfrac32:r=\dfrac3{2r}$</li><li>$a_3=a_2\cdot r=\dfrac32\,r$</li><li>$a_4=a_3\cdot r=\dfrac32\,r^2$</li></ol>
-<p class="nota"><strong>Nota:</strong> A diferència dels altres apartats d'aquest exercici, la raó d'aquesta progressió no és un nombre racional senzill ($r=\sqrt[3]{27/2}$): és intencionat, per practicar que no totes les progressions geomètriques tenen raons "boniques", i que llavors cal deixar els termes expressats en funció de $r$ en lloc de calcular-los numèricament.</p>
 </div>
 <h2>Aplicacions <span class="tip">· 6 preguntes</span></h2>
 <p class="sec"><strong>Exercici 59.</strong> Donada la progressió $3,\;6,\;12,\;24,\dots$, digues si cada expressió n&#x27;és o no el terme general (o si l&#x27;afirmació és certa), i per què.</p>
@@ -550,7 +546,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 </div>
 <p class="sec"><strong>Exercici 60.</strong> Un terme d&#x27;una progressió geomètrica val $3\,720\,087$. Si el primer terme és $7$ i la raó és $3$, de quin terme estem parlant?</p>
 <div class="it"><div class="cap"><span class="cod">60</span><span class="tip">tipus A · dificultat 3 (completa)</span></div>
-<div class="enun">Terme d'una PG amb $a_1=7$, $r=3$ que val $3\,720\,087$</div>
+<div class="enun">Terme d'una progressió geomètrica amb $a_1=7$, $r=3$ que val $3\,720\,087$</div>
 <ol class="op"><li><span class="ok">$13$</span> — resposta correcta</li>
 <li>$12$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$3^{12}=531\,441$ (el resultat de dividir $3\,720\,087$ entre $7$), però l'exponent $12$ correspon a $n-1$, no a $n$: cal sumar-hi $1$ per trobar $n$.</span></li>
 <li>$531441$<br><span class="err">COMPARA_TERMES</span><span class="fb">Aquest és el valor de $r^{n-1}=3^{12}$, un pas intermedi del càlcul; el que es demana és la posició $n$ que ocupa el terme, no aquest valor.</span></li>

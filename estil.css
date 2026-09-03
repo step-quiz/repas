@@ -1,0 +1,266 @@
+/* Repàs ESO — full d'exercicis interactiu. Paleta de paper mil·limetrat. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&display=swap");
+
+:root{
+  --paper:#F7F8FA; --tinta:#16202E; --graf:#C8D4E3; --blau:#2455A4;
+  --verd:#17795E; --ambre:#B06B00; --vermell:#C4362F; --card:#FFF;
+  --vora:#DDE4EC; --apagat:#5A6B80;
+  --verd-suau:#E4F3EC; --ambre-suau:#FFF6E5; --vermell-suau:#FBEDEC; --blau-suau:#E8EFF9;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --cos:"Figtree",system-ui,-apple-system,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  --pas:26px;
+}
+*{box-sizing:border-box}
+
+/* [hidden] ha de guanyar SEMPRE, per damunt de qualsevol classe de
+   component. El navegador amaga `[hidden]` amb una regla pròpia
+   (`display:none`) que té la mateixa especificitat que una classe (0,1,0).
+   Si aquesta classe TAMBÉ fixa `display` -- com fa `.btn`, amb
+   `inline-flex` -- guanya ella: el full d'estil de l'autor s'aplica
+   després del full d'estil per defecte del navegador, i en un empat
+   d'especificitat guanya qui ve després en la cascada. Efecte real i ja
+   detectat: `<button class="btn" hidden>` es renderitzava IGUALMENT visible
+   i clicable -- l'atribut hi era, la propietat `.hidden` de JS deia `true`,
+   però `display` era `inline-flex` de totes maneres. És exactament el que
+   li passava a #veure ("Mostra la resolució") i #seguent dins de
+   practica.html: tots dos visibles i prement-se des del primer instant de
+   cada exercici, abans de triar cap opció. Cap prova ho detectava perquè
+   totes comprovaven l'atribut o la propietat, mai el render real (vegeu
+   tests/test_visibilitat_real.js). Aquesta única regla, amb !important,
+   ho tanca per a qualsevol element `hidden`, amb qualsevol classe, a
+   qualsevol pàgina -- no només als dos botons on s'ha vist el bug. */
+[hidden]{display:none!important}
+html,/* Els estats :hover van tots dins de @media (hover:hover). En una pantalla
+   tàctil (Chromebook en mode tauleta) Chrome deixa el hover "enganxat" després
+   del toc: una opció ja tocada es quedava ressaltada en blau, el mateix blau
+   que marca l'opció TRIADA, i l'alumne no sabia què tenia seleccionat. */
+body{margin:0;padding:0}
+body{
+  font-family:var(--cos); color:var(--tinta); background:var(--paper);
+  font-size:16.5px; line-height:var(--pas); -webkit-font-smoothing:antialiased;
+  background-image:
+    repeating-linear-gradient(to bottom,transparent 0 calc(var(--pas) - 1px),rgba(200,212,227,.45) calc(var(--pas) - 1px) var(--pas)),
+    repeating-linear-gradient(to right,transparent 0 calc(var(--pas) - 1px),rgba(200,212,227,.28) calc(var(--pas) - 1px) var(--pas));
+}
+.embolcall{max-width:44rem;margin:0 auto;padding:1.6rem 1.1rem 5rem}
+a{color:var(--blau)}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0}
+h1{font-size:1.72rem;font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.06rem;font-weight:700}
+.cimera{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blau)}
+.apagat{color:var(--apagat)}
+.petit{font-size:.86rem}
+.targeta{background:var(--card);border:1px solid var(--vora);border-radius:12px;
+  padding:1.05rem 1.15rem;box-shadow:0 1px 2px rgba(22,32,46,.05)}
+button{font:inherit;font-family:var(--cos)}
+.btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--tinta);
+  background:var(--tinta);color:#fff;border-radius:9px;padding:.62rem 1.05rem;
+  font-weight:600;cursor:pointer;transition:transform .12s,filter .12s}
+@media (hover:hover){.btn:hover{filter:brightness(1.15)}} .btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
+.btn.buit{background:transparent;color:var(--tinta);border-color:var(--vora)}
+@media (hover:hover){.btn.buit:hover{border-color:var(--tinta);filter:none}}
+.btn.pista{background:var(--ambre-suau);color:#6B4200;border-color:#EBD3A3}
+.btn.gran{width:100%;justify-content:center;padding:.8rem;font-size:1.02rem}
+/* Focus visible: traç fosc separat per un halo blanc en comptes d'un sol
+   color. Un outline blau sol es fonia amb la vora blava de `.opcio.tria`
+   (mateix color, contrast 1:1) i perdia contrast sobre els estats de
+   feedback verds/vermells. El halo intermedi garanteix que el traç fosc
+   sempre té alguna cosa clara al costat, sigui quin sigui el fons. */
+:focus-visible{outline:2.5px solid var(--tinta);outline-offset:2px;
+  box-shadow:0 0 0 2px #fff}
+/* Mapa d'apartats.
+
+   Mida: 26 px, no 15. El mapa és el primer que toca un alumne en una pantalla
+   tàctil, i amb 15 px i 3 px de separació tocar la casella que es vol és
+   impossible en un Chromebook en mode tauleta. La WCAG 2.2 (SC 2.5.8) demana
+   24 px com a mínim.
+
+   Forma, no només color: cada estat porta un signe propi. Amb la paleta
+   anterior, sota deuteranòpia -- una persona de cada dotze, un o dos alumnes
+   per aula -- l'ambre de "al segon intent" i el vermell de "per revisar"
+   tenien un contrast d'1,11:1 entre ells: literalment el mateix color. El
+   signe fa que el mapa es pugui llegir sense distingir cap to. */
+.mapa{display:flex;flex-wrap:wrap;gap:4px;margin:.5rem 0 .1rem}
+.mapa .cel{width:26px;height:26px;border:1px solid var(--graf);border-radius:4px;
+  background:#fff;padding:0;cursor:pointer;transition:transform .12s;
+  display:inline-flex;align-items:center;justify-content:center}
+@media (hover:hover){
+  .mapa .cel:hover{transform:scale(1.25);z-index:2;border-color:var(--tinta)}
+}
+.cel::after{font:700 14px/1 var(--mono);color:var(--tinta)}
+.cel.net{background:var(--verd);border-color:var(--verd)}
+.cel.net::after{content:"\2713";color:#fff}                 /* ✓ a la primera */
+.cel.pista{background:var(--verd-suau);border-color:var(--verd)}
+.cel.pista::after{content:"\2713";color:var(--verd)}        /* ✓ amb pista */
+.cel.segon{background:var(--ambre);border-color:var(--ambre)}
+.cel.segon::after{content:"2";color:#fff}                   /* al segon intent */
+.cel.fallat{background:var(--vermell);border-color:var(--vermell)}
+.cel.fallat::after{content:"\00D7";color:#fff}              /* × per revisar */
+.cel.vist{background:var(--graf);border-color:var(--graf)}
+.cel.vist::after{content:"\2026";color:var(--tinta)}        /* … començada */
+.grup{margin-bottom:.55rem}
+.grup h3{font:600 12px/1.6 var(--mono);color:var(--apagat);letter-spacing:.04em}
+.llegenda{display:flex;flex-wrap:wrap;gap:.15rem 1rem;font-size:.78rem;color:var(--apagat);margin-top:.7rem}
+.llegenda span{display:flex;align-items:center;gap:.32rem}
+.llegenda i{width:20px;height:20px;border-radius:4px;border:1px solid var(--graf);
+  display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.llegenda i::after{font-size:11px}
+.blocs{display:grid;gap:.6rem;margin:.9rem 0}
+.bloc{display:flex;align-items:center;gap:.9rem;text-align:left;width:100%;
+  background:var(--card);border:1px solid var(--vora);border-radius:11px;
+  padding:.75rem .9rem;cursor:pointer;color:inherit}
+@media (hover:hover){.bloc:hover{border-color:var(--blau)}}
+.bloc .num{font:800 1.15rem/1 var(--display);color:var(--blau);min-width:1.4rem}
+.bloc .cos{flex:1;min-width:0}
+.bloc .tit{font-weight:700}
+.barra{height:5px;background:var(--vora);border-radius:3px;overflow:hidden;margin-top:.35rem}
+.barra i{display:block;height:100%;background:var(--verd)}
+.barra-sup{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.codi{font:700 12px/1 var(--mono);background:var(--tinta);color:#fff;padding:.28rem .45rem;border-radius:5px}
+.encap{color:var(--apagat);font-size:.9rem;margin:0 0 .5rem}
+.enunciat{font-size:1.2rem;line-height:1.5;margin:.2rem 0 .3rem}
+.pistes{margin:.85rem 0 0;display:grid;gap:.5rem}
+.pista-txt{background:var(--ambre-suau);border-left:3px solid var(--ambre);
+  border-radius:0 8px 8px 0;padding:.5rem .75rem;font-size:.95rem}
+.opcions{display:grid;gap:.5rem;margin:1rem 0 0}
+.opcio{display:flex;align-items:flex-start;gap:.7rem;text-align:left;width:100%;
+  background:var(--card);border:1.5px solid var(--vora);border-radius:10px;
+  padding:.7rem .85rem;cursor:pointer;color:inherit;font-size:1.02rem}
+@media (hover:hover){.opcio:hover{border-color:var(--blau)}}
+.opcio .lletra{font:700 .82rem/1.35 var(--mono);background:var(--blau-suau);color:var(--blau);
+  width:1.5rem;height:1.5rem;border-radius:5px;display:grid;place-items:center;flex:none}
+.opcio.tria{border-color:var(--blau);background:var(--blau-suau)}
+.opcio.bona{border-color:var(--verd);background:var(--verd-suau)}
+.opcio.bona .lletra{background:var(--verd);color:#fff}
+.opcio.dolenta{border-color:var(--vermell);background:var(--vermell-suau)}
+.opcio.dolenta .lletra{background:var(--vermell);color:#fff}
+.opcio[disabled]{cursor:default}
+.accions{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1rem}
+.veredicte{margin-top:1rem;border-radius:10px;padding:.8rem .95rem;border-left:4px solid}
+.veredicte:empty{margin:0;padding:0;border:0}
+.veredicte.be{background:var(--verd-suau);border-color:var(--verd)}
+.veredicte.malament{background:var(--vermell-suau);border-color:var(--vermell)}
+.veredicte h2{font-size:1rem;margin-bottom:.2rem}
+.resolucio{margin-top:1rem;background:#FBFCFD;border:1px solid var(--vora);border-radius:10px;padding:.85rem 1rem}
+.resolucio:empty{margin:0;padding:0;border:0}
+.resolucio ol{margin:.4rem 0 0;padding-left:1.3rem}
+.resolucio li{margin:.3rem 0}
+.nota{background:var(--ambre-suau);border-left:3px solid var(--ambre);padding:.45rem .7rem;
+  border-radius:0 7px 7px 0;font-size:.88rem;margin-top:.8rem}
+.errades{margin-top:1.4rem}
+.errada{border-left:3px solid var(--vermell);background:var(--card);border-radius:0 9px 9px 0;
+  padding:.55rem .8rem;margin:.45rem 0;font-size:.93rem}
+.katex{font-size:1.02em}
+
+/* Present per a lectors de pantalla, invisible en pantalla: per donar
+   estructura (encapçalaments, noms accessibles) sense afegir text visible
+   nou al disseny. Tècnica estàndard (equivalent a .sr-only). */
+.visualment-ocult{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---- Nivell 0: selector de fulls ---- */
+.fulls{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.7rem;margin:1rem 0}
+.full{display:block;background:var(--card);border:1px solid var(--vora);border-radius:12px;
+  padding:.85rem .95rem;color:inherit;text-decoration:none;transition:border-color .12s}
+@media (hover:hover){a.full:hover{border-color:var(--blau)}}
+.full .num{font:800 1.4rem/1 var(--display);color:var(--blau)}
+.full .tit{font-weight:700;margin:.32rem 0 .1rem;font-size:.96rem;line-height:1.25}
+.full .barra{margin-top:.6rem}
+.full .meta{font-size:.78rem;color:var(--apagat);margin-top:.3rem}
+.full.properament{opacity:.55}
+.pastilla{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.05em;
+  text-transform:uppercase;background:var(--blau-suau);color:var(--blau);
+  padding:.22rem .45rem;border-radius:5px}
+.full .pastilla{margin-top:.55rem}
+
+/* ---- mapa de llacunes plegat sota demanda ---- */
+.desplegable{margin-top:1.3rem}
+.desplegable summary{cursor:pointer;font-weight:700;color:var(--blau);
+  list-style:none;padding:.4rem 0;user-select:none}
+.desplegable summary::-webkit-details-marker{display:none}
+.desplegable summary .fletxa{display:inline-block;transition:transform .15s;margin-left:.2rem}
+.desplegable[open] summary .fletxa{transform:rotate(180deg)}
+@media (max-width:520px){ .enunciat{font-size:1.08rem} .embolcall{padding-top:1.1rem} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---- tutor virtual: targeta d'entrada a index.html ---- */
+#tutor{margin-bottom:2rem}
+.tutor-targeta{display:block;background:var(--blau-suau);border:1px solid #C7D7EE;
+  border-radius:12px;padding:.95rem 1.1rem;color:inherit;text-decoration:none;
+  margin:.9rem 0 0;transition:border-color .12s}
+@media (hover:hover){.tutor-targeta:hover{border-color:var(--blau)}}
+.tutor-targeta .tutor-titol{font-size:1.02rem;font-family:var(--display);font-weight:700;line-height:1.15;margin:0}
+.pastilla-blau{background:var(--blau);color:#fff;margin-bottom:.5rem}
+.link-refer-test{display:block;background:none;border:none;padding:.5rem 0 0;
+  color:var(--apagat);text-decoration:underline;cursor:pointer;font-family:inherit}
+@media (hover:hover){.link-refer-test:hover{color:var(--tinta)}}
+
+
+/* ---- full.html: bloc destacat en arribar des d'una recomanació del tutor ---- */
+.bloc.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
+.bloc.destacat .num{color:var(--blau)}
+
+/* ---- itinerari.html: llista de passos del recorregut personalitzat ---- */
+.itinerari-passos{display:grid;gap:.5rem;margin:.9rem 0}
+.pas-itinerari.fet{opacity:.6}
+.pas-itinerari.fet .num{color:var(--verd);font-size:1rem}
+.pas-itinerari.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
+.pas-itinerari.destacat .num{color:var(--blau)}
+
+/* ---- test inicial: les quatre respostes d'autoavaluació ---- */
+.opcio-estat{align-items:center}
+.opcio-estat .cos{line-height:1.35}
+.opcio-estat.triada{border-color:var(--blau);background:var(--blau-suau)}
+.opcio-estat[data-estat="mai"]{color:var(--apagat)}
+.targeta.inert{pointer-events:none;opacity:.55;transition:opacity .2s}
+.transicio{margin:.9rem 0 0;color:var(--blau);font-weight:600}
+
+/* ---- resultat.html: les situacions on l'alumne se subestimava ---- */
+.errada.bona-noticia{border-left-color:var(--verd);background:var(--verd-suau)}
+
+/* ---- resultat.html: la targeta de l'itinerari, l'acció principal ---- */
+.tutor-targeta.destacada{background:var(--blau);border-color:var(--blau);
+  padding:1.2rem 1.25rem 1.35rem;box-shadow:0 2px 0 rgba(36,85,164,.35)}
+@media (hover:hover){.tutor-targeta.destacada:hover{background:#1E4790;border-color:#1E4790}}
+.tutor-targeta.destacada h2{color:#fff;font-size:1.24rem;letter-spacing:-.01em}
+.tutor-targeta.destacada .sub{color:#D7E3F7;font-size:.92rem;margin:.45rem 0 0}
+.tutor-targeta.destacada .cta{display:inline-block;margin-top:1rem;background:#fff;
+  color:var(--blau);font-weight:700;font-size:.95rem;border-radius:9px;padding:.6rem 1rem}
+@media (hover:hover){.tutor-targeta.destacada:hover .cta{background:#F2F6FC}}
+
+/* ---- figures dels enunciats ------------------------------------------
+   L'SVG el genera tools/figures.py i s'incrusta a data/fullN.js. Hereta el
+   color del text (`currentColor` als traços), de manera que no cal mantenir
+   una paleta a part ni tocar res si el lloc canvia de colors. */
+.figura-cont{margin:1rem 0 0;padding:0;text-align:center}
+.figura{max-width:min(100%,20rem);height:auto;color:var(--tinta);overflow:visible}
+.fig-etq{font:600 12px var(--mono);fill:var(--tinta)}
+.fig-etq.petita{font-size:10.5px;fill:var(--apagat)}
+:root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
+@media (max-width:520px){ .figura{max-width:100%} }
+
+
+/* Avís de final de tram. Ambre com la resta d'avisos del lloc, i amb el botó
+   de tancar perquè no bloquegi res: informa, no interromp. */
+.avis-tram{display:flex;gap:.75rem;align-items:flex-start;
+  background:var(--ambre-suau);border-left:3px solid var(--ambre);
+  border-radius:0 10px 10px 0;padding:.7rem .9rem;margin:0 0 1rem;
+  font-size:.95rem;line-height:1.45}
+.avis-tram span{flex:1}
+.avis-tram button{background:none;border:0;font-size:1.2rem;line-height:1;
+  color:#6B4200;cursor:pointer;padding:0 .2rem}
+.avis-tram button:hover{color:var(--ambre)}
+
+
+/* Icona de teoria. Discreta a posta: qui va bé no l'ha de notar, i qui
+   s'encalla la troba just a la capçalera de l'exercici. Només es desplega
+   l'enllaç quan es clica. */
+.teoria{display:inline-flex;align-items:center;gap:.4rem}
+.teoria-t{width:1.45rem;height:1.45rem;border-radius:50%;border:1px solid var(--vora);
+  background:var(--card);color:var(--apagat);font:600 .78rem/1 var(--mono);
+  cursor:pointer;padding:0}
+.teoria-t:hover{border-color:var(--blau);color:var(--blau)}
+.teoria-t[aria-expanded="true"]{background:var(--blau-suau);border-color:var(--blau);color:var(--blau)}
+.teoria-obert a{font-size:.82rem;color:var(--blau)}

@@ -1,0 +1,519 @@
+{
+  "_llegiu-me": [
+    "Mapa de repàs → teoria. Relaciona un exercici d'aquest lloc amb",
+    "l'activitat del llibre de text que n'explica la teoria.",
+    "",
+    "TRES NIVELLS, del més precís al més general. Es consulta per ordre:",
+    "  1. `items`     — un ítem concret (id: '281')",
+    "  2. `exercicis` — tots els apartats d'un exercici (ex: 110)",
+    "  3. `blocs`     — tot un bloc temàtic ('percentatges')",
+    "El primer que doni resultat guanya. Així es pot començar amb quatre",
+    "regles de bloc, que cobreixen molt de terreny amb poca feina, i anar",
+    "afinant exercici per exercici quan es vegi que un cas concret demana",
+    "un altre lloc del llibre.",
+    "",
+    "PER QUÈ CAL AQUESTA FINOR. Dins d'un mateix bloc hi conviuen nivells",
+    "molt diferents. L'exercici 281 (preu amb IVA i descompte) s'explica a",
+    "2n ESO, on l'activitat es diu literalment 'Percentatges en context:",
+    "descomptes, IVA i canvis de divisa'. En canvi el 275 (factor",
+    "multiplicador) és de 4t, on hi ha una activitat que es diu 'El factor",
+    "multiplicador, a fons'. Enviar-los tots dos al mateix lloc seria",
+    "enviar-ne un dels dos al lloc equivocat.",
+    "",
+    "`act` és OPCIONAL. Quan cap activitat del llibre no correspon prou bé,",
+    "s'omet i l'enllaç obre la unitat desplegada. Val més obrir la unitat",
+    "que enviar l'alumne a una activitat que no parla del que buscava.",
+    "",
+    "Si aquest fitxer no hi és, o un exercici no hi surt, `repas` funciona",
+    "igual: simplement no apareix la icona de teoria.",
+    "",
+    "CLAU DE BLOC: «8:semblanca» (full:bloc). Els noms de bloc no són",
+    "únics —«aplicacions» surt als fulls 3 i 8, «problemes» al 5 i al 7—",
+    "i sense el full davant els dos sentits compartirien destinació.",
+    "S'accepta la clau sense full per compatibilitat, però no s'hi ha de",
+    "posar cap dels noms repetits.",
+    "",
+    "NO MAPAT A POSTA: el full 3 (successions aritmètiques i",
+    "geomètriques). El llibre no en té teoria: només Fibonacci i caça de",
+    "patrons a 1r ESO, que no és el que aquests exercicis demanen."
+  ],
+  "base": "https://llibre.step-quiz.net",
+  "cursos": {
+    "1eso": "1r ESO",
+    "2eso": "2n ESO",
+    "3eso": "3r ESO",
+    "4eso": "4t ESO",
+    "4eso-apl": "4t ESO (aplicades)"
+  },
+  "items": {},
+  "exercicis": {
+    "109": {
+      "curs": "1eso",
+      "ud": 4,
+      "act": 7,
+      "titol": "Percentatges",
+      "nota": "passar de fracció a percentatge, que és on comença tot"
+    },
+    "110": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Percentatges en context"
+    },
+    "111": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Percentatges en context"
+    },
+    "112": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Percentatges en context"
+    },
+    "113": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "114": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "115": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "116": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "117": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "118": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "148": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "camp quadrangular: costat i àrea, no Pitàgores"
+    },
+    "149": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un octàgon regular"
+    },
+    "150": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un hexàgon regular"
+    },
+    "151": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "corona circular"
+    },
+    "162": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "El teorema de Pitàgores",
+      "nota": "dos cables perpendiculars: és Pitàgores, no una ombra"
+    },
+    "184": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre. El bloc `9:cossos_rodons` va a l'A5, que es diu «Con, esfera i l'efecte de la raó» i no anomena el cilindre; l'A4, sí: «cossos bàsics». Cal confirmar-ho contra el llibre: si l'A5 cobreix l'àrea lateral del cilindre, aquestes quatre regles sobren i el que falla és el títol de l'A5."
+    },
+    "185": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: àrea total"
+    },
+    "186": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: de l'àrea lateral a l'altura"
+    },
+    "187": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: de l'àrea total al radi i l'altura"
+    },
+    "242": {
+      "curs": "3eso",
+      "ud": 2,
+      "titol": "És una qüestió de sort?",
+      "nota": "regla de Laplace pura; està al bloc `combinatoria` però no hi ha cap recompte"
+    },
+    "278": {
+      "curs": "1eso",
+      "ud": 4,
+      "act": 7,
+      "titol": "Percentatges",
+      "nota": "quin percentatge és una quantitat d'una altra: la mateixa operació que el 109"
+    },
+    "280": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons",
+      "nota": "descomptes encadenats: és el cas que la fórmula del factor resol"
+    },
+    "281": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Percentatges en context",
+      "nota": "IVA i descompte: l'activitat de 2n en parla explícitament"
+    },
+    "282": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Impostos, rebuts i interessos"
+    },
+    "283": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "Proporcional o no?",
+      "nota": "repartiment directament proporcional; no hi ha impostos ni interessos"
+    },
+    "284": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons",
+      "nota": "augment i rebaixa encadenats, com el 280"
+    }
+  },
+  "blocs": {
+    "directa_inversa": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "Proporcional o no?"
+    },
+    "percentatges": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Percentatges en context"
+    },
+    "encadenats": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "factor_multiplicador": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons"
+    },
+    "aplicacions_percentatge": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 3,
+      "titol": "Impostos, rebuts i interessos"
+    },
+    "escales": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 4,
+      "titol": "Escales i síntesi"
+    },
+    "escales_calcul": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 4,
+      "titol": "Escales i síntesi"
+    },
+    "notables": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 3,
+      "titol": "Les identitats notables"
+    },
+    "factor_comu": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "Factor comú i factoritzar"
+    },
+    "operacions": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Monomis i polinomis"
+    },
+    "divisio": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Monomis i polinomis"
+    },
+    "primer_grau": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 5,
+      "titol": "Equacions de 1r grau"
+    },
+    "sistemes": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 8,
+      "titol": "Mètodes de resolució de sistemes"
+    },
+    "formula_general": {
+      "curs": "4eso-apl",
+      "ud": 5,
+      "titol": "Equacions de 2n grau"
+    },
+    "factoritzacio": {
+      "curs": "4eso-apl",
+      "ud": 5,
+      "titol": "Equacions de 2n grau"
+    },
+    "funcions_quadratiques": {
+      "curs": "4eso",
+      "ud": 5,
+      "titol": "La paràbola: estudi de la funció quadràtica"
+    },
+    "parabola_produccio": {
+      "curs": "4eso",
+      "ud": 5,
+      "titol": "La paràbola: estudi de la funció quadràtica"
+    },
+    "concepte_funcio": {
+      "curs": "3eso",
+      "ud": 6,
+      "titol": "La funció més recta"
+    },
+    "funcions_lineals": {
+      "curs": "3eso",
+      "ud": 6,
+      "titol": "La funció més recta"
+    },
+    "rectes_produccio": {
+      "curs": "3eso",
+      "ud": 6,
+      "titol": "La funció més recta"
+    },
+    "combinatoria": {
+      "curs": "4eso",
+      "ud": 10,
+      "titol": "Combinatòria i probabilitat"
+    },
+    "probabilitat_condicionada": {
+      "curs": "4eso",
+      "ud": 10,
+      "titol": "Combinatòria i probabilitat"
+    },
+    "probabilitat_composta": {
+      "curs": "4eso",
+      "ud": 10,
+      "titol": "Combinatòria i probabilitat"
+    },
+    "laplace": {
+      "curs": "3eso",
+      "ud": 2,
+      "titol": "És una qüestió de sort?"
+    },
+    "espais_mostrals": {
+      "curs": "3eso",
+      "ud": 2,
+      "titol": "És una qüestió de sort?"
+    },
+    "esdeveniments": {
+      "curs": "3eso",
+      "ud": 2,
+      "titol": "És una qüestió de sort?"
+    },
+    "variables": {
+      "curs": "2eso",
+      "ud": 6,
+      "titol": "Dades que parlen"
+    },
+    "frequencies": {
+      "curs": "2eso",
+      "ud": 6,
+      "titol": "Dades que parlen"
+    },
+    "grafics": {
+      "curs": "2eso",
+      "ud": 6,
+      "titol": "Dades que parlen"
+    },
+    "centralitzacio": {
+      "curs": "2eso",
+      "ud": 6,
+      "titol": "Dades que parlen"
+    },
+    "dispersio": {
+      "curs": "4eso",
+      "ud": 9,
+      "nota": "Sense `titol` a posta: el rètol queda «4t ESO · Unitat 9», que és el que l'enllaç fa de debò. Deia «Estadística de dues variables» i les 17 fitxes (268a–274c) són recorregut, variància, desviació típica i coeficient de variació d'UNA variable: ni correlació, ni regressió, ni núvols de punts. La unitat sí que pot ser la bona; l'activitat concreta no la sabem sense el llibre. Quan es miri: si a la U9 hi ha una activitat de desviació típica, posar-hi `act` i el seu títol."
+    },
+    "1:enters": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 7,
+      "titol": "Multiplicar, dividir i operacions combinades"
+    },
+    "1:divisibilitat": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 3,
+      "titol": "Divisibilitat i factorització"
+    },
+    "1:fraccions": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 8,
+      "titol": "Fraccions: les quatre operacions"
+    },
+    "1:decimals": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 9,
+      "titol": "Operacions combinades i pont fracció–decimal"
+    },
+    "2:basiques": {
+      "curs": "3eso",
+      "ud": 1,
+      "act": 2,
+      "titol": "Les regles del joc de les potències"
+    },
+    "2:negatiu": {
+      "curs": "3eso",
+      "ud": 1,
+      "act": 3,
+      "titol": "L'exponent negatiu i les arrels"
+    },
+    "2:verifica": {
+      "curs": "3eso",
+      "ud": 1,
+      "act": 2,
+      "titol": "Les regles del joc de les potències"
+    },
+    "2:combinades": {
+      "curs": "3eso",
+      "ud": 1,
+      "act": 2,
+      "titol": "Les regles del joc de les potències",
+      "nota": "potència d'una potència i productes de bases diferents; abans anava a «Operar i estimar amb nombres extrems», que és notació científica i estimació, i cap de les 14 fitxes no en té res"
+    },
+    "5:problemes": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 5,
+      "titol": "Equacions de 1r grau"
+    },
+    "7:triangles": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "El teorema de Pitàgores"
+    },
+    "7:arees_pit": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "El teorema de Pitàgores"
+    },
+    "7:arees_poli": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre"
+    },
+    "7:problemes": {
+      "curs": "4eso-apl",
+      "ud": 4,
+      "act": 3,
+      "titol": "El teorema de Pitàgores per mesurar"
+    },
+    "8:tales": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 2,
+      "titol": "Tales i els triangles semblants"
+    },
+    "8:semblanca": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 3,
+      "titol": "Semblança i escales"
+    },
+    "8:aplicacions": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 3,
+      "titol": "Mesurar amb l'ombra"
+    },
+    "8:semblanca_arees": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 5,
+      "titol": "Con, esfera i l'efecte de la raó"
+    },
+    "9:prismes": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics"
+    },
+    "9:piramides": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics"
+    },
+    "9:cossos_rodons": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 5,
+      "titol": "Con, esfera i l'efecte de la raó"
+    },
+    "9:volums_aplicacions": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics"
+    }
+  }
+}
