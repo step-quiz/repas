@@ -108,6 +108,54 @@
       "act": 2,
       "titol": "El factor multiplicador, a fons"
     },
+    "148": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "camp quadrangular: costat i àrea, no Pitàgores"
+    },
+    "149": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un octàgon regular"
+    },
+    "150": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un hexàgon regular"
+    },
+    "151": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "corona circular"
+    },
+    "162": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "El teorema de Pitàgores",
+      "nota": "dos cables perpendiculars: és Pitàgores, no una ombra"
+    },
+    "242": {
+      "curs": "3eso",
+      "ud": 2,
+      "titol": "És una qüestió de sort?",
+      "nota": "regla de Laplace pura; està al bloc `combinatoria` però no hi ha cap recompte"
+    },
+    "278": {
+      "curs": "1eso",
+      "ud": 4,
+      "act": 7,
+      "titol": "Percentatges",
+      "nota": "quin percentatge és una quantitat d'una altra: la mateixa operació que el 109"
+    },
     "280": {
       "curs": "4eso",
       "ud": 2,
@@ -127,6 +175,20 @@
       "ud": 2,
       "act": 3,
       "titol": "Impostos, rebuts i interessos"
+    },
+    "283": {
+      "curs": "2eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "Proporcional o no?",
+      "nota": "repartiment directament proporcional; no hi ha impostos ni interessos"
+    },
+    "284": {
+      "curs": "4eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El factor multiplicador, a fons",
+      "nota": "augment i rebaixa encadenats, com el 280"
     }
   },
   "blocs": {
@@ -343,8 +405,9 @@
     "2:combinades": {
       "curs": "3eso",
       "ud": 1,
-      "act": 5,
-      "titol": "Operar i estimar amb nombres extrems"
+      "act": 2,
+      "titol": "Les regles del joc de les potències",
+      "nota": "potència d'una potència i productes de bases diferents; abans anava a «Operar i estimar amb nombres extrems», que és notació científica i estimació, i cap de les 14 fitxes no en té res"
     },
     "5:problemes": {
       "curs": "3eso",

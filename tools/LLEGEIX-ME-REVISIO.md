@@ -10,6 +10,7 @@
 > **diff-08** (2026-09-01): `_comprova_grafiques.py` corregit i ampliat.
 > **diff-09** (2026-09-02): `_opcions.py` nou.
 > **diff-10** (2026-09-02): `_text.py` nou. Amb això la revisió de figures queda tancada.
+> **diff-11** (2026-09-02): enllaços de teoria. 28 fitxes corregides i `_teoria.py` nou.
 
 ## Fitxer MODIFICAT (1)
 
@@ -56,6 +57,7 @@ Cap toca el contingut. Són comprovacions de només lectura.
 | `_comprova_grafiques.py` **(diff-08)** | corba contra fórmula · el tret demanat és al dibuix | 21/21 · 1 xoc |
 | `_opcions.py` **(diff-09)** | tres indicis que delaten la resposta | 130 ítems (15 % del banc) |
 | `_text.py` **(diff-10)** | LaTeX fora de `$…$` · apunta a una figura absent | 3 + 5 xocs |
+| `_teoria.py` **(diff-11)** | conceptes del títol contra els enunciats · entrades sense `act` | 4 + 19 per mirar |
 | `_audita_tot.py` | passa `auditoria/auditoria.py` per les 185 figures reals | 0 defectes d'etiqueta |
 | `_verifica_full1.py` | claus de resposta del full 1 (de la revisió anterior) | 52 verificades, 0 errònies |
 
@@ -422,6 +424,35 @@ punts (1,3), (2,5)…)» i «a partir del polígon de freqüències **següent**
 L'exercici es pot respondre, perquè les dades hi són, però el text promet una
 imatge que no arriba. I el full 10 té 40 figures de gràfiques: el bloc que en
 necessitaria és el que no en té cap.
+
+## Novetat del diff-11: els enllaços de teoria
+
+**28 fitxes corregides** a `data/teoria.json`, totes les que tenien una
+destinació demostrablement equivocada i una de millor **ja present al mapa**:
+
+| canvi | fitxes |
+|---|---|
+| `2:combinades`: «Operar i estimar amb nombres extrems» → «Les regles del joc de les potències» | 14 |
+| ex `278`: factor multiplicador → «Percentatges», com el `109` | 4 |
+| ex `148`–`151`: «Pitàgores per mesurar» → «Àrea i perímetre» | 5 |
+| ex `283`: «Impostos i interessos» → «Proporcional o no?» | 2 |
+| ex `284`: «Impostos i interessos» → factor multiplicador, com el `280` | 1 |
+| ex `162`: «Mesurar amb l'ombra» → «El teorema de Pitàgores» | 1 |
+| ex `242`: combinatòria → «És una qüestió de sort?» | 1 |
+
+El que **no** s'ha tocat és a `REVISIO-TEORIA-PENDENTS.md`: els cilindres del
+full 9 i la dispersió del full 11 són errors reals, però triar-los destí demana
+veure quines activitats té el llibre, i el llibre no ve al zip.
+
+### `_teoria.py`, i la comprovació que no hi és
+
+Porta dues comprovacions que corren sense el repositori del llibre. La tercera
+que hi havia d'haver —trobar dues destinacions a dos cursos de distància que
+rebin exercicis que demanen el mateix— es va escriure comparant vocabulari amb
+l'índex de Jaccard i **no troba el cas per al qual es va escriure** (`109` de 1r
+contra `278a` de 4t), ni amb el fitxer sense corregir. S'ha tret. Comparar
+vocabulari no és comparar significat, i un comprovador que no detecta el que
+promet dona confiança falsa.
 
 ## Què NO hi ha
 
