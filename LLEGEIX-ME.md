@@ -1,73 +1,67 @@
-# Repartiment de la feina · cinc agents
+# Proves
 
-Cada agent rep **tres coses**: `TECHNICAL-STATE.md`, `AUTHORING-GUIDE.md` i el
-seu `BRIEF-<agent>.md`. Res més cal.
-
-## L'ordre importa
-
-```
-   FASE 1  ·  xtec sol          refactor R1–R5, ~1 sessió
-              ▼
-              nova línia de base  →  es reparteix als quatre
-              ▼
-   FASE 2  ·  els cinc en paral·lel
-              uno · sqr · feina · tarr        xtec: gràfiques del full 10
-              ▼
-   FASE 3  ·  xtec sol          merge, 8 passos
+```sh
+sh tests/executa.sh
 ```
 
-**No es pot dispatxar ningú abans de la fase 1.** Les quatre vies només són
-disjuntes després del refactor: sense ell, `figures.py` i `lib.py` els voldrien
-tocar tots.
+No cal instal·lar res: les de Python van amb `unittest` de la biblioteca
+estàndard i les de JavaScript amb Node pelat. **No es fa servir `pytest` ni
+cap altra biblioteca de proves a posta**: el projecte no té dependències, i
+afegir-ne una perquè les assercions siguin més boniques seria canviar una
+propietat que val la pena per comoditat.
 
-## Qui fa què
+L'única excepció és `analitzador.test.js`, que necessita un DOM. Si `jsdom`
+no hi és, aquestes proves se salten amb un avís i la resta continua:
 
-| Agent | Feina | Fitxers propis | Objectiu mesurable |
-|---|---|---|---|
-| **xtec** | Refactor + gràfiques del Full 10 + merge | `figures/__init__.py`, `figures/grafics.py`, `tax/`, `lib.py`, `build.py`, `c_funcions*.py`, tot el merge | Build idèntic després del refactor; ≥45 de 73 ítems amb gràfica |
-| **uno** | Figures del Full 7 | `figures/planes.py`, `c_geometria.py` | ≥45 de 55 ítems amb figura |
-| **sqr** | Figures del Full 8 | `figures/semblanca.py`, `c_semblanca.py`, `c_escales.py` | ≥40 de 59 ítems amb figura |
-| **feina** | Accessibilitat i SRI | `js/*.js` (excepte `codi*`), `css/`, els sis `*.html` de l'app | Radiogroup, live regions, teclat, focus, SRI |
-| **tarr** | Contingut nou del Full 12 | `c_probabilitat.py`, `figures/arbres.py` | ~30 ítems de probabilitat composta i condicionada |
+```sh
+npm install --no-save jsdom
+```
 
-**Cap parella de vies comparteix cap fitxer.** És el que fa que el merge sigui
-mecànic en comptes d'artesanal.
+## Què hi ha
 
-## Els números d'exercici
+| Fitxer | | Comprova |
+|---|---:|---|
+| `comu.py` | — | Carrega el banc un cop i el deixa a `TOTS` i `PLANS`. No importa res de `tools/` |
+| `test_lib.py` | 37 | Els ajudants de `tools/lib.py` i que `_valida()` aturi de veritat el que diu que atura |
+| `test_banc.py` | 19 | El banc compilat: estructura, presentació, catàleg d'errors, coherència de les taules |
+| `test_matematiques.py` | 11 | Recàlcul independent de les respostes, full per full |
+| `test_figures.py` | 9 | Les figures i la coherència geomètrica dels enunciats |
+| `codi.test.js` | 25 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1 |
+| `analitzador.test.js` | 24 | L'analitzador amb un DOM real |
+| `test_a11y.js` | 28 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex |
+| `test_flux_resolucio.js` | 15 | La resolució no s'ofereix mai sense una acció explícita de l'alumne |
+| `arnes.js` | — | L'arnès de proves de JavaScript, quinze línies |
 
-Perquè no xoquin:
+Cada fitxer es pot executar sol:
 
-| Rang | Qui |
-|---|---|
-| 1–259 | El llibre de text. Intocables. |
-| 260–304 | Contingut nou ja existent |
-| **305–340** | **tarr**, en exclusiva |
-| 341+ | Lliure per a rondes futures |
+```sh
+python3 -m unittest tests.test_figures -v
+node tests/codi.test.js
+```
 
-## Regla comuna a tots
+**Si escrius contingut nou**, afegeix la teva classe a `test_matematiques.py` o
+crea `tests/test_<el_teu_tema>.py`: la descoberta els troba tots dos, i un
+fitxer propi evita conflictes si algú altre hi treballa alhora.
 
-**Els fitxers generats no es lliuren mai.** `data/*.js`, `REVISIO-*.html`,
-`js/codi-taules.js`, `analitzador-repas.html`, `tools/_taules.json`,
-`tools/codi-ordre.json`, `tools/codi-etiquetes.txt`, `__pycache__/`.
+## Dues coses que fan que serveixin de res
 
-Es regeneren al merge amb `cd tools && python3 build_tot.py`. Un agent que
-n'enviï un és senyal que probablement també l'ha editat a mà, i llavors el
-problema no és el fitxer sinó el que hi ha a sota.
+**Les proves de matemàtiques recalculen la resposta de zero**, amb `Fraction`
+de la biblioteca estàndard i sense importar res de `tools/`. Si per comprovar
+`lib.py` es fes servir `lib.py`, una errada al motor passaria per les dues
+bandes i no la veuria ningú.
 
-## Què ha de tornar cada agent
+**Cada prova de `Presentacio` correspon a un error que ja va arribar a
+producció un cop**: els `$$` doblats del 4/64a, el `36--64` del discriminant,
+les opcions sense delimitadors del 4/72a, les notes que parlaven de fitxers
+`.tex`, els 170a–e sense enunciat. No són regles d'estil inventades: són
+cicatrius.
 
-1. Un ZIP **només amb els fitxers de la seva llista**
-2. `NOTES-<agent>.md` — què ha fet, què ha decidit i per què, què **no** ha fet
-   i per què no, i qualsevol defecte trobat al contingut existent (reportat,
-   no arreglat, si és fora dels seus fitxers)
-3. `mostra-<agent>.html` si la via produeix figures
-4. La sortida de `sh tests/executa.sh`
+Escrivint-les, la de `36--64` va atrapar un cas nou que s'havia colat al
+Full 11 (`$10--4$` al diagnòstic del 268c). Aquesta és exactament la feina
+que han de fer.
 
-## Una cosa que val la pena dir-los
+## Si n'afegeixes
 
-El risc real d'aquest repartiment **no són els conflictes de fitxers** —això
-està resolt per construcció— sinó la **deriva d'estil**: quatre agents
-escrivint quatre registres de català i quatre idees de quant ha de donar una
-pista. L'`AUTHORING-GUIDE.md` hi és per evitar-ho i cal donar-lo a tothom, però
-només porta una part del camí. La resta és el pas 7 del merge, i és el que més
-fàcilment se salta.
+Val més una prova que expliqui **per què** importa que tres que comprovin
+detalls. Als missatges d'error, digues què s'ha trencat i què vol dir, no
+només quins valors no coincideixen.
