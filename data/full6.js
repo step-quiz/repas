@@ -1158,7 +1158,7 @@ window.FULL = {
    "bloc": "aplicacions_percentatge",
    "tipus": "A",
    "dif": 3,
-   "encapcalament": "",
+   "encapcalament": "Un preu de $500$ € puja un $20\\,\\%$ i, al cap d'un temps, el preu nou baixa un $20\\,\\%$.",
    "enunciat": "Quin és el preu final?",
    "opcions": [
     "$500$ €: torna al preu de partida.",

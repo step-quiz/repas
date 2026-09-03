@@ -430,7 +430,7 @@ Q("284", 284, "", B2, "A",
    "$600\\cdot0{,}8=480$ €",
    "Amb factors es veu d'un cop: $1{,}2\\cdot0{,}8=0{,}96$, o sigui un "
    "$4\\,\\%$ de baixada neta"],
-  ex_text="",
+  ex_text=E284,
   # Sense nota: comentava que aquest exercici i el 280 diuen el mateix
   # des de dos costats. És una observació per al professorat, no per
   # a qui està resolent l'exercici.

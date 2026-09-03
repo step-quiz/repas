@@ -143,6 +143,34 @@
       "titol": "El teorema de Pitàgores",
       "nota": "dos cables perpendiculars: és Pitàgores, no una ombra"
     },
+    "184": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre. El bloc `9:cossos_rodons` va a l'A5, que es diu «Con, esfera i l'efecte de la raó» i no anomena el cilindre; l'A4, sí: «cossos bàsics». Cal confirmar-ho contra el llibre: si l'A5 cobreix l'àrea lateral del cilindre, aquestes quatre regles sobren i el que falla és el títol de l'A5."
+    },
+    "185": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: àrea total"
+    },
+    "186": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: de l'àrea lateral a l'altura"
+    },
+    "187": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 4,
+      "titol": "Àrees i volums dels cossos bàsics",
+      "nota": "cilindre: de l'àrea total al radi i l'altura"
+    },
     "242": {
       "curs": "3eso",
       "ud": 2,
@@ -358,7 +386,7 @@
     "dispersio": {
       "curs": "4eso",
       "ud": 9,
-      "titol": "Estadística de dues variables"
+      "nota": "Sense `titol` a posta: el rètol queda «4t ESO · Unitat 9», que és el que l'enllaç fa de debò. Deia «Estadística de dues variables» i les 17 fitxes (268a–274c) són recorregut, variància, desviació típica i coeficient de variació d'UNA variable: ni correlació, ni regressió, ni núvols de punts. La unitat sí que pot ser la bona; l'activitat concreta no la sabem sense el llibre. Quan es miri: si a la U9 hi ha una activitat de desviació típica, posar-hi `act` i el seu títol."
     },
     "1:enters": {
       "curs": "2eso",

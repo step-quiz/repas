@@ -101,7 +101,10 @@ def comprova_A(mapa):
     for n in sorted(TOTS):
         for it in TOTS[n]:
             d = destinacio(mapa, n, it)
-            if d:
+            # `titol` es opcional: js/teoria.js hi posa «Unitat N» quan falta,
+            # i `dispersio` no en te a posta. Sense titol no hi ha conceptes
+            # que contrastar, i aquesta comprovacio no hi te res a dir.
+            if d and d.get("titol"):
                 per_dest[(n, it["bloc"], d["titol"])].append(it)
     fora = []
     for (n, bloc, titol), items in sorted(per_dest.items()):
