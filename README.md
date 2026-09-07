@@ -355,3 +355,12 @@ per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
   partir del material LaTeX font.
 - **`DESPLEGAMENT.md`** — què es publica i què no, i què passa quan un alumne
   intenta que el registre digui més del que ha fet.
+
+<!-- atribucio-centre:inici -->
+
+---
+
+Material desenvolupat per **David Arso Civil** per al Departament de Matemàtiques de l'INS Miquel Tarradell.
+Contingut sota CC BY-NC-SA 4.0, codi sota llicència MIT. Vegeu [`LLICENCIA.md`](LLICENCIA.md).
+
+<!-- atribucio-centre:final -->
