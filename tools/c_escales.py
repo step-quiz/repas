@@ -21,16 +21,16 @@ from lib import Q, D, tex, texd, dificultats
 from figures.semblanca import escala_regla, figures_semblants_k
 
 dificultats({
-    285: 1,  # llegir què vol dir una escala
-    286: 2,  # del plànol a la realitat
-    287: 2,  # de la realitat al plànol
-    288: 2,  # trobar l'escala a partir de dues mesures
-    289: 3,  # escala amb canvi d'unitats pel mig
-    290: 1,  # la raó de semblança entre dues figures
-    291: 2,  # com queden les àrees
-    292: 2,  # com queden els volums
-    293: 3,  # a l'inrevés: de la raó d'àrees a la de longituds
-    294: 3,  # problema complet amb maqueta
+    285: 2,  # llegir què vol dir una escala
+    286: 3,  # del plànol a la realitat
+    287: 3,  # de la realitat al plànol
+    288: 3,  # trobar l'escala a partir de dues mesures
+    289: 4,  # escala amb canvi d'unitats pel mig
+    290: 2,  # la raó de semblança entre dues figures
+    291: 3,  # com queden les àrees
+    292: 3,  # com queden els volums
+    293: 4,  # a l'inrevés: de la raó d'àrees a la de longituds
+    294: 4,  # problema complet amb maqueta
 })
 
 B1 = "escales_calcul"

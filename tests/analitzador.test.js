@@ -621,11 +621,15 @@ function classeDeProva(w) {
   const { w, d } = obre();
   obreExamens(w, d, classeDeProva(w));
   d.getElementById("pr-va-lot").click();
-  d.getElementById("lot-inici").value = "2026-09-14";
-  d.getElementById("lot-periode").innerHTML = "";
-  /* es reomple la llista de trams amb la data posada */
-  d.getElementById("lot-inici").dispatchEvent(new w.Event("change"));
-  d.getElementById("lot-periode").value = "2";
+  /* Els trams ja no surten d'una data d'inici que es teclejava (`#lot-inici`,
+     que va desaparèixer quan el calendari es va passar a `js/calendari.js`):
+     obrir la pestanya ja omple el desplegable amb els nou trams del curs.
+     Les dates de `classeDeProva()` cauen exactament als trams 0, 1 i 2, i
+     aquí s'examina del tercer. */
+  const trams = d.getElementById("lot-periode");
+  assert.ok(trams.options.length >= 3,
+    "el desplegable de trams no s'ha omplert en obrir la pestanya");
+  trams.value = "2";
   d.getElementById("lot-genera").click();
 
   const files = () => Array.prototype.slice.call(
@@ -744,6 +748,60 @@ seccio("Exàmens: un pes a zero es diu");
     d.getElementById("lot-genera").click();
     const t = d.getElementById("lot-resum").textContent;
     assert.ok(/no pot sortir mai/.test(t), t.slice(0, 300));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("El full de respostes no pot injectar res a la pàgina");
+
+/* El `grup` i el nom surten d'un formulari que omple l'alumne. Si entren en
+   un `innerHTML` sense escapar, l'alumne executa codi dins de la pàgina que
+   porta el banc, tots els codis de la classe i les notes que s'estan posant.
+   No hauria de caldre robar res: bastaria repintar la taula de notes.
+
+   Aquestes proves són de forma, no de comportament: comproven que el text
+   hostil arribi al DOM com a TEXT i no com a etiqueta. */
+{
+  const { w, d } = obre();
+  const ara = new Date(2026, 9, 20, 18, 0);
+  const HOSTIL = '<img src=x onerror="window.TOCAT=1">';
+  d.getElementById("entrada").value = fabrica(w, [
+    [marca(ara), "mar@ins.cat", HOSTIL, codiDe(w, [1], 12, ara)],
+    [marca(ara), '"><script>window.TOCAT=2<\/script>', "4A", codiDe(w, [2], 8, ara)],
+  ]);
+  d.getElementById("btn-llegeix").click();
+
+  prova("un nom o grup amb HTML no executa res", () => {
+    assert.strictEqual(w.TOCAT, undefined);
+    assert.strictEqual(d.querySelectorAll('img[src="x"]').length, 0);
+  });
+
+  prova("el text hostil es veu tal qual, com a text", () => {
+    /* No es compara literalment amb HOSTIL: el lector de CSV consumeix les
+       cometes del camp (RFC-4180), així que el valor desat no és idèntic al
+       que s'ha enganxat. El que importa és que l'etiqueta arribi al DOM com
+       a TEXT, i es vegi. */
+    const t = d.body.textContent;
+    assert.ok(t.indexOf("img src=x") >= 0,
+      "el grup hostil hauria de sortir escrit a la taula, com a text");
+  });
+
+  prova("cap <script> del full de respostes arriba al DOM", () => {
+    const dolents = Array.prototype.filter.call(
+      d.querySelectorAll("script"), s => /window\.TOCAT/.test(s.textContent));
+    assert.strictEqual(dolents.length, 0);
+  });
+
+  prova("escapa() també serveix dins d'un atribut", () => {
+    /* Viu dins de la IIFE de la pàgina, així que s'extreu del fitxer. Només
+       amb & i < n'hi hauria prou per al text, però escapa() s'usa a
+       `data-alumne="..."`, i allà una cometa doble se n'escapa. */
+    const m = HTML.match(/function escapa\(s\)\s*\{[\s\S]*?\n  \}/);
+    assert.ok(m, "no s'ha trobat escapa() al fitxer");
+    const e = new Function(m[0] + "; return escapa;")();
+    assert.strictEqual(e('a"b'), "a&quot;b");
+    assert.strictEqual(e("a'b"), "a&#39;b");
+    assert.strictEqual(e("<b>&"), "&lt;b&gt;&amp;");
   });
 }
 

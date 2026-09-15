@@ -13,15 +13,15 @@ window.FULL = {
     "120a",
     "120b",
     "120c",
+    "123a",
+    "123b",
+    "123c",
+    "123d",
     "121a",
     "121b",
     "121c",
     "121d",
     "122",
-    "123a",
-    "123b",
-    "123c",
-    "123d",
     "124a",
     "124b",
     "124c",
@@ -41,15 +41,18 @@ window.FULL = {
    "titol": "Àrees amb el teorema de Pitàgores",
    "descripcio": "Àrees de triangles i rectangles combinades amb Pitàgores per trobar un costat, una alçada o una hipotenusa.",
    "items": [
-    "130",
+    "332a",
+    "332b",
+    "332c",
     "131",
     "132",
-    "133",
     "134",
     "135",
     "136",
     "137",
-    "138"
+    "138",
+    "130",
+    "133"
    ]
   },
   {
@@ -57,6 +60,10 @@ window.FULL = {
    "titol": "Àrees de quadrilàters i polígons regulars",
    "descripcio": "Trapezis, hexàgons, octàgons i figures amb superfícies circulars.",
    "items": [
+    "333a",
+    "333b",
+    "333c",
+    "333d",
     "140a",
     "140b",
     "140c",
@@ -85,7 +92,8 @@ window.FULL = {
     "149",
     "150",
     "151"
-   ]
+   ],
+   "avancat": true
   }
  ],
  "errors": {
@@ -93,17 +101,20 @@ window.FULL = {
   "ARREL_OBLIDADA": "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.",
   "CATET_MAL_IDENTIFICAT": "El costat que busques no és el que has triat. Fes un dibuix ràpid i marca quin costat coneixes i quin has d'aïllar abans de calcular.",
   "COSTATS_MAL_TRIATS": "El criteri és el bo, però l'has aplicat als costats que no toquen: torna a mirar quins dos costats has de comparar amb quin.",
+  "DIMENSIO_EXPONENT_MAL": "L'exponent no correspon a la dimensió: les àrees van al quadrat i els volums, al cub. Comprova també les unitats del resultat.",
   "DIVISIO_REPETIDA": "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula ja porta la divisió incorporada i se li torna a aplicar al final: escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
   "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
   "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
   "FORMULA_INVERTIDA": "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula sencera abans de substituir-hi els valors.",
   "FRACCIO_DE_CERCLE_MAL": "La porció de cercle no és la que toca: mig cercle, un quart, tres quarts... Mira quin angle abasta la figura i quina fracció de $360^\\circ$ representa.",
   "HIPOTENUSA_MAL_IDENTIFICADA": "La hipotenusa és sempre el costat MÉS LLARG del triangle rectangle, i és la que va sola a un costat de la igualtat.",
+  "HIPOTENUSA_PER_AREA": "Has calculat la hipotenusa, i el que es demanava era l'àrea. Torna a llegir la pregunta abans de començar: quan un triangle rectangle té els dos catets donats, ja els tens fets de base i altura i no cal cap Pitàgores.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "MEITAT_OBLIDADA": "Hi ha un factor $2$ pel mig que t'has deixat: radi i diàmetre, semibase i base, semidiagonal i diagonal. Comprova quina de les dues et demanen.",
   "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
   "PART_PEL_TOT": "Has donat el tot on et demanaven una part, o al revés. Compta quantes peces iguals hi ha a la figura i mira quantes n'entren a la resposta.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "PERIMETRE_PER_AREA": "Has sumat els costats: això és el perímetre, no l'àrea. El perímetre és el que fa la vora i es mesura en cm o m; l'àrea és la superfície de dins i es mesura en cm² o m².",
   "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
   "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
   "SIMPLIFICACIO_INCOMPLETA": "Encara es pot simplificar més: busca el m.c.d. del numerador i el denominador i divideix-los pel m.c.d. d'un sol cop.",
@@ -119,7 +130,7 @@ window.FULL = {
    "ap": "",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Un triangle isòsceles té l'angle desigual de $50^\\circ$. Quant mesuren els angles iguals?",
    "opcions": [
@@ -142,7 +153,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Analitza, en cada cas, les mesures i esbrina amb quines es pot formar un triangle.",
    "enunciat": "$a=8$ cm, $b=7$ cm, $c=1$ cm",
    "opcions": [
@@ -164,7 +175,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Analitza, en cada cas, les mesures i esbrina amb quines es pot formar un triangle.",
    "enunciat": "$a=6$ cm, $b=6$ cm, $c=13$ cm",
    "opcions": [
@@ -186,7 +197,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Analitza, en cada cas, les mesures i esbrina amb quines es pot formar un triangle.",
    "enunciat": "$a=12$ cm, $b=14$ cm, $c=6$ cm",
    "opcions": [
@@ -203,122 +214,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBkZXNpZ3VhbHRhdCB0cmlhbmd1bGFyIGVzIGNvbXByb3ZhIG5vbcOpcyBhbWIgbGVzIHRyZXMgbG9uZ2l0dWRzIGRvbmFkZXMsIHNlbnNlIGNhcCBhbmdsZS4iLCAiQ2FsIGNvbXByb3ZhciBsYSBkZXNpZ3VhbHRhdCBhbWIgZWxzIERPUyBjb3N0YXRzIG3DqXMgY3VydHMgc3VtYXRzICgkMTIrNiQpIGNvbnRyYSBlbCBtw6lzIGxsYXJnICgkMTQkKSwgbm8gY29tcGFyYXIgZG9zIGNvc3RhdHMgcXVhbHNzZXZvbCBlbnRyZSBzaS4iLCAiQ29tcHJvdmEtaG86IGVscyBjb3N0YXRzIG3DqXMgY3VydHMgc3VtZW4gJDEyKzY9MTgkLCBxdWUgU8ONIMOpcyBtw6lzIGdyYW4gcXVlICQxNCQuIExhIGRlc2lndWFsdGF0IHRyaWFuZ3VsYXIgZXMgY29tcGxlaXggZW4gYXF1ZXN0IGNhcy4iLCAiIl0sICJlcnIiOiBbIkVTX1BPVF9ERVRFUk1JTkFSIiwgIkNPU1RBVFNfTUFMX1RSSUFUUyIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIl0sICJyZXMiOiBbIkNvc3RhdHMgbcOpcyBjdXJ0czogJDEyJCBpICQ2JC4gJDEyKzY9MTg+MTQkOiBlcyBjb21wbGVpeCBsYSBkZXNpZ3VhbHRhdCB0cmlhbmd1bGFyLCBlcyBwb3QgZm9ybWFyIHVuIHRyaWFuZ2xlIl19"
   },
   {
-   "id": "121a",
-   "ex": 121,
-   "ap": "a",
-   "bloc": "triangles",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
-   "enunciat": "Triangle de costats 5 cm, 12 cm i 13 cm.",
-   "opcions": [
-    "No és rectangle",
-    "Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $12$ cm",
-    "Rectangle, amb hipotenusa $12$ cm i catets $5$ cm i $13$ cm",
-    "Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $13$ cm"
-   ],
-   "pistes": [
-    "Compara el quadrat del costat més llarg amb la suma dels quadrats dels altres dos.",
-    "$5^2+12^2$ i $13^2$: coincideixen?"
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJDb21wcm92YS1obzogJDVeMisxMl4yPTI1KzE0ND0xNjkkLCBpICQxM14yPTE2OSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIiwgIiIsICJMYSBoaXBvdGVudXNhIMOpcyBzZW1wcmUgZWwgY29zdGF0IE3DiVMgTExBUkcgZGVscyB0cmVzLCBxdWUgYXF1w60gw6lzICQxMyQgY20sIG5vICQxMiQgY20uIiwgIkxhIGhpcG90ZW51c2Egbm8gcG90IHJlcGV0aXItc2UgY29tIGEgY2F0ZXQ6IGVscyBjYXRldHMgc8OzbiBlbHMgZG9zIGNvc3RhdHMgcXVlIE5PIHPDs24gZWwgbcOpcyBsbGFyZywgw6lzIGEgZGlyLCAkNSQgaSAkMTIkLiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICJISVBPVEVOVVNBX01BTF9JREVOVElGSUNBREEiXSwgInJlcyI6IFsiJDVeMisxMl4yPTI1KzE0ND0xNjk9MTNeMiQ6IGNvaW5jaWRlaXgsIMOpcyByZWN0YW5nbGUsIGFtYiBoaXBvdGVudXNhICQxMyQgY20gaSBjYXRldHMgJDUkIGNtIGkgJDEyJCBjbSJdfQ=="
-  },
-  {
-   "id": "121b",
-   "ex": 121,
-   "ap": "b",
-   "bloc": "triangles",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
-   "enunciat": "Triangle de costats 6 cm, 8 cm i 12 cm.",
-   "opcions": [
-    "Rectangle, amb hipotenusa $8$ cm i catets $6$ cm i $12$ cm",
-    "No es pot saber sense mesurar els angles directament",
-    "Rectangle, amb hipotenusa $12$ cm i catets $6$ cm i $8$ cm",
-    "No és rectangle"
-   ],
-   "pistes": [
-    "Compara el quadrat del costat més llarg ($12$) amb la suma dels quadrats dels altres dos ($6$ i $8$).",
-    "$6^2+8^2$ i $12^2$: coincideixen?"
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbmNhcmEgcXVlIGZvcyByZWN0YW5nbGUsIGxhIGhpcG90ZW51c2EgaGF1cmlhIGRlIHNlciBlbCBjb3N0YXQgbcOpcyBsbGFyZyAoJDEyJCBjbSksIG5vIGVsICQ4JCBjbTsgcGVyw7IgZGUgZmV0IGFxdWVzdCB0cmlhbmdsZSBubyDDqXMgcmVjdGFuZ2xlLiIsICJFbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXMgcGVybWV0IHNhYmVyLWhvIG5vbcOpcyBhbWIgbGVzIHRyZXMgbG9uZ2l0dWRzLCBzZW5zZSBtZXN1cmFyIGNhcCBhbmdsZTogbm9tw6lzIGNhbCBjb21wYXJhciAkNl4yKzheMiQgYW1iICQxMl4yJC4iLCAiQ29tcHJvdmEtaG86ICQ2XjIrOF4yPTM2KzY0PTEwMCQsIHBlcsOyICQxMl4yPTE0NCQuIE5PIGNvaW5jaWRlaXhlbjogYXF1ZXN0IHRyaWFuZ2xlIG5vIMOpcyByZWN0YW5nbGUuIiwgIiJdLCAiZXJyIjogWyJISVBPVEVOVVNBX01BTF9JREVOVElGSUNBREEiLCAiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkNl4yKzheMj0zNis2ND0xMDAkLCBwZXLDsiAkMTJeMj0xNDQkOiBOTyBjb2luY2lkZWl4LCBubyDDqXMgcmVjdGFuZ2xlIl19"
-  },
-  {
-   "id": "121c",
-   "ex": 121,
-   "ap": "c",
-   "bloc": "triangles",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
-   "enunciat": "Triangle de costats 5 cm, 6 cm i $\\sqrt{61}$ cm.",
-   "opcions": [
-    "No es pot saber perquè un dels costats és una arrel, no un nombre enter",
-    "No és rectangle",
-    "Rectangle, amb hipotenusa $6$ cm i catets $5$ cm i $\\sqrt{61}$ cm",
-    "Rectangle, amb hipotenusa $\\sqrt{61}$ cm i catets $5$ cm i $6$ cm"
-   ],
-   "pistes": [
-    "Identifica primer el costat més llarg: com que $\\sqrt{61}\\approx7{,}81$ cm, és ell qui podria ser la hipotenusa.",
-    "Comprova $5^2+6^2$ contra $(\\sqrt{61})^2$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXMgZnVuY2lvbmEgaWd1YWwgYW1iIGNvc3RhdHMgaXJyYWNpb25hbHM6IG4naGkgaGEgcHJvdSBkJ2VsZXZhciAkXFxzcXJ0ezYxfSQgYWwgcXVhZHJhdCwgcXVlIGRvbmEgZXhhY3RhbWVudCAkNjEkLiIsICJDb21wcm92YS1obzogJDVeMis2XjI9MjUrMzY9NjEkLCBpICQoXFxzcXJ0ezYxfSleMj02MSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIiwgIkxhIGhpcG90ZW51c2Egw6lzIGVsIGNvc3RhdCBtw6lzIGxsYXJnOiBjb20gcXVlICRcXHNxcnR7NjF9XFxhcHByb3g3eyx9ODEkIGNtLCDDqXMgbcOpcyBsbGFyZyBxdWUgJDYkIGNtLCBpIHBlciB0YW50IMOpcyBlbGwgcXVpIGZhIGQnaGlwb3RlbnVzYSwgbm8gZWwgJDYkLiIsICIiXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICIiXSwgInJlcyI6IFsiJDVeMis2XjI9MjUrMzY9NjE9KFxcc3FydHs2MX0pXjIkOiBjb2luY2lkZWl4LCDDqXMgcmVjdGFuZ2xlLCBhbWIgaGlwb3RlbnVzYSAkXFxzcXJ0ezYxfSQgY20gaSBjYXRldHMgJDUkIGNtIGkgJDYkIGNtIl19"
-  },
-  {
-   "id": "121d",
-   "ex": 121,
-   "ap": "d",
-   "bloc": "triangles",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
-   "enunciat": "Triangle de costats 7 cm, 24 cm i 25 cm.",
-   "opcions": [
-    "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $7$ cm",
-    "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $24$ cm",
-    "Rectangle, amb hipotenusa $24$ cm i catets $7$ cm i $25$ cm",
-    "No és rectangle"
-   ],
-   "pistes": [
-    "Compara el quadrat del costat més llarg amb la suma dels quadrats dels altres dos.",
-    "$7^2+24^2$ i $25^2$: coincideixen?"
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbHMgZG9zIGNhdGV0cyBzw7NuIGVscyBkb3MgY29zdGF0cyBxdWUgTk8gZmFuIGQnaGlwb3RlbnVzYTogYXF1w60gc8OzbiAkNyQgY20gaSAkMjQkIGNtLCBubyBkdWVzIHZlZ2FkZXMgZWwgbWF0ZWl4IGNvc3RhdC4iLCAiIiwgIkxhIGhpcG90ZW51c2Egw6lzIGVsIGNvc3RhdCBtw6lzIGxsYXJnIGRlbHMgdHJlcywgcXVlIGFxdcOtIMOpcyAkMjUkIGNtLCBubyAkMjQkIGNtLiIsICJDb21wcm92YS1obzogJDdeMisyNF4yPTQ5KzU3Nj02MjUkLCBpICQyNV4yPTYyNSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDdeMisyNF4yPTQ5KzU3Nj02MjU9MjVeMiQ6IGNvaW5jaWRlaXgsIMOpcyByZWN0YW5nbGUsIGFtYiBoaXBvdGVudXNhICQyNSQgY20gaSBjYXRldHMgJDckIGNtIGkgJDI0JCBjbSJdfQ=="
-  },
-  {
-   "id": "122",
-   "ex": 122,
-   "ap": "",
-   "bloc": "triangles",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "Classifica en acutangle o obtusangle el triangle de costats 5 cm, 10 cm i 8 cm.",
-   "opcions": [
-    "No es pot classificar sense mesurar els angles directament",
-    "Triangle acutangle",
-    "Triangle rectangle",
-    "Triangle obtusangle"
-   ],
-   "pistes": [
-    "Compara el quadrat del costat més llarg ($10$) amb la suma dels quadrats dels altres dos ($5$ i $8$).",
-    "Si el quadrat del costat més llarg és més gran que la suma dels altres dos quadrats, el triangle és obtusangle; si és més petit, és acutangle; si coincideix, és rectangle."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wYXJhbnQgZWwgcXVhZHJhdCBkZWwgY29zdGF0IG3DqXMgbGxhcmcgYW1iIGxhIHN1bWEgZGVscyBxdWFkcmF0cyBkZWxzIGFsdHJlcyBkb3MgamEgbidoaSBoYSBwcm91IHBlciBjbGFzc2lmaWNhci1sbywgc2Vuc2UgbmVjZXNzaXRhdCBkZSBtZXN1cmFyIGNhcCBhbmdsZS4iLCAiQ29tcGFyYSAkMTBeMj0xMDAkIGFtYiAkNV4yKzheMj04OSQ6IGNvbSBxdWUgJDEwMD44OSQsIGwnYW5nbGUgb3Bvc2F0IGFsIGNvc3RhdCBtw6lzIGxsYXJnIMOpcyBtw6lzIG9iZXJ0IHF1ZSB1biBhbmdsZSByZWN0ZSwgYWl4w60gcXVlIGVsIHRyaWFuZ2xlIMOpcyBvYnR1c2FuZ2xlLCBubyBhY3V0YW5nbGUuIiwgIiQxMF4yPTEwMCQgaSAkNV4yKzheMj04OSQgTk8gY29pbmNpZGVpeGVuIChzaSBjb2luY2lkaXNzaW4gc2VyaWEgcmVjdGFuZ2xlKTogY29tIHF1ZSAkMTAwJCDDqXMgbcOpcyBncmFuIHF1ZSAkODkkLCBsJ2FuZ2xlIMOpcyBtw6lzIG9iZXJ0IHF1ZSB1biBhbmdsZSByZWN0ZSwgw6lzIGEgZGlyLCBvYnR1c2FuZ2xlLiIsICIiXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiIl0sICJyZXMiOiBbIiQxMF4yPTEwMCQsICRcXHF1YWQgNV4yKzheMj0yNSs2ND04OSQiLCAiQ29tIHF1ZSAkMTAwPjg5JCwgZWwgdHJpYW5nbGUgw6lzIG9idHVzYW5nbGUiXX0="
-  },
-  {
    "id": "123a",
    "ex": 123,
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Quadrat de costat 4 cm, $x$ és la diagonal.",
    "opcions": [
@@ -341,7 +242,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Quadrat de costat 10 cm, $x$ és la diagonal.",
    "opcions": [
@@ -364,7 +265,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Rectangle de costats 5 cm i 8 cm, $x$ és la diagonal.",
    "opcions": [
@@ -387,7 +288,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud de $x$ en aquestes figures.",
    "enunciat": "Rectangle de diagonal $\\sqrt{117}$ cm i un costat de 9 cm, $x$ és l'altre costat.",
    "opcions": [
@@ -405,12 +306,122 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 239 181\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Rectangle de 9 cm per x amb la diagonal marcada.</title><g transform=\"translate(44.7,14.0)\"><polygon points=\"0.0,0.0 180.0,0.0 180.0,120.0 0.0,120.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"122.5\" x2=\"0.0\" y2=\"139.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"180.0\" y1=\"122.5\" x2=\"180.0\" y2=\"139.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"136.0\" x2=\"180.0\" y2=\"136.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"132.0\" x2=\"4.0\" y2=\"140.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"176.0\" y1=\"132.0\" x2=\"184.0\" y2=\"140.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"120.0\" x2=\"-19.5\" y2=\"120.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"120.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"116.0\" x2=\"-20.0\" y2=\"124.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line x1=\"0.0\" y1=\"120.0\" x2=\"180.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"90\" y=\"150.4\" text-anchor=\"middle\" class=\"fig-etq\">9 cm</text><text x=\"-27\" y=\"63.4\" text-anchor=\"middle\" class=\"fig-etq\">x</text><text x=\"57.3\" y=\"61.1\" text-anchor=\"middle\" class=\"fig-etq\">√117 cm</text></g></svg>"
   },
   {
+   "id": "121a",
+   "ex": 121,
+   "ap": "a",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
+   "enunciat": "Triangle de costats 5 cm, 12 cm i 13 cm.",
+   "opcions": [
+    "No és rectangle",
+    "Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $12$ cm",
+    "Rectangle, amb hipotenusa $12$ cm i catets $5$ cm i $13$ cm",
+    "Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $13$ cm"
+   ],
+   "pistes": [
+    "Compara el quadrat del costat més llarg amb la suma dels quadrats dels altres dos.",
+    "$5^2+12^2$ i $13^2$: coincideixen?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJDb21wcm92YS1obzogJDVeMisxMl4yPTI1KzE0ND0xNjkkLCBpICQxM14yPTE2OSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIiwgIiIsICJMYSBoaXBvdGVudXNhIMOpcyBzZW1wcmUgZWwgY29zdGF0IE3DiVMgTExBUkcgZGVscyB0cmVzLCBxdWUgYXF1w60gw6lzICQxMyQgY20sIG5vICQxMiQgY20uIiwgIkxhIGhpcG90ZW51c2Egbm8gcG90IHJlcGV0aXItc2UgY29tIGEgY2F0ZXQ6IGVscyBjYXRldHMgc8OzbiBlbHMgZG9zIGNvc3RhdHMgcXVlIE5PIHPDs24gZWwgbcOpcyBsbGFyZywgw6lzIGEgZGlyLCAkNSQgaSAkMTIkLiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICJISVBPVEVOVVNBX01BTF9JREVOVElGSUNBREEiXSwgInJlcyI6IFsiJDVeMisxMl4yPTI1KzE0ND0xNjk9MTNeMiQ6IGNvaW5jaWRlaXgsIMOpcyByZWN0YW5nbGUsIGFtYiBoaXBvdGVudXNhICQxMyQgY20gaSBjYXRldHMgJDUkIGNtIGkgJDEyJCBjbSJdfQ=="
+  },
+  {
+   "id": "121b",
+   "ex": 121,
+   "ap": "b",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
+   "enunciat": "Triangle de costats 6 cm, 8 cm i 12 cm.",
+   "opcions": [
+    "Rectangle, amb hipotenusa $8$ cm i catets $6$ cm i $12$ cm",
+    "No es pot saber sense mesurar els angles directament",
+    "Rectangle, amb hipotenusa $12$ cm i catets $6$ cm i $8$ cm",
+    "No és rectangle"
+   ],
+   "pistes": [
+    "Compara el quadrat del costat més llarg ($12$) amb la suma dels quadrats dels altres dos ($6$ i $8$).",
+    "$6^2+8^2$ i $12^2$: coincideixen?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbmNhcmEgcXVlIGZvcyByZWN0YW5nbGUsIGxhIGhpcG90ZW51c2EgaGF1cmlhIGRlIHNlciBlbCBjb3N0YXQgbcOpcyBsbGFyZyAoJDEyJCBjbSksIG5vIGVsICQ4JCBjbTsgcGVyw7IgZGUgZmV0IGFxdWVzdCB0cmlhbmdsZSBubyDDqXMgcmVjdGFuZ2xlLiIsICJFbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXMgcGVybWV0IHNhYmVyLWhvIG5vbcOpcyBhbWIgbGVzIHRyZXMgbG9uZ2l0dWRzLCBzZW5zZSBtZXN1cmFyIGNhcCBhbmdsZTogbm9tw6lzIGNhbCBjb21wYXJhciAkNl4yKzheMiQgYW1iICQxMl4yJC4iLCAiQ29tcHJvdmEtaG86ICQ2XjIrOF4yPTM2KzY0PTEwMCQsIHBlcsOyICQxMl4yPTE0NCQuIE5PIGNvaW5jaWRlaXhlbjogYXF1ZXN0IHRyaWFuZ2xlIG5vIMOpcyByZWN0YW5nbGUuIiwgIiJdLCAiZXJyIjogWyJISVBPVEVOVVNBX01BTF9JREVOVElGSUNBREEiLCAiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkNl4yKzheMj0zNis2ND0xMDAkLCBwZXLDsiAkMTJeMj0xNDQkOiBOTyBjb2luY2lkZWl4LCBubyDDqXMgcmVjdGFuZ2xlIl19"
+  },
+  {
+   "id": "121c",
+   "ex": 121,
+   "ap": "c",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
+   "enunciat": "Triangle de costats 5 cm, 6 cm i $\\sqrt{61}$ cm.",
+   "opcions": [
+    "No es pot saber perquè un dels costats és una arrel, no un nombre enter",
+    "No és rectangle",
+    "Rectangle, amb hipotenusa $6$ cm i catets $5$ cm i $\\sqrt{61}$ cm",
+    "Rectangle, amb hipotenusa $\\sqrt{61}$ cm i catets $5$ cm i $6$ cm"
+   ],
+   "pistes": [
+    "Identifica primer el costat més llarg: com que $\\sqrt{61}\\approx7{,}81$ cm, és ell qui podria ser la hipotenusa.",
+    "Comprova $5^2+6^2$ contra $(\\sqrt{61})^2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXMgZnVuY2lvbmEgaWd1YWwgYW1iIGNvc3RhdHMgaXJyYWNpb25hbHM6IG4naGkgaGEgcHJvdSBkJ2VsZXZhciAkXFxzcXJ0ezYxfSQgYWwgcXVhZHJhdCwgcXVlIGRvbmEgZXhhY3RhbWVudCAkNjEkLiIsICJDb21wcm92YS1obzogJDVeMis2XjI9MjUrMzY9NjEkLCBpICQoXFxzcXJ0ezYxfSleMj02MSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIiwgIkxhIGhpcG90ZW51c2Egw6lzIGVsIGNvc3RhdCBtw6lzIGxsYXJnOiBjb20gcXVlICRcXHNxcnR7NjF9XFxhcHByb3g3eyx9ODEkIGNtLCDDqXMgbcOpcyBsbGFyZyBxdWUgJDYkIGNtLCBpIHBlciB0YW50IMOpcyBlbGwgcXVpIGZhIGQnaGlwb3RlbnVzYSwgbm8gZWwgJDYkLiIsICIiXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICIiXSwgInJlcyI6IFsiJDVeMis2XjI9MjUrMzY9NjE9KFxcc3FydHs2MX0pXjIkOiBjb2luY2lkZWl4LCDDqXMgcmVjdGFuZ2xlLCBhbWIgaGlwb3RlbnVzYSAkXFxzcXJ0ezYxfSQgY20gaSBjYXRldHMgJDUkIGNtIGkgJDYkIGNtIl19"
+  },
+  {
+   "id": "121d",
+   "ex": 121,
+   "ap": "d",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Determina si els triangles són rectangles. En cas afirmatiu, indica la mesura de la seva hipotenusa i dels seus catets.",
+   "enunciat": "Triangle de costats 7 cm, 24 cm i 25 cm.",
+   "opcions": [
+    "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $7$ cm",
+    "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $24$ cm",
+    "Rectangle, amb hipotenusa $24$ cm i catets $7$ cm i $25$ cm",
+    "No és rectangle"
+   ],
+   "pistes": [
+    "Compara el quadrat del costat més llarg amb la suma dels quadrats dels altres dos.",
+    "$7^2+24^2$ i $25^2$: coincideixen?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbHMgZG9zIGNhdGV0cyBzw7NuIGVscyBkb3MgY29zdGF0cyBxdWUgTk8gZmFuIGQnaGlwb3RlbnVzYTogYXF1w60gc8OzbiAkNyQgY20gaSAkMjQkIGNtLCBubyBkdWVzIHZlZ2FkZXMgZWwgbWF0ZWl4IGNvc3RhdC4iLCAiIiwgIkxhIGhpcG90ZW51c2Egw6lzIGVsIGNvc3RhdCBtw6lzIGxsYXJnIGRlbHMgdHJlcywgcXVlIGFxdcOtIMOpcyAkMjUkIGNtLCBubyAkMjQkIGNtLiIsICJDb21wcm92YS1obzogJDdeMisyNF4yPTQ5KzU3Nj02MjUkLCBpICQyNV4yPTYyNSQgdGFtYsOpLiBDb2luY2lkZWl4ZW4sIGFpeMOtIHF1ZSBzw60gcXVlIMOpcyByZWN0YW5nbGUuIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIkhJUE9URU5VU0FfTUFMX0lERU5USUZJQ0FEQSIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDdeMisyNF4yPTQ5KzU3Nj02MjU9MjVeMiQ6IGNvaW5jaWRlaXgsIMOpcyByZWN0YW5nbGUsIGFtYiBoaXBvdGVudXNhICQyNSQgY20gaSBjYXRldHMgJDckIGNtIGkgJDI0JCBjbSJdfQ=="
+  },
+  {
+   "id": "122",
+   "ex": 122,
+   "ap": "",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "Classifica en acutangle o obtusangle el triangle de costats 5 cm, 10 cm i 8 cm.",
+   "opcions": [
+    "No es pot classificar sense mesurar els angles directament",
+    "Triangle acutangle",
+    "Triangle rectangle",
+    "Triangle obtusangle"
+   ],
+   "pistes": [
+    "Compara el quadrat del costat més llarg ($10$) amb la suma dels quadrats dels altres dos ($5$ i $8$).",
+    "Si el quadrat del costat més llarg és més gran que la suma dels altres dos quadrats, el triangle és obtusangle; si és més petit, és acutangle; si coincideix, és rectangle."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wYXJhbnQgZWwgcXVhZHJhdCBkZWwgY29zdGF0IG3DqXMgbGxhcmcgYW1iIGxhIHN1bWEgZGVscyBxdWFkcmF0cyBkZWxzIGFsdHJlcyBkb3MgamEgbidoaSBoYSBwcm91IHBlciBjbGFzc2lmaWNhci1sbywgc2Vuc2UgbmVjZXNzaXRhdCBkZSBtZXN1cmFyIGNhcCBhbmdsZS4iLCAiQ29tcGFyYSAkMTBeMj0xMDAkIGFtYiAkNV4yKzheMj04OSQ6IGNvbSBxdWUgJDEwMD44OSQsIGwnYW5nbGUgb3Bvc2F0IGFsIGNvc3RhdCBtw6lzIGxsYXJnIMOpcyBtw6lzIG9iZXJ0IHF1ZSB1biBhbmdsZSByZWN0ZSwgYWl4w60gcXVlIGVsIHRyaWFuZ2xlIMOpcyBvYnR1c2FuZ2xlLCBubyBhY3V0YW5nbGUuIiwgIiQxMF4yPTEwMCQgaSAkNV4yKzheMj04OSQgTk8gY29pbmNpZGVpeGVuIChzaSBjb2luY2lkaXNzaW4gc2VyaWEgcmVjdGFuZ2xlKTogY29tIHF1ZSAkMTAwJCDDqXMgbcOpcyBncmFuIHF1ZSAkODkkLCBsJ2FuZ2xlIMOpcyBtw6lzIG9iZXJ0IHF1ZSB1biBhbmdsZSByZWN0ZSwgw6lzIGEgZGlyLCBvYnR1c2FuZ2xlLiIsICIiXSwgImVyciI6IFsiRVNfUE9UX0RFVEVSTUlOQVIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiIl0sICJyZXMiOiBbIiQxMF4yPTEwMCQsICRcXHF1YWQgNV4yKzheMj0yNSs2ND04OSQiLCAiQ29tIHF1ZSAkMTAwPjg5JCwgZWwgdHJpYW5nbGUgw6lzIG9idHVzYW5nbGUiXX0="
+  },
+  {
    "id": "124a",
    "ex": 124,
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina la longitud de $x$ en aquests triangles.",
    "enunciat": "Triangle equilàter de costat 10 cm; $x$ és l'alçada.",
    "opcions": [
@@ -433,7 +444,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina la longitud de $x$ en aquests triangles.",
    "enunciat": "Triangle isòsceles de base 8 cm i alçada $\\sqrt{48}$ cm; $x$ és la longitud dels costats iguals.",
    "opcions": [
@@ -456,7 +467,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina la longitud de $x$ en aquests triangles.",
    "enunciat": "Triangle isòsceles de costats iguals 12 cm i base 7 cm; $x$ és l'alçada.",
    "opcions": [
@@ -479,7 +490,7 @@ window.FULL = {
    "ap": "",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Troba l'altura d'un triangle equilàter de perímetre 48 cm.",
    "opcions": [
@@ -502,7 +513,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el perímetre de les figures següents.",
    "enunciat": "Quadrilàter irregular de costats 25 cm, 28 cm, 18 cm i 10 cm.",
    "opcions": [
@@ -524,7 +535,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el perímetre de les figures següents.",
    "enunciat": "Hexàgon còncau (en forma de fletxa) de costats 12 cm, 14 cm, 28 cm, 7 cm, 16 cm i 5 cm.",
    "opcions": [
@@ -546,7 +557,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'apotema d'un hexàgon regular el costat del qual mesura:",
    "enunciat": "10 cm",
    "opcions": [
@@ -569,7 +580,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'apotema d'un hexàgon regular el costat del qual mesura:",
    "enunciat": "16 cm",
    "opcions": [
@@ -592,7 +603,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'apotema d'un hexàgon regular el costat del qual mesura:",
    "enunciat": "7 cm",
    "opcions": [
@@ -615,7 +626,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un rectangle té base $AB=12$ cm i altura $AC=16$ cm. Un rombe uneix els punts mitjans dels quatre costats del rectangle. Calcula el costat del rombe.",
    "opcions": [
@@ -638,7 +649,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En un rectangle, dos costats consecutius es diuen $AB=12$ cm (la base) i $AC=16$ cm (l'altura), essent $A$, $B$ i $C$ tres dels vèrtexs del rectangle ($A$ i $B$ a la base, $C$ damunt de $A$). En el triangle rectangle $ABC$, quant valen el catet $AB$, el catet $AC$ i la hipotenusa $BC$?",
    "opcions": [
@@ -661,7 +672,7 @@ window.FULL = {
    "ap": "",
    "bloc": "triangles",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un rectangle de costats 15 cm i 20 cm està inscrit en una circumferència. Quant mesura el radi de la circumferència?",
    "opcions": [
@@ -679,27 +690,73 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 269 196\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Rectangle de 20 cm per 15 cm amb la diagonal marcada.</title><g transform=\"translate(74.3,14.0)\"><polygon points=\"0.0,0.0 180.0,0.0 180.0,135.0 0.0,135.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"137.5\" x2=\"0.0\" y2=\"154.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"180.0\" y1=\"137.5\" x2=\"180.0\" y2=\"154.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"151.0\" x2=\"180.0\" y2=\"151.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"147.0\" x2=\"4.0\" y2=\"155.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"176.0\" y1=\"147.0\" x2=\"184.0\" y2=\"155.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"135.0\" x2=\"-19.5\" y2=\"135.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"135.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"131.0\" x2=\"-20.0\" y2=\"139.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line x1=\"0.0\" y1=\"135.0\" x2=\"180.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"90\" y=\"165.4\" text-anchor=\"middle\" class=\"fig-etq\">20 cm</text><text x=\"-42\" y=\"70.9\" text-anchor=\"middle\" class=\"fig-etq\">15 cm</text><text x=\"96.6\" y=\"79.7\" text-anchor=\"middle\" class=\"fig-etq\">x</text></g></svg>"
   },
   {
-   "id": "130",
-   "ex": 130,
-   "ap": "",
+   "id": "332a",
+   "ex": 332,
+   "ap": "a",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual (la base) mesura $6$ m. Troba la longitud dels altres dos costats.",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "enunciat": "Els catets fan $3$ cm i $4$ cm.",
    "opcions": [
-    "$\\sqrt{73}\\approx8{,}54$ m",
-    "11 m",
-    "$8$ m",
-    "73 m"
+    "$6$ cm$^2$",
+    "$7$ cm$^2$",
+    "$12$ cm$^2$",
+    "$5$ cm$^2$"
    ],
    "pistes": [
-    "Aïlla primer l'alçada a partir de l'àrea: $24=\\dfrac{6\\cdot h}{2}$.",
-    "L'alçada, la semibase ($3$ m) i el costat lateral (com a hipotenusa) formen un triangle rectangle: aplica Pitàgores."
+    "En un triangle rectangle, els dos catets ja fan de base i d'altura.",
+    "$A=\\dfrac{3\\cdot 4}{2}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IGRpcmVjdGFtZW50IGxhIHNlbWliYXNlIGkgbCdhbMOnYWRhICgkMys4JCkgZW4gbGxvYyBkJ2FwbGljYXIgUGl0w6Bnb3Jlcy4iLCAiQXF1ZXN0YSDDqXMgbCdhbMOnYWRhIGRlbCB0cmlhbmdsZSAob2J0aW5ndWRhIGRlIGwnw6ByZWEpLCBubyBlbCBjb3N0YXQgbGF0ZXJhbCBxdWUgZXQgZGVtYW5lbjogZW5jYXJhIGZhbHRhIGFwbGljYXIgUGl0w6Bnb3JlcyBhbWIgbGEgc2VtaWJhc2UuIiwgIkhhcyBjYWxjdWxhdCAkM14yKzheMj03MyQgY29ycmVjdGFtZW50LCBwZXLDsiB0J2hhcyBkZWl4YXQgbCdhcnJlbCBxdWFkcmFkYSBmaW5hbC4iXSwgImVyciI6IFsiIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiQVJSRUxfT0JMSURBREEiXSwgInJlcyI6IFsiQWzDp2FkYTogJDI0PVxcZGZyYWN7NlxcY2RvdCBofXsyfVxcUmlnaHRhcnJvdyBoPTgkIG0iLCAiQ29zdGF0IGxhdGVyYWw6ICRcXHNxcnR7M14yKzheMn09XFxzcXJ0ezczfVxcYXBwcm94OHssfTU0JCBtIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 198 221\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle isòsceles de base 6 m, costats iguals ?, alçada ?.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"0.0,160.0 170.0,160.0 85.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"85.0\" y1=\"0.0\" x2=\"85.0\" y2=\"160.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><path d=\"M 94.0 160.0 L 94.0 151.0 L 85.0 151.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"162.5\" x2=\"0.0\" y2=\"179.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"162.5\" x2=\"170.0\" y2=\"179.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"176.0\" x2=\"170.0\" y2=\"176.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"172.0\" x2=\"4.0\" y2=\"180.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"172.0\" x2=\"174.0\" y2=\"180.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"190.4\" text-anchor=\"middle\" class=\"fig-etq\">6 m</text><text x=\"52.2\" y=\"88.5\" text-anchor=\"middle\" class=\"fig-etq\">?</text><text x=\"96\" y=\"83.4\" text-anchor=\"middle\" class=\"fig-etq\">?</text></g></svg>"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0ICQzKzQkLiBIYXMgc3VtYXQgZWxzIGNvc3RhdHMgZGlyZWN0YW1lbnQuIFBpdMOgZ29yZXMgZGl1IHF1ZSBlcyBzdW1lbiBlbHMgc2V1cyBRVUFEUkFUUywgaSBhbCBmaW5hbCBlcyBmYSBsJ2FycmVsIGRlbCByZXN1bHRhdC4iLCAiSGFzIG11bHRpcGxpY2F0IGVscyBjYXRldHMgaSBwcm91OiAkM1xcY2RvdCA0PTEyJC4gSGkgaGEgdW4gZmFjdG9yICQyJCBwZWwgbWlnIHF1ZSB0J2hhcyBkZWl4YXQ6IHJhZGkgaSBkacOgbWV0cmUsIHNlbWliYXNlIGkgYmFzZSwgc2VtaWRpYWdvbmFsIGkgZGlhZ29uYWwuIENvbXByb3ZhIHF1aW5hIGRlIGxlcyBkdWVzIGV0IGRlbWFuZW4uIiwgIkhhcyBjYWxjdWxhdCBsYSBoaXBvdGVudXNhLCBpIGVsIHF1ZSBlcyBkZW1hbmF2YSBlcmEgbCfDoHJlYS4gVG9ybmEgYSBsbGVnaXIgbGEgcHJlZ3VudGEgYWJhbnMgZGUgY29tZW7Dp2FyOiBxdWFuIHVuIHRyaWFuZ2xlIHJlY3RhbmdsZSB0w6kgZWxzIGRvcyBjYXRldHMgZG9uYXRzLCBqYSBlbHMgdGVucyBmZXRzIGRlIGJhc2UgaSBhbHR1cmEgaSBubyBjYWwgY2FwIFBpdMOgZ29yZXMuIl0sICJlcnIiOiBbIiIsICJTVU1BX0NBVEVUU19TRU5TRV9RVUFEUkFUIiwgIk1FSVRBVF9PQkxJREFEQSIsICJISVBPVEVOVVNBX1BFUl9BUkVBIl0sICJyZXMiOiBbIiRBPVxcZGZyYWN7YlxcY2RvdCBofXsyfT1cXGRmcmFjezNcXGNkb3QgNH17Mn09NiQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 249 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle rectangle de catets 3 cm i 4 cm.</title><g transform=\"translate(64.6,14.0)\"><polygon points=\"0.0,170.0 170.0,170.0 0.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 12.0 170.0 L 12.0 158.0 L 0.0 158.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"172.5\" x2=\"0.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"172.5\" x2=\"170.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"186.0\" x2=\"170.0\" y2=\"186.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"182.0\" x2=\"4.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"182.0\" x2=\"174.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"170.0\" x2=\"-19.5\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"166.0\" x2=\"-20.0\" y2=\"174.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"200.4\" text-anchor=\"middle\" class=\"fig-etq\">3 cm</text><text x=\"-36\" y=\"88.4\" text-anchor=\"middle\" class=\"fig-etq\">4 cm</text></g></svg>"
+  },
+  {
+   "id": "332b",
+   "ex": 332,
+   "ap": "b",
+   "bloc": "arees_pit",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "enunciat": "Els catets fan $6$ m i $8$ m.",
+   "opcions": [
+    "$10$ m$^2$",
+    "$48$ m$^2$",
+    "$14$ m$^2$",
+    "$24$ m$^2$"
+   ],
+   "pistes": [
+    "Els catets són la base i l'altura.",
+    "$A=\\dfrac{6\\cdot 8}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgY2FsY3VsYXQgbGEgaGlwb3RlbnVzYSwgaSBlbCBxdWUgZXMgZGVtYW5hdmEgZXJhIGwnw6ByZWEuIFRvcm5hIGEgbGxlZ2lyIGxhIHByZWd1bnRhIGFiYW5zIGRlIGNvbWVuw6dhcjogcXVhbiB1biB0cmlhbmdsZSByZWN0YW5nbGUgdMOpIGVscyBkb3MgY2F0ZXRzIGRvbmF0cywgamEgZWxzIHRlbnMgZmV0cyBkZSBiYXNlIGkgYWx0dXJhIGkgbm8gY2FsIGNhcCBQaXTDoGdvcmVzLiIsICIkNlxcY2RvdCA4PTQ4JCwgaSBlbmNhcmEgZmFsdGEgZGl2aWRpciBwZXIgJDIkLiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iLCAiSGFzIHN1bWF0ICQ2KzgkLiBIYXMgc3VtYXQgZWxzIGNvc3RhdHMgZGlyZWN0YW1lbnQuIFBpdMOgZ29yZXMgZGl1IHF1ZSBlcyBzdW1lbiBlbHMgc2V1cyBRVUFEUkFUUywgaSBhbCBmaW5hbCBlcyBmYSBsJ2FycmVsIGRlbCByZXN1bHRhdC4iLCAiIl0sICJlcnIiOiBbIkhJUE9URU5VU0FfUEVSX0FSRUEiLCAiTUVJVEFUX09CTElEQURBIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiIl0sICJyZXMiOiBbIiRBPVxcZGZyYWN7NlxcY2RvdCA4fXsyfT1cXGRmcmFjezQ4fXsyfT0yNCQgbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 240 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle rectangle de catets 6 m i 8 m.</title><g transform=\"translate(56.0,14.0)\"><polygon points=\"0.0,170.0 170.0,170.0 0.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 12.0 170.0 L 12.0 158.0 L 0.0 158.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"172.5\" x2=\"0.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"172.5\" x2=\"170.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"186.0\" x2=\"170.0\" y2=\"186.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"182.0\" x2=\"4.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"182.0\" x2=\"174.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"170.0\" x2=\"-19.5\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"166.0\" x2=\"-20.0\" y2=\"174.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"200.4\" text-anchor=\"middle\" class=\"fig-etq\">6 m</text><text x=\"-31\" y=\"88.4\" text-anchor=\"middle\" class=\"fig-etq\">8 m</text></g></svg>"
+  },
+  {
+   "id": "332c",
+   "ex": 332,
+   "ap": "c",
+   "bloc": "arees_pit",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "enunciat": "Els catets fan $5$ cm i $12$ cm.",
+   "opcions": [
+    "$30$ cm$^2$",
+    "$60$ cm$^2$",
+    "$13$ cm$^2$",
+    "$17$ cm$^2$"
+   ],
+   "pistes": [
+    "Els catets fan de base i d'altura.",
+    "$A=\\dfrac{5\\cdot 12}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDVcXGNkb3QgMTI9NjAkOyBmYWx0YSBsYSBtZWl0YXQuIEhpIGhhIHVuIGZhY3RvciAkMiQgcGVsIG1pZyBxdWUgdCdoYXMgZGVpeGF0OiByYWRpIGkgZGnDoG1ldHJlLCBzZW1pYmFzZSBpIGJhc2UsIHNlbWlkaWFnb25hbCBpIGRpYWdvbmFsLiBDb21wcm92YSBxdWluYSBkZSBsZXMgZHVlcyBldCBkZW1hbmVuLiIsICJIYXMgY2FsY3VsYXQgbGEgaGlwb3RlbnVzYSwgaSBlbCBxdWUgZXMgZGVtYW5hdmEgZXJhIGwnw6ByZWEuIFRvcm5hIGEgbGxlZ2lyIGxhIHByZWd1bnRhIGFiYW5zIGRlIGNvbWVuw6dhcjogcXVhbiB1biB0cmlhbmdsZSByZWN0YW5nbGUgdMOpIGVscyBkb3MgY2F0ZXRzIGRvbmF0cywgamEgZWxzIHRlbnMgZmV0cyBkZSBiYXNlIGkgYWx0dXJhIGkgbm8gY2FsIGNhcCBQaXTDoGdvcmVzLiIsICJIYXMgc3VtYXQgJDUrMTIkLiBIYXMgc3VtYXQgZWxzIGNvc3RhdHMgZGlyZWN0YW1lbnQuIFBpdMOgZ29yZXMgZGl1IHF1ZSBlcyBzdW1lbiBlbHMgc2V1cyBRVUFEUkFUUywgaSBhbCBmaW5hbCBlcyBmYSBsJ2FycmVsIGRlbCByZXN1bHRhdC4iXSwgImVyciI6IFsiIiwgIk1FSVRBVF9PQkxJREFEQSIsICJISVBPVEVOVVNBX1BFUl9BUkVBIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiXSwgInJlcyI6IFsiJEE9XFxkZnJhY3s1XFxjZG90IDEyfXsyfT1cXGRmcmFjezYwfXsyfT0zMCQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 259 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle rectangle de catets 5 cm i 12 cm.</title><g transform=\"translate(74.3,14.0)\"><polygon points=\"0.0,170.0 170.0,170.0 0.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 12.0 170.0 L 12.0 158.0 L 0.0 158.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"172.5\" x2=\"0.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"172.5\" x2=\"170.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"186.0\" x2=\"170.0\" y2=\"186.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"182.0\" x2=\"4.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"182.0\" x2=\"174.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"170.0\" x2=\"-19.5\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"166.0\" x2=\"-20.0\" y2=\"174.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"200.4\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><text x=\"-42\" y=\"88.4\" text-anchor=\"middle\" class=\"fig-etq\">12 cm</text></g></svg>"
   },
   {
    "id": "131",
@@ -707,7 +764,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets mesura $6$ cm. Calcula la longitud de la hipotenusa.",
    "opcions": [
@@ -730,7 +787,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
    "opcions": [
@@ -748,35 +805,12 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 184 163\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle equilàter de 3 costats.</title><g transform=\"translate(91.9,104.0)\"><polygon points=\"77.9,45.0 -77.9,45.0 -0.0,-90.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/></g></svg>"
   },
   {
-   "id": "133",
-   "ex": 133,
-   "ap": "",
-   "bloc": "arees_pit",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Si l'àrea d'un triangle equilàter és $30$ cm$^2$, troba la longitud del seu costat.",
-   "opcions": [
-    "$\\sqrt{120}\\approx10{,}95$ cm",
-    "$\\sqrt{40\\sqrt3}\\approx8{,}32$ cm",
-    "$\\dfrac{30^2\\sqrt3}{4}$ cm",
-    "$40\\sqrt3\\approx69{,}28$ cm"
-   ],
-   "pistes": [
-    "Aïlla $L^2$ de la fórmula $A=\\dfrac{L^2\\sqrt3}{4}$: $L^2=\\dfrac{4A}{\\sqrt3}$.",
-    "Amb $A=30$: $L^2=\\dfrac{120}{\\sqrt3}=40\\sqrt3$; després fes l'arrel quadrada."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiBhw69sbGFyICRMXjIkIGRlICQzMD1cXGRmcmFje0xeMlxcc3FydDN9ezR9JCBubyBuJ2hpIGhhIHByb3UgYW1iIG11bHRpcGxpY2FyIHBlciAkNCQgKCRMXjI9MTIwJCk6IGVuY2FyYSBjYWwgZGl2aWRpciBwZXIgJFxcc3FydDMkIGFiYW5zIGRlIGZlciBsJ2FycmVsLiIsICIiLCAiQXF1ZXN0YSBleHByZXNzacOzIGNvcnJlc3BvbiBhIGwnw4BSRUEgYSBwYXJ0aXIgZGVsIGNvc3RhdCAobGEgZsOzcm11bGEgb3JpZ2luYWwpLCBubyBhbCBjb3N0YXQgYSBwYXJ0aXIgZGUgbCfDoHJlYTogY2FsIGHDr2xsYXIgJEwkIGRlIGxhIGbDs3JtdWxhLCBubyBhcGxpY2FyLWxhIHRhbCBxdWFsIGFtYiAkMzAkIGNvbSBzaSBmb3MgZWwgY29zdGF0LiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIGRlICRMXjIkIChlbmNhcmEgYWwgcXVhZHJhdCksIG5vIGRlICRMJDogZXQgZmFsdGEgZmVyIGwnYXJyZWwgcXVhZHJhZGEgZmluYWwuIl0sICJlcnIiOiBbIkFSUkVMX0ZBQ1RPUl9PQkxJREFUIiwgIiIsICJJTlZFUlRJREEiLCAiQVJSRUxfT0JMSURBREEiXSwgInJlcyI6IFsiJExeMj1cXGRmcmFjezRcXGNkb3QzMH17XFxzcXJ0M309XFxkZnJhY3sxMjB9e1xcc3FydDN9PTQwXFxzcXJ0MyQiLCAiJEw9XFxzcXJ0ezQwXFxzcXJ0M31cXGFwcHJveDh7LH0zMiQgY20iXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 184 163\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle equilàter de 3 costats.</title><g transform=\"translate(91.9,104.0)\"><polygon points=\"77.9,45.0 -77.9,45.0 -0.0,-90.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/></g></svg>"
-  },
-  {
    "id": "134",
    "ex": 134,
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un dels catets mesura $5$ cm.",
    "opcions": [
@@ -799,7 +833,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea d'un quadrat sabent que la seva diagonal mesura $7{,}07$ cm.",
    "opcions": [
@@ -822,7 +856,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels costats de $4$ cm.",
    "opcions": [
@@ -845,7 +879,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal $\\sqrt{116}$ cm.",
    "opcions": [
@@ -868,7 +902,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_pit",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Determina l'àrea d'un rectangle de base $7$ cm i perímetre $24$ cm.",
    "opcions": [
@@ -886,12 +920,150 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 239 190\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Rectangle de 7 cm per ?.</title><g transform=\"translate(44.7,14.0)\"><polygon points=\"0.0,0.0 180.0,0.0 180.0,128.6 0.0,128.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"131.1\" x2=\"0.0\" y2=\"148.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"180.0\" y1=\"131.1\" x2=\"180.0\" y2=\"148.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"144.6\" x2=\"180.0\" y2=\"144.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"140.6\" x2=\"4.0\" y2=\"148.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"176.0\" y1=\"140.6\" x2=\"184.0\" y2=\"148.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"128.6\" x2=\"-19.5\" y2=\"128.6\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"128.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"124.6\" x2=\"-20.0\" y2=\"132.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"90\" y=\"158.9\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text><text x=\"-27\" y=\"67.6\" text-anchor=\"middle\" class=\"fig-etq\">?</text></g></svg>"
   },
   {
+   "id": "130",
+   "ex": 130,
+   "ap": "",
+   "bloc": "arees_pit",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual (la base) mesura $6$ m. Troba la longitud dels altres dos costats.",
+   "opcions": [
+    "$\\sqrt{73}\\approx8{,}54$ m",
+    "11 m",
+    "$8$ m",
+    "73 m"
+   ],
+   "pistes": [
+    "Aïlla primer l'alçada a partir de l'àrea: $24=\\dfrac{6\\cdot h}{2}$.",
+    "L'alçada, la semibase ($3$ m) i el costat lateral (com a hipotenusa) formen un triangle rectangle: aplica Pitàgores."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IGRpcmVjdGFtZW50IGxhIHNlbWliYXNlIGkgbCdhbMOnYWRhICgkMys4JCkgZW4gbGxvYyBkJ2FwbGljYXIgUGl0w6Bnb3Jlcy4iLCAiQXF1ZXN0YSDDqXMgbCdhbMOnYWRhIGRlbCB0cmlhbmdsZSAob2J0aW5ndWRhIGRlIGwnw6ByZWEpLCBubyBlbCBjb3N0YXQgbGF0ZXJhbCBxdWUgZXQgZGVtYW5lbjogZW5jYXJhIGZhbHRhIGFwbGljYXIgUGl0w6Bnb3JlcyBhbWIgbGEgc2VtaWJhc2UuIiwgIkhhcyBjYWxjdWxhdCAkM14yKzheMj03MyQgY29ycmVjdGFtZW50LCBwZXLDsiB0J2hhcyBkZWl4YXQgbCdhcnJlbCBxdWFkcmFkYSBmaW5hbC4iXSwgImVyciI6IFsiIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiQVJSRUxfT0JMSURBREEiXSwgInJlcyI6IFsiQWzDp2FkYTogJDI0PVxcZGZyYWN7NlxcY2RvdCBofXsyfVxcUmlnaHRhcnJvdyBoPTgkIG0iLCAiQ29zdGF0IGxhdGVyYWw6ICRcXHNxcnR7M14yKzheMn09XFxzcXJ0ezczfVxcYXBwcm94OHssfTU0JCBtIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 198 221\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle isòsceles de base 6 m, costats iguals ?, alçada ?.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"0.0,160.0 170.0,160.0 85.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"85.0\" y1=\"0.0\" x2=\"85.0\" y2=\"160.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.5\" stroke-dasharray=\"4 3\"/><path d=\"M 94.0 160.0 L 94.0 151.0 L 85.0 151.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"162.5\" x2=\"0.0\" y2=\"179.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"162.5\" x2=\"170.0\" y2=\"179.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"176.0\" x2=\"170.0\" y2=\"176.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"172.0\" x2=\"4.0\" y2=\"180.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"172.0\" x2=\"174.0\" y2=\"180.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"190.4\" text-anchor=\"middle\" class=\"fig-etq\">6 m</text><text x=\"52.2\" y=\"88.5\" text-anchor=\"middle\" class=\"fig-etq\">?</text><text x=\"96\" y=\"83.4\" text-anchor=\"middle\" class=\"fig-etq\">?</text></g></svg>"
+  },
+  {
+   "id": "133",
+   "ex": 133,
+   "ap": "",
+   "bloc": "arees_pit",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Si l'àrea d'un triangle equilàter és $30$ cm$^2$, troba la longitud del seu costat.",
+   "opcions": [
+    "$\\sqrt{120}\\approx10{,}95$ cm",
+    "$\\sqrt{40\\sqrt3}\\approx8{,}32$ cm",
+    "$\\dfrac{30^2\\sqrt3}{4}$ cm",
+    "$40\\sqrt3\\approx69{,}28$ cm"
+   ],
+   "pistes": [
+    "Aïlla $L^2$ de la fórmula $A=\\dfrac{L^2\\sqrt3}{4}$: $L^2=\\dfrac{4A}{\\sqrt3}$.",
+    "Amb $A=30$: $L^2=\\dfrac{120}{\\sqrt3}=40\\sqrt3$; després fes l'arrel quadrada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiBhw69sbGFyICRMXjIkIGRlICQzMD1cXGRmcmFje0xeMlxcc3FydDN9ezR9JCBubyBuJ2hpIGhhIHByb3UgYW1iIG11bHRpcGxpY2FyIHBlciAkNCQgKCRMXjI9MTIwJCk6IGVuY2FyYSBjYWwgZGl2aWRpciBwZXIgJFxcc3FydDMkIGFiYW5zIGRlIGZlciBsJ2FycmVsLiIsICIiLCAiQXF1ZXN0YSBleHByZXNzacOzIGNvcnJlc3BvbiBhIGwnw4BSRUEgYSBwYXJ0aXIgZGVsIGNvc3RhdCAobGEgZsOzcm11bGEgb3JpZ2luYWwpLCBubyBhbCBjb3N0YXQgYSBwYXJ0aXIgZGUgbCfDoHJlYTogY2FsIGHDr2xsYXIgJEwkIGRlIGxhIGbDs3JtdWxhLCBubyBhcGxpY2FyLWxhIHRhbCBxdWFsIGFtYiAkMzAkIGNvbSBzaSBmb3MgZWwgY29zdGF0LiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIGRlICRMXjIkIChlbmNhcmEgYWwgcXVhZHJhdCksIG5vIGRlICRMJDogZXQgZmFsdGEgZmVyIGwnYXJyZWwgcXVhZHJhZGEgZmluYWwuIl0sICJlcnIiOiBbIkFSUkVMX0ZBQ1RPUl9PQkxJREFUIiwgIiIsICJJTlZFUlRJREEiLCAiQVJSRUxfT0JMSURBREEiXSwgInJlcyI6IFsiJExeMj1cXGRmcmFjezRcXGNkb3QzMH17XFxzcXJ0M309XFxkZnJhY3sxMjB9e1xcc3FydDN9PTQwXFxzcXJ0MyQiLCAiJEw9XFxzcXJ0ezQwXFxzcXJ0M31cXGFwcHJveDh7LH0zMiQgY20iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 184 163\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle equilàter de 3 costats.</title><g transform=\"translate(91.9,104.0)\"><polygon points=\"77.9,45.0 -77.9,45.0 -0.0,-90.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/></g></svg>"
+  },
+  {
+   "id": "333a",
+   "ex": 333,
+   "ap": "a",
+   "bloc": "arees_poli",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "enunciat": "Rectangle de $7$ cm de base i $4$ cm d'altura.",
+   "opcions": [
+    "$11$ cm$^2$",
+    "$14$ cm$^2$",
+    "$28$ cm$^2$",
+    "$22$ cm$^2$"
+   ],
+   "pistes": [
+    "L'àrea del rectangle és base per altura.",
+    "$A=7\\cdot 4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgJDcrNCQgZW4gbGxvYyBkZSBtdWx0aXBsaWNhci4gSGFzIHN1bWF0IGVscyBjb3N0YXRzIGRpcmVjdGFtZW50LiBQaXTDoGdvcmVzIGRpdSBxdWUgZXMgc3VtZW4gZWxzIHNldXMgUVVBRFJBVFMsIGkgYWwgZmluYWwgZXMgZmEgbCdhcnJlbCBkZWwgcmVzdWx0YXQuIiwgIkhhcyBkaXZpZGl0IHBlciAkMiQuIEVsIG1pZyDDqXMgZGUgbGEgZsOzcm11bGEgZGVsIHRyaWFuZ2xlOyBlbCByZWN0YW5nbGUgbm8gZW4gcG9ydGEuIEhhcyBkaXZpZGl0IG9uIGxhIGbDs3JtdWxhIG11bHRpcGxpY2EgKG8gYWwgcmV2w6lzKS4gRXNjcml1IGxhIGbDs3JtdWxhIHNlbmNlcmEgYWJhbnMgZGUgc3Vic3RpdHVpci1oaSBlbHMgdmFsb3JzLiIsICIiLCAiJDcrNCs3KzQ9MjIkIMOpcyBsYSB2b3JhLCBubyBsYSBzdXBlcmbDrWNpZS4gSGFzIHN1bWF0IGVscyBjb3N0YXRzOiBhaXjDsiDDqXMgZWwgcGVyw61tZXRyZSwgbm8gbCfDoHJlYS4gRWwgcGVyw61tZXRyZSDDqXMgZWwgcXVlIGZhIGxhIHZvcmEgaSBlcyBtZXN1cmEgZW4gY20gbyBtOyBsJ8OgcmVhIMOpcyBsYSBzdXBlcmbDrWNpZSBkZSBkaW5zIGkgZXMgbWVzdXJhIGVuIGNtwrIgbyBtwrIuIl0sICJlcnIiOiBbIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiRk9STVVMQV9JTlZFUlRJREEiLCAiIiwgIlBFUklNRVRSRV9QRVJfQVJFQSJdLCAicmVzIjogWyIkQT1iXFxjZG90IGg9N1xcY2RvdCA0PTI4JCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 259 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Rectangle de 7 cm per 4 cm.</title><g transform=\"translate(64.6,14.0)\"><polygon points=\"0.0,0.0 180.0,0.0 180.0,102.9 0.0,102.9\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"105.4\" x2=\"0.0\" y2=\"122.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"180.0\" y1=\"105.4\" x2=\"180.0\" y2=\"122.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"118.9\" x2=\"180.0\" y2=\"118.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"114.9\" x2=\"4.0\" y2=\"122.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"176.0\" y1=\"114.9\" x2=\"184.0\" y2=\"122.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"102.9\" x2=\"-19.5\" y2=\"102.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"102.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"98.9\" x2=\"-20.0\" y2=\"106.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"90\" y=\"133.2\" text-anchor=\"middle\" class=\"fig-etq\">7 cm</text><text x=\"-36\" y=\"54.8\" text-anchor=\"middle\" class=\"fig-etq\">4 cm</text></g></svg>"
+  },
+  {
+   "id": "333b",
+   "ex": 333,
+   "ap": "b",
+   "bloc": "arees_poli",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "enunciat": "Quadrat de $9$ m de costat.",
+   "opcions": [
+    "$40{,}5$ m$^2$",
+    "$36$ m$^2$",
+    "$81$ m$^2$",
+    "$18$ m$^2$"
+   ],
+   "pistes": [
+    "Un quadrat és un rectangle amb la base i l'altura iguals.",
+    "$A=9\\cdot 9=9^2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgJDIkLCBpIGxhIGbDs3JtdWxhIGRlbCBxdWFkcmF0IG5vIGhvIHBvcnRhLiBIYXMgZGl2aWRpdCBvbiBsYSBmw7NybXVsYSBtdWx0aXBsaWNhIChvIGFsIHJldsOpcykuIEVzY3JpdSBsYSBmw7NybXVsYSBzZW5jZXJhIGFiYW5zIGRlIHN1YnN0aXR1aXItaGkgZWxzIHZhbG9ycy4iLCAiJDRcXGNkb3QgOT0zNiQgw6lzIGVsIHBlcsOtbWV0cmUuIEhhcyBzdW1hdCBlbHMgY29zdGF0czogYWl4w7Igw6lzIGVsIHBlcsOtbWV0cmUsIG5vIGwnw6ByZWEuIEVsIHBlcsOtbWV0cmUgw6lzIGVsIHF1ZSBmYSBsYSB2b3JhIGkgZXMgbWVzdXJhIGVuIGNtIG8gbTsgbCfDoHJlYSDDqXMgbGEgc3VwZXJmw61jaWUgZGUgZGlucyBpIGVzIG1lc3VyYSBlbiBjbcKyIG8gbcKyLiIsICIiLCAiSGFzIGNhbGN1bGF0ICQyXFxjZG90IDkkLiBFbCBxdWFkcmF0IGRlbCBjb3N0YXQgw6lzICQ5XFxjZG90IDkkLCBubyAkOSs5JC4gTCdleHBvbmVudCBubyBjb3JyZXNwb24gYSBsYSBkaW1lbnNpw7M6IGxlcyDDoHJlZXMgdmFuIGFsIHF1YWRyYXQgaSBlbHMgdm9sdW1zLCBhbCBjdWIuIENvbXByb3ZhIHRhbWLDqSBsZXMgdW5pdGF0cyBkZWwgcmVzdWx0YXQuIl0sICJlcnIiOiBbIkZPUk1VTEFfSU5WRVJUSURBIiwgIlBFUklNRVRSRV9QRVJfQVJFQSIsICIiLCAiRElNRU5TSU9fRVhQT05FTlRfTUFMIl0sICJyZXMiOiBbIiRBPUxeMj05XjI9ODEkIG0kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 168 201\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Quadrat de costat 9 m.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"0.0,0.0 140.0,0.0 140.0,140.0 0.0,140.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"142.5\" x2=\"0.0\" y2=\"159.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"140.0\" y1=\"142.5\" x2=\"140.0\" y2=\"159.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"156.0\" x2=\"140.0\" y2=\"156.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"152.0\" x2=\"4.0\" y2=\"160.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"136.0\" y1=\"152.0\" x2=\"144.0\" y2=\"160.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"70\" y=\"170.4\" text-anchor=\"middle\" class=\"fig-etq\">9 m</text></g></svg>"
+  },
+  {
+   "id": "333c",
+   "ex": 333,
+   "ap": "c",
+   "bloc": "arees_poli",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "enunciat": "Romboide de $10$ cm de base i $3$ cm d'altura.",
+   "opcions": [
+    "$15$ cm$^2$",
+    "$13$ cm$^2$",
+    "$26$ cm$^2$",
+    "$30$ cm$^2$"
+   ],
+   "pistes": [
+    "El romboide es converteix en un rectangle movent el triangle d'un costat a l'altre: l'àrea és base per altura.",
+    "L'altura és el segment perpendicular de puntets, no el costat inclinat. $A=10\\cdot 3$."
+   ],
+   "nota": "L'altura d'un romboide és el segment perpendicular a la base (el de puntets), no el costat inclinat.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXXDrSBwYXNzYSBhbCBjb250cmFyaSBkZWwgcXVlIMOpcyBoYWJpdHVhbDogaGFzIGRpdmlkaXQgcGVyICQyJCBxdWFuIE5PIHRvY2F2YS4gRWwgbWlnIMOpcyBkZSBsYSBmw7NybXVsYSBkZWwgdHJpYW5nbGU7IGVsIHJvbWJvaWRlLCBjb20gZWwgcmVjdGFuZ2xlLCDDqXMgYmFzZSBwZXIgYWx0dXJhLiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iLCAiSGFzIHN1bWF0ICQxMCszJCBlbiBsbG9jIGRlIG11bHRpcGxpY2FyLiBIYXMgc3VtYXQgZWxzIGNvc3RhdHMgZGlyZWN0YW1lbnQuIFBpdMOgZ29yZXMgZGl1IHF1ZSBlcyBzdW1lbiBlbHMgc2V1cyBRVUFEUkFUUywgaSBhbCBmaW5hbCBlcyBmYSBsJ2FycmVsIGRlbCByZXN1bHRhdC4iLCAiSGFzIHN1bWF0IGNvc3RhdHMuIEhhcyBzdW1hdCBlbHMgY29zdGF0czogYWl4w7Igw6lzIGVsIHBlcsOtbWV0cmUsIG5vIGwnw6ByZWEuIEVsIHBlcsOtbWV0cmUgw6lzIGVsIHF1ZSBmYSBsYSB2b3JhIGkgZXMgbWVzdXJhIGVuIGNtIG8gbTsgbCfDoHJlYSDDqXMgbGEgc3VwZXJmw61jaWUgZGUgZGlucyBpIGVzIG1lc3VyYSBlbiBjbcKyIG8gbcKyLiIsICIiXSwgImVyciI6IFsiTUVJVEFUX09CTElEQURBIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiUEVSSU1FVFJFX1BFUl9BUkVBIiwgIiJdLCAicmVzIjogWyIkQT1iXFxjZG90IGg9MTBcXGNkb3QgMz0zMCQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 196 116\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Romboide de base 10 cm i altura 3 cm. L'altura es dibuixa com un segment perpendicular a la base, no com el costat inclinat.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"0.0,55.0 150.0,55.0 167.6,0.0 17.6,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"17.6\" y1=\"0.0\" x2=\"17.6\" y2=\"55.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\"/><path d=\"M 26.6 55.0 L 26.6 46.0 L 17.6 46.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"57.5\" x2=\"0.0\" y2=\"74.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"150.0\" y1=\"57.5\" x2=\"150.0\" y2=\"74.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"71.0\" x2=\"150.0\" y2=\"71.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"67.0\" x2=\"4.0\" y2=\"75.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"146.0\" y1=\"67.0\" x2=\"154.0\" y2=\"75.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"75\" y=\"85.4\" text-anchor=\"middle\" class=\"fig-etq\">10 cm</text><text x=\"37.6\" y=\"30.9\" text-anchor=\"middle\" class=\"fig-etq\">3 cm</text></g></svg>"
+  },
+  {
+   "id": "333d",
+   "ex": 333,
+   "ap": "d",
+   "bloc": "arees_poli",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "enunciat": "Rombe de diagonals $8$ cm i $6$ cm.",
+   "opcions": [
+    "$48$ cm$^2$",
+    "$28$ cm$^2$",
+    "$14$ cm$^2$",
+    "$24$ cm$^2$"
+   ],
+   "pistes": [
+    "L'àrea del rombe és el producte de les diagonals partit per dos.",
+    "$A=\\dfrac{8\\cdot 6}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkOFxcY2RvdCA2PTQ4JDsgbGEgZsOzcm11bGEgZGVsIHJvbWJlIHPDrSBxdWUgcG9ydGEgZWwgbWlnLiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iLCAiSGFzIGNvbmbDs3MgbGVzIGRpYWdvbmFscyBhbWIgZWxzIGNvc3RhdHMuIEhhcyBzdW1hdCBlbHMgY29zdGF0czogYWl4w7Igw6lzIGVsIHBlcsOtbWV0cmUsIG5vIGwnw6ByZWEuIEVsIHBlcsOtbWV0cmUgw6lzIGVsIHF1ZSBmYSBsYSB2b3JhIGkgZXMgbWVzdXJhIGVuIGNtIG8gbTsgbCfDoHJlYSDDqXMgbGEgc3VwZXJmw61jaWUgZGUgZGlucyBpIGVzIG1lc3VyYSBlbiBjbcKyIG8gbcKyLiIsICJIYXMgc3VtYXQgbGVzIGRpYWdvbmFscy4gSGFzIHN1bWF0IGVscyBjb3N0YXRzIGRpcmVjdGFtZW50LiBQaXTDoGdvcmVzIGRpdSBxdWUgZXMgc3VtZW4gZWxzIHNldXMgUVVBRFJBVFMsIGkgYWwgZmluYWwgZXMgZmEgbCdhcnJlbCBkZWwgcmVzdWx0YXQuIiwgIiJdLCAiZXJyIjogWyJNRUlUQVRfT0JMSURBREEiLCAiUEVSSU1FVFJFX1BFUl9BUkVBIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiLCAiIl0sICJyZXMiOiBbIiRBPVxcZGZyYWN7RFxcY2RvdCBkfXsyfT1cXGRmcmFjezhcXGNkb3QgNn17Mn09XFxkZnJhY3s0OH17Mn09MjQkIGNtJF4yJCJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 251 191\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Rombe amb les diagonals de 8 cm i 6 cm dibuixades.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"0.0,63.8 85.0,0.0 170.0,63.8 85.0,127.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"63.8\" x2=\"170.0\" y2=\"63.8\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\"/><line x1=\"85.0\" y1=\"0.0\" x2=\"85.0\" y2=\"127.5\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"66.2\" x2=\"0.0\" y2=\"149.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"66.2\" x2=\"170.0\" y2=\"149.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"145.5\" x2=\"170.0\" y2=\"145.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"141.5\" x2=\"4.0\" y2=\"149.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"141.5\" x2=\"174.0\" y2=\"149.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"191.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"127.5\" x2=\"191.5\" y2=\"127.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"188.0\" y1=\"0.0\" x2=\"188.0\" y2=\"127.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"184.0\" y1=\"-4.0\" x2=\"192.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"184.0\" y1=\"123.5\" x2=\"192.0\" y2=\"131.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"85\" y=\"159.9\" text-anchor=\"middle\" class=\"fig-etq\">8 cm</text><text x=\"208\" y=\"67.1\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text></g></svg>"
+  },
+  {
    "id": "140a",
    "ex": 140,
    "ap": "a",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $3$ cm i $10$ cm, alçada de $6$ cm.",
    "opcions": [
@@ -914,7 +1086,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $16$ m i $24$ m, alçada de $\\sqrt{164}$ m.",
    "opcions": [
@@ -937,7 +1109,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $3{,}5$ m i $4{,}13$ m, alçada de $7$ m.",
    "opcions": [
@@ -960,7 +1132,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'àrea d'aquests trapezis isòsceles.",
    "enunciat": "Bases de $4$ m i $14$ m, alçada de $3$ m.",
    "opcions": [
@@ -983,7 +1155,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea de:",
    "enunciat": "Un hexàgon regular de costat $2$ cm.",
    "opcions": [
@@ -1006,7 +1178,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea de:",
    "enunciat": "Un octàgon regular de perímetre $48$ cm.",
    "opcions": [
@@ -1029,7 +1201,7 @@ window.FULL = {
    "ap": "",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la diagonal que passa pel centre (la que uneix dos vèrtexs oposats).",
    "opcions": [
@@ -1052,7 +1224,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un quadrat de costat $5$ cm queda dividit en dos triangles iguals per una diagonal. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
@@ -1075,7 +1247,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un pentàgon regular de costat $4$ cm i apotema $a\\approx2{,}75$ cm queda dividit en cinc triangles iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
@@ -1098,7 +1270,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un hexàgon regular de costat $3$ cm queda dividit en sis triangles equilàters iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
@@ -1121,7 +1293,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina l'àrea dels triangles descrits a continuació.",
    "enunciat": "Un octàgon regular de costat $3$ cm i apotema $3{,}62$ cm queda dividit en vuit triangles iguals unint el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests triangles?",
    "opcions": [
@@ -1144,7 +1316,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Calcula l'àrea de les figures següents.",
    "enunciat": "Una figura en forma de mitja lluna és la diferència entre un semicercle de $12$ cm de diàmetre i un semicercle interior de $6$ cm de diàmetre. Quina és la seva àrea?",
    "opcions": [
@@ -1167,7 +1339,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Calcula l'àrea de les figures següents.",
    "enunciat": "D'un cercle de $4$ cm de diàmetre es retalla un sector de $90^\\circ$ (una quarta part, tipus \"Pac-Man\"). Quina és l'àrea de la part que queda?",
    "opcions": [
@@ -1190,7 +1362,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "arees_poli",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Determina l'àrea de la figura descrita.",
    "enunciat": "Un quadrat de costat $5$ cm té un forat circular de $2$ cm de diàmetre. Quina és l'àrea que queda un cop tret el forat?",
    "opcions": [
@@ -1213,7 +1385,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Una torre fa 150 m d'alçada i la seva ombra s'estén 200 m pel terra pla. Quina distància hi ha des del punt més alt de la torre fins a l'extrem de l'ombra?",
    "opcions": [
@@ -1236,7 +1408,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Una escala de 10 m de longitud està recolzada sobre una paret. El peu de l'escala dista 6 m de la paret. A quina altura arriba l'escala sobre la paret?",
    "opcions": [
@@ -1259,7 +1431,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Als costats d'un camp quadrangular s'han plantat 32 arbres, separats 5 m entre ells. Quant mesura el costat del camp?",
    "opcions": [
@@ -1282,7 +1454,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Amb les mateixes dades de l'apartat anterior (32 arbres, separats 5 m, camp quadrangular): quina és l'àrea del camp?",
    "opcions": [
@@ -1305,7 +1477,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un senyal de trànsit d'STOP té forma d'octàgon regular, amb una altura de 90 cm (distància entre costats oposats) i un costat de 37 cm. Quina és la seva àrea?",
    "opcions": [
@@ -1328,7 +1500,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Cada un dels 50 pisos d'un edifici té la planta d'un hexàgon regular de costat 30 m. Si el terra té una moqueta que costa 20 €/m$^2$, calcula el preu total pagat per la moqueta de l'edifici.",
    "opcions": [
@@ -1351,7 +1523,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un pastisser ha cobert de sucre la part superior de 200 rosquilles: cadascuna té diàmetre exterior 6 cm i un forat central de diàmetre 5 cm. Si ha fet servir 5 kg de sucre, quants grams de sucre fan falta per cobrir cada centímetre quadrat de rosquilla?",
    "opcions": [

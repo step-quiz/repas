@@ -18,16 +18,16 @@ from lib import Q, D, tex, texd, dificultats
 from figures import grafica_recta, grafica_parabola, nuvol_de_punts
 
 dificultats({
-    295: 2,  # recta a partir del pendent i un punt
-    296: 2,  # recta a partir de dos punts
-    297: 2,  # de la descripció de la gràfica a l'expressió
-    298: 3,  # paral·lela i perpendicular per un punt
-    299: 3,  # punt de tall de dues rectes
-    300: 2,  # vèrtex d'una paràbola
-    301: 3,  # talls amb els eixos d'una paràbola
-    302: 3,  # paràbola a partir del vèrtex i un punt
-    303: 3,  # problema amb quota fixa i part variable
-    304: 3,  # problema amb paràbola: on és el màxim
+    295: 3,  # recta a partir del pendent i un punt
+    296: 3,  # recta a partir de dos punts
+    297: 3,  # de la descripció de la gràfica a l'expressió
+    298: 4,  # paral·lela i perpendicular per un punt
+    299: 4,  # punt de tall de dues rectes
+    300: 3,  # vèrtex d'una paràbola
+    301: 4,  # talls amb els eixos d'una paràbola
+    302: 4,  # paràbola a partir del vèrtex i un punt
+    303: 4,  # problema amb quota fixa i part variable
+    304: 4,  # problema amb paràbola: on és el màxim
 })
 
 B1 = "rectes_produccio"
@@ -487,3 +487,233 @@ Q("304", 304, "", B2, "A",
   # Sense nota: descrivia de quin tipus de problema es tracta. És una
   # observació de catàleg, no una ajuda per resoldre'l.
   )
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 336-339)
+# =====================================================================
+# `rectes_produccio` obria amb punt-pendent, i llegir $m$ i $n$ d'una recta
+# que ja ve escrita en forma explícita no es demanava enlloc.
+# `parabola_produccio` obria amb el vèrtex d'una paràbola amb $b\ne 0$ i
+# els talls amb els eixos, i tampoc hi havia res que demanés només
+# identificar els coeficients o veure cap on obre.
+
+dificultats({
+    336: 1,  # llegir m i n d'una recta en forma explícita
+    337: 1,  # escriure la recta a partir de m i n
+    338: 1,  # cap on obre, i quins són els coeficients
+    339: 1,  # el vèrtex quan b = 0
+})
+
+
+E336 = ("Aquesta recta ja està escrita en forma explícita $y=mx+n$. "
+        "Respon la pregunta.")
+
+# 336a i 336b són la mateixa recta amb les dues preguntes, i és deliberat:
+# la parella detecta qui té m i n intercanviats, perquè els falla tots dos
+# de manera creuada i el registre en veu dos errors amb la mateixa
+# etiqueta. Amb un sol apartat, l'encert podria ser casualitat.
+
+Q("336a", 336, "a", B1, "A",
+  r"$y=3x-2$. Quin és el pendent?",
+  "3",
+  [D("-2", "PENDENT_ORDENADA_INTERCANVIATS",
+     "El $-2$ és l'ordenada a l'origen: el número que va sol, sense $x$. El "
+     "pendent és el que multiplica la $x$."),
+   D("2", "SIGNE_ORDENADA_INVERTIT",
+     "Has agafat el terme sense $x$, i a més sense el seu signe."),
+   D(r"$\dfrac{1}{3}$", "PENDENT_INVERTIT",
+     "El pendent és el coeficient tal qual, no el seu invers.")],
+  ["A $y=mx+n$, el pendent és el número que va davant de la $x$.",
+   "A $y=3x-2$, davant de la $x$ hi ha un $3$."],
+  [r"$y=3x-2\Rightarrow m=3$"],
+  ex_text=E336)
+
+Q("336b", 336, "b", B1, "A",
+  r"$y=3x-2$. Quina és l'ordenada a l'origen?",
+  "-2",
+  [D("3", "PENDENT_ORDENADA_INTERCANVIATS",
+     "El $3$ és el pendent. L'ordenada a l'origen és el terme que va sol, "
+     "sense $x$: és el valor de $y$ quan $x=0$."),
+   D("2", "SIGNE_ORDENADA_INVERTIT",
+     "El terme és el bo, però amb el seu signe: $-2$."),
+   D("0", "ORDENADA_NULA_OBLIDADA",
+     "L'ordenada seria $0$ si la recta passés per l'origen, i aquesta no "
+     "hi passa: substitueix $x=0$ i ho veuràs.")],
+  ["L'ordenada a l'origen és el valor de $y$ quan $x=0$.",
+   "Substitueix: $y=3\\cdot 0-2$."],
+  [r"$x=0\Rightarrow y=3\cdot 0-2=-2$, o sigui $n=-2$"],
+  ex_text=E336)
+
+Q("336c", 336, "c", B1, "A",
+  r"$y=-x+5$. Quin és el pendent?",
+  "-1",
+  [D("5", "PENDENT_ORDENADA_INTERCANVIATS",
+     "El $5$ és l'ordenada a l'origen."),
+   D("1", "SIGNE_PENDENT_INVERTIT",
+     "El signe compta: $-x$ vol dir $-1\\cdot x$, de manera que el pendent "
+     "és $-1$. Una recta amb pendent negatiu baixa."),
+   D("-5", "PENDENT_MAL_TRIAT",
+     "Has agafat el terme sense $x$ i li has canviat el signe.")],
+  ["Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ "
+   "implícit.",
+   "$-x$ és $-1\\cdot x$."],
+  [r"$y=-x+5=-1\cdot x+5\Rightarrow m=-1$"],
+  ex_text=E336)
+
+Q("336d", 336, "d", B1, "A",
+  r"$y=4$. Quin és el pendent?",
+  "0",
+  [D("4", "PENDENT_ORDENADA_INTERCANVIATS",
+     "El $4$ és l'ordenada a l'origen. La recta $y=4$ és horitzontal i passa "
+     "per l'altura $4$."),
+   D("No en té", "RECTA_VERTICAL_CONFOSA",
+     "La que no té pendent és la VERTICAL, del tipus $x=4$. Aquesta, "
+     "$y=4$, és horitzontal, i una recta horitzontal té pendent, que val "
+     "$0$: no puja ni baixa."),
+   D("1", "PENDENT_COM_NUL",
+     "Si el pendent fos $1$ la recta pujaria. $y=4$ és plana.")],
+  ["$y=4$ es pot escriure com $y=0\\cdot x+4$.",
+   "Una recta horitzontal no puja ni baixa: el seu pendent és $0$."],
+  [r"$y=4=0\cdot x+4\Rightarrow m=0$"],
+  ex_text=E336)
+
+
+E337 = "Escriu l'equació explícita de la recta."
+
+Q("337a", 337, "a", B1, "A",
+  r"$m=2$ i $n=-1$",
+  "$y=2x-1$",
+  [D("$y=-x+2$", "PENDENT_ORDENADA_INTERCANVIATS",
+     "Has posat el pendent on va l'ordenada i a l'inrevés. El pendent "
+     "multiplica la $x$."),
+   D("$y=2x+1$", "SIGNE_ORDENADA_INVERTIT",
+     "L'ordenada és $-1$: va amb el seu signe."),
+   D("$y=2(x-1)$", "PARENTESI_NO_DISTRIBUIT",
+     "Això no és la forma explícita, i a més val una altra cosa: "
+     "$2(x-1)=2x-2$.")],
+  ["La forma explícita és $y=mx+n$: col·loca-hi cada número al seu lloc.",
+   "$m=2$ va davant de la $x$; $n=-1$ va sol."],
+  [r"$y=mx+n=2x+(-1)=2x-1$"],
+  ex_text=E337)
+
+Q("337b", 337, "b", B1, "A",
+  r"$m=-3$ i $n=0$",
+  "$y=-3x$",
+  [D("$y=3x$", "SIGNE_PENDENT_INVERTIT",
+     "El pendent és $-3$, negatiu: la recta baixa."),
+   D("$y=-3x+3$", "ORDENADA_PER_COORDENADA",
+     "L'ordenada és $0$, no $3$: no te l'has d'inventar a partir del "
+     "pendent."),
+   D("$y=0$", "ORDENADA_NULA_OBLIDADA",
+     "T'has quedat només amb $n$ i has perdut el pendent. Amb $n=0$ el que "
+     "passa és que el terme independent desapareix, no tota la recta.")],
+  ["$n=0$ vol dir que la recta passa per l'origen.",
+   "$y=-3x+0$, i el $+0$ no s'escriu."],
+  [r"$y=-3x+0=-3x$ (passa per l'origen)"],
+  ex_text=E337)
+
+
+E338 = "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res."
+
+Q("338a", 338, "a", B2, "A",
+  r"$y=x^2-4x+3$. Cap on obre?",
+  "Cap amunt",
+  [D("Cap avall", "CREIXEMENT_INVERTIT",
+     "Has mirat el signe de $b$ (el $-4$). El que decideix cap on obre és "
+     "el signe de $a$, el coeficient de $x^2$, que aquí és $+1$."),
+   D("Depèn de $c$", "COEFICIENT_MAL_TRIAT",
+     "La $c$ només mou la paràbola amunt i avall; no li canvia la forma."),
+   D("No és una paràbola", "PARABOLA_AMB_A_ZERO",
+     "Sí que ho és: hi ha un terme en $x^2$ amb coeficient $1$, diferent de "
+     "zero.")],
+  ["Cap on obre ho decideix un sol coeficient.",
+   "Si $a>0$ obre cap amunt; si $a<0$, cap avall. Aquí $a=1$."],
+  [r"$a=1>0\Rightarrow$ obre cap amunt"],
+  ex_text=E338)
+
+Q("338b", 338, "b", B2, "A",
+  r"$y=-2x^2+x$. Cap on obre?",
+  "Cap avall",
+  [D("Cap amunt", "CREIXEMENT_INVERTIT",
+     "Has mirat el $+x$. El que compta és el coeficient de $x^2$, que aquí "
+     "és $-2$."),
+   D("Depèn de $c$", "COEFICIENT_MAL_TRIAT",
+     "La $c$ no hi és (val $0$), i de totes maneres no decidiria la forma."),
+   D("No és una paràbola", "PARABOLA_AMB_A_ZERO",
+     "Que hi falti el terme independent no la deixa de fer paràbola: el que "
+     "la definiria és que $a$ fos $0$, i aquí $a=-2$.")],
+  ["Mira només el coeficient de $x^2$.",
+   "$a=-2$, que és negatiu."],
+  [r"$a=-2<0\Rightarrow$ obre cap avall"],
+  ex_text=E338)
+
+Q("338c", 338, "c", B2, "A",
+  r"$y=-2x^2+x$. Quant val $c$?",
+  "0",
+  [D("1", "COEFICIENT_MAL_TRIAT",
+     "L'$1$ és la $b$: el coeficient de la $x$. La $c$ és el terme que va "
+     "sol, sense $x$."),
+   D("-2", "COEFICIENT_MAL_TRIAT",
+     "El $-2$ és la $a$: el coeficient de $x^2$."),
+   D("No en té", "ORDENADA_NULA_OBLIDADA",
+     "«El terme no hi apareix» i «el coeficient no existeix» no són el "
+     "mateix. Si no hi surt és perquè val $0$, i cal comptar-lo com a $0$ "
+     "quan s'aplica qualsevol fórmula.")],
+  ["La $c$ és el terme que no porta $x$.",
+   "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."],
+  [r"$y=-2x^2+1x+0\Rightarrow c=0$"],
+  ex_text=E338,
+  nota="Un coeficient que no s'escriu no és un coeficient que no hi sigui: "
+       "val $0$, i a les fórmules s'ha de comptar com a $0$.")
+
+
+E339 = "Troba el vèrtex d'aquesta paràbola."
+
+Q("339a", 339, "a", B2, "A",
+  r"$y=x^2-9$",
+  "$V(0,-9)$",
+  [D("$V(0,9)$", "SIGNE_VERTEX",
+     "El signe: quan $x=0$, $y=0^2-9=-9$."),
+   D("$V(9,0)$", "VERTEX_COM_COEFICIENTS",
+     "Has posat el $9$ a la primera coordenada. La primera és la $x$, i "
+     "aquí val $0$."),
+   D("$V(3,0)$", "VERTEX_PER_ARREL",
+     "El $3$ és un dels punts on la paràbola talla l'eix $X$, no el "
+     "vèrtex.")],
+  ["Aquí no hi ha terme en $x$, o sigui que $b=0$: el vèrtex cau damunt de "
+   "l'eix $Y$.",
+   "Amb $b=0$ el vèrtex és $(0,c)$. Substitueix $x=0$."],
+  [r"$b=0\Rightarrow x_V=0$; $y_V=0^2-9=-9$, o sigui $V(0,-9)$"],
+  ex_text=E339)
+
+Q("339b", 339, "b", B2, "A",
+  r"$y=2x^2$",
+  "$V(0,0)$",
+  [D("$V(2,0)$", "VERTEX_COM_COEFICIENTS",
+     "El $2$ és el coeficient $a$, que fa la paràbola més estreta; no és "
+     "cap coordenada del vèrtex."),
+   D("$V(0,2)$", "VERTEX_COM_COEFICIENTS",
+     "El $2$ no és l'ordenada del vèrtex: quan $x=0$, $y=2\\cdot 0^2=0$."),
+   D("$V(1,2)$", "EIX_SIMETRIA_MAL_CALCULAT",
+     "L'eix de simetria és $x=0$, no $x=1$.")],
+  ["No hi ha terme en $x$ ni terme independent: $b=0$ i $c=0$.",
+   "Amb $b=0$ el vèrtex és $(0,c)$, i aquí $c=0$."],
+  [r"$V(0,c)=(0,0)$: la paràbola té el vèrtex a l'origen"],
+  ex_text=E339)
+
+Q("339c", 339, "c", B2, "A",
+  r"$y=-x^2+4$",
+  "$V(0,4)$",
+  [D("$V(0,-4)$", "SIGNE_VERTEX",
+     "Compte amb el signe: quan $x=0$, $y=-0^2+4=+4$. El menys afecta la "
+     "$x^2$, no el $4$."),
+   D("$V(4,0)$", "VERTEX_COM_COEFICIENTS",
+     "Has intercanviat les coordenades. La primera és la $x$, que val $0$."),
+   D("$V(2,0)$", "VERTEX_PER_ARREL",
+     "El $2$ és un tall amb l'eix $X$ ($-x^2+4=0$ dona $x=\\pm 2$), no el "
+     "vèrtex.")],
+  ["$b=0$: el vèrtex és a l'eix $Y$.",
+   "Substitueix $x=0$: $y=-0+4$."],
+  [r"$b=0\Rightarrow x_V=0$; $y_V=-0^2+4=4$, o sigui $V(0,4)$"],
+  ex_text=E339)

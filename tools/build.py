@@ -283,7 +283,23 @@ FULLS = {
     },
 }
 
-FULL_N = int(sys.argv[1]) if len(sys.argv) > 1 else 1
+def _full_demanat(args):
+    """El número de full, validat. `build.py 13` feia un KeyError cru i
+    `build.py foo` un ValueError: cap dels dos deia què s'havia de fer."""
+    if not args:
+        return 1
+    try:
+        n = int(args[0])
+    except ValueError:
+        sys.exit("✗ «%s» no és un número de full. Ús: python3 build.py [1-%d]"
+                 % (args[0], max(FULLS)))
+    if n not in FULLS:
+        sys.exit("✗ no hi ha cap full %d. Els que hi ha: %s"
+                 % (n, ", ".join(str(k) for k in sorted(FULLS))))
+    return n
+
+
+FULL_N = _full_demanat(sys.argv[1:])
 CFG = FULLS[FULL_N]
 for _m in CFG["moduls"]:
     importlib.import_module(_m)
@@ -322,6 +338,8 @@ BLOCS = _fusiona_blocs(CFG["blocs"], lib.blocs_registrats())
 # ------------------------------------------------------ math vs text mixt
 _NETEJA = re.compile(r"\\(dfrac|cdot|overline|operatorname|quad|mathbf|ne|rightarrow)")
 _NOMES_MAT = re.compile(r"^[-+0-9\s{}^,.:()]*$")
+TRIVIAL, DIRECTA = lib.TRIVIAL, lib.DIRECTA
+ENCADENADA, COMPLETA = lib.ENCADENADA, lib.COMPLETA
 
 
 def mathify(s):
@@ -390,11 +408,155 @@ def _hereta_encapcalaments():
     return heretats
 
 
+def _gradua(banc):
+    """Ordena els ítems per presentar-los de més senzill a més complet.
+
+    ── PER QUÈ ─────────────────────────────────────────────────────────────
+
+    Fins aquí l'ordre de presentació era l'ordre en què s'havien escrit els
+    Q(), que és l'ordre de numeració del material font: 55 blocs de 56 anaven
+    estrictament per número d'exercici creixent. Però el llibre no gradua res
+    dins d'un apartat, només enumera, i el resultat era que l'alumne es
+    trobava de cara el primer exercici que el llibre havia decidit posar
+    primer, que sovint és dels més durs:
+
+      · Full 5, primer exercici de tot el full: 6(x+11) = 40 + 6(x+2),
+        que és una equació SENSE SOLUCIÓ. El primer x/5 = 3 era el setè.
+      · Full 4, primer exercici: sumar quatre polinomis de fins a grau 5.
+      · Full 12, primer de combinatòria: un nivell 3.
+      · Full 2, «Verifica i corregeix»: catorze nivells 3 abans del primer
+        nivell 1.
+
+    L'itinerari del tutor ja feia això bé (`ordenaPerDificultat` a
+    js/itinerari-dades.js ordena per (dif, llargada de l'enunciat)). El que
+    no ho feia era el camí normal, que és per on passa la majoria.
+
+    ── QUÈ FA, EXACTAMENT ──────────────────────────────────────────────────
+
+    Dues coses, i cap més:
+
+    1. Agrupa els ítems per bloc, en l'ordre en què el full declara els
+       blocs. Abans no era així a quatre fulls: al Full 8 el bloc
+       «Aplicacions de la semblança» (tot nivell 3) queia entre «Escales» i
+       «Càlcul amb escales», de manera que qui anava fent «Següent exercici»
+       topava amb el bloc més dur a l'exercici 24 i després tornava enrere.
+
+    2. Dins de cada bloc, ordena per nivell de dificultat amb una ordenació
+       ESTABLE: dins d'un mateix nivell l'ordre del llibre es manté intacte.
+       Això és deliberat i és el mínim que arregla el problema: no vol
+       barrejar exercicis que es construeixen l'un damunt de l'altre (les
+       taules de Ruffini, les sèries d'apartats encadenats), només que el
+       bloc obri per on es pot obrir.
+
+    Els apartats d'un mateix exercici es mouen SEMPRE junts i en el seu
+    ordre. Es pot fer perquè cap exercici del banc no té apartats de
+    dificultat diferent (són 309 exercicis i 0 casos), ja que `dificultats()`
+    es declara per exercici; i cal fer-ho perquè un apartat que digui «16 cm»
+    no vol dir res separat dels seus germans.
+
+    ── QUÈ NO TOCA ─────────────────────────────────────────────────────────
+
+    Els codis de verificació ja emesos. L'ordre que el codi fa servir viu a
+    `tools/codi-ordre.json`, és append-only i està indexat per id; aquesta
+    funció només toca l'ordre de PRESENTACIÓ. Que les dues coses fossin
+    independents era precisament per a què es va separar (vegeu
+    build_codi.py), i aquest és el primer canvi que se n'aprofita.
+    """
+    ordre_bloc = {b[0]: i for i, b in enumerate(BLOCS)}
+
+    # Els apartats d'un exercici viatgen junts. La clau inclou el bloc perquè
+    # hi ha un exercici del banc repartit en dos blocs.
+    grups, ordre_grups = {}, []
+    for pos, it in enumerate(banc):
+        k = (it["bloc"], it["ex"])
+        if k not in grups:
+            grups[k] = {"pos": pos, "dif": it["dif"], "items": []}
+            ordre_grups.append(k)
+        grups[k]["items"].append(it)
+        # Un grup pren el nivell del seu apartat més senzill. Avui no passa
+        # mai (cap exercici té apartats de nivells diferents), però si algun
+        # dia en posa un amb `dif=` al Q(), el criteri ha d'estar escrit.
+        grups[k]["dif"] = min(grups[k]["dif"], it["dif"])
+
+    ordenats = sorted(
+        ordre_grups,
+        key=lambda k: (ordre_bloc.get(k[0], len(ordre_bloc)),
+                       grups[k]["dif"],
+                       grups[k]["pos"]))
+
+    out = []
+    for k in ordenats:
+        out.extend(grups[k]["items"])
+
+    moguts = sum(1 for a, b in zip(banc, out) if a["id"] != b["id"])
+    return out, moguts
+
+
+def _informa_graduacio(banc):
+    """Diu per quin graó obre cada bloc, i separa TRES casos que demanen
+    coses diferents. Després de `_gradua()` un bloc sempre obre pel seu
+    nivell més baix disponible, de manera que l'única pregunta que queda és
+    quin és aquest nivell:
+
+      · min == TRIVIAL. El bloc té graó d'entrada. Res a dir.
+
+      · min == DIRECTA. No té trivial encara, però obre per on obria tot el
+        projecte abans que el trivial existís. Es compta, no s'avisa: el
+        trivial s'està introduint bloc a bloc, i avisar dels 46 blocs que
+        encara no en tenen convertiria l'avís en soroll i ningú no llegiria
+        els que sí que importen. Això va passar la primera vegada que es va
+        desplaçar l'escala.
+
+      · min >= ENCADENADA amb més d'un nivell. Aquí sí. El bloc té escala
+        però el seu graó més baix ja demana encadenar passos: obre pel mig
+        d'una cosa que té, i ordenar no ho pot arreglar perquè el contingut
+        no hi és. Aquests són els que necessiten exercicis nous.
+
+    I a part, els blocs enterament de COMPLETA, que no estan mal graduats
+    sinó que són blocs de problemes; els marca `compila()` com a avançats i
+    no surten per aquí.
+    """
+    avancats, mal_graduats, sense_trivial = [], [], []
+    for b, titol, _d in BLOCS:
+        difs = [it["dif"] for it in banc if it["bloc"] == b]
+        if not difs:
+            continue
+        m = min(difs)
+        if m == TRIVIAL:
+            continue
+        if set(difs) == {COMPLETA}:
+            avancats.append((titol, len(difs), m))
+        elif m >= ENCADENADA:
+            mal_graduats.append((titol, len(difs), m))
+        else:
+            sense_trivial.append((titol, len(difs), m))
+    if mal_graduats:
+        print("  ⚠ %d bloc(s) OBREN PEL MIG: tenen escala però el seu graó "
+              "més baix ja encadena passos" % len(mal_graduats))
+        for titol, k, m in mal_graduats:
+            print("      · %s (%d ítems, el més fàcil és nivell %d %s)"
+                  % (titol, k, m, lib.NOM_NIVELL[m]))
+    if sense_trivial:
+        print("  · %d bloc(s) encara sense exercici trivial (obren a directa, "
+              "com abans que el nivell 1 existís)" % len(sense_trivial))
+    return mal_graduats, avancats
+
+
 def compila():
     heretats = _hereta_encapcalaments()
     if heretats:
         print("  · %d apartats hereten la instrucció del seu exercici"
               % heretats)
+    ordenat, moguts = _gradua(BANC)
+    if moguts:
+        print("  · graduació: %d ítems canvien de posició perquè cada bloc "
+              "obri pel seu nivell més senzill" % moguts)
+    # S'aplica al BANC mateix, no a una còpia: així el `REVISIO-fullN.html`
+    # surt en el mateix ordre que veu l'alumne. Revisar la clau de respostes
+    # en un ordre i publicar-ne un altre seria demanar que se'ns escapi algun
+    # salt de graduació.
+    BANC[:] = ordenat
+    _informa_graduacio(BANC)
     items = []
     for it in BANC:
         opcions = [mathify(it["correcta"])] + [mathify(d["tex"]) for d in it["distractors"]]
@@ -429,8 +591,27 @@ def compila():
             item["figura"] = it["figura"]
         items.append(item)
 
+    info_dif = {it["id"]: it["dif"] for it in BANC}
+
     blocs = [{"id": b, "titol": t, "descripcio": d,
               "items": [i["id"] for i in items if i["bloc"] == b]} for b, t, d in BLOCS]
+    # ── Blocs de nivell avançat ──────────────────────────────────────────
+    # Un bloc en què TOTS els exercicis són del nivell més alt no és un bloc
+    # mal graduat: és un bloc de problemes, i està bé que ho sigui. El que no
+    # està bé és que l'alumne hi entri sense saber-ho i es pensi que la resta
+    # del full serà igual.
+    #
+    # La marca es DERIVA del contingut, no es declara a mà: un bloc deixa de
+    # ser avançat tot sol el dia que se li afegeixi un exercici més senzill,
+    # i no queda una etiqueta vella dient el contrari.
+    for b in blocs:
+        difs = {info_dif[i] for i in b["items"]} if b["items"] else set()
+        if difs == {COMPLETA}:
+            b["avancat"] = True
+    avancats = [b["titol"] for b in blocs if b.get("avancat")]
+    if avancats:
+        print("  · nivell avançat (tot el bloc al nivell més alt): %s"
+              % ", ".join(avancats))
     # Text genèric de cada etiqueta d'error que apareix en aquest full. El
     # panell "els errors que repeteixes" agrega per etiqueta, i el que hi toca
     # és la descripció del malentès, no el diagnòstic d'un exercici concret
@@ -531,7 +712,13 @@ def revisio(dades):
 
     for b, titol, desc in BLOCS:
         items = [it for it in BANC if it["bloc"] == b]
-        p.append('<h2>%s <span class="tip">· %d preguntes</span></h2>' % (titol, len(items)))
+        # Els blocs enterament del nivell més alt es marquen també aquí: el
+        # professorat ha de revisar-los sabent que l'alumne els veurà
+        # etiquetats com a avançats a l'app.
+        avancat = (' <span class="err">nivell avançat</span>'
+                   if items and {it["dif"] for it in items} == {COMPLETA} else '')
+        p.append('<h2>%s%s <span class="tip">· %d preguntes</span></h2>'
+                 % (titol, avancat, len(items)))
         ex_vist = None
         for it in items:
             if it["ex"] != ex_vist:
@@ -541,7 +728,7 @@ def revisio(dades):
             p.append('<div class="it"><div class="cap"><span class="cod">%s</span>'
                      '<span class="tip">tipus %s · dificultat %d (%s)</span></div>'
                      % (it["id"], it["tipus"], it["dif"],
-                        {1: "directa", 2: "encadenada", 3: "completa"}[it["dif"]]))
+                        lib.NOM_NIVELL[it["dif"]]))
             p.append('<div class="enun">%s</div>' % it["enunciat"])
             if it["figura"]:
                 p.append('<div class="fig">%s</div>' % it["figura"])
@@ -563,15 +750,30 @@ def revisio(dades):
             p.append('</div>')
 
     p.append('<h2>Graduació per bloc</h2><table><tr><th>Bloc</th>'
-             '<th>1 directa</th><th>2 encadenada</th><th>3 completa</th></tr>')
+             + "".join('<th>%d %s</th>' % (n, lib.NOM_NIVELL[n]) for n in lib.NIVELLS)
+             + '<th>Obre a</th></tr>')
     for b, t, _d in BLOCS:
         dels = [it for it in BANC if it["bloc"] == b]
         if not dels:
             continue
-        c = [sum(1 for it in dels if it["dif"] == n) for n in (1, 2, 3)]
-        avis = ' <span class="err">un sol nivell</span>' if sum(1 for x in c if x) == 1 else ''
-        p.append('<tr><td>%s%s</td><td>%d</td><td>%d</td><td>%d</td></tr>'
-                 % (html.escape(t), avis, c[0], c[1], c[2]))
+        c = [sum(1 for it in dels if it["dif"] == n) for n in lib.NIVELLS]
+        nivells_presents = [n for n in lib.NIVELLS if c[n - 1]]
+        # Dos avisos diferents, perquè demanen coses oposades: un bloc
+        # enterament del nivell més alt és un bloc de problemes i està bé
+        # que ho sigui (l'app el marca com a avançat); un bloc amb escala
+        # però que no obre pel primer graó és el que li falta contingut.
+        if nivells_presents == [lib.COMPLETA]:
+            marca = ' <span class="tip">nivell avançat</span>'
+            obre = 'avançat a posta'
+        elif nivells_presents[0] != lib.TRIVIAL:
+            marca = ' <span class="err">obre pel mig</span>'
+            obre = '<span class="err">%s</span>' % lib.NOM_NIVELL[nivells_presents[0]]
+        else:
+            marca = ''
+            obre = lib.NOM_NIVELL[nivells_presents[0]]
+        p.append('<tr><td>%s%s</td>%s<td>%s</td></tr>'
+                 % (html.escape(t), marca,
+                    "".join('<td>%d</td>' % x for x in c), obre))
     p.append('</table>')
 
     p.append('<h2>Catàleg d\'errors utilitzats</h2><table><tr><th>Etiqueta</th>'

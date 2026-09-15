@@ -1053,8 +1053,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var tots = p.ok ? p.fulls.reduce(function (a, f) { return a.concat(f.items); }, []) : [];
       h += '<tr class="clic" data-i="' + r.i + '">'
         + "<td>" + marca(r.estat, r) + "</td>"
-        + "<td>" + (r.brut.alumne || "—") + "</td>"
-        + '<td class="apagat">' + (r.brut.grup || "—") + "</td>"
+        + "<td>" + escapa(r.brut.alumne || "—") + "</td>"
+        + '<td class="apagat">' + escapa(r.brut.grup || "—") + "</td>"
         + '<td class="mono petit">' + (r.dataEnv || "—") + "</td>"
         + '<td class="mono petit">' + (p.ok ? r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2) : "—")
         + (r.forat !== null && r.forat > FORAT ? ' <span class="avis">+' + r.forat + "m</span>" : "") + "</td>"
@@ -1087,7 +1087,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + dada("Al segon intent", p.resum.comptes.segon)
       + dada("Fallats", p.resum.comptes.fallat)
       + dada("Oberts i deixats", p.resum.comptes.vist)
-      + dada("Per nivell", "1r " + p.resum.perDif[1] + " · 2n " + p.resum.perDif[2] + " · 3r " + p.resum.perDif[3])
+      + dada("Per nivell", "triv. " + p.resum.perDif[1] + " · dir. " + p.resum.perDif[2]
+             + " · enc. " + p.resum.perDif[3] + " · compl. " + p.resum.perDif[4])
       + dada("Codi generat", r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2))
       + "</div>";
 
@@ -1169,7 +1170,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     h += "<th>Últim codi</th></tr></thead><tbody>";
     ult.forEach(function (r) {
       var p = r.p;
-      h += "<tr><td>" + r.brut.alumne + '</td><td class="apagat">' + (r.brut.grup || "—") + "</td>"
+      h += "<tr><td>" + escapa(r.brut.alumne) + '</td><td class="apagat">' + escapa(r.brut.grup || "—") + "</td>"
         + "<td>" + pintaFeina(p.resum.fets, min) + "</td>"
         + "<td>" + pintaNota(p.resum.nota, p.resum.fets, min) + "</td>";
       fullsVistos.forEach(function (n) {
@@ -1193,7 +1194,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       av.innerHTML = curts.length
         ? '<span class="mal">' + curts.length + " de " + ult.length + " no arriben als "
           + min + " exercicis:</span> " + curts.map(function (r) {
-              return r.brut.alumne + " (" + r.p.resum.fets + ")";
+              return escapa(r.brut.alumne) + " (" + r.p.resum.fets + ")";
             }).join(", ")
         : '<span class="ok">Tothom arriba als ' + min + " exercicis demanats.</span>";
     }
@@ -1539,7 +1540,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return m;
   }
 
-  var PES_DIF = { 1: 0.8, 2: 1, 3: 1.3 };
+  /* Pes de cada nivell quan es compon una prova. El trivial (1) pesa poc a
+     posta: serveix per comprovar que la definició hi és, no per puntuar. */
+  var PES_DIF = { 1: 0.6, 2: 0.8, 3: 1, 4: 1.3 };
 
   function cfgProgres() {
     var w = [+$("#p-w1").value || 0, +$("#p-w2").value || 0,
@@ -2100,8 +2103,23 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     } catch (e) { /* sense xarxa ni còpia local: LaTeX en cru */ }
   }
 
+  /* Tot el que ve del full de respostes passa per aquí abans d'entrar en un
+     `innerHTML`. Els camps `alumne` i `grup` els omple l'alumne al formulari,
+     i el que arriba aquí és text sense filtrar: sense escapar, un nom com
+     `<img src=x onerror=...>` executa codi dins de l'analitzador, que és
+     precisament la pàgina que porta el banc sencer, tots els codis de la
+     classe i les notes que s'estan posant. No caldria robar res: n'hi hauria
+     prou amb repintar la taula.
+
+     S'escapen també les cometes i el `>`, perquè escapa() s'usa dins
+     d'atributs (`data-alumne="..."`) i allà una cometa doble se n'escapa. */
   function escapa(s) {
-    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   /* L'exercici mare d'un ítem. Ve del banc (`ex`), i si un banc antic no el
@@ -2665,10 +2683,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   }
 
   function pintaClauAlumne(s, lot) {
-    var mix = { 1: 0, 2: 0, 3: 0 };
+    var mix = { 1: 0, 2: 0, 3: 0, 4: 0 };
     s.preguntes.forEach(function (q) { mix[q.it.dif || 2] = (mix[q.it.dif || 2] || 0) + 1; });
     var extra = '<div class="petit apagat">NO repartir · Nivells: ' + mix[1]
-      + " directes · " + mix[2] + " encadenats · " + mix[3] + " complets</div>";
+      + " trivials · " + mix[2] + " directes · " + mix[3] + " encadenats · "
+      + mix[4] + " complets</div>";
     if (s.avisos.length) {
       extra += '<div class="petit" style="color:#A0651B">Avís: '
         + escapa(s.avisos.join("; ")) + "</div>";
@@ -2699,8 +2718,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var ult = ultimPerAlumne(files);
     sel.innerHTML = '<option value="">Tria un alumne del full carregat…</option>'
       + ult.map(function (r) {
-          return '<option value="' + r.i + '">' + (r.brut.alumne || r.brut.correu)
-            + (r.brut.grup ? " · " + r.brut.grup : "")
+          return '<option value="' + r.i + '">' + escapa(r.brut.alumne || r.brut.correu)
+            + (r.brut.grup ? " · " + escapa(r.brut.grup) : "")
             + (r.p.integre ? "" : "  ⚠ codi alterat") + "</option>";
         }).join("");
     if (ult.some(function (r) { return String(r.i) === actual; })) sel.value = actual;
@@ -2883,13 +2902,14 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
        de què s'està examinant realment. Una prova composta només d'exercicis
        de nivell 1 és una prova de nivell 1 per molt que tingui vint
        preguntes, i el sorteig no ho pot arreglar —només ho pot dir. */
-    var mix = { 1: 0, 2: 0, 3: 0 };
+    var mix = { 1: 0, 2: 0, 3: 0, 4: 0 };
     seleccio.forEach(function (x) { mix[x.dif || 2] = (mix[x.dif || 2] || 0) + 1; });
     h += '<div class="pr-paper" id="pr-correccio"><div class="capc"><div>'
       + "<h2>Full de correcció</h2>"
       + '<div class="petit apagat">' + (nom ? escapa(nom) + " · " : "") + data
-      + " · NO repartir<br>Nivells: " + mix[1] + " directes · " + mix[2]
-      + " encadenats · " + mix[3] + " complets</div></div></div>";
+      + " · NO repartir<br>Nivells: " + mix[1] + " trivials · " + mix[2]
+      + " directes · " + mix[3] + " encadenats · " + mix[4]
+      + " complets</div></div></div>";
     ordinals.forEach(function (o) {
       var k = null;
       try { k = clauItem(o.b); } catch (e) { k = null; }

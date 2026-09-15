@@ -30,25 +30,27 @@ from collections import Counter
 from lib import Q, D, tex, texd, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 11 · centralització i dispersió
 # --------------------------------------------------------------------
 dificultats({
-    260: 1,  # mitjana d'una llista curta: sumar i dividir
-    261: 1,  # mediana: ordenar i buscar el del mig
-    262: 1,  # moda: el valor que més es repeteix
-    263: 2,  # les tres mesures a partir d'una taula de freqüències
-    268: 1,  # recorregut: màxim menys mínim
-    265: 2,  # mitjana ponderada: cada nota amb el seu pes
-    269: 2,  # desviacions respecte de la mitjana
-    270: 2,  # variància i desviació típica d'una llista curta
-    272: 2,  # comparar dos grups amb la mateixa mitjana
-    264: 3,  # decidir QUINA mesura respon la pregunta
-    266: 3,  # com afecta un valor extrem a cada mesura
-    267: 3,  # a l'inrevés: de la mitjana a la dada que falta
-    271: 3,  # desviació típica des de la taula de freqüències
-    273: 3,  # coeficient de variació: dispersió relativa
-    274: 3,  # què li passa a cada mesura si es transformen les dades
+    260: 2,  # mitjana d'una llista curta: sumar i dividir
+    261: 2,  # mediana: ordenar i buscar el del mig
+    262: 2,  # moda: el valor que més es repeteix
+    263: 3,  # les tres mesures a partir d'una taula de freqüències
+    268: 2,  # recorregut: màxim menys mínim
+    265: 3,  # mitjana ponderada: cada nota amb el seu pes
+    269: 3,  # desviacions respecte de la mitjana
+    270: 3,  # variància i desviació típica d'una llista curta
+    272: 3,  # comparar dos grups amb la mateixa mitjana
+    264: 4,  # decidir QUINA mesura respon la pregunta
+    266: 4,  # com afecta un valor extrem a cada mesura
+    267: 4,  # a l'inrevés: de la mitjana a la dada que falta
+    271: 4,  # desviació típica des de la taula de freqüències
+    273: 4,  # coeficient de variació: dispersió relativa
+    274: 4,  # què li passa a cada mesura si es transformen les dades
 })
 
 B1 = "centralitzacio"

@@ -550,3 +550,101 @@ def triangle_isosceles_angle(angle_desigual, etq_angle=None):
     return _svg(w, h, cos,
                 "Triangle isòsceles amb l'angle de dalt (entre els "
                 "costats iguals) de %s marcat." % ea)
+
+# ---------------------------------------------------------------------
+# Quadrilàters amb la fórmula aplicada directament (exercici 333)
+# ---------------------------------------------------------------------
+# Els quatre casos on l'àrea surt d'una multiplicació i prou. Són figures
+# deliberadament NUES: sense diagonals, sense angles marcats, sense res que
+# no entri a la fórmula. En un exercici trivial, cada traç de més és una
+# decisió de més que l'alumne ha de prendre, i el que es vol saber és
+# exactament una cosa: si té la fórmula.
+#
+# L'altura va SEMPRE discontínua i amb l'angle recte marcat. És l'única
+# distinció que porta càrrega conceptual al bloc: al romboide, l'altura no és
+# el costat, i confondre-les és el que fa que la fórmula del rectangle
+# s'apliqui on no toca.
+
+def rectangle(base, altura, etq_base=None, etq_altura=None, unitat="cm"):
+    """Rectangle nu amb la base i l'altura cotades."""
+    return rectangle_diagonal(base, altura, etq_base=etq_base,
+                              etq_altura=etq_altura, mostra_diagonal=False,
+                              unitat=unitat)
+
+
+def quadrat(costat, etq_costat=None, unitat="cm"):
+    """Quadrat nu amb un sol costat cotat.
+
+    Es cota NOMÉS un costat, no dos: cotar-los tots dos convidaria a sumar-los
+    (que és el distractor del perímetre), i el que ha de veure l'alumne és que
+    amb una sola dada ja en té prou."""
+    L = 140.0
+    lc = etq_costat if etq_costat is not None else mesura(costat, unitat)
+    e = Escena("Quadrat de costat %s." % lc)
+    e.poligon([(0.0, 0.0), (L, 0.0), (L, L), (0.0, L)])
+    e.cota((0.0, L), (L, L), lc, despl=16)
+    return e.svg()
+
+
+def romboide(base, altura, etq_base=None, etq_altura=None, inclinacio=0.32,
+             unitat="cm"):
+    """Romboide amb la base cotada i l'altura dibuixada com a segment
+    perpendicular de dins, discontinu i amb l'angle recte.
+
+    La inclinació és generosa a posta: amb un romboide gairebé rectangular,
+    la diferència entre l'altura i el costat oblic no es veu, i és justament
+    el que aquí s'ha d'entendre."""
+    b, h = float(base), float(altura)
+    escala = 150.0 / max(b, h)
+    ample, alt = max(70.0, b * escala), max(55.0, h * escala)
+    desp = alt * inclinacio
+    eb = etq_base if etq_base is not None else mesura(base, unitat)
+    ea = etq_altura if etq_altura is not None else mesura(altura, unitat)
+    e = Escena("Romboide de base %s i altura %s. L'altura es dibuixa com un "
+               "segment perpendicular a la base, no com el costat inclinat."
+               % (eb, ea))
+    # Base a baix (y = alt), costat superior desplaçat cap a la dreta.
+    A, B = (0.0, alt), (ample, alt)
+    C, D = (ample + desp, 0.0), (desp, 0.0)
+    e.poligon([A, B, C, D])
+    # L'altura, des del vèrtex superior esquerre fins a la base.
+    peu = (desp, alt)
+    e.segment(D, peu, discontinu=True, gruix=1.6, color=MARCA)
+    e.angle_recte(peu, (1, 0), (0, -1), mida=9)
+    e.cota(A, B, eb, despl=16)
+    # L'etiqueta de l'altura va forçada a la dreta del segment: a l'esquerra
+    # xocaria amb el costat oblic, que hi passa a tocar.
+    e.etq_segment(D, peu, ea, costat=-1)
+    return e.svg()
+
+
+def rombe(diagonal_gran, diagonal_petita, etq_gran=None, etq_petita=None,
+          unitat="cm"):
+    """Rombe amb les dues diagonals dibuixades i cotades.
+
+    Aquí les diagonals SÍ que es dibuixen, al contrari que als altres tres:
+    són les dades de l'enunciat, no un afegit."""
+    D_, d_ = float(diagonal_gran), float(diagonal_petita)
+    escala = 170.0 / max(D_, d_)
+    W, H = max(70.0, D_ * escala), max(70.0, d_ * escala)
+    eg = etq_gran if etq_gran is not None else mesura(diagonal_gran, unitat)
+    ep = etq_petita if etq_petita is not None else mesura(diagonal_petita, unitat)
+    e = Escena("Rombe amb les diagonals de %s i %s dibuixades." % (eg, ep))
+    esq, dre = (0.0, H / 2.0), (W, H / 2.0)
+    dalt, baix = (W / 2.0, 0.0), (W / 2.0, H)
+    e.poligon([esq, dalt, dre, baix])
+    e.segment(esq, dre, gruix=1.6, discontinu=True, color=MARCA)
+    e.segment(dalt, baix, gruix=1.6, discontinu=True, color=MARCA)
+    # Sense marca d'angle recte: que les diagonals d'un rombe siguin
+    # perpendiculars és una propietat de la figura, no una dada de
+    # l'enunciat, i dibuixar-la al mig on es creuen només tapa el punt de
+    # tall. Les dues cotes van acotades i a bandes oposades perquè no hi
+    # hagi dubte de quina diagonal mesura cadascuna: el motor, deixat
+    # lliure, les posava totes dues a prop del centre.
+    # Les cotes van FORA de la figura. Les diagonals són segments interiors,
+    # i una cota amb el desplaçament habitual cau damunt del rombe i el
+    # travessa. Es desplacen mitja figura més el marge de sempre, que les
+    # deixa a sota i a la dreta com en un dibuix tècnic.
+    e.cota(esq, dre, eg, despl=H / 2.0 + 18, costat=1)
+    e.cota(dalt, baix, ep, despl=W / 2.0 + 18, costat=-1)
+    return e.svg()

@@ -143,23 +143,45 @@ def D(valor, error, feedback):
 # ---------------------------------------------------------------------
 # Dificultat
 # ---------------------------------------------------------------------
-# Tres nivells, i prou: més graons no els sabríem distingir de manera
-# fiable i només farien soroll.
+# Quatre nivells.
 #
-#   1  DIRECTA     un sol pas: aplicar una definició o una fórmula tal com
-#                  s'acaba de veure, amb les dades ja a punt.
-#   2  ENCADENADA  dos o tres passos, o cal triar el mètode abans de
-#                  començar (quin cas notable és, quin sistema de
+#   1  TRIVIAL     una sola aplicació d'una sola definició, amb totes les
+#                  dades explícites i en l'ordre que la fórmula les demana,
+#                  números que es fan de cap i res a triar. La prova del
+#                  cotó: si l'alumne sap la definició, encerta; si no la
+#                  sap, falla; i no hi ha cap tercera cosa que pugui anar
+#                  malament. Un trivial no és un exercici fàcil, és un
+#                  DIAGNÒSTIC: serveix per saber si la definició hi és
+#                  abans de penjar-hi res a sobre.
+#   2  DIRECTA     un sol concepte, però ja hi ha un pas intermedi, o cal
+#                  triar entre dues fórmules, o els números no es fan de
+#                  cap.
+#   3  ENCADENADA  dos o tres passos lligats, o cal decidir el mètode abans
+#                  de començar (quin cas notable és, quin sistema de
 #                  resolució, si toca Ruffini o divisió llarga).
-#   3  COMPLETA    problema amb context, o cal muntar l'expressió a partir
+#   4  COMPLETA    problema amb context, o cal muntar l'expressió a partir
 #                  d'un enunciat en paraules, o barreja diversos conceptes,
 #                  o demana justificar / detectar un error.
+#
+# PER QUÈ EL TRIVIAL ÉS UN NIVELL I NO UN «DIRECTA FÀCIL». Abans l'escala
+# començava a DIRECTA, i el resultat era que 10 blocs obrien amb el primer
+# exercici que el material font havia decidit posar primer: el Full 4
+# començava sumant quatre polinomis de grau 5 i el Full 5, amb una equació
+# sense solució. Ordenar no ho podia arreglar perquè el graó no existia.
+#
+# ON ÉS LA FRONTERA. 6x³:2x és trivial; (x⁴-2x³+x²-x+3):(x²+x+1) és
+# completa. L'àrea d'un triangle rectangle amb els dos catets donats és
+# trivial; amb l'àrea i un catet, troba l'altre, és directa; l'isòsceles
+# d'àrea 24 i base 6 és encadenada.
 #
 # El nivell es fixa PER EXERCICI amb dificultats({num: nivell}) a dalt de
 # cada c_<tema>.py, perquè així es pot revisar la graduació sencera d'un
 # full d'una ullada en lloc d'anar-la a buscar a 60 llocs. Els apartats que
 # se surten del to del seu exercici porten dif= al seu Q().
-DIRECTA, ENCADENADA, COMPLETA = 1, 2, 3
+TRIVIAL, DIRECTA, ENCADENADA, COMPLETA = 1, 2, 3, 4
+NIVELLS = (TRIVIAL, DIRECTA, ENCADENADA, COMPLETA)
+NOM_NIVELL = {TRIVIAL: "trivial", DIRECTA: "directa",
+              ENCADENADA: "encadenada", COMPLETA: "completa"}
 
 _DIF = {}
 
@@ -202,15 +224,16 @@ def blocs_registrats():
 
 
 def dificultats(taula):
-    """Registra la taula de dificultat: {num_exercici: 1|2|3}.
+    """Registra la taula de dificultat: {num_exercici: 1|2|3|4}.
 
     Acumula, no substitueix: el Full 1 el componen quatre mòduls i cadascun
     hi aporta els seus exercicis. Els números d'exercici són únics a tot el
     projecte, així que registrar-ne un dues vegades amb valors diferents és
     sempre un error, i s'atura."""
     for k, v in taula.items():
-        assert v in (DIRECTA, ENCADENADA, COMPLETA), \
-            f"exercici {k}: dificultat {v!r} fora de l'escala 1-3"
+        assert v in NIVELLS, \
+            f"exercici {k}: dificultat {v!r} fora de l'escala 1-4 " \
+            f"(1 trivial, 2 directa, 3 encadenada, 4 completa)"
         assert _DIF.get(k, v) == v, \
             f"exercici {k}: dificultat registrada dues vegades ({_DIF[k]} i {v})"
     _DIF.update(taula)
@@ -288,7 +311,7 @@ def _valida(it):
         assert 'width="' not in obertura and 'height="' not in obertura, (
             f"{qid}: la figura porta amplada o alçada fixa a l'etiqueta <svg>; "
             f"amb viewBox tota sola s'adapta a la pantalla")
-    assert it["dif"] in (DIRECTA, ENCADENADA, COMPLETA), (
+    assert it["dif"] in NIVELLS, (
         f"{qid}: sense dificultat (l'exercici {it['ex']} no és a la taula "
         f"dificultats() del full, i el Q() no porta dif=)")
 

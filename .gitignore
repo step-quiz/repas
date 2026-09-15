@@ -1,0 +1,26 @@
+# Artefactes de compilació de Python
+__pycache__/
+*.py[cod]
+
+# jsdom s'instal·la amb --no-save per a les proves: no ha d'entrar al repositori
+node_modules/
+package-lock.json
+
+# Intermedis de tools/ (els regenera build_tot.py)
+tools/_taules.json
+tools/_banc.json
+
+# El paquet que es publica, generat per fes-paquet-alumnat.py
+public/
+*.zip
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# ── Per què això importa més del que sembla ──────────────────────────────
+# `.github/workflows/unzip-upload.yml` fa `git add -A` i `git push`. Sense
+# aquest fitxer, tot el que hi hagi al directori en aquell moment
+# (__pycache__, node_modules, un zip a mig fer) entra al repositori i queda
+# committejat per un bot. Vegeu també la nota de DESPLEGAMENT.md sobre aquell
+# workflow.

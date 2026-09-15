@@ -56,26 +56,28 @@ from lib import Q, D, DT, tex, dificultats
 from figures import grafica_recta, grafica_parabola, nuvol_de_punts, grafica_funcio
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 10 · funcions
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    200: 2,  # decidir si una relació és funció i justificar-ho
-    201: 1,  # substituir valors i calcular imatges
-    202: 1,
-    203: 2,  # llegir domini i recorregut d'una gràfica descrita
-    206: 3,  # estudi complet d'una gràfica
-    207: 1,  # llegir el pendent i l'ordenada de l'expressió; 208, el signe del pendent
-    208: 1,
-    209: 2,  # muntar l'expressió de la recta a partir de dos punts
-    212: 1,  # comparar obertures de paràboles a ull
-    214: 2,  # a l'inrevés: quina constant dona aquest vèrtex
-    215: 3,
-    216: 3,  # talls, vèrtex i eix: tres càlculs encadenats sobre la mateixa paràbola
-    217: 2,
+    200: 3,  # decidir si una relació és funció i justificar-ho
+    201: 2,  # substituir valors i calcular imatges
+    202: 2,
+    203: 3,  # llegir domini i recorregut d'una gràfica descrita
+    206: 4,  # estudi complet d'una gràfica
+    207: 2,  # llegir el pendent i l'ordenada de l'expressió; 208, el signe del pendent
+    208: 2,
+    209: 3,  # muntar l'expressió de la recta a partir de dos punts
+    212: 2,  # comparar obertures de paràboles a ull
+    214: 3,  # a l'inrevés: quina constant dona aquest vèrtex
+    215: 4,
+    216: 4,  # talls, vèrtex i eix: tres càlculs encadenats sobre la mateixa paràbola
+    217: 3,
 })
 
 

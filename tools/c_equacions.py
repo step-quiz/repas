@@ -33,39 +33,41 @@ from sympy import symbols, Eq, solve, Rational, sqrt, expand, nsimplify
 from lib import Q, D, DT, ev, tex, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 5 · equacions i sistemes
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     75: 2,  # parèntesis als dos membres (i algun cas sense solució)
-     76: 1,  # aïllar la x en un pas o dos; 82 i 83, arrel evident o ja factoritzat
-     77: 1,
-     78: 2,  # denominadors senzills; 81, comptar solucions amb el discriminant
-     79: 3,  # denominadors compostos i fraccions dins de parèntesis
-     80: 1,  # substituir a la fórmula general
-     81: 2,
-     82: 1,
-     83: 1,
-     84: 2,  # cal desenvolupar abans de reconèixer el segon grau
-     85: 1,  # sistema que surt sol per reducció
-     86: 2,
-     87: 3,  # sistema amb parèntesis i fraccions: cal netejar-lo primer
-     88: 2,
-     89: 2,
-     90: 3,  # problemes: la feina és plantejar l'equació, no resoldre-la
-     91: 3,
-     92: 3,
-     93: 3,
-     94: 3,
-     95: 3,
-     96: 3,
-     97: 3,
-     98: 3,
-     99: 3,
-    100: 3,
+     75: 3,  # parèntesis als dos membres (i algun cas sense solució)
+     76: 2,  # aïllar la x en un pas o dos; 82 i 83, arrel evident o ja factoritzat
+     77: 2,
+     78: 3,  # denominadors senzills; 81, comptar solucions amb el discriminant
+     79: 4,  # denominadors compostos i fraccions dins de parèntesis
+     80: 2,  # substituir a la fórmula general
+     81: 3,
+     82: 2,
+     83: 2,
+     84: 3,  # cal desenvolupar abans de reconèixer el segon grau
+     85: 2,  # sistema que surt sol per reducció
+     86: 3,
+     87: 4,  # sistema amb parèntesis i fraccions: cal netejar-lo primer
+     88: 3,
+     89: 3,
+     90: 4,  # problemes: la feina és plantejar l'equació, no resoldre-la
+     91: 4,
+     92: 4,
+     93: 4,
+     94: 4,
+     95: 4,
+     96: 4,
+     97: 4,
+     98: 4,
+     99: 4,
+    100: 4,
 })
 
 

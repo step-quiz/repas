@@ -103,7 +103,8 @@ window.FULL = {
     "167",
     "168",
     "169"
-   ]
+   ],
+   "avancat": true
   }
  ],
  "errors": {
@@ -139,7 +140,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i $3$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -162,7 +163,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -185,7 +186,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -208,7 +209,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i $8$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -231,7 +232,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el valor de $x$ en aquestes figures de rectes paral·leles tallades per dues rectes secants.",
    "enunciat": "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i $3$ cm (segments corresponents en el mateix ordre).",
    "opcions": [
@@ -254,7 +255,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OA=2$ cm, $OB=5$ cm, $OA'=2{,}6$ cm i $OC'=11{,}7$ cm, quant val $BC$?",
    "opcions": [
@@ -277,7 +278,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val $AB$?",
    "opcions": [
@@ -300,7 +301,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "tales",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos triangles estan en posició de Tales des del vèrtex $O$, amb els costats $OA$, $OB$ i $OC$ sobre una recta, i $OA'$, $OB'$ i $OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix ordre a cada recta).",
    "enunciat": "Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant val $AB$?",
    "opcions": [
@@ -323,7 +324,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle petit de costats $3$ cm i $5$ cm; triangle gran de costats $4$ cm (correspon al de $3$ cm) i $x$ (correspon al de $5$ cm).",
    "opcions": [
@@ -346,7 +347,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle gran de costats $8$ cm, $10$ cm i $7$ cm; triangle petit de costat $6$ cm (correspon al de $8$ cm), amb els altres dos costats desconeguts. Quant valen?",
    "opcions": [
@@ -369,7 +370,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Triangle gran de costat $6$ cm (desconegut als altres dos); triangle petit de costats $3$ cm, $5$ cm i $4$ cm, on el de $5$ cm (el més llarg) correspon al de $6$ cm. Quant valen els altres dos costats del triangle gran?",
    "opcions": [
@@ -392,7 +393,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la longitud dels costats desconeguts en aquests parells de triangles semblants.",
    "enunciat": "Dos triangles isòsceles tenen els costats iguals de $5$ cm cadascun, amb bases respectives de $3{,}2$ cm i $2$ cm. Són semblants?",
    "opcions": [
@@ -415,7 +416,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $4$ cm i $5$ cm amb angle comprès de $80^\\circ$; triangle de costats $5$ cm i $6$ cm amb angle comprès de $80^\\circ$. Són semblants?",
    "opcions": [
@@ -438,7 +439,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $11$ cm i $9{,}1$ cm amb angle comprès de $65^\\circ$; triangle de costats $9$ cm i $7$ cm amb angle comprès de $65^\\circ$. Són semblants?",
    "opcions": [
@@ -456,350 +457,12 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 284 115\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles amb els costats corresponents marcats.</title><g transform=\"translate(37.2,84.2)\"><polygon points=\"0.0,0.0 90.0,0.0 37.8,-70.2\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"160.2,0.0 231.9,0.0 190.3,-55.9\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 15.00 0.00 A 15.00 15.00 0 0 1 7.11 -13.21\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><path d=\"M 175.25 0.00 A 15.00 15.00 0 0 1 167.36 -13.21\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><text x=\"45\" y=\"13.9\" text-anchor=\"middle\" class=\"fig-etq petita\">11 cm</text><text x=\"-4\" y=\"-44.5\" text-anchor=\"middle\" class=\"fig-etq petita\">9,1 cm</text><text x=\"196.1\" y=\"13.9\" text-anchor=\"middle\" class=\"fig-etq petita\">9 cm</text><text x=\"157.7\" y=\"-34.5\" text-anchor=\"middle\" class=\"fig-etq petita\">7 cm</text></g></svg>"
   },
   {
-   "id": "156a",
-   "ex": 156,
-   "ap": "a",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 1,
-   "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
-   "enunciat": "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és l'escala numèrica?",
-   "opcions": [
-    "$1:200\\,000$",
-    "$1:2$",
-    "$200\\,000:1$",
-    "$1:20\\,000$"
-   ],
-   "pistes": [
-    "Converteix els $2$ km a la mateixa unitat que el $1$ cm del dibuix: $2\\text{ km}=200\\,000$ cm.",
-    "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkMiQga20gYSBjZW50w61tZXRyZXMgcGVycXXDqCBsZXMgZHVlcyBtZXN1cmVzIGRlIGwnZXNjYWxhIGVzdGlndWluIGVuIGxhIG1hdGVpeGEgdW5pdGF0OiAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20uIiwgIkwnZXNjYWxhIG51bcOocmljYSBzJ2VzY3JpdSBhbWIgZWwgZGlidWl4IHByaW1lciBpIGxhIHJlYWxpdGF0IGRlc3Byw6lzOiAkMTpuJCwgbm8gJG46MSQuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGNvbnZlcnRpciAkMiQga20gYSBtZXRyZXMgKCQyMDAkIG0pIGVuIGNvbXB0ZXMgZGUgYSBjZW50w61tZXRyZXM6IGNhbCAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20sIG5vICQyMFxcLDAwMCQuIl0sICJlcnIiOiBbIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJDJcXHRleHR7IGttfT0yMDBcXCwwMDAkIGNtIiwgIkVzY2FsYSBudW3DqHJpY2E6ICQxOjIwMFxcLDAwMCQiXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 2 km de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 2 km</text></svg>"
-  },
-  {
-   "id": "156b",
-   "ex": 156,
-   "ap": "b",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 1,
-   "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
-   "enunciat": "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és l'escala numèrica?",
-   "opcions": [
-    "$5\\,000\\,000:1$",
-    "$1:500\\,000$",
-    "$1:5\\,000\\,000$",
-    "$1:50$"
-   ],
-   "pistes": [
-    "Converteix els $50$ km a la mateixa unitat que el $1$ cm del dibuix: $50\\text{ km}=5\\,000\\,000$ cm.",
-    "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSBudW3DqHJpY2Egcydlc2NyaXUgYW1iIGVsIGRpYnVpeCBwcmltZXIgaSBsYSByZWFsaXRhdCBkZXNwcsOpczogJDE6biQsIG5vICRuOjEkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBjb252ZXJ0aXIgJDUwJCBrbSBhIG1ldHJlcyAoJDUwXFwsMDAwJCBtKSBlbiBjb21wdGVzIGRlIGEgY2VudMOtbWV0cmVzOiBjYWwgJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20sIG5vICQ1MDBcXCwwMDAkLiIsICIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkNTAkIGttIGEgY2VudMOtbWV0cmVzIHBlcnF1w6ggbGVzIGR1ZXMgbWVzdXJlcyBkZSBsJ2VzY2FsYSBlc3RpZ3VpbiBlbiBsYSBtYXRlaXhhIHVuaXRhdDogJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20uIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiLCAiIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiXSwgInJlcyI6IFsiJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20iLCAiRXNjYWxhIG51bcOocmljYTogJDE6NVxcLDAwMFxcLDAwMCQiXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 50 km de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 50 km</text></svg>"
-  },
-  {
-   "id": "158",
-   "ex": 158,
-   "ap": "",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "La distància real entre dues ciutats és de $450$ km. Troba la distància que les separa en un mapa dibuixat a escala $1:1\\,500\\,000$.",
-   "opcions": [
-    "$3$ cm",
-    "$30$ cm",
-    "$675\\,000\\,000\\,000$ cm",
-    "$0{,}3$ cm"
-   ],
-   "pistes": [
-    "Converteix la distància real a centímetres: $450\\text{ km}=45\\,000\\,000$ cm.",
-    "Divideix-la per l'escala: $45\\,000\\,000:1\\,500\\,000$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3IgdMOpIHVuIGZhY3RvciAkMTAkIGRlIG1lbnlzOiByZXZpc2EgbGEgY29udmVyc2nDsyAkNDUwXFx0ZXh0eyBrbX09NDVcXCwwMDBcXCwwMDAkIGNtIGFiYW5zIGRlIGRpdmlkaXIgcGVyICQxXFwsNTAwXFwsMDAwJC4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIG11bHRpcGxpY2FyIGxhIGRpc3TDoG5jaWEgcmVhbCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBkaXZpZGlyLWhpOiBlbiB1bmEgZXNjYWxhICQxOm4kLCBsYSBkaXN0w6BuY2lhIGFsIG1hcGEgw6lzIGxhIGRpc3TDoG5jaWEgcmVhbCBESVZJRElEQSBwZXIgJG4kLiIsICJTZW1ibGEgcXVlIGhhcyBjb252ZXJ0aXQgZWxzICQ0NTAkIGttIGEgbWV0cmVzICgkNDUwXFwsMDAwJCBtKSBpIG5vIGEgY2VudMOtbWV0cmVzOiBjYWwgJDQ1MFxcdGV4dHsga219PTQ1XFwsMDAwXFwsMDAwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciBsJ2VzY2FsYS4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkNDUwXFx0ZXh0eyBrbX09NDVcXCwwMDBcXCwwMDAkIGNtIiwgIiQ0NVxcLDAwMFxcLDAwMDoxXFwsNTAwXFwsMDAwPTMwJCBjbSJdfQ=="
-  },
-  {
-   "id": "159",
-   "ex": 159,
-   "ap": "",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "En representar la carretera que uneix dos pobles en un mapa d'escala $1:500\\,000$, té una longitud de $6$ cm. Quina seria la longitud de la carretera si la representem en un plànol d'escala $1:60\\,000$?",
-   "opcions": [
-    "$0{,}72$ cm",
-    "$0{,}00072$ cm",
-    "$50$ cm",
-    "$720$ cm"
-   ],
-   "pistes": [
-    "Calcula primer la distància real: $6\\text{ cm}\\cdot500\\,000=3\\,000\\,000$ cm.",
-    "Divideix aquesta distància real per la segona escala: $3\\,000\\,000:60\\,000$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkJ2FwbGljYXIgbGEgcmHDsyBkZSBsZXMgZXNjYWxlcyBpbnZlcnRpZGEgKCQ2MFxcLDAwMC81MDBcXCwwMDAkIGVubGxvYyBkZSAkNTAwXFwsMDAwLzYwXFwsMDAwJCk6IGEgdW5hIGVzY2FsYSBhbWIgdW4gbm9tYnJlIE3DiVMgUEVUSVQgKG3DqXMgZGV0YWxsYWRhKSBsaSBjb3JyZXNwb24gdW5hIGxvbmdpdHVkIGRpYnVpeGFkYSBNw4lTIEdSQU4sIG5vIG3DqXMgcGV0aXRhLiIsICJBcXVlc3QgcmVzdWx0YXQgw6lzIG1hc3NhIHBldGl0IHBlciBhIHVuYSBlc2NhbGEgbcOpcyBkZXRhbGxhZGE6IHRvcm5hIGEgY2FsY3VsYXIgcHJpbWVyIGxhIGRpc3TDoG5jaWEgcmVhbCAoJDZcXGNkb3Q1MDBcXCwwMDAkIGNtKSBpIGRlc3Byw6lzIGRpdmlkZWl4LWxhIHBlciAkNjBcXCwwMDAkLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHTDqSB1biBmYWN0b3IgJDEwJCBkZSBtw6lzOiByZXZpc2EgZWwgY8OgbGN1bCBkZSBsYSBkaXN0w6BuY2lhIHJlYWwgKCQ2XFxjZG90NTAwXFwsMDAwPTNcXCwwMDBcXCwwMDAkIGNtKSBhYmFucyBkZSBkaXZpZGlyLWxhIHBlciAkNjBcXCwwMDAkLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiUFJPRFVDVEVfTUFMIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIkRpc3TDoG5jaWEgcmVhbDogJDZcXGNkb3Q1MDBcXCwwMDA9M1xcLDAwMFxcLDAwMCQgY20iLCAiQWwgbm91IHBsw6Bub2w6ICQzXFwsMDAwXFwsMDAwOjYwXFwsMDAwPTUwJCBjbSJdfQ=="
-  },
-  {
-   "id": "160a",
-   "ex": 160,
-   "ap": "a",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
-   "enunciat": "Quines dimensions reals té la cuina si en el plànol fa $4$ cm d'ample i $7$ cm de llarg?",
-   "opcions": [
-    "$0{,}067$ m d'ample i $0{,}117$ m de llarg",
-    "$4$ m d'ample i $7$ m de llarg",
-    "$2{,}4$ m d'ample i $4{,}2$ m de llarg",
-    "$240$ m d'ample i $420$ m de llarg"
-   ],
-   "pistes": [
-    "A l'escala $1:60$, cada centímetre del plànol correspon a $60$ cm reals.",
-    "Multiplica les dues mesures del plànol per $60$ i converteix el resultat a metres."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIHBlciAkNjAkIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXI6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgUkVBTCDDqXMgJDYwJCB2ZWdhZGVzIGxhIG1lc3VyYSBhbCBwbMOgbm9sLCBubyB1bmEgc2VpeGFudGVuYSBwYXJ0LiIsICJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdHMgdmFsb3JzIHRlbmVuIHVuIGZhY3RvciAkMTAwJCBkZSBtw6lzOiAkNFxcY2RvdDYwPTI0MCQgY20sIHF1ZSBjYWwgY29udmVydGlyIGEgbWV0cmVzIGRpdmlkaW50IHBlciAkMTAwJCwgbm8gZGVpeGFyLWhvIHRhbCBxdWFsLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiQW1wbGU6ICQ0XFxjZG90NjA9MjQwJCBjbSAkPTJ7LH00JCBtIiwgIkxsYXJnOiAkN1xcY2RvdDYwPTQyMCQgY20gJD00eyx9MiQgbSJdfQ=="
-  },
-  {
-   "id": "160b",
-   "ex": 160,
-   "ap": "b",
-   "bloc": "escales",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
-   "enunciat": "El passadís mesura $7{,}5$ m a la realitat. Quant fa de llarg en el plànol?",
-   "opcions": [
-    "$7{,}5$ cm",
-    "$12{,}5$ cm",
-    "$1{,}25$ cm",
-    "$450$ cm"
-   ],
-   "pistes": [
-    "Converteix els $7{,}5$ m a centímetres: $750$ cm.",
-    "Divideix-los per $60$ per passar de la mesura real a la del plànol."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdCB2YWxvciB0w6kgdW4gZmFjdG9yICQxMCQgZGUgbWVueXM6IHJldmlzYSBsYSBjb252ZXJzacOzICQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciAkNjAkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciBwZXIgJDYwJCBlbiBjb21wdGVzIGRlIGRpdmlkaXItaGk6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgQUwgUEzDgE5PTCDDqXMgbGEgbWVzdXJhIHJlYWwgRElWSURJREEgcGVyICQ2MCQsIG5vIG11bHRpcGxpY2FkYS4iXSwgImVyciI6IFsiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSIsICIkNzUwOjYwPTEyeyx9NSQgY20iXX0="
-  },
-  {
-   "id": "161",
-   "ex": 161,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Quant mesura l'ombra projectada per un arbre de $15$ m d'altura, sabent que en aquest mateix moment un altre arbre de $8$ m d'altura projecta una ombra de $10$ m?",
-   "opcions": [
-    "$16$ m",
-    "$8$ m",
-    "$12{,}5$ m",
-    "$18{,}75$ m"
-   ],
-   "pistes": [
-    "Com que els dos arbres projecten ombra al mateix moment, l'altura i l'ombra de cadascun són directament proporcionals: $\\dfrac{8}{10}=\\dfrac{15}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkOFxcY2RvdDIkOiBjb21wcm92YSBlbCBjw6BsY3VsIGNvbXBsZXQgJHg9XFxmcmFjezE1XFxjZG90MTB9ezh9JCBwYXMgYSBwYXMgZW4gbGxvYyBkJ3VuYSBhcHJveGltYWNpw7MuIiwgIiQ4JCBtIMOpcyBsJ2FsdHVyYSBkZWwgcHJpbWVyIGFyYnJlLCBubyBsJ29tYnJhIHF1ZSBlcyBkZW1hbmEgcGVyIGFsIHNlZ29uOiB0b3JuYSBhIHBsYW50ZWphciBsYSBwcm9wb3JjacOzIGRlcyBkZSB6ZXJvLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkJ2ludmVydGlyIGxhIHByb3BvcmNpw7M6IGNvbSBxdWUgZWwgc2Vnb24gYXJicmUgw6lzIE3DiVMgQUxULCBsYSBzZXZhIG9tYnJhIGhhIGRlIHNlciBNw4lTIExMQVJHQSBxdWUgbGEgZGVsIHByaW1lciwgbm8gbcOpcyBjdXJ0YS4gUGxhbnRlamEgJFxcZnJhY3s4fXsxMH09XFxmcmFjezE1fXt4fSQuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURV9NQUwiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3s4fXsxMH09XFxkZnJhY3sxNX17eH0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7MTVcXGNkb3QxMH17OH0kIiwgIiR4PTE4eyx9NzUkIG0iXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 132\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,102.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-40.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-88.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-40.0\" x2=\"-18.5\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-40.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-44.0\" x2=\"-19.0\" y2=\"-36.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-88.0\" x2=\"71.5\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-88.0\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-92.0\" x2=\"71.0\" y2=\"-84.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-17.1\" text-anchor=\"middle\" class=\"fig-etq petita\">8 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 m</text><text x=\"60\" y=\"-41.1\" text-anchor=\"middle\" class=\"fig-etq petita\">15 m</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre petit</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre gran</text></g></svg>"
-  },
-  {
-   "id": "162",
-   "ex": 162,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Una antena està subjectada amb dos cables que formen entre ells un angle de $90^\\circ$ i mesuren $8$ i $5$ m, respectivament. A quina altura s'enganxen a l'antena?",
-   "opcions": [
-    "$13$ m",
-    "$6{,}24$ m",
-    "$9{,}43$ m (aproximadament)",
-    "$40$ m"
-   ],
-   "pistes": [
-    "Com que els dos cables formen un angle de $90^\\circ$ entre ells, són els catets d'un triangle rectangle, i el tram d'antena entre els dos punts d'ancoratge n'és la hipotenusa.",
-    "Aplica el teorema de Pitàgores: $h=\\sqrt{8^2+5^2}$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgbGVzIGR1ZXMgbG9uZ2l0dWRzICgkOCs1JCkgZW5sbG9jIGQnYXBsaWNhciBlbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXM6IGNvbSBxdWUgZWxzIGNhYmxlcyBmb3JtZW4gdW4gYW5nbGUgcmVjdGUsIHPDs24gZWxzIGNhdGV0cyBkJ3VuIHRyaWFuZ2xlIHJlY3RhbmdsZSwgaSBjYWwgJGg9XFxzcXJ0ezheMis1XjJ9JC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJFxcc3FydHs4XjItNV4yfSQsIGNvbSBzaSAkOCQgZm9zIGxhIGhpcG90ZW51c2EgaSAkNSQgdW4gY2F0ZXQ7IGFxdcOtIGVscyBET1MgY2FibGVzIHPDs24gY2F0ZXRzIChmb3JtZW4gbCdhbmdsZSByZWN0ZSBlbnRyZSBlbGxzKSwgaSBsJ2FudGVuYSDDqXMgbGEgaGlwb3RlbnVzYTogY2FsIHN1bWFyIGVscyBxdWFkcmF0cywgbm8gcmVzdGFyLWxvcy4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIG11bHRpcGxpY2FyICQ4XFxjZG90NSQ6IGVsIHRlb3JlbWEgZGUgUGl0w6Bnb3JlcyByZWxhY2lvbmEgZWxzIFFVQURSQVRTIGRlbHMgY2F0ZXRzLCBubyBlbCBzZXUgcHJvZHVjdGUgZGlyZWN0ZS4iXSwgImVyciI6IFsiU1VNQV9FTl9MTE9DX1JFU1RBIiwgIkNBVEVUX0hJUE9URU5VU0FfQ09ORk9TT1MiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkaD1cXHNxcnR7OF4yKzVeMn09XFxzcXJ0ezY0KzI1fT1cXHNxcnR7ODl9JCIsICIkaFxcYXBwcm94OXssfTQzJCBtIl19"
-  },
-  {
-   "id": "163",
-   "ex": 163,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Un arbre fa $5$ m d'altura i, a una determinada hora del dia, projecta una ombra de $6$ m. Quina altura tindrà un edifici que a la mateixa hora projecta una ombra de $10$ m?",
-   "opcions": [
-    "$6$ m",
-    "$12$ m",
-    "$8{,}33$ m (aproximadament)",
-    "$9$ m"
-   ],
-   "pistes": [
-    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{6}{5}=\\dfrac{10}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkNiQgbSDDqXMgbCdvbWJyYSBkZSBsJ2FyYnJlLCBubyBsJ2FsdHVyYSBkZSBsJ2VkaWZpY2kgcXVlIGVzIGRlbWFuYTogdG9ybmEgYSBwbGFudGVqYXIgbGEgcHJvcG9yY2nDsyBkZXMgZGUgemVyby4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezZ9ezV9PVxcZnJhY3sxMH17eH0kLCBhbWIgbCdhbHR1cmEgZGUgbCdhcmJyZSBjb3JyZXNwb25lbnQgYSBsYSBzZXZhIHByw7JwaWEgb21icmEsIG5vIGEgbGEgZGUgbCdlZGlmaWNpLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgc3VtYXIgbGEgZGlmZXLDqG5jaWEgZCdvbWJyZXMgKCQxMC02PTQkKSBhIGwnYWx0dXJhIGRlIGwnYXJicmU6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3s2fXs1fT1cXGRmcmFjezEwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s1XFxjZG90MTB9ezZ9PVxcZGZyYWN7NTB9ezZ9JCIsICIkeFxcYXBwcm94OHssfTMzJCBtIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 135\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,105.7)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-41.7\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-41.7\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-91.7\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-91.7\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-41.7\" x2=\"-18.5\" y2=\"-41.7\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-41.7\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-45.7\" x2=\"-19.0\" y2=\"-37.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-91.7\" x2=\"71.5\" y2=\"-91.7\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-91.7\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-95.7\" x2=\"71.0\" y2=\"-87.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-17.9\" text-anchor=\"middle\" class=\"fig-etq petita\">5 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">6 m</text><text x=\"64\" y=\"-42.9\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
-  },
-  {
-   "id": "164",
-   "ex": 164,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Si un pal mesura $1$ m, i l'ombra que projecta a una determinada hora del dia és d'$1{,}5$ m, quant mesura un edifici que projecta una ombra de $6$ m a la mateixa hora?",
-   "opcions": [
-    "$6{,}67$ m",
-    "$4$ m",
-    "$9$ m",
-    "$5{,}5$ m"
-   ],
-   "pistes": [
-    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$.",
-    "Aïlla $x$ multiplicant en creu."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNjoxeyx9NVxcY2RvdDF7LH02NyQsIGFtYiBlbHMgdGVybWVzIG1hbCBhcGFyZWxsYXRzOiByZXZpc2EgbGEgcHJvcG9yY2nDsyAkXFxmcmFjezF9ezF7LH01fT1cXGZyYWN7eH17Nn0kIHBhcyBhIHBhcy4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxfXsxeyx9NX09XFxmcmFje3h9ezZ9JCwgYW1iIGwnYWx0dXJhIGRlbCBwYWwgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIG9tYnJhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBzdW1hciBsYSBkaWZlcsOobmNpYSBkJ29tYnJlcyAoJDYtMXssfTU9NHssfTUkKSBhIGwnYWx0dXJhIGRlbCBwYWw6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3sxfXsxeyx9NX09XFxkZnJhY3t4fXs2fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxXFxjZG90Nn17MXssfTV9JCIsICIkeD00JCBtIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 117\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,87.3)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-33.3\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-33.3\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-73.3\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-73.3\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-33.3\" x2=\"-18.5\" y2=\"-33.3\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-33.3\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-37.3\" x2=\"-19.0\" y2=\"-29.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-73.3\" x2=\"71.5\" y2=\"-73.3\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-73.3\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-77.3\" x2=\"71.0\" y2=\"-69.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-13.7\" text-anchor=\"middle\" class=\"fig-etq petita\">1 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1,5 m</text><text x=\"64\" y=\"-33.7\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"131.8\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">6 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">pal</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
-  },
-  {
-   "id": "165",
-   "ex": 165,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la cistella, llança la pilota per encistellar (cistella a $3{,}05$ m d'altura). Suposant una trajectòria rectilínia des del llançament fins a la cistella, a quina altura està la pilota quan va per la meitat del recorregut?",
-   "opcions": [
-    "$1{,}525$ m",
-    "$4{,}95$ m",
-    "$1{,}575$ m",
-    "$2{,}475$ m"
-   ],
-   "pistes": [
-    "A mig recorregut, la pilota ha pujat la meitat de la diferència total d'altura entre el llançament i la cistella.",
-    "Calcula primer la diferència d'altures ($3{,}05-1{,}9$) i suma'n la meitat a l'altura inicial."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIGxhIG1laXRhdCBkZSAkM3ssfTA1JCBtOiBubyB0w6kgZW4gY29tcHRlIHF1ZSBsYSBwaWxvdGEgamEgcGFydGVpeCBkJ3VuYSBhbHR1cmEgaW5pY2lhbCBkJyQxeyx9OSQgbSwgbm8gZGUgdGVycmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIHN1bWFyIGxlcyBkdWVzIGFsdHVyZXMgaSBkaXZpZGlyLWxlcyBlbnRyZSAkMiQ6IGNvbSBxdWUgbGEgcGlsb3RhIHB1amEgZGVzIGQnJDF7LH05JCBtLCBjYWwgc3VtYXItaGkgTk9Nw4lTIGxhIG1laXRhdCBkZSBsYSBkaWZlcsOobmNpYSwgbm8gZmVyIGxhIG1pdGphbmEgYXJpdG3DqHRpY2EgZGlyZWN0YSAocXVlIHBlciBhcXVlc3QgY2FzIGRvbmEgZWwgbWF0ZWl4IHJlc3VsdGF0IHBlcsOyIHBlbCBtb3RpdSBlcXVpdm9jYXQ7IGNvbXByb3ZhLWhvIGFtYiBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMpLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezN7LH0wNX17Mn0tXFxmcmFjezF7LH05fXsyfSQ6IGNhbCBwYXJ0aXIgZGUgbCdhbHR1cmEgaW5pY2lhbCAoJDF7LH05JCBtKSBpIHN1bWFyLWhpIGxhIE1FSVRBVCBkZSBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMsIG5vIGNhbGN1bGFyIGxhIG1laXRhdCBkZSBjYWRhIGFsdHVyYSBwZXIgc2VwYXJhdC4iLCAiIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJBUklUTUVUSUNBX1BBU19JTlRFUk1FREkiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhIGQnYWx0dXJhOiAkM3ssfTA1LTF7LH05PTF7LH0xNSQgbSIsICIkeD0xeyx9OStcXGRmcmFjezF7LH0xNX17Mn09MXssfTkrMHssfTU3NSQiLCAiJHg9MnssfTQ3NSQgbSJdfQ=="
-  },
-  {
-   "id": "166",
-   "ex": 166,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "L'Anna està situada a $5$ m de la vora d'un riu i veu reflectida una muntanya a l'aigua. Si l'Anna mesura $1{,}70$ m i el riu està a $3$ km de la muntanya, quina altura té la muntanya?",
-   "opcions": [
-    "$8{,}82$ m",
-    "$5\\,100$ m",
-    "$1{,}02$ m",
-    "$1\\,020$ m"
-   ],
-   "pistes": [
-    "Converteix els $3$ km a metres: $3\\,000$ m.",
-    "L'altura de l'Anna i la seva distància a la vora són proporcionals a l'altura de la muntanya i la seva distància a la vora: $\\dfrac{1{,}70}{5}=\\dfrac{x}{3\\,000}$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkJ2ludmVydGlyIGxhIHByb3BvcmNpw7M6IHBsYW50ZWphICRcXGZyYWN7MXssfTcwfXs1fT1cXGZyYWN7eH17M1xcLDAwMH0kLCBhbWIgbCdhbHR1cmEgZGUgbCdBbm5hIGNvcnJlc3BvbmVudCBhIGxhIHNldmEgcHLDsnBpYSBkaXN0w6BuY2lhIGEgbGEgdm9yYS4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDF7LH03MFxcY2RvdDNcXCwwMDAkIHNlbnNlIGRpdmlkaXIgcGVyICQ1JDogJHg9XFxmcmFjezF7LH03MFxcY2RvdDNcXCwwMDB9ezV9JCwgbm8gbm9tw6lzIGVsIG51bWVyYWRvci4iLCAiQXF1ZXN0IHZhbG9yIGVzdMOgIGVuIG1ldHJlcyBwZXLDsiBsYSB4aWZyYSBjb3JyZXNwb24gYSBxdWlsw7JtZXRyZXM6ICQxXFwsMDIwJCBtIGVxdWl2YWwgYSAkMXssfTAyJCBrbSwgbm8gYSAkMXssfTAyJCBtOyByZXZpc2EgbGEgY29udmVyc2nDsyBkZSAkMyQga20gYSBtZXRyZXMgYWJhbnMgZGUgZGl2aWRpci4iLCAiIl0sICJlcnIiOiBbIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJDNcXHRleHR7IGttfT0zXFwsMDAwJCBtIiwgIiRcXGRmcmFjezF7LH03MH17NX09XFxkZnJhY3t4fXszXFwsMDAwfSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxeyx9NzBcXGNkb3QzXFwsMDAwfXs1fSQiLCAiJHg9MVxcLDAyMCQgbSJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 280 81\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(65.0,51.4)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-17.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-17.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-37.4\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-37.4\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-17.0\" x2=\"-18.5\" y2=\"-17.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-17.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-21.0\" x2=\"-19.0\" y2=\"-13.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-37.4\" x2=\"71.5\" y2=\"-37.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-37.4\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-41.4\" x2=\"71.0\" y2=\"-33.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-35\" y=\"-5.6\" text-anchor=\"middle\" class=\"fig-etq petita\">1,7 m</text><text x=\"25\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">5 m</text><text x=\"64\" y=\"-15.8\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"171.4\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">3000 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Anna</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">muntanya</text></g></svg>"
-  },
-  {
-   "id": "167",
-   "ex": 167,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Mesurem l'ombra d'un edifici en dos moments del dia, amb angles d'elevació del sol de $60^\\circ$ i $30^\\circ$ respecte al terra. Si la distància entre els extrems de les dues ombres és de $6{,}67$ m, calcula l'altura de l'edifici.",
-   "opcions": [
-    "$5{,}78$ m (aproximadament)",
-    "$3{,}85$ m",
-    "$13{,}34$ m",
-    "$11{,}55$ m"
-   ],
-   "pistes": [
-    "L'ombra amb el sol a $60^\\circ$ val $\\frac{h}{\\tan60^\\circ}$ i, amb el sol a $30^\\circ$ (més baix, ombra més llarga), val $\\frac{h}{\\tan30^\\circ}$.",
-    "La diferència entre totes dues ombres és $6{,}67$ m: $\\frac{h}{\\tan30^\\circ}-\\frac{h}{\\tan60^\\circ}=6{,}67$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgY29uc2lkZXJhciBub23DqXMgbCdvbWJyYSBhbWIgYW5nbGUgZGUgJDYwXlxcY2lyYyQgY29tIHNpIGZvcyB0b3RhIGxhIGRpZmVyw6huY2lhOiBjYWwgcmVzdGFyIGxlcyBEVUVTIG9tYnJlcyAoJFxcZnJhY3tofXtcXHRhbjMwXlxcY2lyY30tXFxmcmFje2h9e1xcdGFuNjBeXFxjaXJjfSQpLCBubyBmZXItbmUgc2VydmlyIG5vbcOpcyB1bmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ2eyx9NjdcXGNkb3QyJDogY29tcHJvdmEgZWwgcGxhbnRlamFtZW50IGNvbXBsZXQgYW1iIGxlcyB0YW5nZW50cyBkZWxzIGRvcyBhbmdsZXMgZCdlbGV2YWNpw7MsIG5vIHVuYSBzaW1wbGUgcmVsYWNpw7MgZGlyZWN0YSBhbWIgbGEgZGlzdMOgbmNpYSBlbnRyZSBvbWJyZXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ2eyx9NjdcXGNkb3RcXGxlZnQoXFx0YW42MF5cXGNpcmMtXFx0YW4zMF5cXGNpcmNcXHJpZ2h0KSQ6IGxhIGRpZmVyw6huY2lhIGQnb21icmVzIGVzIHBsYW50ZWphIGFtYiBlbHMgSU5WRVJTT1MgZGUgbGVzIHRhbmdlbnRzICgkXFxmcmFjezF9e1xcdGFuMzBeXFxjaXJjfS1cXGZyYWN7MX17XFx0YW42MF5cXGNpcmN9JCksIG5vIGFtYiBsZXMgdGFuZ2VudHMgZGlyZWN0YW1lbnQuIl0sICJlcnIiOiBbIiIsICJDQVRFVF9ISVBPVEVOVVNBX0NPTkZPU09TIiwgIlBST0RVQ1RFX01BTCIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJGhcXGxlZnQoXFxkZnJhY3sxfXtcXHRhbjMwXlxcY2lyY30tXFxkZnJhY3sxfXtcXHRhbjYwXlxcY2lyY31cXHJpZ2h0KT02eyx9NjckIiwgIiRoXFwsKDF7LH03MzIxLTB7LH01Nzc0KT02eyx9NjcgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyBoXFxjZG90MXssfTE1NDc9NnssfTY3JCIsICIkaFxcYXBwcm94NXssfTc4JCBtIl19"
-  },
-  {
-   "id": "168",
-   "ex": 168,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "En Pere és a $2$ m d'un precipici i veu alineat un poble amb la vora del precipici. Els seus ulls són a $1{,}6$ m d'altura i el precipici té $450$ m de profunditat. A quina distància horitzontal està el poble del precipici?",
-   "opcions": [
-    "$562{,}5$ m",
-    "$1{,}6$ m",
-    "$281{,}25$ m",
-    "$720$ m"
-   ],
-   "pistes": [
-    "L'altura dels ulls i la distància a la vora formen un triangle petit, semblant al triangle gran format per la profunditat del precipici i la distància total fins al poble: $\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezF7LH02fXsyfT1cXGZyYWN7NDUwfXt4fSQsIGFtYiBsJ2FsdHVyYSBkZWxzIHVsbHMgY29ycmVzcG9uZW50IGEgbGEgZGlzdMOgbmNpYSBkJ2VuIFBlcmUgYSBsYSB2b3JhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezQ1MFxcY2RvdDF7LH02fXsyXFxjZG90MXssfTZ9JCBhbWIgdW4gZmFjdG9yIGRlIG3DqXM6IHJldmlzYSBsYSBwcm9wb3JjacOzICRcXGZyYWN7MXssfTZ9ezJ9PVxcZnJhY3s0NTB9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0NTBcXGNkb3Qxeyx9NiQgc2Vuc2UgZGl2aWRpciBwZWwgJDIkOiAkeD1cXGZyYWN7MlxcY2RvdDQ1MH17MXssfTZ9JCwgaSBlbmNhcmEgZmFsdGEgb3JkZW5hciBiw6kgZWxzIGZhY3RvcnMuIl0sICJlcnIiOiBbIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJFxcZGZyYWN7MXssfTZ9ezJ9PVxcZGZyYWN7NDUwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3syXFxjZG90NDUwfXsxeyx9Nn09XFxkZnJhY3s5MDB9ezF7LH02fSQiLCAiJHg9NTYyeyx9NSQgbSJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 280 132\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(65.0,102.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-40.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-88.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-40.0\" x2=\"-18.5\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-40.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-44.0\" x2=\"-19.0\" y2=\"-36.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-88.0\" x2=\"71.5\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-88.0\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-92.0\" x2=\"71.0\" y2=\"-84.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-35\" y=\"-17.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1,6 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">2 m</text><text x=\"55\" y=\"-41.1\" text-anchor=\"middle\" class=\"fig-etq petita\">450 m</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Pere</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">poble</text></g></svg>"
-  },
-  {
-   "id": "169",
-   "ex": 169,
-   "ap": "",
-   "bloc": "aplicacions",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Un home que té una alçada d'$1{,}75$ m veu reflectit un edifici de $52{,}5$ m sobre un bassal d'aigua que hi ha a $4$ m d'ell. A quina distància del bassal es troba l'edifici?",
-   "opcions": [
-    "$30$ m",
-    "$1{,}75$ m",
-    "$120$ m",
-    "$210$ m"
-   ],
-   "pistes": [
-    "L'alçada de l'home i la seva distància al bassal formen un triangle semblant al que formen l'edifici i la seva distància al bassal: $\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNTJ7LH01OjF7LH03NSQgc2Vuc2UgbXVsdGlwbGljYXIgcGVscyAkNCQgbTogcmV2aXNhIGxhIHByb3BvcmNpw7MgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCwgYW1iIGwnYWzDp2FkYSBkZSBsJ2hvbWUgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIGRpc3TDoG5jaWEgYWwgYmFzc2FsLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDRcXGNkb3Q1MnssfTUkIHNlbnNlIGRpdmlkaXIgcGVyICQxeyx9NzUkOiAkeD1cXGZyYWN7NFxcY2RvdDUyeyx9NX17MXssfTc1fSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkXFxkZnJhY3sxeyx9NzV9ezR9PVxcZGZyYWN7NTJ7LH01fXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s0XFxjZG90NTJ7LH01fXsxeyx9NzV9JCIsICIkeD0xMjAkIG0iXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 289 92\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(74.2,62.1)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-21.9\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-21.9\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-48.1\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-48.1\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-21.9\" x2=\"-18.5\" y2=\"-21.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-21.9\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-25.9\" x2=\"-19.0\" y2=\"-17.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-48.1\" x2=\"71.5\" y2=\"-48.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-48.1\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-52.1\" x2=\"71.0\" y2=\"-44.1\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-41\" y=\"-8\" text-anchor=\"middle\" class=\"fig-etq petita\">1,75 m</text><text x=\"25\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">4 m</text><line class=\"fig-crida\" x1=\"75.0\" y1=\"-24.1\" x2=\"-0.8\" y2=\"-24.1\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"-23\" y=\"-21.1\" text-anchor=\"middle\" class=\"fig-etq petita\">52,5 m</text><text x=\"171.4\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">home</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
-  },
-  {
    "id": "155c",
    "ex": 155,
    "ap": "c",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle de costats $5$ cm i $7$ cm; triangle de costats $8$ cm i $12{,}8$ cm (sense conèixer cap angle). Es pot assegurar que són semblants?",
    "opcions": [
@@ -822,7 +485,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle rectangle de catets $3$ cm i $5$ cm; triangle rectangle de catets $10$ cm i $13$ cm. Són semblants?",
    "opcions": [
@@ -845,7 +508,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "semblanca",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Determina si aquests parells de triangles són semblants, i quin criteri s'aplica en cada cas.",
    "enunciat": "Triangle rectangle amb un angle agut de $50^\\circ$; triangle rectangle amb un angle agut de $40^\\circ$. Són semblants?",
    "opcions": [
@@ -862,12 +525,146 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlIMOpcyBzdWZpY2llbnQgcGVyIHNpIHNvbDogc2kgZWxzIHRyZXMgYW5nbGVzIGNvaW5jaWRlaXhlbiwgZWxzIHRyaWFuZ2xlcyBqYSBzw7NuIHNlbWJsYW50cywgc2Vuc2UgbmVjZXNzaXRhdCBkZSBjb21wcm92YXIgZWxzIGNvc3RhdHMgYSBwYXJ0LiIsICJBbWIgZWxzIHRyZXMgYW5nbGVzIGRlIGNhZGEgdHJpYW5nbGUgKHVuIGNvcCBjYWxjdWxhdCBlbCB0ZXJjZXIpIGphIG4naGkgaGEgcHJvdSBwZXIgYXBsaWNhciBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlOiBubyBjYWxlbiBlbHMgY29zdGF0cy4iLCAiQ2FsIGNhbGN1bGFyIGVsIFRFUkNFUiBhbmdsZSBkZSBjYWRhIHRyaWFuZ2xlIGFiYW5zIGRlIGNvbmNsb3VyZSByZXM6ICQxODBeXFxjaXJjLTkwXlxcY2lyYy01MF5cXGNpcmM9NDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJCwgYWl4w60gcXVlIGVuIHJlYWxpdGF0IGVscyBkb3MgdHJpYW5nbGVzIHRlbmVuIGVscyBtYXRlaXhvcyB0cmVzIGFuZ2xlcy4iLCAiIl0sICJlcnIiOiBbIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIiJdLCAicmVzIjogWyJUcmlhbmdsZSBhbWIgYW5nbGUgYWd1dCBkZSAkNTBeXFxjaXJjJDogdMOpIGFuZ2xlcyAkOTBeXFxjaXJjJCwgJDUwXlxcY2lyYyQgaSAkMTgwXlxcY2lyYy05MF5cXGNpcmMtNTBeXFxjaXJjPTQwXlxcY2lyYyQuIiwgIlRyaWFuZ2xlIGFtYiBhbmdsZSBhZ3V0IGRlICQ0MF5cXGNpcmMkOiB0w6kgYW5nbGVzICQ5MF5cXGNpcmMkLCAkNDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJC4iLCAiRWxzIGRvcyB0cmlhbmdsZXMgdGVuZW4gZWxzIG1hdGVpeG9zIHRyZXMgYW5nbGVzOiBTw40gc8OzbiBzZW1ibGFudHMsIHBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlLiJdfQ=="
   },
   {
+   "id": "156a",
+   "ex": 156,
+   "ap": "a",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
+   "enunciat": "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és l'escala numèrica?",
+   "opcions": [
+    "$1:200\\,000$",
+    "$1:2$",
+    "$200\\,000:1$",
+    "$1:20\\,000$"
+   ],
+   "pistes": [
+    "Converteix els $2$ km a la mateixa unitat que el $1$ cm del dibuix: $2\\text{ km}=200\\,000$ cm.",
+    "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkMiQga20gYSBjZW50w61tZXRyZXMgcGVycXXDqCBsZXMgZHVlcyBtZXN1cmVzIGRlIGwnZXNjYWxhIGVzdGlndWluIGVuIGxhIG1hdGVpeGEgdW5pdGF0OiAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20uIiwgIkwnZXNjYWxhIG51bcOocmljYSBzJ2VzY3JpdSBhbWIgZWwgZGlidWl4IHByaW1lciBpIGxhIHJlYWxpdGF0IGRlc3Byw6lzOiAkMTpuJCwgbm8gJG46MSQuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIGNvbnZlcnRpciAkMiQga20gYSBtZXRyZXMgKCQyMDAkIG0pIGVuIGNvbXB0ZXMgZGUgYSBjZW50w61tZXRyZXM6IGNhbCAkMlxcdGV4dHsga219PTIwMFxcLDAwMCQgY20sIG5vICQyMFxcLDAwMCQuIl0sICJlcnIiOiBbIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJDJcXHRleHR7IGttfT0yMDBcXCwwMDAkIGNtIiwgIkVzY2FsYSBudW3DqHJpY2E6ICQxOjIwMFxcLDAwMCQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 2 km de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 2 km</text></svg>"
+  },
+  {
+   "id": "156b",
+   "ex": 156,
+   "ap": "b",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Expressa mitjançant una escala numèrica (a més de l'escala gràfica, que trobaràs descrita a la resolució).",
+   "enunciat": "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és l'escala numèrica?",
+   "opcions": [
+    "$5\\,000\\,000:1$",
+    "$1:500\\,000$",
+    "$1:5\\,000\\,000$",
+    "$1:50$"
+   ],
+   "pistes": [
+    "Converteix els $50$ km a la mateixa unitat que el $1$ cm del dibuix: $50\\text{ km}=5\\,000\\,000$ cm.",
+    "L'escala numèrica és $1:n$, amb $n$ la distància real en centímetres."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSBudW3DqHJpY2Egcydlc2NyaXUgYW1iIGVsIGRpYnVpeCBwcmltZXIgaSBsYSByZWFsaXRhdCBkZXNwcsOpczogJDE6biQsIG5vICRuOjEkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBjb252ZXJ0aXIgJDUwJCBrbSBhIG1ldHJlcyAoJDUwXFwsMDAwJCBtKSBlbiBjb21wdGVzIGRlIGEgY2VudMOtbWV0cmVzOiBjYWwgJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20sIG5vICQ1MDBcXCwwMDAkLiIsICIiLCAiRmFsdGEgY29udmVydGlyIGVscyAkNTAkIGttIGEgY2VudMOtbWV0cmVzIHBlcnF1w6ggbGVzIGR1ZXMgbWVzdXJlcyBkZSBsJ2VzY2FsYSBlc3RpZ3VpbiBlbiBsYSBtYXRlaXhhIHVuaXRhdDogJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20uIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQUk9EVUNURV9NQUwiLCAiIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiXSwgInJlcyI6IFsiJDUwXFx0ZXh0eyBrbX09NVxcLDAwMFxcLDAwMCQgY20iLCAiRXNjYWxhIG51bcOocmljYTogJDE6NVxcLDAwMFxcLDAwMCQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 50 km de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 50 km</text></svg>"
+  },
+  {
+   "id": "158",
+   "ex": 158,
+   "ap": "",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "La distància real entre dues ciutats és de $450$ km. Troba la distància que les separa en un mapa dibuixat a escala $1:1\\,500\\,000$.",
+   "opcions": [
+    "$3$ cm",
+    "$30$ cm",
+    "$675\\,000\\,000\\,000$ cm",
+    "$0{,}3$ cm"
+   ],
+   "pistes": [
+    "Converteix la distància real a centímetres: $450\\text{ km}=45\\,000\\,000$ cm.",
+    "Divideix-la per l'escala: $45\\,000\\,000:1\\,500\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3IgdMOpIHVuIGZhY3RvciAkMTAkIGRlIG1lbnlzOiByZXZpc2EgbGEgY29udmVyc2nDsyAkNDUwXFx0ZXh0eyBrbX09NDVcXCwwMDBcXCwwMDAkIGNtIGFiYW5zIGRlIGRpdmlkaXIgcGVyICQxXFwsNTAwXFwsMDAwJC4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIG11bHRpcGxpY2FyIGxhIGRpc3TDoG5jaWEgcmVhbCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBkaXZpZGlyLWhpOiBlbiB1bmEgZXNjYWxhICQxOm4kLCBsYSBkaXN0w6BuY2lhIGFsIG1hcGEgw6lzIGxhIGRpc3TDoG5jaWEgcmVhbCBESVZJRElEQSBwZXIgJG4kLiIsICJTZW1ibGEgcXVlIGhhcyBjb252ZXJ0aXQgZWxzICQ0NTAkIGttIGEgbWV0cmVzICgkNDUwXFwsMDAwJCBtKSBpIG5vIGEgY2VudMOtbWV0cmVzOiBjYWwgJDQ1MFxcdGV4dHsga219PTQ1XFwsMDAwXFwsMDAwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciBsJ2VzY2FsYS4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkNDUwXFx0ZXh0eyBrbX09NDVcXCwwMDBcXCwwMDAkIGNtIiwgIiQ0NVxcLDAwMFxcLDAwMDoxXFwsNTAwXFwsMDAwPTMwJCBjbSJdfQ=="
+  },
+  {
+   "id": "159",
+   "ex": 159,
+   "ap": "",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "En representar la carretera que uneix dos pobles en un mapa d'escala $1:500\\,000$, té una longitud de $6$ cm. Quina seria la longitud de la carretera si la representem en un plànol d'escala $1:60\\,000$?",
+   "opcions": [
+    "$0{,}72$ cm",
+    "$0{,}00072$ cm",
+    "$50$ cm",
+    "$720$ cm"
+   ],
+   "pistes": [
+    "Calcula primer la distància real: $6\\text{ cm}\\cdot500\\,000=3\\,000\\,000$ cm.",
+    "Divideix aquesta distància real per la segona escala: $3\\,000\\,000:60\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkJ2FwbGljYXIgbGEgcmHDsyBkZSBsZXMgZXNjYWxlcyBpbnZlcnRpZGEgKCQ2MFxcLDAwMC81MDBcXCwwMDAkIGVubGxvYyBkZSAkNTAwXFwsMDAwLzYwXFwsMDAwJCk6IGEgdW5hIGVzY2FsYSBhbWIgdW4gbm9tYnJlIE3DiVMgUEVUSVQgKG3DqXMgZGV0YWxsYWRhKSBsaSBjb3JyZXNwb24gdW5hIGxvbmdpdHVkIGRpYnVpeGFkYSBNw4lTIEdSQU4sIG5vIG3DqXMgcGV0aXRhLiIsICJBcXVlc3QgcmVzdWx0YXQgw6lzIG1hc3NhIHBldGl0IHBlciBhIHVuYSBlc2NhbGEgbcOpcyBkZXRhbGxhZGE6IHRvcm5hIGEgY2FsY3VsYXIgcHJpbWVyIGxhIGRpc3TDoG5jaWEgcmVhbCAoJDZcXGNkb3Q1MDBcXCwwMDAkIGNtKSBpIGRlc3Byw6lzIGRpdmlkZWl4LWxhIHBlciAkNjBcXCwwMDAkLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHTDqSB1biBmYWN0b3IgJDEwJCBkZSBtw6lzOiByZXZpc2EgZWwgY8OgbGN1bCBkZSBsYSBkaXN0w6BuY2lhIHJlYWwgKCQ2XFxjZG90NTAwXFwsMDAwPTNcXCwwMDBcXCwwMDAkIGNtKSBhYmFucyBkZSBkaXZpZGlyLWxhIHBlciAkNjBcXCwwMDAkLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiUFJPRFVDVEVfTUFMIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIkRpc3TDoG5jaWEgcmVhbDogJDZcXGNkb3Q1MDBcXCwwMDA9M1xcLDAwMFxcLDAwMCQgY20iLCAiQWwgbm91IHBsw6Bub2w6ICQzXFwsMDAwXFwsMDAwOjYwXFwsMDAwPTUwJCBjbSJdfQ=="
+  },
+  {
+   "id": "160a",
+   "ex": 160,
+   "ap": "a",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
+   "enunciat": "Quines dimensions reals té la cuina si en el plànol fa $4$ cm d'ample i $7$ cm de llarg?",
+   "opcions": [
+    "$0{,}067$ m d'ample i $0{,}117$ m de llarg",
+    "$4$ m d'ample i $7$ m de llarg",
+    "$2{,}4$ m d'ample i $4{,}2$ m de llarg",
+    "$240$ m d'ample i $420$ m de llarg"
+   ],
+   "pistes": [
+    "A l'escala $1:60$, cada centímetre del plànol correspon a $60$ cm reals.",
+    "Multiplica les dues mesures del plànol per $60$ i converteix el resultat a metres."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIHBlciAkNjAkIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXI6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgUkVBTCDDqXMgJDYwJCB2ZWdhZGVzIGxhIG1lc3VyYSBhbCBwbMOgbm9sLCBubyB1bmEgc2VpeGFudGVuYSBwYXJ0LiIsICJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdHMgdmFsb3JzIHRlbmVuIHVuIGZhY3RvciAkMTAwJCBkZSBtw6lzOiAkNFxcY2RvdDYwPTI0MCQgY20sIHF1ZSBjYWwgY29udmVydGlyIGEgbWV0cmVzIGRpdmlkaW50IHBlciAkMTAwJCwgbm8gZGVpeGFyLWhvIHRhbCBxdWFsLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiQW1wbGU6ICQ0XFxjZG90NjA9MjQwJCBjbSAkPTJ7LH00JCBtIiwgIkxsYXJnOiAkN1xcY2RvdDYwPTQyMCQgY20gJD00eyx9MiQgbSJdfQ=="
+  },
+  {
+   "id": "160b",
+   "ex": 160,
+   "ap": "b",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "El plànol d'un habitatge està dibuixat a escala $1:60$.",
+   "enunciat": "El passadís mesura $7{,}5$ m a la realitat. Quant fa de llarg en el plànol?",
+   "opcions": [
+    "$7{,}5$ cm",
+    "$12{,}5$ cm",
+    "$1{,}25$ cm",
+    "$450$ cm"
+   ],
+   "pistes": [
+    "Converteix els $7{,}5$ m a centímetres: $750$ cm.",
+    "Divideix-los per $60$ per passar de la mesura real a la del plànol."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdCB2YWxvciB0w6kgdW4gZmFjdG9yICQxMCQgZGUgbWVueXM6IHJldmlzYSBsYSBjb252ZXJzacOzICQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciAkNjAkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciBwZXIgJDYwJCBlbiBjb21wdGVzIGRlIGRpdmlkaXItaGk6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgQUwgUEzDgE5PTCDDqXMgbGEgbWVzdXJhIHJlYWwgRElWSURJREEgcGVyICQ2MCQsIG5vIG11bHRpcGxpY2FkYS4iXSwgImVyciI6IFsiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSIsICIkNzUwOjYwPTEyeyx9NSQgY20iXX0="
+  },
+  {
    "id": "285a",
    "ex": 285,
    "ap": "a",
    "bloc": "escales_calcul",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Què vol dir aquesta escala?",
    "enunciat": "Escala $1:50$.",
    "opcions": [
@@ -890,7 +687,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales_calcul",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Què vol dir aquesta escala?",
    "enunciat": "Escala $1:25\\,000$.",
    "opcions": [
@@ -913,7 +710,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "escales_calcul",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Què vol dir aquesta escala?",
    "enunciat": "Escala $1:200$.",
    "opcions": [
@@ -936,7 +733,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$4$ cm al plànol.",
    "opcions": [
@@ -958,7 +755,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$12$ cm al plànol.",
    "opcions": [
@@ -980,7 +777,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$2{,}5$ cm al plànol.",
    "opcions": [
@@ -1002,7 +799,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$30$ cm al plànol.",
    "opcions": [
@@ -1024,7 +821,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
    "enunciat": "Una paret de $8$ m.",
    "opcions": [
@@ -1046,7 +843,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
    "enunciat": "Una paret de $14$ m.",
    "opcions": [
@@ -1068,7 +865,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
    "enunciat": "Una paret de $2.4$ m.",
    "opcions": [
@@ -1090,7 +887,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'escala del dibuix.",
    "enunciat": "$4$ cm al dibuix corresponen a $2$ m de debò.",
    "opcions": [
@@ -1113,7 +910,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'escala del dibuix.",
    "enunciat": "$3$ cm al dibuix corresponen a $12$ m de debò.",
    "opcions": [
@@ -1136,7 +933,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba l'escala del dibuix.",
    "enunciat": "$8$ cm al dibuix corresponen a $4$ km de debò.",
    "opcions": [
@@ -1159,7 +956,7 @@ window.FULL = {
    "ap": "",
    "bloc": "escales_calcul",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En un mapa a escala $1:150\\,000$, dues poblacions estan a $6{,}4$ cm. Un ciclista fa el recorregut a $24$ km/h. Quant triga?",
    "opcions": [
@@ -1181,7 +978,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
    "enunciat": "Un costat de la petita fa $3$ cm i el corresponent de la gran, $12$ cm.",
    "opcions": [
@@ -1204,7 +1001,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
    "enunciat": "Un costat de la petita fa $5$ cm i el corresponent de la gran, $20$ cm.",
    "opcions": [
@@ -1227,7 +1024,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Dues figures són semblants. Troba'n la raó de semblança $k$ (de la petita a la gran).",
    "enunciat": "Un costat de la petita fa $6$ cm i el corresponent de la gran, $9$ cm.",
    "opcions": [
@@ -1250,7 +1047,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
    "enunciat": "$k=2$ i àrea del petit $=15$ cm$^2$.",
    "opcions": [
@@ -1273,7 +1070,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
    "enunciat": "$k=3$ i àrea del petit $=8$ cm$^2$.",
    "opcions": [
@@ -1296,7 +1093,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos polígons són semblants amb raó $k$. Si l'àrea del petit és la que es diu, quina és la del gran?",
    "enunciat": "$k=\\dfrac{5}{2}$ i àrea del petit $=12$ cm$^2$.",
    "opcions": [
@@ -1319,7 +1116,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos cossos són semblants amb raó $k$. Si el volum del petit és el que es diu, quin és el del gran?",
    "enunciat": "$k=2$ i volum del petit $=30$ cm$^3$.",
    "opcions": [
@@ -1342,7 +1139,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dos cossos són semblants amb raó $k$. Si el volum del petit és el que es diu, quin és el del gran?",
    "enunciat": "$k=3$ i volum del petit $=5$ cm$^3$.",
    "opcions": [
@@ -1365,7 +1162,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "A l'inrevés: del que saps de les àrees, dedueix la raó de longituds.",
    "enunciat": "Dos triangles semblants tenen àrees de $12$ cm$^2$ i $108$ cm$^2$. Quina és la raó entre els seus costats?",
    "opcions": [
@@ -1388,7 +1185,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "A l'inrevés: del que saps de les àrees, dedueix la raó de longituds.",
    "enunciat": "Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina és la raó entre els seus radis?",
    "opcions": [
@@ -1411,7 +1208,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
    "enunciat": "Amb l'escala $1:50$, quina alçada fa la maqueta si l'edifici real fa $30$ m?",
    "opcions": [
@@ -1434,7 +1231,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
    "enunciat": "Amb la mateixa escala $1:50$, quina superfície té la façana de la maqueta, si la de l'edifici real és de $600$ m$^2$?",
    "opcions": [
@@ -1457,7 +1254,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "semblanca_arees",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum de $9\\,000$ m$^3$.",
    "enunciat": "Amb la mateixa escala $1:50$, quin volum té la maqueta, si l'edifici real en fa $9\\,000$ m$^3$?",
    "opcions": [
@@ -1473,6 +1270,210 @@ window.FULL = {
    "nota": "Els tres apartats junts són el resum del bloc: una sola escala, tres factors diferents segons si el que mesures té una, dues o tres dimensions.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBlbnRyZSAkNTAkLiBFbHMgdm9sdW1zIHZhbiBhbWIgJGteMyQ6IGVudHJlICQ1MF4zPTEyNVxcLDAwMCQuIiwgIiIsICJIYXMgZGl2aWRpdCBlbnRyZSAkNTBeMiQuIEVsIHF1YWRyYXQgw6lzIHBlciBhIGxlcyDDoHJlZXMuIiwgIlQnaGFzIGRlc3BsYcOnYXQgdHJlcyBsbG9jczogJFxcZGZyYWN7OTAwMH17MTI1MDAwfT0weyx9MDcyJCwgbm8gJDcyJC4iXSwgImVyciI6IFsiUkFPX1NFTlNFX1FVQURSQVQiLCAiIiwgIlJBT19BTF9RVUFEUkFUIiwgIlBPVEVOQ0lBXzEwIl0sICJyZXMiOiBbIiRcXGRmcmFjezkwMDB9ezUwXjN9PVxcZGZyYWN7OTAwMH17MTI1MDAwfT0weyx9MDcyJCBtJF4zJCIsICIkMHssfTA3MiQgbSReMz03MlxcLDAwMCQgY20kXjMkIiwgIkxhIG1hcXVldGEgw6lzICQ1MCQgdmVnYWRlcyBtw6lzIGN1cnRhLCAkMlxcLDUwMCQgdmVnYWRlcyBtw6lzIHBldGl0YSBkZSBmYcOnYW5hIGkgJDEyNVxcLDAwMCQgdmVnYWRlcyBtw6lzIHBldGl0YSBkZSB2b2x1bSJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 184 130\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues figures semblants, amb la raó entre una longitud i la seva corresponent marcada: dos cubs.</title><g transform=\"translate(14.0,94.4)\"><polygon points=\"60.00,0.00 60.00,-60.00 80.40,-80.40 80.40,-20.40\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.00,-60.00 60.00,-60.00 80.40,-80.40 20.40,-80.40\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.00,0.00 60.00,0.00 60.00,-60.00 0.00,-60.00\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"137.50,0.00 137.50,-15.00 142.60,-20.10 142.60,-5.10\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"122.50,-15.00 137.50,-15.00 142.60,-20.10 127.60,-20.10\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"122.50,0.00 137.50,0.00 137.50,-15.00 122.50,-15.00\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"30\" y=\"14.4\" text-anchor=\"middle\" class=\"fig-etq\">1</text><line class=\"fig-crida\" x1=\"130.0\" y1=\"0.0\" x2=\"146.0\" y2=\"9.6\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"151.5\" y=\"18.1\" text-anchor=\"middle\" class=\"fig-etq\">k</text></g></svg>"
+  },
+  {
+   "id": "161",
+   "ex": 161,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Quant mesura l'ombra projectada per un arbre de $15$ m d'altura, sabent que en aquest mateix moment un altre arbre de $8$ m d'altura projecta una ombra de $10$ m?",
+   "opcions": [
+    "$16$ m",
+    "$8$ m",
+    "$12{,}5$ m",
+    "$18{,}75$ m"
+   ],
+   "pistes": [
+    "Com que els dos arbres projecten ombra al mateix moment, l'altura i l'ombra de cadascun són directament proporcionals: $\\dfrac{8}{10}=\\dfrac{15}{x}$.",
+    "Aïlla $x$ multiplicant en creu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkOFxcY2RvdDIkOiBjb21wcm92YSBlbCBjw6BsY3VsIGNvbXBsZXQgJHg9XFxmcmFjezE1XFxjZG90MTB9ezh9JCBwYXMgYSBwYXMgZW4gbGxvYyBkJ3VuYSBhcHJveGltYWNpw7MuIiwgIiQ4JCBtIMOpcyBsJ2FsdHVyYSBkZWwgcHJpbWVyIGFyYnJlLCBubyBsJ29tYnJhIHF1ZSBlcyBkZW1hbmEgcGVyIGFsIHNlZ29uOiB0b3JuYSBhIHBsYW50ZWphciBsYSBwcm9wb3JjacOzIGRlcyBkZSB6ZXJvLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkJ2ludmVydGlyIGxhIHByb3BvcmNpw7M6IGNvbSBxdWUgZWwgc2Vnb24gYXJicmUgw6lzIE3DiVMgQUxULCBsYSBzZXZhIG9tYnJhIGhhIGRlIHNlciBNw4lTIExMQVJHQSBxdWUgbGEgZGVsIHByaW1lciwgbm8gbcOpcyBjdXJ0YS4gUGxhbnRlamEgJFxcZnJhY3s4fXsxMH09XFxmcmFjezE1fXt4fSQuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURV9NQUwiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3s4fXsxMH09XFxkZnJhY3sxNX17eH0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7MTVcXGNkb3QxMH17OH0kIiwgIiR4PTE4eyx9NzUkIG0iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 132\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,102.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-40.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-88.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-40.0\" x2=\"-18.5\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-40.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-44.0\" x2=\"-19.0\" y2=\"-36.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-88.0\" x2=\"71.5\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-88.0\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-92.0\" x2=\"71.0\" y2=\"-84.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-17.1\" text-anchor=\"middle\" class=\"fig-etq petita\">8 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 m</text><text x=\"60\" y=\"-41.1\" text-anchor=\"middle\" class=\"fig-etq petita\">15 m</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre petit</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre gran</text></g></svg>"
+  },
+  {
+   "id": "162",
+   "ex": 162,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Una antena està subjectada amb dos cables que formen entre ells un angle de $90^\\circ$ i mesuren $8$ i $5$ m, respectivament. A quina altura s'enganxen a l'antena?",
+   "opcions": [
+    "$13$ m",
+    "$6{,}24$ m",
+    "$9{,}43$ m (aproximadament)",
+    "$40$ m"
+   ],
+   "pistes": [
+    "Com que els dos cables formen un angle de $90^\\circ$ entre ells, són els catets d'un triangle rectangle, i el tram d'antena entre els dos punts d'ancoratge n'és la hipotenusa.",
+    "Aplica el teorema de Pitàgores: $h=\\sqrt{8^2+5^2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgbGVzIGR1ZXMgbG9uZ2l0dWRzICgkOCs1JCkgZW5sbG9jIGQnYXBsaWNhciBlbCB0ZW9yZW1hIGRlIFBpdMOgZ29yZXM6IGNvbSBxdWUgZWxzIGNhYmxlcyBmb3JtZW4gdW4gYW5nbGUgcmVjdGUsIHPDs24gZWxzIGNhdGV0cyBkJ3VuIHRyaWFuZ2xlIHJlY3RhbmdsZSwgaSBjYWwgJGg9XFxzcXJ0ezheMis1XjJ9JC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJFxcc3FydHs4XjItNV4yfSQsIGNvbSBzaSAkOCQgZm9zIGxhIGhpcG90ZW51c2EgaSAkNSQgdW4gY2F0ZXQ7IGFxdcOtIGVscyBET1MgY2FibGVzIHPDs24gY2F0ZXRzIChmb3JtZW4gbCdhbmdsZSByZWN0ZSBlbnRyZSBlbGxzKSwgaSBsJ2FudGVuYSDDqXMgbGEgaGlwb3RlbnVzYTogY2FsIHN1bWFyIGVscyBxdWFkcmF0cywgbm8gcmVzdGFyLWxvcy4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIG11bHRpcGxpY2FyICQ4XFxjZG90NSQ6IGVsIHRlb3JlbWEgZGUgUGl0w6Bnb3JlcyByZWxhY2lvbmEgZWxzIFFVQURSQVRTIGRlbHMgY2F0ZXRzLCBubyBlbCBzZXUgcHJvZHVjdGUgZGlyZWN0ZS4iXSwgImVyciI6IFsiU1VNQV9FTl9MTE9DX1JFU1RBIiwgIkNBVEVUX0hJUE9URU5VU0FfQ09ORk9TT1MiLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkaD1cXHNxcnR7OF4yKzVeMn09XFxzcXJ0ezY0KzI1fT1cXHNxcnR7ODl9JCIsICIkaFxcYXBwcm94OXssfTQzJCBtIl19"
+  },
+  {
+   "id": "163",
+   "ex": 163,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Un arbre fa $5$ m d'altura i, a una determinada hora del dia, projecta una ombra de $6$ m. Quina altura tindrà un edifici que a la mateixa hora projecta una ombra de $10$ m?",
+   "opcions": [
+    "$6$ m",
+    "$12$ m",
+    "$8{,}33$ m (aproximadament)",
+    "$9$ m"
+   ],
+   "pistes": [
+    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{6}{5}=\\dfrac{10}{x}$.",
+    "Aïlla $x$ multiplicant en creu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkNiQgbSDDqXMgbCdvbWJyYSBkZSBsJ2FyYnJlLCBubyBsJ2FsdHVyYSBkZSBsJ2VkaWZpY2kgcXVlIGVzIGRlbWFuYTogdG9ybmEgYSBwbGFudGVqYXIgbGEgcHJvcG9yY2nDsyBkZXMgZGUgemVyby4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezZ9ezV9PVxcZnJhY3sxMH17eH0kLCBhbWIgbCdhbHR1cmEgZGUgbCdhcmJyZSBjb3JyZXNwb25lbnQgYSBsYSBzZXZhIHByw7JwaWEgb21icmEsIG5vIGEgbGEgZGUgbCdlZGlmaWNpLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgc3VtYXIgbGEgZGlmZXLDqG5jaWEgZCdvbWJyZXMgKCQxMC02PTQkKSBhIGwnYWx0dXJhIGRlIGwnYXJicmU6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3s2fXs1fT1cXGRmcmFjezEwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s1XFxjZG90MTB9ezZ9PVxcZGZyYWN7NTB9ezZ9JCIsICIkeFxcYXBwcm94OHssfTMzJCBtIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 135\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,105.7)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-41.7\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-41.7\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-91.7\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-91.7\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-41.7\" x2=\"-18.5\" y2=\"-41.7\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-41.7\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-45.7\" x2=\"-19.0\" y2=\"-37.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-91.7\" x2=\"71.5\" y2=\"-91.7\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-91.7\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-95.7\" x2=\"71.0\" y2=\"-87.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-17.9\" text-anchor=\"middle\" class=\"fig-etq petita\">5 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">6 m</text><text x=\"64\" y=\"-42.9\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">arbre</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
+  },
+  {
+   "id": "164",
+   "ex": 164,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Si un pal mesura $1$ m, i l'ombra que projecta a una determinada hora del dia és d'$1{,}5$ m, quant mesura un edifici que projecta una ombra de $6$ m a la mateixa hora?",
+   "opcions": [
+    "$6{,}67$ m",
+    "$4$ m",
+    "$9$ m",
+    "$5{,}5$ m"
+   ],
+   "pistes": [
+    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$.",
+    "Aïlla $x$ multiplicant en creu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNjoxeyx9NVxcY2RvdDF7LH02NyQsIGFtYiBlbHMgdGVybWVzIG1hbCBhcGFyZWxsYXRzOiByZXZpc2EgbGEgcHJvcG9yY2nDsyAkXFxmcmFjezF9ezF7LH01fT1cXGZyYWN7eH17Nn0kIHBhcyBhIHBhcy4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxfXsxeyx9NX09XFxmcmFje3h9ezZ9JCwgYW1iIGwnYWx0dXJhIGRlbCBwYWwgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIG9tYnJhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBzdW1hciBsYSBkaWZlcsOobmNpYSBkJ29tYnJlcyAoJDYtMXssfTU9NHssfTUkKSBhIGwnYWx0dXJhIGRlbCBwYWw6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3sxfXsxeyx9NX09XFxkZnJhY3t4fXs2fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxXFxjZG90Nn17MXssfTV9JCIsICIkeD00JCBtIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 268 117\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(53.6,87.3)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-33.3\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-33.3\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-73.3\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-73.3\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-33.3\" x2=\"-18.5\" y2=\"-33.3\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-33.3\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-37.3\" x2=\"-19.0\" y2=\"-29.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-73.3\" x2=\"71.5\" y2=\"-73.3\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-73.3\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-77.3\" x2=\"71.0\" y2=\"-69.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-30\" y=\"-13.7\" text-anchor=\"middle\" class=\"fig-etq petita\">1 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1,5 m</text><text x=\"64\" y=\"-33.7\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"131.8\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">6 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">pal</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
+  },
+  {
+   "id": "165",
+   "ex": 165,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la cistella, llança la pilota per encistellar (cistella a $3{,}05$ m d'altura). Suposant una trajectòria rectilínia des del llançament fins a la cistella, a quina altura està la pilota quan va per la meitat del recorregut?",
+   "opcions": [
+    "$1{,}525$ m",
+    "$4{,}95$ m",
+    "$1{,}575$ m",
+    "$2{,}475$ m"
+   ],
+   "pistes": [
+    "A mig recorregut, la pilota ha pujat la meitat de la diferència total d'altura entre el llançament i la cistella.",
+    "Calcula primer la diferència d'altures ($3{,}05-1{,}9$) i suma'n la meitat a l'altura inicial."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIGxhIG1laXRhdCBkZSAkM3ssfTA1JCBtOiBubyB0w6kgZW4gY29tcHRlIHF1ZSBsYSBwaWxvdGEgamEgcGFydGVpeCBkJ3VuYSBhbHR1cmEgaW5pY2lhbCBkJyQxeyx9OSQgbSwgbm8gZGUgdGVycmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlIHN1bWFyIGxlcyBkdWVzIGFsdHVyZXMgaSBkaXZpZGlyLWxlcyBlbnRyZSAkMiQ6IGNvbSBxdWUgbGEgcGlsb3RhIHB1amEgZGVzIGQnJDF7LH05JCBtLCBjYWwgc3VtYXItaGkgTk9Nw4lTIGxhIG1laXRhdCBkZSBsYSBkaWZlcsOobmNpYSwgbm8gZmVyIGxhIG1pdGphbmEgYXJpdG3DqHRpY2EgZGlyZWN0YSAocXVlIHBlciBhcXVlc3QgY2FzIGRvbmEgZWwgbWF0ZWl4IHJlc3VsdGF0IHBlcsOyIHBlbCBtb3RpdSBlcXVpdm9jYXQ7IGNvbXByb3ZhLWhvIGFtYiBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMpLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezN7LH0wNX17Mn0tXFxmcmFjezF7LH05fXsyfSQ6IGNhbCBwYXJ0aXIgZGUgbCdhbHR1cmEgaW5pY2lhbCAoJDF7LH05JCBtKSBpIHN1bWFyLWhpIGxhIE1FSVRBVCBkZSBsYSBkaWZlcsOobmNpYSBkJ2FsdHVyZXMsIG5vIGNhbGN1bGFyIGxhIG1laXRhdCBkZSBjYWRhIGFsdHVyYSBwZXIgc2VwYXJhdC4iLCAiIl0sICJlcnIiOiBbIlBST0dSRVNTSU9fSU5WRU5UQURBIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJBUklUTUVUSUNBX1BBU19JTlRFUk1FREkiLCAiIl0sICJyZXMiOiBbIkRpZmVyw6huY2lhIGQnYWx0dXJhOiAkM3ssfTA1LTF7LH05PTF7LH0xNSQgbSIsICIkeD0xeyx9OStcXGRmcmFjezF7LH0xNX17Mn09MXssfTkrMHssfTU3NSQiLCAiJHg9MnssfTQ3NSQgbSJdfQ=="
+  },
+  {
+   "id": "166",
+   "ex": 166,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "L'Anna està situada a $5$ m de la vora d'un riu i veu reflectida una muntanya a l'aigua. Si l'Anna mesura $1{,}70$ m i el riu està a $3$ km de la muntanya, quina altura té la muntanya?",
+   "opcions": [
+    "$8{,}82$ m",
+    "$5\\,100$ m",
+    "$1{,}02$ m",
+    "$1\\,020$ m"
+   ],
+   "pistes": [
+    "Converteix els $3$ km a metres: $3\\,000$ m.",
+    "L'altura de l'Anna i la seva distància a la vora són proporcionals a l'altura de la muntanya i la seva distància a la vora: $\\dfrac{1{,}70}{5}=\\dfrac{x}{3\\,000}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkJ2ludmVydGlyIGxhIHByb3BvcmNpw7M6IHBsYW50ZWphICRcXGZyYWN7MXssfTcwfXs1fT1cXGZyYWN7eH17M1xcLDAwMH0kLCBhbWIgbCdhbHR1cmEgZGUgbCdBbm5hIGNvcnJlc3BvbmVudCBhIGxhIHNldmEgcHLDsnBpYSBkaXN0w6BuY2lhIGEgbGEgdm9yYS4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDF7LH03MFxcY2RvdDNcXCwwMDAkIHNlbnNlIGRpdmlkaXIgcGVyICQ1JDogJHg9XFxmcmFjezF7LH03MFxcY2RvdDNcXCwwMDB9ezV9JCwgbm8gbm9tw6lzIGVsIG51bWVyYWRvci4iLCAiQXF1ZXN0IHZhbG9yIGVzdMOgIGVuIG1ldHJlcyBwZXLDsiBsYSB4aWZyYSBjb3JyZXNwb24gYSBxdWlsw7JtZXRyZXM6ICQxXFwsMDIwJCBtIGVxdWl2YWwgYSAkMXssfTAyJCBrbSwgbm8gYSAkMXssfTAyJCBtOyByZXZpc2EgbGEgY29udmVyc2nDsyBkZSAkMyQga20gYSBtZXRyZXMgYWJhbnMgZGUgZGl2aWRpci4iLCAiIl0sICJlcnIiOiBbIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJDNcXHRleHR7IGttfT0zXFwsMDAwJCBtIiwgIiRcXGRmcmFjezF7LH03MH17NX09XFxkZnJhY3t4fXszXFwsMDAwfSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxeyx9NzBcXGNkb3QzXFwsMDAwfXs1fSQiLCAiJHg9MVxcLDAyMCQgbSJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 280 81\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(65.0,51.4)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-17.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-17.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-37.4\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-37.4\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-17.0\" x2=\"-18.5\" y2=\"-17.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-17.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-21.0\" x2=\"-19.0\" y2=\"-13.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-37.4\" x2=\"71.5\" y2=\"-37.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-37.4\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-41.4\" x2=\"71.0\" y2=\"-33.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-35\" y=\"-5.6\" text-anchor=\"middle\" class=\"fig-etq petita\">1,7 m</text><text x=\"25\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">5 m</text><text x=\"64\" y=\"-15.8\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"171.4\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">3000 m</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Anna</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">muntanya</text></g></svg>"
+  },
+  {
+   "id": "167",
+   "ex": 167,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Mesurem l'ombra d'un edifici en dos moments del dia, amb angles d'elevació del sol de $60^\\circ$ i $30^\\circ$ respecte al terra. Si la distància entre els extrems de les dues ombres és de $6{,}67$ m, calcula l'altura de l'edifici.",
+   "opcions": [
+    "$5{,}78$ m (aproximadament)",
+    "$3{,}85$ m",
+    "$13{,}34$ m",
+    "$11{,}55$ m"
+   ],
+   "pistes": [
+    "L'ombra amb el sol a $60^\\circ$ val $\\frac{h}{\\tan60^\\circ}$ i, amb el sol a $30^\\circ$ (més baix, ombra més llarga), val $\\frac{h}{\\tan30^\\circ}$.",
+    "La diferència entre totes dues ombres és $6{,}67$ m: $\\frac{h}{\\tan30^\\circ}-\\frac{h}{\\tan60^\\circ}=6{,}67$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgY29uc2lkZXJhciBub23DqXMgbCdvbWJyYSBhbWIgYW5nbGUgZGUgJDYwXlxcY2lyYyQgY29tIHNpIGZvcyB0b3RhIGxhIGRpZmVyw6huY2lhOiBjYWwgcmVzdGFyIGxlcyBEVUVTIG9tYnJlcyAoJFxcZnJhY3tofXtcXHRhbjMwXlxcY2lyY30tXFxmcmFje2h9e1xcdGFuNjBeXFxjaXJjfSQpLCBubyBmZXItbmUgc2VydmlyIG5vbcOpcyB1bmEuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ2eyx9NjdcXGNkb3QyJDogY29tcHJvdmEgZWwgcGxhbnRlamFtZW50IGNvbXBsZXQgYW1iIGxlcyB0YW5nZW50cyBkZWxzIGRvcyBhbmdsZXMgZCdlbGV2YWNpw7MsIG5vIHVuYSBzaW1wbGUgcmVsYWNpw7MgZGlyZWN0YSBhbWIgbGEgZGlzdMOgbmNpYSBlbnRyZSBvbWJyZXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ2eyx9NjdcXGNkb3RcXGxlZnQoXFx0YW42MF5cXGNpcmMtXFx0YW4zMF5cXGNpcmNcXHJpZ2h0KSQ6IGxhIGRpZmVyw6huY2lhIGQnb21icmVzIGVzIHBsYW50ZWphIGFtYiBlbHMgSU5WRVJTT1MgZGUgbGVzIHRhbmdlbnRzICgkXFxmcmFjezF9e1xcdGFuMzBeXFxjaXJjfS1cXGZyYWN7MX17XFx0YW42MF5cXGNpcmN9JCksIG5vIGFtYiBsZXMgdGFuZ2VudHMgZGlyZWN0YW1lbnQuIl0sICJlcnIiOiBbIiIsICJDQVRFVF9ISVBPVEVOVVNBX0NPTkZPU09TIiwgIlBST0RVQ1RFX01BTCIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJGhcXGxlZnQoXFxkZnJhY3sxfXtcXHRhbjMwXlxcY2lyY30tXFxkZnJhY3sxfXtcXHRhbjYwXlxcY2lyY31cXHJpZ2h0KT02eyx9NjckIiwgIiRoXFwsKDF7LH03MzIxLTB7LH01Nzc0KT02eyx9NjcgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyBoXFxjZG90MXssfTE1NDc9NnssfTY3JCIsICIkaFxcYXBwcm94NXssfTc4JCBtIl19"
+  },
+  {
+   "id": "168",
+   "ex": 168,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "En Pere és a $2$ m d'un precipici i veu alineat un poble amb la vora del precipici. Els seus ulls són a $1{,}6$ m d'altura i el precipici té $450$ m de profunditat. A quina distància horitzontal està el poble del precipici?",
+   "opcions": [
+    "$562{,}5$ m",
+    "$1{,}6$ m",
+    "$281{,}25$ m",
+    "$720$ m"
+   ],
+   "pistes": [
+    "L'altura dels ulls i la distància a la vora formen un triangle petit, semblant al triangle gran format per la profunditat del precipici i la distància total fins al poble: $\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$.",
+    "Aïlla $x$ multiplicant en creu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezF7LH02fXsyfT1cXGZyYWN7NDUwfXt4fSQsIGFtYiBsJ2FsdHVyYSBkZWxzIHVsbHMgY29ycmVzcG9uZW50IGEgbGEgZGlzdMOgbmNpYSBkJ2VuIFBlcmUgYSBsYSB2b3JhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezQ1MFxcY2RvdDF7LH02fXsyXFxjZG90MXssfTZ9JCBhbWIgdW4gZmFjdG9yIGRlIG3DqXM6IHJldmlzYSBsYSBwcm9wb3JjacOzICRcXGZyYWN7MXssfTZ9ezJ9PVxcZnJhY3s0NTB9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0NTBcXGNkb3Qxeyx9NiQgc2Vuc2UgZGl2aWRpciBwZWwgJDIkOiAkeD1cXGZyYWN7MlxcY2RvdDQ1MH17MXssfTZ9JCwgaSBlbmNhcmEgZmFsdGEgb3JkZW5hciBiw6kgZWxzIGZhY3RvcnMuIl0sICJlcnIiOiBbIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJFxcZGZyYWN7MXssfTZ9ezJ9PVxcZGZyYWN7NDUwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3syXFxjZG90NDUwfXsxeyx9Nn09XFxkZnJhY3s5MDB9ezF7LH02fSQiLCAiJHg9NTYyeyx9NSQgbSJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 280 132\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(65.0,102.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-40.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-88.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-40.0\" x2=\"-18.5\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-40.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-44.0\" x2=\"-19.0\" y2=\"-36.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-88.0\" x2=\"71.5\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-88.0\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-92.0\" x2=\"71.0\" y2=\"-84.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-35\" y=\"-17.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1,6 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">2 m</text><text x=\"55\" y=\"-41.1\" text-anchor=\"middle\" class=\"fig-etq petita\">450 m</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Pere</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">poble</text></g></svg>"
+  },
+  {
+   "id": "169",
+   "ex": 169,
+   "ap": "",
+   "bloc": "aplicacions",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Un home que té una alçada d'$1{,}75$ m veu reflectit un edifici de $52{,}5$ m sobre un bassal d'aigua que hi ha a $4$ m d'ell. A quina distància del bassal es troba l'edifici?",
+   "opcions": [
+    "$30$ m",
+    "$1{,}75$ m",
+    "$120$ m",
+    "$210$ m"
+   ],
+   "pistes": [
+    "L'alçada de l'home i la seva distància al bassal formen un triangle semblant al que formen l'edifici i la seva distància al bassal: $\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$.",
+    "Aïlla $x$ multiplicant en creu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNTJ7LH01OjF7LH03NSQgc2Vuc2UgbXVsdGlwbGljYXIgcGVscyAkNCQgbTogcmV2aXNhIGxhIHByb3BvcmNpw7MgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCwgYW1iIGwnYWzDp2FkYSBkZSBsJ2hvbWUgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIGRpc3TDoG5jaWEgYWwgYmFzc2FsLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDRcXGNkb3Q1MnssfTUkIHNlbnNlIGRpdmlkaXIgcGVyICQxeyx9NzUkOiAkeD1cXGZyYWN7NFxcY2RvdDUyeyx9NX17MXssfTc1fSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkXFxkZnJhY3sxeyx9NzV9ezR9PVxcZGZyYWN7NTJ7LH01fXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s0XFxjZG90NTJ7LH01fXsxeyx9NzV9JCIsICIkeD0xMjAkIG0iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 289 92\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(74.2,62.1)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-21.9\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-21.9\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-48.1\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-48.1\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-21.9\" x2=\"-18.5\" y2=\"-21.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-21.9\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-25.9\" x2=\"-19.0\" y2=\"-17.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-48.1\" x2=\"71.5\" y2=\"-48.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-48.1\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-52.1\" x2=\"71.0\" y2=\"-44.1\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-41\" y=\"-8\" text-anchor=\"middle\" class=\"fig-etq petita\">1,75 m</text><text x=\"25\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">4 m</text><line class=\"fig-crida\" x1=\"75.0\" y1=\"-24.1\" x2=\"-0.8\" y2=\"-24.1\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"-23\" y=\"-21.1\" text-anchor=\"middle\" class=\"fig-etq petita\">52,5 m</text><text x=\"171.4\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">home</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">edifici</text></g></svg>"
   }
  ]
 };

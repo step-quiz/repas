@@ -13,7 +13,7 @@ Dues coses, i **han d'anar sempre juntes, a la mateixa carpeta**:
 - `analitzador-repas.html`
 - la carpeta `vendor/katex/`
 
-L'HTML porta a dins tota la lògica i els 892 exercicis: no necessita servidor,
+L'HTML porta a dins tota la lògica i els 951 exercicis: no necessita servidor,
 ni instal·lar res, ni enviar cap dada enlloc. El que sí que necessita al
 costat és `vendor/katex/`, que és qui pinta les fórmules. Si no hi és i no
 tens internet, l'examen s'imprimeix amb el LaTeX en cru (`$3x-4x^2-6x^3$` en

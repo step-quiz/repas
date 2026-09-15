@@ -9,12 +9,6 @@ window.FULL = {
    "titol": "Equacions de primer grau",
    "descripcio": "Equacions amb parèntesis i amb un o diversos denominadors.",
    "items": [
-    "75a",
-    "75b",
-    "75c",
-    "75d",
-    "75e",
-    "75f",
     "76a",
     "76b",
     "76c",
@@ -25,6 +19,12 @@ window.FULL = {
     "77b",
     "77c",
     "77d",
+    "75a",
+    "75b",
+    "75c",
+    "75d",
+    "75e",
+    "75f",
     "78a",
     "78b",
     "78c",
@@ -107,7 +107,6 @@ window.FULL = {
     "86d",
     "86e",
     "86f",
-    "87",
     "88a",
     "88b",
     "88c",
@@ -117,7 +116,8 @@ window.FULL = {
     "89a",
     "89b",
     "89c",
-    "89d"
+    "89d",
+    "87"
    ]
   },
   {
@@ -136,7 +136,8 @@ window.FULL = {
     "98",
     "99",
     "100"
-   ]
+   ],
+   "avancat": true
   }
  ],
  "errors": {
@@ -182,144 +183,12 @@ window.FULL = {
  },
  "items": [
   {
-   "id": "75a",
-   "ex": 75,
-   "ap": "a",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$6(x+11) = 40 + 6(x+2)$",
-   "opcions": [
-    "$x=0$",
-    "$x=\\dfrac{26}{33}$",
-    "Sense solució",
-    "$x=-\\dfrac{26}{3}$"
-   ],
-   "pistes": [
-    "Distribueix el $6$ a dins de cada parèntesi abans de res.",
-    "Un cop distribuïts els parèntesis, agrupa els termes amb $x$ a un costat i els números a l'altre."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkeD0wJCBubyBjb21wbGVpeCBsJ2VxdWFjacOzIG9yaWdpbmFsOiBzdWJzdGl0dWVpeC1sbyBpIGNvbXByb3ZhIHF1ZSBlbHMgZG9zIGNvc3RhdHMgbm8gY29pbmNpZGVpeGVuLiBFbiByZWFsaXRhdCBlbHMgdGVybWVzIGFtYiAkeCQgZXMgY2FuY2VswrdsZW4gaSBxdWVkYSB1bmEgaWd1YWx0YXQgZmFsc2E6IG5vIGhpIGhhIHNvbHVjacOzLiIsICJIYXMgb3BlcmF0IGVscyBuw7ptZXJvcyBhYmFucyBkZSBkaXN0cmlidWlyIGNvcnJlY3RhbWVudCBlbHMgcGFyw6hudGVzaXMuIERlc2Vudm9sdXBhIHByaW1lciAkNih4KzExKSQgaSAkNih4KzIpJCBwZXIgc2VwYXJhdDsgdmV1csOgcyBxdWUgZWxzIHRlcm1lcyBhbWIgJHgkIHMnYW51bMK3bGVuIGkgcXVlZGEgdW5hIGlndWFsdGF0IGZhbHNhLiIsICIiLCAiU2kgdG90IGp1c3QgY2Fudmllc3NpcyBkZSBiYW5kYSBzZW5zZSBkaXN0cmlidWlyIGLDqSBlbCBwYXLDqG50ZXNpIGV0IHNvcnRpcmlhIHVuIHZhbG9yLCBwZXLDsiByZXZpc2E6IGVuIGRlc2Vudm9sdXBhciBlbHMgZG9zIHBhcsOobnRlc2lzLCBlbHMgdGVybWVzIGFtYiAkeCQgZXMgY2FuY2VswrdsZW4gaSBxdWVkYSB1bmEgaWd1YWx0YXQgbnVtw6hyaWNhIGZhbHNhICgkNjZcXG5lNTIkKSwgYWl4w60gcXVlIGwnZXF1YWNpw7Mgbm8gdMOpIHNvbHVjacOzLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkpFUkFSUVVJQSIsICIiLCAiUEFSRU5URVNJX05PX0RJU1RSSUJVSVQiXSwgInJlcyI6IFsiJDYoeCsxMSk9NDArNih4KzIpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgNngrNjY9NDArNngrMTIkIiwgIiQ2eCs2Nj02eCs1MiQ6IGVscyB0ZXJtZXMgYW1iICR4JCBlcyBjYW5jZWzCt2xlbiBpIHF1ZWRhICQ2Nj01MiQsIHVuYSBpZ3VhbHRhdCBudW3DqHJpY2EgZmFsc2EuIiwgIkNvbSBxdWUgbm8gaGkgaGEgY2FwIHZhbG9yIGRlICR4JCBxdWUgZmFjaSBjZXJ0YSBhcXVlc3RhIGlndWFsdGF0LCBsJ2VxdWFjacOzIG5vIHTDqSBzb2x1Y2nDsy4iXX0="
-  },
-  {
-   "id": "75b",
-   "ex": 75,
-   "ap": "b",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$2(x-17) = x - 3(12-2x)$",
-   "opcions": [
-    "$x=-\\dfrac{2}{5}$",
-    "$x=\\dfrac{2}{5}$",
-    "$x=14$",
-    "$x=\\dfrac{2}{11}$"
-   ],
-   "pistes": [
-    "Distribueix els dos parèntesis: el de l'esquerra ($2$) i el de la dreta, on el $-3$ afecta els dos termes de dins.",
-    "Un cop sense parèntesis, agrupa els termes amb $x$ a un costat i els números a l'altre."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCByZXN1bHRhdCBmaW5hbCB0w6kgZWwgc2lnbmUgY2FudmlhdDogcmV2aXNhIGVsIHBhcyBlbiBxdcOoIGFncnVwZXMgZWxzIHRlcm1lcyBpbmRlcGVuZGVudHMgYSB1biBjb3N0YXQuIiwgIiIsICJTJ2hhIHBlcmR1dCBhbGd1biB0ZXJtZSBlbiBhZ3J1cGFyOyByZXZpc2EgcXVlIGhhcyBwYXNzYXQgVE9UUyBlbHMgdGVybWVzIGFtYiAkeCQgYSB1biBjb3N0YXQgaSB0b3RzIGVscyBuw7ptZXJvcyBhIGwnYWx0cmUuIiwgIkVuIGRpc3RyaWJ1aXIgJC0zKDEyLTJ4KSQgZWwgc2lnbmUgJC0kIGhhIGQnYWZlY3RhciBlbHMgRE9TIHRlcm1lcyBkZSBkaW5zOiAkLTNcXGNkb3QxMj0tMzYkIGkgJC0zXFxjZG90KC0yeCk9KzZ4JC4iXSwgImVyciI6IFsiU0lHTkVfRklOQUwiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiTUVOWVNfUEFSRU5URVNJIl0sICJyZXMiOiBbIiQyKHgtMTcpPXgtMygxMi0yeCkgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyeC0zND14LTM2KzZ4JCIsICIkMngtMzQ9N3gtMzYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAtMzQrMzY9N3gtMnggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyPTV4JCIsICIkeD1cXGRmcmFjezJ9ezV9JCJdfQ=="
-  },
-  {
-   "id": "75c",
-   "ex": 75,
-   "ap": "c",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$x - 5(x-2) = 6$",
-   "opcions": [
-    "$x=1$",
-    "$x=-\\dfrac{1}{4}$",
-    "$x=-4$",
-    "$x=2$"
-   ],
-   "pistes": [
-    "Distribueix $-5(x-2)$: el signe $-$ afecta els dos termes de dins.",
-    "Agrupa els termes amb $x$ a un costat i els números a l'altre."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSBlcXVhY2nDsyBubyB0w6kgZGVub21pbmFkb3JzOiBubyBjYWwgY3JldWFyIHJlcywgbm9tw6lzIGRpc3RyaWJ1aXIgZWwgcGFyw6hudGVzaSBpIGHDr2xsYXIgJHgkLiIsICJFbCAkLTUkIGhhIGQnYWZlY3RhciBlbHMgRE9TIHRlcm1lcyBkZSBkaW5zIGRlbCBwYXLDqG50ZXNpOiAkLTVcXGNkb3QgeD0tNXgkIGkgJC01XFxjZG90KC0yKT0rMTAkLCBubyBub23DqXMgZWwgcHJpbWVyLiIsICJSZXZpc2EgZWwgc2lnbmUgZGVsICQxMCQgcXVlIHN1cnQgZGUgZGlzdHJpYnVpciAkLTUoeC0yKSQ6IGNvbSBxdWUgJC01XFxjZG90KC0yKT0rMTAkLCBlbCB0ZXJtZSBpbmRlcGVuZGVudCDDqXMgcG9zaXRpdS4iXSwgImVyciI6IFsiIiwgIlBST0RVQ1RFX0NSRVVBVCIsICJNRU5ZU19QQVJFTlRFU0kiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJHgtNSh4LTIpPTYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4LTV4KzEwPTYkIiwgIiQtNHg9Ni0xMCBcXDtcXExvbmdyaWdodGFycm93XFw7IC00eD0tNCQiLCAiJHg9MSQiXX0="
-  },
-  {
-   "id": "75d",
-   "ex": 75,
-   "ap": "d",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$120 = 2x - (15-7x)$",
-   "opcions": [
-    "$x=-15$",
-    "$x=\\dfrac{5}{3}$",
-    "$x=15$",
-    "$x=\\dfrac{35}{3}$"
-   ],
-   "pistes": [
-    "El $-$ davant del parèntesi $(15-7x)$ afecta els dos termes de dins.",
-    "Un cop distribuït, agrupa tots els termes amb $x$ a un costat."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmU6ICQtKDE1LTd4KT0tMTUrN3gkLCBlbCAkLSQgY2FudmlhIGVsIHNpZ25lIGRlbHMgRE9TIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iLCAiSGFzIGFycmliYXQgYSAkMTM1PTl4JCBwZXLDsiBlbmNhcmEgbm8gaGFzIGRpdmlkaXQgZWxzIGRvcyBjb3N0YXRzIHBlciAkOSQ6IGZhbHRhIGwnw7psdGltIHBhcy4iLCAiIiwgIlMnaGEgcGVyZHV0IHVuIHRlcm1lIGVuIGFncnVwYXI7IHJldmlzYSB1biBwZXIgdW4gZWxzIG7Dum1lcm9zIHF1ZSBwYXNzZW4gYSBsJ2FsdHJlIGNvc3RhdC4iXSwgImVyciI6IFsiTUVOWVNfUEFSRU5URVNJIiwgIkFJTExBTUVOVF9JTkNPTVBMRVQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJDEyMD0yeC0oMTUtN3gpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTIwPTJ4LTE1Kzd4JCIsICIkMTIwKzE1PTl4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTM1PTl4JCIsICIkeD0xNSQiXX0="
-  },
-  {
-   "id": "75e",
-   "ex": 75,
-   "ap": "e",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$5(x+4) = 7(x-2)$",
-   "opcions": [
-    "$x=\\dfrac{17}{6}$",
-    "$x=17$",
-    "$x=-17$",
-    "$x=3$"
-   ],
-   "pistes": [
-    "Distribueix els dos parèntesis per separat.",
-    "Agrupa els termes amb $x$ a un costat i els números a l'altre."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgYWdydXBhdCBtYWxhbWVudCBlbHMgdGVybWVzIGFtYiAkeCQgYW1iIGVscyB0ZXJtZXMgaW5kZXBlbmRlbnRzOyByZXZpc2EgcXVpbnMgdmFuIGp1bnRzIGEgY2FkYSBjb3N0YXQuIiwgIiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdDogcmV2aXNhIGEgcXVpbiBjb3N0YXQgaGFzIHBhc3NhdCBlbHMgdGVybWVzIGFtYiAkeCQgaSBxdWluIHNpZ25lIGVscyBjb3JyZXNwb24uIiwgIlJldmlzYSBxdWUgaGFzIGRpc3RyaWJ1w690IGLDqSBlbHMgRE9TIHBhcsOobnRlc2lzIGFiYW5zIGQnYWdydXBhcjogJDUoeCs0KT01eCsyMCQgaSAkNyh4LTIpPTd4LTE0JC4iXSwgImVyciI6IFsiR1JBVVNfTUFMX0FHUlVQQVRTIiwgIiIsICJTSUdORV9GSU5BTCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiQ1KHgrNCk9Nyh4LTIpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgNXgrMjA9N3gtMTQkIiwgIiQyMCsxND03eC01eCBcXDtcXExvbmdyaWdodGFycm93XFw7IDM0PTJ4JCIsICIkeD0xNyQiXX0="
-  },
-  {
-   "id": "75f",
-   "ex": 75,
-   "ap": "f",
-   "bloc": "primer_grau",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Resol.",
-   "enunciat": "$3(x+7) - 6 = 2(x+8)$",
-   "opcions": [
-    "$x=\\dfrac{37}{5}$",
-    "$x=-1$",
-    "$x=1$",
-    "$x=31$"
-   ],
-   "pistes": [
-    "Distribueix el parèntesi de l'esquerra ($3$) i el de la dreta ($2$).",
-    "El $-6$ no forma part de cap parèntesi: es queda tal qual en agrupar."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTJ2hhIHBlcmR1dCBhbGd1biB0ZXJtZSBpbmRlcGVuZGVudCBwZWwgY2Ftw607IHJldmlzYSdscyB0b3RzIHVuIHBlciB1biBhYmFucyBkJ2HDr2xsYXIgJHgkLiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdDogdG9ybmEgYSByZXZpc2FyIGVsIHBhcyBmaW5hbCwgJDN4LTJ4PTE2LTE1JC4iLCAiIiwgIlJldmlzYSBlbCBzaWduZSBkZWwgJC02JDogbm8gZm9ybWEgcGFydCBkZWwgcGFyw6hudGVzaSwgamEgdmUgcmVzdGFudCBkaXJlY3RhbWVudCBpIHMnaGEgZGUgbWFudGVuaXIgdGFsIHF1YWwgZW4gYWdydXBhci4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTSUdORV9GSU5BTCIsICIiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJDMoeCs3KS02PTIoeCs4KSBcXDtcXExvbmdyaWdodGFycm93XFw7IDN4KzIxLTY9MngrMTYkIiwgIiQzeCsxNT0yeCsxNiBcXDtcXExvbmdyaWdodGFycm93XFw7IDN4LTJ4PTE2LTE1JCIsICIkeD0xJCJdfQ=="
-  },
-  {
    "id": "76a",
    "ex": 76,
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{x}{5} = 3$",
    "opcions": [
@@ -341,7 +210,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{x}{2} = -21$",
    "opcions": [
@@ -363,7 +232,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{-2x}{3} = 4$",
    "opcions": [
@@ -385,7 +254,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{7x}{4} = 28$",
    "opcions": [
@@ -407,7 +276,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$3x = -5$",
    "opcions": [
@@ -429,7 +298,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol aquestes equacions.",
    "enunciat": "$\\dfrac{-3x}{2} = -25$",
    "opcions": [
@@ -451,7 +320,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{x-2}{5} = 1$",
    "opcions": [
@@ -472,7 +341,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x+15}{6} = -7$",
    "opcions": [
@@ -494,7 +363,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x}{2} + 20 = x + 25$",
    "opcions": [
@@ -516,7 +385,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$\\dfrac{3x}{4} - 1 = 12 - 3x$",
    "opcions": [
@@ -533,12 +402,144 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJEZXNwcsOpcyBkJ2FncnVwYXIgdGVucyAkMTV4PTUyJDogZWwgJDE1JCBwcm92w6kgZGUgJDMrMTIkLCByZXZpc2EgYXF1ZXN0IHBhcyBkZSBzdW1hIGRlbHMgY29lZmljaWVudHMgZGUgJHgkLiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdDsgcmV2aXNhIHF1ZSBlbHMgZG9zIGNvc3RhdHMgZGUgbCdlcXVhY2nDsyAkMTV4PTUyJCBzaWd1aW4gcG9zaXRpdXMuIiwgIiIsICJSZXZpc2EgZWwgc2lnbmUgZW4gcGFzc2FyIGVsICQtNCQgaSBlbCAkNDgkIGFsIG1hdGVpeCBjb3N0YXQ6ICQ0OCs0PTUyJC4iXSwgImVyciI6IFsiRkFDVE9SX0NPTVVfSU5DT01QTEVUIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCJdLCAicmVzIjogWyJNdWx0aXBsaXF1ZW0gcGVyICQ0JDogJFxcZGZyYWN7M3h9ezR9LTE9MTItM3ggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAzeC00PTQ4LTEyeCQiLCAiJDN4KzEyeD00OCs0IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTV4PTUyJCIsICIkeD1cXGRmcmFjezUyfXsxNX0kIl19"
   },
   {
+   "id": "75a",
+   "ex": 75,
+   "ap": "a",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$6(x+11) = 40 + 6(x+2)$",
+   "opcions": [
+    "$x=0$",
+    "$x=\\dfrac{26}{33}$",
+    "Sense solució",
+    "$x=-\\dfrac{26}{3}$"
+   ],
+   "pistes": [
+    "Distribueix el $6$ a dins de cada parèntesi abans de res.",
+    "Un cop distribuïts els parèntesis, agrupa els termes amb $x$ a un costat i els números a l'altre."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkeD0wJCBubyBjb21wbGVpeCBsJ2VxdWFjacOzIG9yaWdpbmFsOiBzdWJzdGl0dWVpeC1sbyBpIGNvbXByb3ZhIHF1ZSBlbHMgZG9zIGNvc3RhdHMgbm8gY29pbmNpZGVpeGVuLiBFbiByZWFsaXRhdCBlbHMgdGVybWVzIGFtYiAkeCQgZXMgY2FuY2VswrdsZW4gaSBxdWVkYSB1bmEgaWd1YWx0YXQgZmFsc2E6IG5vIGhpIGhhIHNvbHVjacOzLiIsICJIYXMgb3BlcmF0IGVscyBuw7ptZXJvcyBhYmFucyBkZSBkaXN0cmlidWlyIGNvcnJlY3RhbWVudCBlbHMgcGFyw6hudGVzaXMuIERlc2Vudm9sdXBhIHByaW1lciAkNih4KzExKSQgaSAkNih4KzIpJCBwZXIgc2VwYXJhdDsgdmV1csOgcyBxdWUgZWxzIHRlcm1lcyBhbWIgJHgkIHMnYW51bMK3bGVuIGkgcXVlZGEgdW5hIGlndWFsdGF0IGZhbHNhLiIsICIiLCAiU2kgdG90IGp1c3QgY2Fudmllc3NpcyBkZSBiYW5kYSBzZW5zZSBkaXN0cmlidWlyIGLDqSBlbCBwYXLDqG50ZXNpIGV0IHNvcnRpcmlhIHVuIHZhbG9yLCBwZXLDsiByZXZpc2E6IGVuIGRlc2Vudm9sdXBhciBlbHMgZG9zIHBhcsOobnRlc2lzLCBlbHMgdGVybWVzIGFtYiAkeCQgZXMgY2FuY2VswrdsZW4gaSBxdWVkYSB1bmEgaWd1YWx0YXQgbnVtw6hyaWNhIGZhbHNhICgkNjZcXG5lNTIkKSwgYWl4w60gcXVlIGwnZXF1YWNpw7Mgbm8gdMOpIHNvbHVjacOzLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkpFUkFSUVVJQSIsICIiLCAiUEFSRU5URVNJX05PX0RJU1RSSUJVSVQiXSwgInJlcyI6IFsiJDYoeCsxMSk9NDArNih4KzIpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgNngrNjY9NDArNngrMTIkIiwgIiQ2eCs2Nj02eCs1MiQ6IGVscyB0ZXJtZXMgYW1iICR4JCBlcyBjYW5jZWzCt2xlbiBpIHF1ZWRhICQ2Nj01MiQsIHVuYSBpZ3VhbHRhdCBudW3DqHJpY2EgZmFsc2EuIiwgIkNvbSBxdWUgbm8gaGkgaGEgY2FwIHZhbG9yIGRlICR4JCBxdWUgZmFjaSBjZXJ0YSBhcXVlc3RhIGlndWFsdGF0LCBsJ2VxdWFjacOzIG5vIHTDqSBzb2x1Y2nDsy4iXX0="
+  },
+  {
+   "id": "75b",
+   "ex": 75,
+   "ap": "b",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$2(x-17) = x - 3(12-2x)$",
+   "opcions": [
+    "$x=-\\dfrac{2}{5}$",
+    "$x=\\dfrac{2}{5}$",
+    "$x=14$",
+    "$x=\\dfrac{2}{11}$"
+   ],
+   "pistes": [
+    "Distribueix els dos parèntesis: el de l'esquerra ($2$) i el de la dreta, on el $-3$ afecta els dos termes de dins.",
+    "Un cop sense parèntesis, agrupa els termes amb $x$ a un costat i els números a l'altre."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCByZXN1bHRhdCBmaW5hbCB0w6kgZWwgc2lnbmUgY2FudmlhdDogcmV2aXNhIGVsIHBhcyBlbiBxdcOoIGFncnVwZXMgZWxzIHRlcm1lcyBpbmRlcGVuZGVudHMgYSB1biBjb3N0YXQuIiwgIiIsICJTJ2hhIHBlcmR1dCBhbGd1biB0ZXJtZSBlbiBhZ3J1cGFyOyByZXZpc2EgcXVlIGhhcyBwYXNzYXQgVE9UUyBlbHMgdGVybWVzIGFtYiAkeCQgYSB1biBjb3N0YXQgaSB0b3RzIGVscyBuw7ptZXJvcyBhIGwnYWx0cmUuIiwgIkVuIGRpc3RyaWJ1aXIgJC0zKDEyLTJ4KSQgZWwgc2lnbmUgJC0kIGhhIGQnYWZlY3RhciBlbHMgRE9TIHRlcm1lcyBkZSBkaW5zOiAkLTNcXGNkb3QxMj0tMzYkIGkgJC0zXFxjZG90KC0yeCk9KzZ4JC4iXSwgImVyciI6IFsiU0lHTkVfRklOQUwiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiTUVOWVNfUEFSRU5URVNJIl0sICJyZXMiOiBbIiQyKHgtMTcpPXgtMygxMi0yeCkgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyeC0zND14LTM2KzZ4JCIsICIkMngtMzQ9N3gtMzYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAtMzQrMzY9N3gtMnggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyPTV4JCIsICIkeD1cXGRmcmFjezJ9ezV9JCJdfQ=="
+  },
+  {
+   "id": "75c",
+   "ex": 75,
+   "ap": "c",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$x - 5(x-2) = 6$",
+   "opcions": [
+    "$x=1$",
+    "$x=-\\dfrac{1}{4}$",
+    "$x=-4$",
+    "$x=2$"
+   ],
+   "pistes": [
+    "Distribueix $-5(x-2)$: el signe $-$ afecta els dos termes de dins.",
+    "Agrupa els termes amb $x$ a un costat i els números a l'altre."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSBlcXVhY2nDsyBubyB0w6kgZGVub21pbmFkb3JzOiBubyBjYWwgY3JldWFyIHJlcywgbm9tw6lzIGRpc3RyaWJ1aXIgZWwgcGFyw6hudGVzaSBpIGHDr2xsYXIgJHgkLiIsICJFbCAkLTUkIGhhIGQnYWZlY3RhciBlbHMgRE9TIHRlcm1lcyBkZSBkaW5zIGRlbCBwYXLDqG50ZXNpOiAkLTVcXGNkb3QgeD0tNXgkIGkgJC01XFxjZG90KC0yKT0rMTAkLCBubyBub23DqXMgZWwgcHJpbWVyLiIsICJSZXZpc2EgZWwgc2lnbmUgZGVsICQxMCQgcXVlIHN1cnQgZGUgZGlzdHJpYnVpciAkLTUoeC0yKSQ6IGNvbSBxdWUgJC01XFxjZG90KC0yKT0rMTAkLCBlbCB0ZXJtZSBpbmRlcGVuZGVudCDDqXMgcG9zaXRpdS4iXSwgImVyciI6IFsiIiwgIlBST0RVQ1RFX0NSRVVBVCIsICJNRU5ZU19QQVJFTlRFU0kiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJHgtNSh4LTIpPTYgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4LTV4KzEwPTYkIiwgIiQtNHg9Ni0xMCBcXDtcXExvbmdyaWdodGFycm93XFw7IC00eD0tNCQiLCAiJHg9MSQiXX0="
+  },
+  {
+   "id": "75d",
+   "ex": 75,
+   "ap": "d",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$120 = 2x - (15-7x)$",
+   "opcions": [
+    "$x=-15$",
+    "$x=\\dfrac{5}{3}$",
+    "$x=15$",
+    "$x=\\dfrac{35}{3}$"
+   ],
+   "pistes": [
+    "El $-$ davant del parèntesi $(15-7x)$ afecta els dos termes de dins.",
+    "Un cop distribuït, agrupa tots els termes amb $x$ a un costat."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmU6ICQtKDE1LTd4KT0tMTUrN3gkLCBlbCAkLSQgY2FudmlhIGVsIHNpZ25lIGRlbHMgRE9TIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iLCAiSGFzIGFycmliYXQgYSAkMTM1PTl4JCBwZXLDsiBlbmNhcmEgbm8gaGFzIGRpdmlkaXQgZWxzIGRvcyBjb3N0YXRzIHBlciAkOSQ6IGZhbHRhIGwnw7psdGltIHBhcy4iLCAiIiwgIlMnaGEgcGVyZHV0IHVuIHRlcm1lIGVuIGFncnVwYXI7IHJldmlzYSB1biBwZXIgdW4gZWxzIG7Dum1lcm9zIHF1ZSBwYXNzZW4gYSBsJ2FsdHJlIGNvc3RhdC4iXSwgImVyciI6IFsiTUVOWVNfUEFSRU5URVNJIiwgIkFJTExBTUVOVF9JTkNPTVBMRVQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJDEyMD0yeC0oMTUtN3gpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTIwPTJ4LTE1Kzd4JCIsICIkMTIwKzE1PTl4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTM1PTl4JCIsICIkeD0xNSQiXX0="
+  },
+  {
+   "id": "75e",
+   "ex": 75,
+   "ap": "e",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$5(x+4) = 7(x-2)$",
+   "opcions": [
+    "$x=\\dfrac{17}{6}$",
+    "$x=17$",
+    "$x=-17$",
+    "$x=3$"
+   ],
+   "pistes": [
+    "Distribueix els dos parèntesis per separat.",
+    "Agrupa els termes amb $x$ a un costat i els números a l'altre."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgYWdydXBhdCBtYWxhbWVudCBlbHMgdGVybWVzIGFtYiAkeCQgYW1iIGVscyB0ZXJtZXMgaW5kZXBlbmRlbnRzOyByZXZpc2EgcXVpbnMgdmFuIGp1bnRzIGEgY2FkYSBjb3N0YXQuIiwgIiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdDogcmV2aXNhIGEgcXVpbiBjb3N0YXQgaGFzIHBhc3NhdCBlbHMgdGVybWVzIGFtYiAkeCQgaSBxdWluIHNpZ25lIGVscyBjb3JyZXNwb24uIiwgIlJldmlzYSBxdWUgaGFzIGRpc3RyaWJ1w690IGLDqSBlbHMgRE9TIHBhcsOobnRlc2lzIGFiYW5zIGQnYWdydXBhcjogJDUoeCs0KT01eCsyMCQgaSAkNyh4LTIpPTd4LTE0JC4iXSwgImVyciI6IFsiR1JBVVNfTUFMX0FHUlVQQVRTIiwgIiIsICJTSUdORV9GSU5BTCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiQ1KHgrNCk9Nyh4LTIpIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgNXgrMjA9N3gtMTQkIiwgIiQyMCsxND03eC01eCBcXDtcXExvbmdyaWdodGFycm93XFw7IDM0PTJ4JCIsICIkeD0xNyQiXX0="
+  },
+  {
+   "id": "75f",
+   "ex": 75,
+   "ap": "f",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Resol.",
+   "enunciat": "$3(x+7) - 6 = 2(x+8)$",
+   "opcions": [
+    "$x=\\dfrac{37}{5}$",
+    "$x=-1$",
+    "$x=1$",
+    "$x=31$"
+   ],
+   "pistes": [
+    "Distribueix el parèntesi de l'esquerra ($3$) i el de la dreta ($2$).",
+    "El $-6$ no forma part de cap parèntesi: es queda tal qual en agrupar."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTJ2hhIHBlcmR1dCBhbGd1biB0ZXJtZSBpbmRlcGVuZGVudCBwZWwgY2Ftw607IHJldmlzYSdscyB0b3RzIHVuIHBlciB1biBhYmFucyBkJ2HDr2xsYXIgJHgkLiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdDogdG9ybmEgYSByZXZpc2FyIGVsIHBhcyBmaW5hbCwgJDN4LTJ4PTE2LTE1JC4iLCAiIiwgIlJldmlzYSBlbCBzaWduZSBkZWwgJC02JDogbm8gZm9ybWEgcGFydCBkZWwgcGFyw6hudGVzaSwgamEgdmUgcmVzdGFudCBkaXJlY3RhbWVudCBpIHMnaGEgZGUgbWFudGVuaXIgdGFsIHF1YWwgZW4gYWdydXBhci4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTSUdORV9GSU5BTCIsICIiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJDMoeCs3KS02PTIoeCs4KSBcXDtcXExvbmdyaWdodGFycm93XFw7IDN4KzIxLTY9MngrMTYkIiwgIiQzeCsxNT0yeCsxNiBcXDtcXExvbmdyaWdodGFycm93XFw7IDN4LTJ4PTE2LTE1JCIsICIkeD0xJCJdfQ=="
+  },
+  {
    "id": "78a",
    "ex": 78,
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{3x}{5} + 7 = \\dfrac{2x}{6} + 9$",
    "opcions": [
@@ -560,7 +561,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x+2}{3} = 5x - 46$",
    "opcions": [
@@ -582,7 +583,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$x - \\dfrac{x+4}{5} = 1 + \\dfrac{x}{2}$",
    "opcions": [
@@ -604,7 +605,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x+8}{2} - \\dfrac{x-4}{6} = 2$",
    "opcions": [
@@ -626,7 +627,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x-5}{5} + \\dfrac{8-x}{2} + \\dfrac{2x-10}{2} = 3$",
    "opcions": [
@@ -648,7 +649,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula el valor de $x$.",
    "enunciat": "$\\dfrac{x-10}{2} - \\dfrac{x-20}{4} - \\dfrac{x-30}{3} = 5$",
    "opcions": [
@@ -670,7 +671,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{2x-10}{3} - \\dfrac{3(x-12)}{4} = -1$",
    "opcions": [
@@ -692,7 +693,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{-3x-3}{5} = 3 - 4(x+2)$",
    "opcions": [
@@ -714,7 +715,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{2x-5}{5} + \\dfrac{x+1}{4} = 20 - x$",
    "opcions": [
@@ -736,7 +737,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{3-x}{7} - x = \\dfrac{3+2(x-1)}{14}$",
    "opcions": [
@@ -758,7 +759,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "primer_grau",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Busca la solució d'aquestes equacions.",
    "enunciat": "$\\dfrac{4x-6}{10} + 2x = 21 - \\dfrac{3(x+1)}{12}$",
    "opcions": [
@@ -780,7 +781,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2-5x+6=0$",
    "opcions": [
@@ -802,7 +803,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$2x^2-4x+13=0$",
    "opcions": [
@@ -824,7 +825,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2+8x+16=0$",
    "opcions": [
@@ -846,7 +847,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$3x^2+2x-16=0$",
    "opcions": [
@@ -868,7 +869,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$x^2-2x+1=0$",
    "opcions": [
@@ -890,7 +891,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$7x^2-3x+1=0$",
    "opcions": [
@@ -912,7 +913,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les equacions de segon grau aplicant-hi la fórmula general.",
    "enunciat": "$-x^2-4x+5=0$",
    "opcions": [
@@ -934,7 +935,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2+5x+6=0$",
    "opcions": [
@@ -956,7 +957,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$-2x^2-6x+8=0$",
    "opcions": [
@@ -978,7 +979,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2-8x+16=0$",
    "opcions": [
@@ -1000,7 +1001,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$-x^2+x+1=0$",
    "opcions": [
@@ -1022,7 +1023,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$x^2+8x+16=0$",
    "opcions": [
@@ -1044,7 +1045,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$2x^2-4x+13=0$",
    "opcions": [
@@ -1066,7 +1067,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "formula_general",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Sense resoldre-les, esbrina el nombre de solucions d'aquestes equacions.",
    "enunciat": "$7x^2-3x+1=0$",
    "opcions": [
@@ -1088,7 +1089,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-7x=0$",
    "opcions": [
@@ -1110,7 +1111,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$x^2+3x=0$",
    "opcions": [
@@ -1132,7 +1133,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-25x=0$",
    "opcions": [
@@ -1154,7 +1155,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$x^2-10x=0$",
    "opcions": [
@@ -1176,7 +1177,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$16x(x-5)=0$",
    "opcions": [
@@ -1198,7 +1199,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$3x^2-12x=0$",
    "opcions": [
@@ -1220,7 +1221,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$3x = 4x^2-2x$",
    "opcions": [
@@ -1242,7 +1243,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$4x^2=5x$",
    "opcions": [
@@ -1264,7 +1265,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol.",
    "enunciat": "$25x^2-100x=0$",
    "opcions": [
@@ -1286,7 +1287,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x+2)(x-2) = 0$",
    "opcions": [
@@ -1308,7 +1309,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-3)(x+3) = 0$",
    "opcions": [
@@ -1330,7 +1331,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x+3)(2x-5)\\left(5 - \\dfrac{x}{2}\\right) = 0$",
    "opcions": [
@@ -1352,7 +1353,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-5)^2 = 0$",
    "opcions": [
@@ -1374,7 +1375,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$(x-2)^2 + x = x$",
    "opcions": [
@@ -1396,7 +1397,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula sense aplicar-hi la fórmula general.",
    "enunciat": "$x\\left(\\dfrac{3x}{4} - \\dfrac{4}{5}\\right)^2 = 0$",
    "opcions": [
@@ -1418,7 +1419,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(x+1)(x-3) + 3 = 0$",
    "opcions": [
@@ -1440,7 +1441,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(x+9)(x-9) = 3(x-27)$",
    "opcions": [
@@ -1462,7 +1463,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x(3x-2) = 65$",
    "opcions": [
@@ -1484,7 +1485,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$4x - (x^2-4) = 2x - 4$",
    "opcions": [
@@ -1506,7 +1507,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$(2x+3)(2x-3) = 135$",
    "opcions": [
@@ -1528,7 +1529,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x^2 - \\dfrac{23}{4}x = 18$",
    "opcions": [
@@ -1550,7 +1551,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "factoritzacio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les equacions següents.",
    "enunciat": "$x^2 - 7x + \\dfrac{13}{4} = 0$",
    "opcions": [
@@ -1572,7 +1573,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+y=2\\\\ x-y=6\\end{array}\\right\\}$",
    "opcions": [
@@ -1594,7 +1595,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=4\\\\ 2x-3y=4\\end{array}\\right\\}$",
    "opcions": [
@@ -1616,7 +1617,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+2y=5\\\\ 2x+5y=11\\end{array}\\right\\}$",
    "opcions": [
@@ -1638,7 +1639,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=8\\\\ x+2y=3\\end{array}\\right\\}$",
    "opcions": [
@@ -1660,7 +1661,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+y=9\\\\ 20x-3y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1682,7 +1683,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}2x-3y=-25\\\\ 12x-3y=75\\end{array}\\right\\}$",
    "opcions": [
@@ -1704,7 +1705,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x+2y=5\\\\ 2x+y=7\\end{array}\\right\\}$",
    "opcions": [
@@ -1726,7 +1727,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol pel mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}5x-y=23\\\\ -9x+5y=13\\end{array}\\right\\}$",
    "opcions": [
@@ -1748,7 +1749,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x-3y=4\\\\ 2x-5y=8\\end{array}\\right\\}$",
    "opcions": [
@@ -1770,7 +1771,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3x+y=3\\\\ 6x-y=0\\end{array}\\right\\}$",
    "opcions": [
@@ -1792,7 +1793,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}4x-5y=10\\\\ 2x+7y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1814,7 +1815,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}x-3y=13\\\\ 5x-2y=26\\end{array}\\right\\}$",
    "opcions": [
@@ -1836,7 +1837,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}8x+14y=-6\\\\ x+y=0\\end{array}\\right\\}$",
    "opcions": [
@@ -1858,7 +1859,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3x-\\dfrac{4}{5}y=13\\\\[4pt] \\dfrac{8}{3}x-y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -1875,34 +1876,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgJHgkOiAkNjV4PTEyMTUkIGRvbmEgdW4gdmFsb3IgcG9zaXRpdS4iLCAiJFxcZnJhY3sxMjE1fXs2NX0kIGVuY2FyYSBlcyBwb3Qgc2ltcGxpZmljYXIgZGl2aWRpbnQgbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVsIHNldSBtLmMuZC4iLCAiSGFzIGludGVyY2FudmlhdCAkeCQgaSAkeSQ6IGNvbXByb3ZhLWhvIHN1YnN0aXR1aW50IGEgbCdlcXVhY2nDsyBvcmlnaW5hbC4iLCAiIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIlNJTVBMSUZJQ0FDSU9fSU5DT01QTEVUQSIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiTXVsdGlwbGljYW50IHBlciB0cmV1cmUgZGVub21pbmFkb3JzOiAkNDV4LTEyeT0xOTUkIGkgJDQweC0xNXk9LTYwJCIsICJNdWx0aXBsaXF1ZW0gbGEgcHJpbWVyYSBwZXIgJDUkIGkgbGEgc2Vnb25hIHBlciAkNCQ6ICRcXGJlZ2lue2FycmF5fXtyfTIyNXgtNjB5PTk3NVxcXFwxNjB4LTYweT0tMjQwXFxcXFxcaGxpbmUgNjV4PTEyMTVcXGVuZHthcnJheX0kIiwgIiR4PVxcZGZyYWN7MTIxNX17NjV9PVxcZGZyYWN7MjQzfXsxM30kOyBzdWJzdGl0dWludDogJDEyeT00NVxcY2RvdFxcZGZyYWN7MjQzfXsxM30tMTk1PVxcZGZyYWN7ODQwMH17MTN9IFxcUmlnaHRhcnJvdyB5PVxcZGZyYWN7NzAwfXsxM30kIl19"
   },
   {
-   "id": "87",
-   "ex": 87,
-   "ap": "",
-   "bloc": "sistemes",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Resol:",
-   "enunciat": "$\\left.\\begin{array}{r}2(x-2)-3(y+1)+6=17\\\\[4pt] 4(x-y)-\\dfrac{x}{3}+\\dfrac{y}{2}=25\\end{array}\\right\\}$",
-   "opcions": [
-    "$x=3,\\ y=4$",
-    "$x=-3,\\ y=4$",
-    "$x=-4,\\ y=3$",
-    "$x=3,\\ y=-4$"
-   ],
-   "pistes": [
-    "Simplifica cada equació per separat (distribueix parèntesis, treu denominadors) fins deixar-les en la forma $ax+by=c$.",
-    "Un cop simplificades, resol el sistema per reducció."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJVbiBjb3AgJHg9MyQsIHN1YnN0aXR1ZWl4IGEgJDJ4LTN5PTE4JDogJDYtM3k9MTggXFxSaWdodGFycm93IHk9LTQkLCBhbWIgc2lnbmUgbmVnYXRpdS4iLCAiUmV2aXNhIGVsIHNpZ25lIGVuIHJlc29sZHJlICQ4eD0yNCQ6ICR4PTMkLCBwb3NpdGl1LiIsICJIYXMgaW50ZXJjYW52aWF0ICR4JCBpICR5JDogY29tcHJvdmEtaG8gc3Vic3RpdHVpbnQgYSB1bmEgZGUgbGVzIGVxdWFjaW9ucyBvcmlnaW5hbHMuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJTSUdORV9GSU5BTCIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiU2ltcGxpZmljYW50IGxhIHByaW1lcmE6ICQyKHgtMiktMyh5KzEpKzY9MTcgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyeC0zeT0xOCQiLCAiU2ltcGxpZmljYW50IGxhIHNlZ29uYSAobXVsdGlwbGljYW50IHBlciAkNiQpOiAkMjJ4LTIxeT0xNTAkIiwgIk11bHRpcGxpcXVlbSBsYSBwcmltZXJhIHBlciAkLTckOiAkXFxiZWdpbnthcnJheX17cn0tMTR4KzIxeT0tMTI2XFxcXDIyeC0yMXk9MTUwXFxcXFxcaGxpbmUgOHg9MjRcXGVuZHthcnJheX0kIiwgIiR4PTMkOyBzdWJzdGl0dWludDogJDYtM3k9MTggXFxSaWdodGFycm93IHk9LTQkIl19"
-  },
-  {
    "id": "88a",
    "ex": 88,
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}2x+3y=5+x+2y\\\\ x-2y-3=3-4y\\end{array}\\right\\}$",
    "opcions": [
@@ -1924,7 +1903,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}2y-x-1=4-y-2x\\\\ 2x-y=1+x\\end{array}\\right\\}$",
    "opcions": [
@@ -1946,7 +1925,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}3y-2=x-2(x+y)\\\\ (x+4)+2\\cdot(y-2)=18-x-y\\end{array}\\right\\}$",
    "opcions": [
@@ -1968,7 +1947,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}3x-2(y-1)=y-x+1\\\\ 2x-y=x+y-9\\end{array}\\right\\}$",
    "opcions": [
@@ -1990,7 +1969,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}\\dfrac{x}{2}-\\dfrac{y}{5}=\\dfrac{11}{5}\\\\[4pt] \\dfrac{4x-5y}{2}=2\\end{array}\\right\\}$",
    "opcions": [
@@ -2012,7 +1991,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol aquests sistemes.",
    "enunciat": "$\\left.\\begin{array}{r}\\dfrac{x+4y}{3}+\\dfrac{x-y}{5}=\\dfrac{2}{3}\\\\[4pt] -x+5y=13\\end{array}\\right\\}$",
    "opcions": [
@@ -2034,7 +2013,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}-2(x-2)=y-4\\\\ 3y-2x=0\\end{array}\\right\\}$",
    "opcions": [
@@ -2056,7 +2035,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}-5(y-2)=x-2\\\\ x-3y=-4\\end{array}\\right\\}$",
    "opcions": [
@@ -2078,7 +2057,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3(x+y)-x+2y=15\\\\ 2x-(y+8)=-11\\end{array}\\right\\}$",
    "opcions": [
@@ -2100,7 +2079,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "sistemes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol amb el mètode que consideris més adequat.",
    "enunciat": "$\\left.\\begin{array}{r}3(x+2)-7(x+y)=5\\\\ 5(x+1)-y=14\\end{array}\\right\\}$",
    "opcions": [
@@ -2117,12 +2096,34 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgJHgkOiAkLTM5eD0tNjQgXFxSaWdodGFycm93IHg9XFxmcmFjezY0fXszOX0kLCBwb3NpdGl1LiIsICJVbiBjb3AgJHg9XFxmcmFjezY0fXszOX0kLCBzdWJzdGl0dWVpeCBhICR5PTV4LTkkOiBlbCByZXN1bHRhdCBzdXJ0IG5lZ2F0aXUgcGVycXXDqCAkNXg8OSQuIiwgIiIsICJIYXMgaW50ZXJjYW52aWF0ICR4JCBpICR5JDogY29tcHJvdmEtaG8gc3Vic3RpdHVpbnQgYSB1bmEgZXF1YWNpw7Mgb3JpZ2luYWwuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyJdLCAicmVzIjogWyJTaW1wbGlmaWNhbnQ6ICQtNHgtN3k9LTEkIGkgJDV4LXk9OSQiLCAiQcOvbGxlbSAkeT01eC05JCBkZSBsYSBzZWdvbmEgaSBobyBwb3NlbSBhIGxhIHByaW1lcmE6ICQtNHgtNyg1eC05KT0tMSBcXDtcXExvbmdyaWdodGFycm93XFw7IC00eC0zNXgrNjM9LTEkIiwgIiQtMzl4PS02NCBcXFJpZ2h0YXJyb3cgeD1cXGRmcmFjezY0fXszOX0kOyAkeT01XFxjZG90XFxkZnJhY3s2NH17Mzl9LTk9XFxkZnJhY3szMjAtMzUxfXszOX09LVxcZGZyYWN7MzF9ezM5fSQiXX0="
   },
   {
+   "id": "87",
+   "ex": 87,
+   "ap": "",
+   "bloc": "sistemes",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Resol:",
+   "enunciat": "$\\left.\\begin{array}{r}2(x-2)-3(y+1)+6=17\\\\[4pt] 4(x-y)-\\dfrac{x}{3}+\\dfrac{y}{2}=25\\end{array}\\right\\}$",
+   "opcions": [
+    "$x=3,\\ y=4$",
+    "$x=-3,\\ y=4$",
+    "$x=-4,\\ y=3$",
+    "$x=3,\\ y=-4$"
+   ],
+   "pistes": [
+    "Simplifica cada equació per separat (distribueix parèntesis, treu denominadors) fins deixar-les en la forma $ax+by=c$.",
+    "Un cop simplificades, resol el sistema per reducció."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJVbiBjb3AgJHg9MyQsIHN1YnN0aXR1ZWl4IGEgJDJ4LTN5PTE4JDogJDYtM3k9MTggXFxSaWdodGFycm93IHk9LTQkLCBhbWIgc2lnbmUgbmVnYXRpdS4iLCAiUmV2aXNhIGVsIHNpZ25lIGVuIHJlc29sZHJlICQ4eD0yNCQ6ICR4PTMkLCBwb3NpdGl1LiIsICJIYXMgaW50ZXJjYW52aWF0ICR4JCBpICR5JDogY29tcHJvdmEtaG8gc3Vic3RpdHVpbnQgYSB1bmEgZGUgbGVzIGVxdWFjaW9ucyBvcmlnaW5hbHMuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJTSUdORV9GSU5BTCIsICJESVZJU0lPX1FVT0NJRU5UX1JFU0lEVV9DQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiU2ltcGxpZmljYW50IGxhIHByaW1lcmE6ICQyKHgtMiktMyh5KzEpKzY9MTcgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAyeC0zeT0xOCQiLCAiU2ltcGxpZmljYW50IGxhIHNlZ29uYSAobXVsdGlwbGljYW50IHBlciAkNiQpOiAkMjJ4LTIxeT0xNTAkIiwgIk11bHRpcGxpcXVlbSBsYSBwcmltZXJhIHBlciAkLTckOiAkXFxiZWdpbnthcnJheX17cn0tMTR4KzIxeT0tMTI2XFxcXDIyeC0yMXk9MTUwXFxcXFxcaGxpbmUgOHg9MjRcXGVuZHthcnJheX0kIiwgIiR4PTMkOyBzdWJzdGl0dWludDogJDYtM3k9MTggXFxSaWdodGFycm93IHk9LTQkIl19"
+  },
+  {
    "id": "90",
    "ex": 90,
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Troba dos nombres consecutius, sabent que la diferència dels seus quadrats és 567.",
    "opcions": [
@@ -2144,7 +2145,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "El preu d'un anell i el seu estoig és de $10\\,200$ €, i l'anell val $10\\,000$ € més que l'estoig. Quin és el preu de cada article?",
    "opcions": [
@@ -2166,7 +2167,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Una bodega va exportar al gener la meitat dels seus barrils i, al cap de dos mesos, un terç dels que li quedaven. Quants barrils tenia al començament si ara hi ha $40\\,000$ barrils?",
    "opcions": [
@@ -2188,7 +2189,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En Miquel té 4 anys més que el seu cosí Ignasi i, al cap de 3 anys, entre els dos sumaran 20 anys. Quants anys té cadascú?",
    "opcions": [
@@ -2210,7 +2211,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Quina edat tinc ara si al cap de 12 anys tindré el triple de l'edat que tenia fa 6 anys?",
    "opcions": [
@@ -2232,7 +2233,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En un triangle rectangle de 24 m de perímetre, la longitud d'un catet és igual als tres quarts de la longitud de l'altre. Troba'n les dimensions.",
    "opcions": [
@@ -2254,7 +2255,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Per enrajolar una sala de 8 m de llarg per 6 m d'ample s'han fet servir 300 rajoles quadrades. Quant mesura el costat de les rajoles?",
    "opcions": [
@@ -2276,7 +2277,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En Pau té 8 anys i la seva germana, 2 anys. Al cap de quants anys l'edat d'en Pau serà el doble que la de la seva germana?",
    "opcions": [
@@ -2298,7 +2299,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "En Tomàs és 5 anys més gran que l'Elena i, fa 10 anys, l'edat d'en Tomàs era el doble de l'edat de l'Elena. Quina edat té en Tomàs?",
    "opcions": [
@@ -2320,7 +2321,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Canviem el valor de diverses monedes d'1 cèntim d'euro per monedes de 5 cèntims, amb la qual cosa obtenim 60 monedes menys. Quantes monedes hi ha de cada classe?",
    "opcions": [
@@ -2342,7 +2343,7 @@ window.FULL = {
    "ap": "",
    "bloc": "problemes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un matrimoni i els seus tres fills viatgen en tren. Si el bitllet d'adult costa el doble que el de nen i el cost total dels bitllets és de 8,75 €, quant ha costat cada bitllet?",
    "opcions": [

@@ -14,7 +14,23 @@
   var params = new URLSearchParams(location.search);
   var qid = params.get("q") || ids[0];
   var deLitinerari = params.get("origen") === "itinerari";
-  var idx = Math.max(0, ids.indexOf(qid));
+  /* Un ?q= que no existeix en aquest full queia en silenci al primer
+     exercici: qui seguia un enllaç antic (o d'un altre full) es trobava el
+     140 convertit en l'1 sense saber per què, i el registre li anotava un
+     "vist" d'un exercici que no havia demanat. */
+  var idx = ids.indexOf(qid);
+  if (idx < 0) {
+    document.getElementById("main").innerHTML =
+      '<div class="barra-sup"><a href="full.html?full=' + D.full +
+      '" class="petit">← ' + D.titol + "</a></div>" +
+      "<h1>Aquest exercici no és en aquest full</h1>" +
+      '<p class="apagat" style="margin:.6rem 0 1.4rem">L\'enllaç demana ' +
+      "l'exercici <strong>" + String(qid).replace(/[<&]/g, "") +
+      "</strong>, i el full " + D.full + " no en té cap amb aquest codi. " +
+      "Potser és d'un altre full o d'una versió anterior.</p>" +
+      '<a class="btn" href="full.html?full=' + D.full + '">Torna al full</a>';
+    return;
+  }
   var item = D.items[idx], k = RE.clau(item);
 
   var ordre = [0, 1, 2, 3];                       /* barreja per sessió */
@@ -73,10 +89,20 @@
      capçalera, al costat del codi: qui no la necessita no l'ha de veure
      enmig de l'enunciat. */
   /* Se li passa el full perquè els noms de bloc no són únics entre fulls
-     (vegeu `js/teoria.js`). */
+     (vegeu `js/teoria.js`).
+
+     Va dins d'un try: la icona de teoria és una decoració, i una decoració
+     no pot tombar el cicle de l'exercici. Aquest `mostra()` és a dalt de la
+     IIFE, i quan `teoria.js` va llançar un error sincrònic (li faltava
+     `fetch`) se'n va endur tot el que ve a continuació: les quatre opcions
+     no es construïen i la pàgina quedava sense res per respondre. Que la
+     causa concreta ja estigui arreglada no treu que el lloc no hagi de ser
+     així: el que hi ha per sota d'aquesta línia és l'exercici. */
   if (window.RE_TEORIA) {
-    window.RE_TEORIA.mostra($("#teoria"),
-      { id: item.id, ex: item.ex, bloc: item.bloc, full: D.full });
+    try {
+      window.RE_TEORIA.mostra($("#teoria"),
+        { id: item.id, ex: item.ex, bloc: item.bloc, full: D.full });
+    } catch (e) { /* sense icona de teoria; l'exercici continua */ }
   }
   RE.mat(document.body);
   if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
@@ -200,7 +226,8 @@
   $("#mostra").onclick = function () {
     $("#mostra").hidden = true;
     $("#zona-resposta").hidden = false;
-    $("#opcions").scrollIntoView({ behavior: "smooth", block: "center" });
+    var op = $("#opcions");
+    if (op.scrollIntoView) op.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   /* ---- comprovació ---- */
@@ -298,7 +325,7 @@
     r.innerHTML = "<h2>Resolució</h2><ol>" +
       k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>";
     RE.mat(r);
-    r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (r.scrollIntoView) r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   /* "Següent" és sempre disponible, hagi respost l'alumne o no: avançar

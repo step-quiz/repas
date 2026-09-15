@@ -18,28 +18,30 @@ from fractions import Fraction as F
 from lib import Q, D, DT, ev, tex, TAX, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 3 · successions i progressions
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     47: 1,  # substituir n al terme general; 56, aplicar la fórmula de la PG
-     48: 2,  # recurrència: cada terme depèn dels anteriors
-     49: 2,  # trobar d i muntar el terme general
-     50: 2,
-     51: 2,
-     52: 2,
-     53: 3,  # omplir buits a l'interior de la progressió
-     54: 2,  # cal decidir primer si és aritmètica o geomètrica
-     55: 3,  # dos termes donats: primer la raó, després el terme general
-     56: 1,
-     57: 2,
-     58: 3,
-     59: 3,  # jutjar si una expressió és el terme general
-     60: 3,  # a l'inrevés: quin lloc ocupa un terme del qual saps el valor
-     61: 3,
+     47: 2,  # substituir n al terme general; 56, aplicar la fórmula de la PG
+     48: 3,  # recurrència: cada terme depèn dels anteriors
+     49: 3,  # trobar d i muntar el terme general
+     50: 3,
+     51: 3,
+     52: 3,
+     53: 4,  # omplir buits a l'interior de la progressió
+     54: 3,  # cal decidir primer si és aritmètica o geomètrica
+     55: 4,  # dos termes donats: primer la raó, després el terme general
+     56: 2,
+     57: 3,
+     58: 4,
+     59: 4,  # jutjar si una expressió és el terme general
+     60: 4,  # a l'inrevés: quin lloc ocupa un terme del qual saps el valor
+     61: 4,
 })
 
 
@@ -1281,3 +1283,116 @@ Q("61", 61, "", B4, "A",
   ex_text=r"Dos termes consecutius d'una progressió geomètrica valen "
           r"$3$ i $4$. Esbrina quin lloc ocupen si "
           r"$a_1=\dfrac{27}{16}$.")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 325-326)
+# =====================================================================
+# El bloc obria demanant la diferència de 1,73 ; 1,77 ; 1,81 ; … La
+# pregunta és la que toca, però amb decimals de dues xifres l'alumne
+# s'equivoca restant i no sabem si ha entès què és `d`. Amb enters petits,
+# el que falla és exactament una cosa.
+
+dificultats({
+    325: 1,  # la diferència d'una progressió amb enters d'una xifra
+    326: 1,  # el terme següent, sumant d una vegada
+})
+
+
+E325 = ("Aquestes progressions són aritmètiques. Quina és la seva "
+        "diferència $d$?")
+
+Q("325a", 325, "a", B2, "A",
+  r"$3,\;7,\;11,\;15,\;\dots$",
+  "$d=4$",
+  [DT("$d=3$", "PRIMER_TERME_PER_DIFERENCIA",
+      extra="Aquí $3$ és $a_1$."),
+   D("$d=-4$", "ORDRE_RESTA",
+     "Has restat a l'inrevés: és el terme SEGÜENT menys l'anterior, "
+     "$7-3$, no $3-7$. La progressió creix, de manera que $d$ ha de ser "
+     "positiva."),
+   D("$d=7$", "COMPARA_TERMES",
+     "Has agafat el segon terme en lloc de la diferència entre dos "
+     "termes.")],
+  ["La diferència és el que se suma per passar d'un terme al següent.",
+   "Resta dos termes consecutius: $7-3$."],
+  [r"$d=7-3=4$ (i es comprova: $11-7=4$, $15-11=4$)"],
+  ex_text=E325)
+
+Q("325b", 325, "b", B2, "A",
+  r"$10,\;7,\;4,\;1,\;\dots$",
+  "$d=-3$",
+  [D("$d=3$", "ORDRE_RESTA",
+     "Has restat el gran menys el petit. La progressió DECREIX, i això vol "
+     "dir que $d$ és negativa: $7-10=-3$."),
+   D("$d=-7$", "COMPARA_TERMES",
+     "Has canviat de signe el segon terme en lloc de restar-ne dos de "
+     "consecutius."),
+   DT("$d=10$", "PRIMER_TERME_PER_DIFERENCIA")],
+  ["Sempre és el terme següent menys l'anterior, en aquest ordre.",
+   "$7-10$ dona un número negatiu, i és el que toca: la progressió baixa."],
+  [r"$d=7-10=-3$ (i es comprova: $4-7=-3$, $1-4=-3$)"],
+  ex_text=E325)
+
+Q("325c", 325, "c", B2, "A",
+  r"$-5,\;-3,\;-1,\;1,\;\dots$",
+  "$d=2$",
+  [D("$d=-2$", "ORDRE_RESTA",
+     "Has restat a l'inrevés. Els termes van cap amunt ($-5$, $-3$, $-1$, "
+     "$1$), o sigui que $d$ és positiva."),
+   D("$d=-8$", "RESTA_NEGATIU",
+     "Has calculat $-5-3$. El que cal restar és $-3-(-5)$, i restar un "
+     "negatiu és sumar: $-3+5=2$."),
+   D("$d=3$", "COMPARA_TERMES",
+     "Has agafat el valor absolut del segon terme.")],
+  ["Compte amb els signes: és $a_2-a_1=(-3)-(-5)$.",
+   "Restar un número negatiu és el mateix que sumar-lo canviat de signe."],
+  [r"$d=(-3)-(-5)=-3+5=2$"],
+  ex_text=E325)
+
+
+E326 = "Escriu el terme que va just després."
+
+Q("326a", 326, "a", B2, "A",
+  r"$2,\;6,\;10,\;14,\;\dots$",
+  "18",
+  [D("28", "RAONAMENT_ADDITIU",
+     "Has multiplicat per $2$. Això seria una progressió GEOMÈTRICA; en una "
+     "aritmètica es SUMA sempre el mateix, i aquí se sumen $4$."),
+   D("16", "TERME_MAL_CALCULAT",
+     "La diferència és $4$, no $2$: mira $6-2$, $10-6$, $14-10$."),
+   D("20", "TERME_MAL_CALCULAT",
+     "Has sumat $6$. La diferència constant és $4$.")],
+  ["Primer troba la diferència restant dos termes consecutius.",
+   "$d=4$; ara suma-la a l'últim terme que et donen."],
+  [r"$d=6-2=4$; $a_5=14+4=18$"],
+  ex_text=E326)
+
+Q("326b", 326, "b", B2, "A",
+  r"$20,\;17,\;14,\;\dots$",
+  "11",
+  [D("12", "TERME_MAL_CALCULAT",
+     "Has restat $2$. La diferència és $-3$: $17-20=-3$."),
+   D("17", "PAS_INTERMEDI_PER_RESPOSTA",
+     "Has repetit un terme que ja hi era. El que es demana és el següent."),
+   D("10", "TERME_MAL_CALCULAT",
+     "Has restat $4$ en lloc de $3$.")],
+  ["La progressió baixa: la diferència és negativa.",
+   "$d=-3$; suma-la a $14$ (o resta-li $3$, que és el mateix)."],
+  [r"$d=17-20=-3$; $a_4=14+(-3)=11$"],
+  ex_text=E326)
+
+Q("326c", 326, "c", B2, "A",
+  r"Una progressió aritmètica té $a_1=5$ i $d=3$. Quant val $a_2$?",
+  "8",
+  [D("15", "RAO_MAL_APLICADA",
+     "Has multiplicat $5\\cdot 3$. En una progressió aritmètica la "
+     "diferència se SUMA; multiplicar seria una de geomètrica."),
+   DT("3", "PRIMER_TERME_PER_DIFERENCIA",
+      extra="Aquí passa al contrari: has donat $d$ en lloc del terme."),
+   D("5", "PAS_INTERMEDI_PER_RESPOSTA",
+     "Has repetit $a_1$. El que es demana és el terme següent.")],
+  ["Per passar d'un terme al següent se suma $d$.",
+   "$a_2=a_1+d=5+3$."],
+  [r"$a_2=a_1+d=5+3=8$"],
+  ex_text=E326)

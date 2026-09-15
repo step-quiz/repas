@@ -6,26 +6,28 @@ from datetime import date, timedelta
 from lib import Q, D, tria, mcd, mcm, tex_factors, fx, factors, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 1 · divisibilitat
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-      5: 1,  # descomposició factorial directa
-      6: 1,  # m.c.d. de dos nombres; 7, de tres (mateix procediment)
-      7: 1,
-      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
-      9: 1,  # m.c.m., igual que el m.c.d. però amb l'altre criteri
-     10: 1,
-     11: 2,  # a l'inrevés amb dues condicions alhora
-     12: 3,  # problemes amb context: primer cal decidir si toca m.c.d. o m.c.m.
-     13: 3,
-     14: 3,
-     15: 3,
-     16: 3,
-     17: 3,
+      5: 2,  # descomposició factorial directa
+      6: 2,  # m.c.d. de dos nombres; 7, de tres (mateix procediment)
+      7: 2,
+      8: 3,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
+      9: 2,  # m.c.m., igual que el m.c.d. però amb l'altre criteri
+     10: 2,
+     11: 3,  # a l'inrevés amb dues condicions alhora
+     12: 4,  # problemes amb context: primer cal decidir si toca m.c.d. o m.c.m.
+     13: 4,
+     14: 4,
+     15: 4,
+     16: 4,
+     17: 4,
 })
 
 
@@ -341,3 +343,91 @@ item_mcm("17", 17, "", [12, 18],
          r"En una carretera hi ha fanals cada $12$ m en un lateral i cada $18$ m a "
          r"l'altre. El primer fanal de cada lateral està a la mateixa altura. Quants "
          r"metres cal recórrer per trobar dos fanals l'un davant de l'altre?")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercici 340)
+# =====================================================================
+# Aquest bloc SÍ que tenia exercicis d'un sol pas: l'exercici 5 (descompon
+# 3850, -432, -561) és tan directe com es pot ser. El problema és un altre,
+# i és el que va fer néixer el nivell trivial: 3850 = 2·5²·7·11 són quatre
+# primers i un quadrat, i -561 = -3·11·17 demana provar fins al 17. Un sol
+# pas, sí, però amb una càrrega de càlcul que fa que fallar no vulgui dir
+# «no sé què és una descomposició factorial» sinó «m'he perdut dividint».
+#
+# El 340 aïlla la definició: números de dues xifres que es reconeixen de
+# vista. Si aquí falla, el que no hi és és el concepte.
+
+dificultats({
+    340: 1,  # descomposició factorial de números de dues xifres
+})
+
+
+E340 = "Fes la descomposició factorial de:"
+
+_t1, _v1 = fx((2, 2), (3, 1))
+assert _v1 == 12
+
+Q("340a", 340, "a", B, "A", r"$12$", _t1,
+  [D(r"2\cdot 6", "FACTOR_NO_PRIMER",
+     r"$6$ no és primer: $6=2\cdot 3$. La descomposició ha d'arribar a "
+     r"primers i aturar-se allà."),
+   D(r"2\cdot 3", "EXPONENT_OBLIDAT",
+     r"Et falta un $2$: $2\cdot 3=6$, no $12$. El $12$ es divideix DUES "
+     r"vegades entre $2$ ($12:2=6$ i $6:2=3$), i per això va $2^{2}$."),
+   D(r"3\cdot 4", "FACTOR_NO_PRIMER",
+     r"$4$ no és primer: $4=2^{2}$.")],
+  ["Divideix entre $2$ tantes vegades com puguis, i després prova amb $3$.",
+   "$12:2=6$ i $6:2=3$: dues vegades el $2$, i queda un $3$."],
+  [r"$12=2\cdot 6=2\cdot 2\cdot 3=2^{2}\cdot 3$"],
+  ex_text=E340)
+
+_t2, _v2 = fx((2, 1), (3, 2))
+assert _v2 == 18
+
+Q("340b", 340, "b", B, "A", r"$18$", _t2,
+  [D(r"2\cdot 9", "FACTOR_NO_PRIMER",
+     r"$9$ no és primer: $9=3^{2}$."),
+   D(r"2\cdot 3", "EXPONENT_OBLIDAT",
+     r"$2\cdot 3=6$, no $18$. Després de dividir entre $2$ queda $9$, que "
+     r"encara es divideix dues vegades entre $3$."),
+   D(r"2^{2}\cdot 3", "EXPONENT_EXCES",
+     r"$18$ només és parell una vegada: $18:2=9$, i $9$ és imparell.")],
+  ["Comença pel $2$ i després continua amb el $3$.",
+   "$18:2=9$, i $9=3\\cdot 3$."],
+  [r"$18=2\cdot 9=2\cdot 3\cdot 3=2\cdot 3^{2}$"],
+  ex_text=E340)
+
+_t3, _v3 = fx((5, 2), )
+assert _v3 == 25
+
+Q("340c", 340, "c", B, "A", r"$25$", _t3,
+  [D(r"5\cdot 20", "FACTOR_NO_PRIMER",
+     r"$20$ no és primer, i a més $5\cdot 20=100$."),
+   D(r"5", "EXPONENT_OBLIDAT",
+     r"Un $5$ sol val $5$, no $25$. El $25$ és $5\cdot 5$."),
+   D(r"3\cdot 5", "FACTOR_MAL_TRIAT",
+     r"$3$ no divideix $25$: prova-ho i veuràs que no dona exacte. "
+     r"Comprova sempre multiplicant els factors.")],
+  ["$25$ no és parell i no és múltiple de $3$: prova amb el $5$.",
+   "$25:5=5$, i el $5$ ja és primer."],
+  [r"$25=5\cdot 5=5^{2}$"],
+  ex_text=E340)
+
+_t4, _v4 = fx((2, 3), (5, 1))
+assert _v4 == 40
+
+Q("340d", 340, "d", B, "A", r"$40$", _t4,
+  [D(r"2^{2}\cdot 10", "FACTOR_NO_PRIMER",
+     r"$10$ no és primer: $10=2\cdot 5$, de manera que encara hi surt un $2$ "
+     r"més."),
+   D(r"2^{2}\cdot 5", "EXPONENT_OBLIDAT",
+     r"$2^{2}\cdot 5=20$, no $40$. El $40$ es divideix TRES vegades entre "
+     r"$2$: $40\to 20\to 10\to 5$."),
+   D(r"2^{4}\cdot 5", "EXPONENT_EXCES",
+     r"$2^{4}\cdot 5=80$. Compta les divisions: $40:2=20$, $20:2=10$, "
+     r"$10:2=5$. Són tres, no quatre.")],
+  ["Divideix entre $2$ mentre puguis, i compta quantes vegades ho fas.",
+   "$40\\to 20\\to 10\\to 5$: tres vegades el $2$, i queda el $5$."],
+  [r"$40=2\cdot 20=2\cdot 2\cdot 10=2\cdot 2\cdot 2\cdot 5=2^{3}\cdot 5$"],
+  ex_text=E340)

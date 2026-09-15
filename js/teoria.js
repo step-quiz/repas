@@ -30,14 +30,57 @@
   var mapa = null;
   var demanat = false;
 
+  /* Demana el mapa sense dependre de `fetch`.
+
+     Per què no `fetch` tot sol: la resta del projecte és ES5 estricte a
+     posta (no hi ha ni una arrow function ni un `let` en tot `js/`), i
+     `fetch` era l'única API moderna de tot el lloc. En un navegador que no
+     la porti, la crida no rebutja: llança un `ReferenceError` SINCRÒNIC que
+     el `.catch()` no veu, i que se'n va cap amunt fins al nivell superior de
+     `practica.js`, on mata tot el que ve després — les quatre opcions no es
+     construeixen i l'exercici queda inservible. El docstring de dalt promet
+     que sense mapa «no passa res»; això ho compleix de debò.
+
+     `XMLHttpRequest` fa la mateixa feina, existeix a tot arreu i es porta
+     igual de bé amb `file://` (no s'hi pot llegir a Chrome, i llavors la
+     icona simplement no apareix, que és el que toca). */
+  function demana(fet) {
+    var acabat = false;
+    function un(d) { if (!acabat) { acabat = true; fet(d); } }
+
+    if (typeof fetch === "function") {
+      try {
+        fetch(CAMI)
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) { un(d || false); })
+          .catch(function () { un(false); });
+        return;
+      } catch (e) { /* ni tan sols ha arrencat: es prova amb XHR */ }
+    }
+
+    try {
+      var x = new XMLHttpRequest();
+      x.open("GET", CAMI, true);
+      x.onreadystatechange = function () {
+        if (x.readyState !== 4) return;
+        /* Amb file:// l'estat és 0 i el text hi és igualment; per HTTP cal
+           un 200. Si el JSON no es pot llegir, es tracta com a "no hi ha
+           mapa", no com a error. */
+        var ok = (x.status === 0 && x.responseText) || (x.status >= 200 && x.status < 300);
+        if (!ok) { un(false); return; }
+        try { un(JSON.parse(x.responseText) || false); }
+        catch (e) { un(false); }
+      };
+      x.onerror = function () { un(false); };
+      x.send();
+    } catch (e) { un(false); }
+  }
+
   function carrega(fet) {
     if (mapa !== null) { fet(mapa); return; }
     if (demanat) { setTimeout(function () { carrega(fet); }, 60); return; }
     demanat = true;
-    fetch(CAMI)
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (d) { mapa = d || false; fet(mapa); })
-      .catch(function () { mapa = false; fet(mapa); });
+    demana(function (d) { mapa = d; fet(mapa); });
   }
 
   /* item → {curs, ud, act, titol} o null. */

@@ -66,12 +66,26 @@
      injectar JavaScript arbitrari a la pàgina: en un lloc estàtic sense
      comptes la gravetat és baixa, però n'hi havia prou amb un enllaç per
      escriure el localStorage d'un alumne, i el localStorage és el que genera
-     el codi que el professorat qualifica. A més, `document.write` bloqueja el
-     parseig; amb createElement el full es demana igual i sense aturar-lo. */
+     el codi que el professorat qualifica. El `document.write` de sota es manté a
+     posta; el motiu és a la nota que l'acompanya. */
   var FULL_N = new URLSearchParams(location.search).get("full") || "1";
   if (!/^([1-9]|1[0-2])$/.test(FULL_N)) {
     document.addEventListener("DOMContentLoaded", function () { RE_FULL_ABSENT(); });
   } else {
+    /* `document.write` ÉS DELIBERAT, i no s'ha de canviar per createElement
+       sense canviar res més. Bloqueja el parseig, i aquí aquest bloqueig fa
+       feina: garanteix que `data/fullN.js` s'executi abans que el
+       `<script src="js/practica.js">` que ve a continuació al document. Amb
+       `document.head.appendChild()` i `async = false` l'ordre només està
+       garantit respecte d'altres scripts inserits per codi, no respecte dels
+       que ja són al document: practica.js corre primer, es troba
+       `window.FULL` buit, surt pel `return` de la primera línia i la pàgina
+       queda en blanc. Provat i comprovat amb `tests/test_a11y.js`.
+
+       Per treure'l de debò caldria que els controladors esperessin les dades
+       en lloc de donar-les per presents (un `RE_ARRENCA()` que cridés el
+       propi data/fullN.js, o `defer` a tot arreu). Val la pena, però és un
+       canvi als quatre controladors, no aquí. */
     document.write('<script src="data/full' + FULL_N
       + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
   }

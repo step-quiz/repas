@@ -219,13 +219,30 @@ prova("l'ordre de codificació és append-only", () => {
      (data/fullN.js) són coses diferents a propòsit: quan es recupera un
      exercici que faltava, va al seu lloc per a l'alumne i al final de
      l'ordre per al codi. Comprovat sobre el Full 9, on el 170f-i es van
-     recuperar entre el 170e i el 171. */
+     recuperar entre el 170e i el 171.
+
+     El que es comprova és la propietat, no una posició concreta. Abans
+     aquesta prova deia «els últims quatre han de ser el 170f-i», i això
+     només era cert mentre no s'afegís res més al full: el contingut nou
+     també va al final, i la prova queia sense que cap codi hagués deixat
+     de valer. El que ha de ser cert sempre és que els recuperats vagin
+     DARRERE dels que ja hi eren, i que els que ja hi eren no s'hagin
+     mogut. */
   const f9 = T.fulls[9].items;
   const rec = ["170f", "170g", "170h", "170i"];
-  assert.deepStrictEqual(f9.slice(-4), rec,
-    "els exercicis recuperats han d'anar al final de l'ordre de codificació");
-  assert.strictEqual(f9.indexOf("171"), 5,
+  const pos171 = f9.indexOf("171");
+  assert.strictEqual(pos171, 5,
     "els que ja hi eren no s'han pogut moure de lloc");
+  rec.forEach(id => {
+    const k = f9.indexOf(id);
+    assert.ok(k > pos171,
+      id + " hauria d'anar darrere del 171 a l'ordre de codificació, i és a "
+      + k);
+  });
+  assert.deepStrictEqual(
+    rec.map(id => f9.indexOf(id)).slice().sort((a, b) => a - b),
+    rec.map(id => f9.indexOf(id)),
+    "els recuperats han de mantenir el seu ordre relatiu entre ells");
 });
 
 prova("els blocs es donen com a llista de posicions, no com a rang", () => {
@@ -311,13 +328,39 @@ prova("un full a mitges cap en menys de 60 caràcters", () => {
   assert.ok(c.replace(/-/g, "").length < 60, "són " + c.replace(/-/g, "").length);
 });
 
-prova("el banc sencer cap en menys de 600 caràcters", () => {
+prova("el banc sencer s'empaqueta al ritme que toca", () => {
+  /* Abans això era «cap en menys de 600 caràcters». El número era un
+     guardià amb marge, no un requisit —cap camp de cap formulari no
+     imposa aquesta llargada—, i va caducar sol el dia que el banc va
+     passar de 892 ítems a 951: la prova queia sense que res s'hagués
+     trencat. `CODIS.md` tenia el mateix problema, amb la xifra de 739
+     exercicis.
+
+     El que sí que importa i no caduca és el RITME: quants caràcters costa
+     cada exercici. Set estats caben en quatre caràcters base32, o sigui
+     0,571 per ítem, més un caràcter de comptador per full i la capçalera.
+     Si algun dia algú canviés l'empaquetament i el ritme se n'anés amunt,
+     això ho diria; i el sostre absolut es deriva del banc, de manera que
+     creix amb ell tot sol. */
   const tots = Object.keys(T.fulls).map(Number);
+  const items = tots.reduce((a, n) => a + T.fulls[n].items.length, 0);
   const c = RE.genera({
     fulls: tots.map(n => ({ n, estats: T.fulls[n].items.map(() => "net") })),
     diag: Array.from({ length: 15 }, () => ({ estat: 0, encert: true }))
   });
-  assert.ok(c.replace(/-/g, "").length < 600, "són " + c.replace(/-/g, "").length);
+  const llarg = c.replace(/-/g, "").length;
+
+  /* Capçalera (versió + data + màscara), un comptador de grups per full,
+     quatre caràcters per grup de set ítems, el diagnòstic i el control. */
+  const previst = 9
+    + tots.reduce((a, n) => a + 1 + Math.ceil(T.fulls[n].items.length / 7) * 4, 0)
+    + 10 + 2;
+  assert.ok(llarg <= previst + 20,
+    "són " + llarg + " caràcters i se'n preveien " + previst
+    + ": l'empaquetament ha perdut eficiència");
+  assert.ok(llarg / items < 0.75,
+    "són " + (llarg / items).toFixed(3) + " caràcters per ítem; el ritme "
+    + "teòric és 0,571 i no hauria de passar de 0,75");
 });
 
 
@@ -345,6 +388,54 @@ prova("errs conserva l'error encara que l'ítem acabi correcte", () => {
     "el codi hauria de comptar els 2 errors rectificats, i en compta "
     + (e ? e.compte : 0));
 });
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Els sostres del format es diuen, no es travessen en silenci");
+
+/* Aquests dos límits eren implícits i fallaven de la manera més cara
+   possible: el codi sortia ÍNTEGRE i amb la feina a zero. La prova no és que
+   el format creixi —no pot, sense un RC4— sinó que quan no hi càpiga s'aturi
+   amb un missatge en comptes d'emetre un codi que ningú no sabrà que és dolent. */
+{
+  const T = window.RE_TAULES, C = window.RE_CODI;
+
+  prova("un full de més de 217 ítems s'atura en comptes d'emetre un codi dolent", () => {
+    const ids = [];
+    for (let i = 0; i < C.MAX_ITEMS + 1; i++) ids.push("x" + i);
+    assert.throws(
+      () => C.genera({ fulls: [{ n: 1, estats: ids.map(() => "net") }] }),
+      /MAX_ITEMS|217|format nou|RC4/,
+      "hauria de petar amb un missatge que expliqui el sostre");
+  });
+
+  prova("exactament 217 ítems encara hi caben i tornen sencers", () => {
+    const ids = [];
+    for (let i = 0; i < C.MAX_ITEMS; i++) ids.push("x" + i);
+    const previ = T.fulls[1];
+    T.fulls[1] = { titol: "Prova", items: ids, blocs: [["b", ids.map((_, i) => i)]],
+                   dif: "1".repeat(ids.length) };
+    try {
+      const r = C.llegeix(C.genera({ fulls: [{ n: 1, estats: ids.map(() => "net") }] }));
+      assert.ok(r.integre);
+      assert.strictEqual(r.resum.fets, C.MAX_ITEMS);
+    } finally { T.fulls[1] = previ; }
+  });
+
+  prova("un full 13 s'atura: el seu bit és el del diagnòstic", () => {
+    assert.throws(
+      () => C.genera({ fulls: [{ n: C.MAX_FULLS + 1, estats: ["net"] }] }),
+      /diagn|RC4|format nou/,
+      "hauria de dir per què no hi cap, no emetre un diagnòstic fantasma");
+  });
+
+  prova("cap full del banc real no frega els sostres sense avisar", () => {
+    Object.keys(T.fulls).forEach(n => {
+      assert.ok(T.fulls[n].items.length <= C.MAX_ITEMS,
+        "el full " + n + " ja no hi cap: " + T.fulls[n].items.length);
+      assert.ok(+n <= C.MAX_FULLS, "el full " + n + " no hi cap a la màscara");
+    });
+  });
+}
 
 
 process.exit(resum() ? 0 : 1);

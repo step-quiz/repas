@@ -52,37 +52,39 @@ from lib import Q, D, DT, tex, TAX, dificultats, blocs
 from figures import arbre, taula_doble
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 12 · probabilitat
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    236: 1,  # escriure l'espai mostral; 241 i 257, Laplace amb el recompte a la vista
-    237: 2,  # espai mostral de dos daus: cal veure que els resultats són parells
-    238: 3,  # comptar resultats DIFERENTS, no parells: cal descartar repetits
-    239: 2,  # classificar esdeveniments; 240, ordenar-los per probabilitat
-    240: 2,
-    241: 1,
-    242: 3,
-    243: 2,  # comptar combinacions amb el principi multiplicatiu
-    244: 1,  # principi multiplicatiu amb dos experiments
-    245: 2,
-    246: 3,  # variacions amb repetició amb dos alfabets barrejats
-    247: 2,
-    248: 2,
-    249: 2,  # freqüència relativa a partir d'una taula
-    250: 2,
-    251: 3,  # cal muntar l'espai mostral de 4 monedes abans de comptar
-    252: 3,
-    253: 2,  # esdeveniments dins d'un mateix espai; 254, taula de doble entrada
-    254: 2,
-    255: 3,  # diverses fraccions del total encadenades
-    256: 3,  # unió d'esdeveniments no disjunts
-    257: 1,
-    258: 3,
-    259: 3,
+    236: 2,  # escriure l'espai mostral; 241 i 257, Laplace amb el recompte a la vista
+    237: 3,  # espai mostral de dos daus: cal veure que els resultats són parells
+    238: 4,  # comptar resultats DIFERENTS, no parells: cal descartar repetits
+    239: 3,  # classificar esdeveniments; 240, ordenar-los per probabilitat
+    240: 3,
+    241: 2,
+    242: 4,
+    243: 3,  # comptar combinacions amb el principi multiplicatiu
+    244: 2,  # principi multiplicatiu amb dos experiments
+    245: 3,
+    246: 4,  # variacions amb repetició amb dos alfabets barrejats
+    247: 3,
+    248: 3,
+    249: 3,  # freqüència relativa a partir d'una taula
+    250: 3,
+    251: 4,  # cal muntar l'espai mostral de 4 monedes abans de comptar
+    252: 4,
+    253: 3,  # esdeveniments dins d'un mateix espai; 254, taula de doble entrada
+    254: 3,
+    255: 4,  # diverses fraccions del total encadenades
+    256: 4,  # unió d'esdeveniments no disjunts
+    257: 2,
+    258: 4,
+    259: 4,
 })
 
 
@@ -2097,22 +2099,22 @@ blocs([
 ], despres="esdeveniments")
 
 dificultats({
-    305: 1,  # amb reposició: aplicar P(A)·P(B) directament, dades a punt
-    306: 2,  # sense reposició: cal veure que el denominador canvia
-    307: 3,  # comparar amb/sense reposició i justificar per què difereixen
-    308: 1,  # llegir un arbre ja fet i multiplicar el camí
-    309: 2,  # completar la branca que falta (1-suma) i després multiplicar
-    310: 3,  # construir l'arbre des de l'enunciat en paraules
-    311: 2,  # almenys un via complement, cas clàssic (monedes)
-    312: 2,  # almenys un via complement (daus)
-    313: 3,  # almenys un via complement, sense reposició (dos passos)
-    314: 2,  # taula de doble entrada donada, llegir files i columnes
-    315: 3,  # arbre de dues caixes: cal muntar la probabilitat total
-    316: 2,  # taula donada, aplicar les definicions de conjunta i condicionada
-    317: 3,  # mateixes dades, un pas més (condicionada inversa)
-    318: 3,  # daus: comptar casos afavorables ja condicionats
-    319: 1,  # llegir la probabilitat donada directament de l'enunciat
-    320: 3,  # combinar-ho tot per obtenir la probabilitat inversa
+    305: 2,  # amb reposició: aplicar P(A)·P(B) directament, dades a punt
+    306: 3,  # sense reposició: cal veure que el denominador canvia
+    307: 4,  # comparar amb/sense reposició i justificar per què difereixen
+    308: 2,  # llegir un arbre ja fet i multiplicar el camí
+    309: 3,  # completar la branca que falta (1-suma) i després multiplicar
+    310: 4,  # construir l'arbre des de l'enunciat en paraules
+    311: 3,  # almenys un via complement, cas clàssic (monedes)
+    312: 3,  # almenys un via complement (daus)
+    313: 4,  # almenys un via complement, sense reposició (dos passos)
+    314: 3,  # taula de doble entrada donada, llegir files i columnes
+    315: 4,  # arbre de dues caixes: cal muntar la probabilitat total
+    316: 3,  # taula donada, aplicar les definicions de conjunta i condicionada
+    317: 4,  # mateixes dades, un pas més (condicionada inversa)
+    318: 4,  # daus: comptar casos afavorables ja condicionats
+    319: 2,  # llegir la probabilitat donada directament de l'enunciat
+    320: 4,  # combinar-ho tot per obtenir la probabilitat inversa
 })
 
 BC1 = "probabilitat_composta"

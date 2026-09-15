@@ -106,6 +106,29 @@ window.RE_CODI = (function () {
      caràcter arreglar-ho. El lector accepta les dues versions. */
   var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3 };
   var VERSIO = "RC3";
+
+  /* ── ELS DOS SOSTRES DEL FORMAT, ESCRITS ─────────────────────────────────
+
+     Tots dos eren implícits i tots dos fallaven EN SILENCI, que és la pitjor
+     manera possible en un projecte que després qualifica amb això:
+
+     · MAX_ITEMS. El nombre de grups d'un full va en UN caràcter base32, o
+       sigui 31 grups com a màxim, o sigui 217 ítems. Amb 218, `enc(32, 1)`
+       dona "0" i el lector es creu que el full no porta cap grup: el codi
+       surt ÍNTEGRE i amb la feina sencera a zero. El Full 1 ja va per 140.
+
+     · MAX_FULLS. La màscara té els fulls als bits 0-11 i el diagnòstic al
+       bit 12. Un Full 13 activaria el bit 12: el full desapareixeria i el
+       lector es trobaria un diagnòstic fantasma. També íntegre.
+
+     Passar-ne demana un format nou (RC4), no un pedaç: aquí només es
+     comprova, i si no hi cabem s'atura en comptes d'emetre un codi dolent.
+     `build_codi.py` fa la mateixa comprovació en compilar, perquè el problema
+     es vegi mentre s'afegeix contingut i no el dia que un alumne enviï el
+     codi. */
+  var GRUPS_MAX = 31;
+  var MAX_ITEMS = GRUPS_MAX * 7;        /* 217 */
+  var MAX_FULLS = 12;
   var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
   /* `pista` val MÉS que `segon`, no menys. Amb 6 la taula premiava
      endevinar per damunt de demanar ajuda: amb quatre opcions i dos intents,
@@ -176,6 +199,23 @@ window.RE_CODI = (function () {
 
     var meta = opcions.meta || null;
 
+    /* Els sostres es comproven ABANS d'escriure res: val més petar aquí, on
+       hi ha algú mirant, que emetre un codi que es llegeix malament i es dona
+       per bo. */
+    fulls.forEach(function (f) {
+      if (f.n < 1 || f.n > MAX_FULLS) {
+        throw new Error("RE_CODI: el format RC3 només té lloc per a "
+          + MAX_FULLS + " fulls i se n'ha demanat el " + f.n
+          + ". Amb més fulls cal un format nou (RC4): el bit del full "
+          + (MAX_FULLS + 1) + " és el del diagnòstic.");
+      }
+      if (f.estats.length > MAX_ITEMS) {
+        throw new Error("RE_CODI: el full " + f.n + " té " + f.estats.length
+          + " ítems i el format RC3 n'admet " + MAX_ITEMS
+          + " (31 grups de 7). Amb més cal un format nou (RC4).");
+      }
+    });
+
     var mask = 0;
     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
     if (diag) mask |= (1 << 12);
@@ -198,15 +238,9 @@ window.RE_CODI = (function () {
     });
 
     if (diag) {
-      var d = 0;
-      /* 15 destreses en base 8: estat 0-3 (× 2) més encert 0/1. */
-      for (var j = 0; j < 15; j++) {
-        var p = diag[j] || {};
-        var e = Math.max(0, Math.min(3, p.estat | 0));
-        d = d * 8 + (e * 2 + (p.encert ? 1 : 0));
-      }
-      /* 45 bits no caben en un Number sencer amb multiplicacions successives:
-         es parteix en dos trossos de 8 i 7 destreses. */
+      /* 15 destreses en base 8: estat 0-3 (× 2) més encert 0/1. Però 45 bits
+         no caben en un Number sencer amb multiplicacions successives, així
+         que es parteix en dos trossos de 8 i 7 destreses. */
       var d1 = 0, d2 = 0;
       for (var j1 = 0; j1 < 8; j1++) {
         var p1 = diag[j1] || {};
@@ -275,7 +309,7 @@ window.RE_CODI = (function () {
     var minuts = hora * 2;
 
     var fulls = [], r;
-    for (var n = 1; n <= 12; n++) {
+    for (var n = 1; n <= MAX_FULLS; n++) {
       if (!(mask & (1 << (n - 1)))) continue;
       if (p >= cos.length) return { ok: false, error: "El codi s'acaba abans d'hora" };
       var grups = dec(s.charAt(p)); p += 1;
@@ -356,7 +390,7 @@ window.RE_CODI = (function () {
      contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
   function resum(r) {
     var c = { net: 0, segon: 0, pista: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
-    var perDif = { 1: 0, 2: 0, 3: 0 };
+    var perDif = { 1: 0, 2: 0, 3: 0, 4: 0 };   /* trivial, directa, encadenada, completa */
     r.fulls.forEach(function (f) {
       f.items.forEach(function (it) {
         if (!it.estat) return;
@@ -441,6 +475,9 @@ window.RE_CODI = (function () {
 
   return {
     genera: genera, llegeix: llegeix, recull: recull, empremta: empremta,
-    neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES
+    neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES,
+    /* Els sostres del format, exportats perquè el build i les proves els
+       comprovin contra el banc de debò en lloc de repetir el número. */
+    MAX_ITEMS: MAX_ITEMS, MAX_FULLS: MAX_FULLS
   };
 })();

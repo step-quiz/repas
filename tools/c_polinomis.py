@@ -23,26 +23,28 @@ from sympy import symbols, Poly, expand, factor, sqrt
 from lib import Q, D, DT, ev, tex, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 4 · polinomis
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     62: 2,  # sumar i restar polinomis donats
-     63: 2,  # a l'inrevés: quin polinomi cal sumar per arribar a un altre
-     64: 3,  # operar dins del claudàtor i multiplicar després
-     65: 2,  # divisió llarga; 66 i 68, Ruffini amb divisor mònic
-     66: 2,
-     67: 3,  # Ruffini amb divisor no mònic: cal ajustar quocient o residu
-     68: 2,
-     69: 3,  # reconstruir una taula de Ruffini incompleta
-     70: 2,  # completar una igualtat notable
-     71: 1,  # reconèixer la igualtat notable; 73, treure factor comú
-     72: 3,  # reconèixer el patró amb un bloc sencer fent de terme
-     73: 1,
-     74: 3,  # combinar factor comú i igualtats notables en la mateixa expressió
+     62: 3,  # sumar i restar polinomis donats
+     63: 3,  # a l'inrevés: quin polinomi cal sumar per arribar a un altre
+     64: 4,  # operar dins del claudàtor i multiplicar després
+     65: 3,  # divisió llarga; 66 i 68, Ruffini amb divisor mònic
+     66: 3,
+     67: 4,  # Ruffini amb divisor no mònic: cal ajustar quocient o residu
+     68: 3,
+     69: 4,  # reconstruir una taula de Ruffini incompleta
+     70: 3,  # completar una igualtat notable
+     71: 2,  # reconèixer la igualtat notable; 73, treure factor comú
+     72: 4,  # reconèixer el patró amb un bloc sencer fent de terme
+     73: 2,
+     74: 4,  # combinar factor comú i igualtats notables en la mateixa expressió
 })
 
 
@@ -1223,3 +1225,235 @@ Q("74h", 74, "h", B4, "A",
   [r"$(-x^2+5)(-x^2-5)=(-x^2)^2-5^2=x^4-25$ (equivalent a "
    r"$(x^2-5)(x^2+5)$, que no es pot factoritzar més amb enters)"],
   ex_text=E74)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 327-331)
+# =====================================================================
+# `operacions` obria sumant QUATRE polinomis, un d'ells de grau 5 — el
+# primer exercici de tot el Full 4 — i a tot el bloc no hi havia cap suma
+# de dos binomis. `divisio` obria amb una divisió llarga de grau 5 entre
+# grau 2, i Ruffini no arribava fins al 66.
+
+dificultats({
+    327: 1,  # suma i resta de dos binomis
+    328: 1,  # un monomi per un parèntesi
+    329: 1,  # divisió per un monomi
+    330: 1,  # el residu pel teorema del residu, sense dividir
+    331: 2,  # Ruffini amb divisor x-1: és un algorisme, encara que curt
+})
+
+
+E327 = "Opera i simplifica."
+
+Q("327a", 327, "a", B1, "A",
+  r"$(3x+2)+(x-5)$",
+  "$4x-3$",
+  [D("$4x+7$", "SIGNE_SUMA",
+     "Has sumat el $5$ en lloc de restar-lo: el segon parèntesi porta "
+     "$-5$, i $2+(-5)=-3$."),
+   D("$3x-3$", "TERME_OBLIDAT_OPERACIO",
+     "T'has deixat la $x$ del segon parèntesi. Una $x$ sola val $1x$: "
+     "$3x+1x=4x$."),
+   D("$4x^2-3$", "GRAUS_MAL_AGRUPATS",
+     "En sumar termes semblants, els exponents NO se sumen: $3x+x=4x$, no "
+     "$4x^2$. El que se sumen són els coeficients.")],
+  ["Ajunta les $x$ amb les $x$ i els números amb els números.",
+   "$3x+x=4x$ i $2-5=-3$."],
+  [r"$(3x+2)+(x-5)=3x+x+2-5=4x-3$"],
+  ex_text=E327)
+
+Q("327b", 327, "b", B1, "A",
+  r"$(x^2+4x)+(2x^2-x)$",
+  "$3x^2+3x$",
+  [D("$3x^2+5x$", "SIGNE_SUMA",
+     "Has sumat la $x$ del segon parèntesi en lloc de restar-la: "
+     "$4x-x=3x$."),
+   D("$3x^4+3x^2$", "EXPONENTS_SUMATS_QUOCIENT",
+     "Els exponents no se sumen en sumar: $x^2+2x^2=3x^2$, i l'exponent es "
+     "queda en $2$."),
+   D("$6x^3$", "TERMES_NO_REDUITS",
+     "Has ajuntat termes que no són semblants. $x^2$ i $x$ són graus "
+     "diferents i no es poden sumar entre ells.")],
+  ["Només se sumen els termes del MATEIX grau.",
+   "Els de grau 2 entre ells ($x^2+2x^2$) i els de grau 1 entre ells "
+   "($4x-x$)."],
+  [r"$(x^2+4x)+(2x^2-x)=(x^2+2x^2)+(4x-x)=3x^2+3x$"],
+  ex_text=E327)
+
+Q("327c", 327, "c", B1, "A",
+  r"$(5x-1)-(2x+3)$",
+  "$3x-4$",
+  [DT("$3x+2$", "PARENTESI_NO_DISTRIBUIT_POLI",
+      extra="El menys de davant del parèntesi afecta TOTS dos termes: "
+            "$-(2x+3)=-2x-3$, de manera que $-1-3=-4$."),
+   D("$7x-4$", "SIGNE_SUMA",
+     "Has sumat les $x$ en lloc de restar-les: $5x-2x=3x$."),
+   D("$3x-2$", "ORDRE_RESTA",
+     "Revisa els termes sense $x$: és $-1-3$, que fa $-4$.")],
+  ["Un menys davant d'un parèntesi canvia el signe de tot el que hi ha a "
+   "dins.",
+   "$-(2x+3)=-2x-3$."],
+  [r"$(5x-1)-(2x+3)=5x-1-2x-3=3x-4$"],
+  ex_text=E327)
+
+Q("327d", 327, "d", B1, "A",
+  r"$(x^2-2)-(x^2+6)$",
+  "$-8$",
+  [DT("$4$", "PARENTESI_NO_DISTRIBUIT_POLI",
+      extra="El $+6$ es converteix en $-6$ en treure el parèntesi: "
+            "$-2-6=-8$."),
+   D("$2x^2-8$", "SIGNE_SUMA",
+     "Has sumat els $x^2$ en lloc de restar-los. $x^2-x^2=0$, i el terme "
+     "desapareix."),
+   D("$-4$", "ORDRE_RESTA",
+     "Revisa la resta dels números: $-2-6=-8$.")],
+  ["Compte: els dos $x^2$ es cancel·len.",
+   "$x^2-x^2=0$; només queden els números."],
+  [r"$(x^2-2)-(x^2+6)=x^2-2-x^2-6=-8$"],
+  ex_text=E327,
+  nota="Sí, la resposta pot no tenir $x$: quan els termes d'un grau es "
+       "cancel·len, aquell grau desapareix del resultat.")
+
+
+E328 = "Treu el parèntesi."
+
+Q("328a", 328, "a", B1, "A",
+  r"$2x(x+3)$",
+  "$2x^2+6x$",
+  [DT("$2x^2+3$", "DISTRIBUCIO_INCOMPLETA",
+      extra="El $2x$ ha de multiplicar els DOS termes de dins: també el $3$."),
+   D("$2x^2+6$", "DISTRIBUCIO_INCOMPLETA",
+     "Has multiplicat bé els números ($2\\cdot 3=6$) però hi has perdut la "
+     "$x$: $2x\\cdot 3=6x$."),
+   D("$2x+6x$", "GRAU_PRODUCTE_MAL",
+     "$2x\\cdot x=2x^2$: en multiplicar dues $x$, els exponents se sumen i "
+     "el grau puja.")],
+  ["El $2x$ multiplica cada terme de dins del parèntesi.",
+   "$2x\\cdot x=2x^2$ i $2x\\cdot 3=6x$."],
+  [r"$2x(x+3)=2x\cdot x+2x\cdot 3=2x^2+6x$"],
+  ex_text=E328)
+
+Q("328b", 328, "b", B1, "A",
+  r"$-3(x^2-2x)$",
+  "$-3x^2+6x$",
+  [D("$-3x^2-6x$", "SIGNE_PRODUCTE",
+     "Menys per menys fa més: $-3\\cdot(-2x)=+6x$."),
+   DT("$-3x^2+2x$", "DISTRIBUCIO_INCOMPLETA",
+      extra="Al segon terme t'ha faltat multiplicar pel $3$: "
+            "$-3\\cdot(-2x)=6x$."),
+   D("$3x^2-6x$", "SIGNE_FINAL",
+     "Has canviat de signe tot el resultat. El primer terme és "
+     "$-3\\cdot x^2=-3x^2$, negatiu.")],
+  ["El $-3$ multiplica els dos termes, amb el seu signe.",
+   "$-3\\cdot x^2=-3x^2$ i $-3\\cdot(-2x)=+6x$."],
+  [r"$-3(x^2-2x)=-3x^2+6x$"],
+  ex_text=E328)
+
+
+E329 = "Fes la divisió."
+
+Q("329a", 329, "a", B2, "A",
+  r"$6x^3:2x$",
+  "$3x^2$",
+  [D("$3x^3$", "EXPONENT_SENSE_DESPLACAR",
+     "Els coeficients van bé ($6:2=3$), però els exponents també es "
+     "resten: $x^3:x^1=x^{3-1}=x^2$."),
+   D("$3x^4$", "EXPONENTS_SUMATS_QUOCIENT",
+     "En dividir, els exponents es RESTEN: $3-1=2$."),
+   D("$4x^2$", "COEFICIENT_MAL_TRIAT",
+     "Has restat els coeficients ($6-2$). Els coeficients es divideixen: "
+     "$6:2=3$. Els que es resten són els exponents.")],
+  ["Divideix els coeficients i resta els exponents.",
+   "$6:2=3$ i $x^3:x=x^2$."],
+  [r"$6x^3:2x=\dfrac{6}{2}\,x^{3-1}=3x^2$"],
+  ex_text=E329)
+
+Q("329b", 329, "b", B2, "A",
+  r"$(x^4+x^3):x^2$",
+  "$x^2+x$",
+  [D("$x^6+x^5$", "EXPONENTS_SUMATS_QUOCIENT",
+     "En dividir, els exponents es resten: $4-2=2$ i $3-2=1$."),
+   D("$x^2$", "TERME_OBLIDAT_OPERACIO",
+     "Has dividit només el primer terme. Cada terme del dividend s'ha de "
+     "dividir pel monomi."),
+   D("$x^2+x^3$", "EXPONENT_SENSE_DESPLACAR",
+     "Al segon terme no has restat l'exponent: $x^3:x^2=x$.")],
+  ["Divideix cada terme del numerador pel monomi.",
+   "$x^4:x^2=x^2$ i $x^3:x^2=x$."],
+  [r"$(x^4+x^3):x^2=\dfrac{x^4}{x^2}+\dfrac{x^3}{x^2}=x^2+x$"],
+  ex_text=E329)
+
+
+E330 = ("Quin és el residu d'aquesta divisió? No cal dividir: el teorema "
+        "del residu diu que el residu de $P(x):(x-a)$ és $P(a)$.")
+
+Q("330a", 330, "a", B2, "A",
+  r"$(x^2-3x+2):(x-1)$",
+  "0",
+  [DT("6", "RUFFINI_SIGNE_ARREL",
+      extra="Has avaluat a $x=-1$. El divisor és $x-1$, o sigui $a=+1$."),
+   DT("2", "TERME_INDEPENDENT_IGNORAT",
+      extra="Has donat el terme independent del polinomi sense avaluar-lo."),
+   D("1", "RUFFINI_RESIDU_COM_QUOCIENT",
+     "L'$1$ és el valor de $a$, no el residu. El residu és $P(1)$.")],
+  ["El divisor és $x-1$: el valor que s'ha de substituir és $a=1$.",
+   "Calcula $P(1)=1^2-3\\cdot 1+2$."],
+  [r"$P(1)=1-3+2=0$; el residu és $0$, o sigui que la divisió és exacta"],
+  ex_text=E330)
+
+Q("330b", 330, "b", B2, "A",
+  r"$(x^3+1):(x+1)$",
+  "0",
+  [DT("2", "RUFFINI_SIGNE_ARREL",
+      extra="Has avaluat a $x=1$. El divisor és $x+1$, que és $x-(-1)$: "
+            "$a=-1$."),
+   DT("1", "TERME_INDEPENDENT_IGNORAT",
+      extra="Has donat el terme independent sense avaluar."),
+   D("-1", "RUFFINI_SIGNE_ARREL",
+     "El $-1$ és el valor de $a$, no el residu: el residu és $P(-1)$.")],
+  ["$x+1$ es llegeix com $x-(-1)$: el valor a substituir és $-1$.",
+   "Calcula $P(-1)=(-1)^3+1$."],
+  [r"$P(-1)=(-1)^3+1=-1+1=0$; la divisió és exacta"],
+  ex_text=E330)
+
+Q("330c", 330, "c", B2, "A",
+  r"$(x^2+x+5):(x-2)$",
+  "11",
+  [DT("7", "RUFFINI_SIGNE_ARREL",
+      extra="Has avaluat a $x=-2$: $4-2+5=7$. El divisor és $x-2$, o sigui "
+            "$a=+2$."),
+   DT("5", "TERME_INDEPENDENT_IGNORAT",
+      extra="Has donat el terme independent sense avaluar-hi res."),
+   D("0", "RUFFINI_RESIDU_COM_QUOCIENT",
+     "No totes les divisions són exactes: aquí el residu no és zero. "
+     "Calcula $P(2)$ i comprova-ho.")],
+  ["El divisor és $x-2$: substitueix $x=2$.",
+   "$P(2)=2^2+2+5$."],
+  [r"$P(2)=4+2+5=11$; el residu és $11$"],
+  ex_text=E330,
+  nota_interna="El terme en x hi és a posta: amb x^2+5, P(2) i P(-2) valen "
+               "igual i el distractor RUFFINI_SIGNE_ARREL no detectaria res. "
+               "Mateix criteri que 323c de c_potencies.")
+
+
+E331 = "Aplica la regla de Ruffini i digues quin és el quocient."
+
+Q("331a", 331, "a", B2, "A",
+  r"$(x^2-3x+2):(x-1)$",
+  "$x-2$",
+  [DT("$x+2$", "RUFFINI_SIGNE_ARREL",
+      extra="Has baixat un $-1$ a la caixa de Ruffini. Amb divisor $x-1$ "
+            "hi va $+1$."),
+   DT("$x^2-2$", "RUFFINI_QUOCIENT_GRAU",
+      extra="El quocient té un grau MENYS que el dividend: de grau 2 es "
+            "passa a grau 1."),
+   D("$x-3$", "RUFFINI_PAS_MAL",
+     "Has copiat el coeficient $-3$ del dividend. A Ruffini, el segon "
+     "coeficient del quocient és $-3+1=-2$.")],
+  ["Posa a la caixa els coeficients $1$, $-3$, $2$ i baixa el $1$ del "
+   "divisor.",
+   "$1$; després $-3+1\\cdot 1=-2$; el quocient és $1x-2$."],
+  [r"Ruffini amb $a=1$: $1$, $-3+1=-2$, $2+(-2)=0$. "
+   r"Quocient $x-2$ i residu $0$."],
+  ex_text=E331)

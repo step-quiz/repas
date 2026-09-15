@@ -5,21 +5,23 @@ from fractions import Fraction as F
 from lib import Q, D, DT, TAX, ev, tex, mcd, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 1 · fraccions
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     18: 1,  # comprovar equivalència; 20, simplificar; 22, enter ± fracció
-     19: 2,  # a l'inrevés: quin nombre falta perquè siguin equivalents
-     20: 1,
-     21: 2,  # parèntesis niats, i 23-25 barregen suma, producte i enters
-     22: 1,
-     23: 2,
-     24: 2,
-     25: 2,
+     18: 2,  # comprovar equivalència; 20, simplificar; 22, enter ± fracció
+     19: 3,  # a l'inrevés: quin nombre falta perquè siguin equivalents
+     20: 2,
+     21: 3,  # parèntesis niats, i 23-25 barregen suma, producte i enters
+     22: 2,
+     23: 3,
+     24: 3,
+     25: 3,
 })
 
 

@@ -4,17 +4,19 @@
 from lib import Q, D, ev, tex, F, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 1 · nombres enters
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-      1: 1,  # cadena d'operacions amb signes, en una línia
-      2: 2,  # parèntesis i claudàtors: cal respectar la jerarquia
-      3: 2,  # hi entren potències, a més dels claudàtors
-      4: 3,  # troba el pas equivocat i justifica'l
+      1: 2,  # cadena d'operacions amb signes, en una línia
+      2: 3,  # parèntesis i claudàtors: cal respectar la jerarquia
+      3: 3,  # hi entren potències, a més dels claudàtors
+      4: 4,  # troba el pas equivocat i justifica'l
 })
 
 

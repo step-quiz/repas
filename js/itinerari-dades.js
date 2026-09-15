@@ -27,10 +27,11 @@ window.RE_ITI = (function () {
      sistemàticament més senzill d'encarar que un de llarg amb diversos
      passos). No cal que sigui una mesura perfecta de dificultat real, només
      prou bona per ordenar fàcil abans que difícil dins de cada bloc. */
-  /* Nivell d'un exercici: el camp `dif` que hi posa el generador (1 directa,
-     2 encadenada, 3 completa; vegeu tools/lib.py). Si un full compilat abans
-     que existís el camp queda a la memòria cau del navegador, els seus ítems
-     cauen tots al nivell 2 i el desempat per longitud fa la feina, com abans. */
+  /* Nivell d'un exercici: el camp `dif` que hi posa el generador (1 trivial,
+     2 directa, 3 encadenada, 4 completa; vegeu tools/lib.py). Si un full
+     compilat abans que existís el camp queda a la memòria cau del navegador,
+     els seus ítems cauen tots al mateix nivell i el desempat per longitud fa
+     la feina, com abans. */
   function niv(it) { return it.dif || 2; }
 
   function ordenaPerDificultat(items) {
@@ -148,7 +149,7 @@ window.RE_ITI = (function () {
     var ordenats = ordenaPerDificultat(items);
     if (quota >= ordenats.length) return ordenats;
 
-    var grups = [1, 2, 3].map(function (n) {
+    var grups = [1, 2, 3, 4].map(function (n) {
       return { niv: n, items: ordenats.filter(function (it) { return niv(it) === n; }) };
     }).filter(function (g) { return g.items.length; });
 

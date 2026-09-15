@@ -9,9 +9,6 @@ window.FULL = {
    "titol": "Concepte de funció",
    "descripcio": "Relacions que són o no funcions, càlcul d'imatges, i domini, recorregut i creixement llegits d'una gràfica.",
    "items": [
-    "200a",
-    "200b",
-    "200c",
     "201a",
     "201b",
     "201c",
@@ -20,6 +17,9 @@ window.FULL = {
     "202b",
     "202c",
     "202d",
+    "200a",
+    "200b",
+    "200c",
     "203a",
     "203b",
     "203c",
@@ -55,6 +55,12 @@ window.FULL = {
    "titol": "Construir rectes",
    "descripcio": "De les dades a l'equació: pendent i punt, dos punts, paral·leles i perpendiculars, i punts de tall.",
    "items": [
+    "336a",
+    "336b",
+    "336c",
+    "336d",
+    "337a",
+    "337b",
     "295a",
     "295b",
     "295c",
@@ -77,6 +83,12 @@ window.FULL = {
    "titol": "Construir paràboles i problemes",
    "descripcio": "Vèrtex, talls amb els eixos, l'equació a partir del vèrtex, i problemes que es resolen muntant la funció.",
    "items": [
+    "338a",
+    "338b",
+    "338c",
+    "339a",
+    "339b",
+    "339c",
     "300a",
     "300b",
     "300c",
@@ -103,13 +115,13 @@ window.FULL = {
     "212d",
     "214a",
     "214b",
+    "217a",
+    "217b",
     "215",
     "216a",
     "216b",
     "216c",
-    "216d",
-    "217a",
-    "217b"
+    "216d"
    ]
   }
  ],
@@ -136,6 +148,7 @@ window.FULL = {
   "PARABOLA_AMB_A_ZERO": "Si $a=0$ no hi ha terme en $x^2$ i allò no és cap paràbola, sinó una recta.",
   "PARALLELA_MATEIXA_RECTA": "La recta que has donat és la de partida. Una paral·lela té el mateix pendent però una altra ordenada a l'origen, o serien la mateixa recta.",
   "PARALLELA_PER_PERPENDICULAR": "Has confós paral·lela amb perpendicular. Les paral·leles comparteixen pendent; les perpendiculars el tenen invers i canviat de signe.",
+  "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
   "PART_FIXA_VARIABLE_BARREJADES": "Has barrejat la part fixa amb la variable. La que es paga sempre és el terme independent; la que depèn de la quantitat és el pendent.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
   "PENDENT_COM_NUL": "Una funció afí només és constant si el pendent és $0$. Si el pendent és qualsevol altre nombre, la funció puja o baixa sempre.",
@@ -174,76 +187,12 @@ window.FULL = {
  },
  "items": [
   {
-   "id": "200a",
-   "ex": 200,
-   "ap": "a",
-   "bloc": "concepte_funcio",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
-   "enunciat": "La mida d'una paret i la quantitat de pintura necessària per pintar-la.",
-   "opcions": [
-    "SÍ és una funció: per a cada mida de paret (suposant un gruix de pintura fix) hi ha una única quantitat de pintura necessària.",
-    "NO és una funció: hi pot haver parets de la mateixa mida que necessitin diferent quantitat de pintura segons el color.",
-    "NO és una funció: la mateixa mida de paret podria necessitar quantitats de pintura diferents segons qui la pinti.",
-    "Depèn: només és una funció si la paret és rectangular."
-   ],
-   "pistes": [
-    "Una relació és una funció quan a cada valor de la primera magnitud li correspon un ÚNIC valor de la segona, mai més d'un."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcXVlIGZhIHF1ZSB1bmEgcmVsYWNpw7Mgc2lndWkgZnVuY2nDsyDDqXMgcXVlIGEgY2FkYSBtaWRhIGxpIGNvcnJlc3Bvbmd1aSB1biDDum5pYyB2YWxvciBkZSBwaW50dXJhIHNvdGEgbGVzIG1hdGVpeGVzIGNvbmRpY2lvbnMgKG1hdGVpeCBncnVpeCBkZSBjYXBhKTogYW1iIGFpeMOyIGZpeGF0LCBTw40gw6lzIHVuYSBmdW5jacOzLiIsICJGaXhhbnQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSAoY29tIHNlIHNvYnJlZW50w6luIGVuIHVuIGV4ZXJjaWNpIGQnYXF1ZXN0IHRpcHVzKSwgY2FkYSBtaWRhIGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdDogU8ONIMOpcyB1bmEgZnVuY2nDsywgZW5jYXJhIHF1ZSBhIGxhIHByw6BjdGljYSBoaSBwdWd1aW4gaGF2ZXIgcGV0aXRlcyB2YXJpYWNpb25zIHBlciBxdWkgcGludGEuIiwgIkxhIGZvcm1hIGNvbmNyZXRhIGRlIGxhIHBhcmV0IG5vIGFmZWN0YSBzaSBsYSByZWxhY2nDsyDDqXMgdW5hIGZ1bmNpw7M6IGVsIHF1ZSBpbXBvcnRhIMOpcyBxdWUgY2FkYSBtaWRhICjDoHJlYSkgZGV0ZXJtaW5pIHVuYSDDum5pY2EgcXVhbnRpdGF0IGRlIHBpbnR1cmEsIHNpZ3VpIHF1aW5hIHNpZ3VpIGxhIGZvcm1hLiJdLCAiZXJyIjogWyIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiRml4YXQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSwgY2FkYSBtaWRhIGRlIHBhcmV0IGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdCBuZWNlc3PDoHJpYTogw6lzIHVuYSBmdW5jacOzLiJdfQ=="
-  },
-  {
-   "id": "200b",
-   "ex": 200,
-   "ap": "b",
-   "bloc": "concepte_funcio",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
-   "enunciat": "Cada mes de l'any i el seu nombre de dies.",
-   "opcions": [
-    "Depèn: només és una funció si l'any no és de traspàs.",
-    "SÍ és una funció: cada mes té un únic nombre de dies, determinat pel calendari.",
-    "NO és una funció: el febrer no sempre té el mateix nombre de dies ($28$ o $29$, segons l'any), així que un mateix mes té més d'un valor possible.",
-    "NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen $30$ tots dos)."
-   ],
-   "pistes": [
-    "Comprova si algun mes podria tenir dos nombres de dies diferents.",
-    "Fixa't en què és exactament el conjunt de partida: els dotze mesos, sense dir de quin any."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBjb3AgZml4YXQgdW4gYW55LCBzw60gcXVlIHNlcmlhIHVuYSBmdW5jacOzLCB0YW50IHNpIMOpcyBkZSB0cmFzcMOgcyBjb20gc2kgbm8uIFBlcsOyIGwnZW51bmNpYXQgbm8gZW4gZml4YSBjYXA6IHBhcmxhIGRlbHMgbWVzb3MgZW4gZ2VuZXJhbCwgaSBwZXIgYWl4w7IgZWwgZmVicmVyIHF1ZWRhIGFtYiBkb3MgdmFsb3JzIHBvc3NpYmxlcy4iLCAiQWl4w7IgdmFsZHJpYSBzaSBsJ2VudW5jaWF0IGZpeMOpcyB1biBhbnkgY29uY3JldC4gVGFsIGNvbSBlc3TDoCwgZWwgY29uanVudCBkZSBwYXJ0aWRhIHPDs24gZWxzIGRvdHplIG1lc29zIGVuIGFic3RyYWN0ZSwgaSBlbCBmZWJyZXIgcG90IHZhbGVyICQyOCQgbyAkMjkkOiBkdWVzIGltYXRnZXMgcGVyIGEgdW4gbWF0ZWl4IGVsZW1lbnQgZGUgcGFydGlkYS4iLCAiIiwgIkVsIHZlcmVkaWN0ZSDDqXMgY29ycmVjdGUgcGVyw7IgZWwgbW90aXUgbm8uIFF1ZSBkb3MgZWxlbWVudHMgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBpbWF0Z2Ugbm8gdHJlbmNhIHJlczogdW5hIGZ1bmNpw7MgaG8gcG90IGZlci4gRWwgcXVlIG5vIHBvdCBwYXNzYXIgw6lzIHF1ZSB1biBtYXRlaXggZWxlbWVudCBlbiB0aW5ndWkgZHVlcywgaSBhaXjDsiDDqXMgZWwgcXVlIGxpIHBhc3NhIGFsIGZlYnJlci4iXSwgImVyciI6IFsiRE9NSU5JX01BTF9MTEVHSVQiLCAiRE9NSU5JX01BTF9MTEVHSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgc2VyIHVuYSBmdW5jacOzLCBjYWRhIGVsZW1lbnQgZGVsIGNvbmp1bnQgZGUgcGFydGlkYSBoYSBkZSB0ZW5pciB1bmEgaW1hdGdlIGkgbm9tw6lzIHVuYS4iLCAiRWwgZmVicmVyIGVuIHTDqSBkdWVzIGRlIHBvc3NpYmxlcywgJDI4JCBpICQyOSQsIHBlcnF1w6ggbCdlbnVuY2lhdCBubyBkaXUgZGUgcXVpbiBhbnkgcGFybGVtLiIsICJOJ2hpIGhhIHByb3UgYW1iIHVuIHNvbCBlbGVtZW50IHF1ZSBlbiB0aW5ndWkgZHVlczogbGEgcmVsYWNpw7MgTk8gw6lzIHVuYSBmdW5jacOzLiJdfQ=="
-  },
-  {
-   "id": "200c",
-   "ex": 200,
-   "ap": "c",
-   "bloc": "concepte_funcio",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
-   "enunciat": "El radi d'una circumferència i la longitud del seu perímetre.",
-   "opcions": [
-    "NO és una funció: circumferències de radis diferents poden tenir perímetres semblants, així que no es pot saber amb certesa.",
-    "SÍ és una funció: cada radi determina una única longitud de perímetre, mitjançant la fórmula $L=2\\pi r$.",
-    "NO és una funció: el perímetre depèn també del diàmetre, no només del radi.",
-    "Depèn: només és una funció si es fa servir un valor aproximat de $\\pi$."
-   ],
-   "pistes": [
-    "La fórmula del perímetre, $L=2\\pi r$, assigna a cada radi un únic valor de $L$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJRdWUgZG9zIHBlcsOtbWV0cmVzIHNpZ3VpbiBcXGVtcGh7c2VtYmxhbnRzfSBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBpZ3VhbHM6IGxhIGbDs3JtdWxhICRMPTJcXHBpIHIkIGRvbmEsIHBlciBhIGNhZGEgcmFkaSBjb25jcmV0LCB1biDDum5pYyB2YWxvciBleGFjdGUgZGUgcGVyw61tZXRyZSwgc2Vuc2UgYW1iaWfDvGl0YXQuIiwgIiIsICJFbCBkacOgbWV0cmUgw6lzIHNlbXByZSBlbCBkb2JsZSBkZWwgcmFkaSAoJGQ9MnIkKSwgYWl4w60gcXVlIG5vIMOpcyB1bmEgbWFnbml0dWQgaW5kZXBlbmRlbnQ6IGZpeGF0IGVsIHJhZGksIGVsIHBlcsOtbWV0cmUgJEw9MlxccGkgciQgcXVlZGEgY29tcGxldGFtZW50IGRldGVybWluYXQuIiwgIkwnYXByb3hpbWFjacOzIGRlICRcXHBpJCBxdWUgZXMgZmFjaSBzZXJ2aXIgbm8gY2FudmlhIHF1ZSBsYSByZWxhY2nDsyBzaWd1aSB1bmEgZnVuY2nDszogcGVyIGEgY2FkYSByYWRpIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgY29ycmVzcG9uZW50LCBleGFjdGUgbyBhcHJveGltYXQuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHJhZGkgJHIkIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgJEw9MlxccGkgciQ6IMOpcyB1bmEgZnVuY2nDsy4iXX0="
-  },
-  {
    "id": "201a",
    "ex": 201,
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=5x^2-1$",
    "opcions": [
@@ -265,7 +214,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=2x^2-x$",
    "opcions": [
@@ -286,7 +235,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=x^2-x-1$",
    "opcions": [
@@ -307,7 +256,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=2,\\ -2,\\ 3,\\ -3,\\ 1,\\ -1$ per a cada funció.",
    "enunciat": "$f(x)=-x^2+1$",
    "opcions": [
@@ -328,7 +277,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=x^3-1$",
    "opcions": [
@@ -349,7 +298,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\dfrac{1}{x^2+2}$",
    "opcions": [
@@ -370,7 +319,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\sqrt{\\dfrac{x}{2}+5}$",
    "opcions": [
@@ -391,7 +340,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la imatge dels valors $x=-2,\\ -1,\\ 0,\\ 1,\\ 2$ per a cada funció. Quan el resultat no sigui exacte, arrodoneix a les centèsimes.",
    "enunciat": "$f(x)=\\dfrac{x^2}{3}-2x+\\dfrac{3}{5}$",
    "opcions": [
@@ -407,12 +356,76 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB0ZXJtZSAkXFxkZnJhY3szfXs1fSQgw6lzIHBvc2l0aXUgaSBzZSBzdW1hLCBubyBzZSByZXN0YS4iLCAiIiwgIkZhbHRhIGRpdmlkaXIgJHheMiQgZW50cmUgJDMkOiBlbCBwcmltZXIgdGVybWUgw6lzICRcXGRmcmFje3heMn17M30kLCBubyAkeF4yJC4iLCAiRWwgdGVybWUgJDJ4JCBzZSBSRVNUQSwgbm8gc2Ugc3VtYTogw6lzICQtMngkLiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTVU1BX0VOX0xMT0NfUkVTVEEiXSwgInJlcyI6IFsiQ2FsY3VsYSBwZXIgc2VwYXJhdCAkXFxkZnJhY3t4XjJ9ezN9JCwgJC0yeCQgaSAkXFxkZnJhY3szfXs1fSQsIGkgc3VtYS1obyB0b3QgYW1iIGRlbm9taW5hZG9yIGNvbcO6ICQxNSQuIiwgIiRmKC0yKT1cXGRmcmFjezR9ezN9KzQrXFxkZnJhY3szfXs1fT1cXGRmcmFjezIwKzYwKzl9ezE1fT1cXGRmcmFjezg5fXsxNX0kLiIsICIkZigtMSk9XFxkZnJhY3s0NH17MTV9JCwgJGYoMCk9XFxkZnJhY3szfXs1fSQsICRmKDEpPS1cXGRmcmFjezE2fXsxNX0kLCAkZigyKT0tXFxkZnJhY3szMX17MTV9JC4iXX0="
   },
   {
+   "id": "200a",
+   "ex": 200,
+   "ap": "a",
+   "bloc": "concepte_funcio",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
+   "enunciat": "La mida d'una paret i la quantitat de pintura necessària per pintar-la.",
+   "opcions": [
+    "SÍ és una funció: per a cada mida de paret (suposant un gruix de pintura fix) hi ha una única quantitat de pintura necessària.",
+    "NO és una funció: hi pot haver parets de la mateixa mida que necessitin diferent quantitat de pintura segons el color.",
+    "NO és una funció: la mateixa mida de paret podria necessitar quantitats de pintura diferents segons qui la pinti.",
+    "Depèn: només és una funció si la paret és rectangular."
+   ],
+   "pistes": [
+    "Una relació és una funció quan a cada valor de la primera magnitud li correspon un ÚNIC valor de la segona, mai més d'un."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcXVlIGZhIHF1ZSB1bmEgcmVsYWNpw7Mgc2lndWkgZnVuY2nDsyDDqXMgcXVlIGEgY2FkYSBtaWRhIGxpIGNvcnJlc3Bvbmd1aSB1biDDum5pYyB2YWxvciBkZSBwaW50dXJhIHNvdGEgbGVzIG1hdGVpeGVzIGNvbmRpY2lvbnMgKG1hdGVpeCBncnVpeCBkZSBjYXBhKTogYW1iIGFpeMOyIGZpeGF0LCBTw40gw6lzIHVuYSBmdW5jacOzLiIsICJGaXhhbnQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSAoY29tIHNlIHNvYnJlZW50w6luIGVuIHVuIGV4ZXJjaWNpIGQnYXF1ZXN0IHRpcHVzKSwgY2FkYSBtaWRhIGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdDogU8ONIMOpcyB1bmEgZnVuY2nDsywgZW5jYXJhIHF1ZSBhIGxhIHByw6BjdGljYSBoaSBwdWd1aW4gaGF2ZXIgcGV0aXRlcyB2YXJpYWNpb25zIHBlciBxdWkgcGludGEuIiwgIkxhIGZvcm1hIGNvbmNyZXRhIGRlIGxhIHBhcmV0IG5vIGFmZWN0YSBzaSBsYSByZWxhY2nDsyDDqXMgdW5hIGZ1bmNpw7M6IGVsIHF1ZSBpbXBvcnRhIMOpcyBxdWUgY2FkYSBtaWRhICjDoHJlYSkgZGV0ZXJtaW5pIHVuYSDDum5pY2EgcXVhbnRpdGF0IGRlIHBpbnR1cmEsIHNpZ3VpIHF1aW5hIHNpZ3VpIGxhIGZvcm1hLiJdLCAiZXJyIjogWyIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiRml4YXQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSwgY2FkYSBtaWRhIGRlIHBhcmV0IGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdCBuZWNlc3PDoHJpYTogw6lzIHVuYSBmdW5jacOzLiJdfQ=="
+  },
+  {
+   "id": "200b",
+   "ex": 200,
+   "ap": "b",
+   "bloc": "concepte_funcio",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
+   "enunciat": "Cada mes de l'any i el seu nombre de dies.",
+   "opcions": [
+    "Depèn: només és una funció si l'any no és de traspàs.",
+    "SÍ és una funció: cada mes té un únic nombre de dies, determinat pel calendari.",
+    "NO és una funció: el febrer no sempre té el mateix nombre de dies ($28$ o $29$, segons l'any), així que un mateix mes té més d'un valor possible.",
+    "NO és una funció: mesos diferents poden tenir el mateix nombre de dies (per exemple, abril i juny en tenen $30$ tots dos)."
+   ],
+   "pistes": [
+    "Comprova si algun mes podria tenir dos nombres de dies diferents.",
+    "Fixa't en què és exactament el conjunt de partida: els dotze mesos, sense dir de quin any."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBjb3AgZml4YXQgdW4gYW55LCBzw60gcXVlIHNlcmlhIHVuYSBmdW5jacOzLCB0YW50IHNpIMOpcyBkZSB0cmFzcMOgcyBjb20gc2kgbm8uIFBlcsOyIGwnZW51bmNpYXQgbm8gZW4gZml4YSBjYXA6IHBhcmxhIGRlbHMgbWVzb3MgZW4gZ2VuZXJhbCwgaSBwZXIgYWl4w7IgZWwgZmVicmVyIHF1ZWRhIGFtYiBkb3MgdmFsb3JzIHBvc3NpYmxlcy4iLCAiQWl4w7IgdmFsZHJpYSBzaSBsJ2VudW5jaWF0IGZpeMOpcyB1biBhbnkgY29uY3JldC4gVGFsIGNvbSBlc3TDoCwgZWwgY29uanVudCBkZSBwYXJ0aWRhIHPDs24gZWxzIGRvdHplIG1lc29zIGVuIGFic3RyYWN0ZSwgaSBlbCBmZWJyZXIgcG90IHZhbGVyICQyOCQgbyAkMjkkOiBkdWVzIGltYXRnZXMgcGVyIGEgdW4gbWF0ZWl4IGVsZW1lbnQgZGUgcGFydGlkYS4iLCAiIiwgIkVsIHZlcmVkaWN0ZSDDqXMgY29ycmVjdGUgcGVyw7IgZWwgbW90aXUgbm8uIFF1ZSBkb3MgZWxlbWVudHMgRElGRVJFTlRTIGNvbXBhcnRlaXhpbiBpbWF0Z2Ugbm8gdHJlbmNhIHJlczogdW5hIGZ1bmNpw7MgaG8gcG90IGZlci4gRWwgcXVlIG5vIHBvdCBwYXNzYXIgw6lzIHF1ZSB1biBtYXRlaXggZWxlbWVudCBlbiB0aW5ndWkgZHVlcywgaSBhaXjDsiDDqXMgZWwgcXVlIGxpIHBhc3NhIGFsIGZlYnJlci4iXSwgImVyciI6IFsiRE9NSU5JX01BTF9MTEVHSVQiLCAiRE9NSU5JX01BTF9MTEVHSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgc2VyIHVuYSBmdW5jacOzLCBjYWRhIGVsZW1lbnQgZGVsIGNvbmp1bnQgZGUgcGFydGlkYSBoYSBkZSB0ZW5pciB1bmEgaW1hdGdlIGkgbm9tw6lzIHVuYS4iLCAiRWwgZmVicmVyIGVuIHTDqSBkdWVzIGRlIHBvc3NpYmxlcywgJDI4JCBpICQyOSQsIHBlcnF1w6ggbCdlbnVuY2lhdCBubyBkaXUgZGUgcXVpbiBhbnkgcGFybGVtLiIsICJOJ2hpIGhhIHByb3UgYW1iIHVuIHNvbCBlbGVtZW50IHF1ZSBlbiB0aW5ndWkgZHVlczogbGEgcmVsYWNpw7MgTk8gw6lzIHVuYSBmdW5jacOzLiJdfQ=="
+  },
+  {
+   "id": "200c",
+   "ex": 200,
+   "ap": "c",
+   "bloc": "concepte_funcio",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Raona quines de les relacions següents corresponen a funcions.",
+   "enunciat": "El radi d'una circumferència i la longitud del seu perímetre.",
+   "opcions": [
+    "NO és una funció: circumferències de radis diferents poden tenir perímetres semblants, així que no es pot saber amb certesa.",
+    "SÍ és una funció: cada radi determina una única longitud de perímetre, mitjançant la fórmula $L=2\\pi r$.",
+    "NO és una funció: el perímetre depèn també del diàmetre, no només del radi.",
+    "Depèn: només és una funció si es fa servir un valor aproximat de $\\pi$."
+   ],
+   "pistes": [
+    "La fórmula del perímetre, $L=2\\pi r$, assigna a cada radi un únic valor de $L$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJRdWUgZG9zIHBlcsOtbWV0cmVzIHNpZ3VpbiBcXGVtcGh7c2VtYmxhbnRzfSBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBpZ3VhbHM6IGxhIGbDs3JtdWxhICRMPTJcXHBpIHIkIGRvbmEsIHBlciBhIGNhZGEgcmFkaSBjb25jcmV0LCB1biDDum5pYyB2YWxvciBleGFjdGUgZGUgcGVyw61tZXRyZSwgc2Vuc2UgYW1iaWfDvGl0YXQuIiwgIiIsICJFbCBkacOgbWV0cmUgw6lzIHNlbXByZSBlbCBkb2JsZSBkZWwgcmFkaSAoJGQ9MnIkKSwgYWl4w60gcXVlIG5vIMOpcyB1bmEgbWFnbml0dWQgaW5kZXBlbmRlbnQ6IGZpeGF0IGVsIHJhZGksIGVsIHBlcsOtbWV0cmUgJEw9MlxccGkgciQgcXVlZGEgY29tcGxldGFtZW50IGRldGVybWluYXQuIiwgIkwnYXByb3hpbWFjacOzIGRlICRcXHBpJCBxdWUgZXMgZmFjaSBzZXJ2aXIgbm8gY2FudmlhIHF1ZSBsYSByZWxhY2nDsyBzaWd1aSB1bmEgZnVuY2nDszogcGVyIGEgY2FkYSByYWRpIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgY29ycmVzcG9uZW50LCBleGFjdGUgbyBhcHJveGltYXQuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHJhZGkgJHIkIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgJEw9MlxccGkgciQ6IMOpcyB1bmEgZnVuY2nDsy4iXX0="
+  },
+  {
    "id": "203a",
    "ex": 203,
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica formada per dues branques de corba que s'apropen sense arribar mai a la recta vertical $x=2$ ni a la recta horitzontal $y=0$.",
    "opcions": [
@@ -434,7 +447,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems inclosos), i que oscil·la entre una alçada mínima de $-2$ i una màxima de $3$.",
    "opcions": [
@@ -456,7 +469,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense límit, amb un punt més baix a alçada $-1$ i que a partir d'aquí puja indefinidament cap als dos costats.",
    "opcions": [
@@ -478,7 +491,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica el domini i el recorregut de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que només existeix per a valors de $x$ fins a $5$ (inclòs, cap a l'esquerra sense límit), amb un punt més baix a alçada $0$ (quan $x=5$) i que a partir d'aquí puja indefinidament com més ens allunyem cap a l'esquerra.",
    "opcions": [
@@ -500,7 +513,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una recta que travessa tot el pla, pujant sempre de manera constant, sense cap tram pla ni cap màxim o mínim.",
    "opcions": [
@@ -521,7 +534,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una paràbola oberta cap amunt, amb el punt més baix al $(1,-3)$, que baixa fins a aquest punt i després torna a pujar, estenent-se sense límit cap als dos costats.",
    "opcions": [
@@ -543,7 +556,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "concepte_funcio",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fes l'estudi complet (domini, recorregut, creixement/decreixement i extrems) de cada funció, descrita per la seva gràfica.",
    "enunciat": "Una gràfica que puja fins a un punt més alt en $(0,2)$, després baixa fins a un punt més baix en $(3,-1)$, i a partir d'aquí torna a pujar indefinidament.",
    "opcions": [
@@ -565,7 +578,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-3x+6$",
    "opcions": [
@@ -587,7 +600,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=10x$",
    "opcions": [
@@ -609,7 +622,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-2x-5$",
    "opcions": [
@@ -631,7 +644,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica el pendent i l'ordenada a l'origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s'anomenen funcions lineals, i són el cas particular amb ordenada a l'origen $0$.",
    "enunciat": "$y=-9x$",
    "opcions": [
@@ -653,7 +666,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=12x-1$",
    "opcions": [
@@ -674,7 +687,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=\\dfrac{x}{6}+3$",
    "opcions": [
@@ -695,7 +708,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=\\dfrac{x}{4}-2$",
    "opcions": [
@@ -716,7 +729,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=-7x+5$",
    "opcions": [
@@ -737,7 +750,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=-\\dfrac{12x}{5}+1$",
    "opcions": [
@@ -758,7 +771,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Indica, sense representar-la, si la funció afí és creixent o decreixent.",
    "enunciat": "$y=\\dfrac{7x}{10}$",
    "opcions": [
@@ -779,7 +792,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ -1)$ i $(1,\\ 1)$.",
    "opcions": [
@@ -801,7 +814,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ 1)$ i $(1,\\ 3)$.",
    "opcions": [
@@ -823,7 +836,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ 1)$ i $(2,\\ 2)$.",
    "opcions": [
@@ -845,7 +858,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "funcions_lineals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'expressió algebraica de la funció afí que passa pels dos punts donats.",
    "enunciat": "Passa pels punts $(0,\\ -1)$ i $(1,\\ -3)$.",
    "opcions": [
@@ -862,284 +875,136 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Núvol de 2 punts.</title><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"127.8\" y1=\"190.0\" x2=\"127.8\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"163.3\" x2=\"190.0\" y2=\"163.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"127.8\" x2=\"190.0\" y2=\"127.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"92.2\" x2=\"190.0\" y2=\"92.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"56.7\" x2=\"190.0\" y2=\"56.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"92.2\" y1=\"190.0\" x2=\"92.2\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 56.7 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 92.2 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"70.6667\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"94.2222\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"56.7\" y=\"202\">-1</text><text x=\"92.2\" y=\"202\">0</text><text x=\"127.8\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"166.8\">-3</text><text x=\"24.0\" y=\"131.3\">-2</text><text x=\"24.0\" y=\"95.7\">-1</text><text x=\"24.0\" y=\"60.2\">0</text></g><circle cx=\"92.2\" cy=\"92.2\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/><circle cx=\"127.8\" cy=\"163.3\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
   },
   {
-   "id": "212a",
-   "ex": 212,
+   "id": "336a",
+   "ex": 336,
    "ap": "a",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=2x^2$",
+   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=3x-2$. Quin és el pendent?",
    "opcions": [
-    "Oberta cap avall i més ampla que $y=x^2$.",
-    "Oberta cap avall i més estreta que $y=x^2$.",
-    "Oberta cap amunt i més ampla que $y=x^2$.",
-    "Oberta cap amunt i més estreta que $y=x^2$."
+    "$2$",
+    "$\\dfrac{1}{3}$",
+    "$-2$",
+    "$3$"
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "A $y=mx+n$, el pendent és el número que va davant de la $x$.",
+    "A $y=3x-2$, davant de la $x$ hi ha un $3$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9MiQuIiwgIkVsIHNpZ25lIGRlICRhJCBkZXRlcm1pbmEgbCdvYmVydHVyYTogcG9zaXRpdSDDqXMgY2FwIGFtdW50LCBuZWdhdGl1IGNhcCBhdmFsbC4gQXF1w60gJGE9MiQuIiwgIkNvbSBtw6lzIGdyYW4gw6lzICR8YXwkLCBtw6lzIEVTVFJFVEEgw6lzIGxhIHBhcsOgYm9sYSAobm8gbcOpcyBhbXBsYSk6IGFxdcOtICR8YXw9MiQsIHF1ZSDDqXMgbcOpcyBncmFuIHF1ZSAkMSQuIiwgIiJdLCAiZXJyIjogWyJPQkVSVFVSQV9JX0FNUExBREFfSU5WRVJUSURFUyIsICJPQkVSVFVSQV9JTlZFUlRJREEiLCAiQU1QTEFEQV9JTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIkEgJHk9MnheMiQsICRhPTIkLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9MiQgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLCBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgZXN0cmV0YSBxdWUgJHk9eF4yJC4iXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IGVsIHRlcm1lIHNlbnNlICR4JCwgaSBhIG3DqXMgc2Vuc2UgZWwgc2V1IHNpZ25lLiIsICJFbCBwZW5kZW50IMOpcyBlbCBjb2VmaWNpZW50IHRhbCBxdWFsLCBubyBlbCBzZXUgaW52ZXJzLiIsICJFbCAkLTIkIMOpcyBsJ29yZGVuYWRhIGEgbCdvcmlnZW46IGVsIG7Dum1lcm8gcXVlIHZhIHNvbCwgc2Vuc2UgJHgkLiBFbCBwZW5kZW50IMOpcyBlbCBxdWUgbXVsdGlwbGljYSBsYSAkeCQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQRU5ERU5UX0lOVkVSVElUIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiJHk9M3gtMlxcUmlnaHRhcnJvdyBtPTMkIl19"
   },
   {
-   "id": "212b",
-   "ex": 212,
+   "id": "336b",
+   "ex": 336,
    "ap": "b",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=\\dfrac{x^2}{2}$",
+   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=3x-2$. Quina és l'ordenada a l'origen?",
    "opcions": [
-    "Oberta cap amunt i més ampla que $y=x^2$.",
-    "Oberta cap avall i més estreta que $y=x^2$.",
-    "Oberta cap avall i més ampla que $y=x^2$.",
-    "Oberta cap amunt i més estreta que $y=x^2$."
+    "$2$",
+    "$0$",
+    "$-2$",
+    "$3$"
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "L'ordenada a l'origen és el valor de $y$ quan $x=0$.",
+    "Substitueix: $y=3\\cdot 0-2$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVGFudCBsJ29iZXJ0dXJhIGNvbSBsJ2FtcGxhZGEgZXN0YW4gaW52ZXJ0aWRlcyByZXNwZWN0ZSBhICRhPVxcZGZyYWN7MX17Mn0kLiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17Mn0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXsyfSQsICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXsyfSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCB0ZXJtZSDDqXMgZWwgYm8sIHBlcsOyIGFtYiBlbCBzZXUgc2lnbmU6ICQtMiQuIiwgIkwnb3JkZW5hZGEgc2VyaWEgJDAkIHNpIGxhIHJlY3RhIHBhc3PDqXMgcGVyIGwnb3JpZ2VuLCBpIGFxdWVzdGEgbm8gaGkgcGFzc2E6IHN1YnN0aXR1ZWl4ICR4PTAkIGkgaG8gdmV1csOgcy4iLCAiIiwgIkVsICQzJCDDqXMgZWwgcGVuZGVudC4gTCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyBlbCB0ZXJtZSBxdWUgdmEgc29sLCBzZW5zZSAkeCQ6IMOpcyBlbCB2YWxvciBkZSAkeSQgcXVhbiAkeD0wJC4iXSwgImVyciI6IFsiU0lHTkVfT1JERU5BREFfSU5WRVJUSVQiLCAiT1JERU5BREFfTlVMQV9PQkxJREFEQSIsICIiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIl0sICJyZXMiOiBbIiR4PTBcXFJpZ2h0YXJyb3cgeT0zXFxjZG90IDAtMj0tMiQsIG8gc2lndWkgJG49LTIkIl19"
   },
   {
-   "id": "212c",
-   "ex": 212,
+   "id": "336c",
+   "ex": 336,
    "ap": "c",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=-2x^2$",
+   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=-x+5$. Quin és el pendent?",
    "opcions": [
-    "Oberta cap avall i més ampla que $y=x^2$.",
-    "Oberta cap amunt i més ampla que $y=x^2$.",
-    "Oberta cap avall i més estreta que $y=x^2$.",
-    "Oberta cap amunt i més estreta que $y=x^2$."
+    "$5$",
+    "$1$",
+    "$-1$",
+    "$-5$"
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ implícit.",
+    "$-x$ és $-1\\cdot x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PTIkLCBxdWUgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9LTIkLiIsICIiLCAiRWwgc2lnbmUgZGUgJGEkIGRldGVybWluYSBsJ29iZXJ0dXJhOiBwb3NpdGl1IMOpcyBjYXAgYW11bnQsIG5lZ2F0aXUgY2FwIGF2YWxsLiBBcXXDrSAkYT0tMiQuIl0sICJlcnIiOiBbIkFNUExBREFfSU5WRVJUSURBIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIiIsICJPQkVSVFVSQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiQSAkeT0tMnheMiQsICRhPS0yJC4iLCAiQ29tIHF1ZSAkYSQgw6lzIG5lZ2F0aXUsIGxhIHBhcsOgYm9sYSDDqXMgb2JlcnRhIGNhcCBhdmFsbC4iLCAiQ29tIHF1ZSAkfGF8PTIkIMOpcyBtw6lzIGdyYW4gcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGVzdHJldGEgcXVlICR5PXheMiQuIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkNSQgw6lzIGwnb3JkZW5hZGEgYSBsJ29yaWdlbi4iLCAiRWwgc2lnbmUgY29tcHRhOiAkLXgkIHZvbCBkaXIgJC0xXFxjZG90IHgkLCBkZSBtYW5lcmEgcXVlIGVsIHBlbmRlbnQgw6lzICQtMSQuIFVuYSByZWN0YSBhbWIgcGVuZGVudCBuZWdhdGl1IGJhaXhhLiIsICIiLCAiSGFzIGFnYWZhdCBlbCB0ZXJtZSBzZW5zZSAkeCQgaSBsaSBoYXMgY2FudmlhdCBlbCBzaWduZS4iXSwgImVyciI6IFsiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiIiwgIlBFTkRFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS14KzU9LTFcXGNkb3QgeCs1XFxSaWdodGFycm93IG09LTEkIl19"
   },
   {
-   "id": "212d",
-   "ex": 212,
+   "id": "336d",
+   "ex": 336,
    "ap": "d",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
-   "enunciat": "$y=\\dfrac{x^2}{4}$",
+   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=4$. Quin és el pendent?",
    "opcions": [
-    "Oberta cap avall i més estreta que $y=x^2$.",
-    "Oberta cap amunt i més ampla que $y=x^2$.",
-    "Oberta cap avall i més ampla que $y=x^2$.",
-    "Oberta cap amunt i més estreta que $y=x^2$."
+    "$4$",
+    "$1$",
+    "$0$",
+    "No en té"
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "$y=4$ es pot escriure com $y=0\\cdot x+4$.",
+    "Una recta horitzontal no puja ni baixa: el seu pendent és $0$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17NH0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiT0JFUlRVUkFfSV9BTVBMQURBX0lOVkVSVElERVMiLCAiIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXs0fSQsICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXs0fSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkNCQgw6lzIGwnb3JkZW5hZGEgYSBsJ29yaWdlbi4gTGEgcmVjdGEgJHk9NCQgw6lzIGhvcml0em9udGFsIGkgcGFzc2EgcGVyIGwnYWx0dXJhICQ0JC4iLCAiU2kgZWwgcGVuZGVudCBmb3MgJDEkIGxhIHJlY3RhIHB1amFyaWEuICR5PTQkIMOpcyBwbGFuYS4iLCAiIiwgIkxhIHF1ZSBubyB0w6kgcGVuZGVudCDDqXMgbGEgVkVSVElDQUwsIGRlbCB0aXB1cyAkeD00JC4gQXF1ZXN0YSwgJHk9NCQsIMOpcyBob3JpdHpvbnRhbCwgaSB1bmEgcmVjdGEgaG9yaXR6b250YWwgdMOpIHBlbmRlbnQsIHF1ZSB2YWwgJDAkOiBubyBwdWphIG5pIGJhaXhhLiJdLCAiZXJyIjogWyJQRU5ERU5UX09SREVOQURBX0lOVEVSQ0FOVklBVFMiLCAiUEVOREVOVF9DT01fTlVMIiwgIiIsICJSRUNUQV9WRVJUSUNBTF9DT05GT1NBIl0sICJyZXMiOiBbIiR5PTQ9MFxcY2RvdCB4KzRcXFJpZ2h0YXJyb3cgbT0wJCJdfQ=="
   },
   {
-   "id": "214a",
-   "ex": 214,
+   "id": "337a",
+   "ex": 337,
    "ap": "a",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
-   "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ -1)$.",
+   "dif": 1,
+   "encapcalament": "Escriu l'equació explícita de la recta.",
+   "enunciat": "$m=2$ i $n=-1$",
    "opcions": [
-    "$c=-1$",
-    "$c=1$",
-    "$c=0$",
-    "$c=-2$"
+    "$y=2(x-1)$",
+    "$y=2x+1$",
+    "$y=-x+2$",
+    "$y=2x-1$"
    ],
    "pistes": [
-    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+    "La forma explícita és $y=mx+n$: col·loca-hi cada número al seu lloc.",
+    "$m=2$ va davant de la $x$; $n=-1$ va sol."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdsOocnRleCBkZSAkeT14XjIrYyQgw6lzIHNlbXByZSBlbCBwdW50ICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBlbCB2YWxvciBkZSAkYyQgw6lzICQtMSQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIiRjJCBubyDDqXMgJDAkOiBlbCB2w6hydGV4IGRlICR5PXheMiQgKHNlbnNlIHN1bWFyIHJlcykgc2VyaWEgJCgwLDApJCwgaSBhcXXDrSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgLTEpJCwgbm8gbCdvcmlnZW4uIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIC0xKSQgZG9uYSBkaXJlY3RhbWVudCAkYz0tMSQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgbXVsdGlwbGljYXItbG8gcGVyIGNhcCBhbHRyZSBub21icmUuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJURVJNRV9JTkRFUEVOREVOVF9JR05PUkFUIiwgIlZBTE9SX0RVUExJQ0FUIl0sICJyZXMiOiBbIkNvbXBhcmFudCAkeT14XjIrYyQgYW1iICR5PXheMiQsIHN1bWFyICRjJCBkZXNwbGHDp2EgdG90YSBsYSBwYXLDoGJvbGEgJGMkIHVuaXRhdHMgYW11bnQgKHNpICRjPjAkKSBvIGF2YWxsIChzaSAkYzwwJCksIHNlbnNlIG1vdXJlLWxhIGhvcml0em9udGFsbWVudC4iLCAiUGVyIGFpeMOyIGVsIHbDqHJ0ZXggcGFzc2EgZGUgJCgwLDApJCBhICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBhbGVzaG9yZXMgJGM9LTEkLiJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x - 1.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.5\" x2=\"190.0\" y2=\"171.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"48.5\" x2=\"190.0\" y2=\"48.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"140.8\" x2=\"190.0\" y2=\"140.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 140.8 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"154.769\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"175.0\">-1</text><text x=\"24.0\" y=\"144.3\">0</text><text x=\"24.0\" y=\"113.5\">1</text><text x=\"24.0\" y=\"82.7\">2</text><text x=\"24.0\" y=\"52.0\">3</text></g><path d=\"M 52.8 30.0 L 54.0 35.8 L 56.7 48.5 L 59.3 60.5 L 62.0 71.8 L 64.7 82.6 L 67.3 92.8 L 70.0 102.3 L 72.7 111.2 L 75.3 119.5 L 78.0 127.2 L 80.7 134.3 L 83.3 140.8 L 86.0 146.6 L 88.7 151.8 L 91.3 156.5 L 94.0 160.5 L 96.7 163.8 L 99.3 166.6 L 102.0 168.8 L 104.7 170.3 L 107.3 171.2 L 110.0 171.5 L 112.7 171.2 L 115.3 170.3 L 118.0 168.8 L 120.7 166.6 L 123.3 163.8 L 126.0 160.5 L 128.7 156.5 L 131.3 151.8 L 134.0 146.6 L 136.7 140.8 L 139.3 134.3 L 142.0 127.2 L 144.7 119.5 L 147.3 111.2 L 150.0 102.3 L 152.7 92.8 L 155.3 82.6 L 158.0 71.8 L 160.7 60.5 L 163.3 48.5 L 166.0 35.8 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"171.5\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiBubyDDqXMgbGEgZm9ybWEgZXhwbMOtY2l0YSwgaSBhIG3DqXMgdmFsIHVuYSBhbHRyYSBjb3NhOiAkMih4LTEpPTJ4LTIkLiIsICJMJ29yZGVuYWRhIMOpcyAkLTEkOiB2YSBhbWIgZWwgc2V1IHNpZ25lLiIsICJIYXMgcG9zYXQgZWwgcGVuZGVudCBvbiB2YSBsJ29yZGVuYWRhIGkgYSBsJ2lucmV2w6lzLiBFbCBwZW5kZW50IG11bHRpcGxpY2EgbGEgJHgkLiIsICIiXSwgImVyciI6IFsiUEFSRU5URVNJX05PX0RJU1RSSUJVSVQiLCAiU0lHTkVfT1JERU5BREFfSU5WRVJUSVQiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiJdLCAicmVzIjogWyIkeT1teCtuPTJ4KygtMSk9MngtMSQiXX0="
   },
   {
-   "id": "214b",
-   "ex": 214,
+   "id": "337b",
+   "ex": 337,
    "ap": "b",
-   "bloc": "funcions_quadratiques",
+   "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
-   "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ 2)$.",
+   "dif": 1,
+   "encapcalament": "Escriu l'equació explícita de la recta.",
+   "enunciat": "$m=-3$ i $n=0$",
    "opcions": [
-    "$c=2$",
-    "$c=0$",
-    "$c=-2$",
-    "$c=4$"
+    "$y=3x$",
+    "$y=0$",
+    "$y=-3x+3$",
+    "$y=-3x$"
    ],
    "pistes": [
-    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+    "$n=0$ vol dir que la recta passa per l'origen.",
+    "$y=-3x+0$, i el $+0$ no s'escriu."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJGMkIG5vIMOpcyAkMCQ6IGVsIHbDqHJ0ZXggZGUgJHk9eF4yJCAoc2Vuc2Ugc3VtYXIgcmVzKSBzZXJpYSAkKDAsMCkkLCBpIGFxdcOtIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAyKSQsIG5vIGwnb3JpZ2VuLiIsICJFbCB2w6hydGV4IGRlICR5PXheMitjJCDDqXMgc2VtcHJlIGVsIHB1bnQgJCgwLGMpJDogc2kgZWwgdsOocnRleCBkb25hdCDDqXMgJCgwLFxcIDIpJCwgZWwgdmFsb3IgZGUgJGMkIMOpcyAkMiQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIDIpJCBkb25hIGRpcmVjdGFtZW50ICRjPTIkLCBzZW5zZSBuZWNlc3NpdGF0IGRlIG11bHRpcGxpY2FyLWxvIHBlciBjYXAgYWx0cmUgbm9tYnJlLiJdLCAiZXJyIjogWyIiLCAiVEVSTUVfSU5ERVBFTkRFTlRfSUdOT1JBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9EVVBMSUNBVCJdLCAicmVzIjogWyJDb21wYXJhbnQgJHk9eF4yK2MkIGFtYiAkeT14XjIkLCBzdW1hciAkYyQgZGVzcGxhw6dhIHRvdGEgbGEgcGFyw6Bib2xhICRjJCB1bml0YXRzIGFtdW50IChzaSAkYz4wJCkgbyBhdmFsbCAoc2kgJGM8MCQpLCBzZW5zZSBtb3VyZS1sYSBob3JpdHpvbnRhbG1lbnQuIiwgIlBlciBhaXjDsiBlbCB2w6hydGV4IHBhc3NhIGRlICQoMCwwKSQgYSAkKDAsYykkOiBzaSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgMikkLCBhbGVzaG9yZXMgJGM9MiQuIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x + 2.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"154.4\" x2=\"190.0\" y2=\"154.4\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"132.2\" x2=\"190.0\" y2=\"132.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"87.8\" x2=\"190.0\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"65.6\" x2=\"190.0\" y2=\"65.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"43.3\" x2=\"190.0\" y2=\"43.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"176.7\" x2=\"190.0\" y2=\"176.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 176.7 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"190.667\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"180.2\">0</text><text x=\"24.0\" y=\"157.9\">1</text><text x=\"24.0\" y=\"135.7\">2</text><text x=\"24.0\" y=\"113.5\">3</text><text x=\"24.0\" y=\"91.3\">4</text><text x=\"24.0\" y=\"69.1\">5</text><text x=\"24.0\" y=\"46.8\">6</text></g><path d=\"M 52.8 30.0 L 54.0 34.2 L 56.7 43.3 L 59.3 52.0 L 62.0 60.2 L 64.7 68.0 L 67.3 75.3 L 70.0 82.2 L 72.7 88.7 L 75.3 94.7 L 78.0 100.2 L 80.7 105.3 L 83.3 110.0 L 86.0 114.2 L 88.7 118.0 L 91.3 121.3 L 94.0 124.2 L 96.7 126.7 L 99.3 128.7 L 102.0 130.2 L 104.7 131.3 L 107.3 132.0 L 110.0 132.2 L 112.7 132.0 L 115.3 131.3 L 118.0 130.2 L 120.7 128.7 L 123.3 126.7 L 126.0 124.2 L 128.7 121.3 L 131.3 118.0 L 134.0 114.2 L 136.7 110.0 L 139.3 105.3 L 142.0 100.2 L 144.7 94.7 L 147.3 88.7 L 150.0 82.2 L 152.7 75.3 L 155.3 68.0 L 158.0 60.2 L 160.7 52.0 L 163.3 43.3 L 166.0 34.2 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"132.2\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
-  },
-  {
-   "id": "215",
-   "ex": 215,
-   "ap": "",
-   "bloc": "funcions_quadratiques",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Calcula l'expressió algebraica de la paràbola.",
-   "enunciat": "Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que passa pel punt $(1,2)$.",
-   "opcions": [
-    "$y=2x^2+1$",
-    "$y=x^2-1$",
-    "$y=x^2+2$",
-    "$y=x^2+1$"
-   ],
-   "pistes": [
-    "El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix l'altre punt a $y=ax^2+c$ per trobar $a$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTdWJzdGl0dWludCBlbCBwdW50ICQoMSwyKSQgYSAkeT1heF4yKzEkOiAkMj1hXFxjZG90IDFeMisxJCwgcXVlIGRvbmEgJGE9MSQsIG5vICRhPTIkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgdMOpIGxhIHNlZ29uYSBjb29yZGVuYWRhIHBvc2l0aXZhOiAkYz0xJCwgbm8gJGM9LTEkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgamEgZGl1IGRpcmVjdGFtZW50IHF1ZSAkYz0xJDogZWwgJDIkIMOpcyBsYSAkeSQgZGVsIHB1bnQgJCgxLDIpJCwgbm8gZWwgdmFsb3IgZGUgJGMkLiIsICIiXSwgImVyciI6IFsiQ09FRklDSUVOVF9BX01BTF9DQUxDVUxBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9DX0NPTkZPUyIsICIiXSwgInJlcyI6IFsiRWwgdsOocnRleCAkKDAsMSkkIGRvbmEgJGM9MSQ6IGwnZXhwcmVzc2nDsyDDqXMgJHk9YXheMisxJC4iLCAiU3Vic3RpdHVpbnQgZWwgcHVudCAkKDEsMikkOiAkMj1hXFxjZG90IDFeMisxJCwgcGVyIHRhbnQgJGE9MSQuIiwgIkwnZXhwcmVzc2nDsyDDqXMgJHk9eF4yKzEkLiJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x + 1.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"148.7\" x2=\"190.0\" y2=\"148.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"122.9\" x2=\"190.0\" y2=\"122.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"97.1\" x2=\"190.0\" y2=\"97.1\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"71.3\" x2=\"190.0\" y2=\"71.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"45.5\" x2=\"190.0\" y2=\"45.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"174.5\" x2=\"190.0\" y2=\"174.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 174.5 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"188.516\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"178.0\">0</text><text x=\"24.0\" y=\"152.2\">1</text><text x=\"24.0\" y=\"126.4\">2</text><text x=\"24.0\" y=\"100.6\">3</text><text x=\"24.0\" y=\"74.8\">4</text><text x=\"24.0\" y=\"49.0\">5</text></g><path d=\"M 52.8 30.0 L 54.0 34.9 L 56.7 45.5 L 59.3 55.5 L 62.0 65.1 L 64.7 74.1 L 67.3 82.6 L 70.0 90.6 L 72.7 98.1 L 75.3 105.1 L 78.0 111.5 L 80.7 117.5 L 83.3 122.9 L 86.0 127.8 L 88.7 132.2 L 91.3 136.1 L 94.0 139.4 L 96.7 142.3 L 99.3 144.6 L 102.0 146.4 L 104.7 147.7 L 107.3 148.5 L 110.0 148.7 L 112.7 148.5 L 115.3 147.7 L 118.0 146.4 L 120.7 144.6 L 123.3 142.3 L 126.0 139.4 L 128.7 136.1 L 131.3 132.2 L 134.0 127.8 L 136.7 122.9 L 139.3 117.5 L 142.0 111.5 L 144.7 105.1 L 147.3 98.1 L 150.0 90.6 L 152.7 82.6 L 155.3 74.1 L 158.0 65.1 L 160.7 55.5 L 163.3 45.5 L 166.0 34.9 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"148.7\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
-  },
-  {
-   "id": "216a",
-   "ex": 216,
-   "ap": "a",
-   "bloc": "funcions_quadratiques",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
-   "enunciat": "$y=-x^2-3x$",
-   "opcions": [
-    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-3;\\ \\text{vèrtex }(-3,\\ 0)$",
-    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ -\\dfrac{9}{4}\\right)$",
-    "$\\text{talls: }(-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ \\dfrac{9}{4}\\right)$",
-    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ \\dfrac{9}{4}\\right)$"
-   ],
-   "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiIsICJDb20gcXVlIGwnZXhwcmVzc2nDsyBubyB0w6kgdGVybWUgaW5kZXBlbmRlbnQgKG5vIGhpIGhhICQrYyQpLCBsYSBwYXLDoGJvbGEgc2VtcHJlIHBhc3NhIHBlciBsJ29yaWdlbjogJCgwLDApJCB0YW1iw6kgw6lzIHVuIHRhbGwgYW1iIGVscyBlaXhvcywgbm8gbm9tw6lzIGwnYWx0cmEgYXJyZWwuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlNJR05FX0ZJTkFMIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkLXheMi0zeD14KC14LTMpJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD0tMyQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkKC0zLFxcIDApJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PS1cXGRmcmFjezN9ezJ9JC4iLCAiRWwgdsOocnRleCDDqXMgJFxcbGVmdCgtXFxkZnJhY3szfXsyfSxcXCBcXGRmcmFjezl9ezR9XFxyaWdodCkkLCBzdWJzdGl0dWludCAkeD0tXFxkZnJhY3szfXsyfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = -1·x² - 3·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"65.6\" y1=\"190.0\" x2=\"65.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"101.1\" y1=\"190.0\" x2=\"101.1\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"172.2\" y1=\"190.0\" x2=\"172.2\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"188.6\" x2=\"190.0\" y2=\"188.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"161.3\" x2=\"190.0\" y2=\"161.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"133.9\" x2=\"190.0\" y2=\"133.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"106.6\" x2=\"190.0\" y2=\"106.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"51.9\" x2=\"190.0\" y2=\"51.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 79.2 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 136.7 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"93.2308\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"138.667\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-6</text><text x=\"65.6\" y=\"202\">-4</text><text x=\"101.1\" y=\"202\">-2</text><text x=\"136.7\" y=\"202\">0</text><text x=\"172.2\" y=\"202\">2</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"164.8\">-6</text><text x=\"24.0\" y=\"137.4\">-4</text><text x=\"24.0\" y=\"110.1\">-2</text><text x=\"24.0\" y=\"82.7\">0</text><text x=\"24.0\" y=\"55.4\">2</text></g><path d=\"M 52.8 190.0 L 54.0 184.2 L 56.7 171.5 L 59.3 159.5 L 62.0 148.2 L 64.7 137.4 L 67.3 127.2 L 70.0 117.7 L 72.7 108.8 L 75.3 100.5 L 78.0 92.8 L 80.7 85.7 L 83.3 79.2 L 86.0 73.4 L 88.7 68.2 L 91.3 63.5 L 94.0 59.5 L 96.7 56.2 L 99.3 53.4 L 102.0 51.2 L 104.7 49.7 L 107.3 48.8 L 110.0 48.5 L 112.7 48.8 L 115.3 49.7 L 118.0 51.2 L 120.7 53.4 L 123.3 56.2 L 126.0 59.5 L 128.7 63.5 L 131.3 68.2 L 134.0 73.4 L 136.7 79.2 L 139.3 85.7 L 142.0 92.8 L 144.7 100.5 L 147.3 108.8 L 150.0 117.7 L 152.7 127.2 L 155.3 137.4 L 158.0 148.2 L 160.7 159.5 L 163.3 171.5 L 166.0 184.2 L 167.2 190.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
-  },
-  {
-   "id": "216b",
-   "ex": 216,
-   "ap": "b",
-   "bloc": "funcions_quadratiques",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
-   "enunciat": "$y=x^2-\\dfrac23x$",
-   "opcions": [
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ \\dfrac{1}{9}\\right)$",
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{9}\\right)$",
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{2}{3};\\ \\text{vèrtex }\\left(\\dfrac{2}{3},\\ 0\\right)$",
-    "$\\text{talls: }\\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{9}\\right)$"
-   ],
-   "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiRUlYX1NJTUVUUklBX01BTF9DQUxDVUxBVCIsICJUQUxMX09SSUdFTl9PQkxJREFUIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yLVxcZGZyYWMyM3g9eCh4LVxcZGZyYWN7Mn17M30pJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD1cXGRmcmFjezJ9ezN9JC4iLCAiVGFsbHMgYW1iIGVscyBlaXhvczogJCgwLFxcIDApJCBpICRcXGxlZnQoXFxkZnJhY3syfXszfSxcXCAwXFxyaWdodCkkLiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgcHVudCBtaWcgZGUgbGVzIGFycmVsczogJHg9XFxkZnJhY3sxfXszfSQuIiwgIkVsIHbDqHJ0ZXggw6lzICRcXGxlZnQoXFxkZnJhY3sxfXszfSxcXCAtXFxkZnJhY3sxfXs5fVxccmlnaHQpJCwgc3Vic3RpdHVpbnQgJHg9XFxkZnJhY3sxfXszfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² - 0,666667·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"54.0\" y1=\"190.0\" x2=\"54.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"78.0\" y1=\"190.0\" x2=\"78.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"126.0\" y1=\"190.0\" x2=\"126.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"174.0\" y1=\"190.0\" x2=\"174.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"175.7\" x2=\"190.0\" y2=\"175.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"150.0\" x2=\"190.0\" y2=\"150.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"98.6\" x2=\"190.0\" y2=\"98.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"72.9\" x2=\"190.0\" y2=\"72.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"47.1\" x2=\"190.0\" y2=\"47.1\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"124.3\" x2=\"190.0\" y2=\"124.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"102.0\" y1=\"190.0\" x2=\"102.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 124.3 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 102.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"138.286\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"104\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"54.0\" y=\"202\">-2</text><text x=\"78.0\" y=\"202\">-1</text><text x=\"102.0\" y=\"202\">0</text><text x=\"126.0\" y=\"202\">1</text><text x=\"150.0\" y=\"202\">2</text><text x=\"174.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"27.6\" y=\"179.2\">-0,4</text><text x=\"27.6\" y=\"153.5\">-0,2</text><text x=\"27.6\" y=\"127.8\">0</text><text x=\"27.6\" y=\"102.1\">0,2</text><text x=\"27.6\" y=\"76.4\">0,4</text><text x=\"27.6\" y=\"50.6\">0,6</text></g><path d=\"M 88.0 30.0 L 88.7 37.0 L 91.3 60.8 L 94.0 81.4 L 96.7 98.9 L 99.3 113.2 L 102.0 124.3 L 104.7 132.2 L 107.3 137.0 L 110.0 138.6 L 112.7 137.0 L 115.3 132.2 L 118.0 124.3 L 120.7 113.2 L 123.3 98.9 L 126.0 81.4 L 128.7 60.8 L 131.3 37.0 L 132.0 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
-  },
-  {
-   "id": "216c",
-   "ex": 216,
-   "ap": "c",
-   "bloc": "funcions_quadratiques",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
-   "enunciat": "$y=\\dfrac32x^2-x$",
-   "opcions": [
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{2}{3};\\ \\text{vèrtex }\\left(\\dfrac{2}{3},\\ 0\\right)$",
-    "$\\text{talls: }\\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{6}\\right)$",
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ \\dfrac{1}{6}\\right)$",
-    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{6}\\right)$"
-   ],
-   "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiU0lHTkVfRklOQUwiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkXFxkZnJhYzMyeF4yLXg9eChcXGRmcmFjezN9ezJ9eC0xKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9XFxkZnJhY3syfXszfSQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkXFxsZWZ0KFxcZGZyYWN7Mn17M30sXFwgMFxccmlnaHQpJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PVxcZGZyYWN7MX17M30kLiIsICJFbCB2w6hydGV4IMOpcyAkXFxsZWZ0KFxcZGZyYWN7MX17M30sXFwgLVxcZGZyYWN7MX17Nn1cXHJpZ2h0KSQsIHN1YnN0aXR1aW50ICR4PVxcZGZyYWN7MX17M30kIGEgbCdleHByZXNzacOzLiJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1,5·x² - 1·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"54.0\" y1=\"190.0\" x2=\"54.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"78.0\" y1=\"190.0\" x2=\"78.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"126.0\" y1=\"190.0\" x2=\"126.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"174.0\" y1=\"190.0\" x2=\"174.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.8\" x2=\"190.0\" y2=\"171.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"150.0\" x2=\"190.0\" y2=\"150.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"106.4\" x2=\"190.0\" y2=\"106.4\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"84.5\" x2=\"190.0\" y2=\"84.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"62.7\" x2=\"190.0\" y2=\"62.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"40.9\" x2=\"190.0\" y2=\"40.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"128.2\" x2=\"190.0\" y2=\"128.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"102.0\" y1=\"190.0\" x2=\"102.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 128.2 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 102.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"142.182\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"104\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"54.0\" y=\"202\">-2</text><text x=\"78.0\" y=\"202\">-1</text><text x=\"102.0\" y=\"202\">0</text><text x=\"126.0\" y=\"202\">1</text><text x=\"150.0\" y=\"202\">2</text><text x=\"174.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"27.6\" y=\"175.3\">-0,4</text><text x=\"27.6\" y=\"153.5\">-0,2</text><text x=\"27.6\" y=\"131.7\">0</text><text x=\"27.6\" y=\"109.9\">0,2</text><text x=\"27.6\" y=\"88.0\">0,4</text><text x=\"27.6\" y=\"66.2\">0,6</text><text x=\"27.6\" y=\"44.4\">0,8</text></g><path d=\"M 89.8 30.0 L 91.3 47.4 L 94.0 73.6 L 96.7 95.9 L 99.3 114.0 L 102.0 128.2 L 104.7 138.3 L 107.3 144.3 L 110.0 146.4 L 112.7 144.3 L 115.3 138.3 L 118.0 128.2 L 120.7 114.0 L 123.3 95.9 L 126.0 73.6 L 128.7 47.4 L 130.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
-  },
-  {
-   "id": "216d",
-   "ex": 216,
-   "ap": "d",
-   "bloc": "funcions_quadratiques",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
-   "enunciat": "$y=x^2+2x$",
-   "opcions": [
-    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-2;\\ \\text{vèrtex }(-2,\\ 0)$",
-    "$\\text{talls: }(-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ -1)$",
-    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ -1)$",
-    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ 1)$"
-   ],
-   "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICIiLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yKzJ4PXgoeCsyKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9LTIkLiIsICJUYWxscyBhbWIgZWxzIGVpeG9zOiAkKDAsXFwgMCkkIGkgJCgtMixcXCAwKSQuIiwgIkwnZWl4IGRlIHNpbWV0cmlhIHBhc3NhIHBlbCBwdW50IG1pZyBkZSBsZXMgYXJyZWxzOiAkeD0tMSQuIiwgIkVsIHbDqHJ0ZXggw6lzICQoLTEsXFwgLTEpJCwgc3Vic3RpdHVpbnQgJHg9LTEkIGEgbCdleHByZXNzacOzLiJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 2·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"50.0\" y1=\"190.0\" x2=\"50.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"70.0\" y1=\"190.0\" x2=\"70.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"90.0\" y1=\"190.0\" x2=\"90.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"170.0\" y1=\"190.0\" x2=\"170.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.5\" x2=\"190.0\" y2=\"171.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"48.5\" x2=\"190.0\" y2=\"48.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"140.8\" x2=\"190.0\" y2=\"140.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"130.0\" y1=\"190.0\" x2=\"130.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 140.8 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 130.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"154.769\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"132\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-5</text><text x=\"50.0\" y=\"202\">-4</text><text x=\"70.0\" y=\"202\">-3</text><text x=\"90.0\" y=\"202\">-2</text><text x=\"110.0\" y=\"202\">-1</text><text x=\"130.0\" y=\"202\">0</text><text x=\"150.0\" y=\"202\">1</text><text x=\"170.0\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"175.0\">-1</text><text x=\"24.0\" y=\"144.3\">0</text><text x=\"24.0\" y=\"113.5\">1</text><text x=\"24.0\" y=\"82.7\">2</text><text x=\"24.0\" y=\"52.0\">3</text></g><path d=\"M 67.1 30.0 L 67.3 31.5 L 70.0 48.5 L 72.7 64.3 L 75.3 79.1 L 78.0 92.8 L 80.7 105.4 L 83.3 116.8 L 86.0 127.2 L 88.7 136.5 L 91.3 144.7 L 94.0 151.8 L 96.7 157.9 L 99.3 162.8 L 102.0 166.6 L 104.7 169.4 L 107.3 171.0 L 110.0 171.5 L 112.7 171.0 L 115.3 169.4 L 118.0 166.6 L 120.7 162.8 L 123.3 157.9 L 126.0 151.8 L 128.7 144.7 L 131.3 136.5 L 134.0 127.2 L 136.7 116.8 L 139.3 105.4 L 142.0 92.8 L 144.7 79.1 L 147.3 64.3 L 150.0 48.5 L 152.7 31.5 L 152.9 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
-  },
-  {
-   "id": "217a",
-   "ex": 217,
-   "ap": "a",
-   "bloc": "funcions_quadratiques",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
-   "enunciat": "$y=x^2-3x^2+4$",
-   "opcions": [
-    "Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.",
-    "Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més AMPLA que $y=x^2$, amb vèrtex a $(0,4)$.",
-    "Reduint termes semblants, $x^2-3x^2=2x^2$: és la paràbola $y=2x^2+4$, oberta cap amunt, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.",
-    "És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex fora de l'eix $Y$."
-   ],
-   "pistes": [
-    "Abans de decidir de quin tipus de funció es tracta, redueix els termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgY29lZmljaWVudCBkZSAkeF4yJCDDqXMgJC0yJCwgaSAkfC0yfD0yPjEkOiBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgRVNUUkVUQSBxdWUgJHk9eF4yJCwgbm8gbcOpcyBhbXBsYS4iLCAiJHheMi0zeF4yJCDDqXMgdW5hIHJlc3RhIG9uIGVsIHNlZ29uIHRlcm1lIMOpcyBtw6lzIGdyYW46IGVsIHJlc3VsdGF0IMOpcyBuZWdhdGl1LCAkLTJ4XjIkLCBubyAkMnheMiQuIiwgIkVscyBkb3MgdGVybWVzICR4XjIkIGkgJC0zeF4yJCBzw7NuIHRlcm1lcyBTRU1CTEFOVFMgKHRvdHMgZG9zIGVuICR4XjIkKSBpIHMnaGFuIGRlIHJlZHVpciBqdW50cywgY29tIHVuIHNvbCB0ZXJtZSAkLTJ4XjIkOyBhIGwnZXhwcmVzc2nDsyBvcmlnaW5hbCBubyBoaSBoYSBjYXAgdGVybWUgZW4gJHgkIChhIGxhIHByaW1lcmEgcG90w6huY2lhKSwgYWl4w60gcXVlIG5vIGVuIHBvdCBxdWVkYXIgY2FwIGRlc3Byw6lzIGRlIHJlZHVpci4iXSwgImVyciI6IFsiIiwgIkFNUExBREFfSU5WRVJUSURBIiwgIlNJR05FX0ZJTkFMIiwgIlRFUk1FU19OT19SRURVSVRTIl0sICJyZXMiOiBbIlJlZHVpbnQgdGVybWVzIHNlbWJsYW50czogJHheMi0zeF4yPS0yeF4yJCwgYWl4w60gcXVlIGwnZXhwcmVzc2nDsyDDqXMgJHk9LTJ4XjIrNCQuIiwgIsOJcyB1bmEgcGFyw6Bib2xhICh0w6kgdGVybWUgZW4gJHheMiQpLCBzZW5zZSB0ZXJtZSBlbiAkeCQgKHBlciB0YW50IHNpbcOodHJpY2EgcmVzcGVjdGUgYSBsJ2VpeCAkWSQpLiIsICJFbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkLTIkOiBuZWdhdGl1LCBvYmVydGEgY2FwIGF2YWxsOyAkfC0yfD4xJCwgbcOpcyBlc3RyZXRhIHF1ZSAkeT14XjIkLiIsICJFbCB2w6hydGV4IMOpcyAkKDAsNCkkLCBqYSBxdWUgbm8gaGkgaGEgdGVybWUgZW4gJHgkLiJdfQ=="
-  },
-  {
-   "id": "217b",
-   "ex": 217,
-   "ap": "b",
-   "bloc": "funcions_quadratiques",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
-   "enunciat": "$y=-x-3$",
-   "opcions": [
-    "És una recta amb pendent $-1$, però creixent, i ordenada a l'origen $-3$.",
-    "No té cap terme en $x^2$: és una recta (no una paràbola), amb pendent $-1$ (decreixent) i ordenada a l'origen $-3$.",
-    "És una recta amb pendent $-1$ (decreixent) i ordenada a l'origen $3$.",
-    "No té cap terme en $x^2$ escrit, però és una paràbola amb $a=0$: oberta cap avall, decreixent."
-   ],
-   "pistes": [
-    "Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtMSQgw6lzIG5lZ2F0aXU6IGxhIHJlY3RhIMOpcyBkZWNyZWl4ZW50LCBubyBjcmVpeGVudC4iLCAiIiwgIkVsIHRlcm1lIGluZGVwZW5kZW50IGRlICQteC0zJCDDqXMgJC0zJCAobmVnYXRpdSksIG5vICQzJDogbGEgcmVjdGEgdGFsbGEgbCdlaXggJFkkIGVuICQoMCwtMykkLiIsICJTaSBlbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkMCQsIGwnZXhwcmVzc2nDsyBkZWl4YSBkZSBzZXIgdW5hIHBhcsOgYm9sYTogc2Vuc2UgdGVybWUgZW4gJHheMiQsIMOpcyB1bmEgcmVjdGEgKGZ1bmNpw7MgYWbDrSksIG5vIHVuYSBwYXLDoGJvbGEgZXh0cmVtYW1lbnQgb2JlcnRhLiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIiIsICJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQQVJBQk9MQV9BTUJfQV9aRVJPIl0sICJyZXMiOiBbIiR5PS14LTMkIG5vIHTDqSB0ZXJtZSBlbiAkeF4yJDogw6lzIHVuYSBmdW5jacOzIGFmw60gKHJlY3RhKSwgbm8gdW5hIHBhcsOgYm9sYS4iLCAiRWwgcGVuZGVudCDDqXMgJC0xJCAobmVnYXRpdSwgcGVyIHRhbnQgZGVjcmVpeGVudCkgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQtMyQuIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyAkLTMkLCBuZWdhdGl1OiBsYSByZWN0YSBiYWl4YS4iLCAiVCdoYXMgcXVlZGF0IG5vbcOpcyBhbWIgJG4kIGkgaGFzIHBlcmR1dCBlbCBwZW5kZW50LiBBbWIgJG49MCQgZWwgcXVlIHBhc3NhIMOpcyBxdWUgZWwgdGVybWUgaW5kZXBlbmRlbnQgZGVzYXBhcmVpeCwgbm8gdG90YSBsYSByZWN0YS4iLCAiTCdvcmRlbmFkYSDDqXMgJDAkLCBubyAkMyQ6IG5vIHRlIGwnaGFzIGQnaW52ZW50YXIgYSBwYXJ0aXIgZGVsIHBlbmRlbnQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiT1JERU5BREFfUEVSX0NPT1JERU5BREEiLCAiIl0sICJyZXMiOiBbIiR5PS0zeCswPS0zeCQgKHBhc3NhIHBlciBsJ29yaWdlbikiXX0="
   },
   {
    "id": "295a",
@@ -1147,7 +1012,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que té aquest pendent i passa per aquest punt.",
    "enunciat": "Pendent $m=2$, punt $(3,1)$.",
    "opcions": [
@@ -1170,7 +1035,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que té aquest pendent i passa per aquest punt.",
    "enunciat": "Pendent $m=-3$, punt $(1,5)$.",
    "opcions": [
@@ -1193,7 +1058,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que té aquest pendent i passa per aquest punt.",
    "enunciat": "Pendent $m=\\dfrac{1}{2}$, punt $(4,0)$.",
    "opcions": [
@@ -1216,7 +1081,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que té aquest pendent i passa per aquest punt.",
    "enunciat": "Pendent $m=-1$, punt $(-2,3)$.",
    "opcions": [
@@ -1239,7 +1104,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que passa pels dos punts.",
    "enunciat": "$(1,2)$ i $(3,8)$.",
    "opcions": [
@@ -1262,7 +1127,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que passa pels dos punts.",
    "enunciat": "$(-2,5)$ i $(2,-3)$.",
    "opcions": [
@@ -1285,7 +1150,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu l'equació de la recta que passa pels dos punts.",
    "enunciat": "$(2,-1)$ i $(6,1)$.",
    "opcions": [
@@ -1308,7 +1173,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "D'una recta se'n sap això. Escriu-ne l'equació.",
    "enunciat": "Talla l'eix d'ordenades a $-4$ i puja $3$ unitats cada vegada que avança $1$.",
    "opcions": [
@@ -1330,7 +1195,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "D'una recta se'n sap això. Escriu-ne l'equació.",
    "enunciat": "Talla l'eix d'ordenades a $2$ i baixa $1$ unitat cada vegada que avança $4$.",
    "opcions": [
@@ -1352,7 +1217,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "D'una recta se'n sap això. Escriu-ne l'equació.",
    "enunciat": "És horitzontal i passa per $(7,-3)$.",
    "opcions": [
@@ -1374,7 +1239,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Donada la recta $r:\\;y=2x-3$, escriu l'equació de la recta demanada.",
    "enunciat": "La paral·lela a $r$ que passa per $(1,4)$.",
    "opcions": [
@@ -1397,7 +1262,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Donada la recta $r:\\;y=2x-3$, escriu l'equació de la recta demanada.",
    "enunciat": "La perpendicular a $r$ que passa per $(4,1)$.",
    "opcions": [
@@ -1420,7 +1285,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba el punt de tall de les dues rectes.",
    "enunciat": "$y=2x+1$ i $y=-x+7$.",
    "opcions": [
@@ -1443,7 +1308,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba el punt de tall de les dues rectes.",
    "enunciat": "$y=3x-2$ i $y=x+2$.",
    "opcions": [
@@ -1466,7 +1331,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "rectes_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba el punt de tall de les dues rectes.",
    "enunciat": "$y=-x+6$ i $y=\\dfrac{1}{2}x+3$.",
    "opcions": [
@@ -1484,12 +1349,144 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues rectes: pendent -1 i ordenada 6; i pendent 0,5 i ordenada 3.</title><line class=\"fig-graella\" x1=\"62.4\" y1=\"190.0\" x2=\"62.4\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"157.6\" y1=\"190.0\" x2=\"157.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"186.2\" x2=\"190.0\" y2=\"186.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"91.0\" x2=\"190.0\" y2=\"91.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"43.3\" x2=\"190.0\" y2=\"43.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"138.6\" x2=\"190.0\" y2=\"138.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 138.6 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"152.571\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"62.4\" y=\"202\">-5</text><text x=\"110.0\" y=\"202\">0</text><text x=\"157.6\" y=\"202\">5</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"189.7\">-5</text><text x=\"24.0\" y=\"142.1\">0</text><text x=\"24.0\" y=\"94.5\">5</text><text x=\"24.0\" y=\"46.8\">10</text></g><path d=\"M 58.6 30.0 L 59.3 30.8 L 62.0 33.4 L 64.7 36.1 L 67.3 38.8 L 70.0 41.4 L 72.7 44.1 L 75.3 46.8 L 78.0 49.4 L 80.7 52.1 L 83.3 54.8 L 86.0 57.4 L 88.7 60.1 L 91.3 62.8 L 94.0 65.4 L 96.7 68.1 L 99.3 70.8 L 102.0 73.4 L 104.7 76.1 L 107.3 78.8 L 110.0 81.4 L 112.7 84.1 L 115.3 86.8 L 118.0 89.4 L 120.7 92.1 L 123.3 94.8 L 126.0 97.4 L 128.7 100.1 L 131.3 102.8 L 134.0 105.4 L 136.7 108.1 L 139.3 110.8 L 142.0 113.4 L 144.7 116.1 L 147.3 118.8 L 150.0 121.4 L 152.7 124.1 L 155.3 126.8 L 158.0 129.4 L 160.7 132.1 L 163.3 134.8 L 166.0 137.4 L 168.7 140.1 L 171.3 142.8 L 174.0 145.4 L 176.7 148.1 L 179.3 150.8 L 182.0 153.4 L 184.7 156.1 L 187.3 158.8 L 190.0 161.4\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><path d=\"M 30.0 150.0 L 32.7 148.7 L 35.3 147.3 L 38.0 146.0 L 40.7 144.7 L 43.3 143.3 L 46.0 142.0 L 48.7 140.7 L 51.3 139.3 L 54.0 138.0 L 56.7 136.7 L 59.3 135.3 L 62.0 134.0 L 64.7 132.7 L 67.3 131.3 L 70.0 130.0 L 72.7 128.7 L 75.3 127.3 L 78.0 126.0 L 80.7 124.7 L 83.3 123.3 L 86.0 122.0 L 88.7 120.7 L 91.3 119.3 L 94.0 118.0 L 96.7 116.7 L 99.3 115.3 L 102.0 114.0 L 104.7 112.7 L 107.3 111.3 L 110.0 110.0 L 112.7 108.7 L 115.3 107.3 L 118.0 106.0 L 120.7 104.7 L 123.3 103.3 L 126.0 102.0 L 128.7 100.7 L 131.3 99.3 L 134.0 98.0 L 136.7 96.7 L 139.3 95.3 L 142.0 94.0 L 144.7 92.7 L 147.3 91.3 L 150.0 90.0 L 152.7 88.7 L 155.3 87.3 L 158.0 86.0 L 160.7 84.7 L 163.3 83.3 L 166.0 82.0 L 168.7 80.7 L 171.3 79.3 L 174.0 78.0 L 176.7 76.7 L 179.3 75.3 L 182.0 74.0 L 184.7 72.7 L 187.3 71.3 L 190.0 70.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   },
   {
+   "id": "338a",
+   "ex": 338,
+   "ap": "a",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "enunciat": "$y=x^2-4x+3$. Cap on obre?",
+   "opcions": [
+    "Cap amunt",
+    "Cap avall",
+    "No és una paràbola",
+    "Depèn de $c$"
+   ],
+   "pistes": [
+    "Cap on obre ho decideix un sol coeficient.",
+    "Si $a>0$ obre cap amunt; si $a<0$, cap avall. Aquí $a=1$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIG1pcmF0IGVsIHNpZ25lIGRlICRiJCAoZWwgJC00JCkuIEVsIHF1ZSBkZWNpZGVpeCBjYXAgb24gb2JyZSDDqXMgZWwgc2lnbmUgZGUgJGEkLCBlbCBjb2VmaWNpZW50IGRlICR4XjIkLCBxdWUgYXF1w60gw6lzICQrMSQuIiwgIlPDrSBxdWUgaG8gw6lzOiBoaSBoYSB1biB0ZXJtZSBlbiAkeF4yJCBhbWIgY29lZmljaWVudCAkMSQsIGRpZmVyZW50IGRlIHplcm8uIiwgIkxhICRjJCBub23DqXMgbW91IGxhIHBhcsOgYm9sYSBhbXVudCBpIGF2YWxsOyBubyBsaSBjYW52aWEgbGEgZm9ybWEuIl0sICJlcnIiOiBbIiIsICJDUkVJWEVNRU5UX0lOVkVSVElUIiwgIlBBUkFCT0xBX0FNQl9BX1pFUk8iLCAiQ09FRklDSUVOVF9NQUxfVFJJQVQiXSwgInJlcyI6IFsiJGE9MT4wXFxSaWdodGFycm93JCBvYnJlIGNhcCBhbXVudCJdfQ=="
+  },
+  {
+   "id": "338b",
+   "ex": 338,
+   "ap": "b",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "enunciat": "$y=-2x^2+x$. Cap on obre?",
+   "opcions": [
+    "Depèn de $c$",
+    "Cap avall",
+    "Cap amunt",
+    "No és una paràbola"
+   ],
+   "pistes": [
+    "Mira només el coeficient de $x^2$.",
+    "$a=-2$, que és negatiu."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkYyQgbm8gaGkgw6lzICh2YWwgJDAkKSwgaSBkZSB0b3RlcyBtYW5lcmVzIG5vIGRlY2lkaXJpYSBsYSBmb3JtYS4iLCAiIiwgIkhhcyBtaXJhdCBlbCAkK3gkLiBFbCBxdWUgY29tcHRhIMOpcyBlbCBjb2VmaWNpZW50IGRlICR4XjIkLCBxdWUgYXF1w60gw6lzICQtMiQuIiwgIlF1ZSBoaSBmYWx0aSBlbCB0ZXJtZSBpbmRlcGVuZGVudCBubyBsYSBkZWl4YSBkZSBmZXIgcGFyw6Bib2xhOiBlbCBxdWUgbGEgZGVmaW5pcmlhIMOpcyBxdWUgJGEkIGZvcyAkMCQsIGkgYXF1w60gJGE9LTIkLiJdLCAiZXJyIjogWyJDT0VGSUNJRU5UX01BTF9UUklBVCIsICIiLCAiQ1JFSVhFTUVOVF9JTlZFUlRJVCIsICJQQVJBQk9MQV9BTUJfQV9aRVJPIl0sICJyZXMiOiBbIiRhPS0yPDBcXFJpZ2h0YXJyb3ckIG9icmUgY2FwIGF2YWxsIl19"
+  },
+  {
+   "id": "338c",
+   "ex": 338,
+   "ap": "c",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "enunciat": "$y=-2x^2+x$. Quant val $c$?",
+   "opcions": [
+    "$1$",
+    "No en té",
+    "$0$",
+    "$-2$"
+   ],
+   "pistes": [
+    "La $c$ és el terme que no porta $x$.",
+    "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."
+   ],
+   "nota": "Un coeficient que no s'escriu no és un coeficient que no hi sigui: val $0$, i a les fórmules s'ha de comptar com a $0$.",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJyQxJCDDqXMgbGEgJGIkOiBlbCBjb2VmaWNpZW50IGRlIGxhICR4JC4gTGEgJGMkIMOpcyBlbCB0ZXJtZSBxdWUgdmEgc29sLCBzZW5zZSAkeCQuIiwgIsKrRWwgdGVybWUgbm8gaGkgYXBhcmVpeMK7IGkgwqtlbCBjb2VmaWNpZW50IG5vIGV4aXN0ZWl4wrsgbm8gc8OzbiBlbCBtYXRlaXguIFNpIG5vIGhpIHN1cnQgw6lzIHBlcnF1w6ggdmFsICQwJCwgaSBjYWwgY29tcHRhci1sbyBjb20gYSAkMCQgcXVhbiBzJ2FwbGljYSBxdWFsc2V2b2wgZsOzcm11bGEuIiwgIiIsICJFbCAkLTIkIMOpcyBsYSAkYSQ6IGVsIGNvZWZpY2llbnQgZGUgJHheMiQuIl0sICJlcnIiOiBbIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiIiwgIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS0yeF4yKzF4KzBcXFJpZ2h0YXJyb3cgYz0wJCJdfQ=="
+  },
+  {
+   "id": "339a",
+   "ex": 339,
+   "ap": "a",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "enunciat": "$y=x^2-9$",
+   "opcions": [
+    "$V(9,0)$",
+    "$V(3,0)$",
+    "$V(0,-9)$",
+    "$V(0,9)$"
+   ],
+   "pistes": [
+    "Aquí no hi ha terme en $x$, o sigui que $b=0$: el vèrtex cau damunt de l'eix $Y$.",
+    "Amb $b=0$ el vèrtex és $(0,c)$. Substitueix $x=0$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcG9zYXQgZWwgJDkkIGEgbGEgcHJpbWVyYSBjb29yZGVuYWRhLiBMYSBwcmltZXJhIMOpcyBsYSAkeCQsIGkgYXF1w60gdmFsICQwJC4iLCAiRWwgJDMkIMOpcyB1biBkZWxzIHB1bnRzIG9uIGxhIHBhcsOgYm9sYSB0YWxsYSBsJ2VpeCAkWCQsIG5vIGVsIHbDqHJ0ZXguIiwgIiIsICJFbCBzaWduZTogcXVhbiAkeD0wJCwgJHk9MF4yLTk9LTkkLiJdLCAiZXJyIjogWyJWRVJURVhfQ09NX0NPRUZJQ0lFTlRTIiwgIlZFUlRFWF9QRVJfQVJSRUwiLCAiIiwgIlNJR05FX1ZFUlRFWCJdLCAicmVzIjogWyIkYj0wXFxSaWdodGFycm93IHhfVj0wJDsgJHlfVj0wXjItOT0tOSQsIG8gc2lndWkgJFYoMCwtOSkkIl19"
+  },
+  {
+   "id": "339b",
+   "ex": 339,
+   "ap": "b",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "enunciat": "$y=2x^2$",
+   "opcions": [
+    "$V(0,2)$",
+    "$V(1,2)$",
+    "$V(0,0)$",
+    "$V(2,0)$"
+   ],
+   "pistes": [
+    "No hi ha terme en $x$ ni terme independent: $b=0$ i $c=0$.",
+    "Amb $b=0$ el vèrtex és $(0,c)$, i aquí $c=0$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkMiQgbm8gw6lzIGwnb3JkZW5hZGEgZGVsIHbDqHJ0ZXg6IHF1YW4gJHg9MCQsICR5PTJcXGNkb3QgMF4yPTAkLiIsICJMJ2VpeCBkZSBzaW1ldHJpYSDDqXMgJHg9MCQsIG5vICR4PTEkLiIsICIiLCAiRWwgJDIkIMOpcyBlbCBjb2VmaWNpZW50ICRhJCwgcXVlIGZhIGxhIHBhcsOgYm9sYSBtw6lzIGVzdHJldGE7IG5vIMOpcyBjYXAgY29vcmRlbmFkYSBkZWwgdsOocnRleC4iXSwgImVyciI6IFsiVkVSVEVYX0NPTV9DT0VGSUNJRU5UUyIsICJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIiIsICJWRVJURVhfQ09NX0NPRUZJQ0lFTlRTIl0sICJyZXMiOiBbIiRWKDAsYyk9KDAsMCkkOiBsYSBwYXLDoGJvbGEgdMOpIGVsIHbDqHJ0ZXggYSBsJ29yaWdlbiJdfQ=="
+  },
+  {
+   "id": "339c",
+   "ex": 339,
+   "ap": "c",
+   "bloc": "parabola_produccio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "enunciat": "$y=-x^2+4$",
+   "opcions": [
+    "$V(4,0)$",
+    "$V(2,0)$",
+    "$V(0,-4)$",
+    "$V(0,4)$"
+   ],
+   "pistes": [
+    "$b=0$: el vèrtex és a l'eix $Y$.",
+    "Substitueix $x=0$: $y=-0+4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IGxlcyBjb29yZGVuYWRlcy4gTGEgcHJpbWVyYSDDqXMgbGEgJHgkLCBxdWUgdmFsICQwJC4iLCAiRWwgJDIkIMOpcyB1biB0YWxsIGFtYiBsJ2VpeCAkWCQgKCQteF4yKzQ9MCQgZG9uYSAkeD1cXHBtIDIkKSwgbm8gZWwgdsOocnRleC4iLCAiQ29tcHRlIGFtYiBlbCBzaWduZTogcXVhbiAkeD0wJCwgJHk9LTBeMis0PSs0JC4gRWwgbWVueXMgYWZlY3RhIGxhICR4XjIkLCBubyBlbCAkNCQuIiwgIiJdLCAiZXJyIjogWyJWRVJURVhfQ09NX0NPRUZJQ0lFTlRTIiwgIlZFUlRFWF9QRVJfQVJSRUwiLCAiU0lHTkVfVkVSVEVYIiwgIiJdLCAicmVzIjogWyIkYj0wXFxSaWdodGFycm93IHhfVj0wJDsgJHlfVj0tMF4yKzQ9NCQsIG8gc2lndWkgJFYoMCw0KSQiXX0="
+  },
+  {
    "id": "300a",
    "ex": 300,
    "ap": "a",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba el vèrtex de cada paràbola.",
    "enunciat": "$y=x^2-6x+5$",
    "opcions": [
@@ -1512,7 +1509,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba el vèrtex de cada paràbola.",
    "enunciat": "$y=2x^2+4x-1$",
    "opcions": [
@@ -1535,7 +1532,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba el vèrtex de cada paràbola.",
    "enunciat": "$y=-x^2+2x+3$",
    "opcions": [
@@ -1558,7 +1555,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba el vèrtex de cada paràbola.",
    "enunciat": "$y=x^2+8x-9$",
    "opcions": [
@@ -1581,7 +1578,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba els talls amb els eixos de cada paràbola.",
    "enunciat": "$y=x^2-5x+6$",
    "opcions": [
@@ -1603,7 +1600,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba els talls amb els eixos de cada paràbola.",
    "enunciat": "$y=x^2+2x-8$",
    "opcions": [
@@ -1625,7 +1622,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba els talls amb els eixos de cada paràbola.",
    "enunciat": "$y=x^2-4x+4$",
    "opcions": [
@@ -1647,7 +1644,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Una paràbola té el vèrtex a $(2,-1)$ i passa per $(0,3)$. Quina és la seva equació?",
    "opcions": [
@@ -1670,7 +1667,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "I una amb el vèrtex a $(-1,4)$ que passa per $(1,0)$?",
    "opcions": [
@@ -1693,7 +1690,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una companyia de telèfon cobra $12$ € fixos al mes més $0{,}05$ € per minut de trucada.",
    "enunciat": "Escriu la funció que dona el preu segons els minuts.",
    "opcions": [
@@ -1715,7 +1712,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una companyia de telèfon cobra $12$ € fixos al mes més $0{,}05$ € per minut de trucada.",
    "enunciat": "Quant paga algú que ha parlat $340$ minuts?",
    "opcions": [
@@ -1737,7 +1734,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Una companyia de telèfon cobra $12$ € fixos al mes més $0{,}05$ € per minut de trucada.",
    "enunciat": "Amb quants minuts la factura arriba a $30$ €?",
    "opcions": [
@@ -1759,7 +1756,7 @@ window.FULL = {
    "ap": "",
    "bloc": "parabola_produccio",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Es vol tancar un corral rectangular amb $40$ m de tanca, aprofitant un mur que ja hi ha com un dels costats llargs. Si un dels costats perpendiculars al mur fa $x$ metres, l'àrea és $A(x)=x(40-2x)$. Quina $x$ dona l'àrea més gran?",
    "opcions": [
@@ -1774,6 +1771,286 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsJ8OgcmVhIG5vOiAkQSgxMCk9MTBcXGNkb3QoNDAtMjApPTEwXFxjZG90MjA9MjAwJC4iLCAiQW1iICR4PTIwJCBsJ2FsdHJlIGNvc3RhdCB2YWwgJDQwLTQwPTAkOiBubyBoaSBoYSBjb3JyYWwuIEVsICQyMCQgw6lzIHVuYSBkZSBsZXMgYXJyZWxzIGRlIGxhIHBhcsOgYm9sYSwgb24gbCfDoHJlYSB2YWwgemVybywgbm8gZWwgdsOocnRleC4iLCAiIiwgIkVsICQ0MCQgw6lzIGxhIHRhbmNhIHRvdGFsLCBubyB1biBjb3N0YXQuIEFtYiAkeD00MCQgbCdhbHRyZSBjb3N0YXQgc29ydGlyaWEgbmVnYXRpdS4iXSwgImVyciI6IFsiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiVkVSVEVYX1BFUl9BUlJFTCIsICIiLCAiREFERVNfTUFMX1RSSUFERVMiXSwgInJlcyI6IFsiJEEoeCk9NDB4LTJ4XjIkLCBvIHNpZ3VpICRhPS0yJCBpICRiPTQwJCIsICJDb20gcXVlICRhPDAkLCBsYSBwYXLDoGJvbGEgcydvYnJlIGNhcCBhdmFsbCBpIGVsIHbDqHJ0ZXggw6lzIHVuIE3DgFhJTSIsICIkeF92PVxcZGZyYWN7LTQwfXsyXFxjZG90KC0yKX09MTAkIiwgIiRBKDEwKT0xMFxcY2RvdCg0MC0yMCk9MjAwJCBtJF4yJCJdfQ=="
+  },
+  {
+   "id": "212a",
+   "ex": 212,
+   "ap": "a",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
+   "enunciat": "$y=2x^2$",
+   "opcions": [
+    "Oberta cap avall i més ampla que $y=x^2$.",
+    "Oberta cap avall i més estreta que $y=x^2$.",
+    "Oberta cap amunt i més ampla que $y=x^2$.",
+    "Oberta cap amunt i més estreta que $y=x^2$."
+   ],
+   "pistes": [
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9MiQuIiwgIkVsIHNpZ25lIGRlICRhJCBkZXRlcm1pbmEgbCdvYmVydHVyYTogcG9zaXRpdSDDqXMgY2FwIGFtdW50LCBuZWdhdGl1IGNhcCBhdmFsbC4gQXF1w60gJGE9MiQuIiwgIkNvbSBtw6lzIGdyYW4gw6lzICR8YXwkLCBtw6lzIEVTVFJFVEEgw6lzIGxhIHBhcsOgYm9sYSAobm8gbcOpcyBhbXBsYSk6IGFxdcOtICR8YXw9MiQsIHF1ZSDDqXMgbcOpcyBncmFuIHF1ZSAkMSQuIiwgIiJdLCAiZXJyIjogWyJPQkVSVFVSQV9JX0FNUExBREFfSU5WRVJUSURFUyIsICJPQkVSVFVSQV9JTlZFUlRJREEiLCAiQU1QTEFEQV9JTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIkEgJHk9MnheMiQsICRhPTIkLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9MiQgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLCBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgZXN0cmV0YSBxdWUgJHk9eF4yJC4iXX0="
+  },
+  {
+   "id": "212b",
+   "ex": 212,
+   "ap": "b",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
+   "enunciat": "$y=\\dfrac{x^2}{2}$",
+   "opcions": [
+    "Oberta cap amunt i més ampla que $y=x^2$.",
+    "Oberta cap avall i més estreta que $y=x^2$.",
+    "Oberta cap avall i més ampla que $y=x^2$.",
+    "Oberta cap amunt i més estreta que $y=x^2$."
+   ],
+   "pistes": [
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVGFudCBsJ29iZXJ0dXJhIGNvbSBsJ2FtcGxhZGEgZXN0YW4gaW52ZXJ0aWRlcyByZXNwZWN0ZSBhICRhPVxcZGZyYWN7MX17Mn0kLiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17Mn0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXsyfSQsICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXsyfSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
+  },
+  {
+   "id": "212c",
+   "ex": 212,
+   "ap": "c",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
+   "enunciat": "$y=-2x^2$",
+   "opcions": [
+    "Oberta cap avall i més ampla que $y=x^2$.",
+    "Oberta cap amunt i més ampla que $y=x^2$.",
+    "Oberta cap avall i més estreta que $y=x^2$.",
+    "Oberta cap amunt i més estreta que $y=x^2$."
+   ],
+   "pistes": [
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PTIkLCBxdWUgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9LTIkLiIsICIiLCAiRWwgc2lnbmUgZGUgJGEkIGRldGVybWluYSBsJ29iZXJ0dXJhOiBwb3NpdGl1IMOpcyBjYXAgYW11bnQsIG5lZ2F0aXUgY2FwIGF2YWxsLiBBcXXDrSAkYT0tMiQuIl0sICJlcnIiOiBbIkFNUExBREFfSU5WRVJUSURBIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIiIsICJPQkVSVFVSQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiQSAkeT0tMnheMiQsICRhPS0yJC4iLCAiQ29tIHF1ZSAkYSQgw6lzIG5lZ2F0aXUsIGxhIHBhcsOgYm9sYSDDqXMgb2JlcnRhIGNhcCBhdmFsbC4iLCAiQ29tIHF1ZSAkfGF8PTIkIMOpcyBtw6lzIGdyYW4gcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGVzdHJldGEgcXVlICR5PXheMiQuIl19"
+  },
+  {
+   "id": "212d",
+   "ex": 212,
+   "ap": "d",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.",
+   "enunciat": "$y=\\dfrac{x^2}{4}$",
+   "opcions": [
+    "Oberta cap avall i més estreta que $y=x^2$.",
+    "Oberta cap amunt i més ampla que $y=x^2$.",
+    "Oberta cap avall i més ampla que $y=x^2$.",
+    "Oberta cap amunt i més estreta que $y=x^2$."
+   ],
+   "pistes": [
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17NH0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiT0JFUlRVUkFfSV9BTVBMQURBX0lOVkVSVElERVMiLCAiIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXs0fSQsICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXs0fSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
+  },
+  {
+   "id": "214a",
+   "ex": 214,
+   "ap": "a",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
+   "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ -1)$.",
+   "opcions": [
+    "$c=-1$",
+    "$c=1$",
+    "$c=0$",
+    "$c=-2$"
+   ],
+   "pistes": [
+    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdsOocnRleCBkZSAkeT14XjIrYyQgw6lzIHNlbXByZSBlbCBwdW50ICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBlbCB2YWxvciBkZSAkYyQgw6lzICQtMSQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIiRjJCBubyDDqXMgJDAkOiBlbCB2w6hydGV4IGRlICR5PXheMiQgKHNlbnNlIHN1bWFyIHJlcykgc2VyaWEgJCgwLDApJCwgaSBhcXXDrSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgLTEpJCwgbm8gbCdvcmlnZW4uIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIC0xKSQgZG9uYSBkaXJlY3RhbWVudCAkYz0tMSQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgbXVsdGlwbGljYXItbG8gcGVyIGNhcCBhbHRyZSBub21icmUuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJURVJNRV9JTkRFUEVOREVOVF9JR05PUkFUIiwgIlZBTE9SX0RVUExJQ0FUIl0sICJyZXMiOiBbIkNvbXBhcmFudCAkeT14XjIrYyQgYW1iICR5PXheMiQsIHN1bWFyICRjJCBkZXNwbGHDp2EgdG90YSBsYSBwYXLDoGJvbGEgJGMkIHVuaXRhdHMgYW11bnQgKHNpICRjPjAkKSBvIGF2YWxsIChzaSAkYzwwJCksIHNlbnNlIG1vdXJlLWxhIGhvcml0em9udGFsbWVudC4iLCAiUGVyIGFpeMOyIGVsIHbDqHJ0ZXggcGFzc2EgZGUgJCgwLDApJCBhICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBhbGVzaG9yZXMgJGM9LTEkLiJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x - 1.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.5\" x2=\"190.0\" y2=\"171.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"48.5\" x2=\"190.0\" y2=\"48.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"140.8\" x2=\"190.0\" y2=\"140.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 140.8 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"154.769\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"175.0\">-1</text><text x=\"24.0\" y=\"144.3\">0</text><text x=\"24.0\" y=\"113.5\">1</text><text x=\"24.0\" y=\"82.7\">2</text><text x=\"24.0\" y=\"52.0\">3</text></g><path d=\"M 52.8 30.0 L 54.0 35.8 L 56.7 48.5 L 59.3 60.5 L 62.0 71.8 L 64.7 82.6 L 67.3 92.8 L 70.0 102.3 L 72.7 111.2 L 75.3 119.5 L 78.0 127.2 L 80.7 134.3 L 83.3 140.8 L 86.0 146.6 L 88.7 151.8 L 91.3 156.5 L 94.0 160.5 L 96.7 163.8 L 99.3 166.6 L 102.0 168.8 L 104.7 170.3 L 107.3 171.2 L 110.0 171.5 L 112.7 171.2 L 115.3 170.3 L 118.0 168.8 L 120.7 166.6 L 123.3 163.8 L 126.0 160.5 L 128.7 156.5 L 131.3 151.8 L 134.0 146.6 L 136.7 140.8 L 139.3 134.3 L 142.0 127.2 L 144.7 119.5 L 147.3 111.2 L 150.0 102.3 L 152.7 92.8 L 155.3 82.6 L 158.0 71.8 L 160.7 60.5 L 163.3 48.5 L 166.0 35.8 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"171.5\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
+  },
+  {
+   "id": "214b",
+   "ex": 214,
+   "ap": "b",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula quin és el valor de la constant $c$ en l'expressió $y=x^2+c$ d'aquestes paràboles.",
+   "enunciat": "Paràbola oberta cap amunt amb vèrtex en el punt $(0,\\ 2)$.",
+   "opcions": [
+    "$c=2$",
+    "$c=0$",
+    "$c=-2$",
+    "$c=4$"
+   ],
+   "pistes": [
+    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJGMkIG5vIMOpcyAkMCQ6IGVsIHbDqHJ0ZXggZGUgJHk9eF4yJCAoc2Vuc2Ugc3VtYXIgcmVzKSBzZXJpYSAkKDAsMCkkLCBpIGFxdcOtIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAyKSQsIG5vIGwnb3JpZ2VuLiIsICJFbCB2w6hydGV4IGRlICR5PXheMitjJCDDqXMgc2VtcHJlIGVsIHB1bnQgJCgwLGMpJDogc2kgZWwgdsOocnRleCBkb25hdCDDqXMgJCgwLFxcIDIpJCwgZWwgdmFsb3IgZGUgJGMkIMOpcyAkMiQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIDIpJCBkb25hIGRpcmVjdGFtZW50ICRjPTIkLCBzZW5zZSBuZWNlc3NpdGF0IGRlIG11bHRpcGxpY2FyLWxvIHBlciBjYXAgYWx0cmUgbm9tYnJlLiJdLCAiZXJyIjogWyIiLCAiVEVSTUVfSU5ERVBFTkRFTlRfSUdOT1JBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9EVVBMSUNBVCJdLCAicmVzIjogWyJDb21wYXJhbnQgJHk9eF4yK2MkIGFtYiAkeT14XjIkLCBzdW1hciAkYyQgZGVzcGxhw6dhIHRvdGEgbGEgcGFyw6Bib2xhICRjJCB1bml0YXRzIGFtdW50IChzaSAkYz4wJCkgbyBhdmFsbCAoc2kgJGM8MCQpLCBzZW5zZSBtb3VyZS1sYSBob3JpdHpvbnRhbG1lbnQuIiwgIlBlciBhaXjDsiBlbCB2w6hydGV4IHBhc3NhIGRlICQoMCwwKSQgYSAkKDAsYykkOiBzaSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgMikkLCBhbGVzaG9yZXMgJGM9MiQuIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x + 2.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"154.4\" x2=\"190.0\" y2=\"154.4\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"132.2\" x2=\"190.0\" y2=\"132.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"87.8\" x2=\"190.0\" y2=\"87.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"65.6\" x2=\"190.0\" y2=\"65.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"43.3\" x2=\"190.0\" y2=\"43.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"176.7\" x2=\"190.0\" y2=\"176.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 176.7 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"190.667\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"180.2\">0</text><text x=\"24.0\" y=\"157.9\">1</text><text x=\"24.0\" y=\"135.7\">2</text><text x=\"24.0\" y=\"113.5\">3</text><text x=\"24.0\" y=\"91.3\">4</text><text x=\"24.0\" y=\"69.1\">5</text><text x=\"24.0\" y=\"46.8\">6</text></g><path d=\"M 52.8 30.0 L 54.0 34.2 L 56.7 43.3 L 59.3 52.0 L 62.0 60.2 L 64.7 68.0 L 67.3 75.3 L 70.0 82.2 L 72.7 88.7 L 75.3 94.7 L 78.0 100.2 L 80.7 105.3 L 83.3 110.0 L 86.0 114.2 L 88.7 118.0 L 91.3 121.3 L 94.0 124.2 L 96.7 126.7 L 99.3 128.7 L 102.0 130.2 L 104.7 131.3 L 107.3 132.0 L 110.0 132.2 L 112.7 132.0 L 115.3 131.3 L 118.0 130.2 L 120.7 128.7 L 123.3 126.7 L 126.0 124.2 L 128.7 121.3 L 131.3 118.0 L 134.0 114.2 L 136.7 110.0 L 139.3 105.3 L 142.0 100.2 L 144.7 94.7 L 147.3 88.7 L 150.0 82.2 L 152.7 75.3 L 155.3 68.0 L 158.0 60.2 L 160.7 52.0 L 163.3 43.3 L 166.0 34.2 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"132.2\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
+  },
+  {
+   "id": "217a",
+   "ex": 217,
+   "ap": "a",
+   "bloc": "funcions_quadratiques",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
+   "enunciat": "$y=x^2-3x^2+4$",
+   "opcions": [
+    "Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.",
+    "Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola $y=-2x^2+4$, oberta cap avall, més AMPLA que $y=x^2$, amb vèrtex a $(0,4)$.",
+    "Reduint termes semblants, $x^2-3x^2=2x^2$: és la paràbola $y=2x^2+4$, oberta cap amunt, més estreta que $y=x^2$, amb vèrtex a $(0,4)$.",
+    "És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex fora de l'eix $Y$."
+   ],
+   "pistes": [
+    "Abans de decidir de quin tipus de funció es tracta, redueix els termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgY29lZmljaWVudCBkZSAkeF4yJCDDqXMgJC0yJCwgaSAkfC0yfD0yPjEkOiBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgRVNUUkVUQSBxdWUgJHk9eF4yJCwgbm8gbcOpcyBhbXBsYS4iLCAiJHheMi0zeF4yJCDDqXMgdW5hIHJlc3RhIG9uIGVsIHNlZ29uIHRlcm1lIMOpcyBtw6lzIGdyYW46IGVsIHJlc3VsdGF0IMOpcyBuZWdhdGl1LCAkLTJ4XjIkLCBubyAkMnheMiQuIiwgIkVscyBkb3MgdGVybWVzICR4XjIkIGkgJC0zeF4yJCBzw7NuIHRlcm1lcyBTRU1CTEFOVFMgKHRvdHMgZG9zIGVuICR4XjIkKSBpIHMnaGFuIGRlIHJlZHVpciBqdW50cywgY29tIHVuIHNvbCB0ZXJtZSAkLTJ4XjIkOyBhIGwnZXhwcmVzc2nDsyBvcmlnaW5hbCBubyBoaSBoYSBjYXAgdGVybWUgZW4gJHgkIChhIGxhIHByaW1lcmEgcG90w6huY2lhKSwgYWl4w60gcXVlIG5vIGVuIHBvdCBxdWVkYXIgY2FwIGRlc3Byw6lzIGRlIHJlZHVpci4iXSwgImVyciI6IFsiIiwgIkFNUExBREFfSU5WRVJUSURBIiwgIlNJR05FX0ZJTkFMIiwgIlRFUk1FU19OT19SRURVSVRTIl0sICJyZXMiOiBbIlJlZHVpbnQgdGVybWVzIHNlbWJsYW50czogJHheMi0zeF4yPS0yeF4yJCwgYWl4w60gcXVlIGwnZXhwcmVzc2nDsyDDqXMgJHk9LTJ4XjIrNCQuIiwgIsOJcyB1bmEgcGFyw6Bib2xhICh0w6kgdGVybWUgZW4gJHheMiQpLCBzZW5zZSB0ZXJtZSBlbiAkeCQgKHBlciB0YW50IHNpbcOodHJpY2EgcmVzcGVjdGUgYSBsJ2VpeCAkWSQpLiIsICJFbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkLTIkOiBuZWdhdGl1LCBvYmVydGEgY2FwIGF2YWxsOyAkfC0yfD4xJCwgbcOpcyBlc3RyZXRhIHF1ZSAkeT14XjIkLiIsICJFbCB2w6hydGV4IMOpcyAkKDAsNCkkLCBqYSBxdWUgbm8gaGkgaGEgdGVybWUgZW4gJHgkLiJdfQ=="
+  },
+  {
+   "id": "217b",
+   "ex": 217,
+   "ap": "b",
+   "bloc": "funcions_quadratiques",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Analitza com serà la gràfica d'aquestes funcions polinòmiques sense representar-les.",
+   "enunciat": "$y=-x-3$",
+   "opcions": [
+    "És una recta amb pendent $-1$, però creixent, i ordenada a l'origen $-3$.",
+    "No té cap terme en $x^2$: és una recta (no una paràbola), amb pendent $-1$ (decreixent) i ordenada a l'origen $-3$.",
+    "És una recta amb pendent $-1$ (decreixent) i ordenada a l'origen $3$.",
+    "No té cap terme en $x^2$ escrit, però és una paràbola amb $a=0$: oberta cap avall, decreixent."
+   ],
+   "pistes": [
+    "Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtMSQgw6lzIG5lZ2F0aXU6IGxhIHJlY3RhIMOpcyBkZWNyZWl4ZW50LCBubyBjcmVpeGVudC4iLCAiIiwgIkVsIHRlcm1lIGluZGVwZW5kZW50IGRlICQteC0zJCDDqXMgJC0zJCAobmVnYXRpdSksIG5vICQzJDogbGEgcmVjdGEgdGFsbGEgbCdlaXggJFkkIGVuICQoMCwtMykkLiIsICJTaSBlbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkMCQsIGwnZXhwcmVzc2nDsyBkZWl4YSBkZSBzZXIgdW5hIHBhcsOgYm9sYTogc2Vuc2UgdGVybWUgZW4gJHheMiQsIMOpcyB1bmEgcmVjdGEgKGZ1bmNpw7MgYWbDrSksIG5vIHVuYSBwYXLDoGJvbGEgZXh0cmVtYW1lbnQgb2JlcnRhLiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIiIsICJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQQVJBQk9MQV9BTUJfQV9aRVJPIl0sICJyZXMiOiBbIiR5PS14LTMkIG5vIHTDqSB0ZXJtZSBlbiAkeF4yJDogw6lzIHVuYSBmdW5jacOzIGFmw60gKHJlY3RhKSwgbm8gdW5hIHBhcsOgYm9sYS4iLCAiRWwgcGVuZGVudCDDqXMgJC0xJCAobmVnYXRpdSwgcGVyIHRhbnQgZGVjcmVpeGVudCkgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQtMyQuIl19"
+  },
+  {
+   "id": "215",
+   "ex": 215,
+   "ap": "",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Calcula l'expressió algebraica de la paràbola.",
+   "enunciat": "Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que passa pel punt $(1,2)$.",
+   "opcions": [
+    "$y=2x^2+1$",
+    "$y=x^2-1$",
+    "$y=x^2+2$",
+    "$y=x^2+1$"
+   ],
+   "pistes": [
+    "El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix l'altre punt a $y=ax^2+c$ per trobar $a$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTdWJzdGl0dWludCBlbCBwdW50ICQoMSwyKSQgYSAkeT1heF4yKzEkOiAkMj1hXFxjZG90IDFeMisxJCwgcXVlIGRvbmEgJGE9MSQsIG5vICRhPTIkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgdMOpIGxhIHNlZ29uYSBjb29yZGVuYWRhIHBvc2l0aXZhOiAkYz0xJCwgbm8gJGM9LTEkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgamEgZGl1IGRpcmVjdGFtZW50IHF1ZSAkYz0xJDogZWwgJDIkIMOpcyBsYSAkeSQgZGVsIHB1bnQgJCgxLDIpJCwgbm8gZWwgdmFsb3IgZGUgJGMkLiIsICIiXSwgImVyciI6IFsiQ09FRklDSUVOVF9BX01BTF9DQUxDVUxBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9DX0NPTkZPUyIsICIiXSwgInJlcyI6IFsiRWwgdsOocnRleCAkKDAsMSkkIGRvbmEgJGM9MSQ6IGwnZXhwcmVzc2nDsyDDqXMgJHk9YXheMisxJC4iLCAiU3Vic3RpdHVpbnQgZWwgcHVudCAkKDEsMikkOiAkMj1hXFxjZG90IDFeMisxJCwgcGVyIHRhbnQgJGE9MSQuIiwgIkwnZXhwcmVzc2nDsyDDqXMgJHk9eF4yKzEkLiJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 0·x + 1.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"56.7\" y1=\"190.0\" x2=\"56.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"83.3\" y1=\"190.0\" x2=\"83.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"163.3\" y1=\"190.0\" x2=\"163.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"148.7\" x2=\"190.0\" y2=\"148.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"122.9\" x2=\"190.0\" y2=\"122.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"97.1\" x2=\"190.0\" y2=\"97.1\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"71.3\" x2=\"190.0\" y2=\"71.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"45.5\" x2=\"190.0\" y2=\"45.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"174.5\" x2=\"190.0\" y2=\"174.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 174.5 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"188.516\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"56.7\" y=\"202\">-2</text><text x=\"83.3\" y=\"202\">-1</text><text x=\"110.0\" y=\"202\">0</text><text x=\"136.7\" y=\"202\">1</text><text x=\"163.3\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"178.0\">0</text><text x=\"24.0\" y=\"152.2\">1</text><text x=\"24.0\" y=\"126.4\">2</text><text x=\"24.0\" y=\"100.6\">3</text><text x=\"24.0\" y=\"74.8\">4</text><text x=\"24.0\" y=\"49.0\">5</text></g><path d=\"M 52.8 30.0 L 54.0 34.9 L 56.7 45.5 L 59.3 55.5 L 62.0 65.1 L 64.7 74.1 L 67.3 82.6 L 70.0 90.6 L 72.7 98.1 L 75.3 105.1 L 78.0 111.5 L 80.7 117.5 L 83.3 122.9 L 86.0 127.8 L 88.7 132.2 L 91.3 136.1 L 94.0 139.4 L 96.7 142.3 L 99.3 144.6 L 102.0 146.4 L 104.7 147.7 L 107.3 148.5 L 110.0 148.7 L 112.7 148.5 L 115.3 147.7 L 118.0 146.4 L 120.7 144.6 L 123.3 142.3 L 126.0 139.4 L 128.7 136.1 L 131.3 132.2 L 134.0 127.8 L 136.7 122.9 L 139.3 117.5 L 142.0 111.5 L 144.7 105.1 L 147.3 98.1 L 150.0 90.6 L 152.7 82.6 L 155.3 74.1 L 158.0 65.1 L 160.7 55.5 L 163.3 45.5 L 166.0 34.9 L 167.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><circle cx=\"110.0\" cy=\"148.7\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
+  },
+  {
+   "id": "216a",
+   "ex": 216,
+   "ap": "a",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
+   "enunciat": "$y=-x^2-3x$",
+   "opcions": [
+    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-3;\\ \\text{vèrtex }(-3,\\ 0)$",
+    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ -\\dfrac{9}{4}\\right)$",
+    "$\\text{talls: }(-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ \\dfrac{9}{4}\\right)$",
+    "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ \\dfrac{9}{4}\\right)$"
+   ],
+   "pistes": [
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiIsICJDb20gcXVlIGwnZXhwcmVzc2nDsyBubyB0w6kgdGVybWUgaW5kZXBlbmRlbnQgKG5vIGhpIGhhICQrYyQpLCBsYSBwYXLDoGJvbGEgc2VtcHJlIHBhc3NhIHBlciBsJ29yaWdlbjogJCgwLDApJCB0YW1iw6kgw6lzIHVuIHRhbGwgYW1iIGVscyBlaXhvcywgbm8gbm9tw6lzIGwnYWx0cmEgYXJyZWwuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlNJR05FX0ZJTkFMIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkLXheMi0zeD14KC14LTMpJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD0tMyQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkKC0zLFxcIDApJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PS1cXGRmcmFjezN9ezJ9JC4iLCAiRWwgdsOocnRleCDDqXMgJFxcbGVmdCgtXFxkZnJhY3szfXsyfSxcXCBcXGRmcmFjezl9ezR9XFxyaWdodCkkLCBzdWJzdGl0dWludCAkeD0tXFxkZnJhY3szfXsyfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = -1·x² - 3·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"65.6\" y1=\"190.0\" x2=\"65.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"101.1\" y1=\"190.0\" x2=\"101.1\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"172.2\" y1=\"190.0\" x2=\"172.2\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"188.6\" x2=\"190.0\" y2=\"188.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"161.3\" x2=\"190.0\" y2=\"161.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"133.9\" x2=\"190.0\" y2=\"133.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"106.6\" x2=\"190.0\" y2=\"106.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"51.9\" x2=\"190.0\" y2=\"51.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"136.7\" y1=\"190.0\" x2=\"136.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 79.2 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 136.7 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"93.2308\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"138.667\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-6</text><text x=\"65.6\" y=\"202\">-4</text><text x=\"101.1\" y=\"202\">-2</text><text x=\"136.7\" y=\"202\">0</text><text x=\"172.2\" y=\"202\">2</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"164.8\">-6</text><text x=\"24.0\" y=\"137.4\">-4</text><text x=\"24.0\" y=\"110.1\">-2</text><text x=\"24.0\" y=\"82.7\">0</text><text x=\"24.0\" y=\"55.4\">2</text></g><path d=\"M 52.8 190.0 L 54.0 184.2 L 56.7 171.5 L 59.3 159.5 L 62.0 148.2 L 64.7 137.4 L 67.3 127.2 L 70.0 117.7 L 72.7 108.8 L 75.3 100.5 L 78.0 92.8 L 80.7 85.7 L 83.3 79.2 L 86.0 73.4 L 88.7 68.2 L 91.3 63.5 L 94.0 59.5 L 96.7 56.2 L 99.3 53.4 L 102.0 51.2 L 104.7 49.7 L 107.3 48.8 L 110.0 48.5 L 112.7 48.8 L 115.3 49.7 L 118.0 51.2 L 120.7 53.4 L 123.3 56.2 L 126.0 59.5 L 128.7 63.5 L 131.3 68.2 L 134.0 73.4 L 136.7 79.2 L 139.3 85.7 L 142.0 92.8 L 144.7 100.5 L 147.3 108.8 L 150.0 117.7 L 152.7 127.2 L 155.3 137.4 L 158.0 148.2 L 160.7 159.5 L 163.3 171.5 L 166.0 184.2 L 167.2 190.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
+  },
+  {
+   "id": "216b",
+   "ex": 216,
+   "ap": "b",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
+   "enunciat": "$y=x^2-\\dfrac23x$",
+   "opcions": [
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ \\dfrac{1}{9}\\right)$",
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{9}\\right)$",
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{2}{3};\\ \\text{vèrtex }\\left(\\dfrac{2}{3},\\ 0\\right)$",
+    "$\\text{talls: }\\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{9}\\right)$"
+   ],
+   "pistes": [
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiRUlYX1NJTUVUUklBX01BTF9DQUxDVUxBVCIsICJUQUxMX09SSUdFTl9PQkxJREFUIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yLVxcZGZyYWMyM3g9eCh4LVxcZGZyYWN7Mn17M30pJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD1cXGRmcmFjezJ9ezN9JC4iLCAiVGFsbHMgYW1iIGVscyBlaXhvczogJCgwLFxcIDApJCBpICRcXGxlZnQoXFxkZnJhY3syfXszfSxcXCAwXFxyaWdodCkkLiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgcHVudCBtaWcgZGUgbGVzIGFycmVsczogJHg9XFxkZnJhY3sxfXszfSQuIiwgIkVsIHbDqHJ0ZXggw6lzICRcXGxlZnQoXFxkZnJhY3sxfXszfSxcXCAtXFxkZnJhY3sxfXs5fVxccmlnaHQpJCwgc3Vic3RpdHVpbnQgJHg9XFxkZnJhY3sxfXszfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² - 0,666667·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"54.0\" y1=\"190.0\" x2=\"54.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"78.0\" y1=\"190.0\" x2=\"78.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"126.0\" y1=\"190.0\" x2=\"126.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"174.0\" y1=\"190.0\" x2=\"174.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"175.7\" x2=\"190.0\" y2=\"175.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"150.0\" x2=\"190.0\" y2=\"150.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"98.6\" x2=\"190.0\" y2=\"98.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"72.9\" x2=\"190.0\" y2=\"72.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"47.1\" x2=\"190.0\" y2=\"47.1\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"124.3\" x2=\"190.0\" y2=\"124.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"102.0\" y1=\"190.0\" x2=\"102.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 124.3 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 102.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"138.286\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"104\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"54.0\" y=\"202\">-2</text><text x=\"78.0\" y=\"202\">-1</text><text x=\"102.0\" y=\"202\">0</text><text x=\"126.0\" y=\"202\">1</text><text x=\"150.0\" y=\"202\">2</text><text x=\"174.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"27.6\" y=\"179.2\">-0,4</text><text x=\"27.6\" y=\"153.5\">-0,2</text><text x=\"27.6\" y=\"127.8\">0</text><text x=\"27.6\" y=\"102.1\">0,2</text><text x=\"27.6\" y=\"76.4\">0,4</text><text x=\"27.6\" y=\"50.6\">0,6</text></g><path d=\"M 88.0 30.0 L 88.7 37.0 L 91.3 60.8 L 94.0 81.4 L 96.7 98.9 L 99.3 113.2 L 102.0 124.3 L 104.7 132.2 L 107.3 137.0 L 110.0 138.6 L 112.7 137.0 L 115.3 132.2 L 118.0 124.3 L 120.7 113.2 L 123.3 98.9 L 126.0 81.4 L 128.7 60.8 L 131.3 37.0 L 132.0 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
+  },
+  {
+   "id": "216c",
+   "ex": 216,
+   "ap": "c",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
+   "enunciat": "$y=\\dfrac32x^2-x$",
+   "opcions": [
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{2}{3};\\ \\text{vèrtex }\\left(\\dfrac{2}{3},\\ 0\\right)$",
+    "$\\text{talls: }\\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{6}\\right)$",
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ \\dfrac{1}{6}\\right)$",
+    "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{6}\\right)$"
+   ],
+   "pistes": [
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiU0lHTkVfRklOQUwiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkXFxkZnJhYzMyeF4yLXg9eChcXGRmcmFjezN9ezJ9eC0xKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9XFxkZnJhY3syfXszfSQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkXFxsZWZ0KFxcZGZyYWN7Mn17M30sXFwgMFxccmlnaHQpJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PVxcZGZyYWN7MX17M30kLiIsICJFbCB2w6hydGV4IMOpcyAkXFxsZWZ0KFxcZGZyYWN7MX17M30sXFwgLVxcZGZyYWN7MX17Nn1cXHJpZ2h0KSQsIHN1YnN0aXR1aW50ICR4PVxcZGZyYWN7MX17M30kIGEgbCdleHByZXNzacOzLiJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1,5·x² - 1·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"54.0\" y1=\"190.0\" x2=\"54.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"78.0\" y1=\"190.0\" x2=\"78.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"126.0\" y1=\"190.0\" x2=\"126.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"174.0\" y1=\"190.0\" x2=\"174.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.8\" x2=\"190.0\" y2=\"171.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"150.0\" x2=\"190.0\" y2=\"150.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"106.4\" x2=\"190.0\" y2=\"106.4\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"84.5\" x2=\"190.0\" y2=\"84.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"62.7\" x2=\"190.0\" y2=\"62.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"40.9\" x2=\"190.0\" y2=\"40.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"128.2\" x2=\"190.0\" y2=\"128.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"102.0\" y1=\"190.0\" x2=\"102.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 128.2 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 102.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"142.182\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"104\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"54.0\" y=\"202\">-2</text><text x=\"78.0\" y=\"202\">-1</text><text x=\"102.0\" y=\"202\">0</text><text x=\"126.0\" y=\"202\">1</text><text x=\"150.0\" y=\"202\">2</text><text x=\"174.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"27.6\" y=\"175.3\">-0,4</text><text x=\"27.6\" y=\"153.5\">-0,2</text><text x=\"27.6\" y=\"131.7\">0</text><text x=\"27.6\" y=\"109.9\">0,2</text><text x=\"27.6\" y=\"88.0\">0,4</text><text x=\"27.6\" y=\"66.2\">0,6</text><text x=\"27.6\" y=\"44.4\">0,8</text></g><path d=\"M 89.8 30.0 L 91.3 47.4 L 94.0 73.6 L 96.7 95.9 L 99.3 114.0 L 102.0 128.2 L 104.7 138.3 L 107.3 144.3 L 110.0 146.4 L 112.7 144.3 L 115.3 138.3 L 118.0 128.2 L 120.7 114.0 L 123.3 95.9 L 126.0 73.6 L 128.7 47.4 L 130.2 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
+  },
+  {
+   "id": "216d",
+   "ex": 216,
+   "ap": "d",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Troba els talls amb els eixos, el vèrtex i l'equació de l'eix de simetria d'aquestes paràboles.",
+   "enunciat": "$y=x^2+2x$",
+   "opcions": [
+    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-2;\\ \\text{vèrtex }(-2,\\ 0)$",
+    "$\\text{talls: }(-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ -1)$",
+    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ -1)$",
+    "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ 1)$"
+   ],
+   "pistes": [
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICIiLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yKzJ4PXgoeCsyKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9LTIkLiIsICJUYWxscyBhbWIgZWxzIGVpeG9zOiAkKDAsXFwgMCkkIGkgJCgtMixcXCAwKSQuIiwgIkwnZWl4IGRlIHNpbWV0cmlhIHBhc3NhIHBlbCBwdW50IG1pZyBkZSBsZXMgYXJyZWxzOiAkeD0tMSQuIiwgIkVsIHbDqHJ0ZXggw6lzICQoLTEsXFwgLTEpJCwgc3Vic3RpdHVpbnQgJHg9LTEkIGEgbCdleHByZXNzacOzLiJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 2·x + 0.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"50.0\" y1=\"190.0\" x2=\"50.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"70.0\" y1=\"190.0\" x2=\"70.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"90.0\" y1=\"190.0\" x2=\"90.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"170.0\" y1=\"190.0\" x2=\"170.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"171.5\" x2=\"190.0\" y2=\"171.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"110.0\" x2=\"190.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"48.5\" x2=\"190.0\" y2=\"48.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"140.8\" x2=\"190.0\" y2=\"140.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"130.0\" y1=\"190.0\" x2=\"130.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 140.8 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 130.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"154.769\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"132\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-5</text><text x=\"50.0\" y=\"202\">-4</text><text x=\"70.0\" y=\"202\">-3</text><text x=\"90.0\" y=\"202\">-2</text><text x=\"110.0\" y=\"202\">-1</text><text x=\"130.0\" y=\"202\">0</text><text x=\"150.0\" y=\"202\">1</text><text x=\"170.0\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"175.0\">-1</text><text x=\"24.0\" y=\"144.3\">0</text><text x=\"24.0\" y=\"113.5\">1</text><text x=\"24.0\" y=\"82.7\">2</text><text x=\"24.0\" y=\"52.0\">3</text></g><path d=\"M 67.1 30.0 L 67.3 31.5 L 70.0 48.5 L 72.7 64.3 L 75.3 79.1 L 78.0 92.8 L 80.7 105.4 L 83.3 116.8 L 86.0 127.2 L 88.7 136.5 L 91.3 144.7 L 94.0 151.8 L 96.7 157.9 L 99.3 162.8 L 102.0 166.6 L 104.7 169.4 L 107.3 171.0 L 110.0 171.5 L 112.7 171.0 L 115.3 169.4 L 118.0 166.6 L 120.7 162.8 L 123.3 157.9 L 126.0 151.8 L 128.7 144.7 L 131.3 136.5 L 134.0 127.2 L 136.7 116.8 L 139.3 105.4 L 142.0 92.8 L 144.7 79.1 L 147.3 64.3 L 150.0 48.5 L 152.7 31.5 L 152.9 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   }
  ]
 };

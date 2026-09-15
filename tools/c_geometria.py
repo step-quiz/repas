@@ -68,48 +68,51 @@ from lib import Q, D, DT, tex, dificultats
 from figures import (quadrat_diagonal, rectangle_diagonal, triangle_rectangle,
                      triangle_isosceles, triangle_isosceles_angle, trapezi,
                      poligon_regular, sector_circular, corona,
-                     rectangle_amb_forat, rectangle_amb_rombe)
+                     rectangle_amb_forat, rectangle_amb_rombe,
+                     rectangle, quadrat, romboide, rombe)
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 7 · Pitàgores i àrees
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    119: 1,  # angles d'un triangle; 120, desigualtat triangular; 123, Pitàgores directe
-    120: 1,
-    121: 2,  # comprovar si es compleix el teorema, i concloure'n alguna cosa
-    122: 2,
-    123: 1,
-    124: 2,  # Pitàgores dins d'una figura: cal veure quin triangle rectangle hi ha
-    125: 2,
-    126: 2,
-    127: 2,
-    128: 3,  # figura composta: cal descompondre-la
-    129: 3,
-    130: 3,  # a l'inrevés partint de l'àrea; 133, amb radical pel mig
-    131: 2,  # àrea i un costat donats: Pitàgores per trobar el que falta
-    132: 2,
-    133: 3,
-    134: 2,
-    135: 2,
-    136: 2,
-    137: 2,
-    138: 2,
-    140: 2,  # àrees de polígons amb la fórmula corresponent
-    141: 2,
-    142: 2,
-    143: 2,
-    144: 3,  # àrees per diferència de figures
-    145: 3,
-    146: 3,  # problemes amb context
-    147: 3,
-    148: 3,
-    149: 3,
-    150: 3,
-    151: 3,
+    119: 2,  # angles d'un triangle; 120, desigualtat triangular; 123, Pitàgores directe
+    120: 2,
+    121: 3,  # comprovar si es compleix el teorema, i concloure'n alguna cosa
+    122: 3,
+    123: 2,
+    124: 3,  # Pitàgores dins d'una figura: cal veure quin triangle rectangle hi ha
+    125: 3,
+    126: 3,
+    127: 3,
+    128: 4,  # figura composta: cal descompondre-la
+    129: 4,
+    130: 4,  # a l'inrevés partint de l'àrea; 133, amb radical pel mig
+    131: 3,  # àrea i un costat donats: Pitàgores per trobar el que falta
+    132: 3,
+    133: 4,
+    134: 3,
+    135: 3,
+    136: 3,
+    137: 3,
+    138: 3,
+    140: 3,  # àrees de polígons amb la fórmula corresponent
+    141: 3,
+    142: 3,
+    143: 3,
+    144: 4,  # àrees per diferència de figures
+    145: 4,
+    146: 4,  # problemes amb context
+    147: 4,
+    148: 4,
+    149: 4,
+    150: 4,
+    151: 4,
 })
 
 
@@ -1594,3 +1597,140 @@ Q("151", 151, "", B4, "A",
        "cos de tres dimensions: els $6$ cm i els $5$ cm són diàmetres, "
        "l'exterior i el del forat.",
   nota_interna="Lectura presa de la nota de transcripció de r-im8.tex.")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 332-333)
+# =====================================================================
+# `arees_pit` obria amb el problema INVERS (àrea 12 i un catet 6, troba
+# l'altre) i enlloc del bloc no hi havia el cas directe: els dos catets
+# donats i l'àrea per calcular. `arees_poli` obria amb el trapezi, que és
+# la fórmula més complicada de les quatre del bloc, i el rectangle, el
+# quadrat i el romboide no hi sortien.
+
+dificultats({
+    332: 1,  # àrea del triangle rectangle amb els dos catets donats
+    333: 1,  # àrea amb la fórmula aplicada directament
+})
+
+
+E332 = "Calcula l'àrea d'aquest triangle rectangle."
+
+# Les ternes 3-4-5, 6-8-10 i 5-12-13 són deliberades. El distractor de la
+# hipotenusa és exactament la resposta de la pregunta que l'alumne
+# s'esperava que li fessin (és el bloc de Pitàgores), i triar-lo vol dir
+# que no ha llegit l'enunciat, no que no sàpiga la fórmula. El feedback
+# d'HIPOTENUSA_PER_AREA ho diu amb aquestes paraules.
+
+Q("332a", 332, "a", B2, "A",
+  r"Els catets fan $3$ cm i $4$ cm.",
+  r"$6$ cm$^2$",
+  [DT(r"$12$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="Has multiplicat els catets i prou: $3\\cdot 4=12$."),
+   DT(r"$7$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat $3+4$."),
+   DT(r"$5$ cm$^2$", "HIPOTENUSA_PER_AREA")],
+  ["En un triangle rectangle, els dos catets ja fan de base i d'altura.",
+   "$A=\\dfrac{3\\cdot 4}{2}$."],
+  [r"$A=\dfrac{b\cdot h}{2}=\dfrac{3\cdot 4}{2}=6$ cm$^2$"],
+  ex_text=E332,
+  figura=triangle_rectangle(3, 4, etq_hip=None, marca_hip=False))
+
+Q("332b", 332, "b", B2, "A",
+  r"Els catets fan $6$ m i $8$ m.",
+  r"$24$ m$^2$",
+  [DT(r"$48$ m$^2$", "MEITAT_OBLIDADA",
+      extra="$6\\cdot 8=48$, i encara falta dividir per $2$."),
+   DT(r"$10$ m$^2$", "HIPOTENUSA_PER_AREA"),
+   DT(r"$14$ m$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat $6+8$.")],
+  ["Els catets són la base i l'altura.",
+   "$A=\\dfrac{6\\cdot 8}{2}$."],
+  [r"$A=\dfrac{6\cdot 8}{2}=\dfrac{48}{2}=24$ m$^2$"],
+  ex_text=E332,
+  figura=triangle_rectangle(6, 8, etq_hip=None, marca_hip=False, unitat="m"))
+
+Q("332c", 332, "c", B2, "A",
+  r"Els catets fan $5$ cm i $12$ cm.",
+  r"$30$ cm$^2$",
+  [DT(r"$60$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="$5\\cdot 12=60$; falta la meitat."),
+   DT(r"$13$ cm$^2$", "HIPOTENUSA_PER_AREA"),
+   DT(r"$17$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat $5+12$.")],
+  ["Els catets fan de base i d'altura.",
+   "$A=\\dfrac{5\\cdot 12}{2}$."],
+  [r"$A=\dfrac{5\cdot 12}{2}=\dfrac{60}{2}=30$ cm$^2$"],
+  ex_text=E332,
+  figura=triangle_rectangle(5, 12, etq_hip=None, marca_hip=False))
+
+
+E333 = "Calcula l'àrea d'aquesta figura."
+
+Q("333a", 333, "a", B3, "A",
+  r"Rectangle de $7$ cm de base i $4$ cm d'altura.",
+  r"$28$ cm$^2$",
+  [DT(r"$22$ cm$^2$", "PERIMETRE_PER_AREA",
+      extra="$7+4+7+4=22$ és la vora, no la superfície."),
+   DT(r"$14$ cm$^2$", "FORMULA_INVERTIDA",
+      extra="Has dividit per $2$. El mig és de la fórmula del triangle; el "
+            "rectangle no en porta."),
+   DT(r"$11$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat $7+4$ en lloc de multiplicar.")],
+  ["L'àrea del rectangle és base per altura.",
+   "$A=7\\cdot 4$."],
+  [r"$A=b\cdot h=7\cdot 4=28$ cm$^2$"],
+  ex_text=E333,
+  figura=rectangle(7, 4))
+
+Q("333b", 333, "b", B3, "A",
+  r"Quadrat de $9$ m de costat.",
+  r"$81$ m$^2$",
+  [DT(r"$36$ m$^2$", "PERIMETRE_PER_AREA",
+      extra="$4\\cdot 9=36$ és el perímetre."),
+   DT(r"$18$ m$^2$", "DIMENSIO_EXPONENT_MAL",
+      extra="Has calculat $2\\cdot 9$. El quadrat del costat és "
+            "$9\\cdot 9$, no $9+9$."),
+   DT(r"$40{,}5$ m$^2$", "FORMULA_INVERTIDA",
+      extra="Has dividit per $2$, i la fórmula del quadrat no ho porta.")],
+  ["Un quadrat és un rectangle amb la base i l'altura iguals.",
+   "$A=9\\cdot 9=9^2$."],
+  [r"$A=L^2=9^2=81$ m$^2$"],
+  ex_text=E333,
+  figura=quadrat(9, unitat="m"))
+
+Q("333c", 333, "c", B3, "A",
+  r"Romboide de $10$ cm de base i $3$ cm d'altura.",
+  r"$30$ cm$^2$",
+  [DT(r"$15$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="Aquí passa al contrari del que és habitual: has dividit per "
+            "$2$ quan NO tocava. El mig és de la fórmula del triangle; el "
+            "romboide, com el rectangle, és base per altura."),
+   DT(r"$26$ cm$^2$", "PERIMETRE_PER_AREA",
+      extra="Has sumat costats."),
+   DT(r"$13$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat $10+3$ en lloc de multiplicar.")],
+  ["El romboide es converteix en un rectangle movent el triangle d'un "
+   "costat a l'altre: l'àrea és base per altura.",
+   "L'altura és el segment perpendicular de puntets, no el costat inclinat. "
+   "$A=10\\cdot 3$."],
+  [r"$A=b\cdot h=10\cdot 3=30$ cm$^2$"],
+  ex_text=E333,
+  figura=romboide(10, 3),
+  nota="L'altura d'un romboide és el segment perpendicular a la base "
+       "(el de puntets), no el costat inclinat.")
+
+Q("333d", 333, "d", B3, "A",
+  r"Rombe de diagonals $8$ cm i $6$ cm.",
+  r"$24$ cm$^2$",
+  [DT(r"$48$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="$8\\cdot 6=48$; la fórmula del rombe sí que porta el mig."),
+   DT(r"$14$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
+      extra="Has sumat les diagonals."),
+   DT(r"$28$ cm$^2$", "PERIMETRE_PER_AREA",
+      extra="Has confós les diagonals amb els costats.")],
+  ["L'àrea del rombe és el producte de les diagonals partit per dos.",
+   "$A=\\dfrac{8\\cdot 6}{2}$."],
+  [r"$A=\dfrac{D\cdot d}{2}=\dfrac{8\cdot 6}{2}=\dfrac{48}{2}=24$ cm$^2$"],
+  ex_text=E333,
+  figura=rombe(8, 6))

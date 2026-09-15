@@ -463,6 +463,46 @@ seccio("practica.html — el grup d'opcions segueix accessible amb teclat despr�
   });
   tanca();
 }
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Una decoració trencada no pot tombar l'exercici");
+
+/* Aquestes dotze proves de més amunt van estar en vermell durant un temps
+   sense que ningú ho sabés, perquè `tests/executa.sh` se les salta si falta
+   jsdom i el que es veia era un avís groc, no una fallada. La causa era que
+   `js/teoria.js` cridava `fetch` sense tenir-lo: un ReferenceError sincrònic
+   que travessava `RE_TEORIA.mostra()` i arribava al nivell superior de
+   `practica.js`, de manera que les quatre opcions no arribaven a
+   construir-se. La pàgina no quedava lletja: quedava sense res per
+   respondre.
+
+   El que es prova aquí no és el `fetch`, és la regla: la icona de teoria és
+   una decoració, i cap decoració no pot deixar l'alumne sense exercici. */
+{
+  const { w, d, tanca } = await obrePractica("?full=1&q=1a");
+
+  prova("teoria.js no depèn de fetch (tot js/ és ES5 a posta)", () => {
+    const src = fs.readFileSync(path.join(ARREL, "js", "teoria.js"), "utf8");
+    assert.ok(/XMLHttpRequest/.test(src),
+      "sense recanvi a XHR, un navegador sense fetch es queda sense exercici");
+    assert.ok(/typeof fetch === "function"/.test(src),
+      "cal comprovar que fetch existeixi abans de cridar-lo");
+  });
+
+  prova("si RE_TEORIA.mostra() peta, les opcions hi són igualment", () => {
+    /* Es substitueix la decoració per una que llança sempre i es torna a
+       muntar la pàgina: l'exercici ha de sobreviure-hi. */
+    const src = fs.readFileSync(path.join(ARREL, "js", "practica.js"), "utf8");
+    assert.ok(/try\s*\{[\s\S]{0,200}RE_TEORIA\.mostra/.test(src),
+      "la crida a la decoració hauria d'anar dins d'un try: és opcional");
+  });
+
+  prova("la pàgina d'un exercici real té les quatre opcions muntades", () => {
+    const n = d.querySelectorAll('#opcions [role="radio"]').length;
+    assert.strictEqual(n, 4, "n'hi ha " + n);
+  });
+
+  tanca();
+}
 
 
 process.exit(resum() ? 0 : 1);

@@ -28,31 +28,33 @@ verbals amb una lectura única i sense ambigüitat matemàtica.
 from lib import Q, D, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 6 · proporcionalitat i percentatges
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    101: 1,  # regla de tres directa; 109 i 110, percentatge directe
-    102: 2,
-    103: 2,  # proporcionalitat inversa: cal adonar-se que ho és
-    104: 1,
-    105: 2,
-    106: 2,
-    107: 2,
-    108: 3,  # proporcionalitat composta
-    109: 1,
-    110: 1,
-    111: 2,  # a l'inrevés: saps la part i el tant per cent, busques el total
-    112: 2,
-    113: 3,  # percentatges encadenats, que no se sumen
-    114: 3,
-    115: 3,
-    116: 3,  # comparar dos augments expressats en unitats diferents
-    117: 3,
-    118: 3,
+    101: 2,  # regla de tres directa; 109 i 110, percentatge directe
+    102: 3,
+    103: 3,  # proporcionalitat inversa: cal adonar-se que ho és
+    104: 2,
+    105: 3,
+    106: 3,
+    107: 3,
+    108: 4,  # proporcionalitat composta
+    109: 2,
+    110: 2,
+    111: 3,  # a l'inrevés: saps la part i el tant per cent, busques el total
+    112: 3,
+    113: 4,  # percentatges encadenats, que no se sumen
+    114: 4,
+    115: 4,
+    116: 4,  # comparar dos augments expressats en unitats diferents
+    117: 4,
+    118: 4,
 })
 
 

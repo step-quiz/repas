@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 892 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 951 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -13,16 +13,16 @@ personalitzat d'exercicis.
 
 | Full | Tema | Blocs | Preguntes |
 |---|---|---:|---:|
-| 1 | Nombres enters, fraccions i decimals | 4 | 140 |
-| 2 | Potències | 4 | 76 |
-| 3 | Successions i progressions | 4 | 50 |
-| 4 | Polinomis | 4 | 59 |
+| 1 | Nombres enters, fraccions i decimals | 4 | 144 |
+| 2 | Potències | 4 | 89 |
+| 3 | Successions i progressions | 4 | 56 |
+| 4 | Polinomis | 4 | 71 |
 | 5 | Equacions i sistemes | 5 | 99 |
 | 6 | Proporcionalitat i percentatges | 5 | 48 |
-| 7 | Teorema de Pitàgores. Àrees | 4 | 55 |
+| 7 | Teorema de Pitàgores. Àrees | 4 | 62 |
 | 8 | Teorema de Tales. Semblança | 6 | 59 |
-| 9 | Cossos geomètrics. Àrea i volum | 4 | 47 |
-| 10 | Funcions | 5 | 73 |
+| 9 | Cossos geomètrics. Àrea i volum | 4 | 52 |
+| 10 | Funcions | 5 | 85 |
 | 11 | Estadística | 5 | 91 |
 | 12 | Combinatòria i probabilitat | 4 | 95 |
 

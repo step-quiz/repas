@@ -221,9 +221,60 @@ def taula_proves():
     return [{"id": i, "tema": t} for i, t in parells]
 
 
+# ---------------------------------------------------------------------
+# Els sostres del format RC3
+# ---------------------------------------------------------------------
+# Han d'anar iguals que els de `js/codi.js`, i s'hi llegeixen d'allà en lloc
+# de repetir-los aquí: dos números que han de coincidir i viuen en dos
+# fitxers acaben divergint.
+#
+# Per què es comprova en compilar i no només en generar un codi: el dia que
+# un full passi de 217 ítems, el generador petaria al navegador d'un alumne,
+# a mig trimestre, i el missatge no arribaria a qui pot arreglar-ho. Aquí
+# surt mentre s'afegeix el contingut, que és quan es pot decidir si toca
+# partir el full o fer un format RC4.
+def limits_del_format():
+    ruta = os.path.join(ARREL, "js", "codi.js")
+    s = open(ruta, encoding="utf-8").read()
+    out = {}
+    for nom in ("MAX_ITEMS", "MAX_FULLS"):
+        m = re.search(r"var\s+%s\s*=\s*([^;]+);" % nom, s)
+        assert m, "no trobo %s a js/codi.js" % nom
+        expr = m.group(1).strip()
+        # "GRUPS_MAX * 7" -> es resol amb les constants que ja s'han llegit
+        g = re.search(r"var\s+GRUPS_MAX\s*=\s*(\d+);", s)
+        expr = expr.replace("GRUPS_MAX", g.group(1) if g else "0")
+        out[nom] = int(eval(expr, {"__builtins__": {}}, {}))
+    return out
+
+
+def comprova_sostres(fulls):
+    lim = limits_del_format()
+    for n, v in sorted(fulls.items()):
+        k = len(v["items"])
+        assert k <= lim["MAX_ITEMS"], (
+            "full %d: %d ítems, i el codi de verificació només n'admet %d "
+            "(31 grups de 7 en un caràcter base32). Amb un més, els codis "
+            "emesos sortirien ÍNTEGRES i amb la feina a zero. Cal partir el "
+            "full o passar a un format RC4." % (n, k, lim["MAX_ITEMS"]))
+        assert 1 <= n <= lim["MAX_FULLS"], (
+            "full %d: la màscara del format RC3 té els fulls als bits 0-%d i "
+            "el diagnòstic al bit %d. Un full %d activaria el bit del "
+            "diagnòstic: el full desapareixeria del codi i el lector es "
+            "trobaria un diagnòstic fantasma. Cal un format RC4."
+            % (n, lim["MAX_FULLS"] - 1, lim["MAX_FULLS"], n))
+    pitjor = max(fulls.items(), key=lambda x: len(x[1]["items"]))
+    print("  · sostres del format: full %s és el més gran amb %d ítems de %d "
+          "(%d %%); %d fulls de %d"
+          % (pitjor[0], len(pitjor[1]["items"]), lim["MAX_ITEMS"],
+             round(100 * len(pitjor[1]["items"]) / lim["MAX_ITEMS"]),
+             len(fulls), lim["MAX_FULLS"]))
+
+
 def main():
     etiq = etiquetes_ordenades()
     fulls, dades_fulls = taula_fulls()
+    comprova_sostres(fulls)
     banc = taula_banc(dades_fulls)
     proves = taula_proves()
 

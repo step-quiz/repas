@@ -18,7 +18,7 @@ saltades=0
 
 # Les proves que necessiten jsdom surten amb codi 0 quan se salten, per no
 # tombar la resta. Això vol dir que "Tot en verd" podia significar "92 de les
-# 321 comprovacions no s'han arribat a executar" -- exactament el tipus de
+# 371 comprovacions no s'han arribat a executar" -- exactament el tipus de
 # silenci que aquest projecte no es pot permetre. Es detecta i es diu.
 if node -e "require('jsdom')" >/dev/null 2>&1; then
   hi_ha_jsdom=1
@@ -90,7 +90,7 @@ elif [ "$sense_taules" -ne 0 ]; then
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
   printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
-  printf '  són 111 comprovacions de 348 que no s\047han arribat a executar.\n'
+  printf '  són 126 comprovacions de 371 que no s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0
 else

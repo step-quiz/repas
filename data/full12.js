@@ -17,8 +17,6 @@ window.FULL = {
     "236f",
     "236g",
     "237",
-    "238a",
-    "238b",
     "239a",
     "239b",
     "239c",
@@ -28,7 +26,9 @@ window.FULL = {
     "240b",
     "240c",
     "240d",
-    "240e"
+    "240e",
+    "238a",
+    "238b"
    ]
   },
   {
@@ -36,17 +36,17 @@ window.FULL = {
    "titol": "Combinatòria: principi multiplicatiu",
    "descripcio": "Diagrames d'arbre, mètode del producte, i variacions sense repetició.",
    "items": [
-    "242",
-    "243",
     "244",
+    "243",
     "245",
-    "246",
     "247",
     "248a",
     "248b",
     "248c",
     "248d",
-    "248e"
+    "248e",
+    "242",
+    "246"
    ]
   },
   {
@@ -80,6 +80,9 @@ window.FULL = {
    "titol": "Esdeveniments compostos",
    "descripcio": "Esdeveniments compatibles, incompatibles i contraris, unió i intersecció, i probabilitat condicionada senzilla.",
    "items": [
+    "257a",
+    "257b",
+    "257c",
     "253a",
     "253b",
     "253c",
@@ -92,9 +95,6 @@ window.FULL = {
     "256a",
     "256b",
     "256c",
-    "257a",
-    "257b",
-    "257c",
     "258",
     "259"
    ]
@@ -107,18 +107,18 @@ window.FULL = {
     "305a",
     "305b",
     "305c",
+    "308a",
+    "308b",
     "306a",
     "306b",
     "306c",
-    "307",
-    "308a",
-    "308b",
     "309a",
     "309b",
-    "310a",
-    "310b",
     "311",
     "312",
+    "307",
+    "310a",
+    "310b",
     "313"
    ]
   },
@@ -127,17 +127,17 @@ window.FULL = {
    "titol": "Probabilitat condicionada",
    "descripcio": "La probabilitat d'un esdeveniment quan ja se'n sap un altre: P(B|A), i per què no és el mateix que P(A|B).",
    "items": [
+    "319",
     "314a",
     "314b",
     "314c",
+    "316a",
+    "316b",
     "315a",
     "315b",
     "315c",
-    "316a",
-    "316b",
     "317",
     "318",
-    "319",
     "320"
    ]
   }
@@ -179,7 +179,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Treure una carta de la baralla espanyola.",
    "opcions": [
@@ -201,7 +201,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar una xinxeta i anotar la posició de caiguda.",
    "opcions": [
@@ -223,7 +223,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Treure una bola d'una urna amb 5 boles vermelles, 3 de blaves i 2 de verdes.",
    "opcions": [
@@ -245,7 +245,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar 2 daus i restar les cares superiors.",
    "opcions": [
@@ -267,7 +267,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Llançar 2 daus i multiplicar les cares superiors.",
    "opcions": [
@@ -289,7 +289,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Considerar les espases de la baralla espanyola i treure una carta d'aquest grup.",
    "opcions": [
@@ -311,7 +311,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Escollir a l'atzar un país de la Unió Europea.",
    "opcions": [
@@ -333,7 +333,7 @@ window.FULL = {
    "ap": "",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Llancem 2 daus, un de vermell i un de blau. Quin és l'espai mostral d'aquest experiment?",
    "opcions": [
@@ -350,56 +350,12 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJRdWFuIGRvcyBleHBlcmltZW50cyBpbmRlcGVuZGVudHMgZXMgY29tYmluZW4gKGFxdcOtLCBkb3MgZGF1cyksIGVsIG5vbWJyZSBkZSByZXN1bHRhdHMgZXMgTVVMVElQTElDQSwgbm8gc2Ugc3VtYTogJDZcXGNkb3Q2PTM2JCwgbm8gJDYrNj0xMiQuIiwgIkVscyBkb3MgZGF1cyBzw7NuIGRpZmVyZW50cyAodW4gdmVybWVsbCwgdW4gYmxhdSk6IGVsIHBhcmVsbCAkKDMsNSkkICh2ZXJtZWxsICQzJCwgYmxhdSAkNSQpIMOpcyB1biByZXN1bHRhdCBkaWZlcmVudCBkZWwgJCg1LDMpJCAodmVybWVsbCAkNSQsIGJsYXUgJDMkKS4gQ29tIHF1ZSBzw60gcXVlIGltcG9ydGEgbCdvcmRyZSwgbCdlc3BhaSBtb3N0cmFsIHTDqSAkMzYkIHJlc3VsdGF0cywgbm8gJDIxJC4iLCAiIiwgIkVuY2FyYSBxdWUgZWxzIGRvcyBkYXVzIHRpbmd1aW4gbGVzIG1hdGVpeGVzIGNhcmVzIHBvc3NpYmxlcyAoJDEkIGEgJDYkKSwgZWwgcmVzdWx0YXQgZGUgbCdleHBlcmltZW50IMOpcyBlbCBQQVJFTEwgZGUgdmFsb3JzICh1biBkZSBjYWRhIGRhdSksIG5vIHVuIMO6bmljIHZhbG9yOiBjYWwgY29tYmluYXItbG9zLiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIk9SRFJFX05PX0NPTlNJREVSQVQiLCAiIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiXSwgInJlcyI6IFsiQ2FkYSBwYXJlbGwgJCh2LGIpJCBhbWIgJHYsYlxcaW5cXHsxLFxcbGRvdHMsNlxcfSQgw6lzIHVuIHJlc3VsdGF0IGRpZmVyZW50IiwgIlBlbCBwcmluY2lwaSBtdWx0aXBsaWNhdGl1OiAkNlxcY2RvdDY9MzYkIHBhcmVsbHMgb3JkZW5hdHMgcG9zc2libGVzIl19"
   },
   {
-   "id": "238a",
-   "ex": 238,
-   "ap": "a",
-   "bloc": "espais_mostrals",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
-   "enunciat": "Quants resultats DIFERENTS es poden obtenir com a producte de les dues cares?",
-   "opcions": [
-    "$11$ resultats diferents",
-    "$36$ resultats diferents",
-    "$18$ resultats diferents",
-    "$6$ resultats diferents"
-   ],
-   "pistes": [
-    "Llista tots els productes possibles $i\\cdot j$ amb $i,j\\in\\{1,\\ldots,6\\}$ i queda't només amb els valors diferents.",
-    "Recorda que diversos parells poden donar el mateix producte: no els comptis dues vegades."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTEkIMOpcyBlbCBub21icmUgZGUgcmVzdWx0YXRzIGRpZmVyZW50cyBkZSBSRVNUQVIgbGVzIGR1ZXMgY2FyZXMgKGV4ZXJjaWNpIGFudGVyaW9yKSwgbm8gZGUgbXVsdGlwbGljYXItbGVzOiBhbWIgZWwgcHJvZHVjdGUgcydvYnRlbmVuIG3DqXMgdmFsb3JzIGRpZmVyZW50cywgJDE4JC4iLCAiJDM2JCDDqXMgZWwgbm9tYnJlIGRlIFBBUkVMTFMgZGUgcmVzdWx0YXRzIHBvc3NpYmxlcyBkZWxzIGRvcyBkYXVzLCBubyBlbCBub21icmUgZGUgUFJPRFVDVEVTIGRpZmVyZW50czogZGl2ZXJzb3MgcGFyZWxscyBkb25lbiBlbCBtYXRlaXggcHJvZHVjdGUgKHBlciBleGVtcGxlLCAkMlxcY2RvdDM9NiQgaSAkM1xcY2RvdDI9NiQpLiIsICIiLCAiRWwgcHJvZHVjdGUgZGUgZG9zIGRhdXMgcG90IGRvbmFyIHZhbG9ycyBtb2x0IG3DqXMgZ3JhbnMgcXVlIGVscyBkJ3VuIHNvbCBkYXUgKGZpbnMgYSAkMzYkKTogbCdlc3BhaSBtb3N0cmFsIHTDqSBtw6lzIGRlICQ2JCByZXN1bHRhdHMuIl0sICJlcnIiOiBbIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiUEFSRUxMU19WQUxPUlNfQ09ORk9TT1MiLCAiIiwgIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiXSwgInJlcyI6IFsiRWxzIHByb2R1Y3RlcyBkaWZlcmVudHMgcXVlIHMnb2J0ZW5lbiBzw7NuICQxLDIsMyw0LDUsNiw4LDksMTAsMTIsMTUsMTYsMTgsMjAsMjQsMjUsMzAsMzYkOiBlbiB0b3RhbCwgJDE4JCByZXN1bHRhdHMiXX0="
-  },
-  {
-   "id": "238b",
-   "ex": 238,
-   "ap": "b",
-   "bloc": "espais_mostrals",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
-   "enunciat": "Quin d'aquests és un exemple d'esdeveniment NO elemental (format per més d'un resultat) de l'espai mostral del producte de les dues cares?",
-   "opcions": [
-    "«Obtenir un producte més petit que $5$» (el formen els resultats $1,2,3,4$, quatre resultats de l'espai mostral)",
-    "«Obtenir un producte igual a $12$» (un únic resultat de l'espai mostral)",
-    "«Obtenir un producte que no sigui múltiple de cap número» (no correspon a cap resultat de l'espai mostral)",
-    "«Obtenir el producte $36$» (un únic resultat de l'espai mostral)"
-   ],
-   "pistes": [
-    "Un esdeveniment elemental és un ÚNIC resultat de l'espai mostral; un esdeveniment NO elemental n'agrupa diversos.",
-    "Pensa quins resultats de l'espai mostral del producte $\\{1,2,3,4,5,6,8,\\ldots\\}$ compleixen \"ser més petit que $5$\"."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW5jYXJhIHF1ZSBoaSBoYWdpIGRpdmVyc29zIFBBUkVMTFMgZGUgZGF1cyBxdWUgZG9uZW4gcHJvZHVjdGUgJDEyJCAoY29tICQoMiw2KSQgaSAkKDMsNCkkKSwgZGlucyBkZSBsJ0VTUEFJIE1PU1RSQUwgREVMIFBST0RVQ1RFIGVsIHZhbG9yICQxMiQgw6lzIHVuIMO6bmljIHJlc3VsdGF0OiBhcXVlc3QgZXNkZXZlbmltZW50IMOpcyBlbGVtZW50YWwsIG5vIGNvbXBvc3QgcGVyIGRpdmVyc29zIHJlc3VsdGF0cyBkZSBsJ2VzcGFpIG1vc3RyYWwgZGVsIHByb2R1Y3RlLiIsICJUb3QgbsO6bWVybyDDqXMgbcO6bHRpcGxlIGRlIHNpIG1hdGVpeCBpIGQnJDEkOiBhcXVlc3QgZXNkZXZlbmltZW50IG5vIGNvcnJlc3BvbiBhIGNhcCByZXN1bHRhdCB2w6BsaWQgZGUgbCdlc3BhaSBtb3N0cmFsLCBuaSBlbGVtZW50YWwgbmkgY29tcG9zdC4iLCAiJDM2JCDDqXMgdW4gw7puaWMgdmFsb3IgZGUgbCdlc3BhaSBtb3N0cmFsIGRlbCBwcm9kdWN0ZSAoJFxcezEsMixcXGxkb3RzLDM2XFx9JCBhbWIgZWxzIHZhbG9ycyBxdWUgcydoaSBwb2RlbiBvYnRlbmlyKTogYXF1ZXN0IGVzZGV2ZW5pbWVudCDDqXMgZWxlbWVudGFsLCBubyBmb3JtYXQgcGVyIGRpdmVyc29zIHJlc3VsdGF0cy4iXSwgImVyciI6IFsiIiwgIkVMRU1FTlRBTF9OT19FTEVNRU5UQUxfQ09ORk9TT1MiLCAiRUxFTUVOVEFMX05PX0VMRU1FTlRBTF9DT05GT1NPUyIsICJFTEVNRU5UQUxfTk9fRUxFTUVOVEFMX0NPTkZPU09TIl0sICJyZXMiOiBbIsKrT2J0ZW5pciB1biBwcm9kdWN0ZSBtw6lzIHBldGl0IHF1ZSAkNSTCuyBhZ3J1cGEgZWxzIHJlc3VsdGF0cyAkMSwyLDMsNCQgZGUgbCdlc3BhaSBtb3N0cmFsOiDDqXMgdW4gZXNkZXZlbmltZW50IE5PIGVsZW1lbnRhbCwgZm9ybWF0IHBlciAkNCQgcmVzdWx0YXRzIGRpZmVyZW50cyJdfQ=="
-  },
-  {
    "id": "239a",
    "ex": 239,
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dos ors»",
    "opcions": [
@@ -421,7 +377,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dos cavalls de copes»",
    "opcions": [
@@ -443,7 +399,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dues cartes de coll diferent»",
    "opcions": [
@@ -465,7 +421,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure dues figures iguals del mateix coll»",
    "opcions": [
@@ -487,7 +443,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:",
    "enunciat": "«Treure un or i una copa»",
    "opcions": [
@@ -509,7 +465,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre imparell»",
    "opcions": [
@@ -531,7 +487,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre igual o més gran que $5$»",
    "opcions": [
@@ -553,7 +509,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més petit que $7$»",
    "opcions": [
@@ -575,7 +531,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més gran que $7$»",
    "opcions": [
@@ -596,7 +552,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.",
    "enunciat": "«Nombre més gran o igual que $2$»",
    "opcions": [
@@ -613,48 +569,48 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJDEkIE5PIGNvbXBsZWl4IFwibcOpcyBncmFuIG8gaWd1YWwgcXVlICQyJFwiOiBubyB0b3RzIGVscyAkNiQgcmVzdWx0YXRzIGRlbCBkYXUgaG8gZmFuLCBub23DqXMgJDUkIGQnZWxscy4iLCAiXCJNw6lzIGdyYW4gbyBpZ3VhbCBxdWUgJDIkXCIgaW5jbG91IGVsIHByb3BpICQyJCwgbm8gbm9tw6lzIGVscyB2YWxvcnMgZXN0cmljdGFtZW50IG3DqXMgZ3JhbnM6IGNhbCBjb21wdGFyLWxvIGNvbSBhIGNhcyBmYXZvcmFibGUuIiwgIkwnZXNkZXZlbmltZW50IG5vIGVzIGxpbWl0YSBhbCB2YWxvciAkMiQgZXhhY3RlOiBpbmNsb3UgdGFtYsOpIGVsICQzJCwgZWwgJDQkLCBlbCAkNSQgaSBlbCAkNiQsIHRvdHMgZWxscyBtw6lzIGdyYW5zIHF1ZSAkMiQuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyLCq05vbWJyZSBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgJDIkwrs6ICQyLDMsNCw1LDYkIHPDs24gJDUkIGNhc29zIGZhdm9yYWJsZXMuICRQPVxcZGZyYWN7NX17Nn0kIl19"
   },
   {
-   "id": "242",
-   "ex": 242,
-   "ap": "",
-   "bloc": "combinatoria",
+   "id": "238a",
+   "ex": 238,
+   "ap": "a",
+   "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "Llancem un dau a l'aire i sumem els punts de totes les cares MENYS la de dalt. Calcula la probabilitat d'obtenir un nombre múltiple de $3$.",
+   "dif": 4,
+   "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
+   "enunciat": "Quants resultats DIFERENTS es poden obtenir com a producte de les dues cares?",
    "opcions": [
-    "$P=\\dfrac12$, comptant $3$ casos favorables",
-    "$P=\\dfrac{3}{21}=\\dfrac17$, dividint pels punts totals del dau",
-    "$P=\\dfrac16$, comptant només un cas favorable",
-    "$P=\\dfrac13$ ($18$ i $15$ són $2$ casos favorables d'entre $6$)"
+    "$11$ resultats diferents",
+    "$36$ resultats diferents",
+    "$18$ resultats diferents",
+    "$6$ resultats diferents"
    ],
    "pistes": [
-    "La suma de totes les cares d'un dau és $21$. Si la cara de dalt és $i$, la resta de cares suma $21-i$.",
-    "Calcula aquesta suma per a cada valor de $i$ de l'$1$ al $6$, i mira quins resultats són múltiples de $3$."
+    "Llista tots els productes possibles $i\\cdot j$ amb $i,j\\in\\{1,\\ldots,6\\}$ i queda't només amb els valors diferents.",
+    "Recorda que diversos parells poden donar el mateix producte: no els comptis dues vegades."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJEZSBsZXMgc2lzIHN1bWVzIHBvc3NpYmxlcyAoJDE1LDE2LDE3LDE4LDE5LDIwJCksIG5vbcOpcyAkMTUkIGkgJDE4JCBzw7NuIG3Dumx0aXBsZXMgZGUgJDMkOiAkMiQgY2Fzb3MsIG5vICQzJC4iLCAiRWwgZGVub21pbmFkb3IgZGUgbGEgcHJvYmFiaWxpdGF0IGhhIGRlIHNlciBlbCBub21icmUgZGUgcmVzdWx0YXRzIFBPU1NJQkxFUyBkZSBsJ2V4cGVyaW1lbnQgKGxlcyAkNiQgY2FyZXMgcXVlIHBvZGVuIHF1ZWRhciBkZSBkYWx0KSwgbm8gbGEgc3VtYSB0b3RhbCBkZSBwdW50cyBkZWwgZGF1ICgkMSsyK1xcY2RvdHMrNj0yMSQpLiIsICJIaSBoYSBET1MgdmFsb3JzIG3Dumx0aXBsZXMgZGUgJDMkIGVudHJlIGxlcyBzaXMgc3VtZXMgcG9zc2libGVzICgkMTUkIGkgJDE4JCksIG5vIG5vbcOpcyB1bjogcmV2aXNhIGxhIHRhdWxhIGRlIHN1bWVzIHBlciBhIGNhZGEgY2FyYSBkZSBkYWx0LiIsICIiXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICIiXSwgInJlcyI6IFsiU2kgbGEgY2FyYSBkZSBkYWx0IMOpcyAkaSQsIGxhIHN1bWEgZGUgbGEgcmVzdGEgw6lzICQyMS1pJDogcGVyICRpPTEsXFxsZG90cyw2JCBzJ29idMOpICQyMCwxOSwxOCwxNywxNiwxNSQiLCAiTCdlc3BhaSBtb3N0cmFsIGQnYXF1ZXN0YSBzdW1hIMOpcyAkXFx7MTUsMTYsMTcsMTgsMTksMjBcXH0kLCB1biByZXN1bHRhdCBwZXIgY2FkYSBjYXJhLCBjYWRhc2N1biBhbWIgcHJvYmFiaWxpdGF0ICRcXGZyYWMxNiQiLCAiTcO6bHRpcGxlcyBkZSAkMyQ6ICQxOCQgKGNhcmEgJDMkIGRlIGRhbHQpIGkgJDE1JCAoY2FyYSAkNiQgZGUgZGFsdCk6ICQyJCBjYXNvcyBkZSAkNiQsICRQPVxcZGZyYWN7Mn17Nn09XFxkZnJhYzEzJCJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTEkIMOpcyBlbCBub21icmUgZGUgcmVzdWx0YXRzIGRpZmVyZW50cyBkZSBSRVNUQVIgbGVzIGR1ZXMgY2FyZXMgKGV4ZXJjaWNpIGFudGVyaW9yKSwgbm8gZGUgbXVsdGlwbGljYXItbGVzOiBhbWIgZWwgcHJvZHVjdGUgcydvYnRlbmVuIG3DqXMgdmFsb3JzIGRpZmVyZW50cywgJDE4JC4iLCAiJDM2JCDDqXMgZWwgbm9tYnJlIGRlIFBBUkVMTFMgZGUgcmVzdWx0YXRzIHBvc3NpYmxlcyBkZWxzIGRvcyBkYXVzLCBubyBlbCBub21icmUgZGUgUFJPRFVDVEVTIGRpZmVyZW50czogZGl2ZXJzb3MgcGFyZWxscyBkb25lbiBlbCBtYXRlaXggcHJvZHVjdGUgKHBlciBleGVtcGxlLCAkMlxcY2RvdDM9NiQgaSAkM1xcY2RvdDI9NiQpLiIsICIiLCAiRWwgcHJvZHVjdGUgZGUgZG9zIGRhdXMgcG90IGRvbmFyIHZhbG9ycyBtb2x0IG3DqXMgZ3JhbnMgcXVlIGVscyBkJ3VuIHNvbCBkYXUgKGZpbnMgYSAkMzYkKTogbCdlc3BhaSBtb3N0cmFsIHTDqSBtw6lzIGRlICQ2JCByZXN1bHRhdHMuIl0sICJlcnIiOiBbIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiUEFSRUxMU19WQUxPUlNfQ09ORk9TT1MiLCAiIiwgIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiXSwgInJlcyI6IFsiRWxzIHByb2R1Y3RlcyBkaWZlcmVudHMgcXVlIHMnb2J0ZW5lbiBzw7NuICQxLDIsMyw0LDUsNiw4LDksMTAsMTIsMTUsMTYsMTgsMjAsMjQsMjUsMzAsMzYkOiBlbiB0b3RhbCwgJDE4JCByZXN1bHRhdHMiXX0="
   },
   {
-   "id": "243",
-   "ex": 243,
-   "ap": "",
-   "bloc": "combinatoria",
+   "id": "238b",
+   "ex": 238,
+   "ap": "b",
+   "bloc": "espais_mostrals",
    "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de diferents colors, 2 bruses, 3 samarretes i 3 barrets. Quantes combinacions diferents pot fer (una peça de la part de baix, una de la part de dalt i un barret)?",
+   "dif": 4,
+   "encapcalament": "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un.",
+   "enunciat": "Quin d'aquests és un exemple d'esdeveniment NO elemental (format per més d'un resultat) de l'espai mostral del producte de les dues cares?",
    "opcions": [
-    "$45$ combinacions, multiplicant $5\\cdot3\\cdot3$ sense agrupar bé la part de baix i la de dalt",
-    "$10$ combinacions, sumant totes les peces ($2+3+2+3+3$)",
-    "$18$ combinacions, comptant només faldilles, bruses i barrets (sense pantalons ni samarretes)",
-    "$75$ combinacions"
+    "«Obtenir un producte més petit que $5$» (el formen els resultats $1,2,3,4$, quatre resultats de l'espai mostral)",
+    "«Obtenir un producte igual a $12$» (un únic resultat de l'espai mostral)",
+    "«Obtenir un producte que no sigui múltiple de cap número» (no correspon a cap resultat de l'espai mostral)",
+    "«Obtenir el producte $36$» (un únic resultat de l'espai mostral)"
    ],
    "pistes": [
-    "Agrupa la roba en tres nivells: peça de baix (faldilla o pantalons), peça de dalt (brusa o samarreta) i barret.",
-    "Compta les opcions de cada nivell per separat: $2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les."
+    "Un esdeveniment elemental és un ÚNIC resultat de l'espai mostral; un esdeveniment NO elemental n'agrupa diversos.",
+    "Pensa quins resultats de l'espai mostral del producte $\\{1,2,3,4,5,6,8,\\ldots\\}$ compleixen \"ser més petit que $5$\"."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRlcyBvcGNpb25zIGhpIGhhIGEgY2FkYSBuaXZlbGwgZGUgbCdhcmJyZTogbGEgcGFydCBkZSBiYWl4ICgkMiszPTUkIG9wY2lvbnMpIGkgbGEgcGFydCBkZSBkYWx0ICgkMiszPTUkIG9wY2lvbnMpIG5vIHRlbmVuIGVsIG1hdGVpeCBub21icmUgZCdvcGNpb25zIHBlciBjYXN1YWxpdGF0LCBjYWwgY2FsY3VsYXItbGVzIHBlciBzZXBhcmF0LiIsICJRdWFuIGVzIGNvbWJpbmVuIGRpdmVyc2VzIGVsZWNjaW9ucyBpbmRlcGVuZGVudHMgKHBhcnQgZGUgYmFpeCwgcGFydCBkZSBkYWx0LCBiYXJyZXQpLCBlbCBub21icmUgZGUgY29tYmluYWNpb25zIGVzIE1VTFRJUExJQ0EsIG5vIHNlIHN1bWEuIiwgIkwnYXJtYXJpIHRhbWLDqSBpbmNsb3UgcGFudGFsb25zIChwYXJ0IGRlIGJhaXgpIGkgc2FtYXJyZXRlcyAocGFydCBkZSBkYWx0KSBjb20gYSBhbHRlcm5hdGl2ZXM6IGNhbCBzdW1hci1sb3MgYSBsZXMgc2V2ZXMgY2F0ZWdvcmllcyByZXNwZWN0aXZlcywgbm8gaWdub3Jhci1sb3MuIiwgIiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiUGXDp2EgZGUgYmFpeDogJDIkIGZhbGRpbGxlcyAkKzMkIHBhbnRhbG9ucyAkPTUkIG9wY2lvbnMiLCAiUGXDp2EgZGUgZGFsdDogJDIkIGJydXNlcyAkKzMkIHNhbWFycmV0ZXMgJD01JCBvcGNpb25zIiwgIkJhcnJldDogJDMkIG9wY2lvbnMiLCAiUGVsIHByaW5jaXBpIG11bHRpcGxpY2F0aXU6ICQ1XFxjZG90NVxcY2RvdDM9NzUkIGNvbWJpbmFjaW9ucyJdfQ=="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW5jYXJhIHF1ZSBoaSBoYWdpIGRpdmVyc29zIFBBUkVMTFMgZGUgZGF1cyBxdWUgZG9uZW4gcHJvZHVjdGUgJDEyJCAoY29tICQoMiw2KSQgaSAkKDMsNCkkKSwgZGlucyBkZSBsJ0VTUEFJIE1PU1RSQUwgREVMIFBST0RVQ1RFIGVsIHZhbG9yICQxMiQgw6lzIHVuIMO6bmljIHJlc3VsdGF0OiBhcXVlc3QgZXNkZXZlbmltZW50IMOpcyBlbGVtZW50YWwsIG5vIGNvbXBvc3QgcGVyIGRpdmVyc29zIHJlc3VsdGF0cyBkZSBsJ2VzcGFpIG1vc3RyYWwgZGVsIHByb2R1Y3RlLiIsICJUb3QgbsO6bWVybyDDqXMgbcO6bHRpcGxlIGRlIHNpIG1hdGVpeCBpIGQnJDEkOiBhcXVlc3QgZXNkZXZlbmltZW50IG5vIGNvcnJlc3BvbiBhIGNhcCByZXN1bHRhdCB2w6BsaWQgZGUgbCdlc3BhaSBtb3N0cmFsLCBuaSBlbGVtZW50YWwgbmkgY29tcG9zdC4iLCAiJDM2JCDDqXMgdW4gw7puaWMgdmFsb3IgZGUgbCdlc3BhaSBtb3N0cmFsIGRlbCBwcm9kdWN0ZSAoJFxcezEsMixcXGxkb3RzLDM2XFx9JCBhbWIgZWxzIHZhbG9ycyBxdWUgcydoaSBwb2RlbiBvYnRlbmlyKTogYXF1ZXN0IGVzZGV2ZW5pbWVudCDDqXMgZWxlbWVudGFsLCBubyBmb3JtYXQgcGVyIGRpdmVyc29zIHJlc3VsdGF0cy4iXSwgImVyciI6IFsiIiwgIkVMRU1FTlRBTF9OT19FTEVNRU5UQUxfQ09ORk9TT1MiLCAiRUxFTUVOVEFMX05PX0VMRU1FTlRBTF9DT05GT1NPUyIsICJFTEVNRU5UQUxfTk9fRUxFTUVOVEFMX0NPTkZPU09TIl0sICJyZXMiOiBbIsKrT2J0ZW5pciB1biBwcm9kdWN0ZSBtw6lzIHBldGl0IHF1ZSAkNSTCuyBhZ3J1cGEgZWxzIHJlc3VsdGF0cyAkMSwyLDMsNCQgZGUgbCdlc3BhaSBtb3N0cmFsOiDDqXMgdW4gZXNkZXZlbmltZW50IE5PIGVsZW1lbnRhbCwgZm9ybWF0IHBlciAkNCQgcmVzdWx0YXRzIGRpZmVyZW50cyJdfQ=="
   },
   {
    "id": "244",
@@ -662,7 +618,7 @@ window.FULL = {
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Quants resultats possibles s'obtenen en llançar una moneda a l'aire i anotar el resultat de $10$ tirades?",
    "opcions": [
@@ -679,12 +635,34 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJRdWFuIGVzIGNvbWJpbmVuICQxMCQgdGlyYWRlcyBpbmRlcGVuZGVudHMsIGNhZGFzY3VuYSBhbWIgJDIkIHJlc3VsdGF0cyBwb3NzaWJsZXMsIGVsIHRvdGFsIGVzIG11bHRpcGxpY2EgJDEwJCB2ZWdhZGVzIHNlZ3VpZGVzICgkMl57MTB9JCksIG5vIGVzIG11bHRpcGxpY2Egbm9tw6lzIHVuIGNvcCBwZWwgbm9tYnJlIGRlIHRpcmFkZXMuIiwgIiIsICJDYWRhIHRpcmFkYSBkb2JsYSBlbCBub21icmUgZGUgcmVzdWx0YXRzIHBvc3NpYmxlcyByZXNwZWN0ZSBhIGwnYW50ZXJpb3I6IGFtYiAkMTAkIHRpcmFkZXMgaW5kZXBlbmRlbnRzLCBjYWwgbXVsdGlwbGljYXIgJDIkIHBlciBzaSBtYXRlaXggJDEwJCB2ZWdhZGVzLCAkMl57MTB9JCwgbm8gZmVyIHVuIHNpbXBsZSBwcm9kdWN0ZSAkMlxcY2RvdDEwJC4iLCAiRWwgbm9tYnJlIGRlIHJlc3VsdGF0cyBkZXDDqG4gZGVsIG5vbWJyZSBkZSB0aXJhZGVzIGkgZCdvcGNpb25zIHBlciB0aXJhZGEgZCdBUVVFU1QgZXhwZXJpbWVudCBjb25jcmV0ICgkMl57MTB9JCksIG5vIGRlIHhpZnJlcyBxdWUgYXBhcmVndWluIGVuIGFsdHJlcyBleGVyY2ljaXMgZGlmZXJlbnRzLiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIiIsICJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiXSwgInJlcyI6IFsiQ2FkYSB0aXJhZGEgZG9ibGEgZWwgbm9tYnJlIGRlIHJlc3VsdGF0cyBwb3NzaWJsZXMgcmVzcGVjdGUgYSBsJ2FudGVyaW9yOiBhbWIgJDEwJCB0aXJhZGVzLCAkMl57MTB9PTFcXCwwMjQkIHJlc3VsdGF0cyBwb3NzaWJsZXMiXX0="
   },
   {
+   "id": "243",
+   "ex": 243,
+   "ap": "",
+   "bloc": "combinatoria",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de diferents colors, 2 bruses, 3 samarretes i 3 barrets. Quantes combinacions diferents pot fer (una peça de la part de baix, una de la part de dalt i un barret)?",
+   "opcions": [
+    "$45$ combinacions, multiplicant $5\\cdot3\\cdot3$ sense agrupar bé la part de baix i la de dalt",
+    "$10$ combinacions, sumant totes les peces ($2+3+2+3+3$)",
+    "$18$ combinacions, comptant només faldilles, bruses i barrets (sense pantalons ni samarretes)",
+    "$75$ combinacions"
+   ],
+   "pistes": [
+    "Agrupa la roba en tres nivells: peça de baix (faldilla o pantalons), peça de dalt (brusa o samarreta) i barret.",
+    "Compta les opcions de cada nivell per separat: $2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgcXVhbnRlcyBvcGNpb25zIGhpIGhhIGEgY2FkYSBuaXZlbGwgZGUgbCdhcmJyZTogbGEgcGFydCBkZSBiYWl4ICgkMiszPTUkIG9wY2lvbnMpIGkgbGEgcGFydCBkZSBkYWx0ICgkMiszPTUkIG9wY2lvbnMpIG5vIHRlbmVuIGVsIG1hdGVpeCBub21icmUgZCdvcGNpb25zIHBlciBjYXN1YWxpdGF0LCBjYWwgY2FsY3VsYXItbGVzIHBlciBzZXBhcmF0LiIsICJRdWFuIGVzIGNvbWJpbmVuIGRpdmVyc2VzIGVsZWNjaW9ucyBpbmRlcGVuZGVudHMgKHBhcnQgZGUgYmFpeCwgcGFydCBkZSBkYWx0LCBiYXJyZXQpLCBlbCBub21icmUgZGUgY29tYmluYWNpb25zIGVzIE1VTFRJUExJQ0EsIG5vIHNlIHN1bWEuIiwgIkwnYXJtYXJpIHRhbWLDqSBpbmNsb3UgcGFudGFsb25zIChwYXJ0IGRlIGJhaXgpIGkgc2FtYXJyZXRlcyAocGFydCBkZSBkYWx0KSBjb20gYSBhbHRlcm5hdGl2ZXM6IGNhbCBzdW1hci1sb3MgYSBsZXMgc2V2ZXMgY2F0ZWdvcmllcyByZXNwZWN0aXZlcywgbm8gaWdub3Jhci1sb3MuIiwgIiJdLCAiZXJyIjogWyJQUklOQ0lQSV9NVUxUSVBMSUNBVElVX01BTF9BUExJQ0FUIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiUGXDp2EgZGUgYmFpeDogJDIkIGZhbGRpbGxlcyAkKzMkIHBhbnRhbG9ucyAkPTUkIG9wY2lvbnMiLCAiUGXDp2EgZGUgZGFsdDogJDIkIGJydXNlcyAkKzMkIHNhbWFycmV0ZXMgJD01JCBvcGNpb25zIiwgIkJhcnJldDogJDMkIG9wY2lvbnMiLCAiUGVsIHByaW5jaXBpIG11bHRpcGxpY2F0aXU6ICQ1XFxjZG90NVxcY2RvdDM9NzUkIGNvbWJpbmFjaW9ucyJdfQ=="
+  },
+  {
    "id": "245",
    "ex": 245,
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "En un restaurant, el menú del dia té $3$ primers plats, $3$ segons i $4$ postres. Quants menús diferents es poden confeccionar, triant un primer, un segon i unes postres?",
    "opcions": [
@@ -701,34 +679,12 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgbGVzIHBvc3RyZXMgcGVsIGNhbcOtOiBjYWRhIG1lbsO6IHRhbWLDqSBpbmNsb3UgdW5hIGVsZWNjacOzIGRlIHBvc3RyZXMgKDQgb3BjaW9ucyksIHF1ZSBjYWwgbXVsdGlwbGljYXIgdGFtYsOpLiIsICIiLCAiUXVhbiBjYWRhIGNsaWVudCB0cmlhIHVuIHBsYXQgZGUgY2FkYSBjYXRlZ29yaWEgZGUgbWFuZXJhIGluZGVwZW5kZW50LCBlbCBub21icmUgZGUgY29tYmluYWNpb25zIGVzIE1VTFRJUExJQ0EsIG5vIHNlIHN1bWE6ICQzXFxjZG90M1xcY2RvdDQkLCBubyAkMyszKzQkLiIsICJDYWRhIG9wY2nDsyBkZSBwb3N0cmVzIGVzIHBvdCBjb21iaW5hciBhbWIgcXVhbHNldm9sIHByaW1lciBpIHF1YWxzZXZvbCBzZWdvbjogbm8gbidoaSBoYSBwcm91IGVuIGNvbXB0YXIgbm9tw6lzIGxlcyBwb3N0cmVzLCBjYWwgY29tYmluYXItbGVzIGFtYiB0b3RlcyBsZXMgYWx0cmVzIG9wY2lvbnMuIl0sICJlcnIiOiBbIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiIiwgIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCJdLCAicmVzIjogWyJDYWRhIGNsaWVudCB0cmlhIHVuIHByaW1lciAoJDMkIG9wY2lvbnMpLCB1biBzZWdvbiAoJDMkIG9wY2lvbnMpIGkgdW5lcyBwb3N0cmVzICgkNCQgb3BjaW9ucyksIGRlIG1hbmVyYSBpbmRlcGVuZGVudCIsICJQZWwgbcOodG9kZSBkZWwgcHJvZHVjdGU6ICQzXFxjZG90M1xcY2RvdDQ9MzYkIG1lbsO6cyBkaWZlcmVudHMiXX0="
   },
   {
-   "id": "246",
-   "ex": 246,
-   "ap": "",
-   "bloc": "combinatoria",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "La clau d'accés d'un ordinador consta de $4$ caràcters (només lletres o nombres) i distingeix entre lletres majúscules i minúscules. Calcula el nombre de possibilitats diferents que hi ha per escriure la clau.",
-   "opcions": [
-    "$62\\cdot4=248$ claus diferents",
-    "$62^4=14\\,776\\,336$ claus diferents possibles",
-    "$62\\cdot61\\cdot60\\cdot59$ claus diferents, sense poder repetir cap caràcter",
-    "$36^4$ claus diferents, sense distingir majúscules de minúscules"
-   ],
-   "pistes": [
-    "Compta quants caràcters diferents hi ha disponibles per a cada posició: $26$ majúscules $+26$ minúscules $+10$ dígits.",
-    "Amb $4$ posicions independents (es poden repetir caràcters), aplica el principi multiplicatiu: $62^4$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBbWIgJDQkIHBvc2ljaW9ucyBpbmRlcGVuZGVudHMsIGNhZGFzY3VuYSBhbWIgJDYyJCBvcGNpb25zLCBlbCBub21icmUgZGUgY2xhdXMgZXMgbXVsdGlwbGljYSAkNCQgdmVnYWRlcyBzZWd1aWRlcyAoJDYyXjQkKSwgbm8gZXMgbXVsdGlwbGljYSBub23DqXMgdW4gY29wIHBlbCBub21icmUgZGUgcG9zaWNpb25zLiIsICIiLCAiTCdlbnVuY2lhdCBubyBwcm9oaWJlaXggcmVwZXRpciBjYXLDoGN0ZXJzIGRpbnMgZGUgbGEgY2xhdSAobm8gZGl1IHF1ZSBoYWdpbiBkZSBzZXIgdG90cyBkaWZlcmVudHMpOiBhIGNhZGEgcG9zaWNpw7MgaGkgaGEgc2VtcHJlICQ2MiQgb3BjaW9ucyBkaXNwb25pYmxlcywgZW5jYXJhIHF1ZSBqYSBzJ2hhZ2kgZmV0IHNlcnZpciBhbGd1biBjYXLDoGN0ZXIgZW4gdW5hIHBvc2ljacOzIGFudGVyaW9yLiIsICJMJ2VudW5jaWF0IGRpdSBleHBsw61jaXRhbWVudCBxdWUgZXMgZGlzdGluZ2VpeGVuIG1hasO6c2N1bGVzIGkgbWluw7pzY3VsZXM6IGNhbCBjb21wdGFyLWxlcyBwZXIgc2VwYXJhdCAoJDI2KzI2PTUyJCBsbGV0cmVzKSwgbm8gY29tIHVuIHNvbCBncnVwIGRlICQyNiQuIl0sICJlcnIiOiBbIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiIiwgIlZBUklBQ0lPTlNfU0VOU0VfUkVQRVRJQ0lPX01BTCIsICJDQVNPU19QT1NTSUJMRVNfTUFMX0NPTVBUQVRTIl0sICJyZXMiOiBbIkNhcsOgY3RlcnMgcG9zc2libGVzIHBlciBwb3NpY2nDszogJDI2JCBtYWrDunNjdWxlcyAkKzI2JCBtaW7DunNjdWxlcyAkKzEwJCBkw61naXRzICQ9NjIkIiwgIkFtYiAkNCQgcG9zaWNpb25zIGluZGVwZW5kZW50czogJDYyXFxjZG90NjJcXGNkb3Q2MlxcY2RvdDYyPTYyXjQ9MTRcXCw3NzZcXCwzMzYkIGNsYXVzIGRpZmVyZW50cyJdfQ=="
-  },
-  {
    "id": "247",
    "ex": 247,
    "ap": "",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "El codi PIN d'un telèfon mòbil està format per $4$ dígits. Troba el nombre de codis diferents que podem posar al telèfon.",
    "opcions": [
@@ -750,7 +706,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules de $3$ lletres es poden formar en total?",
    "opcions": [
@@ -772,7 +728,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes d'aquestes paraules comencen amb la lletra H?",
    "opcions": [
@@ -794,7 +750,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "I quantes paraules contenen alhora les lletres L i A (en qualsevol ordre)?",
    "opcions": [
@@ -816,7 +772,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules acabaran amb la lletra O?",
    "opcions": [
@@ -838,7 +794,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "combinatoria",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu totes les paraules de 3 lletres, amb o sense sentit, que es poden formar amb les lletres de la paraula HOLA (sense repetir cap lletra dins de la mateixa paraula).",
    "enunciat": "Quantes paraules acabaran amb les lletres \"LO\" (penúltima L, última O)?",
    "opcions": [
@@ -855,12 +811,56 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBsbGV0cmEgTyBqYSBzJ2hhIGZldCBzZXJ2aXIgYSBsJ8O6bHRpbWEgcG9zaWNpw7M6IG5vIGVzIHBvdCB0b3JuYXIgYSBmZXIgc2VydmlyIGEgbGEgcHJpbWVyYS4gTm9tw6lzIHF1ZWRlbiBIIGkgQSBkaXNwb25pYmxlcy4iLCAiVW4gY29wIGZpeGFkZXMgTCBpIE8gYSBsZXMgc2V2ZXMgcG9zaWNpb25zLCBlbmNhcmEgcXVlZGVuIGR1ZXMgbGxldHJlcyBwb3NzaWJsZXMgcGVyIGEgbGEgcHJpbWVyYSBwb3NpY2nDszogSCBvIEEsIG5vIG5vbcOpcyB1bmEuIiwgIkFxdcOtIGVzIGZpeGVuIERVRVMgcG9zaWNpb25zIChwZW7Dumx0aW1hIEwsIMO6bHRpbWEgTyksIG5vIG5vbcOpcyB1bmE6IG5vbcOpcyBxdWVkYSBwZXIgdHJpYXIgbGEgcHJpbWVyYSBsbGV0cmEsIGVudHJlIEggaSBBLiIsICIiXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiQW1iIFwiTE9cIiBmaXhhdCBhbCBmaW5hbCwgbm9tw6lzIGNhbCB0cmlhciBsYSBwcmltZXJhIGxsZXRyYSBlbnRyZSBIIGkgQTogJDIkIG9wY2lvbnMiXX0="
   },
   {
+   "id": "242",
+   "ex": 242,
+   "ap": "",
+   "bloc": "combinatoria",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "Llancem un dau a l'aire i sumem els punts de totes les cares MENYS la de dalt. Calcula la probabilitat d'obtenir un nombre múltiple de $3$.",
+   "opcions": [
+    "$P=\\dfrac12$, comptant $3$ casos favorables",
+    "$P=\\dfrac{3}{21}=\\dfrac17$, dividint pels punts totals del dau",
+    "$P=\\dfrac16$, comptant només un cas favorable",
+    "$P=\\dfrac13$ ($18$ i $15$ són $2$ casos favorables d'entre $6$)"
+   ],
+   "pistes": [
+    "La suma de totes les cares d'un dau és $21$. Si la cara de dalt és $i$, la resta de cares suma $21-i$.",
+    "Calcula aquesta suma per a cada valor de $i$ de l'$1$ al $6$, i mira quins resultats són múltiples de $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJEZSBsZXMgc2lzIHN1bWVzIHBvc3NpYmxlcyAoJDE1LDE2LDE3LDE4LDE5LDIwJCksIG5vbcOpcyAkMTUkIGkgJDE4JCBzw7NuIG3Dumx0aXBsZXMgZGUgJDMkOiAkMiQgY2Fzb3MsIG5vICQzJC4iLCAiRWwgZGVub21pbmFkb3IgZGUgbGEgcHJvYmFiaWxpdGF0IGhhIGRlIHNlciBlbCBub21icmUgZGUgcmVzdWx0YXRzIFBPU1NJQkxFUyBkZSBsJ2V4cGVyaW1lbnQgKGxlcyAkNiQgY2FyZXMgcXVlIHBvZGVuIHF1ZWRhciBkZSBkYWx0KSwgbm8gbGEgc3VtYSB0b3RhbCBkZSBwdW50cyBkZWwgZGF1ICgkMSsyK1xcY2RvdHMrNj0yMSQpLiIsICJIaSBoYSBET1MgdmFsb3JzIG3Dumx0aXBsZXMgZGUgJDMkIGVudHJlIGxlcyBzaXMgc3VtZXMgcG9zc2libGVzICgkMTUkIGkgJDE4JCksIG5vIG5vbcOpcyB1bjogcmV2aXNhIGxhIHRhdWxhIGRlIHN1bWVzIHBlciBhIGNhZGEgY2FyYSBkZSBkYWx0LiIsICIiXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICIiXSwgInJlcyI6IFsiU2kgbGEgY2FyYSBkZSBkYWx0IMOpcyAkaSQsIGxhIHN1bWEgZGUgbGEgcmVzdGEgw6lzICQyMS1pJDogcGVyICRpPTEsXFxsZG90cyw2JCBzJ29idMOpICQyMCwxOSwxOCwxNywxNiwxNSQiLCAiTCdlc3BhaSBtb3N0cmFsIGQnYXF1ZXN0YSBzdW1hIMOpcyAkXFx7MTUsMTYsMTcsMTgsMTksMjBcXH0kLCB1biByZXN1bHRhdCBwZXIgY2FkYSBjYXJhLCBjYWRhc2N1biBhbWIgcHJvYmFiaWxpdGF0ICRcXGZyYWMxNiQiLCAiTcO6bHRpcGxlcyBkZSAkMyQ6ICQxOCQgKGNhcmEgJDMkIGRlIGRhbHQpIGkgJDE1JCAoY2FyYSAkNiQgZGUgZGFsdCk6ICQyJCBjYXNvcyBkZSAkNiQsICRQPVxcZGZyYWN7Mn17Nn09XFxkZnJhYzEzJCJdfQ=="
+  },
+  {
+   "id": "246",
+   "ex": 246,
+   "ap": "",
+   "bloc": "combinatoria",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "La clau d'accés d'un ordinador consta de $4$ caràcters (només lletres o nombres) i distingeix entre lletres majúscules i minúscules. Calcula el nombre de possibilitats diferents que hi ha per escriure la clau.",
+   "opcions": [
+    "$62\\cdot4=248$ claus diferents",
+    "$62^4=14\\,776\\,336$ claus diferents possibles",
+    "$62\\cdot61\\cdot60\\cdot59$ claus diferents, sense poder repetir cap caràcter",
+    "$36^4$ claus diferents, sense distingir majúscules de minúscules"
+   ],
+   "pistes": [
+    "Compta quants caràcters diferents hi ha disponibles per a cada posició: $26$ majúscules $+26$ minúscules $+10$ dígits.",
+    "Amb $4$ posicions independents (es poden repetir caràcters), aplica el principi multiplicatiu: $62^4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBbWIgJDQkIHBvc2ljaW9ucyBpbmRlcGVuZGVudHMsIGNhZGFzY3VuYSBhbWIgJDYyJCBvcGNpb25zLCBlbCBub21icmUgZGUgY2xhdXMgZXMgbXVsdGlwbGljYSAkNCQgdmVnYWRlcyBzZWd1aWRlcyAoJDYyXjQkKSwgbm8gZXMgbXVsdGlwbGljYSBub23DqXMgdW4gY29wIHBlbCBub21icmUgZGUgcG9zaWNpb25zLiIsICIiLCAiTCdlbnVuY2lhdCBubyBwcm9oaWJlaXggcmVwZXRpciBjYXLDoGN0ZXJzIGRpbnMgZGUgbGEgY2xhdSAobm8gZGl1IHF1ZSBoYWdpbiBkZSBzZXIgdG90cyBkaWZlcmVudHMpOiBhIGNhZGEgcG9zaWNpw7MgaGkgaGEgc2VtcHJlICQ2MiQgb3BjaW9ucyBkaXNwb25pYmxlcywgZW5jYXJhIHF1ZSBqYSBzJ2hhZ2kgZmV0IHNlcnZpciBhbGd1biBjYXLDoGN0ZXIgZW4gdW5hIHBvc2ljacOzIGFudGVyaW9yLiIsICJMJ2VudW5jaWF0IGRpdSBleHBsw61jaXRhbWVudCBxdWUgZXMgZGlzdGluZ2VpeGVuIG1hasO6c2N1bGVzIGkgbWluw7pzY3VsZXM6IGNhbCBjb21wdGFyLWxlcyBwZXIgc2VwYXJhdCAoJDI2KzI2PTUyJCBsbGV0cmVzKSwgbm8gY29tIHVuIHNvbCBncnVwIGRlICQyNiQuIl0sICJlcnIiOiBbIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiIiwgIlZBUklBQ0lPTlNfU0VOU0VfUkVQRVRJQ0lPX01BTCIsICJDQVNPU19QT1NTSUJMRVNfTUFMX0NPTVBUQVRTIl0sICJyZXMiOiBbIkNhcsOgY3RlcnMgcG9zc2libGVzIHBlciBwb3NpY2nDszogJDI2JCBtYWrDunNjdWxlcyAkKzI2JCBtaW7DunNjdWxlcyAkKzEwJCBkw61naXRzICQ9NjIkIiwgIkFtYiAkNCQgcG9zaWNpb25zIGluZGVwZW5kZW50czogJDYyXFxjZG90NjJcXGNkb3Q2MlxcY2RvdDYyPTYyXjQ9MTRcXCw3NzZcXCwzMzYkIGNsYXVzIGRpZmVyZW50cyJdfQ=="
+  },
+  {
    "id": "241a",
    "ex": 241,
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$A=$ «Obtenir ors»",
    "opcions": [
@@ -882,7 +882,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$B=$ «Obtenir el rei d'ors»",
    "opcions": [
@@ -904,7 +904,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$C=$ «Obtenir espases o copes»",
    "opcions": [
@@ -926,7 +926,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$D=$ «Obtenir una figura»",
    "opcions": [
@@ -948,7 +948,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "D'una baralla de 40 cartes traiem una carta. Calcula les probabilitats d'aquests esdeveniments.",
    "enunciat": "$E=$ «Obtenir un as»",
    "opcions": [
@@ -970,7 +970,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment $A=$«Múltiple de $3$»?",
    "opcions": [
@@ -992,7 +992,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cup B$ (múltiple de $3$ o nombre senar)?",
    "opcions": [
@@ -1014,7 +1014,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cap B$ (múltiple de $3$ i, alhora, senar)?",
    "opcions": [
@@ -1036,7 +1036,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix 100 vegades l'experiment de treure una bola i tornar-la al bombo. Els resultats: bola 0->7, 1->13, 2->11, 3->12, 4->8, 5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: $A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».",
    "enunciat": "Quina és la freqüència relativa de $A\\cup C$ (múltiple de $3$ o divisor de $6$)?",
    "opcions": [
@@ -1058,7 +1058,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Múltiple de $3$»?",
    "opcions": [
@@ -1080,7 +1080,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Múltiple de $2$»?",
    "opcions": [
@@ -1102,7 +1102,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Cara més gran que $1$»?",
    "opcions": [
@@ -1124,7 +1124,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem 100 vegades un dau tetraèdric, anotem el nombre de la cara oculta: cara 1->28, cara 2->22, cara 3->30, cara 4->20.",
    "enunciat": "Quina és la freqüència relativa de l'esdeveniment «Cara més petita que $1$»?",
    "opcions": [
@@ -1146,7 +1146,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quina és la probabilitat d'obtenir $4$ cares?",
    "opcions": [
@@ -1168,7 +1168,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quina és la probabilitat de NO obtenir cap cara (és a dir, totes creus)?",
    "opcions": [
@@ -1190,7 +1190,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Llancem 4 monedes iguals.",
    "enunciat": "Quin esdeveniment és més probable: obtenir $2$ cares, o obtenir almenys $3$ creus?",
    "opcions": [
@@ -1212,7 +1212,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "Calcula la probabilitat d'encertar exactament $3$ preguntes si contestes a l'atzar.",
    "opcions": [
@@ -1234,7 +1234,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "Si per aprovar l'examen s'han de contestar almenys $3$ preguntes correctament, quina és la probabilitat d'aprovar?",
    "opcions": [
@@ -1256,7 +1256,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "laplace",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Un examen de tipus test consta de 5 preguntes, cada una de les quals té 3 respostes possibles.",
    "enunciat": "I quina és la probabilitat de suspendre l'examen?",
    "opcions": [
@@ -1273,276 +1273,12 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHZhbG9yIGRlICRQKFxcdGV4dHthcHJvdmFyfSkkLCBubyBkZSAkUChcXHRleHR7c3VzcGVuZHJlfSkkOiBjb20gcXVlIHN1c3BlbmRyZSDDqXMgbCdlc2RldmVuaW1lbnQgQ09OVFJBUkkgZCdhcHJvdmFyLCBjYWwgcmVzdGFyLWxvIGQnJDEkLCBubyByZXBldGlyLWxvLiIsICIiLCAiJFxcZnJhY3sxOTJ9ezI0M30kIG5vIGNvaW5jaWRlaXggYW1iICQxLVxcZnJhY3s1MX17MjQzfT1cXGZyYWN7MTkyfXsyNDN9JC4uLiB0b3JuYSBhIGZlciBsYSByZXN0YSBhbWIgY3VyYTogZWwgbnVtZXJhZG9yIGNvcnJlY3RlIGRlICQxLVxcZnJhY3s1MX17MjQzfSQgw6lzICQyNDMtNTE9MTkyJCwgcXVlIHNpbXBsaWZpY2F0IGRvbmEgJFxcZnJhY3s2NH17ODF9JCwgbm8gdW4gYWx0cmUgdmFsb3IuIiwgIkNhbCByZXN0YXIgbGEgUFJPQkFCSUxJVEFUICgkXFxmcmFjezE3fXs4MX0kLCB1biB2YWxvciBlbnRyZSAkMCQgaSAkMSQpIGRlICQxJCwgbm8gZWwgbm9tYnJlIGRlIGNhc29zIGZhdm9yYWJsZXMgKHF1ZSDDqXMgJDUxJCwgdW4gZW50ZXIpOiB1bmEgcHJvYmFiaWxpdGF0IG1haSBwb3Qgc2VyIG5lZ2F0aXZhLiJdLCAiZXJyIjogWyJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIiIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIkVTREVWRU5JTUVOVF9DT05UUkFSSV9NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiQ29tIHF1ZSBzdXNwZW5kcmUgw6lzIGVsIGNvbnRyYXJpIGQnYXByb3ZhcjogJFAoXFx0ZXh0e3N1c3BlbmRyZX0pPTEtXFxkZnJhY3sxN317ODF9PVxcZGZyYWN7NjR9ezgxfSQiXX0="
   },
   {
-   "id": "253a",
-   "ex": 253,
-   "ap": "a",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
-   "enunciat": "Quants esdeveniments elementals componen $B=$«múltiple de $3$», i quina és la seva probabilitat?",
-   "opcions": [
-    "$34$ esdeveniments elementals (comptant l'\"$1$\" com a múltiple)",
-    "$33$ esdeveniments elementals; $P(B)=\\dfrac{33}{100}$",
-    "$33$ esdeveniments elementals; $P(B)=\\dfrac{100}{33}$",
-    "$30$ esdeveniments elementals, comptant només fins a $90$"
-   ],
-   "pistes": [
-    "Divideix $100$ entre $3$ i queda't amb la part entera: aquest és el nombre de múltiples de $3$ entre $1$ i $100$.",
-    "$\\left\\lfloor\\frac{100}{3}\\right\\rfloor=33$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJyQxJCBubyDDqXMgbcO6bHRpcGxlIGRlICQzJDogZWwgbm9tYnJlIGRlIG3Dumx0aXBsZXMgZGUgJDMkIGVudHJlICQxJCBpICQxMDAkIMOpcyAkXFxsZWZ0XFxsZmxvb3JcXGZyYWN7MTAwfXszfVxccmlnaHRcXHJmbG9vcj0zMyQsIG5vICQzNCQuIiwgIiIsICJVbmEgcHJvYmFiaWxpdGF0IG1haSBwb3Qgc2VyIG3DqXMgZ3JhbiBxdWUgJDEkOiBlbCBub21icmUgZGUgbcO6bHRpcGxlcyBkZSAkMyQgdmEgYWwgbnVtZXJhZG9yLCBpIGVsIHRvdGFsIGRlIGJvbGVzICgkMTAwJCkgYWwgZGVub21pbmFkb3IsIG5vIGFsIHJldsOpcy4iLCAiVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSBlbHMgbcO6bHRpcGxlcyBkZSAkMyQgZW50cmUgJDkxJCBpICQxMDAkIChjb20gZWwgJDkzJCwgZWwgJDk2JCBpIGVsICQ5OSQpOiBlbCByZWNvbXB0ZSBjb3JyZWN0ZSBkZXMgZCckMSQgZmlucyBhICQxMDAkIMOpcyAkMzMkLiJdLCAiZXJyIjogWyJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICIiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiXSwgInJlcyI6IFsiJEIkOiBtw7psdGlwbGVzIGRlICQzJCwgZGVzIGRlICQzJCBmaW5zIGEgJDk5JDogJDMzJCBlc2RldmVuaW1lbnRzIGVsZW1lbnRhbHMgKCRcXGxmbG9vcjEwMC8zXFxyZmxvb3I9MzMkKS4gJFAoQik9XFxkZnJhY3szM317MTAwfSQiXX0="
-  },
-  {
-   "id": "253b",
-   "ex": 253,
-   "ap": "b",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
-   "enunciat": "Quina és la probabilitat de $D=$«divisible per $10$»?",
-   "opcions": [
-    "$P(D)=\\dfrac{10}{100}=\\dfrac1{10}$",
-    "$P(D)=\\dfrac{50}{100}=\\dfrac12$, confonent-lo amb divisible per $2$",
-    "$P(D)=\\dfrac{100}{100}=1$, com si tots els números ho complissin",
-    "$P(D)=\\dfrac{20}{100}=\\dfrac15$, confonent-lo amb múltiple de $5$"
-   ],
-   "pistes": [
-    "Compta els múltiples de $10$ entre $1$ i $100$: $10,20,\\ldots,100$.",
-    "Divideix $100$ entre $10$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJEaXZpc2libGUgcGVyICQxMCRcIiDDqXMgbcOpcyByZXN0cmljdGl1IHF1ZSBcImRpdmlzaWJsZSBwZXIgJDIkXCI6IG5vbcOpcyBjb21wbGVpeGVuIGxhIGNvbmRpY2nDsyAkMTAsIDIwLCBcXGxkb3RzLCAxMDAkLCBubyB0b3RzIGVscyBwYXJlbGxzLiIsICJObyB0b3RzIGVscyBuw7ptZXJvcyBkZSBsJyQxJCBhbCAkMTAwJCBzw7NuIGRpdmlzaWJsZXMgcGVyICQxMCQ6IG5vbcOpcyBobyBzw7NuICQxMCwgMjAsIDMwLFxcbGRvdHMsMTAwJCwgZW4gdG90YWwgJDEwJCBkJ2VsbHMuIiwgIlwiRGl2aXNpYmxlIHBlciAkMTAkXCIgw6lzIG3DqXMgcmVzdHJpY3RpdSBxdWUgXCJtw7psdGlwbGUgZGUgJDUkXCI6IHRvdHMgZWxzIG3Dumx0aXBsZXMgZGUgJDEwJCBobyBzw7NuIHRhbWLDqSBkZSAkNSQsIHBlcsOyIG5vIGFsIHJldsOpcyAoZWwgJDUkLCBlbCAkMTUkLi4uIHPDs24gbcO6bHRpcGxlcyBkZSAkNSQgcGVyw7Igbm8gZGUgJDEwJCkuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkRCQ6IGRpdmlzaWJsZXMgcGVyICQxMCQsIGRlcyBkZSAkMTAkIGZpbnMgYSAkMTAwJDogJDEwJCBlc2RldmVuaW1lbnRzIGVsZW1lbnRhbHMuICRQKEQpPVxcZGZyYWN7MTB9ezEwMH09XFxkZnJhYzF7MTB9JCJdfQ=="
-  },
-  {
-   "id": "253c",
-   "ex": 253,
-   "ap": "c",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
-   "enunciat": "Quina és la probabilitat de $F=$«divisible per $1$»?",
-   "opcions": [
-    "$P(F)=1$ (és l'esdeveniment segur: tots els números són divisibles per $1$)",
-    "$P(F)=0$, perquè \"divisible per $1$\" no és una condició real",
-    "$P(F)=\\dfrac{1}{100}$, com si només un número ho complís",
-    "$P(F)=\\dfrac{50}{100}=\\dfrac12$, confonent-lo amb divisible per $2$"
-   ],
-   "pistes": [
-    "Quins nombres NO són divisibles per $1$?",
-    "Cap: tot nombre enter és divisible per $1$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIHVuYSBjb25kaWNpw7MgcmVhbCwgaSBsYSBjb21wbGVpeGVuIGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzOiBwZXIgYWl4w7IgbGEgc2V2YSBwcm9iYWJpbGl0YXQgw6lzICQxJCAoZXNkZXZlbmltZW50IHNlZ3VyKSwgbm8gJDAkIChpbXBvc3NpYmxlKS4iLCAiVE9UUyBlbHMgbm9tYnJlcyBlbnRlcnMgc8OzbiBkaXZpc2libGVzIHBlciAkMSQsIG5vIG5vbcOpcyB1bjogZWxzICQxMDAkIG5vbWJyZXMgZGUgbCd1cm5hIGNvbXBsZWl4ZW4gYXF1ZXN0YSBjb25kaWNpw7MuIiwgIlwiRGl2aXNpYmxlIHBlciAkMSRcIiBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBcImRpdmlzaWJsZSBwZXIgJDIkXCI6IGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzIGNvbXBsZWl4ZW4gbGEgcHJpbWVyYSBjb25kaWNpw7MsIG5vIG5vbcOpcyBsYSBtZWl0YXQuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkRiQ6IGRpdmlzaWJsZXMgcGVyICQxJCwgw6lzIGEgZGlyLCB0b3RzIGVscyBuw7ptZXJvcyBkZSBsJyQxJCBhbCAkMTAwJDogJDEwMCQgZXNkZXZlbmltZW50cyBlbGVtZW50YWxzLiAkUChGKT1cXGRmcmFjezEwMH17MTAwfT0xJCAobCdlc2RldmVuaW1lbnQgc2VndXIpIl19"
-  },
-  {
-   "id": "253d",
-   "ex": 253,
-   "ap": "d",
-   "bloc": "esdeveniments",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
-   "enunciat": "«Hi ha algun parell d'esdeveniments incompatibles entre $A$, $B$, $C$, $D$ i $F$»",
-   "opcions": [
-    "Cert: $D$ i $C$ són incompatibles, perquè un múltiple de $10$ no pot ser parell",
-    "Cert: $A$ i $B$ són incompatibles, perquè cap número és alhora múltiple de $5$ i de $3$",
-    "Fals: cap parell d'aquests cinc esdeveniments és incompatible, perquè sempre hi ha algun número que compleix totes dues condicions alhora (per exemple, el $30$ compleix totes cinc condicions a la vegada)",
-    "Cert: $F$ és incompatible amb tots els altres, perquè conté tots els números"
-   ],
-   "pistes": [
-    "Dos esdeveniments són incompatibles quan no comparteixen CAP número en comú.",
-    "Prova amb un número com el $30$: compleix múltiples condicions alhora?"
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBtw7psdGlwbGUgZGUgJDEwJCBTRU1QUkUgw6lzIHBhcmVsbCAodG90IG3Dumx0aXBsZSBkZSAkMTAkIGhvIMOpcyB0YW1iw6kgZGUgJDIkKTogJEQkIGkgJEMkIGNvbXBhcnRlaXhlbiBtb2x0cyBlbGVtZW50cywgbm8gZW4gdGVuZW4gemVybyBlbiBjb23Dui4iLCAiU8OtIHF1ZSBuJ2hpIGhhOiBwZXIgZXhlbXBsZSwgZWwgJDE1JCBpIGVsICQzMCQgc8OzbiBtw7psdGlwbGVzIGRlICQ1JCBpIGRlICQzJCBhbGhvcmEuICRBJCBpICRCJCBjb21wYXJ0ZWl4ZW4gZWxlbWVudHMsIG5vIHPDs24gaW5jb21wYXRpYmxlcy4iLCAiIiwgIlF1ZSAkRiQgY29udGluZ3VpIHRvdHMgZWxzIG7Dum1lcm9zIGZhIHByZWNpc2FtZW50IHF1ZSBDT01QQVJURUlYSSBlbGVtZW50cyBhbWIgcXVhbHNldm9sIGFsdHJlIGVzZGV2ZW5pbWVudCAodG90cyBlbHMgZCdhcXVlbGwgYWx0cmUgZXNkZXZlbmltZW50KTogYWl4w7IgZWwgZmEgY29tcGF0aWJsZSBhbWIgdG90cywgbm8gaW5jb21wYXRpYmxlLiJdLCAiZXJyIjogWyJDT01QQVRJQkxFX0lOQ09NUEFUSUJMRV9DT05GT1NPUyIsICJDT01QQVRJQkxFX0lOQ09NUEFUSUJMRV9DT05GT1NPUyIsICIiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiXSwgInJlcyI6IFsiRWwgJDMwJCDDqXMgbcO6bHRpcGxlIGRlICQ1JCwgZGUgJDMkLCBwYXJlbGwsIG3Dumx0aXBsZSBkZSAkMTAkIGkgZGl2aXNpYmxlIHBlciAkMSQsIHRvdCBhIGxhIHZlZ2FkYTogY2FwIHBhcmVsbCBkJ2FxdWVzdHMgZXNkZXZlbmltZW50cyDDqXMgaW5jb21wYXRpYmxlIl19"
-  },
-  {
-   "id": "253e",
-   "ex": 253,
-   "ap": "e",
-   "bloc": "esdeveniments",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
-   "enunciat": "«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, $C$, $D$ i $F$»",
-   "opcions": [
-    "Fals: cap parell d'$A$, $B$, $C$, $D$, $F$ és contrari, ja que dos esdeveniments contraris han d'esgotar l'espai mostral sense superposar-se, i aquí tots els parells són compatibles (es superposen)",
-    "Cert: $C$ (divisible per $2$) i $F$ (divisible per $1$) són contraris",
-    "Cert: $B$ (múltiple de $3$) i $C$ (divisible per $2$) són contraris",
-    "Cert: $A$ (múltiple de $5$) i $D$ (divisible per $10$) són contraris"
-   ],
-   "pistes": [
-    "Dos esdeveniments contraris no comparteixen cap element I, junts, inclouen tots els resultats possibles.",
-    "Comprova si cada parell comparteix algun número: si en comparteixen, no poden ser contraris."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJEMkIGkgJEYkIG5vIHPDs24gY29udHJhcmlzOiBkZSBmZXQsICRDJCBlc3TDoCBDT05USU5HVVQgZGlucyBkZSAkRiQgKHRvdCBtw7psdGlwbGUgZGUgJDIkIHRhbWLDqSDDqXMgZGl2aXNpYmxlIHBlciAkMSQpLCBpIGRvcyBlc2RldmVuaW1lbnRzIGNvbnRyYXJpcyBubyBwb2RlbiBjb21wYXJ0aXIgY2FwIGVsZW1lbnQuIiwgIiRCJCBpICRDJCBjb21wYXJ0ZWl4ZW4gZWxlbWVudHMgKGNvbSBlbCAkNiQsIG3Dumx0aXBsZSBkZSAkMyQgaSBkaXZpc2libGUgcGVyICQyJCBhbGhvcmEpOiBkb3MgZXNkZXZlbmltZW50cyBjb250cmFyaXMgbm8gcG9kZW4gdGVuaXIgY2FwIGVsZW1lbnQgZW4gY29tw7osIGFpeMOtIHF1ZSBubyBobyBzw7NuLiIsICIkQSQgaSAkRCQgbm8gc8OzbiBjb250cmFyaXM6IGRlIGZldCwgJEQkIGVzdMOgIENPTlRJTkdVVCBkaW5zIGRlICRBJCAodG90IG3Dumx0aXBsZSBkZSAkMTAkIHRhbWLDqSBobyDDqXMgZGUgJDUkKSwgaSBkb3MgZXNkZXZlbmltZW50cyBjb250cmFyaXMgbm8gcG9kZW4gY29tcGFydGlyIGNhcCBlbGVtZW50LiJdLCAiZXJyIjogWyIiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiXSwgInJlcyI6IFsiVG90cyBlbHMgcGFyZWxscyBkJ2FxdWVzdHMgZXNkZXZlbmltZW50cyBjb21wYXJ0ZWl4ZW4gYWxndW4gbsO6bWVybyAoc8OzbiBjb21wYXRpYmxlcyk6IHBlciB0YW50LCBjYXAgcGFyZWxsIMOpcyBjb250cmFyaSwgamEgcXVlIGVscyBjb250cmFyaXMgbWFpIGNvbXBhcnRlaXhlbiBlbGVtZW50cyJdfQ=="
-  },
-  {
-   "id": "254a",
-   "ex": 254,
-   "ap": "a",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
-   "enunciat": "Si escollim una persona a l'atzar, quina és la probabilitat que sigui home?",
-   "opcions": [
-    "$P(\\text{home})=\\dfrac{16}{60}$, comptant només els homes que han menjat carn",
-    "$P(\\text{home})=\\dfrac{28}{32}$, comparant-lo amb el nombre de dones",
-    "$P(\\text{home})=\\dfrac12$, com si hi haguessin el mateix nombre d'homes i dones",
-    "$P(\\text{home})=\\dfrac{28}{60}=\\dfrac{7}{15}$"
-   ],
-   "pistes": [
-    "El total de persones al dinar és $28+32=60$.",
-    "La probabilitat de ser home és $\\dfrac{28}{60}$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBwcmVndW50YSBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IGRlIHNlciBob21lIEVOIEdFTkVSQUwsIG5vIGQnZW50cmUgZWxzIHF1ZSBoYW4gbWVuamF0IGNhcm46IGNhbCBlbCB0b3RhbCBkJ2hvbWVzICgkMjgkKSwgbm8gbm9tw6lzIGVscyAkMTYkIHF1ZSBoYW4gbWVuamF0IGNhcm4uIiwgIkVsIGRlbm9taW5hZG9yIGRlIGxhIHByb2JhYmlsaXRhdCBoYSBkZSBzZXIgZWwgVE9UQUwgZGUgcGVyc29uZXMgYWwgZGluYXIgKCQyOCszMj02MCQpLCBubyBlbCBub21icmUgZGUgZG9uZXMuIiwgIkhpIGhhICQyOCQgaG9tZXMgaSAkMzIkIGRvbmVzOiBubyBzw7NuIGVsIG1hdGVpeCBub21icmUsIGFpeMOtIHF1ZSBsYSBwcm9iYWJpbGl0YXQgbm8gw6lzIGV4YWN0YW1lbnQgJFxcZnJhYzEyJC4iLCAiIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIkNBU09TX1BPU1NJQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIl0sICJyZXMiOiBbIkhpIGhhICQyOCQgaG9tZXMgZCdlbnRyZSAkNjAkIHBlcnNvbmVzOiAkUChcXHRleHR7aG9tZX0pPVxcZGZyYWN7Mjh9ezYwfT1cXGRmcmFjezd9ezE1fSQiXX0="
-  },
-  {
-   "id": "254b",
-   "ex": 254,
-   "ap": "b",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
-   "enunciat": "Quina és la probabilitat que hagi menjat peix?",
-   "opcions": [
-    "$P(\\text{peix})=\\dfrac{20}{60}$, comptant només les dones que han menjat peix",
-    "$P(\\text{peix})=\\dfrac{24}{60}=\\dfrac25$",
-    "$P(\\text{peix})=\\dfrac{36}{60}$, calculant en realitat la probabilitat de menjar carn",
-    "$P(\\text{peix})=\\dfrac{16}{60}$, comptant només els homes que han menjat peix"
-   ],
-   "pistes": [
-    "Calcula primer quantes persones han menjat carn en total: $16+20=36$.",
-    "Les que han menjat peix són la resta: $60-36$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkMjAkIMOpcyBlbCBub21icmUgZGUgZG9uZXMgcXVlIGhhbiBtZW5qYXQgQ0FSTiwgbm8gcGVpeDogY2FsIGNhbGN1bGFyIHByaW1lciBxdWkgaGEgbWVuamF0IHBlaXggKGxhIHJlc3RhLCAkNjAtMzY9MjQkIHBlcnNvbmVzIGVuIHRvdGFsKS4iLCAiIiwgIiQzNiQgw6lzIGVsIHRvdGFsIGRlIHBlcnNvbmVzIHF1ZSBoYW4gbWVuamF0IENBUk4gKCQxNisyMCQpLCBubyBwZWl4OiBsYSByZXN0YSwgJDYwLTM2PTI0JCwgw6lzIHF1aSBoYSBtZW5qYXQgcGVpeC4iLCAiTGEgcHJlZ3VudGEgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBkZSBtZW5qYXIgcGVpeCBFTiBHRU5FUkFMLCBubyBub23DqXMgZW50cmUgZWxzIGhvbWVzOiBjYWwgY29tcHRhciBob21lcyBJIGRvbmVzIHF1ZSBoYW4gbWVuamF0IHBlaXguIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIiIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIl0sICJyZXMiOiBbIkhhbiBtZW5qYXQgY2FybiAkMTYrMjA9MzYkIHBlcnNvbmVzLCBpIHBlciB0YW50IHBlaXgsICQ2MC0zNj0yNCQgcGVyc29uZXM6ICRQKFxcdGV4dHtwZWl4fSk9XFxkZnJhY3syNH17NjB9PVxcZGZyYWMyNSQiXX0="
-  },
-  {
-   "id": "254c",
-   "ex": 254,
-   "ap": "c",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
-   "enunciat": "Quina és la probabilitat que sigui home I hagi menjat peix?",
-   "opcions": [
-    "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15$",
-    "$P(\\text{home i peix})=\\dfrac{28+24}{60}$, sumant les probabilitats individuals com si fos una unió",
-    "$P(\\text{home i peix})=\\dfrac{28}{60}$, agafant només la probabilitat de ser home",
-    "$P(\\text{home i peix})=\\dfrac{16}{60}$, comptant els homes que han menjat CARN"
-   ],
-   "pistes": [
-    "Dels $28$ homes, quants han menjat peix (no carn)?",
-    "$28-16=12$ homes han menjat peix: aquest és el numerador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJIb21lIEkgcGVpeFwiIChhbWIgbGEgSSkgw6lzIHVuYSBJTlRFUlNFQ0NJw5MsIG5vIHVuYSB1bmnDszogbm8gZXMgY291ZW4gc3VtYW50IGxlcyBwcm9iYWJpbGl0YXRzIGluZGl2aWR1YWxzLCBjYWwgY29tcHRhciBkaXJlY3RhbWVudCBxdWFudGVzIHBlcnNvbmVzIGNvbXBsZWl4ZW4gdG90ZXMgZHVlcyBjb25kaWNpb25zIGFsaG9yYS4iLCAiXCJIb21lIGkgcGVpeFwiIGRlbWFuYSB0b3RlcyBkdWVzIGNvbmRpY2lvbnMgQUxIT1JBLCBubyBub23DqXMgXCJzZXIgaG9tZVwiOiBjYWwgY29tcHRhciBxdWFudHMgaG9tZXMgY29uY3JldGFtZW50IGhhbiBtZW5qYXQgcGVpeCwgbm8gdG90cyBlbHMgaG9tZXMuIiwgIiQxNiQgaG9tZXMgdmFuIG1lbmphciBjYXJuLCBubyBwZWl4OiBkZWxzICQyOCQgaG9tZXMsIGVscyBxdWUgaGFuIG1lbmphdCBwZWl4IHPDs24gJDI4LTE2PTEyJC4iXSwgImVyciI6IFsiIiwgIlVOSU9fSU5URVJTRUNDSU9fQ09ORk9TRVMiLCAiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIl0sICJyZXMiOiBbIkhhbiBtZW5qYXQgcGVpeCBpLCBhIG3DqXMsIHPDs24gaG9tZXMsICQxMiQgcGVyc29uZXMgKCQyOC0xNj0xMiQpIGQnZW50cmUgJDYwJDogJFAoXFx0ZXh0e2hvbWUgaSBwZWl4fSk9XFxkZnJhY3sxMn17NjB9PVxcZGZyYWMxNSQiXX0="
-  },
-  {
-   "id": "255",
-   "ex": 255,
-   "ap": "",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i tres quartes parts de les nenes tenen els cabells negres, i la resta, rossos. Quina és la probabilitat que, si n'escollim un a l'atzar, sigui nen o tingui els cabells negres?",
-   "opcions": [
-    "$P=\\dfrac{10}{36}$, comptant només els nens amb cabells negres",
-    "$P=\\dfrac{20}{36}=\\dfrac59$, comptant només \"ser nen\"",
-    "$P=\\dfrac{32}{36}=\\dfrac89$",
-    "$P=\\dfrac{20}{36}+\\dfrac{22}{36}$, sumant \"ser nen\" i \"tenir cabells negres\" sense evitar la doble comptabilitat"
-   ],
-   "pistes": [
-    "Tots els nens (siguin del color de cabells que siguin) ja compleixen \"ser nen\": només cal afegir-hi les nenes de cabells negres, que encara no comptaves.",
-    "Nenes de cabells negres: $16\\cdot\\frac34=12$. Suma-les als $20$ nens."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTAkIMOpcyBsYSBJTlRFUlNFQ0NJw5MgKG5lbnMgSSBjYWJlbGxzIG5lZ3JlcyBhbGhvcmEpLCBwZXLDsiBsYSBwcmVndW50YSBkZW1hbmEgbGEgVU5Jw5MgKFwibmVuIE8gY2FiZWxscyBuZWdyZXNcIiksIHF1ZSBpbmNsb3UgbW9sdGEgbcOpcyBnZW50OiB0b3RzIGVscyBuZW5zIChzaWd1aW4gcm9zc29zIG8gbm8pIGkgdG90ZXMgbGVzIG5lbmVzIGRlIGNhYmVsbHMgbmVncmVzLiIsICJcIk5lbiBvIGNhYmVsbHMgbmVncmVzXCIgaW5jbG91IG3DqXMgZ2VudCBxdWUgbm9tw6lzIFwic2VyIG5lblwiOiB0YW1iw6kgaGkgZW50cmVuIGxlcyBuZW5lcyBxdWUgdGVuZW4gZWxzIGNhYmVsbHMgbmVncmVzLCBlbmNhcmEgcXVlIG5vIHNpZ3VpbiBuZW5zLiIsICIiLCAiVG90cyBlbHMgbmVucyBhbWIgY2FiZWxscyBuZWdyZXMgKCQxMCQpIGphIGVzdGFuIGNvbXB0YXRzIGRpbnMgZGUgXCJzZXIgbmVuXCI6IHN1bWFyIGRpcmVjdGFtZW50IGxlcyBkdWVzIHByb2JhYmlsaXRhdHMgZWxzIGNvbXB0YSBkdWVzIHZlZ2FkZXMuIENhbCByZXN0YXIgbGEgaW50ZXJzZWNjacOzLCBvIGLDqSBzdW1hciBub23DqXMgbGVzIG5lbmVzIGRlIGNhYmVsbHMgbmVncmVzIGFscyBuZW5zIChxdWUgamEgaW5jbG91ZW4gdG90cyBlbHMgY29sb3JzKS4iXSwgImVyciI6IFsiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIiIsICJVTklPX0RPQkxFX0NPTVBUQURBIl0sICJyZXMiOiBbIkNhYmVsbHMgbmVncmVzOiAkMjBcXGNkb3RcXGZyYWMxMj0xMCQgbmVucyBpICQxNlxcY2RvdFxcZnJhYzM0PTEyJCBuZW5lcyIsICJDYXNvcyBmYXZvcmFibGVzOiB0b3RzIGVscyBuZW5zICgkMjAkKSBtw6lzIGxlcyBuZW5lcyBkZSBjYWJlbGxzIG5lZ3JlcyAoJDEyJCksIHNlbnNlIHN1cGVycG9zaWNpw7MgZW50cmUgXCJuZW5cIiBpIFwibmVuYVwiOiAkMjArMTI9MzIkIiwgIiRQKFxcdGV4dHtuZW4gbyBjYWJlbGxzIG5lZ3Jlc30pPVxcZGZyYWN7MzJ9ezM2fT1cXGRmcmFjODkkIl19"
-  },
-  {
-   "id": "256a",
-   "ex": 256,
-   "ap": "a",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
-   "enunciat": "Quina probabilitat hi ha que, si n'escollim un a l'atzar, llegeixi algun dels dos diaris?",
-   "opcions": [
-    "$P(A\\cup B)=0{,}57$, calculant en realitat \"cap diari\"",
-    "$P(A\\cup B)=0{,}07$, agafant només la intersecció",
-    "$P(A\\cup B)=0{,}43$",
-    "$P(A\\cup B)=0{,}50$, sumant directament $0{,}30+0{,}20$ sense restar res"
-   ],
-   "pistes": [
-    "Sumar les probabilitats individuals compta dues vegades les persones que llegeixen els dos diaris.",
-    "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMHssfTU3JCBjb3JyZXNwb25kcmlhLCBzaSBkZSBjYXMsIGEgbGEgcHJvYmFiaWxpdGF0IGNvbnRyw6ByaWEgKFwibm8gbGxlZ2lyIGNhcCBkaWFyaVwiKSwgbm8gYSBsYSBkZSBcImxsZWdpciBhbGd1biBkZWxzIGRvc1wiLiIsICIkMHssfTA3JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIGxsZWdpciBUT1RTIERPUyBkaWFyaXMgKGludGVyc2VjY2nDsyksIG5vIGQnYWxndW4gZGVscyBkb3MgKHVuacOzKSwgcXVlIMOpcyBtw6lzIGdyYW4uIiwgIiIsICJTdW1hciBkaXJlY3RhbWVudCAkUChBKStQKEIpJCBjb21wdGEgZHVlcyB2ZWdhZGVzIGxlcyBwZXJzb25lcyBxdWUgbGxlZ2VpeGVuIHRvdHMgZG9zIGRpYXJpczogY2FsIHJlc3Rhci1sb3MgdW4gY29wLCAkUChBKStQKEIpLVAoQVxcY2FwIEIpJC4iXSwgImVyciI6IFsiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIiIsICJVTklPX0RPQkxFX0NPTVBUQURBIl0sICJyZXMiOiBbIiRQKEFcXGN1cCBCKT1QKEEpK1AoQiktUChBXFxjYXAgQik9MHssfTMwKzB7LH0yMC0weyx9MDc9MHssfTQzJCJdfQ=="
-  },
-  {
-   "id": "256b",
-   "ex": 256,
-   "ap": "b",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
-   "enunciat": "I quina probabilitat hi ha que no llegeixi cap dels dos diaris?",
-   "opcions": [
-    "$P(\\text{cap diari})=0{,}07$, confonent-la amb la intersecció",
-    "$P(\\text{cap diari})=1-0{,}30-0{,}20=0{,}50$, sense tenir en compte la intersecció",
-    "$P(\\text{cap diari})=0{,}43$, confonent-la amb \"llegir algun dels dos\"",
-    "$P(\\text{cap diari})=1-0{,}43=0{,}57$"
-   ],
-   "pistes": [
-    "\"No llegir cap diari\" és l'esdeveniment contrari de \"llegir algun dels dos\".",
-    "$P(\\text{cap})=1-P(A\\cup B)$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkMHssfTA3JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIGxsZWdpciBUT1RTIERPUyBkaWFyaXMgYWxob3JhLCBubyBkZSBubyBsbGVnaXItbmUgY2FwOiBzw7NuIGVzZGV2ZW5pbWVudHMgY29tcGxldGFtZW50IGRpZmVyZW50cy4iLCAiQ2FsIHJlc3RhciBsYSBwcm9iYWJpbGl0YXQgZGUgbGEgVU5Jw5MgKCRQKEFcXGN1cCBCKT0weyx9NDMkKSBkJyQxJCwgbm8gcmVzdGFyIGRpcmVjdGFtZW50ICRQKEEpJCBpICRQKEIpJCBwZXIgc2VwYXJhdCAoYWl4w7Igbm8gY29tcGVuc2EgY29ycmVjdGFtZW50IGxhIGludGVyc2VjY2nDsykuIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJFAoQVxcY3VwIEIpJCAobGxlZ2lyIGFsZ3VuIGRpYXJpKSwgbm8gZGUgXCJubyBsbGVnaXIgY2FwXCI6IGNhbCByZXN0YXItbG8gZCckMSQsIG5vIHJlcGV0aXItbG8uIiwgIiJdLCAiZXJyIjogWyJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlVOSU9fRE9CTEVfQ09NUFRBREEiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICIiXSwgInJlcyI6IFsiTm8gbGxlZ2lyIGNhcCBkaWFyaSDDqXMgbCdlc2RldmVuaW1lbnQgY29udHJhcmkgZGUgXCJsbGVnaXIgYWxndW4gZGVscyBkb3NcIjogJFAoXFx0ZXh0e2NhcCBkaWFyaX0pPTEtUChBXFxjdXAgQik9MS0weyx9NDM9MHssfTU3JCJdfQ=="
-  },
-  {
-   "id": "256c",
-   "ex": 256,
-   "ap": "c",
-   "bloc": "esdeveniments",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
-   "enunciat": "Quina probabilitat hi ha que llegeixi exactament UN dels dos diaris (no els dos)?",
-   "opcions": [
-    "$P(\\text{exactament un})=0{,}36$",
-    "$P(\\text{exactament un})=0{,}07$, agafant la intersecció en comptes de la resta",
-    "$P(\\text{exactament un})=0{,}43$, confonent-la amb \"algun dels dos\"",
-    "$P(\\text{exactament un})=0{,}50$, sumant $P(A)+P(B)$ sense restar la intersecció enlloc"
-   ],
-   "pistes": [
-    "Resta la intersecció de cada probabilitat individual per obtenir \"només A\" i \"només B\" per separat.",
-    "Suma els dos resultats: $(0{,}30-0{,}07)+(0{,}20-0{,}07)$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDB7LH0wNyQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBsbGVnaXIgZWxzIERPUyBkaWFyaXMsIHF1ZSDDqXMgcHJlY2lzYW1lbnQgZWwgcXVlIGNhbCBFWENMT1VSRSBwZXIgY2FsY3VsYXIgXCJleGFjdGFtZW50IHVuXCIuIiwgIiQweyx9NDMkIGluY2xvdSB0YW1iw6kgZWxzIHF1ZSBlbiBsbGVnZWl4ZW4gZWxzIERPUzogXCJleGFjdGFtZW50IHVuXCIgaGEgZCdleGNsb3VyZSBhcXVlc3QgZ3J1cCwgcmVzdGFudC1sbyBkZSBjYWRhIGRpYXJpIHBlciBzZXBhcmF0LiIsICJTdW1hciAkMHssfTMwKzB7LH0yMCQgZGlyZWN0YW1lbnQgaW5jbG91IGR1ZXMgdmVnYWRlcyBxdWkgbGxlZ2VpeCBlbHMgZG9zIGRpYXJpczogY2FsIHJlc3Rhci1sb3MgZGUgY2FkYSBwcm9iYWJpbGl0YXQgYWJhbnMgZGUgc3VtYXItbGVzLCAkKDB7LH0zMC0weyx9MDcpKygweyx9MjAtMHssfTA3KSQuIl0sICJlcnIiOiBbIiIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlVOSU9fSU5URVJTRUNDSU9fQ09ORk9TRVMiLCAiVU5JT19ET0JMRV9DT01QVEFEQSJdLCAicmVzIjogWyJOb23DqXMgQTogJFAoQSktUChBXFxjYXAgQik9MHssfTMwLTB7LH0wNz0weyx9MjMkIiwgIk5vbcOpcyBCOiAkUChCKS1QKEFcXGNhcCBCKT0weyx9MjAtMHssfTA3PTB7LH0xMyQiLCAiRXhhY3RhbWVudCB1bjogJDB7LH0yMysweyx9MTM9MHssfTM2JCJdfQ=="
-  },
-  {
    "id": "257a",
    "ex": 257,
    "ap": "a",
    "bloc": "esdeveniments",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "Quina és la probabilitat de cada color de bola?",
    "opcions": [
@@ -1564,7 +1300,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "esdeveniments",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "És just el tracte que proposa en Lluís (vermella: recull en Joan; blava: recull en Lluís)?",
    "opcions": [
@@ -1586,7 +1322,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "esdeveniments",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "En Lluís i en Joan han de recollir l'habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure'n una: si és vermella, recull en Joan; si és blava, recull ell.",
    "enunciat": "En Joan proposa un nou tracte: si surt vermell, recollirà ell; si surt blau o verd, recollirà en Lluís. És just aquest tracte?",
    "opcions": [
@@ -1603,12 +1339,276 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBub21icmUgZGUgY29sb3JzIGFzc2lnbmF0cyBhIGNhZGFzY8O6IG5vIGRldGVybWluYSBsYSBqdXN0w61jaWEgZGVsIHRyYWN0ZTogZWwgcXVlIGltcG9ydGEgw6lzIGxhIHByb2JhYmlsaXRhdCB0b3RhbCBkZSBjYWRhIGNvbWJpbmFjacOzLCBpIHN1bWFudCBibGF2YSBpIHZlcmRhICgkXFxmcmFjMTYrXFxmcmFjMTMkKSBzJ29idMOpIGV4YWN0YW1lbnQgJFxcZnJhYzEyJCwgaWd1YWwgcXVlIGxhIHZlcm1lbGxhLiIsICIiLCAiU8OtIHF1ZSBlcyBwb3QgY29tcHJvdmFyIGFtYiBleGFjdGl0dWQsIHN1bWFudCBsZXMgZnJhY2Npb25zIGNvcnJlc3BvbmVudHM6ICRcXGZyYWMxNitcXGZyYWMxMz1cXGZyYWMxMiQsIGV4YWN0YW1lbnQgaWd1YWwgcXVlICRQKFxcdGV4dHt2ZXJtZWxsYX0pPVxcZnJhYzEyJDogbm8gw6lzIGNhc3VhbGl0YXQsIMOpcyB1biBjw6BsY3VsIGV4YWN0ZS4iLCAiRW5jYXJhIHF1ZSBsYSB2ZXJtZWxsYSB0aW5ndWkgbcOpcyBib2xlcyBxdWUgZWwgYmxhdSBvIGVsIHZlcmQgcGVyIFNFUEFSQVQsIGVsIHF1ZSBjb21wdGEgw6lzIGxhIHByb2JhYmlsaXRhdCBDT01CSU5BREEgZGUgXCJibGF1IG8gdmVyZFwiLCBxdWUgc3VtYWRhIGFycmliYSBhbHMgbWF0ZWl4b3MgJFxcZnJhYzEyJCBxdWUgbGEgdmVybWVsbGEuIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIiIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCJdLCAicmVzIjogWyJSZWN1bGwgZW4gSm9hbiBzaSBzdXJ0IHZlcm1lbGwgKCRQPVxcZnJhYzEyJCksIGkgZW4gTGx1w61zIHNpIHN1cnQgYmxhdSBvIHZlcmQgKCRQPVxcZnJhYzE2K1xcZnJhYzEzPVxcZnJhYzEyJCkuIENvbSBxdWUgdG90ZXMgZHVlcyBwcm9iYWJpbGl0YXRzIHPDs24gJFxcZnJhYzEyJCwgYXF1ZXN0IHRyYWN0ZSBTw40gw6lzIGp1c3QiXX0="
   },
   {
+   "id": "253a",
+   "ex": 253,
+   "ap": "a",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
+   "enunciat": "Quants esdeveniments elementals componen $B=$«múltiple de $3$», i quina és la seva probabilitat?",
+   "opcions": [
+    "$34$ esdeveniments elementals (comptant l'\"$1$\" com a múltiple)",
+    "$33$ esdeveniments elementals; $P(B)=\\dfrac{33}{100}$",
+    "$33$ esdeveniments elementals; $P(B)=\\dfrac{100}{33}$",
+    "$30$ esdeveniments elementals, comptant només fins a $90$"
+   ],
+   "pistes": [
+    "Divideix $100$ entre $3$ i queda't amb la part entera: aquest és el nombre de múltiples de $3$ entre $1$ i $100$.",
+    "$\\left\\lfloor\\frac{100}{3}\\right\\rfloor=33$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJyQxJCBubyDDqXMgbcO6bHRpcGxlIGRlICQzJDogZWwgbm9tYnJlIGRlIG3Dumx0aXBsZXMgZGUgJDMkIGVudHJlICQxJCBpICQxMDAkIMOpcyAkXFxsZWZ0XFxsZmxvb3JcXGZyYWN7MTAwfXszfVxccmlnaHRcXHJmbG9vcj0zMyQsIG5vICQzNCQuIiwgIiIsICJVbmEgcHJvYmFiaWxpdGF0IG1haSBwb3Qgc2VyIG3DqXMgZ3JhbiBxdWUgJDEkOiBlbCBub21icmUgZGUgbcO6bHRpcGxlcyBkZSAkMyQgdmEgYWwgbnVtZXJhZG9yLCBpIGVsIHRvdGFsIGRlIGJvbGVzICgkMTAwJCkgYWwgZGVub21pbmFkb3IsIG5vIGFsIHJldsOpcy4iLCAiVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSBlbHMgbcO6bHRpcGxlcyBkZSAkMyQgZW50cmUgJDkxJCBpICQxMDAkIChjb20gZWwgJDkzJCwgZWwgJDk2JCBpIGVsICQ5OSQpOiBlbCByZWNvbXB0ZSBjb3JyZWN0ZSBkZXMgZCckMSQgZmlucyBhICQxMDAkIMOpcyAkMzMkLiJdLCAiZXJyIjogWyJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICIiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiXSwgInJlcyI6IFsiJEIkOiBtw7psdGlwbGVzIGRlICQzJCwgZGVzIGRlICQzJCBmaW5zIGEgJDk5JDogJDMzJCBlc2RldmVuaW1lbnRzIGVsZW1lbnRhbHMgKCRcXGxmbG9vcjEwMC8zXFxyZmxvb3I9MzMkKS4gJFAoQik9XFxkZnJhY3szM317MTAwfSQiXX0="
+  },
+  {
+   "id": "253b",
+   "ex": 253,
+   "ap": "b",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
+   "enunciat": "Quina és la probabilitat de $D=$«divisible per $10$»?",
+   "opcions": [
+    "$P(D)=\\dfrac{10}{100}=\\dfrac1{10}$",
+    "$P(D)=\\dfrac{50}{100}=\\dfrac12$, confonent-lo amb divisible per $2$",
+    "$P(D)=\\dfrac{100}{100}=1$, com si tots els números ho complissin",
+    "$P(D)=\\dfrac{20}{100}=\\dfrac15$, confonent-lo amb múltiple de $5$"
+   ],
+   "pistes": [
+    "Compta els múltiples de $10$ entre $1$ i $100$: $10,20,\\ldots,100$.",
+    "Divideix $100$ entre $10$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJEaXZpc2libGUgcGVyICQxMCRcIiDDqXMgbcOpcyByZXN0cmljdGl1IHF1ZSBcImRpdmlzaWJsZSBwZXIgJDIkXCI6IG5vbcOpcyBjb21wbGVpeGVuIGxhIGNvbmRpY2nDsyAkMTAsIDIwLCBcXGxkb3RzLCAxMDAkLCBubyB0b3RzIGVscyBwYXJlbGxzLiIsICJObyB0b3RzIGVscyBuw7ptZXJvcyBkZSBsJyQxJCBhbCAkMTAwJCBzw7NuIGRpdmlzaWJsZXMgcGVyICQxMCQ6IG5vbcOpcyBobyBzw7NuICQxMCwgMjAsIDMwLFxcbGRvdHMsMTAwJCwgZW4gdG90YWwgJDEwJCBkJ2VsbHMuIiwgIlwiRGl2aXNpYmxlIHBlciAkMTAkXCIgw6lzIG3DqXMgcmVzdHJpY3RpdSBxdWUgXCJtw7psdGlwbGUgZGUgJDUkXCI6IHRvdHMgZWxzIG3Dumx0aXBsZXMgZGUgJDEwJCBobyBzw7NuIHRhbWLDqSBkZSAkNSQsIHBlcsOyIG5vIGFsIHJldsOpcyAoZWwgJDUkLCBlbCAkMTUkLi4uIHPDs24gbcO6bHRpcGxlcyBkZSAkNSQgcGVyw7Igbm8gZGUgJDEwJCkuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkRCQ6IGRpdmlzaWJsZXMgcGVyICQxMCQsIGRlcyBkZSAkMTAkIGZpbnMgYSAkMTAwJDogJDEwJCBlc2RldmVuaW1lbnRzIGVsZW1lbnRhbHMuICRQKEQpPVxcZGZyYWN7MTB9ezEwMH09XFxkZnJhYzF7MTB9JCJdfQ=="
+  },
+  {
+   "id": "253c",
+   "ex": 253,
+   "ap": "c",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
+   "enunciat": "Quina és la probabilitat de $F=$«divisible per $1$»?",
+   "opcions": [
+    "$P(F)=1$ (és l'esdeveniment segur: tots els números són divisibles per $1$)",
+    "$P(F)=0$, perquè \"divisible per $1$\" no és una condició real",
+    "$P(F)=\\dfrac{1}{100}$, com si només un número ho complís",
+    "$P(F)=\\dfrac{50}{100}=\\dfrac12$, confonent-lo amb divisible per $2$"
+   ],
+   "pistes": [
+    "Quins nombres NO són divisibles per $1$?",
+    "Cap: tot nombre enter és divisible per $1$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIHVuYSBjb25kaWNpw7MgcmVhbCwgaSBsYSBjb21wbGVpeGVuIGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzOiBwZXIgYWl4w7IgbGEgc2V2YSBwcm9iYWJpbGl0YXQgw6lzICQxJCAoZXNkZXZlbmltZW50IHNlZ3VyKSwgbm8gJDAkIChpbXBvc3NpYmxlKS4iLCAiVE9UUyBlbHMgbm9tYnJlcyBlbnRlcnMgc8OzbiBkaXZpc2libGVzIHBlciAkMSQsIG5vIG5vbcOpcyB1bjogZWxzICQxMDAkIG5vbWJyZXMgZGUgbCd1cm5hIGNvbXBsZWl4ZW4gYXF1ZXN0YSBjb25kaWNpw7MuIiwgIlwiRGl2aXNpYmxlIHBlciAkMSRcIiBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBcImRpdmlzaWJsZSBwZXIgJDIkXCI6IGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzIGNvbXBsZWl4ZW4gbGEgcHJpbWVyYSBjb25kaWNpw7MsIG5vIG5vbcOpcyBsYSBtZWl0YXQuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkRiQ6IGRpdmlzaWJsZXMgcGVyICQxJCwgw6lzIGEgZGlyLCB0b3RzIGVscyBuw7ptZXJvcyBkZSBsJyQxJCBhbCAkMTAwJDogJDEwMCQgZXNkZXZlbmltZW50cyBlbGVtZW50YWxzLiAkUChGKT1cXGRmcmFjezEwMH17MTAwfT0xJCAobCdlc2RldmVuaW1lbnQgc2VndXIpIl19"
+  },
+  {
+   "id": "253d",
+   "ex": 253,
+   "ap": "d",
+   "bloc": "esdeveniments",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
+   "enunciat": "«Hi ha algun parell d'esdeveniments incompatibles entre $A$, $B$, $C$, $D$ i $F$»",
+   "opcions": [
+    "Cert: $D$ i $C$ són incompatibles, perquè un múltiple de $10$ no pot ser parell",
+    "Cert: $A$ i $B$ són incompatibles, perquè cap número és alhora múltiple de $5$ i de $3$",
+    "Fals: cap parell d'aquests cinc esdeveniments és incompatible, perquè sempre hi ha algun número que compleix totes dues condicions alhora (per exemple, el $30$ compleix totes cinc condicions a la vegada)",
+    "Cert: $F$ és incompatible amb tots els altres, perquè conté tots els números"
+   ],
+   "pistes": [
+    "Dos esdeveniments són incompatibles quan no comparteixen CAP número en comú.",
+    "Prova amb un número com el $30$: compleix múltiples condicions alhora?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbiBtw7psdGlwbGUgZGUgJDEwJCBTRU1QUkUgw6lzIHBhcmVsbCAodG90IG3Dumx0aXBsZSBkZSAkMTAkIGhvIMOpcyB0YW1iw6kgZGUgJDIkKTogJEQkIGkgJEMkIGNvbXBhcnRlaXhlbiBtb2x0cyBlbGVtZW50cywgbm8gZW4gdGVuZW4gemVybyBlbiBjb23Dui4iLCAiU8OtIHF1ZSBuJ2hpIGhhOiBwZXIgZXhlbXBsZSwgZWwgJDE1JCBpIGVsICQzMCQgc8OzbiBtw7psdGlwbGVzIGRlICQ1JCBpIGRlICQzJCBhbGhvcmEuICRBJCBpICRCJCBjb21wYXJ0ZWl4ZW4gZWxlbWVudHMsIG5vIHPDs24gaW5jb21wYXRpYmxlcy4iLCAiIiwgIlF1ZSAkRiQgY29udGluZ3VpIHRvdHMgZWxzIG7Dum1lcm9zIGZhIHByZWNpc2FtZW50IHF1ZSBDT01QQVJURUlYSSBlbGVtZW50cyBhbWIgcXVhbHNldm9sIGFsdHJlIGVzZGV2ZW5pbWVudCAodG90cyBlbHMgZCdhcXVlbGwgYWx0cmUgZXNkZXZlbmltZW50KTogYWl4w7IgZWwgZmEgY29tcGF0aWJsZSBhbWIgdG90cywgbm8gaW5jb21wYXRpYmxlLiJdLCAiZXJyIjogWyJDT01QQVRJQkxFX0lOQ09NUEFUSUJMRV9DT05GT1NPUyIsICJDT01QQVRJQkxFX0lOQ09NUEFUSUJMRV9DT05GT1NPUyIsICIiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiXSwgInJlcyI6IFsiRWwgJDMwJCDDqXMgbcO6bHRpcGxlIGRlICQ1JCwgZGUgJDMkLCBwYXJlbGwsIG3Dumx0aXBsZSBkZSAkMTAkIGkgZGl2aXNpYmxlIHBlciAkMSQsIHRvdCBhIGxhIHZlZ2FkYTogY2FwIHBhcmVsbCBkJ2FxdWVzdHMgZXNkZXZlbmltZW50cyDDqXMgaW5jb21wYXRpYmxlIl19"
+  },
+  {
+   "id": "253e",
+   "ex": 253,
+   "ap": "e",
+   "bloc": "esdeveniments",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "En una urna hi ha 100 boles numerades de l'1 al 100. $A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible per 2», $D=$«divisible per 10», $F=$«divisible per 1».",
+   "enunciat": "«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, $C$, $D$ i $F$»",
+   "opcions": [
+    "Fals: cap parell d'$A$, $B$, $C$, $D$, $F$ és contrari, ja que dos esdeveniments contraris han d'esgotar l'espai mostral sense superposar-se, i aquí tots els parells són compatibles (es superposen)",
+    "Cert: $C$ (divisible per $2$) i $F$ (divisible per $1$) són contraris",
+    "Cert: $B$ (múltiple de $3$) i $C$ (divisible per $2$) són contraris",
+    "Cert: $A$ (múltiple de $5$) i $D$ (divisible per $10$) són contraris"
+   ],
+   "pistes": [
+    "Dos esdeveniments contraris no comparteixen cap element I, junts, inclouen tots els resultats possibles.",
+    "Comprova si cada parell comparteix algun número: si en comparteixen, no poden ser contraris."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJEMkIGkgJEYkIG5vIHPDs24gY29udHJhcmlzOiBkZSBmZXQsICRDJCBlc3TDoCBDT05USU5HVVQgZGlucyBkZSAkRiQgKHRvdCBtw7psdGlwbGUgZGUgJDIkIHRhbWLDqSDDqXMgZGl2aXNpYmxlIHBlciAkMSQpLCBpIGRvcyBlc2RldmVuaW1lbnRzIGNvbnRyYXJpcyBubyBwb2RlbiBjb21wYXJ0aXIgY2FwIGVsZW1lbnQuIiwgIiRCJCBpICRDJCBjb21wYXJ0ZWl4ZW4gZWxlbWVudHMgKGNvbSBlbCAkNiQsIG3Dumx0aXBsZSBkZSAkMyQgaSBkaXZpc2libGUgcGVyICQyJCBhbGhvcmEpOiBkb3MgZXNkZXZlbmltZW50cyBjb250cmFyaXMgbm8gcG9kZW4gdGVuaXIgY2FwIGVsZW1lbnQgZW4gY29tw7osIGFpeMOtIHF1ZSBubyBobyBzw7NuLiIsICIkQSQgaSAkRCQgbm8gc8OzbiBjb250cmFyaXM6IGRlIGZldCwgJEQkIGVzdMOgIENPTlRJTkdVVCBkaW5zIGRlICRBJCAodG90IG3Dumx0aXBsZSBkZSAkMTAkIHRhbWLDqSBobyDDqXMgZGUgJDUkKSwgaSBkb3MgZXNkZXZlbmltZW50cyBjb250cmFyaXMgbm8gcG9kZW4gY29tcGFydGlyIGNhcCBlbGVtZW50LiJdLCAiZXJyIjogWyIiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiLCAiQ09NUEFUSUJMRV9JTkNPTVBBVElCTEVfQ09ORk9TT1MiXSwgInJlcyI6IFsiVG90cyBlbHMgcGFyZWxscyBkJ2FxdWVzdHMgZXNkZXZlbmltZW50cyBjb21wYXJ0ZWl4ZW4gYWxndW4gbsO6bWVybyAoc8OzbiBjb21wYXRpYmxlcyk6IHBlciB0YW50LCBjYXAgcGFyZWxsIMOpcyBjb250cmFyaSwgamEgcXVlIGVscyBjb250cmFyaXMgbWFpIGNvbXBhcnRlaXhlbiBlbGVtZW50cyJdfQ=="
+  },
+  {
+   "id": "254a",
+   "ex": 254,
+   "ap": "a",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
+   "enunciat": "Si escollim una persona a l'atzar, quina és la probabilitat que sigui home?",
+   "opcions": [
+    "$P(\\text{home})=\\dfrac{16}{60}$, comptant només els homes que han menjat carn",
+    "$P(\\text{home})=\\dfrac{28}{32}$, comparant-lo amb el nombre de dones",
+    "$P(\\text{home})=\\dfrac12$, com si hi haguessin el mateix nombre d'homes i dones",
+    "$P(\\text{home})=\\dfrac{28}{60}=\\dfrac{7}{15}$"
+   ],
+   "pistes": [
+    "El total de persones al dinar és $28+32=60$.",
+    "La probabilitat de ser home és $\\dfrac{28}{60}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBwcmVndW50YSBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IGRlIHNlciBob21lIEVOIEdFTkVSQUwsIG5vIGQnZW50cmUgZWxzIHF1ZSBoYW4gbWVuamF0IGNhcm46IGNhbCBlbCB0b3RhbCBkJ2hvbWVzICgkMjgkKSwgbm8gbm9tw6lzIGVscyAkMTYkIHF1ZSBoYW4gbWVuamF0IGNhcm4uIiwgIkVsIGRlbm9taW5hZG9yIGRlIGxhIHByb2JhYmlsaXRhdCBoYSBkZSBzZXIgZWwgVE9UQUwgZGUgcGVyc29uZXMgYWwgZGluYXIgKCQyOCszMj02MCQpLCBubyBlbCBub21icmUgZGUgZG9uZXMuIiwgIkhpIGhhICQyOCQgaG9tZXMgaSAkMzIkIGRvbmVzOiBubyBzw7NuIGVsIG1hdGVpeCBub21icmUsIGFpeMOtIHF1ZSBsYSBwcm9iYWJpbGl0YXQgbm8gw6lzIGV4YWN0YW1lbnQgJFxcZnJhYzEyJC4iLCAiIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIkNBU09TX1BPU1NJQkxFU19NQUxfQ09NUFRBVFMiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIl0sICJyZXMiOiBbIkhpIGhhICQyOCQgaG9tZXMgZCdlbnRyZSAkNjAkIHBlcnNvbmVzOiAkUChcXHRleHR7aG9tZX0pPVxcZGZyYWN7Mjh9ezYwfT1cXGRmcmFjezd9ezE1fSQiXX0="
+  },
+  {
+   "id": "254b",
+   "ex": 254,
+   "ap": "b",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
+   "enunciat": "Quina és la probabilitat que hagi menjat peix?",
+   "opcions": [
+    "$P(\\text{peix})=\\dfrac{20}{60}$, comptant només les dones que han menjat peix",
+    "$P(\\text{peix})=\\dfrac{24}{60}=\\dfrac25$",
+    "$P(\\text{peix})=\\dfrac{36}{60}$, calculant en realitat la probabilitat de menjar carn",
+    "$P(\\text{peix})=\\dfrac{16}{60}$, comptant només els homes que han menjat peix"
+   ],
+   "pistes": [
+    "Calcula primer quantes persones han menjat carn en total: $16+20=36$.",
+    "Les que han menjat peix són la resta: $60-36$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkMjAkIMOpcyBlbCBub21icmUgZGUgZG9uZXMgcXVlIGhhbiBtZW5qYXQgQ0FSTiwgbm8gcGVpeDogY2FsIGNhbGN1bGFyIHByaW1lciBxdWkgaGEgbWVuamF0IHBlaXggKGxhIHJlc3RhLCAkNjAtMzY9MjQkIHBlcnNvbmVzIGVuIHRvdGFsKS4iLCAiIiwgIiQzNiQgw6lzIGVsIHRvdGFsIGRlIHBlcnNvbmVzIHF1ZSBoYW4gbWVuamF0IENBUk4gKCQxNisyMCQpLCBubyBwZWl4OiBsYSByZXN0YSwgJDYwLTM2PTI0JCwgw6lzIHF1aSBoYSBtZW5qYXQgcGVpeC4iLCAiTGEgcHJlZ3VudGEgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBkZSBtZW5qYXIgcGVpeCBFTiBHRU5FUkFMLCBubyBub23DqXMgZW50cmUgZWxzIGhvbWVzOiBjYWwgY29tcHRhciBob21lcyBJIGRvbmVzIHF1ZSBoYW4gbWVuamF0IHBlaXguIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIiIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIl0sICJyZXMiOiBbIkhhbiBtZW5qYXQgY2FybiAkMTYrMjA9MzYkIHBlcnNvbmVzLCBpIHBlciB0YW50IHBlaXgsICQ2MC0zNj0yNCQgcGVyc29uZXM6ICRQKFxcdGV4dHtwZWl4fSk9XFxkZnJhY3syNH17NjB9PVxcZGZyYWMyNSQiXX0="
+  },
+  {
+   "id": "254c",
+   "ex": 254,
+   "ap": "c",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 homes i 20 dones, i la resta, peix.",
+   "enunciat": "Quina és la probabilitat que sigui home I hagi menjat peix?",
+   "opcions": [
+    "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15$",
+    "$P(\\text{home i peix})=\\dfrac{28+24}{60}$, sumant les probabilitats individuals com si fos una unió",
+    "$P(\\text{home i peix})=\\dfrac{28}{60}$, agafant només la probabilitat de ser home",
+    "$P(\\text{home i peix})=\\dfrac{16}{60}$, comptant els homes que han menjat CARN"
+   ],
+   "pistes": [
+    "Dels $28$ homes, quants han menjat peix (no carn)?",
+    "$28-16=12$ homes han menjat peix: aquest és el numerador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJIb21lIEkgcGVpeFwiIChhbWIgbGEgSSkgw6lzIHVuYSBJTlRFUlNFQ0NJw5MsIG5vIHVuYSB1bmnDszogbm8gZXMgY291ZW4gc3VtYW50IGxlcyBwcm9iYWJpbGl0YXRzIGluZGl2aWR1YWxzLCBjYWwgY29tcHRhciBkaXJlY3RhbWVudCBxdWFudGVzIHBlcnNvbmVzIGNvbXBsZWl4ZW4gdG90ZXMgZHVlcyBjb25kaWNpb25zIGFsaG9yYS4iLCAiXCJIb21lIGkgcGVpeFwiIGRlbWFuYSB0b3RlcyBkdWVzIGNvbmRpY2lvbnMgQUxIT1JBLCBubyBub23DqXMgXCJzZXIgaG9tZVwiOiBjYWwgY29tcHRhciBxdWFudHMgaG9tZXMgY29uY3JldGFtZW50IGhhbiBtZW5qYXQgcGVpeCwgbm8gdG90cyBlbHMgaG9tZXMuIiwgIiQxNiQgaG9tZXMgdmFuIG1lbmphciBjYXJuLCBubyBwZWl4OiBkZWxzICQyOCQgaG9tZXMsIGVscyBxdWUgaGFuIG1lbmphdCBwZWl4IHPDs24gJDI4LTE2PTEyJC4iXSwgImVyciI6IFsiIiwgIlVOSU9fSU5URVJTRUNDSU9fQ09ORk9TRVMiLCAiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIl0sICJyZXMiOiBbIkhhbiBtZW5qYXQgcGVpeCBpLCBhIG3DqXMsIHPDs24gaG9tZXMsICQxMiQgcGVyc29uZXMgKCQyOC0xNj0xMiQpIGQnZW50cmUgJDYwJDogJFAoXFx0ZXh0e2hvbWUgaSBwZWl4fSk9XFxkZnJhY3sxMn17NjB9PVxcZGZyYWMxNSQiXX0="
+  },
+  {
+   "id": "255",
+   "ex": 255,
+   "ap": "",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i tres quartes parts de les nenes tenen els cabells negres, i la resta, rossos. Quina és la probabilitat que, si n'escollim un a l'atzar, sigui nen o tingui els cabells negres?",
+   "opcions": [
+    "$P=\\dfrac{10}{36}$, comptant només els nens amb cabells negres",
+    "$P=\\dfrac{20}{36}=\\dfrac59$, comptant només \"ser nen\"",
+    "$P=\\dfrac{32}{36}=\\dfrac89$",
+    "$P=\\dfrac{20}{36}+\\dfrac{22}{36}$, sumant \"ser nen\" i \"tenir cabells negres\" sense evitar la doble comptabilitat"
+   ],
+   "pistes": [
+    "Tots els nens (siguin del color de cabells que siguin) ja compleixen \"ser nen\": només cal afegir-hi les nenes de cabells negres, que encara no comptaves.",
+    "Nenes de cabells negres: $16\\cdot\\frac34=12$. Suma-les als $20$ nens."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTAkIMOpcyBsYSBJTlRFUlNFQ0NJw5MgKG5lbnMgSSBjYWJlbGxzIG5lZ3JlcyBhbGhvcmEpLCBwZXLDsiBsYSBwcmVndW50YSBkZW1hbmEgbGEgVU5Jw5MgKFwibmVuIE8gY2FiZWxscyBuZWdyZXNcIiksIHF1ZSBpbmNsb3UgbW9sdGEgbcOpcyBnZW50OiB0b3RzIGVscyBuZW5zIChzaWd1aW4gcm9zc29zIG8gbm8pIGkgdG90ZXMgbGVzIG5lbmVzIGRlIGNhYmVsbHMgbmVncmVzLiIsICJcIk5lbiBvIGNhYmVsbHMgbmVncmVzXCIgaW5jbG91IG3DqXMgZ2VudCBxdWUgbm9tw6lzIFwic2VyIG5lblwiOiB0YW1iw6kgaGkgZW50cmVuIGxlcyBuZW5lcyBxdWUgdGVuZW4gZWxzIGNhYmVsbHMgbmVncmVzLCBlbmNhcmEgcXVlIG5vIHNpZ3VpbiBuZW5zLiIsICIiLCAiVG90cyBlbHMgbmVucyBhbWIgY2FiZWxscyBuZWdyZXMgKCQxMCQpIGphIGVzdGFuIGNvbXB0YXRzIGRpbnMgZGUgXCJzZXIgbmVuXCI6IHN1bWFyIGRpcmVjdGFtZW50IGxlcyBkdWVzIHByb2JhYmlsaXRhdHMgZWxzIGNvbXB0YSBkdWVzIHZlZ2FkZXMuIENhbCByZXN0YXIgbGEgaW50ZXJzZWNjacOzLCBvIGLDqSBzdW1hciBub23DqXMgbGVzIG5lbmVzIGRlIGNhYmVsbHMgbmVncmVzIGFscyBuZW5zIChxdWUgamEgaW5jbG91ZW4gdG90cyBlbHMgY29sb3JzKS4iXSwgImVyciI6IFsiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIiIsICJVTklPX0RPQkxFX0NPTVBUQURBIl0sICJyZXMiOiBbIkNhYmVsbHMgbmVncmVzOiAkMjBcXGNkb3RcXGZyYWMxMj0xMCQgbmVucyBpICQxNlxcY2RvdFxcZnJhYzM0PTEyJCBuZW5lcyIsICJDYXNvcyBmYXZvcmFibGVzOiB0b3RzIGVscyBuZW5zICgkMjAkKSBtw6lzIGxlcyBuZW5lcyBkZSBjYWJlbGxzIG5lZ3JlcyAoJDEyJCksIHNlbnNlIHN1cGVycG9zaWNpw7MgZW50cmUgXCJuZW5cIiBpIFwibmVuYVwiOiAkMjArMTI9MzIkIiwgIiRQKFxcdGV4dHtuZW4gbyBjYWJlbGxzIG5lZ3Jlc30pPVxcZGZyYWN7MzJ9ezM2fT1cXGRmcmFjODkkIl19"
+  },
+  {
+   "id": "256a",
+   "ex": 256,
+   "ap": "a",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
+   "enunciat": "Quina probabilitat hi ha que, si n'escollim un a l'atzar, llegeixi algun dels dos diaris?",
+   "opcions": [
+    "$P(A\\cup B)=0{,}57$, calculant en realitat \"cap diari\"",
+    "$P(A\\cup B)=0{,}07$, agafant només la intersecció",
+    "$P(A\\cup B)=0{,}43$",
+    "$P(A\\cup B)=0{,}50$, sumant directament $0{,}30+0{,}20$ sense restar res"
+   ],
+   "pistes": [
+    "Sumar les probabilitats individuals compta dues vegades les persones que llegeixen els dos diaris.",
+    "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMHssfTU3JCBjb3JyZXNwb25kcmlhLCBzaSBkZSBjYXMsIGEgbGEgcHJvYmFiaWxpdGF0IGNvbnRyw6ByaWEgKFwibm8gbGxlZ2lyIGNhcCBkaWFyaVwiKSwgbm8gYSBsYSBkZSBcImxsZWdpciBhbGd1biBkZWxzIGRvc1wiLiIsICIkMHssfTA3JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIGxsZWdpciBUT1RTIERPUyBkaWFyaXMgKGludGVyc2VjY2nDsyksIG5vIGQnYWxndW4gZGVscyBkb3MgKHVuacOzKSwgcXVlIMOpcyBtw6lzIGdyYW4uIiwgIiIsICJTdW1hciBkaXJlY3RhbWVudCAkUChBKStQKEIpJCBjb21wdGEgZHVlcyB2ZWdhZGVzIGxlcyBwZXJzb25lcyBxdWUgbGxlZ2VpeGVuIHRvdHMgZG9zIGRpYXJpczogY2FsIHJlc3Rhci1sb3MgdW4gY29wLCAkUChBKStQKEIpLVAoQVxcY2FwIEIpJC4iXSwgImVyciI6IFsiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIiIsICJVTklPX0RPQkxFX0NPTVBUQURBIl0sICJyZXMiOiBbIiRQKEFcXGN1cCBCKT1QKEEpK1AoQiktUChBXFxjYXAgQik9MHssfTMwKzB7LH0yMC0weyx9MDc9MHssfTQzJCJdfQ=="
+  },
+  {
+   "id": "256b",
+   "ex": 256,
+   "ap": "b",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
+   "enunciat": "I quina probabilitat hi ha que no llegeixi cap dels dos diaris?",
+   "opcions": [
+    "$P(\\text{cap diari})=0{,}07$, confonent-la amb la intersecció",
+    "$P(\\text{cap diari})=1-0{,}30-0{,}20=0{,}50$, sense tenir en compte la intersecció",
+    "$P(\\text{cap diari})=0{,}43$, confonent-la amb \"llegir algun dels dos\"",
+    "$P(\\text{cap diari})=1-0{,}43=0{,}57$"
+   ],
+   "pistes": [
+    "\"No llegir cap diari\" és l'esdeveniment contrari de \"llegir algun dels dos\".",
+    "$P(\\text{cap})=1-P(A\\cup B)$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkMHssfTA3JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIGxsZWdpciBUT1RTIERPUyBkaWFyaXMgYWxob3JhLCBubyBkZSBubyBsbGVnaXItbmUgY2FwOiBzw7NuIGVzZGV2ZW5pbWVudHMgY29tcGxldGFtZW50IGRpZmVyZW50cy4iLCAiQ2FsIHJlc3RhciBsYSBwcm9iYWJpbGl0YXQgZGUgbGEgVU5Jw5MgKCRQKEFcXGN1cCBCKT0weyx9NDMkKSBkJyQxJCwgbm8gcmVzdGFyIGRpcmVjdGFtZW50ICRQKEEpJCBpICRQKEIpJCBwZXIgc2VwYXJhdCAoYWl4w7Igbm8gY29tcGVuc2EgY29ycmVjdGFtZW50IGxhIGludGVyc2VjY2nDsykuIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJFAoQVxcY3VwIEIpJCAobGxlZ2lyIGFsZ3VuIGRpYXJpKSwgbm8gZGUgXCJubyBsbGVnaXIgY2FwXCI6IGNhbCByZXN0YXItbG8gZCckMSQsIG5vIHJlcGV0aXItbG8uIiwgIiJdLCAiZXJyIjogWyJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlVOSU9fRE9CTEVfQ09NUFRBREEiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICIiXSwgInJlcyI6IFsiTm8gbGxlZ2lyIGNhcCBkaWFyaSDDqXMgbCdlc2RldmVuaW1lbnQgY29udHJhcmkgZGUgXCJsbGVnaXIgYWxndW4gZGVscyBkb3NcIjogJFAoXFx0ZXh0e2NhcCBkaWFyaX0pPTEtUChBXFxjdXAgQik9MS0weyx9NDM9MHssfTU3JCJdfQ=="
+  },
+  {
+   "id": "256c",
+   "ex": 256,
+   "ap": "c",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "En una ciutat llegeixen el diari A el 30% dels habitants, el diari B el 20%, i el 7% llegeixen els dos diaris.",
+   "enunciat": "Quina probabilitat hi ha que llegeixi exactament UN dels dos diaris (no els dos)?",
+   "opcions": [
+    "$P(\\text{exactament un})=0{,}36$",
+    "$P(\\text{exactament un})=0{,}07$, agafant la intersecció en comptes de la resta",
+    "$P(\\text{exactament un})=0{,}43$, confonent-la amb \"algun dels dos\"",
+    "$P(\\text{exactament un})=0{,}50$, sumant $P(A)+P(B)$ sense restar la intersecció enlloc"
+   ],
+   "pistes": [
+    "Resta la intersecció de cada probabilitat individual per obtenir \"només A\" i \"només B\" per separat.",
+    "Suma els dos resultats: $(0{,}30-0{,}07)+(0{,}20-0{,}07)$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDB7LH0wNyQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBsbGVnaXIgZWxzIERPUyBkaWFyaXMsIHF1ZSDDqXMgcHJlY2lzYW1lbnQgZWwgcXVlIGNhbCBFWENMT1VSRSBwZXIgY2FsY3VsYXIgXCJleGFjdGFtZW50IHVuXCIuIiwgIiQweyx9NDMkIGluY2xvdSB0YW1iw6kgZWxzIHF1ZSBlbiBsbGVnZWl4ZW4gZWxzIERPUzogXCJleGFjdGFtZW50IHVuXCIgaGEgZCdleGNsb3VyZSBhcXVlc3QgZ3J1cCwgcmVzdGFudC1sbyBkZSBjYWRhIGRpYXJpIHBlciBzZXBhcmF0LiIsICJTdW1hciAkMHssfTMwKzB7LH0yMCQgZGlyZWN0YW1lbnQgaW5jbG91IGR1ZXMgdmVnYWRlcyBxdWkgbGxlZ2VpeCBlbHMgZG9zIGRpYXJpczogY2FsIHJlc3Rhci1sb3MgZGUgY2FkYSBwcm9iYWJpbGl0YXQgYWJhbnMgZGUgc3VtYXItbGVzLCAkKDB7LH0zMC0weyx9MDcpKygweyx9MjAtMHssfTA3KSQuIl0sICJlcnIiOiBbIiIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlVOSU9fSU5URVJTRUNDSU9fQ09ORk9TRVMiLCAiVU5JT19ET0JMRV9DT01QVEFEQSJdLCAicmVzIjogWyJOb23DqXMgQTogJFAoQSktUChBXFxjYXAgQik9MHssfTMwLTB7LH0wNz0weyx9MjMkIiwgIk5vbcOpcyBCOiAkUChCKS1QKEFcXGNhcCBCKT0weyx9MjAtMHssfTA3PTB7LH0xMyQiLCAiRXhhY3RhbWVudCB1bjogJDB7LH0yMysweyx9MTM9MHssfTM2JCJdfQ=="
+  },
+  {
    "id": "258",
    "ex": 258,
    "ap": "",
    "bloc": "esdeveniments",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé quina és la que obre cada pany, quina és la probabilitat d'encertar, al primer intent, la clau d'un dels panys? I si tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
    "opcions": [
@@ -1630,7 +1630,7 @@ window.FULL = {
    "ap": "",
    "bloc": "esdeveniments",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "La Paula va a una botiga 2 vegades per setmana, i en Robert hi treballa 4 dies a la setmana. Si el divendres és l'únic dia en què no hi va cap dels dos (i la botiga tanca els diumenges), quina és la probabilitat que coincideixin dos dies?",
    "opcions": [
@@ -1652,7 +1652,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.",
    "enunciat": "Quina és la probabilitat que les dues boles siguin vermelles?",
    "opcions": [
@@ -1674,7 +1674,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.",
    "enunciat": "Quina és la probabilitat que la primera sigui vermella i la segona blava?",
    "opcions": [
@@ -1696,7 +1696,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.",
    "enunciat": "Quina és la probabilitat que les dues boles siguin blaves?",
    "opcions": [
@@ -1713,100 +1713,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDYWwgcXVlIFRPVEVTIERVRVMgYm9sZXMgc2lndWluIGJsYXZlcywgbm8gbm9tw6lzIHVuYTogcydoYW4gZGUgbXVsdGlwbGljYXIgbGVzIHByb2JhYmlsaXRhdHMgZGUgbGVzIGR1ZXMgZXh0cmFjY2lvbnMuIiwgIkxhIGJvbGEgZXMgcmVwb3NhOiBsYSBzZWdvbmEgZXh0cmFjY2nDsyB0b3JuYSBhIHRlbmlyICQxMCQgYm9sZXMgZW4gdG90YWwsICQ2JCBkZSBibGF2ZXMuIFF1YW4gdW4gZWxlbWVudCBubyBlcyByZXBvc2EsIGVsIG5vbWJyZSB0b3RhbCBkZSBjYXNvcyBkaXNtaW51ZWl4IGEgbGEgc2Vnb25hIGV4dHJhY2Npw7MgKGkgZWwgbm9tYnJlIGRlIGNhc29zIGZhdm9yYWJsZXMsIHNpIGwnZWxlbWVudCB0cmlhdCBuJ2VyYSB1bikuIFJldmlzYSBzaSBsJ2VudW5jaWF0IGRpdSBxdWUgZXMgcmVwb3NhIG8gbm8gYWJhbnMgZGUgZGVjaWRpciBlbCBkZW5vbWluYWRvciBkZSBsYSBzZWdvbmEgYnJhbmNhLiIsICJcIkxlcyBkdWVzIGJsYXZlc1wiIG5vIMOpcyBlbCBjb250cmFyaSBkZSBcImxlcyBkdWVzIHZlcm1lbGxlc1wiOiBlbnRyZSBhcXVlc3RzIGRvcyBjYXNvcyBlbmNhcmEgaGkgaGEgbGVzIGNvbWJpbmFjaW9ucyBhbWIgdW4gY29sb3IgZGUgY2FkYS4iLCAiIl0sICJlcnIiOiBbIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiQ09NUExFTUVOVF9BTE1FTllTX1VOX01BTCIsICIiXSwgInJlcyI6IFsiJFAoQixCKT1cXGRmcmFjezZ9ezEwfVxcY2RvdFxcZGZyYWN7Nn17MTB9PVxcZGZyYWN7MzZ9ezEwMH09XFxkZnJhY3s5fXsyNX0kIl19"
   },
   {
-   "id": "306a",
-   "ex": 306,
-   "ap": "a",
-   "bloc": "probabilitat_composta",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
-   "enunciat": "Quina és la probabilitat que la primera sigui vermella?",
-   "opcions": [
-    "$P(V_1)=\\dfrac{4}{9}$, ja descomptant la bola que encara no s'ha tret",
-    "$P(V_1)=\\dfrac{4}{6}$, comparant-la amb les blaves",
-    "$P(V_1)=\\dfrac{4}{10}=\\dfrac{2}{5}$",
-    "$P(V_1)=\\dfrac{6}{10}$, calculant la de blava"
-   ],
-   "pistes": [
-    "A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBQUklNRVJBIGV4dHJhY2Npw7MgZW5jYXJhIGVzIGZhIGFtYiB0b3RlcyBsZXMgYm9sZXMgYSBsYSBib3NzYTogJDEwJCBlbiB0b3RhbCwgJDQkIGRlIHZlcm1lbGxlcy4gRWwgZGVub21pbmFkb3Igbm9tw6lzIGNhbnZpYSBhIHBhcnRpciBkZSBsYSBzZWdvbmEgZXh0cmFjY2nDsy4iLCAiRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGVsIFRPVEFMIGRlIGJvbGVzIGEgbGEgYm9zc2EgKCQ0KzY9MTAkKSwgbm8gbm9tw6lzIGVsIG5vbWJyZSBkZSBibGF2ZXMuIiwgIiIsICJFcyBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IGRlIFZFUk1FTExBLCBpIG4naGkgaGEgJDQkIGRlICQxMCQ7ICQ2LzEwJCDDqXMgbGEgZGUgYmxhdmEuIl0sICJlcnIiOiBbIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICIiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyIkUChWXzEpPVxcZGZyYWN7NH17MTB9PVxcZGZyYWMyNSQiXX0="
-  },
-  {
-   "id": "306b",
-   "ex": 306,
-   "ap": "b",
-   "bloc": "probabilitat_composta",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
-   "enunciat": "Si la primera ha sortit vermella, quina és ara la probabilitat que la segona també ho sigui?",
-   "opcions": [
-    "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac{1}{3}$",
-    "$P(V_2|V_1)=\\dfrac{3}{10}$, descomptant només el numerador",
-    "$P(V_2|V_1)=\\dfrac{4}{10}$, com si res no hagués canviat",
-    "$P(V_2|V_1)=\\dfrac{4}{9}$, sense descomptar la vermella ja treta"
-   ],
-   "pistes": [
-    "Un cop treta la vermella, a la bossa ja no en queden $10$ boles, sinó $9$.",
-    "De les $4$ vermelles inicials, ara en queden $3$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiU2kgZXMgZGVzY29tcHRhIGxhIGJvbGEgdmVybWVsbGEgdHJldGEgZGVsIG51bWVyYWRvciAoJDRcXHRvMyQpLCB0YW1iw6kgY2FsIGRlc2NvbXB0YXItbGEgZGVsIHRvdGFsIGRlIGJvbGVzIGEgbGEgYm9zc2EgKCQxMFxcdG85JCk6IGVscyBkb3Mgbm9tYnJlcyBiYWl4ZW4gYWxob3JhLiIsICJFbCB0b3RhbCBkZSBib2xlcyBhIGxhIGJvc3NhIHRhbWLDqSBoYSBiYWl4YXQ6IGphIG5vIGVuIHF1ZWRlbiAkMTAkLCBzaW7DsyAkOSQsIHBlcnF1w6ggbidoZW0gdHJldCB1bmEgaSBubyBsJ2hlbSB0b3JuYWRhLiIsICJMYSBib2xhIHZlcm1lbGxhIHF1ZSBoYSBzb3J0aXQgcHJpbWVyIE5PIHRvcm5hIGEgbGEgYm9zc2E6IGRlIGxlcyAkNCQgdmVybWVsbGVzIGluaWNpYWxzLCBhcmEgZW4gcXVlZGVuICQzJC4gUXVhbiB1biBlbGVtZW50IG5vIGVzIHJlcG9zYSwgZWwgbm9tYnJlIHRvdGFsIGRlIGNhc29zIGRpc21pbnVlaXggYSBsYSBzZWdvbmEgZXh0cmFjY2nDsyAoaSBlbCBub21icmUgZGUgY2Fzb3MgZmF2b3JhYmxlcywgc2kgbCdlbGVtZW50IHRyaWF0IG4nZXJhIHVuKS4gUmV2aXNhIHNpIGwnZW51bmNpYXQgZGl1IHF1ZSBlcyByZXBvc2EgbyBubyBhYmFucyBkZSBkZWNpZGlyIGVsIGRlbm9taW5hZG9yIGRlIGxhIHNlZ29uYSBicmFuY2EuIl0sICJlcnIiOiBbIiIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIiwgIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiUkVFTVBMQUNBTUVOVF9NQUxfQ09OU0lERVJBVCJdLCAicmVzIjogWyJIYW4gcXVlZGF0ICQ5JCBib2xlcyBhIGxhIGJvc3NhLCAkMyQgZGUgdmVybWVsbGVzOiAkUChWXzJ8Vl8xKT1cXGRmcmFjezN9ezl9PVxcZGZyYWMxMyQiXX0="
-  },
-  {
-   "id": "306c",
-   "ex": 306,
-   "ap": "c",
-   "bloc": "probabilitat_composta",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
-   "enunciat": "Quina és la probabilitat que les dues boles siguin vermelles?",
-   "opcions": [
-    "$P(V,V)=\\dfrac{4}{10}+\\dfrac{3}{9}=\\dfrac{29}{30}$",
-    "$P(V,V)=\\dfrac{3}{9}=\\dfrac13$, agafant només la segona probabilitat",
-    "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
-    "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$"
-   ],
-   "pistes": [
-    "La primera extracció té probabilitat $4/10$.",
-    "Un cop treta la vermella, la segona té probabilitat $3/9$.",
-    "Multiplica-les."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJcIklcIiAobGVzIGR1ZXMgY29zZXMgYWxob3JhKSBlcyB0cmFkdWVpeCBlbiBtdWx0aXBsaWNhciBsZXMgcHJvYmFiaWxpdGF0cywgbm8gZW4gc3VtYXItbGVzLiIsICJDYWwgdGVuaXIgZW4gY29tcHRlIFRPVEVTIERVRVMgZXh0cmFjY2lvbnM6IGxhIHByb2JhYmlsaXRhdCBxdWUgbGEgcHJpbWVyYSB0YW1iw6kgc3VydGkgdmVybWVsbGEgcydoYSBkZSBtdWx0aXBsaWNhciwgbm8gZGVzY2FydGFyLiIsICJBcXXDrSBOTyBlcyByZXBvc2EgbGEgYm9sYTogbGEgc2Vnb25hIGV4dHJhY2Npw7MgZXMgZmEgYW1iIHVuYSBib2xhIHZlcm1lbGxhIG1lbnlzIGkgdW5hIGJvbGEgbWVueXMgZW4gdG90YWwsIGFpeMOtIHF1ZSBsYSBzZXZhIHByb2JhYmlsaXRhdCBubyDDqXMgbGEgbWF0ZWl4YSBxdWUgbGEgcHJpbWVyYS4gTXVsdGlwbGljYXIgZGlyZWN0YW1lbnQgbGVzIGR1ZXMgcHJvYmFiaWxpdGF0cyBub23DqXMgdmFsIHF1YW4gZWxzIGVzZGV2ZW5pbWVudHMgc8OzbiBJTkRFUEVOREVOVFMgKGFtYiByZXBvc2ljacOzLCBvIGRvcyBleHBlcmltZW50cyBxdWUgbm8gcydhZmVjdGVuKS4gU2kgZWwgc2Vnb24gZGVww6huIGRlbCBxdWUgaGEgcGFzc2F0IGFsIHByaW1lciAocGVyIGV4ZW1wbGUsIHNlbnNlIHJlcG9zYXIgbCdlbGVtZW50IGV4dHJldCksIGNhbCBmZXIgc2VydmlyIGxhIHByb2JhYmlsaXRhdCBDT05ESUNJT05BREEgZGVsIHNlZ29uIGVzZGV2ZW5pbWVudCwgbm8gbGEgZGUgcGFydGlkYS4iLCAiIl0sICJlcnIiOiBbIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIklOREVQRU5ERU5DSUFfU1VQT1NBREFfU0VOU0VfTU9USVUiLCAiIl0sICJyZXMiOiBbIiRQKFYsVik9XFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezN9ezl9PVxcZGZyYWN7MTJ9ezkwfT1cXGRmcmFjezJ9ezE1fSQiXX0="
-  },
-  {
-   "id": "307",
-   "ex": 307,
-   "ap": "",
-   "bloc": "probabilitat_composta",
-   "tipus": "B",
-   "dif": 3,
-   "encapcalament": "Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.",
-   "enunciat": "«A la mateixa bossa de 4 vermelles i 6 blaves, la probabilitat de treure dues vermelles seguides val el mateix es reposi la bola o no»",
-   "opcions": [
-    "Cert: en tots dos casos la probabilitat de cada extracció és $4/10$",
-    "Fals: amb reposició és $\\dfrac{4}{25}=0{,}16$ i sense reposició és $\\dfrac{2}{15}\\approx0{,}133$; sense reposició la segona probabilitat baixa (queden menys vermelles i menys boles en total), així que el producte final és més petit",
-    "Cert: sense reposició la probabilitat és més gran, perquè hi ha menys boles entre les quals triar",
-    "Fals: amb reposició dona $\\dfrac{2}{15}$ i sense reposició dona $\\dfrac{4}{25}$, al revés del que es podria pensar"
-   ],
-   "pistes": [
-    "Calcula per separat el cas amb reposició ($4/10$ dues vegades) i el cas sense reposició ($4/10$ i després $3/9$).",
-    "Compara els dos resultats en decimal si costa comparar les fraccions a ull."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiBub23DqXMgw6lzIHZlcml0YXQgYW1iIHJlcG9zaWNpw7MuIFNlbnNlIHJlcG9zaWNpw7MsIHVuIGNvcCB0cmV0YSBsYSBwcmltZXJhIHZlcm1lbGxhLCBlbiBxdWVkZW4gJDMkIGRlICQ5JCBib2xlcyBwZXIgYSBsYSBzZWdvbmEsIG5vICQ0JCBkZSAkMTAkLiIsICIiLCAiSGkgaGEgbWVueXMgYm9sZXMgRU4gVE9UQUwsIHBlcsOyIHRhbWLDqSBtZW55cyB2ZXJtZWxsZXMgKHNlIG4naGEgdHJldCB1bmEpOiBlbHMgZG9zIG5vbWJyZXMgYmFpeGVuIGEgbGEgdmVnYWRhLCBpIGVsIHJlc3VsdGF0IG5ldCDDqXMgdW5hIHByb2JhYmlsaXRhdCBtw6lzIHBldGl0YSwgbm8gbcOpcyBncmFuLiIsICLDiXMgYSBsJ2lucmV2w6lzOiBhbWIgcmVwb3NpY2nDsyBjYWRhIGV4dHJhY2Npw7MgbWFudMOpIGxhIG1hdGVpeGEgcHJvYmFiaWxpdGF0IGluaWNpYWwgKCQ0LzEwJCBsZXMgZHVlcyB2ZWdhZGVzKSwgcXVlIMOpcyBtw6lzIGdyYW4gcXVlIGxhIHNlZ29uYSBwcm9iYWJpbGl0YXQgcXVhbiBubyBlcyByZXBvc2EgKCQzLzkkKS4iXSwgImVyciI6IFsiSU5ERVBFTkRFTkNJQV9TVVBPU0FEQV9TRU5TRV9NT1RJVSIsICIiLCAiUkVFTVBMQUNBTUVOVF9NQUxfQ09OU0lERVJBVCIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIl0sICJyZXMiOiBbIkFtYiByZXBvc2ljacOzOiAkXFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezR9ezEwfT1cXGRmcmFjezR9ezI1fT0weyx9MTYkLiBTZW5zZSByZXBvc2ljacOzOiAkXFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezN9ezl9PVxcZGZyYWN7Mn17MTV9XFxhcHByb3gweyx9MTMzJC4gU8OzbiBkaWZlcmVudHMsIGkgbGEgc2Vnb25hIMOpcyBtw6lzIHBldGl0YSBwZXJxdcOoLCB1biBjb3AgdHJldGEgdW5hIHZlcm1lbGxhLCBlbiBxdWVkZW4gcmVsYXRpdmFtZW50IG1lbnlzIHBlciB0cmlhci1uZSB1bmEgYWx0cmEiXX0="
-  },
-  {
    "id": "308a",
    "ex": 308,
    "ap": "a",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Llancem una moneda. Si surt cara, tirem un dau i mirem si surt el $6$. Si surt creu, tirem el dau i mirem si el resultat és parell. L'arbre mostra totes les probabilitats.",
    "enunciat": "Quina és la probabilitat de treure cara i després un $6$?",
    "opcions": [
@@ -1829,7 +1741,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Llancem una moneda. Si surt cara, tirem un dau i mirem si surt el $6$. Si surt creu, tirem el dau i mirem si el resultat és parell. L'arbre mostra totes les probabilitats.",
    "enunciat": "Quina és la probabilitat de treure creu i després un número parell (de l'$1$ al $6$)?",
    "opcions": [
@@ -1847,12 +1759,78 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 407 186\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Diagrama d'arbre de probabilitat de 2 nivells, amb les probabilitats donades sobre cada branca.</title><g transform=\"translate(-12.0,-18.3)\"><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"74.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"74.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"52.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"52.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"96.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"96.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"162.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"162.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"140.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"140.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"184.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"30.0\" cy=\"118.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><text x=\"108.1\" y=\"109.5\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"253.4\" y=\"55.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1/6</text><text x=\"253.4\" y=\"98.8\" text-anchor=\"middle\" class=\"fig-etq petita\">5/6</text><text x=\"101.9\" y=\"153.5\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"253.4\" y=\"143.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"253.4\" y=\"186.8\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"180\" y=\"63.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Cara</text><line class=\"fig-crida\" x1=\"330.0\" y1=\"52.0\" x2=\"338.3\" y2=\"41.9\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"361.1\" y=\"41.7\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">surt 6</text><line class=\"fig-crida\" x1=\"330.0\" y1=\"96.0\" x2=\"336.0\" y2=\"91.2\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"371.6\" y=\"93.3\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">no surt 6</text><text x=\"180\" y=\"151.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Creu</text><line class=\"fig-crida\" x1=\"330.0\" y1=\"140.0\" x2=\"338.9\" y2=\"143.6\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"363.6\" y=\"148.3\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">parell</text><text x=\"357\" y=\"187.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">senar</text></g></svg>"
   },
   {
+   "id": "306a",
+   "ex": 306,
+   "ap": "a",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
+   "enunciat": "Quina és la probabilitat que la primera sigui vermella?",
+   "opcions": [
+    "$P(V_1)=\\dfrac{4}{9}$, ja descomptant la bola que encara no s'ha tret",
+    "$P(V_1)=\\dfrac{4}{6}$, comparant-la amb les blaves",
+    "$P(V_1)=\\dfrac{4}{10}=\\dfrac{2}{5}$",
+    "$P(V_1)=\\dfrac{6}{10}$, calculant la de blava"
+   ],
+   "pistes": [
+    "A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBQUklNRVJBIGV4dHJhY2Npw7MgZW5jYXJhIGVzIGZhIGFtYiB0b3RlcyBsZXMgYm9sZXMgYSBsYSBib3NzYTogJDEwJCBlbiB0b3RhbCwgJDQkIGRlIHZlcm1lbGxlcy4gRWwgZGVub21pbmFkb3Igbm9tw6lzIGNhbnZpYSBhIHBhcnRpciBkZSBsYSBzZWdvbmEgZXh0cmFjY2nDsy4iLCAiRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGVsIFRPVEFMIGRlIGJvbGVzIGEgbGEgYm9zc2EgKCQ0KzY9MTAkKSwgbm8gbm9tw6lzIGVsIG5vbWJyZSBkZSBibGF2ZXMuIiwgIiIsICJFcyBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IGRlIFZFUk1FTExBLCBpIG4naGkgaGEgJDQkIGRlICQxMCQ7ICQ2LzEwJCDDqXMgbGEgZGUgYmxhdmEuIl0sICJlcnIiOiBbIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICIiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyIkUChWXzEpPVxcZGZyYWN7NH17MTB9PVxcZGZyYWMyNSQiXX0="
+  },
+  {
+   "id": "306b",
+   "ex": 306,
+   "ap": "b",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
+   "enunciat": "Si la primera ha sortit vermella, quina és ara la probabilitat que la segona també ho sigui?",
+   "opcions": [
+    "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac{1}{3}$",
+    "$P(V_2|V_1)=\\dfrac{3}{10}$, descomptant només el numerador",
+    "$P(V_2|V_1)=\\dfrac{4}{10}$, com si res no hagués canviat",
+    "$P(V_2|V_1)=\\dfrac{4}{9}$, sense descomptar la vermella ja treta"
+   ],
+   "pistes": [
+    "Un cop treta la vermella, a la bossa ja no en queden $10$ boles, sinó $9$.",
+    "De les $4$ vermelles inicials, ara en queden $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiU2kgZXMgZGVzY29tcHRhIGxhIGJvbGEgdmVybWVsbGEgdHJldGEgZGVsIG51bWVyYWRvciAoJDRcXHRvMyQpLCB0YW1iw6kgY2FsIGRlc2NvbXB0YXItbGEgZGVsIHRvdGFsIGRlIGJvbGVzIGEgbGEgYm9zc2EgKCQxMFxcdG85JCk6IGVscyBkb3Mgbm9tYnJlcyBiYWl4ZW4gYWxob3JhLiIsICJFbCB0b3RhbCBkZSBib2xlcyBhIGxhIGJvc3NhIHRhbWLDqSBoYSBiYWl4YXQ6IGphIG5vIGVuIHF1ZWRlbiAkMTAkLCBzaW7DsyAkOSQsIHBlcnF1w6ggbidoZW0gdHJldCB1bmEgaSBubyBsJ2hlbSB0b3JuYWRhLiIsICJMYSBib2xhIHZlcm1lbGxhIHF1ZSBoYSBzb3J0aXQgcHJpbWVyIE5PIHRvcm5hIGEgbGEgYm9zc2E6IGRlIGxlcyAkNCQgdmVybWVsbGVzIGluaWNpYWxzLCBhcmEgZW4gcXVlZGVuICQzJC4gUXVhbiB1biBlbGVtZW50IG5vIGVzIHJlcG9zYSwgZWwgbm9tYnJlIHRvdGFsIGRlIGNhc29zIGRpc21pbnVlaXggYSBsYSBzZWdvbmEgZXh0cmFjY2nDsyAoaSBlbCBub21icmUgZGUgY2Fzb3MgZmF2b3JhYmxlcywgc2kgbCdlbGVtZW50IHRyaWF0IG4nZXJhIHVuKS4gUmV2aXNhIHNpIGwnZW51bmNpYXQgZGl1IHF1ZSBlcyByZXBvc2EgbyBubyBhYmFucyBkZSBkZWNpZGlyIGVsIGRlbm9taW5hZG9yIGRlIGxhIHNlZ29uYSBicmFuY2EuIl0sICJlcnIiOiBbIiIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIiwgIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiUkVFTVBMQUNBTUVOVF9NQUxfQ09OU0lERVJBVCJdLCAicmVzIjogWyJIYW4gcXVlZGF0ICQ5JCBib2xlcyBhIGxhIGJvc3NhLCAkMyQgZGUgdmVybWVsbGVzOiAkUChWXzJ8Vl8xKT1cXGRmcmFjezN9ezl9PVxcZGZyYWMxMyQiXX0="
+  },
+  {
+   "id": "306c",
+   "ex": 306,
+   "ap": "c",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en traiem una, apuntem el color, i SENSE tornar-la a la bossa, en traiem una altra.",
+   "enunciat": "Quina és la probabilitat que les dues boles siguin vermelles?",
+   "opcions": [
+    "$P(V,V)=\\dfrac{4}{10}+\\dfrac{3}{9}=\\dfrac{29}{30}$",
+    "$P(V,V)=\\dfrac{3}{9}=\\dfrac13$, agafant només la segona probabilitat",
+    "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
+    "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$"
+   ],
+   "pistes": [
+    "La primera extracció té probabilitat $4/10$.",
+    "Un cop treta la vermella, la segona té probabilitat $3/9$.",
+    "Multiplica-les."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJcIklcIiAobGVzIGR1ZXMgY29zZXMgYWxob3JhKSBlcyB0cmFkdWVpeCBlbiBtdWx0aXBsaWNhciBsZXMgcHJvYmFiaWxpdGF0cywgbm8gZW4gc3VtYXItbGVzLiIsICJDYWwgdGVuaXIgZW4gY29tcHRlIFRPVEVTIERVRVMgZXh0cmFjY2lvbnM6IGxhIHByb2JhYmlsaXRhdCBxdWUgbGEgcHJpbWVyYSB0YW1iw6kgc3VydGkgdmVybWVsbGEgcydoYSBkZSBtdWx0aXBsaWNhciwgbm8gZGVzY2FydGFyLiIsICJBcXXDrSBOTyBlcyByZXBvc2EgbGEgYm9sYTogbGEgc2Vnb25hIGV4dHJhY2Npw7MgZXMgZmEgYW1iIHVuYSBib2xhIHZlcm1lbGxhIG1lbnlzIGkgdW5hIGJvbGEgbWVueXMgZW4gdG90YWwsIGFpeMOtIHF1ZSBsYSBzZXZhIHByb2JhYmlsaXRhdCBubyDDqXMgbGEgbWF0ZWl4YSBxdWUgbGEgcHJpbWVyYS4gTXVsdGlwbGljYXIgZGlyZWN0YW1lbnQgbGVzIGR1ZXMgcHJvYmFiaWxpdGF0cyBub23DqXMgdmFsIHF1YW4gZWxzIGVzZGV2ZW5pbWVudHMgc8OzbiBJTkRFUEVOREVOVFMgKGFtYiByZXBvc2ljacOzLCBvIGRvcyBleHBlcmltZW50cyBxdWUgbm8gcydhZmVjdGVuKS4gU2kgZWwgc2Vnb24gZGVww6huIGRlbCBxdWUgaGEgcGFzc2F0IGFsIHByaW1lciAocGVyIGV4ZW1wbGUsIHNlbnNlIHJlcG9zYXIgbCdlbGVtZW50IGV4dHJldCksIGNhbCBmZXIgc2VydmlyIGxhIHByb2JhYmlsaXRhdCBDT05ESUNJT05BREEgZGVsIHNlZ29uIGVzZGV2ZW5pbWVudCwgbm8gbGEgZGUgcGFydGlkYS4iLCAiIl0sICJlcnIiOiBbIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIklOREVQRU5ERU5DSUFfU1VQT1NBREFfU0VOU0VfTU9USVUiLCAiIl0sICJyZXMiOiBbIiRQKFYsVik9XFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezN9ezl9PVxcZGZyYWN7MTJ9ezkwfT1cXGRmcmFjezJ9ezE1fSQiXX0="
+  },
+  {
    "id": "309a",
    "ex": 309,
    "ap": "a",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Una urna té 2 boles vermelles i 3 de blaves. En traiem una SENSE reposar-la i després una altra. A l'arbre falta una probabilitat, marcada amb un interrogant.",
    "enunciat": "Quina probabilitat falta a la branca marcada amb «?», sabent que la seva branca veïna (la de «B») val $3/4$?",
    "opcions": [
@@ -1875,7 +1853,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Una urna té 2 boles vermelles i 3 de blaves. En traiem una SENSE reposar-la i després una altra. A l'arbre falta una probabilitat, marcada amb un interrogant.",
    "enunciat": "Sabent que $P(V_1)=2/5$ i que la branca que acabes de calcular val $1/4$, quina és la probabilitat de treure dues boles vermelles?",
    "opcions": [
@@ -1893,58 +1871,12 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 349 172\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Diagrama d'arbre de probabilitat de 2 nivells, amb les probabilitats donades sobre cada branca.</title><g transform=\"translate(-12.0,-32.0)\"><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"74.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"74.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"52.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"52.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"96.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"96.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"162.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"162.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"140.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"140.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"184.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"30.0\" cy=\"118.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><text x=\"108.1\" y=\"109.5\" text-anchor=\"middle\" class=\"fig-etq petita\">2/5</text><text x=\"253.4\" y=\"55.1\" text-anchor=\"middle\" class=\"fig-etq petita\">?</text><text x=\"253.4\" y=\"98.8\" text-anchor=\"middle\" class=\"fig-etq petita\">3/4</text><text x=\"101.9\" y=\"153.5\" text-anchor=\"middle\" class=\"fig-etq petita\">3/5</text><text x=\"253.4\" y=\"143.1\" text-anchor=\"middle\" class=\"fig-etq petita\">2/4</text><text x=\"253.4\" y=\"186.8\" text-anchor=\"middle\" class=\"fig-etq petita\">2/4</text><text x=\"180\" y=\"63.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">V</text><text x=\"343\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">V</text><text x=\"343\" y=\"99.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">B</text><text x=\"180\" y=\"151.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">B</text><text x=\"343\" y=\"143.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">V</text><text x=\"343\" y=\"187.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">B</text></g></svg>"
   },
   {
-   "id": "310a",
-   "ex": 310,
-   "ap": "a",
-   "bloc": "probabilitat_composta",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Un calaix té 5 mitjons negres i 3 de blancs, tots solts. Se'n treuen 2 SENSE reposar-los.",
-   "enunciat": "Quina és la probabilitat que els dos mitjons siguin negres?",
-   "opcions": [
-    "$P(N,N)=\\dfrac58+\\dfrac47=\\dfrac{67}{56}$",
-    "$P(N,N)=\\dfrac58\\cdot\\dfrac58=\\dfrac{25}{64}$",
-    "$P(N,N)=\\dfrac{5}{8}\\cdot\\dfrac{4}{7}=\\dfrac{5}{14}$",
-    "$P(N,N)=\\dfrac58\\cdot\\dfrac48=\\dfrac{5}{16}$, sense descomptar el total del calaix a la segona extracció"
-   ],
-   "pistes": [
-    "Comença per la probabilitat de treure un mitjó negre d'entre $8$: $5/8$.",
-    "Un cop tret, al calaix en queden $7$, dels quals $4$ són negres.",
-    "Multiplica les dues probabilitats."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJcIklcIiAoZWxzIGRvcyBtaXRqb25zIGFsaG9yYSkgZXMgdHJhZHVlaXggZW4gbXVsdGlwbGljYXIgbGVzIHByb2JhYmlsaXRhdHMsIG5vIGVuIHN1bWFyLWxlcyAoaSBlbCByZXN1bHRhdCwgYSBtw6lzLCBzZXJpYSBtw6lzIGdyYW4gcXVlICQxJCwgY29zYSBpbXBvc3NpYmxlIHBlciBhIHVuYSBwcm9iYWJpbGl0YXQpLiIsICJFbHMgbWl0am9ucyBubyBlcyByZXBvc2VuOiB1biBjb3AgdHJldCB1biBtaXRqw7MgbmVncmUsIGVuIHF1ZWRlbiAkNCQgZGUgJDckIHBlciBhIGxhIHNlZ29uYSBleHRyYWNjacOzLCBubyAkNSQgZGUgJDgkIHVuYSBhbHRyYSB2ZWdhZGEuIE11bHRpcGxpY2FyIGRpcmVjdGFtZW50IGxlcyBkdWVzIHByb2JhYmlsaXRhdHMgbm9tw6lzIHZhbCBxdWFuIGVscyBlc2RldmVuaW1lbnRzIHPDs24gSU5ERVBFTkRFTlRTIChhbWIgcmVwb3NpY2nDsywgbyBkb3MgZXhwZXJpbWVudHMgcXVlIG5vIHMnYWZlY3RlbikuIFNpIGVsIHNlZ29uIGRlcMOobiBkZWwgcXVlIGhhIHBhc3NhdCBhbCBwcmltZXIgKHBlciBleGVtcGxlLCBzZW5zZSByZXBvc2FyIGwnZWxlbWVudCBleHRyZXQpLCBjYWwgZmVyIHNlcnZpciBsYSBwcm9iYWJpbGl0YXQgQ09ORElDSU9OQURBIGRlbCBzZWdvbiBlc2RldmVuaW1lbnQsIG5vIGxhIGRlIHBhcnRpZGEuIiwgIiIsICJVbiBjb3AgdHJldCB1biBtaXRqw7MsIGFsIGNhbGFpeCBqYSBubyBlbiBxdWVkZW4gJDgkLCBzaW7DsyAkNyQ6IGVsIGRlbm9taW5hZG9yIGRlIGxhIHNlZ29uYSBicmFuY2EgdGFtYsOpIGJhaXhhLiJdLCAiZXJyIjogWyJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCIsICJJTkRFUEVOREVOQ0lBX1NVUE9TQURBX1NFTlNFX01PVElVIiwgIiIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIl0sICJyZXMiOiBbIlByaW1lciBtaXRqw7MgbmVncmU6ICRcXGRmcmFjNTgkLiBTZWdvbiwgc2Vuc2UgcmVwb3Nhci1sbzogJFxcZGZyYWM0NyQgKGVuIHF1ZWRlbiAkNCQgbmVncmVzIGRlICQ3JCBlbiB0b3RhbCkuICRQKE4sTik9XFxkZnJhYzU4XFxjZG90XFxkZnJhYzQ3PVxcZGZyYWN7MjB9ezU2fT1cXGRmcmFjezV9ezE0fSQiXX0="
-  },
-  {
-   "id": "310b",
-   "ex": 310,
-   "ap": "b",
-   "bloc": "probabilitat_composta",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "Un calaix té 5 mitjons negres i 3 de blancs, tots solts. Se'n treuen 2 SENSE reposar-los.",
-   "enunciat": "Quina és la probabilitat que els dos mitjons siguin del mateix color?",
-   "opcions": [
-    "$P(N,N)+P(B,B)=\\dfrac{5}{14}+\\dfrac{3}{28}=\\dfrac{13}{28}$",
-    "$P(B,B)=\\dfrac38\\cdot\\dfrac38=\\dfrac{9}{64}$, calculant-la com si es reposessin els mitjons",
-    "$P(N,N)\\cdot P(B,B)=\\dfrac{5}{14}\\cdot\\dfrac{3}{28}=\\dfrac{15}{392}$, multiplicant els dos casos en lloc de sumar-los",
-    "$P(N,N)=\\dfrac{5}{14}$ només, oblidant el cas dels dos blancs"
-   ],
-   "pistes": [
-    "\"Del mateix color\" és «dos negres» o «dos blancs»: calcula les dues probabilitats per separat.",
-    "$P(N,N)$ ja la tens de l'apartat anterior: $5/14$.",
-    "$P(B,B)=\\dfrac38\\cdot\\dfrac27$: calcula-la i suma-la a l'anterior."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWxzIG1pdGpvbnMgbm8gZXMgcmVwb3NlbjogdW4gY29wIHRyZXQgdW4gbWl0asOzIGJsYW5jLCBlbiBxdWVkZW4gJDIkIGRlICQ3JCBwZXIgYSBsYSBzZWdvbmEgZXh0cmFjY2nDsywgbm8gJDMkIGRlICQ4JCB1bmEgYWx0cmEgdmVnYWRhLiIsICJcIkRlbCBtYXRlaXggY29sb3JcIiB2b2wgZGlyIMKrdG90cyBkb3MgbmVncmVzwrsgTyDCq3RvdHMgZG9zIGJsYW5jc8K7OiBjb20gcXVlIHPDs24gZHVlcyBtYW5lcmVzIGRpZmVyZW50cyAoaSBpbmNvbXBhdGlibGVzIGVudHJlIHNpKSBkJ2Fjb25zZWd1aXItaG8sIGxlcyBwcm9iYWJpbGl0YXRzIHNlIHN1bWVuLCBubyBlcyBtdWx0aXBsaXF1ZW4uIiwgIlwiRGVsIG1hdGVpeCBjb2xvclwiIGluY2xvdSBUT1RFUyBEVUVTIHBvc3NpYmlsaXRhdHM6IHF1ZSBzdXJ0aW4gZG9zIG1pdGpvbnMgbmVncmVzIG8gcXVlIGVuIHN1cnRpbiBkb3MgYmxhbmNzLCBubyBub23DqXMgbGEgcHJpbWVyYS4iXSwgImVyciI6IFsiIiwgIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkUChCLEIpPVxcZGZyYWMzOFxcY2RvdFxcZGZyYWMyNz1cXGRmcmFjezZ9ezU2fT1cXGRmcmFjezN9ezI4fSQuIFN1bWFudC1oaSAkUChOLE4pPVxcZGZyYWN7NX17MTR9PVxcZGZyYWN7MTB9ezI4fSQ6ICRcXGRmcmFjezEwfXsyOH0rXFxkZnJhY3szfXsyOH09XFxkZnJhY3sxM317Mjh9JCJdfQ=="
-  },
-  {
    "id": "311",
    "ex": 311,
    "ap": "",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem 3 monedes a l'aire.",
    "enunciat": "Quina és la probabilitat de treure almenys una cara?",
    "opcions": [
@@ -1967,7 +1899,7 @@ window.FULL = {
    "ap": "",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Llancem un dau 2 vegades.",
    "enunciat": "Quina és la probabilitat de treure almenys un $6$?",
    "opcions": [
@@ -1985,12 +1917,80 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkNS82JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIG5vIHRyZXVyZSB1biAkNiQgZW4gVU5BIHNvbGEgdGlyYWRhOiBmYWx0YSBlbGV2YXItaG8gYWwgcXVhZHJhdCBwZXIgYSBsZXMgZHVlcyB0aXJhZGVzLCBpIGRlc3Byw6lzIHJlc3Rhci1obyBkJyQxJC4iLCAiXCJBbG1lbnlzIHVuICQ2JFwiIGluY2xvdSB0YW1iw6kgZWwgY2FzIGRlIHRyZXVyZSduIG5vbcOpcyB1biAoaSBubyBkb3MpOiAkMS8zNiQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBcImV4YWN0YW1lbnQgZG9zIHNpc29zXCIsIHVuYSBwb3NzaWJpbGl0YXQgbcOpcyByZXN0cmljdGl2YS4iLCAiXCJBbG1lbnlzIHVuXCIgbm8gZXMgY2FsY3VsYSBtdWx0aXBsaWNhbnQgbGEgcHJvYmFiaWxpdGF0IGQndW4gc29sIGludGVudCBwZWwgbm9tYnJlIGQnaW50ZW50czogY2FsIGZlciBzZXJ2aXIgZWwgY29udHJhcmksIFwiY2FwIDYgZW4gbGVzIGR1ZXMgdGlyYWRlc1wiLCBpIHJlc3Rhci1sbyBkJyQxJC4iLCAiIl0sICJlcnIiOiBbIkNPTVBMRU1FTlRfQUxNRU5ZU19VTl9NQUwiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICJDT01QTEVNRU5UX0FMTUVOWVNfVU5fTUFMIiwgIiJdLCAicmVzIjogWyIkUChcXHRleHR7Y2FwIH02XFx0ZXh0eyBlbiBsZXMgMiB0aXJhZGVzfSk9XFxsZWZ0KFxcZGZyYWM1NlxccmlnaHQpXjI9XFxkZnJhY3syNX17MzZ9JC4gJFAoXFx0ZXh0e2FsbWVueXMgdW4gfTYpPTEtXFxkZnJhY3syNX17MzZ9PVxcZGZyYWN7MTF9ezM2fSQiXX0="
   },
   {
+   "id": "307",
+   "ex": 307,
+   "ap": "",
+   "bloc": "probabilitat_composta",
+   "tipus": "B",
+   "dif": 4,
+   "encapcalament": "Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.",
+   "enunciat": "«A la mateixa bossa de 4 vermelles i 6 blaves, la probabilitat de treure dues vermelles seguides val el mateix es reposi la bola o no»",
+   "opcions": [
+    "Cert: en tots dos casos la probabilitat de cada extracció és $4/10$",
+    "Fals: amb reposició és $\\dfrac{4}{25}=0{,}16$ i sense reposició és $\\dfrac{2}{15}\\approx0{,}133$; sense reposició la segona probabilitat baixa (queden menys vermelles i menys boles en total), així que el producte final és més petit",
+    "Cert: sense reposició la probabilitat és més gran, perquè hi ha menys boles entre les quals triar",
+    "Fals: amb reposició dona $\\dfrac{2}{15}$ i sense reposició dona $\\dfrac{4}{25}$, al revés del que es podria pensar"
+   ],
+   "pistes": [
+    "Calcula per separat el cas amb reposició ($4/10$ dues vegades) i el cas sense reposició ($4/10$ i després $3/9$).",
+    "Compara els dos resultats en decimal si costa comparar les fraccions a ull."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiBub23DqXMgw6lzIHZlcml0YXQgYW1iIHJlcG9zaWNpw7MuIFNlbnNlIHJlcG9zaWNpw7MsIHVuIGNvcCB0cmV0YSBsYSBwcmltZXJhIHZlcm1lbGxhLCBlbiBxdWVkZW4gJDMkIGRlICQ5JCBib2xlcyBwZXIgYSBsYSBzZWdvbmEsIG5vICQ0JCBkZSAkMTAkLiIsICIiLCAiSGkgaGEgbWVueXMgYm9sZXMgRU4gVE9UQUwsIHBlcsOyIHRhbWLDqSBtZW55cyB2ZXJtZWxsZXMgKHNlIG4naGEgdHJldCB1bmEpOiBlbHMgZG9zIG5vbWJyZXMgYmFpeGVuIGEgbGEgdmVnYWRhLCBpIGVsIHJlc3VsdGF0IG5ldCDDqXMgdW5hIHByb2JhYmlsaXRhdCBtw6lzIHBldGl0YSwgbm8gbcOpcyBncmFuLiIsICLDiXMgYSBsJ2lucmV2w6lzOiBhbWIgcmVwb3NpY2nDsyBjYWRhIGV4dHJhY2Npw7MgbWFudMOpIGxhIG1hdGVpeGEgcHJvYmFiaWxpdGF0IGluaWNpYWwgKCQ0LzEwJCBsZXMgZHVlcyB2ZWdhZGVzKSwgcXVlIMOpcyBtw6lzIGdyYW4gcXVlIGxhIHNlZ29uYSBwcm9iYWJpbGl0YXQgcXVhbiBubyBlcyByZXBvc2EgKCQzLzkkKS4iXSwgImVyciI6IFsiSU5ERVBFTkRFTkNJQV9TVVBPU0FEQV9TRU5TRV9NT1RJVSIsICIiLCAiUkVFTVBMQUNBTUVOVF9NQUxfQ09OU0lERVJBVCIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIl0sICJyZXMiOiBbIkFtYiByZXBvc2ljacOzOiAkXFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezR9ezEwfT1cXGRmcmFjezR9ezI1fT0weyx9MTYkLiBTZW5zZSByZXBvc2ljacOzOiAkXFxkZnJhY3s0fXsxMH1cXGNkb3RcXGRmcmFjezN9ezl9PVxcZGZyYWN7Mn17MTV9XFxhcHByb3gweyx9MTMzJC4gU8OzbiBkaWZlcmVudHMsIGkgbGEgc2Vnb25hIMOpcyBtw6lzIHBldGl0YSBwZXJxdcOoLCB1biBjb3AgdHJldGEgdW5hIHZlcm1lbGxhLCBlbiBxdWVkZW4gcmVsYXRpdmFtZW50IG1lbnlzIHBlciB0cmlhci1uZSB1bmEgYWx0cmEiXX0="
+  },
+  {
+   "id": "310a",
+   "ex": 310,
+   "ap": "a",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Un calaix té 5 mitjons negres i 3 de blancs, tots solts. Se'n treuen 2 SENSE reposar-los.",
+   "enunciat": "Quina és la probabilitat que els dos mitjons siguin negres?",
+   "opcions": [
+    "$P(N,N)=\\dfrac58+\\dfrac47=\\dfrac{67}{56}$",
+    "$P(N,N)=\\dfrac58\\cdot\\dfrac58=\\dfrac{25}{64}$",
+    "$P(N,N)=\\dfrac{5}{8}\\cdot\\dfrac{4}{7}=\\dfrac{5}{14}$",
+    "$P(N,N)=\\dfrac58\\cdot\\dfrac48=\\dfrac{5}{16}$, sense descomptar el total del calaix a la segona extracció"
+   ],
+   "pistes": [
+    "Comença per la probabilitat de treure un mitjó negre d'entre $8$: $5/8$.",
+    "Un cop tret, al calaix en queden $7$, dels quals $4$ són negres.",
+    "Multiplica les dues probabilitats."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJcIklcIiAoZWxzIGRvcyBtaXRqb25zIGFsaG9yYSkgZXMgdHJhZHVlaXggZW4gbXVsdGlwbGljYXIgbGVzIHByb2JhYmlsaXRhdHMsIG5vIGVuIHN1bWFyLWxlcyAoaSBlbCByZXN1bHRhdCwgYSBtw6lzLCBzZXJpYSBtw6lzIGdyYW4gcXVlICQxJCwgY29zYSBpbXBvc3NpYmxlIHBlciBhIHVuYSBwcm9iYWJpbGl0YXQpLiIsICJFbHMgbWl0am9ucyBubyBlcyByZXBvc2VuOiB1biBjb3AgdHJldCB1biBtaXRqw7MgbmVncmUsIGVuIHF1ZWRlbiAkNCQgZGUgJDckIHBlciBhIGxhIHNlZ29uYSBleHRyYWNjacOzLCBubyAkNSQgZGUgJDgkIHVuYSBhbHRyYSB2ZWdhZGEuIE11bHRpcGxpY2FyIGRpcmVjdGFtZW50IGxlcyBkdWVzIHByb2JhYmlsaXRhdHMgbm9tw6lzIHZhbCBxdWFuIGVscyBlc2RldmVuaW1lbnRzIHPDs24gSU5ERVBFTkRFTlRTIChhbWIgcmVwb3NpY2nDsywgbyBkb3MgZXhwZXJpbWVudHMgcXVlIG5vIHMnYWZlY3RlbikuIFNpIGVsIHNlZ29uIGRlcMOobiBkZWwgcXVlIGhhIHBhc3NhdCBhbCBwcmltZXIgKHBlciBleGVtcGxlLCBzZW5zZSByZXBvc2FyIGwnZWxlbWVudCBleHRyZXQpLCBjYWwgZmVyIHNlcnZpciBsYSBwcm9iYWJpbGl0YXQgQ09ORElDSU9OQURBIGRlbCBzZWdvbiBlc2RldmVuaW1lbnQsIG5vIGxhIGRlIHBhcnRpZGEuIiwgIiIsICJVbiBjb3AgdHJldCB1biBtaXRqw7MsIGFsIGNhbGFpeCBqYSBubyBlbiBxdWVkZW4gJDgkLCBzaW7DsyAkNyQ6IGVsIGRlbm9taW5hZG9yIGRlIGxhIHNlZ29uYSBicmFuY2EgdGFtYsOpIGJhaXhhLiJdLCAiZXJyIjogWyJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCIsICJJTkRFUEVOREVOQ0lBX1NVUE9TQURBX1NFTlNFX01PVElVIiwgIiIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIl0sICJyZXMiOiBbIlByaW1lciBtaXRqw7MgbmVncmU6ICRcXGRmcmFjNTgkLiBTZWdvbiwgc2Vuc2UgcmVwb3Nhci1sbzogJFxcZGZyYWM0NyQgKGVuIHF1ZWRlbiAkNCQgbmVncmVzIGRlICQ3JCBlbiB0b3RhbCkuICRQKE4sTik9XFxkZnJhYzU4XFxjZG90XFxkZnJhYzQ3PVxcZGZyYWN7MjB9ezU2fT1cXGRmcmFjezV9ezE0fSQiXX0="
+  },
+  {
+   "id": "310b",
+   "ex": 310,
+   "ap": "b",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "Un calaix té 5 mitjons negres i 3 de blancs, tots solts. Se'n treuen 2 SENSE reposar-los.",
+   "enunciat": "Quina és la probabilitat que els dos mitjons siguin del mateix color?",
+   "opcions": [
+    "$P(N,N)+P(B,B)=\\dfrac{5}{14}+\\dfrac{3}{28}=\\dfrac{13}{28}$",
+    "$P(B,B)=\\dfrac38\\cdot\\dfrac38=\\dfrac{9}{64}$, calculant-la com si es reposessin els mitjons",
+    "$P(N,N)\\cdot P(B,B)=\\dfrac{5}{14}\\cdot\\dfrac{3}{28}=\\dfrac{15}{392}$, multiplicant els dos casos en lloc de sumar-los",
+    "$P(N,N)=\\dfrac{5}{14}$ només, oblidant el cas dels dos blancs"
+   ],
+   "pistes": [
+    "\"Del mateix color\" és «dos negres» o «dos blancs»: calcula les dues probabilitats per separat.",
+    "$P(N,N)$ ja la tens de l'apartat anterior: $5/14$.",
+    "$P(B,B)=\\dfrac38\\cdot\\dfrac27$: calcula-la i suma-la a l'anterior."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWxzIG1pdGpvbnMgbm8gZXMgcmVwb3NlbjogdW4gY29wIHRyZXQgdW4gbWl0asOzIGJsYW5jLCBlbiBxdWVkZW4gJDIkIGRlICQ3JCBwZXIgYSBsYSBzZWdvbmEgZXh0cmFjY2nDsywgbm8gJDMkIGRlICQ4JCB1bmEgYWx0cmEgdmVnYWRhLiIsICJcIkRlbCBtYXRlaXggY29sb3JcIiB2b2wgZGlyIMKrdG90cyBkb3MgbmVncmVzwrsgTyDCq3RvdHMgZG9zIGJsYW5jc8K7OiBjb20gcXVlIHPDs24gZHVlcyBtYW5lcmVzIGRpZmVyZW50cyAoaSBpbmNvbXBhdGlibGVzIGVudHJlIHNpKSBkJ2Fjb25zZWd1aXItaG8sIGxlcyBwcm9iYWJpbGl0YXRzIHNlIHN1bWVuLCBubyBlcyBtdWx0aXBsaXF1ZW4uIiwgIlwiRGVsIG1hdGVpeCBjb2xvclwiIGluY2xvdSBUT1RFUyBEVUVTIHBvc3NpYmlsaXRhdHM6IHF1ZSBzdXJ0aW4gZG9zIG1pdGpvbnMgbmVncmVzIG8gcXVlIGVuIHN1cnRpbiBkb3MgYmxhbmNzLCBubyBub23DqXMgbGEgcHJpbWVyYS4iXSwgImVyciI6IFsiIiwgIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiVU5JT19JTlRFUlNFQ0NJT19DT05GT1NFUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkUChCLEIpPVxcZGZyYWMzOFxcY2RvdFxcZGZyYWMyNz1cXGRmcmFjezZ9ezU2fT1cXGRmcmFjezN9ezI4fSQuIFN1bWFudC1oaSAkUChOLE4pPVxcZGZyYWN7NX17MTR9PVxcZGZyYWN7MTB9ezI4fSQ6ICRcXGRmcmFjezEwfXsyOH0rXFxkZnJhY3szfXsyOH09XFxkZnJhY3sxM317Mjh9JCJdfQ=="
+  },
+  {
    "id": "313",
    "ex": 313,
    "ap": "",
    "bloc": "probabilitat_composta",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "D'una capsa amb 12 bombetes, 3 són defectuoses. Se'n trien 2 a l'atzar, SENSE reposar-les.",
    "enunciat": "Quina és la probabilitat que almenys una de les 2 bombetes sigui defectuosa?",
    "opcions": [
@@ -2008,12 +2008,34 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJBbG1lbnlzIHVuYVwiIGVzIGNhbGN1bGEgYW1iIGVsIGNvbnRyYXJpLCBcImNhcCBkZWZlY3R1b3NhXCIsIGkgcmVzdGFudC1sbyBkJyQxJDsgbm8gc3VtYW50IGRpcmVjdGFtZW50IGxhIHByb2JhYmlsaXRhdCBkZSBkZWZlY3R1b3NhIGEgY2FkYSBleHRyYWNjacOzLiIsICJMZXMgYm9tYmV0ZXMgbm8gZXMgcmVwb3NlbjogdW4gY29wIHRyaWFkYSBsYSBwcmltZXJhIGJvbmEsIGVuIHF1ZWRlbiAkOCQgZGUgYm9uZXMgaSAkMTEkIGVuIHRvdGFsIHBlciBhIGxhIHNlZ29uYSwgbm8gJDkkIGRlICQxMiQgdW5hIGFsdHJhIHZlZ2FkYS4gTXVsdGlwbGljYXIgZGlyZWN0YW1lbnQgbGVzIGR1ZXMgcHJvYmFiaWxpdGF0cyBub23DqXMgdmFsIHF1YW4gZWxzIGVzZGV2ZW5pbWVudHMgc8OzbiBJTkRFUEVOREVOVFMgKGFtYiByZXBvc2ljacOzLCBvIGRvcyBleHBlcmltZW50cyBxdWUgbm8gcydhZmVjdGVuKS4gU2kgZWwgc2Vnb24gZGVww6huIGRlbCBxdWUgaGEgcGFzc2F0IGFsIHByaW1lciAocGVyIGV4ZW1wbGUsIHNlbnNlIHJlcG9zYXIgbCdlbGVtZW50IGV4dHJldCksIGNhbCBmZXIgc2VydmlyIGxhIHByb2JhYmlsaXRhdCBDT05ESUNJT05BREEgZGVsIHNlZ29uIGVzZGV2ZW5pbWVudCwgbm8gbGEgZGUgcGFydGlkYS4iLCAiJFxcZGZyYWN7OX17MTJ9XFxjZG90XFxkZnJhY3s4fXsxMX09XFxkZnJhY3s2fXsxMX0kIMOpcyBsYSBwcm9iYWJpbGl0YXQgcXVlIENBUCBkZSBsZXMgZHVlcyBzaWd1aSBkZWZlY3R1b3NhIChsZXMgZHVlcyBib25lcyk6IGxhIHF1ZSBlcyBkZW1hbmEgw6lzIGVsIGNvbnRyYXJpLCBlbmNhcmEgZmFsdGEgcmVzdGFyLWxhIGQnJDEkLiJdLCAiZXJyIjogWyIiLCAiQ09NUExFTUVOVF9BTE1FTllTX1VOX01BTCIsICJJTkRFUEVOREVOQ0lBX1NVUE9TQURBX1NFTlNFX01PVElVIiwgIkNPTVBMRU1FTlRfQUxNRU5ZU19VTl9NQUwiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e2NhcCBkZWZlY3R1b3NhfSk9XFxkZnJhY3s5fXsxMn1cXGNkb3RcXGRmcmFjezh9ezExfT1cXGRmcmFjezcyfXsxMzJ9PVxcZGZyYWN7Nn17MTF9JC4gJFAoXFx0ZXh0e2FsbWVueXMgMSBkZWZlY3R1b3NhfSk9MS1cXGRmcmFjezZ9ezExfT1cXGRmcmFjezV9ezExfSQiXX0="
   },
   {
+   "id": "319",
+   "ex": 319,
+   "ap": "",
+   "bloc": "probabilitat_condicionada",
+   "tipus": "A",
+   "dif": 2,
+   "encapcalament": "D'una població de 1000 persones, 10 tenen una malaltia poc freqüent. Hi ha un test per detectar-la: si la persona és malalta, el test dona positiu 9 de cada 10 vegades; si la persona és sana, el test dona positiu (fals positiu) 1 de cada 10 vegades.",
+   "enunciat": "Segons l'enunciat, si la persona és malalta el test dona positiu $9$ de cada $10$ vegades. Quina és la probabilitat que el test doni positiu SABENT que la persona és malalta? (és a dir, $P(\\text{positiu}|\\text{malalt})$)",
+   "opcions": [
+    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$",
+    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{108}$, dividint pel total de positius en lloc del total de malalts",
+    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{1}{10}$, agafant la probabilitat de fals positiu per error",
+    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, dividint pel total de la població en lloc del total de malalts"
+   ],
+   "pistes": [
+    "Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVub21pbmFkb3IgcXVlIHRvY2EgYXF1w60gw6lzIGVsIGRlIE1BTEFMVFMgKCQxMCQpLCBwZXJxdcOoIGxhIGNvbmRpY2nDsyBkZSBsYSBwcmVndW50YSDDqXMgXCJzZXIgbWFsYWx0XCI7IGVsIHRvdGFsIGRlIHBvc2l0aXVzICgkMTA4JCkgw6lzIGVsIGRlbm9taW5hZG9yIGQndW5hIHByZWd1bnRhIGRpZmVyZW50LiIsICIkMS8xMCQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBwb3NpdGl1IEVOVFJFIEVMUyBTQU5TIChlbCBmYWxzIHBvc2l0aXUpOiBlbnRyZSBlbHMgbWFsYWx0cywgbGEgcHJvYmFiaWxpdGF0IGRlIHBvc2l0aXUgw6lzICQ5LzEwJCwgbCdhbHRyYSBkYWRhIGRlIGwnZW51bmNpYXQuIiwgIlwiU2FiZW50IHF1ZSBsYSBwZXJzb25hIMOpcyBtYWxhbHRhXCIgZml4YSBlbCBncnVwIGVuIGxlcyAkMTAkIHBlcnNvbmVzIG1hbGFsdGVzLCBubyBlbiB0b3RhIGxhIHBvYmxhY2nDsyBkZSAkMTAwMCQ6IGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciAkMTAkLCBubyAkMTAwMCQuIl0sICJlcnIiOiBbIiIsICJDT05ESUNJT05BREFfSV9DT05KVU5UQV9DT05GT1NFUyIsICJBU0lNRVRSSUFfQ09ORElDSU9OQURBX01BTCIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCJdLCAicmVzIjogWyJMJ2VudW5jaWF0IGhvIGRpdSBkaXJlY3RhbWVudDogc2kgbGEgcGVyc29uYSDDqXMgbWFsYWx0YSwgZWwgdGVzdCBkb25hIHBvc2l0aXUgJDkkIGRlIGNhZGEgJDEwJCB2ZWdhZGVzLCAkUChcXHRleHR7cG9zaXRpdX18XFx0ZXh0e21hbGFsdH0pPVxcZGZyYWN7OX17MTB9JCJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Malalt, Sa, columnes Positiu, Negatiu, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Positiu</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Negatiu</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Malalt</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">1</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">10</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Sa</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">99</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">891</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">990</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">108</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">892</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">1000</text></svg>"
+  },
+  {
    "id": "314a",
    "ex": 314,
    "ap": "a",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En el mateix dinar de l'exercici 254 (28 homes i 32 dones; 16 homes i 20 dones han menjat carn, i la resta, peix), ara ens fixem només en un grup cada vegada.",
    "enunciat": "D'entre els $28$ HOMES només, quina és la probabilitat que hagi menjat peix? (és a dir, $P(\\text{peix}|\\text{home})$)",
    "opcions": [
@@ -2036,7 +2058,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En el mateix dinar de l'exercici 254 (28 homes i 32 dones; 16 homes i 20 dones han menjat carn, i la resta, peix), ara ens fixem només en un grup cada vegada.",
    "enunciat": "D'entre les $24$ persones que han menjat PEIX, quina és la probabilitat que sigui home? (és a dir, $P(\\text{home}|\\text{peix})$)",
    "opcions": [
@@ -2059,7 +2081,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "probabilitat_condicionada",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "En el mateix dinar de l'exercici 254 (28 homes i 32 dones; 16 homes i 20 dones han menjat carn, i la resta, peix), ara ens fixem només en un grup cada vegada.",
    "enunciat": "«En un dinar de $60$ persones, $P(\\text{peix}|\\text{home})$ i $P(\\text{home i peix})$ valen el mateix, perquè totes dues parlen d'homes que mengen peix»",
    "opcions": [
@@ -2077,12 +2099,58 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Homes, Dones, columnes Carn, Peix, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Carn</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Peix</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Homes</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">16</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">12</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">28</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Dones</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">20</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">12</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">32</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">36</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">24</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">60</text></svg>"
   },
   {
+   "id": "316a",
+   "ex": 316,
+   "ap": "a",
+   "bloc": "probabilitat_condicionada",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En una revisió mèdica a 50 persones, 20 són fumadores. Tenen tos 14 de les fumadores i 9 de les no fumadores.",
+   "enunciat": "D'entre les $50$ persones enquestades, quina és la probabilitat que una triada a l'atzar sigui fumadora I tingui tos?",
+   "opcions": [
+    "$P(\\text{F i T})=\\dfrac{9}{50}$, agafant les no fumadores amb tos per error",
+    "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$",
+    "$P(\\text{F i T})=\\dfrac{20}{50}+\\dfrac{23}{50}=\\dfrac{43}{50}$, sumant la probabilitat de fumar amb la de tenir tos",
+    "$P(\\text{F i T})=\\dfrac{14}{20}=\\dfrac{7}{10}$, dividint pel total de fumadores en lloc del total de persones"
+   ],
+   "pistes": [
+    "\"Fumadora i tos\" alhora: quantes persones compleixen totes dues coses?",
+    "El denominador és el total de persones enquestades, $50$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkOSQgc8OzbiBsZXMgcGVyc29uZXMgTk8gZnVtYWRvcmVzIGFtYiB0b3M6IGxlcyBmdW1hZG9yZXMgYW1iIHRvcyBzw7NuICQxNCQuIiwgIiIsICJcIkZ1bWFkb3JhIEkgdG9zXCIgKGFtYiBsYSBJKSDDqXMgdW5hIGludGVyc2VjY2nDsywgbm8gdW5hIHVuacOzOiBubyBlcyBjb3VlbiBzdW1hbnQgbGVzIHByb2JhYmlsaXRhdHMgaW5kaXZpZHVhbHMsIGNhbCBjb21wdGFyIGRpcmVjdGFtZW50IHF1YW50ZXMgcGVyc29uZXMgY29tcGxlaXhlbiB0b3RlcyBkdWVzIGNvbmRpY2lvbnMgYWxob3JhLiIsICJcIlRyaWFkYSBhIGwnYXR6YXJcIiBzZW5zZSBjYXAgY29uZGljacOzIHByw6h2aWEgdm9sIGRpciBxdWUgZWwgZGVub21pbmFkb3Igw6lzIGVsIHRvdGFsIGRlIHBlcnNvbmVzIGVucXVlc3RhZGVzICgkNTAkKSwgbm8gbm9tw6lzIGVsIGRlIGZ1bWFkb3Jlcy4gUXVhbiBlcyBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IERJTlMgZCd1biBncnVwIGNvbmNyZXQgKG5vIGRlIHRvdGEgbGEgcG9ibGFjacOzKSwgZWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGxhIG1pZGEgZCdhcXVlbGwgZ3J1cCwgbm8gZWwgdG90YWwgZGUgdG90cyBlbHMgY2Fzb3MuIl0sICJlcnIiOiBbIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIiIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIl0sICJyZXMiOiBbIiQxNCQgZGUgbGVzICQ1MCQgcGVyc29uZXMgc8OzbiBmdW1hZG9yZXMgaSB0ZW5lbiB0b3M6ICRQKFxcdGV4dHtGIGkgVH0pPVxcZGZyYWN7MTR9ezUwfT1cXGRmcmFjezd9ezI1fSQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Fumador, No fumador, columnes Tos, No tos, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Tos</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No tos</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Fumador</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">14</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">6</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">20</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No fumador</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">21</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">30</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">23</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">27</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">50</text></svg>"
+  },
+  {
+   "id": "316b",
+   "ex": 316,
+   "ap": "b",
+   "bloc": "probabilitat_condicionada",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "En una revisió mèdica a 50 persones, 20 són fumadores. Tenen tos 14 de les fumadores i 9 de les no fumadores.",
+   "enunciat": "D'entre les $20$ persones FUMADORES, quina és la probabilitat que tinguin tos?",
+   "opcions": [
+    "$P(\\text{T}|\\text{F})=\\dfrac{14}{23}$, dividint pel total de persones amb tos en lloc del total de fumadores",
+    "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$",
+    "$P(\\text{T}|\\text{F})=\\dfrac{14}{50}=\\dfrac{7}{25}$, dividint pel total de persones en lloc del total de fumadores",
+    "$P(\\text{T}|\\text{F})=\\dfrac{23}{50}$, calculant en realitat la probabilitat general de tenir tos"
+   ],
+   "pistes": [
+    "El grup de referència són les $20$ fumadores: aquest és el denominador.",
+    "D'aquestes $20$, en tenen tos $14$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkMjMkIMOpcyBlbCB0b3RhbCBkZSBwZXJzb25lcyBhbWIgdG9zIChmdW1hZG9yZXMgaSBubyBmdW1hZG9yZXMpOiBlbCBkZW5vbWluYWRvciBxdWUgdG9jYSBhcXXDrSDDqXMgZWwgZGUgZnVtYWRvcmVzLCAkMjAkLCBwZXJxdcOoIGxhIGNvbmRpY2nDsyDDqXMgXCJzZXIgZnVtYWRvcmFcIi4iLCAiIiwgIlwiRCdlbnRyZSBsZXMgZnVtYWRvcmVzXCIgZml4YSBlbCBncnVwIGVuIGxlcyAkMjAkIGZ1bWFkb3Jlcywgbm8gZW4gZWwgdG90YWwgZGUgbGVzICQ1MCQgcGVyc29uZXMgZW5xdWVzdGFkZXMuIFF1YW4gZXMgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBESU5TIGQndW4gZ3J1cCBjb25jcmV0IChubyBkZSB0b3RhIGxhIHBvYmxhY2nDsyksIGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciBsYSBtaWRhIGQnYXF1ZWxsIGdydXAsIG5vIGVsIHRvdGFsIGRlIHRvdHMgZWxzIGNhc29zLiIsICIkMjMvNTAkIMOpcyBsYSBwcm9iYWJpbGl0YXQgZGUgdGVuaXIgdG9zIEVOIEdFTkVSQUwgKHNlbnNlIHJlc3RyaW5naXItc2UgYSBsZXMgZnVtYWRvcmVzKTogYXF1w60gZXMgZGVtYW5hIG5vbcOpcyBkJ2VudHJlIGxlcyAkMjAkIGZ1bWFkb3Jlcy4iXSwgImVyciI6IFsiQ09ORElDSU9OQURBX0lfQ09OSlVOVEFfQ09ORk9TRVMiLCAiIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIkNPTkRJQ0lPTkFEQV9JX0NPTkpVTlRBX0NPTkZPU0VTIl0sICJyZXMiOiBbIkRlIGxlcyAkMjAkIGZ1bWFkb3JlcywgZW4gdGVuZW4gdG9zICQxNCQ6ICRQKFxcdGV4dHtUfXxcXHRleHR7Rn0pPVxcZGZyYWN7MTR9ezIwfT1cXGRmcmFjezd9ezEwfSQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Fumador, No fumador, columnes Tos, No tos, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Tos</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No tos</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Fumador</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">14</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">6</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">20</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No fumador</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">21</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">30</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">23</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">27</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">50</text></svg>"
+  },
+  {
    "id": "315a",
    "ex": 315,
    "ap": "a",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Hi ha dues caixes. La caixa A té 2 boles vermelles i 1 blava; la caixa B té 1 bola vermella i 3 de blaves. Triem una caixa a l'atzar (mateixa probabilitat per a totes dues) i, sense mirar quina és, en traiem una bola.",
    "enunciat": "La caixa A té $2$ boles vermelles i $1$ de blava. Quina és la probabilitat de triar la caixa A i treure'n una bola vermella?",
    "opcions": [
@@ -2105,7 +2173,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Hi ha dues caixes. La caixa A té 2 boles vermelles i 1 blava; la caixa B té 1 bola vermella i 3 de blaves. Triem una caixa a l'atzar (mateixa probabilitat per a totes dues) i, sense mirar quina és, en traiem una bola.",
    "enunciat": "Amb $P(A,V)=1/3$ ja calculat, i sabent que la caixa B dona una vermella amb probabilitat $1/4$, quina és la probabilitat, en total, de treure una bola vermella (sigui de la caixa que sigui)?",
    "opcions": [
@@ -2129,7 +2197,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Hi ha dues caixes. La caixa A té 2 boles vermelles i 1 blava; la caixa B té 1 bola vermella i 3 de blaves. Triem una caixa a l'atzar (mateixa probabilitat per a totes dues) i, sense mirar quina és, en traiem una bola.",
    "enunciat": "Sabent que la bola ha sortit vermella (amb $P(V)=11/24$ en total), quina és la probabilitat que vingués de la caixa A?",
    "opcions": [
@@ -2147,58 +2215,12 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 349 172\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Diagrama d'arbre de probabilitat de 2 nivells, amb les probabilitats donades sobre cada branca.</title><g transform=\"translate(-12.0,-32.0)\"><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"74.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"74.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"52.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"52.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"74.0\" x2=\"330.0\" y2=\"96.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"96.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"30.0\" y1=\"118.0\" x2=\"180.0\" y2=\"162.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"180.0\" cy=\"162.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"140.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"140.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><line x1=\"180.0\" y1=\"162.0\" x2=\"330.0\" y2=\"184.0\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"330.0\" cy=\"184.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><circle cx=\"30.0\" cy=\"118.0\" r=\"4.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.3\"/><text x=\"108.1\" y=\"109.5\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"253.4\" y=\"55.1\" text-anchor=\"middle\" class=\"fig-etq petita\">2/3</text><text x=\"253.4\" y=\"98.8\" text-anchor=\"middle\" class=\"fig-etq petita\">1/3</text><text x=\"101.9\" y=\"153.5\" text-anchor=\"middle\" class=\"fig-etq petita\">1/2</text><text x=\"253.4\" y=\"143.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1/4</text><text x=\"253.4\" y=\"186.8\" text-anchor=\"middle\" class=\"fig-etq petita\">3/4</text><text x=\"180\" y=\"63.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Caixa A</text><text x=\"343\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">V</text><text x=\"343\" y=\"99.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">B</text><text x=\"180\" y=\"148.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Caixa B</text><text x=\"343\" y=\"143.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">V</text><text x=\"343\" y=\"187.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">B</text></g></svg>"
   },
   {
-   "id": "316a",
-   "ex": 316,
-   "ap": "a",
-   "bloc": "probabilitat_condicionada",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En una revisió mèdica a 50 persones, 20 són fumadores. Tenen tos 14 de les fumadores i 9 de les no fumadores.",
-   "enunciat": "D'entre les $50$ persones enquestades, quina és la probabilitat que una triada a l'atzar sigui fumadora I tingui tos?",
-   "opcions": [
-    "$P(\\text{F i T})=\\dfrac{9}{50}$, agafant les no fumadores amb tos per error",
-    "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$",
-    "$P(\\text{F i T})=\\dfrac{20}{50}+\\dfrac{23}{50}=\\dfrac{43}{50}$, sumant la probabilitat de fumar amb la de tenir tos",
-    "$P(\\text{F i T})=\\dfrac{14}{20}=\\dfrac{7}{10}$, dividint pel total de fumadores en lloc del total de persones"
-   ],
-   "pistes": [
-    "\"Fumadora i tos\" alhora: quantes persones compleixen totes dues coses?",
-    "El denominador és el total de persones enquestades, $50$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkOSQgc8OzbiBsZXMgcGVyc29uZXMgTk8gZnVtYWRvcmVzIGFtYiB0b3M6IGxlcyBmdW1hZG9yZXMgYW1iIHRvcyBzw7NuICQxNCQuIiwgIiIsICJcIkZ1bWFkb3JhIEkgdG9zXCIgKGFtYiBsYSBJKSDDqXMgdW5hIGludGVyc2VjY2nDsywgbm8gdW5hIHVuacOzOiBubyBlcyBjb3VlbiBzdW1hbnQgbGVzIHByb2JhYmlsaXRhdHMgaW5kaXZpZHVhbHMsIGNhbCBjb21wdGFyIGRpcmVjdGFtZW50IHF1YW50ZXMgcGVyc29uZXMgY29tcGxlaXhlbiB0b3RlcyBkdWVzIGNvbmRpY2lvbnMgYWxob3JhLiIsICJcIlRyaWFkYSBhIGwnYXR6YXJcIiBzZW5zZSBjYXAgY29uZGljacOzIHByw6h2aWEgdm9sIGRpciBxdWUgZWwgZGVub21pbmFkb3Igw6lzIGVsIHRvdGFsIGRlIHBlcnNvbmVzIGVucXVlc3RhZGVzICgkNTAkKSwgbm8gbm9tw6lzIGVsIGRlIGZ1bWFkb3Jlcy4gUXVhbiBlcyBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IERJTlMgZCd1biBncnVwIGNvbmNyZXQgKG5vIGRlIHRvdGEgbGEgcG9ibGFjacOzKSwgZWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGxhIG1pZGEgZCdhcXVlbGwgZ3J1cCwgbm8gZWwgdG90YWwgZGUgdG90cyBlbHMgY2Fzb3MuIl0sICJlcnIiOiBbIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIiIsICJVTklPX0lOVEVSU0VDQ0lPX0NPTkZPU0VTIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIl0sICJyZXMiOiBbIiQxNCQgZGUgbGVzICQ1MCQgcGVyc29uZXMgc8OzbiBmdW1hZG9yZXMgaSB0ZW5lbiB0b3M6ICRQKFxcdGV4dHtGIGkgVH0pPVxcZGZyYWN7MTR9ezUwfT1cXGRmcmFjezd9ezI1fSQiXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Fumador, No fumador, columnes Tos, No tos, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Tos</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No tos</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Fumador</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">14</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">6</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">20</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No fumador</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">21</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">30</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">23</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">27</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">50</text></svg>"
-  },
-  {
-   "id": "316b",
-   "ex": 316,
-   "ap": "b",
-   "bloc": "probabilitat_condicionada",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "En una revisió mèdica a 50 persones, 20 són fumadores. Tenen tos 14 de les fumadores i 9 de les no fumadores.",
-   "enunciat": "D'entre les $20$ persones FUMADORES, quina és la probabilitat que tinguin tos?",
-   "opcions": [
-    "$P(\\text{T}|\\text{F})=\\dfrac{14}{23}$, dividint pel total de persones amb tos en lloc del total de fumadores",
-    "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$",
-    "$P(\\text{T}|\\text{F})=\\dfrac{14}{50}=\\dfrac{7}{25}$, dividint pel total de persones en lloc del total de fumadores",
-    "$P(\\text{T}|\\text{F})=\\dfrac{23}{50}$, calculant en realitat la probabilitat general de tenir tos"
-   ],
-   "pistes": [
-    "El grup de referència són les $20$ fumadores: aquest és el denominador.",
-    "D'aquestes $20$, en tenen tos $14$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkMjMkIMOpcyBlbCB0b3RhbCBkZSBwZXJzb25lcyBhbWIgdG9zIChmdW1hZG9yZXMgaSBubyBmdW1hZG9yZXMpOiBlbCBkZW5vbWluYWRvciBxdWUgdG9jYSBhcXXDrSDDqXMgZWwgZGUgZnVtYWRvcmVzLCAkMjAkLCBwZXJxdcOoIGxhIGNvbmRpY2nDsyDDqXMgXCJzZXIgZnVtYWRvcmFcIi4iLCAiIiwgIlwiRCdlbnRyZSBsZXMgZnVtYWRvcmVzXCIgZml4YSBlbCBncnVwIGVuIGxlcyAkMjAkIGZ1bWFkb3Jlcywgbm8gZW4gZWwgdG90YWwgZGUgbGVzICQ1MCQgcGVyc29uZXMgZW5xdWVzdGFkZXMuIFF1YW4gZXMgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBESU5TIGQndW4gZ3J1cCBjb25jcmV0IChubyBkZSB0b3RhIGxhIHBvYmxhY2nDsyksIGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciBsYSBtaWRhIGQnYXF1ZWxsIGdydXAsIG5vIGVsIHRvdGFsIGRlIHRvdHMgZWxzIGNhc29zLiIsICIkMjMvNTAkIMOpcyBsYSBwcm9iYWJpbGl0YXQgZGUgdGVuaXIgdG9zIEVOIEdFTkVSQUwgKHNlbnNlIHJlc3RyaW5naXItc2UgYSBsZXMgZnVtYWRvcmVzKTogYXF1w60gZXMgZGVtYW5hIG5vbcOpcyBkJ2VudHJlIGxlcyAkMjAkIGZ1bWFkb3Jlcy4iXSwgImVyciI6IFsiQ09ORElDSU9OQURBX0lfQ09OSlVOVEFfQ09ORk9TRVMiLCAiIiwgIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIkNPTkRJQ0lPTkFEQV9JX0NPTkpVTlRBX0NPTkZPU0VTIl0sICJyZXMiOiBbIkRlIGxlcyAkMjAkIGZ1bWFkb3JlcywgZW4gdGVuZW4gdG9zICQxNCQ6ICRQKFxcdGV4dHtUfXxcXHRleHR7Rn0pPVxcZGZyYWN7MTR9ezIwfT1cXGRmcmFjezd9ezEwfSQiXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Fumador, No fumador, columnes Tos, No tos, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Tos</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No tos</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Fumador</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">14</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">6</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">20</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">No fumador</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">21</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">30</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">23</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">27</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">50</text></svg>"
-  },
-  {
    "id": "317",
    "ex": 317,
    "ap": "",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "En una revisió mèdica a 50 persones, 20 són fumadores. Tenen tos 14 de les fumadores i 9 de les no fumadores.",
    "enunciat": "D'entre les $23$ persones que TENEN TOS, quina és la probabilitat que siguin fumadores? Compara el resultat amb el de l'apartat anterior.",
    "opcions": [
@@ -2222,7 +2244,7 @@ window.FULL = {
    "ap": "",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Llancem dos daus. Sigui $A$ l'esdeveniment «el primer dau surt parell» i $B$ l'esdeveniment «la suma dels dos daus és $8$».",
    "enunciat": "Sabent que el primer dau ha sortit parell, quina és la probabilitat que la suma sigui $8$? (és a dir, $P(B|A)$)",
    "opcions": [
@@ -2239,34 +2261,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkMS8xMiQgw6lzICRQKEFcXHRleHR7IGkgfUIpJCwgbGEgcHJvYmFiaWxpdGF0IHF1ZSBwYXNzaW4gdG90ZXMgZHVlcyBjb3NlcyBzb2JyZSBlbCB0b3RhbCBkZSAkMzYkIHJlc3VsdGF0cyBwb3NzaWJsZXMuICRQKEJ8QSkkIGphIHBhcnRlaXggZGVsIGZldCBxdWUgJEEkIHMnaGEgY29tcGxlcnQsIGkgZWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGVscyBjYXNvcyBhbWIgcHJpbWVyIGRhdSBwYXJlbGwgKCQxOCQpLCBubyBlbHMgJDM2JCBpbmljaWFscy4iLCAiRWwgZGVub21pbmFkb3IgKCQxOCQsIGVscyBjYXNvcyBhbWIgcHJpbWVyIGRhdSBwYXJlbGwpIMOpcyBjb3JyZWN0ZSwgcGVyw7IgYWwgbnVtZXJhZG9yIGZhbHRhIGNvbXB0YXIgJCgyLDYpJDogYW1iIHByaW1lciBkYXUgcGFyZWxsIGhpIGhhIHRyZXMgcGFyZWxsZXMgcXVlIHN1bWVuICQ4JCwgbm8gZHVlcyDigJQgJCgyLDYpJCwgJCg0LDQpJCBpICQoNiwyKSQuIiwgIiQ1LzM2JCDDqXMgbGEgcHJvYmFiaWxpdGF0IHF1ZSBsYSBzdW1hIHNpZ3VpICQ4JCBTRU5TRSBjYXAgY29uZGljacOzIHByw6h2aWEgKGhpIGhhICQ1JCBwYXJlbGxlcyBkZSAkMzYkIHF1ZSBzdW1lbiAkOCQpOiBhcXXDrSBqYSBzZSBzYXAgcXVlIGVsIHByaW1lciBkYXUgw6lzIHBhcmVsbCwgYWl4w60gcXVlIGVsIGRlbm9taW5hZG9yIHMnaGEgZGUgcmVzdHJpbmdpciBhIGFxdWVzdHMgY2Fzb3MuIFF1YW4gZXMgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBESU5TIGQndW4gZ3J1cCBjb25jcmV0IChubyBkZSB0b3RhIGxhIHBvYmxhY2nDsyksIGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciBsYSBtaWRhIGQnYXF1ZWxsIGdydXAsIG5vIGVsIHRvdGFsIGRlIHRvdHMgZWxzIGNhc29zLiIsICIiXSwgImVyciI6IFsiQ09ORElDSU9OQURBX0lfQ09OSlVOVEFfQ09ORk9TRVMiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCIsICIiXSwgInJlcyI6IFsiQW1iIGVsIHByaW1lciBkYXUgcGFyZWxsIGhpIGhhICQxOCQgcmVzdWx0YXRzIHBvc3NpYmxlcy4gRCdhcXVlc3RzLCBzdW1lbiAkOCQgbGVzIHBhcmVsbGVzICQoMiw2KSQsICQoNCw0KSQgaSAkKDYsMikkOiAkMyQgY2Fzb3MuICRQKEJ8QSk9XFxkZnJhY3szfXsxOH09XFxkZnJhYzE2JCJdfQ=="
   },
   {
-   "id": "319",
-   "ex": 319,
-   "ap": "",
-   "bloc": "probabilitat_condicionada",
-   "tipus": "A",
-   "dif": 1,
-   "encapcalament": "D'una població de 1000 persones, 10 tenen una malaltia poc freqüent. Hi ha un test per detectar-la: si la persona és malalta, el test dona positiu 9 de cada 10 vegades; si la persona és sana, el test dona positiu (fals positiu) 1 de cada 10 vegades.",
-   "enunciat": "Segons l'enunciat, si la persona és malalta el test dona positiu $9$ de cada $10$ vegades. Quina és la probabilitat que el test doni positiu SABENT que la persona és malalta? (és a dir, $P(\\text{positiu}|\\text{malalt})$)",
-   "opcions": [
-    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$",
-    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{108}$, dividint pel total de positius en lloc del total de malalts",
-    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{1}{10}$, agafant la probabilitat de fals positiu per error",
-    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, dividint pel total de la població en lloc del total de malalts"
-   ],
-   "pistes": [
-    "Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVub21pbmFkb3IgcXVlIHRvY2EgYXF1w60gw6lzIGVsIGRlIE1BTEFMVFMgKCQxMCQpLCBwZXJxdcOoIGxhIGNvbmRpY2nDsyBkZSBsYSBwcmVndW50YSDDqXMgXCJzZXIgbWFsYWx0XCI7IGVsIHRvdGFsIGRlIHBvc2l0aXVzICgkMTA4JCkgw6lzIGVsIGRlbm9taW5hZG9yIGQndW5hIHByZWd1bnRhIGRpZmVyZW50LiIsICIkMS8xMCQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBwb3NpdGl1IEVOVFJFIEVMUyBTQU5TIChlbCBmYWxzIHBvc2l0aXUpOiBlbnRyZSBlbHMgbWFsYWx0cywgbGEgcHJvYmFiaWxpdGF0IGRlIHBvc2l0aXUgw6lzICQ5LzEwJCwgbCdhbHRyYSBkYWRhIGRlIGwnZW51bmNpYXQuIiwgIlwiU2FiZW50IHF1ZSBsYSBwZXJzb25hIMOpcyBtYWxhbHRhXCIgZml4YSBlbCBncnVwIGVuIGxlcyAkMTAkIHBlcnNvbmVzIG1hbGFsdGVzLCBubyBlbiB0b3RhIGxhIHBvYmxhY2nDsyBkZSAkMTAwMCQ6IGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciAkMTAkLCBubyAkMTAwMCQuIl0sICJlcnIiOiBbIiIsICJDT05ESUNJT05BREFfSV9DT05KVU5UQV9DT05GT1NFUyIsICJBU0lNRVRSSUFfQ09ORElDSU9OQURBX01BTCIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCJdLCAicmVzIjogWyJMJ2VudW5jaWF0IGhvIGRpdSBkaXJlY3RhbWVudDogc2kgbGEgcGVyc29uYSDDqXMgbWFsYWx0YSwgZWwgdGVzdCBkb25hIHBvc2l0aXUgJDkkIGRlIGNhZGEgJDEwJCB2ZWdhZGVzLCAkUChcXHRleHR7cG9zaXRpdX18XFx0ZXh0e21hbGFsdH0pPVxcZGZyYWN7OX17MTB9JCJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 274 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Taula de doble entrada: files Malalt, Sa, columnes Positiu, Negatiu, amb els totals de cada fila, cada columna i el total general.</title><rect x=\"14.0\" y=\"14.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\"></text><rect x=\"92.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Positiu</text><rect x=\"148.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Negatiu</text><rect x=\"204.0\" y=\"14.0\" width=\"56.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"34.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"14.0\" y=\"46.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Malalt</text><rect x=\"92.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">9</text><rect x=\"148.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">1</text><rect x=\"204.0\" y=\"46.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"66.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">10</text><rect x=\"14.0\" y=\"78.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Sa</text><rect x=\"92.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">99</text><rect x=\"148.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">891</text><rect x=\"204.0\" y=\"78.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"98.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">990</text><rect x=\"14.0\" y=\"110.0\" width=\"78.0\" height=\"32.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"53.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">Total</text><rect x=\"92.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"120.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">108</text><rect x=\"148.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"176.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">892</text><rect x=\"204.0\" y=\"110.0\" width=\"56.0\" height=\"32.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1\"/><text x=\"232.0\" y=\"130.0\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">1000</text></svg>"
-  },
-  {
    "id": "320",
    "ex": 320,
    "ap": "",
    "bloc": "probabilitat_condicionada",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "D'una població de 1000 persones, 10 tenen una malaltia poc freqüent. Hi ha un test per detectar-la: si la persona és malalta, el test dona positiu 9 de cada 10 vegades; si la persona és sana, el test dona positiu (fals positiu) 1 de cada 10 vegades.",
    "enunciat": "Recorda que el test dona positiu $9$ de cada $10$ vegades quan la persona és malalta, i $1$ de cada $10$ quan és sana (fals positiu). Ara al revés: si el test ha donat POSITIU, quina és la probabilitat que la persona realment estigui malalta? Compara-ho amb el resultat de l'exercici anterior.",
    "opcions": [

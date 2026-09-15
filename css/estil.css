@@ -202,6 +202,16 @@ button{font:inherit;font-family:var(--cos)}
 .bloc.destacat{border-color:var(--blau);border-width:1.5px;background:var(--blau-suau)}
 .bloc.destacat .num{color:var(--blau)}
 
+/* Blocs de nivell avançat: tot el bloc són problemes de diversos passos.
+   Es marquen en ambre, no en vermell: no és un avís de perill sinó una
+   indicació de per on va bé entrar-hi. Prou discret per no espantar i prou
+   visible per llegir-se abans de clicar. */
+.marca-avancat{display:inline-block;vertical-align:.08em;margin-left:.4rem;
+ font:700 .68rem/1.5 var(--cos);letter-spacing:.03em;text-transform:uppercase;
+ color:var(--ambre);background:var(--ambre-suau);border:1px solid #F0DDB5;
+ border-radius:999px;padding:.05rem .45rem;white-space:nowrap}
+.bloc.avancat .num{color:var(--ambre)}
+
 /* ---- itinerari.html: llista de passos del recorregut personalitzat ---- */
 .itinerari-passos{display:grid;gap:.5rem;margin:.9rem 0}
 .pas-itinerari.fet{opacity:.6}

@@ -59,40 +59,42 @@ from figures import (prisma_regular, cub, ortoedre, cilindre, con,
 from lib import Q, D, DT, tria, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 9 · cossos geomètrics
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    170: 1,  # àrea total amb totes les dades a l'enunciat
-    171: 2,  # cal calcular abans l'àrea de la base (apotema, triangle equilàter)
-    172: 2,
-    173: 2,
-    174: 3,  # a l'inrevés: de l'àrea a l'aresta, i després la diagonal
-    175: 3,
-    176: 3,
-    177: 2,
-    179: 2,
-    180: 2,  # tetraedre: quatre triangles equilàters
-    181: 3,  # altura donada: cal l'apotema de la cara per Pitàgores
-    182: 3,
-    183: 2,
-    184: 2,
-    185: 1,  # àrea del cilindre; 188, del con; 195, volums amb la fórmula
-    186: 3,  # partir d'una àrea per trobar una mesura
-    187: 3,
-    188: 1,
-    189: 2,
-    190: 2,  # Pitàgores per passar de generatriu a altura, o al revés
-    191: 2,
-    193: 3,  # comparar dos cossos; 196-199, problemes amb context
-    195: 1,
-    196: 3,
-    197: 3,
-    198: 3,
-    199: 3,
+    170: 2,  # àrea total amb totes les dades a l'enunciat
+    171: 3,  # cal calcular abans l'àrea de la base (apotema, triangle equilàter)
+    172: 3,
+    173: 3,
+    174: 4,  # a l'inrevés: de l'àrea a l'aresta, i després la diagonal
+    175: 4,
+    176: 4,
+    177: 3,
+    179: 3,
+    180: 3,  # tetraedre: quatre triangles equilàters
+    181: 4,  # altura donada: cal l'apotema de la cara per Pitàgores
+    182: 4,
+    183: 3,
+    184: 3,
+    185: 2,  # àrea del cilindre; 188, del con; 195, volums amb la fórmula
+    186: 4,  # partir d'una àrea per trobar una mesura
+    187: 4,
+    188: 2,
+    189: 3,
+    190: 3,  # Pitàgores per passar de generatriu a altura, o al revés
+    191: 3,
+    193: 4,  # comparar dos cossos; 196-199, problemes amb context
+    195: 2,
+    196: 4,
+    197: 4,
+    198: 4,
+    199: 4,
 })
 
 
@@ -1277,3 +1279,116 @@ Q("199", 199, "", B4, "A",
    r"$4\pi r^2\approx120{,}88$ cm$^2$, menor que la del cub: a "
    r"igualtat de volum, l'esfera necessita menys material.)"],
   figura=cub(5, etq="?"))
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 334-335)
+# =====================================================================
+# El bloc obria amb una piràmide pentagonal que porta DUES apotemes
+# diferents al mateix enunciat (la de la base i la de la piràmide), i cal
+# distingir-les abans de poder començar. La fórmula del volum no es feia
+# servir mai amb l'àrea de la base ja donada, ni la de l'àrea lateral amb
+# el perímetre ja donat, que és on es veu si l'alumne la té.
+
+dificultats({
+    334: 1,  # volum amb l'àrea de la base i l'altura donades
+    335: 1,  # àrea lateral amb el perímetre i l'apotema donats
+})
+
+
+E334 = ("Calcula el volum d'aquesta piràmide. Recorda: "
+        "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.")
+
+Q("334a", 334, "a", B2, "A",
+  r"L'àrea de la base és $12$ cm$^2$ i l'altura, $5$ cm.",
+  r"$20$ cm$^3$",
+  [DT(r"$60$ cm$^3$", "FACTOR_TRES_VOLUM",
+      extra="$12\\cdot 5=60$ és el volum del PRISMA de la mateixa base i "
+            "altura. La piràmide n'és la tercera part."),
+   D(r"$180$ cm$^3$", "FACTOR_TRES_VOLUM",
+     "Has multiplicat per $3$ en lloc de dividir. La piràmide és MÉS PETITA "
+     "que el prisma, no tres vegades més gran."),
+   DT(r"$17$ cm$^3$", "FORMULA_INVERTIDA",
+      extra="Has sumat $12+5$ en lloc de multiplicar.")],
+  ["L'àrea de la base ja te la donen: no l'has de calcular.",
+   "$V=\\dfrac{12\\cdot 5}{3}$."],
+  [r"$V=\dfrac{A_{\text{base}}\cdot h}{3}=\dfrac{12\cdot 5}{3}"
+   r"=\dfrac{60}{3}=20$ cm$^3$"],
+  ex_text=E334,
+  figura=piramide_regular(4, 4, altura=5, etq_costat=False,
+                          etq_altura="h = 5 cm"))
+
+Q("334b", 334, "b", B2, "A",
+  r"L'àrea de la base és $30$ m$^2$ i l'altura, $4$ m.",
+  r"$40$ m$^3$",
+  [DT(r"$120$ m$^3$", "FACTOR_TRES_VOLUM",
+      extra="Falta dividir per $3$."),
+   D(r"$360$ m$^3$", "FACTOR_TRES_VOLUM",
+     "Has multiplicat per $3$ en lloc de dividir."),
+   DT(r"$34$ m$^3$", "FORMULA_INVERTIDA",
+      extra="Has sumat en lloc de multiplicar.")],
+  ["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+   "$\\dfrac{30\\cdot 4}{3}=\\dfrac{120}{3}$."],
+  [r"$V=\dfrac{30\cdot 4}{3}=\dfrac{120}{3}=40$ m$^3$"],
+  ex_text=E334,
+  figura=piramide_regular(4, 4, altura=4, etq_costat=False,
+                          etq_altura="h = 4 m", unitat="m"))
+
+Q("334c", 334, "c", B2, "A",
+  r"L'àrea de la base és $9$ cm$^2$ i l'altura, $7$ cm.",
+  r"$21$ cm$^3$",
+  [DT(r"$63$ cm$^3$", "FACTOR_TRES_VOLUM",
+      extra="Falta dividir per $3$."),
+   D(r"$189$ cm$^3$", "FACTOR_TRES_VOLUM",
+     "Has multiplicat per $3$ en lloc de dividir."),
+   DT(r"$16$ cm$^3$", "FORMULA_INVERTIDA",
+      extra="Has sumat $9+7$.")],
+  ["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+   "$\\dfrac{9\\cdot 7}{3}=\\dfrac{63}{3}$."],
+  [r"$V=\dfrac{9\cdot 7}{3}=\dfrac{63}{3}=21$ cm$^3$"],
+  ex_text=E334,
+  figura=piramide_regular(4, 4, altura=7, etq_costat=False,
+                          etq_altura="h = 7 cm"))
+
+
+E335 = ("Calcula l'àrea lateral d'aquesta piràmide de base quadrada. "
+        "Recorda: "
+        "$A_{\\text{lat}}=\\dfrac{P_{\\text{base}}\\cdot a_p}{2}$, on $a_p$ "
+        "és l'apotema de la piràmide.")
+
+Q("335a", 335, "a", B2, "A",
+  r"El perímetre de la base fa $20$ cm i l'apotema de la piràmide, $6$ cm.",
+  r"$60$ cm$^2$",
+  [DT(r"$120$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="$20\\cdot 6=120$; falta dividir per $2$. Les cares laterals "
+            "són triangles, i cada triangle porta el seu mig."),
+   DT(r"$26$ cm$^2$", "FORMULA_INVERTIDA",
+      extra="Has sumat $20+6$ en lloc de multiplicar."),
+   D(r"$40$ cm$^2$", "FACTOR_TRES_VOLUM",
+     "Has dividit per $3$. El $3$ és de la fórmula del VOLUM; aquí és una "
+     "àrea i el que hi va és dividir per $2$.")],
+  ["Les cares laterals són triangles: tots junts fan un sol triangle de "
+   "base el perímetre.",
+   "$A_{\\text{lat}}=\\dfrac{20\\cdot 6}{2}$."],
+  [r"$A_{\text{lat}}=\dfrac{P\cdot a_p}{2}=\dfrac{20\cdot 6}{2}"
+   r"=\dfrac{120}{2}=60$ cm$^2$"],
+  ex_text=E335,
+  figura=piramide_regular(4, 5, apotema_piramide=6, etq_costat=False,
+                          etq_apotema="a = 6 cm"))
+
+Q("335b", 335, "b", B2, "A",
+  r"El perímetre de la base fa $24$ m i l'apotema de la piràmide, $5$ m.",
+  r"$60$ m$^2$",
+  [DT(r"$120$ m$^2$", "MEITAT_OBLIDADA",
+      extra="Falta dividir per $2$."),
+   DT(r"$29$ m$^2$", "FORMULA_INVERTIDA",
+      extra="Has sumat $24+5$."),
+   D(r"$40$ m$^2$", "FACTOR_TRES_VOLUM",
+     "Has dividit per $3$, que és el de la fórmula del volum. Per a una "
+     "àrea lateral es divideix per $2$.")],
+  ["$A_{\\text{lat}}=\\dfrac{P\\cdot a_p}{2}$.",
+   "$\\dfrac{24\\cdot 5}{2}=\\dfrac{120}{2}$."],
+  [r"$A_{\text{lat}}=\dfrac{24\cdot 5}{2}=\dfrac{120}{2}=60$ m$^2$"],
+  ex_text=E335,
+  figura=piramide_regular(4, 6, apotema_piramide=5, etq_costat=False,
+                          etq_apotema="a = 5 m", unitat="m"))

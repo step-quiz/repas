@@ -15,25 +15,27 @@ final es calcula amb aritmètica normal de Python i es formata amb pot().
 from lib import Q, D, DT, ev, tex, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 2 · potències
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     35: 1,  # una sola propietat, base repetida; 43, potència d'una potència
-     36: 2,  # encadena producte i quocient de potències
-     37: 2,  # potència d'un producte i d'un quocient, amb fraccions i decimals
-     38: 2,  # exponents negatius encadenats
-     39: 2,  # a l'inrevés: quina potència falta perquè la igualtat sigui certa
-     40: 3,  # a l'inrevés i amb incògnita a l'exponent: cal plantejar una equació
-     41: 3,  # trobar l'error d'una cadena i corregir-lo
-     42: 2,  # decidir si la igualtat és certa i dir per què
-     43: 1,
-     44: 2,
-     45: 3,  # cal unificar bases diferents abans d'aplicar cap propietat
-     46: 3,  # incògnita dins d'una cadena de dues propietats
+     35: 2,  # una sola propietat, base repetida; 43, potència d'una potència
+     36: 3,  # encadena producte i quocient de potències
+     37: 3,  # potència d'un producte i d'un quocient, amb fraccions i decimals
+     38: 3,  # exponents negatius encadenats
+     39: 3,  # a l'inrevés: quina potència falta perquè la igualtat sigui certa
+     40: 4,  # a l'inrevés i amb incògnita a l'exponent: cal plantejar una equació
+     41: 4,  # trobar l'error d'una cadena i corregir-lo
+     42: 3,  # decidir si la igualtat és certa i dir per què
+     43: 2,
+     44: 3,
+     45: 4,  # cal unificar bases diferents abans d'aplicar cap propietat
+     46: 4,  # incògnita dins d'una cadena de dues propietats
 })
 
 
@@ -1292,3 +1294,240 @@ Q("46d", 46, "d", B4, "A",
    "$11^9\\cdot 11^6=11^{9+6}$."],
   ["$(11^2)^3=11^6$; $11^9\\cdot 11^6=11^{9+6}=11^{15}\\Rightarrow \\square=15$"],
   ex_text=E46)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 321-324)
+# =====================================================================
+# Els dos blocs `negatiu` i `combinades` obrien directament amb tres
+# factors i dues propietats a la vegada. Enlloc del full no es feia servir
+# la definició d'exponent negatiu tota sola, ni una potència d'una potència
+# tota sola, de manera que no hi havia cap manera de saber si el que falla
+# és la definició o la combinació.
+
+dificultats({
+    321: 1,  # la definició a^-n = 1/a^n i prou
+    322: 1,  # aïllar l'exponent quan la potència es reconeix de vista
+    323: 1,  # (a^m)^n en un sol pas
+    324: 1,  # un sol producte o un sol quocient de la mateixa base
+})
+
+
+E321 = "Escriu aquesta potència en forma de fracció."
+
+Q("321a", 321, "a", B2, "A",
+  r"$2^{-3}$",
+  ev("2**-3"),
+  [D("-8", "EXPONENT_NEGATIU_SIGNE",
+     "El signe menys és de l'EXPONENT, no del resultat: $2^{-3}$ no és $-2^3$. "
+     "Un exponent negatiu vol dir «l'invers», i l'invers de $8$ és $\\dfrac{1}{8}$."),
+   D(ev("-1/8"), "SIGNE_FINAL",
+     "La fracció és la bona, però el signe hi sobra: $2^{-3}=\\dfrac{1}{2^3}$, i "
+     "tant el $1$ com el $2^3$ són positius."),
+   D(ev("1/6"), "EXPONENT_COM_PRODUCTE",
+     "Has multiplicat la base per l'exponent ($2\\cdot 3=6$). L'exponent diu "
+     "quantes vegades es repeteix el factor: $2^3=2\\cdot 2\\cdot 2=8$.")],
+  ["Un exponent negatiu vol dir l'invers: $a^{-n}=\\dfrac{1}{a^{n}}$.",
+   "Primer calcula $2^3$ i després posa-l'hi a sota d'un $1$."],
+  [r"$2^{-3}=\dfrac{1}{2^{3}}=\dfrac{1}{8}$"],
+  ex_text=E321)
+
+Q("321b", 321, "b", B2, "A",
+  r"$5^{-1}$",
+  ev("5**-1"),
+  [D("-5", "EXPONENT_NEGATIU_SIGNE",
+     "El menys és de l'exponent: $5^{-1}$ no és $-5$."),
+   D("5", "FACTOR_INVERS_OBLIDAT",
+     "Has calculat $5^1=5$ i has deixat de banda el signe de l'exponent, que "
+     "és justament el que fa girar la fracció."),
+   D(ev("1/25"), "EXPONENT_MULTIPLICAT",
+     "L'exponent és $-1$, no $-2$: a sota hi va $5^1=5$, no $5^2=25$.")],
+  ["$a^{-1}$ és l'invers de $a$.",
+   "$5^{-1}=\\dfrac{1}{5^{1}}$."],
+  [r"$5^{-1}=\dfrac{1}{5}$"],
+  ex_text=E321)
+
+Q("321c", 321, "c", B2, "A",
+  r"$(-2)^{-2}$",
+  ev("(-2)**-2"),
+  [D(ev("-1/4"), "PARITAT_EXPONENT",
+     "L'exponent $-2$ és PARELL, i una base negativa elevada a exponent parell "
+     "dona positiu: $(-2)^2=+4$, i per tant $\\dfrac{1}{4}$."),
+   D("-4", "EXPONENT_NEGATIU_SIGNE",
+     "Has tractat el menys de l'exponent com si fos del resultat, i a sobre hi "
+     "has perdut la fracció."),
+   D("4", "FACTOR_INVERS_OBLIDAT",
+     "Has calculat $(-2)^2=4$ i t'has deixat el signe de l'exponent, que és el "
+     "que converteix el $4$ en $\\dfrac{1}{4}$.")],
+  ["Separa les dues coses: el signe de la BASE i el signe de l'EXPONENT.",
+   "$(-2)^{-2}=\\dfrac{1}{(-2)^{2}}$, i $(-2)^2$ és positiu perquè l'exponent és parell."],
+  [r"$(-2)^{-2}=\dfrac{1}{(-2)^{2}}=\dfrac{1}{4}$"],
+  ex_text=E321)
+
+Q("321d", 321, "d", B2, "A",
+  r"$10^{-2}$",
+  ev("10**-2"),
+  [D(r"$0{,}001$", "POTENCIA_10",
+     "T'has desplaçat una xifra de més: $10^{-2}$ és $0{,}01$, amb dos zeros "
+     "comptant el de davant de la coma. $0{,}001$ seria $10^{-3}$."),
+   D("-100", "EXPONENT_NEGATIU_SIGNE",
+     "El menys és de l'exponent, no del resultat."),
+   D(ev("1/20"), "EXPONENT_COM_PRODUCTE",
+     "Has multiplicat $10\\cdot 2$. A sota hi va $10^2=100$.")],
+  ["$10^{-n}$ és $1$ dividit per un $1$ seguit de $n$ zeros.",
+   "$10^{-2}=\\dfrac{1}{10^{2}}=\\dfrac{1}{100}$."],
+  [r"$10^{-2}=\dfrac{1}{10^{2}}=\dfrac{1}{100}=0{,}01$"],
+  ex_text=E321)
+
+
+E322 = "Troba el valor de $x$."
+
+Q("322a", 322, "a", B2, "A",
+  r"$2^x = 8$",
+  "$x=3$",
+  [D("$x=4$", "BASE_EXPONENT_INTERCANVIATS",
+     "Has buscat el número que MULTIPLICAT per $2$ fa $8$. Aquí $2$ no "
+     "multiplica, es repeteix: $2\\cdot 2\\cdot 2=8$, o sigui tres vegades."),
+   D("$x=2$", "BASE_MAL_TRIADA",
+     "El $2$ és la base, no la resposta. La pregunta és quantes vegades s'ha "
+     "de repetir."),
+   D("$x=8$", "EQUACIO_EXPONENT_MULTIPLICAT",
+     "Has copiat el resultat com a exponent. $2^8$ són $256$, no $8$.")],
+  ["Escriu $8$ com una potència de base $2$.",
+   "$8=2\\cdot 2\\cdot 2=2^3$."],
+  [r"$8=2^{3}\Rightarrow 2^{x}=2^{3}\Rightarrow x=3$"],
+  ex_text=E322)
+
+Q("322b", 322, "b", B2, "A",
+  r"$3^x = \dfrac{1}{9}$",
+  "$x=-2$",
+  [D("$x=2$", "EXPONENT_NEGATIU_SIGNE",
+     "Has trobat bé el $2$ (perquè $9=3^2$), però el resultat és $\\dfrac{1}{9}$ "
+     "i no $9$: és l'INVERS, i això és el que posa el signe menys a l'exponent."),
+   D("$x=-3$", "BASE_MAL_TRIADA",
+     "$9$ és $3^2$, no $3^3$. $3^3$ serien $27$."),
+   D(r"$x=\dfrac{1}{2}$", "OPERACIO_INVERSA",
+     "La fracció és al RESULTAT, no a l'exponent: l'exponent és un enter "
+     "negatiu.")],
+  ["Un resultat que és una fracció amb $1$ a dalt demana un exponent negatiu.",
+   "$\\dfrac{1}{9}=\\dfrac{1}{3^{2}}=3^{-2}$."],
+  [r"$\dfrac{1}{9}=3^{-2}\Rightarrow x=-2$"],
+  ex_text=E322)
+
+Q("322c", 322, "c", B2, "A",
+  r"$5^x = 1$",
+  "$x=0$",
+  [D("$x=1$", "EXPONENT_ZERO",
+     "Has llegit la regla al revés. $5^1=5$; el que val $1$ és $5^0$."),
+   D("$x=5$", "BASE_EXPONENT_INTERCANVIATS",
+     "Has repetit la base. $5^5$ són $3125$."),
+   D("$x=-1$", "EXPONENT_NEGATIU_SIGNE",
+     "$5^{-1}=\\dfrac{1}{5}$, que no és $1$.")],
+  ["Hi ha una potència que val $1$ sigui quina sigui la base.",
+   "Qualsevol número diferent de zero elevat a $0$ val $1$."],
+  [r"$5^{0}=1\Rightarrow x=0$"],
+  ex_text=E322)
+
+Q("322d", 322, "d", B2, "A",
+  r"$10^x = 1000$",
+  "$x=3$",
+  [D("$x=100$", "POTENCIA_10",
+     "Has donat un número, no l'exponent. La pregunta és quants zeros té "
+     "$1000$: tres."),
+   D("$x=4$", "EXPONENT_SENSE_DESPLACAR",
+     "Has comptat les XIFRES de $1000$, que són quatre. L'exponent compta els "
+     "ZEROS, que són tres."),
+   D("$x=2$", "EXPONENT_SENSE_DESPLACAR",
+     "$10^2=100$, que té dos zeros. $1000$ en té tres.")],
+  ["A les potències de $10$, l'exponent és el nombre de zeros.",
+   "$1000$ té tres zeros."],
+  [r"$1000=10^{3}\Rightarrow x=3$"],
+  ex_text=E322)
+
+
+E323 = "Escriu-ho com una sola potència."
+
+Q("323a", 323, "a", B4, "A",
+  r"$(2^3)^2$",
+  "$" + pot("2", 6) + "$",
+  [D("$" + pot("2", 5) + "$", "POTENCIA_POTENCIA_SUMADA",
+     "Has sumat els exponents ($3+2$). Als productes de la mateixa base se "
+     "sumen; a una potència d'una potència es MULTIPLIQUEN, perquè $(2^3)^2$ "
+     "vol dir $2^3\\cdot 2^3$."),
+   D("$" + pot("2", 9) + "$", "EXPONENT_MULTIPLICAT",
+     "Has multiplicat $3\\cdot 3$. L'exponent de fora és $2$, no $3$."),
+   D("$" + pot("2", 8) + "$", "POTENCIA_APLICADA_MALAMENT",
+     "Revisa quins dos números s'han de multiplicar: són el $3$ de dins i el "
+     "$2$ de fora.")],
+  ["$(a^m)^n$: els exponents es multipliquen.",
+   "$(2^3)^2=2^{3\\cdot 2}$."],
+  [r"$(2^{3})^{2}=2^{3\cdot 2}=2^{6}$"],
+  ex_text=E323)
+
+Q("323b", 323, "b", B4, "A",
+  r"$(5^2)^3$",
+  "$" + pot("5", 6) + "$",
+  [D("$" + pot("5", 5) + "$", "POTENCIA_POTENCIA_SUMADA",
+     "Has sumat $2+3$ en lloc de multiplicar."),
+   D("$" + pot("5", 8) + "$", "EXPONENT_MULTIPLICAT",
+     "Revisa la multiplicació: $2\\cdot 3=6$."),
+   D("$" + pot("5", 9) + "$", "POTENCIA_APLICADA_MALAMENT",
+     "Has elevat l'exponent de fora al quadrat en lloc de multiplicar-lo pel "
+     "de dins.")],
+  ["Els exponents es multipliquen.",
+   "$(5^2)^3=5^{2\\cdot 3}$."],
+  [r"$(5^{2})^{3}=5^{2\cdot 3}=5^{6}$"],
+  ex_text=E323)
+
+Q("323c", 323, "c", B4, "A",
+  r"$\left[(-2)^3\right]^2$",
+  ev("((-2)**3)**2"),
+  [D("-64", "PARITAT_EXPONENT",
+     "L'exponent final és $3\\cdot 2=6$, que és PARELL, i una base negativa "
+     "elevada a exponent parell dona positiu."),
+   D("-32", "POTENCIA_POTENCIA_SUMADA",
+     "Has sumat els exponents ($3+2=5$) en lloc de multiplicar-los. Amb "
+     "exponent $5$, que és senar, el signe surt negatiu i per això et dona "
+     "$-32$."),
+   D("36", "EXPONENT_COM_PRODUCTE",
+     "Has multiplicat la base pels exponents. La base es repeteix, no es "
+     "multiplica pels exponents.")],
+  ["Primer l'exponent: es multipliquen, $3\\cdot 2=6$.",
+   "Amb l'exponent final decideix el signe: parell dona positiu."],
+  [r"$\left[(-2)^{3}\right]^{2}=(-2)^{3\cdot 2}=(-2)^{6}=64$"],
+  ex_text=E323,
+  nota_interna="Exponents 3 i 2 a posta: amb 2 i 2, sumar i multiplicar donen "
+               "el mateix i el distractor POTENCIA_POTENCIA_SUMADA no "
+               "detectaria res.")
+
+
+E324 = "Escriu-ho com una sola potència."
+
+Q("324a", 324, "a", B4, "A",
+  r"$3^2\cdot 3^4$",
+  "$" + pot("3", 6) + "$",
+  [D("$" + pot("3", 8) + "$", "EXPONENTS_MULTIPLICATS",
+     "Has multiplicat els exponents. En un PRODUCTE de la mateixa base se "
+     "sumen: $3^2\\cdot 3^4$ són dos tresos i quatre tresos, sis en total."),
+   D("$9^{6}$", "BASE_ALTERADA",
+     "La base no es toca: es queda en $3$. Només es toquen els exponents."),
+   D("$" + pot("3", 2) + "$", "EXPONENTS_RESTATS_PRODUCTE",
+     "Els exponents es resten quan es DIVIDEIX, no quan es multiplica.")],
+  ["Producte de potències de la mateixa base: els exponents se sumen.",
+   "$3^2\\cdot 3^4=3^{2+4}$."],
+  [r"$3^{2}\cdot 3^{4}=3^{2+4}=3^{6}$"],
+  ex_text=E324)
+
+Q("324b", 324, "b", B4, "A",
+  r"$2^7 : 2^4$",
+  "$" + pot("2", 3) + "$",
+  [D("$" + pot("2", 11) + "$", "EXPONENTS_SUMATS_QUOCIENT",
+     "Has sumat els exponents. En un QUOCIENT es resten: $7-4$."),
+   D("$" + pot("2", 28) + "$", "EXPONENTS_MULTIPLICATS",
+     "Els exponents només es multipliquen a una potència d'una potència."),
+   D("$1^{3}$", "BASE_ALTERADA",
+     "La base no es divideix: es queda en $2$. Només es resten els exponents.")],
+  ["Quocient de potències de la mateixa base: els exponents es resten.",
+   "$2^7:2^4=2^{7-4}$."],
+  [r"$2^{7}:2^{4}=2^{7-4}=2^{3}$"],
+  ex_text=E324)

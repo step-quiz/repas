@@ -48,22 +48,38 @@
         return e === "net" || e === "pista" || e === "segon";
       }).length;
       var el = document.createElement("button");
-      el.className = "bloc" + (b.id === blocDestacat ? " destacat" : "");
+      el.className = "bloc" + (b.id === blocDestacat ? " destacat" : "")
+                   + (b.avancat ? " avancat" : "");
       el.type = "button";
+      /* Els blocs on TOTS els exercicis són del nivell més alt es diuen. No
+         és un avís de perill: és informació que evita que l'alumne entri a
+         un bloc de problemes creient que serà com el primer del full, no
+         se'n surti i en tregui la conclusió que el tema no el sap. Que
+         sàpiga on és li deixa triar si hi entra ara o més tard. */
       el.innerHTML =
         '<span class="num">' + (i + 1) + "</span>" +
         '<span class="cos">' +
-          '<span class="tit">' + b.titol + "</span>" +
-          '<div class="petit apagat">' + b.descripcio + "</div>" +
+          '<span class="tit">' + b.titol +
+            (b.avancat ? ' <span class="marca-avancat">nivell avançat</span>' : "") +
+          "</span>" +
+          '<div class="petit apagat">' + b.descripcio +
+            (b.avancat ? " Tot el bloc són problemes de diversos passos: "
+                       + "va bé deixar-lo per al final." : "") +
+          "</div>" +
           '<div class="barra"><i style="width:' + Math.round(100 * ok / b.items.length) + '%"></i></div>' +
         "</span>" +
         '<span class="petit apagat">' + ok + "/" + b.items.length + "</span>";
+      el.setAttribute("aria-label", b.titol
+        + (b.avancat ? " (nivell avançat)" : "")
+        + ": " + ok + " de " + b.items.length + " resoltes");
       el.onclick = function () { ves(primerPendent(b.items)); };
       cont.appendChild(el);
     });
     if (blocDestacat) {
       var elDestacat = cont.querySelector(".destacat");
-      if (elDestacat) elDestacat.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (elDestacat && elDestacat.scrollIntoView) {
+        elDestacat.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
   }
 

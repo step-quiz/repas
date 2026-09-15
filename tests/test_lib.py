@@ -263,8 +263,15 @@ class Figures(unittest.TestCase):
 
 class Dificultats(unittest.TestCase):
     def test_rebutja_un_nivell_fora_d_escala(self):
-        with self.assertRaises(AssertionError):
-            lib.dificultats({999: 4})
+        """L'escala és 1 trivial · 2 directa · 3 encadenada · 4 completa."""
+        for fora in (0, 5, -1, "2"):
+            with self.assertRaises(AssertionError):
+                lib.dificultats({999: fora})
+
+    def test_accepta_tota_l_escala(self):
+        for n, nom in lib.NOM_NIVELL.items():
+            lib.dificultats({9900 + n: n})
+            self.assertEqual(lib.NOM_NIVELL[n], nom)
 
     def test_rebutja_registrar_dues_vegades_amb_valors_diferents(self):
         """El Full 1 el componen quatre mòduls i la taula s'acumula: registrar

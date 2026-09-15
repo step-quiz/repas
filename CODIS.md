@@ -54,10 +54,16 @@ Estat de cada exercici: `0` per fer · `1` a la primera · `2` al segon intent �
 `3` amb pista · `4` fallat · `5` començat sense respondre. Són exactament els
 que `nucli.js` ja desava, així que no ha calgut instrumentar res de nou.
 
-**Llargada real.** Un full de 59 exercicis fet a mitges: **45 caràcters**.
-Els 739 exercicis dels dotze fulls més el diagnòstic: 490. Els grups finals
+**Llargada real.** Un full de 71 exercicis fet a mitges: **46 caràcters**.
+Els 951 exercicis dels dotze fulls més el diagnòstic: 611. Els grups finals
 buits no s'escriuen, de manera que la llargada creix amb la feina feta i no
 amb la mida del full.
+
+Aquestes xifres es queden enrere cada vegada que creix el banc, i s'hi han
+quedat un parell de vegades. El que no caduca és el RITME: set estats caben
+en quatre caràcters base32, o sigui **0,57 caràcters per exercici**, més un
+comptador per full. `tests/codi.test.js` comprova el ritme i deriva el sostre
+del banc, en lloc de fixar un número que demà no valdrà.
 
 ---
 
@@ -343,6 +349,6 @@ Si prefereixes que la vegi, és una línia a `js/codi-ui.js`.
   que deixa d'avisar amb prou, i que no ensenya cap nota.
 - 13 comprovacions de la integració a l'app: recollida des de `localStorage`,
   anada i tornada del codi amb estats i etiquetes idèntics.
-- Anada i tornada exacta amb 739 exercicis, 12 fulls i el diagnòstic.
+- Anada i tornada exacta amb tot el banc, els 12 fulls i el diagnòstic.
 - Les proves de manipulació de la taula de més amunt.
 - Compilació determinista: dues passades seguides donen fitxers idèntics.

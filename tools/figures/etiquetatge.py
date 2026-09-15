@@ -217,7 +217,14 @@ class Escena:
         l'aresta veïna com de la seva (raons de 1,1 típiques), i no hi ha
         cap posició que ho arregli: el problema és que res no diu QUIN
         segment es mesura. Les línies auxiliars ho diuen.
+
+        Sense text no es dibuixa res. Una cota és la manera de dir quant
+        mesura un segment; si no hi ha res a dir, les línies auxiliars i la
+        fletxa es queden soles al dibuix i l'alumne hi busca un número que
+        no hi és.
         """
+        if text is None or text == "":
+            return
         (x1, y1), (x2, y2) = p, q
         dx, dy = x2 - x1, y2 - y1
         L = math.hypot(dx, dy) or 1.0

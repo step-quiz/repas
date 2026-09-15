@@ -35,6 +35,10 @@ window.FULL = {
    "titol": "Divisibilitat",
    "descripcio": "Descomposició factorial, m.c.d., m.c.m. i problemes.",
    "items": [
+    "340a",
+    "340b",
+    "340c",
+    "340d",
     "5a",
     "5b",
     "5c",
@@ -44,7 +48,6 @@ window.FULL = {
     "7a",
     "7b",
     "7c",
-    "8",
     "9a",
     "9b",
     "9c",
@@ -53,6 +56,7 @@ window.FULL = {
     "10b",
     "10c",
     "10d",
+    "8",
     "11",
     "12a",
     "12b",
@@ -74,25 +78,25 @@ window.FULL = {
     "18d",
     "18e",
     "18f",
-    "19a",
-    "19b",
-    "19c",
-    "19d",
     "20a",
     "20b",
     "20c",
-    "21a",
-    "21b",
-    "21c",
-    "21d",
-    "21e",
-    "21f",
     "22a",
     "22b",
     "22c",
     "22d",
     "22e",
     "22f",
+    "19a",
+    "19b",
+    "19c",
+    "19d",
+    "21a",
+    "21b",
+    "21c",
+    "21d",
+    "21e",
+    "21f",
     "23a",
     "23b",
     "23c",
@@ -225,7 +229,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$(-13) \\cdot (+3) - (-12) \\cdot (+7)$",
    "opcions": [
@@ -247,7 +251,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$(-3) \\cdot (-12) - (-15) \\cdot (-4)$",
    "opcions": [
@@ -269,7 +273,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$(-35) : (-7) + (-54) : (+9)$",
    "opcions": [
@@ -291,7 +295,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$[(-25) + 5 - (-4)] : (-8)$",
    "opcions": [
@@ -313,7 +317,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$[(-16) + (-9) + 5] : (-4)$",
    "opcions": [
@@ -335,7 +339,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Resol les operacions següents.",
    "enunciat": "$[(-4) + (-3) \\cdot (-6)] : 7$",
    "opcions": [
@@ -357,7 +361,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$(-11) \\cdot (10 + (-7)) + 36 \\cdot [(-1) - (-10)]$",
    "opcions": [
@@ -379,7 +383,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$(-8) \\cdot [5 - (-2)] - 48 : [6 + (-14)]$",
    "opcions": [
@@ -401,7 +405,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$42 : [(-6) - (-3)] + 28 : [-6 - (-8)]$",
    "opcions": [
@@ -423,7 +427,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Resol les operacions.",
    "enunciat": "$32 \\cdot [(-19) + 3] - 24 : [(-11) - (-5)]$",
    "opcions": [
@@ -445,7 +449,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua aquestes operacions combinades.",
    "enunciat": "$(-5)^2 \\cdot [3 + 28 \\cdot (-4)]$",
    "opcions": [
@@ -467,7 +471,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua aquestes operacions combinades.",
    "enunciat": "$(+2)^2 \\cdot [-5 \\cdot 2 - 32 : (-8)]$",
    "opcions": [
@@ -489,7 +493,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua aquestes operacions combinades.",
    "enunciat": "$(+3)^3 : [-5 + (-7) \\cdot (-2)]$",
    "opcions": [
@@ -511,7 +515,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "enters",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua aquestes operacions combinades.",
    "enunciat": "$(-4)^3 : [(-15) : 5 - (-45) \\cdot (-9)]$",
    "opcions": [
@@ -533,7 +537,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "enters",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba l'error. En cada cadena d'igualtats hi ha un pas equivocat: tria quin és.",
    "enunciat": "$(-3) + (-5) - (-8) = -3 - 5 - 8 = -8 - 8 = -(8-8) = 0$",
    "opcions": [
@@ -555,7 +559,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "enters",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba l'error. En cada cadena d'igualtats hi ha un pas equivocat: tria quin és.",
    "enunciat": "$-9 - (-8) - (-7 - 2) = -9 + 8 + 7 - 2 = -1 + 7 - 2 = -6 - 2 = -8$",
    "opcions": [
@@ -577,7 +581,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "enters",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba l'error. En cada cadena d'igualtats hi ha un pas equivocat: tria quin és.",
    "enunciat": "$5 - [-6 + 7 - (-2)] = 5 + 6 - 7 + 2 = 11 - 5 = 6$",
    "opcions": [
@@ -599,7 +603,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "enters",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba l'error. En cada cadena d'igualtats hi ha un pas equivocat: tria quin és.",
    "enunciat": "$4 \\cdot (-3) + (-5) \\cdot (-2) = -12 - 10 = -22$",
    "opcions": [
@@ -621,7 +625,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "enters",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Troba l'error. En cada cadena d'igualtats hi ha un pas equivocat: tria quin és.",
    "enunciat": "$4 - 5 \\cdot (-2) = (-1) \\cdot (-2) = 2$",
    "opcions": [
@@ -638,12 +642,100 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwcm9kdWN0ZSBlc3TDoCBiw6ksIHBlcsOyICQ0LSgtMTApJCDDqXMgJDQrMTAgPSAxNCQuIiwgIiIsICJTJ2hhIGFsdGVyYXQgbCdvcmRyZSBkZSBsZXMgb3BlcmFjaW9uczsgZWwgcmVzdWx0YXQgY29ycmVjdGUgw6lzICQxNCQuIiwgIiQoLTEpXFxjZG90KC0yKSA9ICsyJCBlc3TDoCBiZW4gY2FsY3VsYXQ7IGVsIHByb2JsZW1hIMOpcyBkJ29uIHN1cnQgYXF1ZXN0ICQtMSQuIl0sICJlcnIiOiBbIlJFU1RBX05FR0FUSVUiLCAiIiwgIkNBUF9FUlJPUiIsICJNRU5ZU19QRVJfTUVOWVMiXSwgInJlcyI6IFsiJDVcXGNkb3QoLTIpID0gLTEwJCIsICIkNCAtICgtMTApID0gNCArIDEwID0gMTQkIl19"
   },
   {
+   "id": "340a",
+   "ex": 340,
+   "ap": "a",
+   "bloc": "divisibilitat",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Fes la descomposició factorial de:",
+   "enunciat": "$12$",
+   "opcions": [
+    "$2^{2}\\cdot 3$",
+    "$2\\cdot 6$",
+    "$2\\cdot 3$",
+    "$3\\cdot 4$"
+   ],
+   "pistes": [
+    "Divideix entre $2$ tantes vegades com puguis, i després prova amb $3$.",
+    "$12:2=6$ i $6:2=3$: dues vegades el $2$, i queda un $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDYkIG5vIMOpcyBwcmltZXI6ICQ2PTJcXGNkb3QgMyQuIExhIGRlc2NvbXBvc2ljacOzIGhhIGQnYXJyaWJhciBhIHByaW1lcnMgaSBhdHVyYXItc2UgYWxsw6AuIiwgIkV0IGZhbHRhIHVuICQyJDogJDJcXGNkb3QgMz02JCwgbm8gJDEyJC4gRWwgJDEyJCBlcyBkaXZpZGVpeCBEVUVTIHZlZ2FkZXMgZW50cmUgJDIkICgkMTI6Mj02JCBpICQ2OjI9MyQpLCBpIHBlciBhaXjDsiB2YSAkMl57Mn0kLiIsICIkNCQgbm8gw6lzIHByaW1lcjogJDQ9Ml57Mn0kLiJdLCAiZXJyIjogWyIiLCAiRkFDVE9SX05PX1BSSU1FUiIsICJFWFBPTkVOVF9PQkxJREFUIiwgIkZBQ1RPUl9OT19QUklNRVIiXSwgInJlcyI6IFsiJDEyPTJcXGNkb3QgNj0yXFxjZG90IDJcXGNkb3QgMz0yXnsyfVxcY2RvdCAzJCJdfQ=="
+  },
+  {
+   "id": "340b",
+   "ex": 340,
+   "ap": "b",
+   "bloc": "divisibilitat",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Fes la descomposició factorial de:",
+   "enunciat": "$18$",
+   "opcions": [
+    "$2\\cdot 3$",
+    "$2^{2}\\cdot 3$",
+    "$2\\cdot 3^{2}$",
+    "$2\\cdot 9$"
+   ],
+   "pistes": [
+    "Comença pel $2$ i després continua amb el $3$.",
+    "$18:2=9$, i $9=3\\cdot 3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMlxcY2RvdCAzPTYkLCBubyAkMTgkLiBEZXNwcsOpcyBkZSBkaXZpZGlyIGVudHJlICQyJCBxdWVkYSAkOSQsIHF1ZSBlbmNhcmEgZXMgZGl2aWRlaXggZHVlcyB2ZWdhZGVzIGVudHJlICQzJC4iLCAiJDE4JCBub23DqXMgw6lzIHBhcmVsbCB1bmEgdmVnYWRhOiAkMTg6Mj05JCwgaSAkOSQgw6lzIGltcGFyZWxsLiIsICIiLCAiJDkkIG5vIMOpcyBwcmltZXI6ICQ5PTNeezJ9JC4iXSwgImVyciI6IFsiRVhQT05FTlRfT0JMSURBVCIsICJFWFBPTkVOVF9FWENFUyIsICIiLCAiRkFDVE9SX05PX1BSSU1FUiJdLCAicmVzIjogWyIkMTg9MlxcY2RvdCA5PTJcXGNkb3QgM1xcY2RvdCAzPTJcXGNkb3QgM157Mn0kIl19"
+  },
+  {
+   "id": "340c",
+   "ex": 340,
+   "ap": "c",
+   "bloc": "divisibilitat",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Fes la descomposició factorial de:",
+   "enunciat": "$25$",
+   "opcions": [
+    "$5^{2}$",
+    "$5\\cdot 20$",
+    "$5$",
+    "$3\\cdot 5$"
+   ],
+   "pistes": [
+    "$25$ no és parell i no és múltiple de $3$: prova amb el $5$.",
+    "$25:5=5$, i el $5$ ja és primer."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDIwJCBubyDDqXMgcHJpbWVyLCBpIGEgbcOpcyAkNVxcY2RvdCAyMD0xMDAkLiIsICJVbiAkNSQgc29sIHZhbCAkNSQsIG5vICQyNSQuIEVsICQyNSQgw6lzICQ1XFxjZG90IDUkLiIsICIkMyQgbm8gZGl2aWRlaXggJDI1JDogcHJvdmEtaG8gaSB2ZXVyw6BzIHF1ZSBubyBkb25hIGV4YWN0ZS4gQ29tcHJvdmEgc2VtcHJlIG11bHRpcGxpY2FudCBlbHMgZmFjdG9ycy4iXSwgImVyciI6IFsiIiwgIkZBQ1RPUl9OT19QUklNRVIiLCAiRVhQT05FTlRfT0JMSURBVCIsICJGQUNUT1JfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiQyNT01XFxjZG90IDU9NV57Mn0kIl19"
+  },
+  {
+   "id": "340d",
+   "ex": 340,
+   "ap": "d",
+   "bloc": "divisibilitat",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Fes la descomposició factorial de:",
+   "enunciat": "$40$",
+   "opcions": [
+    "$2^{3}\\cdot 5$",
+    "$2^{4}\\cdot 5$",
+    "$2^{2}\\cdot 10$",
+    "$2^{2}\\cdot 5$"
+   ],
+   "pistes": [
+    "Divideix entre $2$ mentre puguis, i compta quantes vegades ho fas.",
+    "$40\\to 20\\to 10\\to 5$: tres vegades el $2$, i queda el $5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDJeezR9XFxjZG90IDU9ODAkLiBDb21wdGEgbGVzIGRpdmlzaW9uczogJDQwOjI9MjAkLCAkMjA6Mj0xMCQsICQxMDoyPTUkLiBTw7NuIHRyZXMsIG5vIHF1YXRyZS4iLCAiJDEwJCBubyDDqXMgcHJpbWVyOiAkMTA9MlxcY2RvdCA1JCwgZGUgbWFuZXJhIHF1ZSBlbmNhcmEgaGkgc3VydCB1biAkMiQgbcOpcy4iLCAiJDJeezJ9XFxjZG90IDU9MjAkLCBubyAkNDAkLiBFbCAkNDAkIGVzIGRpdmlkZWl4IFRSRVMgdmVnYWRlcyBlbnRyZSAkMiQ6ICQ0MFxcdG8gMjBcXHRvIDEwXFx0byA1JC4iXSwgImVyciI6IFsiIiwgIkVYUE9ORU5UX0VYQ0VTIiwgIkZBQ1RPUl9OT19QUklNRVIiLCAiRVhQT05FTlRfT0JMSURBVCJdLCAicmVzIjogWyIkNDA9MlxcY2RvdCAyMD0yXFxjZG90IDJcXGNkb3QgMTA9MlxcY2RvdCAyXFxjZG90IDJcXGNkb3QgNT0yXnszfVxcY2RvdCA1JCJdfQ=="
+  },
+  {
    "id": "5a",
    "ex": 5,
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes la descomposició factorial de:",
    "enunciat": "$3850$",
    "opcions": [
@@ -665,7 +757,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes la descomposició factorial de:",
    "enunciat": "$-432$",
    "opcions": [
@@ -687,7 +779,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes la descomposició factorial de:",
    "enunciat": "$-561$",
    "opcions": [
@@ -709,7 +801,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el màxim comú divisor de cada parell de nombres.",
    "enunciat": "$45$ i $-27$",
    "opcions": [
@@ -731,7 +823,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el màxim comú divisor de cada parell de nombres.",
    "enunciat": "$-28$ i $21$",
    "opcions": [
@@ -753,7 +845,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el màxim comú divisor de cada parell de nombres.",
    "enunciat": "$-18$ i $12$",
    "opcions": [
@@ -775,7 +867,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba el màxim comú divisor.",
    "enunciat": "$6$, $-8$, $12$",
    "opcions": [
@@ -797,7 +889,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba el màxim comú divisor.",
    "enunciat": "$16$, $20$, $-28$",
    "opcions": [
@@ -819,7 +911,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba el màxim comú divisor.",
    "enunciat": "$40$, $-10$, $25$",
    "opcions": [
@@ -836,34 +928,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBtw6lzIHBldGl0IGRlbHMgbm9tYnJlcyBub23DqXMgw6lzIGVsIG0uYy5kLiBzaSBkaXZpZGVpeCB0b3RzIGVscyBhbHRyZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgbm9tYnJlcy4gRWwgbS5jLmQuIMOpcyBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbiwgbm8gZWwgcHJvZHVjdGUuIiwgIkFpeMOyIMOpcyBlbCBtLmMubS4sIGVsIG3Dumx0aXBsZSBtw6lzIHBldGl0LiBFbCBtLmMuZC4gw6lzIHVuIGRpdmlzb3I6IGhhIGRlIHNlciBtw6lzIHBldGl0IG8gaWd1YWwgcXVlIHRvdHMgZWxzIG5vbWJyZXMuIiwgIiJdLCAiZXJyIjogWyJFTF9NRVNfUEVUSVQiLCAiUFJPRFVDVEUiLCAiTUNNX0VOX0xMT0NfREVfTUNEIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ0MCA9IDJeezN9XFxjZG90IDUkIMK3ICQxMCA9IDJcXGNkb3QgNSQgwrcgJDI1ID0gNV57Mn0kIiwgIkZhY3RvcnMgY29tdW5zIGFtYiBlbCBtZW5vciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSA1JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLmQufSA9IDUkIl19"
   },
   {
-   "id": "8",
-   "ex": 8,
-   "ap": "",
-   "bloc": "divisibilitat",
-   "tipus": "B",
-   "dif": 2,
-   "encapcalament": "Divisibilitat: condicions sobre el m.c.d.",
-   "enunciat": "Si $\\operatorname{m.c.d.}(x, 12) = 6$, quin d'aquests valors pot tenir $x$?",
-   "opcions": [
-    "$9$",
-    "$12$",
-    "$24$",
-    "$18$"
-   ],
-   "pistes": [
-    "$x$ ha de ser múltiple de $6$ (si no, el $6$ no el divideix).",
-    "Però $x$ no pot ser múltiple de $12$: llavors el m.c.d. seria $12$."
-   ],
-   "nota": "Hi ha infinites solucions; l'exercici en demana una de vàlida.",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbWIgJHg9OSQ6ICRcXG9wZXJhdG9ybmFtZXttLmMuZC59KDksMTIpID0gMyQuIFBlcnF1w6ggZG9uaSAkNiQsICR4JCBoYSBkZSBzZXIgbcO6bHRpcGxlIGRlICQ2JC4iLCAiQW1iICR4PTEyJDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0oMTIsMTIpID0gMTIkLCBubyAkNiQuIiwgIkFtYiAkeD0yNCQ6IGNvbSBxdWUgJDI0JCDDqXMgbcO6bHRpcGxlIGRlICQxMiQsIGVsIG0uYy5kLiDDqXMgJDEyJC4iLCAiIl0sICJlcnIiOiBbIk5PX01VTFRJUExFX0RFXzYiLCAiTVVMVElQTEVfTUFTU0FfR1JBTiIsICJNVUxUSVBMRV9NQVNTQV9HUkFOIiwgIiJdLCAicmVzIjogWyIkMTIgPSAyXnsyfVxcY2RvdCAzJCBpIGNhbCBxdWUgZWwgbS5jLmQuIHNpZ3VpICQ2ID0gMlxcY2RvdCAzJC4iLCAiJHgkIGhhIGRlIHRlbmlyIGVsIGZhY3RvciAkMiQgaSBlbCBmYWN0b3IgJDMkLCBwZXLDsiBOTyAkMl57Mn0kLiIsICJTZXJ2ZWl4ZW4gJHggPSA2LCAxOCwgMzAsIDQyXFxkb3RzJCAobcO6bHRpcGxlcyBkZSAkNiQgcXVlIG5vIGhvIHPDs24gZGUgJDEyJCkuIEFtYiAkeCA9IDE4JDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0oMTgsMTIpID0gNiQuIl19"
-  },
-  {
    "id": "9a",
    "ex": 9,
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el mínim comú múltiple.",
    "enunciat": "$-12$ i $18$",
    "opcions": [
@@ -885,7 +955,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el mínim comú múltiple.",
    "enunciat": "$15$ i $-45$",
    "opcions": [
@@ -907,7 +977,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el mínim comú múltiple.",
    "enunciat": "$27$ i $-18$",
    "opcions": [
@@ -929,7 +999,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el mínim comú múltiple.",
    "enunciat": "$-42$ i $14$",
    "opcions": [
@@ -951,7 +1021,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Busca el mínim comú múltiple dels nombres següents.",
    "enunciat": "$12$, $-9$, $10$",
    "opcions": [
@@ -973,7 +1043,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Busca el mínim comú múltiple dels nombres següents.",
    "enunciat": "$-4$, $18$, $27$",
    "opcions": [
@@ -995,7 +1065,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Busca el mínim comú múltiple dels nombres següents.",
    "enunciat": "$-8$, $30$, $24$",
    "opcions": [
@@ -1017,7 +1087,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Busca el mínim comú múltiple dels nombres següents.",
    "enunciat": "$5$, $-10$, $25$",
    "opcions": [
@@ -1034,12 +1104,34 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBtw6lzIGdyYW4gbm9tw6lzIMOpcyBlbCBtLmMubS4gc2kgw6lzIG3Dumx0aXBsZSBkZSB0b3RzIGVscyBhbHRyZXMuIiwgIkFpeMOyIMOpcyBlbCBtLmMuZC4sIGVsIGRpdmlzb3IgY29tw7ogbcOpcyBncmFuLiBFbCBtLmMubS4gw6lzIHVuIG3Dumx0aXBsZTogaGEgZGUgc2VyIG3DqXMgZ3JhbiBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICIiXSwgImVyciI6IFsiRUxfTUVTX0dSQU4iLCAiTUNEX0VOX0xMT0NfREVfTUNNIiwgIlBST0RVQ1RFIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ1ID0gNSQgwrcgJDEwID0gMlxcY2RvdCA1JCDCtyAkMjUgPSA1XnsyfSQiLCAiVG90cyBlbHMgZmFjdG9ycyBhbWIgZWwgbWFqb3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gMlxcY2RvdCA1XnsyfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSA1MCQiXX0="
   },
   {
+   "id": "8",
+   "ex": 8,
+   "ap": "",
+   "bloc": "divisibilitat",
+   "tipus": "B",
+   "dif": 3,
+   "encapcalament": "Divisibilitat: condicions sobre el m.c.d.",
+   "enunciat": "Si $\\operatorname{m.c.d.}(x, 12) = 6$, quin d'aquests valors pot tenir $x$?",
+   "opcions": [
+    "$9$",
+    "$12$",
+    "$24$",
+    "$18$"
+   ],
+   "pistes": [
+    "$x$ ha de ser múltiple de $6$ (si no, el $6$ no el divideix).",
+    "Però $x$ no pot ser múltiple de $12$: llavors el m.c.d. seria $12$."
+   ],
+   "nota": "Hi ha infinites solucions; l'exercici en demana una de vàlida.",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbWIgJHg9OSQ6ICRcXG9wZXJhdG9ybmFtZXttLmMuZC59KDksMTIpID0gMyQuIFBlcnF1w6ggZG9uaSAkNiQsICR4JCBoYSBkZSBzZXIgbcO6bHRpcGxlIGRlICQ2JC4iLCAiQW1iICR4PTEyJDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0oMTIsMTIpID0gMTIkLCBubyAkNiQuIiwgIkFtYiAkeD0yNCQ6IGNvbSBxdWUgJDI0JCDDqXMgbcO6bHRpcGxlIGRlICQxMiQsIGVsIG0uYy5kLiDDqXMgJDEyJC4iLCAiIl0sICJlcnIiOiBbIk5PX01VTFRJUExFX0RFXzYiLCAiTVVMVElQTEVfTUFTU0FfR1JBTiIsICJNVUxUSVBMRV9NQVNTQV9HUkFOIiwgIiJdLCAicmVzIjogWyIkMTIgPSAyXnsyfVxcY2RvdCAzJCBpIGNhbCBxdWUgZWwgbS5jLmQuIHNpZ3VpICQ2ID0gMlxcY2RvdCAzJC4iLCAiJHgkIGhhIGRlIHRlbmlyIGVsIGZhY3RvciAkMiQgaSBlbCBmYWN0b3IgJDMkLCBwZXLDsiBOTyAkMl57Mn0kLiIsICJTZXJ2ZWl4ZW4gJHggPSA2LCAxOCwgMzAsIDQyXFxkb3RzJCAobcO6bHRpcGxlcyBkZSAkNiQgcXVlIG5vIGhvIHPDs24gZGUgJDEyJCkuIEFtYiAkeCA9IDE4JDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0oMTgsMTIpID0gNiQuIl19"
+  },
+  {
    "id": "11",
    "ex": 11,
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Troba dos nombres amb $\\operatorname{m.c.d.} = 6$ i $\\operatorname{m.c.m.} = 36$.",
    "enunciat": "Quin d'aquests parells de nombres té $\\operatorname{m.c.d.} = 6$ i $\\operatorname{m.c.m.} = 36$?",
    "opcions": [
@@ -1061,7 +1153,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Resol aquests problemes.",
    "enunciat": "Volem tallar tres cordes de $4$, $6$ i $9$ m en trossos iguals. Quina és la longitud, en metres, dels trossos més grans que es poden fer?",
    "opcions": [
@@ -1083,7 +1175,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Resol aquests problemes.",
    "enunciat": "Els llibres d'una prestatgeria es poden col·locar en piles de $4$, $6$ i $9$ llibres sense que en sobri cap. Quina és la quantitat més petita de llibres que hi pot haver?",
    "opcions": [
@@ -1105,7 +1197,7 @@ window.FULL = {
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Problema d'aplicació del m.c.d.",
    "enunciat": "El passadís fa $432$ cm de llarg i $128$ cm d'ample. Hi volem posar rajoles quadrades de la mida més gran possible, sense haver-ne de tallar cap. Quina mida tenen i quantes en calen?",
    "opcions": [
@@ -1127,7 +1219,7 @@ window.FULL = {
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Problema d'aplicació del m.c.m.",
    "enunciat": "L'Àlex té aproximadament $150$ fotografies. Les pot enganxar en grups de $8$, de $9$ o de $12$ sense que li'n sobri cap. Quantes fotografies té?",
    "opcions": [
@@ -1149,7 +1241,7 @@ window.FULL = {
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Problema d'aplicació del m.c.m.",
    "enunciat": "Per una via passa un tren cap a Girona cada $30$ minuts i un altre cap a València cada $18$ minuts. Si s'han creuat a les $10{:}00$, a quina hora es tornaran a creuar?",
    "opcions": [
@@ -1171,7 +1263,7 @@ window.FULL = {
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Problema d'aplicació del m.c.m.",
    "enunciat": "En Lluís viatja a Barcelona cada $15$ dies i la seva germana Marta cada $20$ dies. Si l'última vegada que hi van coincidir va ser el $2$ d'octubre, quin dia hi tornaran a coincidir?",
    "opcions": [
@@ -1193,7 +1285,7 @@ window.FULL = {
    "ap": "",
    "bloc": "divisibilitat",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Problema d'aplicació del m.c.m.",
    "enunciat": "En una carretera hi ha fanals cada $12$ m en un lateral i cada $18$ m a l'altre. El primer fanal de cada lateral està a la mateixa altura. Quants metres cal recórrer per trobar dos fanals l'un davant de l'altre?",
    "opcions": [
@@ -1215,7 +1307,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{6}{3}$ i $\\dfrac{36}{48}$",
    "opcions": [
@@ -1237,7 +1329,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{15}{12}$ i $\\dfrac{60}{48}$",
    "opcions": [
@@ -1259,7 +1351,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{5}{4}$ i $\\dfrac{15}{8}$",
    "opcions": [
@@ -1281,7 +1373,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{8}{5}$ i $\\dfrac{24}{10}$",
    "opcions": [
@@ -1303,7 +1395,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{9}{13}$ i $\\dfrac{72}{104}$",
    "opcions": [
@@ -1325,7 +1417,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "fraccions",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Digues si són equivalents els parells de fraccions següents.",
    "enunciat": "$\\dfrac{72}{25}$ i $\\dfrac{123}{115}$",
    "opcions": [
@@ -1342,100 +1434,12 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiUXVlIGR1ZXMgZnJhY2Npb25zIGVzIHB1Z3VpbiBzaW1wbGlmaWNhciBubyB2b2wgZGlyIHF1ZSBzaWd1aW4gZXF1aXZhbGVudHM6IGNhbCBxdWUgdG90ZXMgZHVlcyBzaW1wbGlmaXF1aW4gYSBsYSBNQVRFSVhBIGZyYWNjacOzIGlycmVkdWN0aWJsZS4iLCAiQ29tcHJvdmEtaG86ICQ3MlxcY2RvdCAxMTUgPSA4MjgwJCBpICQyNVxcY2RvdCAxMjMgPSAzMDc1JC4gTm8gY29pbmNpZGVpeGVuLiJdLCAiZXJyIjogWyJSQU9OQU1FTlRfQURESVRJVSIsICIiLCAiQ1JJVEVSSV9GQUxTIiwgIlBST0RVQ1RFU19DUkVVQVRTIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNzJcXGNkb3QgMTE1ID0gODI4MCQgXFxxdWFkIGkgXFxxdWFkICQyNVxcY2RvdCAxMjMgPSAzMDc1JCIsICJObyBjb2luY2lkZWl4ZW46ICRcXGRmcmFjezcyfXsyNX0kIHZhbCAkXFxkZnJhY3s3Mn17MjV9JCBpICRcXGRmcmFjezEyM317MTE1fSQgdmFsICRcXGRmcmFjezEyM317MTE1fSQuIl19"
   },
   {
-   "id": "19a",
-   "ex": 19,
-   "ap": "a",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
-   "enunciat": "$\\dfrac{6}{\\square} = \\dfrac{9}{3}$",
-   "opcions": [
-    "$3$",
-    "$2$",
-    "$\\dfrac{9}{2}$",
-    "$18$"
-   ],
-   "pistes": [
-    "Aplica els productes creuats: $6\\cdot 3 = 9\\cdot\\square$.",
-    "$\\dfrac{9}{3}$ val $3$, o sigui que $\\dfrac{6}{\\square}$ també ha de valer $3$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29waWF0IGVsIGRlbm9taW5hZG9yIGRlIGwnYWx0cmEgZnJhY2Npw7MuIER1ZXMgZnJhY2Npb25zIGVxdWl2YWxlbnRzIGdhaXJlYsOpIG1haSB0ZW5lbiBlbHMgbWF0ZWl4b3MgdGVybWVzOiBlbCBxdWUgaGEgZGUgY29pbmNpZGlyIMOpcyBlbCB2YWxvciwgbm8gbGVzIHhpZnJlcy4iLCAiIiwgIkRlICQ2XFxjZG90IDMgPSA5XFxjZG90XFxzcXVhcmUkIHN1cnQgJFxcc3F1YXJlID0gXFxkZnJhY3s2XFxjZG90IDN9ezl9JC4gSGFzIGNyZXVhdCBlbHMgdGVybWVzIGFsIHJldsOpcyBlbiBhw69sbGFyIGxhIGluY8OyZ25pdGEuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiJdLCAiZXJyIjogWyJDT01QQVJBX1RFUk1FUyIsICIiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkNlxcY2RvdCAzID0gOVxcY2RvdCBcXHNxdWFyZSBcXDtcXFJpZ2h0YXJyb3dcXDsgMTggPSA5XFxjZG90XFxzcXVhcmUkIiwgIiRcXHNxdWFyZSA9IDE4IDogOSA9IDIkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7Nn17Mn0gPSAzID0gXFxkZnJhY3s5fXszfSQiXX0="
-  },
-  {
-   "id": "19b",
-   "ex": 19,
-   "ap": "b",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
-   "enunciat": "$\\dfrac{4}{5} = \\dfrac{\\square}{10}$",
-   "opcions": [
-    "$40$",
-    "$\\dfrac{25}{2}$",
-    "$8$",
-    "$9$"
-   ],
-   "pistes": [
-    "De $5$ a $10$, per quant s'ha multiplicat el denominador?",
-    "El que facis al denominador, fes-ho al numerador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZWxzIGRvcyBub21icmVzIHF1ZSBldCBkb25hdmVuIGVuIGNvbXB0ZXMgZCdhw69sbGFyIGxhIGluY8OyZ25pdGEgYW1iIGVscyBwcm9kdWN0ZXMgY3JldWF0cy4iLCAiSGFzIGNyZXVhdCBlbHMgdGVybWVzIGFsIHJldsOpcyBlbiBhw69sbGFyIGxhIGluY8OyZ25pdGEuIiwgIiIsICJEZSAkNSQgYSAkMTAkIG5vIHMnaGkgc3VtYSAkNSQ6IGVzIG11bHRpcGxpY2EgcGVyICQyJC4gSGFzIHBhc3NhdCBkJ3VuYSBmcmFjY2nDsyBhIGwnYWx0cmEgc3VtYW50LiBEdWVzIGZyYWNjaW9ucyBzw7NuIGVxdWl2YWxlbnRzIHF1YW4gZXMgcGFzc2EgZCd1bmEgYSBsJ2FsdHJhIE1VTFRJUExJQ0FOVCBlbHMgZG9zIHRlcm1lcyBwZWwgbWF0ZWl4IG5vbWJyZS4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiUkFPTkFNRU5UX0FERElUSVUiXSwgInJlcyI6IFsiJDVcXGNkb3QgMiA9IDEwJCwgbyBzaWd1aSBxdWUgZWwgbnVtZXJhZG9yIHRhbWLDqSBlcyBtdWx0aXBsaWNhIHBlciAkMiQuIiwgIiRcXHNxdWFyZSA9IDRcXGNkb3QgMiA9IDgkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7OH17MTB9ID0gXFxkZnJhY3s0fXs1fSQiXX0="
-  },
-  {
-   "id": "19c",
-   "ex": 19,
-   "ap": "c",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
-   "enunciat": "$\\dfrac{8}{12} = \\dfrac{2}{\\square}$",
-   "opcions": [
-    "$3$",
-    "$6$",
-    "$24$",
-    "$\\dfrac{4}{3}$"
-   ],
-   "pistes": [
-    "De $8$ a $2$, per quant s'ha dividit el numerador?",
-    "Divideix el denominador pel mateix nombre."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRGUgJDgkIGEgJDIkIG5vIHMnaGkgcmVzdGEgJDYkOiBlcyBkaXZpZGVpeCBlbnRyZSAkNCQuIEhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiIsICJIYXMgY3JldWF0IGVscyB0ZXJtZXMgYWwgcmV2w6lzIGVuIGHDr2xsYXIgbGEgaW5jw7Jnbml0YS4iXSwgImVyciI6IFsiIiwgIlJBT05BTUVOVF9BRERJVElVIiwgIlBST0RVQ1RFX01BTCIsICJDUkVVQU1FTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDggOiA0ID0gMiQsIG8gc2lndWkgcXVlIGVsIGRlbm9taW5hZG9yIHRhbWLDqSBlcyBkaXZpZGVpeCBlbnRyZSAkNCQuIiwgIiRcXHNxdWFyZSA9IDEyIDogNCA9IDMkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7Mn17M30gPSBcXGRmcmFjezh9ezEyfSQiXX0="
-  },
-  {
-   "id": "19d",
-   "ex": 19,
-   "ap": "d",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
-   "enunciat": "$\\dfrac{\\square}{9} = \\dfrac{8}{18}$",
-   "opcions": [
-    "$16$",
-    "$\\dfrac{81}{4}$",
-    "$4$",
-    "$72$"
-   ],
-   "pistes": [
-    "$18$ és el doble de $9$: què li passa al numerador?",
-    "$\\square\\cdot 18 = 9\\cdot 8$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJEZSAkXFxzcXVhcmVcXGNkb3QgMTggPSA5XFxjZG90IDgkIHN1cnQgJFxcc3F1YXJlID0gXFxkZnJhY3s5XFxjZG90IDh9ezE4fSQuIEhhcyBjcmV1YXQgZWxzIHRlcm1lcyBhbCByZXbDqXMgZW4gYcOvbGxhciBsYSBpbmPDsmduaXRhLiIsICJIYXMgY3JldWF0IGVscyB0ZXJtZXMgYWwgcmV2w6lzIGVuIGHDr2xsYXIgbGEgaW5jw7Jnbml0YS4iLCAiIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJFxcc3F1YXJlXFxjZG90IDE4ID0gOVxcY2RvdCA4ID0gNzIkIiwgIiRcXHNxdWFyZSA9IDcyIDogMTggPSA0JCIsICJDb21wcm92YWNpw7M6ICRcXGRmcmFjezR9ezl9ID0gXFxkZnJhY3s4fXsxOH0kIl19"
-  },
-  {
    "id": "20a",
    "ex": 20,
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la fracció irreductible.",
    "enunciat": "$\\dfrac{75}{30}$",
    "opcions": [
@@ -1457,7 +1461,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la fracció irreductible.",
    "enunciat": "$\\dfrac{182}{48}$",
    "opcions": [
@@ -1479,7 +1483,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula la fracció irreductible.",
    "enunciat": "$\\dfrac{121}{11}$",
    "opcions": [
@@ -1496,144 +1500,12 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTw60gcXVlIGVzIHBvdDogZW5jYXJhIHF1ZSBlbCBkZW5vbWluYWRvciBzaWd1aSBwcmltZXIsIHBvdCBzZXIgdW4gZmFjdG9yIGRlbCBudW1lcmFkb3IuIENvbXByb3ZhIHNlbXByZSBzaSBlbCBkZW5vbWluYWRvciBkaXZpZGVpeCBlbCBudW1lcmFkb3IuIEFxdcOtICQxMjEgPSAxMV57Mn0kLiIsICJIYXMgaW52ZXJ0aXQgbGEgZnJhY2Npw7MuIFNpbXBsaWZpY2FyIG5vIGNhbnZpYSBxdWluIHRlcm1lIMOpcyBhIGRhbHQgaSBxdWluIGEgYmFpeC4iLCAiSGFzIHJlc3RhdCAkMTIxLTExJC4gU2ltcGxpZmljYXIgw6lzIERJVklESVIgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIFNpbXBsaWZpY2FyIMOpcyBESVZJRElSIGVsIG51bWVyYWRvciBpIGVsIGRlbm9taW5hZG9yIHBlbCBtYXRlaXggbm9tYnJlLCBubyByZXN0YXItbG9zLiBSZXN0YW50IGNhbnZpZXMgZWwgdmFsb3IgZGUgbGEgZnJhY2Npw7MuIiwgIiJdLCAiZXJyIjogWyJOT19TSU1QTElGSUNBQkxFIiwgIklOVkVSVElEQSIsICJTSU1QTElGSUNBUl9SRVNUQU5UIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3sxMjF9ezExfSA9IFxcZGZyYWN7MTFcXGNkb3QgMTF9ezExfSA9IDExJCIsICJFbCByZXN1bHRhdCDDqXMgdW4gZW50ZXI6IGxhIGZyYWNjacOzIGlycmVkdWN0aWJsZSDDqXMgJFxcZGZyYWN7MTF9ezF9ID0gMTEkLiJdfQ=="
   },
   {
-   "id": "21a",
-   "ex": 21,
-   "ap": "a",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$\\left(\\dfrac{1}{2} + \\dfrac{3}{6}\\right) - \\left(\\dfrac{4}{5} + \\dfrac{7}{3}\\right)$",
-   "opcions": [
-    "$-\\dfrac{7}{8}$",
-    "$\\dfrac{32}{15}$",
-    "$\\dfrac{38}{15}$",
-    "$-\\dfrac{32}{15}$"
-   ],
-   "pistes": [
-    "Resol primer cada parèntesi per separat.",
-    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgbnVtZXJhZG9ycyBhbWIgbnVtZXJhZG9ycyBpIGRlbm9taW5hZG9ycyBhbWIgZGVub21pbmFkb3JzLiBQZXIgc3VtYXIgbyByZXN0YXIgZnJhY2Npb25zIGNhbCByZWR1aXItbGVzIHByaW1lciBhIGRlbm9taW5hZG9yIGNvbcO6LiIsICJIYXMgcmVzdGF0IGEgbCdpbnJldsOpcy4gRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIkVsIHNpZ25lICQtJCBkYXZhbnQgZCd1biBwYXLDqG50ZXNpIGNhbnZpYSBlbCBzaWduZSBkZSBUT1RTIGVscyB0ZXJtZXMgZGUgZGlucywgbm8gbm9tw6lzIGRlbCBwcmltZXIuIiwgIiJdLCAiZXJyIjogWyJTVU1BX05VTUVSQURPUlMiLCAiU0lHTkVfRklOQUwiLCAiTUVOWVNfUEFSRU5URVNJIiwgIiJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICRcXGRmcmFjezF9ezJ9K1xcZGZyYWN7M317Nn0gPSAxJCBcXHF1YWQgJFxcZGZyYWN7NH17NX0rXFxkZnJhY3s3fXszfSA9IFxcZGZyYWN7NDd9ezE1fSQiLCAiUXVlZGEgJDEgLSBcXGRmcmFjezQ3fXsxNX0kLiIsICJSZXN1bHRhdDogJC1cXGRmcmFjezMyfXsxNX0kIl19"
-  },
-  {
-   "id": "21b",
-   "ex": 21,
-   "ap": "b",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$\\left(\\dfrac{7}{3} - \\dfrac{4}{5}\\right) + \\left(\\dfrac{6}{5} + \\dfrac{2}{7}\\right)$",
-   "opcions": [
-    "$\\dfrac{317}{105}$",
-    "$-\\dfrac{5}{6}$",
-    "$\\dfrac{1}{21}$",
-    "$\\dfrac{5}{7}$"
-   ],
-   "pistes": [
-    "Resol primer cada parèntesi per separat.",
-    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiRWwgc2Vnb24gcGFyw6hudGVzaSBzZSBzdW1hLCBubyBlcyByZXN0YS4gRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIkFtYiBkZW5vbWluYWRvciAkMTA1JDogJFxcZGZyYWN7MjN9ezE1fSA9IFxcZGZyYWN7MTYxfXsxMDV9JCwgbm8gJFxcZGZyYWN7MjN9ezEwNX0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iXSwgImVyciI6IFsiIiwgIlNVTUFfTlVNRVJBRE9SUyIsICJTSUdORV9GSU5BTCIsICJOVU1FUkFET1JTX1NFTlNFX0FKVVNUQVIiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3s3fXszfS1cXGRmcmFjezR9ezV9ID0gXFxkZnJhY3syM317MTV9JCBcXHF1YWQgJFxcZGZyYWN7Nn17NX0rXFxkZnJhY3syfXs3fSA9IFxcZGZyYWN7NTJ9ezM1fSQiLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezMxN317MTA1fSQiXX0="
-  },
-  {
-   "id": "21c",
-   "ex": 21,
-   "ap": "c",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$2 - \\left[\\dfrac{4}{3} - \\left(\\dfrac{1}{2} + \\dfrac{2}{5}\\right) - \\dfrac{1}{3}\\right]$",
-   "opcions": [
-    "$\\dfrac{11}{10}$",
-    "$\\dfrac{21}{10}$",
-    "$\\dfrac{19}{10}$",
-    "$\\dfrac{10}{7}$"
-   ],
-   "pistes": [
-    "Comença pel parèntesi de més endins.",
-    "$\\dfrac{4}{3}$ i $-\\dfrac{1}{3}$ es poden ajuntar de seguida."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSAkLSQgZGF2YW50IGQndW4gcGFyw6hudGVzaSBjYW52aWEgZWwgc2lnbmUgZGUgVE9UUyBlbHMgdGVybWVzIGRlIGRpbnMsIG5vIG5vbcOpcyBkZWwgcHJpbWVyLiIsICJFbCBjbGF1ZMOgdG9yIHNlIHN1bWEgcXVhbiBoYXVyaWEgZGUgcmVzdGFyLXNlLiBFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiIiwgIkhhcyBzdW1hdCBudW1lcmFkb3JzIGFtYiBudW1lcmFkb3JzIGkgZGVub21pbmFkb3JzIGFtYiBkZW5vbWluYWRvcnMuIFBlciBzdW1hciBvIHJlc3RhciBmcmFjY2lvbnMgY2FsIHJlZHVpci1sZXMgcHJpbWVyIGEgZGVub21pbmFkb3IgY29tw7ouIl0sICJlcnIiOiBbIk1FTllTX1BBUkVOVEVTSSIsICJTSUdORV9GSU5BTCIsICIiLCAiU1VNQV9OVU1FUkFET1JTIl0sICJyZXMiOiBbIkNhbGN1bGVtIGNhZGEgdHJvczogJFxcZGZyYWN7MX17Mn0rXFxkZnJhY3syfXs1fSA9IFxcZGZyYWN7OX17MTB9JCBcXHF1YWQgJFxcZGZyYWN7NH17M30tXFxkZnJhY3s5fXsxMH0tXFxkZnJhY3sxfXszfSA9IFxcZGZyYWN7MX17MTB9JCIsICJRdWVkYSAkMiAtIFxcZGZyYWN7MX17MTB9JC4iLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezE5fXsxMH0kIl19"
-  },
-  {
-   "id": "21d",
-   "ex": 21,
-   "ap": "d",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$\\left(\\dfrac{5}{4} - \\dfrac{1}{5}\\right) + \\left(\\dfrac{-1}{3} + \\dfrac{2}{5} - \\dfrac{1}{4}\\right)$",
-   "opcions": [
-    "$\\dfrac{13}{15}$",
-    "$\\dfrac{21}{20}$",
-    "$\\dfrac{1}{6}$",
-    "$\\dfrac{41}{30}$"
-   ],
-   "pistes": [
-    "Resol primer cada parèntesi per separat.",
-    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiQW1iIGRlbm9taW5hZG9yICQ2MCQ6ICRcXGRmcmFjezIxfXsyMH0gPSBcXGRmcmFjezYzfXs2MH0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iLCAiTCfDumx0aW0gdGVybWUgZGVsIHNlZ29uIHBhcsOobnRlc2kgw6lzICQtXFxkZnJhY3sxfXs0fSQuIFJldmlzYSBlbCBzaWduZSBkZWwgdGVybWUgcXVlIHNlIHN1bWE6IHN1bWFyIHVuIG5lZ2F0aXUgZmEgZGlzbWludWlyLiJdLCAiZXJyIjogWyIiLCAiU1VNQV9OVU1FUkFET1JTIiwgIk5VTUVSQURPUlNfU0VOU0VfQUpVU1RBUiIsICJTSUdORV9TVU1BIl0sICJyZXMiOiBbIkNhbGN1bGVtIGNhZGEgdHJvczogJFxcZGZyYWN7NX17NH0tXFxkZnJhY3sxfXs1fSA9IFxcZGZyYWN7MjF9ezIwfSQgXFxxdWFkICRcXGRmcmFjey0xfXszfStcXGRmcmFjezJ9ezV9LVxcZGZyYWN7MX17NH0gPSAtXFxkZnJhY3sxMX17NjB9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7MTN9ezE1fSQiXX0="
-  },
-  {
-   "id": "21e",
-   "ex": 21,
-   "ap": "e",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$\\left(\\dfrac{6}{5} - \\dfrac{1}{15}\\right) + 2 - \\left(\\dfrac{1}{2} - \\dfrac{1}{3} + \\dfrac{5}{6}\\right)$",
-   "opcions": [
-    "$\\dfrac{412}{165}$",
-    "$\\dfrac{4}{3}$",
-    "$\\dfrac{32}{15}$",
-    "$\\dfrac{62}{15}$"
-   ],
-   "pistes": [
-    "Resol primer cada parèntesi per separat.",
-    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgbnVtZXJhZG9ycyBhbWIgbnVtZXJhZG9ycyBpIGRlbm9taW5hZG9ycyBhbWIgZGVub21pbmFkb3JzLiBQZXIgc3VtYXIgbyByZXN0YXIgZnJhY2Npb25zIGNhbCByZWR1aXItbGVzIHByaW1lciBhIGRlbm9taW5hZG9yIGNvbcO6LiIsICJBbWIgZGVub21pbmFkb3IgJDE1JDogJFxcZGZyYWN7Nn17NX0gPSBcXGRmcmFjezE4fXsxNX0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iLCAiIiwgIkwnw7psdGltIHBhcsOobnRlc2kgZXMgcmVzdGEuIEVsIHJlc3VsdGF0IHTDqSBlbCBzaWduZSBjYW52aWF0LiBSZXZpc2EgcXVpbiBkZWxzIGRvcyB0ZXJtZXMgw6lzIG3DqXMgZ3JhbiBlbiB2YWxvciBhYnNvbHV0LiJdLCAiZXJyIjogWyJTVU1BX05VTUVSQURPUlMiLCAiTlVNRVJBRE9SU19TRU5TRV9BSlVTVEFSIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICRcXGRmcmFjezZ9ezV9LVxcZGZyYWN7MX17MTV9ID0gXFxkZnJhY3sxN317MTV9JCBcXHF1YWQgJFxcZGZyYWN7MX17Mn0tXFxkZnJhY3sxfXszfStcXGRmcmFjezV9ezZ9ID0gMSQiLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezMyfXsxNX0kIl19"
-  },
-  {
-   "id": "21f",
-   "ex": 21,
-   "ap": "f",
-   "bloc": "fraccions",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "Fes les operacions.",
-   "enunciat": "$\\left(\\dfrac{1}{3} + \\dfrac{2}{5}\\right) - \\dfrac{1}{4} - \\left(\\dfrac{5}{6} - \\dfrac{7}{6}\\right)$",
-   "opcions": [
-    "$\\dfrac{49}{60}$",
-    "$\\dfrac{3}{20}$",
-    "$\\dfrac{11}{24}$",
-    "$-\\dfrac{91}{60}$"
-   ],
-   "pistes": [
-    "L'últim parèntesi dóna un nombre negatiu: vigila el doble signe.",
-    "$\\dfrac{5}{6}-\\dfrac{7}{6} = -\\dfrac{1}{3}$, i restar-lo és sumar $\\dfrac{1}{3}$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDumx0aW0gcGFyw6hudGVzaSB2YWwgJC1cXGRmcmFjezF9ezN9JCBpIGVzIHJlc3RhOiAkLVxcbGVmdCgtXFxkZnJhY3sxfXszfVxccmlnaHQpID0gK1xcZGZyYWN7MX17M30kLiBFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiRWwgc2lnbmUgJC0kIGRhdmFudCBkJ3VuIHBhcsOobnRlc2kgY2FudmlhIGVsIHNpZ25lIGRlIFRPVFMgZWxzIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iXSwgImVyciI6IFsiIiwgIlNJR05FX0ZJTkFMIiwgIlNVTUFfTlVNRVJBRE9SUyIsICJNRU5ZU19QQVJFTlRFU0kiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3sxfXszfStcXGRmcmFjezJ9ezV9ID0gXFxkZnJhY3sxMX17MTV9JCBcXHF1YWQgJFxcZGZyYWN7NX17Nn0tXFxkZnJhY3s3fXs2fSA9IC1cXGRmcmFjezF9ezN9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7NDl9ezYwfSQiXX0="
-  },
-  {
    "id": "22a",
    "ex": 22,
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$-3 + \\dfrac{4}{9}$",
    "opcions": [
@@ -1655,7 +1527,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$8 - \\left(-\\dfrac{2}{5}\\right)$",
    "opcions": [
@@ -1677,7 +1549,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$\\dfrac{-3}{7} + (-8)$",
    "opcions": [
@@ -1699,7 +1571,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$\\dfrac{5}{4} - (-7)$",
    "opcions": [
@@ -1721,7 +1593,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$\\dfrac{-4}{3} + (-6)$",
    "opcions": [
@@ -1743,7 +1615,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Fes aquestes operacions.",
    "enunciat": "$-\\left(\\dfrac{-3}{4}\\right) - 2$",
    "opcions": [
@@ -1760,12 +1632,232 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IGwnZW50ZXIgZGlyZWN0YW1lbnQgYWwgbnVtZXJhZG9yLiBVbiBlbnRlciDDqXMgdW5hIGZyYWNjacOzIGRlIGRlbm9taW5hZG9yICQxJDogY2FsIHJlZHVpci1sbyBhIGRlbm9taW5hZG9yIGNvbcO6IGFiYW5zIGRlIHN1bWFyLiIsICJEb3Mgc2lnbmVzIG1lbnlzIHNlZ3VpdHMgZXMgY29udmVydGVpeGVuIGVuIHVuIG3DqXM6ICQtKC1hKSA9ICthJC4iLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIl0sICJlcnIiOiBbIiIsICJFTlRFUl9BTF9OVU1FUkFET1IiLCAiRE9CTEVfTkVHQVRJVSIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJRdWVkYSAkXFxkZnJhY3szfXs0fSAtIFxcZGZyYWN7OH17NH0kLiIsICJSZXN1bHRhdDogJC1cXGRmcmFjezV9ezR9JCJdfQ=="
   },
   {
+   "id": "19a",
+   "ex": 19,
+   "ap": "a",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
+   "enunciat": "$\\dfrac{6}{\\square} = \\dfrac{9}{3}$",
+   "opcions": [
+    "$3$",
+    "$2$",
+    "$\\dfrac{9}{2}$",
+    "$18$"
+   ],
+   "pistes": [
+    "Aplica els productes creuats: $6\\cdot 3 = 9\\cdot\\square$.",
+    "$\\dfrac{9}{3}$ val $3$, o sigui que $\\dfrac{6}{\\square}$ també ha de valer $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29waWF0IGVsIGRlbm9taW5hZG9yIGRlIGwnYWx0cmEgZnJhY2Npw7MuIER1ZXMgZnJhY2Npb25zIGVxdWl2YWxlbnRzIGdhaXJlYsOpIG1haSB0ZW5lbiBlbHMgbWF0ZWl4b3MgdGVybWVzOiBlbCBxdWUgaGEgZGUgY29pbmNpZGlyIMOpcyBlbCB2YWxvciwgbm8gbGVzIHhpZnJlcy4iLCAiIiwgIkRlICQ2XFxjZG90IDMgPSA5XFxjZG90XFxzcXVhcmUkIHN1cnQgJFxcc3F1YXJlID0gXFxkZnJhY3s2XFxjZG90IDN9ezl9JC4gSGFzIGNyZXVhdCBlbHMgdGVybWVzIGFsIHJldsOpcyBlbiBhw69sbGFyIGxhIGluY8OyZ25pdGEuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiJdLCAiZXJyIjogWyJDT01QQVJBX1RFUk1FUyIsICIiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkNlxcY2RvdCAzID0gOVxcY2RvdCBcXHNxdWFyZSBcXDtcXFJpZ2h0YXJyb3dcXDsgMTggPSA5XFxjZG90XFxzcXVhcmUkIiwgIiRcXHNxdWFyZSA9IDE4IDogOSA9IDIkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7Nn17Mn0gPSAzID0gXFxkZnJhY3s5fXszfSQiXX0="
+  },
+  {
+   "id": "19b",
+   "ex": 19,
+   "ap": "b",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
+   "enunciat": "$\\dfrac{4}{5} = \\dfrac{\\square}{10}$",
+   "opcions": [
+    "$40$",
+    "$\\dfrac{25}{2}$",
+    "$8$",
+    "$9$"
+   ],
+   "pistes": [
+    "De $5$ a $10$, per quant s'ha multiplicat el denominador?",
+    "El que facis al denominador, fes-ho al numerador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZWxzIGRvcyBub21icmVzIHF1ZSBldCBkb25hdmVuIGVuIGNvbXB0ZXMgZCdhw69sbGFyIGxhIGluY8OyZ25pdGEgYW1iIGVscyBwcm9kdWN0ZXMgY3JldWF0cy4iLCAiSGFzIGNyZXVhdCBlbHMgdGVybWVzIGFsIHJldsOpcyBlbiBhw69sbGFyIGxhIGluY8OyZ25pdGEuIiwgIiIsICJEZSAkNSQgYSAkMTAkIG5vIHMnaGkgc3VtYSAkNSQ6IGVzIG11bHRpcGxpY2EgcGVyICQyJC4gSGFzIHBhc3NhdCBkJ3VuYSBmcmFjY2nDsyBhIGwnYWx0cmEgc3VtYW50LiBEdWVzIGZyYWNjaW9ucyBzw7NuIGVxdWl2YWxlbnRzIHF1YW4gZXMgcGFzc2EgZCd1bmEgYSBsJ2FsdHJhIE1VTFRJUExJQ0FOVCBlbHMgZG9zIHRlcm1lcyBwZWwgbWF0ZWl4IG5vbWJyZS4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiUkFPTkFNRU5UX0FERElUSVUiXSwgInJlcyI6IFsiJDVcXGNkb3QgMiA9IDEwJCwgbyBzaWd1aSBxdWUgZWwgbnVtZXJhZG9yIHRhbWLDqSBlcyBtdWx0aXBsaWNhIHBlciAkMiQuIiwgIiRcXHNxdWFyZSA9IDRcXGNkb3QgMiA9IDgkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7OH17MTB9ID0gXFxkZnJhY3s0fXs1fSQiXX0="
+  },
+  {
+   "id": "19c",
+   "ex": 19,
+   "ap": "c",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
+   "enunciat": "$\\dfrac{8}{12} = \\dfrac{2}{\\square}$",
+   "opcions": [
+    "$3$",
+    "$6$",
+    "$24$",
+    "$\\dfrac{4}{3}$"
+   ],
+   "pistes": [
+    "De $8$ a $2$, per quant s'ha dividit el numerador?",
+    "Divideix el denominador pel mateix nombre."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRGUgJDgkIGEgJDIkIG5vIHMnaGkgcmVzdGEgJDYkOiBlcyBkaXZpZGVpeCBlbnRyZSAkNCQuIEhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiIsICJIYXMgY3JldWF0IGVscyB0ZXJtZXMgYWwgcmV2w6lzIGVuIGHDr2xsYXIgbGEgaW5jw7Jnbml0YS4iXSwgImVyciI6IFsiIiwgIlJBT05BTUVOVF9BRERJVElVIiwgIlBST0RVQ1RFX01BTCIsICJDUkVVQU1FTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJDggOiA0ID0gMiQsIG8gc2lndWkgcXVlIGVsIGRlbm9taW5hZG9yIHRhbWLDqSBlcyBkaXZpZGVpeCBlbnRyZSAkNCQuIiwgIiRcXHNxdWFyZSA9IDEyIDogNCA9IDMkIiwgIkNvbXByb3ZhY2nDszogJFxcZGZyYWN7Mn17M30gPSBcXGRmcmFjezh9ezEyfSQiXX0="
+  },
+  {
+   "id": "19d",
+   "ex": 19,
+   "ap": "d",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Calcula el nombre que falta perquè les fraccions siguin equivalents.",
+   "enunciat": "$\\dfrac{\\square}{9} = \\dfrac{8}{18}$",
+   "opcions": [
+    "$16$",
+    "$\\dfrac{81}{4}$",
+    "$4$",
+    "$72$"
+   ],
+   "pistes": [
+    "$18$ és el doble de $9$: què li passa al numerador?",
+    "$\\square\\cdot 18 = 9\\cdot 8$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJEZSAkXFxzcXVhcmVcXGNkb3QgMTggPSA5XFxjZG90IDgkIHN1cnQgJFxcc3F1YXJlID0gXFxkZnJhY3s5XFxjZG90IDh9ezE4fSQuIEhhcyBjcmV1YXQgZWxzIHRlcm1lcyBhbCByZXbDqXMgZW4gYcOvbGxhciBsYSBpbmPDsmduaXRhLiIsICJIYXMgY3JldWF0IGVscyB0ZXJtZXMgYWwgcmV2w6lzIGVuIGHDr2xsYXIgbGEgaW5jw7Jnbml0YS4iLCAiIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIG5vbWJyZXMgcXVlIGV0IGRvbmF2ZW4gZW4gY29tcHRlcyBkJ2HDr2xsYXIgbGEgaW5jw7Jnbml0YSBhbWIgZWxzIHByb2R1Y3RlcyBjcmV1YXRzLiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJFxcc3F1YXJlXFxjZG90IDE4ID0gOVxcY2RvdCA4ID0gNzIkIiwgIiRcXHNxdWFyZSA9IDcyIDogMTggPSA0JCIsICJDb21wcm92YWNpw7M6ICRcXGRmcmFjezR9ezl9ID0gXFxkZnJhY3s4fXsxOH0kIl19"
+  },
+  {
+   "id": "21a",
+   "ex": 21,
+   "ap": "a",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$\\left(\\dfrac{1}{2} + \\dfrac{3}{6}\\right) - \\left(\\dfrac{4}{5} + \\dfrac{7}{3}\\right)$",
+   "opcions": [
+    "$-\\dfrac{7}{8}$",
+    "$\\dfrac{32}{15}$",
+    "$\\dfrac{38}{15}$",
+    "$-\\dfrac{32}{15}$"
+   ],
+   "pistes": [
+    "Resol primer cada parèntesi per separat.",
+    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgbnVtZXJhZG9ycyBhbWIgbnVtZXJhZG9ycyBpIGRlbm9taW5hZG9ycyBhbWIgZGVub21pbmFkb3JzLiBQZXIgc3VtYXIgbyByZXN0YXIgZnJhY2Npb25zIGNhbCByZWR1aXItbGVzIHByaW1lciBhIGRlbm9taW5hZG9yIGNvbcO6LiIsICJIYXMgcmVzdGF0IGEgbCdpbnJldsOpcy4gRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIkVsIHNpZ25lICQtJCBkYXZhbnQgZCd1biBwYXLDqG50ZXNpIGNhbnZpYSBlbCBzaWduZSBkZSBUT1RTIGVscyB0ZXJtZXMgZGUgZGlucywgbm8gbm9tw6lzIGRlbCBwcmltZXIuIiwgIiJdLCAiZXJyIjogWyJTVU1BX05VTUVSQURPUlMiLCAiU0lHTkVfRklOQUwiLCAiTUVOWVNfUEFSRU5URVNJIiwgIiJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICRcXGRmcmFjezF9ezJ9K1xcZGZyYWN7M317Nn0gPSAxJCBcXHF1YWQgJFxcZGZyYWN7NH17NX0rXFxkZnJhY3s3fXszfSA9IFxcZGZyYWN7NDd9ezE1fSQiLCAiUXVlZGEgJDEgLSBcXGRmcmFjezQ3fXsxNX0kLiIsICJSZXN1bHRhdDogJC1cXGRmcmFjezMyfXsxNX0kIl19"
+  },
+  {
+   "id": "21b",
+   "ex": 21,
+   "ap": "b",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$\\left(\\dfrac{7}{3} - \\dfrac{4}{5}\\right) + \\left(\\dfrac{6}{5} + \\dfrac{2}{7}\\right)$",
+   "opcions": [
+    "$\\dfrac{317}{105}$",
+    "$-\\dfrac{5}{6}$",
+    "$\\dfrac{1}{21}$",
+    "$\\dfrac{5}{7}$"
+   ],
+   "pistes": [
+    "Resol primer cada parèntesi per separat.",
+    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiRWwgc2Vnb24gcGFyw6hudGVzaSBzZSBzdW1hLCBubyBlcyByZXN0YS4gRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIkFtYiBkZW5vbWluYWRvciAkMTA1JDogJFxcZGZyYWN7MjN9ezE1fSA9IFxcZGZyYWN7MTYxfXsxMDV9JCwgbm8gJFxcZGZyYWN7MjN9ezEwNX0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iXSwgImVyciI6IFsiIiwgIlNVTUFfTlVNRVJBRE9SUyIsICJTSUdORV9GSU5BTCIsICJOVU1FUkFET1JTX1NFTlNFX0FKVVNUQVIiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3s3fXszfS1cXGRmcmFjezR9ezV9ID0gXFxkZnJhY3syM317MTV9JCBcXHF1YWQgJFxcZGZyYWN7Nn17NX0rXFxkZnJhY3syfXs3fSA9IFxcZGZyYWN7NTJ9ezM1fSQiLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezMxN317MTA1fSQiXX0="
+  },
+  {
+   "id": "21c",
+   "ex": 21,
+   "ap": "c",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$2 - \\left[\\dfrac{4}{3} - \\left(\\dfrac{1}{2} + \\dfrac{2}{5}\\right) - \\dfrac{1}{3}\\right]$",
+   "opcions": [
+    "$\\dfrac{11}{10}$",
+    "$\\dfrac{21}{10}$",
+    "$\\dfrac{19}{10}$",
+    "$\\dfrac{10}{7}$"
+   ],
+   "pistes": [
+    "Comença pel parèntesi de més endins.",
+    "$\\dfrac{4}{3}$ i $-\\dfrac{1}{3}$ es poden ajuntar de seguida."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSAkLSQgZGF2YW50IGQndW4gcGFyw6hudGVzaSBjYW52aWEgZWwgc2lnbmUgZGUgVE9UUyBlbHMgdGVybWVzIGRlIGRpbnMsIG5vIG5vbcOpcyBkZWwgcHJpbWVyLiIsICJFbCBjbGF1ZMOgdG9yIHNlIHN1bWEgcXVhbiBoYXVyaWEgZGUgcmVzdGFyLXNlLiBFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiIiwgIkhhcyBzdW1hdCBudW1lcmFkb3JzIGFtYiBudW1lcmFkb3JzIGkgZGVub21pbmFkb3JzIGFtYiBkZW5vbWluYWRvcnMuIFBlciBzdW1hciBvIHJlc3RhciBmcmFjY2lvbnMgY2FsIHJlZHVpci1sZXMgcHJpbWVyIGEgZGVub21pbmFkb3IgY29tw7ouIl0sICJlcnIiOiBbIk1FTllTX1BBUkVOVEVTSSIsICJTSUdORV9GSU5BTCIsICIiLCAiU1VNQV9OVU1FUkFET1JTIl0sICJyZXMiOiBbIkNhbGN1bGVtIGNhZGEgdHJvczogJFxcZGZyYWN7MX17Mn0rXFxkZnJhY3syfXs1fSA9IFxcZGZyYWN7OX17MTB9JCBcXHF1YWQgJFxcZGZyYWN7NH17M30tXFxkZnJhY3s5fXsxMH0tXFxkZnJhY3sxfXszfSA9IFxcZGZyYWN7MX17MTB9JCIsICJRdWVkYSAkMiAtIFxcZGZyYWN7MX17MTB9JC4iLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezE5fXsxMH0kIl19"
+  },
+  {
+   "id": "21d",
+   "ex": 21,
+   "ap": "d",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$\\left(\\dfrac{5}{4} - \\dfrac{1}{5}\\right) + \\left(\\dfrac{-1}{3} + \\dfrac{2}{5} - \\dfrac{1}{4}\\right)$",
+   "opcions": [
+    "$\\dfrac{13}{15}$",
+    "$\\dfrac{21}{20}$",
+    "$\\dfrac{1}{6}$",
+    "$\\dfrac{41}{30}$"
+   ],
+   "pistes": [
+    "Resol primer cada parèntesi per separat.",
+    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiQW1iIGRlbm9taW5hZG9yICQ2MCQ6ICRcXGRmcmFjezIxfXsyMH0gPSBcXGRmcmFjezYzfXs2MH0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iLCAiTCfDumx0aW0gdGVybWUgZGVsIHNlZ29uIHBhcsOobnRlc2kgw6lzICQtXFxkZnJhY3sxfXs0fSQuIFJldmlzYSBlbCBzaWduZSBkZWwgdGVybWUgcXVlIHNlIHN1bWE6IHN1bWFyIHVuIG5lZ2F0aXUgZmEgZGlzbWludWlyLiJdLCAiZXJyIjogWyIiLCAiU1VNQV9OVU1FUkFET1JTIiwgIk5VTUVSQURPUlNfU0VOU0VfQUpVU1RBUiIsICJTSUdORV9TVU1BIl0sICJyZXMiOiBbIkNhbGN1bGVtIGNhZGEgdHJvczogJFxcZGZyYWN7NX17NH0tXFxkZnJhY3sxfXs1fSA9IFxcZGZyYWN7MjF9ezIwfSQgXFxxdWFkICRcXGRmcmFjey0xfXszfStcXGRmcmFjezJ9ezV9LVxcZGZyYWN7MX17NH0gPSAtXFxkZnJhY3sxMX17NjB9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7MTN9ezE1fSQiXX0="
+  },
+  {
+   "id": "21e",
+   "ex": 21,
+   "ap": "e",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$\\left(\\dfrac{6}{5} - \\dfrac{1}{15}\\right) + 2 - \\left(\\dfrac{1}{2} - \\dfrac{1}{3} + \\dfrac{5}{6}\\right)$",
+   "opcions": [
+    "$\\dfrac{412}{165}$",
+    "$\\dfrac{4}{3}$",
+    "$\\dfrac{32}{15}$",
+    "$\\dfrac{62}{15}$"
+   ],
+   "pistes": [
+    "Resol primer cada parèntesi per separat.",
+    "Redueix a denominador comú: multiplica cada numerador pel mateix nombre que el seu denominador."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgbnVtZXJhZG9ycyBhbWIgbnVtZXJhZG9ycyBpIGRlbm9taW5hZG9ycyBhbWIgZGVub21pbmFkb3JzLiBQZXIgc3VtYXIgbyByZXN0YXIgZnJhY2Npb25zIGNhbCByZWR1aXItbGVzIHByaW1lciBhIGRlbm9taW5hZG9yIGNvbcO6LiIsICJBbWIgZGVub21pbmFkb3IgJDE1JDogJFxcZGZyYWN7Nn17NX0gPSBcXGRmcmFjezE4fXsxNX0kLiBIYXMgcG9zYXQgZWwgZGVub21pbmFkb3IgY29tw7ogY29ycmVjdGUsIHBlcsOyIGhhcyBjb3BpYXQgZWxzIG51bWVyYWRvcnMgdGFsIHF1YWwuIENhZGEgbnVtZXJhZG9yIHMnaGEgZGUgbXVsdGlwbGljYXIgcGVsIG1hdGVpeCBub21icmUgcXVlIGVsIHNldSBkZW5vbWluYWRvci4iLCAiIiwgIkwnw7psdGltIHBhcsOobnRlc2kgZXMgcmVzdGEuIEVsIHJlc3VsdGF0IHTDqSBlbCBzaWduZSBjYW52aWF0LiBSZXZpc2EgcXVpbiBkZWxzIGRvcyB0ZXJtZXMgw6lzIG3DqXMgZ3JhbiBlbiB2YWxvciBhYnNvbHV0LiJdLCAiZXJyIjogWyJTVU1BX05VTUVSQURPUlMiLCAiTlVNRVJBRE9SU19TRU5TRV9BSlVTVEFSIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICRcXGRmcmFjezZ9ezV9LVxcZGZyYWN7MX17MTV9ID0gXFxkZnJhY3sxN317MTV9JCBcXHF1YWQgJFxcZGZyYWN7MX17Mn0tXFxkZnJhY3sxfXszfStcXGRmcmFjezV9ezZ9ID0gMSQiLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezMyfXsxNX0kIl19"
+  },
+  {
+   "id": "21f",
+   "ex": 21,
+   "ap": "f",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "Fes les operacions.",
+   "enunciat": "$\\left(\\dfrac{1}{3} + \\dfrac{2}{5}\\right) - \\dfrac{1}{4} - \\left(\\dfrac{5}{6} - \\dfrac{7}{6}\\right)$",
+   "opcions": [
+    "$\\dfrac{49}{60}$",
+    "$\\dfrac{3}{20}$",
+    "$\\dfrac{11}{24}$",
+    "$-\\dfrac{91}{60}$"
+   ],
+   "pistes": [
+    "L'últim parèntesi dóna un nombre negatiu: vigila el doble signe.",
+    "$\\dfrac{5}{6}-\\dfrac{7}{6} = -\\dfrac{1}{3}$, i restar-lo és sumar $\\dfrac{1}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDumx0aW0gcGFyw6hudGVzaSB2YWwgJC1cXGRmcmFjezF9ezN9JCBpIGVzIHJlc3RhOiAkLVxcbGVmdCgtXFxkZnJhY3sxfXszfVxccmlnaHQpID0gK1xcZGZyYWN7MX17M30kLiBFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiSGFzIHN1bWF0IG51bWVyYWRvcnMgYW1iIG51bWVyYWRvcnMgaSBkZW5vbWluYWRvcnMgYW1iIGRlbm9taW5hZG9ycy4gUGVyIHN1bWFyIG8gcmVzdGFyIGZyYWNjaW9ucyBjYWwgcmVkdWlyLWxlcyBwcmltZXIgYSBkZW5vbWluYWRvciBjb23Dui4iLCAiRWwgc2lnbmUgJC0kIGRhdmFudCBkJ3VuIHBhcsOobnRlc2kgY2FudmlhIGVsIHNpZ25lIGRlIFRPVFMgZWxzIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iXSwgImVyciI6IFsiIiwgIlNJR05FX0ZJTkFMIiwgIlNVTUFfTlVNRVJBRE9SUyIsICJNRU5ZU19QQVJFTlRFU0kiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3sxfXszfStcXGRmcmFjezJ9ezV9ID0gXFxkZnJhY3sxMX17MTV9JCBcXHF1YWQgJFxcZGZyYWN7NX17Nn0tXFxkZnJhY3s3fXs2fSA9IC1cXGRmcmFjezF9ezN9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7NDl9ezYwfSQiXX0="
+  },
+  {
    "id": "23a",
    "ex": 23,
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Opera.",
    "enunciat": "$\\dfrac{1}{3} - 2 - \\left(-\\dfrac{4}{9}\\right)$",
    "opcions": [
@@ -1787,7 +1879,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Opera.",
    "enunciat": "$\\dfrac{5}{2} - \\left(-2 + \\dfrac{3}{5}\\right)$",
    "opcions": [
@@ -1809,7 +1901,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Opera.",
    "enunciat": "$4 - \\left(\\dfrac{2}{3} - \\dfrac{1}{4}\\right)$",
    "opcions": [
@@ -1831,7 +1923,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Opera.",
    "enunciat": "$-7 + \\left(-\\dfrac{3}{2} + \\dfrac{1}{7}\\right)$",
    "opcions": [
@@ -1853,7 +1945,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$\\dfrac{5}{6} \\cdot \\dfrac{1}{3} - 2$",
    "opcions": [
@@ -1875,7 +1967,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$\\dfrac{7}{2} - 3 \\cdot \\dfrac{4}{5}$",
    "opcions": [
@@ -1897,7 +1989,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$4 - \\dfrac{3}{2} \\cdot \\dfrac{7}{9}$",
    "opcions": [
@@ -1919,7 +2011,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$\\dfrac{5}{2} - 3 \\cdot \\dfrac{1}{4}$",
    "opcions": [
@@ -1941,7 +2033,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$\\dfrac{4}{5} \\cdot \\dfrac{10}{8} + \\left(\\dfrac{-3}{2}\\right)$",
    "opcions": [
@@ -1963,7 +2055,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$\\dfrac{7}{9} \\cdot \\left(\\dfrac{-12}{5}\\right) + \\left(\\dfrac{-3}{4}\\right)$",
    "opcions": [
@@ -1985,7 +2077,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$\\dfrac{5}{3} - \\left(\\dfrac{2}{5} \\cdot \\dfrac{7}{2}\\right) - \\dfrac{1}{3}$",
    "opcions": [
@@ -2007,7 +2099,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$\\dfrac{5}{3} - \\left(\\dfrac{2}{5} \\cdot \\dfrac{7}{2} - \\dfrac{1}{3}\\right)$",
    "opcions": [
@@ -2029,7 +2121,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$\\left(\\dfrac{2}{3} \\cdot 5 - \\dfrac{3}{4}\\right) \\cdot \\dfrac{7}{2}$",
    "opcions": [
@@ -2051,7 +2143,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$\\left(\\dfrac{-7}{3}\\right) \\cdot \\dfrac{4}{5} - 2 \\cdot \\dfrac{5}{3}$",
    "opcions": [
@@ -2073,7 +2165,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$\\left(\\dfrac{5}{4} - \\dfrac{3}{8} \\cdot \\dfrac{4}{9}\\right) - \\dfrac{4}{5} \\cdot 2$",
    "opcions": [
@@ -2095,7 +2187,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "fraccions",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Fes les operacions següents.",
    "enunciat": "$-3 \\cdot \\dfrac{4}{15} - \\left(\\dfrac{7}{8} \\cdot 5 - 9\\right)$",
    "opcions": [
@@ -2117,7 +2209,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Periòdic pur de període $5$.",
    "opcions": [
@@ -2139,7 +2231,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Exacte amb tres xifres decimals.",
    "opcions": [
@@ -2161,7 +2253,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Periòdic mixt d'anteperíode $28$.",
    "opcions": [
@@ -2183,7 +2275,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Periòdic pur amb període de $4$ xifres.",
    "opcions": [
@@ -2205,7 +2297,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Periòdic mixt amb període $37$.",
    "opcions": [
@@ -2227,7 +2319,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l'ANTEPERÍODE, les que hi ha entre la coma i el període.",
    "enunciat": "Exacte amb part entera $2$.",
    "opcions": [
@@ -2249,7 +2341,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$0{,}2$",
    "opcions": [
@@ -2271,7 +2363,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$5{,}25$",
    "opcions": [
@@ -2293,7 +2385,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$95{,}7$",
    "opcions": [
@@ -2315,7 +2407,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$8{,}0002$",
    "opcions": [
@@ -2337,7 +2429,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$0{,}01$",
    "opcions": [
@@ -2359,7 +2451,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$37{,}875$",
    "opcions": [
@@ -2381,7 +2473,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$342{,}12$",
    "opcions": [
@@ -2403,7 +2495,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Troba la fracció generatriu.",
    "enunciat": "$0{,}000003$",
    "opcions": [
@@ -2425,7 +2517,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$3{,}\\overline{5}$",
    "opcions": [
@@ -2447,7 +2539,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$5{,}9\\overline{02}$",
    "opcions": [
@@ -2469,7 +2561,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$12{,}9\\overline{9}$",
    "opcions": [
@@ -2491,7 +2583,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$2{,}3\\overline{7}$",
    "opcions": [
@@ -2513,7 +2605,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$0{,}015\\overline{7}$",
    "opcions": [
@@ -2535,7 +2627,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$42{,}00\\overline{2}$",
    "opcions": [
@@ -2557,7 +2649,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$42{,}5\\overline{8}$",
    "opcions": [
@@ -2579,7 +2671,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$0{,}\\overline{8}$",
    "opcions": [
@@ -2601,7 +2693,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$1{,}\\overline{256}$",
    "opcions": [
@@ -2623,7 +2715,7 @@ window.FULL = {
    "ap": "j",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$10{,}5\\overline{23}$",
    "opcions": [
@@ -2645,7 +2737,7 @@ window.FULL = {
    "ap": "k",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$0{,}000\\overline{97}$",
    "opcions": [
@@ -2667,7 +2759,7 @@ window.FULL = {
    "ap": "l",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula la fracció generatriu dels nombres decimals periòdics següents.",
    "enunciat": "$3{,}2\\overline{572}$",
    "opcions": [
@@ -2689,7 +2781,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15{,}3222\\dots$",
    "opcions": [
@@ -2711,7 +2803,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15{,}323232\\dots$",
    "opcions": [
@@ -2733,7 +2825,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15{,}233444\\dots$",
    "opcions": [
@@ -2755,7 +2847,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15{,}32$",
    "opcions": [
@@ -2777,7 +2869,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15{,}333$",
    "opcions": [
@@ -2799,7 +2891,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Indica de quin tipus de decimal es tracta i calcula'n la fracció generatriu.",
    "enunciat": "$15$",
    "opcions": [
@@ -2821,7 +2913,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$2{,}25$",
    "opcions": [
@@ -2843,7 +2935,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$2{,}\\overline{25}$",
    "opcions": [
@@ -2865,7 +2957,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$22{,}\\overline{5}$",
    "opcions": [
@@ -2887,7 +2979,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$2{,}2\\overline{5}$",
    "opcions": [
@@ -2909,7 +3001,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$0{,}\\overline{334}$",
    "opcions": [
@@ -2931,7 +3023,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Escriu la fracció generatriu d'aquests nombres decimals.",
    "enunciat": "$8{,}57\\overline{1}$",
    "opcions": [
@@ -2953,7 +3045,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$1{,}\\overline{3} + 3{,}4$",
    "opcions": [
@@ -2975,7 +3067,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$10{,}2\\overline{5} - 5{,}\\overline{7}$",
    "opcions": [
@@ -2997,7 +3089,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$1{,}\\overline{36} + 8{,}2\\overline{5}$",
    "opcions": [
@@ -3019,7 +3111,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$4{,}\\overline{5} + 6{,}\\overline{7}$",
    "opcions": [
@@ -3041,7 +3133,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$3{,}\\overline{46} + 4{,}2\\overline{95}$",
    "opcions": [
@@ -3063,7 +3155,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Opera fent servir les fraccions generatrius.",
    "enunciat": "$3{,}\\overline{21} + 4{,}3\\overline{12}$",
    "opcions": [
@@ -3085,7 +3177,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$1{,}25 \\cdot 2{,}\\overline{5}$",
    "opcions": [
@@ -3107,7 +3199,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$0{,}0\\overline{3} : 2{,}9\\overline{5}$",
    "opcions": [
@@ -3129,7 +3221,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$3{,}\\overline{76} \\cdot 4{,}\\overline{8}$",
    "opcions": [
@@ -3151,7 +3243,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Efectua les operacions.",
    "enunciat": "$1{,}25 : 2{,}2\\overline{5}$",
    "opcions": [
@@ -3173,7 +3265,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fent servir les fraccions generatrius, comprova si les igualtats són certes o falses.",
    "enunciat": "$1{,}\\overline{9} = 2$",
    "opcions": [
@@ -3195,7 +3287,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fent servir les fraccions generatrius, comprova si les igualtats són certes o falses.",
    "enunciat": "$1{,}\\overline{3} : 3 = 0{,}\\overline{4}$",
    "opcions": [
@@ -3217,7 +3309,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fent servir les fraccions generatrius, comprova si les igualtats són certes o falses.",
    "enunciat": "$1{,}8\\overline{9} + 0{,}1\\overline{1} = 2$",
    "opcions": [
@@ -3239,7 +3331,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fent servir les fraccions generatrius, comprova si les igualtats són certes o falses.",
    "enunciat": "$0{,}1\\overline{1} - 0{,}\\overline{1} = 0$",
    "opcions": [
@@ -3261,7 +3353,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "decimals",
    "tipus": "B",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Fent servir les fraccions generatrius, comprova si les igualtats són certes o falses.",
    "enunciat": "$0{,}\\overline{3} + 0{,}\\overline{6} = 1$",
    "opcions": [
@@ -3283,7 +3375,7 @@ window.FULL = {
    "ap": "",
    "bloc": "decimals",
    "tipus": "C",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Raona la resposta.",
    "enunciat": "Quina és la vint-i-sisena xifra decimal de $\\dfrac{128}{9999}$?",
    "opcions": [

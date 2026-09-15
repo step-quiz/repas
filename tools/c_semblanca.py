@@ -56,30 +56,32 @@ from lib import Q, D, DT, tex, texd, dificultats
 from figures.semblanca import tales, parella_semblants, escala_regla, ombra
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 8 · Tales i semblança
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    152: 1,  # proporció de Tales amb tres dades i una incògnita
-    153: 2,
-    154: 1,  # raó de semblança donada la parella: proporció directa
-    155: 2,  # decidir si són semblants i dir per quin criteri (153, homòlegs)
-    156: 1,  # llegir i escriure una escala numèrica
-    158: 2,  # escales amb canvi d'unitats pel mig
-    159: 2,
-    160: 2,
-    161: 3,  # problemes: muntar la semblança a partir de l'enunciat
-    162: 3,
-    163: 3,
-    164: 3,
-    165: 3,
-    166: 3,
-    167: 3,
-    168: 3,
-    169: 3,
+    152: 2,  # proporció de Tales amb tres dades i una incògnita
+    153: 3,
+    154: 2,  # raó de semblança donada la parella: proporció directa
+    155: 3,  # decidir si són semblants i dir per quin criteri (153, homòlegs)
+    156: 2,  # llegir i escriure una escala numèrica
+    158: 3,  # escales amb canvi d'unitats pel mig
+    159: 3,
+    160: 3,
+    161: 4,  # problemes: muntar la semblança a partir de l'enunciat
+    162: 4,
+    163: 4,
+    164: 4,
+    165: 4,
+    166: 4,
+    167: 4,
+    168: 4,
+    169: 4,
 })
 
 

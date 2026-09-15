@@ -53,7 +53,8 @@ class Estructura(unittest.TestCase):
 
     def test_tots_els_items_tenen_dificultat(self):
         for it in PLANS:
-            self.assertIn(it["dif"], (1, 2, 3), "%s sense dificultat" % it["id"])
+            self.assertIn(it["dif"], (1, 2, 3, 4),
+                          "%s sense dificultat" % it["id"])
 
     def test_tots_els_items_son_a_algun_bloc(self):
         for n, its in TOTS.items():

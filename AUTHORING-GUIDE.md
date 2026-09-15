@@ -270,21 +270,44 @@ taula que assigna un nivell a cada exercici del full:
 
 ```python
 dificultats({
-      5: 1,  # descomposició factorial directa
-      8: 2,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
-     12: 3,  # problemes amb context: cal decidir si toca m.c.d. o m.c.m.
+    340: 1,  # descompon 12, 18, 25, 40: la definició i prou
+      5: 2,  # descompon 3850 = 2·5²·7·11: un sol pas, però quatre primers
+      8: 3,  # a l'inrevés: donat el m.c.d., quin nombre encaixa
+     12: 4,  # problemes amb context: cal decidir si toca m.c.d. o m.c.m.
 })
 ```
 
-L'escala és de tres graons i està documentada a `lib.py`:
+L'escala és de quatre graons i està documentada a `lib.py`:
 
 | | | |
 |---|---|---|
-| **1** | directa | un sol pas: aplicar una definició o fórmula tal com s'acaba de veure, amb les dades a punt |
-| **2** | encadenada | dos o tres passos, o cal triar el mètode abans de començar |
-| **3** | completa | problema amb context, muntar l'expressió des d'un enunciat en paraules, barrejar conceptes, o justificar / detectar un error |
+| **1** | trivial | una definició, un pas, dades explícites i números que es fan de cap. No hi ha res a triar |
+| **2** | directa | un sol concepte, però ja hi ha un pas intermedi, o cal triar entre dues fórmules, o els números no es fan de cap |
+| **3** | encadenada | dos o tres passos lligats, o cal decidir el mètode abans de començar |
+| **4** | completa | problema amb context, muntar l'expressió des d'un enunciat en paraules, barrejar conceptes, o justificar / detectar un error |
 
-Tres graons i prou: més no els sabríem distingir de manera fiable.
+**Per què hi ha un trivial.** Sense ell, 10 blocs obrien amb el primer
+exercici que el material font havia decidit posar primer, i sovint és dels
+més durs: el Full 4 començava sumant quatre polinomis de grau 5, i el Full 5,
+amb una equació sense solució. Ordenar no ho podia arreglar perquè el graó
+no existia.
+
+Un trivial **no és un exercici fàcil, és un diagnòstic**: la seva feina és
+dir si la definició hi és, abans de penjar-hi res a sobre. La prova del cotó:
+*si l'alumne sap la definició, encerta; si no la sap, falla; i no hi ha cap
+tercera cosa que pugui anar malament.* Si en fallar-lo encara et pots
+preguntar «però ho ha entès o s'ha perdut calculant?», no és un trivial.
+
+**On és la frontera amb directa.** `6x³:2x` és trivial; `(x⁴-2x³+x²-x+3) :
+(x²+x+1)` és completa. L'àrea d'un triangle rectangle amb els dos catets
+donats és trivial; amb l'àrea i un catet, troba l'altre, és directa;
+l'isòsceles d'àrea 24 i base 6 és encadenada.
+
+El cas que va fer néixer el nivell: la descomposició de 3850 és
+*correctament* un sol pas, i per tant és directa, no trivial. Però
+2·5²·7·11 són quatre primers i un quadrat, i fallar-la no vol dir «no sé què
+és una descomposició factorial» sinó «m'he perdut dividint». La condició de
+«números que es fan de cap» és la que ho separa.
 
 **El nivell va per exercici, no per ítem.** Els apartats d'un mateix exercici
 solen ser variacions de la mateixa feina, i tenir-ho en una taula permet
@@ -298,10 +321,19 @@ mateix número amb valors diferents també atura (el Full 1 el componen quatre
 mòduls i la taula s'acumula entre tots).
 
 **Com triar el número.** No hi penseu com «quant costa» sinó com «quantes
-decisions ha de prendre l'alumne abans de començar a calcular»: cap (1), una
-(2), o ha de construir el plantejament (3). Els blocs de problemes són tots
-3 de manera natural, i els de classificar o reconèixer, tots 1; això està bé
-i no cal forçar-hi varietat.
+decisions ha de prendre l'alumne abans de començar a calcular»: cap i amb
+números de cap (1), cap però amb feina de càlcul (2), una (3), o ha de
+construir el plantejament (4).
+
+Els blocs de problemes són tots 4 de manera natural, i està bé que ho
+siguin: `compila()` els detecta sols i els marca com a **nivell avançat** a
+la targeta del bloc, de manera que l'alumne sap on entra. No cal forçar-hi
+varietat ni inventar-hi trivials.
+
+El que sí que avisa el build és un bloc que tingui escala però que obri per
+un nivell 3 o 4: aquell obre pel mig d'una cosa que té, i li falta el graó
+de baix. Els blocs que encara no tenen trivial però obren a directa es
+compten i no s'avisen, perquè el trivial s'està introduint bloc a bloc.
 
 **Comproveu la graduació al `REVISIO`.** Al peu hi ha una taula «Graduació
 per bloc» amb el recompte per nivell, i marca en vermell els blocs que han

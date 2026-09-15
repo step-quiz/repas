@@ -32,6 +32,11 @@ window.FULL = {
    "titol": "Piràmides i tetraedres",
    "descripcio": "Àrea total de piràmides regulars i tetraedres, amb Pitàgores per trobar l'apotema quan cal.",
    "items": [
+    "334a",
+    "334b",
+    "334c",
+    "335a",
+    "335b",
     "177",
     "179a",
     "179b",
@@ -39,10 +44,10 @@ window.FULL = {
     "180b",
     "180c",
     "180d",
+    "183",
     "181a",
     "181b",
-    "182",
-    "183"
+    "182"
    ]
   },
   {
@@ -50,15 +55,15 @@ window.FULL = {
    "titol": "Cilindres, cons i l'esfera",
    "descripcio": "Àrea total de cossos de revolució i problemes inversos per trobar radi, altura o generatriu. En aquest bloc prenem π ≈ 3,14.",
    "items": [
-    "184",
     "185a",
     "185b",
-    "186",
-    "187",
     "188",
+    "184",
     "189",
     "190",
     "191",
+    "186",
+    "187",
     "193a",
     "193b"
    ]
@@ -88,6 +93,8 @@ window.FULL = {
   "DIVISIO_REPETIDA": "Has dividit dues vegades pel mateix nombre. Sol passar quan la fórmula ja porta la divisió incorporada i se li torna a aplicar al final: escriu la fórmula sencera i substitueix-hi els valors d'un sol cop.",
   "FACTOR_OBLIDAT": "T'has deixat pel camí un dels factors en combinar els exponents.",
   "FACTOR_TRES_VOLUM": "El terç del volum va només amb piràmides i cons. Prismes, cilindres i cubs són base per altura, sense dividir.",
+  "FORMULA_INVERTIDA": "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula sencera abans de substituir-hi els valors.",
+  "MEITAT_OBLIDADA": "Hi ha un factor $2$ pel mig que t'has deixat: radi i diàmetre, semibase i base, semidiagonal i diagonal. Comprova quina de les dues et demanen.",
   "N_MAL_COMPTAT": "Has fet servir un nombre de dades que no és el que toca. Compta'l bé: sovint la trampa és comptar només les dades conegudes i oblidar la que es busca.",
   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
   "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
@@ -106,7 +113,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un ortoedre (prisma recte de base rectangular) d'arestes $7$ cm, $2$ cm i $4$ cm.",
    "opcions": [
@@ -129,7 +136,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base triangular equilàtera de $5$ cm de costat i $9$ cm d'altura.",
    "opcions": [
@@ -152,7 +159,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $6$ cm de costat i $5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
    "opcions": [
@@ -175,7 +182,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base pentagonal regular de $5$ cm de costat i $3{,}44$ cm d'apotema, amb $12$ cm d'altura.",
    "opcions": [
@@ -198,7 +205,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de $5$ cm d'altura amb la base en forma de triangle rectangle de catets $6$ cm i $8$ cm.",
    "opcions": [
@@ -220,7 +227,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un cub d'aresta $7$ cm.",
    "opcions": [
@@ -243,7 +250,7 @@ window.FULL = {
    "ap": "g",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $8$ cm de costat i $6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
    "opcions": [
@@ -266,7 +273,7 @@ window.FULL = {
    "ap": "h",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base hexagonal regular de $5$ cm de costat i $4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
    "opcions": [
@@ -289,7 +296,7 @@ window.FULL = {
    "ap": "i",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula l'àrea total d'aquest prisma recte:",
    "enunciat": "Calcula l'àrea total d'aquest prisma recte: un prisma de base octogonal regular de $6$ cm de costat i $7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
    "opcions": [
@@ -312,7 +319,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma recte de base triangular equilàtera de costat $2$ cm i altura $3$ cm.",
    "opcions": [
@@ -335,7 +342,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma hexagonal regular de costat $8$ cm i altura $10$ cm.",
    "opcions": [
@@ -358,7 +365,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un prisma hexagonal regular de costat $6$ cm i altura $10$ cm.",
    "opcions": [
@@ -381,7 +388,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "L'àrea total d'un cub és $24$ cm$^2$. Calcula la longitud de la seva diagonal.",
    "opcions": [
@@ -404,7 +411,7 @@ window.FULL = {
    "ap": "",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la seva diagonal.",
    "opcions": [
@@ -427,7 +434,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat.",
    "enunciat": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea lateral de l'edifici?",
    "opcions": [
@@ -450,7 +457,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "prismes",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat.",
    "enunciat": "En un estudi d'arquitectura s'ha dissenyat un edifici que té forma de prisma recte, de $20$ m d'altura, amb una base triangular equilàtera de $6$ m de costat. Quant mesura l'àrea total de l'edifici?",
    "opcions": [
@@ -468,12 +475,127 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 159 242\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Prisma recte de base triangular regular, dibuixat en perspectiva.</title><g transform=\"translate(53.8,183.3)\"><polygon points=\"0.0,-19.3 39.8,9.7 -39.8,9.7\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.2\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-19.3 39.8,9.7 39.8,-140.3 0.0,-169.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"39.8,9.7 -39.8,9.7 -39.8,-140.3 39.8,-140.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"-39.8,9.7 0.0,-19.3 0.0,-169.3 -39.8,-140.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-169.3 39.8,-140.3 -39.8,-140.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"55.8\" y1=\"-169.3\" x2=\"55.8\" y2=\"9.7\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"39.8\" y1=\"12.2\" x2=\"39.8\" y2=\"31.2\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-39.8\" y1=\"12.2\" x2=\"-39.8\" y2=\"31.2\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"39.8\" y1=\"27.7\" x2=\"-39.8\" y2=\"27.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"43.8\" y1=\"23.7\" x2=\"35.8\" y2=\"31.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-35.8\" y1=\"23.7\" x2=\"-43.8\" y2=\"31.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"75.8\" y=\"-76.5\" text-anchor=\"middle\" class=\"fig-etq\">20 m</text><text x=\"0\" y=\"42\" text-anchor=\"middle\" class=\"fig-etq\">6 m</text></g></svg>"
   },
   {
+   "id": "334a",
+   "ex": 334,
+   "ap": "a",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el volum d'aquesta piràmide. Recorda: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+   "enunciat": "L'àrea de la base és $12$ cm$^2$ i l'altura, $5$ cm.",
+   "opcions": [
+    "$17$ cm$^3$",
+    "$20$ cm$^3$",
+    "$180$ cm$^3$",
+    "$60$ cm$^3$"
+   ],
+   "pistes": [
+    "L'àrea de la base ja te la donen: no l'has de calcular.",
+    "$V=\\dfrac{12\\cdot 5}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgc3VtYXQgJDEyKzUkIGVuIGxsb2MgZGUgbXVsdGlwbGljYXIuIEhhcyBkaXZpZGl0IG9uIGxhIGbDs3JtdWxhIG11bHRpcGxpY2EgKG8gYWwgcmV2w6lzKS4gRXNjcml1IGxhIGbDs3JtdWxhIHNlbmNlcmEgYWJhbnMgZGUgc3Vic3RpdHVpci1oaSBlbHMgdmFsb3JzLiIsICIiLCAiSGFzIG11bHRpcGxpY2F0IHBlciAkMyQgZW4gbGxvYyBkZSBkaXZpZGlyLiBMYSBwaXLDoG1pZGUgw6lzIE3DiVMgUEVUSVRBIHF1ZSBlbCBwcmlzbWEsIG5vIHRyZXMgdmVnYWRlcyBtw6lzIGdyYW4uIiwgIiQxMlxcY2RvdCA1PTYwJCDDqXMgZWwgdm9sdW0gZGVsIFBSSVNNQSBkZSBsYSBtYXRlaXhhIGJhc2UgaSBhbHR1cmEuIExhIHBpcsOgbWlkZSBuJ8OpcyBsYSB0ZXJjZXJhIHBhcnQuIEVsIHRlcsOnIGRlbCB2b2x1bSB2YSBub23DqXMgYW1iIHBpcsOgbWlkZXMgaSBjb25zLiBQcmlzbWVzLCBjaWxpbmRyZXMgaSBjdWJzIHPDs24gYmFzZSBwZXIgYWx0dXJhLCBzZW5zZSBkaXZpZGlyLiJdLCAiZXJyIjogWyJGT1JNVUxBX0lOVkVSVElEQSIsICIiLCAiRkFDVE9SX1RSRVNfVk9MVU0iLCAiRkFDVE9SX1RSRVNfVk9MVU0iXSwgInJlcyI6IFsiJFY9XFxkZnJhY3tBX3tcXHRleHR7YmFzZX19XFxjZG90IGh9ezN9PVxcZGZyYWN7MTJcXGNkb3QgNX17M309XFxkZnJhY3s2MH17M309MjAkIGNtJF4zJCJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 205 155\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base quadrangular regular, en perspectiva.</title><g transform=\"translate(140.6,126.0)\"><polygon points=\"0.0,-15.0 50.0,0.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 50.0,0.0 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\"/><path d=\"M 11.0 0.0 L 11.0 -11.0 L 0.0 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-112.0\" x2=\"-71.5\" y2=\"-112.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-68.0\" y1=\"-112.0\" x2=\"-68.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-116.0\" x2=\"-72.0\" y2=\"-108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-4.0\" x2=\"-72.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-101\" y=\"-53.1\" text-anchor=\"middle\" class=\"fig-etq petita\">h = 5 cm</text></g></svg>"
+  },
+  {
+   "id": "334b",
+   "ex": 334,
+   "ap": "b",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el volum d'aquesta piràmide. Recorda: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+   "enunciat": "L'àrea de la base és $30$ m$^2$ i l'altura, $4$ m.",
+   "opcions": [
+    "$120$ m$^3$",
+    "$360$ m$^3$",
+    "$40$ m$^3$",
+    "$34$ m$^3$"
+   ],
+   "pistes": [
+    "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+    "$\\dfrac{30\\cdot 4}{3}=\\dfrac{120}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJGYWx0YSBkaXZpZGlyIHBlciAkMyQuIEVsIHRlcsOnIGRlbCB2b2x1bSB2YSBub23DqXMgYW1iIHBpcsOgbWlkZXMgaSBjb25zLiBQcmlzbWVzLCBjaWxpbmRyZXMgaSBjdWJzIHPDs24gYmFzZSBwZXIgYWx0dXJhLCBzZW5zZSBkaXZpZGlyLiIsICJIYXMgbXVsdGlwbGljYXQgcGVyICQzJCBlbiBsbG9jIGRlIGRpdmlkaXIuIiwgIiIsICJIYXMgc3VtYXQgZW4gbGxvYyBkZSBtdWx0aXBsaWNhci4gSGFzIGRpdmlkaXQgb24gbGEgZsOzcm11bGEgbXVsdGlwbGljYSAobyBhbCByZXbDqXMpLiBFc2NyaXUgbGEgZsOzcm11bGEgc2VuY2VyYSBhYmFucyBkZSBzdWJzdGl0dWlyLWhpIGVscyB2YWxvcnMuIl0sICJlcnIiOiBbIkZBQ1RPUl9UUkVTX1ZPTFVNIiwgIkZBQ1RPUl9UUkVTX1ZPTFVNIiwgIiIsICJGT1JNVUxBX0lOVkVSVElEQSJdLCAicmVzIjogWyIkVj1cXGRmcmFjezMwXFxjZG90IDR9ezN9PVxcZGZyYWN7MTIwfXszfT00MCQgbSReMyQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 195 155\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base quadrangular regular, en perspectiva.</title><g transform=\"translate(130.4,126.0)\"><polygon points=\"0.0,-15.0 50.0,0.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 50.0,0.0 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\"/><path d=\"M 11.0 0.0 L 11.0 -11.0 L 0.0 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-112.0\" x2=\"-71.5\" y2=\"-112.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-68.0\" y1=\"-112.0\" x2=\"-68.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-116.0\" x2=\"-72.0\" y2=\"-108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-4.0\" x2=\"-72.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-94\" y=\"-53.1\" text-anchor=\"middle\" class=\"fig-etq petita\">h = 4 m</text></g></svg>"
+  },
+  {
+   "id": "334c",
+   "ex": 334,
+   "ap": "c",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el volum d'aquesta piràmide. Recorda: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+   "enunciat": "L'àrea de la base és $9$ cm$^2$ i l'altura, $7$ cm.",
+   "opcions": [
+    "$63$ cm$^3$",
+    "$189$ cm$^3$",
+    "$16$ cm$^3$",
+    "$21$ cm$^3$"
+   ],
+   "pistes": [
+    "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+    "$\\dfrac{9\\cdot 7}{3}=\\dfrac{63}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJGYWx0YSBkaXZpZGlyIHBlciAkMyQuIEVsIHRlcsOnIGRlbCB2b2x1bSB2YSBub23DqXMgYW1iIHBpcsOgbWlkZXMgaSBjb25zLiBQcmlzbWVzLCBjaWxpbmRyZXMgaSBjdWJzIHPDs24gYmFzZSBwZXIgYWx0dXJhLCBzZW5zZSBkaXZpZGlyLiIsICJIYXMgbXVsdGlwbGljYXQgcGVyICQzJCBlbiBsbG9jIGRlIGRpdmlkaXIuIiwgIkhhcyBzdW1hdCAkOSs3JC4gSGFzIGRpdmlkaXQgb24gbGEgZsOzcm11bGEgbXVsdGlwbGljYSAobyBhbCByZXbDqXMpLiBFc2NyaXUgbGEgZsOzcm11bGEgc2VuY2VyYSBhYmFucyBkZSBzdWJzdGl0dWlyLWhpIGVscyB2YWxvcnMuIiwgIiJdLCAiZXJyIjogWyJGQUNUT1JfVFJFU19WT0xVTSIsICJGQUNUT1JfVFJFU19WT0xVTSIsICJGT1JNVUxBX0lOVkVSVElEQSIsICIiXSwgInJlcyI6IFsiJFY9XFxkZnJhY3s5XFxjZG90IDd9ezN9PVxcZGZyYWN7NjN9ezN9PTIxJCBjbSReMyQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 205 155\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base quadrangular regular, en perspectiva.</title><g transform=\"translate(140.6,126.0)\"><polygon points=\"0.0,-15.0 50.0,0.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 50.0,0.0 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"1.6\"/><path d=\"M 11.0 0.0 L 11.0 -11.0 L 0.0 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-112.0\" x2=\"-71.5\" y2=\"-112.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-68.0\" y1=\"-112.0\" x2=\"-68.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-116.0\" x2=\"-72.0\" y2=\"-108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-64.0\" y1=\"-4.0\" x2=\"-72.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-101\" y=\"-53.1\" text-anchor=\"middle\" class=\"fig-etq petita\">h = 7 cm</text></g></svg>"
+  },
+  {
+   "id": "335a",
+   "ex": 335,
+   "ap": "a",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea lateral d'aquesta piràmide de base quadrada. Recorda: $A_{\\text{lat}}=\\dfrac{P_{\\text{base}}\\cdot a_p}{2}$, on $a_p$ és l'apotema de la piràmide.",
+   "enunciat": "El perímetre de la base fa $20$ cm i l'apotema de la piràmide, $6$ cm.",
+   "opcions": [
+    "$40$ cm$^2$",
+    "$60$ cm$^2$",
+    "$26$ cm$^2$",
+    "$120$ cm$^2$"
+   ],
+   "pistes": [
+    "Les cares laterals són triangles: tots junts fan un sol triangle de base el perímetre.",
+    "$A_{\\text{lat}}=\\dfrac{20\\cdot 6}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgJDMkLiBFbCAkMyQgw6lzIGRlIGxhIGbDs3JtdWxhIGRlbCBWT0xVTTsgYXF1w60gw6lzIHVuYSDDoHJlYSBpIGVsIHF1ZSBoaSB2YSDDqXMgZGl2aWRpciBwZXIgJDIkLiIsICIiLCAiSGFzIHN1bWF0ICQyMCs2JCBlbiBsbG9jIGRlIG11bHRpcGxpY2FyLiBIYXMgZGl2aWRpdCBvbiBsYSBmw7NybXVsYSBtdWx0aXBsaWNhIChvIGFsIHJldsOpcykuIEVzY3JpdSBsYSBmw7NybXVsYSBzZW5jZXJhIGFiYW5zIGRlIHN1YnN0aXR1aXItaGkgZWxzIHZhbG9ycy4iLCAiJDIwXFxjZG90IDY9MTIwJDsgZmFsdGEgZGl2aWRpciBwZXIgJDIkLiBMZXMgY2FyZXMgbGF0ZXJhbHMgc8OzbiB0cmlhbmdsZXMsIGkgY2FkYSB0cmlhbmdsZSBwb3J0YSBlbCBzZXUgbWlnLiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iXSwgImVyciI6IFsiRkFDVE9SX1RSRVNfVk9MVU0iLCAiIiwgIkZPUk1VTEFfSU5WRVJUSURBIiwgIk1FSVRBVF9PQkxJREFEQSJdLCAicmVzIjogWyIkQV97XFx0ZXh0e2xhdH19PVxcZGZyYWN7UFxcY2RvdCBhX3B9ezJ9PVxcZGZyYWN7MjBcXGNkb3QgNn17Mn09XFxkZnJhY3sxMjB9ezJ9PTYwJCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 315 169\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base quadrangular regular, en perspectiva. Al costat, una cara lateral en veritable magnitud.</title><g transform=\"translate(64.0,139.7)\"><polygon points=\"0.0,-15.0 50.0,0.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 50.0,0.0 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"116.0,-110.4 70.0,0.0 162.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"116.0\" y1=\"-110.4\" x2=\"116.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><path d=\"M 127.0 0.0 L 127.0 -11.0 L 116.0 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"118.5\" y1=\"-110.4\" x2=\"181.5\" y2=\"-110.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"118.5\" y1=\"0.0\" x2=\"181.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"178.0\" y1=\"-110.4\" x2=\"178.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"174.0\" y1=\"-114.4\" x2=\"182.0\" y2=\"-106.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"174.0\" y1=\"-4.0\" x2=\"182.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"211\" y=\"-52.3\" text-anchor=\"middle\" class=\"fig-etq petita\">a = 6 cm</text><text x=\"116\" y=\"-117.5\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">una cara</text></g></svg>"
+  },
+  {
+   "id": "335b",
+   "ex": 335,
+   "ap": "b",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea lateral d'aquesta piràmide de base quadrada. Recorda: $A_{\\text{lat}}=\\dfrac{P_{\\text{base}}\\cdot a_p}{2}$, on $a_p$ és l'apotema de la piràmide.",
+   "enunciat": "El perímetre de la base fa $24$ m i l'apotema de la piràmide, $5$ m.",
+   "opcions": [
+    "$29$ m$^2$",
+    "$120$ m$^2$",
+    "$40$ m$^2$",
+    "$60$ m$^2$"
+   ],
+   "pistes": [
+    "$A_{\\text{lat}}=\\dfrac{P\\cdot a_p}{2}$.",
+    "$\\dfrac{24\\cdot 5}{2}=\\dfrac{120}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgJDI0KzUkLiBIYXMgZGl2aWRpdCBvbiBsYSBmw7NybXVsYSBtdWx0aXBsaWNhIChvIGFsIHJldsOpcykuIEVzY3JpdSBsYSBmw7NybXVsYSBzZW5jZXJhIGFiYW5zIGRlIHN1YnN0aXR1aXItaGkgZWxzIHZhbG9ycy4iLCAiRmFsdGEgZGl2aWRpciBwZXIgJDIkLiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iLCAiSGFzIGRpdmlkaXQgcGVyICQzJCwgcXVlIMOpcyBlbCBkZSBsYSBmw7NybXVsYSBkZWwgdm9sdW0uIFBlciBhIHVuYSDDoHJlYSBsYXRlcmFsIGVzIGRpdmlkZWl4IHBlciAkMiQuIiwgIiJdLCAiZXJyIjogWyJGT1JNVUxBX0lOVkVSVElEQSIsICJNRUlUQVRfT0JMSURBREEiLCAiRkFDVE9SX1RSRVNfVk9MVU0iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7bGF0fX09XFxkZnJhY3syNFxcY2RvdCA1fXsyfT1cXGRmcmFjezEyMH17Mn09NjAkIG0kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 305 155\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base quadrangular regular, en perspectiva. Al costat, una cara lateral en veritable magnitud.</title><g transform=\"translate(64.0,126.0)\"><polygon points=\"0.0,-15.0 50.0,0.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 50.0,0.0 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -50.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"116.0,-76.7 70.0,0.0 162.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"116.0\" y1=\"-76.7\" x2=\"116.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><path d=\"M 127.0 0.0 L 127.0 -11.0 L 116.0 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"118.5\" y1=\"-76.7\" x2=\"181.5\" y2=\"-76.7\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"118.5\" y1=\"0.0\" x2=\"181.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"178.0\" y1=\"-76.7\" x2=\"178.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"174.0\" y1=\"-80.7\" x2=\"182.0\" y2=\"-72.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"174.0\" y1=\"-4.0\" x2=\"182.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"204\" y=\"-35.4\" text-anchor=\"middle\" class=\"fig-etq petita\">a = 5 m</text><text x=\"116\" y=\"-83.7\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">una cara</text></g></svg>"
+  },
+  {
    "id": "177",
    "ex": 177,
    "ap": "",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Una piràmide pentagonal regular té la base de costat $4$ cm i apotema $2{,}75$ cm; l'apotema de la piràmide és $11{,}83$ cm. Calcula la seva àrea total.",
    "opcions": [
@@ -496,7 +618,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide quadrangular regular té la base de costat $25$ m i l'apotema de la piràmide fa $34$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -519,7 +641,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide hexagonal regular té la base de costat $6$ m i l'altura de la piràmide (no l'apotema) fa $9$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -542,7 +664,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $3$ cm.",
    "opcions": [
@@ -565,7 +687,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $5$ cm.",
    "opcions": [
@@ -588,7 +710,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $9$ cm.",
    "opcions": [
@@ -611,7 +733,7 @@ window.FULL = {
    "ap": "d",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "Calcula l'àrea total d'un tetraedre regular d'aresta:",
    "enunciat": "Calcula l'àrea total d'un tetraedre regular d'aresta: $6{,}2$ cm.",
    "opcions": [
@@ -629,12 +751,36 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 144 162\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Tetraedre regular d'aresta 6,2 cm, en perspectiva.</title><g transform=\"translate(14.0,14.0)\"><polygon points=\"58.0,0.0 0.0,100.5 116.0,100.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"58.0\" y1=\"0.0\" x2=\"71.9\" y2=\"68.3\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"0.0\" y1=\"100.5\" x2=\"71.9\" y2=\"68.3\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"116.0\" y1=\"100.5\" x2=\"71.9\" y2=\"68.3\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"103.0\" x2=\"0.0\" y2=\"120.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"116.0\" y1=\"103.0\" x2=\"116.0\" y2=\"120.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"116.5\" x2=\"116.0\" y2=\"116.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"112.5\" x2=\"4.0\" y2=\"120.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"112.0\" y1=\"112.5\" x2=\"120.0\" y2=\"120.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"58\" y=\"130.8\" text-anchor=\"middle\" class=\"fig-etq\">6,2 cm</text></g></svg>"
   },
   {
+   "id": "183",
+   "ex": 183,
+   "ap": "",
+   "bloc": "piramides",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "Una piràmide hexagonal regular té la base de costat $3$ cm i l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un tetraedre regular perquè la seva àrea total sigui la mateixa?",
+   "opcions": [
+    "$\\approx6{,}53$ cm",
+    "$\\approx113{,}38$ cm",
+    "$\\approx8{,}09$ cm",
+    "$\\approx65{,}46$ cm"
+   ],
+   "pistes": [
+    "Apotema de la base: $\\dfrac{3\\sqrt3}{2}\\approx2{,}6$ cm; $A_{\\text{base}}=\\dfrac{18\\cdot2{,}6}{2}\\approx23{,}38$ cm$^2$.",
+    "$A_{\\text{lateral}}=\\dfrac{18\\cdot10}{2}=90$ cm$^2$, així que $A_{\\text{total,piràmide}}\\approx23{,}38+90\\approx113{,}38$ cm$^2$.",
+    "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxzcXJ0ezExM3ssfTM4Olxcc3FydDN9JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICRcXHNxcnQzJCAobm8gcGVyICQzJCkgYWJhbnMgZGUgZmVyIGwnYXJyZWwuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgdG90YWwgZGUgbGEgcGlyw6BtaWRlIChlbiBjbSReMiQpLCBubyBsJ2FyZXN0YSBkZWwgdGV0cmFlZHJlOiBlbmNhcmEgZmFsdGEgYcOvbGxhciAkTCQgZGUgJExeMlxcc3FydDNcXGFwcHJveDExM3ssfTM4JC4iLCAiIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJExeMiQgKCQxMTN7LH0zODpcXHNxcnQzJCksIG5vIGRlICRMJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiQVJSRUxfT0JMSURBREEiLCAiIiwgIkFSUkVMX01BTF9BUExJQ0FEQSJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MnssfTYkIGNtOyAkQV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MjN7LH0zOCQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7MThcXGNkb3QxMH17Mn09OTAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsLHBpcsOgbWlkZX19XFxhcHByb3gyM3ssfTM4KzkwXFxhcHByb3gxMTN7LH0zOCQgY20kXjIkIiwgIiRMXjJcXHNxcnQzXFxhcHByb3gxMTN7LH0zOCBcXFJpZ2h0YXJyb3cgTF4yXFxhcHByb3g2NXssfTQ2JCIsICIkTFxcYXBwcm94OHssfTA5JCBjbSJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 253 206\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base hexagonal regular, en perspectiva. Al costat, una cara lateral en veritable magnitud.</title><g transform=\"translate(57.3,159.2)\"><polygon points=\"0.0,-15.0 43.3,-7.5 43.3,7.5 0.0,15.0 -43.3,7.5 -43.3,-7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 43.3,-7.5 43.3,7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 43.3,7.5 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -43.3,7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 -43.3,7.5 -43.3,-7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"43.3\" y2=\"7.5\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-43.3\" y2=\"7.5\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"109.3,-130.0 89.8,0.0 128.8,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"109.3\" y1=\"-130.0\" x2=\"109.3\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><path d=\"M 120.3 0.0 L 120.3 -11.0 L 109.3 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"111.8\" y1=\"-130.0\" x2=\"148.3\" y2=\"-130.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"111.8\" y1=\"0.0\" x2=\"148.3\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"144.8\" y1=\"-130.0\" x2=\"144.8\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"140.8\" y1=\"-134.0\" x2=\"148.8\" y2=\"-126.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"140.8\" y1=\"-4.0\" x2=\"148.8\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"89.8\" y1=\"2.5\" x2=\"89.8\" y2=\"18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"128.8\" y1=\"2.5\" x2=\"128.8\" y2=\"18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"89.8\" y1=\"15.0\" x2=\"128.8\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"85.8\" y1=\"11.0\" x2=\"93.8\" y2=\"19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"124.8\" y1=\"11.0\" x2=\"132.8\" y2=\"19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"164.8\" y=\"-62.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"109.3\" y=\"29.4\" text-anchor=\"middle\" class=\"fig-etq\">3 cm</text><text x=\"109.3\" y=\"-137.1\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">una cara</text></g></svg>"
+  },
+  {
    "id": "181a",
    "ex": 181,
    "ap": "a",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide quadrangular regular té la base de costat $8$ m i l'altura (no l'apotema) fa $10$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -657,7 +803,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Dues piràmides regulars.",
    "enunciat": "Una piràmide hexagonal regular té la base de costat $6$ m i l'altura (no l'apotema) fa $8$ m. Calcula la seva àrea total.",
    "opcions": [
@@ -680,7 +826,7 @@ window.FULL = {
    "ap": "",
    "bloc": "piramides",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Quina aresta té un cub que té la mateixa àrea total que una piràmide d'àrea total $4$ cm$^2$?",
    "opcions": [
@@ -697,59 +843,12 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDoHJlYSB0b3RhbCBkZWwgY3ViIG5vIMOpcyBkaXJlY3RhbWVudCBsJ2FyZXN0YTogY2FsIGHDr2xsYXIgJEwkIGRlICQ2TF4yPTQkLCBubyBmZXIgc2VydmlyICQ0JCBkaXJlY3RhbWVudCBjb20gYSBhcmVzdGEuIiwgIk5vIGNvaW5jaWRlaXggYW1iICRcXHNxcnR7NDo2fSQ6IGNvbXByb3ZhIHF1ZSBkaXZpZGVpeGVzIGwnw6ByZWEgZW50cmUgJDYkIGNhcmVzIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJTZW1ibGEgcXVlIGhhcyBtdWx0aXBsaWNhdCAkNFxcY2RvdDYkIGVuIGxsb2MgZGUgZGl2aWRpciAkNDo2JDogbGEgcmVsYWNpw7Mgw6lzICQ2TF4yPTQkLCBwZXIgdGFudCAkTF4yPTQ6NiQuIl0sICJlcnIiOiBbIiIsICJBUlJFTF9PQkxJREFEQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIl0sICJyZXMiOiBbIiQ2TF4yPTQgXFxSaWdodGFycm93IExeMj00OjZcXGFwcHJveDB7LH02NyQiLCAiJEw9XFxzcXJ0ezB7LH02N31cXGFwcHJveDB7LH04MiQgY20iXX0="
   },
   {
-   "id": "183",
-   "ex": 183,
-   "ap": "",
-   "bloc": "piramides",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "Una piràmide hexagonal regular té la base de costat $3$ cm i l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un tetraedre regular perquè la seva àrea total sigui la mateixa?",
-   "opcions": [
-    "$\\approx6{,}53$ cm",
-    "$\\approx113{,}38$ cm",
-    "$\\approx8{,}09$ cm",
-    "$\\approx65{,}46$ cm"
-   ],
-   "pistes": [
-    "Apotema de la base: $\\dfrac{3\\sqrt3}{2}\\approx2{,}6$ cm; $A_{\\text{base}}=\\dfrac{18\\cdot2{,}6}{2}\\approx23{,}38$ cm$^2$.",
-    "$A_{\\text{lateral}}=\\dfrac{18\\cdot10}{2}=90$ cm$^2$, així que $A_{\\text{total,piràmide}}\\approx23{,}38+90\\approx113{,}38$ cm$^2$.",
-    "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkXFxzcXJ0ezExM3ssfTM4Olxcc3FydDN9JDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICRcXHNxcnQzJCAobm8gcGVyICQzJCkgYWJhbnMgZGUgZmVyIGwnYXJyZWwuIiwgIkFxdWVzdGEgw6lzIGwnw6ByZWEgdG90YWwgZGUgbGEgcGlyw6BtaWRlIChlbiBjbSReMiQpLCBubyBsJ2FyZXN0YSBkZWwgdGV0cmFlZHJlOiBlbmNhcmEgZmFsdGEgYcOvbGxhciAkTCQgZGUgJExeMlxcc3FydDNcXGFwcHJveDExM3ssfTM4JC4iLCAiIiwgIkFxdWVzdCDDqXMgZWwgdmFsb3IgZGUgJExeMiQgKCQxMTN7LH0zODpcXHNxcnQzJCksIG5vIGRlICRMJDogZW5jYXJhIGZhbHRhIGZlciBsJ2FycmVsIHF1YWRyYWRhLiJdLCAiZXJyIjogWyJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiQVJSRUxfT0JMSURBREEiLCAiIiwgIkFSUkVMX01BTF9BUExJQ0FEQSJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MnssfTYkIGNtOyAkQV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94MjN7LH0zOCQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7MThcXGNkb3QxMH17Mn09OTAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsLHBpcsOgbWlkZX19XFxhcHByb3gyM3ssfTM4KzkwXFxhcHByb3gxMTN7LH0zOCQgY20kXjIkIiwgIiRMXjJcXHNxcnQzXFxhcHByb3gxMTN7LH0zOCBcXFJpZ2h0YXJyb3cgTF4yXFxhcHByb3g2NXssfTQ2JCIsICIkTFxcYXBwcm94OHssfTA5JCBjbSJdfQ==",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 253 206\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Piràmide recta de base hexagonal regular, en perspectiva. Al costat, una cara lateral en veritable magnitud.</title><g transform=\"translate(57.3,159.2)\"><polygon points=\"0.0,-15.0 43.3,-7.5 43.3,7.5 0.0,15.0 -43.3,7.5 -43.3,-7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,-112.0 43.3,-7.5 43.3,7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 43.3,7.5 0.0,15.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 0.0,15.0 -43.3,7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,-112.0 -43.3,7.5 -43.3,-7.5\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"43.3\" y2=\"7.5\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"0.0\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-112.0\" x2=\"-43.3\" y2=\"7.5\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"109.3,-130.0 89.8,0.0 128.8,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"109.3\" y1=\"-130.0\" x2=\"109.3\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><path d=\"M 120.3 0.0 L 120.3 -11.0 L 109.3 -11.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"111.8\" y1=\"-130.0\" x2=\"148.3\" y2=\"-130.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"111.8\" y1=\"0.0\" x2=\"148.3\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"144.8\" y1=\"-130.0\" x2=\"144.8\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"140.8\" y1=\"-134.0\" x2=\"148.8\" y2=\"-126.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"140.8\" y1=\"-4.0\" x2=\"148.8\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"89.8\" y1=\"2.5\" x2=\"89.8\" y2=\"18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"128.8\" y1=\"2.5\" x2=\"128.8\" y2=\"18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"89.8\" y1=\"15.0\" x2=\"128.8\" y2=\"15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"85.8\" y1=\"11.0\" x2=\"93.8\" y2=\"19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"124.8\" y1=\"11.0\" x2=\"132.8\" y2=\"19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"164.8\" y=\"-62.1\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"109.3\" y=\"29.4\" text-anchor=\"middle\" class=\"fig-etq\">3 cm</text><text x=\"109.3\" y=\"-137.1\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">una cara</text></g></svg>"
-  },
-  {
-   "id": "184",
-   "ex": 184,
-   "ap": "",
-   "bloc": "cossos_rodons",
-   "tipus": "A",
-   "dif": 2,
-   "encapcalament": "",
-   "enunciat": "Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. En dibuixar-ne el desenvolupament pla, el rectangle lateral té una amplada igual a la longitud de la circumferència de la base. Calcula aquesta longitud.",
-   "opcions": [
-    "$54$ cm",
-    "$\\approx9{,}42$ cm",
-    "$\\approx28{,}26$ cm",
-    "$\\approx18{,}84$ cm"
-   ],
-   "pistes": [
-    "El diàmetre és $6$ cm, així que el radi és $3$ cm.",
-    "La longitud de la circumferència és $L=2\\pi r$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLCBubyB1biBzaW1wbGUgcHJvZHVjdGUgZGUgbm9tYnJlcyBlbnRlcnMuIiwgIkhhcyBmZXQgc2VydmlyIGVsIHJhZGkgKCQzJCBjbSkgZW4gbGxvYyBkZWwgZGnDoG1ldHJlIGEgbGEgZsOzcm11bGE6IGxhIGxvbmdpdHVkIMOpcyAkTD0yXFxwaSByPVxccGkgZCQsIGNvbXByb3ZhIHF1ZSBtdWx0aXBsaXF1ZXMgcGVyICQyJCBlbCByYWRpLCBvIGRpcmVjdGFtZW50IHBlbCBkacOgbWV0cmUuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxwaVxcY2RvdDMkOiByZXZpc2EgZWwgcHJvZHVjdGUgcGFzIGEgcGFzIGFtYiAkXFxwaVxcYXBwcm94M3ssfTE0JC4iLCAiIl0sICJlcnIiOiBbIlBJX09CTElEQVQiLCAiRkFDVE9SX09CTElEQVQiLCAiUFJPRFVDVEVfTUFMIiwgIiJdLCAicmVzIjogWyIkTD0yXFxwaSByPTJcXGNkb3Qzeyx9MTRcXGNkb3QzJCIsICIkTFxcYXBwcm94MTh7LH04NCQgY20iXX0=",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 187 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"2.5\" x2=\"-52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-56.0\" y1=\"25.6\" x2=\"-48.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"0\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">6 cm</text><text x=\"92\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">9 cm</text></g></svg>"
-  },
-  {
    "id": "185a",
    "ex": 185,
    "ap": "a",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un cilindre de radi $7$ m i altura $10$ m.",
    "opcions": [
@@ -772,7 +871,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un cilindre de diàmetre de la base $12$ m i altura $5$ m.",
    "opcions": [
@@ -791,58 +890,12 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 178 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"2.5\" x2=\"-52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-56.0\" y1=\"25.6\" x2=\"-48.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"0\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">12 m</text><text x=\"87\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">5 m</text></g></svg>"
   },
   {
-   "id": "186",
-   "ex": 186,
-   "ap": "",
-   "bloc": "cossos_rodons",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. Calcula la seva altura.",
-   "opcions": [
-    "$75{,}66$ cm",
-    "$\\approx240{,}95$ cm",
-    "$\\approx12{,}05$ cm",
-    "$\\approx24{,}09$ cm"
-   ],
-   "pistes": [
-    "L'àrea lateral d'un cilindre és $A_{\\text{lateral}}=2\\pi rh$.",
-    "Aïlla $h$: $h=\\dfrac{A_{\\text{lateral}}}{2\\pi r}$."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBoYXMgZGl2aWRpdCBwZWwgcHJvZHVjdGUgY29tcGxldCAkMlxccGkgciQ6IGNhbCBkaXZpZGlyICQ3NTZ7LH02JCBlbnRyZSAkMlxcY2RvdDN7LH0xNFxcY2RvdDEwJCwgbm8gbm9tw6lzIGVudHJlICQxMCQuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQ3NTZ7LH02OigyXFxwaVxcY2RvdDEwKSQ6IHJldmlzYSBlbCBkZW5vbWluYWRvciBjb21wbGV0IGFiYW5zIGRlIGRpdmlkaXIuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIG5vbcOpcyBlbnRyZSAkXFxwaSByJCBlbiBsbG9jIGRlICQyXFxwaSByJDogcmVjb3JkYSBlbCBmYWN0b3IgJDIkIGRlIGwnw6ByZWEgbGF0ZXJhbCBkZWwgY2lsaW5kcmUuIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRoPVxcZGZyYWN7NzU2eyx9Nn17MlxcY2RvdDN7LH0xNFxcY2RvdDEwfSQiLCAiJGhcXGFwcHJveDEyeyx9MDUkIGNtIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 167 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"83\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">h</text></g></svg>"
-  },
-  {
-   "id": "187",
-   "ex": 187,
-   "ap": "",
-   "bloc": "cossos_rodons",
-   "tipus": "A",
-   "dif": 3,
-   "encapcalament": "",
-   "enunciat": "L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és el doble del radi. Calcula el radi i l'altura del cilindre.",
-   "opcions": [
-    "$r=2{,}5$ cm, $h=5$ cm",
-    "$r=5$ cm, $h=10$ cm",
-    "$r=15{,}7$ cm, $h=31{,}4$ cm",
-    "$r=10$ cm, $h=5$ cm"
-   ],
-   "pistes": [
-    "Amb $h=2r$: $A_{\\text{total}}=2\\pi r^2+2\\pi r\\cdot2r=6\\pi r^2$.",
-    "Aïlla $r^2=\\dfrac{471}{6\\pi}$ i fes l'arrel quadrada."
-   ],
-   "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIHQnaGFzIGRlaXhhdCBhbGd1biBmYWN0b3IgZW4gc3Vic3RpdHVpciAkaD0yciQgZGlucyAkQV97XFx0ZXh0e3RvdGFsfX09MlxccGkgcl4yKzJcXHBpIHJoJDogcmV2aXNhIHF1ZSBxdWVkaSAkQV97XFx0ZXh0e3RvdGFsfX09NlxccGkgcl4yJC4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iIGHDr2xsYXIgJHIkIGRlICQ2XFxwaSByXjI9NDcxJDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICQ2XFxwaSQgKG5vIHBlciB1biBhbHRyZSBmYWN0b3IpIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJIYXMgaW50ZXJjYW52aWF0IGVscyBwYXBlcnMgZGVsIHJhZGkgaSBsJ2FsdHVyYTogbCdlbnVuY2lhdCBkaXUgcXVlIGwnYWx0dXJhIMOpcyBlbCBET0JMRSBkZWwgcmFkaSwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJQQVBFUlNfSU5URVJDQU5WSUFUUyJdLCAicmVzIjogWyIkNlxccGkgcl4yPTQ3MSBcXFJpZ2h0YXJyb3cgcl4yPVxcZGZyYWN7NDcxfXs2XFxjZG90M3ssfTE0fT0yNSQiLCAiJHI9XFxzcXJ0ezI1fT01JCBjbSAkXFxSaWdodGFycm93IGg9MlxcY2RvdDU9MTAkIGNtIl19",
-   "figura": "<svg class=\"figura\" viewBox=\"0 0 171 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">r</text><text x=\"83\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">2r</text></g></svg>"
-  },
-  {
    "id": "188",
    "ex": 188,
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "",
    "enunciat": "Un con té $4$ cm de radi de la base i $15$ cm de generatriu. Calcula la longitud de l'arc que descriu la base en desplegar la superfície lateral del con (és a dir, la longitud de la circumferència de la base).",
    "opcions": [
@@ -860,12 +913,35 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 168 156\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Con recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,14.0)\"><path d=\"M -52.0 112.0 A 52.0 15.6 0 0 0 52.0 112.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 112.0 A 52.0 15.6 0 0 1 52.0 112.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><polygon points=\"0.0,0.0 -52.0,112.0 52.0,112.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 112.0 A 52.0 15.6 0 0 0 52.0 112.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 112.0 A 52.0 15.6 0 0 1 52.0 112.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"0.0\" y1=\"112.0\" x2=\"52.0\" y2=\"112.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"109.5\" x2=\"0.0\" y2=\"78.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"109.5\" x2=\"52.0\" y2=\"78.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"82.4\" x2=\"52.0\" y2=\"82.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"86.4\" x2=\"4.0\" y2=\"78.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"86.4\" x2=\"56.0\" y2=\"78.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"112.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-crida\" x1=\"26.0\" y1=\"82.4\" x2=\"58.8\" y2=\"110.9\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"73.2\" y=\"119.5\" text-anchor=\"middle\" class=\"fig-etq\">4 cm</text><text x=\"49.6\" y=\"48.4\" text-anchor=\"middle\" class=\"fig-etq\">15 cm</text></g></svg>"
   },
   {
+   "id": "184",
+   "ex": 184,
+   "ap": "",
+   "bloc": "cossos_rodons",
+   "tipus": "A",
+   "dif": 3,
+   "encapcalament": "",
+   "enunciat": "Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. En dibuixar-ne el desenvolupament pla, el rectangle lateral té una amplada igual a la longitud de la circumferència de la base. Calcula aquesta longitud.",
+   "opcions": [
+    "$54$ cm",
+    "$\\approx9{,}42$ cm",
+    "$\\approx28{,}26$ cm",
+    "$\\approx18{,}84$ cm"
+   ],
+   "pistes": [
+    "El diàmetre és $6$ cm, així que el radi és $3$ cm.",
+    "La longitud de la circumferència és $L=2\\pi r$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm8gZmEgc2VydmlyICRcXHBpJDogbGEgbG9uZ2l0dWQgZCd1bmEgY2lyY3VtZmVyw6huY2lhIHNlbXByZSDDqXMgJDJcXHBpIHIkLCBubyB1biBzaW1wbGUgcHJvZHVjdGUgZGUgbm9tYnJlcyBlbnRlcnMuIiwgIkhhcyBmZXQgc2VydmlyIGVsIHJhZGkgKCQzJCBjbSkgZW4gbGxvYyBkZWwgZGnDoG1ldHJlIGEgbGEgZsOzcm11bGE6IGxhIGxvbmdpdHVkIMOpcyAkTD0yXFxwaSByPVxccGkgZCQsIGNvbXByb3ZhIHF1ZSBtdWx0aXBsaXF1ZXMgcGVyICQyJCBlbCByYWRpLCBvIGRpcmVjdGFtZW50IHBlbCBkacOgbWV0cmUuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxwaVxcY2RvdDMkOiByZXZpc2EgZWwgcHJvZHVjdGUgcGFzIGEgcGFzIGFtYiAkXFxwaVxcYXBwcm94M3ssfTE0JC4iLCAiIl0sICJlcnIiOiBbIlBJX09CTElEQVQiLCAiRkFDVE9SX09CTElEQVQiLCAiUFJPRFVDVEVfTUFMIiwgIiJdLCAicmVzIjogWyIkTD0yXFxwaSByPTJcXGNkb3Qzeyx9MTRcXGNkb3QzJCIsICIkTFxcYXBwcm94MTh7LH04NCQgY20iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 187 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"2.5\" x2=\"-52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-52.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-56.0\" y1=\"25.6\" x2=\"-48.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"0\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">6 cm</text><text x=\"92\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">9 cm</text></g></svg>"
+  },
+  {
    "id": "189",
    "ex": 189,
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Calcula l'àrea total d'un con de $8$ cm de diàmetre de la base i $12$ cm de generatriu.",
    "opcions": [
@@ -888,7 +964,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "Un con té $13$ cm de generatriu i $5$ cm de radi de la base. Calcula la seva altura.",
    "opcions": [
@@ -911,7 +987,7 @@ window.FULL = {
    "ap": "",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 2,
+   "dif": 3,
    "encapcalament": "",
    "enunciat": "L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.",
    "opcions": [
@@ -929,12 +1005,58 @@ window.FULL = {
    "figura": "<svg class=\"figura\" viewBox=\"0 0 161 144\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Esfera amb el radi marcat.</title><g transform=\"translate(72.0,72.0)\"><circle cx=\"0.0\" cy=\"0.0\" r=\"58.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"58.0\" ry=\"17.4\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"58.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-crida\" x1=\"29.0\" y1=\"0.0\" x2=\"64.8\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-opacity=\"0.55\"/><text x=\"71\" y=\"2.9\" text-anchor=\"middle\" class=\"fig-etq petita\">r</text></g></svg>"
   },
   {
+   "id": "186",
+   "ex": 186,
+   "ap": "",
+   "bloc": "cossos_rodons",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. Calcula la seva altura.",
+   "opcions": [
+    "$75{,}66$ cm",
+    "$\\approx240{,}95$ cm",
+    "$\\approx12{,}05$ cm",
+    "$\\approx24{,}09$ cm"
+   ],
+   "pistes": [
+    "L'àrea lateral d'un cilindre és $A_{\\text{lateral}}=2\\pi rh$.",
+    "Aïlla $h$: $h=\\dfrac{A_{\\text{lateral}}}{2\\pi r}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJObyBoYXMgZGl2aWRpdCBwZWwgcHJvZHVjdGUgY29tcGxldCAkMlxccGkgciQ6IGNhbCBkaXZpZGlyICQ3NTZ7LH02JCBlbnRyZSAkMlxcY2RvdDN7LH0xNFxcY2RvdDEwJCwgbm8gbm9tw6lzIGVudHJlICQxMCQuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQ3NTZ7LH02OigyXFxwaVxcY2RvdDEwKSQ6IHJldmlzYSBlbCBkZW5vbWluYWRvciBjb21wbGV0IGFiYW5zIGRlIGRpdmlkaXIuIiwgIiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBkaXZpZGlyIG5vbcOpcyBlbnRyZSAkXFxwaSByJCBlbiBsbG9jIGRlICQyXFxwaSByJDogcmVjb3JkYSBlbCBmYWN0b3IgJDIkIGRlIGwnw6ByZWEgbGF0ZXJhbCBkZWwgY2lsaW5kcmUuIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRoPVxcZGZyYWN7NzU2eyx9Nn17MlxcY2RvdDN7LH0xNFxcY2RvdDEwfSQiLCAiJGhcXGFwcHJveDEyeyx9MDUkIGNtIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 167 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"83\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">h</text></g></svg>"
+  },
+  {
+   "id": "187",
+   "ex": 187,
+   "ap": "",
+   "bloc": "cossos_rodons",
+   "tipus": "A",
+   "dif": 4,
+   "encapcalament": "",
+   "enunciat": "L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és el doble del radi. Calcula el radi i l'altura del cilindre.",
+   "opcions": [
+    "$r=2{,}5$ cm, $h=5$ cm",
+    "$r=5$ cm, $h=10$ cm",
+    "$r=15{,}7$ cm, $h=31{,}4$ cm",
+    "$r=10$ cm, $h=5$ cm"
+   ],
+   "pistes": [
+    "Amb $h=2r$: $A_{\\text{total}}=2\\pi r^2+2\\pi r\\cdot2r=6\\pi r^2$.",
+    "Aïlla $r^2=\\dfrac{471}{6\\pi}$ i fes l'arrel quadrada."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIHQnaGFzIGRlaXhhdCBhbGd1biBmYWN0b3IgZW4gc3Vic3RpdHVpciAkaD0yciQgZGlucyAkQV97XFx0ZXh0e3RvdGFsfX09MlxccGkgcl4yKzJcXHBpIHJoJDogcmV2aXNhIHF1ZSBxdWVkaSAkQV97XFx0ZXh0e3RvdGFsfX09NlxccGkgcl4yJC4iLCAiIiwgIk5vIGNvaW5jaWRlaXggYW1iIGHDr2xsYXIgJHIkIGRlICQ2XFxwaSByXjI9NDcxJDogY29tcHJvdmEgcXVlIGRpdmlkZWl4ZXMgcGVyICQ2XFxwaSQgKG5vIHBlciB1biBhbHRyZSBmYWN0b3IpIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJIYXMgaW50ZXJjYW52aWF0IGVscyBwYXBlcnMgZGVsIHJhZGkgaSBsJ2FsdHVyYTogbCdlbnVuY2lhdCBkaXUgcXVlIGwnYWx0dXJhIMOpcyBlbCBET0JMRSBkZWwgcmFkaSwgbm8gYWwgcmV2w6lzLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJQQVBFUlNfSU5URVJDQU5WSUFUUyJdLCAicmVzIjogWyIkNlxccGkgcl4yPTQ3MSBcXFJpZ2h0YXJyb3cgcl4yPVxcZGZyYWN7NDcxfXs2XFxjZG90M3ssfTE0fT0yNSQiLCAiJHI9XFxzcXJ0ezI1fT01JCBjbSAkXFxSaWdodGFycm93IGg9MlxcY2RvdDU9MTAkIGNtIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 171 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">r</text><text x=\"83\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">2r</text></g></svg>"
+  },
+  {
    "id": "193a",
    "ex": 193,
    "ap": "a",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base.",
    "enunciat": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea lateral coincideixi amb l'àrea lateral del cilindre?",
    "opcions": [
@@ -957,7 +1079,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "cossos_rodons",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base.",
    "enunciat": "Un cilindre té radi $10$ cm i altura $10$ cm. Es vol construir un con amb el mateix radi de base. Quina generatriu ha de tenir el con perquè la seva àrea total coincideixi amb l'àrea total del cilindre?",
    "opcions": [
@@ -980,7 +1102,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: una piràmide quadrangular regular de costat de base $4$ cm i altura $2$ cm.",
    "opcions": [
@@ -1003,7 +1125,7 @@ window.FULL = {
    "ap": "c",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un cilindre de radi $4$ cm i altura $4$ cm.",
    "opcions": [
@@ -1026,7 +1148,7 @@ window.FULL = {
    "ap": "e",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un con de radi $1{,}5$ cm i altura $5$ cm.",
    "opcions": [
@@ -1049,7 +1171,7 @@ window.FULL = {
    "ap": "f",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 1,
+   "dif": 2,
    "encapcalament": "Calcula el volum d'aquest cos geomètric:",
    "enunciat": "Calcula el volum d'aquest cos geomètric: un cub d'aresta $4$ cm.",
    "opcions": [
@@ -1071,7 +1193,7 @@ window.FULL = {
    "ap": "a",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$.",
    "enunciat": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Quants pots de pintura calen com a mínim?",
    "opcions": [
@@ -1094,7 +1216,7 @@ window.FULL = {
    "ap": "b",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$.",
    "enunciat": "Es vol pintar una habitació de $4$ m per $6$ m i $3$ m d'altura, incloent-hi el sostre (però no el terra). Un pot de pintura cobreix $30$ m$^2$. Si finalment es fan servir $4$ pots per repartir-hi tota la superfície a parts iguals, quants metres quadrats cobrirà cada pot?",
    "opcions": [
@@ -1116,7 +1238,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "La piràmide de Kheops té una base quadrada d'aresta $215{,}25$ m i una apotema (de la piràmide) de $179{,}37$ m. Calcula la seva altura.",
    "opcions": [
@@ -1139,7 +1261,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Una torre té la forma d'un cub de $10$ m d'aresta (sense la cara de dalt, que fa de base de la teulada) coronat per una teulada piramidal de base quadrada igual a la del cub i $12$ m d'altura. Calcula l'àrea total de la superfície exterior de la torre (parets del cub, terra del cub i teulada, sense la cara compartida entre cub i teulada).",
    "opcions": [
@@ -1161,7 +1283,7 @@ window.FULL = {
    "ap": "",
    "bloc": "volums_aplicacions",
    "tipus": "A",
-   "dif": 3,
+   "dif": 4,
    "encapcalament": "",
    "enunciat": "Un cub i una esfera tenen el mateix volum, $125$ cm$^3$. Es vol saber quin dels dos té l'àrea total més petita (és a dir, amb quina forma caldria menys material per construir un dipòsit d'aquest volum). Calcula l'àrea total del cub per començar a comparar-ho.",
    "opcions": [

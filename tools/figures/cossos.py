@@ -126,7 +126,10 @@ def prisma_regular(n, costat, altura, apotema=None, etq_costat=None,
     e.etq_segment((xa, dalt_y), (xa, baix_y),
                   etq_altura or mesura(altura, unitat), costat=-1)
 
-    e_costat = etq_costat or mesura(costat, unitat)
+    # `False` vol dir explícitament «no cotis el costat»; `None` vol dir
+    # «posa-hi la mesura per defecte». Amb un `or` pelat, les dues coses
+    # eren indistingibles.
+    e_costat = "" if etq_costat is False else (etq_costat or mesura(costat, unitat))
     if apotema is not None:
         Rp = 36.0
         # mateixa línia de terra que el sòlid, perquè les dues vistes es
@@ -391,6 +394,18 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
     La vista auxiliar només repeteix dades de l'enunciat. L'altura de la
     piràmide i l'apotema de la base no s'hi escriuen mai encara que es
     puguin deduir: en aquests exercicis són justament la feina de l'alumne.
+
+    `etq_costat=False` treu la cota del costat. Serveix per als enunciats
+    que NO donen el costat sinó una dada global de la base —l'àrea, o el
+    perímetre—, com els trivials 334 i 335. Cotar-hi un costat que
+    l'enunciat no dona seria inventar-se una dada, i a més convidaria a
+    fer-la servir. La figura continua sent útil perquè el que costa
+    d'aquest bloc no és la mida de res, és distingir l'altura del cos de
+    l'apotema d'una cara, i això es veu igual.
+
+    (El dibuix no ha estat mai a escala: `R` i `H` són constants. Passar
+    `costat=0` amb `etq_costat=False` és lícit i no dibuixa cap mentida,
+    perquè el costat no s'acota enlloc.)
     """
     R, H = 50.0, 112.0
     cx, cyb = 0.0, 0.0
@@ -422,7 +437,10 @@ def piramide_regular(n, costat, altura=None, apotema_piramide=None,
         if p[1] >= cyb - 0.5:
             e.segment(apex, p)
 
-    e_costat = etq_costat or mesura(costat, unitat)
+    # `False` vol dir explícitament «no cotis el costat»; `None` vol dir
+    # «posa-hi la mesura per defecte». Amb un `or` pelat, les dues coses
+    # eren indistingibles.
+    e_costat = "" if etq_costat is False else (etq_costat or mesura(costat, unitat))
     if apotema_piramide is not None:
         _cara_lateral(e, costat, apotema_piramide,
                       max(p[0] for p in base) + 66, cyb, e_costat,

@@ -6,22 +6,24 @@ from lib import (Q, D, DT, TAX, ev, tex, tria, dec_ex, per_frac, per_tex,
                  dificultats)
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 1 · decimals
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-     26: 1,  # reconèixer el tipus de decimal; 27, generatriu d'un decimal exacte
-     27: 1,
-     28: 2,  # generatriu de periòdics: pur, mixt, i cal triar la fórmula
-     29: 2,
-     30: 2,
-     31: 3,  # primer la generatriu i després operar-hi: dues fases
-     32: 3,
-     33: 3,  # comprovar una igualtat i justificar-la; 34, raonar sobre el període
-     34: 3,
+     26: 2,  # reconèixer el tipus de decimal; 27, generatriu d'un decimal exacte
+     27: 2,
+     28: 3,  # generatriu de periòdics: pur, mixt, i cal triar la fórmula
+     29: 3,
+     30: 3,
+     31: 4,  # primer la generatriu i després operar-hi: dues fases
+     32: 4,
+     33: 4,  # comprovar una igualtat i justificar-la; 34, raonar sobre el període
+     34: 4,
 })
 
 

@@ -46,30 +46,32 @@ from fractions import Fraction as F
 from lib import Q, D, DT, tex, texd, TAX, dificultats
 
 # --------------------------------------------------------------------
-# Dificultat de cada exercici (1 directa, 2 encadenada, 3 completa).
+# Dificultat de cada exercici (1 trivial, 2 directa, 3 encadenada,
+# 4 completa). Vegeu l'escala completa i la frontera entre nivells
+# a lib.py.
 # Full 11 · estadística
 # Vegeu l'escala completa a lib.py. L'itinerari fa servir aquest camp
 # per graduar el recorregut, de manera que canviar-hi un número canvia
 # l'ordre en què l'alumne es troba els exercicis.
 # --------------------------------------------------------------------
 dificultats({
-    218: 1,  # classificar la variable; 220 i 226-227, llegir una freqüència
-    219: 1,
-    220: 1,
-    221: 2,  # completar una taula: freqüències acumulades i relatives
-    222: 2,  # fer el recompte a partir de la llista de dades
-    223: 3,  # percentatges encadenats abans d'arribar a les freqüències
-    224: 2,
-    225: 2,
-    226: 1,
-    227: 1,
-    228: 3,  # agrupar en intervals i després llegir-hi les acumulades
-    229: 2,  # passar de percentatge a angle del sector
-    230: 2,  # jutjar afirmacions sobre un gràfic
-    231: 2,
-    232: 3,  # comparar dos gràfics i raonar-ne la relació
-    234: 2,
-    235: 2,
+    218: 2,  # classificar la variable; 220 i 226-227, llegir una freqüència
+    219: 2,
+    220: 2,
+    221: 3,  # completar una taula: freqüències acumulades i relatives
+    222: 3,  # fer el recompte a partir de la llista de dades
+    223: 4,  # percentatges encadenats abans d'arribar a les freqüències
+    224: 3,
+    225: 3,
+    226: 2,
+    227: 2,
+    228: 4,  # agrupar en intervals i després llegir-hi les acumulades
+    229: 3,  # passar de percentatge a angle del sector
+    230: 3,  # jutjar afirmacions sobre un gràfic
+    231: 3,
+    232: 4,  # comparar dos gràfics i raonar-ne la relació
+    234: 3,
+    235: 3,
 })
 
 

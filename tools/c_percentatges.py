@@ -18,16 +18,16 @@ from fractions import Fraction as F
 from lib import Q, D, tex, texd, dificultats
 
 dificultats({
-    275: 1,  # el factor que correspon a cada variació
-    276: 1,  # aplicar el factor: una sola operació
-    277: 2,  # a l'inrevés: del preu final al de partida
-    278: 2,  # quin percentatge representa una part del total
-    279: 2,  # variació percentual entre dos valors
-    280: 3,  # dos descomptes seguits i el descompte únic equivalent
-    281: 3,  # IVA i descompte en el mateix problema
-    282: 3,  # interès simple
-    283: 3,  # repartiment proporcional
-    284: 3,  # el parany de pujar i baixar el mateix percentatge
+    275: 2,  # el factor que correspon a cada variació
+    276: 2,  # aplicar el factor: una sola operació
+    277: 3,  # a l'inrevés: del preu final al de partida
+    278: 3,  # quin percentatge representa una part del total
+    279: 3,  # variació percentual entre dos valors
+    280: 4,  # dos descomptes seguits i el descompte únic equivalent
+    281: 4,  # IVA i descompte en el mateix problema
+    282: 4,  # interès simple
+    283: 4,  # repartiment proporcional
+    284: 4,  # el parany de pujar i baixar el mateix percentatge
 })
 
 B1 = "factor_multiplicador"
