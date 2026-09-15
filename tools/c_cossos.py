@@ -1296,11 +1296,11 @@ dificultats({
 })
 
 
-E334 = ("Calcula el volum d'aquesta piràmide. Recorda: "
-        "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.")
+E334 = ("Calcula el volum d'aquesta piràmide, a partir de les dades "
+        "següents. Recorda: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.")
 
 Q("334a", 334, "a", B2, "A",
-  r"L'àrea de la base és $12$ cm$^2$ i l'altura, $5$ cm.",
+  r"Àrea de la base $=12$ cm$^2$; altura $=5$ cm.",
   r"$20$ cm$^3$",
   [DT(r"$60$ cm$^3$", "FACTOR_TRES_VOLUM",
       extra="$12\\cdot 5=60$ és el volum del PRISMA de la mateixa base i "
@@ -1319,7 +1319,7 @@ Q("334a", 334, "a", B2, "A",
                           etq_altura="h = 5 cm"))
 
 Q("334b", 334, "b", B2, "A",
-  r"L'àrea de la base és $30$ m$^2$ i l'altura, $4$ m.",
+  r"Àrea de la base $=30$ m$^2$; altura $=4$ m.",
   r"$40$ m$^3$",
   [DT(r"$120$ m$^3$", "FACTOR_TRES_VOLUM",
       extra="Falta dividir per $3$."),
@@ -1335,7 +1335,7 @@ Q("334b", 334, "b", B2, "A",
                           etq_altura="h = 4 m", unitat="m"))
 
 Q("334c", 334, "c", B2, "A",
-  r"L'àrea de la base és $9$ cm$^2$ i l'altura, $7$ cm.",
+  r"Àrea de la base $=9$ cm$^2$; altura $=7$ cm.",
   r"$21$ cm$^3$",
   [DT(r"$63$ cm$^3$", "FACTOR_TRES_VOLUM",
       extra="Falta dividir per $3$."),
@@ -1351,13 +1351,13 @@ Q("334c", 334, "c", B2, "A",
                           etq_altura="h = 7 cm"))
 
 
-E335 = ("Calcula l'àrea lateral d'aquesta piràmide de base quadrada. "
-        "Recorda: "
+E335 = ("Calcula l'àrea lateral d'aquesta piràmide de base quadrada, a "
+        "partir de les dades següents. Recorda: "
         "$A_{\\text{lat}}=\\dfrac{P_{\\text{base}}\\cdot a_p}{2}$, on $a_p$ "
         "és l'apotema de la piràmide.")
 
 Q("335a", 335, "a", B2, "A",
-  r"El perímetre de la base fa $20$ cm i l'apotema de la piràmide, $6$ cm.",
+  r"Perímetre de la base $=20$ cm; apotema de la piràmide $=6$ cm.",
   r"$60$ cm$^2$",
   [DT(r"$120$ cm$^2$", "MEITAT_OBLIDADA",
       extra="$20\\cdot 6=120$; falta dividir per $2$. Les cares laterals "
@@ -1377,7 +1377,7 @@ Q("335a", 335, "a", B2, "A",
                           etq_apotema="a = 6 cm"))
 
 Q("335b", 335, "b", B2, "A",
-  r"El perímetre de la base fa $24$ m i l'apotema de la piràmide, $5$ m.",
+  r"Perímetre de la base $=24$ m; apotema de la piràmide $=5$ m.",
   r"$60$ m$^2$",
   [DT(r"$120$ m$^2$", "MEITAT_OBLIDADA",
       extra="Falta dividir per $2$."),

@@ -1614,7 +1614,8 @@ dificultats({
 })
 
 
-E332 = "Calcula l'àrea d'aquest triangle rectangle."
+E332 = ("Calcula l'àrea d'aquest triangle rectangle, amb les dades "
+        "següents.")
 
 # Les ternes 3-4-5, 6-8-10 i 5-12-13 són deliberades. El distractor de la
 # hipotenusa és exactament la resposta de la pregunta que l'alumne
@@ -1665,7 +1666,7 @@ Q("332c", 332, "c", B2, "A",
   figura=triangle_rectangle(5, 12, etq_hip=None, marca_hip=False))
 
 
-E333 = "Calcula l'àrea d'aquesta figura."
+E333 = "Calcula l'àrea d'aquestes figures, segons les dades següents."
 
 Q("333a", 333, "a", B3, "A",
   r"Rectangle de $7$ cm de base i $4$ cm d'altura.",

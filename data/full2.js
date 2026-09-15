@@ -1708,7 +1708,7 @@ window.FULL = {
    "bloc": "combinades",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu-ho com una sola potència.",
+   "encapcalament": "Desenvolupa i escriu-ho com una sola potència.",
    "enunciat": "$(2^3)^2$",
    "opcions": [
     "$2^{8}$",
@@ -1730,7 +1730,7 @@ window.FULL = {
    "bloc": "combinades",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu-ho com una sola potència.",
+   "encapcalament": "Desenvolupa i escriu-ho com una sola potència.",
    "enunciat": "$(5^2)^3$",
    "opcions": [
     "$5^{5}$",
@@ -1752,7 +1752,7 @@ window.FULL = {
    "bloc": "combinades",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu-ho com una sola potència.",
+   "encapcalament": "Desenvolupa i escriu-ho com una sola potència.",
    "enunciat": "$\\left[(-2)^3\\right]^2$",
    "opcions": [
     "$36$",
@@ -1774,7 +1774,7 @@ window.FULL = {
    "bloc": "combinades",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu-ho com una sola potència.",
+   "encapcalament": "Fes les operacions i escriu-ho com una sola potència.",
    "enunciat": "$3^2\\cdot 3^4$",
    "opcions": [
     "$3^{2}$",
@@ -1796,7 +1796,7 @@ window.FULL = {
    "bloc": "combinades",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu-ho com una sola potència.",
+   "encapcalament": "Fes les operacions i escriu-ho com una sola potència.",
    "enunciat": "$2^7 : 2^4$",
    "opcions": [
     "$1^{3}$",

@@ -1244,7 +1244,7 @@ dificultats({
 })
 
 
-E327 = "Opera i simplifica."
+E327 = "Fes les operacions amb aquests polinomis i simplifica el resultat."
 
 Q("327a", 327, "a", B1, "A",
   r"$(3x+2)+(x-5)$",
@@ -1316,7 +1316,7 @@ Q("327d", 327, "d", B1, "A",
        "cancel·len, aquell grau desapareix del resultat.")
 
 
-E328 = "Treu el parèntesi."
+E328 = "Aplica la propietat distributiva i simplifica."
 
 Q("328a", 328, "a", B1, "A",
   r"$2x(x+3)$",
@@ -1385,8 +1385,8 @@ Q("329b", 329, "b", B2, "A",
   ex_text=E329)
 
 
-E330 = ("Quin és el residu d'aquesta divisió? No cal dividir: el teorema "
-        "del residu diu que el residu de $P(x):(x-a)$ és $P(a)$.")
+E330 = ("Fent servir el teorema del residu, troba quant val el residu "
+        "d'aquesta divisió.")
 
 Q("330a", 330, "a", B2, "A",
   r"$(x^2-3x+2):(x-1)$",
@@ -1437,7 +1437,8 @@ Q("330c", 330, "c", B2, "A",
                "Mateix criteri que 323c de c_potencies.")
 
 
-E331 = "Aplica la regla de Ruffini i digues quin és el quocient."
+E331 = ("Aplica la regla de Ruffini i digues quin és el polinomi quocient "
+        "d'aquesta divisió.")
 
 Q("331a", 331, "a", B2, "A",
   r"$(x^2-3x+2):(x-1)$",

@@ -143,7 +143,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Opera i simplifica.",
+   "encapcalament": "Fes les operacions amb aquests polinomis i simplifica el resultat.",
    "enunciat": "$(3x+2)+(x-5)$",
    "opcions": [
     "$4x+7$",
@@ -165,7 +165,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Opera i simplifica.",
+   "encapcalament": "Fes les operacions amb aquests polinomis i simplifica el resultat.",
    "enunciat": "$(x^2+4x)+(2x^2-x)$",
    "opcions": [
     "$3x^4+3x^2$",
@@ -187,7 +187,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Opera i simplifica.",
+   "encapcalament": "Fes les operacions amb aquests polinomis i simplifica el resultat.",
    "enunciat": "$(5x-1)-(2x+3)$",
    "opcions": [
     "$3x+2$",
@@ -209,7 +209,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Opera i simplifica.",
+   "encapcalament": "Fes les operacions amb aquests polinomis i simplifica el resultat.",
    "enunciat": "$(x^2-2)-(x^2+6)$",
    "opcions": [
     "$2x^2-8$",
@@ -231,7 +231,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Treu el parèntesi.",
+   "encapcalament": "Aplica la propietat distributiva i simplifica.",
    "enunciat": "$2x(x+3)$",
    "opcions": [
     "$2x^2+3$",
@@ -253,7 +253,7 @@ window.FULL = {
    "bloc": "operacions",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Treu el parèntesi.",
+   "encapcalament": "Aplica la propietat distributiva i simplifica.",
    "enunciat": "$-3(x^2-2x)$",
    "opcions": [
     "$3x^2-6x$",
@@ -627,7 +627,7 @@ window.FULL = {
    "bloc": "divisio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Quin és el residu d'aquesta divisió? No cal dividir: el teorema del residu diu que el residu de $P(x):(x-a)$ és $P(a)$.",
+   "encapcalament": "Fent servir el teorema del residu, troba quant val el residu d'aquesta divisió.",
    "enunciat": "$(x^2-3x+2):(x-1)$",
    "opcions": [
     "$1$",
@@ -649,7 +649,7 @@ window.FULL = {
    "bloc": "divisio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Quin és el residu d'aquesta divisió? No cal dividir: el teorema del residu diu que el residu de $P(x):(x-a)$ és $P(a)$.",
+   "encapcalament": "Fent servir el teorema del residu, troba quant val el residu d'aquesta divisió.",
    "enunciat": "$(x^3+1):(x+1)$",
    "opcions": [
     "$1$",
@@ -671,7 +671,7 @@ window.FULL = {
    "bloc": "divisio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Quin és el residu d'aquesta divisió? No cal dividir: el teorema del residu diu que el residu de $P(x):(x-a)$ és $P(a)$.",
+   "encapcalament": "Fent servir el teorema del residu, troba quant val el residu d'aquesta divisió.",
    "enunciat": "$(x^2+x+5):(x-2)$",
    "opcions": [
     "$11$",
@@ -693,7 +693,7 @@ window.FULL = {
    "bloc": "divisio",
    "tipus": "A",
    "dif": 2,
-   "encapcalament": "Aplica la regla de Ruffini i digues quin és el quocient.",
+   "encapcalament": "Aplica la regla de Ruffini i digues quin és el polinomi quocient d'aquesta divisió.",
    "enunciat": "$(x^2-3x+2):(x-1)$",
    "opcions": [
     "$x^2-2$",

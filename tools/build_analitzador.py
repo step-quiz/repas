@@ -48,6 +48,24 @@ def main():
     assert plantilla.count("/*__CALENDARI__*/") == 1
     assert plantilla.count("/*__BANC__*/") == 1
 
+    # El banc i les taules s'injecten DINS d'un <script> inline. Dins d'un
+    # script, el parser d'HTML busca la seqüència `</script` literalment: no
+    # li importa que sigui dins d'una cadena JavaScript. Si algun dia un
+    # enunciat o una figura en porta una, el <script> es talla pel mig i
+    # l'analitzador queda trencat sense cap error visible fins que algú
+    # l'obre. El mateix amb `<!--`, que obre un comentari.
+    #
+    # Avui el banc porta SVG (</text, </g, </svg) i cap de les dues
+    # seqüències. Això ho comprova, en lloc de confiar-hi.
+    for nom, dades in (("banc", banc), ("taules", taules),
+                       ("calendari", calendari), ("codi", codi)):
+        for perillosa in ("</script", "<!--", "<!["):
+            assert perillosa.lower() not in dades.lower(), (
+                "el %s porta la seqüència %r, que talla el <script> on "
+                "s'injecta i deixa l'analitzador trencat en silenci. Cal "
+                "escapar-la (\\u003c/script) al generador que la produeix."
+                % (nom, perillosa))
+
     html = plantilla.replace(
         "/*__TAULES__*/", "window.RE_TAULES = " + taules + ";"
     ).replace("/*__CODI__*/", codi).replace(

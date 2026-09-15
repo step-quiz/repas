@@ -506,8 +506,8 @@ dificultats({
 })
 
 
-E336 = ("Aquesta recta ja està escrita en forma explícita $y=mx+n$. "
-        "Respon la pregunta.")
+E336 = ("Aquesta recta ja està escrita en forma d'equació explícita "
+        "$y=mx+n$. Respon la pregunta.")
 
 # 336a i 336b són la mateixa recta amb les dues preguntes, i és deliberat:
 # la parella detecta qui té m i n intercanviats, perquè els falla tots dos
@@ -515,7 +515,7 @@ E336 = ("Aquesta recta ja està escrita en forma explícita $y=mx+n$. "
 # etiqueta. Amb un sol apartat, l'encert podria ser casualitat.
 
 Q("336a", 336, "a", B1, "A",
-  r"$y=3x-2$. Quin és el pendent?",
+  r"$y=3x-2$. Quin és el pendent de la recta amb aquesta equació?",
   "3",
   [D("-2", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $-2$ és l'ordenada a l'origen: el número que va sol, sense $x$. El "
@@ -530,7 +530,7 @@ Q("336a", 336, "a", B1, "A",
   ex_text=E336)
 
 Q("336b", 336, "b", B1, "A",
-  r"$y=3x-2$. Quina és l'ordenada a l'origen?",
+  r"$y=3x-2$. Quina és l'ordenada a l'origen de la recta amb aquesta equació?",
   "-2",
   [D("3", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $3$ és el pendent. L'ordenada a l'origen és el terme que va sol, "
@@ -546,7 +546,7 @@ Q("336b", 336, "b", B1, "A",
   ex_text=E336)
 
 Q("336c", 336, "c", B1, "A",
-  r"$y=-x+5$. Quin és el pendent?",
+  r"$y=-x+5$. Quin és el pendent de la recta amb aquesta equació?",
   "-1",
   [D("5", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $5$ és l'ordenada a l'origen."),
@@ -562,7 +562,7 @@ Q("336c", 336, "c", B1, "A",
   ex_text=E336)
 
 Q("336d", 336, "d", B1, "A",
-  r"$y=4$. Quin és el pendent?",
+  r"$y=4$. Quin és el pendent de la recta amb aquesta equació?",
   "0",
   [D("4", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $4$ és l'ordenada a l'origen. La recta $y=4$ és horitzontal i passa "
@@ -579,7 +579,8 @@ Q("336d", 336, "d", B1, "A",
   ex_text=E336)
 
 
-E337 = "Escriu l'equació explícita de la recta."
+E337 = ("Escriu l'equació explícita de la recta, sabent el seu pendent i "
+        "la seva ordenada en l'origen.")
 
 Q("337a", 337, "a", B1, "A",
   r"$m=2$ i $n=-1$",
@@ -614,7 +615,8 @@ Q("337b", 337, "b", B1, "A",
   ex_text=E337)
 
 
-E338 = "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res."
+E338 = ("Estudia l'equació d'una paràbola $y=ax^2+bx+c$ i respon la "
+        "pregunta, sense fer cap càlcul.")
 
 Q("338a", 338, "a", B2, "A",
   r"$y=x^2-4x+3$. Cap on obre?",
@@ -668,7 +670,8 @@ Q("338c", 338, "c", B2, "A",
        "val $0$, i a les fórmules s'ha de comptar com a $0$.")
 
 
-E339 = "Troba el vèrtex d'aquesta paràbola."
+E339 = ("Troba el vèrtex de la paràbola representada per l'equació "
+        "següent.")
 
 Q("339a", 339, "a", B2, "A",
   r"$y=x^2-9$",

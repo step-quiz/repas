@@ -1299,7 +1299,7 @@ dificultats({
 })
 
 
-E325 = ("Aquestes progressions són aritmètiques. Quina és la seva "
+E325 = ("Aquesta progressió sabem que és aritmètica. Quina és la seva "
         "diferència $d$?")
 
 Q("325a", 325, "a", B2, "A",
@@ -1351,7 +1351,8 @@ Q("325c", 325, "c", B2, "A",
   ex_text=E325)
 
 
-E326 = "Escriu el terme que va just després."
+E326 = ("En aquesta progressió aritmètica, escriu quant val el terme "
+        "següent.")
 
 Q("326a", 326, "a", B2, "A",
   r"$2,\;6,\;10,\;14,\;\dots$",

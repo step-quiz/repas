@@ -881,8 +881,8 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
-   "enunciat": "$y=3x-2$. Quin és el pendent?",
+   "encapcalament": "Aquesta recta ja està escrita en forma d'equació explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=3x-2$. Quin és el pendent de la recta amb aquesta equació?",
    "opcions": [
     "$2$",
     "$\\dfrac{1}{3}$",
@@ -903,8 +903,8 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
-   "enunciat": "$y=3x-2$. Quina és l'ordenada a l'origen?",
+   "encapcalament": "Aquesta recta ja està escrita en forma d'equació explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=3x-2$. Quina és l'ordenada a l'origen de la recta amb aquesta equació?",
    "opcions": [
     "$2$",
     "$0$",
@@ -925,8 +925,8 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
-   "enunciat": "$y=-x+5$. Quin és el pendent?",
+   "encapcalament": "Aquesta recta ja està escrita en forma d'equació explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=-x+5$. Quin és el pendent de la recta amb aquesta equació?",
    "opcions": [
     "$5$",
     "$1$",
@@ -947,8 +947,8 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquesta recta ja està escrita en forma explícita $y=mx+n$. Respon la pregunta.",
-   "enunciat": "$y=4$. Quin és el pendent?",
+   "encapcalament": "Aquesta recta ja està escrita en forma d'equació explícita $y=mx+n$. Respon la pregunta.",
+   "enunciat": "$y=4$. Quin és el pendent de la recta amb aquesta equació?",
    "opcions": [
     "$4$",
     "$1$",
@@ -969,7 +969,7 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu l'equació explícita de la recta.",
+   "encapcalament": "Escriu l'equació explícita de la recta, sabent el seu pendent i la seva ordenada en l'origen.",
    "enunciat": "$m=2$ i $n=-1$",
    "opcions": [
     "$y=2(x-1)$",
@@ -991,7 +991,7 @@ window.FULL = {
    "bloc": "rectes_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu l'equació explícita de la recta.",
+   "encapcalament": "Escriu l'equació explícita de la recta, sabent el seu pendent i la seva ordenada en l'origen.",
    "enunciat": "$m=-3$ i $n=0$",
    "opcions": [
     "$y=3x$",
@@ -1355,7 +1355,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "encapcalament": "Estudia l'equació d'una paràbola $y=ax^2+bx+c$ i respon la pregunta, sense fer cap càlcul.",
    "enunciat": "$y=x^2-4x+3$. Cap on obre?",
    "opcions": [
     "Cap amunt",
@@ -1377,7 +1377,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "encapcalament": "Estudia l'equació d'una paràbola $y=ax^2+bx+c$ i respon la pregunta, sense fer cap càlcul.",
    "enunciat": "$y=-2x^2+x$. Cap on obre?",
    "opcions": [
     "Depèn de $c$",
@@ -1399,7 +1399,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Mira aquesta paràbola $y=ax^2+bx+c$ i respon sense calcular res.",
+   "encapcalament": "Estudia l'equació d'una paràbola $y=ax^2+bx+c$ i respon la pregunta, sense fer cap càlcul.",
    "enunciat": "$y=-2x^2+x$. Quant val $c$?",
    "opcions": [
     "$1$",
@@ -1421,7 +1421,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "encapcalament": "Troba el vèrtex de la paràbola representada per l'equació següent.",
    "enunciat": "$y=x^2-9$",
    "opcions": [
     "$V(9,0)$",
@@ -1443,7 +1443,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "encapcalament": "Troba el vèrtex de la paràbola representada per l'equació següent.",
    "enunciat": "$y=2x^2$",
    "opcions": [
     "$V(0,2)$",
@@ -1465,7 +1465,7 @@ window.FULL = {
    "bloc": "parabola_produccio",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Troba el vèrtex d'aquesta paràbola.",
+   "encapcalament": "Troba el vèrtex de la paràbola representada per l'equació següent.",
    "enunciat": "$y=-x^2+4$",
    "opcions": [
     "$V(4,0)$",

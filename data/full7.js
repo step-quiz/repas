@@ -696,7 +696,7 @@ window.FULL = {
    "bloc": "arees_pit",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle, amb les dades següents.",
    "enunciat": "Els catets fan $3$ cm i $4$ cm.",
    "opcions": [
     "$6$ cm$^2$",
@@ -719,7 +719,7 @@ window.FULL = {
    "bloc": "arees_pit",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle, amb les dades següents.",
    "enunciat": "Els catets fan $6$ m i $8$ m.",
    "opcions": [
     "$10$ m$^2$",
@@ -742,7 +742,7 @@ window.FULL = {
    "bloc": "arees_pit",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle.",
+   "encapcalament": "Calcula l'àrea d'aquest triangle rectangle, amb les dades següents.",
    "enunciat": "Els catets fan $5$ cm i $12$ cm.",
    "opcions": [
     "$30$ cm$^2$",
@@ -972,7 +972,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "encapcalament": "Calcula l'àrea d'aquestes figures, segons les dades següents.",
    "enunciat": "Rectangle de $7$ cm de base i $4$ cm d'altura.",
    "opcions": [
     "$11$ cm$^2$",
@@ -995,7 +995,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "encapcalament": "Calcula l'àrea d'aquestes figures, segons les dades següents.",
    "enunciat": "Quadrat de $9$ m de costat.",
    "opcions": [
     "$40{,}5$ m$^2$",
@@ -1018,7 +1018,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "encapcalament": "Calcula l'àrea d'aquestes figures, segons les dades següents.",
    "enunciat": "Romboide de $10$ cm de base i $3$ cm d'altura.",
    "opcions": [
     "$15$ cm$^2$",
@@ -1041,7 +1041,7 @@ window.FULL = {
    "bloc": "arees_poli",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Calcula l'àrea d'aquesta figura.",
+   "encapcalament": "Calcula l'àrea d'aquestes figures, segons les dades següents.",
    "enunciat": "Rombe de diagonals $8$ cm i $6$ cm.",
    "opcions": [
     "$48$ cm$^2$",

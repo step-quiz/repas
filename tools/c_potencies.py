@@ -1445,7 +1445,7 @@ Q("322d", 322, "d", B2, "A",
   ex_text=E322)
 
 
-E323 = "Escriu-ho com una sola potència."
+E323 = "Desenvolupa i escriu-ho com una sola potència."
 
 Q("323a", 323, "a", B4, "A",
   r"$(2^3)^2$",
@@ -1501,7 +1501,7 @@ Q("323c", 323, "c", B4, "A",
                "detectaria res.")
 
 
-E324 = "Escriu-ho com una sola potència."
+E324 = "Fes les operacions i escriu-ho com una sola potència."
 
 Q("324a", 324, "a", B4, "A",
   r"$3^2\cdot 3^4$",

@@ -572,7 +572,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquestes progressions són aritmètiques. Quina és la seva diferència $d$?",
+   "encapcalament": "Aquesta progressió sabem que és aritmètica. Quina és la seva diferència $d$?",
    "enunciat": "$3,\\;7,\\;11,\\;15,\\;\\dots$",
    "opcions": [
     "$d=4$",
@@ -594,7 +594,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquestes progressions són aritmètiques. Quina és la seva diferència $d$?",
+   "encapcalament": "Aquesta progressió sabem que és aritmètica. Quina és la seva diferència $d$?",
    "enunciat": "$10,\\;7,\\;4,\\;1,\\;\\dots$",
    "opcions": [
     "$d=3$",
@@ -616,7 +616,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Aquestes progressions són aritmètiques. Quina és la seva diferència $d$?",
+   "encapcalament": "Aquesta progressió sabem que és aritmètica. Quina és la seva diferència $d$?",
    "enunciat": "$-5,\\;-3,\\;-1,\\;1,\\;\\dots$",
    "opcions": [
     "$d=-8$",
@@ -638,7 +638,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu el terme que va just després.",
+   "encapcalament": "En aquesta progressió aritmètica, escriu quant val el terme següent.",
    "enunciat": "$2,\\;6,\\;10,\\;14,\\;\\dots$",
    "opcions": [
     "$18$",
@@ -660,7 +660,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu el terme que va just després.",
+   "encapcalament": "En aquesta progressió aritmètica, escriu quant val el terme següent.",
    "enunciat": "$20,\\;17,\\;14,\\;\\dots$",
    "opcions": [
     "$12$",
@@ -682,7 +682,7 @@ window.FULL = {
    "bloc": "aritmetiques",
    "tipus": "A",
    "dif": 1,
-   "encapcalament": "Escriu el terme que va just després.",
+   "encapcalament": "En aquesta progressió aritmètica, escriu quant val el terme següent.",
    "enunciat": "Una progressió aritmètica té $a_1=5$ i $d=3$. Quant val $a_2$?",
    "opcions": [
     "$5$",
