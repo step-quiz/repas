@@ -374,7 +374,7 @@ seccio("Prova escrita — la mida triada es respecta");
 
 {
   /* Amb un mínim d'una pregunta per bloc, un alumne que ha treballat els dotze
-     fulls té 56 blocs admesos i una prova "curta" de 8 se n'anava a 56. */
+     fulls té 56 blocs admesos i una prova "curta" se n'anava a 56. */
   const { w, d } = obre();
   const T = w.RE_TAULES;
   const fulls = [];
@@ -388,8 +388,8 @@ seccio("Prova escrita — la mida triada es respecta");
     dd.querySelector('input[name="pr-mida"][value="curta"]').checked = true;
   });
 
-  prova("una prova curta són 8 preguntes encara que hi hagi 56 blocs", () => {
-    assert.equal(ids.length, 8, "n'han sortit " + ids.length);
+  prova("una prova curta són 2 preguntes encara que hi hagi 56 blocs", () => {
+    assert.equal(ids.length, 2, "n'han sortit " + ids.length);
   });
 }
 
@@ -753,7 +753,7 @@ seccio("Exàmens: només el tram examinat, els 20 primers i la nota de feina");
   const idsExamen = idsProva(w, d);
   prova("cap pregunta és del tram anterior ni de més enllà dels 20 primers", () => {
     const permesos = new Set(ids.slice(12, 32));
-    assert.ok(idsExamen.length === 5, idsExamen.join(","));
+    assert.ok(idsExamen.length === 3, "la mida per defecte (mitjana) són 3: " + idsExamen.join(","));
     assert.ok(idsExamen.every(id => permesos.has(id)), idsExamen.join(","));
   });
   prova("hi ha un botó per baixar les notes", () => {

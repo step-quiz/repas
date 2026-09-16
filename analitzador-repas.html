@@ -340,8 +340,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <button class="opcio" id="pr-va-lot">
         <b>Mini-examen estàndard de 3 setmanes</b>
         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
-        5 preguntes sortejades només entre els 20 primers exercicis que ha
-        fet dins del tram, i la taula en dona la nota de feina. Surten dos
+        2, 3 o 4 preguntes sortejades només entre els 20 primers exercicis
+        que ha fet dins del tram, i la taula en dona la nota de feina. Surten dos
         documents per imprimir: tots els exàmens i totes les solucions.</span>
       </button>
       <button class="opcio" id="pr-va-individual">
@@ -401,9 +401,12 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
                      style="width:52px"> i
               <input type="number" id="lot-maxim" value="20" min="1" max="99"
                      style="width:52px"> exercicis per tram</label>
-            <label class="petit apagat">
-              <input type="number" id="lot-preguntes" value="5" min="1" max="20"
-                     style="width:52px"> preguntes per examen</label>
+          </div>
+          <div class="filtres" style="margin:.45rem 0 0">
+            <span class="petit apagat">Mida de l'examen:</span>
+            <label class="petit"><input type="radio" name="lot-mida" value="curta"> Curta · 2 preguntes</label>
+            <label class="petit"><input type="radio" name="lot-mida" value="mitja" checked> Mitjana · 3 preguntes</label>
+            <label class="petit"><input type="radio" name="lot-mida" value="llarga"> Llarga · 4 preguntes</label>
           </div>
           <div class="filtres" style="margin:.5rem 0 0">
             <span class="petit apagat">Valor de cada exercici: a la primera 10 ·</span>
@@ -464,9 +467,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <div class="camp">
         <b>Mida de la prova</b>
         <div class="filtres" style="margin:0">
-          <label class="petit"><input type="radio" name="pr-mida" value="curta"> Curta · 8 preguntes</label>
-          <label class="petit"><input type="radio" name="pr-mida" value="mitja" checked> Mitjana · 14 preguntes</label>
-          <label class="petit"><input type="radio" name="pr-mida" value="llarga"> Llarga · 20 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="curta"> Curta · 2 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="mitja" checked> Mitjana · 3 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="llarga"> Llarga · 4 preguntes</label>
         </div>
       </div>
 
@@ -2913,7 +2916,7 @@ window.RE_CODI = (function () {
   //    mitjana), així que agafar "els primers per prioritat" donava proves
   //    com 1a, 1b, 1c, 1d, 1e, 1f, 2a, 2b: la mateixa mecànica vuit vegades.
 
-  var MIDES_PROVA = { curta: 8, mitja: 14, llarga: 20 };
+  var MIDES_PROVA = { curta: 2, mitja: 3, llarga: 4 };
   var prCodi = null;      /* últim codi llegit (RE_CODI.llegeix), base de la prova */
   var prError = null;     /* per què no s'ha pogut llegir, si és el cas */
   var prDisp = null;      /* blocs disponibles del càlcul vigent */
@@ -3034,32 +3037,52 @@ window.RE_CODI = (function () {
 
   function clauBloc(d) { return d.full + "|" + d.bloc; }
 
-  /* Reparteix `total` preguntes entre els blocs, proporcionalment a la feina
-     feta a cadascun (mètode dels residus més grans), sense demanar a un bloc
-     més preguntes de les que té. Si un bloc satura, el que li sobra es torna
-     a repartir entre els que encara tenen marge, de manera que la suma arriba
-     a `total` sempre que globalment hi hagi prou exercicis. */
+  /* Reparteix `total` preguntes entre els blocs segons la feina feta a
+     cadascun. Fórmula senzilla, en dues passades:
+
+       1. cada bloc rep una pregunta; si hi ha més blocs que preguntes, les
+          reben els blocs amb més exercicis fets (empat: a l'atzar);
+       2. les que queden es reparteixen en proporció als exercicis fets, i
+          l'arrodoniment va als residus més grans.
+
+     Exemple amb 10 exercicis del bloc A i 4 del B: curta (2) → 1+1, mitjana
+     (3) → 2+1, llarga (4) → 2+2. Sense la passada 1, la llarga donaria 3+1 i
+     un bloc treballat quedaria amb una sola pregunta testimonial.
+
+     Mai no es demana a un bloc més preguntes de les que té: el que sobra
+     d'un bloc saturat torna a repartir-se entre els que tenen marge. */
   function reparteix(disp, total) {
     var sostre = disp.map(function (d) { return d.fets.length; });
     var cap = sostre.reduce(function (a, b) { return a + b; }, 0);
     total = Math.min(total, cap);
-    if (!total) return sostre.map(function () { return 0; });
+    var out = sostre.map(function () { return 0; });
+    if (!total) return out;
 
-    var quota = disp.map(function (d) { return total * d.fets.length / cap; });
-    var out = quota.map(function (q, i) { return Math.min(Math.floor(q), sostre[i]); });
-    var ordre = quota.map(function (q, i) { return { i: i, r: q - Math.floor(q) }; })
-      .sort(function (a, b) { return b.r - a.r; }).map(function (x) { return x.i; });
+    var ordre = disp.map(function (d, i) { return { i: i, n: sostre[i], a: Math.random() }; })
+      .sort(function (x, y) { return (y.n - x.n) || (x.a - y.a); })
+      .map(function (x) { return x.i; });
+    var assignat = 0;
+    ordre.forEach(function (i) {
+      if (assignat < total && sostre[i] > 0) { out[i] = 1; assignat++; }
+    });
 
-    var assignat = out.reduce(function (a, b) { return a + b; }, 0);
-    var volta = 0;
-    while (assignat < total && volta < total + disp.length) {
-      var mogut = false;
-      for (var j = 0; j < ordre.length && assignat < total; j++) {
-        var i = ordre[j];
-        if (out[i] < sostre[i]) { out[i]++; assignat++; mogut = true; }
+    while (assignat < total) {
+      var resta = total - assignat;
+      var marge = ordre.filter(function (i) { return out[i] < sostre[i]; });
+      if (!marge.length) break;
+      var pes = marge.reduce(function (a, i) { return a + sostre[i]; }, 0);
+      var quota = marge.map(function (i) { return { i: i, q: resta * sostre[i] / pes }; });
+      var mogut = 0;
+      quota.forEach(function (x) {
+        var d = Math.min(Math.floor(x.q), sostre[x.i] - out[x.i]);
+        out[x.i] += d; mogut += d;
+      });
+      quota.sort(function (x, y) { return (y.q - Math.floor(y.q)) - (x.q - Math.floor(x.q)); });
+      for (var k = 0; k < quota.length && assignat + mogut < total; k++) {
+        if (out[quota[k].i] < sostre[quota[k].i]) { out[quota[k].i]++; mogut++; }
       }
-      if (!mogut) break;              /* tots saturats: no es pot arribar a `total` */
-      volta++;
+      if (!mogut) break;
+      assignat += mogut;
     }
     return out;
   }
@@ -3270,6 +3293,23 @@ window.RE_CODI = (function () {
     return triats;
   }
 
+  /* El mini-examen reparteix igual que la prova personalitzada: agrupa els
+     exercicis que compten per bloc, hi aplica reparteix() i sorteja dins de
+     cada bloc. */
+  function sortejaPerBlocs(pool, quantes) {
+    var per = {}, claus = [];
+    pool.forEach(function (it) {
+      var b = RE_BANC[it.id] || {};
+      var k = it.full + "|" + (b.bloc || "");
+      if (!per[k]) { per[k] = []; claus.push(k); }
+      per[k].push(it);
+    });
+    var disp = claus.map(function (k) { return { fets: per[k] }; });
+    var rep = reparteix(disp, quantes), triats = [];
+    disp.forEach(function (d, i) { triats = triats.concat(sortejaPreguntes(d.fets, rep[i])); });
+    return triats;
+  }
+
   function omplePeriodes() {
     var sel = $("#lot-periode");
     if (!sel) return;
@@ -3340,7 +3380,8 @@ window.RE_CODI = (function () {
     }
     var objectiu = parseInt($("#lot-periode").value, 10) || 0;
     var tram = llistaTrams()[objectiu];
-    var nPreg = Math.max(1, parseInt($("#lot-preguntes").value, 10) || 5);
+    var mida = ($$('input[name="lot-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
+    var nPreg = MIDES_PROVA[mida];
     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
     var maxim = Math.max(1, parseInt($("#lot-maxim").value, 10) || RE_CALENDARI.FEINA_MAXIMA);
     var valors = valorsLot();
@@ -3353,7 +3394,7 @@ window.RE_CODI = (function () {
       var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
       estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
       var pool = f.primers.filter(function (it) { return RE_BANC[it.id]; });
-      var preguntes = sortejaPreguntes(pool, nPreg);
+      var preguntes = sortejaPerBlocs(pool, nPreg);
       var n = f.tots.length, avisos = [];
 
       if (n < minim) {

@@ -73,7 +73,9 @@ pestanya i tornar no et torna a preguntar. Per canviar de mode, el botó
    només tens una petició solta, pots enganxar el codi directament al camp del
    costat en comptes de carregar tot el full.
 4. Ajusta, si vols:
-   - **Mida**: 8, 14 o 20 preguntes.
+   - **Mida**: curta (2 preguntes), mitjana (3) o llarga (4), repartides pels
+     blocs en proporció a la feina feta, amb almenys una per bloc mentre hi
+     càpiguen.
    - **Mínim per bloc**: un tema només s'ofereix si l'alumne hi ha fet almenys
      3 exercicis (editable).
    - **Les caselles dels blocs**: surten totes marcades. **Aquí és on decideixes
@@ -95,7 +97,7 @@ els passos de resolució.
 ## Generar els mini-exàmens de tota la classe
 
 Pensat per al ritme fix: cada 3 setmanes, entre 10 i 20 exercicis, i un
-examen de 5 preguntes per a cadascú **fet només amb aquella feina**.
+examen per a cadascú **fet només amb aquella feina**.
 
 1. Carrega el full de respostes igual que abans.
 2. Pestanya **Prova escrita** › **Mini-examen estàndard**.
@@ -150,8 +152,13 @@ Els tres valors del mig es poden canviar al panell, per si els vols ajustar.
 
 ### L'examen
 
-Les 5 preguntes surten a l'atzar d'entre els 20 exercicis que compten, sense
-repetir exercici mare mentre n'hi hagi prou. Són de resposta oberta: l'enunciat
+L'examen pot ser **curt (2 preguntes), mitjà (3) o llarg (4)**, igual que la
+prova personalitzada. Les preguntes es reparteixen pels blocs que l'alumne ha
+treballat: primer una per bloc (si hi ha més blocs que preguntes, als que tenen
+més exercicis), i la resta en proporció a la feina de cada bloc. Amb 10
+exercicis del bloc A i 4 del B: curt 1+1, mitjà 2+1, llarg 2+2. Dins de cada
+bloc surten a l'atzar d'entre els 20 exercicis que compten, sense repetir
+exercici mare mentre n'hi hagi prou. Són de resposta oberta: l'enunciat
 sense les opcions. Al full de correcció hi ha, per pregunta, quin dia el va fer,
 com li va anar a la pràctica, la resposta i la resolució. A la capçalera hi ha
 la feina del tram i la nota de feina.
@@ -181,6 +188,14 @@ diferents**: un avís que surt cada dia deixa de llegir-se.
 genera cap prova, i és volgut: el codi s'ha copiat a mitges o s'ha tocat.
 Demana-li de nou a l'alumne; no cal cap altra investigació.
 
+**Un alumne ha fet «Eliminar tots els codis».** Des del botó **Codi**, l'alumne
+pot buidar tot el seu progrés (li demana confirmació, perquè no es pot desfer),
+i el codi torna a zero. El que ja t'havia enviat no es perd: l'analitzador es
+queda amb el primer resultat de cada exercici dels codis anteriors, de manera
+que tornar a fer un exercici després de netejar no li millora la nota. El codi
+següent porta el comptador de reinicis, i a l'analitzador ho veuràs com una
+pèrdua de feina. El que no hagués enviat encara, sí que es perd.
+
 **Un alumne surt en ambre amb «sota 10».** (Estàndard) No ha arribat al mínim
 d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i
 l'avís queda al full de correcció. Ell no el veu.
@@ -194,7 +209,7 @@ exercici podria ser d'un altre tram. Es resol sol així que envia un codi nou.
 setmanes després de fer aquells exercicis. Com que no se sap de quin tram són,
 no compten per a cap. Es resol demanant el codi al final de cada tram.
 
-**«Les 5 preguntes surten de només 2 problemes diferents.»** (Estàndard) La
+**«Les preguntes surten de només 2 problemes diferents.»** (Estàndard) La
 feina d'aquell alumne en aquell tram es concentra en pocs exercicis amb molts
 apartats. El sorteig no ho pot arreglar i per això ho diu.
 

@@ -29,12 +29,13 @@ require(path.join(ARREL, "js", "calendari.js"));
 const RE_CALENDARI = global.window.RE_CALENDARI;
 eval(fs.readFileSync(path.join(ARREL, "js", "codi.js"), "utf8"));
 const RE_CODI = global.window.RE_CODI;
-const RE_BANC = {};
+const RE_BANC = {};   /* s'omple més avall per a les proves de blocs */
 const calTrams = RE_CALENDARI.TRAMS.slice();
 function tramDe(d) { return RE_CALENDARI.tramDe(d, calTrams); }
 
-eval(["sortejaPreguntes", "exMare", "tramDeItem", "feinaDelTram"].map(extreu).join("\n")
-  + "\nglobalThis.sortejaPreguntes = sortejaPreguntes;"
+eval(["sortejaPreguntes", "sortejaPerBlocs", "reparteix", "exMare", "tramDeItem", "feinaDelTram"].map(extreu).join("\n")
+  + "\nglobalThis.sortejaPreguntes = sortejaPreguntes; globalThis.reparteix = reparteix;"
+  + "globalThis.sortejaPerBlocs = sortejaPerBlocs;"
   + "globalThis.tramDeItem = tramDeItem; globalThis.feinaDelTram = feinaDelTram;");
 
 let fallades = 0;
@@ -95,6 +96,31 @@ for (let n = 0; n < 500; n++) {
   if (new Set(q).size !== q.length) repes++;
 }
 comprova("500 tirades sense repetir exercici mare", repes === 0, repes + " amb repetició");
+
+console.log("\n== mides i repartiment per blocs ==");
+const MIDES = eval("(" + src.match(/var MIDES_PROVA = (\{[^}]*\})/)[1] + ")");
+comprova("curta 2, mitjana 3, llarga 4", MIDES.curta === 2 && MIDES.mitja === 3 && MIDES.llarga === 4, JSON.stringify(MIDES));
+const bl = (...ns) => ns.map(n => ({ fets: new Array(n).fill(0) }));
+const rp = (ns, t) => reparteix(bl(...ns), t).join("+");
+comprova("l'exemple: 10 del bloc A i 4 del B → curta 1+1", rp([10, 4], 2) === "1+1", rp([10, 4], 2));
+comprova("mitjana 2+1", rp([10, 4], 3) === "2+1", rp([10, 4], 3));
+comprova("llarga 2+2", rp([10, 4], 4) === "2+2", rp([10, 4], 4));
+comprova("un sol bloc s'ho queda tot", rp([12], 4) === "4");
+comprova("més blocs que preguntes: van als que tenen més feina", rp([2, 9, 5], 2) === "0+1+1", rp([2, 9, 5], 2));
+comprova("un bloc no dona més del que té", rp([1, 10], 4) === "1+3", rp([1, 10], 4));
+comprova("si no n'hi ha prou, surten les que hi ha", rp([1, 1], 4) === "1+1");
+comprova("sempre suma la mida quan hi ha prou feina",
+  [[3, 3, 3], [20, 1], [7, 5, 2, 1], [4, 4]].every(ns => [2, 3, 4].every(t => reparteix(bl(...ns), t).reduce((a, b) => a + b, 0) === t)));
+/* 10 exercicis del bloc A i 4 del B, amb el banc de mentida */
+const poolAB = [];
+for (let i = 0; i < 10; i++) { RE_BANC["60" + i + "a"] = { bloc: "A" }; poolAB.push({ id: "60" + i + "a", full: 4 }); }
+for (let i = 0; i < 4; i++) { RE_BANC["70" + i + "a"] = { bloc: "B" }; poolAB.push({ id: "70" + i + "a", full: 4 }); }
+let malRepartit = 0;
+for (let n = 0; n < 300; n++) {
+  const q = sortejaPerBlocs(poolAB, 4).map(x => RE_BANC[x.it.id].bloc).sort().join("");
+  if (q !== "AABB") malRepartit++;
+}
+comprova("el mini-examen llarg de l'exemple surt sempre AABB", malRepartit === 0, malRepartit + " de 300");
 
 console.log("\n== la nota de feina ==");
 const nota = (e, max) => RE_CODI.notaTram(e, max || 20).nota;

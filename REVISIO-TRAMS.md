@@ -68,3 +68,23 @@ bé pels tres trams.
   - el codi que en surt és RC4 amb les dates.
 - Hi ha una fixture RC3 real, generada abans del canvi, que es continua llegint
   igual.
+
+## Segona tanda
+
+**Eliminar tots els codis** (`js/codi-ui.js`). Botó a la finestra del codi,
+amb confirmació: «Vols eliminar tots els codis? Aquesta opció no es pot
+desfer.» i dos botons, ACCEPTAR i CANCEL·LAR. Buida el progrés de tots els
+fulls i el botó torna a «Codi» sense compte. Les metadades es conserven i el
+comptador de reinicis puja un cop, perquè l'analitzador vegi la neteja. Els
+codis ja enviats continuen manant a l'analitzador: s'hi agafa el primer
+resultat de cada exercici. Verificat a Chromium: CANCEL·LAR no esborra res,
+ACCEPTAR buida tots els fulls, no hi ha estils duplicats i no hi ha errors.
+
+**Mides de la prova escrita: 2, 3 i 4 preguntes**, als dos modes (abans 8/14/20
+a la personalitzada i 5 fixes al mini-examen). `reparteix()` té una fórmula
+nova: primer una pregunta per bloc (si no hi caben tots, als blocs amb més
+feina), i la resta en proporció als exercicis fets, per residus més grans.
+Amb 10 del bloc A i 4 del B: 1+1, 2+1 i 2+2. El mini-examen aplica el
+repartiment als 20 exercicis que compten (`sortejaPerBlocs`). Verificat amb
+proves de node i a Chromium, 15 tirades per mida i per mode, sempre amb el
+repartiment esperat.

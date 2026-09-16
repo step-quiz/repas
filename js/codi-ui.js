@@ -44,6 +44,11 @@ window.RE_CODI_UI = (function () {
     "border:1px solid var(--vora,#E4E1DB);border-radius:9px;background:var(--fons,#FBFAF8)}",
     "#re-codi-rec .re-btn{font-size:13px;padding:.45rem .7rem}",
     "#re-codi-rec-estat{margin:.55rem 0 0;font-size:13px}",
+    "#re-codi-elimina{border-top:1px solid var(--vora,#E4E1DB);margin-top:1rem;padding-top:.85rem}",
+    "#re-codi-fin .re-btn.perill{background:#A32B22;border-color:#A32B22;color:#fff}",
+    "#re-codi-fin .re-btn.buit.perill{background:transparent;color:#A32B22;border-color:#E3B5B0}",
+    "#re-codi-confirma{background:#FBEDEB;border:1px solid #E3B5B0;border-radius:9px;padding:.65rem .75rem;margin-top:.6rem}",
+    "#re-codi-confirma p{margin:0 0 .55rem;font-size:14px;color:#5A1712}",
     "#re-codi-fin .re-avis{background:#FBF3DF;border:1px solid #EBD3A3;color:#6B4200;",
     "border-radius:9px;padding:.55rem .7rem;font-size:13px;margin:.75rem 0 0}",
     /* El botó és fix a dalt a la dreta i el contingut del lloc comença just
@@ -193,7 +198,16 @@ window.RE_CODI_UI = (function () {
         'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
         '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
         '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
-        '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
+        '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' +
+        '<div id="re-codi-elimina">' +
+        '<button class="re-btn buit perill" id="re-codi-elimina-btn">Eliminar tots els codis</button>' +
+        '<div id="re-codi-confirma" style="display:none" role="alertdialog" ' +
+        'aria-labelledby="re-codi-confirma-txt">' +
+        '<p id="re-codi-confirma-txt"><b>Vols eliminar tots els codis?</b> ' +
+        "Aquesta opci\u00f3 no es pot desfer.</p>" +
+        '<div class="re-acc"><button class="re-btn perill" id="re-codi-accepta">ACCEPTAR</button>' +
+        '<button class="re-btn buit" id="re-codi-cancela">CANCEL\u00b7LAR</button></div>' +
+        "</div></div>" + "</div>";
     }
 
     document.body.appendChild(fons);
@@ -229,6 +243,54 @@ window.RE_CODI_UI = (function () {
     };
 
     muntaRecuperacio();
+    muntaElimina(tanca);
+  }
+
+  /* ── eliminar tots els codis ────────────────────────────────────────────
+
+     Buida el progrés de tots els fulls d'aquest navegador: el botó torna a
+     «Codi» sense compte i el codi següent comença de zero. Es fa en dos
+     passos (botó i confirmació amb el text sencer) perquè no es pot desfer.
+
+     El que NO s'esborra, a propòsit, són les metadades (repas-eso:meta): el
+     comptador de reinicis puja un cop, i el codi següent el porta, de manera
+     que l'analitzador veu que hi ha hagut una neteja. La feina que ja s'havia
+     enviat al formulari no es perd per al professorat: l'analitzador es
+     queda amb el primer resultat de cada exercici dels codis anteriors. */
+  function eliminaTot() {
+    var T = window.RE_TAULES;
+    Object.keys(T.fulls).forEach(function (k) {
+      window.RE.desa(+k, { v: 1, items: {}, tfv: 1 });
+    });
+    window.RE.sumaMeta("esb");
+  }
+
+  function refrescaBoto() {
+    var b = document.getElementById("re-codi-btn");
+    if (b && b.parentNode) b.parentNode.removeChild(b);
+    munta();
+  }
+
+  function muntaElimina(tanca) {
+    var btn = document.getElementById("re-codi-elimina-btn");
+    if (!btn) return;
+    var caixa = document.getElementById("re-codi-confirma");
+    btn.onclick = function () {
+      caixa.style.display = "block";
+      btn.style.display = "none";
+      document.getElementById("re-codi-cancela").focus();
+    };
+    document.getElementById("re-codi-cancela").onclick = function () {
+      caixa.style.display = "none";
+      btn.style.display = "";
+      btn.focus();
+    };
+    document.getElementById("re-codi-accepta").onclick = function () {
+      eliminaTot();
+      tanca();
+      refrescaBoto();
+      obre();
+    };
   }
 
   /* ── recuperar el progrés a partir d'un codi ────────────────────────────
@@ -321,9 +383,12 @@ window.RE_CODI_UI = (function () {
     if (document.getElementById("re-codi-btn")) return;
     if (!window.RE || !window.RE_TAULES || !window.RE_CODI) return;
 
-    var e = document.createElement("style");
-    e.textContent = CSS;
-    document.head.appendChild(e);
+    if (!document.getElementById("re-codi-css")) {
+      var e = document.createElement("style");
+      e.id = "re-codi-css";
+      e.textContent = CSS;
+      document.head.appendChild(e);
+    }
 
     var x = comptes();
     var b = document.createElement("button");
@@ -341,5 +406,5 @@ window.RE_CODI_UI = (function () {
     document.addEventListener("DOMContentLoaded", munta);
   } else { munta(); }
 
-  return { munta: munta, obre: obre, feinaDelTram: feinaDelTram };
+  return { munta: munta, obre: obre, feinaDelTram: feinaDelTram, eliminaTot: eliminaTot };
 })();
