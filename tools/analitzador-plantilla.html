@@ -89,7 +89,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 .pr-check .n{color:var(--apagat);font-size:11.5px;display:block}
 .pr-accions{display:flex;gap:.5rem;margin-bottom:.8rem;flex-wrap:wrap}
 .pr-paper{background:#fff;border:1px solid var(--vora);border-radius:12px;
-  padding:1.6rem 1.8rem;max-width:780px;margin-bottom:1.2rem}
+  padding:1.6rem 1.8rem;max-width:780px;margin-bottom:1.2rem;line-height:1.5}
+.pr-paper .capc-dreta{text-align:right;line-height:2}
+.pr-paper .linia-nom{display:inline-block;width:19rem;max-width:60vw;border-bottom:1px solid var(--tinta);
+  height:1.2em;vertical-align:baseline;margin-left:.3rem}
 .pr-paper h2{font-size:1.15rem;margin:0 0 .15rem}
 .pr-paper .capc{border-bottom:2px solid var(--tinta);padding-bottom:.7rem;margin-bottom:1.1rem;
   display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;flex-wrap:wrap}
@@ -2739,25 +2742,36 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     });
   }
 
+  /* Data del full en format dd-mm-aaaa, com s'escriu a mà a l'aula. */
+  function dataFull(d) {
+    return ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2)
+      + "-" + d.getFullYear();
+  }
+
+  /* El bloc de la dreta de la capçalera de l'examen: la data i un espai llarg
+     per al nom i cognoms. Sense casella de nota: la nota no va al full. */
+  function capcaDreta(data) {
+    return '<div class="petit apagat capc-dreta">Data: ' + data
+      + '<br>Nom i cognoms:<span class="linia-nom"></span></div>';
+  }
+
   function capcaleraLot(s, lot, titol, extra) {
-    var ara = new Date();
-    var data = ara.getFullYear() + "-" + ("0" + (ara.getMonth() + 1)).slice(-2)
-      + "-" + ("0" + ara.getDate()).slice(-2);
+    var data = dataFull(new Date());
     return '<div class="capc"><div><h2>' + titol + "</h2>"
       + '<div class="petit apagat">' + escapa(s.alumne.nom || s.alumne.clau)
       + (s.alumne.grup ? " · " + escapa(s.alumne.grup) : "")
       + " · tram " + (lot.objectiu + 1) + " (" + dataCurta(lot.tram.inici)
       + " – " + dataCurta(lot.tram.fi) + ")"
       + "</div>" + (extra || "") + "</div>"
-      + '<div class="petit apagat" style="text-align:right">Data: ' + data
-      + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
+      + capcaDreta(data) + "</div>";
   }
+
+  /* Cinc línies per respondre cada pregunta. */
+  var RATLLES = new Array(6).join('<div class="ratlla"></div>');
 
   function pintaExamenAlumne(s, lot) {
     var h = '<div class="pr-alumne" data-alumne="' + escapa(s.alumne.clau) + '">'
-      + capcaleraLot(s, lot, "Mini-examen de repàs",
-                     '<div class="petit apagat">' + s.preguntes.length
-                     + " preguntes · resposta oberta, cal escriure la resolució</div>");
+      + capcaleraLot(s, lot, "Repàs ESO. Examen per validar feina feta");
     s.preguntes.forEach(function (q, i) {
       var b = RE_BANC[q.it.id];
       if (!b) return;
@@ -2765,7 +2779,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         + (b.encapcalament ? " " + escapa(b.encapcalament) : "") + "</div>"
         + '<div class="enun">' + escapa(b.enunciat) + "</div>"
         + (b.figura ? '<div class="figura">' + b.figura + "</div>" : "")
-        + '<div class="ratlla"></div><div class="ratlla"></div><div class="ratlla"></div>'
+        + RATLLES
         + "</div>";
     });
     return h + "</div>";
@@ -2944,9 +2958,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var nom = $("#pr-alumne").selectedIndex > 0
       ? $("#pr-alumne").options[$("#pr-alumne").selectedIndex].textContent.replace(/\s*⚠.*$/, "")
       : "";
-    var ara = new Date();
-    var data = ara.getFullYear() + "-" + ("0" + (ara.getMonth() + 1)).slice(-2)
-      + "-" + ("0" + ara.getDate()).slice(-2);
+    var data = dataFull(new Date());
     var ambTema = $("#pr-tema").checked;
 
     /* Agrupat per bloc: en un examen en paper, saltar de tema cada pregunta
@@ -2969,10 +2981,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var n = 1, ordinals = [];
     h += '<div class="pr-paper" id="pr-examen">'
       + '<div class="capc"><div><h2>Prova de repàs</h2>'
-      + '<div class="petit apagat">' + (nom ? escapa(nom) + " · " : "") + seleccio.length
-      + " preguntes · resposta oberta, cal escriure la resolució</div></div>"
-      + '<div class="petit apagat" style="text-align:right">Data: ' + data
-      + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
+      + (nom ? '<div class="petit apagat">' + escapa(nom) + "</div>" : "") + "</div>"
+      + capcaDreta(data) + "</div>";
 
     grups.forEach(function (g) {
       if (ambTema) {
@@ -2986,7 +2996,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           + (b.encapcalament ? " " + escapa(b.encapcalament) : "") + "</div>"
           + '<div class="enun">' + escapa(b.enunciat) + "</div>"
           + (b.figura ? '<div class="figura">' + b.figura + "</div>" : "")
-          + '<div class="ratlla"></div><div class="ratlla"></div><div class="ratlla"></div>'
+          + RATLLES
           + "</div>";
       });
     });

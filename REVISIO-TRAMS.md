@@ -88,3 +88,16 @@ Amb 10 del bloc A i 4 del B: 1+1, 2+1 i 2+2. El mini-examen aplica el
 repartiment als 20 exercicis que compten (`sortejaPerBlocs`). Verificat amb
 proves de node i a Chromium, 15 tirades per mida i per mode, sempre amb el
 repartiment esperat.
+
+## Tercera tanda: el full d'examen
+
+- **Títol del mini-examen:** «Repàs ESO. Examen per validar feina feta».
+- **Data:** en format dd-mm-aaaa (16-09-2026).
+- **Capçalera:** sense la casella «Nota» ni la línia «N preguntes · resposta
+  oberta…». La línia del nom i cognoms és molt més llarga.
+- **Interlineat:** 1,5 al full d'examen i al de correcció.
+- **Resposta:** 5 línies per pregunta, abans 3.
+- **Prova personalitzada:** també té la capçalera, les línies i l'interlineat
+  nous, però conserva el títol «Prova de repàs».
+
+Verificat a Chromium, amb una impressió a PDF en A4.
