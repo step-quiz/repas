@@ -101,3 +101,16 @@ repartiment esperat.
   nous, però conserva el títol «Prova de repàs».
 
 Verificat a Chromium, amb una impressió a PDF en A4.
+
+## Quarta tanda: la lletra
+
+- **Lletra del full:** l'examen i el de correcció van en Times New Roman de 12
+  punts. Si l'ordinador no la té, fa servir Liberation Serif, que ocupa el
+  mateix. El títol és de 15 punts.
+- **Error d'impressió corregit:** la taula de la classe, invisible en imprimir
+  però d'uns 950 px d'amplada, feia que el navegador encongís tota la pàgina
+  al 83 %, i per això la lletra sortia més petita del que tocava. Ara, en
+  imprimir, les targetes que no contenen el full queden fora del tot
+  (`display:none`).
+- **Verificat:** la lletra del PDF fa 12 punts reals, i els quatre fulls
+  (examen i correcció dels dos modes) s'imprimeixen a l'amplada de l'A4.
