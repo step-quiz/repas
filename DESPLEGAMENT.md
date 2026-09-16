@@ -75,7 +75,7 @@ prova correspon a una trampa concreta: si alguna cau, la trampa ha tornat.
 
 ## 3. El codi diu com s'ha fet la feina, no només quina
 
-Format **RC3** (`js/codi.js`). Els codis RC1 i RC2 es continuen llegint.
+Format **RC4** (`js/codi.js`). Els codis RC1, RC2 i RC3 es continuen llegint.
 
 El bloc `META` hi afegeix cinc coses que abans eren invisibles:
 

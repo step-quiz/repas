@@ -109,6 +109,60 @@ prova("la taula d'estats no depèn de la sessió sinó dels comptadors", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────
+seccio("Una pista després d'un error no esborra l'error");
+
+prova("fallar, obrir una pista i encertar és segon intent, no 'pista'", () => {
+  net();
+  RE.intent(FULL, IDS[5], false);
+  RE.pista(FULL, IDS[5], 1);
+  const r = RE.intent(FULL, IDS[5], true);
+  assert.strictEqual(r.estat, "segon",
+    "amb 'pista' (9,5) l'error del primer intent quedaria gairebé esborrat");
+  assert.strictEqual(RE.estatDe(2, 1, true), "segon");
+  assert.strictEqual(RE.estatDe(2, 3, true), "segon");
+});
+
+prova("obrir pistes abans de respondre i encertar a la primera sí que és 'pista'", () => {
+  net();
+  RE.pista(FULL, IDS[6], 2);
+  assert.strictEqual(RE.intent(FULL, IDS[6], true).estat, "pista");
+});
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("La data del primer intent");
+
+prova("es desa en respondre per primer cop, encertant o fallant", () => {
+  net();
+  const abans = Date.now();
+  RE.intent(FULL, IDS[7], false);
+  const tf = RE.item(FULL, IDS[7]).tf;
+  assert.ok(tf >= abans && tf <= Date.now(), "no hi ha data del primer intent");
+});
+
+prova("no canvia en el segon intent ni en repassar", () => {
+  net();
+  RE.intent(FULL, IDS[8], false);
+  const tf = RE.item(FULL, IDS[8]).tf;
+  const ara = Date.now; Date.now = () => tf + 86400000 * 5;
+  try {
+    RE.intent(FULL, IDS[8], true);
+    RE.intent(FULL, IDS[8], true);
+  } finally { Date.now = ara; }
+  assert.strictEqual(RE.item(FULL, IDS[8]).tf, tf);
+});
+
+prova("els exercicis d'abans de tenir data en reben una aproximada, un sol cop", () => {
+  net();
+  magatzem["repas-eso:full" + FULL] = JSON.stringify({ v: 1, items: {
+    [IDS[9]]: { estat: "net", tancat: 1, ts: 1700000000000 },
+    [IDS[10]]: { estat: "net", tancat: 1, ts: 1700000000000, imp: 1 } } });
+  const it = RE.item(FULL, IDS[9]);
+  assert.strictEqual(it.tf, 1700000000000); assert.strictEqual(it.tfa, 1);
+  assert.strictEqual(RE.item(FULL, IDS[10]).tf, undefined,
+    "un exercici importat no pot agafar la data de la importació");
+});
+
+// ─────────────────────────────────────────────────────────────────────────
 seccio("Metadades: reiniciar un full es veu");
 
 prova("esborrar un full puja el comptador i no s'esborra a si mateix", () => {

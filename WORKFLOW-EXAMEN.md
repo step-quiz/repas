@@ -14,22 +14,23 @@ configure to close the gap. Read it before touching any code.
 > escrita** tab:
 >
 > - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Five
->   questions per student, drawn at random from the exercises *that student*
->   has done, weighted so the most recent tram is likeliest. Nine fixed trams
->   per course, hardcoded in `js/calendari.js` and shared with the student
->   site. Groups of three trams form a cycle; when a new one starts the count
->   resets. Output: one printable document with every exam and another with
->   every answer key.
+>   questions per student, drawn ONLY from the first 20 exercises that
+>   student did inside the examined tram (by date of first attempt; nothing
+>   from earlier trams, nothing from rest weeks), plus a per-tram work grade
+>   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
+>   one hint 0.95, two or more hints 0.8, second attempt 0.7, failed 0).
+>   Nine fixed trams per course, hardcoded in `js/calendari.js`
+>   (`FEINA_MINIMA`/`FEINA_MAXIMA` = 10/20 live there too). Output: one
+>   printable document with every exam, another with every answer key, and a
+>   CSV of grades.
 > - **Examen personalitzat a un alumne** — what this document describes.
 >
 > Three things a future agent needs to know before touching it:
 >
-> 1. **A code carries the date it was generated, not the date of each
->    exercise.** The standard mode reconstructs when each exercise was done by
->    diffing a student's successive codes. It therefore needs the *whole*
->    submission history in the response sheet, not just the latest row. A
->    student with a single submission gets an exam plus an explicit warning
->    that the tram split means nothing for them.
+> 1. **RC4 codes carry the date of first attempt of every exercise done in
+>    the last 12 weeks, in order** (`js/codi.js`, DATES block). One code is
+>    enough. Legacy RC1-RC3 codes carry no dates: for those the analyser still
+>    reconstructs dates by diffing successive codes, and flags it.
 > 2. **The trams are not contiguous** — a week off between them, four at
 >    Christmas, none in the third term — so they are a table, not
 >    `floor((date - start) / 21 days)`. `js/calendari.js` is the single

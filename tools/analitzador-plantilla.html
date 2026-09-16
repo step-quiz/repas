@@ -44,7 +44,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 .punts{display:flex;flex-wrap:wrap;gap:2px;max-width:340px}
 .pt{width:9px;height:9px;border-radius:2px;background:#EDEAE4}
 .pt.net{background:var(--verd)} .pt.segon{background:#7FB79B}
-.pt.pista{background:var(--ambre)} .pt.fallat{background:var(--vermell)}
+.pt.pista{background:var(--ambre)} .pt.pistes{background:#7A4A00} .pt.fallat{background:var(--vermell)}
 .pt.vist{background:#C9C4BA}
 .pt-g{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
   justify-content:center;font:600 11px var(--mono);color:#fff;background:#EDEAE4}
@@ -177,7 +177,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
         marca temporal o grup, també les farà servir.
       </p>
-      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC2AM-8599X-…"></textarea>
+      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC4AM-8599X-…"></textarea>
       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
         <button class="btn" id="btn-llegeix">Llegeix</button>
         <label class="btn buit" style="position:relative;overflow:hidden">
@@ -220,7 +220,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <div class="llegenda">
         <span><i style="background:var(--verd)"></i>a la primera</span>
         <span><i style="background:#7FB79B"></i>al segon intent</span>
-        <span><i style="background:var(--ambre)"></i>amb pista</span>
+        <span><i style="background:var(--ambre)"></i>amb una pista</span>
+        <span><i style="background:#7A4A00"></i>amb dues pistes o més</span>
         <span><i style="background:var(--vermell)"></i>fallat</span>
         <span><i style="background:#C9C4BA"></i>començat</span>
         <span><i></i>per fer</span>
@@ -323,7 +324,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   <section id="v-un" hidden>
     <div class="targeta">
       <h3>Enganxa un codi</h3>
-      <input type="text" id="codi-un" placeholder="RC2AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+      <input type="text" id="codi-un" placeholder="RC4AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
       <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
     </div>
     <div id="un-resultat" style="margin-top:1rem"></div>
@@ -339,9 +340,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <button class="opcio" id="pr-va-lot">
         <b>Mini-examen estàndard de 3 setmanes</b>
         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
-        5 preguntes sortejades entre els exercicis que ha fet, amb més
-        probabilitat per al tram més recent. Surten dos documents per
-        imprimir: tots els exàmens i totes les solucions.</span>
+        5 preguntes sortejades només entre els 20 primers exercicis que ha
+        fet dins del tram, i la taula en dona la nota de feina. Surten dos
+        documents per imprimir: tots els exàmens i totes les solucions.</span>
       </button>
       <button class="opcio" id="pr-va-individual">
         <b>Examen personalitzat a un alumne</b>
@@ -357,15 +358,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         </p>
         <h3 style="margin-top:0">Mini-examen de 3 setmanes</h3>
         <p class="petit apagat" style="margin:0 0 .9rem">
-          Reparteix les preguntes entre els trams de 3 setmanes que porta el
-          trimestre, donant més pes al més recent. Quan comença un trimestre
-          nou el compte torna a zero: el primer examen del trimestre següent
-          només mira els exercicis d'aquelles 3 setmanes.
-          <br><b>Compte amb la paraula «trimestre»:</b> aquí vol dir un grup
-          de tres trams del calendari de sota, i no coincideix exactament amb
-          els trimestres per mesos de la pestanya «Progrés del trimestre».
-          Un enviament del 30 de desembre, per exemple, és del 1r trimestre
-          allà i del 2n aquí.
+          Cada examen surt <b>només</b> dels exercicis que l'alumne ha fet dins
+          de les tres setmanes del tram que s'examina, i d'aquests, només dels
+          20 primers. Cap exercici d'abans del tram no hi pot entrar. La taula
+          dona també la <b>nota de feina</b> de cada alumne en aquell tram.
         </p>
 
         <div class="camp" style="border-top:none;padding-top:0">
@@ -398,30 +394,40 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         </div>
 
         <div class="camp">
-          <b>Sorteig</b>
+          <b>Feina demanada i nota</b>
           <div class="filtres" style="margin:.3rem 0 0">
+            <label class="petit apagat">Entre
+              <input type="number" id="lot-minim" value="10" min="0" max="99"
+                     style="width:52px"> i
+              <input type="number" id="lot-maxim" value="20" min="1" max="99"
+                     style="width:52px"> exercicis per tram</label>
             <label class="petit apagat">
               <input type="number" id="lot-preguntes" value="5" min="1" max="20"
                      style="width:52px"> preguntes per examen</label>
-            <label class="petit apagat">Pesos dels trams
-              <input type="text" id="lot-pesos" value="3 2 1"
-                     style="width:76px;font-family:var(--mono)"></label>
           </div>
-          <p class="petit apagat" style="margin:.35rem 0 0">
-            Els pesos van de l'últim tram cap enrere. Cada pregunta se sorteja
-            per separat, de manera que cap combinació és impossible: poden
-            sortir les cinc del mateix tram, només que és menys probable.
+          <div class="filtres" style="margin:.5rem 0 0">
+            <span class="petit apagat">Valor de cada exercici: a la primera 10 ·</span>
+            <label class="petit apagat">amb una pista
+              <input type="text" id="lot-v-pista" value="9,5" style="width:46px"></label>
+            <label class="petit apagat">amb dues pistes o més
+              <input type="text" id="lot-v-pistes" value="8" style="width:46px"></label>
+            <label class="petit apagat">al segon intent
+              <input type="text" id="lot-v-segon" value="7" style="width:46px"></label>
+            <span class="petit apagat">· fallat 0</span>
+          </div>
+          <p class="petit apagat" style="margin:.4rem 0 0">
+            Només compten els 20 primers exercicis del tram, per ordre de quan es
+            van fer (el màxim de dalt). Cada un aporta el seu valor sobre 10 —a la
+            primera 1, amb una pista 0,95, amb dues 0,8, al segon intent 0,7— i,
+            amb la suma <i>x</i>, <b>nota = mín(10, 8·∛(x/10))</b>: 10 exercicis a
+            la primera fan un 8 i 20 fan un 10. Un exercici fallat no suma, però
+            tampoc no resta. Un encert al segon intent compta com a segon intent
+            encara que s'hagin obert pistes. La feina d'una setmana de descans no
+            és de cap tram.
           </p>
-          <div class="filtres" style="margin:.55rem 0 0">
-            <label class="petit apagat">Mínim de feina esperada
-              <input type="number" id="lot-minim" value="10" min="0" max="99"
-                     style="width:52px"> exercicis per tram</label>
-            <label class="petit apagat"><input type="checkbox" id="lot-oberts">
-              Inclou-hi els que va <b>obrir i no contestar</b></label>
-          </div>
           <p class="petit apagat" style="margin:.35rem 0 0">
-            Qui no hi arribi tindrà l'examen igualment, amb l'avís ben visible
-            a la llista i al full de correcció.
+            Qui no arribi al mínim tindrà l'examen igualment, amb l'avís ben
+            visible a la llista i al full de correcció.
           </p>
         </div>
 
@@ -648,7 +654,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      columna es digui de cap manera concreta: si les capçaleres no ajuden,
      es busca la columna que conté un codi. */
   function buscaCodi(text) {
-    var m = String(text || "").toUpperCase().match(/RC[123][0-9A-Z\-\s]{10,}/);
+    var m = String(text || "").toUpperCase().match(/RC[1234][0-9A-Z\-\s]{10,}/);
     return m ? m[0].trim() : null;
   }
 
@@ -956,7 +962,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var c = r.p.resum.comptes;
       var errs = r.p.errs.reduce(function (a, e) { return a + e.compte; }, 0);
       if (r.p.errs.some(function (e) { return e.compte >= 31; })) return;   /* saturat */
-      var sostre = 2 * c.fallat + c.segon + c.pista + c.vist;
+      var sostre = 2 * c.fallat + c.segon + c.pista + (c.pistes || 0) + c.vist;
       if (errs > sostre) {
         linies.push(["<b>" + escapa(nomDe(r)) + "</b>: el codi compta " + errs
           + " errors comesos i els estats només en poden justificar " + sostre
@@ -1083,7 +1089,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + dada("Exercicis fets", p.resum.fets)
       + dada("Nota calculada", p.resum.nota === null ? "—" : p.resum.nota.toFixed(1).replace(".", ","))
       + dada("A la primera", p.resum.comptes.net)
-      + dada("Amb pista", p.resum.comptes.pista)
+      + dada("Amb una pista", p.resum.comptes.pista)
+      + dada("Amb dues pistes o més", p.resum.comptes.pistes)
       + dada("Al segon intent", p.resum.comptes.segon)
       + dada("Fallats", p.resum.comptes.fallat)
       + dada("Oberts i deixats", p.resum.comptes.vist)
@@ -1101,7 +1108,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
         if (!fets) return;
         var mal = dins.filter(function (x) { return x.estat === "fallat"; });
-        var pista = dins.filter(function (x) { return x.estat === "pista"; });
+        var pista = dins.filter(function (x) { return x.estat === "pista" || x.estat === "pistes"; });
         h += '<div style="margin:.35rem 0 .55rem"><span class="petit"><b>' + b[0] + "</b> "
           + '<span class="apagat">' + fets + " de " + dins.length + "</span></span> "
           + punts(dins);
@@ -1209,7 +1216,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     ult.forEach(function (r) {
       r.p.fulls.forEach(function (f) {
         f.items.forEach(function (it) {
-          if (it.estat === "fallat" || it.estat === "pista") {
+          if (it.estat === "fallat" || it.estat === "pista" || it.estat === "pistes") {
             var k = f.n + "|" + it.id;
             perItem[k] = (perItem[k] || 0) + (it.estat === "fallat" ? 2 : 1);
           }
@@ -1263,7 +1270,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var brut = llegeixFull(txt);
     if (!brut.length) {
       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
-        + "Els codis comencen per RC3 (o RC2 i RC1, els antics).</span>";
+        + "Els codis comencen per RC4 (o RC3, RC2 i RC1, els antics).</span>";
       return;
     }
     FORMAT_DATA = detectaFormatData(brut);
@@ -1393,7 +1400,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     function envia(t, d) {
       return new Date(CAL[t].inici.getTime() + d * 86400000);
     }
-    var opc = ["net", "net", "net", "segon", "pista", "fallat"];
+    var opc = ["net", "net", "net", "pista", "pista", "pistes", "segon", "fallat"];
 
     /* Els estats es fixen UN cop per alumne i cada enviament n'agafa un
        prefix: si es tornessin a sortejar a cada codi, un mateix exercici
@@ -1482,29 +1489,50 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       });
     }
 
-    /* tram · dia dins del tram · exercicis acumulats */
+    /* `feina`: quants exercicis fa cada alumne a cada un dels tres primers
+       trams, repartits pels 19 primers dies del tram. `env`: quan envia el
+       codi (tram i dia dins del tram). Els codis porten la data del primer
+       intent de cada exercici, com els del lloc de debò. */
     var PLA = [
-      { nom: "berta", grup: "4tA", env: [{ t: 0, d: 19, acum: 13 }, { t: 1, d: 19, acum: 27 }, { t: 2, d: 19, acum: 41 }] },
-      { nom: "jordi", grup: "4tA", env: [{ t: 0, d: 18, acum: 11 }, { t: 1, d: 18, acum: 24 }, { t: 2, d: 18, acum: 36 }] },
-      { nom: "laia",  grup: "4tA", env: [{ t: 0, d: 20, acum: 15 }, { t: 1, d: 20, acum: 32 }, { t: 2, d: 20, acum: 48 }] },
-      { nom: "marc",  grup: "4tB", env: [{ t: 0, d: 17, acum: 12 }, { t: 1, d: 17, acum: 23 }, { t: 2, d: 17, acum: 35 }] },
-      /* Només envia el codi al final: l'eina no pot saber què va fer a cada
-         tram i ho diu. */
-      { nom: "nil",   grup: "4tB", env: [{ t: 2, d: 20, acum: 30 }] },
+      { nom: "berta", grup: "4tA", feina: [13, 14, 14], env: [{ t: 0, d: 19 }, { t: 1, d: 19 }, { t: 2, d: 19 }] },
+      { nom: "jordi", grup: "4tA", feina: [11, 13, 12], env: [{ t: 0, d: 18 }, { t: 1, d: 18 }, { t: 2, d: 18 }] },
+      /* Passa de 20 a l'últim tram: només en compten els 20 primers. */
+      { nom: "laia",  grup: "4tA", feina: [15, 17, 23], env: [{ t: 0, d: 20 }, { t: 1, d: 20 }, { t: 2, d: 20 }] },
+      { nom: "marc",  grup: "4tB", feina: [12, 11, 12], env: [{ t: 0, d: 17 }, { t: 1, d: 17 }, { t: 2, d: 17 }] },
+      /* Només envia un codi, al final. Com que el codi porta la data de cada
+         exercici, la feina de cada tram s'hi reparteix igualment bé. */
+      { nom: "nil",   grup: "4tB", feina: [10, 11, 12], env: [{ t: 2, d: 20 }] },
       /* Treballa els dos primers trams i s'atura: no arriba al mínim del
          tram que s'examina. */
-      { nom: "ona",   grup: "4tB", env: [{ t: 0, d: 19, acum: 14 }, { t: 1, d: 19, acum: 28 }, { t: 2, d: 19, acum: 31 }] }
+      { nom: "ona",   grup: "4tB", feina: [14, 14, 3], env: [{ t: 0, d: 19 }, { t: 1, d: 19 }, { t: 2, d: 19 }] }
     ];
 
     var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
     PLA.forEach(function (a, k) {
       var slots = itinerari(k * 977 + 13, 3 + (k % 2));
       var estats = slots.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
+      /* La data del primer intent de cada exercici, en l'ordre de l'itinerari. */
+      var quanFet = [], pos = 0;
+      a.feina.forEach(function (quants, t) {
+        for (var q = 0; q < quants; q++) {
+          var dt = envia(t, Math.floor(q * 19 / quants));
+          dt.setHours(16, q, 0, 0);
+          quanFet[pos++] = dt.getTime();
+        }
+      });
       a.env.forEach(function (e, j) {
         var quan = envia(e.t, e.d);
         quan.setHours(17 + (k % 4), (k * 7 + j * 13) % 60, 0, 0);
+        var fets = quanFet.filter(function (t) { return t <= quan.getTime(); }).length;
+        var fulls = fullsAmb(slots, estats, fets);
+        fulls.forEach(function (f) {
+          f.dates = RE_TAULES.fulls[f.n].items.map(function () { return 0; });
+        });
+        slots.slice(0, fets).forEach(function (sl, q) {
+          fulls.filter(function (f) { return f.n === sl.full; })[0].dates[sl.i] = quanFet[q];
+        });
         var codi = RE_CODI.genera({
-          fulls: fullsAmb(slots, estats, e.acum), ara: quan,
+          fulls: fulls, ara: quan,
           errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
         });
         /* Un sol codi manipulat, i a mig curs: així la comprovació
@@ -1534,7 +1562,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var m = {};
     p.fulls.forEach(function (f) {
       f.items.forEach(function (it) {
-        if (it.estat && it.estat !== "vist") m[f.n + ":" + it.id] = { e: it.estat, d: it.dif };
+        if (it.estat && it.estat !== "vist") {
+          m[f.n + ":" + it.id] = { e: it.estat, d: it.dif, f: it.feta || null, o: it.ordre || 0 };
+        }
       });
     });
     return m;
@@ -1571,18 +1601,18 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
      part perquè el que interessa és si en va necessitant menys. */
   function taxes(arr) {
     var per = { 1: { n: 0, ok: 0, p: 0 }, 2: { n: 0, ok: 0, p: 0 }, 3: { n: 0, ok: 0, p: 0 } };
-    var c = { net: 0, segon: 0, pista: 0, fallat: 0 }, pes = 0;
+    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0 }, pes = 0;
     arr.forEach(function (x) {
       var b = per[x.d] || per[2];
       b.n++; c[x.e] = (c[x.e] || 0) + 1; pes += PES_DIF[x.d] || 1;
       if (x.e !== "fallat") b.ok++;
-      if (x.e === "pista") b.p++;
+      if (x.e === "pista" || x.e === "pistes") b.p++;
     });
     var n = arr.length;
     return {
       n: n, c: c, pes: pes, per: per,
-      encert: n ? (c.net + c.segon + c.pista) / n : null,
-      pistes: n ? c.pista / n : null,
+      encert: n ? (c.net + c.segon + c.pista + c.pistes) / n : null,
+      pistes: n ? (c.pista + c.pistes) / n : null,
       dif: n ? arr.reduce(function (a, x) { return a + x.d; }, 0) / n : null
     };
   }
@@ -2201,7 +2231,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   function tria(d, quants) {
     /* `vist` va amb el pes més alt de tots: un exercici que es va obrir i no
        es va contestar és, per definició, el que menys clar es tenia. */
-    var PES = { vist: 3.4, fallat: 3, pista: 2.2, segon: 1.6, net: 1 };
+    var PES = { vist: 3.4, fallat: 3, pistes: 2.6, pista: 2.2, segon: 1.6, net: 1 };
     /* Inclinació lleu cap als exercicis de més nivell dins del mateix estat.
        Lleu a posta: no es pot examinar del que no s'ha practicat, i si tota
        la feina és de nivell 1, la prova serà de nivell 1 —això no ho arregla
@@ -2229,31 +2259,24 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
   // ── MINI-EXAMEN DE 3 SETMANES ─────────────────────────────────────────
   //
-  // Un examen per a cada alumne del grup, tots de cop, amb les preguntes
-  // repartides entre els trams de 3 setmanes que porta el trimestre.
+  // Un examen per a cada alumne del grup, tots de cop, fet NOMÉS amb la feina
+  // del tram que s'examina: cap exercici d'un tram anterior no hi pot entrar.
+  // I d'aquesta feina, només els 20 primers exercicis, per ordre de quan es
+  // van fer, que són també els que fan la nota de feina del tram.
   //
-  // EL PROBLEMA DE FONS: EL CODI NO DIU QUAN ES VA FER CADA EXERCICI.
+  // QUAN ES VA FER CADA EXERCICI. Els codis RC4 porten la data del primer
+  // intent de cada exercici i l'ordre en què es van fer (vegeu js/codi.js), i
+  // amb això n'hi ha prou: un sol codi enviat en qualsevol moment del tram o
+  // de les setmanes següents diu exactament què és de cada tram.
   //
-  // Un codi és una fotografia acumulativa. Porta UNA data —la de generació—
-  // i l'estat de cada ítem, però no la data de cada ítem. Per tant, la data
-  // en què es va fer un exercici no es pot llegir enlloc: s'ha de
-  // RECONSTRUIR comparant codis successius del mateix alumne. Un exercici
-  // que no era al codi del 3 d'octubre i sí que hi és al del 24 es va fer
-  // entremig, i se li atribueix la data del codi on apareix per primer cop.
+  // Els codis antics (RC1-RC3) no porten dates. Per a aquests, la data es
+  // DEDUEIX com abans, comparant codis successius: un exercici que no era al
+  // codi del 3 d'octubre i sí al del 24 es va fer entremig. És una estimació,
+  // i quan un examen en depèn, el full de correcció ho diu.
   //
-  // La conseqüència pràctica és que un alumne que només envia un codi al
-  // final de les nou setmanes té tota la feina concentrada en un sol tram,
-  // el de l'enviament, i el repartiment per trams no el pot repartir. No és
-  // un error del càlcul: és que la informació no existeix. Es diu a la
-  // llista, alumne per alumne, en comptes de fer veure que sí.
-  //
-  // EL SORTEIG. Cada pregunta se sorteja per separat: primer el tram (amb
-  // probabilitat proporcional al pes) i després l'exercici dins del tram.
-  // Amb pesos 3-2-1, de mitjana la meitat de les preguntes surten de l'últim
-  // tram, però qualsevol combinació és possible —fins i tot les cinc del
-  // mateix tram—, que és el que es demanava. Un tram sense exercicis
-  // disponibles queda fora del sorteig i el seu pes es reparteix entre la
-  // resta, de manera que l'examen no surt curt per això.
+  // EL SORTEIG. Les preguntes surten a l'atzar d'entre els 20 primers
+  // exercicis del tram, sense repetir exercici mare mentre en quedin de
+  // nous.
 
   var lotSel = null;      /* última tirada, per poder reimprimir sense re-sortejar */
 
@@ -2292,26 +2315,49 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return Object.keys(per).map(function (k) {
       var a = per[k];
       var codis = a.codis.map(function (r) {
-        return { quan: quan(r.p), mapa: mapaEstats(r.p) };
+        return { quan: quan(r.p), mapa: mapaEstats(r.p), ambDates: !!r.p.dates };
       }).sort(function (x, y) { return x.quan - y.quan; });
 
+      /* Per a cada exercici, la millor data que se'n té:
+           · "exacta"      — la del primer intent, que porta un codi RC4;
+           · "deduida"     — la del primer codi antic (sense dates) que el
+                             porta: la reconstrucció de sempre;
+           · "desconeguda" — apareix per primer cop en un codi RC4 però sense
+                             data, o sigui que és d'abans de la seva finestra.
+         Un codi posterior pot donar la data exacta d'un exercici que abans
+         només tenia la deduïda, i llavors mana la exacta. */
       var vist = {}, items = [];
-      codis.forEach(function (c) {
+      codis.forEach(function (c, nc) {
+        var pos = 0;
         Object.keys(c.mapa).forEach(function (clau) {
-          if (vist[clau]) return;
-          vist[clau] = 1;
-          var tall = clau.indexOf(":");
-          items.push({
-            full: parseInt(clau.slice(0, tall), 10),
-            id: clau.slice(tall + 1),
-            estat: c.mapa[clau].e,
-            dif: c.mapa[clau].d,
-            quan: c.quan
-          });
+          var m = c.mapa[clau], it = vist[clau];
+          pos++;
+          if (!it) {
+            var tall = clau.indexOf(":");
+            it = vist[clau] = {
+              full: parseInt(clau.slice(0, tall), 10), id: clau.slice(tall + 1),
+              estat: m.e, dif: m.d, quan: null, precisio: "desconeguda",
+              codi: nc, ordre: pos
+            };
+            if (!m.f && !c.ambDates) { it.quan = c.quan; it.precisio = "deduida"; }
+            items.push(it);
+          } else if (it.estat === "fallat" && m.e !== "fallat") {
+            /* Fallat al primer intent i acabat en una altra estona: l'únic
+               desenllaç possible és el segon intent, i com a molt val això. */
+            it.estat = "segon";
+          }
+          if (m.f) {
+            /* L'ordre dins d'un dia sempre ve d'un sol codi (el més recent que
+               el data), perquè la finestra de dates va per dies sencers. */
+            it.quan = m.f; it.precisio = "exacta"; it.codi = nc; it.ordre = m.o;
+          }
         });
       });
+      var nDeduits = items.filter(function (it) { return it.precisio === "deduida"; }).length;
       return { clau: k, nom: a.nom, grup: a.grup, items: items,
                nCodis: codis.length, descartats: a.descartats,
+               senseDates: codis.filter(function (c) { return !c.ambDates; }).length,
+               deduits: nDeduits,
                primer: codis.length ? codis[0].quan : null,
                ultim: codis.length ? codis[codis.length - 1].quan : null };
     }).sort(function (x, y) { return (x.nom || "").localeCompare(y.nom || ""); });
@@ -2320,51 +2366,63 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   /* Quins trams entren en l'examen del tram `objectiu`, i amb quin pes.
      Només els del MATEIX trimestre: en començar-ne un de nou, el compte torna
      a zero i el primer examen del trimestre mira només el seu propi tram. */
-  function tramsElegibles(objectiu, perTrim, pesos) {
-    var trimestre = Math.floor(objectiu / perTrim);
-    var out = [];
-    for (var i = 0; i < pesos.length; i++) {
-      var t = objectiu - i;
-      if (t < 0 || Math.floor(t / perTrim) !== trimestre) break;
-      if (pesos[i] > 0) out.push({ tram: t, pes: pesos[i] });
-    }
-    return out;
+  /* El tram d'un exercici. Amb data exacta, el tram són les seves tres
+     setmanes i prou (RE_CALENDARI.tramExacte). Amb la data deduïda d'un
+     enviament, la regla de sempre: el que s'envia en una setmana de descans
+     és del tram que acaba de tancar. */
+  function tramDeItem(it) {
+    if (it.precisio === "exacta") return RE_CALENDARI.tramExacte(it.quan, calTrams);
+    if (it.precisio === "deduida") return tramDe(it.quan);
+    return null;
   }
 
-  function pesAtzar(llista) {
-    var suma = llista.reduce(function (a, x) { return a + x.pes; }, 0);
-    if (suma <= 0) return null;
-    var r = Math.random() * suma;
-    for (var i = 0; i < llista.length; i++) {
-      r -= llista[i].pes;
-      if (r <= 0) return llista[i];
-    }
-    return llista[llista.length - 1];
+  /* Els exercicis d'un alumne en un tram, en l'ordre en què es van fer, i els
+     `maxim` primers, que són els únics que compten. */
+  function feinaDelTram(items, tram, maxim) {
+    var del = items.filter(function (it) { return tramDeItem(it) === tram; });
+    del.sort(function (a, b) {
+      return (a.quan - b.quan) || (a.codi - b.codi) || (a.ordre - b.ordre);
+    });
+    return { tots: del, primers: del.slice(0, maxim) };
   }
+
+  /* Els valors de cada exercici per a la nota. El de la primera (10) i el del
+     fallat (0) són fixos; els altres es poden tocar des del panell. */
+  function valorsLot() {
+    function llegeix(sel, def) {
+      var el = $(sel);
+      var v = el ? parseFloat(String(el.value || "").replace(",", ".")) : NaN;
+      return isNaN(v) ? def : Math.max(0, Math.min(10, v));
+    }
+    return { net: 10, fallat: 0,
+             pista: llegeix("#lot-v-pista", RE_CODI.PES.pista),
+             pistes: llegeix("#lot-v-pistes", RE_CODI.PES.pistes),
+             segon: llegeix("#lot-v-segon", RE_CODI.PES.segon) };
+  }
+
+  var ETIQ_ESTAT = { net: "a la primera", pista: "amb una pista",
+                     pistes: "amb dues pistes o més", segon: "al segon intent",
+                     fallat: "fallat" };
+
+  function coma(x, dec) { return x.toFixed(dec === undefined ? 1 : dec).replace(".", ","); }
 
   /* Sorteja `quantes` preguntes d'entre els exercicis d'un alumne, agrupats
      per tram. Evita repetir exercici mare mentre queden mares sense fer
      servir, pel mateix motiu que a la prova individual: cinc apartats del
      mateix problema no són cinc preguntes. */
-  function sortejaPreguntes(perTram, elegibles, quantes) {
-    var restant = {};
-    elegibles.forEach(function (e) {
-      restant[e.tram] = (perTram[e.tram] || []).slice();
-    });
-    var triats = [], mares = {};
-    for (var n = 0; n < quantes; n++) {
-      var vius = elegibles.filter(function (e) { return restant[e.tram].length; });
-      if (!vius.length) break;
-      var tria_ = pesAtzar(vius);
-      var pool = restant[tria_.tram];
-      /* Primer els que no repeteixen exercici mare; si tots repeteixen, el
-         que sigui, abans que deixar la pregunta sense posar. */
-      var lliures = pool.filter(function (it) { return !mares[exMare(it.id)]; });
-      var d = (lliures.length ? lliures : pool);
+  /* Sorteja `quantes` preguntes d'entre `pool` (els 20 primers exercicis del
+     tram, i prou). Evita repetir exercici mare mentre en quedin de nous, pel
+     mateix motiu que a la prova individual: cinc apartats del mateix
+     problema no són cinc preguntes. */
+  function sortejaPreguntes(pool, quantes) {
+    var restant = pool.slice(), triats = [], mares = {};
+    while (triats.length < quantes && restant.length) {
+      var lliures = restant.filter(function (it) { return !mares[exMare(it.id)]; });
+      var d = lliures.length ? lliures : restant;
       var it = d[Math.floor(Math.random() * d.length)];
       mares[exMare(it.id)] = true;
-      restant[tria_.tram] = pool.filter(function (x) { return x !== it; });
-      triats.push({ it: it, tram: tria_.tram });
+      restant = restant.filter(function (x) { return x !== it; });
+      triats.push({ it: it });
     }
     return triats;
   }
@@ -2438,127 +2496,99 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       $("#lot-resum").innerHTML = ""; return;
     }
     var objectiu = parseInt($("#lot-periode").value, 10) || 0;
-    var perTrim = RE_CALENDARI.PER_TRIMESTRE;
+    var tram = llistaTrams()[objectiu];
     var nPreg = Math.max(1, parseInt($("#lot-preguntes").value, 10) || 5);
     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
-    var oberts = !!$("#lot-oberts").checked;
-    var pesos = ($("#lot-pesos").value || "3 2 1").trim().split(/\s+/)
-      .map(function (x) { return Math.max(0, parseFloat(x) || 0); });
-    if (!pesos.length) pesos = [3, 2, 1];
-
-    var elegibles = tramsElegibles(objectiu, perTrim, pesos);
-    /* Un pes a zero exclou el tram del sorteig. És legítim voler-ho, però
-       contradiu el criteri de partida —cap tram no ha de ser impossible— i
-       s'ha de veure abans d'imprimir trenta exàmens, no després. */
-    var possibles = 0;
-    for (var q = objectiu; q >= 0 && Math.floor(q / perTrim) === Math.floor(objectiu / perTrim); q--) {
-      possibles++;
-    }
-    var exclosos = [];
-    for (var z = 0; z < Math.min(possibles, pesos.length); z++) {
-      if (!pesos[z]) exclosos.push(objectiu - z + 1);
-    }
-    if (possibles > pesos.length) {
-      for (var z2 = pesos.length; z2 < possibles; z2++) exclosos.push(objectiu - z2 + 1);
-    }
-    var alumnes = historialAlumnes();
+    var maxim = Math.max(1, parseInt($("#lot-maxim").value, 10) || RE_CALENDARI.FEINA_MAXIMA);
+    var valors = valorsLot();
     var sortida = [];
 
-    alumnes.forEach(function (a) {
-      var perTram = {};
-      a.items.forEach(function (it) {
-        if (!RE_BANC[it.id]) return;
-        if (!it.estat || (!oberts && it.estat === "vist")) return;
-        var t = tramDe(it.quan);
-        (perTram[t] = perTram[t] || []).push(it);
-      });
-      var nObjectiu = (perTram[objectiu] || []).length;
-      var disponibles = elegibles.reduce(function (n, e) {
-        return n + (perTram[e.tram] || []).length;
-      }, 0);
-      var preguntes = sortejaPreguntes(perTram, elegibles, nPreg);
-      var avisos = [];
-      if (nObjectiu < minim) {
-        avisos.push("ha fet " + nObjectiu + " exercici" + (nObjectiu === 1 ? "" : "s")
-          + " al tram examinat i el mínim és " + minim);
+    historialAlumnes().forEach(function (a) {
+      var f = feinaDelTram(a.items, objectiu, maxim);
+      var estats = f.primers.map(function (it) { return it.estat; });
+      var nt = RE_CODI.notaTram(estats, maxim, valors);
+      var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
+      estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
+      var pool = f.primers.filter(function (it) { return RE_BANC[it.id]; });
+      var preguntes = sortejaPreguntes(pool, nPreg);
+      var n = f.tots.length, avisos = [];
+
+      if (n < minim) {
+        avisos.push("ha fet " + n + " exercici" + (n === 1 ? "" : "s")
+          + " al tram i el mínim és " + minim);
       }
       if (a.descartats) {
         avisos.push(a.descartats + " enviament"
           + (a.descartats === 1 ? "" : "s") + " seu"
-          + (a.descartats === 1 ? "" : "s") + " no s'han pogut llegir (codi "
-          + "alterat o mal copiat) i no compten"
+          + (a.descartats === 1 ? " no s'ha" : " no s'han") + " pogut llegir (codi "
+          + "alterat o mal copiat) i no compt" + (a.descartats === 1 ? "a" : "en")
           + (a.nCodis ? "" : ": no li'n queda cap de bo"));
       }
-      if (a.nCodis && a.nCodis < 2) {
-        avisos.push("només ha enviat " + a.nCodis + " codi"
-          + (a.nCodis === 1 ? "" : "s") + ", així que no es pot saber en quin "
-          + "tram va fer cada exercici: tot compta com a fet el dia de l'enviament");
+      var deduits = f.tots.filter(function (it) { return it.precisio === "deduida"; }).length;
+      if (deduits) {
+        avisos.push(deduits + " exercici" + (deduits === 1 ? "" : "s")
+          + " del tram tenen la data deduïda dels enviaments (codis d'una versió "
+          + "anterior del lloc, sense dates): algun podria ser d'un altre tram"
+          + (a.nCodis < 2 ? ", i com que només ha enviat un codi, tota aquella "
+            + "feina compta com a feta el dia de l'enviament" : ""));
+      }
+      var sense = a.items.filter(function (it) { return it.precisio === "desconeguda"; }).length;
+      if (sense && n < minim) {
+        avisos.push(sense + " exercici" + (sense === 1 ? "" : "s") + " seu"
+          + (sense === 1 ? "" : "s") + " han arribat sense data perquè el codi "
+          + "es va enviar massa setmanes després, i no compten per a cap tram");
       }
       if (preguntes.length < nPreg) {
         avisos.push("només s'han pogut sortejar " + preguntes.length + " de "
-          + nPreg + " preguntes: no té prou exercicis diferents");
+          + nPreg + " preguntes: no té prou exercicis del tram");
       }
       /* Un examen pot tenir cinc preguntes i ser, de fet, dos problemes
-         repetits: al banc el 63 % dels exercicis tenen més d'un apartat, i
-         si la feina d'un alumne es concentra en pocs exercicis mare, el
-         sorteig no ho pot arreglar —només ho pot dir. */
+         repetits: el sorteig no ho pot arreglar si la feina del tram es
+         concentra en pocs exercicis mare, però sí que ho pot dir. */
       var maresDif = {};
       preguntes.forEach(function (q) { maresDif[exMare(q.it.id)] = 1; });
       var nMares = Object.keys(maresDif).length;
       if (preguntes.length && nMares < preguntes.length) {
         avisos.push("les " + preguntes.length + " preguntes surten de només "
-          + nMares + " problema" + (nMares === 1 ? "" : "s") + " diferent"
+          + nMares + (nMares === 1 ? " problema" : " problemes") + " diferent"
           + (nMares === 1 ? "" : "s") + ": hi ha apartats repetits del mateix "
           + "exercici perquè no ha treballat prou temes en aquest tram");
       }
       sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
-                     nObjectiu: nObjectiu, disponibles: disponibles });
+                     n: n, compten: f.primers.length, primers: f.primers,
+                     c: c, x: nt.x, nota: nt.nota });
     });
 
-    lotSel = { sortida: sortida, objectiu: objectiu, elegibles: elegibles,
-               perTrim: perTrim, minim: minim, exclosos: exclosos };
+    lotSel = { sortida: sortida, objectiu: objectiu, tram: tram, minim: minim,
+               maxim: maxim, valors: valors, perTrim: RE_CALENDARI.PER_TRIMESTRE };
     pintaLot(lotSel);
     intentaKatex();
   }
 
   function pintaLot(lot) {
     var amb = lot.sortida.filter(function (s) { return s.preguntes.length; });
-    var sense = lot.sortida.filter(function (s) { return !s.preguntes.length; });
     var ambAvis = lot.sortida.filter(function (s) { return s.avisos.length; });
 
     $("#lot-estat").innerHTML = amb.length + " examen" + (amb.length === 1 ? "" : "s")
       + " a punt" + (ambAvis.length ? " · <b>" + ambAvis.length + " amb avís</b>" : "");
 
-    var trams = lot.elegibles.map(function (e) {
-      return "tram " + (e.tram + 1) + " (pes " + e.pes + ")";
-    }).join(", ");
-
     var h = '<div class="pr-accions">'
       + '<button class="btn" id="lot-imprimeix">Imprimeix tots els exàmens</button>'
       + '<button class="btn buit" id="lot-imprimeix-clau">Imprimeix totes les solucions</button>'
       + '<button class="btn buit" id="lot-regenera">Torna a sortejar</button>'
+      + '<button class="btn buit" id="lot-csv">Baixa les notes (CSV)</button>'
       + '</div><p class="petit apagat" style="margin:-.3rem 0 .9rem">'
       + "Cada impressió és un document a part: desa'l com a PDF des del diàleg "
       + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
 
-    /* Una fila per alumne, amb els números que decideixen si l'examen val:
-       quants exercicis nous té al tram que s'examina i quants n'acumula al
-       trimestre. Una llista d'avisos agrupats deia què anava malament, però
-       no deixava veure el grup d'un cop d'ull ni permetia comparar-los. */
-
-    if (lot.exclosos && lot.exclosos.length) {
-      h += '<div class="lot-avis petit" style="margin:0 0 .8rem"><b>Atenció:</b> '
-        + "amb aquests pesos, el tram "
-        + lot.exclosos.map(function (t) { return t; }).join(" i el ")
-        + " no pot sortir mai. Si vols que tots els trams del trimestre "
-        + "siguin possibles, cap pes no pot ser 0.</div>";
-    }
     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
-      + "Se sorteja entre: " + escapa(trams)
-      + ". Clica una fila per veure'n l'examen i imprimir-lo sol.</div>"
+      + "Tram " + (lot.objectiu + 1) + ", del " + dataCurta(lot.tram.inici) + " al "
+      + dataCurta(lot.tram.fi) + ". Les preguntes i la nota surten només dels "
+      + lot.maxim + " primers exercicis fets en aquestes tres setmanes. Clica una "
+      + "fila per veure'n l'examen i imprimir-lo sol.</div>"
       + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
-      + '<th class="xifra">Nous al tram ' + (lot.objectiu + 1) + "</th>"
-      + '<th class="xifra">Acumulat del trimestre</th><th>Estat</th>'
+      + '<th class="xifra">Fets al tram</th><th>Com</th>'
+      + '<th class="xifra">Nota de feina</th><th>Estat</th>'
       + "</tr></thead><tbody>";
     lot.sortida.forEach(function (x, i) {
       var estat = x.preguntes.length
@@ -2568,13 +2598,23 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         : '<span class="mal petit">sense examen</span>';
       h += '<tr data-i="' + i + '"><td>' + escapa(x.alumne.nom || x.alumne.clau)
         + "</td><td>" + escapa(x.alumne.grup || "") + "</td>"
-        + '<td class="xifra">' + x.nObjectiu
-        + (x.nObjectiu < lot.minim
-            ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
-        + '</td><td class="xifra">' + x.disponibles + "</td><td>" + estat
-        + "</td></tr>";
+        + '<td class="xifra">' + x.n
+        + (x.n < lot.minim ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
+        + (x.n > lot.maxim ? ' <span class="petit apagat">compten els '
+            + lot.maxim + " primers</span>" : "")
+        + "</td><td>" + punts(x.primers.map(function (it) { return { id: it.id, estat: it.estat }; }))
+        + '</td><td class="xifra">' + (x.n
+            ? '<span class="nota ' + classeNota(x.nota) + '">' + coma(x.nota) + "</span>"
+            : '<span class="apagat">0</span>')
+        + "</td><td>" + estat + "</td></tr>";
     });
     h += "</tbody></table>";
+    h += '<div class="llegenda">'
+      + '<span><i style="background:var(--verd)"></i>a la primera</span>'
+      + '<span><i style="background:var(--ambre)"></i>amb una pista</span>'
+      + '<span><i style="background:#7A4A00"></i>amb dues pistes o més</span>'
+      + '<span><i style="background:#7FB79B"></i>al segon intent</span>'
+      + '<span><i style="background:var(--vermell)"></i>fallat</span></div>';
     if (ambAvis.length) {
       h += '<div class="lot-avis petit" style="margin-top:.6rem">'
         + "<b>Amb avís (" + ambAvis.length + "):</b> l'examen es genera igual. "
@@ -2592,15 +2632,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
        els mateixos identificadors que fa servir la prova individual, perquè
        les regles d'impressió que ja hi ha valguin sense tocar-les. */
     h += '<div class="pr-paper" id="pr-examen">';
-    amb.forEach(function (s) {
-      h += pintaExamenAlumne(s, lot);
-    });
+    amb.forEach(function (s) { h += pintaExamenAlumne(s, lot); });
     h += "</div>";
-
     h += '<div class="pr-paper" id="pr-correccio">';
-    amb.forEach(function (s) {
-      h += pintaClauAlumne(s, lot);
-    });
+    amb.forEach(function (s) { h += pintaClauAlumne(s, lot); });
     h += "</div>";
 
     $("#lot-resum").innerHTML = h;
@@ -2617,27 +2652,40 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     $("#lot-imprimeix").onclick = function () { imprimeix("examen"); };
     $("#lot-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
     $("#lot-regenera").onclick = generaLot;
+    $("#lot-csv").onclick = function () {
+      var l = ["alumne;correu;grup;tram;fets;compten;a_la_primera;una_pista;"
+        + "dues_pistes;segon_intent;fallats;nota;avisos"];
+      lot.sortida.forEach(function (x) {
+        l.push([x.alumne.nom || "", x.alumne.clau, x.alumne.grup || "", lot.objectiu + 1,
+                x.n, x.compten, x.c.net, x.c.pista, x.c.pistes, x.c.segon, x.c.fallat,
+                coma(x.nota), '"' + x.avisos.join(" | ").replace(/"/g, "'") + '"'].join(";"));
+      });
+      var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(b);
+      a.download = "notes-tram-" + (lot.objectiu + 1) + ".csv";
+      a.click();
+    };
 
     /* Clicar una fila marca aquell alumne i deixa imprimir-lo sol: passa
        sovint que algú faltava el dia de l'examen i cal el seu full a part,
        sense tornar a tirar tota la classe per la impressora. */
     $$("#lot-taula tbody tr").forEach(function (tr) {
       tr.onclick = function () {
-        var i = +tr.dataset.i, x = lot.sortida[i];
+        var x = lot.sortida[+tr.dataset.i];
         $$("#lot-taula tbody tr").forEach(function (o) { o.classList.remove("tria"); });
         $$(".pr-alumne").forEach(function (o) { o.classList.remove("sol"); });
         if (!x.preguntes.length) {
           $("#lot-un").innerHTML = escapa(x.alumne.nom || x.alumne.clau)
-            + " no té cap exercici fet als trams que entren, així que no se li "
+            + " no té cap exercici fet en aquest tram, així que no se li "
             + "pot compondre cap examen.";
           return;
         }
         tr.classList.add("tria");
-        var nom = x.alumne.nom || x.alumne.clau;
         $$(".pr-alumne").forEach(function (o) {
           if (o.dataset.alumne === x.alumne.clau) o.classList.add("sol");
         });
-        $("#lot-un").innerHTML = '<b>' + escapa(nom) + "</b> · "
+        $("#lot-un").innerHTML = "<b>" + escapa(x.alumne.nom || x.alumne.clau) + "</b> · "
           + '<button class="btn buit petit" id="lot-un-ex">Imprimeix el seu examen</button> '
           + '<button class="btn buit petit" id="lot-un-cl">Imprimeix la seva correcció</button>';
         function solA(quin) {
@@ -2657,8 +2705,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return '<div class="capc"><div><h2>' + titol + "</h2>"
       + '<div class="petit apagat">' + escapa(s.alumne.nom || s.alumne.clau)
       + (s.alumne.grup ? " · " + escapa(s.alumne.grup) : "")
-      + " · tram " + (lot.objectiu + 1)
-      + " · trimestre " + (Math.floor(lot.objectiu / lot.perTrim) + 1)
+      + " · tram " + (lot.objectiu + 1) + " (" + dataCurta(lot.tram.inici)
+      + " – " + dataCurta(lot.tram.fi) + ")"
       + "</div>" + (extra || "") + "</div>"
       + '<div class="petit apagat" style="text-align:right">Data: ' + data
       + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
@@ -2685,7 +2733,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   function pintaClauAlumne(s, lot) {
     var mix = { 1: 0, 2: 0, 3: 0, 4: 0 };
     s.preguntes.forEach(function (q) { mix[q.it.dif || 2] = (mix[q.it.dif || 2] || 0) + 1; });
-    var extra = '<div class="petit apagat">NO repartir · Nivells: ' + mix[1]
+    var extra = '<div class="petit apagat">NO repartir · Feina del tram: ' + s.n
+      + " exercici" + (s.n === 1 ? "" : "s")
+      + (s.n > lot.maxim ? " (compten els " + lot.maxim + " primers)" : "")
+      + " · nota de feina " + coma(s.nota) + "</div>"
+      + '<div class="petit apagat">Nivells: ' + mix[1]
       + " trivials · " + mix[2] + " directes · " + mix[3] + " encadenats · "
       + mix[4] + " complets</div>";
     if (s.avisos.length) {
@@ -2701,9 +2753,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       try { k = clauItem(b); } catch (e) { k = null; }
       var correcta = k && b.opcions ? b.opcions[k.ok] : "";
       h += '<div class="pr-preg"><div class="cap"><span class="num">' + (i + 1) + ".</span> "
-        + '<span class="meta">tram ' + (q.tram + 1) + " · " + escapa(b.bloc || "")
-        + " · id " + escapa(q.it.id) + " · a la pràctica: " + escapa(q.it.estat)
-        + "</span></div>"
+        + '<span class="meta">'
+        + (q.it.quan ? (q.it.precisio === "exacta" ? "fet el " : "enviat el ")
+            + dataCurta(q.it.quan) + " · " : "")
+        + escapa(b.bloc || "") + " · id " + escapa(q.it.id) + " · a la pràctica: "
+        + escapa(ETIQ_ESTAT[q.it.estat] || q.it.estat) + "</span></div>"
         + (correcta ? '<div class="enun"><b>Resposta:</b> ' + correcta + "</div>" : "")
         + (k && k.res && k.res.length
             ? '<ol class="passos">' + k.res.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ol>"

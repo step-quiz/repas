@@ -21,7 +21,8 @@
 
    Els comptadors `nint` (intents) i `npis` (pistes) són acumulats de totes
    les visites, no de la sessió, i són ells els que decideixen l'estat:
-   encertar amb `npis > 0` és "pista", i encertar amb `nint > 1` és "segon",
+   encertar amb `nint > 1` és "segon" (amb pistes o sense), i encertar a la
+   primera amb `npis > 0` és "pista",
    encara que els intents anteriors fossin d'una altra sessió o d'abans d'un
    F5. La sessió ja no és una pissarra que s'esborri sola.
 
@@ -36,11 +37,38 @@ window.RE = (function () {
   function clauLS(full) { return "repas-eso:full" + full; }
 
   function llegeix(full) {
+    var p;
     try {
-      return JSON.parse(localStorage.getItem(clauLS(full))) || { v: 1, items: {} };
+      p = JSON.parse(localStorage.getItem(clauLS(full)));
     } catch (e) {
       return { v: 1, items: {} };
     }
+    if (!p) return { v: 1, items: {} };
+    if (!p.tfv) migraDates(full, p);
+    return p;
+  }
+
+  /* ── la data del primer intent ───────────────────────────────────────────
+
+     Cada exercici guarda `tf`: el moment en què es va respondre per primer
+     cop. És el que decideix a quin tram de 3 setmanes pertany, i en quin
+     ordre es va fer (només compten els 20 primers de cada tram). No canvia
+     mai més: ni en encertar al segon intent ni en repassar-lo.
+
+     Els exercicis fets abans que existís `tf` no en tenen. Se'ls posa una
+     sola vegada la data de l'última escriptura (`ts`), que és la millor
+     aproximació que hi ha, i es marca amb `tfa`. No es fa amb els importats
+     d'un codi (`imp`): la seva data real no és la de la importació. */
+  function migraDates(full, p) {
+    Object.keys(p.items || {}).forEach(function (id) {
+      var it = p.items[id];
+      if (it && it.estat && it.estat !== "vist" && !it.tf && !it.imp && it.ts) {
+        it.tf = it.ts;
+        it.tfa = 1;
+      }
+    });
+    p.tfv = 1;
+    desa(full, p);
   }
 
   function desa(full, p) {
@@ -103,8 +131,12 @@ window.RE = (function () {
      la sessió: només mira els comptadors acumulats de l'ítem. */
   function estatDe(nint, npis, encert) {
     if (!encert) return "fallat";
-    if (npis > 0) return "pista";
+    /* El segon intent mana sobre les pistes. Si no fos així, obrir una pista
+       just després d'equivocar-se convertiria un segon intent (7) en un
+       encert amb pista (9,5) i esborraria gairebé tot l'error. Així, després
+       d'un error la pista no costa res, però tampoc no maquilla la nota. */
     if (nint > 1) return "segon";
+    if (npis > 0) return "pista";
     return "net";
   }
 
@@ -128,10 +160,12 @@ window.RE = (function () {
        PRIMER error: si l'alumne se'n va ara, se'n va amb un "fallat" desat,
        no amb un "vist" que no compta enlloc. */
     var tancat = encert || nint >= 2;
-    apunta(full, id, {
+    var dades = {
       estat: estat, nint: nint, npis: npis,
       intents: nint, pistes: npis, tancat: tancat ? 1 : 0
-    });
+    };
+    if (!it.tf && (!it.estat || it.estat === "vist")) dades.tf = Date.now();
+    apunta(full, id, dades);
     return { estat: estat, repas: false, tancat: tancat };
   }
 

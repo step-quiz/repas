@@ -16,16 +16,16 @@
 
    ── FORMAT ────────────────────────────────────────────────────────────────
 
-     RC3 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE [ META ] KK
+     RC4 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE [ META ] [ DATES ] KK
 
-     RC3   3   marca i versió
+     RC4   3   marca i versió (RC1, RC2 i RC3 es continuen llegint)
      SSS   3   salt aleatori
      DDD   3   dia (dies des de l'1/9/2025)
      HH    2   hora (minuts/2 des de mitjanit)
      MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic,
-               bit 13 = hi ha bloc META
+               bit 13 = hi ha bloc META, bit 14 = hi ha bloc DATES
      G     1   nombre de grups d'aquest full
-     ····  4   un grup = 7 ítems en base 6
+     ····  4   un grup = 7 ítems en base 7 (base 6 fins a RC3)
      DIAG  9   15 destreses del test inicial, en base 8 (si el bit 12 és actiu)
      EEEE  9   les 3 etiquetes d'error més repetides (índex 2 car. + compte 1)
      META  8   com s'ha fet la feina (si el bit 13 és actiu):
@@ -35,6 +35,12 @@
                  R    exercicis repetits un cop ja tancats (0-31)
                  S    vegades que s'ha reiniciat un full (0-31)
      ORIG  6   només si I > 0: dia (3) + salt (3) de l'ÚLTIM codi importat
+     DATES     (si el bit 14 és actiu) el primer intent de cada exercici de
+               les últimes setmanes, en l'ordre en què es van fer:
+                 FF  finestra en dies · GG nombre de dies amb feina
+                 per dia, del més antic al més recent:
+                   DD dies abans del codi · NN exercicis d'aquell dia
+                   per exercici, en ordre: F full (1) + PP posició (2)
      KK    2   dos caràcters de control
 
    ── PER QUÈ HI HA EL BLOC META ────────────────────────────────────────────
@@ -52,8 +58,20 @@
    amb els codis que ja té al full de respostes i dir de qui era. Si era d'un
    altre alumne, ho sap del cert; si era d'ell mateix, també, i llavors calla.
 
-   Estat de cada ítem (base 6): 0 per fer · 1 net · 2 al segon intent ·
-   3 amb pista · 4 fallat · 5 començat sense respondre.
+   Estat de cada ítem: 0 per fer · 1 net · 2 al segon intent · 3 amb una
+   pista · 4 fallat · 5 començat sense respondre · 6 amb dues pistes o més.
+   L'estat 6 és de RC4: fins a RC3 "pista" volia dir qualsevol nombre de
+   pistes, i per això un codi antic es llegeix com a una sola pista.
+
+   ── PER QUÈ HI HA RC4 ───────────────────────────────────────────────────
+
+   El mini-examen de 3 setmanes demana dues coses que RC3 no podia dir:
+   si l'alumne va obrir una pista o dues (no penalitzen igual), i QUAN va
+   fer cada exercici (l'examen d'un tram només pot sortir de la feina
+   d'aquelles tres setmanes, i només compten els 20 primers). Fins ara la
+   data es deduïa comparant enviaments, i un codi enviat tard posava la
+   feina al tram equivocat. Set estats caben en quatre caràcters igual que
+   sis (7^7 < 32^4), així que el sostre de 217 ítems per full no es mou.
 
    Els grups finals que són tot zeros no s'escriuen: un alumne que ha fet els
    20 primers exercicis d'un full de 140 no arrossega 120 zeros.
@@ -104,8 +122,15 @@ window.RE_CODI = (function () {
      tots els codis haurien dit la mateixa data, en silenci i sense que res
      avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
      caràcter arreglar-ho. El lector accepta les dues versions. */
-  var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3 };
-  var VERSIO = "RC3";
+  var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3, RC4: 3 };
+  var BASE = { RC1: 6, RC2: 6, RC3: 6, RC4: 7 };
+  var VERSIO = "RC4";
+  /* Quants dies enrere es data el primer intent: 12 setmanes. Cobreixen un
+     trimestre sencer de trams des del seu últim dia (el més llarg, el primer,
+     en fa 77 amb les setmanes de descans), així que un alumne que només
+     envia el codi a final de trimestre encara hi porta la data de tot. Més
+     enllà, l'exercici viatja sense data i no compta per a cap tram. */
+  var FINESTRA_DATES = 84;
 
   /* ── ELS DOS SOSTRES DEL FORMAT, ESCRITS ─────────────────────────────────
 
@@ -129,17 +154,50 @@ window.RE_CODI = (function () {
   var GRUPS_MAX = 31;
   var MAX_ITEMS = GRUPS_MAX * 7;        /* 217 */
   var MAX_FULLS = 12;
-  var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
+  var ESTATS = ["", "net", "segon", "pista", "fallat", "vist", "pistes"];
   /* `pista` val MÉS que `segon`, no menys. Amb 6 la taula premiava
      endevinar per damunt de demanar ajuda: amb quatre opcions i dos intents,
      provar a l'atzar acaba en `segon` la meitat de les vegades (7 punts),
      mentre que llegir la pista i respondre bé en donava 6 garantits. Com que
      d'aquests estats en surt una nota, l'alumne que calcula aprenia a no
      demanar mai una pista, que és exactament el contrari del que volem.
-     Ara: encertar a la primera (10) > amb pista (8) > al segon intent (7). */
-  var PES = { net: 10, segon: 7, pista: 8, fallat: 0, vist: 0, "": 0 };
+     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8) > al
+     segon intent (7). La primera pista gairebé no penalitza a posta: és
+     repàs d'ESO i hi ha coses que no es recorden. */
+  var PES = { net: 10, pista: 9.5, pistes: 8, segon: 7, fallat: 0, vist: 0, "": 0 };
+
+  /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
+
+     `estats` són els dels exercicis del tram EN L'ORDRE EN QUÈ ES VAN FER.
+     Només compten els `maxim` primers (20). Cada un aporta el seu valor
+     sobre 10 (a la primera 1, una pista 0,95, dues 0,8, segon intent 0,7,
+     fallat 0), i amb la suma x:
+
+         nota = min(10, 8 · ∛(x/10))
+
+     10 exercicis a la primera fan un 8 i 20 fan un 10. Un exercici fallat
+     no suma, però tampoc no resta: fer-ne un de més no pot baixar mai la
+     nota, que és el que convé si no es vol que evitin els difícils. */
+  function notaTram(estats, maxim, valors) {
+    var max = maxim > 0 ? maxim : 20, v = valors || PES;
+    var compten = (estats || []).slice(0, max), x = 0;
+    compten.forEach(function (e) { x += (+v[e] || 0) / 10; });
+    var nota = x > 0 ? Math.min(10, 8 * Math.pow(x / 10, 1 / 3)) : 0;
+    return { n: (estats || []).length, compten: compten.length, x: x, nota: nota };
+  }
 
   function val(c) { return ALF.indexOf(c); }
+
+  /* Dia (dies des de l'època) d'una data, segons el calendari LOCAL: un
+     exercici fet a les 00:30 és d'aquell dia, no del d'abans en UTC. */
+  function diaDe(d) {
+    return Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - EPOCA) / 86400000);
+  }
+  /* I a la inversa: el migdia local d'aquell dia, que no depèn de l'hora. */
+  function dataDeDia(n) {
+    var u = new Date(EPOCA + n * 86400000);
+    return new Date(u.getUTCFullYear(), u.getUTCMonth(), u.getUTCDate(), 12, 0, 0, 0);
+  }
 
   /* Enter -> n caràcters base32, amb zeros al davant. */
   function enc(num, n) {
@@ -193,8 +251,7 @@ window.RE_CODI = (function () {
     var salt = "";
     for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
 
-    var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
-    dia = Math.max(0, Math.min(32767, dia));
+    var dia = Math.max(0, Math.min(32767, diaDe(ara)));
     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
 
     var meta = opcions.meta || null;
@@ -216,15 +273,18 @@ window.RE_CODI = (function () {
       }
     });
 
+    var ambDates = fulls.some(function (f) { return !!f.dates; });
     var mask = 0;
     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
     if (diag) mask |= (1 << 12);
     if (meta) mask |= (1 << 13);
+    if (ambDates) mask |= (1 << 14);
 
     var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
 
     fulls.forEach(function (f) {
       var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
+      var base = BASE[VERSIO];
       /* Els grups finals buits no s'escriuen. */
       var ultim = -1;
       codis.forEach(function (v, i) { if (v) ultim = i; });
@@ -232,7 +292,7 @@ window.RE_CODI = (function () {
       cos += enc(grups, 1);
       for (var g = 0; g < grups; g++) {
         var num = 0;
-        for (var k = 0; k < 7; k++) num = num * 6 + (codis[g * 7 + k] || 0);
+        for (var k = 0; k < 7; k++) num = num * base + (codis[g * 7 + k] || 0);
         cos += enc(num, 4);
       }
     });
@@ -279,6 +339,36 @@ window.RE_CODI = (function () {
       }
     }
 
+    if (ambDates) {
+      /* Només els exercicis fets (ni els per fer ni els oberts sense
+         respondre) que tenen data i cauen dins de la finestra. S'escriuen en
+         ordre cronològic perquè l'analitzador sàpiga quins són els 20
+         primers de cada tram. */
+      var feta = [];
+      fulls.forEach(function (f) {
+        (f.dates || []).forEach(function (t, i) {
+          var e = f.estats[i];
+          if (!t || !e || e === "vist") return;
+          var off = dia - diaDe(new Date(t));
+          if (off < 0) off = 0;              /* rellotge avançat: compta com avui */
+          if (off > FINESTRA_DATES) return;
+          feta.push({ n: f.n, i: i, t: +t, off: off });
+        });
+      });
+      feta.sort(function (a, b) { return a.t - b.t || a.n - b.n || a.i - b.i; });
+      var dies = [];
+      feta.forEach(function (x) {
+        var g = dies[dies.length - 1];
+        if (!g || g.off !== x.off) { g = { off: x.off, items: [] }; dies.push(g); }
+        g.items.push(x);
+      });
+      cos += enc(FINESTRA_DATES, 2) + enc(dies.length, 2);
+      dies.forEach(function (g) {
+        cos += enc(g.off, 2) + enc(g.items.length, 2);
+        g.items.forEach(function (x) { cos += enc(x.n, 1) + enc(x.i, 2); });
+      });
+    }
+
     return formata(cos + control(cos));
   }
 
@@ -290,7 +380,7 @@ window.RE_CODI = (function () {
     if (!s) return { ok: false, error: "Codi buit" };
     var versio = s.slice(0, 3);
     if (!CAR_DIA[versio]) {
-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2 o RC3)" };
+      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC4, o per RC3, RC2 o RC1 si és antic)" };
     }
     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
 
@@ -308,7 +398,7 @@ window.RE_CODI = (function () {
     var data = new Date(EPOCA + dia * 86400000);
     var minuts = hora * 2;
 
-    var fulls = [], r;
+    var fulls = [], r, base = BASE[versio];
     for (var n = 1; n <= MAX_FULLS; n++) {
       if (!(mask & (1 << (n - 1)))) continue;
       if (p >= cos.length) return { ok: false, error: "El codi s'acaba abans d'hora" };
@@ -317,7 +407,7 @@ window.RE_CODI = (function () {
       for (var g = 0; g < grups; g++) {
         var num = dec(s.slice(p, p + 4)); p += 4;
         var tros = [];
-        for (var k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
+        for (var k = 0; k < 7; k++) { tros.unshift(num % base); num = Math.floor(num / base); }
         codis = codis.concat(tros);
       }
       var taula = T.fulls[n] || T.fulls[String(n)];
@@ -375,10 +465,40 @@ window.RE_CODI = (function () {
       }
     }
 
+    /* Bloc DATES (només RC4). `dates: null` vol dir "aquest codi no porta
+       dates" i l'analitzador les haurà de deduir dels enviaments; si el bloc
+       hi és, un exercici fet que no hi surti és d'abans de la finestra. */
+    var dates = null;
+    if (versio === "RC4" && (mask & (1 << 14))) {
+      var curt = { ok: false, error: "El codi s'acaba abans d'hora" };
+      if (p + 4 > cos.length) return curt;
+      var fin = dec(s.slice(p, p + 2)), nDies = dec(s.slice(p + 2, p + 4)); p += 4;
+      dates = { finestra: fin, desde: dataDeDia(dia - fin), ignorats: 0 };
+      var perFull = {};
+      fulls.forEach(function (f) { perFull[f.n] = f; });
+      var ordre = 0;
+      for (var g2 = 0; g2 < nDies; g2++) {
+        if (p + 4 > cos.length) return curt;
+        var off = dec(s.slice(p, p + 2)), nIt = dec(s.slice(p + 2, p + 4)); p += 4;
+        if (p + 3 * nIt > cos.length) return curt;
+        var dItem = dataDeDia(dia - off);
+        for (var q = 0; q < nIt; q++) {
+          var fx = perFull[dec(s.charAt(p))], ix = fx && fx.items[dec(s.slice(p + 1, p + 3))];
+          p += 3;
+          if (ix && ix.estat && ix.estat !== "vist" && !ix.feta) {
+            ix.feta = dItem;
+            ix.ordre = ordre++;
+          } else {
+            dates.ignorats++;
+          }
+        }
+      }
+    }
+
     r = {
       ok: true, integre: integre, salt: salt, versio: versio,
       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
-      fulls: fulls, diag: diag, errs: errs, meta: meta,
+      fulls: fulls, diag: diag, errs: errs, meta: meta, dates: dates,
       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
     };
     r.resum = resum(r);
@@ -389,7 +509,7 @@ window.RE_CODI = (function () {
      estats. Així no hi pot haver un codi on la nota i el detall es
      contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
   function resum(r) {
-    var c = { net: 0, segon: 0, pista: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
+    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
     var perDif = { 1: 0, 2: 0, 3: 0, 4: 0 };   /* trivial, directa, encadenada, completa */
     r.fulls.forEach(function (f) {
       f.items.forEach(function (it) {
@@ -429,19 +549,25 @@ window.RE_CODI = (function () {
       var taula = T.fulls[n] || T.fulls[String(n)];
       if (!taula) return;
       var p = window.RE.llegeix(n).items || {};
+      var dates = [];
       var estats = taula.items.map(function (id) {
         var it = p[id] || {};
         if (it.imp && it.estat) importats++;
         repeticions += (it.rep || 0);
+        dates.push(it.tf || 0);
         /* Es compta l'historial sencer (`errs`), no només l'error pendent:
            un error rectificat al segon intent segueix sent un error comès, i
            si es repeteix el professorat l'ha de veure. `err` és el format
            antic i només s'usa si l'ítem encara no té historial. */
         var errsIt = it.errs && it.errs.length ? it.errs : (it.err ? [it.err] : []);
         errsIt.forEach(function (e) { compte[e] = (compte[e] || 0) + 1; });
+        /* El registre desa "pista" tant si se n'ha obert una com dues o
+           tres: no ha canviat de vocabulari. On es distingeix és aquí, amb
+           el comptador de pistes obertes. */
+        if (it.estat === "pista" && (it.npis || 0) >= 2) return "pistes";
         return it.estat || "";
       });
-      fulls.push({ n: n, estats: estats });
+      fulls.push({ n: n, estats: estats, dates: dates });
     });
 
     var errs = Object.keys(compte)
@@ -476,6 +602,7 @@ window.RE_CODI = (function () {
   return {
     genera: genera, llegeix: llegeix, recull: recull, empremta: empremta,
     neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES,
+    notaTram: notaTram, FINESTRA_DATES: FINESTRA_DATES, dataDeDia: dataDeDia,
     /* Els sostres del format, exportats perquè el build i les proves els
        comprovin contra el banc de debò en lloc de repetir el número. */
     MAX_ITEMS: MAX_ITEMS, MAX_FULLS: MAX_FULLS

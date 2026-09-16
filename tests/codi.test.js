@@ -29,7 +29,7 @@ eval(fs.readFileSync(path.join(ARREL, "js/codi.js"), "utf8"));
 const T = global.RE_TAULES, RE = global.RE_CODI, RE_NUCLI = global.RE;
 
 const ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
-const ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
+const ESTATS = ["", "net", "segon", "pista", "fallat", "vist", "pistes"];
 
 /* Generador amb llavor: les proves han de sortir igual sempre. */
 let llavor = 1234567;
@@ -37,32 +37,32 @@ const rnd = () => { llavor = (llavor * 1103515245 + 12345) & 0x7fffffff; return 
 
 function fullsAleatoris(quins) {
   return quins.map(n => ({
-    n, estats: T.fulls[n].items.map(() => ESTATS[Math.floor(rnd() * 6)])
+    n, estats: T.fulls[n].items.map(() => ESTATS[Math.floor(rnd() * 7)])
   }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────
 seccio("Empaquetat: 7 exercicis en 4 caràcters");
 
-prova("6^7 cap en 32^4, o sigui que la correspondència pot ser injectiva", () => {
-  assert.ok(Math.pow(6, 7) <= Math.pow(32, 4));
+prova("7^7 cap en 32^4: l'estat de les dues pistes no costa cap caràcter", () => {
+  assert.ok(Math.pow(7, 7) <= Math.pow(32, 4));
 });
 
-prova("les 279.936 combinacions donen 279.936 cadenes diferents", () => {
+prova("les 823.543 combinacions donen 823.543 cadenes diferents", () => {
   const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
   const vist = new Set();
-  for (let g = 0; g < Math.pow(6, 7); g++) vist.add(enc(g, 4));
-  assert.strictEqual(vist.size, Math.pow(6, 7), "hi ha col·lisions a l'empaquetat");
+  for (let g = 0; g < Math.pow(7, 7); g++) vist.add(enc(g, 4));
+  assert.strictEqual(vist.size, Math.pow(7, 7), "hi ha col·lisions a l'empaquetat");
 });
 
 prova("cap grup no es desempaqueta malament", () => {
   const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
   const dec = s => { let n = 0; for (const c of s) n = n * 32 + ALF.indexOf(c); return n; };
-  for (let g = 0; g < Math.pow(6, 7); g += 7) {   /* mostra densa, no exhaustiva */
+  for (let g = 0; g < Math.pow(7, 7); g += 7) {   /* mostra densa, no exhaustiva */
     let num = dec(enc(g, 4)), tros = [];
-    for (let k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
+    for (let k = 0; k < 7; k++) { tros.unshift(num % 7); num = Math.floor(num / 7); }
     let o = g, esp = [];
-    for (let k = 0; k < 7; k++) { esp.unshift(o % 6); o = Math.floor(o / 6); }
+    for (let k = 0; k < 7; k++) { esp.unshift(o % 7); o = Math.floor(o / 7); }
     assert.deepStrictEqual(tros, esp);
   }
 });
@@ -197,6 +197,20 @@ prova("la data no satura fins ben entrat el segle", () => {
   });
 });
 
+prova("els codis RC3 d'abans de les dues pistes es llegeixen igual", () => {
+  /* Codi real, generat amb js/codi.js tal com era abans de passar a RC4. Un
+     "pista" d'aleshores podia ser d'una pista o de més, i es llegeix com a
+     una sola: el benefici del dubte per a l'alumne. */
+  const r = RE.llegeix("RC3JG-X0BVH-68282-21JQ3-R4414-JER4C-3ZZ0Z-Z002Z-00020-ZV");
+  assert.ok(r.ok && r.integre, "un codi RC3 vàlid ha deixat de llegir-se");
+  assert.strictEqual(r.versio, "RC3");
+  assert.strictEqual(r.dates, null, "un codi antic no porta dates i no se n'hi ha d'inventar cap");
+  assert.strictEqual(r.resum.fets, 15);
+  assert.deepStrictEqual(r.fulls.map(f => f.n + ":" + f.items.filter(i => i.estat).map(i => i.id + "=" + i.estat).join(",")), [
+    "4:62a=net,62b=segon,62c=pista,62d=fallat,63a=vist,63b=pista,63c=net,63d=segon,63e=pista,63f=fallat,64a=vist,64b=pista",
+    "7:119=pista,120a=net,120b=net,120c=fallat,121a=segon"]);
+});
+
 prova("els codis RC1 antics encara es llegeixen", () => {
   /* Codi real generat abans d'ampliar el camp de data a 3 caràcters. Si
      aquesta prova cau, els codis que el professorat ja hagi recollit deixen
@@ -299,6 +313,13 @@ prova("demanar una pista no pot penalitzar més que fallar al primer intent", ()
      damunt de demanar ajuda. Aquesta comprovació fixa l'ordre correcte. */
   assert.ok(RE.PES.net > RE.PES.pista, "encertar a la primera ha de valer més que amb pista");
   assert.ok(RE.PES.pista >= RE.PES.segon, "una pista no pot valer menys que un intent fallat");
+  assert.ok(RE.PES.pistes >= RE.PES.segon, "dues pistes tampoc no poden valer menys que un intent fallat");
+});
+
+prova("la primera pista gairebé no penalitza i la segona penalitza més", () => {
+  assert.deepStrictEqual([RE.PES.net, RE.PES.pista, RE.PES.pistes, RE.PES.segon, RE.PES.fallat],
+    [10, 9.5, 8, 7, 0], "els valors acordats amb el professorat han canviat");
+  assert.ok(RE.PES.net - RE.PES.pista < RE.PES.pista - RE.PES.pistes);
 });
 
 prova("la nota surt dels pesos publicats", () => {
@@ -306,7 +327,7 @@ prova("la nota surt dels pesos publicats", () => {
   const estats = ids.map((_, i) => (i < 10 ? ["net", "segon", "pista", "fallat", "net"][i % 5] : ""));
   const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
   const c = p.resum.comptes;
-  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista)
+  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista + RE.PES.pistes * c.pistes)
     / (RE.PES.net * p.resum.fets) * 10;
   assert.ok(Math.abs(p.resum.nota - esperat) < 0.05);
 });
@@ -437,5 +458,86 @@ seccio("Els sostres del format es diuen, no es travessen en silenci");
   });
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("RC4: la data del primer intent viatja dins del codi");
+
+{
+  const C = window.RE_CODI, T = window.RE_TAULES;
+  const ara = new Date(2026, 10, 29, 20, 0);           /* diumenge, final del tram 3 */
+  const ids = T.fulls[4].items;
+  const estats = ids.map((_, i) => (i < 30 ? ["net", "pista", "pistes", "segon", "fallat", "vist"][i % 6] : ""));
+  /* l'exercici i es fa i dies abans del codi, i a més un a l'estiu */
+  const dates = ids.map((_, i) => (i < 30 ? new Date(2026, 10, 29 - i, 10, 30).getTime() : 0));
+  dates[29] = new Date(2026, 6, 1).getTime();
+  const r = C.llegeix(C.genera({ fulls: [{ n: 4, estats, dates }], ara }));
+
+  prova("es llegeix íntegre i en versió RC4", () => {
+    assert.ok(r.ok && r.integre); assert.strictEqual(r.versio, "RC4");
+  });
+  prova("cada exercici fet torna amb el dia en què es va fer", () => {
+    for (let i = 0; i < 29; i++) {
+      if (estats[i] === "vist") continue;
+      const it = r.fulls[0].items[i];
+      assert.ok(it.feta, it.id + " ha perdut la data");
+      assert.strictEqual(it.feta.getDate(), new Date(dates[i]).getDate(), it.id);
+    }
+  });
+  prova("els oberts sense respondre no porten data", () => {
+    assert.ok(r.fulls[0].items.filter(it => it.estat === "vist").every(it => !it.feta));
+  });
+  prova("el que és fora de la finestra de 12 setmanes viatja sense data", () => {
+    assert.strictEqual(r.fulls[0].items[29].feta, undefined);
+    assert.strictEqual(r.dates.finestra, 84);
+  });
+  prova("l'ordre en què es van fer es conserva", () => {
+    const amb = r.fulls[0].items.filter(it => it.feta).sort((a, b) => a.ordre - b.ordre);
+    for (let k = 1; k < amb.length; k++) assert.ok(amb[k].feta >= amb[k - 1].feta, "ordre trencat a " + amb[k].id);
+  });
+  prova("dues pistes es distingeixen d'una", () => {
+    assert.strictEqual(r.fulls[0].items[1].estat, "pista");
+    assert.strictEqual(r.fulls[0].items[2].estat, "pistes");
+  });
+  prova("un codi generat sense dates no en porta cap, i no n'inventa", () => {
+    const q = C.llegeix(C.genera({ fulls: [{ n: 4, estats }], ara }));
+    assert.ok(q.integre); assert.strictEqual(q.dates, null);
+    assert.ok(q.fulls[0].items.every(it => !it.feta));
+  });
+  prova("tocar una data trenca el control", () => {
+    const cru = C.neteja(C.genera({ fulls: [{ n: 4, estats, dates }], ara }));
+    const i = cru.length - 6;
+    const mut = cru.slice(0, i) + (cru[i] === "0" ? "1" : "0") + cru.slice(i + 1);
+    assert.ok(!C.llegeix(mut).integre);
+  });
+  prova("20 exercicis datats d'un tram costen menys de 90 caràcters de més", () => {
+    const e20 = ids.map((_, i) => (i < 20 ? "net" : ""));
+    const d20 = ids.map((_, i) => (i < 20 ? new Date(2026, 10, 10 + (i % 5), 17, i).getTime() : 0));
+    const amb = C.genera({ fulls: [{ n: 4, estats: e20, dates: d20 }], ara }).replace(/-/g, "").length;
+    const sense = C.genera({ fulls: [{ n: 4, estats: e20 }], ara }).replace(/-/g, "").length;
+    assert.ok(amb - sense < 90, "el bloc de dates fa " + (amb - sense) + " caràcters");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("RC4: el codi que surt del navegador");
+
+prova("una pista desada amb dues pistes obertes surt com a 'pistes'", () => {
+  const n = 6, ids = window.RE_TAULES.fulls[n].items;
+  RE_NUCLI.esborra(n);
+  RE_NUCLI.pista(n, ids[0], 1); RE_NUCLI.intent(n, ids[0], true);
+  RE_NUCLI.pista(n, ids[1], 2); RE_NUCLI.intent(n, ids[1], true);
+  const p = RE.llegeix(RE.genera(RE.recull([n])));
+  assert.strictEqual(p.fulls[0].items[0].estat, "pista");
+  assert.strictEqual(p.fulls[0].items[1].estat, "pistes");
+  assert.strictEqual(RE_NUCLI.item(n, ids[1]).estat, "pista", "el registre no ha de canviar de vocabulari");
+});
+
+prova("el codi porta la data del primer intent que desa el registre", () => {
+  const n = 6, ids = window.RE_TAULES.fulls[n].items;
+  const p = RE.llegeix(RE.genera(RE.recull([n])));
+  const avui = new Date().getDate();
+  assert.ok(p.dates, "el codi del navegador ha de portar el bloc de dates");
+  assert.strictEqual(p.fulls[0].items[0].feta.getDate(), avui);
+});
 
 process.exit(resum() ? 0 : 1);

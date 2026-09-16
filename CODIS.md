@@ -27,22 +27,34 @@ Una fotografia **completa** del progrés: quins exercicis s'han fet i com han
 anat, un per un, amb els identificadors reals (`67e`, `216c`, `144b`).
 
 ```
-RC3 SSS DDD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  [META]  KK
+RC4 SSS DDD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  [META]  [DATES]  KK
 
-RC3   marca i versió (RC1 i RC2 es continuen llegint)
+RC4   marca i versió (RC1, RC2 i RC3 es continuen llegint)
 SSS   salt aleatori
 DDD   dia (dies des de l'1/9/2025)
 HH    hora (minuts/2 des de mitjanit)
-MMM   màscara: fulls presents + si hi ha diagnòstic + si hi ha META
+MMM   màscara: fulls presents + diagnòstic + META + DATES
 G     nombre de grups d'aquest full
-····  un grup = 7 exercicis en base 6
+····  un grup = 7 exercicis en base 7 (base 6 fins a RC3)
 DIAG  les 15 destreses del test inicial (si n'hi ha)
 EEEE  les 3 etiquetes d'error més repetides, amb el compte
 META  com s'ha fet la feina: minuts actius, importacions, exercicis que en
       venen, repeticions, fulls reiniciats i —si hi ha hagut importació—
       l'empremta (dia + salt) del codi d'origen
+DATES el dia del primer intent de cada exercici fet a les últimes 12
+      setmanes, en l'ordre en què es van fer (per dia: dies enrere + nombre
+      d'exercicis; per exercici: full + posició)
 KK    dos caràcters de control
 ```
+
+**Per què hi ha RC4.** El mini-examen de 3 setmanes necessita saber si
+l'alumne va obrir una pista o dues, que no penalitzen igual, i quan va fer cada
+exercici: l'examen d'un tram només pot sortir de la feina d'aquelles tres
+setmanes, i només compten els 20 primers. Fins a RC3 la data es deduïa
+comparant enviaments, i un codi enviat tard posava la feina al tram equivocat.
+Set estats caben en quatre caràcters igual que sis (7^7 < 32^4), així que el
+sostre de 217 exercicis per full no es mou. El bloc DATES costa uns 3
+caràcters per exercici datat; 20 exercicis d'un tram en fan menys de 90.
 
 **Per què hi ha META.** Fins a RC2 el codi deia *què* s'havia fet i no deia res
 de *com*. Dues coses molt diferents hi arribaven idèntiques: un trimestre de
@@ -51,8 +63,11 @@ del codi d'origen ho desfà: l'analitzador la creua amb els codis que ja té i,
 si l'origen era un codi del mateix alumne, calla. Vegeu `DESPLEGAMENT.md`.
 
 Estat de cada exercici: `0` per fer · `1` a la primera · `2` al segon intent ·
-`3` amb pista · `4` fallat · `5` començat sense respondre. Són exactament els
-que `nucli.js` ja desava, així que no ha calgut instrumentar res de nou.
+`3` amb una pista · `4` fallat · `5` començat sense respondre · `6` amb dues
+pistes o més. El registre del navegador segueix desant `pista` en tots dos
+casos; el `6` surt del comptador de pistes obertes en fer el codi. Un `pista`
+d'un codi RC3 es llegeix com a una sola pista. Un encert al segon intent és
+sempre `2`, encara que s'hagin obert pistes.
 
 **Llargada real.** Un full de 71 exercicis fet a mitges: **46 caràcters**.
 Els 951 exercicis dels dotze fulls més el diagnòstic: 611. Els grups finals
@@ -127,9 +142,12 @@ Aquí **la nota es deriva del detall en llegir el codi**. No hi ha dos nombres
 que puguin contradir-se, perquè només n'hi ha un. El forat no es tapa: no
 existeix.
 
-La fórmula és pública i està a `js/codi.js`: `net` 10 punts, `segon` 7,
-`pista` 6, `fallat` 0. Els pesos els hauries de fixar tu; el que importa és
-que siguin deterministes.
+La fórmula és pública i està a `js/codi.js`: `net` 10 punts, una pista 9,5,
+dues pistes o més 8, `segon` 7, `fallat` 0.
+
+La **nota de feina d'un tram** (`RE_CODI.notaTram`) agafa els 20 primers
+exercicis del tram per ordre de fet, suma els seus valors sobre 10 (x) i dona
+`min(10, 8·∛(x/10))`: 10 exercicis a la primera fan un 8 i 20 un 10.
 
 ### 3. Dos caràcters de control, amb mòdul primer i pesos
 

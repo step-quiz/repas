@@ -14,13 +14,22 @@
    l'analitzador, però aquestes són les del curs i són les que valen si ningú
    no hi toca res.
 
-   TRACTAMENT DELS FORATS. Una data que cau entre dos trams (la setmana de
-   descans, o Nadal) s'atribueix al tram que acaba de tancar, no al següent.
-   El motiu: el senyal que tenim és el dia en què l'alumne ENVIA el codi, i
-   un codi enviat el dimecres següent al tancament reporta gairebé sempre
-   feina feta durant el tram, no durant la festa. Atribuir-la al tram
-   següent la faria comptar dues vegades: ja hauria entrat a l'examen que
-   s'acaba de fer. */
+   TRACTAMENT DELS FORATS. Hi ha dues preguntes diferents i cadascuna té la
+   seva funció:
+
+   · tramDe(data) — per a la data en què s'ENVIA un codi. Una data que cau
+     entre dos trams (la setmana de descans, o Nadal) s'atribueix al tram
+     que acaba de tancar, no al següent: un codi enviat el dimecres següent
+     al tancament reporta gairebé sempre feina feta durant el tram, no
+     durant la festa. És una estimació, i només fa falta amb els codis
+     antics (RC1-RC3), que no porten la data de cada exercici.
+
+   · tramExacte(data) — per a la data en què es va FER un exercici, que els
+     codis RC4 ja porten. Aquí no cal estimar res, i la regla és la que diu
+     el professorat: el tram són les seves tres setmanes. La feina d'una
+     setmana de descans, d'abans del curs o de després no és de cap tram.
+     Per això l'examen d'un tram no pot incloure mai exercicis d'abans del
+     seu primer dia. */
 (function (global) {
   "use strict";
 
@@ -39,6 +48,12 @@
     ["2027-05-03", "2027-05-23"]
   ];
   var PER_TRIMESTRE = 3;
+  /* Feina demanada per tram: entre 10 i 20 exercicis. Com més, més nota,
+     però per sobre del màxim el volum ja no puja la nota. Viuen aquí, i no a
+     l'analitzador, perquè el lloc de l'alumne i l'analitzador han de dir el
+     mateix número: aquest fitxer s'injecta a l'analitzador en compilar. */
+  var FEINA_MINIMA = 10;
+  var FEINA_MAXIMA = 20;
   var DIES_AVIS = 5;          /* s'avisa quan en falten aquests o menys */
   var AVISOS_MAX = 2;         /* dos cops per tram, i en dies diferents */
   var CLAU = "repas.avis.tram.";
@@ -84,6 +99,18 @@
       }
     }
     return L.length - 1;
+  }
+
+  /* Índex del tram on es va FER una feina, o `null` si la data no cau dins
+     de cap tram (setmana de descans, abans o després del curs). Vegeu la
+     capçalera: és la regla dels codis que ja porten la data de cada
+     exercici, i no hi ha cap estimació. */
+  function tramExacte(d, trams) {
+    var L = llista(trams), x = nomesDia(d);
+    for (var i = 0; i < L.length; i++) {
+      if (x >= nomesDia(L[i].inici) && x <= nomesDia(L[i].fi)) return i;
+    }
+    return null;
   }
 
   /* El tram que s'està cursant ara mateix, o `null` si som en un forat,
@@ -135,19 +162,35 @@
     return { tram: t, falten: falten, avui: avui, cop: ja.length + 1 };
   }
 
-  function textAvis(av) {
+  /* `feta`, si es coneix, és quants exercicis porta l'alumne en aquest tram.
+     És opcional: aquest fitxer no depèn de ningú, i si el recompte no es pot
+     fer l'avís surt igual, sense la xifra. */
+  function textAvis(av, feta) {
     var d = av.falten;
     var quan = d === 0 ? "avui" : (d === 1 ? "demà" : "d'aquí a " + d + " dies");
+    var xifra = "";
+    if (typeof feta === "number" && feta >= 0) {
+      xifra = " Hi portes " + feta + (feta === 1 ? " exercici" : " exercicis")
+        + " i se'n demanen entre " + FEINA_MINIMA + " i " + FEINA_MAXIMA + ".";
+    }
     return "El tram " + (av.tram.i + 1) + " es tanca " + quan
       + " (" + ("0" + av.tram.fi.getDate()).slice(-2) + "/"
-      + ("0" + (av.tram.fi.getMonth() + 1)).slice(-2) + ")."
-      + " Si vols que la feina d'aquestes setmanes hi compti, envia el codi"
-      + " abans no acabi.";
+      + ("0" + (av.tram.fi.getMonth() + 1)).slice(-2) + ")." + xifra
+      + " Envia el codi abans no acabi, que és amb el que es prepara l'examen.";
   }
 
   function mostra(ara, trams) {
     var av = toca(ara, trams);
     if (!av || !global.document) return null;
+    /* El recompte el sap fer el panell del codi (js/codi-ui.js), que es
+       carrega després d'aquest fitxer. Dins d'un try: és una xifra de més a
+       l'avís, i si falla, l'avís ha de sortir igualment. */
+    var feta = null;
+    try {
+      if (global.RE_CODI_UI && global.RE_CODI_UI.feinaDelTram) {
+        feta = global.RE_CODI_UI.feinaDelTram(av.tram.i, trams).n;
+      }
+    } catch (e) { feta = null; }
     var main = global.document.querySelector("main.embolcall")
       || global.document.body;
     if (!main) return null;
@@ -155,7 +198,7 @@
     box.className = "avis-tram";
     box.setAttribute("role", "status");
     box.innerHTML = '<span></span><button type="button" aria-label="Tanca l\'avís">×</button>';
-    box.querySelector("span").textContent = textAvis(av);
+    box.querySelector("span").textContent = textAvis(av, feta);
     box.querySelector("button").onclick = function () { box.remove(); };
     main.insertBefore(box, main.firstChild);
     apuntaAvis(av.tram.i, av.avui);
@@ -165,10 +208,13 @@
   global.RE_CALENDARI = {
     TRAMS: TRAMS,
     PER_TRIMESTRE: PER_TRIMESTRE,
+    FEINA_MINIMA: FEINA_MINIMA,
+    FEINA_MAXIMA: FEINA_MAXIMA,
     DIES_AVIS: DIES_AVIS,
     AVISOS_MAX: AVISOS_MAX,
     llista: llista,
     tramDe: tramDe,
+    tramExacte: tramExacte,
     tramEnCurs: tramEnCurs,
     diesFinsAlTancament: diesFinsAlTancament,
     toca: toca,

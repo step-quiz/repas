@@ -94,6 +94,30 @@ prova("un càlcul aritmètic hi fallaria (per això hi ha la taula)", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────
+seccio("A quin tram pertany la feina, amb la data exacta");
+
+prova("la feina demanada és entre 10 i 20 exercicis", () => {
+  assert.strictEqual(C.FEINA_MINIMA, 10);
+  assert.strictEqual(C.FEINA_MAXIMA, 20);
+});
+
+prova("dins d'un tram, aquell tram", () => {
+  assert.strictEqual(C.tramExacte(dia("2026-09-14")), 0);
+  assert.strictEqual(C.tramExacte(dia("2026-10-04")), 0);
+  assert.strictEqual(C.tramExacte(dia("2027-04-12")), 7);
+});
+
+prova("una setmana de descans no és de cap tram", () => {
+  assert.strictEqual(C.tramExacte(dia("2026-10-07")), null);
+  assert.strictEqual(C.tramExacte(dia("2026-12-24")), null);
+});
+
+prova("abans i després del curs, tampoc", () => {
+  assert.strictEqual(C.tramExacte(dia("2026-08-30")), null);
+  assert.strictEqual(C.tramExacte(dia("2027-07-01")), null);
+});
+
+// ─────────────────────────────────────────────────────────────────────────
 seccio("Tram en curs i dies que falten");
 
 prova("dins d'un tram sap quants dies queden", () => {
@@ -170,6 +194,12 @@ prova("el text diu quin tram és i quan es tanca", () => {
   const t = C.textAvis(C.toca(dia("2026-10-02")));
   assert.ok(/tram 1/.test(t), t);
   assert.ok(/04\/10/.test(t), t);
+});
+
+prova("si es coneix la feina feta, l'avís la diu amb el mínim i el màxim", () => {
+  neteja();
+  const t = C.textAvis(C.toca(dia("2026-10-02")), 7);
+  assert.ok(/7 exercicis/.test(t) && /entre 10 i 20/.test(t), t);
 });
 
 prova("diu «avui» l'últim dia i «demà» el penúltim", () => {

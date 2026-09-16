@@ -117,5 +117,38 @@ files = [
 h = historialAlumnes()[0];
 comprova("el codi manipulat s'ignora", h.items.length === 1, h.items.length + " ítems");
 
+console.log("\n== codis RC4: la data del primer intent mana ==");
+/* Un codi amb bloc de dates (`p.dates`) diu quan es va fer cada exercici. */
+function codiRC4(quan, fets) {
+  const mapa = {};
+  fets.forEach(([id, d, o, e]) => { mapa["7:" + id] = { e: e || "net", d: 2, f: d, o: o }; });
+  return { p: { ok: true, integre: true, quan: quan, mapa: mapa, dates: { finestra: 84 } },
+           brut: { alumne: "Alumne A", correu: "a@x.cat", grup: "4A" } };
+}
+files = [codiRC4(dia(62), [["1a", dia(3), 0], ["2a", dia(30), 1], ["3a", dia(58), 2]])];
+h = historialAlumnes()[0];
+const t5 = {};
+h.items.forEach(it => { t5[it.id] = RE_CALENDARI.tramExacte(it.quan); });
+comprova("un sol codi al final i cada exercici va al seu tram",
+  t5["1a"] === 0 && t5["2a"] === 1 && t5["3a"] === 2, JSON.stringify(t5));
+comprova("i són de data exacta", h.items.every(it => it.precisio === "exacta"));
+
+files = [codi(dia(20), ["1a"]), codiRC4(dia(41), [["1a", dia(5), 0], ["2a", dia(33), 1]])];
+h = historialAlumnes()[0];
+const a1 = h.items.filter(it => it.id === "1a")[0];
+comprova("un codi posterior amb data exacta substitueix la deduïda",
+  a1.precisio === "exacta" && a1.quan.getTime() === dia(5).getTime());
+
+files = [{ p: { ok: true, integre: true, quan: dia(90), mapa: { "7:9a": { e: "net", d: 2 } }, dates: { finestra: 84 } },
+           brut: { alumne: "Alumne A", correu: "a@x.cat" } }];
+h = historialAlumnes()[0];
+comprova("un exercici que arriba sense data en un codi RC4 no s'atribueix a cap tram",
+  h.items[0].precisio === "desconeguda" && h.items[0].quan === null);
+
+files = [codiRC4(dia(10), [["4a", dia(8), 0, "fallat"]]), codiRC4(dia(20), [["4a", dia(8), 0, "net"]])];
+h = historialAlumnes()[0];
+comprova("fallat al primer intent i acabat més tard compta, com a molt, com a segon intent",
+  h.items[0].estat === "segon", h.items[0].estat);
+
 console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
 process.exit(fallades ? 1 : 0);

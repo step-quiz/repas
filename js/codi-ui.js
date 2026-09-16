@@ -57,16 +57,65 @@ window.RE_CODI_UI = (function () {
   ].join("");
 
   function comptes() {
-    var T = window.RE_TAULES, c = { net: 0, segon: 0, pista: 0, fallat: 0 }, fets = 0, total = 0;
+    var T = window.RE_TAULES, c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0 }, fets = 0, total = 0;
     Object.keys(T.fulls).forEach(function (k) {
       var taula = T.fulls[k], p = window.RE.llegeix(+k).items || {};
       total += taula.items.length;
       taula.items.forEach(function (id) {
-        var e = (p[id] || {}).estat;
+        var it = p[id] || {}, e = it.estat;
+        if (e === "pista" && (it.npis || 0) >= 2) e = "pistes";
         if (e && e !== "vist") { c[e] = (c[e] || 0) + 1; fets++; }
       });
     });
     return { c: c, fets: fets, total: total };
+  }
+
+  /* Quants exercicis porta l'alumne al tram `i`, comptats per la data del
+     primer intent i amb el mateix calendari que fa servir l'analitzador. */
+  function feinaDelTram(i, trams) {
+    var T = window.RE_TAULES, C = window.RE_CALENDARI, n = 0;
+    if (!T || !C || !window.RE) return { n: 0 };
+    Object.keys(T.fulls).forEach(function (k) {
+      var p = window.RE.llegeix(+k).items || {};
+      T.fulls[k].items.forEach(function (id) {
+        var it = p[id];
+        if (!it || !it.tf || !it.estat || it.estat === "vist") return;
+        if (C.tramExacte(new Date(it.tf), trams) === i) n++;
+      });
+    });
+    return { n: n };
+  }
+
+  function dm(d) {
+    return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
+  }
+
+  /* La línia del tram per a la finestra del codi. Diu on és l'alumne
+     respecte de la feina demanada (entre 10 i 20 per tram) i, en una setmana
+     de descans, que el que faci ara no compta per a cap tram. */
+  function textTram() {
+    var C = window.RE_CALENDARI;
+    if (!C || !C.tramEnCurs) return null;
+    var ara = new Date(), t = C.tramEnCurs(ara);
+    if (t) {
+      var n = feinaDelTram(t.i).n;
+      return {
+        poc: n < C.FEINA_MINIMA,
+        html: "<b>Tram " + (t.i + 1) + "</b> (fins al " + dm(t.fi) + "): hi portes <b>" + n
+          + "</b> " + (n === 1 ? "exercici" : "exercicis") + ". Se'n demanen entre "
+          + C.FEINA_MINIMA + " i " + C.FEINA_MAXIMA + (n > C.FEINA_MAXIMA
+            ? "; per a la nota i l'examen només compten els " + C.FEINA_MAXIMA + " primers."
+            : ", i com més en facis, més nota.")
+      };
+    }
+    var L = C.llista(), seg = null;
+    for (var i = 0; i < L.length; i++) { if (L[i].inici > ara) { seg = L[i]; break; } }
+    if (!seg) return null;
+    return {
+      poc: false,
+      html: "Ara no hi ha cap tram en curs: el que facis aquests dies no compta per a "
+        + "cap tram. El <b>tram " + (seg.i + 1) + "</b> comença el " + dm(seg.inici) + "."
+    };
   }
 
   /* Frase de resum. A propòsit no diu cap nota: repàs-ESO és pràctica, i si
@@ -77,7 +126,8 @@ window.RE_CODI_UI = (function () {
     var t = [];
     if (x.c.net) t.push(x.c.net + " a la primera");
     if (x.c.segon) t.push(x.c.segon + " al segon intent");
-    if (x.c.pista) t.push(x.c.pista + " amb pista");
+    if (x.c.pista) t.push(x.c.pista + " amb una pista");
+    if (x.c.pistes) t.push(x.c.pistes + " amb dues pistes o més");
     if (x.c.fallat) t.push(x.c.fallat + " fallats");
     return x.fets + (x.fets === 1 ? " exercici" : " exercicis") +
       (t.length ? ": " + t.join(", ") : "") + ".";
@@ -108,6 +158,8 @@ window.RE_CODI_UI = (function () {
         '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
     } else {
       codi = window.RE_CODI.genera(window.RE_CODI.recull(null));
+      var tram = null;
+      try { tram = textTram(); } catch (e) { tram = null; }
       fons.innerHTML =
         '<div id="re-codi-fin"><div id="re-codi-cap">' +
         "<div><h2>El teu codi</h2>" +
@@ -117,7 +169,9 @@ window.RE_CODI_UI = (function () {
         '<div id="re-codi-caixa"></div>' +
         '<div class="re-acc"><button class="re-btn" id="re-codi-copia">Copia el codi</button>' +
         '<button class="re-btn buit" id="re-codi-tanca2">Tanca</button></div>' +
-        (x.fets < 10
+        (tram ? '<p class="' + (tram.poc ? "re-avis" : "re-petit") + '" style="margin-top:.75rem">'
+          + tram.html + "</p>" : "") +
+        (!tram && x.fets < 10
           ? '<p class="re-avis">Has fet <b>' + x.fets + "</b> " +
             (x.fets === 1 ? "exercici" : "exercicis") + ". El codi diu " +
             "exactament quants n'has fet i quins, aix\u00ed que si el " +
@@ -226,7 +280,13 @@ window.RE_CODI_UI = (function () {
           /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
              que compti com a ja resolt: recuperar la feina no ha de tornar a
              obrir tots els exercicis com si s'haguessin de fer. */
-          window.RE.apunta(f.n, it.id, { estat: it.estat, imp: 1, tancat: 1 });
+          /* Si el codi porta la data del primer intent, es recupera: sense
+             ella, la feina recuperada no comptaria per a cap tram. L'ordre
+             dins del dia es conserva sumant-hi l'ordre del codi en ms. */
+          var dades = { estat: it.estat === "pistes" ? "pista" : it.estat, imp: 1, tancat: 1 };
+          if (it.estat === "pistes") dades.npis = 2;
+          if (it.feta) dades.tf = it.feta.getTime() + (it.ordre || 0);
+          window.RE.apunta(f.n, it.id, dades);
           posats++;
         });
       });
@@ -281,5 +341,5 @@ window.RE_CODI_UI = (function () {
     document.addEventListener("DOMContentLoaded", munta);
   } else { munta(); }
 
-  return { munta: munta, obre: obre };
+  return { munta: munta, obre: obre, feinaDelTram: feinaDelTram };
 })();

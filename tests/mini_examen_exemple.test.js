@@ -101,35 +101,43 @@ comprova("berta té feina als 3 trams",
 comprova("berta arriba a 10 per tram al tram 2", berta.compte[2] >= 10,
   String(berta.compte[2]));
 const nil = resum["nil@escola.cat"];
-comprova("nil només té 1 codi (dispara avís)", nil.nCodis === 1);
-comprova("tota la feina de nil cau en un sol tram",
-  Object.keys(nil.compte).length === 1, JSON.stringify(nil.compte));
+comprova("nil només envia 1 codi", nil.nCodis === 1);
+/* Abans això deia «tota la feina de nil cau en un sol tram», i era veritat:
+   amb un sol codi no hi havia manera de saber quan s'havia fet cada cosa.
+   Ara el codi porta la data del primer intent de cada exercici, i la
+   propietat que val la pena vigilar és la contrària. */
+const nilExacte = {};
+bons.filter(x => x.f.correu === "nil@escola.cat").forEach(x => x.p.fulls.forEach(f => f.items.forEach(it => {
+  if (!it.feta) return;
+  const t = CAL.tramExacte(it.feta);
+  nilExacte[t] = (nilExacte[t] || 0) + 1;
+})));
+comprova("tot i així, amb les dates del codi la seva feina es reparteix pels tres trams",
+  nilExacte[0] === 10 && nilExacte[1] === 11 && nilExacte[2] === 12, JSON.stringify(nilExacte));
+const laia = {};
+bons.filter(x => x.f.correu === "laia@escola.cat").slice(-1).forEach(x => x.p.fulls.forEach(f => f.items.forEach(it => {
+  if (!it.feta) return;
+  const t = CAL.tramExacte(it.feta);
+  laia[t] = (laia[t] || 0) + 1;
+})));
+comprova("laia passa de 20 al tram 3 (hi ha un cas del màxim)", laia[2] > 20, JSON.stringify(laia));
 const ona = resum["ona@escola.cat"];
 comprova("ona no arriba al mínim al tram 2", (ona.compte[2] || 0) < 10,
   String(ona.compte[2]));
 const jordi = resum["jordi@escola.cat"];
 comprova("jordi conserva 2 codis bons (un manipulat)", jordi.nCodis === 2);
 
-/* ── 4. el sorteig produeix examen ─────────────────────────────────────── */
-console.log("\n== el sorteig ==");
-function tramsElegibles(obj, perTrim, pesos) {
-  const trim = Math.floor(obj / perTrim), out = [];
-  for (let i = 0; i < pesos.length; i++) {
-    const t = obj - i;
-    if (t < 0 || Math.floor(t / perTrim) !== trim) break;
-    if (pesos[i] > 0) out.push({ tram: t, pes: pesos[i] });
-  }
-  return out;
-}
-const eleg = tramsElegibles(2, 3, [3, 2, 1]);
-comprova("el tram 2 sorteja dels 3 trams", eleg.length === 3);
-let ambExamen = 0;
-Object.keys(resum).forEach(c => {
-  const disponibles = eleg.reduce((n, e) => n + (resum[c].compte[e.tram] || 0), 0);
-  if (disponibles >= 5) ambExamen++;
+/* ── 4. l'examen del tram 3 només té la feina del tram 3 ─────────────────── */
+console.log("\n== la feina de cada alumne al tram 3, per data exacta ==");
+let ambCinc = 0;
+Object.keys(per).forEach(correu => {
+  const ultim = per[correu].slice(-1)[0];
+  let n = 0;
+  ultim.p.fulls.forEach(f => f.items.forEach(it => { if (it.feta && CAL.tramExacte(it.feta) === 2) n++; }));
+  if (Math.min(n, 20) >= 5) ambCinc++;
 });
-comprova("els 6 alumnes tenen prou exercicis per a 5 preguntes",
-  ambExamen === 6, ambExamen + " de 6");
+comprova("5 dels 6 alumnes tenen prou feina al tram 3 per a 5 preguntes (ona no)",
+  ambCinc === 5, ambCinc + " de 6");
 
 console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
 process.exit(fallades ? 1 : 0);

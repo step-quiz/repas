@@ -222,7 +222,7 @@ def taula_proves():
 
 
 # ---------------------------------------------------------------------
-# Els sostres del format RC3
+# Els sostres del format RC4
 # ---------------------------------------------------------------------
 # Han d'anar iguals que els de `js/codi.js`, i s'hi llegeixen d'allà en lloc
 # de repetir-los aquí: dos números que han de coincidir i viuen en dos
@@ -256,9 +256,9 @@ def comprova_sostres(fulls):
             "full %d: %d ítems, i el codi de verificació només n'admet %d "
             "(31 grups de 7 en un caràcter base32). Amb un més, els codis "
             "emesos sortirien ÍNTEGRES i amb la feina a zero. Cal partir el "
-            "full o passar a un format RC4." % (n, k, lim["MAX_ITEMS"]))
+            "full o passar a un format nou (RC5)." % (n, k, lim["MAX_ITEMS"]))
         assert 1 <= n <= lim["MAX_FULLS"], (
-            "full %d: la màscara del format RC3 té els fulls als bits 0-%d i "
+            "full %d: la màscara del format RC4 té els fulls als bits 0-%d i "
             "el diagnòstic al bit %d. Un full %d activaria el bit del "
             "diagnòstic: el full desapareixeria del codi i el lector es "
             "trobaria un diagnòstic fantasma. Cal un format RC4."

@@ -200,6 +200,17 @@ El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
 l'analitzador carrega aquest mateix fitxer.
 
+## Mini-examen de 3 setmanes
+
+Cada 3 setmanes (els nou trams de `js/calendari.js`) l'alumnat fa entre 10 i 20
+exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
+tota la classe un examen de 5 preguntes fet **només** amb els 20 primers
+exercicis que cada alumne ha fet dins d'aquell tram, i en dona la **nota de
+feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
+la primera 1, una pista 0,95, dues pistes o més 0,8, segon intent 0,7, fallat
+0). Els codis RC4 porten la data del primer intent de cada exercici, i per això
+n'hi ha prou amb un sol codi. Detall a `GUIA-PROFESSORAT.md`.
+
 ## Prova escrita a partir del que s'ha practicat
 
 Un alumne pot demanar de fer un **examen presencial en paper** sobre la feina

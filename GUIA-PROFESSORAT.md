@@ -39,18 +39,12 @@ Després l'alumne segueix practicant i el cicle torna a començar. No cal que
 esborri ni reiniciï res: **cada codi nou conté tot l'historial** i substitueix
 l'anterior.
 
-Ara bé, això val per a l'alumne, no per a tu. Segons quin dels dos modes
-facis servir, el que necessites del full de respostes és diferent:
-
-- Al mode **personalitzat** només t'interessa l'últim codi de cadascú.
-- Al mode **estàndard de 3 setmanes**, **no esborris ni sobreescriguis les
-  files antigues del full de respostes.** Aquest mode reparteix les preguntes
-  entre períodes, i per saber en quin període es va fer cada exercici ha de
-  comparar els codis successius d'un mateix alumne: el codi porta la data en
-  què es va generar, però no la data de cada exercici. Sense l'historial, tota
-  la feina d'un alumne queda atribuïda al dia de l'últim enviament i el
-  repartiment per períodes deixa de tenir sentit. Demana'ls un codi nou al
-  final de cada període i deixa que el full del formulari s'ompli fila a fila.
+Els codis nous (els que comencen per **RC4**) porten, a més, la data en què
+l'alumne va respondre per primer cop cada exercici de les últimes 12
+setmanes. Per això n'hi ha prou amb l'últim codi de cadascú per saber què va
+fer a cada tram. No esborris igualment les files antigues del full de
+respostes: si algun alumne encara envia codis d'abans del canvi (RC3 o
+anteriors), l'analitzador dedueix les dates comparant-los, com feia fins ara.
 
 ---
 
@@ -100,16 +94,12 @@ els passos de resolució.
 
 ## Generar els mini-exàmens de tota la classe
 
-Pensat per al ritme fix: cada 3 setmanes, 5 preguntes per a tothom. Cada 3
-períodes (9 setmanes) comença un trimestre nou i el compte torna a zero, de
-manera que el primer examen del trimestre següent només mira aquelles 3
-setmanes.
+Pensat per al ritme fix: cada 3 setmanes, entre 10 i 20 exercicis, i un
+examen de 5 preguntes per a cadascú **fet només amb aquella feina**.
 
-1. Carrega el full de respostes igual que abans, **amb tot l'historial**
-   d'enviaments (vegeu l'avís de més amunt).
+1. Carrega el full de respostes igual que abans.
 2. Pestanya **Prova escrita** › **Mini-examen estàndard**.
-3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure.
-   Són aquestes:
+3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure:
 
    | | 1r trimestre | 2n trimestre | 3r trimestre |
    |---|---|---|---|
@@ -117,54 +107,71 @@ setmanes.
    | Tram 2 | 12/10 – 01/11 | 25/01 – 14/02 | 12/04 – 02/05 |
    | Tram 3 | 09/11 – 29/11 | 22/02 – 14/03 | 03/05 – 23/05 |
 
-   Tots duren 21 dies i van de dilluns a diumenge, però **no són
-   consecutius**: hi ha una setmana de descans entre l'un i l'altre, quatre
-   per Nadal, i en canvi els tres del tercer trimestre van encadenats. Per
-   això les dates estan escrites una a una i no es calculen a partir d'una
-   d'inici. Amb **Veure'l o canviar-lo** les pots modificar si un any el
-   calendari canvia; **Torna a les del curs** les recupera.
+   Amb **Veure'l o canviar-lo** les pots modificar si un any el calendari
+   canvia; **Torna a les del curs** les recupera. Si les canvies, canvia
+   també les de `js/calendari.js`, que és d'on les llegeix el lloc de
+   l'alumne.
+4. Tria **quin tram examines** i prem **Genera els exàmens del grup**.
+5. Imprimeix. Hi ha **dos botons separats**: tots els exàmens en un document
+   i totes les solucions en un altre. **Baixa les notes (CSV)** et dona la
+   nota de feina de tothom per passar-la al teu full de notes.
 
-   La feina feta en una setmana de descans compta al tram que acaba de
-   tancar, no al següent: un codi enviat el dimecres després del tancament
-   reporta gairebé sempre feina d'aquelles tres setmanes.
+### Quins exercicis compten
 
-   La resta de camps ja porten els valors habituals (5 preguntes, pesos
-   3-2-1, mínim de 10 exercicis) i normalment no cal tocar-los.
-4. Tria **quin tram examines**. Surt marcat quin és el que toca avui; si
-   generes l'examen uns dies tard, o mires dades d'un altre curs, pots triar
-   qualsevol dels que tenen feina.
-5. **Genera els exàmens del grup.** Surt una taula amb tota la classe: quants
-   exercicis nous té cadascú al tram que s'examina, quants n'acumula al
-   trimestre, i un avís ambre a qui no arriba al mínim. Clicant una fila en
-   veus l'examen i el pots imprimir sol, que és el que et caldrà quan algú
-   hagi faltat.
-6. Imprimeix. Com al mode personalitzat, hi ha **dos botons separats**: tots
-   els exàmens en un document i totes les solucions en un altre. Des del
-   diàleg d'impressió pots desar cada un com a PDF.
+- **Només els fets dins de les tres setmanes del tram**, segons la data del
+  primer intent. Cap exercici d'un tram anterior no pot sortir a l'examen. La
+  feina feta en una setmana de descans no és de cap tram.
+- **Només els 20 primers**, per ordre de quan es van fer. Si un alumne en fa
+  25, els 5 últims no compten ni per a la nota ni per a l'examen. La taula ho
+  indica amb «compten els 20 primers».
+- Cada apartat és un exercici: el 62a i el 62b en són dos.
 
-Les 5 preguntes surten a l'atzar d'entre els exercicis que l'alumne ha fet,
-però no totes amb la mateixa probabilitat: el tram que s'examina hi surt més
-sovint que el penúltim, i el penúltim més que l'antepenúltim. Cap no queda
-exclòs del tot, així que qualsevol combinació és possible; només que unes són
-més probables que d'altres.
+### La nota de feina del tram
 
-**Ningú no queda bloquejat.** Si un alumne no arriba al mínim d'exercicis,
-l'examen se li genera igualment amb el que tingui, i el motiu queda anotat al
-**full de correcció**, mai al full que rep ell.
+Cada exercici que compta aporta el seu valor sobre 10:
+
+| Com l'ha resolt | Valor | Aporta |
+|---|---|---|
+| A la primera | 10 | 1 |
+| Amb una pista | 9,5 | 0,95 |
+| Amb dues pistes o més | 8 | 0,8 |
+| Al segon intent | 7 | 0,7 |
+| Fallat | 0 | 0 |
+
+Amb la suma *x*: **nota = mín(10, 8·∛(x/10))**. Deu exercicis a la primera
+fan un 8, i vint un 10. Un exercici fallat no suma però tampoc no resta, de
+manera que provar-ne un de difícil no pot fer baixar mai la nota.
+
+Un encert **al segon intent** compta com a segon intent encara que l'alumne
+hagi obert pistes. Si no fos així, obrir una pista just després d'equivocar-se
+convertiria un 0,7 en un 0,95 i esborraria l'error.
+
+Els tres valors del mig es poden canviar al panell, per si els vols ajustar.
+
+### L'examen
+
+Les 5 preguntes surten a l'atzar d'entre els 20 exercicis que compten, sense
+repetir exercici mare mentre n'hi hagi prou. Són de resposta oberta: l'enunciat
+sense les opcions. Al full de correcció hi ha, per pregunta, quin dia el va fer,
+com li va anar a la pràctica, la resposta i la resolució. A la capçalera hi ha
+la feina del tram i la nota de feina.
+
+**Ningú no queda bloquejat.** Si un alumne no arriba al mínim, l'examen se li
+genera igualment amb el que tingui, i el motiu queda anotat al **full de
+correcció**, mai al full que rep ell.
 
 ---
 
 ## L'avís que veu l'alumne
 
-Quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que entri al
-lloc hi troba un avís a dalt recordant-li la data i que enviï el codi. Es
-mostra com a molt **dues vegades per tram, en dies diferents**: un avís que
-surt cada dia deixa de llegir-se, i llavors ja no avisa de res. El compte és
-per tram, de manera que al següent torna a tenir-ne dos.
+El botó **Codi** li diu quants exercicis porta al tram en curs i que se'n
+demanen entre 10 i 20. En una setmana de descans, li diu que el que faci no
+compta per a cap tram i quan comença el següent.
 
-No cal que hi facis res: les dates surten del mateix calendari que fas servir
-tu, així que si el canvies a l'analitzador convé que canviïs també les de
-`js/calendari.js`, que és d'on el lloc de l'alumne les llegeix.
+A més, quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que
+entri al lloc hi troba un avís a dalt amb la data de tancament i quants
+exercicis hi porta. Es mostra com a molt **dues vegades per tram, en dies
+diferents**: un avís que surt cada dia deixa de llegir-se.
 
 ---
 
@@ -175,19 +182,21 @@ genera cap prova, i és volgut: el codi s'ha copiat a mitges o s'ha tocat.
 Demana-li de nou a l'alumne; no cal cap altra investigació.
 
 **Un alumne surt en ambre amb «sota 10».** (Estàndard) No ha arribat al mínim
-d'exercicis nous al tram que s'examina. L'examen se li fa igual, amb preguntes
-de trams anteriors del mateix trimestre si cal, i l'avís queda al full de
-correcció perquè ho tinguis present en corregir. Ell no el veu.
+d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i
+l'avís queda al full de correcció. Ell no el veu.
 
-**«Només ha enviat 1 codi.»** (Estàndard) Sense almenys dos enviaments no es
-pot saber en quin tram va fer cada exercici, i tot compta com a fet el dia de
-l'enviament. L'examen es genera, però el repartiment per trams no vol dir res
-en aquell alumne. Es resol demanant-li el codi cada 3 setmanes.
+**«Tenen la data deduïda dels enviaments».** (Estàndard) L'alumne ha enviat
+codis d'abans del canvi, que no porten dates. L'analitzador les dedueix
+comparant els seus enviaments, com feia abans, i ho avisa perquè algun
+exercici podria ser d'un altre tram. Es resol sol així que envia un codi nou.
+
+**«Han arribat sense data».** (Estàndard) El codi es va enviar més de 12
+setmanes després de fer aquells exercicis. Com que no se sap de quin tram són,
+no compten per a cap. Es resol demanant el codi al final de cada tram.
 
 **«Les 5 preguntes surten de només 2 problemes diferents.»** (Estàndard) La
 feina d'aquell alumne en aquell tram es concentra en pocs exercicis amb molts
-apartats. El sorteig no ho pot arreglar —no hi ha res més d'on triar— i per
-això ho diu: l'examen tindrà apartats del mateix problema.
+apartats. El sorteig no ho pot arreglar i per això ho diu.
 
 **«Cap bloc arriba als 3 exercicis mínims.»** (Personalitzat) L'alumne encara
 no té prou feina feta per examinar-lo d'un tema concret. Pots abaixar el llindar, però pensa
@@ -221,4 +230,4 @@ Quatre camps, en aquest ordre:
 Enllaça el formulari a un full de càlcul (Respostes → icona verda de Sheets).
 La capçalera que ve de fàbrica diu «step-quiz», un nom antic del projecte; és
 cosmètic i no afecta res. L'analitzador troba la columna del codi encara que
-la capçalera canviï, perquè busca cadenes que comencin per `RC1`/`RC2`.
+la capçalera canviï, perquè busca cadenes que comencin per `RC`.

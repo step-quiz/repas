@@ -19,7 +19,7 @@ moved on and this file did not — trust the code, then fix this file.
 | `README.md` | what the product is |
 | `HANDOVER.md` | project history and current state |
 | `AUTHORING-GUIDE.md` §4bis | the 4-level difficulty scale; read before touching content |
-| `CODIS.md` | the verification-code format (RC3), including its two hard ceilings |
+| `CODIS.md` | the verification-code format (RC4), including its two hard ceilings |
 | `DESPLEGAMENT.md` | what must never be published, and why |
 | `tools/lib.py` | the content engine; `Q()`, `D()`, `DT()`, `dificultats()`, `blocs()` |
 | `tools/build.py` | `_gradua()` and `_informa_graduacio()` — the difficulty ordering |
@@ -343,7 +343,7 @@ test to make your change pass, stop and reconsider.
    submitted. Test: "l'ordre de codificació és append-only" in
    `tests/codi.test.js`.
 
-2. **The RC3 format has two hard ceilings: 217 items per sheet and 12
+2. **The RC4 format has two hard ceilings: 217 items per sheet and 12
    sheets.** Both used to overflow *silently*, producing a code that reported
    `integre: true` with all work lost. They are now explicit
    (`MAX_ITEMS`, `MAX_FULLS` in `js/codi.js`) and checked at build time

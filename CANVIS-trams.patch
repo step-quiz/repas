@@ -1,0 +1,2645 @@
+diff --git a/CODIS.md b/CODIS.md
+index 9301875..baeda47 100644
+--- a/CODIS.md
++++ b/CODIS.md
+@@ -27,23 +27,35 @@ Una fotografia **completa** del progrés: quins exercicis s'han fet i com han
+ anat, un per un, amb els identificadors reals (`67e`, `216c`, `144b`).
+ 
+ ```
+-RC3 SSS DDD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  [META]  KK
++RC4 SSS DDD HH MMM  [per cada full: G + grups de 4]  [DIAG]  EEEEEEEEE  [META]  [DATES]  KK
+ 
+-RC3   marca i versió (RC1 i RC2 es continuen llegint)
++RC4   marca i versió (RC1, RC2 i RC3 es continuen llegint)
+ SSS   salt aleatori
+ DDD   dia (dies des de l'1/9/2025)
+ HH    hora (minuts/2 des de mitjanit)
+-MMM   màscara: fulls presents + si hi ha diagnòstic + si hi ha META
++MMM   màscara: fulls presents + diagnòstic + META + DATES
+ G     nombre de grups d'aquest full
+-····  un grup = 7 exercicis en base 6
++····  un grup = 7 exercicis en base 7 (base 6 fins a RC3)
+ DIAG  les 15 destreses del test inicial (si n'hi ha)
+ EEEE  les 3 etiquetes d'error més repetides, amb el compte
+ META  com s'ha fet la feina: minuts actius, importacions, exercicis que en
+       venen, repeticions, fulls reiniciats i —si hi ha hagut importació—
+       l'empremta (dia + salt) del codi d'origen
++DATES el dia del primer intent de cada exercici fet a les últimes 12
++      setmanes, en l'ordre en què es van fer (per dia: dies enrere + nombre
++      d'exercicis; per exercici: full + posició)
+ KK    dos caràcters de control
+ ```
+ 
++**Per què hi ha RC4.** El mini-examen de 3 setmanes necessita saber si
++l'alumne va obrir una pista o dues, que no penalitzen igual, i quan va fer cada
++exercici: l'examen d'un tram només pot sortir de la feina d'aquelles tres
++setmanes, i només compten els 20 primers. Fins a RC3 la data es deduïa
++comparant enviaments, i un codi enviat tard posava la feina al tram equivocat.
++Set estats caben en quatre caràcters igual que sis (7^7 < 32^4), així que el
++sostre de 217 exercicis per full no es mou. El bloc DATES costa uns 3
++caràcters per exercici datat; 20 exercicis d'un tram en fan menys de 90.
++
+ **Per què hi ha META.** Fins a RC2 el codi deia *què* s'havia fet i no deia res
+ de *com*. Dues coses molt diferents hi arribaven idèntiques: un trimestre de
+ feina propi i el codi d'un company importat i continuat des d'allà. L'empremta
+@@ -51,8 +63,11 @@ del codi d'origen ho desfà: l'analitzador la creua amb els codis que ja té i,
+ si l'origen era un codi del mateix alumne, calla. Vegeu `DESPLEGAMENT.md`.
+ 
+ Estat de cada exercici: `0` per fer · `1` a la primera · `2` al segon intent ·
+-`3` amb pista · `4` fallat · `5` començat sense respondre. Són exactament els
+-que `nucli.js` ja desava, així que no ha calgut instrumentar res de nou.
++`3` amb una pista · `4` fallat · `5` començat sense respondre · `6` amb dues
++pistes o més. El registre del navegador segueix desant `pista` en tots dos
++casos; el `6` surt del comptador de pistes obertes en fer el codi. Un `pista`
++d'un codi RC3 es llegeix com a una sola pista. Un encert al segon intent és
++sempre `2`, encara que s'hagin obert pistes.
+ 
+ **Llargada real.** Un full de 71 exercicis fet a mitges: **46 caràcters**.
+ Els 951 exercicis dels dotze fulls més el diagnòstic: 611. Els grups finals
+@@ -127,9 +142,12 @@ Aquí **la nota es deriva del detall en llegir el codi**. No hi ha dos nombres
+ que puguin contradir-se, perquè només n'hi ha un. El forat no es tapa: no
+ existeix.
+ 
+-La fórmula és pública i està a `js/codi.js`: `net` 10 punts, `segon` 7,
+-`pista` 6, `fallat` 0. Els pesos els hauries de fixar tu; el que importa és
+-que siguin deterministes.
++La fórmula és pública i està a `js/codi.js`: `net` 10 punts, una pista 9,5,
++dues pistes o més 8, `segon` 7, `fallat` 0.
++
++La **nota de feina d'un tram** (`RE_CODI.notaTram`) agafa els 20 primers
++exercicis del tram per ordre de fet, suma els seus valors sobre 10 (x) i dona
++`min(10, 8·∛(x/10))`: 10 exercicis a la primera fan un 8 i 20 un 10.
+ 
+ ### 3. Dos caràcters de control, amb mòdul primer i pesos
+ 
+diff --git a/DESPLEGAMENT.md b/DESPLEGAMENT.md
+index 11ed35e..cfd49f4 100644
+--- a/DESPLEGAMENT.md
++++ b/DESPLEGAMENT.md
+@@ -75,7 +75,7 @@ prova correspon a una trampa concreta: si alguna cau, la trampa ha tornat.
+ 
+ ## 3. El codi diu com s'ha fet la feina, no només quina
+ 
+-Format **RC3** (`js/codi.js`). Els codis RC1 i RC2 es continuen llegint.
++Format **RC4** (`js/codi.js`). Els codis RC1, RC2 i RC3 es continuen llegint.
+ 
+ El bloc `META` hi afegeix cinc coses que abans eren invisibles:
+ 
+diff --git a/GUIA-PROFESSORAT.md b/GUIA-PROFESSORAT.md
+index d810f4a..9d905bf 100644
+--- a/GUIA-PROFESSORAT.md
++++ b/GUIA-PROFESSORAT.md
+@@ -39,18 +39,12 @@ Després l'alumne segueix practicant i el cicle torna a començar. No cal que
+ esborri ni reiniciï res: **cada codi nou conté tot l'historial** i substitueix
+ l'anterior.
+ 
+-Ara bé, això val per a l'alumne, no per a tu. Segons quin dels dos modes
+-facis servir, el que necessites del full de respostes és diferent:
+-
+-- Al mode **personalitzat** només t'interessa l'últim codi de cadascú.
+-- Al mode **estàndard de 3 setmanes**, **no esborris ni sobreescriguis les
+-  files antigues del full de respostes.** Aquest mode reparteix les preguntes
+-  entre períodes, i per saber en quin període es va fer cada exercici ha de
+-  comparar els codis successius d'un mateix alumne: el codi porta la data en
+-  què es va generar, però no la data de cada exercici. Sense l'historial, tota
+-  la feina d'un alumne queda atribuïda al dia de l'últim enviament i el
+-  repartiment per períodes deixa de tenir sentit. Demana'ls un codi nou al
+-  final de cada període i deixa que el full del formulari s'ompli fila a fila.
++Els codis nous (els que comencen per **RC4**) porten, a més, la data en què
++l'alumne va respondre per primer cop cada exercici de les últimes 12
++setmanes. Per això n'hi ha prou amb l'últim codi de cadascú per saber què va
++fer a cada tram. No esborris igualment les files antigues del full de
++respostes: si algun alumne encara envia codis d'abans del canvi (RC3 o
++anteriors), l'analitzador dedueix les dates comparant-los, com feia fins ara.
+ 
+ ---
+ 
+@@ -100,16 +94,12 @@ els passos de resolució.
+ 
+ ## Generar els mini-exàmens de tota la classe
+ 
+-Pensat per al ritme fix: cada 3 setmanes, 5 preguntes per a tothom. Cada 3
+-períodes (9 setmanes) comença un trimestre nou i el compte torna a zero, de
+-manera que el primer examen del trimestre següent només mira aquelles 3
+-setmanes.
++Pensat per al ritme fix: cada 3 setmanes, entre 10 i 20 exercicis, i un
++examen de 5 preguntes per a cadascú **fet només amb aquella feina**.
+ 
+-1. Carrega el full de respostes igual que abans, **amb tot l'historial**
+-   d'enviaments (vegeu l'avís de més amunt).
++1. Carrega el full de respostes igual que abans.
+ 2. Pestanya **Prova escrita** › **Mini-examen estàndard**.
+-3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure.
+-   Són aquestes:
++3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure:
+ 
+    | | 1r trimestre | 2n trimestre | 3r trimestre |
+    |---|---|---|---|
+@@ -117,54 +107,71 @@ setmanes.
+    | Tram 2 | 12/10 – 01/11 | 25/01 – 14/02 | 12/04 – 02/05 |
+    | Tram 3 | 09/11 – 29/11 | 22/02 – 14/03 | 03/05 – 23/05 |
+ 
+-   Tots duren 21 dies i van de dilluns a diumenge, però **no són
+-   consecutius**: hi ha una setmana de descans entre l'un i l'altre, quatre
+-   per Nadal, i en canvi els tres del tercer trimestre van encadenats. Per
+-   això les dates estan escrites una a una i no es calculen a partir d'una
+-   d'inici. Amb **Veure'l o canviar-lo** les pots modificar si un any el
+-   calendari canvia; **Torna a les del curs** les recupera.
+-
+-   La feina feta en una setmana de descans compta al tram que acaba de
+-   tancar, no al següent: un codi enviat el dimecres després del tancament
+-   reporta gairebé sempre feina d'aquelles tres setmanes.
+-
+-   La resta de camps ja porten els valors habituals (5 preguntes, pesos
+-   3-2-1, mínim de 10 exercicis) i normalment no cal tocar-los.
+-4. Tria **quin tram examines**. Surt marcat quin és el que toca avui; si
+-   generes l'examen uns dies tard, o mires dades d'un altre curs, pots triar
+-   qualsevol dels que tenen feina.
+-5. **Genera els exàmens del grup.** Surt una taula amb tota la classe: quants
+-   exercicis nous té cadascú al tram que s'examina, quants n'acumula al
+-   trimestre, i un avís ambre a qui no arriba al mínim. Clicant una fila en
+-   veus l'examen i el pots imprimir sol, que és el que et caldrà quan algú
+-   hagi faltat.
+-6. Imprimeix. Com al mode personalitzat, hi ha **dos botons separats**: tots
+-   els exàmens en un document i totes les solucions en un altre. Des del
+-   diàleg d'impressió pots desar cada un com a PDF.
+-
+-Les 5 preguntes surten a l'atzar d'entre els exercicis que l'alumne ha fet,
+-però no totes amb la mateixa probabilitat: el tram que s'examina hi surt més
+-sovint que el penúltim, i el penúltim més que l'antepenúltim. Cap no queda
+-exclòs del tot, així que qualsevol combinació és possible; només que unes són
+-més probables que d'altres.
+-
+-**Ningú no queda bloquejat.** Si un alumne no arriba al mínim d'exercicis,
+-l'examen se li genera igualment amb el que tingui, i el motiu queda anotat al
+-**full de correcció**, mai al full que rep ell.
++   Amb **Veure'l o canviar-lo** les pots modificar si un any el calendari
++   canvia; **Torna a les del curs** les recupera. Si les canvies, canvia
++   també les de `js/calendari.js`, que és d'on les llegeix el lloc de
++   l'alumne.
++4. Tria **quin tram examines** i prem **Genera els exàmens del grup**.
++5. Imprimeix. Hi ha **dos botons separats**: tots els exàmens en un document
++   i totes les solucions en un altre. **Baixa les notes (CSV)** et dona la
++   nota de feina de tothom per passar-la al teu full de notes.
++
++### Quins exercicis compten
++
++- **Només els fets dins de les tres setmanes del tram**, segons la data del
++  primer intent. Cap exercici d'un tram anterior no pot sortir a l'examen. La
++  feina feta en una setmana de descans no és de cap tram.
++- **Només els 20 primers**, per ordre de quan es van fer. Si un alumne en fa
++  25, els 5 últims no compten ni per a la nota ni per a l'examen. La taula ho
++  indica amb «compten els 20 primers».
++- Cada apartat és un exercici: el 62a i el 62b en són dos.
++
++### La nota de feina del tram
++
++Cada exercici que compta aporta el seu valor sobre 10:
++
++| Com l'ha resolt | Valor | Aporta |
++|---|---|---|
++| A la primera | 10 | 1 |
++| Amb una pista | 9,5 | 0,95 |
++| Amb dues pistes o més | 8 | 0,8 |
++| Al segon intent | 7 | 0,7 |
++| Fallat | 0 | 0 |
++
++Amb la suma *x*: **nota = mín(10, 8·∛(x/10))**. Deu exercicis a la primera
++fan un 8, i vint un 10. Un exercici fallat no suma però tampoc no resta, de
++manera que provar-ne un de difícil no pot fer baixar mai la nota.
++
++Un encert **al segon intent** compta com a segon intent encara que l'alumne
++hagi obert pistes. Si no fos així, obrir una pista just després d'equivocar-se
++convertiria un 0,7 en un 0,95 i esborraria l'error.
++
++Els tres valors del mig es poden canviar al panell, per si els vols ajustar.
++
++### L'examen
++
++Les 5 preguntes surten a l'atzar d'entre els 20 exercicis que compten, sense
++repetir exercici mare mentre n'hi hagi prou. Són de resposta oberta: l'enunciat
++sense les opcions. Al full de correcció hi ha, per pregunta, quin dia el va fer,
++com li va anar a la pràctica, la resposta i la resolució. A la capçalera hi ha
++la feina del tram i la nota de feina.
++
++**Ningú no queda bloquejat.** Si un alumne no arriba al mínim, l'examen se li
++genera igualment amb el que tingui, i el motiu queda anotat al **full de
++correcció**, mai al full que rep ell.
+ 
+ ---
+ 
+ ## L'avís que veu l'alumne
+ 
+-Quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que entri al
+-lloc hi troba un avís a dalt recordant-li la data i que enviï el codi. Es
+-mostra com a molt **dues vegades per tram, en dies diferents**: un avís que
+-surt cada dia deixa de llegir-se, i llavors ja no avisa de res. El compte és
+-per tram, de manera que al següent torna a tenir-ne dos.
++El botó **Codi** li diu quants exercicis porta al tram en curs i que se'n
++demanen entre 10 i 20. En una setmana de descans, li diu que el que faci no
++compta per a cap tram i quan comença el següent.
+ 
+-No cal que hi facis res: les dates surten del mateix calendari que fas servir
+-tu, així que si el canvies a l'analitzador convé que canviïs també les de
+-`js/calendari.js`, que és d'on el lloc de l'alumne les llegeix.
++A més, quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que
++entri al lloc hi troba un avís a dalt amb la data de tancament i quants
++exercicis hi porta. Es mostra com a molt **dues vegades per tram, en dies
++diferents**: un avís que surt cada dia deixa de llegir-se.
+ 
+ ---
+ 
+@@ -175,19 +182,21 @@ genera cap prova, i és volgut: el codi s'ha copiat a mitges o s'ha tocat.
+ Demana-li de nou a l'alumne; no cal cap altra investigació.
+ 
+ **Un alumne surt en ambre amb «sota 10».** (Estàndard) No ha arribat al mínim
+-d'exercicis nous al tram que s'examina. L'examen se li fa igual, amb preguntes
+-de trams anteriors del mateix trimestre si cal, i l'avís queda al full de
+-correcció perquè ho tinguis present en corregir. Ell no el veu.
++d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i
++l'avís queda al full de correcció. Ell no el veu.
++
++**«Tenen la data deduïda dels enviaments».** (Estàndard) L'alumne ha enviat
++codis d'abans del canvi, que no porten dates. L'analitzador les dedueix
++comparant els seus enviaments, com feia abans, i ho avisa perquè algun
++exercici podria ser d'un altre tram. Es resol sol així que envia un codi nou.
+ 
+-**«Només ha enviat 1 codi.»** (Estàndard) Sense almenys dos enviaments no es
+-pot saber en quin tram va fer cada exercici, i tot compta com a fet el dia de
+-l'enviament. L'examen es genera, però el repartiment per trams no vol dir res
+-en aquell alumne. Es resol demanant-li el codi cada 3 setmanes.
++**«Han arribat sense data».** (Estàndard) El codi es va enviar més de 12
++setmanes després de fer aquells exercicis. Com que no se sap de quin tram són,
++no compten per a cap. Es resol demanant el codi al final de cada tram.
+ 
+ **«Les 5 preguntes surten de només 2 problemes diferents.»** (Estàndard) La
+ feina d'aquell alumne en aquell tram es concentra en pocs exercicis amb molts
+-apartats. El sorteig no ho pot arreglar —no hi ha res més d'on triar— i per
+-això ho diu: l'examen tindrà apartats del mateix problema.
++apartats. El sorteig no ho pot arreglar i per això ho diu.
+ 
+ **«Cap bloc arriba als 3 exercicis mínims.»** (Personalitzat) L'alumne encara
+ no té prou feina feta per examinar-lo d'un tema concret. Pots abaixar el llindar, però pensa
+@@ -221,4 +230,4 @@ Quatre camps, en aquest ordre:
+ Enllaça el formulari a un full de càlcul (Respostes → icona verda de Sheets).
+ La capçalera que ve de fàbrica diu «step-quiz», un nom antic del projecte; és
+ cosmètic i no afecta res. L'analitzador troba la columna del codi encara que
+-la capçalera canviï, perquè busca cadenes que comencin per `RC1`/`RC2`.
++la capçalera canviï, perquè busca cadenes que comencin per `RC`.
+diff --git a/README.md b/README.md
+index ed01650..939e2ae 100644
+--- a/README.md
++++ b/README.md
+@@ -200,6 +200,17 @@ El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
+ el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
+ l'analitzador carrega aquest mateix fitxer.
+ 
++## Mini-examen de 3 setmanes
++
++Cada 3 setmanes (els nou trams de `js/calendari.js`) l'alumnat fa entre 10 i 20
++exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
++tota la classe un examen de 5 preguntes fet **només** amb els 20 primers
++exercicis que cada alumne ha fet dins d'aquell tram, i en dona la **nota de
++feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
++la primera 1, una pista 0,95, dues pistes o més 0,8, segon intent 0,7, fallat
++0). Els codis RC4 porten la data del primer intent de cada exercici, i per això
++n'hi ha prou amb un sol codi. Detall a `GUIA-PROFESSORAT.md`.
++
+ ## Prova escrita a partir del que s'ha practicat
+ 
+ Un alumne pot demanar de fer un **examen presencial en paper** sobre la feina
+diff --git a/REVISIO-TRAMS.md b/REVISIO-TRAMS.md
+new file mode 100644
+index 0000000..ca5ef70
+--- /dev/null
++++ b/REVISIO-TRAMS.md
+@@ -0,0 +1,70 @@
++# Revisió: mini-examen de 3 setmanes, nota de feina i format RC4
++
++## Què demanava el professorat
++
++1. Cada tram de 3 setmanes, entre 10 i 20 exercicis. Com més, més nota.
++   Només compten els 20 primers.
++2. La primera pista gairebé no penalitza; la segona, més, però no gaire.
++3. L'examen del tram surt exclusivament de la feina d'aquelles 3 setmanes.
++
++## Què s'ha fet
++
++**Nota de feina del tram** (`RE_CODI.notaTram`, `js/codi.js`). Dels exercicis
++del tram, per ordre de fet, compten els 20 primers. Cada un aporta el seu valor
++sobre 10 (a la primera 1 · una pista 0,95 · dues o més 0,8 · segon intent 0,7 ·
++fallat 0) i, amb la suma x, `nota = min(10, 8·∛(x/10))`: 10 a la primera fan
++un 8 i 20 un 10. Un fallat no suma ni resta.
++
++**Política de pistes** (`estatDe`, `js/nucli.js`). Un encert al segon intent és
++`segon` encara que s'hagin obert pistes. Abans, obrir una pista després d'un
++error donava `pista`; amb el valor nou (9,5) això hauria esborrat l'error.
++
++**Format RC4** (`js/codi.js`). Estats en base 7 amb el nou `pistes` (dues o
++més), sense perdre capacitat (7^7 < 32^4). Bloc DATES opcional (bit 14 de la
++màscara): el dia del primer intent de cada exercici de les últimes 12
++setmanes, en ordre cronològic. RC1-RC3 es continuen llegint; un `pista` antic
++es llegeix com a una pista.
++
++**Registre** (`js/nucli.js`). Cada exercici desa `tf`, el moment del primer
++intent, que no canvia mai més. Els exercicis anteriors reben un sol cop una
++data aproximada (`ts`, marcada amb `tfa`), llevat dels importats.
++
++**Calendari** (`js/calendari.js`). `FEINA_MINIMA`/`FEINA_MAXIMA` (10/20) i
++`tramExacte()`: una data d'una setmana de descans, o de fora del curs, no és
++de cap tram. `tramDe()` es conserva per a les dates deduïdes d'enviaments.
++
++**Analitzador, mode estàndard.** Desapareixen els pesos 3-2-1 entre trams i la
++casella d'exercicis oberts, que no feia res (els `vist` es descartaven abans).
++Hi ha mínim, màxim i valors editables, i una taula amb els fets al tram, com
++els va fer i la nota. També hi ha una baixada en CSV. El full de correcció diu
++la nota de feina i, per pregunta, el dia en què es va fer. Amb codis sense
++dates, l'analitzador dedueix la data com abans i ho avisa.
++
++**Lloc de l'alumne.** El botó Codi diu quants exercicis porta al tram en curs.
++L'avís de final de tram també ho diu. La recuperació des d'un codi conserva
++les dates.
++
++**Exemple de mostra.** Els codis porten dates i pistes. La laia passa de 20 i
++en nil envia un sol codi a final de trimestre, però la feina se li reparteix
++bé pels tres trams.
++
++## Verificació
++
++- `sh tests/executa.sh`: Python 183, codi 44 (abans 31), registre 20 (abans
++  15), calendari 27 (abans 22), i les quatre bateries del mini-examen, totes
++  en verd.
++- `tests/mini_examen.test.js` s'ha reescrit. Vigilava els pesos entre trams, i
++  ara vigila les tres regles noves: només el tram, els 20 primers i la
++  fórmula de la nota.
++- A `tests/analitzador.test.js`, la secció «un pes a zero es diu» s'ha
++  substituït per una de nova. **No s'ha pogut executar aquí**: jsdom no es pot
++  instal·lar sense xarxa. Els mateixos casos s'han comprovat a Chromium sense
++  capçalera: la taula, «sota», els avisos, 5 preguntes només dels 20 primers
++  del tram, la nota 10,0 i el CSV. Convé passar-la amb
++  `npm install --no-save jsdom`.
++- També a Chromium, al lloc de l'alumne:
++  - una pista dona `pista` i dues donen `pistes`;
++  - un error, una pista i un encert donen `segon`;
++  - el codi que en surt és RC4 amb les dates.
++- Hi ha una fixture RC3 real, generada abans del canvi, que es continua llegint
++  igual.
+diff --git a/TODO-AI.md b/TODO-AI.md
+index edea5ce..caf908b 100644
+--- a/TODO-AI.md
++++ b/TODO-AI.md
+@@ -19,7 +19,7 @@ moved on and this file did not — trust the code, then fix this file.
+ | `README.md` | what the product is |
+ | `HANDOVER.md` | project history and current state |
+ | `AUTHORING-GUIDE.md` §4bis | the 4-level difficulty scale; read before touching content |
+-| `CODIS.md` | the verification-code format (RC3), including its two hard ceilings |
++| `CODIS.md` | the verification-code format (RC4), including its two hard ceilings |
+ | `DESPLEGAMENT.md` | what must never be published, and why |
+ | `tools/lib.py` | the content engine; `Q()`, `D()`, `DT()`, `dificultats()`, `blocs()` |
+ | `tools/build.py` | `_gradua()` and `_informa_graduacio()` — the difficulty ordering |
+@@ -343,7 +343,7 @@ test to make your change pass, stop and reconsider.
+    submitted. Test: "l'ordre de codificació és append-only" in
+    `tests/codi.test.js`.
+ 
+-2. **The RC3 format has two hard ceilings: 217 items per sheet and 12
++2. **The RC4 format has two hard ceilings: 217 items per sheet and 12
+    sheets.** Both used to overflow *silently*, producing a code that reported
+    `integre: true` with all work lost. They are now explicit
+    (`MAX_ITEMS`, `MAX_FULLS` in `js/codi.js`) and checked at build time
+diff --git a/WORKFLOW-EXAMEN.md b/WORKFLOW-EXAMEN.md
+index 4324537..bd87b5e 100644
+--- a/WORKFLOW-EXAMEN.md
++++ b/WORKFLOW-EXAMEN.md
+@@ -14,22 +14,23 @@ configure to close the gap. Read it before touching any code.
+ > escrita** tab:
+ >
+ > - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Five
+->   questions per student, drawn at random from the exercises *that student*
+->   has done, weighted so the most recent tram is likeliest. Nine fixed trams
+->   per course, hardcoded in `js/calendari.js` and shared with the student
+->   site. Groups of three trams form a cycle; when a new one starts the count
+->   resets. Output: one printable document with every exam and another with
+->   every answer key.
++>   questions per student, drawn ONLY from the first 20 exercises that
++>   student did inside the examined tram (by date of first attempt; nothing
++>   from earlier trams, nothing from rest weeks), plus a per-tram work grade
++>   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
++>   one hint 0.95, two or more hints 0.8, second attempt 0.7, failed 0).
++>   Nine fixed trams per course, hardcoded in `js/calendari.js`
++>   (`FEINA_MINIMA`/`FEINA_MAXIMA` = 10/20 live there too). Output: one
++>   printable document with every exam, another with every answer key, and a
++>   CSV of grades.
+ > - **Examen personalitzat a un alumne** — what this document describes.
+ >
+ > Three things a future agent needs to know before touching it:
+ >
+-> 1. **A code carries the date it was generated, not the date of each
+->    exercise.** The standard mode reconstructs when each exercise was done by
+->    diffing a student's successive codes. It therefore needs the *whole*
+->    submission history in the response sheet, not just the latest row. A
+->    student with a single submission gets an exam plus an explicit warning
+->    that the tram split means nothing for them.
++> 1. **RC4 codes carry the date of first attempt of every exercise done in
++>    the last 12 weeks, in order** (`js/codi.js`, DATES block). One code is
++>    enough. Legacy RC1-RC3 codes carry no dates: for those the analyser still
++>    reconstructs dates by diffing successive codes, and flags it.
+ > 2. **The trams are not contiguous** — a week off between them, four at
+ >    Christmas, none in the third term — so they are a table, not
+ >    `floor((date - start) / 21 days)`. `js/calendari.js` is the single
+diff --git a/js/calendari.js b/js/calendari.js
+index f3971ed..bc497ec 100644
+--- a/js/calendari.js
++++ b/js/calendari.js
+@@ -14,13 +14,22 @@
+    l'analitzador, però aquestes són les del curs i són les que valen si ningú
+    no hi toca res.
+ 
+-   TRACTAMENT DELS FORATS. Una data que cau entre dos trams (la setmana de
+-   descans, o Nadal) s'atribueix al tram que acaba de tancar, no al següent.
+-   El motiu: el senyal que tenim és el dia en què l'alumne ENVIA el codi, i
+-   un codi enviat el dimecres següent al tancament reporta gairebé sempre
+-   feina feta durant el tram, no durant la festa. Atribuir-la al tram
+-   següent la faria comptar dues vegades: ja hauria entrat a l'examen que
+-   s'acaba de fer. */
++   TRACTAMENT DELS FORATS. Hi ha dues preguntes diferents i cadascuna té la
++   seva funció:
++
++   · tramDe(data) — per a la data en què s'ENVIA un codi. Una data que cau
++     entre dos trams (la setmana de descans, o Nadal) s'atribueix al tram
++     que acaba de tancar, no al següent: un codi enviat el dimecres següent
++     al tancament reporta gairebé sempre feina feta durant el tram, no
++     durant la festa. És una estimació, i només fa falta amb els codis
++     antics (RC1-RC3), que no porten la data de cada exercici.
++
++   · tramExacte(data) — per a la data en què es va FER un exercici, que els
++     codis RC4 ja porten. Aquí no cal estimar res, i la regla és la que diu
++     el professorat: el tram són les seves tres setmanes. La feina d'una
++     setmana de descans, d'abans del curs o de després no és de cap tram.
++     Per això l'examen d'un tram no pot incloure mai exercicis d'abans del
++     seu primer dia. */
+ (function (global) {
+   "use strict";
+ 
+@@ -39,6 +48,12 @@
+     ["2027-05-03", "2027-05-23"]
+   ];
+   var PER_TRIMESTRE = 3;
++  /* Feina demanada per tram: entre 10 i 20 exercicis. Com més, més nota,
++     però per sobre del màxim el volum ja no puja la nota. Viuen aquí, i no a
++     l'analitzador, perquè el lloc de l'alumne i l'analitzador han de dir el
++     mateix número: aquest fitxer s'injecta a l'analitzador en compilar. */
++  var FEINA_MINIMA = 10;
++  var FEINA_MAXIMA = 20;
+   var DIES_AVIS = 5;          /* s'avisa quan en falten aquests o menys */
+   var AVISOS_MAX = 2;         /* dos cops per tram, i en dies diferents */
+   var CLAU = "repas.avis.tram.";
+@@ -86,6 +101,18 @@
+     return L.length - 1;
+   }
+ 
++  /* Índex del tram on es va FER una feina, o `null` si la data no cau dins
++     de cap tram (setmana de descans, abans o després del curs). Vegeu la
++     capçalera: és la regla dels codis que ja porten la data de cada
++     exercici, i no hi ha cap estimació. */
++  function tramExacte(d, trams) {
++    var L = llista(trams), x = nomesDia(d);
++    for (var i = 0; i < L.length; i++) {
++      if (x >= nomesDia(L[i].inici) && x <= nomesDia(L[i].fi)) return i;
++    }
++    return null;
++  }
++
+   /* El tram que s'està cursant ara mateix, o `null` si som en un forat,
+      abans de començar el curs o després d'acabar-lo. */
+   function tramEnCurs(ara, trams) {
+@@ -135,19 +162,35 @@
+     return { tram: t, falten: falten, avui: avui, cop: ja.length + 1 };
+   }
+ 
+-  function textAvis(av) {
++  /* `feta`, si es coneix, és quants exercicis porta l'alumne en aquest tram.
++     És opcional: aquest fitxer no depèn de ningú, i si el recompte no es pot
++     fer l'avís surt igual, sense la xifra. */
++  function textAvis(av, feta) {
+     var d = av.falten;
+     var quan = d === 0 ? "avui" : (d === 1 ? "demà" : "d'aquí a " + d + " dies");
++    var xifra = "";
++    if (typeof feta === "number" && feta >= 0) {
++      xifra = " Hi portes " + feta + (feta === 1 ? " exercici" : " exercicis")
++        + " i se'n demanen entre " + FEINA_MINIMA + " i " + FEINA_MAXIMA + ".";
++    }
+     return "El tram " + (av.tram.i + 1) + " es tanca " + quan
+       + " (" + ("0" + av.tram.fi.getDate()).slice(-2) + "/"
+-      + ("0" + (av.tram.fi.getMonth() + 1)).slice(-2) + ")."
+-      + " Si vols que la feina d'aquestes setmanes hi compti, envia el codi"
+-      + " abans no acabi.";
++      + ("0" + (av.tram.fi.getMonth() + 1)).slice(-2) + ")." + xifra
++      + " Envia el codi abans no acabi, que és amb el que es prepara l'examen.";
+   }
+ 
+   function mostra(ara, trams) {
+     var av = toca(ara, trams);
+     if (!av || !global.document) return null;
++    /* El recompte el sap fer el panell del codi (js/codi-ui.js), que es
++       carrega després d'aquest fitxer. Dins d'un try: és una xifra de més a
++       l'avís, i si falla, l'avís ha de sortir igualment. */
++    var feta = null;
++    try {
++      if (global.RE_CODI_UI && global.RE_CODI_UI.feinaDelTram) {
++        feta = global.RE_CODI_UI.feinaDelTram(av.tram.i, trams).n;
++      }
++    } catch (e) { feta = null; }
+     var main = global.document.querySelector("main.embolcall")
+       || global.document.body;
+     if (!main) return null;
+@@ -155,7 +198,7 @@
+     box.className = "avis-tram";
+     box.setAttribute("role", "status");
+     box.innerHTML = '<span></span><button type="button" aria-label="Tanca l\'avís">×</button>';
+-    box.querySelector("span").textContent = textAvis(av);
++    box.querySelector("span").textContent = textAvis(av, feta);
+     box.querySelector("button").onclick = function () { box.remove(); };
+     main.insertBefore(box, main.firstChild);
+     apuntaAvis(av.tram.i, av.avui);
+@@ -165,10 +208,13 @@
+   global.RE_CALENDARI = {
+     TRAMS: TRAMS,
+     PER_TRIMESTRE: PER_TRIMESTRE,
++    FEINA_MINIMA: FEINA_MINIMA,
++    FEINA_MAXIMA: FEINA_MAXIMA,
+     DIES_AVIS: DIES_AVIS,
+     AVISOS_MAX: AVISOS_MAX,
+     llista: llista,
+     tramDe: tramDe,
++    tramExacte: tramExacte,
+     tramEnCurs: tramEnCurs,
+     diesFinsAlTancament: diesFinsAlTancament,
+     toca: toca,
+diff --git a/js/codi-ui.js b/js/codi-ui.js
+index fc33fe9..b0167e0 100644
+--- a/js/codi-ui.js
++++ b/js/codi-ui.js
+@@ -57,18 +57,67 @@ window.RE_CODI_UI = (function () {
+   ].join("");
+ 
+   function comptes() {
+-    var T = window.RE_TAULES, c = { net: 0, segon: 0, pista: 0, fallat: 0 }, fets = 0, total = 0;
++    var T = window.RE_TAULES, c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0 }, fets = 0, total = 0;
+     Object.keys(T.fulls).forEach(function (k) {
+       var taula = T.fulls[k], p = window.RE.llegeix(+k).items || {};
+       total += taula.items.length;
+       taula.items.forEach(function (id) {
+-        var e = (p[id] || {}).estat;
++        var it = p[id] || {}, e = it.estat;
++        if (e === "pista" && (it.npis || 0) >= 2) e = "pistes";
+         if (e && e !== "vist") { c[e] = (c[e] || 0) + 1; fets++; }
+       });
+     });
+     return { c: c, fets: fets, total: total };
+   }
+ 
++  /* Quants exercicis porta l'alumne al tram `i`, comptats per la data del
++     primer intent i amb el mateix calendari que fa servir l'analitzador. */
++  function feinaDelTram(i, trams) {
++    var T = window.RE_TAULES, C = window.RE_CALENDARI, n = 0;
++    if (!T || !C || !window.RE) return { n: 0 };
++    Object.keys(T.fulls).forEach(function (k) {
++      var p = window.RE.llegeix(+k).items || {};
++      T.fulls[k].items.forEach(function (id) {
++        var it = p[id];
++        if (!it || !it.tf || !it.estat || it.estat === "vist") return;
++        if (C.tramExacte(new Date(it.tf), trams) === i) n++;
++      });
++    });
++    return { n: n };
++  }
++
++  function dm(d) {
++    return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
++  }
++
++  /* La línia del tram per a la finestra del codi. Diu on és l'alumne
++     respecte de la feina demanada (entre 10 i 20 per tram) i, en una setmana
++     de descans, que el que faci ara no compta per a cap tram. */
++  function textTram() {
++    var C = window.RE_CALENDARI;
++    if (!C || !C.tramEnCurs) return null;
++    var ara = new Date(), t = C.tramEnCurs(ara);
++    if (t) {
++      var n = feinaDelTram(t.i).n;
++      return {
++        poc: n < C.FEINA_MINIMA,
++        html: "<b>Tram " + (t.i + 1) + "</b> (fins al " + dm(t.fi) + "): hi portes <b>" + n
++          + "</b> " + (n === 1 ? "exercici" : "exercicis") + ". Se'n demanen entre "
++          + C.FEINA_MINIMA + " i " + C.FEINA_MAXIMA + (n > C.FEINA_MAXIMA
++            ? "; per a la nota i l'examen només compten els " + C.FEINA_MAXIMA + " primers."
++            : ", i com més en facis, més nota.")
++      };
++    }
++    var L = C.llista(), seg = null;
++    for (var i = 0; i < L.length; i++) { if (L[i].inici > ara) { seg = L[i]; break; } }
++    if (!seg) return null;
++    return {
++      poc: false,
++      html: "Ara no hi ha cap tram en curs: el que facis aquests dies no compta per a "
++        + "cap tram. El <b>tram " + (seg.i + 1) + "</b> comença el " + dm(seg.inici) + "."
++    };
++  }
++
+   /* Frase de resum. A propòsit no diu cap nota: repàs-ESO és pràctica, i si
+      l'alumne veu una nota cada vegada que mira el codi, deixarà d'obrir
+      pistes i evitarà els exercicis difícils. Volum i cobertura sí que hi són:
+@@ -77,7 +126,8 @@ window.RE_CODI_UI = (function () {
+     var t = [];
+     if (x.c.net) t.push(x.c.net + " a la primera");
+     if (x.c.segon) t.push(x.c.segon + " al segon intent");
+-    if (x.c.pista) t.push(x.c.pista + " amb pista");
++    if (x.c.pista) t.push(x.c.pista + " amb una pista");
++    if (x.c.pistes) t.push(x.c.pistes + " amb dues pistes o més");
+     if (x.c.fallat) t.push(x.c.fallat + " fallats");
+     return x.fets + (x.fets === 1 ? " exercici" : " exercicis") +
+       (t.length ? ": " + t.join(", ") : "") + ".";
+@@ -108,6 +158,8 @@ window.RE_CODI_UI = (function () {
+         '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
+     } else {
+       codi = window.RE_CODI.genera(window.RE_CODI.recull(null));
++      var tram = null;
++      try { tram = textTram(); } catch (e) { tram = null; }
+       fons.innerHTML =
+         '<div id="re-codi-fin"><div id="re-codi-cap">' +
+         "<div><h2>El teu codi</h2>" +
+@@ -117,7 +169,9 @@ window.RE_CODI_UI = (function () {
+         '<div id="re-codi-caixa"></div>' +
+         '<div class="re-acc"><button class="re-btn" id="re-codi-copia">Copia el codi</button>' +
+         '<button class="re-btn buit" id="re-codi-tanca2">Tanca</button></div>' +
+-        (x.fets < 10
++        (tram ? '<p class="' + (tram.poc ? "re-avis" : "re-petit") + '" style="margin-top:.75rem">'
++          + tram.html + "</p>" : "") +
++        (!tram && x.fets < 10
+           ? '<p class="re-avis">Has fet <b>' + x.fets + "</b> " +
+             (x.fets === 1 ? "exercici" : "exercicis") + ". El codi diu " +
+             "exactament quants n'has fet i quins, aix\u00ed que si el " +
+@@ -226,7 +280,13 @@ window.RE_CODI_UI = (function () {
+           /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
+              que compti com a ja resolt: recuperar la feina no ha de tornar a
+              obrir tots els exercicis com si s'haguessin de fer. */
+-          window.RE.apunta(f.n, it.id, { estat: it.estat, imp: 1, tancat: 1 });
++          /* Si el codi porta la data del primer intent, es recupera: sense
++             ella, la feina recuperada no comptaria per a cap tram. L'ordre
++             dins del dia es conserva sumant-hi l'ordre del codi en ms. */
++          var dades = { estat: it.estat === "pistes" ? "pista" : it.estat, imp: 1, tancat: 1 };
++          if (it.estat === "pistes") dades.npis = 2;
++          if (it.feta) dades.tf = it.feta.getTime() + (it.ordre || 0);
++          window.RE.apunta(f.n, it.id, dades);
+           posats++;
+         });
+       });
+@@ -281,5 +341,5 @@ window.RE_CODI_UI = (function () {
+     document.addEventListener("DOMContentLoaded", munta);
+   } else { munta(); }
+ 
+-  return { munta: munta, obre: obre };
++  return { munta: munta, obre: obre, feinaDelTram: feinaDelTram };
+ })();
+diff --git a/js/codi.js b/js/codi.js
+index 17e1231..659d5e9 100644
+--- a/js/codi.js
++++ b/js/codi.js
+@@ -16,16 +16,16 @@
+ 
+    ── FORMAT ────────────────────────────────────────────────────────────────
+ 
+-     RC3 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE [ META ] KK
++     RC4 SSS DDD HH MMM  [ per cada full: G + grups de 4 ]  [ DIAG ] EEEEEEEEE [ META ] [ DATES ] KK
+ 
+-     RC3   3   marca i versió
++     RC4   3   marca i versió (RC1, RC2 i RC3 es continuen llegint)
+      SSS   3   salt aleatori
+      DDD   3   dia (dies des de l'1/9/2025)
+      HH    2   hora (minuts/2 des de mitjanit)
+      MMM   3   màscara: bits 0-11 = fulls presents, bit 12 = hi ha diagnòstic,
+-               bit 13 = hi ha bloc META
++               bit 13 = hi ha bloc META, bit 14 = hi ha bloc DATES
+      G     1   nombre de grups d'aquest full
+-     ····  4   un grup = 7 ítems en base 6
++     ····  4   un grup = 7 ítems en base 7 (base 6 fins a RC3)
+      DIAG  9   15 destreses del test inicial, en base 8 (si el bit 12 és actiu)
+      EEEE  9   les 3 etiquetes d'error més repetides (índex 2 car. + compte 1)
+      META  8   com s'ha fet la feina (si el bit 13 és actiu):
+@@ -35,6 +35,12 @@
+                  R    exercicis repetits un cop ja tancats (0-31)
+                  S    vegades que s'ha reiniciat un full (0-31)
+      ORIG  6   només si I > 0: dia (3) + salt (3) de l'ÚLTIM codi importat
++     DATES     (si el bit 14 és actiu) el primer intent de cada exercici de
++               les últimes setmanes, en l'ordre en què es van fer:
++                 FF  finestra en dies · GG nombre de dies amb feina
++                 per dia, del més antic al més recent:
++                   DD dies abans del codi · NN exercicis d'aquell dia
++                   per exercici, en ordre: F full (1) + PP posició (2)
+      KK    2   dos caràcters de control
+ 
+    ── PER QUÈ HI HA EL BLOC META ────────────────────────────────────────────
+@@ -52,8 +58,20 @@
+    amb els codis que ja té al full de respostes i dir de qui era. Si era d'un
+    altre alumne, ho sap del cert; si era d'ell mateix, també, i llavors calla.
+ 
+-   Estat de cada ítem (base 6): 0 per fer · 1 net · 2 al segon intent ·
+-   3 amb pista · 4 fallat · 5 començat sense respondre.
++   Estat de cada ítem: 0 per fer · 1 net · 2 al segon intent · 3 amb una
++   pista · 4 fallat · 5 començat sense respondre · 6 amb dues pistes o més.
++   L'estat 6 és de RC4: fins a RC3 "pista" volia dir qualsevol nombre de
++   pistes, i per això un codi antic es llegeix com a una sola pista.
++
++   ── PER QUÈ HI HA RC4 ───────────────────────────────────────────────────
++
++   El mini-examen de 3 setmanes demana dues coses que RC3 no podia dir:
++   si l'alumne va obrir una pista o dues (no penalitzen igual), i QUAN va
++   fer cada exercici (l'examen d'un tram només pot sortir de la feina
++   d'aquelles tres setmanes, i només compten els 20 primers). Fins ara la
++   data es deduïa comparant enviaments, i un codi enviat tard posava la
++   feina al tram equivocat. Set estats caben en quatre caràcters igual que
++   sis (7^7 < 32^4), així que el sostre de 217 ítems per full no es mou.
+ 
+    Els grups finals que són tot zeros no s'escriuen: un alumne que ha fet els
+    20 primers exercicis d'un full de 140 no arrossega 120 zeros.
+@@ -104,8 +122,15 @@ window.RE_CODI = (function () {
+      tots els codis haurien dit la mateixa data, en silenci i sense que res
+      avisés, i l'anàlisi per trimestres hauria quedat inservible. Costava un
+      caràcter arreglar-ho. El lector accepta les dues versions. */
+-  var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3 };
+-  var VERSIO = "RC3";
++  var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3, RC4: 3 };
++  var BASE = { RC1: 6, RC2: 6, RC3: 6, RC4: 7 };
++  var VERSIO = "RC4";
++  /* Quants dies enrere es data el primer intent: 12 setmanes. Cobreixen un
++     trimestre sencer de trams des del seu últim dia (el més llarg, el primer,
++     en fa 77 amb les setmanes de descans), així que un alumne que només
++     envia el codi a final de trimestre encara hi porta la data de tot. Més
++     enllà, l'exercici viatja sense data i no compta per a cap tram. */
++  var FINESTRA_DATES = 84;
+ 
+   /* ── ELS DOS SOSTRES DEL FORMAT, ESCRITS ─────────────────────────────────
+ 
+@@ -129,18 +154,51 @@ window.RE_CODI = (function () {
+   var GRUPS_MAX = 31;
+   var MAX_ITEMS = GRUPS_MAX * 7;        /* 217 */
+   var MAX_FULLS = 12;
+-  var ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
++  var ESTATS = ["", "net", "segon", "pista", "fallat", "vist", "pistes"];
+   /* `pista` val MÉS que `segon`, no menys. Amb 6 la taula premiava
+      endevinar per damunt de demanar ajuda: amb quatre opcions i dos intents,
+      provar a l'atzar acaba en `segon` la meitat de les vegades (7 punts),
+      mentre que llegir la pista i respondre bé en donava 6 garantits. Com que
+      d'aquests estats en surt una nota, l'alumne que calcula aprenia a no
+      demanar mai una pista, que és exactament el contrari del que volem.
+-     Ara: encertar a la primera (10) > amb pista (8) > al segon intent (7). */
+-  var PES = { net: 10, segon: 7, pista: 8, fallat: 0, vist: 0, "": 0 };
++     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8) > al
++     segon intent (7). La primera pista gairebé no penalitza a posta: és
++     repàs d'ESO i hi ha coses que no es recorden. */
++  var PES = { net: 10, pista: 9.5, pistes: 8, segon: 7, fallat: 0, vist: 0, "": 0 };
++
++  /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
++
++     `estats` són els dels exercicis del tram EN L'ORDRE EN QUÈ ES VAN FER.
++     Només compten els `maxim` primers (20). Cada un aporta el seu valor
++     sobre 10 (a la primera 1, una pista 0,95, dues 0,8, segon intent 0,7,
++     fallat 0), i amb la suma x:
++
++         nota = min(10, 8 · ∛(x/10))
++
++     10 exercicis a la primera fan un 8 i 20 fan un 10. Un exercici fallat
++     no suma, però tampoc no resta: fer-ne un de més no pot baixar mai la
++     nota, que és el que convé si no es vol que evitin els difícils. */
++  function notaTram(estats, maxim, valors) {
++    var max = maxim > 0 ? maxim : 20, v = valors || PES;
++    var compten = (estats || []).slice(0, max), x = 0;
++    compten.forEach(function (e) { x += (+v[e] || 0) / 10; });
++    var nota = x > 0 ? Math.min(10, 8 * Math.pow(x / 10, 1 / 3)) : 0;
++    return { n: (estats || []).length, compten: compten.length, x: x, nota: nota };
++  }
+ 
+   function val(c) { return ALF.indexOf(c); }
+ 
++  /* Dia (dies des de l'època) d'una data, segons el calendari LOCAL: un
++     exercici fet a les 00:30 és d'aquell dia, no del d'abans en UTC. */
++  function diaDe(d) {
++    return Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - EPOCA) / 86400000);
++  }
++  /* I a la inversa: el migdia local d'aquell dia, que no depèn de l'hora. */
++  function dataDeDia(n) {
++    var u = new Date(EPOCA + n * 86400000);
++    return new Date(u.getUTCFullYear(), u.getUTCMonth(), u.getUTCDate(), 12, 0, 0, 0);
++  }
++
+   /* Enter -> n caràcters base32, amb zeros al davant. */
+   function enc(num, n) {
+     var s = "";
+@@ -193,8 +251,7 @@ window.RE_CODI = (function () {
+     var salt = "";
+     for (var i = 0; i < 3; i++) salt += ALF.charAt(Math.floor(Math.random() * 32));
+ 
+-    var dia = Math.floor((Date.UTC(ara.getFullYear(), ara.getMonth(), ara.getDate()) - EPOCA) / 86400000);
+-    dia = Math.max(0, Math.min(32767, dia));
++    var dia = Math.max(0, Math.min(32767, diaDe(ara)));
+     var hora = Math.min(719, Math.floor((ara.getHours() * 60 + ara.getMinutes()) / 2));
+ 
+     var meta = opcions.meta || null;
+@@ -216,15 +273,18 @@ window.RE_CODI = (function () {
+       }
+     });
+ 
++    var ambDates = fulls.some(function (f) { return !!f.dates; });
+     var mask = 0;
+     fulls.forEach(function (f) { mask |= (1 << (f.n - 1)); });
+     if (diag) mask |= (1 << 12);
+     if (meta) mask |= (1 << 13);
++    if (ambDates) mask |= (1 << 14);
+ 
+     var cos = VERSIO + salt + enc(dia, CAR_DIA[VERSIO]) + enc(hora, 2) + enc(mask, 3);
+ 
+     fulls.forEach(function (f) {
+       var codis = f.estats.map(function (e) { return Math.max(0, ESTATS.indexOf(e || "")); });
++      var base = BASE[VERSIO];
+       /* Els grups finals buits no s'escriuen. */
+       var ultim = -1;
+       codis.forEach(function (v, i) { if (v) ultim = i; });
+@@ -232,7 +292,7 @@ window.RE_CODI = (function () {
+       cos += enc(grups, 1);
+       for (var g = 0; g < grups; g++) {
+         var num = 0;
+-        for (var k = 0; k < 7; k++) num = num * 6 + (codis[g * 7 + k] || 0);
++        for (var k = 0; k < 7; k++) num = num * base + (codis[g * 7 + k] || 0);
+         cos += enc(num, 4);
+       }
+     });
+@@ -279,6 +339,36 @@ window.RE_CODI = (function () {
+       }
+     }
+ 
++    if (ambDates) {
++      /* Només els exercicis fets (ni els per fer ni els oberts sense
++         respondre) que tenen data i cauen dins de la finestra. S'escriuen en
++         ordre cronològic perquè l'analitzador sàpiga quins són els 20
++         primers de cada tram. */
++      var feta = [];
++      fulls.forEach(function (f) {
++        (f.dates || []).forEach(function (t, i) {
++          var e = f.estats[i];
++          if (!t || !e || e === "vist") return;
++          var off = dia - diaDe(new Date(t));
++          if (off < 0) off = 0;              /* rellotge avançat: compta com avui */
++          if (off > FINESTRA_DATES) return;
++          feta.push({ n: f.n, i: i, t: +t, off: off });
++        });
++      });
++      feta.sort(function (a, b) { return a.t - b.t || a.n - b.n || a.i - b.i; });
++      var dies = [];
++      feta.forEach(function (x) {
++        var g = dies[dies.length - 1];
++        if (!g || g.off !== x.off) { g = { off: x.off, items: [] }; dies.push(g); }
++        g.items.push(x);
++      });
++      cos += enc(FINESTRA_DATES, 2) + enc(dies.length, 2);
++      dies.forEach(function (g) {
++        cos += enc(g.off, 2) + enc(g.items.length, 2);
++        g.items.forEach(function (x) { cos += enc(x.n, 1) + enc(x.i, 2); });
++      });
++    }
++
+     return formata(cos + control(cos));
+   }
+ 
+@@ -290,7 +380,7 @@ window.RE_CODI = (function () {
+     if (!s) return { ok: false, error: "Codi buit" };
+     var versio = s.slice(0, 3);
+     if (!CAR_DIA[versio]) {
+-      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC2 o RC3)" };
++      return { ok: false, error: "No sembla un codi de repàs-ESO (ha de començar per RC4, o per RC3, RC2 o RC1 si és antic)" };
+     }
+     if (s.length < 15) return { ok: false, error: "Codi massa curt" };
+ 
+@@ -308,7 +398,7 @@ window.RE_CODI = (function () {
+     var data = new Date(EPOCA + dia * 86400000);
+     var minuts = hora * 2;
+ 
+-    var fulls = [], r;
++    var fulls = [], r, base = BASE[versio];
+     for (var n = 1; n <= MAX_FULLS; n++) {
+       if (!(mask & (1 << (n - 1)))) continue;
+       if (p >= cos.length) return { ok: false, error: "El codi s'acaba abans d'hora" };
+@@ -317,7 +407,7 @@ window.RE_CODI = (function () {
+       for (var g = 0; g < grups; g++) {
+         var num = dec(s.slice(p, p + 4)); p += 4;
+         var tros = [];
+-        for (var k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
++        for (var k = 0; k < 7; k++) { tros.unshift(num % base); num = Math.floor(num / base); }
+         codis = codis.concat(tros);
+       }
+       var taula = T.fulls[n] || T.fulls[String(n)];
+@@ -375,10 +465,40 @@ window.RE_CODI = (function () {
+       }
+     }
+ 
++    /* Bloc DATES (només RC4). `dates: null` vol dir "aquest codi no porta
++       dates" i l'analitzador les haurà de deduir dels enviaments; si el bloc
++       hi és, un exercici fet que no hi surti és d'abans de la finestra. */
++    var dates = null;
++    if (versio === "RC4" && (mask & (1 << 14))) {
++      var curt = { ok: false, error: "El codi s'acaba abans d'hora" };
++      if (p + 4 > cos.length) return curt;
++      var fin = dec(s.slice(p, p + 2)), nDies = dec(s.slice(p + 2, p + 4)); p += 4;
++      dates = { finestra: fin, desde: dataDeDia(dia - fin), ignorats: 0 };
++      var perFull = {};
++      fulls.forEach(function (f) { perFull[f.n] = f; });
++      var ordre = 0;
++      for (var g2 = 0; g2 < nDies; g2++) {
++        if (p + 4 > cos.length) return curt;
++        var off = dec(s.slice(p, p + 2)), nIt = dec(s.slice(p + 2, p + 4)); p += 4;
++        if (p + 3 * nIt > cos.length) return curt;
++        var dItem = dataDeDia(dia - off);
++        for (var q = 0; q < nIt; q++) {
++          var fx = perFull[dec(s.charAt(p))], ix = fx && fx.items[dec(s.slice(p + 1, p + 3))];
++          p += 3;
++          if (ix && ix.estat && ix.estat !== "vist" && !ix.feta) {
++            ix.feta = dItem;
++            ix.ordre = ordre++;
++          } else {
++            dates.ignorats++;
++          }
++        }
++      }
++    }
++
+     r = {
+       ok: true, integre: integre, salt: salt, versio: versio,
+       data: data, hora: Math.floor(minuts / 60), minut: minuts % 60,
+-      fulls: fulls, diag: diag, errs: errs, meta: meta,
++      fulls: fulls, diag: diag, errs: errs, meta: meta, dates: dates,
+       error: integre ? null : "Els caràcters de control no quadren: el codi s'ha copiat malament o s'ha modificat"
+     };
+     r.resum = resum(r);
+@@ -389,7 +509,7 @@ window.RE_CODI = (function () {
+      estats. Així no hi pot haver un codi on la nota i el detall es
+      contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
+   function resum(r) {
+-    var c = { net: 0, segon: 0, pista: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
++    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
+     var perDif = { 1: 0, 2: 0, 3: 0, 4: 0 };   /* trivial, directa, encadenada, completa */
+     r.fulls.forEach(function (f) {
+       f.items.forEach(function (it) {
+@@ -429,19 +549,25 @@ window.RE_CODI = (function () {
+       var taula = T.fulls[n] || T.fulls[String(n)];
+       if (!taula) return;
+       var p = window.RE.llegeix(n).items || {};
++      var dates = [];
+       var estats = taula.items.map(function (id) {
+         var it = p[id] || {};
+         if (it.imp && it.estat) importats++;
+         repeticions += (it.rep || 0);
++        dates.push(it.tf || 0);
+         /* Es compta l'historial sencer (`errs`), no només l'error pendent:
+            un error rectificat al segon intent segueix sent un error comès, i
+            si es repeteix el professorat l'ha de veure. `err` és el format
+            antic i només s'usa si l'ítem encara no té historial. */
+         var errsIt = it.errs && it.errs.length ? it.errs : (it.err ? [it.err] : []);
+         errsIt.forEach(function (e) { compte[e] = (compte[e] || 0) + 1; });
++        /* El registre desa "pista" tant si se n'ha obert una com dues o
++           tres: no ha canviat de vocabulari. On es distingeix és aquí, amb
++           el comptador de pistes obertes. */
++        if (it.estat === "pista" && (it.npis || 0) >= 2) return "pistes";
+         return it.estat || "";
+       });
+-      fulls.push({ n: n, estats: estats });
++      fulls.push({ n: n, estats: estats, dates: dates });
+     });
+ 
+     var errs = Object.keys(compte)
+@@ -476,6 +602,7 @@ window.RE_CODI = (function () {
+   return {
+     genera: genera, llegeix: llegeix, recull: recull, empremta: empremta,
+     neteja: neteja, formata: formata, ESTATS: ESTATS, PES: PES,
++    notaTram: notaTram, FINESTRA_DATES: FINESTRA_DATES, dataDeDia: dataDeDia,
+     /* Els sostres del format, exportats perquè el build i les proves els
+        comprovin contra el banc de debò en lloc de repetir el número. */
+     MAX_ITEMS: MAX_ITEMS, MAX_FULLS: MAX_FULLS
+diff --git a/js/nucli.js b/js/nucli.js
+index 504dfcd..6230532 100644
+--- a/js/nucli.js
++++ b/js/nucli.js
+@@ -21,7 +21,8 @@
+ 
+    Els comptadors `nint` (intents) i `npis` (pistes) són acumulats de totes
+    les visites, no de la sessió, i són ells els que decideixen l'estat:
+-   encertar amb `npis > 0` és "pista", i encertar amb `nint > 1` és "segon",
++   encertar amb `nint > 1` és "segon" (amb pistes o sense), i encertar a la
++   primera amb `npis > 0` és "pista",
+    encara que els intents anteriors fossin d'una altra sessió o d'abans d'un
+    F5. La sessió ja no és una pissarra que s'esborri sola.
+ 
+@@ -36,11 +37,38 @@ window.RE = (function () {
+   function clauLS(full) { return "repas-eso:full" + full; }
+ 
+   function llegeix(full) {
++    var p;
+     try {
+-      return JSON.parse(localStorage.getItem(clauLS(full))) || { v: 1, items: {} };
++      p = JSON.parse(localStorage.getItem(clauLS(full)));
+     } catch (e) {
+       return { v: 1, items: {} };
+     }
++    if (!p) return { v: 1, items: {} };
++    if (!p.tfv) migraDates(full, p);
++    return p;
++  }
++
++  /* ── la data del primer intent ───────────────────────────────────────────
++
++     Cada exercici guarda `tf`: el moment en què es va respondre per primer
++     cop. És el que decideix a quin tram de 3 setmanes pertany, i en quin
++     ordre es va fer (només compten els 20 primers de cada tram). No canvia
++     mai més: ni en encertar al segon intent ni en repassar-lo.
++
++     Els exercicis fets abans que existís `tf` no en tenen. Se'ls posa una
++     sola vegada la data de l'última escriptura (`ts`), que és la millor
++     aproximació que hi ha, i es marca amb `tfa`. No es fa amb els importats
++     d'un codi (`imp`): la seva data real no és la de la importació. */
++  function migraDates(full, p) {
++    Object.keys(p.items || {}).forEach(function (id) {
++      var it = p.items[id];
++      if (it && it.estat && it.estat !== "vist" && !it.tf && !it.imp && it.ts) {
++        it.tf = it.ts;
++        it.tfa = 1;
++      }
++    });
++    p.tfv = 1;
++    desa(full, p);
+   }
+ 
+   function desa(full, p) {
+@@ -103,8 +131,12 @@ window.RE = (function () {
+      la sessió: només mira els comptadors acumulats de l'ítem. */
+   function estatDe(nint, npis, encert) {
+     if (!encert) return "fallat";
+-    if (npis > 0) return "pista";
++    /* El segon intent mana sobre les pistes. Si no fos així, obrir una pista
++       just després d'equivocar-se convertiria un segon intent (7) en un
++       encert amb pista (9,5) i esborraria gairebé tot l'error. Així, després
++       d'un error la pista no costa res, però tampoc no maquilla la nota. */
+     if (nint > 1) return "segon";
++    if (npis > 0) return "pista";
+     return "net";
+   }
+ 
+@@ -128,10 +160,12 @@ window.RE = (function () {
+        PRIMER error: si l'alumne se'n va ara, se'n va amb un "fallat" desat,
+        no amb un "vist" que no compta enlloc. */
+     var tancat = encert || nint >= 2;
+-    apunta(full, id, {
++    var dades = {
+       estat: estat, nint: nint, npis: npis,
+       intents: nint, pistes: npis, tancat: tancat ? 1 : 0
+-    });
++    };
++    if (!it.tf && (!it.estat || it.estat === "vist")) dades.tf = Date.now();
++    apunta(full, id, dades);
+     return { estat: estat, repas: false, tancat: tancat };
+   }
+ 
+diff --git a/tests/analitzador.test.js b/tests/analitzador.test.js
+index 18f03df..21a4dc7 100644
+--- a/tests/analitzador.test.js
++++ b/tests/analitzador.test.js
+@@ -723,31 +723,44 @@ seccio("Exàmens: ningú no desapareix en silenci");
+ }
+ 
+ // ─────────────────────────────────────────────────────────────────────────
+-seccio("Exàmens: un pes a zero es diu");
++seccio("Exàmens: només el tram examinat, els 20 primers i la nota de feina");
+ 
++/* Abans hi havia una secció que vigilava els pesos 3-2-1 entre trams. Els
++   pesos ja no existeixen: l'examen d'un tram surt només de la feina d'aquell
++   tram, per data exacta del primer intent (codis RC4). */
+ {
+   const { w, d } = obre();
+-  const INICI = new Date(2026, 8, 14);
+-  const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
+-    x.setHours(18, 0, 0, 0); return x; };
+-  obreExamens(w, d, fabrica(w, [
+-    [marca(dia(19)), "a@x.cat", "4tA", codiDe(w, [4], 12, dia(19))],
+-    [marca(dia(61)), "a@x.cat", "4tA", codiDe(w, [4], 30, dia(61))]
+-  ]));
++  const T = w.RE_TAULES, L = w.RE_CALENDARI.llista();
++  const dia = (t, k) => { const x = new Date(L[t].inici.getTime() + k * 86400000); x.setHours(18, 0, 0, 0); return x; };
++  const ids = T.fulls[4].items;
++  /* 12 exercicis al tram 1 i 25 al tram 2, tots amb data i en ordre. */
++  const estats = ids.map((_, i) => (i < 37 ? "net" : ""));
++  const dates = ids.map((_, i) => (i < 12 ? dia(0, i).getTime() : (i < 37 ? dia(1, Math.floor((i - 12) * 18 / 25)).getTime() + i : 0)));
++  const codi = w.RE_CODI.genera({ fulls: [{ n: 4, estats, dates }], ara: dia(1, 20) });
++  obreExamens(w, d, fabrica(w, [[marca(dia(1, 20)), "tot@x.cat", "4tA", codi]]));
+   d.getElementById("pr-va-lot").click();
+-  d.getElementById("lot-periode").value = "2";
++  d.getElementById("lot-periode").value = "1";
++  d.getElementById("lot-genera").click();
++  const fila = d.querySelector("#lot-taula tbody tr");
+ 
+-  prova("amb 3 2 1 no s'avisa de res", () => {
+-    d.getElementById("lot-pesos").value = "3 2 1";
+-    d.getElementById("lot-genera").click();
+-    assert.ok(!/no pot sortir mai/.test(d.getElementById("lot-resum").textContent));
++  prova("compta els 25 del tram i diu que només en compten 20", () => {
++    assert.ok(/^25\b/.test(fila.children[2].textContent.trim()), fila.children[2].textContent);
++    assert.ok(/20 primers/.test(fila.children[2].textContent), fila.children[2].textContent);
+   });
+-
+-  prova("amb un pes a 0 s'avisa que aquell tram és impossible", () => {
+-    d.getElementById("lot-pesos").value = "3 2 0";
+-    d.getElementById("lot-genera").click();
+-    const t = d.getElementById("lot-resum").textContent;
+-    assert.ok(/no pot sortir mai/.test(t), t.slice(0, 300));
++  prova("20 exercicis a la primera fan un 10 de nota de feina", () => {
++    assert.strictEqual(fila.children[4].textContent.trim(), "10,0");
++  });
++  const idsExamen = idsProva(w, d);
++  prova("cap pregunta és del tram anterior ni de més enllà dels 20 primers", () => {
++    const permesos = new Set(ids.slice(12, 32));
++    assert.ok(idsExamen.length === 5, idsExamen.join(","));
++    assert.ok(idsExamen.every(id => permesos.has(id)), idsExamen.join(","));
++  });
++  prova("hi ha un botó per baixar les notes", () => {
++    assert.ok(d.getElementById("lot-csv"));
++  });
++  prova("els pesos entre trams ja no hi són", () => {
++    assert.ok(!d.getElementById("lot-pesos"));
+   });
+ }
+ 
+diff --git a/tests/calendari.test.js b/tests/calendari.test.js
+index 1a2f740..bf00857 100644
+--- a/tests/calendari.test.js
++++ b/tests/calendari.test.js
+@@ -93,6 +93,30 @@ prova("un càlcul aritmètic hi fallaria (per això hi ha la taula)", () => {
+     "l'aritmètica i el calendari coincidirien: la prova ja no vigila res");
+ });
+ 
++// ─────────────────────────────────────────────────────────────────────────
++seccio("A quin tram pertany la feina, amb la data exacta");
++
++prova("la feina demanada és entre 10 i 20 exercicis", () => {
++  assert.strictEqual(C.FEINA_MINIMA, 10);
++  assert.strictEqual(C.FEINA_MAXIMA, 20);
++});
++
++prova("dins d'un tram, aquell tram", () => {
++  assert.strictEqual(C.tramExacte(dia("2026-09-14")), 0);
++  assert.strictEqual(C.tramExacte(dia("2026-10-04")), 0);
++  assert.strictEqual(C.tramExacte(dia("2027-04-12")), 7);
++});
++
++prova("una setmana de descans no és de cap tram", () => {
++  assert.strictEqual(C.tramExacte(dia("2026-10-07")), null);
++  assert.strictEqual(C.tramExacte(dia("2026-12-24")), null);
++});
++
++prova("abans i després del curs, tampoc", () => {
++  assert.strictEqual(C.tramExacte(dia("2026-08-30")), null);
++  assert.strictEqual(C.tramExacte(dia("2027-07-01")), null);
++});
++
+ // ─────────────────────────────────────────────────────────────────────────
+ seccio("Tram en curs i dies que falten");
+ 
+@@ -172,6 +196,12 @@ prova("el text diu quin tram és i quan es tanca", () => {
+   assert.ok(/04\/10/.test(t), t);
+ });
+ 
++prova("si es coneix la feina feta, l'avís la diu amb el mínim i el màxim", () => {
++  neteja();
++  const t = C.textAvis(C.toca(dia("2026-10-02")), 7);
++  assert.ok(/7 exercicis/.test(t) && /entre 10 i 20/.test(t), t);
++});
++
+ prova("diu «avui» l'últim dia i «demà» el penúltim", () => {
+   neteja();
+   assert.ok(/avui/.test(C.textAvis(C.toca(dia("2026-10-04")))));
+diff --git a/tests/codi.test.js b/tests/codi.test.js
+index f0b0864..f5c26f6 100644
+--- a/tests/codi.test.js
++++ b/tests/codi.test.js
+@@ -29,7 +29,7 @@ eval(fs.readFileSync(path.join(ARREL, "js/codi.js"), "utf8"));
+ const T = global.RE_TAULES, RE = global.RE_CODI, RE_NUCLI = global.RE;
+ 
+ const ALF = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+-const ESTATS = ["", "net", "segon", "pista", "fallat", "vist"];
++const ESTATS = ["", "net", "segon", "pista", "fallat", "vist", "pistes"];
+ 
+ /* Generador amb llavor: les proves han de sortir igual sempre. */
+ let llavor = 1234567;
+@@ -37,32 +37,32 @@ const rnd = () => { llavor = (llavor * 1103515245 + 12345) & 0x7fffffff; return
+ 
+ function fullsAleatoris(quins) {
+   return quins.map(n => ({
+-    n, estats: T.fulls[n].items.map(() => ESTATS[Math.floor(rnd() * 6)])
++    n, estats: T.fulls[n].items.map(() => ESTATS[Math.floor(rnd() * 7)])
+   }));
+ }
+ 
+ // ─────────────────────────────────────────────────────────────────────────
+ seccio("Empaquetat: 7 exercicis en 4 caràcters");
+ 
+-prova("6^7 cap en 32^4, o sigui que la correspondència pot ser injectiva", () => {
+-  assert.ok(Math.pow(6, 7) <= Math.pow(32, 4));
++prova("7^7 cap en 32^4: l'estat de les dues pistes no costa cap caràcter", () => {
++  assert.ok(Math.pow(7, 7) <= Math.pow(32, 4));
+ });
+ 
+-prova("les 279.936 combinacions donen 279.936 cadenes diferents", () => {
++prova("les 823.543 combinacions donen 823.543 cadenes diferents", () => {
+   const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
+   const vist = new Set();
+-  for (let g = 0; g < Math.pow(6, 7); g++) vist.add(enc(g, 4));
+-  assert.strictEqual(vist.size, Math.pow(6, 7), "hi ha col·lisions a l'empaquetat");
++  for (let g = 0; g < Math.pow(7, 7); g++) vist.add(enc(g, 4));
++  assert.strictEqual(vist.size, Math.pow(7, 7), "hi ha col·lisions a l'empaquetat");
+ });
+ 
+ prova("cap grup no es desempaqueta malament", () => {
+   const enc = (n, k) => { let s = ""; for (let i = 0; i < k; i++) { s = ALF[n % 32] + s; n = Math.floor(n / 32); } return s; };
+   const dec = s => { let n = 0; for (const c of s) n = n * 32 + ALF.indexOf(c); return n; };
+-  for (let g = 0; g < Math.pow(6, 7); g += 7) {   /* mostra densa, no exhaustiva */
++  for (let g = 0; g < Math.pow(7, 7); g += 7) {   /* mostra densa, no exhaustiva */
+     let num = dec(enc(g, 4)), tros = [];
+-    for (let k = 0; k < 7; k++) { tros.unshift(num % 6); num = Math.floor(num / 6); }
++    for (let k = 0; k < 7; k++) { tros.unshift(num % 7); num = Math.floor(num / 7); }
+     let o = g, esp = [];
+-    for (let k = 0; k < 7; k++) { esp.unshift(o % 6); o = Math.floor(o / 6); }
++    for (let k = 0; k < 7; k++) { esp.unshift(o % 7); o = Math.floor(o / 7); }
+     assert.deepStrictEqual(tros, esp);
+   }
+ });
+@@ -197,6 +197,20 @@ prova("la data no satura fins ben entrat el segle", () => {
+   });
+ });
+ 
++prova("els codis RC3 d'abans de les dues pistes es llegeixen igual", () => {
++  /* Codi real, generat amb js/codi.js tal com era abans de passar a RC4. Un
++     "pista" d'aleshores podia ser d'una pista o de més, i es llegeix com a
++     una sola: el benefici del dubte per a l'alumne. */
++  const r = RE.llegeix("RC3JG-X0BVH-68282-21JQ3-R4414-JER4C-3ZZ0Z-Z002Z-00020-ZV");
++  assert.ok(r.ok && r.integre, "un codi RC3 vàlid ha deixat de llegir-se");
++  assert.strictEqual(r.versio, "RC3");
++  assert.strictEqual(r.dates, null, "un codi antic no porta dates i no se n'hi ha d'inventar cap");
++  assert.strictEqual(r.resum.fets, 15);
++  assert.deepStrictEqual(r.fulls.map(f => f.n + ":" + f.items.filter(i => i.estat).map(i => i.id + "=" + i.estat).join(",")), [
++    "4:62a=net,62b=segon,62c=pista,62d=fallat,63a=vist,63b=pista,63c=net,63d=segon,63e=pista,63f=fallat,64a=vist,64b=pista",
++    "7:119=pista,120a=net,120b=net,120c=fallat,121a=segon"]);
++});
++
+ prova("els codis RC1 antics encara es llegeixen", () => {
+   /* Codi real generat abans d'ampliar el camp de data a 3 caràcters. Si
+      aquesta prova cau, els codis que el professorat ja hagi recollit deixen
+@@ -299,6 +313,13 @@ prova("demanar una pista no pot penalitzar més que fallar al primer intent", ()
+      damunt de demanar ajuda. Aquesta comprovació fixa l'ordre correcte. */
+   assert.ok(RE.PES.net > RE.PES.pista, "encertar a la primera ha de valer més que amb pista");
+   assert.ok(RE.PES.pista >= RE.PES.segon, "una pista no pot valer menys que un intent fallat");
++  assert.ok(RE.PES.pistes >= RE.PES.segon, "dues pistes tampoc no poden valer menys que un intent fallat");
++});
++
++prova("la primera pista gairebé no penalitza i la segona penalitza més", () => {
++  assert.deepStrictEqual([RE.PES.net, RE.PES.pista, RE.PES.pistes, RE.PES.segon, RE.PES.fallat],
++    [10, 9.5, 8, 7, 0], "els valors acordats amb el professorat han canviat");
++  assert.ok(RE.PES.net - RE.PES.pista < RE.PES.pista - RE.PES.pistes);
+ });
+ 
+ prova("la nota surt dels pesos publicats", () => {
+@@ -306,7 +327,7 @@ prova("la nota surt dels pesos publicats", () => {
+   const estats = ids.map((_, i) => (i < 10 ? ["net", "segon", "pista", "fallat", "net"][i % 5] : ""));
+   const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
+   const c = p.resum.comptes;
+-  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista)
++  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista + RE.PES.pistes * c.pistes)
+     / (RE.PES.net * p.resum.fets) * 10;
+   assert.ok(Math.abs(p.resum.nota - esperat) < 0.05);
+ });
+@@ -438,4 +459,85 @@ seccio("Els sostres del format es diuen, no es travessen en silenci");
+ }
+ 
+ 
++// ─────────────────────────────────────────────────────────────────────────
++seccio("RC4: la data del primer intent viatja dins del codi");
++
++{
++  const C = window.RE_CODI, T = window.RE_TAULES;
++  const ara = new Date(2026, 10, 29, 20, 0);           /* diumenge, final del tram 3 */
++  const ids = T.fulls[4].items;
++  const estats = ids.map((_, i) => (i < 30 ? ["net", "pista", "pistes", "segon", "fallat", "vist"][i % 6] : ""));
++  /* l'exercici i es fa i dies abans del codi, i a més un a l'estiu */
++  const dates = ids.map((_, i) => (i < 30 ? new Date(2026, 10, 29 - i, 10, 30).getTime() : 0));
++  dates[29] = new Date(2026, 6, 1).getTime();
++  const r = C.llegeix(C.genera({ fulls: [{ n: 4, estats, dates }], ara }));
++
++  prova("es llegeix íntegre i en versió RC4", () => {
++    assert.ok(r.ok && r.integre); assert.strictEqual(r.versio, "RC4");
++  });
++  prova("cada exercici fet torna amb el dia en què es va fer", () => {
++    for (let i = 0; i < 29; i++) {
++      if (estats[i] === "vist") continue;
++      const it = r.fulls[0].items[i];
++      assert.ok(it.feta, it.id + " ha perdut la data");
++      assert.strictEqual(it.feta.getDate(), new Date(dates[i]).getDate(), it.id);
++    }
++  });
++  prova("els oberts sense respondre no porten data", () => {
++    assert.ok(r.fulls[0].items.filter(it => it.estat === "vist").every(it => !it.feta));
++  });
++  prova("el que és fora de la finestra de 12 setmanes viatja sense data", () => {
++    assert.strictEqual(r.fulls[0].items[29].feta, undefined);
++    assert.strictEqual(r.dates.finestra, 84);
++  });
++  prova("l'ordre en què es van fer es conserva", () => {
++    const amb = r.fulls[0].items.filter(it => it.feta).sort((a, b) => a.ordre - b.ordre);
++    for (let k = 1; k < amb.length; k++) assert.ok(amb[k].feta >= amb[k - 1].feta, "ordre trencat a " + amb[k].id);
++  });
++  prova("dues pistes es distingeixen d'una", () => {
++    assert.strictEqual(r.fulls[0].items[1].estat, "pista");
++    assert.strictEqual(r.fulls[0].items[2].estat, "pistes");
++  });
++  prova("un codi generat sense dates no en porta cap, i no n'inventa", () => {
++    const q = C.llegeix(C.genera({ fulls: [{ n: 4, estats }], ara }));
++    assert.ok(q.integre); assert.strictEqual(q.dates, null);
++    assert.ok(q.fulls[0].items.every(it => !it.feta));
++  });
++  prova("tocar una data trenca el control", () => {
++    const cru = C.neteja(C.genera({ fulls: [{ n: 4, estats, dates }], ara }));
++    const i = cru.length - 6;
++    const mut = cru.slice(0, i) + (cru[i] === "0" ? "1" : "0") + cru.slice(i + 1);
++    assert.ok(!C.llegeix(mut).integre);
++  });
++  prova("20 exercicis datats d'un tram costen menys de 90 caràcters de més", () => {
++    const e20 = ids.map((_, i) => (i < 20 ? "net" : ""));
++    const d20 = ids.map((_, i) => (i < 20 ? new Date(2026, 10, 10 + (i % 5), 17, i).getTime() : 0));
++    const amb = C.genera({ fulls: [{ n: 4, estats: e20, dates: d20 }], ara }).replace(/-/g, "").length;
++    const sense = C.genera({ fulls: [{ n: 4, estats: e20 }], ara }).replace(/-/g, "").length;
++    assert.ok(amb - sense < 90, "el bloc de dates fa " + (amb - sense) + " caràcters");
++  });
++}
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("RC4: el codi que surt del navegador");
++
++prova("una pista desada amb dues pistes obertes surt com a 'pistes'", () => {
++  const n = 6, ids = window.RE_TAULES.fulls[n].items;
++  RE_NUCLI.esborra(n);
++  RE_NUCLI.pista(n, ids[0], 1); RE_NUCLI.intent(n, ids[0], true);
++  RE_NUCLI.pista(n, ids[1], 2); RE_NUCLI.intent(n, ids[1], true);
++  const p = RE.llegeix(RE.genera(RE.recull([n])));
++  assert.strictEqual(p.fulls[0].items[0].estat, "pista");
++  assert.strictEqual(p.fulls[0].items[1].estat, "pistes");
++  assert.strictEqual(RE_NUCLI.item(n, ids[1]).estat, "pista", "el registre no ha de canviar de vocabulari");
++});
++
++prova("el codi porta la data del primer intent que desa el registre", () => {
++  const n = 6, ids = window.RE_TAULES.fulls[n].items;
++  const p = RE.llegeix(RE.genera(RE.recull([n])));
++  const avui = new Date().getDate();
++  assert.ok(p.dates, "el codi del navegador ha de portar el bloc de dates");
++  assert.strictEqual(p.fulls[0].items[0].feta.getDate(), avui);
++});
++
+ process.exit(resum() ? 0 : 1);
+diff --git a/tests/executa.sh b/tests/executa.sh
+index 609b70f..415013c 100644
+--- a/tests/executa.sh
++++ b/tests/executa.sh
+@@ -90,7 +90,7 @@ elif [ "$sense_taules" -ne 0 ]; then
+ elif [ "$hi_ha_jsdom" -eq 0 ]; then
+   printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
+   printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
+-  printf '  són 126 comprovacions de 371 que no s\047han arribat a executar.\n'
++  printf '  són 129 comprovacions de 406 que no s\047han arribat a executar.\n'
+   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
+   exit 0
+ else
+diff --git a/tests/mini_examen.test.js b/tests/mini_examen.test.js
+index 551e2c2..62828b3 100644
+--- a/tests/mini_examen.test.js
++++ b/tests/mini_examen.test.js
+@@ -1,18 +1,21 @@
+-/* Prova de la lògica del mini-examen, extreta de la plantilla i executada
+-   amb node. No cal DOM: es proven les funcions pures. */
++/* Prova de la lògica del mini-examen de 3 setmanes, extreta de la plantilla i
++   executada amb node. No cal DOM: es proven les funcions pures.
++
++   Les tres regles que es vigilen aquí són les que va fixar el professorat:
++     1. l'examen d'un tram surt NOMÉS dels exercicis fets en aquell tram;
++     2. d'aquests, només compten els 20 primers, per ordre de quan es van fer;
++     3. la nota de feina és min(10, 8·∛(x/10)), amb x = suma dels valors
++        sobre 10 dels exercicis que compten. */
+ const fs = require("fs");
+ const path = require("path");
+-/* Camí relatiu al fitxer de prova: amb una ruta absoluta, això només
+-   funcionava a la màquina on es va escriure. */
+ const ARREL = path.join(__dirname, "..");
+ const src = fs.readFileSync(
+   path.join(ARREL, "tools", "analitzador-plantilla.html"), "utf8");
+ 
+-/* S'extreu el bloc de funcions que no toquen el DOM. */
+ function extreu(nom) {
+   const i = src.indexOf("  function " + nom + "(");
+   if (i < 0) throw new Error("no trobada: " + nom);
+-  let n = 0, j = src.indexOf("{", i), k = j;
++  let n = 0, k = src.indexOf("{", i);
+   do {
+     if (src[k] === "{") n++;
+     else if (src[k] === "}") n--;
+@@ -21,12 +24,18 @@ function extreu(nom) {
+   return src.slice(i, k);
+ }
+ 
+-const codi = ["tramsElegibles", "pesAtzar", "sortejaPreguntes", "exMare"]
+-  .map(extreu).join("\n");
++global.window = global.window || {};
++require(path.join(ARREL, "js", "calendari.js"));
++const RE_CALENDARI = global.window.RE_CALENDARI;
++eval(fs.readFileSync(path.join(ARREL, "js", "codi.js"), "utf8"));
++const RE_CODI = global.window.RE_CODI;
+ const RE_BANC = {};
+-eval(codi + "\nglobalThis.tramsElegibles = tramsElegibles;"
+-   + "globalThis.pesAtzar = pesAtzar;"
+-   + "globalThis.sortejaPreguntes = sortejaPreguntes;");
++const calTrams = RE_CALENDARI.TRAMS.slice();
++function tramDe(d) { return RE_CALENDARI.tramDe(d, calTrams); }
++
++eval(["sortejaPreguntes", "exMare", "tramDeItem", "feinaDelTram"].map(extreu).join("\n")
++  + "\nglobalThis.sortejaPreguntes = sortejaPreguntes;"
++  + "globalThis.tramDeItem = tramDeItem; globalThis.feinaDelTram = feinaDelTram;");
+ 
+ let fallades = 0;
+ function comprova(nom, cond, detall) {
+@@ -34,89 +43,77 @@ function comprova(nom, cond, detall) {
+   else console.log("  ok     " + nom);
+ }
+ 
+-console.log("\n== trams elegibles i reinici de trimestre ==");
+-const P = [3, 2, 1], PT = 3;
+-comprova("tram 0: només ell mateix",
+-  JSON.stringify(tramsElegibles(0, PT, P)) === JSON.stringify([{ tram: 0, pes: 3 }]));
+-comprova("tram 1: ell i l'anterior",
+-  tramsElegibles(1, PT, P).map(x => x.tram).join(",") === "1,0");
+-comprova("tram 2: els tres del trimestre",
+-  tramsElegibles(2, PT, P).map(x => x.tram).join(",") === "2,1,0");
+-comprova("tram 3 (trimestre nou): torna a zero",
+-  JSON.stringify(tramsElegibles(3, PT, P)) === JSON.stringify([{ tram: 3, pes: 3 }]),
+-  JSON.stringify(tramsElegibles(3, PT, P)));
+-comprova("tram 4: ell i el 3, mai el 2",
+-  tramsElegibles(4, PT, P).map(x => x.tram).join(",") === "4,3");
+-comprova("tram 5: els tres del 2n trimestre",
+-  tramsElegibles(5, PT, P).map(x => x.tram).join(",") === "5,4,3");
+-comprova("tram 6: trimestre 3, torna a zero",
+-  tramsElegibles(6, PT, P).map(x => x.tram).join(",") === "6");
++const L = RE_CALENDARI.llista();
++const dia = (t, d, h) => { const x = new Date(L[t].inici.getTime() + d * 86400000); x.setHours(12, 0, 0, 0); return x; };
+ 
+-console.log("\n== proporció del sorteig (10.000 tirades de 5) ==");
+-const perTram = { 2: [], 1: [], 0: [] };
+-for (let t = 0; t <= 2; t++)
+-  for (let i = 0; i < 40; i++) perTram[t].push({ id: "e" + t + "_" + i, estat: "net", dif: 2 });
+-const eleg = tramsElegibles(2, PT, P);
+-const compte = { 0: 0, 1: 0, 2: 0 };
+-let totalPreg = 0;
+-for (let n = 0; n < 10000; n++) {
+-  sortejaPreguntes(perTram, eleg, 5).forEach(q => { compte[q.tram]++; totalPreg++; });
++console.log("\n== només entra la feina del tram examinat ==");
++/* 15 exercicis al tram 0, 15 al tram 1 i 5 en una setmana de descans. */
++const items = [];
++for (let i = 0; i < 15; i++) items.push({ id: (100 + i) + "a", estat: "net", quan: dia(0, i), precisio: "exacta", codi: 0, ordre: i });
++for (let i = 0; i < 15; i++) items.push({ id: (200 + i) + "a", estat: "net", quan: dia(1, i), precisio: "exacta", codi: 0, ordre: 100 + i });
++for (let i = 0; i < 5; i++) items.push({ id: (300 + i) + "a", estat: "net", quan: dia(0, 22 + i), precisio: "exacta", codi: 0, ordre: 50 + i });
++const f1 = feinaDelTram(items, 1, 20);
++comprova("al tram 1 hi ha exactament els seus 15", f1.tots.length === 15, f1.tots.length + "");
++comprova("cap és d'un tram anterior", f1.tots.every(it => /^2/.test(it.id)));
++comprova("la setmana de descans no és de cap tram",
++  items.filter(it => /^3/.test(it.id)).every(it => tramDeItem(it) === null));
++let intrusos = 0;
++for (let n = 0; n < 2000; n++) {
++  sortejaPreguntes(f1.primers, 5).forEach(q => { if (!/^2/.test(q.it.id)) intrusos++; });
+ }
+-const pct = t => (100 * compte[t] / totalPreg).toFixed(1);
+-console.log("    últim tram   %s %%  (esperat 50,0)", pct(2));
+-console.log("    penúltim     %s %%  (esperat 33,3)", pct(1));
+-console.log("    antepenúltim %s %%  (esperat 16,7)", pct(0));
+-comprova("últim ~50 %", Math.abs(pct(2) - 50) < 1.5, pct(2));
+-comprova("penúltim ~33 %", Math.abs(pct(1) - 33.3) < 1.5, pct(1));
+-comprova("antepenúltim ~17 %", Math.abs(pct(0) - 16.7) < 1.5, pct(0));
+-comprova("sempre surten 5 preguntes", totalPreg === 50000, String(totalPreg));
+-
+-console.log("\n== cap combinació és impossible ==");
+-/* Aquesta comprovació era INESTABLE. Es feia sortejant 20.000 exàmens i
+-   mirant si algun tenia les cinc preguntes del tram de pes 1; com que això
+-   té probabilitat (1/6)^5, la de no veure'n cap en 20.000 tirades és del
+-   7,6 %, i el test fallava un cop de cada tretze sense que res anés
+-   malament. Un test que falla a vegades és pitjor que no tenir-lo, perquè
+-   ensenya a ignorar-lo.
+-
+-   El que es volia comprovar és que cap tram queda EXCLÒS del sorteig. Això
+-   es pot verificar sense dependre de la sort: si es deixa un sol tram amb
+-   exercicis, totes les preguntes n'han de sortir; i sortejant molt, tots
+-   els trams han d'aparèixer. Les dues coses juntes diuen exactament que cap
+-   probabilitat és zero. */
+-[0, 1, 2].forEach(t => {
+-  const nomes = { 0: [], 1: [], 2: [] };
+-  nomes[t] = perTram[t];
+-  const q = sortejaPreguntes(nomes, eleg, 5);
+-  comprova("amb només el tram " + t + " disponible, les 5 en surten",
+-    q.length === 5 && q.every(x => x.tram === t),
+-    q.map(x => x.tram).join(""));
+-});
++comprova("2.000 exàmens del tram 1, cap pregunta d'un altre tram", intrusos === 0, intrusos + " intrusos");
+ 
+-const apareix = { 0: 0, 1: 0, 2: 0 };
+-for (let n = 0; n < 3000; n++) {
+-  sortejaPreguntes(perTram, eleg, 5).forEach(q => { apareix[q.tram]++; });
++console.log("\n== només compten els 20 primers ==");
++const molts = [];
++for (let i = 0; i < 26; i++) {
++  /* ordre desendreçat a posta: la llista no ve ordenada */
++  const k = (i * 7) % 26;
++  molts.push({ id: (400 + k) + "a", estat: "net", quan: dia(2, Math.floor(k / 2)), precisio: "exacta", codi: 0, ordre: k });
+ }
+-comprova("sortejant molt, els tres trams hi surten",
+-  apareix[0] > 0 && apareix[1] > 0 && apareix[2] > 0, JSON.stringify(apareix));
+-
+-console.log("\n== un tram buit no escurça l'examen ==");
+-const buit = { 2: perTram[2].slice(), 1: [], 0: perTram[0].slice() };
+-let curts = 0;
+-for (let n = 0; n < 500; n++) if (sortejaPreguntes(buit, eleg, 5).length < 5) curts++;
+-comprova("500 tirades, cap examen curt", curts === 0, curts + " de curts");
++const f2 = feinaDelTram(molts, 2, 20);
++comprova("se'n fan 26 i en compten 20", f2.tots.length === 26 && f2.primers.length === 20);
++comprova("els que compten són els 20 primers per ordre de fet",
++  f2.primers.map(it => it.ordre).join(",") === Array.from({ length: 20 }, (_, i) => i).join(","),
++  f2.primers.map(it => it.ordre).join(","));
++let fora = 0;
++for (let n = 0; n < 2000; n++) {
++  sortejaPreguntes(f2.primers, 5).forEach(q => { if (q.it.ordre >= 20) fora++; });
++}
++comprova("cap pregunta surt dels que passen de 20", fora === 0, fora + "");
+ 
+-console.log("\n== no repeteix exercici mare si pot evitar-ho ==");
+-const mares = { 0: [], 1: [], 2: [] };
+-for (let t = 0; t <= 2; t++)
+-  for (let i = 0; i < 8; i++)
+-    mares[t].push({ id: (100 + i) + "abcdefgh"[i % 8], estat: "net", dif: 2 });
++console.log("\n== el sorteig ==");
++comprova("sempre surten 5 preguntes si n'hi ha prou", sortejaPreguntes(f1.primers, 5).length === 5);
++comprova("amb 3 exercicis surten 3, no se n'inventa cap", sortejaPreguntes(f1.primers.slice(0, 3), 5).length === 3);
++const vist = new Set();
++for (let n = 0; n < 3000; n++) sortejaPreguntes(f1.primers, 5).forEach(q => vist.add(q.it.id));
++comprova("sortejant molt, tots els exercicis del tram hi poden sortir", vist.size === 15, vist.size + " de 15");
++const mares = [];
++for (let i = 0; i < 16; i++) mares.push({ id: (500 + (i % 8)) + "abcd"[i % 4], estat: "net" });
+ let repes = 0;
+ for (let n = 0; n < 500; n++) {
+-  const q = sortejaPreguntes(mares, eleg, 5).map(x => String(x.it.id).match(/^\d+/)[0]);
++  const q = sortejaPreguntes(mares, 5).map(x => String(x.it.id).match(/^\d+/)[0]);
+   if (new Set(q).size !== q.length) repes++;
+ }
+-comprova("500 tirades sense repetir mare", repes === 0, repes + " amb repetició");
++comprova("500 tirades sense repetir exercici mare", repes === 0, repes + " amb repetició");
++
++console.log("\n== la nota de feina ==");
++const nota = (e, max) => RE_CODI.notaTram(e, max || 20).nota;
++const rep = (e, k) => Array.from({ length: k }, () => e);
++comprova("10 exercicis a la primera fan un 8", Math.abs(nota(rep("net", 10)) - 8) < 1e-9, nota(rep("net", 10)));
++comprova("20 a la primera fan un 10", nota(rep("net", 20)) === 10);
++comprova("més de 20 no passa de 10", nota(rep("net", 30)) === 10);
++comprova("és la fórmula min(10, 8·∛(x/10))",
++  [1, 5, 12, 17].every(k => Math.abs(nota(rep("net", k)) - Math.min(10, 8 * Math.cbrt(k / 10))) < 1e-9));
++comprova("una primera pista gairebé no penalitza (10 amb una pista ≥ 7,8)", nota(rep("pista", 10)) >= 7.8, nota(rep("pista", 10)));
++comprova("dues pistes penalitzen més que una", nota(rep("pistes", 10)) < nota(rep("pista", 10)));
++comprova("però menys que un segon intent", nota(rep("pistes", 10)) > nota(rep("segon", 10)));
++comprova("fer un exercici de més i fallar-lo no baixa la nota",
++  nota(rep("net", 12).concat(["fallat"])) === nota(rep("net", 12)));
++comprova("cada exercici encertat la fa pujar fins a 20",
++  Array.from({ length: 19 }, (_, k) => k + 1).every(k => nota(rep("pista", k + 1)) > nota(rep("pista", k))));
++comprova("només compten els 20 primers: el 21è fallat no fa res, i un 21è net tampoc no suma",
++  nota(rep("segon", 20).concat(["net"])) === nota(rep("segon", 20)));
++comprova("sense cap exercici, un 0", nota([]) === 0);
+ 
+ console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
+ process.exit(fallades ? 1 : 0);
+diff --git a/tests/mini_examen_exemple.test.js b/tests/mini_examen_exemple.test.js
+index cd26770..cf9ed5b 100644
+--- a/tests/mini_examen_exemple.test.js
++++ b/tests/mini_examen_exemple.test.js
+@@ -101,35 +101,43 @@ comprova("berta té feina als 3 trams",
+ comprova("berta arriba a 10 per tram al tram 2", berta.compte[2] >= 10,
+   String(berta.compte[2]));
+ const nil = resum["nil@escola.cat"];
+-comprova("nil només té 1 codi (dispara avís)", nil.nCodis === 1);
+-comprova("tota la feina de nil cau en un sol tram",
+-  Object.keys(nil.compte).length === 1, JSON.stringify(nil.compte));
++comprova("nil només envia 1 codi", nil.nCodis === 1);
++/* Abans això deia «tota la feina de nil cau en un sol tram», i era veritat:
++   amb un sol codi no hi havia manera de saber quan s'havia fet cada cosa.
++   Ara el codi porta la data del primer intent de cada exercici, i la
++   propietat que val la pena vigilar és la contrària. */
++const nilExacte = {};
++bons.filter(x => x.f.correu === "nil@escola.cat").forEach(x => x.p.fulls.forEach(f => f.items.forEach(it => {
++  if (!it.feta) return;
++  const t = CAL.tramExacte(it.feta);
++  nilExacte[t] = (nilExacte[t] || 0) + 1;
++})));
++comprova("tot i així, amb les dates del codi la seva feina es reparteix pels tres trams",
++  nilExacte[0] === 10 && nilExacte[1] === 11 && nilExacte[2] === 12, JSON.stringify(nilExacte));
++const laia = {};
++bons.filter(x => x.f.correu === "laia@escola.cat").slice(-1).forEach(x => x.p.fulls.forEach(f => f.items.forEach(it => {
++  if (!it.feta) return;
++  const t = CAL.tramExacte(it.feta);
++  laia[t] = (laia[t] || 0) + 1;
++})));
++comprova("laia passa de 20 al tram 3 (hi ha un cas del màxim)", laia[2] > 20, JSON.stringify(laia));
+ const ona = resum["ona@escola.cat"];
+ comprova("ona no arriba al mínim al tram 2", (ona.compte[2] || 0) < 10,
+   String(ona.compte[2]));
+ const jordi = resum["jordi@escola.cat"];
+ comprova("jordi conserva 2 codis bons (un manipulat)", jordi.nCodis === 2);
+ 
+-/* ── 4. el sorteig produeix examen ─────────────────────────────────────── */
+-console.log("\n== el sorteig ==");
+-function tramsElegibles(obj, perTrim, pesos) {
+-  const trim = Math.floor(obj / perTrim), out = [];
+-  for (let i = 0; i < pesos.length; i++) {
+-    const t = obj - i;
+-    if (t < 0 || Math.floor(t / perTrim) !== trim) break;
+-    if (pesos[i] > 0) out.push({ tram: t, pes: pesos[i] });
+-  }
+-  return out;
+-}
+-const eleg = tramsElegibles(2, 3, [3, 2, 1]);
+-comprova("el tram 2 sorteja dels 3 trams", eleg.length === 3);
+-let ambExamen = 0;
+-Object.keys(resum).forEach(c => {
+-  const disponibles = eleg.reduce((n, e) => n + (resum[c].compte[e.tram] || 0), 0);
+-  if (disponibles >= 5) ambExamen++;
++/* ── 4. l'examen del tram 3 només té la feina del tram 3 ─────────────────── */
++console.log("\n== la feina de cada alumne al tram 3, per data exacta ==");
++let ambCinc = 0;
++Object.keys(per).forEach(correu => {
++  const ultim = per[correu].slice(-1)[0];
++  let n = 0;
++  ultim.p.fulls.forEach(f => f.items.forEach(it => { if (it.feta && CAL.tramExacte(it.feta) === 2) n++; }));
++  if (Math.min(n, 20) >= 5) ambCinc++;
+ });
+-comprova("els 6 alumnes tenen prou exercicis per a 5 preguntes",
+-  ambExamen === 6, ambExamen + " de 6");
++comprova("5 dels 6 alumnes tenen prou feina al tram 3 per a 5 preguntes (ona no)",
++  ambCinc === 5, ambCinc + " de 6");
+ 
+ console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
+ process.exit(fallades ? 1 : 0);
+diff --git a/tests/mini_examen_historial.test.js b/tests/mini_examen_historial.test.js
+index ef72e67..3d63fe3 100644
+--- a/tests/mini_examen_historial.test.js
++++ b/tests/mini_examen_historial.test.js
+@@ -117,5 +117,38 @@ files = [
+ h = historialAlumnes()[0];
+ comprova("el codi manipulat s'ignora", h.items.length === 1, h.items.length + " ítems");
+ 
++console.log("\n== codis RC4: la data del primer intent mana ==");
++/* Un codi amb bloc de dates (`p.dates`) diu quan es va fer cada exercici. */
++function codiRC4(quan, fets) {
++  const mapa = {};
++  fets.forEach(([id, d, o, e]) => { mapa["7:" + id] = { e: e || "net", d: 2, f: d, o: o }; });
++  return { p: { ok: true, integre: true, quan: quan, mapa: mapa, dates: { finestra: 84 } },
++           brut: { alumne: "Alumne A", correu: "a@x.cat", grup: "4A" } };
++}
++files = [codiRC4(dia(62), [["1a", dia(3), 0], ["2a", dia(30), 1], ["3a", dia(58), 2]])];
++h = historialAlumnes()[0];
++const t5 = {};
++h.items.forEach(it => { t5[it.id] = RE_CALENDARI.tramExacte(it.quan); });
++comprova("un sol codi al final i cada exercici va al seu tram",
++  t5["1a"] === 0 && t5["2a"] === 1 && t5["3a"] === 2, JSON.stringify(t5));
++comprova("i són de data exacta", h.items.every(it => it.precisio === "exacta"));
++
++files = [codi(dia(20), ["1a"]), codiRC4(dia(41), [["1a", dia(5), 0], ["2a", dia(33), 1]])];
++h = historialAlumnes()[0];
++const a1 = h.items.filter(it => it.id === "1a")[0];
++comprova("un codi posterior amb data exacta substitueix la deduïda",
++  a1.precisio === "exacta" && a1.quan.getTime() === dia(5).getTime());
++
++files = [{ p: { ok: true, integre: true, quan: dia(90), mapa: { "7:9a": { e: "net", d: 2 } }, dates: { finestra: 84 } },
++           brut: { alumne: "Alumne A", correu: "a@x.cat" } }];
++h = historialAlumnes()[0];
++comprova("un exercici que arriba sense data en un codi RC4 no s'atribueix a cap tram",
++  h.items[0].precisio === "desconeguda" && h.items[0].quan === null);
++
++files = [codiRC4(dia(10), [["4a", dia(8), 0, "fallat"]]), codiRC4(dia(20), [["4a", dia(8), 0, "net"]])];
++h = historialAlumnes()[0];
++comprova("fallat al primer intent i acabat més tard compta, com a molt, com a segon intent",
++  h.items[0].estat === "segon", h.items[0].estat);
++
+ console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
+ process.exit(fallades ? 1 : 0);
+diff --git a/tests/test_registre.js b/tests/test_registre.js
+index 4e26502..e840608 100644
+--- a/tests/test_registre.js
++++ b/tests/test_registre.js
+@@ -108,6 +108,60 @@ prova("la taula d'estats no depèn de la sessió sinó dels comptadors", () => {
+   assert.strictEqual(RE.estatDe(9, 0, false), "fallat");
+ });
+ 
++// ─────────────────────────────────────────────────────────────────────────
++seccio("Una pista després d'un error no esborra l'error");
++
++prova("fallar, obrir una pista i encertar és segon intent, no 'pista'", () => {
++  net();
++  RE.intent(FULL, IDS[5], false);
++  RE.pista(FULL, IDS[5], 1);
++  const r = RE.intent(FULL, IDS[5], true);
++  assert.strictEqual(r.estat, "segon",
++    "amb 'pista' (9,5) l'error del primer intent quedaria gairebé esborrat");
++  assert.strictEqual(RE.estatDe(2, 1, true), "segon");
++  assert.strictEqual(RE.estatDe(2, 3, true), "segon");
++});
++
++prova("obrir pistes abans de respondre i encertar a la primera sí que és 'pista'", () => {
++  net();
++  RE.pista(FULL, IDS[6], 2);
++  assert.strictEqual(RE.intent(FULL, IDS[6], true).estat, "pista");
++});
++
++// ─────────────────────────────────────────────────────────────────────────
++seccio("La data del primer intent");
++
++prova("es desa en respondre per primer cop, encertant o fallant", () => {
++  net();
++  const abans = Date.now();
++  RE.intent(FULL, IDS[7], false);
++  const tf = RE.item(FULL, IDS[7]).tf;
++  assert.ok(tf >= abans && tf <= Date.now(), "no hi ha data del primer intent");
++});
++
++prova("no canvia en el segon intent ni en repassar", () => {
++  net();
++  RE.intent(FULL, IDS[8], false);
++  const tf = RE.item(FULL, IDS[8]).tf;
++  const ara = Date.now; Date.now = () => tf + 86400000 * 5;
++  try {
++    RE.intent(FULL, IDS[8], true);
++    RE.intent(FULL, IDS[8], true);
++  } finally { Date.now = ara; }
++  assert.strictEqual(RE.item(FULL, IDS[8]).tf, tf);
++});
++
++prova("els exercicis d'abans de tenir data en reben una aproximada, un sol cop", () => {
++  net();
++  magatzem["repas-eso:full" + FULL] = JSON.stringify({ v: 1, items: {
++    [IDS[9]]: { estat: "net", tancat: 1, ts: 1700000000000 },
++    [IDS[10]]: { estat: "net", tancat: 1, ts: 1700000000000, imp: 1 } } });
++  const it = RE.item(FULL, IDS[9]);
++  assert.strictEqual(it.tf, 1700000000000); assert.strictEqual(it.tfa, 1);
++  assert.strictEqual(RE.item(FULL, IDS[10]).tf, undefined,
++    "un exercici importat no pot agafar la data de la importació");
++});
++
+ // ─────────────────────────────────────────────────────────────────────────
+ seccio("Metadades: reiniciar un full es veu");
+ 
+diff --git a/tools/analitzador-plantilla.html b/tools/analitzador-plantilla.html
+index 75ce9f3..147a632 100644
+--- a/tools/analitzador-plantilla.html
++++ b/tools/analitzador-plantilla.html
+@@ -44,7 +44,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+ .punts{display:flex;flex-wrap:wrap;gap:2px;max-width:340px}
+ .pt{width:9px;height:9px;border-radius:2px;background:#EDEAE4}
+ .pt.net{background:var(--verd)} .pt.segon{background:#7FB79B}
+-.pt.pista{background:var(--ambre)} .pt.fallat{background:var(--vermell)}
++.pt.pista{background:var(--ambre)} .pt.pistes{background:#7A4A00} .pt.fallat{background:var(--vermell)}
+ .pt.vist{background:#C9C4BA}
+ .pt-g{width:24px;height:24px;border-radius:5px;display:inline-flex;align-items:center;
+   justify-content:center;font:600 11px var(--mono);color:#fff;background:#EDEAE4}
+@@ -177,7 +177,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+         obrir un CSV. Cal que hi hagi una columna amb el codi; si n'hi ha de correu,
+         marca temporal o grup, també les farà servir.
+       </p>
+-      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC2AM-8599X-…"></textarea>
++      <textarea id="entrada" placeholder="Marca temporal	Adreça electrònica	Grup	Codi&#10;17/02/2026 10:41:03	alumne@escola.cat	4tA	RC4AM-8599X-…"></textarea>
+       <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem;align-items:center">
+         <button class="btn" id="btn-llegeix">Llegeix</button>
+         <label class="btn buit" style="position:relative;overflow:hidden">
+@@ -220,7 +220,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       <div class="llegenda">
+         <span><i style="background:var(--verd)"></i>a la primera</span>
+         <span><i style="background:#7FB79B"></i>al segon intent</span>
+-        <span><i style="background:var(--ambre)"></i>amb pista</span>
++        <span><i style="background:var(--ambre)"></i>amb una pista</span>
++        <span><i style="background:#7A4A00"></i>amb dues pistes o més</span>
+         <span><i style="background:var(--vermell)"></i>fallat</span>
+         <span><i style="background:#C9C4BA"></i>començat</span>
+         <span><i></i>per fer</span>
+@@ -323,7 +324,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+   <section id="v-un" hidden>
+     <div class="targeta">
+       <h3>Enganxa un codi</h3>
+-      <input type="text" id="codi-un" placeholder="RC2AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
++      <input type="text" id="codi-un" placeholder="RC4AM-8599X-00853-…" style="width:100%;font-family:var(--mono)">
+       <div style="margin-top:.7rem"><button class="btn" id="btn-un">Llegeix-lo</button></div>
+     </div>
+     <div id="un-resultat" style="margin-top:1rem"></div>
+@@ -339,9 +340,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       <button class="opcio" id="pr-va-lot">
+         <b>Mini-examen estàndard de 3 setmanes</b>
+         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
+-        5 preguntes sortejades entre els exercicis que ha fet, amb més
+-        probabilitat per al tram més recent. Surten dos documents per
+-        imprimir: tots els exàmens i totes les solucions.</span>
++        5 preguntes sortejades només entre els 20 primers exercicis que ha
++        fet dins del tram, i la taula en dona la nota de feina. Surten dos
++        documents per imprimir: tots els exàmens i totes les solucions.</span>
+       </button>
+       <button class="opcio" id="pr-va-individual">
+         <b>Examen personalitzat a un alumne</b>
+@@ -357,15 +358,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+         </p>
+         <h3 style="margin-top:0">Mini-examen de 3 setmanes</h3>
+         <p class="petit apagat" style="margin:0 0 .9rem">
+-          Reparteix les preguntes entre els trams de 3 setmanes que porta el
+-          trimestre, donant més pes al més recent. Quan comença un trimestre
+-          nou el compte torna a zero: el primer examen del trimestre següent
+-          només mira els exercicis d'aquelles 3 setmanes.
+-          <br><b>Compte amb la paraula «trimestre»:</b> aquí vol dir un grup
+-          de tres trams del calendari de sota, i no coincideix exactament amb
+-          els trimestres per mesos de la pestanya «Progrés del trimestre».
+-          Un enviament del 30 de desembre, per exemple, és del 1r trimestre
+-          allà i del 2n aquí.
++          Cada examen surt <b>només</b> dels exercicis que l'alumne ha fet dins
++          de les tres setmanes del tram que s'examina, i d'aquests, només dels
++          20 primers. Cap exercici d'abans del tram no hi pot entrar. La taula
++          dona també la <b>nota de feina</b> de cada alumne en aquell tram.
+         </p>
+ 
+         <div class="camp" style="border-top:none;padding-top:0">
+@@ -398,30 +394,40 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+         </div>
+ 
+         <div class="camp">
+-          <b>Sorteig</b>
++          <b>Feina demanada i nota</b>
+           <div class="filtres" style="margin:.3rem 0 0">
++            <label class="petit apagat">Entre
++              <input type="number" id="lot-minim" value="10" min="0" max="99"
++                     style="width:52px"> i
++              <input type="number" id="lot-maxim" value="20" min="1" max="99"
++                     style="width:52px"> exercicis per tram</label>
+             <label class="petit apagat">
+               <input type="number" id="lot-preguntes" value="5" min="1" max="20"
+                      style="width:52px"> preguntes per examen</label>
+-            <label class="petit apagat">Pesos dels trams
+-              <input type="text" id="lot-pesos" value="3 2 1"
+-                     style="width:76px;font-family:var(--mono)"></label>
+           </div>
+-          <p class="petit apagat" style="margin:.35rem 0 0">
+-            Els pesos van de l'últim tram cap enrere. Cada pregunta se sorteja
+-            per separat, de manera que cap combinació és impossible: poden
+-            sortir les cinc del mateix tram, només que és menys probable.
+-          </p>
+-          <div class="filtres" style="margin:.55rem 0 0">
+-            <label class="petit apagat">Mínim de feina esperada
+-              <input type="number" id="lot-minim" value="10" min="0" max="99"
+-                     style="width:52px"> exercicis per tram</label>
+-            <label class="petit apagat"><input type="checkbox" id="lot-oberts">
+-              Inclou-hi els que va <b>obrir i no contestar</b></label>
++          <div class="filtres" style="margin:.5rem 0 0">
++            <span class="petit apagat">Valor de cada exercici: a la primera 10 ·</span>
++            <label class="petit apagat">amb una pista
++              <input type="text" id="lot-v-pista" value="9,5" style="width:46px"></label>
++            <label class="petit apagat">amb dues pistes o més
++              <input type="text" id="lot-v-pistes" value="8" style="width:46px"></label>
++            <label class="petit apagat">al segon intent
++              <input type="text" id="lot-v-segon" value="7" style="width:46px"></label>
++            <span class="petit apagat">· fallat 0</span>
+           </div>
++          <p class="petit apagat" style="margin:.4rem 0 0">
++            Només compten els 20 primers exercicis del tram, per ordre de quan es
++            van fer (el màxim de dalt). Cada un aporta el seu valor sobre 10 —a la
++            primera 1, amb una pista 0,95, amb dues 0,8, al segon intent 0,7— i,
++            amb la suma <i>x</i>, <b>nota = mín(10, 8·∛(x/10))</b>: 10 exercicis a
++            la primera fan un 8 i 20 fan un 10. Un exercici fallat no suma, però
++            tampoc no resta. Un encert al segon intent compta com a segon intent
++            encara que s'hagin obert pistes. La feina d'una setmana de descans no
++            és de cap tram.
++          </p>
+           <p class="petit apagat" style="margin:.35rem 0 0">
+-            Qui no hi arribi tindrà l'examen igualment, amb l'avís ben visible
+-            a la llista i al full de correcció.
++            Qui no arribi al mínim tindrà l'examen igualment, amb l'avís ben
++            visible a la llista i al full de correcció.
+           </p>
+         </div>
+ 
+@@ -648,7 +654,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+      columna es digui de cap manera concreta: si les capçaleres no ajuden,
+      es busca la columna que conté un codi. */
+   function buscaCodi(text) {
+-    var m = String(text || "").toUpperCase().match(/RC[123][0-9A-Z\-\s]{10,}/);
++    var m = String(text || "").toUpperCase().match(/RC[1234][0-9A-Z\-\s]{10,}/);
+     return m ? m[0].trim() : null;
+   }
+ 
+@@ -956,7 +962,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       var c = r.p.resum.comptes;
+       var errs = r.p.errs.reduce(function (a, e) { return a + e.compte; }, 0);
+       if (r.p.errs.some(function (e) { return e.compte >= 31; })) return;   /* saturat */
+-      var sostre = 2 * c.fallat + c.segon + c.pista + c.vist;
++      var sostre = 2 * c.fallat + c.segon + c.pista + (c.pistes || 0) + c.vist;
+       if (errs > sostre) {
+         linies.push(["<b>" + escapa(nomDe(r)) + "</b>: el codi compta " + errs
+           + " errors comesos i els estats només en poden justificar " + sostre
+@@ -1083,7 +1089,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       + dada("Exercicis fets", p.resum.fets)
+       + dada("Nota calculada", p.resum.nota === null ? "—" : p.resum.nota.toFixed(1).replace(".", ","))
+       + dada("A la primera", p.resum.comptes.net)
+-      + dada("Amb pista", p.resum.comptes.pista)
++      + dada("Amb una pista", p.resum.comptes.pista)
++      + dada("Amb dues pistes o més", p.resum.comptes.pistes)
+       + dada("Al segon intent", p.resum.comptes.segon)
+       + dada("Fallats", p.resum.comptes.fallat)
+       + dada("Oberts i deixats", p.resum.comptes.vist)
+@@ -1101,7 +1108,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+         var fets = dins.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
+         if (!fets) return;
+         var mal = dins.filter(function (x) { return x.estat === "fallat"; });
+-        var pista = dins.filter(function (x) { return x.estat === "pista"; });
++        var pista = dins.filter(function (x) { return x.estat === "pista" || x.estat === "pistes"; });
+         h += '<div style="margin:.35rem 0 .55rem"><span class="petit"><b>' + b[0] + "</b> "
+           + '<span class="apagat">' + fets + " de " + dins.length + "</span></span> "
+           + punts(dins);
+@@ -1209,7 +1216,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     ult.forEach(function (r) {
+       r.p.fulls.forEach(function (f) {
+         f.items.forEach(function (it) {
+-          if (it.estat === "fallat" || it.estat === "pista") {
++          if (it.estat === "fallat" || it.estat === "pista" || it.estat === "pistes") {
+             var k = f.n + "|" + it.id;
+             perItem[k] = (perItem[k] || 0) + (it.estat === "fallat" ? 2 : 1);
+           }
+@@ -1263,7 +1270,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     var brut = llegeixFull(txt);
+     if (!brut.length) {
+       $("#estat-carrega").innerHTML = '<span class="mal">No hi he trobat cap codi. '
+-        + "Els codis comencen per RC3 (o RC2 i RC1, els antics).</span>";
++        + "Els codis comencen per RC4 (o RC3, RC2 i RC1, els antics).</span>";
+       return;
+     }
+     FORMAT_DATA = detectaFormatData(brut);
+@@ -1393,7 +1400,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     function envia(t, d) {
+       return new Date(CAL[t].inici.getTime() + d * 86400000);
+     }
+-    var opc = ["net", "net", "net", "segon", "pista", "fallat"];
++    var opc = ["net", "net", "net", "pista", "pista", "pistes", "segon", "fallat"];
+ 
+     /* Els estats es fixen UN cop per alumne i cada enviament n'agafa un
+        prefix: si es tornessin a sortejar a cada codi, un mateix exercici
+@@ -1482,29 +1489,50 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       });
+     }
+ 
+-    /* tram · dia dins del tram · exercicis acumulats */
++    /* `feina`: quants exercicis fa cada alumne a cada un dels tres primers
++       trams, repartits pels 19 primers dies del tram. `env`: quan envia el
++       codi (tram i dia dins del tram). Els codis porten la data del primer
++       intent de cada exercici, com els del lloc de debò. */
+     var PLA = [
+-      { nom: "berta", grup: "4tA", env: [{ t: 0, d: 19, acum: 13 }, { t: 1, d: 19, acum: 27 }, { t: 2, d: 19, acum: 41 }] },
+-      { nom: "jordi", grup: "4tA", env: [{ t: 0, d: 18, acum: 11 }, { t: 1, d: 18, acum: 24 }, { t: 2, d: 18, acum: 36 }] },
+-      { nom: "laia",  grup: "4tA", env: [{ t: 0, d: 20, acum: 15 }, { t: 1, d: 20, acum: 32 }, { t: 2, d: 20, acum: 48 }] },
+-      { nom: "marc",  grup: "4tB", env: [{ t: 0, d: 17, acum: 12 }, { t: 1, d: 17, acum: 23 }, { t: 2, d: 17, acum: 35 }] },
+-      /* Només envia el codi al final: l'eina no pot saber què va fer a cada
+-         tram i ho diu. */
+-      { nom: "nil",   grup: "4tB", env: [{ t: 2, d: 20, acum: 30 }] },
++      { nom: "berta", grup: "4tA", feina: [13, 14, 14], env: [{ t: 0, d: 19 }, { t: 1, d: 19 }, { t: 2, d: 19 }] },
++      { nom: "jordi", grup: "4tA", feina: [11, 13, 12], env: [{ t: 0, d: 18 }, { t: 1, d: 18 }, { t: 2, d: 18 }] },
++      /* Passa de 20 a l'últim tram: només en compten els 20 primers. */
++      { nom: "laia",  grup: "4tA", feina: [15, 17, 23], env: [{ t: 0, d: 20 }, { t: 1, d: 20 }, { t: 2, d: 20 }] },
++      { nom: "marc",  grup: "4tB", feina: [12, 11, 12], env: [{ t: 0, d: 17 }, { t: 1, d: 17 }, { t: 2, d: 17 }] },
++      /* Només envia un codi, al final. Com que el codi porta la data de cada
++         exercici, la feina de cada tram s'hi reparteix igualment bé. */
++      { nom: "nil",   grup: "4tB", feina: [10, 11, 12], env: [{ t: 2, d: 20 }] },
+       /* Treballa els dos primers trams i s'atura: no arriba al mínim del
+          tram que s'examina. */
+-      { nom: "ona",   grup: "4tB", env: [{ t: 0, d: 19, acum: 14 }, { t: 1, d: 19, acum: 28 }, { t: 2, d: 19, acum: 31 }] }
++      { nom: "ona",   grup: "4tB", feina: [14, 14, 3], env: [{ t: 0, d: 19 }, { t: 1, d: 19 }, { t: 2, d: 19 }] }
+     ];
+ 
+     var l = ["Marca temporal\tAdreça electrònica\tGrup\tCodi"];
+     PLA.forEach(function (a, k) {
+       var slots = itinerari(k * 977 + 13, 3 + (k % 2));
+       var estats = slots.map(function () { return opc[Math.floor(Math.random() * opc.length)]; });
++      /* La data del primer intent de cada exercici, en l'ordre de l'itinerari. */
++      var quanFet = [], pos = 0;
++      a.feina.forEach(function (quants, t) {
++        for (var q = 0; q < quants; q++) {
++          var dt = envia(t, Math.floor(q * 19 / quants));
++          dt.setHours(16, q, 0, 0);
++          quanFet[pos++] = dt.getTime();
++        }
++      });
+       a.env.forEach(function (e, j) {
+         var quan = envia(e.t, e.d);
+         quan.setHours(17 + (k % 4), (k * 7 + j * 13) % 60, 0, 0);
++        var fets = quanFet.filter(function (t) { return t <= quan.getTime(); }).length;
++        var fulls = fullsAmb(slots, estats, fets);
++        fulls.forEach(function (f) {
++          f.dates = RE_TAULES.fulls[f.n].items.map(function () { return 0; });
++        });
++        slots.slice(0, fets).forEach(function (sl, q) {
++          fulls.filter(function (f) { return f.n === sl.full; })[0].dates[sl.i] = quanFet[q];
++        });
+         var codi = RE_CODI.genera({
+-          fulls: fullsAmb(slots, estats, e.acum), ara: quan,
++          fulls: fulls, ara: quan,
+           errs: [["SIGNE_FINAL", 3 + k], ["PAS_INTERMEDI_PER_RESPOSTA", 2]]
+         });
+         /* Un sol codi manipulat, i a mig curs: així la comprovació
+@@ -1534,7 +1562,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     var m = {};
+     p.fulls.forEach(function (f) {
+       f.items.forEach(function (it) {
+-        if (it.estat && it.estat !== "vist") m[f.n + ":" + it.id] = { e: it.estat, d: it.dif };
++        if (it.estat && it.estat !== "vist") {
++          m[f.n + ":" + it.id] = { e: it.estat, d: it.dif, f: it.feta || null, o: it.ordre || 0 };
++        }
+       });
+     });
+     return m;
+@@ -1571,18 +1601,18 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+      part perquè el que interessa és si en va necessitant menys. */
+   function taxes(arr) {
+     var per = { 1: { n: 0, ok: 0, p: 0 }, 2: { n: 0, ok: 0, p: 0 }, 3: { n: 0, ok: 0, p: 0 } };
+-    var c = { net: 0, segon: 0, pista: 0, fallat: 0 }, pes = 0;
++    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0 }, pes = 0;
+     arr.forEach(function (x) {
+       var b = per[x.d] || per[2];
+       b.n++; c[x.e] = (c[x.e] || 0) + 1; pes += PES_DIF[x.d] || 1;
+       if (x.e !== "fallat") b.ok++;
+-      if (x.e === "pista") b.p++;
++      if (x.e === "pista" || x.e === "pistes") b.p++;
+     });
+     var n = arr.length;
+     return {
+       n: n, c: c, pes: pes, per: per,
+-      encert: n ? (c.net + c.segon + c.pista) / n : null,
+-      pistes: n ? c.pista / n : null,
++      encert: n ? (c.net + c.segon + c.pista + c.pistes) / n : null,
++      pistes: n ? (c.pista + c.pistes) / n : null,
+       dif: n ? arr.reduce(function (a, x) { return a + x.d; }, 0) / n : null
+     };
+   }
+@@ -2201,7 +2231,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+   function tria(d, quants) {
+     /* `vist` va amb el pes més alt de tots: un exercici que es va obrir i no
+        es va contestar és, per definició, el que menys clar es tenia. */
+-    var PES = { vist: 3.4, fallat: 3, pista: 2.2, segon: 1.6, net: 1 };
++    var PES = { vist: 3.4, fallat: 3, pistes: 2.6, pista: 2.2, segon: 1.6, net: 1 };
+     /* Inclinació lleu cap als exercicis de més nivell dins del mateix estat.
+        Lleu a posta: no es pot examinar del que no s'ha practicat, i si tota
+        la feina és de nivell 1, la prova serà de nivell 1 —això no ho arregla
+@@ -2229,31 +2259,24 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+ 
+   // ── MINI-EXAMEN DE 3 SETMANES ─────────────────────────────────────────
+   //
+-  // Un examen per a cada alumne del grup, tots de cop, amb les preguntes
+-  // repartides entre els trams de 3 setmanes que porta el trimestre.
+-  //
+-  // EL PROBLEMA DE FONS: EL CODI NO DIU QUAN ES VA FER CADA EXERCICI.
++  // Un examen per a cada alumne del grup, tots de cop, fet NOMÉS amb la feina
++  // del tram que s'examina: cap exercici d'un tram anterior no hi pot entrar.
++  // I d'aquesta feina, només els 20 primers exercicis, per ordre de quan es
++  // van fer, que són també els que fan la nota de feina del tram.
+   //
+-  // Un codi és una fotografia acumulativa. Porta UNA data —la de generació—
+-  // i l'estat de cada ítem, però no la data de cada ítem. Per tant, la data
+-  // en què es va fer un exercici no es pot llegir enlloc: s'ha de
+-  // RECONSTRUIR comparant codis successius del mateix alumne. Un exercici
+-  // que no era al codi del 3 d'octubre i sí que hi és al del 24 es va fer
+-  // entremig, i se li atribueix la data del codi on apareix per primer cop.
++  // QUAN ES VA FER CADA EXERCICI. Els codis RC4 porten la data del primer
++  // intent de cada exercici i l'ordre en què es van fer (vegeu js/codi.js), i
++  // amb això n'hi ha prou: un sol codi enviat en qualsevol moment del tram o
++  // de les setmanes següents diu exactament què és de cada tram.
+   //
+-  // La conseqüència pràctica és que un alumne que només envia un codi al
+-  // final de les nou setmanes té tota la feina concentrada en un sol tram,
+-  // el de l'enviament, i el repartiment per trams no el pot repartir. No és
+-  // un error del càlcul: és que la informació no existeix. Es diu a la
+-  // llista, alumne per alumne, en comptes de fer veure que sí.
++  // Els codis antics (RC1-RC3) no porten dates. Per a aquests, la data es
++  // DEDUEIX com abans, comparant codis successius: un exercici que no era al
++  // codi del 3 d'octubre i sí al del 24 es va fer entremig. És una estimació,
++  // i quan un examen en depèn, el full de correcció ho diu.
+   //
+-  // EL SORTEIG. Cada pregunta se sorteja per separat: primer el tram (amb
+-  // probabilitat proporcional al pes) i després l'exercici dins del tram.
+-  // Amb pesos 3-2-1, de mitjana la meitat de les preguntes surten de l'últim
+-  // tram, però qualsevol combinació és possible —fins i tot les cinc del
+-  // mateix tram—, que és el que es demanava. Un tram sense exercicis
+-  // disponibles queda fora del sorteig i el seu pes es reparteix entre la
+-  // resta, de manera que l'examen no surt curt per això.
++  // EL SORTEIG. Les preguntes surten a l'atzar d'entre els 20 primers
++  // exercicis del tram, sense repetir exercici mare mentre en quedin de
++  // nous.
+ 
+   var lotSel = null;      /* última tirada, per poder reimprimir sense re-sortejar */
+ 
+@@ -2292,26 +2315,49 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     return Object.keys(per).map(function (k) {
+       var a = per[k];
+       var codis = a.codis.map(function (r) {
+-        return { quan: quan(r.p), mapa: mapaEstats(r.p) };
++        return { quan: quan(r.p), mapa: mapaEstats(r.p), ambDates: !!r.p.dates };
+       }).sort(function (x, y) { return x.quan - y.quan; });
+ 
++      /* Per a cada exercici, la millor data que se'n té:
++           · "exacta"      — la del primer intent, que porta un codi RC4;
++           · "deduida"     — la del primer codi antic (sense dates) que el
++                             porta: la reconstrucció de sempre;
++           · "desconeguda" — apareix per primer cop en un codi RC4 però sense
++                             data, o sigui que és d'abans de la seva finestra.
++         Un codi posterior pot donar la data exacta d'un exercici que abans
++         només tenia la deduïda, i llavors mana la exacta. */
+       var vist = {}, items = [];
+-      codis.forEach(function (c) {
++      codis.forEach(function (c, nc) {
++        var pos = 0;
+         Object.keys(c.mapa).forEach(function (clau) {
+-          if (vist[clau]) return;
+-          vist[clau] = 1;
+-          var tall = clau.indexOf(":");
+-          items.push({
+-            full: parseInt(clau.slice(0, tall), 10),
+-            id: clau.slice(tall + 1),
+-            estat: c.mapa[clau].e,
+-            dif: c.mapa[clau].d,
+-            quan: c.quan
+-          });
++          var m = c.mapa[clau], it = vist[clau];
++          pos++;
++          if (!it) {
++            var tall = clau.indexOf(":");
++            it = vist[clau] = {
++              full: parseInt(clau.slice(0, tall), 10), id: clau.slice(tall + 1),
++              estat: m.e, dif: m.d, quan: null, precisio: "desconeguda",
++              codi: nc, ordre: pos
++            };
++            if (!m.f && !c.ambDates) { it.quan = c.quan; it.precisio = "deduida"; }
++            items.push(it);
++          } else if (it.estat === "fallat" && m.e !== "fallat") {
++            /* Fallat al primer intent i acabat en una altra estona: l'únic
++               desenllaç possible és el segon intent, i com a molt val això. */
++            it.estat = "segon";
++          }
++          if (m.f) {
++            /* L'ordre dins d'un dia sempre ve d'un sol codi (el més recent que
++               el data), perquè la finestra de dates va per dies sencers. */
++            it.quan = m.f; it.precisio = "exacta"; it.codi = nc; it.ordre = m.o;
++          }
+         });
+       });
++      var nDeduits = items.filter(function (it) { return it.precisio === "deduida"; }).length;
+       return { clau: k, nom: a.nom, grup: a.grup, items: items,
+                nCodis: codis.length, descartats: a.descartats,
++               senseDates: codis.filter(function (c) { return !c.ambDates; }).length,
++               deduits: nDeduits,
+                primer: codis.length ? codis[0].quan : null,
+                ultim: codis.length ? codis[codis.length - 1].quan : null };
+     }).sort(function (x, y) { return (x.nom || "").localeCompare(y.nom || ""); });
+@@ -2320,51 +2366,63 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+   /* Quins trams entren en l'examen del tram `objectiu`, i amb quin pes.
+      Només els del MATEIX trimestre: en començar-ne un de nou, el compte torna
+      a zero i el primer examen del trimestre mira només el seu propi tram. */
+-  function tramsElegibles(objectiu, perTrim, pesos) {
+-    var trimestre = Math.floor(objectiu / perTrim);
+-    var out = [];
+-    for (var i = 0; i < pesos.length; i++) {
+-      var t = objectiu - i;
+-      if (t < 0 || Math.floor(t / perTrim) !== trimestre) break;
+-      if (pesos[i] > 0) out.push({ tram: t, pes: pesos[i] });
+-    }
+-    return out;
++  /* El tram d'un exercici. Amb data exacta, el tram són les seves tres
++     setmanes i prou (RE_CALENDARI.tramExacte). Amb la data deduïda d'un
++     enviament, la regla de sempre: el que s'envia en una setmana de descans
++     és del tram que acaba de tancar. */
++  function tramDeItem(it) {
++    if (it.precisio === "exacta") return RE_CALENDARI.tramExacte(it.quan, calTrams);
++    if (it.precisio === "deduida") return tramDe(it.quan);
++    return null;
+   }
+ 
+-  function pesAtzar(llista) {
+-    var suma = llista.reduce(function (a, x) { return a + x.pes; }, 0);
+-    if (suma <= 0) return null;
+-    var r = Math.random() * suma;
+-    for (var i = 0; i < llista.length; i++) {
+-      r -= llista[i].pes;
+-      if (r <= 0) return llista[i];
++  /* Els exercicis d'un alumne en un tram, en l'ordre en què es van fer, i els
++     `maxim` primers, que són els únics que compten. */
++  function feinaDelTram(items, tram, maxim) {
++    var del = items.filter(function (it) { return tramDeItem(it) === tram; });
++    del.sort(function (a, b) {
++      return (a.quan - b.quan) || (a.codi - b.codi) || (a.ordre - b.ordre);
++    });
++    return { tots: del, primers: del.slice(0, maxim) };
++  }
++
++  /* Els valors de cada exercici per a la nota. El de la primera (10) i el del
++     fallat (0) són fixos; els altres es poden tocar des del panell. */
++  function valorsLot() {
++    function llegeix(sel, def) {
++      var el = $(sel);
++      var v = el ? parseFloat(String(el.value || "").replace(",", ".")) : NaN;
++      return isNaN(v) ? def : Math.max(0, Math.min(10, v));
+     }
+-    return llista[llista.length - 1];
++    return { net: 10, fallat: 0,
++             pista: llegeix("#lot-v-pista", RE_CODI.PES.pista),
++             pistes: llegeix("#lot-v-pistes", RE_CODI.PES.pistes),
++             segon: llegeix("#lot-v-segon", RE_CODI.PES.segon) };
+   }
+ 
++  var ETIQ_ESTAT = { net: "a la primera", pista: "amb una pista",
++                     pistes: "amb dues pistes o més", segon: "al segon intent",
++                     fallat: "fallat" };
++
++  function coma(x, dec) { return x.toFixed(dec === undefined ? 1 : dec).replace(".", ","); }
++
+   /* Sorteja `quantes` preguntes d'entre els exercicis d'un alumne, agrupats
+      per tram. Evita repetir exercici mare mentre queden mares sense fer
+      servir, pel mateix motiu que a la prova individual: cinc apartats del
+      mateix problema no són cinc preguntes. */
+-  function sortejaPreguntes(perTram, elegibles, quantes) {
+-    var restant = {};
+-    elegibles.forEach(function (e) {
+-      restant[e.tram] = (perTram[e.tram] || []).slice();
+-    });
+-    var triats = [], mares = {};
+-    for (var n = 0; n < quantes; n++) {
+-      var vius = elegibles.filter(function (e) { return restant[e.tram].length; });
+-      if (!vius.length) break;
+-      var tria_ = pesAtzar(vius);
+-      var pool = restant[tria_.tram];
+-      /* Primer els que no repeteixen exercici mare; si tots repeteixen, el
+-         que sigui, abans que deixar la pregunta sense posar. */
+-      var lliures = pool.filter(function (it) { return !mares[exMare(it.id)]; });
+-      var d = (lliures.length ? lliures : pool);
++  /* Sorteja `quantes` preguntes d'entre `pool` (els 20 primers exercicis del
++     tram, i prou). Evita repetir exercici mare mentre en quedin de nous, pel
++     mateix motiu que a la prova individual: cinc apartats del mateix
++     problema no són cinc preguntes. */
++  function sortejaPreguntes(pool, quantes) {
++    var restant = pool.slice(), triats = [], mares = {};
++    while (triats.length < quantes && restant.length) {
++      var lliures = restant.filter(function (it) { return !mares[exMare(it.id)]; });
++      var d = lliures.length ? lliures : restant;
+       var it = d[Math.floor(Math.random() * d.length)];
+       mares[exMare(it.id)] = true;
+-      restant[tria_.tram] = pool.filter(function (x) { return x !== it; });
+-      triats.push({ it: it, tram: tria_.tram });
++      restant = restant.filter(function (x) { return x !== it; });
++      triats.push({ it: it });
+     }
+     return triats;
+   }
+@@ -2438,127 +2496,99 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       $("#lot-resum").innerHTML = ""; return;
+     }
+     var objectiu = parseInt($("#lot-periode").value, 10) || 0;
+-    var perTrim = RE_CALENDARI.PER_TRIMESTRE;
++    var tram = llistaTrams()[objectiu];
+     var nPreg = Math.max(1, parseInt($("#lot-preguntes").value, 10) || 5);
+     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
+-    var oberts = !!$("#lot-oberts").checked;
+-    var pesos = ($("#lot-pesos").value || "3 2 1").trim().split(/\s+/)
+-      .map(function (x) { return Math.max(0, parseFloat(x) || 0); });
+-    if (!pesos.length) pesos = [3, 2, 1];
+-
+-    var elegibles = tramsElegibles(objectiu, perTrim, pesos);
+-    /* Un pes a zero exclou el tram del sorteig. És legítim voler-ho, però
+-       contradiu el criteri de partida —cap tram no ha de ser impossible— i
+-       s'ha de veure abans d'imprimir trenta exàmens, no després. */
+-    var possibles = 0;
+-    for (var q = objectiu; q >= 0 && Math.floor(q / perTrim) === Math.floor(objectiu / perTrim); q--) {
+-      possibles++;
+-    }
+-    var exclosos = [];
+-    for (var z = 0; z < Math.min(possibles, pesos.length); z++) {
+-      if (!pesos[z]) exclosos.push(objectiu - z + 1);
+-    }
+-    if (possibles > pesos.length) {
+-      for (var z2 = pesos.length; z2 < possibles; z2++) exclosos.push(objectiu - z2 + 1);
+-    }
+-    var alumnes = historialAlumnes();
++    var maxim = Math.max(1, parseInt($("#lot-maxim").value, 10) || RE_CALENDARI.FEINA_MAXIMA);
++    var valors = valorsLot();
+     var sortida = [];
+ 
+-    alumnes.forEach(function (a) {
+-      var perTram = {};
+-      a.items.forEach(function (it) {
+-        if (!RE_BANC[it.id]) return;
+-        if (!it.estat || (!oberts && it.estat === "vist")) return;
+-        var t = tramDe(it.quan);
+-        (perTram[t] = perTram[t] || []).push(it);
+-      });
+-      var nObjectiu = (perTram[objectiu] || []).length;
+-      var disponibles = elegibles.reduce(function (n, e) {
+-        return n + (perTram[e.tram] || []).length;
+-      }, 0);
+-      var preguntes = sortejaPreguntes(perTram, elegibles, nPreg);
+-      var avisos = [];
+-      if (nObjectiu < minim) {
+-        avisos.push("ha fet " + nObjectiu + " exercici" + (nObjectiu === 1 ? "" : "s")
+-          + " al tram examinat i el mínim és " + minim);
++    historialAlumnes().forEach(function (a) {
++      var f = feinaDelTram(a.items, objectiu, maxim);
++      var estats = f.primers.map(function (it) { return it.estat; });
++      var nt = RE_CODI.notaTram(estats, maxim, valors);
++      var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
++      estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
++      var pool = f.primers.filter(function (it) { return RE_BANC[it.id]; });
++      var preguntes = sortejaPreguntes(pool, nPreg);
++      var n = f.tots.length, avisos = [];
++
++      if (n < minim) {
++        avisos.push("ha fet " + n + " exercici" + (n === 1 ? "" : "s")
++          + " al tram i el mínim és " + minim);
+       }
+       if (a.descartats) {
+         avisos.push(a.descartats + " enviament"
+           + (a.descartats === 1 ? "" : "s") + " seu"
+-          + (a.descartats === 1 ? "" : "s") + " no s'han pogut llegir (codi "
+-          + "alterat o mal copiat) i no compten"
++          + (a.descartats === 1 ? " no s'ha" : " no s'han") + " pogut llegir (codi "
++          + "alterat o mal copiat) i no compt" + (a.descartats === 1 ? "a" : "en")
+           + (a.nCodis ? "" : ": no li'n queda cap de bo"));
+       }
+-      if (a.nCodis && a.nCodis < 2) {
+-        avisos.push("només ha enviat " + a.nCodis + " codi"
+-          + (a.nCodis === 1 ? "" : "s") + ", així que no es pot saber en quin "
+-          + "tram va fer cada exercici: tot compta com a fet el dia de l'enviament");
++      var deduits = f.tots.filter(function (it) { return it.precisio === "deduida"; }).length;
++      if (deduits) {
++        avisos.push(deduits + " exercici" + (deduits === 1 ? "" : "s")
++          + " del tram tenen la data deduïda dels enviaments (codis d'una versió "
++          + "anterior del lloc, sense dates): algun podria ser d'un altre tram"
++          + (a.nCodis < 2 ? ", i com que només ha enviat un codi, tota aquella "
++            + "feina compta com a feta el dia de l'enviament" : ""));
++      }
++      var sense = a.items.filter(function (it) { return it.precisio === "desconeguda"; }).length;
++      if (sense && n < minim) {
++        avisos.push(sense + " exercici" + (sense === 1 ? "" : "s") + " seu"
++          + (sense === 1 ? "" : "s") + " han arribat sense data perquè el codi "
++          + "es va enviar massa setmanes després, i no compten per a cap tram");
+       }
+       if (preguntes.length < nPreg) {
+         avisos.push("només s'han pogut sortejar " + preguntes.length + " de "
+-          + nPreg + " preguntes: no té prou exercicis diferents");
++          + nPreg + " preguntes: no té prou exercicis del tram");
+       }
+       /* Un examen pot tenir cinc preguntes i ser, de fet, dos problemes
+-         repetits: al banc el 63 % dels exercicis tenen més d'un apartat, i
+-         si la feina d'un alumne es concentra en pocs exercicis mare, el
+-         sorteig no ho pot arreglar —només ho pot dir. */
++         repetits: el sorteig no ho pot arreglar si la feina del tram es
++         concentra en pocs exercicis mare, però sí que ho pot dir. */
+       var maresDif = {};
+       preguntes.forEach(function (q) { maresDif[exMare(q.it.id)] = 1; });
+       var nMares = Object.keys(maresDif).length;
+       if (preguntes.length && nMares < preguntes.length) {
+         avisos.push("les " + preguntes.length + " preguntes surten de només "
+-          + nMares + " problema" + (nMares === 1 ? "" : "s") + " diferent"
++          + nMares + (nMares === 1 ? " problema" : " problemes") + " diferent"
+           + (nMares === 1 ? "" : "s") + ": hi ha apartats repetits del mateix "
+           + "exercici perquè no ha treballat prou temes en aquest tram");
+       }
+       sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
+-                     nObjectiu: nObjectiu, disponibles: disponibles });
++                     n: n, compten: f.primers.length, primers: f.primers,
++                     c: c, x: nt.x, nota: nt.nota });
+     });
+ 
+-    lotSel = { sortida: sortida, objectiu: objectiu, elegibles: elegibles,
+-               perTrim: perTrim, minim: minim, exclosos: exclosos };
++    lotSel = { sortida: sortida, objectiu: objectiu, tram: tram, minim: minim,
++               maxim: maxim, valors: valors, perTrim: RE_CALENDARI.PER_TRIMESTRE };
+     pintaLot(lotSel);
+     intentaKatex();
+   }
+ 
+   function pintaLot(lot) {
+     var amb = lot.sortida.filter(function (s) { return s.preguntes.length; });
+-    var sense = lot.sortida.filter(function (s) { return !s.preguntes.length; });
+     var ambAvis = lot.sortida.filter(function (s) { return s.avisos.length; });
+ 
+     $("#lot-estat").innerHTML = amb.length + " examen" + (amb.length === 1 ? "" : "s")
+       + " a punt" + (ambAvis.length ? " · <b>" + ambAvis.length + " amb avís</b>" : "");
+ 
+-    var trams = lot.elegibles.map(function (e) {
+-      return "tram " + (e.tram + 1) + " (pes " + e.pes + ")";
+-    }).join(", ");
+-
+     var h = '<div class="pr-accions">'
+       + '<button class="btn" id="lot-imprimeix">Imprimeix tots els exàmens</button>'
+       + '<button class="btn buit" id="lot-imprimeix-clau">Imprimeix totes les solucions</button>'
+       + '<button class="btn buit" id="lot-regenera">Torna a sortejar</button>'
++      + '<button class="btn buit" id="lot-csv">Baixa les notes (CSV)</button>'
+       + '</div><p class="petit apagat" style="margin:-.3rem 0 .9rem">'
+       + "Cada impressió és un document a part: desa'l com a PDF des del diàleg "
+       + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
+ 
+-    /* Una fila per alumne, amb els números que decideixen si l'examen val:
+-       quants exercicis nous té al tram que s'examina i quants n'acumula al
+-       trimestre. Una llista d'avisos agrupats deia què anava malament, però
+-       no deixava veure el grup d'un cop d'ull ni permetia comparar-los. */
+-
+-    if (lot.exclosos && lot.exclosos.length) {
+-      h += '<div class="lot-avis petit" style="margin:0 0 .8rem"><b>Atenció:</b> '
+-        + "amb aquests pesos, el tram "
+-        + lot.exclosos.map(function (t) { return t; }).join(" i el ")
+-        + " no pot sortir mai. Si vols que tots els trams del trimestre "
+-        + "siguin possibles, cap pes no pot ser 0.</div>";
+-    }
+     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
+-      + "Se sorteja entre: " + escapa(trams)
+-      + ". Clica una fila per veure'n l'examen i imprimir-lo sol.</div>"
++      + "Tram " + (lot.objectiu + 1) + ", del " + dataCurta(lot.tram.inici) + " al "
++      + dataCurta(lot.tram.fi) + ". Les preguntes i la nota surten només dels "
++      + lot.maxim + " primers exercicis fets en aquestes tres setmanes. Clica una "
++      + "fila per veure'n l'examen i imprimir-lo sol.</div>"
+       + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
+-      + '<th class="xifra">Nous al tram ' + (lot.objectiu + 1) + "</th>"
+-      + '<th class="xifra">Acumulat del trimestre</th><th>Estat</th>'
++      + '<th class="xifra">Fets al tram</th><th>Com</th>'
++      + '<th class="xifra">Nota de feina</th><th>Estat</th>'
+       + "</tr></thead><tbody>";
+     lot.sortida.forEach(function (x, i) {
+       var estat = x.preguntes.length
+@@ -2568,13 +2598,23 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+         : '<span class="mal petit">sense examen</span>';
+       h += '<tr data-i="' + i + '"><td>' + escapa(x.alumne.nom || x.alumne.clau)
+         + "</td><td>" + escapa(x.alumne.grup || "") + "</td>"
+-        + '<td class="xifra">' + x.nObjectiu
+-        + (x.nObjectiu < lot.minim
+-            ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
+-        + '</td><td class="xifra">' + x.disponibles + "</td><td>" + estat
+-        + "</td></tr>";
++        + '<td class="xifra">' + x.n
++        + (x.n < lot.minim ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
++        + (x.n > lot.maxim ? ' <span class="petit apagat">compten els '
++            + lot.maxim + " primers</span>" : "")
++        + "</td><td>" + punts(x.primers.map(function (it) { return { id: it.id, estat: it.estat }; }))
++        + '</td><td class="xifra">' + (x.n
++            ? '<span class="nota ' + classeNota(x.nota) + '">' + coma(x.nota) + "</span>"
++            : '<span class="apagat">0</span>')
++        + "</td><td>" + estat + "</td></tr>";
+     });
+     h += "</tbody></table>";
++    h += '<div class="llegenda">'
++      + '<span><i style="background:var(--verd)"></i>a la primera</span>'
++      + '<span><i style="background:var(--ambre)"></i>amb una pista</span>'
++      + '<span><i style="background:#7A4A00"></i>amb dues pistes o més</span>'
++      + '<span><i style="background:#7FB79B"></i>al segon intent</span>'
++      + '<span><i style="background:var(--vermell)"></i>fallat</span></div>';
+     if (ambAvis.length) {
+       h += '<div class="lot-avis petit" style="margin-top:.6rem">'
+         + "<b>Amb avís (" + ambAvis.length + "):</b> l'examen es genera igual. "
+@@ -2592,15 +2632,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+        els mateixos identificadors que fa servir la prova individual, perquè
+        les regles d'impressió que ja hi ha valguin sense tocar-les. */
+     h += '<div class="pr-paper" id="pr-examen">';
+-    amb.forEach(function (s) {
+-      h += pintaExamenAlumne(s, lot);
+-    });
++    amb.forEach(function (s) { h += pintaExamenAlumne(s, lot); });
+     h += "</div>";
+-
+     h += '<div class="pr-paper" id="pr-correccio">';
+-    amb.forEach(function (s) {
+-      h += pintaClauAlumne(s, lot);
+-    });
++    amb.forEach(function (s) { h += pintaClauAlumne(s, lot); });
+     h += "</div>";
+ 
+     $("#lot-resum").innerHTML = h;
+@@ -2617,27 +2652,40 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     $("#lot-imprimeix").onclick = function () { imprimeix("examen"); };
+     $("#lot-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
+     $("#lot-regenera").onclick = generaLot;
++    $("#lot-csv").onclick = function () {
++      var l = ["alumne;correu;grup;tram;fets;compten;a_la_primera;una_pista;"
++        + "dues_pistes;segon_intent;fallats;nota;avisos"];
++      lot.sortida.forEach(function (x) {
++        l.push([x.alumne.nom || "", x.alumne.clau, x.alumne.grup || "", lot.objectiu + 1,
++                x.n, x.compten, x.c.net, x.c.pista, x.c.pistes, x.c.segon, x.c.fallat,
++                coma(x.nota), '"' + x.avisos.join(" | ").replace(/"/g, "'") + '"'].join(";"));
++      });
++      var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
++      var a = document.createElement("a");
++      a.href = URL.createObjectURL(b);
++      a.download = "notes-tram-" + (lot.objectiu + 1) + ".csv";
++      a.click();
++    };
+ 
+     /* Clicar una fila marca aquell alumne i deixa imprimir-lo sol: passa
+        sovint que algú faltava el dia de l'examen i cal el seu full a part,
+        sense tornar a tirar tota la classe per la impressora. */
+     $$("#lot-taula tbody tr").forEach(function (tr) {
+       tr.onclick = function () {
+-        var i = +tr.dataset.i, x = lot.sortida[i];
++        var x = lot.sortida[+tr.dataset.i];
+         $$("#lot-taula tbody tr").forEach(function (o) { o.classList.remove("tria"); });
+         $$(".pr-alumne").forEach(function (o) { o.classList.remove("sol"); });
+         if (!x.preguntes.length) {
+           $("#lot-un").innerHTML = escapa(x.alumne.nom || x.alumne.clau)
+-            + " no té cap exercici fet als trams que entren, així que no se li "
++            + " no té cap exercici fet en aquest tram, així que no se li "
+             + "pot compondre cap examen.";
+           return;
+         }
+         tr.classList.add("tria");
+-        var nom = x.alumne.nom || x.alumne.clau;
+         $$(".pr-alumne").forEach(function (o) {
+           if (o.dataset.alumne === x.alumne.clau) o.classList.add("sol");
+         });
+-        $("#lot-un").innerHTML = '<b>' + escapa(nom) + "</b> · "
++        $("#lot-un").innerHTML = "<b>" + escapa(x.alumne.nom || x.alumne.clau) + "</b> · "
+           + '<button class="btn buit petit" id="lot-un-ex">Imprimeix el seu examen</button> '
+           + '<button class="btn buit petit" id="lot-un-cl">Imprimeix la seva correcció</button>';
+         function solA(quin) {
+@@ -2657,8 +2705,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+     return '<div class="capc"><div><h2>' + titol + "</h2>"
+       + '<div class="petit apagat">' + escapa(s.alumne.nom || s.alumne.clau)
+       + (s.alumne.grup ? " · " + escapa(s.alumne.grup) : "")
+-      + " · tram " + (lot.objectiu + 1)
+-      + " · trimestre " + (Math.floor(lot.objectiu / lot.perTrim) + 1)
++      + " · tram " + (lot.objectiu + 1) + " (" + dataCurta(lot.tram.inici)
++      + " – " + dataCurta(lot.tram.fi) + ")"
+       + "</div>" + (extra || "") + "</div>"
+       + '<div class="petit apagat" style="text-align:right">Data: ' + data
+       + "<br>Nom i cognoms: ____________________<br>Nota: ______</div></div>";
+@@ -2685,7 +2733,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+   function pintaClauAlumne(s, lot) {
+     var mix = { 1: 0, 2: 0, 3: 0, 4: 0 };
+     s.preguntes.forEach(function (q) { mix[q.it.dif || 2] = (mix[q.it.dif || 2] || 0) + 1; });
+-    var extra = '<div class="petit apagat">NO repartir · Nivells: ' + mix[1]
++    var extra = '<div class="petit apagat">NO repartir · Feina del tram: ' + s.n
++      + " exercici" + (s.n === 1 ? "" : "s")
++      + (s.n > lot.maxim ? " (compten els " + lot.maxim + " primers)" : "")
++      + " · nota de feina " + coma(s.nota) + "</div>"
++      + '<div class="petit apagat">Nivells: ' + mix[1]
+       + " trivials · " + mix[2] + " directes · " + mix[3] + " encadenats · "
+       + mix[4] + " complets</div>";
+     if (s.avisos.length) {
+@@ -2701,9 +2753,11 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
+       try { k = clauItem(b); } catch (e) { k = null; }
+       var correcta = k && b.opcions ? b.opcions[k.ok] : "";
+       h += '<div class="pr-preg"><div class="cap"><span class="num">' + (i + 1) + ".</span> "
+-        + '<span class="meta">tram ' + (q.tram + 1) + " · " + escapa(b.bloc || "")
+-        + " · id " + escapa(q.it.id) + " · a la pràctica: " + escapa(q.it.estat)
+-        + "</span></div>"
++        + '<span class="meta">'
++        + (q.it.quan ? (q.it.precisio === "exacta" ? "fet el " : "enviat el ")
++            + dataCurta(q.it.quan) + " · " : "")
++        + escapa(b.bloc || "") + " · id " + escapa(q.it.id) + " · a la pràctica: "
++        + escapa(ETIQ_ESTAT[q.it.estat] || q.it.estat) + "</span></div>"
+         + (correcta ? '<div class="enun"><b>Resposta:</b> ' + correcta + "</div>" : "")
+         + (k && k.res && k.res.length
+             ? '<ol class="passos">' + k.res.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ol>"
+diff --git a/tools/build_codi.py b/tools/build_codi.py
+index a863b41..a123179 100644
+--- a/tools/build_codi.py
++++ b/tools/build_codi.py
+@@ -222,7 +222,7 @@ def taula_proves():
+ 
+ 
+ # ---------------------------------------------------------------------
+-# Els sostres del format RC3
++# Els sostres del format RC4
+ # ---------------------------------------------------------------------
+ # Han d'anar iguals que els de `js/codi.js`, i s'hi llegeixen d'allà en lloc
+ # de repetir-los aquí: dos números que han de coincidir i viuen en dos
+@@ -256,9 +256,9 @@ def comprova_sostres(fulls):
+             "full %d: %d ítems, i el codi de verificació només n'admet %d "
+             "(31 grups de 7 en un caràcter base32). Amb un més, els codis "
+             "emesos sortirien ÍNTEGRES i amb la feina a zero. Cal partir el "
+-            "full o passar a un format RC4." % (n, k, lim["MAX_ITEMS"]))
++            "full o passar a un format nou (RC5)." % (n, k, lim["MAX_ITEMS"]))
+         assert 1 <= n <= lim["MAX_FULLS"], (
+-            "full %d: la màscara del format RC3 té els fulls als bits 0-%d i "
++            "full %d: la màscara del format RC4 té els fulls als bits 0-%d i "
+             "el diagnòstic al bit %d. Un full %d activaria el bit del "
+             "diagnòstic: el full desapareixeria del codi i el lector es "
+             "trobaria un diagnòstic fantasma. Cal un format RC4."
