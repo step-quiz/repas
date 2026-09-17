@@ -264,13 +264,27 @@ button{font:inherit;font-family:var(--cos)}
 .avis-tram button:hover{color:var(--ambre)}
 
 
-/* Icona de teoria. Discreta a posta: qui va bé no l'ha de notar, i qui
-   s'encalla la troba just a la capçalera de l'exercici. Només es desplega
-   l'enllaç quan es clica. */
-.teoria{display:inline-flex;align-items:center;gap:.4rem}
-.teoria-t{width:1.45rem;height:1.45rem;border-radius:50%;border:1px solid var(--vora);
+/* Icones dels recursos de l'exercici: T (teoria del llibre) i V (vídeo de
+   resolució). Discretes a posta: qui va bé no les ha de notar, i qui
+   s'encalla les troba just a la capçalera de l'exercici. Només es desplega
+   l'enllaç quan es clica.
+
+   Les dues són iguals a la vista, i es distingeixen només per la lletra: si
+   una fos ambre o vermella, el lloc estaria dient «avís» o «error» allà on
+   només vol dir «aquí tens ajuda». Cada pastilla viu dins d'una ranura
+   `.recurs` pròpia, i el contenidor `.teoria` les separa una mica més que
+   l'enllaç de la seva pastilla, perquè es vegi quina caixa penja de quina
+   lletra. */
+.teoria{display:inline-flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.recurs{display:inline-flex;align-items:center;gap:.4rem}
+.recurs-icona{width:1.45rem;height:1.45rem;border-radius:50%;border:1px solid var(--vora);
   background:var(--card);color:var(--apagat);font:600 .78rem/1 var(--mono);
-  cursor:pointer;padding:0}
-.teoria-t:hover{border-color:var(--blau);color:var(--blau)}
-.teoria-t[aria-expanded="true"]{background:var(--blau-suau);border-color:var(--blau);color:var(--blau)}
-.teoria-obert a{font-size:.82rem;color:var(--blau)}
+  cursor:pointer;padding:0;flex:none}
+.recurs-icona:hover{border-color:var(--blau);color:var(--blau)}
+.recurs-icona[aria-expanded="true"]{background:var(--blau-suau);border-color:var(--blau);color:var(--blau)}
+/* En columna perquè un exercici pot tenir més d'un vídeo (mètodes diferents
+   del mateix tema) i en una sola línia no se sabria on acaba un enllaç i on
+   comença el següent. */
+.recurs-obert{display:inline-flex;flex-direction:column;gap:.1rem}
+.recurs-obert a{font-size:.82rem;color:var(--blau)}
+.recurs-avis{font-size:.78rem;color:var(--apagat);line-height:1.3}

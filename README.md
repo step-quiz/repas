@@ -75,12 +75,17 @@ hi ha comptes ni sincronització entre dispositius.
     js/resultat.js        controlador de la diagnosi
     js/itinerari-dades.js generació i estat de la ruta
     js/itinerari.js       controlador de l'itinerari
+    js/teoria.js          les dues icones de recursos de l'exercici: T cap a
+                          la teoria del llibre i V cap al vídeo de resolució
     css/estil.css         tot l'estil del lloc
     vendor/katex/         KaTeX servit en local (no CDN): un filtre de centre
                           el bloqueja i el LaTeX en cru no és llegible per a
                           un alumne d'ESO. Per actualitzar-lo: `npm pack
                           katex@X` i copiar katex.min.{js,css},
                           contrib/auto-render.min.js i fonts/*.woff2
+
+    data/teoria.json      mapa exercici → activitat del llibre de text
+    data/videos.json      mapa exercici → vídeo de l'entrega de repàs en paper
 
     data/fullN.js         banc de preguntes d'un full — GENERAT, no editar
     REVISIO-fullN.html    clau de respostes d'un full — GENERAT, no editar
@@ -299,12 +304,12 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-306 comprovacions. Les de Python i les del codi de verificació no demanen
-instal·lar res: `unittest` de la biblioteca estàndard i Node pelat. Tres blocs
-(analitzador, accessibilitat i flux de la resolució) necessiten un DOM i se
-salten sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no
-declara «tot en verd»**, perquè un verd que amaga 92 comprovacions no
-executades és pitjor que un avís:
+423 comprovacions. Les de Python i les del codi de verificació no demanen
+instal·lar res: `unittest` de la biblioteca estàndard i Node pelat. Quatre
+blocs (analitzador, accessibilitat, flux de la resolució i icones dels
+recursos) necessiten un DOM i se salten sols si `jsdom` no hi és — **però
+llavors l'script ho diu en groc i no declara «tot en verd»**, perquè un verd
+que amaga 128 comprovacions no executades és pitjor que un avís:
 
 ```sh
 npm install --no-save jsdom     # per passar-les totes

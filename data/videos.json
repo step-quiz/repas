@@ -1,0 +1,176 @@
+{
+  "_llegiu-me": [
+    "Mapa de repàs → vídeo. Relaciona un exercici d'aquest lloc amb el vídeo",
+    "on es resol, pas a pas, un exercici EQUIVALENT de l'entrega de paper",
+    "«Exercicis de repàs de l'ESO per iniciar el Batxillerat».",
+    "",
+    "PER QUÈ VA EN UN FITXER A PART de `data/teoria.json`. Els dos mapes es",
+    "consulten amb la mateixa cascada, però són independents i no es poden",
+    "barrejar. `teoria.json` està mapat sobretot per BLOC, perquè tot un bloc",
+    "comparteix la teoria del llibre; els vídeos, en canvi, demanen anar per",
+    "EXERCICI: el 80 (fórmula general) i el 81 (nombre de solucions) són del",
+    "mateix bloc i van a vídeos diferents. Si el vídeo fos un camp més de",
+    "`teoria.json`, afegir una entrada d'exercici per posar-hi el vídeo",
+    "amagaria la teoria del bloc, perquè a la cascada guanya la primera",
+    "entrada que coincideix i se l'emporta sencera. Amb dos mapes separats,",
+    "cada icona troba el seu destí sense tapar l'altra.",
+    "",
+    "TRES NIVELLS, del més precís al més general. Es consulta per ordre:",
+    "  1. `items`     — un ítem concret (id: '83a')",
+    "  2. `exercicis` — tots els apartats d'un exercici (ex: 80)",
+    "  3. `blocs`     — tot un bloc temàtic ('5:sistemes')",
+    "El primer que doni resultat guanya. Els sistemes ho fan servir de debò:",
+    "el bloc sencer porta als tres vídeos de mètode (substitució, igualació i",
+    "reducció) i els exercicis 87 i 88, que porten parèntesis i denominadors,",
+    "se'n desmarquen per anar al vídeo del mètode més adequat.",
+    "",
+    "CLAU DE BLOC: «5:sistemes» (full:bloc). Els noms de bloc no són únics",
+    "entre fulls —«problemes» surt al 5 i al 7, «aplicacions» al 3 i al 8— i",
+    "sense el full davant els dos sentits compartirien destinació.",
+    "",
+    "CADA ENTRADA és un objecte, o una llista d'objectes quan un exercici es",
+    "resol mirant més d'un vídeo:",
+    "  `vid`   identificador de YouTube (11 caràcters). OBLIGATORI.",
+    "  `ex`    número de l'exercici a l'entrega de paper. OBLIGATORI: és el",
+    "          que permet a l'alumne saber d'on surt el vídeo, i a qui manté",
+    "          el mapa, tornar a l'entrega per comprovar l'encaix.",
+    "  `titol` què s'hi resol, en paraules de l'alumne. OBLIGATORI.",
+    "  `avis`  OPCIONAL i VISIBLE: surt sota l'enllaç. Per dir que el vídeo",
+    "          fa una passa que l'alumne encara no espera (per exemple,",
+    "          resoldre-ho amb trigonometria).",
+    "  `nota`  OPCIONAL i INTERNA: no es mostra mai. Per justificar un encaix",
+    "          discutible a qui llegeixi aquest fitxer d'aquí a dos anys.",
+    "",
+    "EL VÍDEO NO RESOL L'EXERCICI DE LA PANTALLA, resol un altre exercici de",
+    "la mateixa destresa. Per això la icona pot ser-hi des del primer moment,",
+    "com la de teoria: no regala la resposta, ensenya el mètode.",
+    "",
+    "QUÈ NO HI ÉS. Onze vídeos de l'entrega no tenen cap exercici equivalent",
+    "al banc i no surten en aquest mapa: el 2 (operacions amb identitats",
+    "notables; el bloc «operacions» del full 4 és suma i producte de",
+    "polinomis, no és el mateix), el 8 (paràmetre per tenir una única",
+    "solució), el 10 (biquadrades), el 19 (identitats trigonomètriques), el",
+    "22 (exponencials, arrels i valor absolut), i del 28 al 33 (logaritmes,",
+    "creixement exponencial, sistemes de tres equacions i sistemes no",
+    "lineals). Són continguts d'entrada a Batxillerat que el banc no cobreix:",
+    "posar-los aquí demanaria blocs nous, no una entrada nova.",
+    "",
+    "Si aquest fitxer no hi és, o un exercici no hi surt, `repas` funciona",
+    "igual: simplement no apareix la icona del vídeo."
+  ],
+  "base": "https://youtu.be/",
+  "font": "Exercicis de repàs de l'ESO per iniciar el Batxillerat",
+  "items": {
+    "83a": {
+      "vid": "GfFx2OpcuEs",
+      "ex": 6,
+      "titol": "Equacions de segon grau incompletes",
+      "nota": "el vídeo resol x²−9=0; aquí ja ve factoritzada com a (x+2)(x−2)=0, que és el pas següent del mateix camí"
+    },
+    "83b": {
+      "vid": "GfFx2OpcuEs",
+      "ex": 6,
+      "titol": "Equacions de segon grau incompletes"
+    },
+    "112a": {
+      "vid": "EjYLG9mJKXs",
+      "ex": 27,
+      "titol": "Trobar el total a partir d'una part",
+      "nota": "només l'apartat a: el b ja dona el total i busca la part, que és el camí directe i no necessita aquest vídeo"
+    },
+    "124a": {
+      "vid": "6jVaspfGhTE",
+      "ex": 18,
+      "titol": "Altura d'un triangle equilàter",
+      "avis": "Al vídeo es resol sense el teorema de Pitàgores, amb trigonometria."
+    },
+    "202b": {
+      "vid": "oLMIOMu0M0A",
+      "ex": 23,
+      "titol": "Calcular imatges d'una funció racional"
+    }
+  },
+  "exercicis": {
+    "66": { "vid": "bBk_lYYa9SA", "ex": 9, "titol": "La regla de Ruffini en acció", "nota": "el vídeo la fa servir per resoldre equacions de tercer grau; l'encaix és parcial i el que s'hi aprofita és la taula de Ruffini" },
+    "67": { "vid": "bBk_lYYa9SA", "ex": 9, "titol": "La regla de Ruffini en acció" },
+    "68": { "vid": "bBk_lYYa9SA", "ex": 9, "titol": "La regla de Ruffini en acció" },
+    "69": { "vid": "bBk_lYYa9SA", "ex": 9, "titol": "La regla de Ruffini en acció" },
+
+    "70": { "vid": "e15FLvrMIq4", "ex": 1, "titol": "Desenvolupar identitats notables" },
+    "71": { "vid": "e15FLvrMIq4", "ex": 1, "titol": "Desenvolupar identitats notables", "nota": "aquí es demana el camí invers (factoritzar); el vídeo dona els tres patrons desenvolupats, que és el que cal reconèixer" },
+    "72": { "vid": "e15FLvrMIq4", "ex": 1, "titol": "Suma per diferència", "nota": "el vídeo en fa quatre casos (apartats a, d, f i g), que és exactament el patró d'aquest exercici amb termes agrupats" },
+    "74": { "vid": "e15FLvrMIq4", "ex": 1, "titol": "Desenvolupar identitats notables" },
+
+    "75": { "vid": "U-6coyMXqIU", "ex": 3, "titol": "Equacions amb parèntesis i denominadors", "nota": "encaix parcial: aquí no hi ha denominadors, però el vídeo comença traient els parèntesis igual" },
+    "76": { "vid": "U-6coyMXqIU", "ex": 3, "titol": "Equacions amb parèntesis i denominadors" },
+    "77": { "vid": "U-6coyMXqIU", "ex": 3, "titol": "Equacions amb parèntesis i denominadors" },
+    "78": { "vid": "U-6coyMXqIU", "ex": 3, "titol": "Equacions amb parèntesis i denominadors" },
+    "79": { "vid": "U-6coyMXqIU", "ex": 3, "titol": "Equacions amb parèntesis i denominadors" },
+
+    "80": { "vid": "Nhi-OTb2_aI", "ex": 5, "titol": "Equacions de segon grau amb la fórmula general" },
+    "81": { "vid": "UsnX5Prjbgw", "ex": 4, "titol": "Quantes solucions té, sense resoldre-la" },
+    "82": { "vid": "GfFx2OpcuEs", "ex": 6, "titol": "Equacions de segon grau incompletes" },
+    "84": [
+      { "vid": "Gwxps3euP8M", "ex": 7, "titol": "Desenvolupar abans de resoldre" },
+      { "vid": "Nhi-OTb2_aI", "ex": 5, "titol": "Equacions de segon grau amb la fórmula general" }
+    ],
+
+    "87": { "vid": "fK0MS4zOgAc", "ex": 14, "titol": "Sistemes amb parèntesis i denominadors" },
+    "88": { "vid": "fK0MS4zOgAc", "ex": 14, "titol": "Sistemes amb parèntesis i denominadors" },
+
+    "91": [
+      { "vid": "-hyfFvFSGvY", "ex": 16, "titol": "Problema de dos preus, amb un sistema" },
+      { "vid": "unNHdKasnHw", "ex": 15, "titol": "Problema de dues quantitats, amb un sistema" }
+    ],
+    "93": [
+      { "vid": "-hyfFvFSGvY", "ex": 16, "titol": "Problema de dos preus, amb un sistema" },
+      { "vid": "unNHdKasnHw", "ex": 15, "titol": "Problema de dues quantitats, amb un sistema" }
+    ],
+    "98": [
+      { "vid": "-hyfFvFSGvY", "ex": 16, "titol": "Problema de dos preus, amb un sistema" },
+      { "vid": "unNHdKasnHw", "ex": 15, "titol": "Problema de dues quantitats, amb un sistema" }
+    ],
+    "99": [
+      { "vid": "-hyfFvFSGvY", "ex": 16, "titol": "Problema de dos preus, amb un sistema" },
+      { "vid": "unNHdKasnHw", "ex": 15, "titol": "Problema de dues quantitats, amb un sistema" }
+    ],
+
+    "111": { "vid": "EjYLG9mJKXs", "ex": 27, "titol": "Trobar el total a partir d'una part" },
+    "277": { "vid": "EjYLG9mJKXs", "ex": 27, "titol": "Trobar el preu de partida" },
+    "113": { "vid": "Sb0Idi9MoSE", "ex": 25, "titol": "Un augment i una rebaixa encadenats" },
+    "114": { "vid": "Sb0Idi9MoSE", "ex": 25, "titol": "Un augment i una rebaixa encadenats" },
+    "115": { "vid": "Sb0Idi9MoSE", "ex": 25, "titol": "Un augment i una rebaixa encadenats" },
+    "284": { "vid": "Sb0Idi9MoSE", "ex": 25, "titol": "Un augment i una rebaixa encadenats" },
+    "280": { "vid": "zqqUlDUkuD8", "ex": 26, "titol": "Rebaixes encadenades i descompte equivalent" },
+
+    "125": {
+      "vid": "6jVaspfGhTE",
+      "ex": 18,
+      "titol": "Altura d'un triangle equilàter",
+      "avis": "Al vídeo es resol sense el teorema de Pitàgores, amb trigonometria."
+    },
+    "146": { "vid": "EXaBzQi-fAE", "ex": 17, "titol": "Resoldre triangles rectangles", "nota": "encaix parcial: al vídeo hi ha els costats amb Pitàgores i, a més, els angles amb trigonometria" },
+    "147": { "vid": "EXaBzQi-fAE", "ex": 17, "titol": "Resoldre triangles rectangles" },
+
+    "207": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta", "nota": "encaix parcial: el vídeo representa 2x+2 i tres funcions més; d'aquí se n'aprofita el pendent i l'ordenada a l'origen" },
+    "208": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta" },
+    "209": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta" },
+    "295": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta" },
+    "296": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta" },
+    "297": { "vid": "b5XstxknIT4", "ex": 20, "titol": "Representar una recta" },
+
+    "216": [
+      { "vid": "aaEgZhF9i_M", "ex": 21, "titol": "Representar una paràbola: vèrtex i talls" },
+      { "vid": "iBeSAAJB7yc", "ex": 24, "titol": "Punts de tall amb els eixos" }
+    ],
+    "300": { "vid": "aaEgZhF9i_M", "ex": 21, "titol": "Representar una paràbola: vèrtex i talls" },
+    "301": { "vid": "iBeSAAJB7yc", "ex": 24, "titol": "Punts de tall amb els eixos" }
+  },
+  "blocs": {
+    "5:sistemes": [
+      { "vid": "8Y7N8bnxajs", "ex": 11, "titol": "Sistemes pel mètode de substitució" },
+      { "vid": "osQnlyt0Iy4", "ex": 12, "titol": "Sistemes pel mètode d'igualació" },
+      { "vid": "T1JgKdH_5rM", "ex": 13, "titol": "Sistemes pel mètode de reducció" }
+    ]
+  }
+}

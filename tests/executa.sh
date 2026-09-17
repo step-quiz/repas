@@ -46,6 +46,10 @@ echo "── JavaScript: pont cap a la teoria del llibre ───────�
 node tests/teoria.test.js || fallades=1
 
 echo
+echo "── JavaScript: pont cap als vídeos de l'entrega ──────────────"
+node tests/video.test.js || fallades=1
+
+echo
 echo "── JavaScript: calendari dels trams ──────────────────────────"
 node tests/calendari.test.js || fallades=1
 
@@ -88,9 +92,10 @@ elif [ "$sense_taules" -ne 0 ]; then
   printf '  compilació i s\047han saltat proves. Executa:  python3 tools/build_tot.py\033[0m\n'
   exit 0
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
-  printf '\033[33m⚠ Les proves executades passen, PERÒ tres blocs (analitzador,\n'
-  printf '  accessibilitat i flux de la resolució) s\047han saltat perquè falta jsdom:\n'
-  printf '  són 129 comprovacions de 406 que no s\047han arribat a executar.\n'
+  printf '\033[33m⚠ Les proves executades passen, PERÒ quatre blocs (analitzador,\n'
+  printf '  accessibilitat, flux de la resolució i icones dels recursos) s\047han\n'
+  printf '  saltat perquè falta jsdom: són 128 comprovacions de 423 que no\n'
+  printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0
 else
