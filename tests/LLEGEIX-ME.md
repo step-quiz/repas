@@ -4,32 +4,55 @@
 sh tests/executa.sh
 ```
 
-No cal instal·lar res: les de Python van amb `unittest` de la biblioteca
+Gairebé no cal instal·lar res: les de Python van amb `unittest` de la biblioteca
 estàndard i les de JavaScript amb Node pelat. **No es fa servir `pytest` ni
 cap altra biblioteca de proves a posta**: el projecte no té dependències, i
 afegir-ne una perquè les assercions siguin més boniques seria canviar una
 propietat que val la pena per comoditat.
 
-L'única excepció és `analitzador.test.js`, que necessita un DOM. Si `jsdom`
-no hi és, aquestes proves se salten amb un avís i la resta continua:
+Hi ha dues excepcions, i totes dues se salten soles amb un avís groc si
+no hi són:
 
-```sh
-npm install --no-save jsdom
-```
+- **jsdom**, per a les proves que necessiten un DOM (analitzador,
+  accessibilitat, flux de la resolució i els botons dels recursos de
+  `video.test.js`). Cal la versió 27 o posterior: les anteriors no porten
+  `TextDecoder` i la pàgina d'exercici hi falla sense tenir cap error.
+
+  ```sh
+  npm install --no-save jsdom
+  ```
+
+- **Playwright**, per a `test_visibilitat_real.js`, que obre les pàgines amb
+  un Chromium de debò per comprovar que el que porta `hidden` no es veu.
+
+`test_lib.py` i una prova de `test_banc.py` importen el motor, que necessita
+SymPy (`pip install sympy`).
 
 ## Què hi ha
 
 | Fitxer | | Comprova |
 |---|---:|---|
 | `comu.py` | — | Carrega el banc un cop i el deixa a `TOTS` i `PLANS`. No importa res de `tools/` |
-| `test_lib.py` | 37 | Els ajudants de `tools/lib.py` i que `_valida()` aturi de veritat el que diu que atura |
-| `test_banc.py` | 19 | El banc compilat: estructura, presentació, catàleg d'errors, coherència de les taules |
-| `test_matematiques.py` | 11 | Recàlcul independent de les respostes, full per full |
-| `test_figures.py` | 9 | Les figures i la coherència geomètrica dels enunciats |
-| `codi.test.js` | 25 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1 |
-| `analitzador.test.js` | 24 | L'analitzador amb un DOM real |
-| `test_a11y.js` | 28 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex |
-| `test_flux_resolucio.js` | 15 | La resolució no s'ofereix mai sense una acció explícita de l'alumne |
+| `test_lib.py` | 38 | Els ajudants de `tools/lib.py` i que `_valida()` aturi de veritat el que diu que atura |
+| `test_banc.py` | 21 | El banc compilat: estructura, presentació, catàleg d'errors, coherència de les taules, i que cap nota visible doni la resposta |
+| `test_matematiques.py` | 14 | Recàlcul independent de les respostes, i que cap distractor algebraic sigui una resposta correcta |
+| `test_enunciats.py` | 3 | El text dels enunciats: tres errors trobats en revisió humana |
+| `test_opcions_distintes.py` | 2 | Cap distractor numèric no val el mateix que la resposta correcta |
+| `test_figures.py` | 10 | Les figures i la coherència geomètrica dels enunciats |
+| `test_figures_planes.py` | 15 | Les figures del Full 7 |
+| `test_figures_semblanca.py` | 45 | Les figures del Full 8 |
+| `test_figures_grafics.py` | 20 | Les gràfiques del Full 10 |
+| `test_probabilitat_nou.py` | 20 | Recàlcul independent del contingut nou de probabilitat (Full 12) |
+| `codi.test.js` | 44 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1–RC3 |
+| `test_registre.js` | 20 | El registre és d'una sola direcció: cap trampa no el renta |
+| `calendari.test.js` | 27 | Els nou trams i l'avís de final de tram |
+| `mini_examen*.test.js` | — | Quatre bateries del mini-examen de 3 setmanes |
+| `teoria.test.js` | 3 | Els enllaços al llibre (se salten sense el repositori del llibre al costat) |
+| `video.test.js` | 19 | El mapa de vídeos i els botons Teoria / Vídeo pintats de debò |
+| `analitzador.test.js` | 68 | L'analitzador amb un DOM real |
+| `test_a11y.js` | 41 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex, fletxes |
+| `test_flux_resolucio.js` | 18 | La resolució (i el «Per recordar») no s'ofereix mai sense una acció explícita de l'alumne |
+| `test_visibilitat_real.js` | 15 | Amb un navegador real: el que porta `hidden` no es veu ni es pot clicar |
 | `arnes.js` | — | L'arnès de proves de JavaScript, quinze línies |
 
 Cada fitxer es pot executar sol:

@@ -134,7 +134,7 @@ def mn_tex(m, n):
     """'m=..., n=...' (pendent i ordenada a l'origen), com a resposta
     empaquetada d'un sol ítem. Ja ve embolcallat en $...$ perquè conté
     lletres i mathify() no el reconeixeria com a matemàtica pura (vegeu
-    el parany del mathify() (AUTHORING-GUIDE.md), i x_tex a
+    el parany del mathify() (docs/AUTHORING-GUIDE.md), i x_tex a
     c_equacions.py per al mateix patró amb sistemes)."""
     return r"$m=%s,\ n=%s$" % (frac_tex(m), frac_tex(n))
 

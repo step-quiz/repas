@@ -16,7 +16,7 @@ la font de veritat, això n'és el comentari.
 **Capa de contingut (Python, `tools/`).** No s'executa mai al navegador.
 Converteix el material font en bancs de preguntes de tria múltiple amb
 resposta, distractors diagnòstics, pistes i resolució. Sortida: els
-`data/fullN.js` i els `REVISIO-fullN.html`.
+`data/fullN.js` i els `revisio/REVISIO-fullN.html`.
 
 **Capa de pràctica (JS, els tres nivells).** El lloc "normal": tria de full,
 tria de bloc o exercici, i el cicle de resposta. Desa el progrés per full a
@@ -212,7 +212,7 @@ població), que és la convenció de l'ESO. La versió amb $N-1$ no hi surt.
 
 ### 3.3ter Figures dels enunciats
 
-`tools/figures.py` genera els SVG i `Q()` els rep amb `figura=`. Van a
+El paquet `tools/figures/` genera els SVG i `Q()` els rep amb `figura=`. Van a
 `data/fullN.js` com a cadena i els pinta `practica.js` sota l'enunciat; el
 `REVISIO` també els mostra.
 
@@ -236,10 +236,14 @@ Cinc regles, i `lib._valida()` atura la compilació si alguna falla:
   continuar dient les mesures perquè l'exercici es pugui resoldre amb un
   lector de pantalla; hi ha una prova que ho comprova.
 
-`figures.py` té ara vuit plantilles: `quadrat_diagonal`,
-`rectangle_diagonal`, `triangle_rectangle`, `ortoedre`, `cub`,
-`prisma_regular`, `piramide_regular`, `tetraedre`, `cilindre`, `con` i
-`esfera`. Les dels cossos comparteixen convenció —perspectiva cavallera, base
+Les plantilles viuen a `tools/figures/`, un mòdul per tema: `planes.py`
+(figures planes), `cossos.py` (`ortoedre`, `cub`, `prisma_regular`,
+`piramide_regular`, `tetraedre`, `cilindre`, `con`, `esfera`...),
+`semblanca.py` (Tales i figures semblants), `grafics.py` (gràfiques de
+funcions), `arbres.py` (diagrames d'arbre i taules de doble entrada) i
+`etiquetatge.py` (on es col·loquen les cotes). Abans era un
+sol `tools/figures.py`; la còpia vella que hi havia quedat, tapada pel
+paquet, s'ha esborrat. Les dels cossos comparteixen convenció —perspectiva cavallera, base
 aplanada, arestes del darrere discontínues— perquè el conjunt sembli d'una
 peça.
 
@@ -330,6 +334,12 @@ decisions que costen més de reconstruir des del codi:
   li sortiria a compte no obrir pistes i evitar els exercicis de nivell 3, que
   és el contrari del que busca la graduació per dificultat. Els pesos són
   editables i la pàgina ho adverteix.
+- **La nota de feina no compta mai sola.** Mesura volum, no aprenentatge: vint
+  exercicis contestats a l'atzar en donen de mitjana un 7,5. El professorat la
+  valida sempre amb un examen presencial: si l'examen és de menys de 5, o la
+  feina i l'examen es porten més de 3 punts, només compta l'examen. Per això
+  no cal endurir la fórmula ni amagar les respostes (vegeu
+  `GUIA-PROFESSORAT.md` i `DESPLEGAMENT.md` §1).
 - **El format de la data del formulari es detecta sol.** Google exporta la
   marca de temps amb el format del full, que pot ser d/m/Y o m/d/Y, i amb dies
   de l'1 al 12 no es poden distingir: "8/5/2026" tant pot ser el 8 de maig com

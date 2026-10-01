@@ -32,7 +32,7 @@ la coincidencia de mots amb les 26 del factor multiplicador es massa baixa.
 Comparar vocabulari no es comparar significat. L'he treta en comptes de
 deixar-la fer bonic: un comprovador que no detecta allo que promet dona
 confianca falsa. Aquest cas s'ha de trobar a ma, i esta anotat a
-REVISIO-TEORIA-PENDENTS.md.
+docs/REVISIO-TEORIA-PENDENTS.md.
 
 LIMITS, I SON IMPORTANTS
 

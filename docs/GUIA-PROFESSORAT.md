@@ -167,6 +167,33 @@ la feina del tram i la nota de feina.
 genera igualment amb el que tingui, i el motiu queda anotat al **full de
 correcció**, mai al full que rep ell.
 
+### L'examen valida la nota de feina
+
+La nota de feina mesura **quanta** feina s'ha fet, no si s'ha après. Un alumne
+que contestés a l'atzar vint exercicis en trauria de mitjana un **7,5** (deu a
+l'atzar, un 5,9), i un que els fes amb la IA, un 10. Per això la nota de feina
+**mai no compta sola**: la valida sempre l'examen presencial, amb aquesta regla.
+
+| Examen | Diferència entre la feina i l'examen | Què compta |
+|---|---|---|
+| menys de 5 | qualsevol | només l'examen |
+| 5 o més | més de 3 punts, per dalt o per baix | només l'examen |
+| 5 o més | 3 punts o menys | la feina i l'examen |
+
+Exemples:
+
+- Feina 7,5 i examen 3: suspèn l'examen, només compta el 3.
+- Feina 9,5 i examen 6: hi ha 3,5 punts de diferència, només compta el 6.
+- Feina 8 i examen 6,5: hi ha 1,5 punts, compten totes dues.
+
+L'analitzador no aplica la regla per tu: et dona la nota de feina (a la
+capçalera del full de correcció i al CSV de notes) i la de l'examen la poses
+tu en corregir-lo.
+
+Aquesta regla és també el que fa innocu que les claus de respostes siguin
+públiques (el repositori de GitHub és obert, vegeu `DESPLEGAMENT.md`): qui
+copiï les respostes treu una nota de feina alta que l'examen invalida.
+
 ---
 
 ## L'avís que veu l'alumne

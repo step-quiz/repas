@@ -62,28 +62,19 @@ key order does not change `build_tot.py` output.
 
 ---
 
-## 2. Answer keys are committed at the repository root
+## 2. Answer keys are public — RESOLVED (owner's decision)
 
-**Files:** `REVISIO-full1.html` … `REVISIO-full12.html`,
+**Files:** `revisio/REVISIO-full1.html` … `revisio/REVISIO-full12.html`,
 `analitzador-repas.html`, `tools/_banc.json`.
-**Severity:** high **if the repository is public**. Unknown from inside.
 
-`DESPLEGAMENT.md` states these must never reach the internet. They are
-tracked in git at the repo root. `tools/fes-paquet-alumnat.py` guards the
-*published folder*, not the repository. If this repo is public on GitHub,
-`REVISIO-full1.html` is already readable through the repo page and
-`raw.githubusercontent.com` regardless of what GitHub Pages serves.
-
-**This is a human decision, not a refactor. Do not act unilaterally.** Ask
-the owner whether the repo is public. Options, if it is:
-
-- move generated keys to a private repo or a release artifact and gitignore
-  them here (they are reproducible: the build is deterministic);
-- or keep the repo private and publish only `public/`.
-
-Note the trade-off: untracking them means a fresh clone cannot produce a
-teacher package without running the full build first. That is probably fine —
-the build is deterministic and takes three minutes.
+The repository is public on GitHub, so these are readable regardless of what
+Cloudflare Pages serves. **The owner has decided this is acceptable and it
+must not be "fixed" without asking.** Every student's work grade is validated
+by an in-person exam: if the exam is below 5, or the work grade and the exam
+grade differ by more than 3 points, only the exam counts. Copying the keys
+therefore buys a high work grade that the exam throws away. See
+`DESPLEGAMENT.md` §1 and `GUIA-PROFESSORAT.md` («L'examen valida la nota de
+feina»). `tools/fes-paquet-alumnat.py` stays for the day the repo goes private.
 
 ---
 
@@ -266,7 +257,7 @@ the `pistes` argument.
 
 ---
 
-## 9. jsdom is not installed by default and 126 checks skip silently-in-yellow
+## 9. jsdom is not installed by default and 136 checks skip in yellow
 
 **Severity:** medium. This has already cost real bugs.
 
@@ -277,12 +268,18 @@ were red for an unknown period** because nobody ran them. The underlying bug
 (`js/teoria.js` calling `fetch` unguarded, which took down the whole of
 `practica.js`) shipped.
 
-**Fix:** commit a `package.json` with jsdom as a devDependency and make the
-script fail rather than warn when it is missing in CI. Keep the yellow-skip
-for local runs if you like, but CI must go red.
+**Fix:** make the script fail rather than warn when jsdom is missing in CI.
+Keep the yellow-skip for local runs if you like, but CI must go red. Think
+twice before committing a `package.json` for this: the site is deployed by
+Cloudflare Pages straight from the repository, and its build system installs
+dependencies on its own when it finds one, which slows down or breaks every
+deploy for a test-only dependency.
 
 **Until this is done: always run `npm install --no-save jsdom` before
-trusting a green result.**
+trusting a green result.** It must be jsdom 27 or later (plain `npm install
+--no-save jsdom` gets the latest): older versions do not expose
+`TextDecoder`, and `tests/test_flux_resolucio.js` fails with
+`TextDecoder is not defined` although the site has no bug.
 
 ---
 
@@ -311,8 +308,6 @@ list:
 - `js/diagnostic-dades.js` — different pattern: it loads sheets itself and
   stashes them as `window["FULL_" + n]`, so it is already asynchronous and is
   the model to copy
-- `js/portada.js` — reads `window.FULL1`, a *different* global, loaded by
-  `index.html`; not affected by this change but check it before you assume
 - `js/nucli.js` — takes the object as an argument, does not read the global
 
 `analitzador-repas.html` also references `data/full`, but it embeds the bank

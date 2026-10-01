@@ -245,7 +245,7 @@ button{font:inherit;font-family:var(--cos)}
 @media (hover:hover){.tutor-targeta.destacada:hover .cta{background:#F2F6FC}}
 
 /* ---- figures dels enunciats ------------------------------------------
-   L'SVG el genera tools/figures.py i s'incrusta a data/fullN.js. Hereta el
+   L'SVG el genera tools/figures/ i s'incrusta a data/fullN.js. Hereta el
    color del text (`currentColor` als traços), de manera que no cal mantenir
    una paleta a part ni tocar res si el lloc canvia de colors. */
 .figura-cont{margin:1rem 0 0;padding:0;text-align:center}

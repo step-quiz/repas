@@ -33,7 +33,7 @@ full és 52, perquè quatre exercicis amaguen més subpreguntes de les que
 compta el parser automàtic i es desdoblen en subítems: 220 (2->3), 221
 (1->4, una taula de freqüències amb quatre caselles a completar), 223
 (2->3) i 228 (2->3). És el patró d'"ítems amagats" descrit a
-AUTHORING-GUIDE.md: una taula amb diverses caselles buides és una
+docs/AUTHORING-GUIDE.md: una taula amb diverses caselles buides és una
 activitat per casella, no una de sola.
 
 Cap resposta s'escriu a mà: cada resultat (recomptes de freqüència,

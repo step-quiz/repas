@@ -102,7 +102,7 @@ PLANTILLA = """<!DOCTYPE html>
      posa `max-width:100%%`, que sí que s'entén.
 
      Sense això la galeria pintaria les etiquetes al doble de mida del que
-     les veu l'alumne, que és precisament el defecte que `GALERIA.md` posa
+     les veu l'alumne, que és precisament el defecte que `docs/GALERIA.md` posa
      com a exemple del que la mesura automàtica no atrapa. La troballa i la
      correcció són de la revisió de figures feta en paral·lel. */
   .figura{max-width:20rem}

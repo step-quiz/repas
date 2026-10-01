@@ -270,7 +270,7 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
         # que sorprèn). La `nota` surt amb l'enunciat i, per tant, no pot
         # dir res que acosti a la resposta; _valida() ho vigila.
         "comentari": comentari,
-        # SVG que acompanya l'enunciat, generat per tools/figures.py. La
+        # SVG que acompanya l'enunciat, generat per tools/figures/. La
         # figura ACOMPANYA l'enunciat, no el substitueix: les mesures han de
         # continuar dites amb paraules perquè l'exercici es pugui resoldre
         # amb un lector de pantalla. _valida() ho comprova.

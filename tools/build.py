@@ -551,7 +551,7 @@ def compila():
     if moguts:
         print("  · graduació: %d ítems canvien de posició perquè cada bloc "
               "obri pel seu nivell més senzill" % moguts)
-    # S'aplica al BANC mateix, no a una còpia: així el `REVISIO-fullN.html`
+    # S'aplica al BANC mateix, no a una còpia: així el `revisio/REVISIO-fullN.html`
     # surt en el mateix ordre que veu l'alumne. Revisar la clau de respostes
     # en un ordre i publicar-ne un altre seria demanar que se'ns escapi algun
     # salt de graduació.

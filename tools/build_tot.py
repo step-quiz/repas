@@ -4,7 +4,7 @@
 
     python3 build_tot.py
 
-1. Els dotze fulls (data/fullN.js i REVISIO-fullN.html).
+1. Els dotze fulls (data/fullN.js i revisio/REVISIO-fullN.html).
 2. Les taules del codi de verificació, que es llegeixen de data/.
 3. L'analitzador, que incrusta aquelles taules i js/codi.js.
 

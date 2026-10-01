@@ -12,7 +12,7 @@ Per què existeix
 El repositori té, a la mateixa carpeta que `index.html`, tres coses que no són
 per a l'alumnat:
 
-    REVISIO-fullN.html      la clau de respostes completa: enunciat, quina
+    revisio/REVISIO-fullN.html  la clau de respostes completa: enunciat, quina
                             opció és bona, el diagnòstic de cada distractor i
                             la resolució pas a pas, dels dotze fulls
     analitzador-repas.html  porta el banc sencer incrustat i, a sobre,
@@ -23,7 +23,7 @@ per a l'alumnat:
 Si el lloc es publica fent `git push` d'aquesta carpeta a GitHub Pages —que és
 la manera òbvia de publicar-lo— aquestes tres coses queden a una URL que
 s'endevina. No cal obrir les eines de desenvolupador ni saber què és el
-base64: n'hi ha prou d'escriure `REVISIO-full1.html` a la barra d'adreces.
+base64: n'hi ha prou d'escriure `revisio/REVISIO-full1.html` a la barra d'adreces.
 
 Això no fa que el banc sigui secret. `data/fullN.js` continua sent públic i
 les respostes se'n poden treure amb tres línies de consola; sense servidor
@@ -33,6 +33,11 @@ entre una temptació que troba qualsevol i una que ja és una decisió.
 
 L'analitzador se li dona al professorat pel seu canal, amb
 `tools/fes-paquet-professorat.py`.
+
+Avui el repositori és públic a GitHub i aquests fitxers s'hi poden llegir: és
+una decisió presa, perquè la nota de feina només compta si l'examen presencial
+la valida (vegeu docs/DESPLEGAMENT.md). Aquest script queda per al dia que
+calgui publicar només el lloc.
 
 Determinista: amb les mateixes entrades surt el mateix resultat.
 """

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""figures.py — figures SVG per als enunciats que en necessiten.
+"""figures/ — figures SVG per als enunciats que en necessiten.
 
 MOTIU. Vint-i-dos exercicis de la font no s'han pogut transcriure perquè tota
 la informació era al dibuix, i molts dels que sí que hi són s'han hagut de

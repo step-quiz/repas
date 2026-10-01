@@ -33,7 +33,7 @@ El CSS del lloc és correcte: un Chromebook entén `min()`. El que fallava era
 l'instrument. Amb la correcció, les 185 figures canvien i l'alçada mitjana de
 la targeta baixa de 994 a 724 px.
 
-Té una conseqüència que val la pena escriure: el defecte que `GALERIA.md`
+Té una conseqüència que val la pena escriure: el defecte que `docs/GALERIA.md`
 posa com a exemple de troballa humana —etiquetes a 7 px perquè el CSS
 encongia el dibuix— és exactament el que aquesta galeria **no podia veure**,
 perquè no aplicava l'encongiment. És un tercer parany, germà dels dos que el
@@ -440,7 +440,7 @@ destinació demostrablement equivocada i una de millor **ja present al mapa**:
 | ex `162`: «Mesurar amb l'ombra» → «El teorema de Pitàgores» | 1 |
 | ex `242`: combinatòria → «És una qüestió de sort?» | 1 |
 
-El que **no** s'ha tocat és a `REVISIO-TEORIA-PENDENTS.md`: els cilindres del
+El que **no** s'ha tocat és a `docs/REVISIO-TEORIA-PENDENTS.md`: els cilindres del
 full 9 i la dispersió del full 11 són errors reals, però triar-los destí demana
 veure quines activitats té el llibre, i el llibre no ve al zip.
 
