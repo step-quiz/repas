@@ -504,6 +504,45 @@ seccio("Una decoració trencada no pot tombar l'exercici");
   tanca();
 }
 
+seccio("practica.html — les fletxes no canvien d'exercici mentre s'escriu");
+{
+  /* El camp «Recupera la teva feina» del panell del codi és a la mateixa
+     pàgina que l'exercici. Qui hi enganxava un codi i premia ← per moure el
+     cursor anava a parar a l'exercici anterior i perdia el que hi havia
+     enganxat. jsdom no navega: avisa per la consola virtual que la navegació
+     no està implementada, i això és el que es compta. */
+  const { VirtualConsole } = require("jsdom");
+  const vc = new VirtualConsole();
+  let navegacions = 0;
+  vc.on("jsdomError", e => { if (/navigation/i.test(e.message)) navegacions++; });
+  const dom = await JSDOM.fromFile(path.join(ARREL, "practica.html"), {
+    runScripts: "dangerously", resources: "usable", virtualConsole: vc,
+    url: "file://" + path.join(ARREL, "practica.html") + "?full=1&q=1b"
+  });
+  await espera(600);
+  const w = dom.window, d = w.document;
+  const camp = d.createElement("input");
+  camp.type = "text";
+  d.body.appendChild(camp);
+  const prem = (el, key, extra) => el.dispatchEvent(new w.KeyboardEvent("keydown",
+    Object.assign({ key, bubbles: true }, extra || {})));
+
+  prem(camp, "ArrowLeft");
+  prem(camp, "ArrowRight");
+  prova("dins d'un camp de text, ← i → mouen el cursor i prou", () => {
+    assert.strictEqual(navegacions, 0, "s'ha intentat navegar " + navegacions + " vegades");
+  });
+  prem(d.body, "ArrowLeft", { altKey: true });
+  prova("Alt+← és del navegador, no de l'exercici", () => {
+    assert.strictEqual(navegacions, 0);
+  });
+  prem(d.body, "ArrowRight");
+  prova("fora d'un camp, → continua passant al següent exercici", () => {
+    assert.strictEqual(navegacions, 1);
+  });
+  w.close();
+}
+
 
 process.exit(resum() ? 0 : 1);
 
