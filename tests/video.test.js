@@ -232,8 +232,17 @@ if (!jsdom) {
 
     await pinta({ id: "80a", ex: 80, bloc: "formula_general", full: 5 });
     const b80 = botons(), a80 = enllacos();
-    prova("un exercici amb teoria i vídeo té dues pastilles, T i després V", () => {
-      assert.deepStrictEqual(b80, ["T", "V"]);
+    prova("un exercici amb teoria i vídeo té dos botons, Teoria i després Vídeo", () => {
+      assert.deepStrictEqual(b80, ["Teoria", "Vídeo"]);
+    });
+    prova("cada botó diu què és amb una paraula i un dibuix, no amb una lletra", () => {
+      /* Una T i una V dins d'un cercle gris no les veia ningú. */
+      cont.querySelectorAll("button").forEach(b => {
+        assert.ok(b.querySelector("svg[aria-hidden='true']"), "sense dibuix");
+        assert.ok(b.getAttribute("aria-label"), "sense nom accessible");
+      });
+      assert.ok(cont.querySelector("button.recurs-video"),
+        "el vídeo ha de portar la classe que el destaca");
     });
     prova("l'enllaç del vídeo va a YouTube amb l'identificador del mapa", () => {
       const v = a80.find(a => /youtu\.be/.test(a.href));
@@ -255,6 +264,9 @@ if (!jsdom) {
     const a85 = enllacos().filter(a => /youtu\.be/.test(a.href));
     prova("un bloc amb tres vídeos els mostra tots tres", () => {
       assert.strictEqual(a85.length, 3);
+    });
+    prova("i el botó ho diu en plural", () => {
+      assert.ok(botons().includes("Vídeos"), botons().join(", "));
     });
 
     await pinta({ id: "88e", ex: 88, bloc: "sistemes", full: 5 });

@@ -268,24 +268,34 @@ button{font:inherit;font-family:var(--cos)}
 .avis-tram button:hover{color:var(--ambre)}
 
 
-/* Icones dels recursos de l'exercici: T (teoria del llibre) i V (vídeo de
-   resolució). Discretes a posta: qui va bé no les ha de notar, i qui
-   s'encalla les troba just a la capçalera de l'exercici. Només es desplega
-   l'enllaç quan es clica.
+/* Botons dels recursos de l'exercici: Teoria (el llibre) i Vídeo (un
+   exercici semblant resolt). Abans eren una T i una V dins d'un cercle gris
+   de 23 px, discretes a posta, i qui s'encallava no les veia o no sabia què
+   volien dir. Ara porten dibuix i nom, i fan 32 px d'alt, que es toquen bé
+   en un Chromebook en mode tauleta (WCAG 2.5.8 en demana 24).
 
-   Les dues són iguals a la vista, i es distingeixen només per la lletra: si
-   una fos ambre o vermella, el lloc estaria dient «avís» o «error» allà on
-   només vol dir «aquí tens ajuda». Cada pastilla viu dins d'una ranura
-   `.recurs` pròpia, i el contenidor `.teoria` les separa una mica més que
-   l'enllaç de la seva pastilla, perquè es vegi quina caixa penja de quina
-   lletra. */
+   Blaus tots dos, no ambre ni vermell: el lloc fa servir aquests colors per
+   dir «avís» i «error», i aquí només es vol dir «aquí tens ajuda». El vídeo
+   va ple i la teoria de contorn: el vídeo és el que més ajuda a qui no sap
+   per on començar, i ha de ser el primer que es vegi. Cada botó viu dins
+   d'una ranura `.recurs` pròpia, i el contenidor `.teoria` les separa una
+   mica més que l'enllaç del seu botó, perquè es vegi quina caixa penja de
+   quin. */
+.capcalera-ex{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.5rem}
 .teoria{display:inline-flex;align-items:center;gap:.7rem;flex-wrap:wrap}
-.recurs{display:inline-flex;align-items:center;gap:.4rem}
-.recurs-icona{width:1.45rem;height:1.45rem;border-radius:50%;border:1px solid var(--vora);
-  background:var(--card);color:var(--apagat);font:600 .78rem/1 var(--mono);
-  cursor:pointer;padding:0;flex:none}
-.recurs-icona:hover{border-color:var(--blau);color:var(--blau)}
-.recurs-icona[aria-expanded="true"]{background:var(--blau-suau);border-color:var(--blau);color:var(--blau)}
+.recurs{display:inline-flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.recurs-icona{display:inline-flex;align-items:center;gap:.35rem;min-height:2rem;
+  padding:.25rem .75rem .25rem .6rem;border-radius:999px;border:1.5px solid var(--blau);
+  font:600 .86rem/1 var(--cos);cursor:pointer;flex:none;white-space:nowrap}
+.recurs-dibuix{width:1.05rem;height:1.05rem;flex:none}
+.recurs-teoria{background:var(--blau-suau);color:var(--blau)}
+.recurs-video{background:var(--blau);color:#fff}
+@media (hover:hover){
+  .recurs-teoria:hover{background:#D6E2F4}
+  .recurs-video:hover{background:#1E4790;border-color:#1E4790}
+}
+.recurs-teoria[aria-expanded="true"]{background:var(--blau);color:#fff}
+.recurs-video[aria-expanded="true"]{box-shadow:0 0 0 3px var(--blau-suau)}
 /* En columna perquè un exercici pot tenir més d'un vídeo (mètodes diferents
    del mateix tema) i en una sola línia no se sabria on acaba un enllaç i on
    comença el següent. */

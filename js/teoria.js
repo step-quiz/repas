@@ -2,11 +2,16 @@
    darrere: la TEORIA del llibre de text (llibre.step-quiz.net) i el VÍDEO de
    resolució de l'entrega de paper.
 
-   DUES ICONES, NO UNA. A la capçalera de l'exercici hi poden sortir dues
-   pastilles petites:
+   DUES ICONES, NO UNA. A la capçalera de l'exercici hi poden sortir dos
+   botons, cadascun amb el seu dibuix i el seu nom:
 
-       T   porta a l'activitat del llibre que explica la teoria
-       V   porta al vídeo on es resol un exercici equivalent
+       Teoria   porta a l'activitat del llibre que explica la teoria
+       Vídeo    porta al vídeo on es resol un exercici equivalent
+
+   Abans eren una T i una V dins d'un cercle gris, discretes a posta, i
+   resultava que l'alumne que s'encallava no les veia o no sabia què volien
+   dir. Ara diuen què són amb una paraula, i el vídeo va ple de color perquè
+   és el recurs que més ajuda a qui no sap per on començar.
 
    Són independents: un exercici pot tenir-ne les dues, una o cap, i cada
    icona apareix només si el seu mapa té destinació per a aquell exercici.
@@ -139,13 +144,30 @@
     return Object.prototype.toString.call(d) === "[object Array]" ? d : [d];
   }
 
-  /* Penja una pastilla amb la seva caixa desplegable dins de `ranura`.
-     `enllacos` és una llista de {href, text, avis}. */
-  function pastilla(ranura, lletra, titol, etiqueta, enllacos) {
+  /* Els dos dibuixos, en SVG dins del codi perquè el lloc no depengui de cap
+     fitxer d'icones. `currentColor`: agafen el color del text del botó.
+     `aria-hidden`: el nom del botó ja el diu la paraula del costat. */
+  var DIBUIX = {
+    teoria: '<svg class="recurs-dibuix" viewBox="0 0 24 24" aria-hidden="true" '
+      + 'focusable="false"><path d="M12 6.5C10.2 5.1 7.7 4.5 3.5 4.5v13c4.2 0 '
+      + '6.7.6 8.5 2 1.8-1.4 4.3-2 8.5-2v-13c-4.2 0-6.7.6-8.5 2zm0 0v13" '
+      + 'fill="none" stroke="currentColor" stroke-width="2" '
+      + 'stroke-linejoin="round"/></svg>',
+    video: '<svg class="recurs-dibuix" viewBox="0 0 24 24" aria-hidden="true" '
+      + 'focusable="false"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>'
+  };
+
+  /* Penja un botó amb la seva caixa desplegable dins de `ranura`.
+     `tipus` és "teoria" o "video" (el dibuix i la classe de color), `nom`
+     és la paraula visible i `enllacos` una llista de {href, text, avis}. */
+  function pastilla(ranura, tipus, nom, titol, etiqueta, enllacos) {
     var b = document.createElement("button");
     b.type = "button";
-    b.className = "recurs-icona";
-    b.textContent = lletra;
+    b.className = "recurs-icona recurs-" + tipus;
+    b.innerHTML = DIBUIX[tipus];
+    var paraula = document.createElement("span");
+    paraula.textContent = nom;
+    b.appendChild(paraula);
     b.title = titol;
     b.setAttribute("aria-expanded", "false");
     b.setAttribute("aria-label", etiqueta);
@@ -182,7 +204,7 @@
      començar a cada exercici: primer es buida el que hi hagués.
 
      Les dues ranures es creen ABANS de demanar els mapes, i cada mapa omple
-     la seva. Així la T sempre queda a l'esquerra de la V encara que el
+     la seva. Així la Teoria sempre queda a l'esquerra del Vídeo encara que el
      fitxer dels vídeos arribi primer: l'ordre de les icones no pot dependre
      de quin dels dos fitxers respon abans. */
   function mostra(contenidor, item) {
@@ -198,7 +220,7 @@
     carrega("teoria", function (mapa) {
       var d = cerca(mapa, item);
       if (!d) return;
-      pastilla(ranuraT, "T", "Consulta la teoria",
+      pastilla(ranuraT, "teoria", "Teoria", "Consulta la teoria",
         "Consulta la teoria d'aquest exercici",
         [{ href: enllacTeoria(d),
            text: nomCurs(d.curs) + " · " + (d.titol || ("Unitat " + d.ud)) }]);
@@ -221,7 +243,8 @@
           avis: v[i].avis || ""
         });
       }
-      pastilla(ranuraV, "V", "Mira un exercici semblant resolt en vídeo",
+      pastilla(ranuraV, "video", v.length > 1 ? "Vídeos" : "Vídeo",
+        "Mira un exercici semblant resolt en vídeo",
         "Mira en vídeo la resolució d'un exercici semblant, de «" + font + "»",
         enllacos);
     });
