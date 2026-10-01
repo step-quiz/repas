@@ -545,15 +545,14 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=\dfrac{1/6}{1/2}=\dfrac13$</li><li>$a_1=a_2:r=\dfrac12:\dfrac13=\dfrac32$</li><li>$a_4=a_3\cdot r=\dfrac16\cdot\dfrac13=\dfrac1{18}$</li><li>$a_6=a_5\cdot r=\dfrac1{54}\cdot\dfrac13=\dfrac1{162}$</li><li>Els sis termes són $\dfrac32,\;\dfrac12,\;\dfrac16,\;\dfrac1{18},\;\dfrac1{54},\;\dfrac1{162}$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">58c</span><span class="tip">tipus A · dificultat 4 (completa)</span></div>
-<div class="enun">$\square,\;\dfrac13,\;\square,\;\dfrac1{12},\;\square$</div>
+<div class="enun">$\square,\;\dfrac13,\;\square,\;\dfrac1{12},\;\square$, amb raó positiva.</div>
 <ol class="op"><li><span class="ok">$\dfrac{2}{3}, \dfrac{1}{3}, \dfrac{1}{6}, \dfrac{1}{12}, \dfrac{1}{24}$</span> — resposta correcta</li>
-<li>$-\dfrac{2}{3}, \dfrac{1}{3}, -\dfrac{1}{6}, \dfrac{1}{12}, -\dfrac{1}{24}$<br><span class="err">PARITAT_EXPONENT</span><span class="fb">Amb $r^2=\dfrac14$ hi ha dues raons possibles, $\dfrac12$ i $-\dfrac12$; es demana la solució amb raó positiva, coherent amb que tots els termes coneguts de l'enunciat ja són positius.</span></li>
+<li>$-\dfrac{2}{3}, \dfrac{1}{3}, -\dfrac{1}{6}, \dfrac{1}{12}, -\dfrac{1}{24}$<br><span class="err">CONDICIO_ENUNCIAT_IGNORADA</span><span class="fb">Amb raó $-\dfrac12$ també surt una progressió geomètrica que hi encaixa, perquè $r^2=\dfrac14$ té dues solucions. Però l'enunciat la demana de raó positiva.</span></li>
 <li>$\dfrac{4}{3}, \dfrac{1}{3}, \dfrac{1}{12}, \dfrac{1}{12}, \dfrac{1}{48}$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">Entre el segon terme ($\dfrac13$) i el quart ($\dfrac1{12}$) hi ha exactament DOS passos de $r$, no un.</span></li>
 <li>$\dfrac{2}{3}, \dfrac{1}{3}, \dfrac{1}{9}, \dfrac{1}{12}, \dfrac{1}{36}$<br><span class="err">RAO_MAL_APLICADA</span><span class="fb">El tercer terme s'obté multiplicant el segon per $r=\dfrac12$: $\dfrac13\cdot\dfrac12=\dfrac16$, no $\dfrac19$.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $4$: la relació entre ells és $r^2$.</li><li>$r^2=\dfrac{1/12}{1/3}=\dfrac14\Rightarrow r=\dfrac12$ (prenem l'arrel positiva). A partir d'aquí, multiplica o divideix per $\dfrac12$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r^2=\dfrac{1/12}{1/3}=\dfrac14\Rightarrow r=\dfrac12$</li><li>$a_1=a_2:r=\dfrac13:\dfrac12=\dfrac23$</li><li>$a_3=a_2\cdot r=\dfrac13\cdot\dfrac12=\dfrac16$</li><li>$a_5=a_4\cdot r=\dfrac1{12}\cdot\dfrac12=\dfrac1{24}$</li><li>Els cinc termes són $\dfrac23,\;\dfrac13,\;\dfrac16,\;\dfrac1{12},\;\dfrac1{24}$</li></ol>
-<p class="nota"><strong>Nota:</strong> Hi ha dues progressions que hi encaixen, una de raó positiva i una de raó negativa. Es demana la de raó positiva.</p>
 <p class="nota"><strong>Per recordar</strong> (surt amb la resolució, després de respondre): De $r^2=\dfrac14$ en surten dues raons, $r=\dfrac12$ i $r=-\dfrac12$. Amb la negativa els termes alternen el signe, $-\dfrac23,\;\dfrac13,\;-\dfrac16,\;\dfrac1{12},\;-\dfrac1{24}$, i també és una progressió geomètrica vàlida.</p>
 </div>
 <div class="it"><div class="cap"><span class="cod">58d</span><span class="tip">tipus B · dificultat 4 (completa)</span></div>
@@ -669,5 +668,5 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>RESTA_NEGATIU</code></td><td>1</td><td>325c</td></tr>
 <tr><td><code>POTENCIA_PRODUCTE_UN_FACTOR</code></td><td>1</td><td>56b</td></tr>
 <tr><td><code>EXPONENTS_MULTIPLICATS</code></td><td>1</td><td>56c</td></tr>
-<tr><td><code>PARITAT_EXPONENT</code></td><td>1</td><td>58c</td></tr>
+<tr><td><code>CONDICIO_ENUNCIAT_IGNORADA</code></td><td>1</td><td>58c</td></tr>
 </table></html>

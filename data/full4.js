@@ -106,11 +106,13 @@ window.FULL = {
  ],
  "errors": {
   "COEFICIENT_MAL_TRIAT": "El coeficient principal no es tria: es troba imposant que la corba passi pel punt que et donen.",
+  "CONDICIO_ENUNCIAT_IGNORADA": "El càlcul pot donar més d'una solució, però l'enunciat en demana una que compleixi una condició concreta. Abans de respondre, comprova que la teva compleix TOTES les condicions de l'enunciat.",
   "DIFERENCIA_QUADRATS_MAL": "Una diferència de quadrats $a^2-b^2$ es factoritza com $(a-b)(a+b)$: revisa que els dos factors tinguin signes diferents.",
   "DISTRIBUCIO_INCOMPLETA": "En multiplicar un polinomi per un altre, cada terme del primer s'ha de multiplicar per TOTS els termes del segon, no només per un.",
   "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
   "EXPONENTS_SUMATS_QUOCIENT": "En dividir potències de la mateixa base, els exponents es RESTEN, no se sumen: $a^m:a^n=a^{m-n}$.",
   "EXPONENT_SENSE_DESPLACAR": "T'has deixat pel camí una part de l'exponent: si l'enunciat diu $n+2$ (o similar), cal fer servir aquest exponent complet, no només la $n$.",
+  "FACTORITZACIO_DESFETA": "Has desenvolupat el producte: és el mateix polinomi, però no en la forma que es demana. Factoritzar és deixar-lo com a producte de factors tan simples com es pugui, no tornar-lo a convertir en una suma.",
   "FACTOR_COMU_INCOMPLET": "No has tret tot el factor comú possible: revisa si encara hi ha algun nombre o alguna $x$ que es repeteixi a tots els termes.",
   "FACTOR_COMU_MAL_DIVIDIT": "En treure factor comú, cada terme s'ha de dividir pel factor comú: algun terme de dins del parèntesi no s'ha dividit correctament.",
   "FACTOR_COMU_SIGNE": "Revisa el signe del factor comú: si tots els termes són negatius, sol convenir treure'l amb signe $-$ perquè el que quedi dins comenci en positiu.",
@@ -1134,19 +1136,19 @@ window.FULL = {
    "tipus": "A",
    "dif": 4,
    "encapcalament": "A la taula de Ruffini següent hi manquen algunes dades (marcades amb $\\square$). Completa-la i indica el quocient i el residu de la divisió corresponent.",
-   "enunciat": "Dividend $x^{3}-x+2$, arrel $\\square$ (divisor desconegut); el residu de la divisió és $2$:",
+   "enunciat": "Dividend $x^{3}-x+2$, arrel $\\square$ positiva (divisor desconegut); el residu de la divisió és $2$:",
    "opcions": [
     "$\\square=1$; $\\text{quocient: }x^{2}+x\\text{; residu: }2$",
     "$\\square=-1$; $\\text{quocient: }x^{2}-x\\text{; residu: }2$",
-    "$\\square=0$; $\\text{quocient: }x^{2}-1\\text{; residu: }2$",
+    "$\\square=1$; $\\text{quocient: }x^{2}-x\\text{; residu: }2$",
     "$\\square=1$; $\\text{quocient: }x^{2}+x\\text{; residu: }-2$"
    ],
    "pistes": [
-    "El residu final és $\\square^3-\\square$ (arrossegant els termes de la taula): iguala'l a $2$ i resol l'equació de tercer grau.",
-    "$\\square^3-\\square=0$ té tres solucions: $\\square=-1,0,1$. Descarta $\\square=0$ (divisió trivial) i, de les altres dues, pren la positiva, que és la que es demana."
+    "El residu final és $\\square^3-\\square+2$ (arrossegant els termes de la taula): iguala'l a $2$ i resol l'equació de tercer grau.",
+    "$\\square^3-\\square=\\square(\\square-1)(\\square+1)=0$ té tres solucions. Quina és positiva?"
    ],
-   "nota": "Hi ha més d'un valor de $\\square$ que dona aquest residu. Es demana el positiu.",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJFxcc3F1YXJlPS0xJCB0YW1iw6kgY29tcGxlaXggbCdlcXVhY2nDsyAkXFxzcXVhcmVeMy1cXHNxdWFyZT0wJCwgcGVyw7Igbm8gw6lzIGVsIHZhbG9yIHF1ZSBlcyB0cmlhIGFxdcOtIChlcyBkZXNjYXJ0YSAkXFxzcXVhcmU9MCQgcGVyIGRvbmFyIHVuYSBkaXZpc2nDsyB0cml2aWFsLCBpIGVudHJlICQxJCBpICQtMSQgZXMgcHJlbiAkXFxzcXVhcmU9MSQpLiIsICIkXFxzcXVhcmU9MCQgdGFtYsOpIGFudWzCt2xhIGwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQsIHBlcsOyIGRvbmFyaWEgdW5hIGRpdmlzacOzIHBlciAkeCQsIHVuIGNhcyB0cml2aWFsIHBvYyBoYWJpdHVhbCBlbiBhcXVlc3QgdGlwdXMgZCdleGVyY2ljaS4iLCAiRWwgdmFsb3IgZGUgJFxcc3F1YXJlJCDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHJlc2lkdSB0w6kgZWwgc2lnbmUgY2FudmlhdC4iXSwgImVyciI6IFsiIiwgIlJVRkZJTklfUEFTX01BTCIsICJSVUZGSU5JX1BBU19NQUwiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiRGUgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgc3VydGVuICRcXHNxdWFyZT0tMSwwLDEkOyBkZXNjYXJ0YW50ICQwJCBpIHRyaWFudCAkXFxzcXVhcmU9MSQsIGxhIHRhdWxhIGRvbmEgcXVvY2llbnQgJHheezJ9K3gkIGkgcmVzaWR1ICQyJCJdLCAiY29tIjogIkwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgdMOpIHRyZXMgc29sdWNpb25zOiAkLTEkLCAkMCQgaSAkMSQuIEFtYiAkXFxzcXVhcmU9MCQgc2VyaWEgZGl2aWRpciBwZXIgJHgkLCB1biBjYXMgdHJpdmlhbDsgYW1iICRcXHNxdWFyZT0tMSQgbGEgdGF1bGEgdGFtYsOpIGZ1bmNpb25hIChxdW9jaWVudCAkeF4yLXgkLCByZXNpZHUgJDIkKS4ifQ=="
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iICRcXHNxdWFyZT0tMSQgZWwgcmVzaWR1IHRhbWLDqSBzdXJ0ICQyJCAoY29tcHJvdmEtaG8pLCBwZXLDsiBsJ2VudW5jaWF0IGRlbWFuYSB1bmEgYXJyZWwgcG9zaXRpdmEuIiwgIkwnYXJyZWwgw6lzIGJvbmEsIHBlcsOyIGEgY2FkYSBjb2x1bW5hIGhhcyByZXN0YXQgZWwgcHJvZHVjdGUgZW4gbGxvYyBkZSBzdW1hci1sbzogJDArMVxcY2RvdDE9MSQsIG5vICQwLTE9LTEkLiIsICJFbCB2YWxvciBkZSAkXFxzcXVhcmUkIMOpcyBjb3JyZWN0ZSwgcGVyw7IgZWwgcmVzaWR1IHTDqSBlbCBzaWduZSBjYW52aWF0LiJdLCAiZXJyIjogWyIiLCAiQ09ORElDSU9fRU5VTkNJQVRfSUdOT1JBREEiLCAiUlVGRklOSV9QQVNfTUFMIiwgIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIl0sICJyZXMiOiBbIkRlICRcXHNxdWFyZV4zLVxcc3F1YXJlPTAkIHN1cnRlbiAkXFxzcXVhcmU9LTEsMCwxJCwgaSBsJ8O6bmljYSBwb3NpdGl2YSDDqXMgJFxcc3F1YXJlPTEkOiBsYSB0YXVsYSBkb25hIHF1b2NpZW50ICR4XnsyfSt4JCBpIHJlc2lkdSAkMiQiXSwgImNvbSI6ICJMJ2VxdWFjacOzICRcXHNxdWFyZV4zLVxcc3F1YXJlPTAkIHTDqSB0cmVzIHNvbHVjaW9uczogJC0xJCwgJDAkIGkgJDEkLiBBbWIgJFxcc3F1YXJlPTAkIHNlcmlhIGRpdmlkaXIgcGVyICR4JCwgdW4gY2FzIHRyaXZpYWw7IGFtYiAkXFxzcXVhcmU9LTEkIGxhIHRhdWxhIHRhbWLDqSBmdW5jaW9uYSAocXVvY2llbnQgJHheMi14JCwgcmVzaWR1ICQyJCkuIn0="
   },
   {
    "id": "69d",
@@ -1529,7 +1531,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$7x^2-14x+7$",
    "opcions": [
     "$7(x-1)^2$",
@@ -1551,7 +1553,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$16x^2+64x+64$",
    "opcions": [
     "$16(x-2)^2$",
@@ -1573,7 +1575,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$x^3-2x^2+x$",
    "opcions": [
     "$x(x-1)$",
@@ -1595,7 +1597,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$18x^4-12x^2+2$",
    "opcions": [
     "$2(3x^2-1)$",
@@ -1617,7 +1619,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(2x+4)(x-2)$",
    "opcions": [
     "$2(x+2)^2$",
@@ -1630,7 +1632,7 @@ window.FULL = {
     "Treu factor comú $2$ i reconeix la diferència de quadrats: $2(x^2-4)=2(x-2)(x+2)$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbiBjb3AgZGVzZW52b2x1cGF0IGkgdHJldCBlbCBmYWN0b3IgJDIkLCBxdWVkYSAkeF4yLTQkLCBxdWUgw6lzIHVuYSBESUZFUsOITkNJQSBkZSBxdWFkcmF0cywgJCh4LTIpKHgrMikkLCBubyB1biBxdWFkcmF0IHBlcmZlY3RlLiIsICIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgZW5jYXJhIGVzIHBvdCBmYWN0b3JpdHphciBtw6lzOiAkMnheMi04PTIoeF4yLTQpPTIoeC0yKSh4KzIpJC4iLCAiVCdoYXMgZGVpeGF0IGVsIGZhY3RvciBjb23DuiAkMiQ6IGVsIGRlc2Vudm9sdXBhbWVudCBkb25hICQyeF4yLTg9Mih4XjItNCkkLCBubyAkeF4yLTQkLiJdLCAiZXJyIjogWyJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICIiLCAiRkFDVE9SX0NPTVVfSU5DT01QTEVUIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCJdLCAicmVzIjogWyIkKDJ4KzQpKHgtMik9MnheMi04PTIoeF4yLTQpPTIoeC0yKSh4KzIpJCJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbiBjb3AgZGVzZW52b2x1cGF0IGkgdHJldCBlbCBmYWN0b3IgJDIkLCBxdWVkYSAkeF4yLTQkLCBxdWUgw6lzIHVuYSBESUZFUsOITkNJQSBkZSBxdWFkcmF0cywgJCh4LTIpKHgrMikkLCBubyB1biBxdWFkcmF0IHBlcmZlY3RlLiIsICIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgbCdoYXMgZGVpeGF0IGRlc2Vudm9sdXBhdCBpIGVzIGRlbWFuYSBmYWN0b3JpdHphdDogJDJ4XjItOD0yKHheMi00KT0yKHgtMikoeCsyKSQuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgY29tw7ogJDIkOiBlbCBkZXNlbnZvbHVwYW1lbnQgZG9uYSAkMnheMi04PTIoeF4yLTQpJCwgbm8gJHheMi00JC4iXSwgImVyciI6IFsiRElGRVJFTkNJQV9RVUFEUkFUU19NQUwiLCAiIiwgIkZBQ1RPUklUWkFDSU9fREVTRkVUQSIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJCgyeCs0KSh4LTIpPTJ4XjItOD0yKHheMi00KT0yKHgtMikoeCsyKSQiXX0="
   },
   {
    "id": "74f",
@@ -1639,7 +1641,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(x-5)(x^2+5x)$",
    "opcions": [
     "$x(x-5)(x+5)$",
@@ -1652,7 +1654,7 @@ window.FULL = {
     "Treu factor comú $x$ i reconeix la diferència de quadrats: $x(x^2-25)=x(x-5)(x+5)$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgZW5jYXJhIGVzIHBvdCBmYWN0b3JpdHphciBtw6lzOiAkeF4zLTI1eD14KHheMi0yNSk9eCh4LTUpKHgrNSkkLiIsICJVbiBjb3AgdHJldCBlbCBmYWN0b3IgJHgkLCBxdWVkYSAkeF4yLTI1JCwgcXVlIMOpcyB1bmEgRElGRVLDiE5DSUEgZGUgcXVhZHJhdHMsICQoeC01KSh4KzUpJCwgbm8gdW4gcXVhZHJhdCBwZXJmZWN0ZS4iLCAiVCdoYXMgZGVpeGF0IGVsIGZhY3RvciBjb23DuiAkeCQ6IGVsIGRlc2Vudm9sdXBhbWVudCBkb25hICR4XjMtMjV4PXgoeF4yLTI1KSQsIG5vICR4XjItMjUkLiJdLCAiZXJyIjogWyIiLCAiRkFDVE9SX0NPTVVfSU5DT01QTEVUIiwgIkRJRkVSRU5DSUFfUVVBRFJBVFNfTUFMIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCJdLCAicmVzIjogWyIkKHgtNSkoeF4yKzV4KT14XjMtMjV4PXgoeF4yLTI1KT14KHgtNSkoeCs1KSQiXX0="
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgbCdoYXMgZGVpeGF0IGRlc2Vudm9sdXBhdCBpIGVzIGRlbWFuYSBmYWN0b3JpdHphdDogJHheMy0yNXg9eCh4XjItMjUpPXgoeC01KSh4KzUpJC4iLCAiVW4gY29wIHRyZXQgZWwgZmFjdG9yICR4JCwgcXVlZGEgJHheMi0yNSQsIHF1ZSDDqXMgdW5hIERJRkVSw4hOQ0lBIGRlIHF1YWRyYXRzLCAkKHgtNSkoeCs1KSQsIG5vIHVuIHF1YWRyYXQgcGVyZmVjdGUuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgY29tw7ogJHgkOiBlbCBkZXNlbnZvbHVwYW1lbnQgZG9uYSAkeF4zLTI1eD14KHheMi0yNSkkLCBubyAkeF4yLTI1JC4iXSwgImVyciI6IFsiIiwgIkZBQ1RPUklUWkFDSU9fREVTRkVUQSIsICJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJCh4LTUpKHheMis1eCk9eF4zLTI1eD14KHheMi0yNSk9eCh4LTUpKHgrNSkkIl19"
   },
   {
    "id": "74g",
@@ -1661,7 +1663,7 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(-x-7)(x-7)$",
    "opcions": [
     "$(7-x)(7+x)$",
@@ -1683,20 +1685,20 @@ window.FULL = {
    "bloc": "factor_comu",
    "tipus": "A",
    "dif": 4,
-   "encapcalament": "Simplifica al màxim, combinant factor comú i igualtats notables quan calgui.",
+   "encapcalament": "Factoritza al màxim, combinant factor comú i igualtats notables quan calgui.",
    "enunciat": "$(-x^2+5)(-x^2-5)$",
    "opcions": [
-    "$25-x^4$",
-    "$(x^2-5)(x^2+5)$",
     "$x^4-25$",
-    "$x^4+25$"
+    "$(x^2-5)^2$",
+    "$(x^2-5)(x^2+5)$",
+    "$(5-x^2)(5+x^2)$"
    ],
    "pistes": [
-    "És una suma per diferència amb $a=-x^2$ i $b=5$: $(-x^2+5)(-x^2-5)=(-x^2)^2-5^2$.",
-    "$(-x^2)^2=x^4$, així que el resultat és $x^4-25$."
+    "Treu el signe menys de cada factor: $-x^2+5=-(x^2-5)$ i $-x^2-5=-(x^2+5)$.",
+    "Els dos signes menys es compensen. Mira si el que queda encara es pot factoritzar amb nombres enters."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyLDiXMgdW5hIHN1bWEgcGVyIGRpZmVyw6huY2lhIGFtYiAkYT0teF4yJCBpICRiPTUkOiAkYV4yLWJeMj0oLXheMileMi01XjI9eF40LTI1JCwgbm8gJDI1LXheNCQuIiwgIkFxdWVzdGEgZmFjdG9yaXR6YWNpw7MgdGFtYsOpIMOpcyB2w6BsaWRhLCBwZXLDsiBlbmNhcmEgZXMgcG90IGRlc2Vudm9sdXBhciBkZWwgdG90IGNvbSBhIGRpZmVyw6huY2lhIGRlIHF1YWRyYXRzIG51bcOocmljYTogJCh4XjItNSkoeF4yKzUpPXheNC0yNSQuIiwgIiIsICJFbiB1bmEgc3VtYSBwZXIgZGlmZXLDqG5jaWEsIGVsIHNlZ29uIHF1YWRyYXQgc2VtcHJlIHJlc3RhLCBtYWkgc3VtYS4iXSwgImVyciI6IFsiU1VNQV9QRVJfRElGRVJFTkNJQV9NQUwiLCAiRkFDVE9SX0NPTVVfSU5DT01QTEVUIiwgIiIsICJTVU1BX1BFUl9ESUZFUkVOQ0lBX01BTCJdLCAicmVzIjogWyIkKC14XjIrNSkoLXheMi01KT0oLXheMileMi01XjI9eF40LTI1JCAoZXF1aXZhbGVudCBhICQoeF4yLTUpKHheMis1KSQsIHF1ZSBubyBlcyBwb3QgZmFjdG9yaXR6YXIgbcOpcyBhbWIgZW50ZXJzKSJdfQ=="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyLDiXMgZWwgbWF0ZWl4IHBvbGlub21pLCBwZXLDsiBkZXNlbnZvbHVwYXQsIGkgZXMgZGVtYW5hIGZhY3Rvcml0emF0LiBBIG3DqXMsICR4XjQtMjUkIMOpcyB1bmEgZGlmZXLDqG5jaWEgZGUgcXVhZHJhdHM6ICQoeF4yKV4yLTVeMiQuIiwgIkVscyBkb3MgZmFjdG9ycyBubyBzw7NuIGlndWFsczogdW4gw6lzICR4XjItNSQgaSBsJ2FsdHJlICR4XjIrNSQuIE5vbcOpcyBzZXJpYSB1biBxdWFkcmF0IHNpIGZvc3NpbiBlbCBtYXRlaXguIiwgIiIsICJBaXjDsiB2YWwgJDI1LXheNCQsIGkgbCdleHByZXNzacOzIGRlIHBhcnRpZGEgdmFsICR4XjQtMjUkOiBjb21wcm92YS1obyBhbWIgJHg9MCQsIHF1ZSBkb25hICQ1XFxjZG90KC01KT0tMjUkLiBDYWRhIGZhY3RvciBwb3J0YSBlbCBzZXUgc2lnbmUgbWVueXMsICQteF4yKzU9LSh4XjItNSkkIGkgJC14XjItNT0tKHheMis1KSQsIGkgZWxzIGRvcyBlcyBjb21wZW5zZW4uIl0sICJlcnIiOiBbIkZBQ1RPUklUWkFDSU9fREVTRkVUQSIsICJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICIiLCAiRkFDVE9SX0NPTVVfU0lHTkUiXSwgInJlcyI6IFsiJCgteF4yKzUpKC14XjItNSk9XFxiaWcoLSh4XjItNSlcXGJpZylcXGJpZygtKHheMis1KVxcYmlnKT0oeF4yLTUpKHheMis1KSQiLCAiJHheMi01JCBubyDDqXMgdW5hIGRpZmVyw6huY2lhIGRlIHF1YWRyYXRzIGFtYiBlbnRlcnMgKCQ1JCBubyDDqXMgdW4gcXVhZHJhdCBwZXJmZWN0ZSkgaSAkeF4yKzUkIMOpcyB1bmEgc3VtYTogamEgbm8gZXMgcG90IGZhY3Rvcml0emFyIG3DqXMuIERlc2Vudm9sdXBhdCwgc2VyaWEgJHheNC0yNSQuIl19"
   }
  ]
 };

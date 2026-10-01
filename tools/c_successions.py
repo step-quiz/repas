@@ -1037,14 +1037,18 @@ Q("58b", 58, "b", B3, "A",
    "\\dfrac1{18},\\;\\dfrac1{54},\\;\\dfrac1{162}$"],
   ex_text=E58)
 
+# Hi encaixen dues progressions, de raó 1/2 i de raó −1/2, i la de raó
+# negativa és un dels distractors. La condició va a l'enunciat: en una nota
+# al costat, el distractor seguia sent una resposta correcta marcada com a
+# error.
 Q("58c", 58, "c", B3, "A",
-  r"$\square,\;\dfrac13,\;\square,\;\dfrac1{12},\;\square$",
+  r"$\square,\;\dfrac13,\;\square,\;\dfrac1{12},\;\square$, amb raó positiva.",
   llista([F(2, 3), F(1, 3), F(1, 6), F(1, 12), F(1, 24)]),
   [D(llista([F(-2, 3), F(1, 3), F(-1, 6), F(1, 12), F(-1, 24)]),
-     "PARITAT_EXPONENT",
-     "Amb $r^2=\\dfrac14$ hi ha dues raons possibles, $\\dfrac12$ i "
-     "$-\\dfrac12$; es demana la solució amb raó positiva, coherent "
-     "amb que tots els termes coneguts de l'enunciat ja són positius."),
+     "CONDICIO_ENUNCIAT_IGNORADA",
+     "Amb raó $-\\dfrac12$ també surt una progressió geomètrica que hi "
+     "encaixa, perquè $r^2=\\dfrac14$ té dues solucions. Però l'enunciat "
+     "la demana de raó positiva."),
    D(llista([F(4, 3), F(1, 3), F(1, 12), F(1, 12), F(1, 48)]),
      "DESPLACAMENT_INDEX",
      "Entre el segon terme ($\\dfrac13$) i el quart ($\\dfrac1{12}$) "
@@ -1065,11 +1069,6 @@ Q("58c", 58, "c", B3, "A",
    "Els cinc termes són $\\dfrac23,\\;\\dfrac13,\\;\\dfrac16,\\;"
    "\\dfrac1{12},\\;\\dfrac1{24}$"],
   ex_text=E58,
-  # La nota ha de dir que es demana la raó positiva (la negativa també
-  # encaixa i és un dels distractors), però no quina és: abans hi deia
-  # r = 1/2, que és tot el càlcul de l'exercici.
-  nota="Hi ha dues progressions que hi encaixen, una de raó positiva i una "
-       "de raó negativa. Es demana la de raó positiva.",
   comentari="De $r^2=\\dfrac14$ en surten dues raons, $r=\\dfrac12$ i "
             "$r=-\\dfrac12$. Amb la negativa els termes alternen el signe, "
             "$-\\dfrac23,\\;\\dfrac13,\\;-\\dfrac16,\\;\\dfrac1{12},\\;"
