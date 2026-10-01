@@ -116,6 +116,53 @@ class Presentacio(unittest.TestCase):
             self.assertIsNone(re.search(r"\.tex\b|abans de publicar|cal confirmar", t, re.I),
                               "%s: nota amb rastres interns" % it["id"])
 
+    def test_cap_nota_visible_dona_la_resposta(self):
+        """La nota es pinta amb l'enunciat, abans de les opcions. El 275a
+        preguntava per quin nombre es multiplica per pujar un 20 % i la nota
+        deia «puja un 20 % → ×1,2»; el 277a, amb resposta 60 €, hi duia
+        «60 → 66 → 59,4». El que s'ha de llegir un cop resolt va al
+        comentari, dins de la clau.
+
+        Es compara la resposta com a nombre sencer (que «12» no es trobi
+        dins de «120»), i una resposta d'una xifra només si a la nota és una
+        fórmula sola, $0$."""
+        def pla(t):
+            t = re.sub(r"\\(?:text|mathrm|operatorname)\{([^}]*)\}", r"\1", t)
+            t = re.sub(r"\\[,;!: ]|\\quad|\\left|\\right|\s+", "", t)
+            t = t.replace("$", "|").replace("{,}", ",")
+            t = re.sub(r"(\d,\d*?)0+(?!\d)", r"\1", t)
+            return re.sub(r"(\d),(?!\d)", r"\1", t)
+
+        for it in PLANS:
+            nota = it.get("nota") or ""
+            if not nota:
+                continue
+            text, bona = pla(nota), clau(it)
+            dins = re.findall(r"\$([^$]*)\$", bona)
+            cands = {pla(bona).strip("|")} | (
+                {pla(dins[0])} if len(dins) == 1 else set())
+            for c in filter(None, cands):
+                if len(c) == 1:
+                    trobada = "|%s|" % c in text
+                else:
+                    trobada = any(
+                        not re.match(r"[\d,.]", text[m.start() - 1:m.start()])
+                        and text[m.start() - 1:m.start()] != "-"
+                        and not re.match(r"\d|[,.]\d", text[m.end():m.end() + 2])
+                        for m in re.finditer(re.escape(c), text))
+                self.assertFalse(trobada, "%s: la nota visible conté la "
+                                 "resposta %r: %s" % (it["id"], bona, nota))
+
+    def test_el_comentari_no_viatja_en_clar(self):
+        """El comentari («Per recordar») és per després de respondre: ha de
+        ser dins de la clau i enlloc més de l'ítem."""
+        amb = [it for it in PLANS if it.get("com")]
+        self.assertTrue(amb, "cap ítem porta comentari: el camp s'ha perdut")
+        for n in TOTS:
+            for it in carrega(n)["items"]:
+                self.assertNotIn("comentari", it, it["id"])
+                self.assertNotIn("com", it, it["id"])
+
     def test_tots_els_enunciats_diuen_alguna_cosa(self):
         """Els 170a-e del Full 9 tenien l'enunciat idèntic a l'encapçalament
         i no es podien resoldre: les dades només sortien a les pistes."""

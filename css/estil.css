@@ -149,6 +149,10 @@ button{font:inherit;font-family:var(--cos)}
 .resolucio li{margin:.3rem 0}
 .nota{background:var(--ambre-suau);border-left:3px solid var(--ambre);padding:.45rem .7rem;
   border-radius:0 7px 7px 0;font-size:.88rem;margin-top:.8rem}
+/* «Per recordar»: el que cal endur-se'n d'un exercici, dins de la resolució.
+   Blau i no ambre: no és un avís previ com la nota, és la conclusió. */
+.comentari{background:var(--blau-suau);border-left:3px solid var(--blau);
+  padding:.45rem .7rem;border-radius:0 7px 7px 0;font-size:.93rem;margin:.7rem 0 0}
 .errades{margin-top:1.4rem}
 .errada{border-left:3px solid var(--vermell);background:var(--card);border-radius:0 9px 9px 0;
   padding:.55rem .8rem;margin:.45rem 0;font-size:.93rem}

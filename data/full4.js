@@ -221,8 +221,8 @@ window.FULL = {
     "Compte: els dos $x^2$ es cancel·len.",
     "$x^2-x^2=0$; només queden els números."
    ],
-   "nota": "Sí, la resposta pot no tenir $x$: quan els termes d'un grau es cancel·len, aquell grau desapareix del resultat.",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgZWxzICR4XjIkIGVuIGxsb2MgZGUgcmVzdGFyLWxvcy4gJHheMi14XjI9MCQsIGkgZWwgdGVybWUgZGVzYXBhcmVpeC4iLCAiUmV2aXNhIGxhIHJlc3RhIGRlbHMgbsO6bWVyb3M6ICQtMi02PS04JC4iLCAiIiwgIkVsICQrNiQgZXMgY29udmVydGVpeCBlbiAkLTYkIGVuIHRyZXVyZSBlbCBwYXLDqG50ZXNpOiAkLTItNj0tOCQuIFJlc3RhciB1biBwb2xpbm9taSDDqXMgcmVzdGFyLW5lIFRPVFMgZWxzIHRlcm1lcywgbm8gbm9tw6lzIGVsIHByaW1lci4gUmV2aXNhIGVsIHNpZ25lIGRlIGNhZGEgdGVybWUgZGVsIHBvbGlub21pIHF1ZSByZXN0ZXMuIl0sICJlcnIiOiBbIlNJR05FX1NVTUEiLCAiT1JEUkVfUkVTVEEiLCAiIiwgIlBBUkVOVEVTSV9OT19ESVNUUklCVUlUX1BPTEkiXSwgInJlcyI6IFsiJCh4XjItMiktKHheMis2KT14XjItMi14XjItNj0tOCQiXX0="
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgZWxzICR4XjIkIGVuIGxsb2MgZGUgcmVzdGFyLWxvcy4gJHheMi14XjI9MCQsIGkgZWwgdGVybWUgZGVzYXBhcmVpeC4iLCAiUmV2aXNhIGxhIHJlc3RhIGRlbHMgbsO6bWVyb3M6ICQtMi02PS04JC4iLCAiIiwgIkVsICQrNiQgZXMgY29udmVydGVpeCBlbiAkLTYkIGVuIHRyZXVyZSBlbCBwYXLDqG50ZXNpOiAkLTItNj0tOCQuIFJlc3RhciB1biBwb2xpbm9taSDDqXMgcmVzdGFyLW5lIFRPVFMgZWxzIHRlcm1lcywgbm8gbm9tw6lzIGVsIHByaW1lci4gUmV2aXNhIGVsIHNpZ25lIGRlIGNhZGEgdGVybWUgZGVsIHBvbGlub21pIHF1ZSByZXN0ZXMuIl0sICJlcnIiOiBbIlNJR05FX1NVTUEiLCAiT1JEUkVfUkVTVEEiLCAiIiwgIlBBUkVOVEVTSV9OT19ESVNUUklCVUlUX1BPTEkiXSwgInJlcyI6IFsiJCh4XjItMiktKHheMis2KT14XjItMi14XjItNj0tOCQiXSwgImNvbSI6ICJTw60sIGxhIHJlc3Bvc3RhIHBvdCBubyB0ZW5pciAkeCQ6IHF1YW4gZWxzIHRlcm1lcyBkJ3VuIGdyYXUgZXMgY2FuY2VswrdsZW4sIGFxdWVsbCBncmF1IGRlc2FwYXJlaXggZGVsIHJlc3VsdGF0LiJ9"
   },
   {
    "id": "328a",
@@ -1143,10 +1143,10 @@ window.FULL = {
    ],
    "pistes": [
     "El residu final és $\\square^3-\\square$ (arrossegant els termes de la taula): iguala'l a $2$ i resol l'equació de tercer grau.",
-    "$\\square^3-\\square=0$ té tres solucions: $\\square=-1,0,1$. Descarta $\\square=0$ (divisió trivial) i tria'n una de les altres dues."
+    "$\\square^3-\\square=0$ té tres solucions: $\\square=-1,0,1$. Descarta $\\square=0$ (divisió trivial) i, de les altres dues, pren la positiva, que és la que es demana."
    ],
-   "nota": "L'equació que determina $\\square$ té tres solucions vàlides ($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una divisió trivial per $x$, i s'ha triat $\\square=1$ per completar la taula amb signe positiu.",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJFxcc3F1YXJlPS0xJCB0YW1iw6kgY29tcGxlaXggbCdlcXVhY2nDsyAkXFxzcXVhcmVeMy1cXHNxdWFyZT0wJCwgcGVyw7Igbm8gw6lzIGVsIHZhbG9yIHF1ZSBlcyB0cmlhIGFxdcOtIChlcyBkZXNjYXJ0YSAkXFxzcXVhcmU9MCQgcGVyIGRvbmFyIHVuYSBkaXZpc2nDsyB0cml2aWFsLCBpIGVudHJlICQxJCBpICQtMSQgZXMgcHJlbiAkXFxzcXVhcmU9MSQpLiIsICIkXFxzcXVhcmU9MCQgdGFtYsOpIGFudWzCt2xhIGwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQsIHBlcsOyIGRvbmFyaWEgdW5hIGRpdmlzacOzIHBlciAkeCQsIHVuIGNhcyB0cml2aWFsIHBvYyBoYWJpdHVhbCBlbiBhcXVlc3QgdGlwdXMgZCdleGVyY2ljaS4iLCAiRWwgdmFsb3IgZGUgJFxcc3F1YXJlJCDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHJlc2lkdSB0w6kgZWwgc2lnbmUgY2FudmlhdC4iXSwgImVyciI6IFsiIiwgIlJVRkZJTklfUEFTX01BTCIsICJSVUZGSU5JX1BBU19NQUwiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiRGUgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgc3VydGVuICRcXHNxdWFyZT0tMSwwLDEkOyBkZXNjYXJ0YW50ICQwJCBpIHRyaWFudCAkXFxzcXVhcmU9MSQsIGxhIHRhdWxhIGRvbmEgcXVvY2llbnQgJHheezJ9K3gkIGkgcmVzaWR1ICQyJCJdfQ=="
+   "nota": "Hi ha més d'un valor de $\\square$ que dona aquest residu. Es demana el positiu.",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJFxcc3F1YXJlPS0xJCB0YW1iw6kgY29tcGxlaXggbCdlcXVhY2nDsyAkXFxzcXVhcmVeMy1cXHNxdWFyZT0wJCwgcGVyw7Igbm8gw6lzIGVsIHZhbG9yIHF1ZSBlcyB0cmlhIGFxdcOtIChlcyBkZXNjYXJ0YSAkXFxzcXVhcmU9MCQgcGVyIGRvbmFyIHVuYSBkaXZpc2nDsyB0cml2aWFsLCBpIGVudHJlICQxJCBpICQtMSQgZXMgcHJlbiAkXFxzcXVhcmU9MSQpLiIsICIkXFxzcXVhcmU9MCQgdGFtYsOpIGFudWzCt2xhIGwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQsIHBlcsOyIGRvbmFyaWEgdW5hIGRpdmlzacOzIHBlciAkeCQsIHVuIGNhcyB0cml2aWFsIHBvYyBoYWJpdHVhbCBlbiBhcXVlc3QgdGlwdXMgZCdleGVyY2ljaS4iLCAiRWwgdmFsb3IgZGUgJFxcc3F1YXJlJCDDqXMgY29ycmVjdGUsIHBlcsOyIGVsIHJlc2lkdSB0w6kgZWwgc2lnbmUgY2FudmlhdC4iXSwgImVyciI6IFsiIiwgIlJVRkZJTklfUEFTX01BTCIsICJSVUZGSU5JX1BBU19NQUwiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiXSwgInJlcyI6IFsiRGUgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgc3VydGVuICRcXHNxdWFyZT0tMSwwLDEkOyBkZXNjYXJ0YW50ICQwJCBpIHRyaWFudCAkXFxzcXVhcmU9MSQsIGxhIHRhdWxhIGRvbmEgcXVvY2llbnQgJHheezJ9K3gkIGkgcmVzaWR1ICQyJCJdLCAiY29tIjogIkwnZXF1YWNpw7MgJFxcc3F1YXJlXjMtXFxzcXVhcmU9MCQgdMOpIHRyZXMgc29sdWNpb25zOiAkLTEkLCAkMCQgaSAkMSQuIEFtYiAkXFxzcXVhcmU9MCQgc2VyaWEgZGl2aWRpciBwZXIgJHgkLCB1biBjYXMgdHJpdmlhbDsgYW1iICRcXHNxdWFyZT0tMSQgbGEgdGF1bGEgdGFtYsOpIGZ1bmNpb25hIChxdW9jaWVudCAkeF4yLXgkLCByZXNpZHUgJDIkKS4ifQ=="
   },
   {
    "id": "69d",

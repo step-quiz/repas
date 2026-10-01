@@ -205,9 +205,11 @@ for _ap, _v, _sol, _cas in _262:
               else "La freqüència màxima és $%d$, i li correspon el valor $%d$"
                    % (_f, _md[0])))],
       ex_text=E262,
-      nota=("Una distribució pot tenir més d'una moda, o no tenir-ne cap. "
-            "No és cap error del càlcul: és una propietat de les dades."
-            if _cas else ""))
+      # Comentari i no nota: abans de respondre, «pot tenir més d'una moda,
+      # o no tenir-ne cap» assenyalava l'opció bona dels dos apartats.
+      comentari=("Una distribució pot tenir més d'una moda, o no tenir-ne "
+                 "cap. No és cap error del càlcul: és una propietat de les "
+                 "dades." if _cas else ""))
 
 
 # =============================================================== Exercici 263
@@ -426,10 +428,12 @@ Q("266b", 266, "b", B1, "A",
    % (texd(mitjana(_ampl) - mitjana(_base), 2),
       texd(mediana(_ampl) - mediana(_base), 1))],
   ex_text=E266,
-  nota="Aquesta diferència és el motiu pel qual els sous o els preus dels "
-       "pisos es donen sovint amb la mediana i no amb la mitjana: quatre "
-       "valors molt alts poden desplaçar la mitjana i fer-la poc "
-       "representativa del que li passa a la majoria.")
+  # Comentari i no nota: abans de respondre, dir que la mediana resisteix
+  # els valors extrems era dir què li passa, que és el que es pregunta.
+  comentari="Aquesta diferència és el motiu pel qual els sous o els preus "
+            "dels pisos es donen sovint amb la mediana i no amb la mitjana: "
+            "quatre valors molt alts poden desplaçar la mitjana i fer-la poc "
+            "representativa del que li passa a la majoria.")
 
 
 # =============================================================== Exercici 267
@@ -689,10 +693,12 @@ Q("272b", 272, "b", B2, "A",
    "Com més petita és $\\sigma$, més agrupades estan les dades: el grup A és "
    "perfectament regular"],
   ex_text=E272,
-  nota="Aquest parell d'exercicis és el motiu de ser de tot el bloc: dues "
-       "distribucions poden tenir la mateixa mitjana i no assemblar-se gens. "
-       "La mitjana tota sola gairebé mai no descriu prou bé un conjunt de "
-       "dades.")
+  # Comentari i no nota: abans de respondre, descartava l'opció «són igual
+  # de regulars, perquè tenen la mateixa mitjana».
+  comentari="Aquest parell d'exercicis és el motiu de ser de tot el bloc: "
+            "dues distribucions poden tenir la mateixa mitjana i no "
+            "assemblar-se gens. La mitjana tota sola gairebé mai no descriu "
+            "prou bé un conjunt de dades.")
 
 
 # =============================================================== Exercici 273
@@ -746,10 +752,10 @@ Q("273b", 273, "b", B2, "A",
    "Pes: $CV=\\dfrac{8}{65}\\cdot100\\approx%s\\,\\%%$" % texd(F(800, 65), 1),
    "El pes varia gairebé el doble, en termes relatius"],
   ex_text=E273,
-  nota="El coeficient de variació no té unitats, i per això serveix per "
-       "comparar la dispersió de coses que es mesuren en unitats diferents. "
-       "És el que et permet dir si un grup és més irregular en alçada o en "
-       "pes sense comparar centímetres amb quilograms.")
+  comentari="El coeficient de variació no té unitats, i per això serveix "
+            "per comparar la dispersió de coses que es mesuren en unitats "
+            "diferents. És el que et permet dir si un grup és més irregular "
+            "en alçada o en pes sense comparar centímetres amb quilograms.")
 
 
 # =============================================================== Exercici 274

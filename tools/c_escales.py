@@ -274,9 +274,11 @@ for _ap, _k, _area in _291:
        % (_area, tex(_k ** 2), texd(_gran, 2).rstrip("0").rstrip("{,}"))],
       ex_text=E291,
       figura=figures_semblants_k(float(_k), "quadrat"),
-      nota=("Val la pena veure-ho amb un quadrat: si el costat passa de $1$ a "
-            "$2$, l'àrea passa d'$1$ a $4$. Dues dimensions, dos factors "
-            "$k$." if _ap == "a" else ""))
+      # Comentari i no nota: amb k = 2, «l'àrea passa d'1 a 4» era la
+      # resposta a un pas.
+      comentari=("Val la pena veure-ho amb un quadrat: si el costat passa de "
+                 "$1$ a $2$, l'àrea passa d'$1$ a $4$. Dues dimensions, dos "
+                 "factors $k$." if _ap == "a" else ""))
 
 
 # =============================================================== Exercici 292
@@ -304,10 +306,12 @@ for _ap, _k, _vol in _292:
        "Volum gran $=%d\\cdot%s=%s$ cm$^3$" % (_vol, tex(_k ** 3), texd(_gran, 0))],
       ex_text=E292,
       figura=figures_semblants_k(float(_k), "cub"),
-      nota=("Aquest és el que més sorprèn: doblar totes les mides multiplica "
-            "el volum per $8$. És el motiu pel qual una maqueta a escala "
-            "$1:2$ no pesa la meitat, sinó una vuitena part."
-            if _ap == "a" else ""))
+      # Comentari i no nota: amb k = 2, «multiplica el volum per 8» era la
+      # resposta a un pas.
+      comentari=("Aquest és el que més sorprèn: doblar totes les mides "
+                 "multiplica el volum per $8$. És el motiu pel qual una "
+                 "maqueta a escala $1:2$ no pesa la meitat, sinó una "
+                 "vuitena part." if _ap == "a" else ""))
 
 
 # =============================================================== Exercici 293
@@ -414,6 +418,6 @@ Q("294c", 294, "c", B2, "A",
    "façana i $125\\,000$ vegades més petita de volum"],
   ex_text=E294,
   figura=figures_semblants_k(1 / 50, "cub"),
-  nota="Els tres apartats junts són el resum del bloc: una sola escala, tres "
-       "factors diferents segons si el que mesures té una, dues o tres "
-       "dimensions.")
+  comentari="Els tres apartats junts són el resum del bloc: una sola "
+            "escala, tres factors diferents segons si el que mesures té "
+            "una, dues o tres dimensions.")

@@ -564,6 +564,17 @@ def compila():
         etiq = [""] + [d["err"] for d in it["distractors"]]
         ordre = list(range(4))
         random.Random("repas-eso::" + it["id"]).shuffle(ordre)
+        clau = {
+            "ok": ordre.index(0),
+            "diag": [diag[i] for i in ordre],
+            "err": [etiq[i] for i in ordre],
+            "res": it["resolucio"],
+        }
+        # El comentari va DINS de la clau, com la resolució: és per llegir-lo
+        # un cop resolt, i en clar es podria llegir abans. Només hi és si
+        # n'hi ha, perquè la clau dels ítems sense comentari no canviï.
+        if it["comentari"]:
+            clau["com"] = it["comentari"]
         item = {
             "id": it["id"],
             "ex": it["ex"],
@@ -576,12 +587,7 @@ def compila():
             "opcions": [opcions[i] for i in ordre],
             "pistes": it["pistes"],
             "nota": it["nota"],
-            "clau": b64({
-                "ok": ordre.index(0),
-                "diag": [diag[i] for i in ordre],
-                "err": [etiq[i] for i in ordre],
-                "res": it["resolucio"],
-            }),
+            "clau": b64(clau),
         }
         # La figura només hi va si n'hi ha. Guardar-hi `"figura": ""` a cada
         # ítem faria créixer els dotze fitxers de dades per no dir res, i
@@ -744,6 +750,9 @@ def revisio(dades):
                      % "".join("<li>%s</li>" % x for x in it["resolucio"]))
             if it["nota"]:
                 p.append('<p class="nota"><strong>Nota:</strong> %s</p>' % it["nota"])
+            if it["comentari"]:
+                p.append('<p class="nota"><strong>Per recordar</strong> (surt amb '
+                         'la resolució, després de respondre): %s</p>' % it["comentari"])
             if it["nota_interna"]:
                 p.append('<p class="nota"><strong>Nota interna '
                          '(no es publica):</strong> %s</p>' % it["nota_interna"])

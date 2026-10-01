@@ -546,10 +546,14 @@ Q("52c", 52, "c", B2, "A",
   ["$d=1-\\dfrac12=\\dfrac12$ (es manté igual: $\\dfrac32-1=\\dfrac12$)",
    "$a_n=a_1+(n-1)d=\\dfrac12+(n-1)\\cdot\\dfrac12$"],
   ex_text=E52,
-  nota="Si simplifiques et queda $a_n=\\dfrac{n}{2}$, que és igual de "
-       "correcta i no la trobaràs entre les opcions: aquest exercici "
-       "practica la forma $a_1+(n-1)d$, i és aquesta la que has de "
-       "reconèixer.")
+  # La nota diu en quina forma cal donar-lo; la forma simplificada, que
+  # abans hi era, és la resposta mateixa i va al comentari.
+  nota="Dona el terme general en la forma $a_n=a_1+(n-1)\\cdot d$, sense "
+       "simplificar: és la forma que practica aquest exercici i la que "
+       "trobaràs entre les opcions.",
+  comentari="Si simplifiques et queda $a_n=\\dfrac{n}{2}$, que és igual de "
+            "correcta. Comprova-ho amb $n=1$ i $n=2$: dona $\\dfrac12$ i "
+            "$1$, els dos primers termes.")
 
 Q("52d", 52, "d", B2, "A",
   r"$\dfrac1a,\;\dfrac3a,\;\dfrac5a,\;\dfrac7a,\dots$",
@@ -1061,10 +1065,15 @@ Q("58c", 58, "c", B3, "A",
    "Els cinc termes són $\\dfrac23,\\;\\dfrac13,\\;\\dfrac16,\\;"
    "\\dfrac1{12},\\;\\dfrac1{24}$"],
   ex_text=E58,
-  nota="De $r^2=\\dfrac14$ en surten dues raons possibles, "
-       "$r=\\dfrac12$ i $r=-\\dfrac12$; es dona la solució amb raó "
-       "positiva perquè manté el signe dels termes ja coneguts a "
-       "l'enunciat.")
+  # La nota ha de dir que es demana la raó positiva (la negativa també
+  # encaixa i és un dels distractors), però no quina és: abans hi deia
+  # r = 1/2, que és tot el càlcul de l'exercici.
+  nota="Hi ha dues progressions que hi encaixen, una de raó positiva i una "
+       "de raó negativa. Es demana la de raó positiva.",
+  comentari="De $r^2=\\dfrac14$ en surten dues raons, $r=\\dfrac12$ i "
+            "$r=-\\dfrac12$. Amb la negativa els termes alternen el signe, "
+            "$-\\dfrac23,\\;\\dfrac13,\\;-\\dfrac16,\\;\\dfrac1{12},\\;"
+            "-\\dfrac1{24}$, i també és una progressió geomètrica vàlida.")
 
 Q("58d", 58, "d", B3, "B",
   r"$\square,\;\dfrac32,\;\square,\;\square,\;\dfrac{81}4$",

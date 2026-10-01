@@ -233,7 +233,10 @@ Q("11", 11, "", B, "B",
    r"$\operatorname{m.c.m.}(12,18) = 36$",
    r"També serveix el parell $6$ i $36$."],
   ex_text=r"Troba dos nombres amb $\operatorname{m.c.d.} = 6$ i $\operatorname{m.c.m.} = 36$.",
-  nota="Hi ha més d'una solució vàlida: $12$ i $18$, o bé $6$ i $36$.")
+  # La nota no pot dir quines són les parelles: abans hi deia «12 i 18», que
+  # és la resposta. Que n'hi ha més d'una sí que cal dir-ho.
+  nota="Hi ha més d'una parella que ho compleix, però entre les opcions "
+       "només n'hi ha una.")
 
 # =============================================================== Exercici 12
 E12 = "Resol aquests problemes."

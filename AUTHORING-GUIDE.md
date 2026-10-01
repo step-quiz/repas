@@ -182,6 +182,29 @@ nota_interna="La imatge de la font no permet determinar-lo amb seguretat; "
 «vegeu NOTA DE TRANSCRIPCIÓ a r-im8.tex» o «convé confirmar-ho contra la
 figura original abans de publicar».
 
+**`nota` i `comentari` tampoc no són el mateix.** La `nota` surt amb
+l'enunciat, **abans** de les opcions: només hi va el que l'alumne necessita
+saber per poder respondre (en quina forma es demana la resposta, quina de
+dues solucions vàlides es vol, com s'ha llegit una figura). El `comentari`
+surt amb la resolució, **després** de respondre, i viatja dins de la `clau`:
+hi va la idea que cal endur-se'n, el parany del bloc, el cas que sorprèn.
+
+```python
+nota="Hi ha dues progressions que hi encaixen, una de raó positiva i una "
+     "de raó negativa. Es demana la de raó positiva.",
+comentari="De $r^2=\\dfrac14$ en surten dues raons, $r=\\dfrac12$ i "
+          "$r=-\\dfrac12$. Amb la negativa els termes alternen el signe...",
+```
+
+La prova de foc: si la nota ajuda a triar entre les opcions —perquè conté la
+resposta, perquè en descarta una, perquè diu «doblar les mides multiplica el
+volum per 8» a l'exercici on k = 2—, és un comentari. Havien arribat a
+producció disset notes així; la del 275a deia «puja un 20 % → ×1,2» a
+l'exercici que pregunta per quin nombre es multiplica per pujar un 20 %.
+`lib._valida()` atura la compilació si la nota conté la resposta correcta
+literalment, però una nota que descarta un distractor no la pot detectar
+cap màquina: això cal mirar-ho a mà.
+
 ---
 
 ## 4. Distractors i catàleg d'errors

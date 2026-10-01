@@ -77,10 +77,13 @@ for _ap, _txt, _f, _puja, _p in _275:
       ["$%d\\,\\%%=%s$" % (_p, texd(_cont, 2)),
        "Factor $=1%s%s=%s$" % ("+" if _puja else "-", texd(_cont, 2), texd(_f, 2))],
       ex_text=E275,
-      nota=("Aquest és el bloc sencer resumit: el factor multiplicador és el "
-            "nombre pel qual multipliques d'un sol cop. Puja un $20\\,\\%$ "
-            "$\\to$ $\\times1{,}2$; baixa un $20\\,\\%$ $\\to$ "
-            "$\\times0{,}8$." if _ap == "a" else ""))
+      # Abans era una `nota`, i la nota surt amb l'enunciat: deia «puja un
+      # 20 % → ×1,2» a l'exercici que pregunta per quin nombre es multiplica
+      # per pujar un 20 %. Com a comentari surt amb la resolució.
+      comentari=("Aquest és el bloc sencer resumit: el factor multiplicador "
+                 "és el nombre pel qual multipliques d'un sol cop. Puja un "
+                 "$20\\,\\%$ $\\to$ $\\times1{,}2$; baixa un $20\\,\\%$ "
+                 "$\\to$ $\\times0{,}8$." if _ap == "a" else ""))
 
 
 # =============================================================== Exercici 276
@@ -147,10 +150,12 @@ for _ap, _final, _f, _txt, _p, _puja in _277:
       ["Si $x$ és el preu de partida: $x\\cdot%s=%d$" % (texd(_f, 2), _final),
        "$x=\\dfrac{%d}{%s}=%s$ €" % (_final, texd(_f, 2), texd(_ini, 2))],
       ex_text=E277,
-      nota=("Aquest és l'error més habitual amb els percentatges: si un preu "
-            "ha pujat un $10\\,\\%$, per tornar enrere NO es baixa un "
-            "$10\\,\\%$. Comprova-ho: $60\\to66\\to59{,}4$, i no torna a "
-            "$60$." if _ap == "a" else ""))
+      # Comentari i no nota: amb l'enunciat, «60 → 66 → 59,4» donava la
+      # resposta (60) i descartava el distractor principal (59,40).
+      comentari=("Aquest és l'error més habitual amb els percentatges: si "
+                 "un preu ha pujat un $10\\,\\%$, per tornar enrere NO es "
+                 "baixa un $10\\,\\%$. Comprova-ho: $60\\to66\\to59{,}4$, i "
+                 "no torna a $60$." if _ap == "a" else ""))
 
 
 # =============================================================== Exercici 278
@@ -257,9 +262,11 @@ Q("280b", 280, "b", B2, "A",
    "$1-0{,}72=0{,}28\\to28\\,\\%$",
    "Comprovació: $200\\cdot0{,}72=144$ €, el mateix d'abans"],
   ex_text=E280,
-  nota="Que dos descomptes del $20\\,\\%$ i el $10\\,\\%$ no facin un "
-       "$30\\,\\%$ és el motiu de ser del factor multiplicador. Amb factors "
-       "es veu de seguida; sumant percentatges, mai.")
+  # Comentari i no nota: abans de respondre, «no fan un 30 %» descartava
+  # el distractor que més alumnes trien.
+  comentari="Que dos descomptes del $20\\,\\%$ i el $10\\,\\%$ no facin un "
+            "$30\\,\\%$ és el motiu de ser del factor multiplicador. Amb "
+            "factors es veu de seguida; sumant percentatges, mai.")
 
 
 # =============================================================== Exercici 281

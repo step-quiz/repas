@@ -727,16 +727,21 @@ Q("69c", 69, "c", B2, "A",
   [r"El residu final és $\square^3-\square$ (arrossegant els termes de "
    r"la taula): iguala'l a $%d$ i resol l'equació de tercer grau." % r69c,
    r"$\square^3-\square=0$ té tres solucions: $\square=-1,0,1$. "
-   r"Descarta $\square=0$ (divisió trivial) i tria'n una de les "
-   r"altres dues."],
+   r"Descarta $\square=0$ (divisió trivial) i, de les altres dues, "
+   r"pren la positiva, que és la que es demana."],
   [r"De $\square^3-\square=0$ surten $\square=-1,0,1$; descartant $0$ "
    r"i triant $\square=%d$, la taula dona quocient $%s$ i residu $%s$"
    % (arrel_c, poli_tex_raw(pol(*q69c)), r_tex_raw(r69c))],
   ex_text=E69,
-  nota="L'equació que determina $\\square$ té tres solucions vàlides "
-       "($-1$, $0$ i $1$); es descarta $\\square=0$ perquè donaria una "
-       "divisió trivial per $x$, i s'ha triat $\\square=1$ per "
-       "completar la taula amb signe positiu.")
+  # La nota diu QUIN valor es demana, no quin és: abans hi deia
+  # «s'ha triat □ = 1», que és la meitat de la resposta. I cal dir-ho
+  # abans de respondre, perquè □ = −1 també és correcte i és un distractor.
+  nota="Hi ha més d'un valor de $\\square$ que dona aquest residu. Es "
+       "demana el positiu.",
+  comentari="L'equació $\\square^3-\\square=0$ té tres solucions: $-1$, "
+            "$0$ i $1$. Amb $\\square=0$ seria dividir per $x$, un cas "
+            "trivial; amb $\\square=-1$ la taula també funciona (quocient "
+            "$x^2-x$, residu $2$).")
 
 # 69d: dividend square,0,0,-3, arrel -4; segona casella fila inferior = 8
 # square*(-4)=8 -> square=-2
@@ -1312,8 +1317,10 @@ Q("327d", 327, "d", B1, "A",
    "$x^2-x^2=0$; només queden els números."],
   [r"$(x^2-2)-(x^2+6)=x^2-2-x^2-6=-8$"],
   ex_text=E327,
-  nota="Sí, la resposta pot no tenir $x$: quan els termes d'un grau es "
-       "cancel·len, aquell grau desapareix del resultat.")
+  # Comentari i no nota: abans de respondre, «la resposta pot no tenir x»
+  # descartava el distractor 2x^2-8.
+  comentari="Sí, la resposta pot no tenir $x$: quan els termes d'un grau "
+            "es cancel·len, aquell grau desapareix del resultat.")
 
 
 E328 = "Aplica la propietat distributiva i simplifica."

@@ -3064,8 +3064,10 @@ Q("320", 320, "", BC2, "A",
    "sigui fiable amb els malalts, com que hi ha poquíssims malalts "
    "de veritat ($10$ de $1000$), la majoria de positius acaben "
    "sent falsos positius de gent sana"],
-  nota="Aquest és l'exemple clàssic que mostra per què $P(B|A)$ i "
-       "$P(A|B)$ poden ser molt diferents: un test molt fiable pot "
-       "donar, tot i així, més falsos positius que positius certs "
-       "quan la condició que es busca és poc freqüent.",
+  # Comentari i no nota: abans de respondre, «poden ser molt diferents»
+  # descartava l'opció que les fa iguals i deia cap on anava el resultat.
+  comentari="Aquest és l'exemple clàssic que mostra per què $P(B|A)$ i "
+            "$P(A|B)$ poden ser molt diferents: un test molt fiable pot "
+            "donar, tot i així, més falsos positius que positius certs "
+            "quan la condició que es busca és poc freqüent.",
   figura=FIG319, ex_text=E319)

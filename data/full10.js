@@ -1411,8 +1411,8 @@ window.FULL = {
     "La $c$ és el terme que no porta $x$.",
     "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."
    ],
-   "nota": "Un coeficient que no s'escriu no és un coeficient que no hi sigui: val $0$, i a les fórmules s'ha de comptar com a $0$.",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJyQxJCDDqXMgbGEgJGIkOiBlbCBjb2VmaWNpZW50IGRlIGxhICR4JC4gTGEgJGMkIMOpcyBlbCB0ZXJtZSBxdWUgdmEgc29sLCBzZW5zZSAkeCQuIiwgIsKrRWwgdGVybWUgbm8gaGkgYXBhcmVpeMK7IGkgwqtlbCBjb2VmaWNpZW50IG5vIGV4aXN0ZWl4wrsgbm8gc8OzbiBlbCBtYXRlaXguIFNpIG5vIGhpIHN1cnQgw6lzIHBlcnF1w6ggdmFsICQwJCwgaSBjYWwgY29tcHRhci1sbyBjb20gYSAkMCQgcXVhbiBzJ2FwbGljYSBxdWFsc2V2b2wgZsOzcm11bGEuIiwgIiIsICJFbCAkLTIkIMOpcyBsYSAkYSQ6IGVsIGNvZWZpY2llbnQgZGUgJHheMiQuIl0sICJlcnIiOiBbIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiIiwgIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS0yeF4yKzF4KzBcXFJpZ2h0YXJyb3cgYz0wJCJdfQ=="
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJyQxJCDDqXMgbGEgJGIkOiBlbCBjb2VmaWNpZW50IGRlIGxhICR4JC4gTGEgJGMkIMOpcyBlbCB0ZXJtZSBxdWUgdmEgc29sLCBzZW5zZSAkeCQuIiwgIsKrRWwgdGVybWUgbm8gaGkgYXBhcmVpeMK7IGkgwqtlbCBjb2VmaWNpZW50IG5vIGV4aXN0ZWl4wrsgbm8gc8OzbiBlbCBtYXRlaXguIFNpIG5vIGhpIHN1cnQgw6lzIHBlcnF1w6ggdmFsICQwJCwgaSBjYWwgY29tcHRhci1sbyBjb20gYSAkMCQgcXVhbiBzJ2FwbGljYSBxdWFsc2V2b2wgZsOzcm11bGEuIiwgIiIsICJFbCAkLTIkIMOpcyBsYSAkYSQ6IGVsIGNvZWZpY2llbnQgZGUgJHheMiQuIl0sICJlcnIiOiBbIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiIiwgIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS0yeF4yKzF4KzBcXFJpZ2h0YXJyb3cgYz0wJCJdLCAiY29tIjogIlVuIGNvZWZpY2llbnQgcXVlIG5vIHMnZXNjcml1IG5vIMOpcyB1biBjb2VmaWNpZW50IHF1ZSBubyBoaSBzaWd1aTogdmFsICQwJCwgaSBhIGxlcyBmw7NybXVsZXMgcydoYSBkZSBjb21wdGFyIGNvbSBhICQwJC4ifQ=="
   },
   {
    "id": "339a",

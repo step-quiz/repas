@@ -322,8 +322,13 @@
     if (!tancat && !repas) return;
     $("#veure").hidden = true;
     var r = $("#resolucio");
+    /* El comentari («Per recordar») és la idea que cal endur-se'n un cop
+       resolt: el parany del bloc, el cas que sorprèn. Viatja dins de la clau,
+       com la resolució, perquè abans de respondre regalaria la resposta: la nota
+       que surt amb l'enunciat no pot dir res que acosti a la resposta. */
     r.innerHTML = "<h2>Resolució</h2><ol>" +
-      k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>";
+      k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>" +
+      (k.com ? '<p class="comentari"><strong>Per recordar.</strong> ' + k.com + "</p>" : "");
     RE.mat(r);
     if (r.scrollIntoView) r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
