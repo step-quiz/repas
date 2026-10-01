@@ -156,7 +156,7 @@ window.RE_CODI_UI = (function () {
         "despr\u00e9s dir\u00e0 quants exercicis has recuperat i de quin codi venien: " +
         "recuperar la teva feina no t\u00e9 cap problema, fer passar la d'un altre per " +
         "teva es veu." +
-        '<input type="text" id="re-codi-rec-camp" placeholder="RC3\u2026" ' +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC4\u2026" ' +
         'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
         '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
         '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
@@ -194,7 +194,7 @@ window.RE_CODI_UI = (function () {
         "despr\u00e9s dir\u00e0 quants exercicis has recuperat i de quin codi venien: " +
         "recuperar la teva feina no t\u00e9 cap problema, fer passar la d'un altre per " +
         "teva es veu." +
-        '<input type="text" id="re-codi-rec-camp" placeholder="RC3\u2026" ' +
+        '<input type="text" id="re-codi-rec-camp" placeholder="RC4\u2026" ' +
         'autocomplete="off" spellcheck="false" aria-label="Codi a recuperar">' +
         '<div class="re-acc"><button class="re-btn buit" id="re-codi-rec-afegeix">Afegeix el que em falti</button>' +
         '<button class="re-btn buit" id="re-codi-rec-tot">Substitueix-ho tot</button></div>' +
