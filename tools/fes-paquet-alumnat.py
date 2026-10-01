@@ -124,7 +124,7 @@ def main():
     if "--zip" in sys.argv:
         ruta = fes_zip()
         print("✓ %s (%.0f kB)" % (ruta, os.path.getsize(ruta) / 1024))
-    print("  Publica NOMÉS aquesta carpeta. Vegeu DESPLEGAMENT.md.")
+    print("  Publica NOMÉS aquesta carpeta. Vegeu docs/DESPLEGAMENT.md.")
 
 
 if __name__ == "__main__":

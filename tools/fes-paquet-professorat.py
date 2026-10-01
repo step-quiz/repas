@@ -36,17 +36,21 @@ SORTIDA = os.path.join(ARREL, "paquet-professorat.zip")
 # mateix fitxer, no quin dia es va empaquetar.
 DATA = (1980, 1, 1, 0, 0, 0)
 
-IMPRESCINDIBLES = ["analitzador-repas.html", "GUIA-PROFESSORAT.md"]
+# (on és al repositori, com es diu dins del zip). La guia viu a `docs/`, però
+# al zip va al costat de l'analitzador: el professor l'ha de trobar d'un cop
+# d'ull, no dins d'una carpeta.
+IMPRESCINDIBLES = [("analitzador-repas.html", "analitzador-repas.html"),
+                   (os.path.join("docs", "GUIA-PROFESSORAT.md"), "GUIA-PROFESSORAT.md")]
 CARPETA_KATEX = os.path.join("vendor", "katex")
 
 
 def recull():
     """Llista de (ruta absoluta, nom dins del zip), ordenada."""
     peces = []
-    for nom in IMPRESCINDIBLES:
-        ruta = os.path.join(ARREL, nom)
+    for cami, nom in IMPRESCINDIBLES:
+        ruta = os.path.join(ARREL, cami)
         if not os.path.isfile(ruta):
-            sys.exit("✗ falta %s: el paquet no es pot fer sense" % nom)
+            sys.exit("✗ falta %s: el paquet no es pot fer sense" % cami)
         peces.append((ruta, nom))
 
     base = os.path.join(ARREL, CARPETA_KATEX)

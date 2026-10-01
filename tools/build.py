@@ -8,7 +8,7 @@
 
 Sortides (relatives a l'arrel del repositori, no a tools/):
   data/fullN.js           dades del lloc (respostes ofuscades en base64)
-  REVISIO-fullN.html      clau de respostes completa, per revisar abans de publicar
+  revisio/REVISIO-fullN.html  clau de respostes completa, per revisar abans de publicar
 
 Cada full es compila en un procés Python separat a propòsit: lib._BANC és
 una llista de mòdul, i si s'importessin els mòduls de dos fulls al mateix
@@ -687,10 +687,11 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 # Amb la còpia local el lloc també funciona sense connexió, i cap IP d'alumne
 # viatja a un tercer. Per actualitzar la versió: `npm pack katex@X` i copiar
 # katex.min.{js,css}, contrib/auto-render.min.js i fonts/*.woff2 a vendor/katex/.
+# El REVISIO viu a `revisio/`, un nivell per sota de l'arrel: d'aquí el `../`.
 KATEX = """
-<link rel="stylesheet" href="vendor/katex/katex.min.css">
-<script defer src="vendor/katex/katex.min.js"></script>
-<script defer src="vendor/katex/contrib/auto-render.min.js"
+<link rel="stylesheet" href="../vendor/katex/katex.min.css">
+<script defer src="../vendor/katex/katex.min.js"></script>
+<script defer src="../vendor/katex/contrib/auto-render.min.js"
  onload="renderMathInElement(document.body,{delimiters:[{left:'$',right:'$',display:false}],
  throwOnError:false})"></script>
 """
@@ -792,7 +793,8 @@ def revisio(dades):
                  % (e, len(ids), ", ".join(ids[:14]) + ("…" if len(ids) > 14 else "")))
     p.append('</table></html>')
 
-    ruta = os.path.join(ARREL, "REVISIO-full%d.html" % FULL_N)
+    # A `revisio/` i no a l'arrel: a l'arrel hi va el lloc que veu l'alumne.
+    ruta = os.path.join(ARREL, "revisio", "REVISIO-full%d.html" % FULL_N)
     open(ruta, "w", encoding="utf-8").write("\n".join(p))
     print("✓ %s (%d errors diferents al catàleg)" % (ruta, len(errors)))
 

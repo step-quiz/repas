@@ -61,9 +61,9 @@ for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js; do
 done
 printf '  \033[32m✓\033[0m 2 bateries del sorteig\n'
 # Les altres dues llegeixen `tools/_taules.json` i `tools/_banc.json`, que
-# són artefactes de compilació i no van al repositori. Sense ells no es poden
-# executar: val més dir-ho que no pas petar amb un error de fitxer i que la
-# suite acabi dient que tot ha anat bé.
+# són artefactes de compilació. Són al repositori, però si algú els esborra
+# no es poden executar: val més dir-ho que no pas petar amb un error de
+# fitxer i que la suite acabi dient que tot ha anat bé.
 if [ -f tools/_taules.json ] && [ -f tools/_banc.json ]; then
   for t in tests/mini_examen_exemple.test.js tests/mini_examen_varietat.test.js; do
     node "$t" >/dev/null || { node "$t"; fallades=1; }

@@ -6,9 +6,10 @@ __pycache__/
 node_modules/
 package-lock.json
 
-# Intermedis de tools/ (els regenera build_tot.py)
-tools/_taules.json
-tools/_banc.json
+# tools/_taules.json i tools/_banc.json NO s'ignoren, encara que els
+# regeneri build_tot.py: hi eren al repositori de fa temps i les proves del
+# mini-examen i dels vídeos els necessiten. Amb ells al repositori, un clon
+# acabat de fer passa la suite sencera sense haver de compilar res.
 
 # El paquet que es publica, generat per fes-paquet-alumnat.py
 public/
@@ -22,5 +23,5 @@ Thumbs.db
 # `.github/workflows/unzip-upload.yml` fa `git add -A` i `git push`. Sense
 # aquest fitxer, tot el que hi hagi al directori en aquell moment
 # (__pycache__, node_modules, un zip a mig fer) entra al repositori i queda
-# committejat per un bot. Vegeu també la nota de DESPLEGAMENT.md sobre aquell
+# committejat per un bot. Vegeu també la nota de docs/DESPLEGAMENT.md sobre aquell
 # workflow.

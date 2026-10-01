@@ -46,7 +46,7 @@ import tempfile
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ARREL = os.path.dirname(AQUI)
-SORTIDA = os.path.join(ARREL, "galeria")
+SORTIDA = os.path.join(ARREL, "docs", "galeria")
 
 # QUINA AMPLADA ÉS LA BONA
 #
