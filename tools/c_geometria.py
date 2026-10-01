@@ -38,7 +38,7 @@ L'exercici 148 és una única \\problema{} en prosa que en realitat conté DUES
 preguntes independents ("Quina és l'àrea del camp? Quant mesura el
 costat?") sense fer servir \\begin{apartats}, així que el parser automàtic
 el compta com 1 sol ítem quan en té 2 (patró d'"ítems amagats" descrit a
-AUTHORING-GUIDE.md). Es desdobla en 148a (costat) i 148b (àrea), ja que el
+docs/AUTHORING-GUIDE.md). Es desdobla en 148a (costat) i 148b (àrea), ja que el
 motor de tria múltiple necessita una resposta correcta per ítem i totes
 dues preguntes tenen respostes numèriques diferenciades i igualment
 rellevants. Total final: 55 ítems, en 32 dels 33 exercicis originals (el

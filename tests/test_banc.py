@@ -204,7 +204,7 @@ class Etiquetes(unittest.TestCase):
 
 
 class TaulesCoherents(unittest.TestCase):
-    """La mateixa taula de recomptes viu a tres llocs: `HANDOVER.md` (que és
+    """La mateixa taula de recomptes viu a tres llocs: `docs/HANDOVER.md` (que és
     la normativa), `README.md` i `js/inici.js` (que és el que veu l'alumne a
     la portada). Ja van desfasar-se un cop, i la portada va arribar a dir
     "0/21" d'un full que en tenia 48. Aquesta prova hi és perquè no torni a
@@ -224,7 +224,7 @@ class TaulesCoherents(unittest.TestCase):
                              % (n, m.group(1), len(its)))
 
     def test_el_handover_dona_el_total_de_cada_full(self):
-        s = self._llegeix("HANDOVER.md")
+        s = self._llegeix("docs/HANDOVER.md")
         for n, its in TOTS.items():
             m = re.search(r"^\|\s*%d\s*\|[^|]*\|[^|]*\|[^|]*\|\s*\d+\s*\|[^|]*\|\s*(\d+)\s*\|"
                           % n, s, re.M)

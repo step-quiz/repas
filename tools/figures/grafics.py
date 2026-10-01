@@ -5,7 +5,7 @@ Vegeu `figures/__init__.py` per a les convencions comunes: viewBox sense mida
 fixa, `currentColor` als traços, `role="img"` amb `<title>`, i cap `$` a dins.
 `lib._valida()` atura la compilació si alguna no es compleix.
 
-REGLA QUE NO ES NEGOCIA (§ briefs/BRIEF-xtec.md): cap gràfica marca per
+REGLA QUE NO ES NEGOCIA (§ docs/historic/briefs/BRIEF-xtec.md): cap gràfica marca per
 defecte allò que l'exercici demana calcular. `marca_vertex`, `marca_talls`,
 `continua_esq/dreta` i `tancat_esq/dreta` comencen sempre a `False`: qui
 crida la plantilla ha de decidir activar-los explícitament, i només ho fa

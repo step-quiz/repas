@@ -23,7 +23,7 @@
    El Full 5 recull dos fitxers font (im5 + im6), i per això a partir del
    Full 6 el número del full va un per sota del número de fitxer. Els 13
    fitxers im*.tex queden coberts pels 12 fulls; no n'hi ha cap de pendent.
-   Vegeu HANDOVER.md §2 per a l'inventari complet. */
+   Vegeu docs/HANDOVER.md §2 per a l'inventari complet. */
 (function () {
   "use strict";
   var $ = function (s) { return document.querySelector(s); };

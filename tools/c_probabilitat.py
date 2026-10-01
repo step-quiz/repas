@@ -22,7 +22,7 @@ Recompte: 24 exercicis / 61 ítems bruts (comptant \\item dins d'apartats;
 un exercici sense apartats compta 1). El total real del full és 67: quatre
 exercicis amaguen més subpreguntes de les que compta el parser i es
 desdoblen en subítems —249 (2->4), 252 (2->3), 253 (3->5) i 256 (2->3)—,
-el patró d'"ítems amagats" descrit a AUTHORING-GUIDE.md. Cap exclusió: les
+el patró d'"ítems amagats" descrit a docs/AUTHORING-GUIDE.md. Cap exclusió: les
 il·lustracions d'aquest full (daus, moneda, claus...) són decoratives i no
 aporten cap dada que no sigui ja al text.
 
@@ -2071,7 +2071,7 @@ Q("259", 259, "", B4, "A",
 # CONTINGUT NOU — via «tarr» — probabilitat composta i condicionada
 # =====================================================================
 # Exercicis 305-320, numeració en exclusiva d'aquesta via (vegeu
-# briefs/BRIEF-tarr.md). Dos blocs nous, declarats amb el registrador
+# docs/historic/briefs/BRIEF-tarr.md). Dos blocs nous, declarats amb el registrador
 # `blocs()` perquè aquest full ja existia abans del refactor R1-R5 i els
 # seus 4 blocs originals encara viuen a `FULLS[12]["blocs"]` de build.py:
 # aquests dos s'hi afegeixen darrere del bloc `esdeveniments`, sense tocar

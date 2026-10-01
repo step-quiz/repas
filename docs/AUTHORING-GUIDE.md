@@ -97,7 +97,7 @@ solucions a problemes que us trobareu.
                             FULLS, sense tocar-ne cap d'existent
     tools/c_<tema>.py       el fitxer nou que escriviu
     data/full<N>.js         GENERAT — mai a mà
-    REVISIO-full<N>.html    GENERAT — mai a mà, però llegiu-lo a fons
+    revisio/REVISIO-full<N>.html    GENERAT — mai a mà, però llegiu-lo a fons
     js/inici.js             una entrada nova a la taula FULLS
     js/diagnostic-dades.js  el número a FULLS_AMB_BANC, perquè els seus
                             exercicis puguin entrar a l'itinerari
@@ -240,7 +240,7 @@ El catàleg viu a `tools/tax/`, repartit en mòduls per tema. **Creeu el vostre
 `tax_<tema>.py`** amb un diccionari `TAX = {...}` i prou; `tax/__init__.py` el
 troba sol. No toqueu `tax_nucli.py`, que està congelat.
 
-No reanomeneu ni esborreu cap etiqueta existent: els `REVISIO-fullN.html` ja
+No reanomeneu ni esborreu cap etiqueta existent: els `revisio/REVISIO-fullN.html` ja
 generats les referencien per cadena exacta, i el codi de verificació en guarda
 l'ÍNDEX (vegeu `tools/codi-etiquetes.txt`).
 
@@ -279,7 +279,7 @@ TAX   -> "El valor que has triat és correcte, però és un pas intermedi, no el
           has d'acabar donant: sovint només falta una operació més."
 ```
 
-Un cop compilat, el `REVISIO-fullN.html` du al peu el **catàleg d'errors
+Un cop compilat, el `revisio/REVISIO-fullN.html` du al peu el **catàleg d'errors
 utilitzats** amb el recompte de cada etiqueta. Una etiqueta amb molts usos
 repartits per blocs molt diferents és el senyal que torna a ser un calaix de
 sastre: obriu-la en etiquetes específiques.
@@ -405,7 +405,7 @@ No ho redescobriu: dissenyeu-ho des del principi.
 negativa, escriu `x--2` en lloc de `x+2`. Escriviu un formatador que
 bifurqui pel signe. Passa sobretot als textos de retroacció, que no passen
 per cap validació, així que colen netes i només es veuen mirant el fitxer de
-revisió. Un `grep '\-\-'` al `REVISIO-fullN.html` generat surt barat.
+revisió. Un `grep '\-\-'` al `revisio/REVISIO-fullN.html` generat surt barat.
 
 **Coeficients desordenats.** Quan la font escriu un polinomi amb els termes
 fora d'ordre de grau (`x^5-x^3+x^2-x^4+3x-7`) i el reconstruïu com a llista
@@ -425,7 +425,7 @@ els ítems que ho necessitin.
 Un build net vol dir que les quatre regles de `_valida()` es compleixen. No
 diu res sobre si les matemàtiques són correctes ni si la redacció s'entén.
 
-1. **Llegiu el `REVISIO-fullN.html`**, especialment els ítems amb `nota`,
+1. **Llegiu el `revisio/REVISIO-fullN.html`**, especialment els ítems amb `nota`,
    els casos estructuralment inusuals i els que per disseny han de donar la
    mateixa resposta.
 2. **Passeu el `grep` dels dobles negatius** (§6).
@@ -493,7 +493,7 @@ recompilació.
 ## 9. Disciplina de lliurament
 
 **Per defecte, lliureu només el delta**: el `tools/c_<tema>.py` nou, el
-`data/fullN.js` i el `REVISIO-fullN.html` generats, i els diffs quirúrgics a
+`data/fullN.js` i el `revisio/REVISIO-fullN.html` generats, i els diffs quirúrgics a
 `lib.py`, `build.py`, `js/inici.js`, `js/diagnostic-dades.js` i la
 documentació. Haver regenerat els altres fulls per comprovar regressions
 (§7.5) és un **pas de verificació**, no un motiu per incloure'ls al lliurament.
@@ -513,7 +513,7 @@ exactament el que creieu **abans** de lliurar-lo:
 4. Confirmeu que cap fitxer "nou" existia ja.
 5. Confirmeu la coherència interna: el `c_<tema>.py` que lliureu, passat pel
    compilador, ha de reproduir byte a byte el `data/fullN.js` i el
-   `REVISIO-fullN.html` que lliureu al costat. Un font que no regenera les
+   `revisio/REVISIO-fullN.html` que lliureu al costat. Un font que no regenera les
    dades que l'acompanyen és un error ja enviat.
 
 I una última cosa, que ha estat la font de més feina perduda en aquest

@@ -13,8 +13,9 @@ configure to close the gap. Read it before touching any code.
 > works, but it is now one of *two* modes behind a chooser in the **Prova
 > escrita** tab:
 >
-> - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Five
->   questions per student, drawn ONLY from the first 20 exercises that
+> - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Two,
+>   three or four questions per student (short / medium / long), drawn ONLY
+>   from the first 20 exercises that
 >   student did inside the examined tram (by date of first attempt; nothing
 >   from earlier trams, nothing from rest weeks), plus a per-tram work grade
 >   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
@@ -23,6 +24,9 @@ configure to close the gap. Read it before touching any code.
 >   (`FEINA_MINIMA`/`FEINA_MAXIMA` = 10/20 live there too). Output: one
 >   printable document with every exam, another with every answer key, and a
 >   CSV of grades.
+>   The work grade never counts alone: the teacher validates it with the
+>   paper exam (exam below 5, or more than 3 points between work grade and
+>   exam grade → only the exam counts). See `GUIA-PROFESSORAT.md`.
 > - **Examen personalitzat a un alumne** — what this document describes.
 >
 > Three things a future agent needs to know before touching it:
@@ -175,7 +179,7 @@ already implemented:
   "the student chooses which topics to be examined on" actually happens** —
   operated by the teacher, informed by what the student asked for and by
   what the code shows they did.
-- Exam size: 8 / 14 / 20 questions (`MIDES_PROVA`), distributed across the
+- Exam size: 2 / 3 / 4 questions (`MIDES_PROVA`), distributed across the
   checked blocks proportionally to work done in each (`reparteix()`, largest-
   remainder method), favouring exercises that cost the student more effort
   (`tria()`, weighted toward `fallat` > `pista` > `segon` > `net`), never
@@ -325,7 +329,7 @@ cd tools
 python3 build_tot.py
 ```
 
-This rebuilds all 12 `data/fullN.js` + `REVISIO-fullN.html`, then
+This rebuilds all 12 `data/fullN.js` + `revisio/REVISIO-fullN.html`, then
 `js/codi-taules.js` + `tools/_banc.json`, then re-embeds `analitzador-
 repas.html`, in that order — order matters, `build_tot.py` exists precisely
 so nobody has to remember it by hand (see its docstring). It is
@@ -362,7 +366,7 @@ sh tests/executa.sh    # now reports the full 292
   teacher workflow. `TECHNICAL-STATE.md` §4 (in English) is the most useful
   cross-reference for the verification-code system if you want a second
   source on §1.1–1.5 above.
-- **The four `REVISIO-fullN.html`-style and `data/fullN.js`-style files are
+- **The four `revisio/REVISIO-fullN.html`-style and `data/fullN.js`-style files are
   GENERATED.** Never hand-edit them; edit the corresponding
   `tools/c_<tema>.py` and rebuild (§3.4).
 - **The Form column header still says "step-quiz."** That is a leftover

@@ -13,35 +13,42 @@ accidental**, i que les que quedin deixin rastre.
 
 ## 1. Què es publica
 
-    python3 tools/fes-paquet-alumnat.py          # carpeta public/
-    python3 tools/fes-paquet-alumnat.py --zip    # i el zip
-
-**Publica només `public/`.** No publiquis l'arrel del repositori.
-
-A l'arrel hi conviuen el lloc i el material del professorat, i tres coses no
-poden sortir a internet:
+El lloc es publica amb **Cloudflare Pages des del repositori de GitHub**, i el
+repositori (`step-quiz/repas`) és **públic**. Tot el que hi ha al repositori
+es pot llegir, doncs, des de GitHub, encara que Cloudflare no ho serveixi:
 
 | Fitxer | Què és |
 |---|---|
-| `REVISIO-fullN.html` | La clau de respostes completa dels 12 fulls, amb resolucions |
+| `revisio/REVISIO-fullN.html` | La clau de respostes completa dels 12 fulls, amb resolucions |
 | `analitzador-repas.html` | Porta el banc sencer i compon proves escrites amb solucionari |
 | `tools/_banc.json` | El mateix banc, en format còmode |
+| `data/fullN.js` | El que carrega el lloc: el camp `clau` és base64, i tres línies de consola en treuen totes les respostes |
 
-Si es publica l'arrel tal qual a GitHub Pages, `REVISIO-full1.html` és una URL
-que s'endevina. Cap alumne no necessita saber res de programació per a això:
-li'n basta la barra d'adreces.
+**És una decisió presa, no un descuit.** Sense servidor, `data/fullN.js` ja
+porta les respostes igualment, i amagar els altres tres fitxers només
+canviaria el cost de copiar-les. La garantia no és el secret del banc sinó
+l'**examen presencial**: la nota de feina del lloc només compta si un examen la
+valida (examen de 5 o més i a 3 punts o menys de la nota de feina; altrament
+només compta l'examen). Qui copiï les respostes treu una nota de feina alta
+que l'examen invalida. Detall a `GUIA-PROFESSORAT.md`, «L'examen valida la nota
+de feina».
 
-L'script comprova que al paquet no hi hagi cap fitxer amb aquests noms i
-s'atura si n'hi troba, perquè d'aquí a un any algú afegirà un fitxer nou amb
-respostes i no es recordarà d'aquesta llista.
+### Si algun dia cal publicar només el lloc
+
+Per exemple, si el repositori passa a privat i es vol servir el lloc d'un
+altre lloc:
+
+    python3 tools/fes-paquet-alumnat.py          # carpeta public/
+    python3 tools/fes-paquet-alumnat.py --zip    # i el zip
+
+`public/` porta les sis pàgines de l'alumnat amb `css/`, `js/`, `data/` i
+`vendor/`, i res més. L'script comprova que no hi hagi cap fitxer amb els noms
+de la taula i s'atura si n'hi troba, perquè d'aquí a un any algú afegirà un
+fitxer nou amb respostes i no es recordarà d'aquesta llista.
 
 L'analitzador se li dona al professorat amb
-`python3 tools/fes-paquet-professorat.py`, que hi posa el KaTeX al costat.
-
-**Això no fa secret el banc.** `data/fullN.js` continua sent públic i el camp
-`clau` és base64: tres línies de consola en treuen totes les respostes. Sense
-servidor no hi ha manera d'evitar-ho, i el codi ja ho diu on toca. El que
-canvia és el cost: de "escriure una URL" a "saber què estàs fent".
+`python3 tools/fes-paquet-professorat.py`, que hi posa el KaTeX i la guia al
+costat.
 
 ---
 

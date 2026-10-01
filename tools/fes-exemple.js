@@ -4,7 +4,7 @@
 
    Quatre alumnes amb perfils diferents al llarg del 1r trimestre
    (20/9/2026 – 5/12/2026), pensats perquè cadascun ensenyi una cosa de
-   l'analitzador. Vegeu EXEMPLE-LLEGEIX-ME.md.
+   l'analitzador. Cada perfil s'explica allà on es defineix, més avall.
 
    ús:  node tools/fes-exemple.js > exemple-respostes.csv
 */

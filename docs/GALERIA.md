@@ -8,7 +8,7 @@ you start, because the obvious approach does not work.
 ## If you are the teacher opening a fresh conversation
 
 Upload **one file**: a zip of the **whole** `repas` project — every file, not
-a diff of what changed recently. About 3 MB. Exclude `galeria/`: it is
+a diff of what changed recently. About 3 MB. Exclude `docs/galeria/`: it is
 generated output and a stale copy is worse than none.
 
 This has gone wrong once and it is worth being blunt about it. A reviewer was
@@ -118,7 +118,7 @@ python3 tools/fes-galeria.py --tot  # all 892
 python3 tools/fes-galeria.py --fulls 7,9 --escriptori
 ```
 
-Output lands in `galeria/`: one PNG per item, plus `index.md` and
+Output lands in `docs/galeria/`: one PNG per item, plus `index.md` and
 `mesures.json`.
 
 ### 2. The automatic measurements
@@ -138,7 +138,7 @@ them enforced.
 
 ### 3. The prioritised index
 
-`galeria/index.md` lists every item with its image and its measurements,
+`docs/galeria/index.md` lists every item with its image and its measurements,
 **sorted so the suspicious ones come first**. Everything the measurements
 flagged is at the top under "Per mirar primer"; the rest is a table you sample.
 
@@ -151,7 +151,7 @@ were all caught by a person looking.
 ## How to actually use it
 
 1. Run the build, then the gallery.
-2. Open `galeria/index.md`. Read the flagged section first and **look at those
+2. Open `docs/galeria/index.md`. Read the flagged section first and **look at those
    images**. You have vision; use it.
 3. Then sample the rest. Bias your sample toward variety: one item per figure
    family (there are ~52, identifiable by the SVG `<title>`), rather than 30
@@ -193,7 +193,7 @@ very little:
 - **PNGs are quantised to 64 colours** before saving. Raw output is over 1 MB
   each; the bank would exceed a gigabyte. Line art and text survive
   quantisation unchanged.
-- **`galeria/` is generated output.** Do not commit it and do not hand-edit it;
-  regenerate instead.
+- **`docs/galeria/` is generated output.** The repository keeps the last
+  snapshot as a reference; never hand-edit it, regenerate it instead.
 - The gallery renders the item card only — statement, figure, options — not the
   surrounding navigation. That is deliberate: it is the content under review.

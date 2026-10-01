@@ -250,6 +250,22 @@ TAX = {
     "DIFERENCIA_QUADRATS_MAL":
         "Una diferència de quadrats $a^2-b^2$ es factoritza com $(a-b)(a+b)$: "
         "revisa que els dos factors tinguin signes diferents.",
+    # El resultat VAL el mateix que la resposta, però no és el que es demana:
+    # abans aquests distractors duien FACTOR_COMU_INCOMPLET, que diagnosticava
+    # un error que l'alumne no havia fet.
+    "FACTORITZACIO_DESFETA":
+        "Has desenvolupat el producte: és el mateix polinomi, però no en la "
+        "forma que es demana. Factoritzar és deixar-lo com a producte de "
+        "factors tan simples com es pugui, no tornar-lo a convertir en una "
+        "suma.",
+    # Una solució del càlcul que no compleix una condició de l'enunciat
+    # (positiva, entera...). La condició ha de ser A L'ENUNCIAT: si només
+    # fos en una nota, el distractor seria una resposta correcta marcada
+    # com a error.
+    "CONDICIO_ENUNCIAT_IGNORADA":
+        "El càlcul pot donar més d'una solució, però l'enunciat en demana una "
+        "que compleixi una condició concreta. Abans de respondre, comprova que "
+        "la teva compleix TOTES les condicions de l'enunciat.",
 
     # ---- estadística (Full 11) ----
     "QUALITATIVA_QUANTITATIVA_CONFOSES":

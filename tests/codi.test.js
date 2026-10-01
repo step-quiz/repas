@@ -354,7 +354,7 @@ prova("el banc sencer s'empaqueta al ritme que toca", () => {
      guardià amb marge, no un requisit —cap camp de cap formulari no
      imposa aquesta llargada—, i va caducar sol el dia que el banc va
      passar de 892 ítems a 951: la prova queia sense que res s'hagués
-     trencat. `CODIS.md` tenia el mateix problema, amb la xifra de 739
+     trencat. `docs/CODIS.md` tenia el mateix problema, amb la xifra de 739
      exercicis.
 
      El que sí que importa i no caduca és el RITME: quants caràcters costa

@@ -61,9 +61,9 @@ for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js; do
 done
 printf '  \033[32m✓\033[0m 2 bateries del sorteig\n'
 # Les altres dues llegeixen `tools/_taules.json` i `tools/_banc.json`, que
-# són artefactes de compilació i no van al repositori. Sense ells no es poden
-# executar: val més dir-ho que no pas petar amb un error de fitxer i que la
-# suite acabi dient que tot ha anat bé.
+# són artefactes de compilació. Són al repositori, però si algú els esborra
+# no es poden executar: val més dir-ho que no pas petar amb un error de
+# fitxer i que la suite acabi dient que tot ha anat bé.
 if [ -f tools/_taules.json ] && [ -f tools/_banc.json ]; then
   for t in tests/mini_examen_exemple.test.js tests/mini_examen_varietat.test.js; do
     node "$t" >/dev/null || { node "$t"; fallades=1; }
@@ -84,6 +84,12 @@ echo "── JavaScript: la resolució no s'ofereix sola ───────�
 node tests/test_flux_resolucio.js || fallades=1
 
 echo
+echo "── Navegador real: el que s'amaga, s'amaga de debò ───────────"
+# Necessita Playwright. Sense, se salta i ho diu en groc. Abans aquesta
+# prova existia però l'script no la cridava mai.
+node tests/test_visibilitat_real.js || fallades=1
+
+echo
 if [ "$fallades" -ne 0 ]; then
   printf '\033[31m✗ Hi ha proves que fallen.\033[0m\n'
   exit 1
@@ -93,8 +99,8 @@ elif [ "$sense_taules" -ne 0 ]; then
   exit 0
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ quatre blocs (analitzador,\n'
-  printf '  accessibilitat, flux de la resolució i icones dels recursos) s\047han\n'
-  printf '  saltat perquè falta jsdom: són 128 comprovacions de 423 que no\n'
+  printf '  accessibilitat, flux de la resolució i botons dels recursos) s\047han\n'
+  printf '  saltat perquè falta jsdom: són 136 comprovacions de 428 que no\n'
   printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0

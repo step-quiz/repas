@@ -94,6 +94,7 @@ window.FULL = {
   "BASE_EXPONENT_INTERCANVIATS": "Has canviat de lloc la base i l'exponent: no és el mateix $a^b$ que $b^a$.",
   "BASE_SIGNE_PERDUT": "El resultat ha de conservar la base tal com era, amb el seu signe.",
   "COMPARA_TERMES": "Dues fraccions equivalents gairebé mai tenen els mateixos termes: el que ha de coincidir és el valor, no les xifres.",
+  "CONDICIO_ENUNCIAT_IGNORADA": "El càlcul pot donar més d'una solució, però l'enunciat en demana una que compleixi una condició concreta. Abans de respondre, comprova que la teva compleix TOTES les condicions de l'enunciat.",
   "DESPLACAMENT_INDEX": "Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.",
   "ENTER_AL_NUMERADOR": "Has sumat l'enter directament al numerador. Un enter és una fracció de denominador $1$: cal reduir-lo a denominador comú abans de sumar.",
   "ENTER_MULTIPLICA_DENOMINADOR": "En multiplicar un enter per una fracció, l'enter multiplica NOMÉS el numerador; el denominador no canvia.",
@@ -108,7 +109,6 @@ window.FULL = {
   "MENYS_PARENTESI": "El signe $-$ davant d'un parèntesi canvia el signe de TOTS els termes de dins, no només del primer.",
   "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
   "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
-  "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
   "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
   "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
@@ -1190,7 +1190,7 @@ window.FULL = {
    "tipus": "A",
    "dif": 4,
    "encapcalament": "Troba els termes que falten a les progressions geomètriques següents.",
-   "enunciat": "$\\square,\\;\\dfrac13,\\;\\square,\\;\\dfrac1{12},\\;\\square$",
+   "enunciat": "$\\square,\\;\\dfrac13,\\;\\square,\\;\\dfrac1{12},\\;\\square$, amb raó positiva.",
    "opcions": [
     "$\\dfrac{2}{3}, \\dfrac{1}{3}, \\dfrac{1}{6}, \\dfrac{1}{12}, \\dfrac{1}{24}$",
     "$-\\dfrac{2}{3}, \\dfrac{1}{3}, -\\dfrac{1}{6}, \\dfrac{1}{12}, -\\dfrac{1}{24}$",
@@ -1201,8 +1201,8 @@ window.FULL = {
     "Els dos termes coneguts són a les posicions $2$ i $4$: la relació entre ells és $r^2$.",
     "$r^2=\\dfrac{1/12}{1/3}=\\dfrac14\\Rightarrow r=\\dfrac12$ (prenem l'arrel positiva). A partir d'aquí, multiplica o divideix per $\\dfrac12$."
    ],
-   "nota": "Hi ha dues progressions que hi encaixen, una de raó positiva i una de raó negativa. Es demana la de raó positiva.",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iICRyXjI9XFxkZnJhYzE0JCBoaSBoYSBkdWVzIHJhb25zIHBvc3NpYmxlcywgJFxcZGZyYWMxMiQgaSAkLVxcZGZyYWMxMiQ7IGVzIGRlbWFuYSBsYSBzb2x1Y2nDsyBhbWIgcmHDsyBwb3NpdGl2YSwgY29oZXJlbnQgYW1iIHF1ZSB0b3RzIGVscyB0ZXJtZXMgY29uZWd1dHMgZGUgbCdlbnVuY2lhdCBqYSBzw7NuIHBvc2l0aXVzLiIsICJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgZWwgc2Vnb24gcGVyICRyPVxcZGZyYWMxMiQ6ICRcXGRmcmFjMTNcXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzE2JCwgbm8gJFxcZGZyYWMxOSQuIiwgIkVudHJlIGVsIHNlZ29uIHRlcm1lICgkXFxkZnJhYzEzJCkgaSBlbCBxdWFydCAoJFxcZGZyYWMxezEyfSQpIGhpIGhhIGV4YWN0YW1lbnQgRE9TIHBhc3NvcyBkZSAkciQsIG5vIHVuLiJdLCAiZXJyIjogWyIiLCAiUEFSSVRBVF9FWFBPTkVOVCIsICJSQU9fTUFMX0FQTElDQURBIiwgIkRFU1BMQUNBTUVOVF9JTkRFWCJdLCAicmVzIjogWyIkcl4yPVxcZGZyYWN7MS8xMn17MS8zfT1cXGRmcmFjMTRcXFJpZ2h0YXJyb3cgcj1cXGRmcmFjMTIkIiwgIiRhXzE9YV8yOnI9XFxkZnJhYzEzOlxcZGZyYWMxMj1cXGRmcmFjMjMkIiwgIiRhXzM9YV8yXFxjZG90IHI9XFxkZnJhYzEzXFxjZG90XFxkZnJhYzEyPVxcZGZyYWMxNiQiLCAiJGFfNT1hXzRcXGNkb3Qgcj1cXGRmcmFjMXsxMn1cXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzF7MjR9JCIsICJFbHMgY2luYyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzIzLFxcO1xcZGZyYWMxMyxcXDtcXGRmcmFjMTYsXFw7XFxkZnJhYzF7MTJ9LFxcO1xcZGZyYWMxezI0fSQiXSwgImNvbSI6ICJEZSAkcl4yPVxcZGZyYWMxNCQgZW4gc3VydGVuIGR1ZXMgcmFvbnMsICRyPVxcZGZyYWMxMiQgaSAkcj0tXFxkZnJhYzEyJC4gQW1iIGxhIG5lZ2F0aXZhIGVscyB0ZXJtZXMgYWx0ZXJuZW4gZWwgc2lnbmUsICQtXFxkZnJhYzIzLFxcO1xcZGZyYWMxMyxcXDstXFxkZnJhYzE2LFxcO1xcZGZyYWMxezEyfSxcXDstXFxkZnJhYzF7MjR9JCwgaSB0YW1iw6kgw6lzIHVuYSBwcm9ncmVzc2nDsyBnZW9tw6h0cmljYSB2w6BsaWRhLiJ9"
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQW1iIHJhw7MgJC1cXGRmcmFjMTIkIHRhbWLDqSBzdXJ0IHVuYSBwcm9ncmVzc2nDsyBnZW9tw6h0cmljYSBxdWUgaGkgZW5jYWl4YSwgcGVycXXDqCAkcl4yPVxcZGZyYWMxNCQgdMOpIGR1ZXMgc29sdWNpb25zLiBQZXLDsiBsJ2VudW5jaWF0IGxhIGRlbWFuYSBkZSByYcOzIHBvc2l0aXZhLiIsICJFbCB0ZXJjZXIgdGVybWUgcydvYnTDqSBtdWx0aXBsaWNhbnQgZWwgc2Vnb24gcGVyICRyPVxcZGZyYWMxMiQ6ICRcXGRmcmFjMTNcXGNkb3RcXGRmcmFjMTI9XFxkZnJhYzE2JCwgbm8gJFxcZGZyYWMxOSQuIiwgIkVudHJlIGVsIHNlZ29uIHRlcm1lICgkXFxkZnJhYzEzJCkgaSBlbCBxdWFydCAoJFxcZGZyYWMxezEyfSQpIGhpIGhhIGV4YWN0YW1lbnQgRE9TIHBhc3NvcyBkZSAkciQsIG5vIHVuLiJdLCAiZXJyIjogWyIiLCAiQ09ORElDSU9fRU5VTkNJQVRfSUdOT1JBREEiLCAiUkFPX01BTF9BUExJQ0FEQSIsICJERVNQTEFDQU1FTlRfSU5ERVgiXSwgInJlcyI6IFsiJHJeMj1cXGRmcmFjezEvMTJ9ezEvM309XFxkZnJhYzE0XFxSaWdodGFycm93IHI9XFxkZnJhYzEyJCIsICIkYV8xPWFfMjpyPVxcZGZyYWMxMzpcXGRmcmFjMTI9XFxkZnJhYzIzJCIsICIkYV8zPWFfMlxcY2RvdCByPVxcZGZyYWMxM1xcY2RvdFxcZGZyYWMxMj1cXGRmcmFjMTYkIiwgIiRhXzU9YV80XFxjZG90IHI9XFxkZnJhYzF7MTJ9XFxjZG90XFxkZnJhYzEyPVxcZGZyYWMxezI0fSQiLCAiRWxzIGNpbmMgdGVybWVzIHPDs24gJFxcZGZyYWMyMyxcXDtcXGRmcmFjMTMsXFw7XFxkZnJhYzE2LFxcO1xcZGZyYWMxezEyfSxcXDtcXGRmcmFjMXsyNH0kIl0sICJjb20iOiAiRGUgJHJeMj1cXGRmcmFjMTQkIGVuIHN1cnRlbiBkdWVzIHJhb25zLCAkcj1cXGRmcmFjMTIkIGkgJHI9LVxcZGZyYWMxMiQuIEFtYiBsYSBuZWdhdGl2YSBlbHMgdGVybWVzIGFsdGVybmVuIGVsIHNpZ25lLCAkLVxcZGZyYWMyMyxcXDtcXGRmcmFjMTMsXFw7LVxcZGZyYWMxNixcXDtcXGRmcmFjMXsxMn0sXFw7LVxcZGZyYWMxezI0fSQsIGkgdGFtYsOpIMOpcyB1bmEgcHJvZ3Jlc3Npw7MgZ2VvbcOodHJpY2EgdsOgbGlkYS4ifQ=="
   },
   {
    "id": "58d",

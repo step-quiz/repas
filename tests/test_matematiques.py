@@ -150,6 +150,41 @@ class MatematiquesFull8(unittest.TestCase):
             self.assertEqual(vol * k ** 3, num(clau(self._it("292" + a))))
 
 
+class RespostesCorrectesNoSonErrors(unittest.TestCase):
+    """Cap distractor no pot ser una resposta correcta a l'enunciat tal com
+    està escrit. El 74h donava per dolenta $(x^2-5)(x^2+5)$, que és igual a
+    la resposta i era just la forma que els altres set apartats donaven per
+    bona; el 69c i el 58c tenien com a distractors solucions correctes que
+    només una nota al costat descartava."""
+
+    def test_el_74_demana_sempre_la_forma_factoritzada(self):
+        for it in TOTS[4]:
+            if it["ex"] != 74:
+                continue
+            self.assertIn("Factoritza", it["encapcalament"], it["id"])
+            bona = clau(it)
+            self.assertTrue(bona.startswith("$") and "(" in bona,
+                            "%s: la resposta no és un producte: %s" % (it["id"], bona))
+        self.assertEqual(clau(per_id(4, "74h")), "$(x^2-5)(x^2+5)$")
+
+    def test_un_resultat_desenvolupat_nomes_es_error_si_es_demana_factoritzar(self):
+        for it in PLANS:
+            if "FACTORITZACIO_DESFETA" in it["err"]:
+                self.assertIn("actoritz", it["encapcalament"] + it["enunciat"],
+                              "%s: diu que l'alumne ha desenvolupat en lloc de "
+                              "factoritzar, però l'enunciat no demana factoritzar"
+                              % it["id"])
+
+    def test_la_condicio_que_descarta_una_solucio_es_a_l_enunciat(self):
+        """Si un distractor és una solució que no compleix una condició, la
+        condició ha de ser a l'enunciat, no en una nota."""
+        for it in PLANS:
+            if "CONDICIO_ENUNCIAT_IGNORADA" in it["err"]:
+                self.assertIn("positiv", it["enunciat"], it["id"])
+                self.assertFalse(it.get("nota"), "%s: la condició és a la nota"
+                                 % it["id"])
+
+
 # ------------------------------------------------------- catàleg d'errors
 
 

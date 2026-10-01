@@ -26,7 +26,7 @@ SymPy (Eq/solve) contrastant contra r-im5.tex i r-im6.tex (el solucionari
 LaTeX subministrat, no generat per aquest projecte) abans d'escriure cap
 codi — coincidència exacta en els 99 casos, sense cap error trobat als
 solucionaris font (a diferència del que va passar a Full 4, on
-r-im4.tex sí que portava un error, vegeu AUTHORING-GUIDE.md).
+r-im4.tex sí que portava un error, vegeu docs/AUTHORING-GUIDE.md).
 """
 from fractions import Fraction as F
 from sympy import symbols, Eq, solve, Rational, sqrt, expand, nsimplify
@@ -96,7 +96,7 @@ def frac_tex(v):
 def x_tex(v):
     """'x=valor', valor com a Fraction. Ja ve embolcallat en $...$ perquè
     conté una lletra (x) i mathify() no el reconeixeria com a matemàtica
-    pura (vegeu el parany del mathify() a AUTHORING-GUIDE.md)."""
+    pura (vegeu el parany del mathify() a docs/AUTHORING-GUIDE.md)."""
     return "$x=%s$" % frac_tex(v)
 
 

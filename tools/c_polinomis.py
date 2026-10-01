@@ -705,39 +705,38 @@ coefs_c, arrel_c = [1, 0, -1, 2], 1
 _, sumes_c = ruffini_rows(coefs_c, arrel_c)
 q69c, r69c = sumes_c[:-1], sumes_c[-1]
 
+# L'equació de l'arrel té tres solucions (−1, 0 i 1). Abans l'enunciat no
+# en triava cap, i □ = −1 i □ = 0, que són correctes, sortien com a errors
+# de Ruffini. Ara la condició és a l'enunciat («positiva») i el segon
+# distractor és un error de Ruffini de debò: restar en lloc de sumar.
+_q69c_resta = [1, -1, 0]       # 1; 0-1·1; -1-(-1)·1 → quocient x²-x, residu 2
 Q("69c", 69, "c", B2, "A",
-  (r"Dividend $%s$, arrel $\square$ (divisor desconegut); el residu de "
-   r"la divisió és $%d$:" % (poli_tex_raw(pol(*coefs_c)), r69c)),
+  (r"Dividend $%s$, arrel $\square$ positiva (divisor desconegut); el "
+   r"residu de la divisió és $%d$:" % (poli_tex_raw(pol(*coefs_c)), r69c)),
   r"$\square=%d$; " % arrel_c + qr_tex(pol(*q69c), r69c),
   [D(r"$\square=-1$; " + qr_tex(*div(pol(*coefs_c), pol(1, 1), x)),
+     "CONDICIO_ENUNCIAT_IGNORADA",
+     "Amb $\\square=-1$ el residu també surt $2$ (comprova-ho), però "
+     "l'enunciat demana una arrel positiva."),
+   D(r"$\square=%d$; " % arrel_c + qr_tex(pol(*_q69c_resta), r69c),
      "RUFFINI_PAS_MAL",
-     "$\\square=-1$ també compleix l'equació $\\square^3-\\square=0$, "
-     "però no és el valor que es tria aquí (es descarta $\\square=0$ "
-     "per donar una divisió trivial, i entre $1$ i $-1$ es pren "
-     "$\\square=1$)."),
-   D(r"$\square=0$; " + qr_tex(pol(*coefs_c[:-1]), coefs_c[-1]),
-     "RUFFINI_PAS_MAL",
-     "$\\square=0$ també anul·la l'equació $\\square^3-\\square=0$, "
-     "però donaria una divisió per $x$, un cas trivial poc habitual "
-     "en aquest tipus d'exercici."),
+     "L'arrel és bona, però a cada columna has restat el producte en "
+     "lloc de sumar-lo: $0+1\\cdot1=1$, no $0-1=-1$."),
    D(r"$\square=%d$; " % arrel_c + qr_tex(pol(*q69c), -r69c),
      "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "El valor de $\\square$ és correcte, però el residu té el signe "
      "canviat.")],
-  [r"El residu final és $\square^3-\square$ (arrossegant els termes de "
-   r"la taula): iguala'l a $%d$ i resol l'equació de tercer grau." % r69c,
-   r"$\square^3-\square=0$ té tres solucions: $\square=-1,0,1$. "
-   r"Descarta $\square=0$ (divisió trivial) i, de les altres dues, "
-   r"pren la positiva, que és la que es demana."],
-  [r"De $\square^3-\square=0$ surten $\square=-1,0,1$; descartant $0$ "
-   r"i triant $\square=%d$, la taula dona quocient $%s$ i residu $%s$"
+  # Deia «el residu és □³−□, iguala'l a 2», que porta a □³−□−2 = 0, una
+  # altra equació: el residu és □³−□+2, i igualat a 2 dona □³−□ = 0.
+  [r"El residu final és $\square^3-\square+%d$ (arrossegant els termes de "
+   r"la taula): iguala'l a $%d$ i resol l'equació de tercer grau."
+   % (coefs_c[-1], r69c),
+   r"$\square^3-\square=\square(\square-1)(\square+1)=0$ té tres "
+   r"solucions. Quina és positiva?"],
+  [r"De $\square^3-\square=0$ surten $\square=-1,0,1$, i l'única "
+   r"positiva és $\square=%d$: la taula dona quocient $%s$ i residu $%s$"
    % (arrel_c, poli_tex_raw(pol(*q69c)), r_tex_raw(r69c))],
   ex_text=E69,
-  # La nota diu QUIN valor es demana, no quin és: abans hi deia
-  # «s'ha triat □ = 1», que és la meitat de la resposta. I cal dir-ho
-  # abans de respondre, perquè □ = −1 també és correcte i és un distractor.
-  nota="Hi ha més d'un valor de $\\square$ que dona aquest residu. Es "
-       "demana el positiu.",
   comentari="L'equació $\\square^3-\\square=0$ té tres solucions: $-1$, "
             "$0$ i $1$. Amb $\\square=0$ seria dividir per $x$, un cas "
             "trivial; amb $\\square=-1$ la taula també funciona (quocient "
@@ -1079,7 +1078,11 @@ Q("73d", 73, "d", B4, "A",
   ex_text=E73)
 
 
-E74 = ("Simplifica al màxim, combinant factor comú i igualtats "
+# «Factoritza» i no «simplifica»: a l'ESO, «simplificar» un polinomi sovint
+# vol dir operar i reduir, i amb aquella paraula el 74h acabava donant per
+# bona la forma desenvolupada mentre el 74e i el 74f la donaven per dolenta.
+# Els vuit apartats demanen el mateix: deixar-lo com a producte.
+E74 = ("Factoritza al màxim, combinant factor comú i igualtats "
        "notables quan calgui.")
 
 Q("74a", 74, "a", B4, "A",
@@ -1156,9 +1159,9 @@ Q("74d", 74, "d", B4, "A",
 Q("74e", 74, "e", B4, "A",
   r"$(2x+4)(x-2)$",
   r"$2(x-2)(x+2)$",
-  [D(r"$2x^2-8$", "FACTOR_COMU_INCOMPLET",
-     "El desenvolupament és correcte, però encara es pot factoritzar "
-     "més: $2x^2-8=2(x^2-4)=2(x-2)(x+2)$."),
+  [D(r"$2x^2-8$", "FACTORITZACIO_DESFETA",
+     "El desenvolupament és correcte, però l'has deixat desenvolupat i es "
+     "demana factoritzat: $2x^2-8=2(x^2-4)=2(x-2)(x+2)$."),
    D(r"$(x-2)(x+2)$", "FACTOR_COMU_INCOMPLET",
      "T'has deixat el factor comú $2$: el desenvolupament dona "
      "$2x^2-8=2(x^2-4)$, no $x^2-4$."),
@@ -1176,9 +1179,9 @@ Q("74e", 74, "e", B4, "A",
 Q("74f", 74, "f", B4, "A",
   r"$(x-5)(x^2+5x)$",
   r"$x(x-5)(x+5)$",
-  [D(r"$x^3-25x$", "FACTOR_COMU_INCOMPLET",
-     "El desenvolupament és correcte, però encara es pot factoritzar "
-     "més: $x^3-25x=x(x^2-25)=x(x-5)(x+5)$."),
+  [D(r"$x^3-25x$", "FACTORITZACIO_DESFETA",
+     "El desenvolupament és correcte, però l'has deixat desenvolupat i es "
+     "demana factoritzat: $x^3-25x=x(x^2-25)=x(x-5)(x+5)$."),
    D(r"$(x-5)(x+5)$", "FACTOR_COMU_INCOMPLET",
      "T'has deixat el factor comú $x$: el desenvolupament dona "
      "$x^3-25x=x(x^2-25)$, no $x^2-25$."),
@@ -1211,24 +1214,30 @@ Q("74g", 74, "g", B4, "A",
   [r"$(-x-7)(x-7)=-(x+7)(x-7)=49-x^2=(7-x)(7+x)$"],
   ex_text=E74)
 
+# La resposta era $x^4-25$ i la forma factoritzada, $(x^2-5)(x^2+5)$, sortia
+# com a error: just el contrari que al 74e i al 74f, i amb dues expressions
+# iguals. Ara la bona és la factoritzada, com a la resta de l'exercici.
 Q("74h", 74, "h", B4, "A",
   r"$(-x^2+5)(-x^2-5)$",
-  r"$x^4-25$",
-  [D(r"$25-x^4$", "SUMA_PER_DIFERENCIA_MAL",
-     "És una suma per diferència amb $a=-x^2$ i $b=5$: "
-     "$a^2-b^2=(-x^2)^2-5^2=x^4-25$, no $25-x^4$."),
-   D(r"$x^4+25$", "SUMA_PER_DIFERENCIA_MAL",
-     "En una suma per diferència, el segon quadrat sempre resta, mai "
-     "suma."),
-   D(r"$(x^2-5)(x^2+5)$", "FACTOR_COMU_INCOMPLET",
-     "Aquesta factorització també és vàlida, però encara es pot "
-     "desenvolupar del tot com a diferència de quadrats numèrica: "
-     "$(x^2-5)(x^2+5)=x^4-25$.")],
-  [r"És una suma per diferència amb $a=-x^2$ i $b=5$: "
-   r"$(-x^2+5)(-x^2-5)=(-x^2)^2-5^2$.",
-   r"$(-x^2)^2=x^4$, així que el resultat és $x^4-25$."],
-  [r"$(-x^2+5)(-x^2-5)=(-x^2)^2-5^2=x^4-25$ (equivalent a "
-   r"$(x^2-5)(x^2+5)$, que no es pot factoritzar més amb enters)"],
+  r"$(x^2-5)(x^2+5)$",
+  [D(r"$x^4-25$", "FACTORITZACIO_DESFETA",
+     "És el mateix polinomi, però desenvolupat, i es demana factoritzat. "
+     "A més, $x^4-25$ és una diferència de quadrats: $(x^2)^2-5^2$."),
+   D(r"$(5-x^2)(5+x^2)$", "FACTOR_COMU_SIGNE",
+     "Això val $25-x^4$, i l'expressió de partida val $x^4-25$: comprova-ho "
+     "amb $x=0$, que dona $5\\cdot(-5)=-25$. Cada factor porta el seu signe "
+     "menys, $-x^2+5=-(x^2-5)$ i $-x^2-5=-(x^2+5)$, i els dos es compensen."),
+   D(r"$(x^2-5)^2$", "DIFERENCIA_QUADRATS_MAL",
+     "Els dos factors no són iguals: un és $x^2-5$ i l'altre $x^2+5$. "
+     "Només seria un quadrat si fossin el mateix.")],
+  [r"Treu el signe menys de cada factor: $-x^2+5=-(x^2-5)$ i "
+   r"$-x^2-5=-(x^2+5)$.",
+   r"Els dos signes menys es compensen. Mira si el que queda encara es "
+   r"pot factoritzar amb nombres enters."],
+  [r"$(-x^2+5)(-x^2-5)=\big(-(x^2-5)\big)\big(-(x^2+5)\big)=(x^2-5)(x^2+5)$",
+   r"$x^2-5$ no és una diferència de quadrats amb enters ($5$ no és un "
+   r"quadrat perfecte) i $x^2+5$ és una suma: ja no es pot factoritzar més. "
+   r"Desenvolupat, seria $x^4-25$."],
   ex_text=E74)
 
 
