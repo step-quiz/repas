@@ -241,7 +241,7 @@ def dificultats(taula):
 
 def Q(qid, ex, ap, bloc, tipus, enunciat,
       correcta, distractors, pistes, resolucio, ex_text="", nota="", dif=None,
-      nota_interna="", figura=""):
+      nota_interna="", figura="", comentari=""):
     """Registra una pregunta al banc, validant-la."""
     item = {
         "id": qid,
@@ -264,6 +264,12 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
         # que a l'alumne no li diuen res i el desconcerten.
         "nota": nota,
         "nota_interna": nota_interna,
+        # `comentari` també el veu l'alumne, però DESPRÉS de respondre: surt
+        # amb la resolució i viatja dins de la `clau`, no en clar. Hi va el
+        # que fa pensar un cop resolt (la idea del bloc, el parany, el cas
+        # que sorprèn). La `nota` surt amb l'enunciat i, per tant, no pot
+        # dir res que acosti a la resposta; _valida() ho vigila.
+        "comentari": comentari,
         # SVG que acompanya l'enunciat, generat per tools/figures.py. La
         # figura ACOMPANYA l'enunciat, no el substitueix: les mesures han de
         # continuar dites amb paraules perquè l'exercici es pugui resoldre
@@ -275,6 +281,58 @@ def Q(qid, ex, ap, bloc, tipus, enunciat,
     for d in distractors:
         _ERRORS.setdefault(d["err"], []).append(qid)
     return item
+
+
+def _pla(t):
+    """Forma plana d'un text LaTeX per comparar-ne el contingut matemàtic:
+    sense espais, coma catalana pelada i sense zeros decimals de farciment
+    (1{,}20 i 1{,}2 són el mateix nombre i han de coincidir). Els dòlars
+    queden com a `|`, perquè encara cal saber on comença i acaba una
+    fórmula."""
+    t = re.sub(r"\\(?:text|mathrm|operatorname)\{([^}]*)\}", r"\1", t)
+    t = re.sub(r"\\d?frac", "frac", t)
+    t = re.sub(r"\\[,;!: ]|\\quad|\\left|\\right|\s+", "", t).replace("$", "|")
+    t = t.replace("{,}", ",").replace("\\%", "%")
+    t = re.sub(r"(\d,\d*?)0+(?!\d)", r"\1", t)
+    return re.sub(r"(\d),(?!\d)", r"\1", t)
+
+
+def nota_revela(nota, correcta):
+    """Diu si la `nota` visible conté la resposta correcta.
+
+    La nota es pinta al costat de l'enunciat, abans de les opcions. El 275a
+    duia «Puja un 20 % → ×1,2» a la nota d'un exercici que preguntava per
+    quin nombre es multiplica per pujar un 20 %, i el 277a hi duia
+    «60 → 66 → 59,4» quan la resposta era 60. Es compara el valor sencer
+    de la resposta i, si porta unitats, el número que hi ha dins dels
+    dòlars; sempre com a nombre sencer, perquè «12» no s'ha de trobar dins
+    de «120» ni «8» dins de «-8». Una resposta d'una sola xifra només compta
+    si a la nota és una fórmula sencera ($0$): l'«1» de $\\dfrac{1}{9999}$
+    no diu res de cap resposta."""
+    if not nota:
+        return False
+    text = _pla(nota)
+    trossos = [m for m in re.findall(r"\$([^$]*)\$", correcta)
+               if not re.fullmatch(r"\^\{?\d\}?", m.strip())]
+    candidats = {_pla(correcta).strip("|")}
+    if len(trossos) == 1:
+        candidats.add(_pla(trossos[0]))
+    for c in candidats:
+        if not c:
+            continue
+        if len(c) == 1:
+            if "|%s|" % c in text:
+                return True
+            continue
+        for m in re.finditer(re.escape(c), text):
+            abans = text[m.start() - 1] if m.start() else ""
+            despres = text[m.end():m.end() + 2]
+            if re.match(r"[\d,.]", abans) or (abans == "-" and not c.startswith("-")):
+                continue
+            if re.match(r"\d|[,.]\d", despres):
+                continue
+            return True
+    return False
 
 
 def _valida(it):
@@ -295,6 +353,10 @@ def _valida(it):
     assert not fuita, (
         f"{qid}: la nota visible parla de la font o de feina pendent "
         f"({fuita.group(0)!r}); això va a nota_interna=")
+    assert not nota_revela(it["nota"], it["correcta"]), (
+        f"{qid}: la nota surt amb l'enunciat i conté la resposta correcta "
+        f"({it['correcta']!r}); el que s'ha de llegir després de respondre "
+        f"va a comentari=")
     fig = it["figura"]
     if fig:
         assert fig.lstrip().startswith("<svg"), f"{qid}: la figura no és un SVG"

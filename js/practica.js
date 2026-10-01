@@ -322,8 +322,13 @@
     if (!tancat && !repas) return;
     $("#veure").hidden = true;
     var r = $("#resolucio");
+    /* El comentari («Per recordar») és la idea que cal endur-se'n un cop
+       resolt: el parany del bloc, el cas que sorprèn. Viatja dins de la clau,
+       com la resolució, perquè abans de respondre regalaria la resposta: la nota
+       que surt amb l'enunciat no pot dir res que acosti a la resposta. */
     r.innerHTML = "<h2>Resolució</h2><ol>" +
-      k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>";
+      k.res.map(function (p) { return "<li>" + p + "</li>"; }).join("") + "</ol>" +
+      (k.com ? '<p class="comentari"><strong>Per recordar.</strong> ' + k.com + "</p>" : "");
     RE.mat(r);
     if (r.scrollIntoView) r.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
@@ -340,7 +345,16 @@
 
   $("#seguent").onclick = function () { ves(idx + 1); };
   $("#anterior").onclick = function () { ves(idx - 1); };
+  /* Les fletxes canvien d'exercici, però NO mentre s'escriu: el camp
+     «Recupera la teva feina» del panell del codi és en aquesta mateixa
+     pàgina, i qui hi enganxava un codi i premia ← per moure el cursor anava
+     a parar a l'exercici anterior i perdia el que havia enganxat. Amb Alt,
+     Ctrl o Cmd la fletxa és del navegador (Alt+← és «enrere»). */
   document.addEventListener("keydown", function (e) {
+    var t = e.target, etiqueta = t && t.tagName;
+    if (etiqueta === "INPUT" || etiqueta === "TEXTAREA" || etiqueta === "SELECT"
+        || (t && t.isContentEditable)) return;
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
     if (e.key === "ArrowRight") ves(idx + 1);
     if (e.key === "ArrowLeft") ves(idx - 1);
   });

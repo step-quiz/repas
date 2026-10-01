@@ -152,7 +152,7 @@ E28 = "Calcula la fracció generatriu dels nombres decimals periòdics següents
 
 
 def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
-                  nota_interna=""):
+                  nota_interna="", comentari=""):
     """Generatriu d'un decimal periòdic. Els distractors surten de les
     variants clàssiques de la fórmula."""
     ent, ante, per = str(ent), str(ante), str(per)
@@ -188,13 +188,17 @@ def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
       ["Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
        "Denominador: un nou per cada xifra del període i un zero per cada xifra "
        "de l'anteperíode."],
-      passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna)
+      passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna,
+      comentari=comentari)
 
 
 item_periodic("28a", "a", 3, "", "5")
 item_periodic("28b", "b", 5, "9", "02")
+# Comentari i no nota: amb l'enunciat, «és exactament 13» era la resposta.
 item_periodic("28c", "c", 12, "9", "9",
-              nota="Fixa't en el resultat: $12{,}9\\overline{9}$ és exactament $13$.")
+              comentari="Fixa't en el resultat: $12{,}9\\overline{9}$ és "
+                        "exactament $13$. Un període de nous sempre fa pujar "
+                        "una unitat la xifra d'abans: $0{,}\\overline{9}=1$."),
 item_periodic("28d", "d", 2, "3", "7")
 item_periodic("28e", "e", 0, "015", "7")
 item_periodic("28f", "f", 42, "00", "2")

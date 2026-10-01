@@ -350,7 +350,7 @@ per les dues bandes. Vegeu `tests/LLEGEIX-ME.md`.
 
   | Full | Ítems amb nota |
   |---|---|
-  | 1 | 6a-c, 7a-c, 8, 9a-d, 10a-d, 11, 12a-b, 17, 26a-f, 28c, 29e, 30e, 30f, 34 |
+  | 1 | 6a-c, 7a-c, 8, 9a-d, 10a-d, 11, 12a-b, 17, 26a-f, 29e, 30e, 30f, 34 |
   | 2 | 46b |
   | 3 | 51a, 52c, 54c, 55, 57c, 58c, 58d |
   | 4 | 62c, 67d-f, 68c, 68d, 69c |

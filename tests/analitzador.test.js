@@ -405,13 +405,17 @@ seccio("Prova escrita — varietat dins d'un bloc");
   const t = T.fulls[1], e = new Array(t.items.length).fill("");
   t.blocs[0][1].forEach(i => { e[i] = "net"; });
   const codi = w.RE_CODI.genera({ fulls: [{ n: 1, estats: e }] });
+  /* La llarga, que ara són 4 preguntes (abans 20): amb la curta, de 2, no
+     hi ha prou preguntes perquè la repetició es pugui veure. */
   const ids = provaEscrita(w, d, codi, dd => {
-    dd.querySelector('input[name="pr-mida"][value="curta"]').checked = true;
+    dd.querySelector('input[name="pr-mida"][value="llarga"]').checked = true;
   });
   const mares = new Set(ids.map(i => i.match(/^\d+/)[0]));
 
   prova("no s'esgota la prova amb apartats del mateix exercici mare", () => {
-    assert.ok(mares.size >= 4, "només " + mares.size + " exercicis mare: " + ids.join(", "));
+    assert.strictEqual(ids.length, 4, "la llarga són 4 preguntes: " + ids.join(", "));
+    assert.strictEqual(mares.size, ids.length,
+      "es repeteix exercici mare quan encara en quedaven de nous: " + ids.join(", "));
   });
 
   prova("«torna a triar exercicis» dona una selecció diferent", () => {
@@ -457,7 +461,8 @@ seccio("Prova escrita — es diu quan la prova surt més curta del que s'ha tria
 {
   const { w, d } = obre();
   const T = w.RE_TAULES;
-  const e = T.fulls[1].items.map((_, i) => (i < 5 ? "net" : ""));
+  /* Dos exercicis fets i la llarga, de 4 preguntes (abans eren 5 i 20). */
+  const e = T.fulls[1].items.map((_, i) => (i < 2 ? "net" : ""));
   const codi = w.RE_CODI.genera({ fulls: [{ n: 1, estats: e }] });
   const ids = provaEscrita(w, d, codi, dd => {
     dd.getElementById("pr-min-bloc").value = "1";
@@ -465,11 +470,11 @@ seccio("Prova escrita — es diu quan la prova surt més curta del que s'ha tria
   });
 
   prova("no s'inventa preguntes que l'alumne no ha treballat", () => {
-    assert.ok(ids.length <= 5, "n'han sortit " + ids.length + " amb 5 exercicis fets");
+    assert.ok(ids.length <= 2, "n'han sortit " + ids.length + " amb 2 exercicis fets");
   });
-  prova("avisa que se n'han demanat 20 i n'han sortit menys", () => {
+  prova("avisa que se n'han demanat 4 i n'han sortit menys", () => {
     const t = d.getElementById("pr-estat").textContent;
-    assert.ok(/20/.test(t) && /no hi ha prou exercicis/.test(t),
+    assert.ok(/4/.test(t) && /no hi ha prou exercicis/.test(t),
       "cap avís: «" + t + "»");
   });
 }
@@ -713,7 +718,9 @@ seccio("Exàmens: ningú no desapareix en silenci");
 
   prova("i se'n diu el motiu", () => {
     const tot = d.getElementById("lot-resum").textContent;
-    assert.ok(/no s'han pogut llegir/.test(tot), tot.slice(0, 300));
+    /* En singular quan només n'hi ha un: «1 enviament seu no s'ha pogut
+       llegir». */
+    assert.ok(/no s'ha(n)? pogut llegir/.test(tot), tot.slice(0, 300));
   });
 
   prova("l'alumne amb codis bons no en queda afectat", () => {

@@ -63,8 +63,8 @@ async function obrePractica(query) {
 
 /* Les opcions es pinten barrejades; `data-orig` porta l'índex original, que
    és el que cal comparar amb `k.ok` per saber quin botó és el correcte. */
-function trobaOpcions(w, d) {
-  const item = w.FULL.items.filter(it => it.id === "62a")[0];
+function trobaOpcions(w, d, qid) {
+  const item = w.FULL.items.filter(it => it.id === (qid || "62a"))[0];
   const k = w.RE.clau(item);
   const botons = [...d.querySelectorAll("#opcions .opcio")];
   const correcta = botons.find(b => +b.dataset.orig === k.ok);
@@ -153,6 +153,41 @@ function buit(el) { return el.innerHTML.trim() === ""; }
     });
     d.getElementById("veure").click();
     prova("prement el botó, apareix", () => assert.ok(!buit(d.getElementById("resolucio"))));
+    tanca();
+  }
+
+  /* El «Per recordar» del 275a abans era una nota, i la nota es pinta amb
+     l'enunciat: deia «puja un 20 % → ×1,2» a l'exercici que pregunta per
+     quin nombre es multiplica per pujar un 20 %. Ara surt amb la
+     resolució, i ha de seguir les mateixes regles que ella. */
+  seccio("El comentari «Per recordar» només surt amb la resolució");
+  {
+    const { w, d, tanca } = await obrePractica("?full=6&q=275a");
+    /* Només el que es veu: les opcions ja són al DOM des del principi, dins
+       de #zona-resposta amagada, i surten quan l'alumne diu «ja ho tinc». */
+    const txt = () => {
+      const c = d.getElementById("main").cloneNode(true);
+      c.querySelectorAll("[hidden]").forEach(e => e.remove());
+      return c.textContent;
+    };
+    prova("en obrir l'exercici no hi ha cap nota ni comentari", () => {
+      assert.strictEqual(d.getElementById("nota").hidden, true);
+      assert.ok(!/1(,|\{,\})2/.test(txt()), "la resposta surt a la pàgina abans de respondre");
+      assert.ok(!/Per recordar/.test(txt()));
+    });
+    d.getElementById("mostra").click();
+    const { correcta } = trobaOpcions(w, d, "275a");
+    correcta.click();
+    d.getElementById("comprova").click();
+    prova("tampoc en tancar l'exercici, mentre no es demana la resolució", () => {
+      assert.ok(!/Per recordar/.test(txt()));
+    });
+    d.getElementById("veure").click();
+    prova("prement «Mostra la resolució», el comentari hi és", () => {
+      const c = d.querySelector("#resolucio .comentari");
+      assert.ok(c, "no hi ha cap .comentari dins de la resolució");
+      assert.ok(/factor multiplicador/.test(c.textContent));
+    });
     tanca();
   }
 

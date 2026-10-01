@@ -666,8 +666,9 @@ Q("338c", 338, "c", B2, "A",
    "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."],
   [r"$y=-2x^2+1x+0\Rightarrow c=0$"],
   ex_text=E338,
-  nota="Un coeficient que no s'escriu no és un coeficient que no hi sigui: "
-       "val $0$, i a les fórmules s'ha de comptar com a $0$.")
+  # Comentari i no nota: «val 0» era la resposta.
+  comentari="Un coeficient que no s'escriu no és un coeficient que no hi "
+            "sigui: val $0$, i a les fórmules s'ha de comptar com a $0$.")
 
 
 E339 = ("Troba el vèrtex de la paràbola representada per l'equació "

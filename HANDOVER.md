@@ -88,7 +88,7 @@ Exposa el vocabulari amb què s'escriu un ítem:
 
 ```python
 Q(id, bloc, encapcalament, enunciat, correcta, distractors,
-  pistes=[...], resolucio=[...], nota=None)
+  pistes=[...], resolucio=[...], nota=None, comentari=None)
 D(valor, etiqueta_error, text)   # distractor amb text propi
 DT(valor, etiqueta_error, extra="")  # distractor amb el text canònic de TAX
 tria(correcta, candidats, n=3)   # tria candidats sense col·lisions
@@ -115,7 +115,9 @@ exactament 3 distractors; 4 opcions diferents entre si un cop tret l'espai en
 blanc; cap distractor sense text de retroacció; com a mínim una pista i un pas
 de resolució; una dificultat dins de l'escala; i cap referència a la font o a
 feina pendent dins de la `nota` visible (això va a `nota_interna`, que només
-surt al `REVISIO`). Si una falla, el build s'atura i diu quin ítem és.
+surt al `REVISIO`); i que la `nota`, que es veu amb l'enunciat, no contingui
+la resposta correcta (el que és per llegir un cop resolt va a `comentari`,
+que surt amb la resolució). Si una falla, el build s'atura i diu quin ítem és.
 
 ### 3.2 `tools/build.py` — el compilador
 
@@ -150,8 +152,9 @@ window.FULL = {
 ```
 
 `clau` és un blob base64 que `RE.clau(item)` desxifra a
-`{ok, err[], diag[], res[]}`: índex de la correcta, etiqueta d'error de cada
-opció, text de diagnòstic i passos de resolució. Totes les pàgines llegeixen
+`{ok, err[], diag[], res[], com?}`: índex de la correcta, etiqueta d'error de
+cada opció, text de diagnòstic, passos de resolució i, si n'hi ha, el
+comentari «Per recordar» que surt amb la resolució. Totes les pàgines llegeixen
 `window.FULL`; quin `data/fullN.js` es carrega ho decideix el paràmetre
 `?full=N` de la URL, amb un `document.write` síncron just abans de carregar
 els controladors (així no hi ha condició de cursa entre les dades i el codi
