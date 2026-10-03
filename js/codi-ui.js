@@ -75,51 +75,29 @@ window.RE_CODI_UI = (function () {
     return { c: c, fets: fets, total: total };
   }
 
-  /* Quants exercicis porta l'alumne al tram `i`, comptats per la data del
-     primer intent i amb el mateix calendari que fa servir l'analitzador. */
-  function feinaDelTram(i, trams) {
-    var T = window.RE_TAULES, C = window.RE_CALENDARI, n = 0;
-    if (!T || !C || !window.RE) return { n: 0 };
-    Object.keys(T.fulls).forEach(function (k) {
-      var p = window.RE.llegeix(+k).items || {};
-      T.fulls[k].items.forEach(function (id) {
-        var it = p[id];
-        if (!it || !it.tf || !it.estat || it.estat === "vist") return;
-        if (C.tramExacte(new Date(it.tf), trams) === i) n++;
-      });
-    });
-    return { n: n };
-  }
+  /* La línia de la feina per a la finestra del codi: quants exercicis porta
+     l'alumne i quants se'n demanen per a cada examen (entre 10 i 20).
 
-  function dm(d) {
-    return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
-  }
+     Fins a l'octubre de 2026 parlava de trams: «Tram 1 (fins al 04/10)», i en
+     una setmana de descans deia que el que es feia no comptava per a res. Ja
+     no hi ha trams fixos: el de cada examen el tria el professor amb dues
+     dates, a l'analitzador, i el lloc no el pot saber. El que sí que sap és
+     què hi ha al navegador, i és el que val: l'endemà de cada examen
+     s'esborren els codis i es torna a començar de zero.
 
-  /* La línia del tram per a la finestra del codi. Diu on és l'alumne
-     respecte de la feina demanada (entre 10 i 20 per tram) i, en una setmana
-     de descans, que el que faci ara no compta per a cap tram. */
-  function textTram() {
-    var C = window.RE_CALENDARI;
-    if (!C || !C.tramEnCurs) return null;
-    var ara = new Date(), t = C.tramEnCurs(ara);
-    if (t) {
-      var n = feinaDelTram(t.i).n;
-      return {
-        poc: n < C.FEINA_MINIMA,
-        html: "<b>Tram " + (t.i + 1) + "</b> (fins al " + dm(t.fi) + "): hi portes <b>" + n
-          + "</b> " + (n === 1 ? "exercici" : "exercicis") + ". Se'n demanen entre "
-          + C.FEINA_MINIMA + " i " + C.FEINA_MAXIMA + (n > C.FEINA_MAXIMA
-            ? "; per a la nota i l'examen només compten els " + C.FEINA_MAXIMA + " últims."
-            : ", i com més en facis, més nota.")
-      };
-    }
-    var L = C.llista(), seg = null;
-    for (var i = 0; i < L.length; i++) { if (L[i].inici > ara) { seg = L[i]; break; } }
-    if (!seg) return null;
+     «Des de l'últim esborrat» només es diu si n'hi ha hagut algun: a qui no
+     ha esborrat mai, la frase no li diria res. */
+  function textFeina(fets) {
+    var C = window.RE_CALENDARI || {};
+    var min = C.FEINA_MINIMA || 10, max = C.FEINA_MAXIMA || 20, esb = 0;
+    try { esb = (window.RE.meta() || {}).esb || 0; } catch (e) { esb = 0; }
     return {
-      poc: false,
-      html: "Ara no hi ha cap tram en curs: el que facis aquests dies no compta per a "
-        + "cap tram. El <b>tram " + (seg.i + 1) + "</b> comença el " + dm(seg.inici) + "."
+      poc: fets < min,
+      html: "Hi portes <b>" + fets + "</b> " + (fets === 1 ? "exercici" : "exercicis")
+        + (esb ? " des de l'últim esborrat" : "") + ". Se'n demanen entre "
+        + min + " i " + max + " per a cada examen" + (fets > max
+          ? "; per a la nota i l'examen només compten els " + max + " últims."
+          : ", i com més en facis, més nota.")
     };
   }
 
@@ -163,26 +141,16 @@ window.RE_CODI_UI = (function () {
         '<p class="re-petit" id="re-codi-rec-estat" role="status"></p></details>' + "</div>";
     } else {
       codi = window.RE_CODI.genera(window.RE_CODI.recull(null));
-      var tram = null;
-      try { tram = textTram(); } catch (e) { tram = null; }
+      var feina = textFeina(x.fets);
       fons.innerHTML =
         '<div id="re-codi-fin"><div id="re-codi-cap">' +
-        "<div><h2>El teu codi</h2>" +
-        '<p class="re-petit">' + x.fets +
-        " exercicis fets des de que vas comen\u00e7ar a anotar-ho.</p></div>" +
+        "<div><h2>El teu codi</h2></div>" +
         '<button id="re-codi-tanca" aria-label="Tanca">&times;</button></div>' +
         '<div id="re-codi-caixa"></div>' +
         '<div class="re-acc"><button class="re-btn" id="re-codi-copia">Copia el codi</button>' +
         '<button class="re-btn buit" id="re-codi-tanca2">Tanca</button></div>' +
-        (tram ? '<p class="' + (tram.poc ? "re-avis" : "re-petit") + '" style="margin-top:.75rem">'
-          + tram.html + "</p>" : "") +
-        (!tram && x.fets < 10
-          ? '<p class="re-avis">Has fet <b>' + x.fets + "</b> " +
-            (x.fets === 1 ? "exercici" : "exercicis") + ". El codi diu " +
-            "exactament quants n'has fet i quins, aix\u00ed que si el " +
-            "professorat t'ha demanat m\u00e9s feina, val m\u00e9s esperar a " +
-            "haver-la feta.</p>"
-          : "") +
+        '<p class="' + (feina.poc ? "re-avis" : "re-petit") + '" style="margin-top:.75rem">'
+          + feina.html + "</p>" +
         '<p class="re-petit" style="margin-top:.75rem">El codi recull tota la ' +
         "teva feina fins ara, exercici per exercici. Cada codi nou substitueix " +
         "l'anterior: si n'has enviat un abans, no passa res.</p>" +
@@ -254,9 +222,13 @@ window.RE_CODI_UI = (function () {
 
      El que NO s'esborra, a propòsit, són les metadades (repas-eso:meta): el
      comptador de reinicis puja un cop, i el codi següent el porta, de manera
-     que l'analitzador veu que hi ha hagut una neteja. La feina que ja s'havia
-     enviat al formulari no es perd per al professorat: l'analitzador es
-     queda amb el primer resultat de cada exercici dels codis anteriors. */
+     que l'analitzador veu quants cops s'ha esborrat.
+
+     És el que el professorat demana en començar cada tram: l'endemà de
+     l'examen s'esborra tot i el tram nou es fa de zero. La feina que ja
+     s'havia enviat al formulari no es perd, perquè és als codis anteriors, i
+     dins d'un mateix tram l'analitzador es queda amb el primer resultat de
+     cada exercici: esborrar a mig tram i tornar-lo a fer no el millora. */
   function eliminaTot() {
     var T = window.RE_TAULES;
     Object.keys(T.fulls).forEach(function (k) {
@@ -406,5 +378,5 @@ window.RE_CODI_UI = (function () {
     document.addEventListener("DOMContentLoaded", munta);
   } else { munta(); }
 
-  return { munta: munta, obre: obre, feinaDelTram: feinaDelTram, eliminaTot: eliminaTot };
+  return { munta: munta, obre: obre, eliminaTot: eliminaTot };
 })();

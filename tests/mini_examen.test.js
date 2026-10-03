@@ -1,8 +1,9 @@
-/* Prova de la lògica del mini-examen de 3 setmanes, extreta de la plantilla i
+/* Prova de la lògica del mini-examen estàndard, extreta de la plantilla i
    executada amb node. No cal DOM: es proven les funcions pures.
 
    Les tres regles que es vigilen aquí són les que va fixar el professorat:
-     1. l'examen d'un tram surt NOMÉS dels exercicis fets en aquell tram;
+     1. l'examen d'un tram surt NOMÉS dels exercicis fets entre les dues
+        dates del tram, que tria el professor cada vegada;
      2. d'aquests, només compten els 20 últims, per ordre de quan es van fer;
      3. la nota de feina és min(10, 8·∛(x/10)), amb x = suma dels valors
         sobre 10 dels exercicis que compten. */
@@ -30,13 +31,12 @@ const RE_CALENDARI = global.window.RE_CALENDARI;
 eval(fs.readFileSync(path.join(ARREL, "js", "codi.js"), "utf8"));
 const RE_CODI = global.window.RE_CODI;
 const RE_BANC = {};   /* s'omple més avall per a les proves de blocs */
-const calTrams = RE_CALENDARI.TRAMS.slice();
-function tramDe(d) { return RE_CALENDARI.tramDe(d, calTrams); }
 
-eval(["sortejaPreguntes", "sortejaPerBlocs", "reparteix", "exMare", "tramDeItem", "feinaDelTram"].map(extreu).join("\n")
+
+eval(["sortejaPreguntes", "sortejaPerBlocs", "reparteix", "exMare", "feinaDelPeriode"].map(extreu).join("\n")
   + "\nglobalThis.sortejaPreguntes = sortejaPreguntes; globalThis.reparteix = reparteix;"
   + "globalThis.sortejaPerBlocs = sortejaPerBlocs;"
-  + "globalThis.tramDeItem = tramDeItem; globalThis.feinaDelTram = feinaDelTram;");
+  + "globalThis.feinaDelPeriode = feinaDelPeriode;");
 
 let fallades = 0;
 function comprova(nom, cond, detall) {
@@ -46,6 +46,11 @@ function comprova(nom, cond, detall) {
 
 const L = RE_CALENDARI.llista();
 const dia = (t, d, h) => { const x = new Date(L[t].inici.getTime() + d * 86400000); x.setHours(12, 0, 0, 0); return x; };
+/* El tram són dues dates, les que posi el professor. Per poder dir «el tram
+   1» a les proves, `feinaDelTram(…, t, …)` tria com a tram les tres setmanes
+   del tram `t` de l'antic calendari, que és on cauen les dades de prova. */
+const fiDe = t => { const x = new Date(L[t].fi.getTime()); x.setHours(23, 59, 59, 999); return x; };
+const feinaDelTram = (items, t, max) => feinaDelPeriode(items, L[t].inici, fiDe(t), max);
 
 console.log("\n== només entra la feina del tram examinat ==");
 /* 15 exercicis al tram 0, 15 al tram 1 i 5 en una setmana de descans. */
@@ -56,8 +61,18 @@ for (let i = 0; i < 5; i++) items.push({ id: (300 + i) + "a", estat: "net", quan
 const f1 = feinaDelTram(items, 1, 20);
 comprova("al tram 1 hi ha exactament els seus 15", f1.tots.length === 15, f1.tots.length + "");
 comprova("cap és d'un tram anterior", f1.tots.every(it => /^2/.test(it.id)));
-comprova("la setmana de descans no és de cap tram",
-  items.filter(it => /^3/.test(it.id)).every(it => tramDeItem(it) === null));
+comprova("un tram que acaba el 4/10 no agafa res de la setmana següent",
+  feinaDelTram(items, 0, 99).tots.length === 15 && feinaDelTram(items, 0, 99).tots.every(it => /^1/.test(it.id)));
+/* Ja no hi ha trams fixos ni setmanes de descans: compta qualsevol dia que
+   sigui entre les dues dates. Els tres exemples són els del professor. */
+const entre = (a, b) => feinaDelPeriode(items, new Date(2026, a[1] - 1, a[0]),
+  new Date(2026, b[1] - 1, b[0], 23, 59, 59, 999), 99).tots.length;
+comprova("del 14/9 al 4/10: els 15 d'aquelles tres setmanes", entre([14, 9], [4, 10]) === 15, entre([14, 9], [4, 10]) + "");
+comprova("del 21/9 al 4/10: només els 8 de les dues últimes", entre([21, 9], [4, 10]) === 8, entre([21, 9], [4, 10]) + "");
+comprova("del 21/9 a l'11/10: aquests 8 i els 5 de la setmana següent, que abans era de descans",
+  entre([21, 9], [11, 10]) === 13, entre([21, 9], [11, 10]) + "");
+comprova("els dos dies dels extrems hi entren", entre([14, 9], [14, 9]) === 1 && entre([28, 9], [28, 9]) === 1);
+comprova("amb les dates girades no hi entra res", entre([4, 10], [14, 9]) === 0);
 let intrusos = 0;
 for (let n = 0; n < 2000; n++) {
   sortejaPreguntes(f1.ultims, 5).forEach(q => { if (!/^2/.test(q.it.id)) intrusos++; });
@@ -88,19 +103,31 @@ comprova("qui no arriba al màxim hi compta amb tot el que ha fet",
 comprova("amb el màxim a zero no en compta cap (slice(-0) els tornaria tots)",
   feinaDelTram(molts, 2, 0).ultims.length === 0);
 
-/* Codis antics, sense dates: la data és la de l'enviament que porta
-   l'exercici per primer cop i, dins d'un enviament, l'ordre és el de la
-   taula. Els últims són, doncs, els de l'enviament més recent. */
-const vells = [];
-for (let i = 0; i < 30; i++) vells.push({ id: (800 + i) + "a", estat: "net", quan: dia(0, 2), precisio: "deduida", codi: 0, ordre: i + 1 });
-for (let i = 0; i < 8; i++) vells.push({ id: (900 + i) + "a", estat: "net", quan: dia(0, 16), precisio: "deduida", codi: 1, ordre: i + 1 });
-const f3 = feinaDelTram(vells, 0, 20);
-comprova("amb dates deduïdes hi entren tots els de l'enviament més recent",
-  f3.ultims.filter(it => /^9/.test(it.id)).length === 8, f3.ultims.map(it => it.id).join(","));
-comprova("i es completa amb els últims de l'enviament anterior",
-  f3.ultims.filter(it => /^8/.test(it.id)).map(it => it.ordre).join(",")
-    === Array.from({ length: 12 }, (_, i) => i + 19).join(","),
-  f3.ultims.map(it => it.id).join(","));
+/* Sense la data del primer intent, un exercici no és de cap tram. Abans els
+   dels codis antics hi entraven amb la data de l'enviament («deduida»), i
+   tota la feina d'abans d'esborrar acabava dins del tram. */
+const senseData = [
+  { id: "800a", estat: "net", quan: dia(0, 2), precisio: "deduida", codi: 0, ordre: 1 },
+  { id: "801a", estat: "net", quan: null, precisio: "desconeguda", codi: 0, ordre: 2 },
+  { id: "802a", estat: "net", quan: dia(0, 2), precisio: "exacta", codi: 0, ordre: 3 }
+];
+comprova("sense la data exacta, un exercici no entra a la feina de cap tram",
+  feinaDelTram(senseData, 0, 20).tots.map(it => it.id).join(",") === "802a");
+
+/* El mateix exercici dues vegades dins del tram: s'ha esborrat a mig tram i
+   s'ha tornat a fer. */
+const dosCops = [
+  { full: 7, id: "900a", estat: "fallat", quan: dia(0, 3), precisio: "exacta", codi: 0, ordre: 0 },
+  { full: 7, id: "900a", estat: "net", quan: dia(0, 10), precisio: "exacta", codi: 1, ordre: 0 },
+  { full: 7, id: "901a", estat: "net", quan: dia(0, 10), precisio: "exacta", codi: 1, ordre: 1 }
+];
+const fd = feinaDelTram(dosCops, 0, 20);
+comprova("un exercici que hi és dues vegades compta un sol cop, amb la primera data",
+  fd.tots.length === 2 && fd.tots[0].id === "900a" && fd.tots[0].quan.getTime() === dia(0, 3).getTime());
+comprova("i amb el primer resultat (fallat i acabat més tard: segon intent)", fd.tots[0].estat === "segon", fd.tots[0].estat);
+comprova("sense tocar les fitxes de l'historial, que un altre tram ha de poder llegir", dosCops[0].estat === "fallat");
+comprova("si el tram triat comença després de la primera vegada, compta la segona, amb el seu resultat",
+  feinaDelPeriode(dosCops, dia(0, 5), fiDe(0), 20).tots.filter(it => it.id === "900a")[0].estat === "net");
 
 console.log("\n== el sorteig ==");
 comprova("sempre surten 5 preguntes si n'hi ha prou", sortejaPreguntes(f1.ultims, 5).length === 5);

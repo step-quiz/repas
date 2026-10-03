@@ -37,9 +37,10 @@ def main():
     taules = open(ruta_taules, encoding="utf-8").read()
     banc = open(ruta_banc, encoding="utf-8").read()
     codi = open(os.path.join(ARREL, "js", "codi.js"), encoding="utf-8").read()
-    # El calendari dels trams viu a `js/calendari.js` i el comparteixen el
-    # lloc de l'alumne i l'analitzador: si es dupliqués, un dia les dues
-    # còpies dirien coses diferents.
+    # La feina demanada per examen (entre 10 i 20 exercicis) viu a
+    # `js/calendari.js` i la comparteixen el lloc de l'alumne i
+    # l'analitzador: si es dupliqués, un dia les dues còpies dirien coses
+    # diferents. El fitxer porta també les dates de mostra de l'exemple.
     calendari = open(os.path.join(ARREL, "js", "calendari.js"),
                      encoding="utf-8").read()
 

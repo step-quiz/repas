@@ -1,24 +1,20 @@
-/* Proves del calendari de trams i de l'avís de final de termini. */
+/* Proves de js/calendari.js: la feina demanada per a cada examen i les dates
+   de mostra que fan servir l'exemple de l'analitzador i les altres proves.
+
+   Fins a l'octubre de 2026 aquest fitxer era el calendari del curs, i aquí
+   es provava també l'avís de final de termini. Ja no hi ha trams fixos: el
+   tram de cada examen el tria el professor amb dues dates. */
 "use strict";
 const { assert, seccio, prova, resum } = require("./arnes.js");
 const path = require("path");
 
-/* Entorn mínim amb un localStorage de mentida, per provar el recompte
-   d'avisos sense navegador. */
-const magatzem = {};
-global.window = {
-  localStorage: {
-    getItem: k => (k in magatzem ? magatzem[k] : null),
-    setItem: (k, v) => { magatzem[k] = String(v); },
-    removeItem: k => { delete magatzem[k]; }
-  }
-};
+global.window = {};
 require(path.join(__dirname, "..", "js", "calendari.js"));
 const C = global.window.RE_CALENDARI;
 const dia = txt => { const p = txt.split("-"); return new Date(+p[0], +p[1] - 1, +p[2], 12); };
 
 // ─────────────────────────────────────────────────────────────────────────
-seccio("Els nou trams del curs");
+seccio("Les dates de mostra: nou trams de tres setmanes");
 
 prova("n'hi ha nou, en tres trimestres", () => {
   assert.strictEqual(C.TRAMS.length, 9);
@@ -40,7 +36,7 @@ prova("tots van de dilluns a diumenge", () => {
   });
 });
 
-prova("les dates són exactament les del curs", () => {
+prova("les dates no s'han mogut (l'exemple de l'analitzador i les proves hi compten)", () => {
   assert.strictEqual(C.TRAMS[0][0], "2026-09-14");
   assert.strictEqual(C.TRAMS[2][1], "2026-11-29");
   assert.strictEqual(C.TRAMS[3][0], "2026-12-28");
@@ -118,95 +114,19 @@ prova("abans i després del curs, tampoc", () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────
-seccio("Tram en curs i dies que falten");
+seccio("El lloc ja no parla de trams a l'alumne");
 
-prova("dins d'un tram sap quants dies queden", () => {
-  assert.strictEqual(C.diesFinsAlTancament(dia("2026-10-04")), 0);
-  assert.strictEqual(C.diesFinsAlTancament(dia("2026-10-03")), 1);
-  assert.strictEqual(C.diesFinsAlTancament(dia("2026-09-29")), 5);
+/* El tram de cada examen el tria el professor amb dues dates, a
+   l'analitzador. El lloc no el pot saber, i per això ja no diu a quin tram
+   s'és, ni avisa de cap tancament, ni parla de setmanes de descans. */
+prova("no queda res de l'avís de final de termini ni del tram en curs", () => {
+  ["mostra", "toca", "textAvis", "tramEnCurs", "diesFinsAlTancament", "DIES_AVIS", "AVISOS_MAX"]
+    .forEach(nom => assert.strictEqual(C[nom], undefined, nom + " encara hi és"));
 });
 
-prova("en un forat no hi ha cap tram en curs", () => {
-  assert.strictEqual(C.tramEnCurs(dia("2026-10-07")), null);
-  assert.strictEqual(C.diesFinsAlTancament(dia("2026-10-07")), null);
-});
-
-// ─────────────────────────────────────────────────────────────────────────
-seccio("L'avís de final de termini");
-
-const neteja = () => Object.keys(magatzem).forEach(k => delete magatzem[k]);
-
-prova("no avisa quan falten més de 5 dies", () => {
-  neteja();
-  assert.strictEqual(C.toca(dia("2026-09-28")), null, "ha avisat amb 6 dies");
-});
-
-prova("avisa quan en falten exactament 5", () => {
-  neteja();
-  assert.ok(C.toca(dia("2026-09-29")), "no avisa amb 5 dies");
-});
-
-prova("avisa l'últim dia", () => {
-  neteja();
-  assert.ok(C.toca(dia("2026-10-04")));
-});
-
-prova("no avisa dues vegades el mateix dia", () => {
-  neteja();
-  const a = C.toca(dia("2026-10-01"));
-  assert.ok(a);
-  /* es registra com si s'hagués mostrat */
-  magatzem["repas.avis.tram.0"] = JSON.stringify([a.avui]);
-  assert.strictEqual(C.toca(dia("2026-10-01")), null, "repeteix el mateix dia");
-});
-
-prova("avisa un segon dia diferent", () => {
-  neteja();
-  magatzem["repas.avis.tram.0"] = JSON.stringify(["2026-10-01"]);
-  const a = C.toca(dia("2026-10-02"));
-  assert.ok(a, "no ha avisat el segon dia");
-  assert.strictEqual(a.cop, 2);
-});
-
-prova("mai un tercer cop", () => {
-  neteja();
-  magatzem["repas.avis.tram.0"] = JSON.stringify(["2026-10-01", "2026-10-02"]);
-  assert.strictEqual(C.toca(dia("2026-10-03")), null, "ha avisat un tercer cop");
-  assert.strictEqual(C.toca(dia("2026-10-04")), null);
-});
-
-prova("el compte és per tram: el següent torna a avisar dos cops", () => {
-  neteja();
-  magatzem["repas.avis.tram.0"] = JSON.stringify(["2026-10-01", "2026-10-02"]);
-  const a = C.toca(dia("2026-10-28"));      /* tram 2, hi falten 5 dies */
-  assert.ok(a, "no avisa al tram següent");
-  assert.strictEqual(a.tram.i, 1);
-});
-
-prova("en un forat no avisa de res", () => {
-  neteja();
-  assert.strictEqual(C.toca(dia("2026-10-07")), null);
-  assert.strictEqual(C.toca(dia("2026-12-20")), null);
-});
-
-prova("el text diu quin tram és i quan es tanca", () => {
-  neteja();
-  const t = C.textAvis(C.toca(dia("2026-10-02")));
-  assert.ok(/tram 1/.test(t), t);
-  assert.ok(/04\/10/.test(t), t);
-});
-
-prova("si es coneix la feina feta, l'avís la diu amb el mínim i el màxim", () => {
-  neteja();
-  const t = C.textAvis(C.toca(dia("2026-10-02")), 7);
-  assert.ok(/7 exercicis/.test(t) && /entre 10 i 20/.test(t), t);
-});
-
-prova("diu «avui» l'últim dia i «demà» el penúltim", () => {
-  neteja();
-  assert.ok(/avui/.test(C.textAvis(C.toca(dia("2026-10-04")))));
-  neteja();
-  assert.ok(/demà/.test(C.textAvis(C.toca(dia("2026-10-03")))));
+prova("carregar el fitxer en una pàgina no hi pinta ni hi desa res", () => {
+  const src = require("fs").readFileSync(path.join(__dirname, "..", "js", "calendari.js"), "utf8");
+  assert.ok(!/\bdocument\b|localStorage|avis-tram/.test(src), "el fitxer encara toca la pàgina");
 });
 
 process.exit(resum() ? 0 : 1);

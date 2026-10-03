@@ -52,6 +52,8 @@ l'alumne va obrir una pista o dues, que no penalitzen igual, i quan va fer cada
 exercici: l'examen d'un tram només pot sortir de la feina d'aquelles tres
 setmanes, i només compten els 20 últims. Fins a RC3 la data es deduïa
 comparant enviaments, i un codi enviat tard posava la feina al tram equivocat.
+Des que l'alumnat esborra els codis a cada tram, un codi sense dates ja no
+compta per a cap.
 Set estats caben en quatre caràcters igual que sis (7^7 < 32^4), així que el
 sostre de 217 exercicis per full no es mou. El bloc DATES costa uns 3
 caràcters per exercici datat; 20 exercicis d'un tram en fan menys de 90.

@@ -50,8 +50,12 @@ echo "── JavaScript: pont cap als vídeos de l'entrega ───────
 node tests/video.test.js || fallades=1
 
 echo
-echo "── JavaScript: calendari dels trams ──────────────────────────"
+echo "── JavaScript: feina demanada i dates de mostra ──────────────"
 node tests/calendari.test.js || fallades=1
+
+echo
+echo "── JavaScript: el botó Codi diu la feina, sense trams ────────"
+node tests/codi_ui.test.js || fallades=1
 
 echo
 echo "── JavaScript: mini-examen de 3 setmanes ─────────────────────"
@@ -100,7 +104,7 @@ elif [ "$sense_taules" -ne 0 ]; then
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ quatre blocs (analitzador,\n'
   printf '  accessibilitat, flux de la resolució i botons dels recursos) s\047han\n'
-  printf '  saltat perquè falta jsdom: són 136 comprovacions de 428 que no\n'
+  printf '  saltat perquè falta jsdom: són 156 comprovacions de 437 que no\n'
   printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0

@@ -45,11 +45,12 @@ SymPy (`pip install sympy`).
 | `test_probabilitat_nou.py` | 20 | Recàlcul independent del contingut nou de probabilitat (Full 12) |
 | `codi.test.js` | 44 | El format del codi: empaquetat, anada i tornada, control, compatibilitat RC1–RC3 |
 | `test_registre.js` | 20 | El registre és d'una sola direcció: cap trampa no el renta |
-| `calendari.test.js` | 27 | Els nou trams i l'avís de final de tram |
-| `mini_examen*.test.js` | — | Quatre bateries del mini-examen de 3 setmanes |
+| `calendari.test.js` | 16 | La feina demanada (10–20) i les dates de mostra; el lloc ja no parla de trams |
+| `codi_ui.test.js` | 6 | El que el botó Codi diu a l'alumne: quants exercicis porta i quants se'n demanen, sense trams |
+| `mini_examen*.test.js` | — | Quatre bateries del mini-examen estàndard |
 | `teoria.test.js` | 3 | Els enllaços al llibre (se salten sense el repositori del llibre al costat) |
 | `video.test.js` | 19 | El mapa de vídeos i els botons Teoria / Vídeo pintats de debò |
-| `analitzador.test.js` | 68 | L'analitzador amb un DOM real |
+| `analitzador.test.js` | 82 | L'analitzador amb un DOM real |
 | `test_a11y.js` | 41 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex, fletxes |
 | `test_flux_resolucio.js` | 18 | La resolució (i el «Per recordar») no s'ofereix mai sense una acció explícita de l'alumne |
 | `test_visibilitat_real.js` | 15 | Amb un navegador real: el que porta `hidden` no es veu ni es pot clicar |

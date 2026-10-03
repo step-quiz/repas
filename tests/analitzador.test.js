@@ -48,6 +48,31 @@ function codiDe(w, quins, quants, quan) {
     ara: quan
   });
 }
+/* Un codi com els que envia el lloc ara: amb la data del primer intent de
+   cada exercici. Porta els exercicis [de, fins) del Full 4, fets els dos dies
+   abans de `quan`. L'alumnat esborra els codis l'endemà de cada examen, o
+   sigui que el codi d'un tram només porta la feina d'aquell tram. */
+function codiDatat(w, de, fins, quan, opc) {
+  const ids = w.RE_TAULES.fulls[4].items, o = opc || {};
+  const estat = o.estat || (i => ["net", "net", "segon", "pista", "fallat"][i % 5]);
+  return w.RE_CODI.genera({
+    fulls: [{
+      n: 4,
+      estats: ids.map((_, i) => (i >= de && i < fins ? estat(i) : "")),
+      dates: ids.map((_, i) => (i >= de && i < fins
+        ? quan.getTime() - (1 + (i % 2)) * 86400000 + i * 1000 : 0))
+    }],
+    ara: quan, meta: o.meta
+  });
+}
+/* El tram el tria el professor amb dues dates. Aquestes són les dels tres
+   primers trams de l'antic calendari, que és on cauen les dades de prova. */
+const TRAM = [["2026-09-14", "2026-10-04"], ["2026-10-12", "2026-11-01"],
+              ["2026-11-09", "2026-11-29"]];
+function triaTram(d, t) {
+  d.getElementById("lot-ini").value = TRAM[t][0];
+  d.getElementById("lot-fi").value = TRAM[t][1];
+}
 const marca = d =>
   `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()} ` +
   `${("0" + d.getHours()).slice(-2)}:${("0" + d.getMinutes()).slice(-2)}:00`;
@@ -218,8 +243,8 @@ seccio("Pèrdua del progrés del navegador");
     assert.strictEqual(c[4].textContent.trim().split(" ")[0], "40",
       "hauria de comptar 40 exercicis, no els refets");
   });
-  prova("avisa que ha perdut el progrés", () => {
-    assert.ok(/Han perdut el progrés del navegador/.test(
+  prova("avisa que ha tornat a començar de zero, sense donar-ho per perdut", () => {
+    assert.ok(/Han tornat a començar de zero/.test(
       d.getElementById("p-resultats").textContent));
   });
 }
@@ -613,11 +638,13 @@ function classeDeProva(w) {
     return d;
   };
   const f = [];
-  [[19, 12], [40, 24], [61, 36]].forEach(([n, q]) => {
-    f.push([marca(dia(n)), "prou@x.cat", "4tA", codiDe(w, [4], q, dia(n))]);
+  /* Cada codi porta només la feina del seu tram: l'endemà de cada examen
+     s'esborra tot. */
+  [[19, 0, 12], [40, 12, 24], [61, 24, 36]].forEach(([n, de, fins]) => {
+    f.push([marca(dia(n)), "prou@x.cat", "4tA", codiDatat(w, de, fins, dia(n))]);
   });
-  [[19, 12], [40, 24], [61, 26]].forEach(([n, q]) => {
-    f.push([marca(dia(n)), "just@x.cat", "4tA", codiDe(w, [4], q, dia(n))]);
+  [[19, 0, 12], [40, 12, 24], [61, 24, 26]].forEach(([n, de, fins]) => {
+    f.push([marca(dia(n)), "just@x.cat", "4tA", codiDatat(w, de, fins, dia(n))]);
   });
   return fabrica(w, f);
 }
@@ -626,15 +653,13 @@ function classeDeProva(w) {
   const { w, d } = obre();
   obreExamens(w, d, classeDeProva(w));
   d.getElementById("pr-va-lot").click();
-  /* Els trams ja no surten d'una data d'inici que es teclejava (`#lot-inici`,
-     que va desaparèixer quan el calendari es va passar a `js/calendari.js`):
-     obrir la pestanya ja omple el desplegable amb els nou trams del curs.
-     Les dates de `classeDeProva()` cauen exactament als trams 0, 1 i 2, i
-     aquí s'examina del tercer. */
-  const trams = d.getElementById("lot-periode");
-  assert.ok(trams.options.length >= 3,
-    "el desplegable de trams no s'ha omplert en obrir la pestanya");
-  trams.value = "2";
+  /* El tram el tria el professor amb dues dates (`#lot-ini` i `#lot-fi`).
+     Obrir la pestanya ja en proposa un: les tres setmanes que acaben l'últim
+     dia que hi ha feina. Les dades de `classeDeProva()` cauen als tres
+     primers trams de l'antic calendari, i aquí s'examina del tercer. */
+  assert.ok(d.getElementById("lot-ini").value && d.getElementById("lot-fi").value,
+    "en obrir la pestanya no s'ha proposat cap tram");
+  triaTram(d, 2);
   d.getElementById("lot-genera").click();
 
   const files = () => Array.prototype.slice.call(
@@ -698,15 +723,15 @@ seccio("Exàmens: ningú no desapareix en silenci");
   const INICI = new Date(2026, 8, 14);
   const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
     x.setHours(18, 0, 0, 0); return x; };
-  const bo = codiDe(w, [4], 20, dia(61));
+  const bo = codiDatat(w, 0, 20, dia(61));
   const trencat = bo.slice(0, 12) + (bo[12] === "X" ? "Y" : "X") + bo.slice(13);
   obreExamens(w, d, fabrica(w, [
-    [marca(dia(19)), "sana@x.cat", "4tA", codiDe(w, [4], 12, dia(19))],
+    [marca(dia(19)), "sana@x.cat", "4tA", codiDatat(w, 0, 12, dia(19))],
     [marca(dia(61)), "sana@x.cat", "4tA", bo],
     [marca(dia(61)), "rota@x.cat", "4tA", trencat]
   ]));
   d.getElementById("pr-va-lot").click();
-  d.getElementById("lot-periode").value = "2";
+  triaTram(d, 2);
   d.getElementById("lot-genera").click();
   const text = d.getElementById("lot-taula")
     ? d.getElementById("lot-taula").textContent : "";
@@ -748,7 +773,7 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
   const codi = w.RE_CODI.genera({ fulls: [{ n: 4, estats, dates }], ara: dia(1, 20) });
   obreExamens(w, d, fabrica(w, [[marca(dia(1, 20)), "tot@x.cat", "4tA", codi]]));
   d.getElementById("pr-va-lot").click();
-  d.getElementById("lot-periode").value = "1";
+  triaTram(d, 1);
   d.getElementById("lot-genera").click();
   const fila = d.querySelector("#lot-taula tbody tr");
 
@@ -783,6 +808,144 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
   });
   prova("els pesos entre trams ja no hi són", () => {
     assert.ok(!d.getElementById("lot-pesos"));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: el tram el tria el professor, amb dues dates");
+
+{
+  const { w, d } = obre();
+  const ids = w.RE_TAULES.fulls[4].items;
+  /* Un exercici cada dia, del 14 de setembre al 13 d'octubre: 30 dies seguits,
+     amb el que abans era una setmana de descans (del 5 a l'11) pel mig. */
+  const estats = ids.map((_, i) => (i < 30 ? "net" : ""));
+  const dates = ids.map((_, i) => (i < 30 ? new Date(2026, 8, 14 + i, 17, 0, 0).getTime() : 0));
+  const codi = w.RE_CODI.genera({ fulls: [{ n: 4, estats, dates }], ara: new Date(2026, 9, 13, 20, 0) });
+  obreExamens(w, d, fabrica(w, [[marca(new Date(2026, 9, 13, 20, 5)), "dia@x.cat", "4tA", codi]]));
+  d.getElementById("pr-va-lot").click();
+  const proposat = d.getElementById("lot-ini").value + " " + d.getElementById("lot-fi").value;
+  const abast = d.getElementById("lot-dades").textContent;
+  const fets = (ini, fi) => {
+    d.getElementById("lot-ini").value = ini;
+    d.getElementById("lot-fi").value = fi;
+    d.getElementById("lot-genera").click();
+    const tr = d.querySelector("#lot-taula tbody tr");
+    return tr ? parseInt(tr.children[2].textContent, 10) : null;
+  };
+
+  prova("en obrir, proposa les tres setmanes que acaben l'últim dia amb feina, i diu de quan n'hi ha", () => {
+    assert.strictEqual(proposat, "2026-09-23 2026-10-13");
+    assert.ok(/del 14\/09\/2026 al 13\/10\/2026/.test(abast), abast);
+  });
+  prova("del 14/9 al 4/10 compten els 21 exercicis d'aquells dies", () => {
+    assert.strictEqual(fets("2026-09-14", "2026-10-04"), 21);
+  });
+  prova("del 21/9 al 4/10, només els 14 de les dues últimes setmanes", () => {
+    assert.strictEqual(fets("2026-09-21", "2026-10-04"), 14);
+  });
+  prova("del 21/9 a l'11/10, els 21: ja no hi ha setmanes de descans", () => {
+    assert.strictEqual(fets("2026-09-21", "2026-10-11"), 21);
+  });
+  prova("els dos dies dels extrems hi entren", () => {
+    assert.strictEqual(fets("2026-09-30", "2026-09-30"), 1);
+  });
+  prova("amb les dates girades, o sense una de les dues, no genera res i ho diu", () => {
+    assert.strictEqual(fets("2026-10-04", "2026-09-21"), null);
+    assert.ok(/Posa les dues dates/.test(d.getElementById("lot-estat").textContent));
+    assert.strictEqual(fets("", "2026-10-04"), null);
+  });
+  prova("el resum i cada full diuen de quin dia a quin dia és l'examen", () => {
+    fets("2026-09-21", "2026-10-04");
+    assert.ok(/Tram del 21\/09\/2026 al 04\/10\/2026/.test(d.getElementById("lot-resum").textContent));
+    assert.ok(/tram del 21\/09 al 04\/10/.test(d.getElementById("pr-examen").textContent));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Exàmens: cada tram comença de zero");
+
+/* L'endemà de cada examen l'alumnat esborra els codis. Tres alumnes:
+     · refa: al tram 2 torna a fer, ara bé, els deu exercicis que al tram 1
+             havia fallat;
+     · mig:  esborra a mig tram 2 i torna a fer el que havia fallat;
+     · vell: només té un codi d'abans que hi hagués dates. */
+{
+  const { w, d } = obre();
+  const INICI = new Date(2026, 8, 14);
+  const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
+    x.setHours(18, 0, 0, 0); return x; };
+  const tots = e => () => e;
+  obreExamens(w, d, fabrica(w, [
+    [marca(dia(19)), "refa@x.cat", "4tA", codiDatat(w, 0, 10, dia(19), { estat: tots("fallat") })],
+    [marca(dia(40)), "refa@x.cat", "4tA", codiDatat(w, 0, 10, dia(40), { estat: tots("net") })],
+    [marca(dia(33)), "mig@x.cat", "4tA", codiDatat(w, 0, 10, dia(33), { estat: tots("fallat") })],
+    [marca(dia(44)), "mig@x.cat", "4tA", codiDatat(w, 0, 10, dia(44), { estat: tots("net") })],
+    [marca(dia(2)), "vell@x.cat", "4tA", codiDe(w, [4], 15, dia(2))]
+  ]));
+  d.getElementById("pr-va-lot").click();
+  const lot = tram => {
+    triaTram(d, tram);
+    d.getElementById("lot-genera").click();
+    const r = { avisos: d.getElementById("lot-resum").textContent.replace(/\s+/g, " ") };
+    Array.prototype.slice.call(d.querySelectorAll("#lot-taula tbody tr")).forEach(tr => {
+      r[tr.children[0].textContent.trim()] = {
+        fets: tr.children[2].textContent.trim(), nota: tr.children[4].textContent.trim() };
+    });
+    return r;
+  };
+  const t2 = lot(1), t1 = lot(0);
+
+  prova("un exercici refet després d'esborrar és feina del tram nou, amb el resultat nou", () => {
+    assert.ok(/^10\b/.test(t2.refa.fets), JSON.stringify(t2.refa));
+    /* Deu a la primera fan un 8. Amb el resultat d'abans d'esborrar (fallats
+       i acabats més tard: segon intent) sortiria un 7,3. */
+    assert.strictEqual(t2.refa.nota, "8,0");
+  });
+  prova("i el tram anterior no es mou: hi segueixen els deu exercicis, fallats", () => {
+    assert.ok(/^10\b/.test(t1.refa.fets), JSON.stringify(t1.refa));
+    assert.strictEqual(t1.refa.nota, "0,0");
+  });
+  prova("dins d'un mateix tram, esborrar i tornar-ho a fer no millora el resultat", () => {
+    assert.ok(/^10\b/.test(t2.mig.fets), JSON.stringify(t2.mig));
+    assert.strictEqual(t2.mig.nota, "7,3");
+  });
+  prova("un codi sense dates no compta per a cap tram, i es diu per què", () => {
+    assert.ok(/^0\b/.test(t1.vell.fets), JSON.stringify(t1.vell));
+    assert.ok(/vell: .*té 15 exercicis en un codi sense dates/.test(t1.avisos), t1.avisos.slice(0, 500));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Full de respostes: esborrar els codis a cada tram no és cap senyal");
+
+{
+  const { w, d } = obre();
+  const INICI = new Date(2026, 8, 14);
+  const dia = n => { const x = new Date(INICI.getTime() + n * 86400000);
+    x.setHours(18, 0, 0, 0); return x; };
+  const meta = (minuts, esb) => ({ minuts: minuts, imports: 0, itemsImportats: 0,
+                                   repeticions: 0, esborrats: esb });
+  d.getElementById("entrada").value = fabrica(w, [
+    /* un esborrat entre tram i tram, que és el que es demana */
+    [marca(dia(19)), "normal@x.cat", "4tA", codiDatat(w, 0, 12, dia(19), { meta: meta(60, 1) })],
+    [marca(dia(40)), "normal@x.cat", "4tA", codiDatat(w, 12, 24, dia(40), { meta: meta(120, 2) })],
+    /* dos esborrats on se n'esperava un */
+    [marca(dia(19)), "doble@x.cat", "4tA", codiDatat(w, 0, 12, dia(19), { meta: meta(60, 1) })],
+    [marca(dia(40)), "doble@x.cat", "4tA", codiDatat(w, 12, 24, dia(40), { meta: meta(120, 3) })]
+  ]);
+  d.getElementById("btn-llegeix").click();
+  const t = d.getElementById("senyals").textContent.replace(/\s+/g, " ");
+
+  prova("qui esborra un cop per tram no surt enlloc", () => {
+    assert.ok(!/normal/.test(t), t);
+  });
+  prova("qui esborra més del que toca sí, i es diu què s'ha comptat", () => {
+    assert.ok(/doble: entre el codi del 03\/10 i el del 24\/10 ha esborrat el progrés 2 vegades/.test(t), t);
+  });
+  prova("sense cap importació, la nota del peu no diu que la primera línia demostri res", () => {
+    assert.ok(!/tret de la primera/.test(t), t);
+    assert.ok(/Cap d'aquestes línies demostra res per si sola/.test(t), t);
   });
 }
 

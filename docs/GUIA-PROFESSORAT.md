@@ -96,33 +96,49 @@ els passos de resolució.
 
 ## Generar els mini-exàmens de tota la classe
 
-Pensat per al ritme fix: cada 3 setmanes, entre 10 i 20 exercicis, i un
-examen per a cadascú **fet només amb aquella feina**.
+Pensat per a un ritme regular: cada tres setmanes, més o menys, entre 10 i 20
+exercicis, i un examen per a cadascú **fet només amb aquella feina**.
 
 1. Carrega el full de respostes igual que abans.
 2. Pestanya **Prova escrita** › **Mini-examen estàndard**.
-3. **Les dates dels nou trams ja hi són posades**, no les has d'escriure:
-
-   | | 1r trimestre | 2n trimestre | 3r trimestre |
-   |---|---|---|---|
-   | Tram 1 | 14/09 – 04/10 | 28/12 – 17/01 | 22/03 – 11/04 |
-   | Tram 2 | 12/10 – 01/11 | 25/01 – 14/02 | 12/04 – 02/05 |
-   | Tram 3 | 09/11 – 29/11 | 22/02 – 14/03 | 03/05 – 23/05 |
-
-   Amb **Veure'l o canviar-lo** les pots modificar si un any el calendari
-   canvia; **Torna a les del curs** les recupera. Si les canvies, canvia
-   també les de `js/calendari.js`, que és d'on les llegeix el lloc de
-   l'alumne.
-4. Tria **quin tram examines** i prem **Genera els exàmens del grup**.
+3. **Posa el tram que examines, amb dues dates**: *Del … al …*. No hi ha trams
+   fixos ni setmanes de descans: pot ser del 14/9 al 4/10, del 21/9 al 4/10 o
+   del 21/9 a l'11/10. Només compten els exercicis fets entre aquests dos
+   dies, tots dos inclosos. En obrir la pestanya ja hi ha posades les tres
+   setmanes que acaben l'últim dia que hi ha feina, i al costat diu de quin
+   dia a quin dia hi ha exercicis als codis.
+4. Prem **Genera els exàmens del grup**.
 5. Imprimeix. Hi ha **dos botons separats**: tots els exàmens en un document
    i totes les solucions en un altre. **Baixa les notes (CSV)** et dona la
    nota de feina de tothom per passar-la al teu full de notes.
 
+### Cada tram comença de zero
+
+L'endemà de l'examen, l'alumnat **esborra els codis**: botó **Codi** ›
+**Eliminar tots els codis**. El tram següent es fa amb el comptador a zero, i
+el codi que t'enviïn només porta la feina d'aquelles tres setmanes.
+
+Tu enganxa sempre el full de respostes sencer, amb els enviaments de tot el
+curs. L'analitzador fa cada tram només amb el que és seu:
+
+- Un exercici que l'alumne **torna a fer en un tram posterior** és feina
+  d'aquell tram, amb el resultat que hi treu. El tram on l'havia fet abans no
+  canvia: les notes d'un tram tancat no es mouen per res que s'enviï després.
+- **Dins d'un mateix tram**, un exercici compta un sol cop, amb el primer
+  resultat que t'ha arribat. Esborrar a mig tram i tornar-lo a fer no el
+  millora.
+- Si algú **s'oblida d'esborrar**, no passa res: cada exercici porta la seva
+  data, i els del tram anterior no entren al nou.
+
 ### Quins exercicis compten
 
-- **Només els fets dins de les tres setmanes del tram**, segons la data del
-  primer intent. Cap exercici d'un tram anterior no pot sortir a l'examen. La
-  feina feta en una setmana de descans no és de cap tram.
+- **Només els fets entre les dues dates del tram**, tots dos dies inclosos,
+  segons la data del primer intent, que porta el codi. Cap exercici d'abans o
+  de després no pot sortir a l'examen.
+- **Els codis sense dates no compten.** Són els de la versió anterior del lloc
+  (RC3 i anteriors), que no diuen quan es va fer cada exercici. Qui només en
+  tingui d'aquests surt a la taula amb zero exercicis i el motiu; n'hi ha prou
+  que enviï el codi d'ara.
 - **Només els 20 últims**, per ordre de quan es van fer. Si un alumne en fa
   25, els 5 primers no compten ni per a la nota ni per a l'examen: qui fa molta
   feina és avaluat de la més recent, no de la que va fer el primer dia del
@@ -203,17 +219,16 @@ copiï les respostes treu una nota de feina alta que l'examen invalida.
 
 ---
 
-## L'avís que veu l'alumne
+## El que veu l'alumne
 
-El botó **Codi** li diu quants exercicis porta al tram en curs i que se'n
-demanen entre 10 i 20. Si en porta més de 20, li diu que per a la nota i
-l'examen només compten els 20 últims. En una setmana de descans, li diu que el que faci no
-compta per a cap tram i quan comença el següent.
+El botó **Codi** li diu quants exercicis porta des de l'últim esborrat i que
+se'n demanen entre 10 i 20 per a cada examen. Si en porta menys de 10, li ho
+diu en to d'avís; si en porta més de 20, li diu que per a la nota i l'examen
+només compten els 20 últims.
 
-A més, quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que
-entri al lloc hi troba un avís a dalt amb la data de tancament i quants
-exercicis hi porta. Es mostra com a molt **dues vegades per tram, en dies
-diferents**: un avís que surt cada dia deixa de llegir-se.
+**El lloc no parla de trams.** No sap quines dates triaràs, i per això no diu
+a quin tram s'és, ni avisa de cap tancament, ni parla de setmanes de descans.
+Quan és l'examen i fins quin dia compta la feina ho has de dir tu a classe.
 
 ---
 
@@ -223,13 +238,18 @@ diferents**: un avís que surt cada dia deixa de llegir-se.
 genera cap prova, i és volgut: el codi s'ha copiat a mitges o s'ha tocat.
 Demana-li de nou a l'alumne; no cal cap altra investigació.
 
-**Un alumne ha fet «Eliminar tots els codis».** Des del botó **Codi**, l'alumne
-pot buidar tot el seu progrés (li demana confirmació, perquè no es pot desfer),
-i el codi torna a zero. El que ja t'havia enviat no es perd: l'analitzador es
-queda amb el primer resultat de cada exercici dels codis anteriors, de manera
-que tornar a fer un exercici després de netejar no li millora la nota. El codi
-següent porta el comptador de reinicis, i a l'analitzador ho veuràs com una
-pèrdua de feina. El que no hagués enviat encara, sí que es perd.
+**«Eliminar tots els codis».** Des del botó **Codi**, l'alumne buida tot el seu
+progrés (li demana confirmació, perquè no es pot desfer) i el codi torna a
+zero. És el que els demanes l'endemà de cada examen. El que ja t'havia enviat
+no es perd, perquè és als codis anteriors; el que no hagués enviat encara, sí.
+
+**«Ha esborrat el progrés 2 vegades… se n'espera una».** (Full de respostes)
+El codi porta un comptador de reinicis, que puja cada vegada que s'esborra tot
+o es reinicia un full. Entre dos codis seguits ha de pujar un sol cop, que és
+l'esborrat de després de l'examen, i la línia surt quan puja més. Pot ser un
+full reiniciat per practicar, o un examen del qual no va enviar codi. També és
+l'únic rastre que queda si algú fa els exercicis, en mira les solucions, ho
+esborra i els torna a fer: val la pena preguntar-ho.
 
 **Un alumne surt en ambre amb «sota 10».** (Estàndard) No ha arribat al mínim
 d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i
@@ -240,13 +260,15 @@ l'avís queda al full de correcció. Ell no el veu.
 els 20 últims, i si els nous li han anat pitjor que els que surten del compte,
 la nota baixa. No és cap error.
 
-**«Tenen la data deduïda dels enviaments».** (Estàndard) L'alumne ha enviat
-codis d'abans del canvi, que no porten dates. L'analitzador les dedueix
-comparant els seus enviaments, com feia abans, i ho avisa perquè algun
-exercici podria ser d'un altre tram. Amb aquests codis tampoc no se sap en
-quin ordre es van fer els exercicis d'un mateix enviament: els «20 últims»
-són els de l'enviament més recent i, a dins, els dels fulls més alts. Es
-resol sol així que envia un codi nou.
+**«Té 30 exercicis en un codi sense dates».** (Estàndard) L'alumne només t'ha
+enviat codis de la versió anterior del lloc, que no diuen quan es va fer cada
+exercici, i per això no compten per a cap tram. Surt amb zero exercicis i
+sense examen. Es resol així que envia el codi d'ara.
+
+**«Té 12 exercicis amb data de fora del tram triat».** (Estàndard) Ha fet
+feina, però en dies que no són entre les dues dates que has posat. L'avís diu
+de quins dies són: si el tram t'ha quedat curt, canvia les dates i torna a
+generar.
 
 **«Han arribat sense data».** (Estàndard) El codi es va enviar més de 12
 setmanes després de fer aquells exercicis. Com que no se sap de quin tram són,

@@ -80,7 +80,7 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
     js/resultat.js        controlador de la diagnosi
     js/itinerari-dades.js generació i estat de la ruta
     js/itinerari.js       controlador de l'itinerari
-    js/calendari.js       els nou trams de 3 setmanes i l'avís de final de tram
+    js/calendari.js       la feina demanada per examen (10-20) i dates de mostra
     js/codi.js            codi de verificació: generació I lectura
     js/codi-ui.js         el panell del codi que veu l'alumne
     js/codi-taules.js     GENERAT — taules del codi (ordre d'ítems i etiquetes)
@@ -222,16 +222,29 @@ El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
 l'analitzador carrega aquest mateix fitxer.
 
-## Mini-examen de 3 setmanes
+## Mini-examen estàndard
 
-Cada 3 setmanes (els nou trams de `js/calendari.js`) l'alumnat fa entre 10 i 20
-exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
+Cada tres setmanes, més o menys, l'alumnat fa entre 10 i 20 exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
 tota la classe un examen de 2, 3 o 4 preguntes fet **només** amb els 20 últims
-exercicis que cada alumne ha fet dins d'aquell tram, i en dona la **nota de
-feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
+exercicis que cada alumne ha fet dins del tram que tria el professor amb dues
+dates (del 21/9 al 4/10, per exemple), i en dona la **nota de feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
 la primera 1, una pista 0,95, dues pistes o més 0,85, segon intent 0,75, fallat
 0). Els codis RC4 porten la data del primer intent de cada exercici, i per això
 n'hi ha prou amb un sol codi. Detall a `docs/GUIA-PROFESSORAT.md`.
+
+**Cada tram comença de zero.** L'endemà de l'examen l'alumnat esborra els codis
+(botó Codi › Eliminar tots els codis) i el tram següent es fa amb el comptador
+a zero. L'analitzador hi compta: un exercici refet en un tram posterior és
+feina d'aquell tram, amb el resultat que hi té; un tram tancat no es mou per
+res que s'enviï després; i els codis sense dates (RC3 i anteriors) no compten
+per a cap tram.
+
+**El tram no és fix.** L'analitzador no té calendari de trams ni setmanes de
+descans: compta qualsevol dia que sigui entre les dues dates. El lloc de
+l'alumne tampoc no en parla: el botó Codi diu quants exercicis porta des de
+l'últim esborrat i que se'n demanen entre 10 i 20 per a cada examen. A
+`js/calendari.js` hi queden la feina demanada i unes dates de mostra per a
+l'exemple de l'analitzador i les proves.
 
 **La nota de feina mai no compta sola.** Mesura volum, no aprenentatge (vint
 exercicis contestats a l'atzar en donen de mitjana un 7,6), i per això la
@@ -326,13 +339,13 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-428 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
+437 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
 navegador real si hi ha Playwright (`test_visibilitat_real.js`). Les de Python i
 les del codi de verificació no demanen instal·lar res: `unittest` de la
 biblioteca estàndard i Node pelat. Quatre blocs (analitzador, accessibilitat,
 flux de la resolució i botons dels recursos) necessiten un DOM i se salten
 sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no declara
-«tot en verd»**, perquè un verd que amaga 136 comprovacions no executades és
+«tot en verd»**, perquè un verd que amaga 156 comprovacions no executades és
 pitjor que un avís:
 
 ```sh

@@ -16,12 +16,21 @@ configure to close the gap. Read it before touching any code.
 > - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Two,
 >   three or four questions per student (short / medium / long), drawn ONLY
 >   from the LAST 20 exercises (it was the first 20 until October 2026) that
->   student did inside the examined tram (by date of first attempt; nothing
->   from earlier trams, nothing from rest weeks), plus a per-tram work grade
+>   student did inside the examined tram (by date of first attempt). THE TRAM
+>   IS A FREE DATE RANGE the teacher types into two date inputs (`#lot-ini`,
+>   `#lot-fi`): there are no fixed trams and no rest weeks in the analyzer any
+>   more, and nothing outside the range can get in. Plus a per-tram work grade
 >   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
 >   one hint 0.95, two or more hints 0.85, second attempt 0.75, failed 0).
->   Nine fixed trams per course, hardcoded in `js/calendari.js`
->   (`FEINA_MINIMA`/`FEINA_MAXIMA` = 10/20 live there too). Output: one
+>   EACH TRAM STARTS FROM ZERO: students wipe their progress the day after
+>   each exam, so the analyzer keeps one record per (exercise, day of first
+>   attempt). An exercise re-done later is separate work with its own date
+>   and result; an exam already generated never changes; if the chosen range
+>   holds the same exercise twice, the first date and result stand; and
+>   undated codes (RC1–RC3) count for no tram.
+>   `js/calendari.js` now only holds `FEINA_MINIMA`/`FEINA_MAXIMA` =
+>   10/20 (read by the student site and the analyzer) plus sample date ranges
+>   for the analyzer's example data and the tests. Output: one
 >   printable document with every exam, another with every answer key, and a
 >   CSV of grades.
 >   The work grade never counts alone: the teacher validates it with the
@@ -33,16 +42,18 @@ configure to close the gap. Read it before touching any code.
 >
 > 1. **RC4 codes carry the date of first attempt of every exercise done in
 >    the last 12 weeks, in order** (`js/codi.js`, DATES block). One code is
->    enough. Legacy RC1-RC3 codes carry no dates: for those the analyser still
->    reconstructs dates by diffing successive codes, and flags it.
-> 2. **The trams are not contiguous** — a week off between them, four at
->    Christmas, none in the third term — so they are a table, not
->    `floor((date - start) / 21 days)`. `js/calendari.js` is the single
->    source of truth and the analyser injects it at build time
->    (`/*__CALENDARI__*/`).
-> 3. **The word "trimestre" is overloaded.** In the standard exam mode it
->    means a group of three trams; in the "Progrés del trimestre" tab it means
->    a calendar term defined by months. They nearly coincide but not exactly.
+>    enough. Legacy RC1-RC3 codes carry no dates and count for no tram: a
+>    student who only has those shows up with zero exercises and the reason.
+> 2. **There is no course calendar any more.** The teacher picks each exam's
+>    tram with two dates, and the student site says nothing about trams,
+>    deadlines or rest weeks: the Codi button only reports how many exercises
+>    are in the browser (since the last wipe) and that 10–20 are expected per
+>    exam. `js/calendari.js` is still injected at build time
+>    (`/*__CALENDARI__*/`), but it now holds only `FEINA_MINIMA`/`FEINA_MAXIMA`
+>    and nine sample date ranges for the example button and the tests.
+> 3. **"Trimestre" now only means what the "Progrés del trimestre" tab means:**
+>    a calendar term defined by months. The standard exam mode no longer
+>    groups trams into terms.
 >
 > Tests: `tests/calendari.test.js` plus the four `tests/mini_examen*.test.js`
 > batteries, all wired into `tests/executa.sh`. The two that read

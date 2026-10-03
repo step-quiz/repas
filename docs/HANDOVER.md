@@ -340,6 +340,19 @@ decisions que costen més de reconstruir des del codi:
   feina i l'examen es porten més de 3 punts, només compta l'examen. Per això
   no cal endurir la fórmula ni amagar les respostes (vegeu
   `GUIA-PROFESSORAT.md` i `DESPLEGAMENT.md` §1).
+- **El tram del mini-examen el tria el professor amb dues dates, i cada tram
+  comença de zero.** L'analitzador no té calendari de trams ni setmanes de
+  descans: compta qualsevol dia que sigui entre les dues dates. L'endemà de
+  l'examen l'alumnat esborra els codis, i l'historial va per (exercici, dia
+  del primer intent): un exercici refet més tard és una altra feina, amb el
+  resultat nou; un examen ja fet no es mou; i si dins del tram triat hi és
+  dues vegades, mana la primera. Els codis sense dates (RC1-RC3) no compten:
+  abans se'n deduïa la data de la de l'enviament, i la feina d'abans
+  d'esborrar inflava el tram. El lloc de l'alumne tampoc no parla de trams:
+  el botó Codi diu quants exercicis porta des de l'últim esborrat i quants
+  se'n demanen, i ja no hi ha avís de tancament ni setmanes de descans. A
+  `js/calendari.js` hi queden la feina demanada (10-20) i unes dates de
+  mostra per a l'exemple de l'analitzador i les proves.
 - **El format de la data del formulari es detecta sol.** Google exporta la
   marca de temps amb el format del full, que pot ser d/m/Y o m/d/Y, i amb dies
   de l'1 al 12 no es poden distingir: "8/5/2026" tant pot ser el 8 de maig com

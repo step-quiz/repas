@@ -356,10 +356,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     <div class="targeta" id="pr-tria">
       <h3 style="margin-top:0">Quin examen vols preparar?</h3>
       <button class="opcio" id="pr-va-lot">
-        <b>Mini-examen estàndard de 3 setmanes</b>
+        <b>Mini-examen estàndard</b>
         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
         2, 3 o 4 preguntes sortejades només entre els 20 últims exercicis
-        que ha fet dins del tram, i la taula en dona la nota de feina. Surten dos
+        que ha fet dins del tram que triïs, i la taula en dona la nota de feina. Surten dos
         documents per imprimir: tots els exàmens i totes les solucions.</span>
       </button>
       <button class="opcio" id="pr-va-individual">
@@ -374,40 +374,31 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <p style="margin:0 0 .9rem">
           <button class="btn buit petit" id="pr-torna-1">← Canvia de mode</button>
         </p>
-        <h3 style="margin-top:0">Mini-examen de 3 setmanes</h3>
+        <h3 style="margin-top:0">Mini-examen estàndard</h3>
         <p class="petit apagat" style="margin:0 0 .9rem">
-          Cada examen surt <b>només</b> dels exercicis que l'alumne ha fet dins
-          de les tres setmanes del tram que s'examina, i d'aquests, només dels
-          20 últims. Cap exercici d'abans del tram no hi pot entrar. La taula
-          dona també la <b>nota de feina</b> de cada alumne en aquell tram.
+          <b>El tram el tries tu, amb dues dates.</b> Cada examen surt
+          <b>només</b> dels exercicis que l'alumne va fer per primer cop entre
+          aquests dos dies, i d'aquests, només dels 20 últims. Res de fora no
+          hi pot entrar: ni exercicis d'abans o de després, ni resultats de
+          codis anteriors a un esborrat, ni codis sense dates. L'alumnat
+          esborra els codis l'endemà de cada examen (botó Codi › Eliminar tots
+          els codis), i el tram següent comença de zero. La taula dona també
+          la <b>nota de feina</b> de cada alumne en aquell tram.
         </p>
 
         <div class="camp" style="border-top:none;padding-top:0">
-          <b>Calendari del curs</b>
+          <b>Tram que s'examina</b>
           <p class="petit apagat" style="margin:.2rem 0 .5rem">
-            Els nou trams ja hi són posats. Els trams no són consecutius: hi
-            ha una setmana de descans entre l'un i l'altre, quatre per Nadal,
-            i en canvi els tres del tercer trimestre van encadenats. Per això
-            les dates estan escrites una a una i no es calculen.
+            El tries tu, amb dues dates: no hi ha trams fixos ni setmanes de
+            descans. Només compten els exercicis que l'alumne va fer per primer
+            cop entre aquests dos dies, tots dos inclosos.
           </p>
           <div class="filtres" style="margin:.3rem 0 0">
-            <label class="petit apagat">Examinar del tram
-              <select id="lot-periode" style="min-width:280px"></select></label>
-            <button class="btn buit petit" id="lot-veure-cal">Veure'l o canviar-lo</button>
-          </div>
-          <div id="lot-cal" hidden style="margin:.6rem 0 0">
-            <p class="petit apagat" style="margin:0 0 .35rem">
-              Una línia per tram, <code>inici fi</code> en format
-              <code>AAAA-MM-DD</code>. Els tres primers són el primer
-              trimestre, els tres següents el segon, i així.
-            </p>
-            <textarea id="lot-cal-txt" rows="11" spellcheck="false"
-                      style="width:100%;font-family:var(--mono);font-size:.85rem"></textarea>
-            <div class="filtres" style="margin:.35rem 0 0">
-              <button class="btn petit" id="lot-cal-desa">Fes servir aquestes dates</button>
-              <button class="btn buit petit" id="lot-cal-reset">Torna a les del curs</button>
-              <span class="petit" id="lot-cal-estat"></span>
-            </div>
+            <label class="petit apagat">Del
+              <input type="date" id="lot-ini"></label>
+            <label class="petit apagat">al
+              <input type="date" id="lot-fi"></label>
+            <span class="petit apagat" id="lot-dades"></span>
           </div>
         </div>
 
@@ -445,8 +436,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             fan un 8 i 20 fan un 10. Un exercici fallat no suma, però tampoc no
             resta; ara bé, passat el màxim, cada exercici nou fa sortir el més
             antic dels que comptaven. Un encert al segon intent compta com a
-            segon intent encara que s'hagin obert pistes. La feina d'una setmana
-            de descans no és de cap tram.
+            segon intent encara que s'hagin obert pistes.
           </p>
           <p class="petit apagat" style="margin:.35rem 0 0">
             Qui no arribi al mínim tindrà l'examen igualment, amb l'avís ben
@@ -993,14 +983,46 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       }
     });
 
-    /* 4. Fulls reiniciats. */
+    /* 4. Més esborrats dels que demana el curs.
+
+       Esborrar els codis no és cap senyal: es fa un cop per tram, l'endemà de
+       l'examen, perquè el tram següent comenci de zero, i el comptador de
+       reinicis puja d'un en un. El que sí que val la pena veure és que pugi
+       MÉS del que toca entre dos codis seguits del mateix navegador: fer la
+       feina, mirar-ne les solucions, esborrar i tornar-la a fer no deixa cap
+       altre rastre. També pot ser un full reiniciat a part, i per això la
+       línia diu què s'ha comptat i prou.
+
+       Entre dos codis seguits se n'espera un, que és el que hi ha entre
+       examen i examen. El primer codi de cada navegador no es mira, perquè
+       no té amb què comparar-se; i si els minuts de feina activa tornen
+       enrere és un altre navegador, que compta des de zero. */
+    var perAlumne = {};
     fs.forEach(function (r) {
-      if (r.p.ok && r.p.meta && r.p.meta.esborrats) {
-        linies.push(["<b>" + escapa(nomDe(r)) + "</b> ha reiniciat un full "
-          + r.p.meta.esborrats + (r.p.meta.esborrats === 1 ? " vegada" : " vegades")
-          + ". Reiniciar per tornar a practicar és normal; fer-ho sovint just "
-          + "abans d'enviar el codi, no tant.", "apagat"]);
-      }
+      if (!r.p.ok || !r.p.integre || !r.p.meta) return;
+      var k = (r.brut.correu || r.brut.alumne || "?").toLowerCase();
+      (perAlumne[k] = perAlumne[k] || []).push(r);
+    });
+    Object.keys(perAlumne).forEach(function (k) {
+      var ant = null;
+      perAlumne[k].slice().sort(function (x, y) {
+        return quan(x.p) - quan(y.p);
+      }).forEach(function (r) {
+        var m = r.p.meta, ara = quan(r.p);
+        var mateix = !!ant && m.minuts >= ant.p.meta.minuts
+                     && m.esborrats >= ant.p.meta.esborrats;
+        var puja = mateix ? m.esborrats - ant.p.meta.esborrats : 0;
+        if (puja > 1) {
+          linies.push(["<b>" + escapa(nomDe(r)) + "</b>: entre el codi del "
+            + dataCurta(quan(ant.p)) + " i el del " + dataCurta(ara)
+            + " ha esborrat el progrés " + puja + " vegades (comptant-hi els fulls "
+            + "reiniciats a part), i entre examen i examen se n'espera una. És el "
+            + "rastre que queda quan es torna a fer la feina després d'esborrar-la; "
+            + "també pot ser un full reiniciat per practicar, o un examen del qual "
+            + "no va enviar codi.", "avis"]);
+        }
+        ant = r;
+      });
     });
 
     /* 5. Dos alumnes amb el MATEIX conjunt d'exercicis fets.
@@ -1035,11 +1057,19 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + linies.map(function (l) {
           return '<li class="' + l[1] + '">' + l[0] + "</li>";
         }).join("")
-      + "</ul><p class=\"petit apagat\" style=\"margin:.6rem 0 0\">Cap d'aquestes "
-      + "línies demostra res per si sola tret de la primera, que sí: l'empremta "
-      + "del codi d'origen viatja dins del codi. Les altres es resolen "
-      + "preguntant-ho.</p></div>";
+      + "</ul><p class=\"petit apagat\" style=\"margin:.6rem 0 0\">"
+      /* Només la importació és un fet. Abans la frase deia «tret de la
+         primera, que sí» sempre, i quan no hi havia cap importació acusava
+         la línia que hi hagués a dalt. */
+      + (linies.some(function (l) { return l[1] === "mal"; })
+          ? "Les línies amb ⇩ són un fet: l'empremta del codi d'origen viatja "
+            + "dins del codi. Les altres no demostren res per si soles i es "
+            + "resolen preguntant-ho."
+          : "Cap d'aquestes línies demostra res per si sola: es resolen "
+            + "preguntant-ho.")
+      + "</p></div>";
   }
+
 
   function nomDe(r) { return r.brut.alumne || r.brut.correu || "?"; }
 
@@ -1951,9 +1981,10 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var perduts = res.filter(function (a) { return a.perduda.length; });
     if (perduts.length) {
       h += '<p class="petit" style="margin-top:.7rem"><span class="avis marca">!</span> '
-        + "<b>Han perdut el progrés del navegador</b> en algun moment: "
+        + "<b>Han tornat a començar de zero</b> en algun moment: "
         + perduts.map(function (a) { return a.alumne; }).join(", ")
-        + ". Convé recordar-los que facin servir sempre el mateix navegador.</p>";
+        + ". És el que toca si és l'esborrat de començament de tram; si no, "
+        + "potser han canviat de navegador.</p>";
     }
 
     if (concentrat.length) {
@@ -2038,15 +2069,15 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
     if (a.perduda.length) {
       h += '<p class="petit" style="margin-top:.6rem"><span class="marca avis">!</span> '
-        + "<b>Sembla que ha perdut el progrés del navegador.</b> ";
+        + "<b>Ha tornat a començar de zero.</b> ";
       a.perduda.forEach(function (x) {
         h += "El " + x.quan.toISOString().slice(0, 10) + " el seu codi va passar de portar "
           + x.abans + " exercicis a portar-ne " + x.ara + ". ";
       });
-      h += "El progrés es desa al navegador: esborrar-ne les dades, canviar de "
-        + "dispositiu o treballar en una finestra privada el fa començar de zero. "
-        + "El que ja tenia comptat no s'ha perdut (els codis anteriors el porten), "
-        + "i el que ha repetit no s'ha tornat a comptar.</p>";
+      h += "Passa quan s'esborren els codis, com es fa en començar cada tram, i "
+        + "també en canviar de navegador o de dispositiu. En aquesta pestanya el "
+        + "que ja tenia comptat no es perd (els codis anteriors el porten) i el "
+        + "que ha repetit no es torna a comptar.</p>";
     }
 
     if (a.enviaments > a.ambFeina) {
@@ -2303,19 +2334,34 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   // ── MINI-EXAMEN DE 3 SETMANES ─────────────────────────────────────────
   //
   // Un examen per a cada alumne del grup, tots de cop, fet NOMÉS amb la feina
-  // del tram que s'examina: cap exercici d'un tram anterior no hi pot entrar.
-  // I d'aquesta feina, només els 20 últims exercicis, per ordre de quan es
-  // van fer, que són també els que fan la nota de feina del tram.
+  // del tram que s'examina. I d'aquesta feina, només els 20 últims exercicis,
+  // per ordre de quan es van fer, que són també els que fan la nota de feina
+  // del tram.
   //
-  // QUAN ES VA FER CADA EXERCICI. Els codis RC4 porten la data del primer
-  // intent de cada exercici i l'ordre en què es van fer (vegeu js/codi.js), i
-  // amb això n'hi ha prou: un sol codi enviat en qualsevol moment del tram o
-  // de les setmanes següents diu exactament què és de cada tram.
+  // EL TRAM EL TRIA EL PROFESSOR, AMB DUES DATES. Fins a l'octubre de 2026 hi
+  // havia nou trams fixos de tres setmanes, amb una de descans entremig, i
+  // només es podia examinar d'un d'aquells. Ara el tram és el que calgui cada
+  // vegada: del 21/9 al 4/10, del 14/9 al 4/10, del 21/9 a l'11/10. No hi ha
+  // setmanes de descans: un dia compta si és entre les dues dates.
   //
-  // Els codis antics (RC1-RC3) no porten dates. Per a aquests, la data es
-  // DEDUEIX com abans, comparant codis successius: un exercici que no era al
-  // codi del 3 d'octubre i sí al del 24 es va fer entremig. És una estimació,
-  // i quan un examen en depèn, el full de correcció ho diu.
+  // CADA TRAM COMENÇA DE ZERO. L'endemà de l'examen, l'alumnat esborra els
+  // codis (Codi › Eliminar tots els codis) i el codi que envia després només
+  // porta la feina nova. D'aquí en surten les quatre regles de
+  // `historialAlumnes` i `feinaDelPeriode`:
+  //
+  //   1. La feina d'un tram són els exercicis que un codi diu que es van fer
+  //      entre les dues dates. La data és la del primer intent i la porten
+  //      els codis RC4 (vegeu js/codi.js).
+  //   2. Un exercici refet més tard, després d'esborrar, és una altra feina,
+  //      amb la seva data i el seu resultat. Compta al tram on caigui la data
+  //      nova, i la d'abans no canvia: un examen ja fet no es mou per res que
+  //      s'enviï després.
+  //   3. Si dins del tram triat un exercici hi és dues vegades (s'ha esborrat
+  //      a mig tram i s'ha tornat a fer), compta un sol cop, amb la primera
+  //      data i el primer resultat. Refer-lo no el millora.
+  //   4. Els codis sense dates (RC1-RC3) no compten: no diuen quan es va fer
+  //      cada exercici. Qui només en té d'aquests surt a la taula amb zero i
+  //      el motiu.
   //
   // EL SORTEIG. Les preguntes surten a l'atzar d'entre els 20 últims
   // exercicis del tram, sense repetir exercici mare mentre en quedin de
@@ -2323,24 +2369,32 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
 
   var lotSel = null;      /* última tirada, per poder reimprimir sense re-sortejar */
 
-  /* El calendari vigent. Per defecte, el del curs (`RE_CALENDARI.TRAMS`);
-     el professor el pot substituir des del quadre de text.
+  /* ── El tram: dues dates ─────────────────────────────────────────────── */
 
-     Abans això era una divisió: `floor((data - inici) / 21 dies)`. Amb trams
-     consecutius hauria anat bé, però no ho són —hi ha una setmana de descans
-     entre trams, quatre per Nadal i cap al tercer trimestre— i l'aritmètica
-     desplaçava tot el segon trimestre. Les dates s'han d'escriure. */
-  var calTrams = RE_CALENDARI.TRAMS.slice();
-
-  function tramDe(data) {
-    return RE_CALENDARI.tramDe(data, calTrams);
+  function diaISO(d) {
+    return d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2)
+      + "-" + ("0" + d.getDate()).slice(-2);
   }
 
-  function llistaTrams() { return RE_CALENDARI.llista(calTrams); }
+  /* «AAAA-MM-DD» → el començament d'aquell dia, o el final si `alFinal`.
+     Torna null si el text no és una data: un camp buit no és cap dia, i el
+     30 de febrer tampoc. */
+  function dataDeISO(txt, alFinal) {
+    var m = String(txt || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!m) return null;
+    var d = alFinal ? new Date(+m[1], +m[2] - 1, +m[3], 23, 59, 59, 999)
+                    : new Date(+m[1], +m[2] - 1, +m[3], 0, 0, 0, 0);
+    return (d.getMonth() === +m[2] - 1 && d.getDate() === +m[3]) ? d : null;
+  }
 
-  /* Historial per alumne amb la data en què cada exercici apareix per PRIMER
-     cop. És la reconstrucció descrita a dalt: es recorren els codis en ordre
-     cronològic i es va acumulant el que ja s'havia vist. */
+  /* Historial per alumne: cada exercici que ha fet, amb la data del primer
+     intent.
+
+     Es recorren els seus codis en ordre cronològic. La clau és (exercici,
+     dia), no l'exercici tot sol: el mateix exercici fet el 20 de setembre i
+     refet el 15 d'octubre, després d'esborrar, són dues feines diferents,
+     cadascuna amb el seu resultat. Quina compta ho decideix el tram que es
+     triï (vegeu `feinaDelPeriode` i les quatre regles de la capçalera). */
   function historialAlumnes() {
     var per = {};
     files.forEach(function (r) {
@@ -2361,84 +2415,96 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         return { quan: quan(r.p), mapa: mapaEstats(r.p), ambDates: !!r.p.dates };
       }).sort(function (x, y) { return x.quan - y.quan; });
 
-      /* Per a cada exercici, la millor data que se'n té:
-           · "exacta"      — la del primer intent, que porta un codi RC4;
-           · "deduida"     — la del primer codi antic (sense dates) que el
-                             porta: la reconstrucció de sempre;
-           · "desconeguda" — apareix per primer cop en un codi RC4 però sense
-                             data, o sigui que és d'abans de la seva finestra.
-         Un codi posterior pot donar la data exacta d'un exercici que abans
-         només tenia la deduïda, i llavors mana la exacta. */
-      var vist = {}, items = [];
+      /* Una fitxa per cada vegada que s'ha fet un exercici:
+           · "exacta"      — porta la data del primer intent, i compta en
+                             qualsevol tram que inclogui aquell dia;
+           · "desconeguda" — ve en un codi amb dates però sense la seva: és
+                             d'abans de la finestra de dates del codi, o
+                             importat. No és de cap tram.
+         Els codis sense dates (RC1-RC3) no fan cap fitxa. Només es compten,
+         per poder dir per què un alumne surt amb menys feina de la que sembla. */
+      var vist = {}, items = [], antics = {}, darrerAntic = null;
       codis.forEach(function (c, nc) {
-        var pos = 0;
+        if (!c.ambDates) {
+          Object.keys(c.mapa).forEach(function (clau) { antics[clau] = 1; });
+          darrerAntic = c.quan;
+          return;
+        }
         Object.keys(c.mapa).forEach(function (clau) {
-          var m = c.mapa[clau], it = vist[clau];
-          pos++;
+          var m = c.mapa[clau], ex = vist[clau] || (vist[clau] = {});
+          var on = m.f ? "d" + m.f.getTime() : "sense";
+          var it = ex[on];
           if (!it) {
+            /* Sense data, però un codi anterior ja l'havia datat: és el
+               mateix exercici, que ha sortit de la finestra de dates. */
+            if (!m.f && Object.keys(ex).length) return;
             var tall = clau.indexOf(":");
-            it = vist[clau] = {
+            it = ex[on] = {
               full: parseInt(clau.slice(0, tall), 10), id: clau.slice(tall + 1),
-              estat: m.e, dif: m.d, quan: null, precisio: "desconeguda",
-              codi: nc, ordre: pos
+              estat: m.e, dif: m.d, quan: m.f || null,
+              precisio: m.f ? "exacta" : "desconeguda", codi: nc, ordre: m.o || 0
             };
-            if (!m.f && !c.ambDates) { it.quan = c.quan; it.precisio = "deduida"; }
             items.push(it);
-          } else if (it.estat === "fallat" && m.e !== "fallat") {
+            return;
+          }
+          /* La mateixa feina, que torna a venir en un codi posterior. */
+          if (it.estat === "fallat" && m.e !== "fallat") {
             /* Fallat al primer intent i acabat en una altra estona: l'únic
                desenllaç possible és el segon intent, i com a molt val això. */
             it.estat = "segon";
           }
-          if (m.f) {
-            /* L'ordre dins d'un dia sempre ve d'un sol codi (el més recent que
-               el data), perquè la finestra de dates va per dies sencers. */
-            it.quan = m.f; it.precisio = "exacta"; it.codi = nc; it.ordre = m.o;
-          }
+          /* L'ordre dins d'un dia ve sempre del codi més recent que el data,
+             perquè la finestra de dates va per dies sencers. */
+          if (m.f) { it.codi = nc; it.ordre = m.o; }
         });
       });
-      var nDeduits = items.filter(function (it) { return it.precisio === "deduida"; }).length;
       return { clau: k, nom: a.nom, grup: a.grup, items: items,
                nCodis: codis.length, descartats: a.descartats,
                senseDates: codis.filter(function (c) { return !c.ambDates; }).length,
-               deduits: nDeduits,
+               antics: Object.keys(antics).length, darrerAntic: darrerAntic,
                primer: codis.length ? codis[0].quan : null,
                ultim: codis.length ? codis[codis.length - 1].quan : null };
     }).sort(function (x, y) { return (x.nom || "").localeCompare(y.nom || ""); });
   }
 
-  /* Quins trams entren en l'examen del tram `objectiu`, i amb quin pes.
-     Només els del MATEIX trimestre: en començar-ne un de nou, el compte torna
-     a zero i el primer examen del trimestre mira només el seu propi tram. */
-  /* El tram d'un exercici. Amb data exacta, el tram són les seves tres
-     setmanes i prou (RE_CALENDARI.tramExacte). Amb la data deduïda d'un
-     enviament, la regla de sempre: el que s'envia en una setmana de descans
-     és del tram que acaba de tancar. */
-  function tramDeItem(it) {
-    if (it.precisio === "exacta") return RE_CALENDARI.tramExacte(it.quan, calTrams);
-    if (it.precisio === "deduida") return tramDe(it.quan);
-    return null;
-  }
+  /* Els exercicis d'un alumne dins d'un tram (entre `ini` i `fi`, tots dos
+     inclosos), en l'ordre en què es van fer, i els `maxim` ÚLTIMS, que són
+     els únics que compten.
 
-  /* Els exercicis d'un alumne en un tram, en l'ordre en què es van fer, i els
-     `maxim` ÚLTIMS, que són els únics que compten.
+     Fins a l'octubre de 2026 comptaven els primers. Un alumne que fa 80
+     exercicis en un tram quedava qualificat i examinat dels 20 del primer
+     dia, que el dia de l'examen ja feia setmanes que havia fet. Amb els
+     últims, la nota i l'examen surten de la feina recent.
 
-     Fins a l'octubre de 2026 eren els primers. Un alumne que fa 80 exercicis
-     en un tram quedava qualificat i examinat dels 20 del primer dia, que el
-     dia de l'examen ja feia setmanes que havia fet. Amb els últims, la nota i
-     l'examen surten de la feina recent.
+     L'ordre és el de la data del primer intent i, dins d'un mateix dia, el
+     que diu el codi. Sense data, un exercici no és de cap tram.
 
-     L'ordre és el de la data del primer intent, que porten els codis RC4.
-     Amb els codis antics (RC1-RC3) no n'hi ha: la data és la de l'enviament
-     que porta l'exercici per primer cop i, dins d'un mateix enviament,
-     l'ordre és el de la taula (full i posició). «Últims» hi vol dir, doncs,
-     els de l'enviament més recent i, a dins, els dels fulls més alts.
+     Si un exercici hi és dues vegades (esborrat a mig tram i refet), en
+     queda una sola fitxa: la primera, amb el seu resultat. Un fallat acabat
+     més tard val, com a molt, un segon intent. Es treballa amb còpies: les
+     fitxes de l'historial no es toquen, perquè un altre tram les ha de poder
+     llegir tal com van arribar.
 
      El zero es mira a part perquè `slice(-0)` és `slice(0)` i tornaria la
      llista sencera. */
-  function feinaDelTram(items, tram, maxim) {
-    var del = items.filter(function (it) { return tramDeItem(it) === tram; });
-    del.sort(function (a, b) {
+  function feinaDelPeriode(items, ini, fi, maxim) {
+    var dins = items.filter(function (it) {
+      return it.precisio === "exacta" && it.quan >= ini && it.quan <= fi;
+    });
+    dins.sort(function (a, b) {
       return (a.quan - b.quan) || (a.codi - b.codi) || (a.ordre - b.ordre);
+    });
+    var perEx = {}, del = [];
+    dins.forEach(function (it) {
+      var k = it.full + ":" + it.id, p = perEx[k];
+      if (!p) {
+        p = perEx[k] = { full: it.full, id: it.id, estat: it.estat, dif: it.dif,
+                         quan: it.quan, precisio: it.precisio, codi: it.codi,
+                         ordre: it.ordre };
+        del.push(p);
+      } else if (p.estat === "fallat" && it.estat !== "fallat") {
+        p.estat = "segon";
+      }
     });
     return { tots: del, ultims: maxim > 0 ? del.slice(-maxim) : [] };
   }
@@ -2501,76 +2567,61 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return triats;
   }
 
-  function omplePeriodes() {
-    var sel = $("#lot-periode");
-    if (!sel) return;
-    var L = llistaTrams();
-    var enCurs = RE_CALENDARI.tramEnCurs(new Date(), calTrams);
-    /* Es marquen els trams que tenen feina enviada, perquè el professor vegi
-       d'un cop d'ull quins pot examinar de debò. */
-    var ambDades = {};
+  /* Quin interval de dies cobreixen els exercicis amb data dels codis
+     carregats. Serveix per proposar un tram i per dir-li al professor, abans
+     que el triï, de quan hi ha feina. */
+  function datesDelsCodis() {
+    var primer = null, ultim = null;
     files.forEach(function (r) {
-      if (r.p && r.p.ok && r.p.integre) ambDades[tramDe(quan(r.p))] = 1;
+      if (!r.p || !r.p.ok || !r.p.integre || !r.p.dates) return;
+      var m = mapaEstats(r.p);
+      Object.keys(m).forEach(function (clau) {
+        var f = m[clau].f;
+        if (!f) return;
+        if (!primer || f < primer) primer = f;
+        if (!ultim || f > ultim) ultim = f;
+      });
     });
-    var previ = sel.value, h = "";
-    L.forEach(function (t) {
-      h += '<option value="' + t.i + '">Tram ' + (t.i + 1)
-        + " · trimestre " + (t.trimestre + 1)
-        + " · " + dataCurta(t.inici) + " – " + dataCurta(t.fi)
-        + (enCurs && enCurs.i === t.i ? " (en curs)" : "")
-        + (ambDades[t.i] ? " · hi ha feina" : "") + "</option>";
-    });
-    sel.innerHTML = h;
-    /* Per defecte, el tram en curs. Si avui som en una setmana de descans o
-       fora de curs —o si es miren dades d'un altre any—, l'últim que en
-       tingui feina. */
-    var ambFeina = Object.keys(ambDades).map(Number).sort(function (a, b) { return a - b; });
-    var perDefecte = enCurs ? enCurs.i
-      : (ambFeina.length ? ambFeina[ambFeina.length - 1] : 0);
-    sel.value = previ !== "" && previ !== null && L[+previ] ? previ : String(perDefecte);
+    return { primer: primer, ultim: ultim };
   }
 
-  function textCalendari(trams) {
-    return trams.map(function (t) { return t[0] + " " + t[1]; }).join("\n");
-  }
-
-  /* Llegeix el quadre de text. Es valida de debò: unes dates mal posades
-     aquí desplacen tots els exàmens del curs sense dir res. */
-  function llegeixCalendari(txt) {
-    var files_ = txt.split(/\n+/).map(function (l) { return l.trim(); })
-      .filter(function (l) { return l; });
-    if (!files_.length) throw new Error("no hi ha cap tram");
-    var out = files_.map(function (l, i) {
-      var m = l.match(/^(\d{4}-\d{2}-\d{2})[\s,;]+(\d{4}-\d{2}-\d{2})$/);
-      if (!m) throw new Error("la línia " + (i + 1) + " no té la forma "
-        + "«AAAA-MM-DD AAAA-MM-DD»");
-      if (m[1] > m[2]) throw new Error("al tram " + (i + 1)
-        + ", l'inici va després del final");
-      return [m[1], m[2]];
-    });
-    for (var i = 1; i < out.length; i++) {
-      if (out[i][0] <= out[i - 1][1]) {
-        throw new Error("el tram " + (i + 1) + " comença abans que acabi l'anterior");
-      }
-    }
-    return out;
+  /* Omple les dues dates del tram. No n'hi ha cap de predeterminada: es
+     proposen les tres setmanes que acaben l'últim dia que hi ha feina als
+     codis (o avui, si encara no n'hi ha), i el professor hi posa les que
+     vulgui. Un cop les ha tocades ja no se li canvien. */
+  var periodeTocat = false;
+  function omplePeriode() {
+    var ini = $("#lot-ini"), fi = $("#lot-fi");
+    if (!ini || !fi) return;
+    var abast = datesDelsCodis();
+    $("#lot-dades").textContent = abast.ultim
+      ? "Als codis hi ha exercicis amb data del " + dataLlarga(abast.primer)
+        + " al " + dataLlarga(abast.ultim) + "."
+      : (files.length ? "Cap codi porta exercicis amb data." : "");
+    if (periodeTocat && ini.value && fi.value) return;
+    var final = abast.ultim || new Date();
+    ini.value = diaISO(new Date(final.getFullYear(), final.getMonth(), final.getDate() - 20));
+    fi.value = diaISO(final);
   }
 
   function dataCurta(d) {
     return ("0" + d.getDate()).slice(-2) + "/" + ("0" + (d.getMonth() + 1)).slice(-2);
   }
 
-  function pintaCalendari() {
-    if ($("#lot-cal-txt")) $("#lot-cal-txt").value = textCalendari(calTrams);
-  }
+  function dataLlarga(d) { return dataCurta(d) + "/" + d.getFullYear(); }
 
   function generaLot() {
     if (!files.length) {
       $("#lot-estat").innerHTML = '<span class="mal">Carrega abans el full de respostes a la primera pestanya.</span>';
       $("#lot-resum").innerHTML = ""; return;
     }
-    var objectiu = parseInt($("#lot-periode").value, 10) || 0;
-    var tram = llistaTrams()[objectiu];
+    var ini = dataDeISO($("#lot-ini").value, false);
+    var fi = dataDeISO($("#lot-fi").value, true);
+    if (!ini || !fi || ini > fi) {
+      $("#lot-estat").innerHTML = '<span class="mal">Posa les dues dates del tram: '
+        + "la primera no pot ser posterior a la segona.</span>";
+      $("#lot-resum").innerHTML = ""; return;
+    }
     var mida = ($$('input[name="lot-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
     var nPreg = MIDES_PROVA[mida];
     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
@@ -2579,7 +2630,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     var sortida = [];
 
     historialAlumnes().forEach(function (a) {
-      var f = feinaDelTram(a.items, objectiu, maxim);
+      var f = feinaDelPeriode(a.items, ini, fi, maxim);
       var estats = f.ultims.map(function (it) { return it.estat; });
       var nt = RE_CODI.notaTram(estats, maxim, valors);
       var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
@@ -2599,13 +2650,27 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           + "alterat o mal copiat) i no compt" + (a.descartats === 1 ? "a" : "en")
           + (a.nCodis ? "" : ": no li'n queda cap de bo"));
       }
-      var deduits = f.tots.filter(function (it) { return it.precisio === "deduida"; }).length;
-      if (deduits) {
-        avisos.push(deduits + " exercici" + (deduits === 1 ? "" : "s")
-          + " del tram tenen la data deduïda dels enviaments (codis d'una versió "
-          + "anterior del lloc, sense dates): algun podria ser d'un altre tram"
-          + (a.nCodis < 2 ? ", i com que només ha enviat un codi, tota aquella "
-            + "feina compta com a feta el dia de l'enviament" : ""));
+      /* Els avisos següents només surten quan falta feina: diuen on és la
+         que l'alumne potser creu que té. Amb el tram ple serien soroll. El
+         dels codis sense dates és per a qui NOMÉS n'ha enviat d'aquests: qui
+         ja n'ha enviat un amb dates té la feina fora del tram, no en un codi
+         antic, i dir-li que enviï el codi d'ara el despistaria. */
+      if (a.antics && a.senseDates === a.nCodis && n < minim) {
+        avisos.push("té " + a.antics + " exercici" + (a.antics === 1 ? "" : "s")
+          + " en " + (a.senseDates === 1 ? "un codi" : a.senseDates + " codis")
+          + " sense dates (d'una versió anterior del lloc; "
+          + (a.senseDates === 1 ? "del " : "l'últim, del ") + dataCurta(a.darrerAntic)
+          + ") que no compten per a cap tram, perquè no se sap quan es van fer: "
+          + "cal que enviï el codi d'ara");
+      }
+      var fora = a.items.filter(function (it) {
+        return it.precisio === "exacta" && (it.quan < ini || it.quan > fi);
+      }).sort(function (x, y) { return x.quan - y.quan; });
+      if (fora.length && n < minim) {
+        var d1 = dataCurta(fora[0].quan), d2 = dataCurta(fora[fora.length - 1].quan);
+        avisos.push("té " + fora.length + " exercici" + (fora.length === 1 ? "" : "s")
+          + " amb data de fora del tram triat ("
+          + (d1 === d2 ? "del " + d1 : "entre el " + d1 + " i el " + d2) + ")");
       }
       var sense = a.items.filter(function (it) { return it.precisio === "desconeguda"; }).length;
       if (sense && n < minim) {
@@ -2634,8 +2699,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
                      c: c, x: nt.x, nota: nt.nota });
     });
 
-    lotSel = { sortida: sortida, objectiu: objectiu, tram: tram, minim: minim,
-               maxim: maxim, valors: valors, perTrim: RE_CALENDARI.PER_TRIMESTRE };
+    lotSel = { sortida: sortida, ini: ini, fi: fi, minim: minim,
+               maxim: maxim, valors: valors };
     pintaLot(lotSel);
     intentaKatex();
   }
@@ -2657,9 +2722,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
 
     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
-      + "Tram " + (lot.objectiu + 1) + ", del " + dataCurta(lot.tram.inici) + " al "
-      + dataCurta(lot.tram.fi) + ". Les preguntes i la nota surten només dels "
-      + lot.maxim + " últims exercicis fets en aquestes tres setmanes. Clica una "
+      + "Tram del " + dataLlarga(lot.ini) + " al " + dataLlarga(lot.fi)
+      + ". Les preguntes i la nota surten només dels "
+      + lot.maxim + " últims exercicis fets entre aquests dos dies. Clica una "
       + "fila per veure'n l'examen i imprimir-lo sol.</div>"
       + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
       + '<th class="xifra">Fets al tram</th><th>Com</th>'
@@ -2731,14 +2796,15 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       var l = ["alumne;correu;grup;tram;fets;compten;a_la_primera;una_pista;"
         + "dues_pistes;segon_intent;fallats;nota;avisos"];
       lot.sortida.forEach(function (x) {
-        l.push([x.alumne.nom || "", x.alumne.clau, x.alumne.grup || "", lot.objectiu + 1,
+        l.push([x.alumne.nom || "", x.alumne.clau, x.alumne.grup || "",
+                diaISO(lot.ini) + "/" + diaISO(lot.fi),
                 x.n, x.compten, x.c.net, x.c.pista, x.c.pistes, x.c.segon, x.c.fallat,
                 coma(x.nota), '"' + x.avisos.join(" | ").replace(/"/g, "'") + '"'].join(";"));
       });
       var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
       var a = document.createElement("a");
       a.href = URL.createObjectURL(b);
-      a.download = "notes-tram-" + (lot.objectiu + 1) + ".csv";
+      a.download = "notes-" + diaISO(lot.ini) + "_" + diaISO(lot.fi) + ".csv";
       a.click();
     };
 
@@ -2791,8 +2857,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     return '<div class="capc"><div><h2>' + titol + "</h2>"
       + '<div class="petit apagat">' + escapa(s.alumne.nom || s.alumne.clau)
       + (s.alumne.grup ? " · " + escapa(s.alumne.grup) : "")
-      + " · tram " + (lot.objectiu + 1) + " (" + dataCurta(lot.tram.inici)
-      + " – " + dataCurta(lot.tram.fi) + ")"
+      + " · tram del " + dataCurta(lot.ini) + " al " + dataCurta(lot.fi)
       + "</div>" + (extra || "") + "</div>"
       + capcaDreta(data) + "</div>";
   }
@@ -3134,7 +3199,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
     $("#pr-individual").hidden = quin !== "individual";
     if (quin !== "lot") { $("#lot-resum").innerHTML = ""; $("#lot-estat").innerHTML = ""; }
     if (quin !== "individual") { $("#pr-resultat").innerHTML = ""; }
-    if (quin === "lot") { omplePeriodes(); }
+    if (quin === "lot") { omplePeriode(); }
     if (quin === "individual") { omplePrAlumnes(); }
   }
   $("#pr-va-lot").onclick = function () { modeExamen("lot"); };
@@ -3142,30 +3207,12 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
   $("#pr-torna-1").onclick = function () { modeExamen(null); };
   $("#pr-torna-2").onclick = function () { modeExamen(null); };
   $("#lot-genera").onclick = generaLot;
-  /* L'editor del calendari. Es desa només si les dates són vàlides: si no,
-     es diu què falla i no es toca res. */
-  $("#lot-veure-cal").onclick = function () {
-    var c = $("#lot-cal");
-    c.hidden = !c.hidden;
-    if (!c.hidden) pintaCalendari();
-  };
-  $("#lot-cal-desa").onclick = function () {
-    try {
-      calTrams = llegeixCalendari($("#lot-cal-txt").value);
-      $("#lot-cal-estat").innerHTML = '<span class="be">' + calTrams.length
-        + " trams desats.</span>";
-      omplePeriodes();
-    } catch (e) {
-      $("#lot-cal-estat").innerHTML = '<span class="mal">' + escapa(e.message)
-        + "</span>";
-    }
-  };
-  $("#lot-cal-reset").onclick = function () {
-    calTrams = RE_CALENDARI.TRAMS.slice();
-    pintaCalendari();
-    $("#lot-cal-estat").innerHTML = '<span class="be">Tornades les del curs.</span>';
-    omplePeriodes();
-  };
+  /* Un cop el professor ha tocat una data ja no se li proposa cap tram: mana
+     el que ha escrit. */
+  ["#lot-ini", "#lot-fi"].forEach(function (sel) {
+    $(sel).addEventListener("input", function () { periodeTocat = true; });
+    $(sel).addEventListener("change", function () { periodeTocat = true; });
+  });
 
 })();
 </script>
