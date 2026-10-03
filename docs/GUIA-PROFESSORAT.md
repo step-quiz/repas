@@ -123,9 +123,10 @@ examen per a cadascú **fet només amb aquella feina**.
 - **Només els fets dins de les tres setmanes del tram**, segons la data del
   primer intent. Cap exercici d'un tram anterior no pot sortir a l'examen. La
   feina feta en una setmana de descans no és de cap tram.
-- **Només els 20 primers**, per ordre de quan es van fer. Si un alumne en fa
-  25, els 5 últims no compten ni per a la nota ni per a l'examen. La taula ho
-  indica amb «compten els 20 primers».
+- **Només els 20 últims**, per ordre de quan es van fer. Si un alumne en fa
+  25, els 5 primers no compten ni per a la nota ni per a l'examen: qui fa molta
+  feina és avaluat de la més recent, no de la que va fer el primer dia del
+  tram. La taula ho indica amb «compten els 20 últims».
 - Cada apartat és un exercici: el 62a i el 62b en són dos.
 
 ### La nota de feina del tram
@@ -136,17 +137,23 @@ Cada exercici que compta aporta el seu valor sobre 10:
 |---|---|---|
 | A la primera | 10 | 1 |
 | Amb una pista | 9,5 | 0,95 |
-| Amb dues pistes o més | 8 | 0,8 |
-| Al segon intent | 7 | 0,7 |
+| Amb dues pistes o més | 8,5 | 0,85 |
+| Al segon intent | 7,5 | 0,75 |
 | Fallat | 0 | 0 |
 
 Amb la suma *x*: **nota = mín(10, 8·∛(x/10))**. Deu exercicis a la primera
-fan un 8, i vint un 10. Un exercici fallat no suma però tampoc no resta, de
-manera que provar-ne un de difícil no pot fer baixar mai la nota.
+fan un 8, i vint un 10. Un exercici fallat no suma però tampoc no resta:
+mentre l'alumne no arriba a 20, provar-ne un de difícil no li pot fer baixar
+la nota.
+
+**Passat de 20, sí que pot baixar.** Com que compten els 20 últims, cada
+exercici nou fa sortir el més antic dels que comptaven, i la nota puja o baixa
+segons què entra i què surt. Vint exercicis a la primera són un 10; si després
+se'n falla un, compten dinou a la primera i un de fallat, i és un 9,9.
 
 Un encert **al segon intent** compta com a segon intent encara que l'alumne
 hagi obert pistes. Si no fos així, obrir una pista just després d'equivocar-se
-convertiria un 0,7 en un 0,95 i esborraria l'error.
+convertiria un 0,75 en un 0,95 i esborraria l'error.
 
 Els tres valors del mig es poden canviar al panell, per si els vols ajustar.
 
@@ -170,8 +177,8 @@ correcció**, mai al full que rep ell.
 ### L'examen valida la nota de feina
 
 La nota de feina mesura **quanta** feina s'ha fet, no si s'ha après. Un alumne
-que contestés a l'atzar vint exercicis en trauria de mitjana un **7,5** (deu a
-l'atzar, un 5,9), i un que els fes amb la IA, un 10. Per això la nota de feina
+que contestés a l'atzar vint exercicis en trauria de mitjana un **7,6** (deu a
+l'atzar, un 6), i un que els fes amb la IA, un 10. Per això la nota de feina
 **mai no compta sola**: la valida sempre l'examen presencial, amb aquesta regla.
 
 | Examen | Diferència entre la feina i l'examen | Què compta |
@@ -199,7 +206,8 @@ copiï les respostes treu una nota de feina alta que l'examen invalida.
 ## L'avís que veu l'alumne
 
 El botó **Codi** li diu quants exercicis porta al tram en curs i que se'n
-demanen entre 10 i 20. En una setmana de descans, li diu que el que faci no
+demanen entre 10 i 20. Si en porta més de 20, li diu que per a la nota i
+l'examen només compten els 20 últims. En una setmana de descans, li diu que el que faci no
 compta per a cap tram i quan comença el següent.
 
 A més, quan falten **5 dies o menys** perquè es tanqui un tram, l'alumne que
@@ -227,10 +235,18 @@ pèrdua de feina. El que no hagués enviat encara, sí que es perd.
 d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i
 l'avís queda al full de correcció. Ell no el veu.
 
+**A un alumne li baixa la nota de feina després de fer més exercicis.**
+(Estàndard) Només li pot passar a qui ja en porta més de 20 al tram: compten
+els 20 últims, i si els nous li han anat pitjor que els que surten del compte,
+la nota baixa. No és cap error.
+
 **«Tenen la data deduïda dels enviaments».** (Estàndard) L'alumne ha enviat
 codis d'abans del canvi, que no porten dates. L'analitzador les dedueix
 comparant els seus enviaments, com feia abans, i ho avisa perquè algun
-exercici podria ser d'un altre tram. Es resol sol així que envia un codi nou.
+exercici podria ser d'un altre tram. Amb aquests codis tampoc no se sap en
+quin ordre es van fer els exercicis d'un mateix enviament: els «20 últims»
+són els de l'enviament més recent i, a dins, els dels fulls més alts. Es
+resol sol així que envia un codi nou.
 
 **«Han arribat sense data».** (Estàndard) El codi es va enviar més de 12
 setmanes després de fer aquells exercicis. Com que no se sap de quin tram són,

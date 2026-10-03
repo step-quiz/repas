@@ -318,7 +318,7 @@ prova("demanar una pista no pot penalitzar més que fallar al primer intent", ()
 
 prova("la primera pista gairebé no penalitza i la segona penalitza més", () => {
   assert.deepStrictEqual([RE.PES.net, RE.PES.pista, RE.PES.pistes, RE.PES.segon, RE.PES.fallat],
-    [10, 9.5, 8, 7, 0], "els valors acordats amb el professorat han canviat");
+    [10, 9.5, 8.5, 7.5, 0], "els valors acordats amb el professorat han canviat");
   assert.ok(RE.PES.net - RE.PES.pista < RE.PES.pista - RE.PES.pistes);
 });
 

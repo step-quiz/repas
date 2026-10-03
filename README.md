@@ -226,15 +226,15 @@ l'analitzador carrega aquest mateix fitxer.
 
 Cada 3 setmanes (els nou trams de `js/calendari.js`) l'alumnat fa entre 10 i 20
 exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
-tota la classe un examen de 2, 3 o 4 preguntes fet **només** amb els 20 primers
+tota la classe un examen de 2, 3 o 4 preguntes fet **només** amb els 20 últims
 exercicis que cada alumne ha fet dins d'aquell tram, i en dona la **nota de
 feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
-la primera 1, una pista 0,95, dues pistes o més 0,8, segon intent 0,7, fallat
+la primera 1, una pista 0,95, dues pistes o més 0,85, segon intent 0,75, fallat
 0). Els codis RC4 porten la data del primer intent de cada exercici, i per això
 n'hi ha prou amb un sol codi. Detall a `docs/GUIA-PROFESSORAT.md`.
 
 **La nota de feina mai no compta sola.** Mesura volum, no aprenentatge (vint
-exercicis contestats a l'atzar en donen de mitjana un 7,5), i per això la
+exercicis contestats a l'atzar en donen de mitjana un 7,6), i per això la
 valida sempre l'examen presencial: si l'examen és de menys de 5, o la feina i
 l'examen es porten més de 3 punts, només compta l'examen.
 

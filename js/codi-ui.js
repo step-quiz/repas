@@ -109,7 +109,7 @@ window.RE_CODI_UI = (function () {
         html: "<b>Tram " + (t.i + 1) + "</b> (fins al " + dm(t.fi) + "): hi portes <b>" + n
           + "</b> " + (n === 1 ? "exercici" : "exercicis") + ". Se'n demanen entre "
           + C.FEINA_MINIMA + " i " + C.FEINA_MAXIMA + (n > C.FEINA_MAXIMA
-            ? "; per a la nota i l'examen només compten els " + C.FEINA_MAXIMA + " primers."
+            ? "; per a la nota i l'examen només compten els " + C.FEINA_MAXIMA + " últims."
             : ", i com més en facis, més nota.")
       };
     }

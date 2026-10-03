@@ -52,7 +52,7 @@ window.RE = (function () {
 
      Cada exercici guarda `tf`: el moment en què es va respondre per primer
      cop. És el que decideix a quin tram de 3 setmanes pertany, i en quin
-     ordre es va fer (només compten els 20 primers de cada tram). No canvia
+     ordre es va fer (només compten els 20 últims de cada tram). No canvia
      mai més: ni en encertar al segon intent ni en repassar-lo.
 
      Els exercicis fets abans que existís `tf` no en tenen. Se'ls posa una

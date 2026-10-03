@@ -68,7 +68,7 @@
    El mini-examen de 3 setmanes demana dues coses que RC3 no podia dir:
    si l'alumne va obrir una pista o dues (no penalitzen igual), i QUAN va
    fer cada exercici (l'examen d'un tram només pot sortir de la feina
-   d'aquelles tres setmanes, i només compten els 20 primers). Fins ara la
+   d'aquelles tres setmanes, i només compten els 20 últims). Fins ara la
    data es deduïa comparant enviaments, i un codi enviat tard posava la
    feina al tram equivocat. Set estats caben en quatre caràcters igual que
    sis (7^7 < 32^4), així que el sostre de 217 ítems per full no es mou.
@@ -161,26 +161,36 @@ window.RE_CODI = (function () {
      mentre que llegir la pista i respondre bé en donava 6 garantits. Com que
      d'aquests estats en surt una nota, l'alumne que calcula aprenia a no
      demanar mai una pista, que és exactament el contrari del que volem.
-     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8) > al
-     segon intent (7). La primera pista gairebé no penalitza a posta: és
-     repàs d'ESO i hi ha coses que no es recorden. */
-  var PES = { net: 10, pista: 9.5, pistes: 8, segon: 7, fallat: 0, vist: 0, "": 0 };
+     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8,5) > al
+     segon intent (7,5). La primera pista gairebé no penalitza a posta: és
+     repàs d'ESO i hi ha coses que no es recorden. Els dos valors del mig
+     eren 8 i 7 fins a l'octubre de 2026.
+
+     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten la nota de cada codi, els valors
+     per defecte de la nota de feina d'un tram i els camps del panell del
+     mini-examen de l'analitzador, que han de dir el mateix
+     (`tests/mini_examen.test.js` ho comprova). */
+  var PES = { net: 10, pista: 9.5, pistes: 8.5, segon: 7.5, fallat: 0, vist: 0, "": 0 };
 
   /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
 
      `estats` són els dels exercicis del tram EN L'ORDRE EN QUÈ ES VAN FER.
-     Només compten els `maxim` primers (20). Cada un aporta el seu valor
-     sobre 10 (a la primera 1, una pista 0,95, dues 0,8, segon intent 0,7,
-     fallat 0), i amb la suma x:
+     Només compten els `maxim` ÚLTIMS (20), els més recents. Fins a l'octubre
+     de 2026 eren els primers, i qui feia 80 exercicis en un tram quedava
+     qualificat pels 20 del primer dia. Cada un aporta el seu valor sobre 10
+     (a la primera 1, una pista 0,95, dues 0,85, segon intent 0,75, fallat
+     0), i amb la suma x:
 
          nota = min(10, 8 · ∛(x/10))
 
      10 exercicis a la primera fan un 8 i 20 fan un 10. Un exercici fallat
-     no suma, però tampoc no resta: fer-ne un de més no pot baixar mai la
-     nota, que és el que convé si no es vol que evitin els difícils. */
+     no suma, però tampoc no resta: mentre no s'arriba al màxim, fer-ne un
+     de més no pot baixar la nota. Passat el màxim sí que pot: cada exercici
+     nou fa sortir el més antic dels que comptaven, i la nota puja o baixa
+     segons què entra i què surt. És el preu de mirar la feina recent. */
   function notaTram(estats, maxim, valors) {
     var max = maxim > 0 ? maxim : 20, v = valors || PES;
-    var compten = (estats || []).slice(0, max), x = 0;
+    var compten = (estats || []).slice(-max), x = 0;
     compten.forEach(function (e) { x += (+v[e] || 0) / 10; });
     var nota = x > 0 ? Math.min(10, 8 * Math.pow(x / 10, 1 / 3)) : 0;
     return { n: (estats || []).length, compten: compten.length, x: x, nota: nota };
@@ -343,7 +353,7 @@ window.RE_CODI = (function () {
       /* Només els exercicis fets (ni els per fer ni els oberts sense
          respondre) que tenen data i cauen dins de la finestra. S'escriuen en
          ordre cronològic perquè l'analitzador sàpiga quins són els 20
-         primers de cada tram. */
+         últims de cada tram. */
       var feta = [];
       fulls.forEach(function (f) {
         (f.dates || []).forEach(function (t, i) {

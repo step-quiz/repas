@@ -3,7 +3,7 @@
 
    Les tres regles que es vigilen aquí són les que va fixar el professorat:
      1. l'examen d'un tram surt NOMÉS dels exercicis fets en aquell tram;
-     2. d'aquests, només compten els 20 primers, per ordre de quan es van fer;
+     2. d'aquests, només compten els 20 últims, per ordre de quan es van fer;
      3. la nota de feina és min(10, 8·∛(x/10)), amb x = suma dels valors
         sobre 10 dels exercicis que compten. */
 const fs = require("fs");
@@ -60,11 +60,11 @@ comprova("la setmana de descans no és de cap tram",
   items.filter(it => /^3/.test(it.id)).every(it => tramDeItem(it) === null));
 let intrusos = 0;
 for (let n = 0; n < 2000; n++) {
-  sortejaPreguntes(f1.primers, 5).forEach(q => { if (!/^2/.test(q.it.id)) intrusos++; });
+  sortejaPreguntes(f1.ultims, 5).forEach(q => { if (!/^2/.test(q.it.id)) intrusos++; });
 }
 comprova("2.000 exàmens del tram 1, cap pregunta d'un altre tram", intrusos === 0, intrusos + " intrusos");
 
-console.log("\n== només compten els 20 primers ==");
+console.log("\n== només compten els 20 últims ==");
 const molts = [];
 for (let i = 0; i < 26; i++) {
   /* ordre desendreçat a posta: la llista no ve ordenada */
@@ -72,21 +72,41 @@ for (let i = 0; i < 26; i++) {
   molts.push({ id: (400 + k) + "a", estat: "net", quan: dia(2, Math.floor(k / 2)), precisio: "exacta", codi: 0, ordre: k });
 }
 const f2 = feinaDelTram(molts, 2, 20);
-comprova("se'n fan 26 i en compten 20", f2.tots.length === 26 && f2.primers.length === 20);
-comprova("els que compten són els 20 primers per ordre de fet",
-  f2.primers.map(it => it.ordre).join(",") === Array.from({ length: 20 }, (_, i) => i).join(","),
-  f2.primers.map(it => it.ordre).join(","));
+comprova("se'n fan 26 i en compten 20", f2.tots.length === 26 && f2.ultims.length === 20);
+comprova("els que compten són els 20 últims per ordre de fet, del més antic al més recent",
+  f2.ultims.map(it => it.ordre).join(",") === Array.from({ length: 20 }, (_, i) => i + 6).join(","),
+  f2.ultims.map(it => it.ordre).join(","));
 let fora = 0;
+const recents = new Set();
 for (let n = 0; n < 2000; n++) {
-  sortejaPreguntes(f2.primers, 5).forEach(q => { if (q.it.ordre >= 20) fora++; });
+  sortejaPreguntes(f2.ultims, 5).forEach(q => { if (q.it.ordre < 6) fora++; recents.add(q.it.ordre); });
 }
-comprova("cap pregunta surt dels que passen de 20", fora === 0, fora + "");
+comprova("cap pregunta surt dels 6 més antics, que ja no compten", fora === 0, fora + "");
+comprova("i l'exercici més recent del tram hi pot sortir", recents.has(25) && recents.size === 20, recents.size + " de 20");
+comprova("qui no arriba al màxim hi compta amb tot el que ha fet",
+  feinaDelTram(items, 1, 20).ultims.length === 15);
+comprova("amb el màxim a zero no en compta cap (slice(-0) els tornaria tots)",
+  feinaDelTram(molts, 2, 0).ultims.length === 0);
+
+/* Codis antics, sense dates: la data és la de l'enviament que porta
+   l'exercici per primer cop i, dins d'un enviament, l'ordre és el de la
+   taula. Els últims són, doncs, els de l'enviament més recent. */
+const vells = [];
+for (let i = 0; i < 30; i++) vells.push({ id: (800 + i) + "a", estat: "net", quan: dia(0, 2), precisio: "deduida", codi: 0, ordre: i + 1 });
+for (let i = 0; i < 8; i++) vells.push({ id: (900 + i) + "a", estat: "net", quan: dia(0, 16), precisio: "deduida", codi: 1, ordre: i + 1 });
+const f3 = feinaDelTram(vells, 0, 20);
+comprova("amb dates deduïdes hi entren tots els de l'enviament més recent",
+  f3.ultims.filter(it => /^9/.test(it.id)).length === 8, f3.ultims.map(it => it.id).join(","));
+comprova("i es completa amb els últims de l'enviament anterior",
+  f3.ultims.filter(it => /^8/.test(it.id)).map(it => it.ordre).join(",")
+    === Array.from({ length: 12 }, (_, i) => i + 19).join(","),
+  f3.ultims.map(it => it.id).join(","));
 
 console.log("\n== el sorteig ==");
-comprova("sempre surten 5 preguntes si n'hi ha prou", sortejaPreguntes(f1.primers, 5).length === 5);
-comprova("amb 3 exercicis surten 3, no se n'inventa cap", sortejaPreguntes(f1.primers.slice(0, 3), 5).length === 3);
+comprova("sempre surten 5 preguntes si n'hi ha prou", sortejaPreguntes(f1.ultims, 5).length === 5);
+comprova("amb 3 exercicis surten 3, no se n'inventa cap", sortejaPreguntes(f1.ultims.slice(0, 3), 5).length === 3);
 const vist = new Set();
-for (let n = 0; n < 3000; n++) sortejaPreguntes(f1.primers, 5).forEach(q => vist.add(q.it.id));
+for (let n = 0; n < 3000; n++) sortejaPreguntes(f1.ultims, 5).forEach(q => vist.add(q.it.id));
 comprova("sortejant molt, tots els exercicis del tram hi poden sortir", vist.size === 15, vist.size + " de 15");
 const mares = [];
 for (let i = 0; i < 16; i++) mares.push({ id: (500 + (i % 8)) + "abcd"[i % 4], estat: "net" });
@@ -133,13 +153,43 @@ comprova("és la fórmula min(10, 8·∛(x/10))",
 comprova("una primera pista gairebé no penalitza (10 amb una pista ≥ 7,8)", nota(rep("pista", 10)) >= 7.8, nota(rep("pista", 10)));
 comprova("dues pistes penalitzen més que una", nota(rep("pistes", 10)) < nota(rep("pista", 10)));
 comprova("però menys que un segon intent", nota(rep("pistes", 10)) > nota(rep("segon", 10)));
-comprova("fer un exercici de més i fallar-lo no baixa la nota",
+comprova("per sota del màxim, fer un exercici de més i fallar-lo no baixa la nota",
   nota(rep("net", 12).concat(["fallat"])) === nota(rep("net", 12)));
 comprova("cada exercici encertat la fa pujar fins a 20",
   Array.from({ length: 19 }, (_, k) => k + 1).every(k => nota(rep("pista", k + 1)) > nota(rep("pista", k))));
-comprova("només compten els 20 primers: el 21è fallat no fa res, i un 21è net tampoc no suma",
-  nota(rep("segon", 20).concat(["net"])) === nota(rep("segon", 20)));
+comprova("només compten els 20 últims: un fallat antic surt del compte",
+  nota(["fallat"].concat(rep("net", 20))) === 10);
+comprova("el 21è fa sortir el més antic: un net després de 20 segons intents puja la nota",
+  nota(rep("segon", 20).concat(["net"])) > nota(rep("segon", 20))
+  && Math.abs(nota(rep("segon", 20).concat(["net"])) - nota(rep("segon", 19).concat(["net"]))) < 1e-12);
+comprova("i per això, passat el màxim, un exercici fallat sí que pot baixar la nota",
+  nota(rep("net", 20).concat(["fallat"])) < 10
+  && Math.abs(nota(rep("net", 20).concat(["fallat"])) - nota(rep("net", 19))) < 1e-12);
 comprova("sense cap exercici, un 0", nota([]) === 0);
+
+console.log("\n== els valors per defecte i els textos ==");
+const P = RE_CODI.PES;
+comprova("a la primera 10 · una pista 9,5 · dues pistes o més 8,5 · segon intent 7,5 · fallat 0",
+  P.net === 10 && P.pista === 9.5 && P.pistes === 8.5 && P.segon === 7.5 && P.fallat === 0, JSON.stringify(P));
+comprova("la nota de feina els fa servir si no se li'n donen d'altres",
+  Math.abs(RE_CODI.notaTram(["net", "pista", "pistes", "segon", "fallat"], 20).x - 3.55) < 1e-12);
+/* Els valors viuen a RE_CODI.PES, però el panell de l'analitzador els porta
+   escrits als camps i al text de sota. Si algú en toca un i no els altres,
+   el professor veu una cosa i se li'n calcula una altra. */
+const camp = id => parseFloat(((src.match(new RegExp('id="' + id + '" value="([^"]*)"')) || [])[1] || "").replace(",", "."));
+comprova("els camps del panell surten amb aquests mateixos valors",
+  camp("lot-v-pista") === P.pista && camp("lot-v-pistes") === P.pistes && camp("lot-v-segon") === P.segon,
+  [camp("lot-v-pista"), camp("lot-v-pistes"), camp("lot-v-segon")].join(" · "));
+const pla = src.replace(/\s+/g, " ");
+const sobre10 = v => String(v / 10).replace(".", ",");
+comprova("i el text de sota del panell diu el mateix que els camps",
+  pla.indexOf("amb una pista " + sobre10(P.pista) + ", amb dues " + sobre10(P.pistes)
+    + ", al segon intent " + sobre10(P.segon)) > 0);
+comprova("cap text de l'analitzador no parla ja dels 20 primers",
+  !/20 primers|primers exercicis|" primers/.test(src));
+const ui = fs.readFileSync(path.join(ARREL, "js", "codi-ui.js"), "utf8");
+comprova("i a l'alumne se li diu que compten els últims",
+  /" últims\."/.test(ui) && !/" primers\."/.test(ui));
 
 console.log("\n" + (fallades ? fallades + " FALLADES" : "tot correcte"));
 process.exit(fallades ? 1 : 0);

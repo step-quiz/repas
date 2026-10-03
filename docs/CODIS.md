@@ -50,7 +50,7 @@ KK    dos caràcters de control
 **Per què hi ha RC4.** El mini-examen de 3 setmanes necessita saber si
 l'alumne va obrir una pista o dues, que no penalitzen igual, i quan va fer cada
 exercici: l'examen d'un tram només pot sortir de la feina d'aquelles tres
-setmanes, i només compten els 20 primers. Fins a RC3 la data es deduïa
+setmanes, i només compten els 20 últims. Fins a RC3 la data es deduïa
 comparant enviaments, i un codi enviat tard posava la feina al tram equivocat.
 Set estats caben en quatre caràcters igual que sis (7^7 < 32^4), així que el
 sostre de 217 exercicis per full no es mou. El bloc DATES costa uns 3
@@ -143,9 +143,9 @@ que puguin contradir-se, perquè només n'hi ha un. El forat no es tapa: no
 existeix.
 
 La fórmula és pública i està a `js/codi.js`: `net` 10 punts, una pista 9,5,
-dues pistes o més 8, `segon` 7, `fallat` 0.
+dues pistes o més 8,5, `segon` 7,5, `fallat` 0.
 
-La **nota de feina d'un tram** (`RE_CODI.notaTram`) agafa els 20 primers
+La **nota de feina d'un tram** (`RE_CODI.notaTram`) agafa els 20 últims
 exercicis del tram per ordre de fet, suma els seus valors sobre 10 (x) i dona
 `min(10, 8·∛(x/10))`: 10 exercicis a la primera fan un 8 i 20 un 10.
 

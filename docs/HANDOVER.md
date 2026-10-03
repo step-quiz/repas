@@ -335,7 +335,7 @@ decisions que costen més de reconstruir des del codi:
   és el contrari del que busca la graduació per dificultat. Els pesos són
   editables i la pàgina ho adverteix.
 - **La nota de feina no compta mai sola.** Mesura volum, no aprenentatge: vint
-  exercicis contestats a l'atzar en donen de mitjana un 7,5. El professorat la
+  exercicis contestats a l'atzar en donen de mitjana un 7,6. El professorat la
   valida sempre amb un examen presencial: si l'examen és de menys de 5, o la
   feina i l'examen es porten més de 3 punts, només compta l'examen. Per això
   no cal endurir la fórmula ni amagar les respostes (vegeu

@@ -730,7 +730,7 @@ seccio("Exàmens: ningú no desapareix en silenci");
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-seccio("Exàmens: només el tram examinat, els 20 primers i la nota de feina");
+seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
 
 /* Abans hi havia una secció que vigilava els pesos 3-2-1 entre trams. Els
    pesos ja no existeixen: l'examen d'un tram surt només de la feina d'aquell
@@ -740,8 +740,10 @@ seccio("Exàmens: només el tram examinat, els 20 primers i la nota de feina");
   const T = w.RE_TAULES, L = w.RE_CALENDARI.llista();
   const dia = (t, k) => { const x = new Date(L[t].inici.getTime() + k * 86400000); x.setHours(18, 0, 0, 0); return x; };
   const ids = T.fulls[4].items;
-  /* 12 exercicis al tram 1 i 25 al tram 2, tots amb data i en ordre. */
-  const estats = ids.map((_, i) => (i < 37 ? "net" : ""));
+  /* 12 exercicis al tram 1 i 25 al tram 2, tots amb data i en ordre. Dels 25,
+     els 5 primers són a la primera i els 20 últims al segon intent: així la
+     nota diu QUINS 20 s'han comptat i amb quins valors, i no només quants. */
+  const estats = ids.map((_, i) => (i < 17 ? "net" : (i < 37 ? "segon" : "")));
   const dates = ids.map((_, i) => (i < 12 ? dia(0, i).getTime() : (i < 37 ? dia(1, Math.floor((i - 12) * 18 / 25)).getTime() + i : 0)));
   const codi = w.RE_CODI.genera({ fulls: [{ n: 4, estats, dates }], ara: dia(1, 20) });
   obreExamens(w, d, fabrica(w, [[marca(dia(1, 20)), "tot@x.cat", "4tA", codi]]));
@@ -750,16 +752,29 @@ seccio("Exàmens: només el tram examinat, els 20 primers i la nota de feina");
   d.getElementById("lot-genera").click();
   const fila = d.querySelector("#lot-taula tbody tr");
 
-  prova("compta els 25 del tram i diu que només en compten 20", () => {
+  prova("compta els 25 del tram i diu que només en compten els 20 últims", () => {
     assert.ok(/^25\b/.test(fila.children[2].textContent.trim()), fila.children[2].textContent);
-    assert.ok(/20 primers/.test(fila.children[2].textContent), fila.children[2].textContent);
+    assert.ok(/20 últims/.test(fila.children[2].textContent), fila.children[2].textContent);
+    /* La columna «Com» pinta un punt per exercici comptat, amb l'id al títol:
+       han de ser exactament els 20 més recents del tram, i en ordre. */
+    const comptats = Array.prototype.slice.call(fila.children[3].querySelectorAll(".pt"))
+      .map(p => p.getAttribute("title").split(" · ")[0]);
+    /* Es comparen com a text: `ids` ve del window de jsdom, i una llista
+       d'un altre realm no és mai deepStrictEqual a una d'aquest. */
+    assert.strictEqual(comptats.join(" "), ids.slice(17, 37).join(" "));
   });
-  prova("20 exercicis a la primera fan un 10 de nota de feina", () => {
-    assert.strictEqual(fila.children[4].textContent.trim(), "10,0");
+  prova("la nota surt dels 20 últims i dels valors per defecte (10 · 9,5 · 8,5 · 7,5)", () => {
+    assert.strictEqual(d.getElementById("lot-v-pista").value, "9,5");
+    assert.strictEqual(d.getElementById("lot-v-pistes").value, "8,5");
+    assert.strictEqual(d.getElementById("lot-v-segon").value, "7,5");
+    /* 20 segons intents a 0,75: x = 15 i 8·∛1,5 = 9,16. Amb els 20 primers
+       (5 nets i 15 segons intents) sortiria un 9,4; amb el segon intent a 7,
+       un 8,9. */
+    assert.strictEqual(fila.children[4].textContent.trim(), "9,2");
   });
   const idsExamen = idsProva(w, d);
-  prova("cap pregunta és del tram anterior ni de més enllà dels 20 primers", () => {
-    const permesos = new Set(ids.slice(12, 32));
+  prova("cap pregunta és del tram anterior ni de fora dels 20 últims", () => {
+    const permesos = new Set(ids.slice(17, 37));
     assert.ok(idsExamen.length === 3, "la mida per defecte (mitjana) són 3: " + idsExamen.join(","));
     assert.ok(idsExamen.every(id => permesos.has(id)), idsExamen.join(","));
   });

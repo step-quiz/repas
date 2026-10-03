@@ -15,11 +15,11 @@ configure to close the gap. Read it before touching any code.
 >
 > - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Two,
 >   three or four questions per student (short / medium / long), drawn ONLY
->   from the first 20 exercises that
+>   from the LAST 20 exercises (it was the first 20 until October 2026) that
 >   student did inside the examined tram (by date of first attempt; nothing
 >   from earlier trams, nothing from rest weeks), plus a per-tram work grade
 >   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
->   one hint 0.95, two or more hints 0.8, second attempt 0.7, failed 0).
+>   one hint 0.95, two or more hints 0.85, second attempt 0.75, failed 0).
 >   Nine fixed trams per course, hardcoded in `js/calendari.js`
 >   (`FEINA_MINIMA`/`FEINA_MAXIMA` = 10/20 live there too). Output: one
 >   printable document with every exam, another with every answer key, and a

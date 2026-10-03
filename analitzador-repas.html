@@ -358,7 +358,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <button class="opcio" id="pr-va-lot">
         <b>Mini-examen estàndard de 3 setmanes</b>
         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
-        2, 3 o 4 preguntes sortejades només entre els 20 primers exercicis
+        2, 3 o 4 preguntes sortejades només entre els 20 últims exercicis
         que ha fet dins del tram, i la taula en dona la nota de feina. Surten dos
         documents per imprimir: tots els exàmens i totes les solucions.</span>
       </button>
@@ -378,7 +378,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <p class="petit apagat" style="margin:0 0 .9rem">
           Cada examen surt <b>només</b> dels exercicis que l'alumne ha fet dins
           de les tres setmanes del tram que s'examina, i d'aquests, només dels
-          20 primers. Cap exercici d'abans del tram no hi pot entrar. La taula
+          20 últims. Cap exercici d'abans del tram no hi pot entrar. La taula
           dona també la <b>nota de feina</b> de cada alumne en aquell tram.
         </p>
 
@@ -431,20 +431,22 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             <label class="petit apagat">amb una pista
               <input type="text" id="lot-v-pista" value="9,5" style="width:46px"></label>
             <label class="petit apagat">amb dues pistes o més
-              <input type="text" id="lot-v-pistes" value="8" style="width:46px"></label>
+              <input type="text" id="lot-v-pistes" value="8,5" style="width:46px"></label>
             <label class="petit apagat">al segon intent
-              <input type="text" id="lot-v-segon" value="7" style="width:46px"></label>
+              <input type="text" id="lot-v-segon" value="7,5" style="width:46px"></label>
             <span class="petit apagat">· fallat 0</span>
           </div>
           <p class="petit apagat" style="margin:.4rem 0 0">
-            Només compten els 20 primers exercicis del tram, per ordre de quan es
-            van fer (el màxim de dalt). Cada un aporta el seu valor sobre 10 —a la
-            primera 1, amb una pista 0,95, amb dues 0,8, al segon intent 0,7— i,
-            amb la suma <i>x</i>, <b>nota = mín(10, 8·∛(x/10))</b>: 10 exercicis a
-            la primera fan un 8 i 20 fan un 10. Un exercici fallat no suma, però
-            tampoc no resta. Un encert al segon intent compta com a segon intent
-            encara que s'hagin obert pistes. La feina d'una setmana de descans no
-            és de cap tram.
+            Només compten els 20 últims exercicis del tram, per ordre de quan es
+            van fer (el màxim de dalt): qui en fa més és avaluat dels més
+            recents. Cada un aporta el seu valor sobre 10 —a la primera 1, amb
+            una pista 0,95, amb dues 0,85, al segon intent 0,75— i, amb la suma
+            <i>x</i>, <b>nota = mín(10, 8·∛(x/10))</b>: 10 exercicis a la primera
+            fan un 8 i 20 fan un 10. Un exercici fallat no suma, però tampoc no
+            resta; ara bé, passat el màxim, cada exercici nou fa sortir el més
+            antic dels que comptaven. Un encert al segon intent compta com a
+            segon intent encara que s'hagin obert pistes. La feina d'una setmana
+            de descans no és de cap tram.
           </p>
           <p class="petit apagat" style="margin:.35rem 0 0">
             Qui no arribi al mínim tindrà l'examen igualment, amb l'avís ben
@@ -689,7 +691,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
    El mini-examen de 3 setmanes demana dues coses que RC3 no podia dir:
    si l'alumne va obrir una pista o dues (no penalitzen igual), i QUAN va
    fer cada exercici (l'examen d'un tram només pot sortir de la feina
-   d'aquelles tres setmanes, i només compten els 20 primers). Fins ara la
+   d'aquelles tres setmanes, i només compten els 20 últims). Fins ara la
    data es deduïa comparant enviaments, i un codi enviat tard posava la
    feina al tram equivocat. Set estats caben en quatre caràcters igual que
    sis (7^7 < 32^4), així que el sostre de 217 ítems per full no es mou.
@@ -782,26 +784,36 @@ window.RE_CODI = (function () {
      mentre que llegir la pista i respondre bé en donava 6 garantits. Com que
      d'aquests estats en surt una nota, l'alumne que calcula aprenia a no
      demanar mai una pista, que és exactament el contrari del que volem.
-     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8) > al
-     segon intent (7). La primera pista gairebé no penalitza a posta: és
-     repàs d'ESO i hi ha coses que no es recorden. */
-  var PES = { net: 10, pista: 9.5, pistes: 8, segon: 7, fallat: 0, vist: 0, "": 0 };
+     Ara: a la primera (10) > una pista (9,5) > dues pistes o més (8,5) > al
+     segon intent (7,5). La primera pista gairebé no penalitza a posta: és
+     repàs d'ESO i hi ha coses que no es recorden. Els dos valors del mig
+     eren 8 i 7 fins a l'octubre de 2026.
+
+     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten la nota de cada codi, els valors
+     per defecte de la nota de feina d'un tram i els camps del panell del
+     mini-examen de l'analitzador, que han de dir el mateix
+     (`tests/mini_examen.test.js` ho comprova). */
+  var PES = { net: 10, pista: 9.5, pistes: 8.5, segon: 7.5, fallat: 0, vist: 0, "": 0 };
 
   /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
 
      `estats` són els dels exercicis del tram EN L'ORDRE EN QUÈ ES VAN FER.
-     Només compten els `maxim` primers (20). Cada un aporta el seu valor
-     sobre 10 (a la primera 1, una pista 0,95, dues 0,8, segon intent 0,7,
-     fallat 0), i amb la suma x:
+     Només compten els `maxim` ÚLTIMS (20), els més recents. Fins a l'octubre
+     de 2026 eren els primers, i qui feia 80 exercicis en un tram quedava
+     qualificat pels 20 del primer dia. Cada un aporta el seu valor sobre 10
+     (a la primera 1, una pista 0,95, dues 0,85, segon intent 0,75, fallat
+     0), i amb la suma x:
 
          nota = min(10, 8 · ∛(x/10))
 
      10 exercicis a la primera fan un 8 i 20 fan un 10. Un exercici fallat
-     no suma, però tampoc no resta: fer-ne un de més no pot baixar mai la
-     nota, que és el que convé si no es vol que evitin els difícils. */
+     no suma, però tampoc no resta: mentre no s'arriba al màxim, fer-ne un
+     de més no pot baixar la nota. Passat el màxim sí que pot: cada exercici
+     nou fa sortir el més antic dels que comptaven, i la nota puja o baixa
+     segons què entra i què surt. És el preu de mirar la feina recent. */
   function notaTram(estats, maxim, valors) {
     var max = maxim > 0 ? maxim : 20, v = valors || PES;
-    var compten = (estats || []).slice(0, max), x = 0;
+    var compten = (estats || []).slice(-max), x = 0;
     compten.forEach(function (e) { x += (+v[e] || 0) / 10; });
     var nota = x > 0 ? Math.min(10, 8 * Math.pow(x / 10, 1 / 3)) : 0;
     return { n: (estats || []).length, compten: compten.length, x: x, nota: nota };
@@ -964,7 +976,7 @@ window.RE_CODI = (function () {
       /* Només els exercicis fets (ni els per fer ni els oberts sense
          respondre) que tenen data i cauen dins de la finestra. S'escriuen en
          ordre cronològic perquè l'analitzador sàpiga quins són els 20
-         primers de cada tram. */
+         últims de cada tram. */
       var feta = [];
       fulls.forEach(function (f) {
         (f.dates || []).forEach(function (t, i) {
@@ -2360,7 +2372,7 @@ window.RE_CODI = (function () {
     var PLA = [
       { nom: "berta", grup: "4tA", feina: [13, 14, 14], env: [{ t: 0, d: 19 }, { t: 1, d: 19 }, { t: 2, d: 19 }] },
       { nom: "jordi", grup: "4tA", feina: [11, 13, 12], env: [{ t: 0, d: 18 }, { t: 1, d: 18 }, { t: 2, d: 18 }] },
-      /* Passa de 20 a l'últim tram: només en compten els 20 primers. */
+      /* Passa de 20 a l'últim tram: només en compten els 20 últims. */
       { nom: "laia",  grup: "4tA", feina: [15, 17, 23], env: [{ t: 0, d: 20 }, { t: 1, d: 20 }, { t: 2, d: 20 }] },
       { nom: "marc",  grup: "4tB", feina: [12, 11, 12], env: [{ t: 0, d: 17 }, { t: 1, d: 17 }, { t: 2, d: 17 }] },
       /* Només envia un codi, al final. Com que el codi porta la data de cada
@@ -3145,7 +3157,7 @@ window.RE_CODI = (function () {
   //
   // Un examen per a cada alumne del grup, tots de cop, fet NOMÉS amb la feina
   // del tram que s'examina: cap exercici d'un tram anterior no hi pot entrar.
-  // I d'aquesta feina, només els 20 primers exercicis, per ordre de quan es
+  // I d'aquesta feina, només els 20 últims exercicis, per ordre de quan es
   // van fer, que són també els que fan la nota de feina del tram.
   //
   // QUAN ES VA FER CADA EXERCICI. Els codis RC4 porten la data del primer
@@ -3158,7 +3170,7 @@ window.RE_CODI = (function () {
   // codi del 3 d'octubre i sí al del 24 es va fer entremig. És una estimació,
   // i quan un examen en depèn, el full de correcció ho diu.
   //
-  // EL SORTEIG. Les preguntes surten a l'atzar d'entre els 20 primers
+  // EL SORTEIG. Les preguntes surten a l'atzar d'entre els 20 últims
   // exercicis del tram, sense repetir exercici mare mentre en quedin de
   // nous.
 
@@ -3261,13 +3273,27 @@ window.RE_CODI = (function () {
   }
 
   /* Els exercicis d'un alumne en un tram, en l'ordre en què es van fer, i els
-     `maxim` primers, que són els únics que compten. */
+     `maxim` ÚLTIMS, que són els únics que compten.
+
+     Fins a l'octubre de 2026 eren els primers. Un alumne que fa 80 exercicis
+     en un tram quedava qualificat i examinat dels 20 del primer dia, que el
+     dia de l'examen ja feia setmanes que havia fet. Amb els últims, la nota i
+     l'examen surten de la feina recent.
+
+     L'ordre és el de la data del primer intent, que porten els codis RC4.
+     Amb els codis antics (RC1-RC3) no n'hi ha: la data és la de l'enviament
+     que porta l'exercici per primer cop i, dins d'un mateix enviament,
+     l'ordre és el de la taula (full i posició). «Últims» hi vol dir, doncs,
+     els de l'enviament més recent i, a dins, els dels fulls més alts.
+
+     El zero es mira a part perquè `slice(-0)` és `slice(0)` i tornaria la
+     llista sencera. */
   function feinaDelTram(items, tram, maxim) {
     var del = items.filter(function (it) { return tramDeItem(it) === tram; });
     del.sort(function (a, b) {
       return (a.quan - b.quan) || (a.codi - b.codi) || (a.ordre - b.ordre);
     });
-    return { tots: del, primers: del.slice(0, maxim) };
+    return { tots: del, ultims: maxim > 0 ? del.slice(-maxim) : [] };
   }
 
   /* Els valors de cada exercici per a la nota. El de la primera (10) i el del
@@ -3294,7 +3320,7 @@ window.RE_CODI = (function () {
      per tram. Evita repetir exercici mare mentre queden mares sense fer
      servir, pel mateix motiu que a la prova individual: cinc apartats del
      mateix problema no són cinc preguntes. */
-  /* Sorteja `quantes` preguntes d'entre `pool` (els 20 primers exercicis del
+  /* Sorteja `quantes` preguntes d'entre `pool` (els 20 últims exercicis del
      tram, i prou). Evita repetir exercici mare mentre en quedin de nous, pel
      mateix motiu que a la prova individual: cinc apartats del mateix
      problema no són cinc preguntes. */
@@ -3407,11 +3433,11 @@ window.RE_CODI = (function () {
 
     historialAlumnes().forEach(function (a) {
       var f = feinaDelTram(a.items, objectiu, maxim);
-      var estats = f.primers.map(function (it) { return it.estat; });
+      var estats = f.ultims.map(function (it) { return it.estat; });
       var nt = RE_CODI.notaTram(estats, maxim, valors);
       var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
       estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
-      var pool = f.primers.filter(function (it) { return RE_BANC[it.id]; });
+      var pool = f.ultims.filter(function (it) { return RE_BANC[it.id]; });
       var preguntes = sortejaPerBlocs(pool, nPreg);
       var n = f.tots.length, avisos = [];
 
@@ -3457,7 +3483,7 @@ window.RE_CODI = (function () {
           + "exercici perquè no ha treballat prou temes en aquest tram");
       }
       sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
-                     n: n, compten: f.primers.length, primers: f.primers,
+                     n: n, compten: f.ultims.length, ultims: f.ultims,
                      c: c, x: nt.x, nota: nt.nota });
     });
 
@@ -3486,7 +3512,7 @@ window.RE_CODI = (function () {
     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
       + "Tram " + (lot.objectiu + 1) + ", del " + dataCurta(lot.tram.inici) + " al "
       + dataCurta(lot.tram.fi) + ". Les preguntes i la nota surten només dels "
-      + lot.maxim + " primers exercicis fets en aquestes tres setmanes. Clica una "
+      + lot.maxim + " últims exercicis fets en aquestes tres setmanes. Clica una "
       + "fila per veure'n l'examen i imprimir-lo sol.</div>"
       + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
       + '<th class="xifra">Fets al tram</th><th>Com</th>'
@@ -3503,8 +3529,8 @@ window.RE_CODI = (function () {
         + '<td class="xifra">' + x.n
         + (x.n < lot.minim ? ' <span class="avis">sota ' + lot.minim + "</span>" : "")
         + (x.n > lot.maxim ? ' <span class="petit apagat">compten els '
-            + lot.maxim + " primers</span>" : "")
-        + "</td><td>" + punts(x.primers.map(function (it) { return { id: it.id, estat: it.estat }; }))
+            + lot.maxim + " últims</span>" : "")
+        + "</td><td>" + punts(x.ultims.map(function (it) { return { id: it.id, estat: it.estat }; }))
         + '</td><td class="xifra">' + (x.n
             ? '<span class="nota ' + classeNota(x.nota) + '">' + coma(x.nota) + "</span>"
             : '<span class="apagat">0</span>')
@@ -3648,7 +3674,7 @@ window.RE_CODI = (function () {
     s.preguntes.forEach(function (q) { mix[q.it.dif || 2] = (mix[q.it.dif || 2] || 0) + 1; });
     var extra = '<div class="petit apagat">NO repartir · Feina del tram: ' + s.n
       + " exercici" + (s.n === 1 ? "" : "s")
-      + (s.n > lot.maxim ? " (compten els " + lot.maxim + " primers)" : "")
+      + (s.n > lot.maxim ? " (compten els " + lot.maxim + " últims)" : "")
       + " · nota de feina " + coma(s.nota) + "</div>"
       + '<div class="petit apagat">Nivells: ' + mix[1]
       + " trivials · " + mix[2] + " directes · " + mix[3] + " encadenats · "
