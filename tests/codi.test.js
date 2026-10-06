@@ -303,7 +303,7 @@ prova("dos codis amb el mateix detall donen la mateixa nota", () => {
   const f = fullsAleatoris([5]);
   const a = RE.llegeix(RE.genera({ fulls: f }));
   const b = RE.llegeix(RE.genera({ fulls: f }));
-  assert.strictEqual(a.resum.nota, b.resum.nota);
+  assert.deepStrictEqual(a.resum, b.resum);
   assert.notStrictEqual(RE.neteja(RE.genera({ fulls: f })).slice(3, 6),
     "###", "el salt hauria de fer que dos codis iguals no siguin idèntics");
 });
@@ -322,14 +322,12 @@ prova("la primera pista gairebé no penalitza i la segona penalitza més", () =>
   assert.ok(RE.PES.net - RE.PES.pista < RE.PES.pista - RE.PES.pistes);
 });
 
-prova("la nota surt dels pesos publicats", () => {
+prova("el resum del codi no porta cap nota: només el recompte", () => {
   const n = 6, ids = T.fulls[n].items;
   const estats = ids.map((_, i) => (i < 10 ? ["net", "segon", "pista", "fallat", "net"][i % 5] : ""));
   const p = RE.llegeix(RE.genera({ fulls: [{ n, estats }] }));
-  const c = p.resum.comptes;
-  const esperat = (RE.PES.net * c.net + RE.PES.segon * c.segon + RE.PES.pista * c.pista + RE.PES.pistes * c.pistes)
-    / (RE.PES.net * p.resum.fets) * 10;
-  assert.ok(Math.abs(p.resum.nota - esperat) < 0.05);
+  assert.ok(!("nota" in p.resum));
+  assert.strictEqual(p.resum.fets, 10);
 });
 
 prova("els exercicis oberts i no contestats no compten com a feina", () => {

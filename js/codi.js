@@ -166,10 +166,10 @@ window.RE_CODI = (function () {
      repàs d'ESO i hi ha coses que no es recorden. Els dos valors del mig
      eren 8 i 7 fins a l'octubre de 2026.
 
-     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten la nota de cada codi, els valors
-     per defecte de la nota de feina d'un tram i els camps del panell del
-     mini-examen de l'analitzador, que han de dir el mateix
-     (`tests/mini_examen.test.js` ho comprova). */
+     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten els valors per defecte de la nota
+     de feina d'un tram i els camps del panell del mini-examen de
+     l'analitzador, que han de dir el mateix (`tests/mini_examen.test.js` ho
+     comprova). */
   var PES = { net: 10, pista: 9.5, pistes: 8.5, segon: 7.5, fallat: 0, vist: 0, "": 0 };
 
   /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
@@ -515,23 +515,24 @@ window.RE_CODI = (function () {
     return r;
   }
 
-  /* Recompte i nota. La nota NO viatja dins del codi: es deriva aquí dels
-     estats. Així no hi pot haver un codi on la nota i el detall es
-     contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
+  /* Recompte. Aquí NO hi ha cap nota, a posta. Fins a l'octubre de 2026 hi
+     havia la mitjana de tot el que portava el codi, i l'analitzador la
+     ensenyava al costat de la nota d'un tram: dues notes diferents per a un
+     mateix alumne, totes dues «correctes». Ara la nota és una de sola
+     (`notaTram`, de dalt) i la calcula l'analitzador per al tram que tria el
+     professor. La nota tampoc no viatja dins del codi: així no hi pot haver un
+     codi on la nota i el detall es contradiguin. */
   function resum(r) {
-    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
+    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, fets = 0;
     var perDif = { 1: 0, 2: 0, 3: 0, 4: 0 };   /* trivial, directa, encadenada, completa */
     r.fulls.forEach(function (f) {
       f.items.forEach(function (it) {
         if (!it.estat) return;
         c[it.estat]++;
-        if (it.estat !== "vist") { fets++; punts += PES[it.estat]; perDif[it.dif]++; }
+        if (it.estat !== "vist") { fets++; perDif[it.dif]++; }
       });
     });
-    return {
-      comptes: c, fets: fets, perDif: perDif,
-      nota: fets ? Number((punts / (10 * fets) * 10).toFixed(1)) : null
-    };
+    return { comptes: c, fets: fets, perDif: perDif };
   }
 
   // ── RECOLLIDA DE L'ESTAT DES DEL NAVEGADOR ───────────────────────────────

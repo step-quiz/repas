@@ -118,14 +118,14 @@ seccio("Càrrega d'un full de respostes");
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-seccio("Feina mínima demanada");
+seccio("Feina mínima demanada (exercicis fets al tram)");
 
 {
   const { w, d } = obre();
   const ara = new Date(2026, 9, 20, 18, 0);
   d.getElementById("entrada").value = fabrica(w, [
-    [marca(ara), "poc@e.cat", "1rA", codiDe(w, [4], 3, ara)],
-    [marca(ara), "molt@e.cat", "1rA", codiDe(w, [4], 40, ara)],
+    [marca(ara), "poc@e.cat", "1rA", codiDatat(w, 0, 3, ara)],
+    [marca(ara), "molt@e.cat", "1rA", codiDatat(w, 0, 40, ara)],
   ]);
   d.getElementById("btn-llegeix").click();
   d.getElementById("f-min").value = "10";
@@ -182,14 +182,17 @@ seccio("Progrés del trimestre");
   d.getElementById("p-exerc").value = "60";
   d.getElementById("p-accepta").click();
 
-  const nota = nom => {
+  const fila = nom => {
     let r = null;
     d.querySelectorAll("#t-progres tbody tr.clic").forEach(tr => {
       const c = tr.querySelectorAll("td");
-      if (c[0].textContent.trim() === nom) r = parseFloat(c[8].textContent.replace(",", "."));
+      if (c[0].textContent.trim() === nom) r = c;
     });
     return r;
   };
+  /* Setmanes amb feina (columna 3) i % de l'objectiu d'exercicis (barra de la 4) */
+  const setmanes = nom => parseInt(fila(nom)[3].textContent, 10);
+  const volum = nom => parseInt(fila(nom)[4].querySelector(".barra").getAttribute("title"), 10);
 
   prova("la capçalera diu amb quines condicions s'ha calculat", () => {
     const t = d.querySelector(".capçalera-res").textContent.replace(/\s+/g, " ");
@@ -197,9 +200,16 @@ seccio("Progrés del trimestre");
     assert.ok(/11 setmanes/.test(t) && /60 exercicis/.test(t));
   });
 
-  prova("qui ve cada setmana treu més nota que qui ho fa tot de cop", () => {
-    assert.ok(nota("regular") > nota("cop"),
-      "regular=" + nota("regular") + " cop=" + nota("cop"));
+  prova("qui ve cada setmana té més setmanes amb feina que qui ho fa tot de cop", () => {
+    assert.ok(setmanes("regular") > setmanes("cop"),
+      "regular=" + setmanes("regular") + " cop=" + setmanes("cop"));
+  });
+
+  prova("aquesta pestanya ja no posa cap nota: ni columna, ni pesos, ni CSV amb nota", () => {
+    const caps = [...d.querySelectorAll("#t-progres thead th")].map(th => th.textContent.trim());
+    assert.ok(!caps.includes("Nota"), caps.join(" | "));
+    assert.ok(!d.getElementById("p-w1") && !d.getElementById("p-sumapesos"));
+    assert.ok(!/qualificaci|pesos/i.test(d.getElementById("p-resultats").textContent));
   });
 
   prova("el resum avisa de la feina concentrada", () => {
@@ -207,13 +217,13 @@ seccio("Progrés del trimestre");
   });
 
   prova("canviar un paràmetre no recalcula tot sol", () => {
-    const abans = nota("cop");
+    const abans = volum("cop");
     d.getElementById("p-exerc").value = "200";
     d.getElementById("p-exerc").dispatchEvent(new w.Event("input"));
-    assert.strictEqual(nota("cop"), abans);
+    assert.strictEqual(volum("cop"), abans);
     assert.ok(d.getElementById("p-accepta").className.includes("pendent"));
     d.getElementById("p-accepta").click();
-    assert.ok(nota("cop") < abans);
+    assert.ok(volum("cop") < abans);
   });
 }
 
@@ -776,6 +786,8 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
   triaTram(d, 1);
   d.getElementById("lot-genera").click();
   const fila = d.querySelector("#lot-taula tbody tr");
+  /* La nota NO surt a la taula del mini-examen: surt a «Per alumne». */
+  const filaNota = d.querySelector("#t-alumnes tbody tr");
 
   prova("compta els 25 del tram i diu que només en compten els 20 últims", () => {
     assert.ok(/^25\b/.test(fila.children[2].textContent.trim()), fila.children[2].textContent);
@@ -795,7 +807,7 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
     /* 20 segons intents a 0,75: x = 15 i 8·∛1,5 = 9,16. Amb els 20 primers
        (5 nets i 15 segons intents) sortiria un 9,4; amb el segon intent a 7,
        un 8,9. */
-    assert.strictEqual(fila.children[4].textContent.trim(), "9,2");
+    assert.strictEqual(filaNota.children[4].textContent.trim(), "9,2");
   });
   const idsExamen = idsProva(w, d);
   prova("cap pregunta és del tram anterior ni de fora dels 20 últims", () => {
@@ -803,8 +815,12 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
     assert.ok(idsExamen.length === 3, "la mida per defecte (mitjana) són 3: " + idsExamen.join(","));
     assert.ok(idsExamen.every(id => permesos.has(id)), idsExamen.join(","));
   });
-  prova("hi ha un botó per baixar les notes", () => {
-    assert.ok(d.getElementById("lot-csv"));
+  prova("el mini-examen ja no té nota ni CSV de notes: les notes surten només de «Per alumne»", () => {
+    assert.ok(!d.getElementById("lot-csv"));
+    const caps = [...d.querySelectorAll("#lot-taula thead th")].map(th => th.textContent.trim());
+    assert.ok(!caps.some(c => /nota/i.test(c)), caps.join(" | "));
+    assert.ok(!/nota de feina \d/.test(d.getElementById("pr-correccio").textContent));
+    assert.ok(d.getElementById("btn-xlsx"));
   });
   prova("els pesos entre trams ja no hi són", () => {
     assert.ok(!d.getElementById("lot-pesos"));
@@ -888,7 +904,8 @@ seccio("Exàmens: cada tram comença de zero");
     triaTram(d, tram);
     d.getElementById("lot-genera").click();
     const r = { avisos: d.getElementById("lot-resum").textContent.replace(/\s+/g, " ") };
-    Array.prototype.slice.call(d.querySelectorAll("#lot-taula tbody tr")).forEach(tr => {
+    /* La nota es llegeix de «Per alumne»: Alumne, Grup, Feina, Com, Nota. */
+    Array.prototype.slice.call(d.querySelectorAll("#t-alumnes tbody tr")).forEach(tr => {
       r[tr.children[0].textContent.trim()] = {
         fets: tr.children[2].textContent.trim(), nota: tr.children[4].textContent.trim() };
     });
@@ -1000,6 +1017,228 @@ seccio("El full de respostes no pot injectar res a la pàgina");
     assert.strictEqual(e('a"b'), "a&quot;b");
     assert.strictEqual(e("a'b"), "a&#39;b");
     assert.strictEqual(e("<b>&"), "&lt;b&gt;&amp;");
+  });
+}
+
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Una sola nota: la del tram, sobre els 20 últims, i només a «Per alumne»");
+
+/* Els codis són els REALS d'una classe (octubre de 2026). És el cas que va
+   fer descobrir el problema: el mateix alumne tenia una nota a «Per alumne»
+   (la mitjana de tot el codi) i una altra al mini-examen (la del tram), i cap
+   no era un error. Amb la mitjana, mtaohid21 treia un 8,4 i zmagar21 un 9,6;
+   amb la nota del tram, un 7,5 i un 9,9. Ara només n'hi ha una. */
+const REAL = [
+  ["04/10/2026 15:42:48", "zmagar21@instarradell.cat", "2Bat", "RC4BS-F0CEE-PT0F1-48D51-46241-BBWQA-00000-00000-00000-00000-00000-00000-0000C-H64YM-1HYEN-231ZZ-03210-1R000-012M0-1000M-41V41-W41X4-1Y41Z-10010-11021-03104-20020-12022-03204-30030-13023-03304-V4"],
+  ["04/10/2026 15:44:07", "zmagar21@instarradell.cat", "2Bat", "RC43G-80CEE-QT0F1-48D51-46241-BBWQA-00000-00000-00000-00000-00000-00000-0000C-H64YM-1HYEN-231ZZ-03210-1R000-012M0-1000M-41V41-W41X4-1Y41Z-10010-11021-03104-20020-12022-03204-30030-13023-03304-A5"],
+  ["04/10/2026 19:07:00", "mtaohid21@instarradell.cat", "2Bat", "RC459-V0CEH-WR022-46SS9-DSK1K-21H12-W100R-00001-2M010-00A20-02012-02203-20420-52062-07208-209WG"],
+  ["04/10/2026 21:34:38", "araissouni21@instarradell.cat", "2Bat", "RC4PC-Z0CEM-6SGVN-461G4-61G46-2Y000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-00000-45ZG1-4EBFA-HYEN0-00000-00000-00000-00000-00000-0000C-G439R-20001-46241-00CF1-HYEN1-H12F1-ZZ000-90000-02M03-080R1-00101-10210-31041-05106-10710-81091-0A10B-10C10-D10E1-0F10G-10H10-J14C1-4D14E-14F10-K0701-20000-0H41V-41W41-X41Y4-1Z420-20120-25065-07508-50950-A50BA-03A04-A05N3"],
+  ["04/10/2026 21:55:58", "dagreda25@instarradell.cat", "2Bat", "RC4PM-F0CEM-FRGJ1-HYENE-00000-00000-00000-00000-00000-00000-00000-047JB-KBCW6-HKJMX-TT46C-V3000-00000-007N4-C22W1-4X101-20000-02M01-000M5-1Z520-52152-45255-27529-52A52-B52G5-2J52K-52Q52-D52S5-2W52V-52X52-Y52Z2-J"]
+];
+/* Escriu en un camp i avisa la pàgina, com ho faria un teclat. */
+function escriu(w, d, id, v, ev) {
+  d.getElementById(id).value = v;
+  d.getElementById(id).dispatchEvent(new w.Event(ev || "input", { bubbles: true }));
+}
+const notesDe = d => {
+  const r = {};
+  d.querySelectorAll("#t-alumnes tbody tr").forEach(tr => {
+    r[tr.children[0].textContent.trim()] = tr.children[4].textContent.replace("*", "").trim();
+  });
+  return r;
+};
+
+{
+  const { w, d } = obre();
+  d.getElementById("entrada").value = fabrica(w, REAL);
+  d.getElementById("btn-llegeix").click();
+  escriu(w, d, "f-ini", "2026-09-14");
+  escriu(w, d, "f-fi", "2026-10-04");
+  const n = notesDe(d);
+
+  prova("les notes són les del tram (20 últims), no la mitjana de tot el codi", () => {
+    assert.deepStrictEqual(n, {
+      zmagar21: "9,9", mtaohid21: "7,5", araissouni21: "9,9", dagreda25: "9,8" });
+  });
+  prova("cap de les notes és la mitjana d'abans (9,6 · 8,4 · 9,1)", () => {
+    const t = d.getElementById("t-alumnes").textContent;
+    assert.ok(!/9,6|8,4|9,1/.test(t.replace(/\d+\/\d+/g, "")), t.slice(0, 300));
+  });
+  prova("qui en té més de 20 ho diu: compten els 20 últims", () => {
+    const tr = [...d.querySelectorAll("#t-alumnes tbody tr")]
+      .filter(x => /araissouni21/.test(x.textContent))[0];
+    assert.ok(/42/.test(tr.children[2].textContent) && /20 últims/.test(tr.children[2].textContent),
+      tr.children[2].textContent);
+  });
+  prova("el tram de dalt i el del mini-examen són el mateix", () => {
+    assert.strictEqual(d.getElementById("lot-ini").value, "2026-09-14");
+    assert.strictEqual(d.getElementById("lot-fi").value, "2026-10-04");
+  });
+  prova("tocar el tram des del mini-examen repinta les notes i el tram de dalt", () => {
+    escriu(w, d, "lot-ini", "2026-10-04");
+    escriu(w, d, "lot-fi", "2026-10-04");
+    assert.strictEqual(d.getElementById("f-ini").value, "2026-10-04");
+    assert.strictEqual(d.getElementById("f-fi").value, "2026-10-04");
+    assert.ok(/els 20 últims|Tram/.test(d.getElementById("f-tram").textContent));
+    escriu(w, d, "lot-ini", "2026-09-14");
+    assert.deepStrictEqual(notesDe(d), n);
+  });
+  prova("un tram sense feina dona zero a tothom, no desapareix ningú", () => {
+    escriu(w, d, "f-ini", "2026-01-01");
+    escriu(w, d, "f-fi", "2026-01-10");
+    assert.deepStrictEqual(notesDe(d), {
+      zmagar21: "0,0", mtaohid21: "0,0", araissouni21: "0,0", dagreda25: "0,0" });
+    escriu(w, d, "f-ini", "2026-09-14");
+    escriu(w, d, "f-fi", "2026-10-04");
+  });
+  prova("amb les dates girades no hi ha nota, i es diu", () => {
+    escriu(w, d, "f-ini", "2026-10-04");
+    escriu(w, d, "f-fi", "2026-09-14");
+    assert.ok(/sense tram no hi ha nota/.test(d.getElementById("t-alumnes").textContent));
+    escriu(w, d, "f-ini", "2026-09-14");
+    escriu(w, d, "f-fi", "2026-10-04");
+  });
+  prova("la feina mínima de dalt i la del mini-examen són la mateixa", () => {
+    escriu(w, d, "f-min", "15");
+    assert.strictEqual(d.getElementById("lot-minim").value, "15");
+    escriu(w, d, "lot-minim", "10");
+    assert.strictEqual(d.getElementById("f-min").value, "10");
+  });
+  prova("canviar el valor d'un estat al mini-examen canvia la nota de «Per alumne»", () => {
+    const abans = notesDe(d).mtaohid21;
+    escriu(w, d, "lot-v-segon", "0");
+    assert.notStrictEqual(notesDe(d).mtaohid21, abans);
+    escriu(w, d, "lot-v-segon", "7,5");
+    assert.strictEqual(notesDe(d).mtaohid21, abans);
+  });
+  prova("Enviaments no porta nota: ni columna ni «Nota calculada» al detall", () => {
+    const caps = [...d.querySelectorAll("#t-env thead th")].map(th => th.textContent.trim());
+    assert.ok(!caps.some(c => /nota/i.test(c)), caps.join(" | "));
+    d.querySelector("#t-env tbody tr.clic").dispatchEvent(new w.MouseEvent("click", { bubbles: true }));
+    assert.ok(!/Nota calculada/.test(d.querySelector("#t-env tr.detall").textContent));
+  });
+  prova("cap element de nota fora de la taula «Per alumne»", () => {
+    d.querySelectorAll(".nota").forEach(el => {
+      assert.ok(el.closest("#t-alumnes"), "nota fora de «Per alumne»: " + el.parentNode.tagName);
+    });
+  });
+  prova("el motor no dona cap nota del codi: només el recompte", () => {
+    const p = w.RE_CODI.llegeix(REAL[2][3]);
+    assert.ok(p.ok && !("nota" in p.resum), Object.keys(p.resum).join(","));
+  });
+  prova("el CSV de resum porta la nota del tram, i una sola", () => {
+    let csv = "";
+    w.Blob = function (parts) { csv = parts.join(""); };
+    w.URL.createObjectURL = () => "blob:x";
+    w.HTMLAnchorElement.prototype.click = function () {};
+    d.getElementById("btn-csv").click();
+    const l = csv.replace("\ufeff", "").split("\n");
+    assert.ok(/;nota;/.test(l[0]) && (l[0].match(/nota/g) || []).length === 1, l[0]);
+    const mt = l.filter(x => /^mtaohid21;/.test(x))[0].split(";");
+    assert.strictEqual(mt[l[0].split(";").indexOf("nota")], "7,5");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("XLSX de notes: correu i nota, i res més");
+
+/* Llegeix el ZIP que genera l'analitzador (mètode 0, sense compressió) amb
+   un lector independent del que l'ha escrit, i en comprova els CRC. */
+function llegeixZip(buf) {
+  const zlib = require("zlib");
+  const e = buf.length - 22;
+  assert.strictEqual(buf.readUInt32LE(e), 0x06054b50, "no hi ha final de ZIP");
+  const n = buf.readUInt16LE(e + 10), mida = buf.readUInt32LE(e + 12), off = buf.readUInt32LE(e + 16);
+  assert.strictEqual(off + mida, e, "el directori central no encaixa");
+  const fitxers = {};
+  let p = off;
+  for (let i = 0; i < n; i++) {
+    assert.strictEqual(buf.readUInt32LE(p), 0x02014b50);
+    const crc = buf.readUInt32LE(p + 16), cs = buf.readUInt32LE(p + 20), us = buf.readUInt32LE(p + 24);
+    const nl = buf.readUInt16LE(p + 28), lo = buf.readUInt32LE(p + 42);
+    const nom = buf.slice(p + 46, p + 46 + nl).toString("utf8");
+    assert.strictEqual(buf.readUInt16LE(p + 10), 0, "només sense compressió");
+    assert.strictEqual(buf.readUInt32LE(lo), 0x04034b50);
+    const ini = lo + 30 + buf.readUInt16LE(lo + 26) + buf.readUInt16LE(lo + 28);
+    const dades = buf.slice(ini, ini + cs);
+    assert.strictEqual(cs, us);
+    assert.strictEqual(zlib.crc32(dades) >>> 0, crc, "CRC de " + nom);
+    fitxers[nom] = dades.toString("utf8");
+    p += 46 + nl + buf.readUInt16LE(p + 30) + buf.readUInt16LE(p + 32);
+  }
+  return fitxers;
+}
+
+{
+  const { w, d } = obre();
+  const ara = new Date(2026, 9, 4, 20, 0);
+  /* El full de respostes real porta dd/mm/aaaa; el de la prova, mm/dd/aaaa. Es
+     fabrica en el format real i s'hi afegeix l'última fila a mà. */
+  const tsv = fabrica(w, REAL) + ["04/10/2026 20:00:00", "o'brien&co@x.cat", "2Bat",
+    codiDatat(w, 0, 14, ara)].join("\t") + "\n";
+  d.getElementById("entrada").value = tsv;
+  d.getElementById("btn-llegeix").click();
+  escriu(w, d, "f-ini", "2026-09-14");
+  escriu(w, d, "f-fi", "2026-10-04");
+  /* Un filtre actiu no pot treure ningú de l'XLSX. */
+  escriu(w, d, "f-text", "zmagar");
+
+  let blob = null;
+  w.Blob = function (parts, o) { blob = { parts, type: o && o.type }; };
+  let nomFitxer = null;
+  w.URL.createObjectURL = () => "blob:x";
+  w.HTMLAnchorElement.prototype.click = function () { nomFitxer = this.download; };
+  d.getElementById("btn-xlsx").click();
+  const zip = Buffer.concat(blob.parts.map(x => Buffer.from(x)));
+  const f = llegeixZip(zip);
+  const fulla = f["xl/worksheets/sheet1.xml"];
+  const files2 = [...fulla.matchAll(/<row r="(\d+)">(.*?)<\/row>/g)].map(m => ({
+    r: +m[1],
+    text: [...m[2].matchAll(/<t>(.*?)<\/t>/g)].map(x => x[1]),
+    nums: [...m[2].matchAll(/<c r="B\d+" s="2"><v>(.*?)<\/v>/g)].map(x => x[1])
+  }));
+
+  prova("és un XLSX de veritat: les parts mínimes hi són i el CRC quadra", () => {
+    ["[Content_Types].xml", "_rels/.rels", "xl/workbook.xml", "xl/_rels/workbook.xml.rels",
+     "xl/styles.xml", "xl/worksheets/sheet1.xml"].forEach(n => assert.ok(f[n], "falta " + n));
+    assert.ok(/spreadsheetml\.sheet/.test(blob.type));
+  });
+  prova("el nom diu el tram", () => {
+    assert.strictEqual(nomFitxer, "notes-2026-09-14_2026-10-04.xlsx");
+  });
+  prova("només dues columnes: correu i nota", () => {
+    assert.deepStrictEqual(files2[0].text, ["Correu electrònic", "Nota"]);
+    assert.ok(!/<c r="C\d+"/.test(fulla), "hi ha una tercera columna");
+    assert.ok(/<dimension|<cols>/.test(fulla));
+  });
+  prova("hi surt tota la classe, encara que hi hagi un filtre posat", () => {
+    assert.deepStrictEqual(files2.slice(1).map(r => r.text[0]), [
+      "araissouni21@instarradell.cat", "dagreda25@instarradell.cat",
+      "mtaohid21@instarradell.cat", "o'brien&amp;co@x.cat",
+      "zmagar21@instarradell.cat"]);
+  });
+  prova("la nota és un número (no un text), amb un decimal, igual que a la taula", () => {
+    const per = {};
+    files2.slice(1).forEach(r => { per[r.text[0].split("@")[0]] = r.nums[0]; });
+    assert.strictEqual(per.zmagar21, "9.9");
+    assert.strictEqual(per.mtaohid21, "7.5");
+    assert.strictEqual(per.araissouni21, "9.9");
+    assert.strictEqual(per.dagreda25, "9.8");
+    files2.slice(1).forEach(r => {
+      assert.strictEqual(r.nums.length, 1, "la nota ha de ser una cel·la numèrica");
+      assert.ok(!isNaN(parseFloat(r.nums[0])) && /^\d+(\.\d)?$/.test(r.nums[0]), r.nums[0]);
+    });
+  });
+  prova("el correu amb caràcters especials va escapat dins l'XML", () => {
+    assert.ok(/o'brien&amp;co@x\.cat/.test(fulla), fulla.slice(0, 400));
+  });
+  prova("sense tram no es baixa res, i es diu", () => {
+    blob = null;
+    escriu(w, d, "f-ini", "");
+    d.getElementById("btn-xlsx").click();
+    assert.strictEqual(blob, null);
+    assert.ok(/Posa les dues dates/.test(d.getElementById("f-dades").textContent));
   });
 }
 

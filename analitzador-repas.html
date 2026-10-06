@@ -217,20 +217,40 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           <option value="ok">Només els correctes</option>
           <option value="avis">Amb avís</option>
           <option value="mal">Amb problema</option>
-          <option value="poca">Feina insuficient</option>
+          <option value="poca">Feina insuficient al tram</option>
           <option value="compartit">Codi repetit entre alumnes</option>
         </select>
+        <span class="petit apagat" id="compte"></span>
+      </div>
+
+      <h2>Per alumne</h2>
+      <p class="petit apagat" style="margin:0 0 .5rem;max-width:56rem">
+        <b>Aquí, i només aquí, hi ha les notes.</b> És la nota de feina de cada alumne
+        en el tram que triïs: només compten els exercicis que va fer per primer cop
+        entre aquestes dues dates (tots dos dies inclosos) i, d'aquests, els
+        <span id="f-maxim">20</span> últims.
+        Cada un aporta el seu valor sobre 10 —a la primera 1, amb una pista 0,95, amb
+        dues 0,85, al segon intent 0,75, fallat 0— i, amb la suma <i>x</i>,
+        <b>nota = mín(10, 8·∛(x/10))</b>. Els valors i el màxim es poden canviar
+        a <b>Prova escrita › Mini-examen estàndard</b>, i s'apliquen aquí i allà alhora.
+      </p>
+      <div class="filtres" id="f-tram">
+        <b class="petit">Tram</b>
+        <label class="petit apagat">Del
+          <input type="date" id="f-ini"></label>
+        <label class="petit apagat">al
+          <input type="date" id="f-fi"></label>
         <label class="petit apagat" style="display:inline-flex;align-items:center;gap:.35rem">
           Feina mínima demanada
           <input type="number" id="f-min" value="10" min="0" max="999" style="width:74px">
           exercicis
         </label>
-        <span class="petit apagat" id="compte"></span>
+        <span class="petit apagat" id="f-dades"></span>
         <span style="flex:1"></span>
+        <button class="btn petit" id="btn-xlsx"
+                title="Tota la classe, sense els filtres: correu i nota del tram">Baixa les notes (XLSX)</button>
         <button class="btn buit petit" id="btn-csv">Baixa el resum (CSV)</button>
       </div>
-
-      <h2>Per alumne</h2>
       <div class="taula-env"><table id="t-alumnes"></table></div>
 
       <h2>Enviaments</h2>
@@ -308,27 +328,6 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           treballat cap setmana.
         </p>
       </div>
-      <details style="margin-top:.4rem">
-        <summary class="petit apagat" style="cursor:pointer">Pesos de la qualificació</summary>
-        <div class="filtres" style="margin-top:.6rem">
-          <label class="petit apagat">Constància
-            <input type="number" id="p-w1" value="35" min="0" max="100" style="width:60px">%</label>
-          <label class="petit apagat">Volum
-            <input type="number" id="p-w2" value="35" min="0" max="100" style="width:60px">%</label>
-          <label class="petit apagat">Progrés
-            <input type="number" id="p-w3" value="20" min="0" max="100" style="width:60px">%</label>
-          <label class="petit apagat">Encert
-            <input type="number" id="p-w4" value="10" min="0" max="100" style="width:60px">%</label>
-          <span class="petit apagat" id="p-sumapesos"></span>
-        </div>
-        <p class="petit apagat" style="margin:.5rem 0 0;max-width:52rem">
-          <b>L'encert va amb poc pes a propòsit.</b> Això és pràctica de repàs, no un
-          examen: si l'encert pesa molt, a l'alumne li surt a compte no obrir pistes i
-          evitar els exercicis difícils, que és el contrari del que interessa. El que
-          pesa és venir sovint, fer feina i anar millorant. Si el puges, fes-ho sabent
-          què estàs incentivant.
-        </p>
-      </details>
       <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin-top:1rem">
         <button class="btn" id="p-accepta">Accepta i calcula</button>
         <span class="petit" id="p-estat"></span>
@@ -359,8 +358,9 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         <b>Mini-examen estàndard</b>
         <span class="petit apagat">Per a tot el grup de cop. Cada alumne rep
         2, 3 o 4 preguntes sortejades només entre els 20 últims exercicis
-        que ha fet dins del tram que triïs, i la taula en dona la nota de feina. Surten dos
-        documents per imprimir: tots els exàmens i totes les solucions.</span>
+        que ha fet dins del tram que triïs. Surten dos documents per imprimir: tots els
+        exàmens i totes les solucions. La nota de feina d'aquell tram es veu a
+        «Full de respostes».</span>
       </button>
       <button class="opcio" id="pr-va-individual">
         <b>Examen personalitzat a un alumne</b>
@@ -382,8 +382,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           hi pot entrar: ni exercicis d'abans o de després, ni resultats de
           codis anteriors a un esborrat, ni codis sense dates. L'alumnat
           esborra els codis l'endemà de cada examen (botó Codi › Eliminar tots
-          els codis), i el tram següent comença de zero. La taula dona també
-          la <b>nota de feina</b> de cada alumne en aquell tram.
+          els codis), i el tram següent comença de zero. La nota de feina
+          de cada alumne en aquell tram no surt aquí: és a <b>Full de respostes › Per alumne</b>.
         </p>
 
         <div class="camp" style="border-top:none;padding-top:0">
@@ -391,7 +391,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           <p class="petit apagat" style="margin:.2rem 0 .5rem">
             El tries tu, amb dues dates: no hi ha trams fixos ni setmanes de
             descans. Només compten els exercicis que l'alumne va fer per primer
-            cop entre aquests dos dies, tots dos inclosos.
+            cop entre aquests dos dies, tots dos inclosos. <b>És el mateix tram
+            que a «Full de respostes»</b>: si el canvies aquí o allà, canvia als dos llocs.
           </p>
           <div class="filtres" style="margin:.3rem 0 0">
             <label class="petit apagat">Del
@@ -403,7 +404,7 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         </div>
 
         <div class="camp">
-          <b>Feina demanada i nota</b>
+          <b>Feina demanada i valor de cada exercici</b>
           <div class="filtres" style="margin:.3rem 0 0">
             <label class="petit apagat">Entre
               <input type="number" id="lot-minim" value="10" min="0" max="99"
@@ -428,7 +429,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
             <span class="petit apagat">· fallat 0</span>
           </div>
           <p class="petit apagat" style="margin:.4rem 0 0">
-            Només compten els 20 últims exercicis del tram, per ordre de quan es
+            Aquests valors i el màxim de dalt també fan la nota de «Full de
+            respostes». Només compten els 20 últims exercicis del tram, per ordre de quan es
             van fer (el màxim de dalt): qui en fa més és avaluat dels més
             recents. Cada un aporta el seu valor sobre 10 —a la primera 1, amb
             una pista 0,95, amb dues 0,85, al segon intent 0,75— i, amb la suma
@@ -560,7 +562,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
         d'un caràcter i <b>totes</b> les transposicions de dos: si algú canvia un "fallat" per
         un "a la primera", surt. A més, la nota no viatja dins del codi —es calcula aquí a
         partir del detall— i per això no hi pot haver un codi on la nota i el detall es
-        contradiguin.
+        contradiguin. I n'hi ha una de sola: la nota de feina del tram que triïs, que només
+        es veu a <b>Full de respostes › Per alumne</b> i és la que es baixa a l'XLSX.
       </p>
       <p class="petit" style="margin:.8rem 0 0;padding:.7rem .85rem;background:var(--ambre-suau);
                 border:1px solid #EBD3A3;border-radius:9px;color:#5A3800">
@@ -779,10 +782,10 @@ window.RE_CODI = (function () {
      repàs d'ESO i hi ha coses que no es recorden. Els dos valors del mig
      eren 8 i 7 fins a l'octubre de 2026.
 
-     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten la nota de cada codi, els valors
-     per defecte de la nota de feina d'un tram i els camps del panell del
-     mini-examen de l'analitzador, que han de dir el mateix
-     (`tests/mini_examen.test.js` ho comprova). */
+     AQUESTA TAULA ÉS L'ÚNICA. D'aquí surten els valors per defecte de la nota
+     de feina d'un tram i els camps del panell del mini-examen de
+     l'analitzador, que han de dir el mateix (`tests/mini_examen.test.js` ho
+     comprova). */
   var PES = { net: 10, pista: 9.5, pistes: 8.5, segon: 7.5, fallat: 0, vist: 0, "": 0 };
 
   /* ── NOTA DE FEINA D'UN TRAM DE 3 SETMANES ───────────────────────────────
@@ -1128,23 +1131,24 @@ window.RE_CODI = (function () {
     return r;
   }
 
-  /* Recompte i nota. La nota NO viatja dins del codi: es deriva aquí dels
-     estats. Així no hi pot haver un codi on la nota i el detall es
-     contradiguin, que és per on s'esmuny la manipulació en aquests sistemes. */
+  /* Recompte. Aquí NO hi ha cap nota, a posta. Fins a l'octubre de 2026 hi
+     havia la mitjana de tot el que portava el codi, i l'analitzador la
+     ensenyava al costat de la nota d'un tram: dues notes diferents per a un
+     mateix alumne, totes dues «correctes». Ara la nota és una de sola
+     (`notaTram`, de dalt) i la calcula l'analitzador per al tram que tria el
+     professor. La nota tampoc no viatja dins del codi: així no hi pot haver un
+     codi on la nota i el detall es contradiguin. */
   function resum(r) {
-    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, punts = 0, fets = 0;
+    var c = { net: 0, segon: 0, pista: 0, pistes: 0, fallat: 0, vist: 0 }, fets = 0;
     var perDif = { 1: 0, 2: 0, 3: 0, 4: 0 };   /* trivial, directa, encadenada, completa */
     r.fulls.forEach(function (f) {
       f.items.forEach(function (it) {
         if (!it.estat) return;
         c[it.estat]++;
-        if (it.estat !== "vist") { fets++; punts += PES[it.estat]; perDif[it.dif]++; }
+        if (it.estat !== "vist") { fets++; perDif[it.dif]++; }
       });
     });
-    return {
-      comptes: c, fets: fets, perDif: perDif,
-      nota: fets ? Number((punts / (10 * fets) * 10).toFixed(1)) : null
-    };
+    return { comptes: c, fets: fets, perDif: perDif };
   }
 
   // ── RECOLLIDA DE L'ESTAT DES DEL NAVEGADOR ───────────────────────────────
@@ -1638,9 +1642,16 @@ window.RE_CODI = (function () {
   function filtra() {
     var t = $("#f-text").value.trim().toLowerCase();
     var f = $("#f-full").value, e = $("#f-estat").value;
+    var poques = {};
+    if (e === "poca") {
+      var tr = tramVigent(), mn = feinaMinima();
+      if (tr) calculaTram(tr).forEach(function (g) { if (g.n < mn) poques[g.a.clau] = 1; });
+    }
     return files.filter(function (r) {
       if (e === "compartit") { if (!r.compartit || !r.compartit.length) return false; }
-      else if (e === "poca") { if (!r.p.ok || r.p.resum.fets >= feinaMinima()) return false; }
+      else if (e === "poca") {
+        if (!poques[(r.brut.correu || r.brut.alumne || "?").toLowerCase()]) return false;
+      }
       else if (e && r.estat !== e) return false;
       if (f && !(r.p.ok && r.p.fulls.some(function (x) { return String(x.n) === f; }))) return false;
       if (t && (r.brut.alumne + " " + r.brut.grup).toLowerCase().indexOf(t) < 0) return false;
@@ -1649,6 +1660,7 @@ window.RE_CODI = (function () {
   }
 
   function pinta() {
+    espeja("#lot-ini", "#f-ini"); espeja("#lot-fi", "#f-fi"); espeja("#lot-minim", "#f-min");
     var fs = filtra();
     $("#compte").textContent = fs.length + (fs.length === 1 ? " enviament" : " enviaments");
     pintaCompartits();
@@ -1834,10 +1846,9 @@ window.RE_CODI = (function () {
 
   function pintaEnviaments(fs) {
     if (!fs.length) { $("#t-env").innerHTML = '<tr><td class="buit">Cap enviament amb aquests filtres</td></tr>'; return; }
-    var min = feinaMinima();
     var h = "<thead><tr><th></th><th>Alumne</th><th>Grup</th><th>Enviat</th><th>Generat</th>"
-          + "<th>Fulls</th><th>Feina" + (min ? " (de " + min + ")" : "") + "</th>"
-          + "<th>Nota</th><th>Detall</th></tr></thead><tbody>";
+          + "<th>Fulls</th><th>Exercicis del codi</th>"
+          + "<th>Detall</th></tr></thead><tbody>";
     fs.forEach(function (r) {
       var p = r.p;
       var fulls = p.ok ? p.fulls.map(function (f) { return f.n; }).join(", ") : "—";
@@ -1850,8 +1861,7 @@ window.RE_CODI = (function () {
         + '<td class="mono petit">' + (p.ok ? r.dataGen + " " + ("0" + p.hora).slice(-2) + ":" + ("0" + p.minut).slice(-2) : "—")
         + (r.forat !== null && r.forat > FORAT ? ' <span class="avis">+' + r.forat + "m</span>" : "") + "</td>"
         + '<td class="mono">' + fulls + "</td>"
-        + "<td>" + (p.ok ? pintaFeina(p.resum.fets, min) : "—") + "</td>"
-        + "<td>" + (p.ok ? pintaNota(p.resum.nota, p.resum.fets, min) : "—") + "</td>"
+        + "<td>" + (p.ok ? p.resum.fets : "—") + "</td>"
         + "<td>" + (tots.length ? punts(tots) : '<span class="apagat">—</span>') + "</td></tr>";
       if (obert === r.i) h += detall(r);
     });
@@ -1864,15 +1874,14 @@ window.RE_CODI = (function () {
   function detall(r) {
     var p = r.p;
     if (!p.ok) {
-      return '<tr class="detall"><td colspan="9"><b class="mal">' + p.error + "</b>"
+      return '<tr class="detall"><td colspan="8"><b class="mal">' + p.error + "</b>"
         + '<div class="mono petit apagat" style="margin-top:.4rem;word-break:break-all">' + r.brut.codi + "</div></td></tr>";
     }
-    var h = '<tr class="detall"><td colspan="9">';
+    var h = '<tr class="detall"><td colspan="8">';
     if (!p.integre) h += '<p class="mal petit" style="margin:0 0 .8rem"><b>' + p.error + "</b></p>";
 
     h += '<div class="graella" style="margin-bottom:1rem">'
       + dada("Exercicis fets", p.resum.fets)
-      + dada("Nota calculada", p.resum.nota === null ? "—" : p.resum.nota.toFixed(1).replace(".", ","))
       + dada("A la primera", p.resum.comptes.net)
       + dada("Amb una pista", p.resum.comptes.pista)
       + dada("Amb dues pistes o més", p.resum.comptes.pistes)
@@ -1948,47 +1957,167 @@ window.RE_CODI = (function () {
       .sort(function (a, b) { return a.brut.alumne.localeCompare(b.brut.alumne); });
   }
 
+  /* ── LA NOTA: UN SOL CÀLCUL, UN SOL LLOC ───────────────────────────────
+     Fins a l'octubre de 2026 l'analitzador tenia TRES notes amb el mateix
+     nom: la mitjana de tot el que hi havia al codi (Per alumne i
+     Enviaments), la nota de feina d'un tram (mini-examen) i la qualificació
+     del trimestre. Un mateix alumne podia tenir un 8,4, un 7,5 i un 9,1 sense
+     que cap fos un error: cadascuna mesurava una cosa diferent.
+
+     Ara n'hi ha una. És la nota de feina d'un tram (RE_CODI.notaTram) sobre
+     els `maxim` ÚLTIMS exercicis fets per primer cop entre dues dates, i només
+     es mostra a la taula «Per alumne». Totes les pantalles que en necessiten
+     una passen per `calculaTram`, que és l'ÚNIC lloc on es crida `notaTram`.
+     El tram, el màxim i els valors dels exercicis són els mateixos per a la
+     taula, per al mini-examen i per a les baixades (CSV i XLSX), perquè
+     viuen en uns únics camps: els de dates del tram (#lot-ini / #lot-fi) i
+     els valors del panell del mini-examen, que la barra de «Full de
+     respostes» (#f-ini / #f-fi / #f-min) només reflecteix i edita. */
+  function tramVigent() {
+    var ini = dataDeISO($("#lot-ini").value, false);
+    var fi = dataDeISO($("#lot-fi").value, true);
+    if (!ini || !fi || ini > fi) return null;
+    return { ini: ini, fi: fi,
+             maxim: Math.max(1, parseInt($("#lot-maxim").value, 10) || RE_CALENDARI.FEINA_MAXIMA),
+             valors: valorsLot() };
+  }
+
+  /* Una fila per alumne (també els que no tenen cap codi legible: sortir amb
+     un zero i el motiu és millor que desaparèixer de la llista). */
+  function calculaTram(t) {
+    return historialAlumnes().map(function (a) {
+      var f = feinaDelPeriode(a.items, t.ini, t.fi, t.maxim);
+      var estats = f.ultims.map(function (it) { return it.estat; });
+      var nt = RE_CODI.notaTram(estats, t.maxim, t.valors);
+      var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
+      estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
+      return { a: a, f: f, c: c, n: f.tots.length, compten: f.ultims.length,
+               x: nt.x, nota: nt.nota };
+    });
+  }
+
+  /* Què cal dir d'una feina que no és la que s'esperava. Els fa servir la
+     taula «Per alumne» (com a estat) i el mini-examen (al full de correcció),
+     i són literalment els mateixos textos. */
+  function avisosNota(g, t, minim) {
+    var a = g.a, n = g.n, ini = t.ini, fi = t.fi, avisos = [];
+
+      if (n < minim) {
+        avisos.push("ha fet " + n + " exercici" + (n === 1 ? "" : "s")
+          + " al tram i el mínim és " + minim);
+      }
+      if (a.descartats) {
+        avisos.push(a.descartats + " enviament"
+          + (a.descartats === 1 ? "" : "s") + " seu"
+          + (a.descartats === 1 ? " no s'ha" : " no s'han") + " pogut llegir (codi "
+          + "alterat o mal copiat) i no compt" + (a.descartats === 1 ? "a" : "en")
+          + (a.nCodis ? "" : ": no li'n queda cap de bo"));
+      }
+      /* Els avisos següents només surten quan falta feina: diuen on és la
+         que l'alumne potser creu que té. Amb el tram ple serien soroll. El
+         dels codis sense dates és per a qui NOMÉS n'ha enviat d'aquests: qui
+         ja n'ha enviat un amb dates té la feina fora del tram, no en un codi
+         antic, i dir-li que enviï el codi d'ara el despistaria. */
+      if (a.antics && a.senseDates === a.nCodis && n < minim) {
+        avisos.push("té " + a.antics + " exercici" + (a.antics === 1 ? "" : "s")
+          + " en " + (a.senseDates === 1 ? "un codi" : a.senseDates + " codis")
+          + " sense dates (d'una versió anterior del lloc; "
+          + (a.senseDates === 1 ? "del " : "l'últim, del ") + dataCurta(a.darrerAntic)
+          + ") que no compten per a cap tram, perquè no se sap quan es van fer: "
+          + "cal que enviï el codi d'ara");
+      }
+      var fora = a.items.filter(function (it) {
+        return it.precisio === "exacta" && (it.quan < ini || it.quan > fi);
+      }).sort(function (x, y) { return x.quan - y.quan; });
+      if (fora.length && n < minim) {
+        var d1 = dataCurta(fora[0].quan), d2 = dataCurta(fora[fora.length - 1].quan);
+        avisos.push("té " + fora.length + " exercici" + (fora.length === 1 ? "" : "s")
+          + " amb data de fora del tram triat ("
+          + (d1 === d2 ? "del " + d1 : "entre el " + d1 + " i el " + d2) + ")");
+      }
+      var sense = a.items.filter(function (it) { return it.precisio === "desconeguda"; }).length;
+      if (sense && n < minim) {
+        avisos.push(sense + " exercici" + (sense === 1 ? "" : "s") + " seu"
+          + (sense === 1 ? "" : "s") + " han arribat sense data perquè el codi "
+          + "es va enviar massa setmanes després, i no compten per a cap tram");
+      }
+    return avisos;
+  }
+
+  /* Valor numèric de la nota tal com es veu a la taula: un decimal. El que
+     es baixa és el que es veu, ni una dècima més. */
+  function notaArrodonida(g) { return Number(g.nota.toFixed(1)); }
+
   function pintaAlumnes(fs) {
-    var ult = ultimPerAlumne(fs);
-    if (!ult.length) { $("#t-alumnes").innerHTML = '<tr><td class="buit">Cap codi vàlid amb aquests filtres</td></tr>'; return; }
+    var cont = $("#t-alumnes");
+    var av = document.getElementById("avis-feina");
+    if (av) av.innerHTML = "";
+    var t = tramVigent();
+    $("#f-maxim").textContent = t ? t.maxim : RE_CALENDARI.FEINA_MAXIMA;
+    if (!t) {
+      cont.innerHTML = '<tr><td class="buit">Posa les dues dates del tram (la primera no pot '
+        + "ser posterior a la segona): sense tram no hi ha nota.</td></tr>";
+      return;
+    }
+    var visibles = {};
+    fs.forEach(function (r) {
+      visibles[(r.brut.correu || r.brut.alumne || "?").toLowerCase()] = 1;
+    });
+    var G = calculaTram(t).filter(function (g) { return visibles[g.a.clau]; });
+    if (!G.length) {
+      cont.innerHTML = '<tr><td class="buit">Cap alumne amb aquests filtres</td></tr>';
+      return;
+    }
+
     var fullsVistos = [];
-    ult.forEach(function (r) { r.p.fulls.forEach(function (f) { if (fullsVistos.indexOf(f.n) < 0) fullsVistos.push(f.n); }); });
-    fullsVistos.sort(function (a, b) { return a - b; });
+    G.forEach(function (g) {
+      g.f.tots.forEach(function (it) {
+        if (fullsVistos.indexOf(it.full) < 0) fullsVistos.push(it.full);
+      });
+    });
+    fullsVistos.sort(function (x, y) { return x - y; });
 
     var min = feinaMinima();
-    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Feina" + (min ? " (de " + min + ")" : "")
-          + "</th><th>Nota</th>";
+    var h = "<thead><tr><th>Alumne</th><th>Grup</th><th>Feina al tram"
+          + (min ? " (de " + min + ")" : "") + "</th><th>Com</th><th>Nota</th>";
     fullsVistos.forEach(function (n) { h += "<th>F" + n + "</th>"; });
-    h += "<th>Últim codi</th></tr></thead><tbody>";
-    ult.forEach(function (r) {
-      var p = r.p;
-      h += "<tr><td>" + escapa(r.brut.alumne) + '</td><td class="apagat">' + escapa(r.brut.grup || "—") + "</td>"
-        + "<td>" + pintaFeina(p.resum.fets, min) + "</td>"
-        + "<td>" + pintaNota(p.resum.nota, p.resum.fets, min) + "</td>";
+    h += "<th>Estat</th><th>Últim codi</th></tr></thead><tbody>";
+    G.forEach(function (g) {
+      var av2 = avisosNota(g, t, min);
+      h += "<tr><td>" + escapa(g.a.nom || g.a.clau) + '</td><td class="apagat">'
+        + escapa(g.a.grup || "—") + "</td>"
+        + "<td>" + pintaFeina(g.n, min)
+        + (g.n > t.maxim ? ' <span class="petit apagat">compten els ' + t.maxim + " últims</span>" : "")
+        + "</td>"
+        + "<td>" + punts(g.f.ultims.map(function (it) { return { id: it.id, estat: it.estat }; })) + "</td>"
+        + '<td class="xifra">' + pintaNota(g.nota, g.n, min) + "</td>";
       fullsVistos.forEach(function (n) {
-        var f = p.fulls.filter(function (x) { return x.n === n; })[0];
-        if (!f) { h += '<td class="apagat">·</td>'; return; }
-        var fets = f.items.filter(function (x) { return x.estat && x.estat !== "vist"; }).length;
-        h += '<td class="mono petit">' + fets + "/" + f.items.length + "</td>";
+        var k = g.f.tots.filter(function (it) { return it.full === n; }).length;
+        var total = (RE_TAULES.fulls[n] || { items: [] }).items.length;
+        h += k ? '<td class="mono petit">' + k + "/" + total + "</td>"
+               : '<td class="apagat">·</td>';
       });
-      h += '<td class="mono petit apagat">' + r.dataGen + "</td></tr>";
+      h += "<td>" + (av2.length
+          ? '<span class="avis petit" title="' + escapa(av2.join("; ")) + '">'
+            + escapa(av2[0].split(":")[0]) + "</span>"
+          : '<span class="apagat">—</span>') + "</td>"
+        + '<td class="mono petit apagat">' + (g.a.ultimDia || "—") + "</td></tr>";
     });
-    $("#t-alumnes").innerHTML = h + "</tbody>";
+    cont.innerHTML = h + "</tbody>";
 
     if (min) {
-      var curts = ult.filter(function (r) { return r.p.resum.fets < min; });
-      var av = document.getElementById("avis-feina");
+      var curts = G.filter(function (g) { return g.n < min; });
       if (!av) {
         av = document.createElement("p");
         av.id = "avis-feina"; av.className = "petit";
-        $("#t-alumnes").parentNode.parentNode.insertBefore(av, $("#t-alumnes").parentNode);
+        cont.parentNode.parentNode.insertBefore(av, cont.parentNode);
       }
       av.innerHTML = curts.length
-        ? '<span class="mal">' + curts.length + " de " + ult.length + " no arriben als "
-          + min + " exercicis:</span> " + curts.map(function (r) {
-              return escapa(r.brut.alumne) + " (" + r.p.resum.fets + ")";
+        ? '<span class="mal">' + curts.length + " de " + G.length + " no arriben als "
+          + min + " exercicis en aquest tram:</span> " + curts.map(function (g) {
+              return escapa(g.a.nom || g.a.clau) + " (" + g.n + ")";
             }).join(", ")
-        : '<span class="ok">Tothom arriba als ' + min + " exercicis demanats.</span>";
+        : '<span class="ok">Tothom arriba als ' + min + " exercicis demanats en aquest tram.</span>";
     }
   }
 
@@ -2073,6 +2202,7 @@ window.RE_CODI = (function () {
       + ' <span class="apagat petit">· dates en format '
       + (FORMAT_DATA === "md" ? "mes/dia/any" : "dia/mes/any") + "</span>";
     $("#resultats").hidden = false;
+    omplePeriode();
     obertP = null;
     cfgAplicada = null;
     $("#p-accepta").classList.remove("pendent");
@@ -2089,12 +2219,26 @@ window.RE_CODI = (function () {
     r.onload = function () { $("#entrada").value = r.result; carrega(r.result); };
     r.readAsText(f, "utf-8");
   };
-  ["#f-text", "#f-full", "#f-estat", "#f-min"].forEach(function (s) {
+  ["#f-text", "#f-full", "#f-estat"].forEach(function (s) {
     $(s).oninput = pinta; $(s).onchange = pinta;
   });
+  /* El tram (dues dates) i la feina mínima viuen a dos llocs: aquí i al panell
+     del mini-examen. Tocar l'un toca l'altre, i la taula de notes es repinta. */
+  [["#f-ini", "#lot-ini"], ["#f-fi", "#lot-fi"], ["#f-min", "#lot-minim"]].forEach(function (par) {
+    [[par[0], par[1]], [par[1], par[0]]].forEach(function (d) {
+      var f = function () { espeja(d[0], d[1]); if (files.length) pinta(); };
+      $(d[0]).addEventListener("input", f);
+      $(d[0]).addEventListener("change", f);
+    });
+  });
+  /* El màxim d'exercicis i els valors de cada estat també canvien la nota. */
+  ["#lot-maxim", "#lot-v-pista", "#lot-v-pistes", "#lot-v-segon"].forEach(function (sel) {
+    var f = function () { if (files.length) pinta(); };
+    $(sel).addEventListener("input", f);
+    $(sel).addEventListener("change", f);
+  });
 
-  ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif",
-   "#p-w1", "#p-w2", "#p-w3", "#p-w4"].forEach(function (s) {
+  ["#p-ini", "#p-fi", "#p-setm", "#p-exerc", "#p-dif"].forEach(function (s) {
     $(s).oninput = marcaPendent;
     $(s).onchange = marcaPendent;
   });
@@ -2143,19 +2287,168 @@ window.RE_CODI = (function () {
     }
   };
 
-  $("#btn-csv").onclick = function () {
-    var ult = ultimPerAlumne(filtra());
-    var min = feinaMinima();
-    var l = ["alumne;grup;exercicis;minim;arriba;nota;fulls;data"];
-    ult.forEach(function (r) {
-      l.push([r.brut.alumne, r.brut.grup, r.p.resum.fets, min,
-              min ? (r.p.resum.fets >= min ? "si" : "no") : "",
-              r.p.resum.nota === null ? "" : String(r.p.resum.nota).replace(".", ","),
-              r.p.fulls.map(function (f) { return f.n; }).join(" "), r.dataGen].join(";"));
-    });
-    var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
+  function baixa(blob, nom) {
     var a = document.createElement("a");
-    a.href = URL.createObjectURL(b); a.download = "repas-eso-resum.csv"; a.click();
+    a.href = URL.createObjectURL(blob); a.download = nom; a.click();
+  }
+
+  function sensePerTram() {
+    $("#f-dades").innerHTML = '<span class="mal">Posa les dues dates del tram: '
+      + "sense tram no hi ha nota.</span>";
+  }
+
+  $("#btn-csv").onclick = function () {
+    var t = tramVigent();
+    if (!t) { sensePerTram(); return; }
+    var visibles = {};
+    filtra().forEach(function (r) {
+      visibles[(r.brut.correu || r.brut.alumne || "?").toLowerCase()] = 1;
+    });
+    var min = feinaMinima();
+    var l = ["alumne;correu;grup;tram;fets_al_tram;compten;minim;arriba;nota;fulls;ultim_codi"];
+    calculaTram(t).filter(function (g) { return visibles[g.a.clau]; }).forEach(function (g) {
+      var fulls = [];
+      g.f.tots.forEach(function (it) { if (fulls.indexOf(it.full) < 0) fulls.push(it.full); });
+      l.push([g.a.nom || "", g.a.correu, g.a.grup || "",
+              diaISO(t.ini) + "/" + diaISO(t.fi), g.n, g.compten, min,
+              min ? (g.n >= min ? "si" : "no") : "",
+              coma(g.nota), fulls.sort(function (x, y) { return x - y; }).join(" "),
+              g.a.ultimDia || ""].join(";"));
+    });
+    baixa(new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" }),
+          "repas-eso-resum.csv");
+  };
+
+  /* ── XLSX SENSE BIBLIOTEQUES ─────────────────────────────────────────────
+     L'analitzador és un sol fitxer que s'obre amb doble clic i no carrega res
+     de fora, així que l'XLSX s'escriu a mà. Un XLSX és un ZIP amb uns quants
+     XML; aquí el ZIP va sense comprimir (mètode 0), que tots els lectors
+     accepten, i les cadenes van dins de la cel·la (inlineStr) per no haver de
+     fer una taula de cadenes a part. Dues columnes: el correu i la nota,
+     que és un NÚMERO (amb un decimal, com es veu a la taula) i no un text. */
+  var TAULA_CRC = null;
+  function crc32(b) {
+    if (!TAULA_CRC) {
+      TAULA_CRC = [];
+      for (var n = 0; n < 256; n++) {
+        var c = n;
+        for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        TAULA_CRC[n] = c >>> 0;
+      }
+    }
+    var x = 0xFFFFFFFF;
+    for (var i = 0; i < b.length; i++) x = TAULA_CRC[(x ^ b[i]) & 0xFF] ^ (x >>> 8);
+    return (x ^ 0xFFFFFFFF) >>> 0;
+  }
+  function utf8(txt) {
+    var bin = unescape(encodeURIComponent(txt)), b = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) b[i] = bin.charCodeAt(i);
+    return b;
+  }
+  function escapaXml(t) {
+    return String(t).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "")
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function zipSenseCompressio(parts, ara) {
+    var dosData = ((ara.getFullYear() - 1980) << 9) | ((ara.getMonth() + 1) << 5) | ara.getDate();
+    var dosHora = (ara.getHours() << 11) | (ara.getMinutes() << 5) | (ara.getSeconds() >> 1);
+    var locals = [], centrals = [], desp = 0;
+    parts.forEach(function (p) {
+      var nom = utf8(p.nom), dades = utf8(p.text), crc = crc32(dades);
+      var lh = new Uint8Array(30 + nom.length), v = new DataView(lh.buffer);
+      v.setUint32(0, 0x04034b50, true); v.setUint16(4, 20, true); v.setUint16(6, 0x0800, true);
+      v.setUint16(8, 0, true); v.setUint16(10, dosHora, true); v.setUint16(12, dosData, true);
+      v.setUint32(14, crc, true); v.setUint32(18, dades.length, true);
+      v.setUint32(22, dades.length, true); v.setUint16(26, nom.length, true);
+      v.setUint16(28, 0, true); lh.set(nom, 30);
+      var ch = new Uint8Array(46 + nom.length), w = new DataView(ch.buffer);
+      w.setUint32(0, 0x02014b50, true); w.setUint16(4, 20, true); w.setUint16(6, 20, true);
+      w.setUint16(8, 0x0800, true); w.setUint16(10, 0, true); w.setUint16(12, dosHora, true);
+      w.setUint16(14, dosData, true); w.setUint32(16, crc, true);
+      w.setUint32(20, dades.length, true); w.setUint32(24, dades.length, true);
+      w.setUint16(28, nom.length, true); w.setUint32(42, desp, true); ch.set(nom, 46);
+      locals.push(lh, dades); centrals.push(ch);
+      desp += lh.length + dades.length;
+    });
+    var mida = centrals.reduce(function (a, c) { return a + c.length; }, 0);
+    var fi = new Uint8Array(22), f = new DataView(fi.buffer);
+    f.setUint32(0, 0x06054b50, true); f.setUint16(8, parts.length, true);
+    f.setUint16(10, parts.length, true); f.setUint32(12, mida, true); f.setUint32(16, desp, true);
+    return new Blob(locals.concat(centrals, [fi]),
+      { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+  }
+
+  /* `files2` és una llista de [correu, nota]; la nota ja és un número. */
+  function fesXlsx(files2) {
+    var NS = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    var cap = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+    var ample = Math.max(18, files2.reduce(function (m, r) {
+      return Math.max(m, String(r[0]).length + 2);
+    }, 0));
+    var rows = '<row r="1"><c r="A1" s="1" t="inlineStr"><is><t>Correu electrònic</t></is></c>'
+             + '<c r="B1" s="1" t="inlineStr"><is><t>Nota</t></is></c></row>';
+    files2.forEach(function (r, i) {
+      var n = i + 2;
+      rows += '<row r="' + n + '"><c r="A' + n + '" t="inlineStr"><is><t>'
+        + escapaXml(r[0]) + '</t></is></c><c r="B' + n + '" s="2"><v>' + r[1] + "</v></c></row>";
+    });
+    return zipSenseCompressio([
+      { nom: "[Content_Types].xml", text: cap
+        + '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+        + '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+        + '<Default Extension="xml" ContentType="application/xml"/>'
+        + '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+        + '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'
+        + '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'
+        + "</Types>" },
+      { nom: "_rels/.rels", text: cap
+        + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        + '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>'
+        + "</Relationships>" },
+      { nom: "xl/workbook.xml", text: cap
+        + '<workbook xmlns="' + NS + '" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">'
+        + '<sheets><sheet name="Notes" sheetId="1" r:id="rId1"/></sheets></workbook>' },
+      { nom: "xl/_rels/workbook.xml.rels", text: cap
+        + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        + '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+        + '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>'
+        + "</Relationships>" },
+      { nom: "xl/styles.xml", text: cap
+        + '<styleSheet xmlns="' + NS + '">'
+        + '<numFmts count="1"><numFmt numFmtId="164" formatCode="0.0"/></numFmts>'
+        + '<fonts count="2"><font><sz val="11"/><name val="Arial"/></font>'
+        + '<font><b/><sz val="11"/><name val="Arial"/></font></fonts>'
+        + '<fills count="2"><fill><patternFill patternType="none"/></fill>'
+        + '<fill><patternFill patternType="gray125"/></fill></fills>'
+        + '<borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders>'
+        + '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>'
+        + '<cellXfs count="3">'
+        + '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
+        + '<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
+        + '<xf numFmtId="164" fontId="0" fillId="0" borderId="0" xfId="0" applyFont="1" applyNumberFormat="1"/>'
+        + "</cellXfs>"
+        + '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>'
+        + "</styleSheet>" },
+      { nom: "xl/worksheets/sheet1.xml", text: cap
+        + '<worksheet xmlns="' + NS + '"><cols>'
+        + '<col min="1" max="1" width="' + ample + '" customWidth="1"/>'
+        + '<col min="2" max="2" width="10" customWidth="1"/></cols>'
+        + "<sheetData>" + rows + "</sheetData></worksheet>" }
+    ], new Date());
+  }
+
+  /* Tota la classe, sense filtres: un filtre actiu no pot esborrar ningú de
+     la llista de notes sense que es vegi. Qui no té feina al tram hi surt amb
+     un zero. */
+  $("#btn-xlsx").onclick = function () {
+    var t = tramVigent();
+    if (!t) { sensePerTram(); return; }
+    var files2 = calculaTram(t).map(function (g) {
+      return [g.a.correu || g.a.nom || g.a.clau, notaArrodonida(g)];
+    });
+    baixa(fesXlsx(files2), "notes-" + diaISO(t.ini) + "_" + diaISO(t.fi) + ".xlsx");
   };
 
   /* Exemple de mostra.
@@ -2360,18 +2653,13 @@ window.RE_CODI = (function () {
   var PES_DIF = { 1: 0.6, 2: 0.8, 3: 1, 4: 1.3 };
 
   function cfgProgres() {
-    var w = [+$("#p-w1").value || 0, +$("#p-w2").value || 0,
-             +$("#p-w3").value || 0, +$("#p-w4").value || 0];
-    var suma = w.reduce(function (a, b) { return a + b; }, 0);
-    $("#p-sumapesos").textContent = suma === 100 ? "" : "(sumen " + suma + " %, es normalitzen)";
     return {
       ini: $("#p-ini").value ? new Date($("#p-ini").value + "T00:00:00") : null,
       fi: $("#p-fi").value ? new Date($("#p-fi").value + "T23:59:59") : null,
       setmanes: Math.max(1, +$("#p-setm").value || 10),
       minSetm: Math.max(1, +$("#p-minsetm").value || 1),
       exercicis: Math.max(1, +$("#p-exerc").value || 60),
-      difPes: $("#p-dif").checked,
-      pesos: w, suma: suma || 1
+      difPes: $("#p-dif").checked
     };
   }
 
@@ -2523,7 +2811,7 @@ window.RE_CODI = (function () {
       var repetits = 0;
       ambFeina.forEach(function (p) { repetits += p.repetits.length; });
 
-      // ── components de la qualificació, tots dins de [0,1] ──
+      // ── components de l'activitat, tots dins de [0,1] (cap d'ells és una nota) ──
       var volum = cfg.difPes ? glob.pes : glob.n;
       var comp = {
         constancia: Math.min(1, nSetm / cfg.setmanes),
@@ -2537,14 +2825,6 @@ window.RE_CODI = (function () {
         progres: mesurable ? Math.max(0, Math.min(1, 0.5 + credit / 0.80)) : null
       };
 
-      var ordre = ["constancia", "volum", "progres", "encert"];
-      var num = 0, den = 0;
-      ordre.forEach(function (nom, i) {
-        if (comp[nom] === null) return;      // si no es pot mesurar, el pes es reparteix
-        num += cfg.pesos[i] * comp[nom]; den += cfg.pesos[i];
-      });
-      var nota = den ? 10 * num / den : null;
-
       return {
         clau: k, alumne: (k.split("@")[0] || k), correu: k,
         grup: (codis[codis.length - 1] || {}).r ? codis[codis.length - 1].r.brut.grup : "",
@@ -2552,11 +2832,11 @@ window.RE_CODI = (function () {
         dies: nDies, setmanes: nSetm, setmanesFluixes: setmanesFluixes, passos: ambFeina,
         exercicis: glob.n, volum: volum, glob: glob, A: A, B: B,
         dEncert: dEncert, dPistes: dPistes, mesurable: mesurable, repetits: repetits,
-        comp: comp, nota: nota, perduda: perduda,
+        comp: comp, perduda: perduda,
         primer: dins.length ? dins[0].quan : null,
         ultim: dins.length ? dins[dins.length - 1].quan : null
       };
-    }).sort(function (a, b) { return (b.nota || 0) - (a.nota || 0); });
+    }).sort(function (a, b) { return a.alumne.localeCompare(b.alumne); });
   }
 
 
@@ -2571,7 +2851,7 @@ window.RE_CODI = (function () {
       Math.round(100 * Math.min(1, v)) + "%" + (color ? ";background:" + color : "") + '"></i></span>';
   }
 
-  /* Les qualificacions NO es recalculen a cada tecla: es recalculen quan es
+  /* Els números NO es recalculen a cada tecla: es recalculen quan es
      prem "Accepta i calcula". Posar una nota a algú no és una previsualització,
      i veure les xifres ballar mentre s'escriu un any convida a mirar-se-les
      abans que estiguin acabades. Mentre hi hagi canvis sense aplicar, el botó
@@ -2652,12 +2932,14 @@ window.RE_CODI = (function () {
       + '<span class="apagat"> · es demanen </span><b>' + cfg.setmanes + " setmanes</b>"
       + '<span class="apagat"> amb feina i </span><b>' + cfg.exercicis + " exercicis</b>"
       + (cfg.difPes ? '<span class="apagat">, ponderats per dificultat</span>' : "")
-      + '<span class="apagat"> · pesos ' + cfg.pesos.join("/") + "</span></div>";
+      + "</div>";
 
-    h += '<h2>Qualificació del període</h2>';
+    h += '<h2>Activitat del període</h2>'
+      + '<p class="petit apagat" style="margin:0 0 .5rem">Aquí no hi ha nota: la nota de '
+      + "feina és a <b>Full de respostes › Per alumne</b>.</p>";
     h += '<div class="taula-env"><table id="t-progres"><thead><tr>'
       + "<th>Alumne</th><th>Grup</th><th>Dies</th><th>Setmanes</th><th>Exercicis</th>"
-      + "<th>Encert</th><th>Pistes</th><th>Millora</th><th>Nota</th><th></th>"
+      + "<th>Encert</th><th>Pistes</th><th>Millora</th><th></th>"
       + "</tr></thead><tbody>";
 
     res.forEach(function (a, i) {
@@ -2686,7 +2968,6 @@ window.RE_CODI = (function () {
         + "<td>" + (a.mesurable
             ? pp(a.dEncert) + " · " + pp(-a.dPistes)
             : '<span class="apagat" title="Calen 20 exercicis i 2 enviaments amb feina">no mesurable</span>') + "</td>"
-        + "<td>" + (a.nota === null ? "—" : pintaNota(a.nota, a.exercicis, 0)) + "</td>"
         + '<td class="apagat">▾</td></tr>';
       if (obertP === i) h += detallProgres(a, cfg);
     });
@@ -2727,7 +3008,7 @@ window.RE_CODI = (function () {
     }
 
     h += '<div style="margin-top:1rem"><button class="btn buit petit" id="p-csv">'
-      + "Baixa les qualificacions (CSV)</button></div>";
+      + "Baixa l'activitat (CSV)</button></div>";
 
     $("#p-resultats").innerHTML = h;
 
@@ -2737,7 +3018,7 @@ window.RE_CODI = (function () {
 
     $("#p-csv").onclick = function () {
       var l = ["correu;grup;dies;setmanes;setmanes_objectiu;exercicis;volum_ponderat;"
-             + "encert;pistes;delta_encert_pp;delta_pistes_pp;repetits;nota"];
+             + "encert;pistes;delta_encert_pp;delta_pistes_pp;repetits"];
       res.forEach(function (a) {
         l.push([a.correu, a.grup, a.dies, a.setmanes, cfg.setmanes, a.exercicis,
                 a.volum.toFixed(1).replace(".", ","),
@@ -2745,17 +3026,16 @@ window.RE_CODI = (function () {
                 a.glob.pistes === null ? "" : (100 * a.glob.pistes).toFixed(0),
                 a.dEncert === null ? "" : (100 * a.dEncert).toFixed(0),
                 a.dPistes === null ? "" : (100 * a.dPistes).toFixed(0),
-                a.repetits,
-                a.nota === null ? "" : a.nota.toFixed(1).replace(".", ",")].join(";"));
+                a.repetits].join(";"));
       });
       var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
       var x = document.createElement("a");
-      x.href = URL.createObjectURL(b); x.download = "repas-eso-qualificacions.csv"; x.click();
+      x.href = URL.createObjectURL(b); x.download = "repas-eso-activitat.csv"; x.click();
     };
   }
 
   function detallProgres(a, cfg) {
-    var h = '<tr class="detall"><td colspan="10">';
+    var h = '<tr class="detall"><td colspan="9">';
 
     h += '<div class="graella" style="margin-bottom:1rem">'
       + dada("Constància", pc(a.comp.constancia) + " · " + a.setmanes + " setmanes, " + a.dies + " dies")
@@ -3137,6 +3417,7 @@ window.RE_CODI = (function () {
          saber de qui ni per què. Ara hi surt, amb el motiu. */
       var k = (r.brut.correu || r.brut.alumne || "?").toLowerCase();
       if (!per[k]) per[k] = { nom: r.brut.alumne || r.brut.correu,
+                              correu: r.brut.correu || "",
                               grup: r.brut.grup || "", codis: [], descartats: 0 };
       if (!r.p || !r.p.ok || !r.p.integre) { per[k].descartats++; return; }
       per[k].codis.push(r);
@@ -3144,7 +3425,8 @@ window.RE_CODI = (function () {
     return Object.keys(per).map(function (k) {
       var a = per[k];
       var codis = a.codis.map(function (r) {
-        return { quan: quan(r.p), mapa: mapaEstats(r.p), ambDates: !!r.p.dates };
+        return { quan: quan(r.p), mapa: mapaEstats(r.p), ambDates: !!r.p.dates,
+                 dia: r.dataGen };
       }).sort(function (x, y) { return x.quan - y.quan; });
 
       /* Una fitxa per cada vegada que s'ha fet un exercici:
@@ -3190,7 +3472,8 @@ window.RE_CODI = (function () {
           if (m.f) { it.codi = nc; it.ordre = m.o; }
         });
       });
-      return { clau: k, nom: a.nom, grup: a.grup, items: items,
+      return { clau: k, nom: a.nom, correu: a.correu, grup: a.grup, items: items,
+               ultimDia: codis.length ? codis[codis.length - 1].dia : "",
                nCodis: codis.length, descartats: a.descartats,
                senseDates: codis.filter(function (c) { return !c.ambDates; }).length,
                antics: Object.keys(antics).length, darrerAntic: darrerAntic,
@@ -3326,14 +3609,25 @@ window.RE_CODI = (function () {
     var ini = $("#lot-ini"), fi = $("#lot-fi");
     if (!ini || !fi) return;
     var abast = datesDelsCodis();
-    $("#lot-dades").textContent = abast.ultim
+    var dades = abast.ultim
       ? "Als codis hi ha exercicis amb data del " + dataLlarga(abast.primer)
         + " al " + dataLlarga(abast.ultim) + "."
       : (files.length ? "Cap codi porta exercicis amb data." : "");
+    $("#lot-dades").textContent = dades;
+    $("#f-dades").textContent = dades;
     if (periodeTocat && ini.value && fi.value) return;
     var final = abast.ultim || new Date();
     ini.value = diaISO(new Date(final.getFullYear(), final.getMonth(), final.getDate() - 20));
     fi.value = diaISO(final);
+    espeja("#lot-ini", "#f-ini"); espeja("#lot-fi", "#f-fi");
+  }
+
+  /* Els camps del tram i de la feina mínima hi són dos cops (a «Full de
+     respostes» i al panell del mini-examen) però són UNA sola dada: es
+     copien de l'un a l'altre i la taula es torna a pintar. */
+  function espeja(de, a) {
+    var x = $(de), y = $(a);
+    if (x && y && y.value !== x.value) y.value = x.value;
   }
 
   function dataCurta(d) {
@@ -3361,55 +3655,11 @@ window.RE_CODI = (function () {
     var valors = valorsLot();
     var sortida = [];
 
-    historialAlumnes().forEach(function (a) {
-      var f = feinaDelPeriode(a.items, ini, fi, maxim);
-      var estats = f.ultims.map(function (it) { return it.estat; });
-      var nt = RE_CODI.notaTram(estats, maxim, valors);
-      var c = { net: 0, pista: 0, pistes: 0, segon: 0, fallat: 0 };
-      estats.forEach(function (e) { c[e] = (c[e] || 0) + 1; });
+    calculaTram({ ini: ini, fi: fi, maxim: maxim, valors: valors }).forEach(function (g) {
+      var a = g.a, f = g.f, c = g.c, n = g.n;
       var pool = f.ultims.filter(function (it) { return RE_BANC[it.id]; });
       var preguntes = sortejaPerBlocs(pool, nPreg);
-      var n = f.tots.length, avisos = [];
-
-      if (n < minim) {
-        avisos.push("ha fet " + n + " exercici" + (n === 1 ? "" : "s")
-          + " al tram i el mínim és " + minim);
-      }
-      if (a.descartats) {
-        avisos.push(a.descartats + " enviament"
-          + (a.descartats === 1 ? "" : "s") + " seu"
-          + (a.descartats === 1 ? " no s'ha" : " no s'han") + " pogut llegir (codi "
-          + "alterat o mal copiat) i no compt" + (a.descartats === 1 ? "a" : "en")
-          + (a.nCodis ? "" : ": no li'n queda cap de bo"));
-      }
-      /* Els avisos següents només surten quan falta feina: diuen on és la
-         que l'alumne potser creu que té. Amb el tram ple serien soroll. El
-         dels codis sense dates és per a qui NOMÉS n'ha enviat d'aquests: qui
-         ja n'ha enviat un amb dates té la feina fora del tram, no en un codi
-         antic, i dir-li que enviï el codi d'ara el despistaria. */
-      if (a.antics && a.senseDates === a.nCodis && n < minim) {
-        avisos.push("té " + a.antics + " exercici" + (a.antics === 1 ? "" : "s")
-          + " en " + (a.senseDates === 1 ? "un codi" : a.senseDates + " codis")
-          + " sense dates (d'una versió anterior del lloc; "
-          + (a.senseDates === 1 ? "del " : "l'últim, del ") + dataCurta(a.darrerAntic)
-          + ") que no compten per a cap tram, perquè no se sap quan es van fer: "
-          + "cal que enviï el codi d'ara");
-      }
-      var fora = a.items.filter(function (it) {
-        return it.precisio === "exacta" && (it.quan < ini || it.quan > fi);
-      }).sort(function (x, y) { return x.quan - y.quan; });
-      if (fora.length && n < minim) {
-        var d1 = dataCurta(fora[0].quan), d2 = dataCurta(fora[fora.length - 1].quan);
-        avisos.push("té " + fora.length + " exercici" + (fora.length === 1 ? "" : "s")
-          + " amb data de fora del tram triat ("
-          + (d1 === d2 ? "del " + d1 : "entre el " + d1 + " i el " + d2) + ")");
-      }
-      var sense = a.items.filter(function (it) { return it.precisio === "desconeguda"; }).length;
-      if (sense && n < minim) {
-        avisos.push(sense + " exercici" + (sense === 1 ? "" : "s") + " seu"
-          + (sense === 1 ? "" : "s") + " han arribat sense data perquè el codi "
-          + "es va enviar massa setmanes després, i no compten per a cap tram");
-      }
+      var avisos = avisosNota(g, { ini: ini, fi: fi }, minim);
       if (preguntes.length < nPreg) {
         avisos.push("només s'han pogut sortejar " + preguntes.length + " de "
           + nPreg + " preguntes: no té prou exercicis del tram");
@@ -3427,14 +3677,14 @@ window.RE_CODI = (function () {
           + "exercici perquè no ha treballat prou temes en aquest tram");
       }
       sortida.push({ alumne: a, preguntes: preguntes, avisos: avisos,
-                     n: n, compten: f.ultims.length, ultims: f.ultims,
-                     c: c, x: nt.x, nota: nt.nota });
+                     n: n, compten: f.ultims.length, ultims: f.ultims, c: c });
     });
 
     lotSel = { sortida: sortida, ini: ini, fi: fi, minim: minim,
                maxim: maxim, valors: valors };
     pintaLot(lotSel);
     intentaKatex();
+    if (files.length) pinta();
   }
 
   function pintaLot(lot) {
@@ -3448,19 +3698,17 @@ window.RE_CODI = (function () {
       + '<button class="btn" id="lot-imprimeix">Imprimeix tots els exàmens</button>'
       + '<button class="btn buit" id="lot-imprimeix-clau">Imprimeix totes les solucions</button>'
       + '<button class="btn buit" id="lot-regenera">Torna a sortejar</button>'
-      + '<button class="btn buit" id="lot-csv">Baixa les notes (CSV)</button>'
       + '</div><p class="petit apagat" style="margin:-.3rem 0 .9rem">'
       + "Cada impressió és un document a part: desa'l com a PDF des del diàleg "
       + "d'impressió. Les solucions no surten mai al costat dels exàmens.</p>";
 
     h += '<div class="targeta"><b>La classe</b><div class="petit apagat">'
       + "Tram del " + dataLlarga(lot.ini) + " al " + dataLlarga(lot.fi)
-      + ". Les preguntes i la nota surten només dels "
+      + ". Les preguntes surten només dels "
       + lot.maxim + " últims exercicis fets entre aquests dos dies. Clica una "
       + "fila per veure'n l'examen i imprimir-lo sol.</div>"
       + '<table id="lot-taula"><thead><tr><th>Alumne</th><th>Grup</th>'
-      + '<th class="xifra">Fets al tram</th><th>Com</th>'
-      + '<th class="xifra">Nota de feina</th><th>Estat</th>'
+      + '<th class="xifra">Fets al tram</th><th>Com</th><th>Estat</th>'
       + "</tr></thead><tbody>";
     lot.sortida.forEach(function (x, i) {
       var estat = x.preguntes.length
@@ -3475,9 +3723,6 @@ window.RE_CODI = (function () {
         + (x.n > lot.maxim ? ' <span class="petit apagat">compten els '
             + lot.maxim + " últims</span>" : "")
         + "</td><td>" + punts(x.ultims.map(function (it) { return { id: it.id, estat: it.estat }; }))
-        + '</td><td class="xifra">' + (x.n
-            ? '<span class="nota ' + classeNota(x.nota) + '">' + coma(x.nota) + "</span>"
-            : '<span class="apagat">0</span>')
         + "</td><td>" + estat + "</td></tr>";
     });
     h += "</tbody></table>";
@@ -3524,22 +3769,6 @@ window.RE_CODI = (function () {
     $("#lot-imprimeix").onclick = function () { imprimeix("examen"); };
     $("#lot-imprimeix-clau").onclick = function () { imprimeix("correccio"); };
     $("#lot-regenera").onclick = generaLot;
-    $("#lot-csv").onclick = function () {
-      var l = ["alumne;correu;grup;tram;fets;compten;a_la_primera;una_pista;"
-        + "dues_pistes;segon_intent;fallats;nota;avisos"];
-      lot.sortida.forEach(function (x) {
-        l.push([x.alumne.nom || "", x.alumne.clau, x.alumne.grup || "",
-                diaISO(lot.ini) + "/" + diaISO(lot.fi),
-                x.n, x.compten, x.c.net, x.c.pista, x.c.pistes, x.c.segon, x.c.fallat,
-                coma(x.nota), '"' + x.avisos.join(" | ").replace(/"/g, "'") + '"'].join(";"));
-      });
-      var b = new Blob(["\ufeff" + l.join("\n")], { type: "text/csv;charset=utf-8" });
-      var a = document.createElement("a");
-      a.href = URL.createObjectURL(b);
-      a.download = "notes-" + diaISO(lot.ini) + "_" + diaISO(lot.fi) + ".csv";
-      a.click();
-    };
-
     /* Clicar una fila marca aquell alumne i deixa imprimir-lo sol: passa
        sovint que algú faltava el dia de l'examen i cal el seu full a part,
        sense tornar a tirar tota la classe per la impressora. */
@@ -3619,7 +3848,7 @@ window.RE_CODI = (function () {
     var extra = '<div class="petit apagat">NO repartir · Feina del tram: ' + s.n
       + " exercici" + (s.n === 1 ? "" : "s")
       + (s.n > lot.maxim ? " (compten els " + lot.maxim + " últims)" : "")
-      + " · nota de feina " + coma(s.nota) + "</div>"
+      + "</div>"
       + '<div class="petit apagat">Nivells: ' + mix[1]
       + " trivials · " + mix[2] + " directes · " + mix[3] + " encadenats · "
       + mix[4] + " complets</div>";
