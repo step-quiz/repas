@@ -105,8 +105,8 @@
    el detall pregunta a pregunta, i llavors es pot retocar el detall sense
    trencar res. Aquí no hi ha aquest forat per construcció: el control es
    calcula sobre TOTS els caràcters del codi, detall inclòs. A més, la nota no
-   s'hi guarda: es deriva dels estats en llegir-lo, de manera que no hi ha dos
-   nombres que puguin contradir-se.
+   s'hi guarda: l'analitzador la calcula a partir dels estats i de les dates
+   (`notaTram`), de manera que no hi ha dos nombres que puguin contradir-se.
 */
 window.RE_CODI = (function () {
   "use strict";
@@ -125,11 +125,10 @@ window.RE_CODI = (function () {
   var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3, RC4: 3 };
   var BASE = { RC1: 6, RC2: 6, RC3: 6, RC4: 7 };
   var VERSIO = "RC4";
-  /* Quants dies enrere es data el primer intent: 12 setmanes. Cobreixen un
-     trimestre sencer de trams des del seu últim dia (el més llarg, el primer,
-     en fa 77 amb les setmanes de descans), així que un alumne que només
-     envia el codi a final de trimestre encara hi porta la data de tot. Més
-     enllà, l'exercici viatja sense data i no compta per a cap tram. */
+  /* Quants dies enrere es data el primer intent: 12 setmanes, prou per a un
+     trimestre sencer. Un alumne que només envia el codi a final de trimestre
+     encara hi porta la data de tot el que ha fet. Més enllà, l'exercici
+     viatja sense data i no compta per a cap tram. */
   var FINESTRA_DATES = 84;
 
   /* ── ELS DOS SOSTRES DEL FORMAT, ESCRITS ─────────────────────────────────
@@ -271,15 +270,15 @@ window.RE_CODI = (function () {
        per bo. */
     fulls.forEach(function (f) {
       if (f.n < 1 || f.n > MAX_FULLS) {
-        throw new Error("RE_CODI: el format RC3 només té lloc per a "
+        throw new Error("RE_CODI: el format " + VERSIO + " només té lloc per a "
           + MAX_FULLS + " fulls i se n'ha demanat el " + f.n
-          + ". Amb més fulls cal un format nou (RC4): el bit del full "
+          + ". Amb més fulls cal un format nou: el bit del full "
           + (MAX_FULLS + 1) + " és el del diagnòstic.");
       }
       if (f.estats.length > MAX_ITEMS) {
         throw new Error("RE_CODI: el full " + f.n + " té " + f.estats.length
-          + " ítems i el format RC3 n'admet " + MAX_ITEMS
-          + " (31 grups de 7). Amb més cal un format nou (RC4).");
+          + " ítems i el format " + VERSIO + " n'admet " + MAX_ITEMS
+          + " (31 grups de 7). Amb més cal un format nou.");
       }
     });
 

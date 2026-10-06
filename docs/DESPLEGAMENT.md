@@ -130,13 +130,15 @@ Pestanya **Full de respostes**, apartat *«Coses que val la pena mirar»*:
 Tret de la primera, cap d'aquestes línies demostra res per si sola, i el text
 de l'eina ho diu. Es resolen preguntant.
 
-### Qualificació del trimestre
+### Activitat del trimestre
 
-Dues mètriques es podien inflar sense fer feina i ja no:
+Des de l'octubre de 2026 «Progrés del trimestre» ja no dona cap nota (l'única
+és la del tram), però les mètriques segueixen allà i dues es podien inflar
+sense fer feina i ja no:
 
 - **Constància.** Una setmana només compta si porta un **mínim d'exercicis
   nous** (camp nou, per defecte 3). Amb el llindar a 1, degotar un exercici
-  cada dilluns donava la constància màxima, que és el component que més pesa.
+  cada dilluns donava la constància màxima.
 - **Progrés.** Obrir totes les pistes als primers vint exercicis i cap després
   saturava el component sense tocar l'encert: la manera òptima de puntuar era
   fer-se el fluix al principi. Ara la baixada de pistes no dona crèdit si a la
@@ -174,6 +176,11 @@ Val més tenir-ho escrit que descobrir-ho tard:
 - **Fer els exercicis amb ajuda al costat.** La forma de les dades és la
   mateixa que la de qui treballa sol. Aquí no hi ha res a detectar, ni amb
   aquest sistema ni amb cap altre.
+- **Esborrar a mig tram i refer els fallats.** Dins d'un tram, un exercici
+  compta amb el primer resultat, però un fallat refet després d'esborrar puja
+  a segon intent (0,75): el codi no distingeix un fallat tancat d'un fallat
+  al primer intent que encara tenia el segon, i l'analitzador s'hi posa del
+  costat de l'alumne. L'esborrat de més surt a «Coses que val la pena mirar».
 
 **El que de debò tanca el cercle no és cap d'aquestes marques**: és que la
 nota del lloc i la de la prova escrita s'assemblin. Un codi inflat no fa

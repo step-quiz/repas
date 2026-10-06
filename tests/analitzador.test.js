@@ -812,7 +812,7 @@ seccio("Exàmens: només el tram examinat, els 20 últims i la nota de feina");
   const idsExamen = idsProva(w, d);
   prova("cap pregunta és del tram anterior ni de fora dels 20 últims", () => {
     const permesos = new Set(ids.slice(17, 37));
-    assert.ok(idsExamen.length === 3, "la mida per defecte (mitjana) són 3: " + idsExamen.join(","));
+    assert.ok(idsExamen.length === 2, "la mida per defecte (curta) són 2: " + idsExamen.join(","));
     assert.ok(idsExamen.every(id => permesos.has(id)), idsExamen.join(","));
   });
   prova("el mini-examen ja no té nota ni CSV de notes: les notes surten només de «Per alumne»", () => {
@@ -1239,6 +1239,94 @@ function llegeixZip(buf) {
     d.getElementById("btn-xlsx").click();
     assert.strictEqual(blob, null);
     assert.ok(/Posa les dues dates/.test(d.getElementById("f-dades").textContent));
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("El tram triat a «Full de respostes» és el que examina el mini-examen");
+
+/* Fins a l'octubre de 2026, obrir el mini-examen hi tornava a posar la
+   proposta de tram (les tres setmanes que acaben l'últim dia amb feina) si
+   el professor havia triat les dates a «Full de respostes» i no al panell
+   del mini-examen. Les notes de la taula sortien d'un tram i els exàmens,
+   d'un altre, sense que res ho digués. */
+{
+  const { w, d } = obre();
+  const q1 = new Date(2026, 9, 3, 18, 0), q2 = new Date(2026, 9, 20, 18, 0);
+  d.getElementById("entrada").value = fabrica(w, [
+    [marca(q1), "anna@x.cat", "4tA", codiDatat(w, 0, 12, q1)],
+    [marca(q2), "anna@x.cat", "4tA", codiDatat(w, 12, 20, q2)]
+  ]);
+  d.getElementById("btn-llegeix").click();
+  escriu(w, d, "f-ini", "2026-09-14");
+  escriu(w, d, "f-fi", "2026-10-04");
+  const abans = notesDe(d).anna;
+  Array.prototype.slice.call(d.querySelectorAll(".pestanya"))
+    .filter(b => b.dataset.mode === "prova")[0].click();
+  d.getElementById("pr-va-lot").click();
+
+  prova("en obrir el mini-examen, les dates són les que s'han triat", () => {
+    assert.strictEqual(d.getElementById("lot-ini").value, "2026-09-14");
+    assert.strictEqual(d.getElementById("lot-fi").value, "2026-10-04");
+  });
+  prova("i generar els exàmens no canvia la nota de la taula", () => {
+    d.getElementById("lot-genera").click();
+    assert.ok(/Tram del 14\/09\/2026 al 04\/10\/2026/.test(d.getElementById("lot-resum").textContent));
+    assert.strictEqual(notesDe(d).anna, abans);
+  });
+  prova("carregar el full de nou tampoc no les canvia", () => {
+    d.getElementById("btn-llegeix").click();
+    assert.strictEqual(d.getElementById("f-ini").value, "2026-09-14");
+    assert.strictEqual(d.getElementById("lot-fi").value, "2026-10-04");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("«Un sol codi» no toca el full de respostes carregat");
+
+/* Fins a l'octubre de 2026, llegir un codi a «Un sol codi» substituïa tota la
+   classe carregada per aquell codi: la taula de notes, el mini-examen i les
+   baixades passaven a tenir un sol alumne, «—». */
+{
+  const { w, d } = obre();
+  const q = new Date(2026, 9, 3, 18, 0);
+  d.getElementById("entrada").value = fabrica(w, [
+    [marca(q), "anna@x.cat", "4tA", codiDatat(w, 0, 12, q)],
+    [marca(q), "bru@x.cat", "4tA", codiDatat(w, 0, 15, q)]
+  ]);
+  d.getElementById("btn-llegeix").click();
+  escriu(w, d, "f-ini", "2026-09-14");
+  escriu(w, d, "f-fi", "2026-10-04");
+  const abans = JSON.stringify(notesDe(d));
+  d.getElementById("codi-un").value = codiDatat(w, 0, 5, q);
+  d.getElementById("btn-un").click();
+
+  prova("el codi es llegeix i es mostra", () => {
+    assert.ok(/Codi íntegre/.test(d.getElementById("un-resultat").textContent));
+  });
+  prova("la classe carregada segueix sencera", () => {
+    escriu(w, d, "f-text", "");
+    assert.strictEqual(JSON.stringify(notesDe(d)), abans);
+    assert.strictEqual(d.querySelectorAll("#t-env tbody tr.clic").length, 2);
+  });
+  prova("un codi il·legible enganxat a mà surt com a text, no com a HTML", () => {
+    d.getElementById("codi-un").value = 'RC4<img src=x onerror="window.TOCAT=3">';
+    d.getElementById("btn-un").click();
+    assert.strictEqual(w.TOCAT, undefined);
+    assert.strictEqual(d.querySelectorAll('#un-resultat img').length, 0);
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Les proves són curtes per defecte (2 preguntes)");
+
+{
+  const { d } = obre();
+  prova("el mini-examen estàndard surt marcat a «Curta»", () => {
+    assert.ok(d.querySelector('input[name="lot-mida"][value="curta"]').checked);
+  });
+  prova("la prova personalitzada també", () => {
+    assert.ok(d.querySelector('input[name="pr-mida"][value="curta"]').checked);
   });
 }
 

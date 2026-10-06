@@ -35,16 +35,34 @@ avall.
 4. **Generes la prova** amb l'analitzador (avall).
 5. **Corregeixes a mà** amb el full de correcció que et surt imprès a part.
 
-Després l'alumne segueix practicant i el cicle torna a començar. No cal que
-esborri ni reiniciï res: **cada codi nou conté tot l'historial** i substitueix
-l'anterior.
+Després l'alumne segueix practicant i el cicle torna a començar. **Cada codi
+nou conté tot el que ha fet des de l'últim esborrat** i substitueix l'anterior.
+Si treballes per trams (el mini-examen estàndard, més avall), l'alumnat esborra
+els codis l'endemà de cada examen; per a una prova personalitzada solta no cal
+esborrar res.
 
 Els codis nous (els que comencen per **RC4**) porten, a més, la data en què
 l'alumne va respondre per primer cop cada exercici de les últimes 12
 setmanes. Per això n'hi ha prou amb l'últim codi de cadascú per saber què va
-fer a cada tram. No esborris igualment les files antigues del full de
-respostes: si algun alumne encara envia codis d'abans del canvi (RC3 o
-anteriors), l'analitzador dedueix les dates comparant-los, com feia fins ara.
+fer a cada tram. No esborris les files antigues del full de respostes: la feina
+d'un tram ja tancat és als codis d'aquell moment. Els codis d'abans del canvi
+(RC3 o anteriors) no porten dates i **no compten per a cap tram**.
+
+---
+
+## On és la nota
+
+N'hi ha **una de sola**: la **nota de feina del tram**. Es veu a la pestanya
+**Full de respostes**, taula **Per alumne**, i és la que es baixa amb **Baixa
+les notes (XLSX)** (correu i nota de tota la classe, sense filtres) o amb el
+CSV de resum. Ni la taula d'enviaments, ni el mini-examen, ni el full de
+correcció, ni «Progrés del trimestre» no en donen cap altra.
+
+A sobre de la taula hi ha el **tram** (dues dates) i la **feina mínima
+demanada** (10 per defecte). Són **els mateixos camps** que els del panell del
+mini-examen: si els canvies en un lloc, canvien a l'altre, i l'examen surt del
+mateix tram que la nota que tens a la pantalla. Com es calcula, a «La nota de
+feina del tram», més avall.
 
 ---
 
@@ -52,8 +70,8 @@ anteriors), l'analitzador dedueix les dates comparant-los, com feia fins ara.
 
 La pestanya **Prova escrita** pregunta, en entrar-hi, quin dels dos vols:
 
-- **Mini-examen estàndard de 3 setmanes** — per a tot el grup de cop, sense
-  que hagis de decidir quins temes entren a cadascú. És el de sota.
+- **Mini-examen estàndard** — per a tot el grup de cop, sense que hagis de
+  decidir quins temes entren a cadascú. És el de sota.
 - **Examen personalitzat a un alumne** — un de sol, amb els temes i la mida
   que triïs tu. És el de tota la vida.
 
@@ -73,9 +91,9 @@ pestanya i tornar no et torna a preguntar. Per canviar de mode, el botó
    només tens una petició solta, pots enganxar el codi directament al camp del
    costat en comptes de carregar tot el full.
 4. Ajusta, si vols:
-   - **Mida**: curta (2 preguntes), mitjana (3) o llarga (4), repartides pels
-     blocs en proporció a la feina feta, amb almenys una per bloc mentre hi
-     càpiguen.
+   - **Mida**: curta (2 preguntes, la que surt marcada), mitjana (3) o llarga
+     (4), repartides pels blocs en proporció a la feina feta, amb almenys una
+     per bloc mentre hi càpiguen.
    - **Mínim per bloc**: un tema només s'ofereix si l'alumne hi ha fet almenys
      3 exercicis (editable).
    - **Les caselles dels blocs**: surten totes marcades. **Aquí és on decideixes
@@ -104,13 +122,17 @@ exercicis, i un examen per a cadascú **fet només amb aquella feina**.
 3. **Posa el tram que examines, amb dues dates**: *Del … al …*. No hi ha trams
    fixos ni setmanes de descans: pot ser del 14/9 al 4/10, del 21/9 al 4/10 o
    del 21/9 a l'11/10. Només compten els exercicis fets entre aquests dos
-   dies, tots dos inclosos. En obrir la pestanya ja hi ha posades les tres
+   dies, tots dos inclosos. Si encara no n'has posat cap, hi trobaràs les tres
    setmanes que acaben l'últim dia que hi ha feina, i al costat diu de quin
-   dia a quin dia hi ha exercicis als codis.
-4. Prem **Genera els exàmens del grup**.
-5. Imprimeix. Hi ha **dos botons separats**: tots els exàmens en un document
-   i totes les solucions en un altre. **Baixa les notes (CSV)** et dona la
-   nota de feina de tothom per passar-la al teu full de notes.
+   dia a quin dia hi ha exercicis als codis. Si ja l'havies posat a «Full de
+   respostes», és el mateix: no cal tornar-lo a escriure.
+4. Tria la **mida**: curta (2 preguntes, la que surt marcada), mitjana (3) o
+   llarga (4).
+5. Prem **Genera els exàmens del grup**.
+6. Imprimeix. Hi ha **dos botons separats**: tots els exàmens en un document
+   i totes les solucions en un altre. Les notes de feina no surten aquí: són a
+   **Full de respostes › Per alumne**, i **Baixa les notes (XLSX)** te les dona
+   per passar-les al teu full de notes.
 
 ### Cada tram comença de zero
 
@@ -123,12 +145,21 @@ curs. L'analitzador fa cada tram només amb el que és seu:
 
 - Un exercici que l'alumne **torna a fer en un tram posterior** és feina
   d'aquell tram, amb el resultat que hi treu. El tram on l'havia fet abans no
-  canvia: les notes d'un tram tancat no es mouen per res que s'enviï després.
+  canvia per això.
 - **Dins d'un mateix tram**, un exercici compta un sol cop, amb el primer
   resultat que t'ha arribat. Esborrar a mig tram i tornar-lo a fer no el
-  millora.
+  millora, amb una excepció petita: si al primer cop estava **fallat**, el
+  segon compta, com a molt, com a **segon intent** (0,75). El codi no
+  distingeix «fallat i tancat» de «fallat al primer intent, i encara li'n
+  quedava un», i l'analitzador s'hi posa del costat de l'alumne. L'esborrat de
+  més surt a «Coses que val la pena mirar».
 - Si algú **s'oblida d'esborrar**, no passa res: cada exercici porta la seva
   data, i els del tram anterior no entren al nou.
+- **Un codi enviat tard compta per al seu tram.** El que mana és la data de
+  cada exercici, no la de l'enviament. Si un alumne fa feina l'últim dia del
+  tram i no envia el codi fins una setmana després, aquella feina és del tram
+  i, si tornes a carregar el full, la seva nota d'aquell tram la inclou. Si
+  vols tancar un tram, desa l'XLSX de les notes el dia de l'examen.
 
 ### Quins exercicis compten
 
@@ -171,12 +202,24 @@ Un encert **al segon intent** compta com a segon intent encara que l'alumne
 hagi obert pistes. Si no fos així, obrir una pista just després d'equivocar-se
 convertiria un 0,75 en un 0,95 i esborraria l'error.
 
-Els tres valors del mig es poden canviar al panell, per si els vols ajustar.
+Els tres valors del mig es poden canviar al panell del mini-examen, per si
+els vols ajustar, i s'apliquen a la nota de «Full de respostes» alhora.
+
+**Per sota del mínim** (10 exercicis) la nota no es posa a zero: surt amb el
+que dona la fórmula, apagada i amb un asterisc, i l'alumne queda marcat en
+vermell i amb el filtre **Feina insuficient al tram**. Un sol exercici a la
+primera fa un 3,7, i cinc, un 6,4.
+
+**El 10 i el 20 de la fórmula són fixos.** Els camps «Entre 10 i 20 exercicis»
+del panell decideixen qui surt marcat per poca feina (el mínim) i quants
+exercicis compten (el màxim), però la fórmula sempre dona un 8 per deu
+exercicis a la primera. Si baixes el màxim, el sostre baixa: amb 15, la nota
+més alta possible és un 9,2.
 
 ### L'examen
 
-L'examen pot ser **curt (2 preguntes), mitjà (3) o llarg (4)**, igual que la
-prova personalitzada. Les preguntes es reparteixen pels blocs que l'alumne ha
+L'examen pot ser **curt (2 preguntes, per defecte), mitjà (3) o llarg (4)**,
+igual que la prova personalitzada. Les preguntes es reparteixen pels blocs que l'alumne ha
 treballat: primer una per bloc (si hi ha més blocs que preguntes, als que tenen
 més exercicis), i la resta en proporció a la feina de cada bloc. Amb 10
 exercicis del bloc A i 4 del B: curt 1+1, mitjà 2+1, llarg 2+2. Dins de cada
@@ -184,7 +227,8 @@ bloc surten a l'atzar d'entre els 20 exercicis que compten, sense repetir
 exercici mare mentre n'hi hagi prou. Són de resposta oberta: l'enunciat
 sense les opcions. Al full de correcció hi ha, per pregunta, quin dia el va fer,
 com li va anar a la pràctica, la resposta i la resolució. A la capçalera hi ha
-la feina del tram i la nota de feina.
+quants exercicis va fer al tram i la barreja de nivells de l'examen; la nota de
+feina no hi és (és a «Full de respostes»).
 
 **Ningú no queda bloquejat.** Si un alumne no arriba al mínim, l'examen se li
 genera igualment amb el que tingui, i el motiu queda anotat al **full de
@@ -209,9 +253,9 @@ Exemples:
 - Feina 9,5 i examen 6: hi ha 3,5 punts de diferència, només compta el 6.
 - Feina 8 i examen 6,5: hi ha 1,5 punts, compten totes dues.
 
-L'analitzador no aplica la regla per tu: et dona la nota de feina (a la
-capçalera del full de correcció i al CSV de notes) i la de l'examen la poses
-tu en corregir-lo.
+L'analitzador no aplica la regla per tu: et dona la nota de feina (a **Full de
+respostes › Per alumne** i a l'XLSX) i la de l'examen la poses tu en
+corregir-lo.
 
 Aquesta regla és també el que fa innocu que les claus de respostes siguin
 públiques (el repositori de GitHub és obert, vegeu `DESPLEGAMENT.md`): qui
@@ -250,6 +294,14 @@ l'esborrat de després de l'examen, i la línia surt quan puja més. Pot ser un
 full reiniciat per practicar, o un examen del qual no va enviar codi. També és
 l'únic rastre que queda si algú fa els exercicis, en mira les solucions, ho
 esborra i els torna a fer: val la pena preguntar-ho.
+
+**Una nota surt en gris i amb asterisc** (Full de respostes › Per alumne).
+Aquell alumne no arriba a la feina mínima en el tram triat. La nota és la que
+dona la fórmula amb el que ha fet, i és la que es baixa a l'XLSX; l'asterisc
+només et recorda que és sobre pocs exercicis.
+
+**«Posa les dues dates del tram: sense tram no hi ha nota.»** (Full de
+respostes) Falta una de les dues dates, o la primera és posterior a la segona.
 
 **Un alumne surt en ambre amb «sota 10».** (Estàndard) No ha arribat al mínim
 d'exercicis al tram que s'examina. L'examen se li fa igual amb el que tingui, i

@@ -238,6 +238,19 @@ There is a test for this (`Figures.test_l_enunciat_es_resol_sense_veure_la_figur
 This is the most intricate subsystem. It exists so a student can prove work to
 a teacher without the site ever collecting personal data.
 
+> **UPDATE (October 2026) — read this before the rest of Part IV.** Codes are
+> now **RC4** (seven states per exercise in base 7, plus optional META and
+> DATES blocks carrying how the work was done and the date of first attempt of
+> every exercise in the last 12 weeks). The authoritative format is the header
+> of `js/codi.js`; §4.2 below still shows RC2 and is kept as history. The
+> analyser has **one grade only**: the per-tram work grade
+> `RE_CODI.notaTram` = `min(10, 8·∛(x/10))` over the LAST 20 exercises first
+> attempted between two teacher-chosen dates, with x the sum of per-exercise
+> values /10 (first try 1, one hint 0.95, two or more hints 0.85, second
+> attempt 0.75, failed 0). It appears only in «Full de respostes › Per
+> alumne» and its XLSX/CSV downloads; `RE_CODI.llegeix()` returns no grade,
+> and the trimester tab (§4.7) no longer grades. Exams default to 2 questions.
+
 ## 4.1 Flow
 
 1. Student works. Progress lives in `localStorage`, keyed per sheet.
@@ -308,11 +321,15 @@ Two earlier designs failed here and the failures are instructive:
 
 ## 4.4 The mark is derived, not carried
 
-The code contains **no mark**. `resum()` computes it from the per-exercise
-detail when parsing:
+The code contains **no mark**, and neither does the parse result: `resum()`
+only counts. The analyser computes the single per-tram work grade from the
+per-exercise states and dates (`RE_CODI.notaTram`, called only from
+`calculaTram` in the analyser template):
 
 ```
-net 10 pts · segon 7 · pista 6 · fallat 0,  over 10 × exercises done
+values: net 10 · pista 9.5 · pistes 8.5 · segon 7.5 · fallat 0   (RE_CODI.PES)
+x = Σ value/10 over the last 20 exercises of the tram
+grade = min(10, 8·∛(x/10))
 ```
 
 This closes, by construction, the classic hole in this kind of system: if a
@@ -323,15 +340,17 @@ disagree, because there is only one.
 ## 4.5 What the analyser does
 
 `analitzador-repas.html` is a single self-contained file, opened from disk, no
-network. Four tabs:
+network. Five tabs:
 
 - **Full de respostes** — paste the Google Sheet or open a CSV. Detects the
   separator, the code column, and the date format (see below). Shows
-  per-submission rows with status marks, per-student summary, and a class
-  aggregate (which blocks the class is stuck on, which exercises cost most,
-  which error tags repeat).
-- **Progrés del trimestre** — see §4.7.
-- **Un sol codi** — decode one by hand.
+  per-submission rows with status marks (no grade), the per-student table
+  with THE grade of the chosen tram (two dates, shared with the mini-exam
+  panel), and a class aggregate (which blocks the class is stuck on, which
+  exercises cost most, which error tags repeat).
+- **Progrés del trimestre** — see §4.7. Activity only, no grade.
+- **Un sol codi** — decode one by hand. Does not replace the loaded sheet.
+- **Prova escrita** — the whole-class mini-exam and the one-student exam.
 - **Com funciona** — help, including an explicit statement of what the ✓ does
   *not* verify.
 
@@ -375,14 +394,16 @@ two consecutive codes from the same student is exactly the work done in between,
 with per-exercise outcomes. That is what makes progress measurable rather than
 only state.
 
-Four graded components, all weights editable in the UI:
+Four activity components. Until October 2026 they were weighted into a
+trimester grade; they no longer are (the only grade is the per-tram one, see
+the note at the top of Part IV), but they are still computed and shown:
 
-| Component | Default | Measured as |
-|---|---:|---|
-| Constància | 35 % | Weeks containing **new** work, over expected weeks |
-| Volum | 35 % | Exercises done, optionally weighted by difficulty (0.8/1.0/1.3) |
-| Progrés | 20 % | Change in accuracy and hint-dependence, first half vs second |
-| Encert | 10 % | Overall proportion solved |
+| Component | Measured as |
+|---|---|
+| Constància | Weeks containing **new** work, over expected weeks |
+| Volum | Exercises done, optionally weighted by difficulty (0.8/1.0/1.3) |
+| Progrés | Change in accuracy and hint-dependence, first half vs second |
+| Encert | Overall proportion solved |
 
 Five decisions inside that are not obvious and should not be "simplified" away:
 
@@ -406,8 +427,7 @@ Five decisions inside that are not obvious and should not be "simplified" away:
    flagged.
 
 Nothing is computed until **Accepta i calcula** is pressed. Changing a
-parameter marks the button amber and leaves the marks alone. Putting a mark on
-a student is not a live preview.
+parameter marks the button amber and leaves the numbers alone.
 
 ---
 
@@ -659,12 +679,13 @@ case. These two are a different thing.
 `c_funcions.py`. The signatures have already diverged, so consolidation into
 `lib.py` needs care.
 
-## B9 · Calibration of the trimester marking — *cannot be done without data*
+## B9 · Calibration of the work grade — *cannot be done without data*
 
-The thresholds (30 % accuracy → 0, 90 % → 1; 20 pp improvement saturates) are
-my choice and have no empirical validation. After one real trimester, check
-whether the marks land where the teacher expects and adjust the targets and
-weights, which is why they are editable.
+The trimester marking this item was about no longer exists. What needs real
+data now is the per-tram work grade: whether `min(10, 8·∛(x/10))` with the
+values 10/9.5/8.5/7.5/0 lands where the teacher expects, and whether the 10 and
+20 baked into the formula should follow the editable minimum and maximum
+fields (today they do not: with a maximum of 15 the ceiling is 9.2).
 
 ---
 

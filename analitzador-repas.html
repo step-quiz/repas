@@ -414,8 +414,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
           </div>
           <div class="filtres" style="margin:.45rem 0 0">
             <span class="petit apagat">Mida de l'examen:</span>
-            <label class="petit"><input type="radio" name="lot-mida" value="curta"> Curta · 2 preguntes</label>
-            <label class="petit"><input type="radio" name="lot-mida" value="mitja" checked> Mitjana · 3 preguntes</label>
+            <label class="petit"><input type="radio" name="lot-mida" value="curta" checked> Curta · 2 preguntes</label>
+            <label class="petit"><input type="radio" name="lot-mida" value="mitja"> Mitjana · 3 preguntes</label>
             <label class="petit"><input type="radio" name="lot-mida" value="llarga"> Llarga · 4 preguntes</label>
           </div>
           <div class="filtres" style="margin:.5rem 0 0">
@@ -479,8 +479,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
       <div class="camp">
         <b>Mida de la prova</b>
         <div class="filtres" style="margin:0">
-          <label class="petit"><input type="radio" name="pr-mida" value="curta"> Curta · 2 preguntes</label>
-          <label class="petit"><input type="radio" name="pr-mida" value="mitja" checked> Mitjana · 3 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="curta" checked> Curta · 2 preguntes</label>
+          <label class="petit"><input type="radio" name="pr-mida" value="mitja"> Mitjana · 3 preguntes</label>
           <label class="petit"><input type="radio" name="pr-mida" value="llarga"> Llarga · 4 preguntes</label>
         </div>
       </div>
@@ -721,8 +721,8 @@ tr.clic{cursor:pointer} tr.clic:hover{background:var(--blau-suau)}
    el detall pregunta a pregunta, i llavors es pot retocar el detall sense
    trencar res. Aquí no hi ha aquest forat per construcció: el control es
    calcula sobre TOTS els caràcters del codi, detall inclòs. A més, la nota no
-   s'hi guarda: es deriva dels estats en llegir-lo, de manera que no hi ha dos
-   nombres que puguin contradir-se.
+   s'hi guarda: l'analitzador la calcula a partir dels estats i de les dates
+   (`notaTram`), de manera que no hi ha dos nombres que puguin contradir-se.
 */
 window.RE_CODI = (function () {
   "use strict";
@@ -741,11 +741,10 @@ window.RE_CODI = (function () {
   var CAR_DIA = { RC1: 2, RC2: 3, RC3: 3, RC4: 3 };
   var BASE = { RC1: 6, RC2: 6, RC3: 6, RC4: 7 };
   var VERSIO = "RC4";
-  /* Quants dies enrere es data el primer intent: 12 setmanes. Cobreixen un
-     trimestre sencer de trams des del seu últim dia (el més llarg, el primer,
-     en fa 77 amb les setmanes de descans), així que un alumne que només
-     envia el codi a final de trimestre encara hi porta la data de tot. Més
-     enllà, l'exercici viatja sense data i no compta per a cap tram. */
+  /* Quants dies enrere es data el primer intent: 12 setmanes, prou per a un
+     trimestre sencer. Un alumne que només envia el codi a final de trimestre
+     encara hi porta la data de tot el que ha fet. Més enllà, l'exercici
+     viatja sense data i no compta per a cap tram. */
   var FINESTRA_DATES = 84;
 
   /* ── ELS DOS SOSTRES DEL FORMAT, ESCRITS ─────────────────────────────────
@@ -887,15 +886,15 @@ window.RE_CODI = (function () {
        per bo. */
     fulls.forEach(function (f) {
       if (f.n < 1 || f.n > MAX_FULLS) {
-        throw new Error("RE_CODI: el format RC3 només té lloc per a "
+        throw new Error("RE_CODI: el format " + VERSIO + " només té lloc per a "
           + MAX_FULLS + " fulls i se n'ha demanat el " + f.n
-          + ". Amb més fulls cal un format nou (RC4): el bit del full "
+          + ". Amb més fulls cal un format nou: el bit del full "
           + (MAX_FULLS + 1) + " és el del diagnòstic.");
       }
       if (f.estats.length > MAX_ITEMS) {
         throw new Error("RE_CODI: el full " + f.n + " té " + f.estats.length
-          + " ítems i el format RC3 n'admet " + MAX_ITEMS
-          + " (31 grups de 7). Amb més cal un format nou (RC4).");
+          + " ítems i el format " + VERSIO + " n'admet " + MAX_ITEMS
+          + " (31 grups de 7). Amb més cal un format nou.");
       }
     });
 
@@ -1362,14 +1361,20 @@ window.RE_CODI = (function () {
      pensa i es contesta en menys d'un minut ni anant molt sobrat. */
   var RITME_MINIM = 1;
 
-  /* Quants exercicis s'han demanat. La nota sola enganya: qui fa un exercici
-     i l'encerta surt amb un 10, i qui en fa quaranta amb un 6,6. Aquest
-     llindar fa que el volum es vegi al costat de la nota i que es puguin
-     aïllar els que han enviat el codi massa aviat. */
+  /* Quants exercicis s'han demanat al tram. La nota ja premia el volum (un
+     sol exercici a la primera fa un 3,7 i deu fan un 8), però qui no arriba
+     al mínim surt marcat, amb la nota apagada, i es pot aïllar amb el filtre
+     de feina insuficient. */
   function feinaMinima() { return Math.max(0, parseInt($("#f-min").value, 10) || 0); }
   var files = [], obert = null, obertP = null;
 
   $("#peu-versio").textContent = "v" + RE_TAULES.v;
+  /* La feina demanada (entre 10 i 20) surt de js/calendari.js, el mateix
+     fitxer que llegeix el botó Codi del lloc: així l'alumne i el professor
+     veuen sempre els mateixos números. El que porta l'HTML només és el valor
+     de reserva. */
+  $("#f-min").value = $("#lot-minim").value = RE_CALENDARI.FEINA_MINIMA;
+  $("#lot-maxim").value = RE_CALENDARI.FEINA_MAXIMA;
 
   // ── pestanyes ──────────────────────────────────────────────────────────
   $$(".pestanya").forEach(function (b) {
@@ -1874,8 +1879,8 @@ window.RE_CODI = (function () {
   function detall(r) {
     var p = r.p;
     if (!p.ok) {
-      return '<tr class="detall"><td colspan="8"><b class="mal">' + p.error + "</b>"
-        + '<div class="mono petit apagat" style="margin-top:.4rem;word-break:break-all">' + r.brut.codi + "</div></td></tr>";
+      return '<tr class="detall"><td colspan="8"><b class="mal">' + escapa(p.error) + "</b>"
+        + '<div class="mono petit apagat" style="margin-top:.4rem;word-break:break-all">' + escapa(r.brut.codi) + "</div></td></tr>";
     }
     var h = '<tr class="detall"><td colspan="8">';
     if (!p.integre) h += '<p class="mal petit" style="margin:0 0 .8rem"><b>' + p.error + "</b></p>";
@@ -1937,7 +1942,7 @@ window.RE_CODI = (function () {
       h += "</table></div>";
     }
 
-    h += '<div class="mono petit apagat" style="margin-top:1rem;word-break:break-all">' + r.brut.codi + "</div>";
+    h += '<div class="mono petit apagat" style="margin-top:1rem;word-break:break-all">' + escapa(r.brut.codi) + "</div>";
     return h + "</td></tr>";
   }
 
@@ -3100,14 +3105,15 @@ window.RE_CODI = (function () {
   }
 
   // ── un sol codi ────────────────────────────────────────────────────────
+  /* El codi es llegeix a part: NO es posa a `files`. Fins a l'octubre de 2026
+     sí, i mirar un sol codi substituïa tot el full de respostes carregat: la
+     taula de notes, el mini-examen i les baixades passaven a tenir un sol
+     alumne, «—», sense que res ho digués. */
   $("#btn-un").onclick = function () {
     var raw = $("#codi-un").value.trim();
     if (!raw) return;
-    files = processa([{ codi: raw, alumne: "—", grup: "", enviat: "" }]);
-    obert = 0;
-    var r = files[0];
-    var h = '<table><tbody>' + (r.p.ok ? detall(r).replace('colspan="9"', 'colspan="1"')
-                                       : detall(r).replace('colspan="9"', 'colspan="1"')) + "</tbody></table>";
+    var r = processa([{ codi: raw, alumne: "—", grup: "", enviat: "" }])[0];
+    var h = "<table><tbody>" + detall(r) + "</tbody></table>";
     $("#un-resultat").innerHTML = "<div class=\"targeta\">" + marca(r.estat, r) + " "
       + (r.p.ok ? (r.p.integre ? "Codi íntegre" : "Codi alterat o mal copiat") : "No s'ha pogut llegir")
       + "</div>" + h;
@@ -3544,10 +3550,6 @@ window.RE_CODI = (function () {
 
   function coma(x, dec) { return x.toFixed(dec === undefined ? 1 : dec).replace(".", ","); }
 
-  /* Sorteja `quantes` preguntes d'entre els exercicis d'un alumne, agrupats
-     per tram. Evita repetir exercici mare mentre queden mares sense fer
-     servir, pel mateix motiu que a la prova individual: cinc apartats del
-     mateix problema no són cinc preguntes. */
   /* Sorteja `quantes` preguntes d'entre `pool` (els 20 últims exercicis del
      tram, i prou). Evita repetir exercici mare mentre en quedin de nous, pel
      mateix motiu que a la prova individual: cinc apartats del mateix
@@ -3648,7 +3650,7 @@ window.RE_CODI = (function () {
         + "la primera no pot ser posterior a la segona.</span>";
       $("#lot-resum").innerHTML = ""; return;
     }
-    var mida = ($$('input[name="lot-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
+    var mida = ($$('input[name="lot-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "curta";
     var nPreg = MIDES_PROVA[mida];
     var minim = Math.max(0, parseInt($("#lot-minim").value, 10) || 0);
     var maxim = Math.max(1, parseInt($("#lot-maxim").value, 10) || RE_CALENDARI.FEINA_MAXIMA);
@@ -3955,7 +3957,7 @@ window.RE_CODI = (function () {
     if (motiu) { estatPr(motiu, true); $("#pr-resultat").innerHTML = ""; return; }
 
     var min = Math.max(1, parseInt($("#pr-min-bloc").value, 10) || 1);
-    var mida = ($$('input[name="pr-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "mitja";
+    var mida = ($$('input[name="pr-mida"]').filter(function (r) { return r.checked; })[0] || {}).value || "curta";
     var demanades = MIDES_PROVA[mida];
 
     var tots = blocsDisponibles(prCodi, min, ambOberts());
@@ -4169,8 +4171,12 @@ window.RE_CODI = (function () {
   $("#pr-torna-2").onclick = function () { modeExamen(null); };
   $("#lot-genera").onclick = generaLot;
   /* Un cop el professor ha tocat una data ja no se li proposa cap tram: mana
-     el que ha escrit. */
-  ["#lot-ini", "#lot-fi"].forEach(function (sel) {
+     el que ha escrit. Valen els dos parells de camps, el del mini-examen i el
+     de «Full de respostes»: fins a l'octubre de 2026 només es miraven els del
+     mini-examen, i qui triava el tram a «Full de respostes» el perdia en
+     obrir el mini-examen, que hi tornava a posar la proposta. Els exàmens
+     sortien d'un tram i les notes de la taula, d'un altre. */
+  ["#lot-ini", "#lot-fi", "#f-ini", "#f-fi"].forEach(function (sel) {
     $(sel).addEventListener("input", function () { periodeTocat = true; });
     $(sel).addEventListener("change", function () { periodeTocat = true; });
   });
