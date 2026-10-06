@@ -13,26 +13,37 @@ configure to close the gap. Read it before touching any code.
 > works, but it is now one of *two* modes behind a chooser in the **Prova
 > escrita** tab:
 >
-> - **Mini-examen estàndard de 3 setmanes** — the whole class at once. Two,
+>   **Both modes default to SHORT exams (2 questions)** since October 2026.
+>
+> - **Mini-examen estàndard** — the whole class at once. Two (default),
 >   three or four questions per student (short / medium / long), drawn ONLY
 >   from the LAST 20 exercises (it was the first 20 until October 2026) that
 >   student did inside the examined tram (by date of first attempt). THE TRAM
 >   IS A FREE DATE RANGE the teacher types into two date inputs (`#lot-ini`,
 >   `#lot-fi`): there are no fixed trams and no rest weeks in the analyzer any
->   more, and nothing outside the range can get in. Plus a per-tram work grade
+>   more, and nothing outside the range can get in. The same tram drives THE
+>   ONLY GRADE in the analyzer: the per-tram work grade
 >   `min(10, 8·∛(x/10))` where x sums per-exercise values /10 (first try 1,
->   one hint 0.95, two or more hints 0.85, second attempt 0.75, failed 0).
+>   one hint 0.95, two or more hints 0.85, second attempt 0.75, failed 0)
+>   over the same last 20 exercises. It is shown only in «Full de respostes ›
+>   Per alumne» (and its XLSX/CSV downloads), never in the exam panel; the
+>   date range, minimum, maximum and per-state values are single fields
+>   mirrored between both screens (`espeja()`), and `calculaTram()` is the
+>   only caller of `RE_CODI.notaTram`.
 >   EACH TRAM STARTS FROM ZERO: students wipe their progress the day after
 >   each exam, so the analyzer keeps one record per (exercise, day of first
 >   attempt). An exercise re-done later is separate work with its own date
->   and result; an exam already generated never changes; if the chosen range
->   holds the same exercise twice, the first date and result stand; and
->   undated codes (RC1–RC3) count for no tram.
+>   and result, and does not touch the earlier tram; if the chosen range
+>   holds the same exercise twice, the first date and result stand (a failed
+>   one re-done is upgraded to "second attempt" at most); undated codes
+>   (RC1–RC3) count for no tram; and a code submitted late DOES add work to
+>   its tram, because the exercise date is what matters, not the submission
+>   date.
 >   `js/calendari.js` now only holds `FEINA_MINIMA`/`FEINA_MAXIMA` =
 >   10/20 (read by the student site and the analyzer) plus sample date ranges
 >   for the analyzer's example data and the tests. Output: one
->   printable document with every exam, another with every answer key, and a
->   CSV of grades.
+>   printable document with every exam and another with every answer key.
+>   No grade in either: grades live only in «Full de respostes».
 >   The work grade never counts alone: the teacher validates it with the
 >   paper exam (exam below 5, or more than 3 points between work grade and
 >   exam grade → only the exam counts). See `GUIA-PROFESSORAT.md`.
@@ -118,9 +129,11 @@ Key properties you must not break if you touch this system:
   documented in `CODIS.md` §3 and `js/codi.js`) catch every single-character
   substitution and every two-character transposition. A code that fails this
   check is treated as untrustworthy everywhere downstream.
-- **The mark is derived, never carried.** The grade is computed from the
-  per-exercise states when the code is *read*, not stored inside it — so
-  there is no pair of numbers that could ever contradict each other.
+- **The mark is derived, never carried.** The grade is computed by the
+  analyzer from the per-exercise states and dates (`RE_CODI.notaTram`, per
+  tram), not stored inside the code — so there is no pair of numbers that
+  could ever contradict each other. `RE_CODI.llegeix()` returns no grade at
+  all.
 
 ### 1.2 The exam request (step 2) → the **Codi** button, not a topic picker
 

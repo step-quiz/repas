@@ -167,23 +167,24 @@ s'encalla la classe i si el codi és autèntic.
 - **On es demana:** amb el botó **Codi**, fix a dalt a la dreta de totes les
   pàgines. Sempre visible, sempre el mateix codi: no hi ha res a triar.
 - **Diu quanta feina s'ha fet.** El botó porta el compte d'exercicis al costat,
-  i la finestra diu quants n'ha fet, com li han anat i quin percentatge del
-  lloc representa. Per sota de 10 avisa que potser encara és aviat per
-  enviar-lo. L'analitzador té un camp de **feina mínima demanada**: qui no hi
-  arriba surt marcat i la seva nota es pinta apagada, perquè un 10 sobre un
-  exercici no es pot comparar amb un 6,6 sobre quaranta.
-- **És acumulatiu i no es reinicia mai.** Cada codi conté tot el que s'ha fet
-  fins llavors, no només el d'aquella estona; copiar-lo no posa cap comptador
-  a zero. Si l'alumne s'oblida d'enviar-ne un, el següent ja ho porta tot, i
-  el professorat només ha de mirar l'últim de cadascú. L'única cosa que fa
-  baixar el comptador és perdre les dades del navegador (esborrar-les, canviar
-  de dispositiu, finestra privada); l'analitzador ho detecta i ho avisa.
+  i la finestra diu quants n'hi ha des de l'últim esborrat i que se'n demanen
+  entre 10 i 20 per a cada examen (per sota de 10 ho diu en to d'avís). No hi
+  surt mai cap nota. L'analitzador té un camp de **feina mínima demanada**: qui
+  no hi arriba en el tram triat surt marcat i la seva nota es pinta apagada.
+- **És acumulatiu.** Cada codi conté tot el que s'ha fet des de l'últim
+  esborrat, no només el d'aquella estona; copiar-lo no posa cap comptador a
+  zero. Si l'alumne s'oblida d'enviar-ne un, el següent ja ho porta tot. El
+  comptador només torna a zero amb **Codi › Eliminar tots els codis**, que és
+  el que es demana l'endemà de cada examen (vegeu «Mini-examen estàndard»), o
+  si es perden les dades del navegador (esborrar-les, canviar de dispositiu,
+  finestra privada); l'analitzador ho detecta i ho avisa.
 - **Antifrau.** Acaba amb dos caràcters calculats sobre tots els altres, en
   l'esperit de la lletra del DNI però amb mòdul primer i pesos per posició:
   detecta *totes* les substitucions d'un caràcter i *totes* les transposicions
-  de dos. La nota no viatja dins del codi, es deriva del detall en llegir-lo,
-  de manera que no hi pot haver un codi on la nota i el detall es contradiguin.
-  L'analitzador marca amb ⇄ els codis que apareixen sota més d'un correu.
+  de dos. La nota no viatja dins del codi: la calcula l'analitzador a partir
+  del detall, de manera que no hi pot haver un codi on la nota i el detall es
+  contradiguin. L'analitzador marca amb ⇄ els codis que apareixen sota més
+  d'un correu.
 - **Què NO verifica.** El ✓ diu que el codi és autèntic, no que l'hagi guanyat
   qui l'envia. Qui faci els exercicis al navegador d'un altre, o es fabriqui un
   codi des de la consola, passa el control sense deixar rastre; això últim és
@@ -202,12 +203,18 @@ s'encalla la classe i si el codi és autèntic.
   dades d'alumnes, `node tools/fes-exemple.js > exemple-respostes.csv` genera
   un full de respostes amb quatre alumnes de perfils diferents i codis de
   debò (els perfils s'expliquen dins del mateix script).
+- **Una sola nota.** L'analitzador dona una única nota per alumne: la **nota
+  de feina del tram** que tria el professor amb dues dates, calculada amb els
+  20 últims exercicis fets dins del tram. Només es veu a **Full de respostes ›
+  Per alumne** i és la que es baixa a l'XLSX (correu i nota). Fins a l'octubre
+  de 2026 n'hi havia tres (la mitjana de tot el codi, la del tram i una
+  qualificació del trimestre), que podien donar tres números diferents per al
+  mateix alumne. Detall a la secció «Mini-examen estàndard».
 - **Progrés del trimestre.** Com que els codis són acumulatius, la diferència
   entre dos codis seguits d'un mateix alumne és exactament la feina feta
-  entremig. D'aquí surt una qualificació que pesa la **constància** (setmanes
-  amb feina nova), el **volum**, la **millora** (encert i dependència de
-  pistes, estandarditzats per dificultat) i, amb poc pes, l'**encert**. Els
-  pesos i els objectius es toquen des de la mateixa pàgina.
+  entremig. Aquesta pestanya en mostra l'**activitat** —constància (setmanes
+  amb feina nova), volum, encert, pistes i millora, estandarditzats per
+  dificultat— però **ja no en treu cap nota**: la nota és només la del tram.
 
 - **Recuperar el progrés.** El progrés viu al `localStorage` d'un navegador. En
   un carro de Chromebooks compartits, o amb una política que esborra les dades
@@ -224,20 +231,35 @@ l'analitzador carrega aquest mateix fitxer.
 
 ## Mini-examen estàndard
 
-Cada tres setmanes, més o menys, l'alumnat fa entre 10 i 20 exercicis. La pestanya **Prova escrita › Mini-examen estàndard** genera per a
-tota la classe un examen de 2, 3 o 4 preguntes fet **només** amb els 20 últims
-exercicis que cada alumne ha fet dins del tram que tria el professor amb dues
-dates (del 21/9 al 4/10, per exemple), i en dona la **nota de feina**: `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a
-la primera 1, una pista 0,95, dues pistes o més 0,85, segon intent 0,75, fallat
-0). Els codis RC4 porten la data del primer intent de cada exercici, i per això
-n'hi ha prou amb un sol codi. Detall a `docs/GUIA-PROFESSORAT.md`.
+Cada tres setmanes, més o menys, l'alumnat fa entre 10 i 20 exercicis. El
+professor tria el **tram** amb dues dates (del 21/9 al 4/10, per exemple), i
+d'aquell tram en surten dues coses, totes dues fetes **només** amb els **20
+últims** exercicis que cada alumne ha fet entre aquells dos dies (per ordre de
+quan els va fer per primer cop):
+
+- la **nota de feina**, a **Full de respostes › Per alumne**:
+  `min(10, 8·∛(x/10))`, on x suma el valor de cada exercici sobre 10 (a la
+  primera 1, una pista 0,95, dues pistes o més 0,85, segon intent 0,75, fallat
+  0). Deu exercicis a la primera fan un 8 i vint, un 10. Per sota del mínim
+  (10) la nota surt apagada i amb asterisc, però no es posa a zero: un sol
+  exercici a la primera fa un 3,7;
+- el **mini-examen**, a **Prova escrita › Mini-examen estàndard**: un examen
+  per a cada alumne, de 2 preguntes per defecte (curt), o de 3 o 4.
+
+Les dues pantalles comparteixen el tram, el mínim, el màxim i el valor de cada
+exercici: canviar-los en una els canvia a l'altra. Els codis RC4 porten la data
+del primer intent de cada exercici, i per això n'hi ha prou amb un sol codi.
+Detall a `docs/GUIA-PROFESSORAT.md`.
 
 **Cada tram comença de zero.** L'endemà de l'examen l'alumnat esborra els codis
 (botó Codi › Eliminar tots els codis) i el tram següent es fa amb el comptador
 a zero. L'analitzador hi compta: un exercici refet en un tram posterior és
-feina d'aquell tram, amb el resultat que hi té; un tram tancat no es mou per
-res que s'enviï després; i els codis sense dates (RC3 i anteriors) no compten
-per a cap tram.
+feina d'aquell tram, amb el resultat que hi té, i no canvia res del tram on
+s'havia fet abans; dins d'un mateix tram, un exercici compta un sol cop, amb
+el primer resultat (un fallat refet val, com a molt, un segon intent); i els
+codis sense dates (RC3 i anteriors) no compten per a cap tram. Un codi enviat
+tard sí que compta per al seu tram: el que importa és la data de cada
+exercici, no la de l'enviament.
 
 **El tram no és fix.** L'analitzador no té calendari de trams ni setmanes de
 descans: compta qualsevol dia que sigui entre les dues dates. El lloc de
@@ -339,13 +361,13 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-437 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
+466 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
 navegador real si hi ha Playwright (`test_visibilitat_real.js`). Les de Python i
 les del codi de verificació no demanen instal·lar res: `unittest` de la
 biblioteca estàndard i Node pelat. Quatre blocs (analitzador, accessibilitat,
 flux de la resolució i botons dels recursos) necessiten un DOM i se salten
 sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no declara
-«tot en verd»**, perquè un verd que amaga 156 comprovacions no executades és
+«tot en verd»**, perquè un verd que amaga 179 comprovacions no executades és
 pitjor que un avís:
 
 ```sh

@@ -95,31 +95,37 @@ sempre a mà.
 el test inicial—, no el d'un full concret. Així l'alumne no ha de decidir res.
 
 **El volum es veu de seguida.** El botó porta el compte d'exercicis al costat
-(`Codi 23`), i la finestra diu quants n'ha fet, com li han anat i quin
-percentatge del lloc representa. Per sota de deu exercicis avisa:
+(`Codi 23`), i la finestra diu quants n'hi ha i quants se'n demanen per a cada
+examen. Per sota de deu, en to d'avís:
 
-> Has fet **3** exercicis. El codi diu exactament quants n'has fet i quins,
-> així que si el professorat t'ha demanat més feina, val més esperar a
-> haver-la feta.
+> Hi portes **3** exercicis des de l'últim esborrat. Se'n demanen entre 10 i
+> 20 per a cada examen, i com més en facis, més nota.
+
+Per sobre de vint diu que per a la nota i l'examen només compten els 20
+últims. Els dos números surten de `js/calendari.js` (`FEINA_MINIMA` i
+`FEINA_MAXIMA`), que també llegeix l'analitzador.
 
 ## Sis decisions, i per què
 
 ### 0. El volum ha de ser tan visible com la nota
 
-La nota és un percentatge i no sap res del volum: qui fa **un** exercici i
-l'encerta surt amb un **10**, i qui en fa quaranta amb un 6,6. Comparar-les
-seria injust.
+Fins a l'octubre de 2026 la nota de cada codi era un percentatge (la mitjana
+dels valors de tot el que portava), i no sabia res del volum: qui feia **un**
+exercici i l'encertava treia un **10**, i qui en feia quaranta, un 6,6. Ara la
+nota és la del tram (vegeu §2), i la fórmula ja premia el volum: un exercici a
+la primera fa un 3,7, deu fan un 8 i vint, un 10.
 
-El codi ja porta el volum —diu exactament quants exercicis s'han fet i
-quins—, però calia que a l'analitzador no es pogués passar per alt:
+Tot i així, a l'analitzador el volum no es pot passar per alt:
 
-- Camp **«feina mínima demanada»** (per defecte 10). Qui no hi arriba surt amb
-  el número en vermell i una barra de progrés.
+- Camp **«feina mínima demanada»** (per defecte 10, de `js/calendari.js`).
+  Qui no hi arriba en el tram triat surt amb el número en vermell i una barra
+  de progrés.
 - **La seva nota es pinta apagada i amb asterisc**, perquè no convidi a
   comparar-la.
-- Filtre **«feina insuficient»** per aïllar-los, i un resum a sobre de la
-  taula: *«1 de 3 no arriben als 10 exercicis: poc (3)»*.
-- El CSV exportat porta les columnes `exercicis`, `minim` i `arriba`.
+- Filtre **«feina insuficient al tram»** per aïllar-los, i un resum a sobre de
+  la taula: *«1 de 3 no arriben als 10 exercicis en aquest tram: poc (3)»*.
+- El CSV de resum porta les columnes `fets_al_tram`, `compten`, `minim` i
+  `arriba`.
 
 Posant el mínim a 0, tot això desapareix.
 
@@ -140,16 +146,18 @@ Aquest és el forat clàssic d'aquesta mena de sistemes, i el vostre propi
 una nota *i* un detall pregunta a pregunta, i el control només cobreix la
 nota, es pot retocar el detall sense trencar res.
 
-Aquí **la nota es deriva del detall en llegir el codi**. No hi ha dos nombres
-que puguin contradir-se, perquè només n'hi ha un. El forat no es tapa: no
-existeix.
+Aquí **la nota la calcula l'analitzador a partir del detall**. No hi ha dos
+nombres que puguin contradir-se, perquè dins del codi no n'hi ha cap. El forat
+no es tapa: no existeix.
 
-La fórmula és pública i està a `js/codi.js`: `net` 10 punts, una pista 9,5,
-dues pistes o més 8,5, `segon` 7,5, `fallat` 0.
-
-La **nota de feina d'un tram** (`RE_CODI.notaTram`) agafa els 20 últims
-exercicis del tram per ordre de fet, suma els seus valors sobre 10 (x) i dona
-`min(10, 8·∛(x/10))`: 10 exercicis a la primera fan un 8 i 20 un 10.
+I n'hi ha **una de sola**: la **nota de feina d'un tram** (`RE_CODI.notaTram`).
+Agafa els exercicis fets per primer cop entre les dues dates que tria el
+professor, en queda els 20 últims per ordre de fet, suma els seus valors sobre
+10 (x) i dona `min(10, 8·∛(x/10))`: 10 exercicis a la primera fan un 8 i 20,
+un 10. Els valors són públics i estan a `js/codi.js` (`PES`): `net` 10, una
+pista 9,5, dues pistes o més 8,5, `segon` 7,5, `fallat` 0. `RE_CODI.llegeix()`
+ja no dona cap nota (`resum` només porta el recompte), i a l'analitzador
+`notaTram` només es crida des d'un lloc, `calculaTram`.
 
 ### 3. Dos caràcters de control, amb mòdul primer i pesos
 
@@ -198,8 +206,12 @@ Això és el que fa que valgui la pena mirar-s'ho.
 
 ## Progrés del trimestre
 
-Aquesta és la part que fa que el sistema serveixi per qualificar, i es recolza
-tota en una propietat del format: **com que els codis són acumulatius, la
+> **Ja no dona cap nota.** Fins a l'octubre de 2026 aquesta pestanya en treia
+> una «qualificació del trimestre» amb pesos (constància, volum, progrés,
+> encert). Ara només en mostra l'**activitat**, i la nota és només la del tram
+> (vegeu §2). El que segueix descriu les mètriques, que no han canviat.
+
+Aquesta part es recolza tota en una propietat del format: **com que els codis són acumulatius, la
 resta entre dos codis seguits d'un mateix alumne és exactament la feina feta
 entremig**, amb el detall de com li ha anat. Sense això només es podria
 mesurar l'estat final; amb això es mesura el camí.
@@ -237,23 +249,18 @@ Si no hi ha prou dades (menys de 20 exercicis o menys de 2 enviaments amb
 feina), la millora surt com a *no mesurable* i el seu pes es reparteix entre
 els altres components.
 
-### La qualificació
+### Les setmanes i els exercicis esperats
 
-`nota = 10 × (35 % constància + 35 % volum + 20 % progrés + 10 % encert)`
+Les setmanes esperades i els exercicis esperats es toquen des de la mateixa
+pàgina. Els trimestres tenen presets (set–des, gen–març, abril–juny) que
+dedueixen l'any de les dades. El CSV que es baixa és el de l'activitat
+(`repas-eso-activitat.csv`), sense cap nota.
 
-Els quatre pesos, les setmanes esperades i els exercicis esperats es toquen
-des de la mateixa pàgina. Els trimestres tenen presets (set–des, gen–març,
-abril–juny) que dedueixen l'any de les dades.
+### Com discriminava la qualificació antiga
 
-**L'encert va amb poc pes a propòsit.** Això és pràctica de repàs, no un
-examen: si l'encert pesa molt, a l'alumne li surt a compte no obrir pistes i
-evitar els exercicis de nivell 3, que és el contrari del que busca la
-graduació per dificultat. La pàgina ho adverteix al costat dels controls.
-
-### Com discrimina
-
-Quatre perfils sintètics sobre un trimestre de 10 setmanes, amb objectiu de
-60 exercicis:
+Es conserva com a referència de com es comporten les mètriques. Quatre
+perfils sintètics sobre un trimestre de 10 setmanes, amb objectiu de 60
+exercicis, amb la qualificació que es feia servir fins a l'octubre de 2026:
 
 | Perfil | Dies | Setm. | Exerc. | Encert | Millora | Nota |
 |---|---|---|---|---|---|---|
@@ -273,16 +280,20 @@ cop.»*
 `analitzador-repas.html` és **un sol fitxer**: es desa, s'obre amb doble clic i
 funciona sense servidor ni connexió. No envia res enlloc.
 
-Té quatre pestanyes: **Full de respostes**, **Progrés del trimestre**, **Un
-sol codi** i **Com funciona**.
+Té cinc pestanyes: **Full de respostes**, **Progrés del trimestre**, **Un
+sol codi**, **Prova escrita** i **Com funciona**.
 
 **Full de respostes.** Enganxa-hi el Google Sheet (Ctrl+A, Ctrl+C) o obre'n el
 CSV. El correu es llegeix de la primera columna, que és on el posa el Google
 Form; si no n'hi ha, es busca per capçalera o per la forma. La columna del
 codi es detecta sola. Dona:
 
-- **Per alumne** — l'últim codi de cadascú, amb els exercicis fets per full i
-  la nota. Exportable a CSV.
+- **Per alumne** — **l'única nota** de l'analitzador: la nota de feina del
+  tram que triïs amb dues dates (els 20 últims exercicis fets entre aquells
+  dos dies), amb la feina al tram, els punts de colors dels que compten, els
+  exercicis per full i els avisos. **Baixa les notes (XLSX)** dona correu i
+  nota de tota la classe; **Baixa el resum (CSV)**, el detall amb els filtres
+  aplicats.
 - **Enviaments** — una fila per codi, amb la marca d'estat, el temps entre
   generar-lo i enviar-lo, i els punts de colors. Clica-hi i s'obre el detall
   complet: comptes, repartiment per nivell de dificultat, bloc a bloc amb els
@@ -292,7 +303,12 @@ codi es detecta sola. Dona:
   quins exercicis costen més i quins errors es repeteixen. És la vista que
   respon «què he de tornar a explicar dilluns».
 
-**Un sol codi.** Per comprovar-ne un a mà.
+**Un sol codi.** Per comprovar-ne un a mà. No toca el full de respostes
+carregat (fins a l'octubre de 2026 el substituïa).
+
+**Prova escrita.** El mini-examen estàndard de tota la classe i l'examen
+personalitzat d'un alumne; tots dos de 2 preguntes per defecte. Vegeu
+`GUIA-PROFESSORAT.md`.
 
 **Marques d'estat:**
 
@@ -342,9 +358,9 @@ cd tools && python3 build_tot.py
 
 ## Una cosa que he decidit i pots voler canviar
 
-**El panell de l'alumne no ensenya la nota.** Diu «20 exercicis: 12 a la
-primera, 3 al segon intent, 2 amb pista, 3 fallats», i prou. La nota va dins
-del codi i la veu el professorat.
+**El panell de l'alumne no ensenya la nota.** Diu quants exercicis porta i
+quants se'n demanen, i prou. La nota no va dins del codi: la calcula
+l'analitzador i la veu el professorat.
 
 El motiu: repàs-ESO és pràctica formativa. Si l'alumne veu una nota cada
 vegada que genera un codi, deixarà d'obrir pistes i evitarà els exercicis de
@@ -357,6 +373,10 @@ Si prefereixes que la vegi, és una línia a `js/codi-ui.js`.
 ---
 
 ## Verificació feta
+
+> Recompte del moment en què es va fer el sistema. Les proves d'avui són a
+> `tests/` i es passen totes amb `sh tests/executa.sh` (vegeu
+> `tests/LLEGEIX-ME.md`).
 
 - 19 comprovacions de l'anàlisi de trimestre amb quatre perfils sintètics
   d'alumne, l'estandardització per dificultat i tots els controls.

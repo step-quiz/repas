@@ -274,12 +274,24 @@ decisions que costen més de reconstruir des del codi:
 
 - **El codi és acumulatiu, no una sessió.** Repàs-ESO és treball propi durant
   setmanes; un tiquet per estona obligaria l'alumne a no perdre'n cap. Cada
-  codi és la fotografia completa i substitueix l'anterior. L'analitzador es
-  queda l'últim de cada alumne.
-- **La nota no hi viatja.** Es deriva dels estats en llegir el codi. Aquest és
-  el forat clàssic d'aquests sistemes: si el codi porta una nota *i* un detall,
-  i el control només cobreix la nota, es pot retocar el detall. Aquí no hi ha
-  dos nombres que puguin contradir-se, i el control cobreix tots els caràcters.
+  codi és la fotografia completa (des de l'últim esborrat) i substitueix
+  l'anterior.
+- **La nota no hi viatja.** La calcula l'analitzador a partir dels estats i de
+  les dates. Aquest és el forat clàssic d'aquests sistemes: si el codi porta
+  una nota *i* un detall, i el control només cobreix la nota, es pot retocar
+  el detall. Aquí no hi ha dos nombres que puguin contradir-se, i el control
+  cobreix tots els caràcters.
+- **Una sola nota, calculada en un sol lloc.** És la nota de feina del tram
+  (`RE_CODI.notaTram`, a `js/codi.js`) sobre els 20 últims exercicis fets per
+  primer cop entre dues dates, i a l'analitzador només la crida
+  `calculaTram`. Només es veu a «Full de respostes › Per alumne» i a les
+  baixades (XLSX i CSV). Fins a l'octubre de 2026 n'hi havia tres —la mitjana
+  de tot el codi (`resum().nota`), la del tram i la qualificació del
+  trimestre— i un mateix alumne en podia tenir tres de diferents; `resum()`
+  ja no en porta cap. El tram, la feina mínima, el màxim i els valors de cada
+  estat són uns únics camps compartits entre «Full de respostes» i el panell
+  del mini-examen (`espeja()`), de manera que la taula de notes i els
+  exàmens surten sempre del mateix tram.
 - **Dos caràcters de control, no un.** La lletra del DNI és una suma mod 23
   per a 8 xifres. Amb càrregues de centenars de caràcters cal (a) pesar per
   posició, o les transposicions no es detecten mai, i (b) un mòdul més gran
@@ -296,10 +308,11 @@ decisions que costen més de reconstruir des del codi:
   codi tocava i feia que el del full no portés el test inicial, perquè
   `full.html` no carregava `diagnostic-dades.js`. Ara totes les pàgines de
   treball carreguen el mateix bloc de scripts i el codi és sempre el mateix.
-- **El volum es veu al costat de la nota, sempre.** La nota és un percentatge
-  i no sap res del volum: qui fa un exercici i l'encerta surt amb un 10.
-  L'analitzador té un llindar de feina mínima; per sota, la nota es pinta
-  apagada i amb asterisc, perquè no convidi a comparar-la.
+- **El volum es veu al costat de la nota, sempre.** L'analitzador té un
+  llindar de feina mínima al tram (10, de `js/calendari.js`); per sota, la
+  nota es pinta apagada i amb asterisc, perquè no convidi a comparar-la. No es
+  posa a zero: la fórmula ja dona poc a qui fa poc (un exercici a la primera,
+  un 3,7).
 - **L'anàlisi de trimestre viu de la propietat acumulativa.** La resta entre
   dos codis consecutius d'un mateix alumne és la feina feta entremig, amb el
   detall de com li ha anat. Sense això només es podria mesurar l'estat final;
@@ -319,21 +332,17 @@ decisions que costen més de reconstruir des del codi:
   a començar: llavors el seu codi següent en porta menys, i amb una base no
   acumulativa el que repetia es tornava a comptar i el volum sortia inflat.
   L'analitzador detecta la caiguda i l'avisa.
-- **Les qualificacions no es recalculen a cada tecla.** Hi ha un botó
-  «Accepta i calcula», i mentre hi hagi canvis sense aplicar el botó es posa
-  ambre i ho diu. Posar una nota a algú no és una previsualització, i veure
-  les xifres ballar mentre s'escriu un any convida a mirar-se-les abans que
-  estiguin acabades. La capçalera del resultat repeteix sempre el període i
-  els objectius amb què s'han calculat: una nota sense això al costat no vol
-  dir res.
-- **Qui té codis al full però cap dins del període hi surt amb un zero.** No
-  haver fet res durant el trimestre és una nota, no una absència de dades. Si
-  això li passa a tothom, però, l'analitzador avisa que segurament les dates
+- **L'anàlisi de trimestre ja no dona nota.** Mostra l'activitat (constància,
+  volum, encert, pistes, millora) i prou; la nota és només la del tram. Els
+  números no es recalculen a cada tecla: hi ha un botó «Accepta i calcula», i
+  mentre hi hagi canvis sense aplicar el botó es posa ambre i ho diu. La
+  capçalera del resultat repeteix sempre el període i els objectius amb què
+  s'han calculat.
+- **Qui té codis al full però cap dins del període hi surt amb zero.** Tant al
+  trimestre com a la taula de notes del tram: no haver fet res és un zero, no
+  una absència de dades, i desaparèixer de la llista no ho diria. Si això li
+  passa a tothom al trimestre, l'analitzador avisa que segurament les dates
   estan malament i diu quin rang cobreixen els codis de debò.
-- **L'encert pesa poc a la nota, i és deliberat.** Si pesés molt, a l'alumne
-  li sortiria a compte no obrir pistes i evitar els exercicis de nivell 3, que
-  és el contrari del que busca la graduació per dificultat. Els pesos són
-  editables i la pàgina ho adverteix.
 - **La nota de feina no compta mai sola.** Mesura volum, no aprenentatge: vint
   exercicis contestats a l'atzar en donen de mitjana un 7,6. El professorat la
   valida sempre amb un examen presencial: si l'examen és de menys de 5, o la
@@ -345,8 +354,11 @@ decisions que costen més de reconstruir des del codi:
   descans: compta qualsevol dia que sigui entre les dues dates. L'endemà de
   l'examen l'alumnat esborra els codis, i l'historial va per (exercici, dia
   del primer intent): un exercici refet més tard és una altra feina, amb el
-  resultat nou; un examen ja fet no es mou; i si dins del tram triat hi és
-  dues vegades, mana la primera. Els codis sense dates (RC1-RC3) no compten:
+  resultat nou, i no toca el tram on s'havia fet abans; i si dins del tram
+  triat hi és dues vegades, mana la primera (un fallat refet puja, com a molt,
+  a segon intent). Un codi enviat tard sí que pot afegir feina a un tram ja
+  examinat, si aquella feina té data del tram: mana la data de l'exercici, no
+  la de l'enviament. Els codis sense dates (RC1-RC3) no compten:
   abans se'n deduïa la data de la de l'enviament, i la feina d'abans
   d'esborrar inflava el tram. El lloc de l'alumne tampoc no parla de trams:
   el botó Codi diu quants exercicis porta des de l'últim esborrat i quants

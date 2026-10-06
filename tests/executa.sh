@@ -104,7 +104,7 @@ elif [ "$sense_taules" -ne 0 ]; then
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ quatre blocs (analitzador,\n'
   printf '  accessibilitat, flux de la resolució i botons dels recursos) s\047han\n'
-  printf '  saltat perquè falta jsdom: són 156 comprovacions de 437 que no\n'
+  printf '  saltat perquè falta jsdom: són 179 comprovacions de 466 que no\n'
   printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0

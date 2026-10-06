@@ -50,7 +50,7 @@ SymPy (`pip install sympy`).
 | `mini_examen*.test.js` | — | Quatre bateries del mini-examen estàndard |
 | `teoria.test.js` | 3 | Els enllaços al llibre (se salten sense el repositori del llibre al costat) |
 | `video.test.js` | 19 | El mapa de vídeos i els botons Teoria / Vídeo pintats de debò |
-| `analitzador.test.js` | 82 | L'analitzador amb un DOM real |
+| `analitzador.test.js` | 111 | L'analitzador amb un DOM real: la nota única del tram, els 20 últims, el mini-examen i les baixades |
 | `test_a11y.js` | 41 | Accessibilitat de `practica.html` i `diagnostic.html`: radiogroup, aria-checked, regions en viu, roving tabindex, fletxes |
 | `test_flux_resolucio.js` | 18 | La resolució (i el «Per recordar») no s'ofereix mai sense una acció explícita de l'alumne |
 | `test_visibilitat_real.js` | 15 | Amb un navegador real: el que porta `hidden` no es veu ni es pot clicar |
