@@ -39,8 +39,28 @@ def _llista(ns):
     return ", ".join(("$%d$" % n) for n in ns)
 
 
-def item_mcd(qid, ex, ap, ns, ex_text, enunciat):
-    """Ítem de m.c.d. amb distractors del catàleg d'errors habituals."""
+def _pistes_generiques(ns, regla):
+    """Pistes per defecte dels ítems de m.c.d. i m.c.m. La primera diu amb
+    quins nombres es treballa (el signe no hi compta) i la segona dona les
+    descomposicions de l'apartat i la regla, de manera que només queda
+    triar els factors."""
+    negatius = any(n < 0 for n in ns)
+    p1 = "Descompon cada nombre en factors primers."
+    if negatius:
+        vals = ["$%d$" % abs(n) for n in ns]
+        p1 += (" El signe no hi compta: treballa amb %s i %s."
+               % (", ".join(vals[:-1]), vals[-1]))
+    desc = ", ".join("$%d=%s$" % (abs(n), tex_factors(n, sign=False))
+                     for n in ns)
+    return [p1, "%s. %s" % (desc, regla)]
+
+
+def item_mcd(qid, ex, ap, ns, ex_text, enunciat, pistes=None):
+    """Ítem de m.c.d. amb distractors del catàleg d'errors habituals.
+
+    `pistes` substitueix les genèriques. Als problemes cal: allà la
+    dificultat és decidir si es busca un divisor o un múltiple, i la pista
+    genèrica («agafa els factors comuns») se la salta."""
     c = mcd(*ns)
     m = mcm(*ns)
     prod = 1
@@ -69,8 +89,8 @@ def item_mcd(qid, ex, ap, ns, ex_text, enunciat):
     ]
     desc = " · ".join("$%d = %s$" % (abs(n), tex_factors(n, sign=False)) for n in ns)
     Q(qid, ex, ap, B, "A", enunciat, c, tria(c, cands),
-      ["Descompon cada nombre en factors primers.",
-       "Agafa NOMÉS els factors comuns, elevats al menor exponent."],
+      pistes or _pistes_generiques(
+          ns, "Agafa NOMÉS els factors comuns, elevats al menor exponent."),
       ["Descomposicions: " + desc,
        "Factors comuns amb el menor exponent: $\\operatorname{m.c.d.} = %s$" % (
            tex_factors(c, sign=False) if c > 1 else "1"),
@@ -80,7 +100,7 @@ def item_mcd(qid, ex, ap, ns, ex_text, enunciat):
             "absoluts.") if any(n < 0 for n in ns) else "")
 
 
-def item_mcm(qid, ex, ap, ns, ex_text, enunciat):
+def item_mcm(qid, ex, ap, ns, ex_text, enunciat, pistes=None):
     c = mcm(*ns)
     d = mcd(*ns)
     prod = 1
@@ -102,8 +122,9 @@ def item_mcm(qid, ex, ap, ns, ex_text, enunciat):
     ]
     desc = " · ".join("$%d = %s$" % (abs(n), tex_factors(n, sign=False)) for n in ns)
     Q(qid, ex, ap, B, "A", enunciat, c, tria(c, cands),
-      ["Descompon cada nombre en factors primers.",
-       "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."],
+      pistes or _pistes_generiques(
+          ns, "Agafa TOTS els factors, comuns i no comuns, elevats al major "
+              "exponent."),
       ["Descomposicions: " + desc,
        "Tots els factors amb el major exponent: $\\operatorname{m.c.m.} = %s$"
        % tex_factors(c, sign=False),
@@ -242,11 +263,22 @@ Q("11", 11, "", B, "B",
 E12 = "Resol aquests problemes."
 item_mcd("12a", 12, "a", [4, 6, 9], E12,
          r"Volem tallar tres cordes de $4$, $6$ i $9$ m en trossos iguals. "
-         r"Quina és la longitud, en metres, dels trossos més grans que es poden fer?")
+         r"Quina és la longitud, en metres, dels trossos més grans que es poden fer?",
+         pistes=[r"Els trossos han de cabre un nombre exacte de vegades a cada "
+                 r"corda: la seva longitud ha de DIVIDIR $4$, $6$ i $9$. El més "
+                 r"gran possible és el m.c.d.",
+                 r"$4=2^2$, $6=2\cdot3$ i $9=3^2$: hi ha cap factor primer que "
+                 r"surti als tres alhora? Recorda que l'$1$ divideix qualsevol "
+                 r"nombre."])
 item_mcm("12b", 12, "b", [4, 6, 9], E12,
          r"Els llibres d'una prestatgeria es poden col·locar en piles de $4$, $6$ i $9$ "
          r"llibres sense que en sobri cap. Quina és la quantitat més petita de llibres "
-         r"que hi pot haver?")
+         r"que hi pot haver?",
+         pistes=[r"El nombre de llibres s'ha de poder repartir en piles de $4$, "
+                 r"de $6$ i de $9$ sense que en sobri cap: ha de ser MÚLTIPLE "
+                 r"dels tres alhora. El més petit és el m.c.m.",
+                 r"$4=2^2$, $6=2\cdot3$ i $9=3^2$: agafa cada factor primer que "
+                 r"hi surti, amb l'exponent més gran."])
 
 # =============================================================== Exercici 13
 _c13 = mcd(432, 128)
@@ -345,7 +377,13 @@ item_mcm("17", 17, "", [12, 18],
          "Problema d'aplicació del m.c.m.",
          r"En una carretera hi ha fanals cada $12$ m en un lateral i cada $18$ m a "
          r"l'altre. El primer fanal de cada lateral està a la mateixa altura. Quants "
-         r"metres cal recórrer per trobar dos fanals l'un davant de l'altre?")
+         r"metres cal recórrer per trobar dos fanals l'un davant de l'altre?",
+         pistes=[r"Els fanals d'un lateral són a $12$, $24$… metres de l'inici, i "
+                 r"els de l'altre a $18$… Tornen a quedar l'un davant de l'altre "
+                 r"a una distància MÚLTIPLE de $12$ i de $18$ alhora: la primera "
+                 r"vegada és el m.c.m.",
+                 r"$12=2^2\cdot3$ i $18=2\cdot3^2$: agafa cada factor primer amb "
+                 r"l'exponent més gran."])
 
 
 # =====================================================================

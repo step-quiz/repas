@@ -462,7 +462,9 @@ Q("51a", 51, "a", B1, "B",
      "terme i $\\dfrac53$ el primer, els separen dues posicions. "
      "Entre termes consecutius, com $\\dfrac43-\\dfrac53=-\\dfrac13$, "
      "la diferència sí que és constant.")],
-  ["Calcula la diferència entre cada terme i el següent."],
+  ["Calcula la diferència entre cada terme i el següent.",
+   "Comença per $\\dfrac43-\\dfrac53$ i $1-\\dfrac43$ (escriu $1=\\dfrac33$). "
+   "Si totes les diferències surten iguals, és aritmètica."],
   ["$\\dfrac43-\\dfrac53=-\\dfrac13$, $1-\\dfrac43=-\\dfrac13$, "
    "$\\dfrac23-1=-\\dfrac13$, $\\dfrac13-\\dfrac23=-\\dfrac13$: la "
    "diferència és constant, $d=-\\dfrac13$, per tant sí que és una "
@@ -855,7 +857,8 @@ Q("56a", 56, "a", B3, "A",
      "potència és la raó ($5$), i el factor que hi multiplica és "
      "$a_1$ ($3$).")],
   ["El terme general d'una PG és $a_n=a_1\\cdot r^{\\,n-1}$.",
-   "$a_n=3\\cdot5^{\\,n-1}$."],
+   "Substitueix-hi $a_1=3$ i $r=5$. Compte: el que s'eleva a $n-1$ és la "
+   "raó, no el primer terme."],
   ["$a_n=a_1\\cdot r^{\\,n-1}=3\\cdot5^{\\,n-1}$"],
   ex_text=E56)
 

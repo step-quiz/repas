@@ -382,8 +382,8 @@ Q("219d", 219, "d", B1, "A",
      "variable quantitativa, no qualitativa.")],
   ["Els ingressos inclouen cèntims: pensa si admeten qualsevol valor "
    "decimal.",
-   "Compara-ho amb els diners gastats pels amics (exercici anterior): "
-   "mateix tipus de variable."],
+   "Compara-ho amb el pes o l'alçada, que són mesures, i amb el nombre "
+   "de mascotes, que és un recompte: a quin grup s'assembla més?"],
   ["Els ingressos diaris es poden mesurar amb qualsevol precisió "
    "decimal (euros i cèntims): és CONTÍNUA."],
   ex_text=E219)
@@ -437,7 +437,8 @@ Q("220a", 220, "a", B2, "A",
      "concret. Compta només quantes vegades apareix l'$1$.")],
   ["Recorre la llista de $30$ dades i marca cada vegada que trobis un "
    "$1$.",
-   "Compta-les totes abans de donar el resultat final."],
+   "Per no perdre-te'n cap, ves de deu en deu dades. Per comprovar-ho, "
+   "compta també els altres valors: tots junts han de sumar $30$."],
   ["Comptant les $30$ dades, l'$1$ apareix $8$ vegades: $f(1)=8$."],
   ex_text=E220)
 
@@ -639,7 +640,7 @@ Q("223a", 223, "a", B2, "A",
      "Aquest és el nombre d'alumnes que ho van aprovar tot "
      "($10\\,\\%$ de $30$), no els que en van suspendre dues.")],
   ["El $50\\,\\%$ de $30$ alumnes és $30\\cdot0{,}50$.",
-   "Calcula aquest producte."],
+   "El $50\\,\\%$ és la meitat del total."],
   ["$50\\,\\%$ de $30=30\\cdot0{,}50=15$ alumnes"],
   ex_text=E223)
 
@@ -865,7 +866,8 @@ Q("226a", 226, "a", B2, "A",
      "esports), no els que han triat bàsquet en concret.")],
   ["La freqüència absoluta és directament el nombre d'alumnes que "
    "han triat cada esport, tal com dona l'enunciat.",
-   "L'enunciat ja diu directament quants han triat bàsquet."],
+   "No cal fer cap càlcul: si divideixes entre $50$, obtens la "
+   "freqüència relativa, que és una altra cosa."],
   ["La freqüència absoluta del bàsquet és la que dona directament "
    "l'enunciat: $12$"],
   ex_text=E226)
@@ -1087,9 +1089,10 @@ Q("228b", 228, "b", B3, "A",
    D("$27$", "TOTAL_DADES_MAL_CALCULAT",
      "$27$ és el total de joves, la freqüència acumulada de l'ÚLTIM "
      "interval, no la de $[165,170)$.")],
-  ["Calcula les freqüències absolutes dels intervals anteriors: "
-   "$[150,155)\\to2$, $[155,160)\\to4$, $[160,165)\\to6$.",
-   "Suma-les totes amb la de $[165,170)$, que és $5$."],
+  ["L'acumulada d'un interval és la seva freqüència més les de tots els "
+   "intervals anteriors.",
+   "Els anteriors tenen $2$, $4$ i $6$ joves. Falta comptar els de "
+   "$[165,170)$: el $170$ ja no hi entra."],
   ["Freqüències: $2,4,6,5$ per als quatre primers intervals",
    "Acumulada de $[165,170)$: $2+4+6+5=17$"],
   ex_text=E228)
@@ -1282,9 +1285,9 @@ Q("231", 231, "", B3, "A",
    D("$7$ dades", "RECOMPTE_MAL_FET",
      "$7$ és només la freqüència més alta d'entre els punts "
      "($f(25)=7$), no la suma de totes.")],
-  ["El total de dades és la suma de totes les freqüències "
-   "absolutes: $1+3+4+4+7+6$.",
-   "Suma-les totes."],
+  ["El total de dades és la suma de totes les freqüències absolutes.",
+   "Les freqüències són la segona coordenada de cada punt del polígon (les "
+   "alçades), no els valors $5$, $10$, $15$…"],
   ["$N=1+3+4+4+7+6=25$"],
   ex_text=E231)
 

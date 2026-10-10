@@ -198,8 +198,8 @@ window.FULL = {
     "$x=16$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Multiplica els dos costats per $5$ per fer desaparèixer el denominador.",
+    "$\\dfrac{x}{5}=3$ vol dir que $x$ és $5$ vegades $3$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICIiLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJFxcZGZyYWN7eH17NX09MyBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9MTUkIl19"
@@ -220,8 +220,8 @@ window.FULL = {
     "$x=42$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Multiplica els dos costats per $2$ per fer desaparèixer el denominador.",
+    "$\\dfrac{x}{2}=-21$ vol dir que $x$ és $2$ vegades $-21$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkhhcyBkaXZpZGl0IHBlbCBub21icmUgcXVlIGFjb21wYW55YSBsYSAkeCQsIHBlcsOyIHQnaGFzIHNhbHRhdCBlbCBkZW5vbWluYWRvcjogZGUgJFxcZGZyYWN7YXh9e2J9PWMkIHN1cnQgcHJpbWVyICRheD1iXFxjZG90IGMkLCBpIG5vbcOpcyBsbGF2b3JzIGVzIGRpdmlkZWl4IHBlciAkYSQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiIiwgIlNJR05FX0ZJTkFMIiwgIkRFTk9NSU5BRE9SX05PX0VMSU1JTkFUIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiXSwgInJlcyI6IFsiJFxcZGZyYWN7eH17Mn09LTIxIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD0tNDIkIl19"
@@ -242,8 +242,8 @@ window.FULL = {
     "$x=-2$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Multiplica els dos costats per $3$ per fer desaparèixer el denominador.",
+    "Després de multiplicar per $3$ queda $-2x=3\\cdot4$. Ara divideix els dos costats per $-2$, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIlJldmlzYSBlbHMgc2lnbmVzOiBzaSBlbCBudW1lcmFkb3IgZGVsIGNvZWZpY2llbnQgZGUgJHgkIMOpcyBuZWdhdGl1LCBlbCByZXN1bHRhdCBmaW5hbCBuJ2hlcmV0YSBlbCBzaWduZSBzZWdvbnMgbGEgcmVnbGEgZGVscyBzaWduZXMgZGVsIHF1b2NpZW50LiIsICIiLCAiSGFzIGRpdmlkaXQgcGVsIG5vbWJyZSBxdWUgYWNvbXBhbnlhIGxhICR4JCwgcGVyw7IgdCdoYXMgc2FsdGF0IGVsIGRlbm9taW5hZG9yOiBkZSAkXFxkZnJhY3theH17Yn09YyQgc3VydCBwcmltZXIgJGF4PWJcXGNkb3QgYyQsIGkgbm9tw6lzIGxsYXZvcnMgZXMgZGl2aWRlaXggcGVyICRhJC4iXSwgImVyciI6IFsiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSUdORV9GSU5BTCIsICIiLCAiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiXSwgInJlcyI6IFsiJFxcZGZyYWN7LTJ4fXszfT00IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgLTJ4PTEyJCIsICIkeD0tNiQiXX0="
@@ -264,8 +264,8 @@ window.FULL = {
     "$x=16$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Multiplica els dos costats per $4$ per fer desaparèixer el denominador.",
+    "Després de multiplicar per $4$ queda $7x=4\\cdot28$. Ara divideix els dos costats per $7$, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iLCAiRW4gcGFzc2FyIGVsIGRlbm9taW5hZG9yIGEgbCdhbHRyZSBjb3N0YXQsIG11bHRpcGxpY2EgVE9UIGVsIG1lbWJyZSBkZSBsYSBkcmV0YSwgbm8gbm9tw6lzIHVuYSBwYXJ0LiIsICIiXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiU0lHTkVfRklOQUwiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICIiXSwgInJlcyI6IFsiJFxcZGZyYWN7N3h9ezR9PTI4IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgN3g9MTEyJCIsICIkeD0xNiQiXX0="
@@ -287,7 +287,7 @@ window.FULL = {
    ],
    "pistes": [
     "Aquí no hi ha cap denominador: la $x$ ja només porta un coeficient al davant.",
-    "Aïlla $x$ dividint els dos costats pel nombre que l'acompanya."
+    "Divideix els dos costats per $3$. Si la divisió no és exacta, deixa el resultat en forma de fracció, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICIiLCAiUmV2aXNhIGVscyBzaWduZXM6IHNpIGVsIG51bWVyYWRvciBkZWwgY29lZmljaWVudCBkZSAkeCQgw6lzIG5lZ2F0aXUsIGVsIHJlc3VsdGF0IGZpbmFsIG4naGVyZXRhIGVsIHNpZ25lIHNlZ29ucyBsYSByZWdsYSBkZWxzIHNpZ25lcyBkZWwgcXVvY2llbnQuIiwgIkVuIHBhc3NhciBlbCBkZW5vbWluYWRvciBhIGwnYWx0cmUgY29zdGF0LCBtdWx0aXBsaWNhIFRPVCBlbCBtZW1icmUgZGUgbGEgZHJldGEsIG5vIG5vbcOpcyB1bmEgcGFydC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiIiwgIlNJR05FX0ZJTkFMIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiXSwgInJlcyI6IFsiJDN4PS01IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD0tXFxkZnJhY3s1fXszfSQiXX0="
@@ -308,8 +308,8 @@ window.FULL = {
     "$x=-\\dfrac{50}{3}$"
    ],
    "pistes": [
-    "Multiplica els dos costats pel denominador per fer-lo desaparèixer.",
-    "Aïlla $x$ dividint pel nombre que l'acompanya."
+    "Multiplica els dos costats per $2$ per fer desaparèixer el denominador.",
+    "Després de multiplicar per $2$ queda $-3x=2\\cdot(-25)$. Ara divideix els dos costats per $-3$, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZWwgbm9tYnJlIHF1ZSBhY29tcGFueWEgbGEgJHgkLCBwZXLDsiB0J2hhcyBzYWx0YXQgZWwgZGVub21pbmFkb3I6IGRlICRcXGRmcmFje2F4fXtifT1jJCBzdXJ0IHByaW1lciAkYXg9YlxcY2RvdCBjJCwgaSBub23DqXMgbGxhdm9ycyBlcyBkaXZpZGVpeCBwZXIgJGEkLiIsICJFbiBwYXNzYXIgZWwgZGVub21pbmFkb3IgYSBsJ2FsdHJlIGNvc3RhdCwgbXVsdGlwbGljYSBUT1QgZWwgbWVtYnJlIGRlIGxhIGRyZXRhLCBubyBub23DqXMgdW5hIHBhcnQuIiwgIiIsICJSZXZpc2EgZWxzIHNpZ25lczogc2kgZWwgbnVtZXJhZG9yIGRlbCBjb2VmaWNpZW50IGRlICR4JCDDqXMgbmVnYXRpdSwgZWwgcmVzdWx0YXQgZmluYWwgbidoZXJldGEgZWwgc2lnbmUgc2Vnb25zIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBxdW9jaWVudC4iXSwgImVyciI6IFsiREVOT01JTkFET1JfTk9fRUxJTUlOQVQiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJFxcZGZyYWN7LTN4fXsyfT0tMjUgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAtM3g9LTUwJCIsICIkeD1cXGRmcmFjezUwfXszfSQiXX0="
@@ -330,7 +330,8 @@ window.FULL = {
     "$x=-3$"
    ],
    "pistes": [
-    "Multiplica els dos costats per $5$ per eliminar el denominador."
+    "Multiplica els dos costats per $5$ per eliminar el denominador.",
+    "A l'esquerra et queda tot el numerador, $x-2$. Aïlla la $x$ i comprova el resultat substituint-lo a l'equació."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJQZXIgdHJldXJlIGVsIGRlbm9taW5hZG9yIGNhbCBtdWx0aXBsaWNhciBlbHMgRE9TIGNvc3RhdHMgcGVyICQ1JDogJHgtMj01JCwgbm8gZGl2aWRpciBlbCAkMiQgcGVyICQ1JC4iLCAiTm8gY2FsIGludmVydGlyIHJlczogbXVsdGlwbGljYSBlbHMgZG9zIGNvc3RhdHMgcGVyICQ1JCBwZXIgZWxpbWluYXIgZWwgZGVub21pbmFkb3IgaSBkZXNwcsOpcyBhw69sbGEgJHgkLiIsICIiLCAiUmV2aXNhIGVsIHNpZ25lIGVuIGHDr2xsYXIgJHgkOiBkZSAkeC0yPTUkIGVzIHBhc3NhIGVsICQtMiQgc3VtYW50IGEgbCdhbHRyZSBjb3N0YXQuIl0sICJlcnIiOiBbIlBST0RVQ1RFX0NSRVVBVCIsICJJTlZFUlRJREEiLCAiIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIiRcXGRmcmFje3gtMn17NX09MSBcXDtcXExvbmdyaWdodGFycm93XFw7IHgtMj01JCIsICIkeD03JCJdfQ=="
@@ -791,8 +792,8 @@ window.FULL = {
     "$x=3$ (doble)"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=1$, $b=-5$ i $c=6$.",
+    "Calcula primer $\\Delta=(-5)^2-4\\cdot 1\\cdot 6$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGxhIGbDs3JtdWxhOiBubyBuJ2hpIGhhIHByb3UgZGUgZGVzY29tcG9uZHJlICQ2JCBjb20gYSBwcm9kdWN0ZSBkZSBkb3MgZmFjdG9ycywgY2FsIGFwbGljYXIgJHg9XFxmcmFjey1iXFxwbVxcc3FydFxcRGVsdGF9ezJhfSQuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS01JCwgZWwgbnVtZXJhZG9yIGRlIGxhIGbDs3JtdWxhIHBvcnRhICQrNSQsIGkgbGVzIGR1ZXMgc29sdWNpb25zIHN1cnRlbiBwb3NpdGl2ZXMuIiwgIkVsIGRpc2NyaW1pbmFudCAkXFxEZWx0YT0xJCDDqXMgcG9zaXRpdSAobm8gemVybyk6IGhpIGhhIERVRVMgc29sdWNpb25zIGRpZmVyZW50cywgbm8gdW5hIGRlIGRvYmxlLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfQ1JFVUFUIiwgIlNJR05FX1FVT0NJRU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTUsXFwgYz02JDogJFxcRGVsdGE9KC01KV4yLTRcXGNkb3QxXFxjZG90Nj0yNS0yND0xJCIsICIkeD1cXGRmcmFjezVcXHBtXFxzcXJ0ezF9fXsyfSQiLCAiJHg9MixcXCAzJCJdfQ=="
@@ -813,8 +814,8 @@ window.FULL = {
     "$x=-1,\\ 1$"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=2$, $b=-4$ i $c=13$.",
+    "Calcula primer $\\Delta=(-4)^2-4\\cdot 2\\cdot 13$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJcIlNlbnNlIHNvbHVjaW9ucyByZWFsc1wiIG5vIMOpcyBlbCBtYXRlaXggcXVlIFwic2Vuc2Ugc29sdWNpw7NcIjogYXF1w60gZW5zIHJlZmVyaW0gYSBub21icmVzIHJlYWxzLCBpIGVsIGRpc2NyaW1pbmFudCBuZWdhdGl1IGhvIGNvbmZpcm1hLiIsICJVbiBkaXNjcmltaW5hbnQgbmVnYXRpdSB2b2wgZGlyIHF1ZSBOTyBoaSBoYSBjYXAgc29sdWNpw7MgcmVhbCwgbmkgdGFuIHNvbHMgdW5hIGRlIGRvYmxlOiB0b3JuYSBhIGNhbGN1bGFyICRcXERlbHRhPWJeMi00YWMkLiIsICIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudCBhbWIgY3VyYTogJFxcRGVsdGE9KC00KV4yLTRcXGNkb3QyXFxjZG90MTM9MTYtMTA0PS04OCQsIG5lZ2F0aXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIiIsICJTSUdORV9QUk9EVUNURSJdLCAicmVzIjogWyIkYT0yLFxcIGI9LTQsXFwgYz0xMyQ6ICRcXERlbHRhPSgtNCleMi00XFxjZG90MlxcY2RvdDEzPTE2LTEwND0tODgkIiwgIkNvbSBxdWUgJFxcRGVsdGE8MCQsIGwnZXF1YWNpw7Mgbm8gdMOpIHNvbHVjaW9ucyByZWFscy4iXX0="
@@ -835,8 +836,8 @@ window.FULL = {
     "$x=-4,\\ 4$"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=1$, $b=8$ i $c=16$.",
+    "Calcula primer $\\Delta=8^2-4\\cdot 1\\cdot 16$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJC04XFxwbTAkIGVzIGRpdmlkZWl4IFRPVCBlbnRyZSAkMiQsIG5vIGVzIHF1ZWRhIHNlbnNlIGRpdmlkaXIuIiwgIiRcXERlbHRhPTAkIG5vIHZvbCBkaXIgcXVlIG5vIGhpIGhhZ2kgc29sdWNpb25zIHJlYWxzOiB2b2wgZGlyIHF1ZSBuJ2hpIGhhIGV4YWN0YW1lbnQgdW5hIChkb2JsZSkuIiwgIiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKSwgbm8gZHVlcyBkZSBzaWduZSBvcG9zYXQ6IHJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvci4iXSwgImVyciI6IFsiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJGE9MSxcXCBiPTgsXFwgYz0xNiQ6ICRcXERlbHRhPSg4KV4yLTRcXGNkb3QxXFxjZG90MTY9NjQtNjQ9MCQiLCAiJHg9XFxkZnJhY3stOFxccG1cXHNxcnR7MH19ezJ9JCIsICIkeD0tNCQgKGRvYmxlKSJdfQ=="
@@ -857,8 +858,8 @@ window.FULL = {
     "$x=\\dfrac{8}{3},\\ -2$"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=3$, $b=2$ i $c=-16$.",
+    "Calcula primer $\\Delta=2^2-4\\cdot 3\\cdot (-16)$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxmcmFjey0yKzE0fXs2fT1cXGZyYWN7MTJ9ezZ9PTIkLCBwb3NpdGl1LiIsICIiLCAiTGVzIGZyYWNjaW9ucyBmaW5hbHMgZW5jYXJhIGVzIHBvZGVuIHNpbXBsaWZpY2FyIGRpdmlkaW50IG51bWVyYWRvciBpIGRlbm9taW5hZG9yIGVudHJlICQyJC4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9MiQsIGVsIG51bWVyYWRvciBwb3J0YSAkLTIkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiU0lNUExJRklDQUNJT19JTkNPTVBMRVRBIiwgIlNJR05FX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRhPTMsXFwgYj0yLFxcIGM9LTE2JDogJFxcRGVsdGE9KDIpXjItNFxcY2RvdDNcXGNkb3QoLTE2KT00KzE5Mj0xOTYkIiwgIiR4PVxcZGZyYWN7LTJcXHBtXFxzcXJ0ezE5Nn19ezZ9JCIsICIkeD0tXFxkZnJhY3s4fXszfSxcXCAyJCJdfQ=="
@@ -879,8 +880,8 @@ window.FULL = {
     "$x=1$ (doble)"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=1$, $b=-2$ i $c=1$.",
+    "Calcula primer $\\Delta=(-2)^2-4\\cdot 1\\cdot 1$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkXFxEZWx0YT0wJCBubyB2b2wgZGlyIHF1ZSBubyBoaSBoYWdpIHNvbHVjaW9ucyByZWFsczogdm9sIGRpciBxdWUgbidoaSBoYSBleGFjdGFtZW50IHVuYSAoZG9ibGUpLiIsICJRdWFuICRcXERlbHRhPTAkIG5vbcOpcyBoaSBoYSBVTkEgc29sdWNpw7MgKGRvYmxlKTogcmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yLCBhbWIgJGI9LTIkIGVsIG51bWVyYWRvciBwb3J0YSAkKzIkLiIsICJSZXZpc2EgbGEgZGl2aXNpw7MgZmluYWwgZW50cmUgJDJhPTIkOiBlbCBudW1lcmFkb3IgJDJcXHBtMCQgZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGRvbmEgJDEkLCBubyAkMiQuIiwgIiJdLCAiZXJyIjogWyJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIiwgIiJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTIsXFwgYz0xJDogJFxcRGVsdGE9KC0yKV4yLTRcXGNkb3QxXFxjZG90MT00LTQ9MCQiLCAiJHg9XFxkZnJhY3syXFxwbVxcc3FydHswfX17Mn0kIiwgIiR4PTEkIChkb2JsZSkiXX0="
@@ -901,8 +902,8 @@ window.FULL = {
     "Sense solució"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=7$, $b=-3$ i $c=1$.",
+    "Calcula primer $\\Delta=(-3)^2-4\\cdot 7\\cdot 1$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIGPDoGxjdWwgZGVsIGRpc2NyaW1pbmFudDogJFxcRGVsdGE9KC0zKV4yLTRcXGNkb3Q3XFxjZG90MT05LTI4PS0xOSQsIG5lZ2F0aXUuIiwgIlVuIGRpc2NyaW1pbmFudCBuZWdhdGl1IHZvbCBkaXIgcXVlIE5PIGhpIGhhIGNhcCBzb2x1Y2nDsyByZWFsLCBuaSB0YW4gc29scyB1bmEgZGUgZG9ibGU6IHRvcm5hIGEgY2FsY3VsYXIgJFxcRGVsdGE9Yl4yLTRhYyQuIiwgIlwiU2Vuc2Ugc29sdWNpb25zIHJlYWxzXCIgbm8gw6lzIGVsIG1hdGVpeCBxdWUgXCJzZW5zZSBzb2x1Y2nDs1wiOiBlbCBkaXNjcmltaW5hbnQgbmVnYXRpdSBjb25maXJtYSBxdWUgbm8gbidoaSBoYSBjYXAgZGUgcmVhbC4iXSwgImVyciI6IFsiIiwgIlNJR05FX1BST0RVQ1RFIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIiRhPTcsXFwgYj0tMyxcXCBjPTEkOiAkXFxEZWx0YT0oLTMpXjItNFxcY2RvdDdcXGNkb3QxPTktMjg9LTE5JCIsICJDb20gcXVlICRcXERlbHRhPDAkLCBsJ2VxdWFjacOzIG5vIHTDqSBzb2x1Y2lvbnMgcmVhbHMuIl19"
@@ -923,8 +924,8 @@ window.FULL = {
     "$x=-1,\\ 5$"
    ],
    "pistes": [
-    "Identifica $a$, $b$ i $c$ i calcula primer el discriminant $\\Delta=b^2-4ac$.",
-    "El signe de $\\Delta$ et diu quantes solucions reals hi ha abans d'aplicar la fórmula sencera."
+    "Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=-1$, $b=-4$ i $c=5$.",
+    "Calcula primer $\\Delta=(-4)^2-4\\cdot (-1)\\cdot 5$. Si surt negatiu, no hi ha solucions reals; si no, aplica $x=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$. Compte: com que $a$ és negatiu, el denominador $2a$ també ho és."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbCdhcml0bcOodGljYSBkZWwgbnVtZXJhZG9yIGFiYW5zIGRlIGRpdmlkaXI6ICQ0K1xcc3FydHszNn09NCs2PTEwJCwgbm8gdW4gYWx0cmUgdmFsb3IuIiwgIlJldmlzYSBlbCBzaWduZSBkZSAkLWIkIGFsIG51bWVyYWRvcjogYW1iICRiPS00JCwgZWwgbnVtZXJhZG9yIHBvcnRhICQrNCQ7IGkgZWwgZGVub21pbmFkb3IgJDJhPS0yJCDDqXMgbmVnYXRpdSwgY29zYSBxdWUgdGFtYsOpIGFmZWN0YSBlbCBzaWduZSBmaW5hbC4iLCAiIiwgIlJldmlzYSBxdWluIGRlbHMgZG9zIGNhc29zIGRlbCAkXFxwbSQgZG9uYSBjYWRhIHNvbHVjacOzOiAkXFxmcmFjezQrNn17LTJ9PS01JCBpICRcXGZyYWN7NC02fXstMn09MSQuIl0sICJlcnIiOiBbIk9SRFJFX01VTFRJUExJQ0FDSU9fRElWSVNJTyIsICJTSUdORV9RVU9DSUVOVCIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJGE9LTEsXFwgYj0tNCxcXCBjPTUkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdCgtMSlcXGNkb3Q1PTE2KzIwPTM2JCIsICIkeD1cXGRmcmFjezRcXHBtXFxzcXJ0ezM2fX17LTJ9JCIsICIkeD0tNSxcXCAxJCJdfQ=="
@@ -946,7 +947,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=5^2-4\\cdot 1\\cdot 6$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiVW5hIGVxdWFjacOzIGRlIHNlZ29uIGdyYXUgKGdyYXUgMikgdMOpIGNvbSBhIG1vbHQgMiBzb2x1Y2lvbnMgcmVhbHMsIG1haSAzOiByZXZpc2EgcXVlIGhhcyBpZGVudGlmaWNhdCBiw6kgZWwgZ3JhdS4iLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIiIsICJQQVJJVEFUX0VYUE9ORU5UIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9NSxcXCBjPTYkOiAkXFxEZWx0YT0oNSleMi00XFxjZG90MVxcY2RvdDY9MjUtMjQ9MSQiLCAiJFxcRGVsdGE+MCQgJFxcUmlnaHRhcnJvdyQgMiBzb2x1Y2lvbnMiXX0="
@@ -968,7 +969,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=(-6)^2-4\\cdot (-2)\\cdot 8$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbmEgZXF1YWNpw7MgZGUgc2Vnb24gZ3JhdSAoZ3JhdSAyKSB0w6kgY29tIGEgbW9sdCAyIHNvbHVjaW9ucyByZWFscywgbWFpIDM6IHJldmlzYSBxdWUgaGFzIGlkZW50aWZpY2F0IGLDqSBlbCBncmF1LiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIl0sICJlcnIiOiBbIlBBUklUQVRfRVhQT05FTlQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0tMixcXCBiPS02LFxcIGM9OCQ6ICRcXERlbHRhPSgtNileMi00XFxjZG90KC0yKVxcY2RvdDg9MzYrNjQ9MTAwJCIsICIkXFxEZWx0YT4wJCAkXFxSaWdodGFycm93JCAyIHNvbHVjaW9ucyJdfQ=="
@@ -990,7 +991,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=(-8)^2-4\\cdot 1\\cdot 16$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTgsXFwgYz0xNiQ6ICRcXERlbHRhPSgtOCleMi00XFxjZG90MVxcY2RvdDE2PTY0LTY0PTAkIiwgIiRcXERlbHRhPTAkICRcXFJpZ2h0YXJyb3ckIDEgc29sdWNpw7MgKGRvYmxlKSJdfQ=="
@@ -1012,7 +1013,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=1^2-4\\cdot (-1)\\cdot 1$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlVuYSBlcXVhY2nDsyBkZSBzZWdvbiBncmF1IChncmF1IDIpIHTDqSBjb20gYSBtb2x0IDIgc29sdWNpb25zIHJlYWxzLCBtYWkgMzogcmV2aXNhIHF1ZSBoYXMgaWRlbnRpZmljYXQgYsOpIGVsIGdyYXUuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiU0lHTkVfUFJPRFVDVEUiLCAiUEFSSVRBVF9FWFBPTkVOVCJdLCAicmVzIjogWyIkYT0tMSxcXCBiPTEsXFwgYz0xJDogJFxcRGVsdGE9KDEpXjItNFxcY2RvdCgtMSlcXGNkb3QxPTErND01JCIsICIkXFxEZWx0YT4wJCAkXFxSaWdodGFycm93JCAyIHNvbHVjaW9ucyJdfQ=="
@@ -1034,7 +1035,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=8^2-4\\cdot 1\\cdot 16$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIiwgIkVsIHZlcmVkaWN0ZSBubyBjb2luY2lkZWl4IGFtYiBlbCBzaWduZSByZWFsIGRlbCBkaXNjcmltaW5hbnQgcXVlIGhhcyAobyBoYXVyaWVzIGQnaGF2ZXIpIGNhbGN1bGF0OiB0b3JuYS1oaSBhIG1pcmFyLiJdLCAiZXJyIjogWyJTSUdORV9QUk9EVUNURSIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9OCxcXCBjPTE2JDogJFxcRGVsdGE9KDgpXjItNFxcY2RvdDFcXGNkb3QxNj02NC02ND0wJCIsICIkXFxEZWx0YT0wJCAkXFxSaWdodGFycm93JCAxIHNvbHVjacOzIChkb2JsZSkiXX0="
@@ -1056,7 +1057,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=(-4)^2-4\\cdot 2\\cdot 13$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdmVyZWRpY3RlIG5vIGNvaW5jaWRlaXggYW1iIGVsIHNpZ25lIHJlYWwgZGVsIGRpc2NyaW1pbmFudCBxdWUgaGFzIChvIGhhdXJpZXMgZCdoYXZlcikgY2FsY3VsYXQ6IHRvcm5hLWhpIGEgbWlyYXIuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIiwgIlJldmlzYSBlbCBjw6BsY3VsIGRlICRcXERlbHRhPWJeMi00YWMkIGFtYiBlbHMgc2lnbmVzIGNvcnJlY3RlcyBkZSAkYSQsICRiJCBpICRjJDogdW4gZXJyb3IgZGUgc2lnbmUgYXF1w60gY2FudmlhIGNvbXBsZXRhbWVudCBlbCB2ZXJlZGljdGUuIl0sICJlcnIiOiBbIiIsICJWRVJFRElDVEVfSU5WRVJUSVQiLCAiU0lHTkVfUFJPRFVDVEUiLCAiU0lHTkVfUFJPRFVDVEUiXSwgInJlcyI6IFsiJGE9MixcXCBiPS00LFxcIGM9MTMkOiAkXFxEZWx0YT0oLTQpXjItNFxcY2RvdDJcXGNkb3QxMz0xNi0xMDQ9LTg4JCIsICIkXFxEZWx0YTwwJCAkXFxSaWdodGFycm93JCBDYXAgc29sdWNpw7MgcmVhbCJdfQ=="
@@ -1078,7 +1079,7 @@ window.FULL = {
    ],
    "pistes": [
     "No cal resoldre l'equació: només calcula el discriminant $\\Delta=b^2-4ac$ i mira'n el signe.",
-    "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). $\\Delta<0$: cap de real."
+    "Aquí $\\Delta=(-3)^2-4\\cdot 7\\cdot 1$: compte amb els signes. Després: $\\Delta>0$, dues solucions; $\\Delta=0$, una (doble); $\\Delta<0$, cap de real."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIlNJR05FX1BST0RVQ1RFIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiXSwgInJlcyI6IFsiJGE9NyxcXCBiPS0zLFxcIGM9MSQ6ICRcXERlbHRhPSgtMyleMi00XFxjZG90N1xcY2RvdDE9OS0yOD0tMTkkIiwgIiRcXERlbHRhPDAkICRcXFJpZ2h0YXJyb3ckIENhcCBzb2x1Y2nDsyByZWFsIl19"
@@ -1099,11 +1100,11 @@ window.FULL = {
     "$x=0,\\ 7$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $x^2$ i $-7x$, porten $x$: treu-la factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgNyQiXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiJHheMi03eD14KHgtNyk9MCQiLCAiJHg9MCQgbyAkeC03PTAkIiwgIiR4PTAsXFwgNyQiXX0="
   },
   {
    "id": "82b",
@@ -1121,11 +1122,11 @@ window.FULL = {
     "$x=3,\\ 0$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $x^2$ i $3x$, porten $x$: treu-la factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlIGxhIHNlZ29uYSBzb2x1Y2nDszogaWd1YWxhIGNhZGEgZmFjdG9yIGEgemVybyBwZXIgc2VwYXJhdCBpIGHDr2xsYSAkeCQgYW1iIGN1cmEuIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgLTMkIl19"
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlIGxhIHNlZ29uYSBzb2x1Y2nDszogaWd1YWxhIGNhZGEgZmFjdG9yIGEgemVybyBwZXIgc2VwYXJhdCBpIGHDr2xsYSAkeCQgYW1iIGN1cmEuIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJHheMiszeD14KHgrMyk9MCQiLCAiJHg9MCQgbyAkeCszPTAkIiwgIiR4PTAsXFwgLTMkIl19"
   },
   {
    "id": "82c",
@@ -1143,11 +1144,11 @@ window.FULL = {
     "$x=0,\\ 25$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $x^2$ i $-25x$, porten $x$: treu-la factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiRW4gZGl2aWRpciBwZWwgZmFjdG9yIGNvbcO6LCByZXZpc2EgcXVlIGNhZGEgdGVybWUgcXVlZGkgZGl2aWRpdCBjb3JyZWN0YW1lbnQsIG5vIG5vbcOpcyB1bi4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICIiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgMjUkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiRW4gZGl2aWRpciBwZWwgZmFjdG9yIGNvbcO6LCByZXZpc2EgcXVlIGNhZGEgdGVybWUgcXVlZGkgZGl2aWRpdCBjb3JyZWN0YW1lbnQsIG5vIG5vbcOpcyB1bi4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICIiXSwgInJlcyI6IFsiJHheMi0yNXg9eCh4LTI1KT0wJCIsICIkeD0wJCBvICR4LTI1PTAkIiwgIiR4PTAsXFwgMjUkIl19"
   },
   {
    "id": "82d",
@@ -1165,11 +1166,11 @@ window.FULL = {
     "$x=0,\\ 10$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $x^2$ i $-10x$, porten $x$: treu-la factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgMTAkIl19"
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiJHheMi0xMHg9eCh4LTEwKT0wJCIsICIkeD0wJCBvICR4LTEwPTAkIiwgIiR4PTAsXFwgMTAkIl19"
   },
   {
    "id": "82e",
@@ -1187,11 +1188,11 @@ window.FULL = {
     "$x=-5,\\ 0$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Ja és un producte igualat a zero: no cal factoritzar res.",
+    "Iguala a zero cada factor que porta $x$. El $16$ no hi canvia res: si $16x=0$, quant val $x$?"
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICIiLCAiRW4gZGl2aWRpciBwZWwgZmFjdG9yIGNvbcO6LCByZXZpc2EgcXVlIGNhZGEgdGVybWUgcXVlZGkgZGl2aWRpdCBjb3JyZWN0YW1lbnQsIG5vIG5vbcOpcyB1bi4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlIGxhIHNlZ29uYSBzb2x1Y2nDszogaWd1YWxhIGNhZGEgZmFjdG9yIGEgemVybyBwZXIgc2VwYXJhdCBpIGHDr2xsYSAkeCQgYW1iIGN1cmEuIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgNSQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICIiLCAiRW4gZGl2aWRpciBwZWwgZmFjdG9yIGNvbcO6LCByZXZpc2EgcXVlIGNhZGEgdGVybWUgcXVlZGkgZGl2aWRpdCBjb3JyZWN0YW1lbnQsIG5vIG5vbcOpcyB1bi4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlIGxhIHNlZ29uYSBzb2x1Y2nDszogaWd1YWxhIGNhZGEgZmFjdG9yIGEgemVybyBwZXIgc2VwYXJhdCBpIGHDr2xsYSAkeCQgYW1iIGN1cmEuIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJDE2eCh4LTUpPTAkIGphIMOpcyB1biBwcm9kdWN0ZSBpZ3VhbGF0IGEgemVybyIsICIkMTZ4PTAkIG8gJHgtNT0wJCIsICIkeD0wLFxcIDUkIl19"
   },
   {
    "id": "82f",
@@ -1209,11 +1210,11 @@ window.FULL = {
     "$x=0,\\ 8$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $3x^2$ i $-12x$, tenen en comú $3x$: treu-lo factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $3x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiRW4gdHJldXJlIGZhY3RvciBjb23DuiAkeCQsIGwnZXF1YWNpw7MgdMOpIERVRVMgc29sdWNpb25zICh1bmEgw6lzIHNlbXByZSAkeD0wJCk6IG5vIGxhIGRlc2NhcnRpcy4iLCAiIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgNCQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiRW4gdHJldXJlIGZhY3RvciBjb23DuiAkeCQsIGwnZXF1YWNpw7MgdMOpIERVRVMgc29sdWNpb25zICh1bmEgw6lzIHNlbXByZSAkeD0wJCk6IG5vIGxhIGRlc2NhcnRpcy4iLCAiIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiJDN4XjItMTJ4PTN4KHgtNCk9MCQiLCAiJDN4PTAkIG8gJHgtND0wJCIsICIkeD0wLFxcIDQkIl19"
   },
   {
    "id": "82g",
@@ -1231,11 +1232,11 @@ window.FULL = {
     "$x=0,\\ \\dfrac{5}{2}$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Primer passa-ho tot a un costat i ajunta els termes en $x$: l'equació ha de quedar igualada a zero.",
+    "Queda $4x^2-5x=0$: treu factor comú $x$ i iguala cada factor a zero."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgXFxkZnJhY3s1fXs0fSQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICIiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiJDN4PTR4XjItMnggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyAwPTR4XjItNXg9eCg0eC01KSQiLCAiJHg9MCQgbyAkNHgtNT0wJCIsICIkeD0wLFxcIFxcZGZyYWN7NX17NH0kIl19"
   },
   {
    "id": "82h",
@@ -1253,11 +1254,11 @@ window.FULL = {
     "$x=0,\\ \\dfrac{5}{2}$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Passa-ho tot a un costat: $4x^2-5x=0$.",
+    "Treu factor comú $x$ i iguala cada factor a zero. No divideixis els dos costats per $x$: perdries la solució $x=0$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIiwgIkVuIHRyZXVyZSBmYWN0b3IgY29tw7ogJHgkLCBsJ2VxdWFjacOzIHTDqSBEVUVTIHNvbHVjaW9ucyAodW5hIMOpcyBzZW1wcmUgJHg9MCQpOiBubyBsYSBkZXNjYXJ0aXMuIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIiIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgXFxkZnJhY3s1fXs0fSQiXX0="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIiwgIkVuIHRyZXVyZSBmYWN0b3IgY29tw7ogJHgkLCBsJ2VxdWFjacOzIHTDqSBEVUVTIHNvbHVjaW9ucyAodW5hIMOpcyBzZW1wcmUgJHg9MCQpOiBubyBsYSBkZXNjYXJ0aXMuIiwgIkVuIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DuiwgcmV2aXNhIHF1ZSBjYWRhIHRlcm1lIHF1ZWRpIGRpdmlkaXQgY29ycmVjdGFtZW50LCBubyBub23DqXMgdW4uIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIiIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiRkFDVE9SX0NPTVVfTUFMX0RJVklESVQiXSwgInJlcyI6IFsiJDR4XjI9NXggXFw7XFxMb25ncmlnaHRhcnJvd1xcOyA0eF4yLTV4PTAgXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4KDR4LTUpPTAkIiwgIiR4PTAkIG8gJDR4LTU9MCQiLCAiJHg9MCxcXCBcXGRmcmFjezV9ezR9JCJdfQ=="
   },
   {
    "id": "82i",
@@ -1275,11 +1276,11 @@ window.FULL = {
     "$x=0,\\ 4$"
    ],
    "pistes": [
-    "Treu factor comú $x$ (o el factor comú que correspongui) per convertir-ho en un producte igualat a zero.",
-    "Un producte val zero quan algun dels seus factors ho és: iguala cada factor a zero per separat."
+    "Els dos termes, $25x^2$ i $-100x$, tenen en comú $25x$: treu-lo factor comú.",
+    "Et queda un producte igualat a zero: iguala cada factor a zero per separat. No t'oblidis de la solució que dona el factor $25x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiRmFjdG9yaXR6ZW0gdHJhaWVudCBlbCBmYWN0b3IgY29tw7ogY29ycmVzcG9uZW50IGkgaWd1YWxlbSBjYWRhIGZhY3RvciBhIHplcm8uIiwgIiR4PTAsXFwgNCQiXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiBkaXZpZGlyIHBlbCBmYWN0b3IgY29tw7osIHJldmlzYSBxdWUgY2FkYSB0ZXJtZSBxdWVkaSBkaXZpZGl0IGNvcnJlY3RhbWVudCwgbm8gbm9tw6lzIHVuLiIsICJFbiB0cmV1cmUgZmFjdG9yIGNvbcO6ICR4JCwgbCdlcXVhY2nDsyB0w6kgRFVFUyBzb2x1Y2lvbnMgKHVuYSDDqXMgc2VtcHJlICR4PTAkKTogbm8gbGEgZGVzY2FydGlzLiIsICJSZXZpc2EgZWwgc2lnbmUgZGUgbGEgc2Vnb25hIHNvbHVjacOzOiBpZ3VhbGEgY2FkYSBmYWN0b3IgYSB6ZXJvIHBlciBzZXBhcmF0IGkgYcOvbGxhICR4JCBhbWIgY3VyYS4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJTSUdORV9GSU5BTCIsICIiXSwgInJlcyI6IFsiJDI1eF4yLTEwMHg9MjV4KHgtNCk9MCQiLCAiJDI1eD0wJCBvICR4LTQ9MCQiLCAiJHg9MCxcXCA0JCJdfQ=="
   },
   {
    "id": "83a",

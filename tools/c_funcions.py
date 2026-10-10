@@ -210,7 +210,10 @@ Q("200a", 200, "a", B1, "B",
      "funció: el que importa és que cada mida (àrea) determini una "
      "única quantitat de pintura, sigui quina sigui la forma.")],
   ["Una relació és una funció quan a cada valor de la primera magnitud "
-   "li correspon un ÚNIC valor de la segona, mai més d'un."],
+   "li correspon un ÚNIC valor de la segona, mai més d'un.",
+   "Pensa-ho amb el gruix de la capa fixat: si saps la mida d'una paret, "
+   "la quantitat de pintura queda decidida, o en podria tenir dues de "
+   "diferents?"],
   ["Fixat el gruix de la pintura, cada mida de paret determina una "
    "única quantitat necessària: és una funció."],
   ex_text=E200)
@@ -278,7 +281,9 @@ Q("200c", 200, "c", B1, "B",
      r"relació sigui una funció: per a cada radi hi ha un únic "
      r"perímetre corresponent, exacte o aproximat.")],
   [r"La fórmula del perímetre, $L=2\pi r$, assigna a cada radi un "
-   r"únic valor de $L$."],
+   r"únic valor de $L$.",
+   r"Prova-ho amb un radi concret, per exemple $r=3$: quants perímetres "
+   r"diferents li poden correspondre?"],
   [r"Per a cada radi $r$ hi ha un únic perímetre $L=2\pi r$: és una "
    r"funció."],
   ex_text=E200)
@@ -311,7 +316,10 @@ Q("201a", 201, "a", B1, "A",
      r"$x^2$ sempre és positiu, tant si $x$ és positiu com negatiu: "
      r"$(-2)^2=4$, igual que $2^2=4$.")],
   [r"Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant "
-   r"primer el quadrat."],
+   r"primer el quadrat.",
+   r"Fixa't que $x$ i $-x$ tenen el mateix quadrat, $(-2)^2=2^2$: amb "
+   r"aquesta funció, $f(2)$ i $f(-2)$ han de sortir iguals, i el mateix "
+   r"amb $3$ i $-3$, i amb $1$ i $-1$."],
   [r"Per a cada valor, calcula primer $x^2$ i després multiplica per "
    r"$5$ i resta $1$.",
    r"$f(2)=5\cdot 4-1=19$, $f(-2)=5\cdot 4-1=19$ (el quadrat elimina "
@@ -336,7 +344,9 @@ Q("201b", 201, "b", B1, "A",
      r"El quadrat només afecta la $x$, no el $2x$ sencer: és $2\cdot "
      r"x^2$, no $(2x)^2$.")],
   [r"Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: "
-   r"primer el quadrat, després la resta."],
+   r"primer el quadrat, després la resta.",
+   r"Compte amb els negatius: $f(-2)=2\cdot(-2)^2-(-2)$, i restar un "
+   r"nombre negatiu és sumar-lo."],
   [r"Per a cada valor, calcula $x^2$, multiplica per $2$ i resta $x$.",
    r"$f(2)=2\cdot 4-2=6$, $f(-2)=2\cdot 4-(-2)=10$.",
    r"$f(3)=2\cdot 9-3=15$, $f(-3)=2\cdot 9-(-3)=21$, $f(1)=1$, "
@@ -353,7 +363,9 @@ Q("201c", 201, "c", B1, "A",
    D(_im201_dist(lambda x: 2 * x - x - 1), "POTENCIA_COM_PRODUCTE",
      r"$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no "
      r"$2\cdot 3=6$.")],
-  [r"Substitueix cada valor de $x$ a $x^2-x-1$."],
+  [r"Substitueix cada valor de $x$ a $x^2-x-1$.",
+   r"Posa cada valor entre parèntesis abans de substituir, per exemple "
+   r"$f(-2)=(-2)^2-(-2)-1$, i vigila el doble signe menys."],
   [r"Per a cada valor, calcula $x^2$, resta $x$ i resta $1$.",
    r"$f(2)=4-2-1=1$, $f(-2)=4-(-2)-1=5$.",
    r"$f(3)=9-3-1=5$, $f(-3)=9-(-3)-1=11$, $f(1)=-1$, $f(-1)=1$."],
@@ -371,7 +383,9 @@ Q("201d", 201, "d", B1, "A",
    D(_im201_dist(lambda x: -x * x - 1), "SIGNE_TERME_INDEPENDENT",
      r"El $+1$ final és positiu: cal SUMAR-lo, no restar-lo.")],
   [r"Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ "
-   r"(sempre positiu) i després canvia'n el signe."],
+   r"(sempre positiu) i després canvia'n el signe.",
+   r"El menys de $-x^2$ s'aplica després del quadrat: $-(-3)^2=-9$, no "
+   r"$+9$. Al final, suma-hi $1$."],
   [r"Per a cada valor, calcula $x^2$, canvia'n el signe i suma $1$.",
    r"$f(2)=-4+1=-3$, $f(-2)=-4+1=-3$ (el quadrat elimina el signe "
    r"de $x$ abans de canviar-lo).",
@@ -402,7 +416,9 @@ Q("202a", 202, "a", B1, "A",
      "POTENCIA_APLICADA_MALAMENT",
      r"El cub d'un nombre negatiu és negatiu: $(-2)^3=-8$, no $8$.")],
   [r"Substitueix cada valor a $x^3-1$, calculant primer el cub "
-   r"(recorda que el cub d'un negatiu és negatiu)."],
+   r"(recorda que el cub d'un negatiu és negatiu).",
+   r"Per exemple, $f(-1)=(-1)^3-1$: primer el cub, que conserva el "
+   r"signe, i després resta $1$."],
   [r"Per a cada valor, calcula $x^3$ i resta $1$.",
    r"$f(-2)=(-2)^3-1=-8-1=-9$, $f(-1)=-1-1=-2$, $f(0)=-1$, $f(1)=0$, "
    r"$f(2)=8-1=7$."],
@@ -423,7 +439,9 @@ Q("202b", 202, "b", B1, "A",
      r"El $x^2$ del denominador és sempre positiu i se suma (no es "
      r"resta): és $x^2+2$, no $-x^2+2$.")],
   [r"Calcula primer $x^2+2$ per a cada valor i després inverteix el "
-   r"resultat."],
+   r"resultat.",
+   r"Com que $x^2$ no depèn del signe de $x$, $f(-2)=f(2)$ i "
+   r"$f(-1)=f(1)$: només cal calcular tres valors diferents."],
   [r"Per a cada valor, calcula $x^2+2$ i fes-ne la fracció inversa.",
    r"$f(-2)=\dfrac{1}{4+2}=\dfrac{1}{6}$, $f(-1)=\dfrac{1}{3}$, "
    r"$f(0)=\dfrac{1}{2}$, $f(1)=\dfrac{1}{3}$, $f(2)=\dfrac{1}{6}$."],
@@ -444,7 +462,10 @@ Q("202c", 202, "c", B1, "A",
      "SIGNE_FINAL",
      r"L'arrel quadrada d'un nombre positiu és sempre positiva.")],
   [r"Calcula primer el que hi ha dins l'arrel ($\dfrac{x}{2}+5$) i "
-   r"després fes-ne l'arrel quadrada amb la calculadora."],
+   r"després fes-ne l'arrel quadrada amb la calculadora.",
+   r"Per a $x=-2$, dins de l'arrel queda $\dfrac{-2}{2}+5$. Fes el "
+   r"mateix amb els altres valors i arrodoneix cada arrel a dos "
+   r"decimals."],
   [r"Per a cada valor, calcula $\dfrac{x}{2}+5$ i fes-ne l'arrel "
    r"quadrada, arrodonint a les centèsimes.",
    r"$f(-2)=\sqrt{4}=2{,}00$, $f(-1)=\sqrt{4{,}5}\approx 2{,}12$, "
@@ -469,7 +490,10 @@ Q("202d", 202, "d", B1, "A",
      "SIGNE_TERME_INDEPENDENT",
      r"El terme $\dfrac{3}{5}$ és positiu i se suma, no se resta.")],
   [r"Substitueix cada valor a $\dfrac{x^2}{3}-2x+\dfrac{3}{5}$ i opera "
-   r"amb fraccions, buscant denominador comú (15) al final."],
+   r"amb fraccions, buscant denominador comú (15) al final.",
+   r"Passa els tres termes a denominador $15$: $\dfrac{x^2}{3}="
+   r"\dfrac{5x^2}{15}$, $-2x=\dfrac{-30x}{15}$ i $\dfrac35=\dfrac{9}{15}$. "
+   r"Així només has de sumar numeradors."],
   [r"Calcula per separat $\dfrac{x^2}{3}$, $-2x$ i $\dfrac{3}{5}$, i "
    r"suma-ho tot amb denominador comú $15$.",
    r"$f(-2)=\dfrac{4}{3}+4+\dfrac{3}{5}=\dfrac{20+60+9}{15}="
@@ -506,7 +530,9 @@ Q("203a", 203, "a", B1, "B",
      r"aquest valor del domini, igual que s'exclou el $0$ del "
      r"recorregut.")],
   ["Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a "
-   "tocar (les asímptotes): aquests són els que cal excloure."],
+   "tocar (les asímptotes): aquests són els que cal excloure.",
+   "Una recta vertical diu quin valor de $x$ no s'assoleix mai (domini); "
+   "una d'horitzontal, quin valor de $y$ (recorregut)."],
   [r"La gràfica no toca mai la recta vertical $x=2$: el domini és "
    r"$\mathbb{R}-\{2\}$.",
    r"Tampoc toca mai la recta horitzontal $y=0$: el recorregut és "
@@ -542,7 +568,9 @@ Q("203b", 203, "b", B1, "B",
      r"L'alçada mínima de la gràfica és $-2$ (per sota de l'eix "
      r"horitzontal), no $0$: el recorregut comença a $-2$.")],
   ["El domini és l'interval de valors de $x$ on existeix la gràfica; "
-   "el recorregut, l'interval d'alçades ($y$) que arriba a assolir."],
+   "el recorregut, l'interval d'alçades ($y$) que arriba a assolir.",
+   "Mira si els extrems hi són inclosos: si ho són, l'interval porta "
+   "claudàtors, $[\\ ]$; si no, parèntesis, $(\\ )$."],
   [r"La gràfica va de $x=-3$ a $x=4$, amb els extrems inclosos: domini "
    r"$[-3,4]$.",
    r"L'alçada oscil·la entre $-2$ i $3$, també inclosos: recorregut "
@@ -579,7 +607,9 @@ Q("203c", 203, "c", B1, "B",
      r"aquest costat, $[-1,+\infty)$, no obert.")],
   ["Si la gràfica s'estén sense límit cap als dos costats "
    "horitzontalment, el domini és tot $\\mathbb{R}$; fixa't en si el "
-   "punt més baix forma part o no de la gràfica."],
+   "punt més baix forma part o no de la gràfica.",
+   "El recorregut són les alçades: comença al punt més baix i va cap "
+   "amunt. Decideix si aquest extrem va amb claudàtor o amb parèntesi."],
   [r"La gràfica existeix per a qualsevol valor de $x$: domini "
    r"$\mathbb{R}$.",
    r"El valor més baix que assoleix $y$ és $-1$ (inclòs), i puja sense "
@@ -616,7 +646,9 @@ Q("203d", 203, "d", B1, "B",
      r"cap a l'esquerra), no cap a la dreta: és $(-\infty,5]$, no "
      r"$[5,+\infty)$.")],
   ["Fixa't cap a quin costat s'estén sense límit horitzontalment, i "
-   "si l'extrem $x=5$ forma part o no de la gràfica."],
+   "si l'extrem $x=5$ forma part o no de la gràfica.",
+   "Per al recorregut, mira les alçades: la més baixa és la del punt "
+   "$x=5$, i a partir d'aquí la gràfica puja sense límit."],
   [r"La gràfica existeix per a $x\leq 5$, amb el $5$ inclòs: domini "
    r"$(-\infty,5]$.",
    r"El valor més baix que assoleix $y$ és $0$ (a $x=5$, inclòs), i "
@@ -657,7 +689,9 @@ Q("206a", 206, "a", B1, "B",
      r"qualsevol valor de $y$, també als negatius: el recorregut és "
      r"tot $\mathbb{R}$, no només els positius.")],
   ["Una recta que puja sempre sense cap tram pla és creixent a tot "
-   "arreu i no té cap punt on deixi de pujar (cap extrem)."],
+   "arreu i no té cap punt on deixi de pujar (cap extrem).",
+   "Falten el domini i el recorregut: una recta que travessa tot el "
+   "pla, a quins valors de $x$ arriba? I de $y$?"],
   [r"La recta travessa tot el pla en totes direccions: domini i "
    r"recorregut $\mathbb{R}$.",
    r"Puja de manera constant, sense cap tram on baixi: és creixent a "
@@ -695,7 +729,10 @@ Q("206b", 206, "b", B1, "B",
      r"$\mathbb{R}$) però només arriba a $y=-3$ per avall "
      r"(recorregut $[-3,+\infty)$): estan intercanviats.")],
   ["El punt més baix d'una paràbola oberta cap amunt és sempre un "
-   "mínim; abans d'arribar-hi, la funció decreix, i després creix."],
+   "mínim; abans d'arribar-hi, la funció decreix, i després creix.",
+   "Els trams de creixement es parteixen a la $x$ del punt més baix. Per "
+   "al recorregut, quina és l'alçada més baixa que assoleix, i n'hi ha "
+   "cap límit per dalt?"],
   [r"La paràbola s'estén sense límit horitzontalment: domini "
    r"$\mathbb{R}$.",
    r"Mai baixa de $y=-3$ (és el punt més baix): recorregut "
@@ -740,7 +777,10 @@ Q("206c", 206, "c", B1, "B",
      r"$(3,-1)$, no $(2,0)$ i $(-1,3)$.")],
   ["Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a "
    "superar-lo més endavant o més enrere; és absolut només si és el "
-   "punt més alt (o baix) de TOTA la gràfica."],
+   "punt més alt (o baix) de TOTA la gràfica.",
+   "Els trams de creixement i decreixement canvien just a les $x$ dels "
+   "dos punts, $x=0$ i $x=3$. Després, pensa si a la dreta la gràfica "
+   "arriba a superar $y=2$, i si a l'esquerra baixa de $y=-1$."],
   [r"Puja fins al punt $(0,2)$: creixent a $(-\infty,0)$; aquest punt "
    r"és un màxim.",
    r"Després baixa fins al punt $(3,-1)$: decreixent a $(0,3)$; "
@@ -804,7 +844,12 @@ for _ap, (_m, _n) in _207.items():
        _d3],
       [r"El pendent és el coeficient que acompanya la $x$; l'ordenada "
        r"a l'origen és el terme que no té $x$ (si no n'hi ha cap "
-       r"d'escrit, l'ordenada és $0$)."],
+       r"d'escrit, l'ordenada és $0$).",
+       (r"Compara $%s$ amb $y=mx+n$ terme a terme. El signe que hi ha "
+        r"davant de cada número en forma part." % _207_EXPR[_ap])
+       if _n != 0 else
+       (r"Compara $%s$ amb $y=mx+n$ terme a terme: quin número fa de "
+        r"$m$? I quin terme hi falta?" % _207_EXPR[_ap])],
       [r"A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.",
        r"$%s$ té $m=%s$ i $n=%s$."
        % (_207_EXPR[_ap], frac_tex(_m), frac_tex(_n))],
@@ -824,6 +869,21 @@ _208 = {"a": ("y=12x-1", F(12)), "b": (r"y=\dfrac{x}{6}+3", F(1, 6)),
         "c": (r"y=\dfrac{x}{4}-2", F(1, 4)), "d": ("y=-7x+5", F(-7)),
         "e": (r"y=-\dfrac{12x}{5}+1", F(-12, 5)),
         "f": (r"y=\dfrac{7x}{10}", F(7, 10))}
+# Pista 2: on és el pendent quan la x va dins d'una fracció, que és on
+# l'alumne es perd. No en diu el signe: això és la resposta.
+_208_P2 = {
+    "a": r"A $y=12x-1$, quin número multiplica la $x$? Mira'n el signe.",
+    "b": r"$\dfrac{x}{6}$ és el mateix que $\dfrac16\cdot x$: aquest és el "
+         r"pendent. Quin signe té?",
+    "c": r"$\dfrac{x}{4}$ és el mateix que $\dfrac14\cdot x$: aquest és el "
+         r"pendent. Quin signe té?",
+    "d": r"A $y=-7x+5$, quin número multiplica la $x$? El signe que porta "
+         r"al davant en forma part.",
+    "e": r"$-\dfrac{12x}{5}$ és el mateix que $-\dfrac{12}{5}\cdot x$: "
+         r"aquest és el pendent, amb el seu signe.",
+    "f": r"$\dfrac{7x}{10}$ és el mateix que $\dfrac{7}{10}\cdot x$: aquest "
+         r"és el pendent. Quin signe té?",
+}
 
 for _ap, (_expr, _m) in _208.items():
     _creix = _m > 0
@@ -843,7 +903,8 @@ for _ap, (_expr, _m) in _208.items():
          r"El signe del pendent ja determina si la funció és creixent "
          r"o decreixent, sense necessitat de representar-la.")],
       [r"A $y=mx+n$, si el pendent $m$ és positiu la funció és "
-       r"creixent; si és negatiu, decreixent."],
+       r"creixent; si és negatiu, decreixent.",
+       _208_P2[_ap]],
       [r"El pendent de $%s$ és $m=%s$." % (_expr, frac_tex(_m)),
        r"Com que $m$ és %s, la funció és %s."
        % ("positiu" if _creix else "negatiu",
@@ -883,7 +944,10 @@ for _ap, (_p1, _p2) in _209.items():
          r"intercanviats.")],
       [r"Com que un dels punts té $x=0$, la seva $y$ ja és "
        r"directament l'ordenada a l'origen $n$; només cal calcular el "
-       r"pendent $m$ amb els dos punts."],
+       r"pendent $m$ amb els dos punts.",
+       r"Pendent: $m=\dfrac{y_2-y_1}{x_2-x_1}$. De $%s$ a $%s$, quant "
+       r"canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a "
+       r"dalt i a baix." % (punt_tex(_x1, _y1), punt_tex(_x2, _y2))],
       [r"El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}="
        r"\dfrac{%s-(%s)}{%s-(%s)}=%s$."
        % (frac_tex(_y2), frac_tex(_y1), frac_tex(_x2), frac_tex(_x1),
@@ -933,7 +997,10 @@ for _ap, (_expr, _a) in _212.items():
          r"Tant l'obertura com l'amplada estan invertides respecte a "
          r"$a=%s$." % frac_tex(_a))],
       [r"El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor "
-       r"absolut de $a$ comparat amb $1$ determina l'amplada."],
+       r"absolut de $a$ comparat amb $1$ determina l'amplada.",
+       r"Aquí $a=%s$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: "
+       r"$y=x^2$ val $1$ i aquesta, $%s$. La que s'allunya més de pressa "
+       r"de l'eix $X$ és la més estreta." % (frac_tex(_a), frac_tex(_a))],
       [r"A $%s$, $a=%s$." % (_expr, frac_tex(_a)),
        r"Com que $a$ és %s, la paràbola és oberta cap %s."
        % ("positiu" if _a > 0 else "negatiu", _obert),
@@ -969,7 +1036,9 @@ for _ap, _c in _214.items():
          % (punt_tex(0, _c), frac_tex(_c)))],
       [r"El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt "
        r"$(0,c)$: la segona coordenada del vèrtex ÉS el valor de "
-       r"$c$."],
+       r"$c$.",
+       r"Comprova-ho substituint $x=0$ a $y=x^2+c$: quina $y$ surt? Ha de "
+       r"ser la del vèrtex, amb el seu signe."],
       [r"Comparant $y=x^2+c$ amb $y=x^2$, sumar $c$ desplaça tota la "
        r"paràbola $c$ unitats amunt (si $c>0$) o avall (si $c<0$), "
        r"sense moure-la horitzontalment.",
@@ -998,7 +1067,8 @@ Q("215", 215, "", B3, "A",
      r"El vèrtex $(0,1)$ té la segona coordenada positiva: $c=1$, no "
      r"$c=-1$.")],
   [r"El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix "
-   r"l'altre punt a $y=ax^2+c$ per trobar $a$."],
+   r"l'altre punt a $y=ax^2+c$ per trobar $a$.",
+   r"Amb $c=1$, substitueix $x=1$ i $y=2$ a $y=ax^2+1$ i aïlla $a$."],
   [r"El vèrtex $(0,1)$ dona $c=1$: l'expressió és $y=ax^2+1$.",
    r"Substituint el punt $(1,2)$: $2=a\cdot 1^2+1$, per tant $a=1$.",
    r"L'expressió és $y=x^2+1$."],
@@ -1049,7 +1119,13 @@ for _ap, (_expr, _a, _b) in _216.items():
       [r"Els talls amb l'eix $X$ són les solucions de l'equació de "
        r"segon grau (traient factor comú $x$, ja que no hi ha terme "
        r"independent); l'eix de simetria passa pel punt mig entre "
-       r"aquestes dues solucions."],
+       r"aquestes dues solucions.",
+       r"Traient factor comú, $%s=x(%sx%s)$: iguala cada factor a zero. "
+       r"Després, substitueix la $x$ de l'eix a l'expressió per trobar "
+       r"la $y$ del vèrtex."
+       % (_expr.replace("y=", ""),
+          ("" if _a == 1 else "-" if _a == -1 else frac_tex(_a)),
+          "+%s" % frac_tex(_b) if _b > 0 else "-%s" % frac_tex(-_b))],
       [r"Traient factor comú: $%s=x(%sx%s)$, que dona $x=0$ i "
        r"$x=%s$." % (_expr.replace("y=", ""),
                        ("" if _a == 1 else "-" if _a == -1
@@ -1099,7 +1175,10 @@ Q("217a", 217, "a", B3, "B",
      r"El coeficient de $x^2$ és $-2$, i $|-2|=2>1$: la paràbola és "
      r"més ESTRETA que $y=x^2$, no més ampla.")],
   [r"Abans de decidir de quin tipus de funció es tracta, redueix els "
-   r"termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$."],
+   r"termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$.",
+   r"Un cop reduït, mira el coeficient de $x^2$: el signe diu cap on obre "
+   r"i, comparat amb $1$, si és més estreta o més ampla que $y=x^2$. Sense "
+   r"terme en $x$, el vèrtex és a l'eix $Y$."],
   [r"Reduint termes semblants: $x^2-3x^2=-2x^2$, així que l'expressió "
    r"és $y=-2x^2+4$.",
    r"És una paràbola (té terme en $x^2$), sense terme en $x$ (per "
@@ -1131,7 +1210,10 @@ Q("217b", 217, "b", B3, "B",
      r"El terme independent de $-x-3$ és $-3$ (negatiu), no $3$: la "
      r"recta talla l'eix $Y$ en $(0,-3)$.")],
   [r"Si l'expressió no té cap terme en $x^2$, no és una paràbola: és "
-   r"una recta."],
+   r"una recta.",
+   r"Llavors mira el pendent (el número que multiplica la $x$, amb el seu "
+   r"signe) i l'ordenada a l'origen (el terme sense $x$, també amb el seu "
+   r"signe)."],
   [r"$y=-x-3$ no té terme en $x^2$: és una funció afí (recta), no "
    r"una paràbola.",
    r"El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a "

@@ -142,9 +142,10 @@ Q("152a", 152, "a", B1, "A",
      "Sembla que has calculat $2:2{,}5\\cdot3$ amb els termes "
      "intercanviats: revisa quin segment fa de numerador a cada "
      "secant.")],
-  ["Pel teorema de Tales, els segments de cada secant guarden la "
-   "mateixa proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+   "primer de l'altra, i el segon amb el segon. Aquí el $2{,}5$ va amb la $x$, i el $2$ amb el $3$.",
+   "Per Tales, totes dues secants queden dividides en la mateixa "
+   "proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
   [r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{2{,}5\cdot3}{2}$",
    "$x=3{,}75$ cm"],
@@ -166,9 +167,10 @@ Q("152b", 152, "b", B1, "A",
      "Aquest valor no surt de la proporció: comprova "
      "$x=\\dfrac{4\\cdot3}{2}$ pas a pas en lloc de repetir un "
      "segment que ja apareixia a l'enunciat.")],
-  ["Pel teorema de Tales, els segments de cada secant guarden la "
-   "mateixa proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+   "primer de l'altra, i el segon amb el segon. Aquí el $2$ va amb el $3$, i el $4$ amb la $x$.",
+   "Per Tales, totes dues secants queden dividides en la mateixa "
+   "proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
   [r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot3}{2}$",
    "$x=6$ cm"],
@@ -190,9 +192,10 @@ Q("152c", 152, "c", B1, "A",
      "Sembla que has calculat $6\\cdot4:8$ amb un altre aparellament "
      "de segments: revisa quins dos segments són corresponents entre "
      "les dues secants.")],
-  ["Pel teorema de Tales, els segments de cada secant guarden la "
-   "mateixa proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+   "primer de l'altra, i el segon amb el segon. Aquí el $8$ va amb la $x$, i el $4$ amb el $6$.",
+   "Per Tales, totes dues secants queden dividides en la mateixa "
+   "proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$. Aïlla $x$."],
   [r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{8\cdot6}{4}$",
    "$x=12$ cm"],
@@ -213,9 +216,10 @@ Q("152e", 152, "e", B1, "A",
    D("$50$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor surt de $10\\cdot5$ sense dividir per $8$: "
      "$x=\\dfrac{10\\cdot5}{8}$, no només el numerador.")],
-  ["Pel teorema de Tales, els segments de cada secant guarden la "
-   "mateixa proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+   "primer de l'altra, i el segon amb el segon. Aquí la $x$ va amb el $5$, i el $10$ amb el $8$.",
+   "Per Tales, totes dues secants queden dividides en la mateixa "
+   "proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$. Aïlla $x$."],
   [r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
    r"x=\dfrac{10\cdot5}{8}$",
    "$x=6{,}25$ cm"],
@@ -237,9 +241,10 @@ Q("152f", 152, "f", B1, "A",
      "Sembla que has dividit $2:4{,}8\\cdot3$ amb els termes "
      "intercanviats: revisa quin segment fa de numerador a cada "
      "secant.")],
-  ["Pel teorema de Tales, els segments de cada secant guarden la "
-   "mateixa proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+   "primer de l'altra, i el segon amb el segon. Aquí el $4{,}8$ va amb la $x$, i el $2$ amb el $3$.",
+   "Per Tales, totes dues secants queden dividides en la mateixa "
+   "proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
   [r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4{,}8\cdot3}{2}$",
    "$x=7{,}2$ cm"],
@@ -746,10 +751,11 @@ Q("161", 161, "", B4, "A",
      "Aquest valor surt de $8\\cdot2$: comprova el càlcul complet "
      "$x=\\frac{15\\cdot10}{8}$ pas a pas en lloc d'una "
      "aproximació.")],
-  ["Com que els dos arbres projecten ombra al mateix moment, "
-   "l'altura i l'ombra de cadascun són directament proporcionals: "
-   "$\\dfrac{8}{10}=\\dfrac{15}{x}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Al mateix moment, l'altura i l'ombra són proporcionals: cada arbre "
+   "amb la seva ombra. Arbre petit: $8$ m d'altura i $10$ m d'ombra. "
+   "Arbre gran: $15$ m d'altura i ombra $x$.",
+   "$\\dfrac{8}{10}=\\dfrac{15}{x}$. Aïlla $x$: com que l'arbre gran és "
+   "més alt, la seva ombra ha de sortir més llarga."],
   [r"$\dfrac{8}{10}=\dfrac{15}{x} \;\Longrightarrow\; "
    r"x=\dfrac{15\cdot10}{8}$",
    "$x=18{,}75$ m"],
@@ -803,9 +809,11 @@ Q("163", 163, "", B4, "A",
    D("$6$ m", "PROGRESSIO_INVENTADA",
      "$6$ m és l'ombra de l'arbre, no l'altura de l'edifici que es "
      "demana: torna a plantejar la proporció des de zero.")],
-  ["A la mateixa hora, l'altura i l'ombra de qualsevol objecte "
-   "són directament proporcionals: $\\dfrac{6}{5}=\\dfrac{10}{x}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
+   "amb la seva ombra. Arbre: $5$ m d'altura i $6$ m d'ombra. Edifici: "
+   "altura $x$ i $10$ m d'ombra.",
+   "Ombra entre altura dona el mateix per als dos: "
+   "$\\dfrac{6}{5}=\\dfrac{10}{x}$. Aïlla $x$."],
   [r"$\dfrac{6}{5}=\dfrac{10}{x} \;\Longrightarrow\; "
    r"x=\dfrac{5\cdot10}{6}=\dfrac{50}{6}$",
    "$x\\approx8{,}33$ m"],
@@ -831,9 +839,11 @@ Q("164", 164, "", B4, "A",
      "Aquest valor surt de $6:1{,}5\\cdot1{,}67$, amb els termes "
      "mal aparellats: revisa la proporció "
      "$\\frac{1}{1{,}5}=\\frac{x}{6}$ pas a pas.")],
-  ["A la mateixa hora, l'altura i l'ombra de qualsevol objecte "
-   "són directament proporcionals: $\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
+   "amb la seva ombra. Pal: $1$ m d'altura i $1{,}5$ m d'ombra. Edifici: "
+   "altura $x$ i $6$ m d'ombra.",
+   "Altura entre ombra dona el mateix per als dos: "
+   "$\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$. Aïlla $x$."],
   [r"$\dfrac{1}{1{,}5}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{1\cdot6}{1{,}5}$",
    "$x=4$ m"],
@@ -959,23 +969,25 @@ Q("168", 168, "", B4, "A",
   "precipici té $450$ m de profunditat. A quina distància "
   "horitzontal està el poble del precipici?",
   "$562{,}5$ m",
+  # Els retorns d'abans no descrivien cap d'aquests tres errors: el $1{,}6$
+  # no surt de cap proporció, $720=450\cdot1{,}6$ i $281{,}25=450:1{,}6$.
   [D("$1{,}6$ m", "CREUAMENT_INVERTIT",
-     "Aquest valor surt d'invertir la proporció: planteja "
-     "$\\frac{1{,}6}{2}=\\frac{450}{x}$, amb l'altura dels ulls "
-     "corresponent a la distància d'en Pere a la vora."),
+     "$1{,}6$ m és l'altura dels ulls d'en Pere, una dada de "
+     "l'enunciat. La distància al poble ha de ser molt més gran: el "
+     "triangle gran fa $450$ m de fondària."),
    D("$720$ m", "TERME_OBLIDAT_OPERACIO",
-     "Aquest valor surt de $450\\cdot1{,}6$ sense dividir pel $2$: "
-     "$x=\\frac{2\\cdot450}{1{,}6}$, i encara falta ordenar bé els "
-     "factors."),
+     "Aquest valor surt de $450\\cdot1{,}6$: has multiplicat els dos "
+     "costats verticals. Cal $x=\\frac{2\\cdot450}{1{,}6}$."),
    D("$281{,}25$ m", "CREUAMENT_INVERTIT",
-     "Aquest valor surt de $\\frac{450\\cdot1{,}6}{2\\cdot1{,}6}$ "
-     "amb un factor de més: revisa la proporció "
+     "Aquest valor surt de $\\frac{450}{1{,}6}$, sense multiplicar pels "
+     "$2$ m: revisa la proporció "
      "$\\frac{1{,}6}{2}=\\frac{450}{x}$ pas a pas.")],
-  ["L'altura dels ulls i la distància a la vora formen un "
-   "triangle petit, semblant al triangle gran format per la "
-   "profunditat del precipici i la distància total fins al "
-   "poble: $\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["Hi ha dos triangles semblants amb el vèrtex a la vora del precipici. "
+   "El petit: l'altura dels ulls ($1{,}6$ m) i la distància d'en Pere a "
+   "la vora ($2$ m). El gran: la profunditat ($450$ m) i la distància "
+   "de la vora al poble ($x$).",
+   "Vertical amb vertical i horitzontal amb horitzontal: "
+   "$\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$. Aïlla $x$."],
   [r"$\dfrac{1{,}6}{2}=\dfrac{450}{x} \;\Longrightarrow\; "
    r"x=\dfrac{2\cdot450}{1{,}6}=\dfrac{900}{1{,}6}$",
    "$x=562{,}5$ m"],
@@ -1001,10 +1013,12 @@ Q("169", 169, "", B4, "A",
      "Aquest valor surt de $52{,}5:1{,}75$ sense multiplicar pels "
      "$4$ m: revisa la proporció "
      "$\\frac{1{,}75}{4}=\\frac{52{,}5}{x}$ pas a pas.")],
-  ["L'alçada de l'home i la seva distància al bassal formen un "
-   "triangle semblant al que formen l'edifici i la seva distància "
-   "al bassal: $\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$.",
-   "Aïlla $x$ multiplicant en creu."],
+  ["El bassal fa de mirall: hi ha dos triangles semblants amb el vèrtex "
+   "al bassal. El petit: l'alçada de l'home ($1{,}75$ m) i la seva "
+   "distància al bassal ($4$ m). El gran: l'alçada de l'edifici "
+   "($52{,}5$ m) i la seva distància al bassal ($x$).",
+   "Alçada entre distància dona el mateix als dos triangles: "
+   "$\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$. Aïlla $x$."],
   [r"$\dfrac{1{,}75}{4}=\dfrac{52{,}5}{x} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot52{,}5}{1{,}75}$",
    "$x=120$ m"],

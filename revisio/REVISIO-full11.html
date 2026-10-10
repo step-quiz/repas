@@ -155,7 +155,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>Discreta, perquè cada dia els ingressos són un únic valor concret<br><span class="err">DISCRETA_CONTINUA_CONFOSES</span><span class="fb">Que cada dia doni un únic resultat no la fa discreta: el que compta és si aquell resultat pot ser qualsevol valor decimal (com $147{,}35$ €), i els diners sí que ho admeten.</span></li>
 <li>Qualitativa, perquè depèn del tipus de producte venut<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">Els ingressos s'expressen amb un nombre (euros): és una variable quantitativa, no qualitativa.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els ingressos inclouen cèntims: pensa si admeten qualsevol valor decimal.</li><li>Compara-ho amb els diners gastats pels amics (exercici anterior): mateix tipus de variable.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els ingressos inclouen cèntims: pensa si admeten qualsevol valor decimal.</li><li>Compara-ho amb el pes o l'alçada, que són mesures, i amb el nombre de mascotes, que és un recompte: a quin grup s'assembla més?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els ingressos diaris es poden mesurar amb qualsevol precisió decimal (euros i cèntims): és CONTÍNUA.</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">219e</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
@@ -177,7 +177,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$3$<br><span class="err">FREQ_ABSOLUTA_ACUMULADA_CONFOSES</span><span class="fb">$3$ és la freqüència absoluta de $x_i=0$, no de $x_i=1$: revisa quin valor toca comptar.</span></li>
 <li>$30$<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$30$ és el nombre TOTAL de dades, no el recompte d'un valor concret. Compta només quantes vegades apareix l'$1$.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Recorre la llista de $30$ dades i marca cada vegada que trobis un $1$.</li><li>Compta-les totes abans de donar el resultat final.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Recorre la llista de $30$ dades i marca cada vegada que trobis un $1$.</li><li>Per no perdre-te'n cap, ves de deu en deu dades. Per comprovar-ho, compta també els altres valors: tots junts han de sumar $30$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Comptant les $30$ dades, l'$1$ apareix $8$ vegades: $f(1)=8$.</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">220b</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
@@ -208,7 +208,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$24$<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">$24$ és el percentatge del bàsquet ($24\,\%$), no la freqüència absoluta (que és el nombre d'alumnes, $12$).</span></li>
 <li>$50$<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$50$ és el total d'alumnes enquestats (la suma de tots els esports), no els que han triat bàsquet en concret.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La freqüència absoluta és directament el nombre d'alumnes que han triat cada esport, tal com dona l'enunciat.</li><li>L'enunciat ja diu directament quants han triat bàsquet.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La freqüència absoluta és directament el nombre d'alumnes que han triat cada esport, tal com dona l'enunciat.</li><li>No cal fer cap càlcul: si divideixes entre $50$, obtens la freqüència relativa, que és una altra cosa.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La freqüència absoluta del bàsquet és la que dona directament l'enunciat: $12$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">226b</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
@@ -415,7 +415,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$50$ alumnes<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">$50$ és el percentatge donat ($50\,\%$), no el nombre d'alumnes: cal aplicar-lo sobre el total, $30\cdot0{,}50$.</span></li>
 <li>$3$ alumnes<br><span class="err">PERCENTATGE_MAL_CALCULAT</span><span class="fb">Aquest és el nombre d'alumnes que ho van aprovar tot ($10\,\%$ de $30$), no els que en van suspendre dues.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $50\,\%$ de $30$ alumnes és $30\cdot0{,}50$.</li><li>Calcula aquest producte.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $50\,\%$ de $30$ alumnes és $30\cdot0{,}50$.</li><li>El $50\,\%$ és la meitat del total.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$50\,\%$ de $30=30\cdot0{,}50=15$ alumnes</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">223b</span><span class="tip">tipus A · dificultat 4 (completa)</span></div>
@@ -510,7 +510,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$6$ dades<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$6$ és el nombre de punts (valors diferents de $x_i$) que té el polígon, no el total de dades: cal sumar les freqüències de cadascun.</span></li>
 <li>$7$ dades<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">$7$ és només la freqüència més alta d'entre els punts ($f(25)=7$), no la suma de totes.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El total de dades és la suma de totes les freqüències absolutes: $1+3+4+4+7+6$.</li><li>Suma-les totes.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El total de dades és la suma de totes les freqüències absolutes.</li><li>Les freqüències són la segona coordenada de cada punt del polígon (les alçades), no els valors $5$, $10$, $15$…</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$N=1+3+4+4+7+6=25$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 234.</strong> El nombre de vegades que es va llogar cada mes la pista de tennis d&#x27;un poliesportiu: Gener $100$, Febrer $70$, Març $97$, Abril $60$, Maig $62$, Juny $120$, Juliol $100$, Agost $78$, Setembre $66$, Octubre $126$, Novembre $69$, Desembre $90$.</p>
@@ -542,7 +542,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$12$<br><span class="err">F_ACUMULADA_NO_CREIXENT</span><span class="fb">$12$ és l'acumulada de l'interval anterior, $[160,165)$: per a $[165,170)$ cal sumar-hi també la seva pròpia freqüència, $5$.</span></li>
 <li>$27$<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$27$ és el total de joves, la freqüència acumulada de l'ÚLTIM interval, no la de $[165,170)$.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula les freqüències absolutes dels intervals anteriors: $[150,155)\to2$, $[155,160)\to4$, $[160,165)\to6$.</li><li>Suma-les totes amb la de $[165,170)$, que és $5$.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>L'acumulada d'un interval és la seva freqüència més les de tots els intervals anteriors.</li><li>Els anteriors tenen $2$, $4$ i $6$ joves. Falta comptar els de $[165,170)$: el $170$ ja no hi entra.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Freqüències: $2,4,6,5$ per als quatre primers intervals</li><li>Acumulada de $[165,170)$: $2+4+6+5=17$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">228c</span><span class="tip">tipus A · dificultat 4 (completa)</span></div>
@@ -740,7 +740,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$6$<br><span class="err">EL_MES_GRAN</span><span class="fb">El $6$ és el nombre de viatges més alt, però només l'han fet $2$ alumnes. La moda és el valor MÉS REPETIT, no el més gran.</span></li>
 <li>$\dfrac{71}{20}$<br><span class="err">MEDIANA_PER_MODA</span><span class="fb">Aquesta és la mitjana. La moda ha de ser un dels valors de la taula.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la freqüència més alta de la taula.</li><li>La freqüència màxima és $7$.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca la freqüència més alta de la taula.</li><li>Compte: la moda és el valor $x_i$ que té aquesta freqüència, no la freqüència mateixa.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La freqüència més alta és $f_i=7$, i li correspon el valor $x_i=3$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 265.</strong> A matemàtiques, la nota del trimestre surt de tres parts amb pesos diferents. Calcula la nota final.</p>

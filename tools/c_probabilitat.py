@@ -107,16 +107,16 @@ Q("236a", 236, "a", B1, "A",
   [D("L'espai mostral té $4$ resultats (un per cada coll: ors, copes, "
      "espases i bastos)", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "$4$ compta només els colls, no les cartes individuals: cada "
-     "coll té $10$ cartes diferents ($1$ al $9$ i una figura), així "
-     "que l'espai mostral inclou totes les cartes concretes, no "
-     "només el coll."),
-   D("L'espai mostral té $48$ resultats, com en una baralla francesa",
+     "coll té $10$ cartes diferents (de l'$1$ al $7$ i tres figures: "
+     "sota, cavall i rei), així que l'espai mostral inclou totes les "
+     "cartes concretes, no només el coll."),
+   D("L'espai mostral té $52$ resultats, com en una baralla francesa",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
-     "$48$ no és el nombre de cartes d'una baralla espanyola: aquesta "
-     "en té $40$ (quatre colls de $10$ cartes cadascun), no "
-     "$48$."),
-   D("L'espai mostral té $10$ resultats, un per cada valor de l'$1$ "
-     "al $9$ i la figura", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "$52$ són les cartes de la baralla francesa (la del pòquer). La "
+     "baralla espanyola en té $40$: quatre colls de $10$ cartes "
+     "cadascun."),
+   D("L'espai mostral té $10$ resultats, les cartes d'un sol coll",
+     "ESPAI_MOSTRAL_MAL_COMPTAT",
      "$10$ compta els valors possibles d'UN sol coll, però l'espai "
      "mostral de \"treure una carta\" ha d'incloure les cartes de "
      "TOTS els colls, no només d'un.")],
@@ -255,13 +255,13 @@ Q("236f", 236, "f", B1, "A",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
      "L'experiment ja fixa el coll (espases): el que varia és quina "
      "carta concreta d'espases surt, i n'hi ha $10$, no $4$."),
-   D("L'espai mostral té $9$ resultats, de l'$1$ al $9$, sense "
-     "comptar la figura", "ESPAI_MOSTRAL_MAL_COMPTAT",
-     "Cada coll d'una baralla espanyola també inclou una figura a "
-     "més dels valors numèrics de l'$1$ al $9$: en total, $10$ "
-     "cartes per coll, no $9$.")],
+   D("L'espai mostral té $7$ resultats, de l'$1$ al $7$, sense "
+     "comptar les figures", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "Cada coll també té tres figures (sota, cavall i rei): "
+     "$7+3=10$ cartes per coll, no $7$.")],
   ["Cada coll d'una baralla espanyola té el mateix nombre de cartes.",
-   "Un coll té les cartes de l'$1$ al $9$ més una figura."],
+   "La baralla té $40$ cartes repartides en $4$ colls iguals: "
+   "quantes en toca a cada coll?"],
   ["El coll d'espases té $10$ cartes: $E=\\{1\\text{ d'espases}, "
    "\\ldots,\\text{rei d'espases}\\}$"],
   ex_text=E236)
@@ -408,8 +408,8 @@ Q("239a", 239, "a", B1, "A",
      "que totes dues siguin d'ors."),
    D("Aquest esdeveniment és IMPOSSIBLE, perquè un cop treta una "
      "carta d'ors, no en queda cap altra", "CARTES_REPETIDES_CONFOSES",
-     "El coll d'ors té $10$ cartes diferents (de l'$1$ al $9$ i una "
-     "figura): després de treure'n una, encara en queden $9$ més "
+     "El coll d'ors té $10$ cartes diferents (de l'$1$ al $7$ i tres "
+     "figures): després de treure'n una, encara en queden $9$ més "
      "per treure com a segona carta.")],
   ["Compta quantes cartes té el coll d'ors a una baralla espanyola.",
    "Un esdeveniment és impossible quan no hi ha CAP manera que "
@@ -523,8 +523,8 @@ Q("239e", 239, "e", B1, "A",
      "moltes cartes cadascun.")],
   ["Pensa en un exemple concret: pots treure un or i, després, una "
    "copa?",
-   "Compara-ho amb l'apartat c): també és un cas de \"colls "
-   "diferents\", que sí que és possible."],
+   "Un or i una copa són dues cartes diferents, de colls diferents: hi "
+   "ha res que impedeixi treure-les totes dues?"],
   ["És possible: n'hi ha prou en treure un or seguit d'una copa. "
    "Aquest esdeveniment NO és impossible"],
   ex_text=E239)
@@ -632,7 +632,9 @@ Q("240d", 240, "d", B1, "A",
      "Un dau només té $6$ cares, numerades de l'$1$ al $6$: el $7$ "
      "no és cap resultat possible, ni compta com a cas favorable ni "
      "com a possible.")],
-  ["Quins valors del $1$ al $6$ són més grans que $7$?"],
+  ["Quins valors del $1$ al $6$ són més grans que $7$?",
+   "Si no hi ha cap cas favorable, quant val el numerador de la regla de "
+   "Laplace?"],
   ["«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho "
    "compleix, $0$ casos favorables. $P=\\dfrac{0}{6}=0$ "
    "(esdeveniment impossible)"],
@@ -1270,8 +1272,8 @@ Q("250a", 250, "a", B3, "A",
      "condició.")],
   ["Aquest dau té només $4$ cares. Quina d'elles és múltiple de "
    "$3$?",
-   "Només la cara $3$: la seva freqüència relativa és "
-   "$\\frac{30}{100}$."],
+   "La freqüència relativa és el nombre de vegades que ha sortit "
+   "aquella cara dividit pel total de tirades, $100$."],
   ["Múltiple de $3$ (només la cara $3$): "
    "$\\dfrac{30}{100}=\\dfrac{3}{10}$"],
   ex_text=E250)
@@ -1344,7 +1346,8 @@ Q("250d", 250, "d", B3, "A",
      "ben definida, que és $0$.")],
   ["El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha "
    "alguna més petita que $1$?",
-   "Cap cara compleix aquesta condició: la freqüència és $0$."],
+   "Si cap cara no compleix la condició, quantes vegades ha passat "
+   "l'esdeveniment en les $100$ tirades?"],
   ["Com que el tetraedre només té cares de l'$1$ al $4$, no hi ha "
    "cap resultat més petit que $1$. $\\dfrac{0}{100}=0$"],
   ex_text=E250)
@@ -1620,7 +1623,8 @@ Q("253c", 253, "c", B4, "A",
      "$2$\": absolutament tots els nombres compleixen la primera "
      "condició, no només la meitat.")],
   ["Quins nombres NO són divisibles per $1$?",
-   "Cap: tot nombre enter és divisible per $1$."],
+   "Compta quantes boles de l'$1$ al $100$ compleixen la condició i "
+   "divideix entre $100$."],
   ["$F$: divisibles per $1$, és a dir, tots els números de l'$1$ "
    "al $100$: $100$ esdeveniments elementals. "
    "$P(F)=\\dfrac{100}{100}=1$ (l'esdeveniment segur)"],
@@ -2240,7 +2244,9 @@ Q("306a", 306, "a", BC1, "A",
      "Es demana la probabilitat de VERMELLA, i n'hi ha $4$ de $10$; "
      "$6/10$ és la de blava.")],
   ["A la primera extracció encara hi ha totes les boles: $10$ en "
-   "total, $4$ de vermelles."],
+   "total, $4$ de vermelles.",
+   "Aplica la regla de Laplace: casos favorables entre casos possibles. "
+   "Que després no es torni la bola no afecta aquesta primera extracció."],
   ["$P(V_1)=\\dfrac{4}{10}=\\dfrac25$"],
   ex_text=E306)
 
@@ -2361,7 +2367,8 @@ Q("308a", 308, "a", BC1, "A",
      "la branca $1/6$, no la de \"no surt 6\" ($5/6$).")],
   ["Segueix el camí de l'arbre: primer la branca \"Cara\", després "
    "la branca \"surt 6\".",
-   "Multiplica les dues probabilitats del camí."],
+   "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
+   "se sumen quan s'ajunten camins diferents."],
   ["$P(\\text{Cara},6)=\\dfrac12\\cdot\\dfrac16=\\dfrac{1}{12}$"],
   figura=FIG308, ex_text=E308)
 
@@ -2451,7 +2458,8 @@ Q("309b", 309, "b", BC1, "A",
      "la segona.")],
   ["Segueix el camí sencer: la branca «V» inicial ($2/5$) i la "
    "branca «V» que acabes de calcular ($1/4$).",
-   "Multiplica-les."],
+   "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
+   "se sumen quan s'ajunten camins diferents."],
   ["$P(V,V)=\\dfrac25\\cdot\\dfrac14=\\dfrac{2}{20}=\\dfrac{1}{10}$"],
   figura=FIG309, ex_text=E309)
 
@@ -2770,7 +2778,8 @@ Q("315a", 315, "a", BC2, "A",
      "la caixa B ($1/4$).")],
   ["Segueix el camí: primer la branca «Caixa A» ($1/2$), després "
    "la branca «V» que en penja ($2/3$).",
-   "Multiplica-les."],
+   "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
+   "se sumen quan s'ajunten camins diferents."],
   ["$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{2}{6}"
    "=\\dfrac{1}{3}$"],
   figura=FIG315, ex_text=E315)
@@ -3014,7 +3023,9 @@ Q("319", 319, "", BC2, "A",
      "la condició de la pregunta és \"ser malalt\"; el total de "
      "positius ($108$) és el denominador d'una pregunta diferent.")],
   ["Aquesta dada la dona directament l'enunciat: la probabilitat "
-   "de positiu entre els malalts."],
+   "de positiu entre els malalts.",
+   "«Sabent que és malalta» vol dir que només mires els malalts. Compte "
+   "a no agafar l'altra dada, la dels sans."],
   ["L'enunciat ho diu directament: si la persona és malalta, el "
    "test dona positiu $9$ de cada $10$ vegades, "
    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$"],

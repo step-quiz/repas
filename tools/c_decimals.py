@@ -96,12 +96,32 @@ _p26 = [
       (r"$2{,}\overline{7}$", "TRACTAT_COM_PERIODIC", "Aquest no és exacte."),
       (r"$22{,}5$", "PART_ENTERA_OBLIDADA", "La part entera d'aquest nombre és $22$.")]),
 ]
+# Pistes de cada apartat. Abans eren les mateixes per als sis, i als exactes
+# (26b, 26f) la primera parlava d'anteperíode, que no hi és.
+_PUR = ("«Pur» vol dir que el període comença just després de la coma, sense "
+        "cap xifra entremig.")
+_MIXT = ("«Mixt» vol dir que entre la coma i el període hi ha alguna xifra: "
+         "aquestes xifres són l'anteperíode.")
+_EXACTE = "Un decimal exacte no té barra de període: les seves xifres s'acaben."
+pistes_26 = {
+    "26a": [_PUR, "Descarta primer les opcions sense barra: si les xifres "
+                  "s'acaben, no és periòdic, encara que una xifra es repeteixi "
+                  "dues vegades."],
+    "26b": [_EXACTE, "Entre les opcions sense barra, compta les xifres que hi "
+                     "ha després de la coma."],
+    "26c": [_MIXT, "Les xifres que van entre la coma i la barra han de ser "
+                   "exactament $28$, i el període va darrere seu."],
+    "26d": [_PUR, "Compta les xifres que hi ha sota la barra: n'han de ser $4$. "
+                  "I entre la coma i la barra no n'hi ha d'haver cap."],
+    "26e": [_MIXT, "El període és el que va sota la barra: aquí ha de ser $37$, "
+                   "amb alguna xifra al davant, entre la coma i la barra."],
+    "26f": [_EXACTE, "La part entera és el que hi ha abans de la coma: aquí ha "
+                     "de ser exactament $2$."],
+}
 for qid, ap, cond, ok, ds in _p26:
     Q(qid, 26, ap, B, "B", cond, ok,
       [D(t, e, f) for t, e, f in ds],
-      ["Mira on comença la barra del període: tot el que hi ha entre la coma i "
-       "la barra és l'anteperíode.",
-       "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."],
+      pistes_26[qid],
       ["Un decimal periòdic PUR té el període just després de la coma.",
        "Un de MIXT té alguna xifra (l'anteperíode) entre la coma i el període.",
        "Un decimal EXACTE té un nombre finit de xifres decimals.",
@@ -112,6 +132,18 @@ for qid, ap, cond, ok, ds in _p26:
 
 # =============================================================== Exercici 27
 E27 = "Troba la fracció generatriu."
+
+
+def _milers(n):
+    r"""$1\,000\,000$ en lloc de $1000000$: amb molts zeros no es compten."""
+    t = "%d" % n
+    if len(t) <= 4:
+        return t
+    grups = []
+    while t:
+        grups.insert(0, t[-3:])
+        t = t[:-3]
+    return "\\,".join(grups)
 
 
 def item_exacte(qid, ap, txt, ent, decs, ex=27, ex_text=None):
@@ -132,7 +164,9 @@ def item_exacte(qid, ap, txt, ent, decs, ex=27, ex_text=None):
       c, tria(c, cands),
       ["El numerador és el nombre sense la coma; el denominador, un $1$ seguit "
        "de tants zeros com xifres decimals hi ha.",
-       "No t'oblidis de simplificar la fracció al final."],
+       "Aquí hi ha $%d$ %s després de la coma: el denominador és $%s$. "
+       "Després simplifica la fracció, si es pot."
+       % (nd, "xifra" if nd == 1 else "xifres", _milers(10 ** nd))],
       [r"$%s{,}%s = \dfrac{%d}{%d}$" % (ent, decs, int(str(ent) + decs), 10 ** nd),
        r"Simplificant: $%s$" % tex(c)],
       ex_text=ex_text or E27)
@@ -184,10 +218,21 @@ def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
     ]
     if F(tot - cap, den) != F(tot - cap, den).limit_denominator(10 ** 12) or True:
         passos.append(r"Simplificant: $%s$" % tex(c))
+    # Pista 2 amb les dades de l'apartat: quin és el període i quin
+    # l'anteperíode, i quants 9 i 0 porten. La regla general ja és a la 1.
+    _q = {1: "un", 2: "dos", 3: "tres", 4: "quatre"}
+    if ante:
+        _p2 = ("Aquí el període és «%s» i l'anteperíode, «%s»: el denominador "
+               "porta %s $9$ i %s $0$." % (per, ante, _q[len(per)],
+                                           _q[len(ante)]))
+    else:
+        _p2 = ("Aquí el període és «%s» i no hi ha anteperíode: el "
+               "denominador porta %s $9$ i cap $0$." % (per, _q[len(per)]))
     Q(qid, ex, ap, B, "A", "$%s$" % fmt, c, tria(c, cands),
-      ["Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-       "Denominador: un nou per cada xifra del període i un zero per cada xifra "
-       "de l'anteperíode."],
+      ["Numerador: tot el nombre sense la coma MENYS la part que no es "
+       "repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per "
+       "cada xifra de l'anteperíode.",
+       _p2],
       passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna,
       comentari=comentari)
 
@@ -252,10 +297,25 @@ def item_tipus(qid, ap, mostra, tipus, ent, ante, per, exacte=False, nota=""):
             r"és %s." % ("comença" if not ante else "no comença", tipus.lower()),
             r"$\dfrac{%d - %d}{%d} = %s$" % (tot, cap, den, tex(c)),
         ]
+    # Pista 2: què es veu en aquest apartat, i què en surt per al
+    # denominador. La 1 fa la pregunta; la 2 assenyala on mirar.
+    _q = {1: "un", 2: "dos", 3: "tres"}
+    if exacte and not ante:
+        _p2 = ("No té cap xifra decimal: és un nombre enter, que també compta "
+               "com a decimal exacte.")
+    elif exacte:
+        _p2 = ("Les xifres s'acaben: n'hi ha $%d$ després de la coma, i el "
+               "denominador és $%s$." % (len(ante), _milers(10 ** len(ante))))
+    elif ante:
+        _p2 = ("Aquí es repeteix «%s», i abans hi ha «%s», que no es repeteix: "
+               "el denominador porta %s $9$ i %s $0$."
+               % (per, ante, _q[len(per)], _q[len(ante)]))
+    else:
+        _p2 = ("Aquí es repeteix «%s» des de just després de la coma: el "
+               "denominador porta %s $9$ i cap $0$." % (per, _q[len(per)]))
     Q(qid, 29, ap, B, "B", mostra, correcta, ds,
       ["Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-       "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, "
-       "nous si és pur, nous i zeros si és mixt."],
+       _p2],
       passos, ex_text=E29, nota=nota)
 
 
@@ -372,13 +432,13 @@ TAX["INFINIT_MAI_ARRIBA"] = (
     "generatriu ho demostra.")
 
 
-def item_cert(qid, ap, mostra, esquerra, dreta, passos, ds):
+def item_cert(qid, ap, mostra, esquerra, dreta, passos, ds, p2):
     cert = esquerra == dreta
     correcta = (r"Cert: totes dues bandes valen $%s$." % tex(esquerra)) if cert else \
                (r"Fals: l'esquerra val $%s$ i la dreta, $%s$." % (tex(esquerra), tex(dreta)))
     Q(qid, 33, ap, B, "B", mostra, correcta, [D(t, e, f) for t, e, f in ds],
       ["Passa cada decimal a fracció generatriu i compara les dues bandes.",
-       r"Recorda: $\dfrac{a}{b} = \dfrac{c}{d}$ si $a\cdot d = b\cdot c$."],
+       p2],
       passos, ex_text=E33)
 
 
@@ -391,7 +451,9 @@ item_cert("33a", "a", r"$1{,}\overline{9} = 2$", _a33, F(2, 1),
            (r"Fals: $1{,}\overline{9} = \dfrac{19}{9}$, que no és $2$.",
             "NO_RESTA_ANTEPERIODE", TAX["NO_RESTA_ANTEPERIODE"]),
            (r"Fals: $1{,}\overline{9} = \dfrac{19}{10}$, que no és $2$.",
-            "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])])
+            "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])],
+          r"Calcula la generatriu de $1{,}\overline{9}$ amb la regla de "
+          r"sempre, encara que el resultat et sorprengui.")
 
 _e33b, _d33b = per_frac(1, "", "3") / 3, per_frac(0, "", "4")
 item_cert("33b", "b", r"$1{,}\overline{3} : 3 = 0{,}\overline{4}$", _e33b, _d33b,
@@ -403,7 +465,9 @@ item_cert("33b", "b", r"$1{,}\overline{3} : 3 = 0{,}\overline{4}$", _e33b, _d33b
            (r"Fals: $1{,}\overline{3} = \dfrac{13}{9}$, i dividit entre $3$ no dóna $\dfrac{4}{9}$.",
             "NO_RESTA_ANTEPERIODE", TAX["NO_RESTA_ANTEPERIODE"]),
            (r"Fals: $1{,}3 : 3 = 0{,}4\overline{3}$, que no és $0{,}\overline{4}$.",
-            "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])])
+            "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])],
+          r"Dividir entre $3$ és multiplicar per $\dfrac13$. Calcula cada "
+          r"banda per separat i compara-les.")
 
 _e33c = per_frac(1, "8", "9") + per_frac(0, "1", "1")
 item_cert("33c", "c", r"$1{,}8\overline{9} + 0{,}1\overline{1} = 2$", _e33c, F(2, 1),
@@ -417,7 +481,9 @@ item_cert("33c", "c", r"$1{,}8\overline{9} + 0{,}1\overline{1} = 2$", _e33c, F(2
            (r"Cert: totes dues bandes valen $\dfrac{180}{90}$.", "CALCUL_FORÇAT",
             "Comprova la suma: dóna $\\dfrac{181}{90}$, no $\\dfrac{180}{90}$."),
            (r"Fals: l'esquerra val $\dfrac{20}{9}$.", "NO_RESTA_ANTEPERIODE",
-            TAX["NO_RESTA_ANTEPERIODE"])])
+            TAX["NO_RESTA_ANTEPERIODE"])],
+          r"No arrodoneixis: $0{,}1\overline{1}$ no és $0{,}1$. Passa cada "
+          r"decimal a fracció i suma amb denominador comú.")
 
 _e33d = per_frac(0, "1", "1") - per_frac(0, "", "1")
 item_cert("33d", "d", r"$0{,}1\overline{1} - 0{,}\overline{1} = 0$", _e33d, F(0, 1),
@@ -430,7 +496,9 @@ item_cert("33d", "d", r"$0{,}1\overline{1} - 0{,}\overline{1} = 0$", _e33d, F(0,
            (r"Fals: la resta val $\dfrac{1}{90}$.", "NO_RESTA_ANTEPERIODE",
             TAX["NO_RESTA_ANTEPERIODE"]),
            (r"Fals: la resta val $0{,}01$.", "TRACTAT_COM_EXACTE",
-            TAX["TRACTAT_COM_EXACTE"])])
+            TAX["TRACTAT_COM_EXACTE"])],
+          r"$0{,}1\overline{1}$ és periòdic mixt i $0{,}\overline{1}$, pur: "
+          r"calcula la generatriu de cadascun i resta-les.")
 
 _e33e = per_frac(0, "", "3") + per_frac(0, "", "6")
 item_cert("33e", "e", r"$0{,}\overline{3} + 0{,}\overline{6} = 1$", _e33e, F(1, 1),
@@ -440,7 +508,9 @@ item_cert("33e", "e", r"$0{,}\overline{3} + 0{,}\overline{6} = 1$", _e33e, F(1, 
             "INFINIT_MAI_ARRIBA", TAX["INFINIT_MAI_ARRIBA"]),
            (r"Fals: $\dfrac{3}{9} + \dfrac{6}{9} = \dfrac{9}{18}$.", "SUMA_NUMERADORS",
             TAX["SUMA_NUMERADORS"]),
-           (r"Fals: dóna $0{,}9$.", "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])])
+           (r"Fals: dóna $0{,}9$.", "TRACTAT_COM_EXACTE", TAX["TRACTAT_COM_EXACTE"])],
+          r"Tots dos són periòdics purs d'una xifra: un $9$ al denominador. "
+          r"Suma les dues fraccions i compara el resultat amb $1$.")
 
 # =============================================================== Exercici 34
 Q("34", 34, "", B, "C",

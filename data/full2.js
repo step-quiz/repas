@@ -749,8 +749,8 @@ window.FULL = {
     "$0{,}001$"
    ],
    "pistes": [
-    "$10^{-n}$ és $1$ dividit per un $1$ seguit de $n$ zeros.",
-    "$10^{-2}=\\dfrac{1}{10^{2}}=\\dfrac{1}{100}$."
+    "Un exponent negatiu vol dir l'invers: $a^{-n}=\\dfrac{1}{a^{n}}$.",
+    "Aquí la base és $10$ i l'exponent, $-2$: a sota hi va $10^2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgJDEwXFxjZG90IDIkLiBBIHNvdGEgaGkgdmEgJDEwXjI9MTAwJC4iLCAiRWwgbWVueXMgw6lzIGRlIGwnZXhwb25lbnQsIG5vIGRlbCByZXN1bHRhdC4iLCAiIiwgIlQnaGFzIGRlc3BsYcOnYXQgdW5hIHhpZnJhIGRlIG3DqXM6ICQxMF57LTJ9JCDDqXMgJDB7LH0wMSQsIGFtYiBkb3MgemVyb3MgY29tcHRhbnQgZWwgZGUgZGF2YW50IGRlIGxhIGNvbWEuICQweyx9MDAxJCBzZXJpYSAkMTBeey0zfSQuIl0sICJlcnIiOiBbIkVYUE9ORU5UX0NPTV9QUk9EVUNURSIsICJFWFBPTkVOVF9ORUdBVElVX1NJR05FIiwgIiIsICJQT1RFTkNJQV8xMCJdLCAicmVzIjogWyIkMTBeey0yfT1cXGRmcmFjezF9ezEwXnsyfX09XFxkZnJhY3sxfXsxMDB9PTB7LH0wMSQiXX0="
@@ -1058,7 +1058,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $2^3\\cdot\\square=2^8$, aleshores $\\square=2^8:2^3$.",
-    "$\\square=2^{8-3}$."
+    "Dividir potències de la mateixa base resta els exponents. Deixa el resultat com una potència de base $2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29waWF0IGVsIHNlZ29uIG1lbWJyZSB0YWwgcXVhbCwgc2Vuc2UgdGVuaXIgZW4gY29tcHRlIGVsIGZhY3RvciAkMl4zJCBxdWUgamEgaGkgw6lzLiBUJ2hhcyBkZWl4YXQgcGVsIGNhbcOtIHVuIGRlbHMgZmFjdG9ycyBlbiBjb21iaW5hciBlbHMgZXhwb25lbnRzLiIsICIiLCAiSGFzIHJlc3RhdCBlbiBsJ29yZHJlIGVxdWl2b2NhdDogcmV2aXNhIHF1aW4gdGVybWUgaGEgZCdhbmFyIHByaW1lci4iLCAiUGVyIGHDr2xsYXIgZWwgZmFjdG9yIHF1ZSBmYWx0YSBjYWwgcmVzdGFyLCBubyBzdW1hci4gRW4gZGl2aWRpciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgZWxzIGV4cG9uZW50cyBlcyBSRVNURU4sIG5vIHNlIHN1bWVuOiAkYV5tOmFebj1hXnttLW59JC4iXSwgImVyciI6IFsiRkFDVE9SX09CTElEQVQiLCAiIiwgIk9SRFJFX1JFU1RBIiwgIkVYUE9ORU5UU19TVU1BVFNfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJFxcc3F1YXJlPTJeODoyXjM9Ml57OC0zfT0yXjUkIl19"
@@ -1080,7 +1080,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $(-4)^5\\cdot\\square=(-4)^{10}$, aleshores $\\square=(-4)^{10}:(-4)^5$.",
-    "$\\square=(-4)^{10-5}$."
+    "Dividir potències de la mateixa base resta els exponents. Deixa el resultat com una potència de base $(-4)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBmYWN0b3IgcXVlIGZhbHRhIGhhIGRlIGNvbnNlcnZhciBsYSBiYXNlIHRhbCBjb20gZXJhLCAkKC00KSQsIG5vICQ0JC4iLCAiIiwgIlBlciBhw69sbGFyIGVsIGZhY3RvciBxdWUgZmFsdGEgY2FsIHJlc3Rhciwgbm8gc3VtYXIuIEVuIGRpdmlkaXIgcG90w6huY2llcyBkZSBsYSBtYXRlaXhhIGJhc2UsIGVscyBleHBvbmVudHMgZXMgUkVTVEVOLCBubyBzZSBzdW1lbjogJGFebTphXm49YV57bS1ufSQuIiwgIkhhcyBjb3BpYXQgZWwgc2Vnb24gbWVtYnJlIHRhbCBxdWFsLCBzZW5zZSB0ZW5pciBlbiBjb21wdGUgZWwgZmFjdG9yICQoLTQpXjUkIHF1ZSBqYSBoaSDDqXMuIFQnaGFzIGRlaXhhdCBwZWwgY2Ftw60gdW4gZGVscyBmYWN0b3JzIGVuIGNvbWJpbmFyIGVscyBleHBvbmVudHMuIl0sICJlcnIiOiBbIkJBU0VfU0lHTkVfUEVSRFVUIiwgIiIsICJFWFBPTkVOVFNfU1VNQVRTX1FVT0NJRU5UIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRcXHNxdWFyZT0oLTQpXnsxMH06KC00KV41PSgtNCleezEwLTV9PSgtNCleNSQiXX0="
@@ -1102,7 +1102,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $\\left(\\dfrac72\\right)^6\\cdot\\square=\\left(\\dfrac72\\right)^7$, aleshores $\\square=\\left(\\dfrac72\\right)^7:\\left(\\dfrac72\\right)^6$.",
-    "$\\square=\\left(\\dfrac72\\right)^{7-6}=\\left(\\dfrac72\\right)^1$."
+    "Dividir potències de la mateixa base resta els exponents. Si l'exponent queda $1$, la potència és la base mateixa."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUGVyIGHDr2xsYXIgZWwgZmFjdG9yIHF1ZSBmYWx0YSBjYWwgcmVzdGFyLCBubyBzdW1hci4gRW4gZGl2aWRpciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgZWxzIGV4cG9uZW50cyBlcyBSRVNURU4sIG5vIHNlIHN1bWVuOiAkYV5tOmFebj1hXnttLW59JC4iLCAiSGFzIHJlc3RhdCBlbiBsJ29yZHJlIGVxdWl2b2NhdDogcmV2aXNhIHF1aW4gdGVybWUgaGEgZCdhbmFyIHByaW1lci4iLCAiSGFzIGNvcGlhdCBlbCBzZWdvbiBtZW1icmUgdGFsIHF1YWwsIHNlbnNlIHRlbmlyIGVuIGNvbXB0ZSBlbCBmYWN0b3IgJFxcbGVmdChcXGRmcmFjNzJcXHJpZ2h0KV42JCBxdWUgamEgaGkgw6lzLiBUJ2hhcyBkZWl4YXQgcGVsIGNhbcOtIHVuIGRlbHMgZmFjdG9ycyBlbiBjb21iaW5hciBlbHMgZXhwb25lbnRzLiJdLCAiZXJyIjogWyIiLCAiRVhQT05FTlRTX1NVTUFUU19RVU9DSUVOVCIsICJPUkRSRV9SRVNUQSIsICJGQUNUT1JfT0JMSURBVCJdLCAicmVzIjogWyIkXFxzcXVhcmU9XFxsZWZ0KFxcZGZyYWM3MlxccmlnaHQpXns3LTZ9PVxcbGVmdChcXGRmcmFjNzJcXHJpZ2h0KV4xPVxcZGZyYWM3MiQiXX0="
@@ -1124,7 +1124,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $(-3)^{12}:\\square=(-3)^6$, aleshores $\\square=(-3)^{12}:(-3)^6$.",
-    "$\\square=(-3)^{12-6}$."
+    "Dividir potències de la mateixa base resta els exponents. Deixa el resultat com una potència de base $(-3)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcmVzdGF0IGVuIGwnb3JkcmUgZXF1aXZvY2F0OiByZXZpc2EgcXVpbiB0ZXJtZSBoYSBkJ2FuYXIgcHJpbWVyLiIsICIiLCAiSGFzIGNvcGlhdCBlbCBkaXZpZGVuZCB0YWwgcXVhbCwgc2Vuc2UgdGVuaXIgZW4gY29tcHRlIGVsIHJlc3VsdGF0LCAkKC0zKV42JC4gVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSB1biBkZWxzIGZhY3RvcnMgZW4gY29tYmluYXIgZWxzIGV4cG9uZW50cy4iLCAiUGVyIGHDr2xsYXIgZWwgZGl2aXNvciBxdWUgZmFsdGEgY2FsIHJlc3RhciBleHBvbmVudHMsIG5vIHN1bWFyLWxvcy4gRW4gZGl2aWRpciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgZWxzIGV4cG9uZW50cyBlcyBSRVNURU4sIG5vIHNlIHN1bWVuOiAkYV5tOmFebj1hXnttLW59JC4iXSwgImVyciI6IFsiT1JEUkVfUkVTVEEiLCAiIiwgIkZBQ1RPUl9PQkxJREFUIiwgIkVYUE9ORU5UU19TVU1BVFNfUVVPQ0lFTlQiXSwgInJlcyI6IFsiJFxcc3F1YXJlPSgtMyleezEyfTooLTMpXjY9KC0zKV57MTItNn09KC0zKV42JCJdfQ=="
@@ -1146,7 +1146,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $\\square:5^6=5$, aleshores $\\square=5^6\\cdot 5$.",
-    "$\\square=5^{6+1}$."
+    "Multiplicar potències de la mateixa base suma els exponents. Recorda que $5$ és $5^1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGNvcGlhdCBlbCBkaXZpc29yIHRhbCBxdWFsLCBzZW5zZSB0ZW5pciBlbiBjb21wdGUgZWwgcmVzdWx0YXQsICQ1XjEkLiBUJ2hhcyBkZWl4YXQgcGVsIGNhbcOtIHVuIGRlbHMgZmFjdG9ycyBlbiBjb21iaW5hciBlbHMgZXhwb25lbnRzLiIsICJIYXMgcmVzdGF0IGVuIGwnb3JkcmUgZXF1aXZvY2F0OiByZXZpc2EgcXVpbiB0ZXJtZSBoYSBkJ2FuYXIgcHJpbWVyLiIsICJQZXIgYcOvbGxhciBlbCBkaXZpZGVuZCBjYWwgbXVsdGlwbGljYXIgJDVeNlxcY2RvdCA1JCwgbm8gZGl2aWRpci4iXSwgImVyciI6IFsiIiwgIkZBQ1RPUl9PQkxJREFUIiwgIk9SRFJFX1JFU1RBIiwgIk9QRVJBQ0lPX0lOVkVSVElEQSJdLCAicmVzIjogWyIkXFxzcXVhcmU9NV42XFxjZG90IDVeMT01Xns2KzF9PTVeNyQiXX0="
@@ -1168,7 +1168,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $\\square:\\left(-\\dfrac13\\right)^6=\\left(-\\dfrac13\\right)^3$, aleshores $\\square=\\left(-\\dfrac13\\right)^3\\cdot\\left(-\\dfrac13\\right)^6$.",
-    "$\\square=\\left(-\\dfrac13\\right)^{3+6}$."
+    "Multiplicar potències de la mateixa base suma els exponents. Deixa el resultat com una potència de base $-\\dfrac13$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHJlc3RhdCBlbiBsJ29yZHJlIGVxdWl2b2NhdDogcmV2aXNhIHF1aW4gdGVybWUgaGEgZCdhbmFyIHByaW1lci4iLCAiRWwgZmFjdG9yIHF1ZSBmYWx0YSBoYSBkZSBjb25zZXJ2YXIgbGEgYmFzZSB0YWwgY29tIGVyYSwgJC1cXGRmcmFjMTMkLCBubyAkXFxkZnJhYzEzJC4iLCAiSGFzIGNvcGlhdCBlbCByZXN1bHRhdCB0YWwgcXVhbCwgc2Vuc2UgdGVuaXIgZW4gY29tcHRlIGVsIGRpdmlzb3IsICRcXGxlZnQoLVxcZGZyYWMxM1xccmlnaHQpXjYkLiBUJ2hhcyBkZWl4YXQgcGVsIGNhbcOtIHVuIGRlbHMgZmFjdG9ycyBlbiBjb21iaW5hciBlbHMgZXhwb25lbnRzLiJdLCAiZXJyIjogWyIiLCAiT1JEUkVfUkVTVEEiLCAiQkFTRV9TSUdORV9QRVJEVVQiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJFxcc3F1YXJlPVxcbGVmdCgtXFxkZnJhYzEzXFxyaWdodCleM1xcY2RvdFxcbGVmdCgtXFxkZnJhYzEzXFxyaWdodCleNj1cXGxlZnQoLVxcZGZyYWMxM1xccmlnaHQpXnszKzZ9PVxcbGVmdCgtXFxkZnJhYzEzXFxyaWdodCleOSQiXX0="
@@ -1233,8 +1233,8 @@ window.FULL = {
     "$8$"
    ],
    "pistes": [
-    "Si les bases són iguals, els exponents han de complir $a-8=0$.",
-    "Aïlla $a$: $a=8$."
+    "Dividir potències de la mateixa base resta els exponents: $(-6)^a:(-6)^8=(-6)^{a-8}$.",
+    "Perquè les dues bandes siguin iguals, l'exponent $a-8$ ha de valer el mateix que el de la dreta, $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgZWwgcmVzdWx0YXQgc2lndWkgJCgtNileMCQgbm8gdm9sIGRpciBxdWUgJGEkIGhhZ2kgZGUgc2VyICQwJDogY2FsIHJlc29sZHJlIGwnZXF1YWNpw7MgZGVscyBleHBvbmVudHMuIFF1YWxzZXZvbCBub21icmUgZGlmZXJlbnQgZGUgemVybyBlbGV2YXQgYSAkMCQgdmFsICQxJCwgbm8gJDAkLiIsICJIYXMgZG9ibGF0IGwnZXhwb25lbnQgJDgkIGVuIGxsb2MgZGUgcGxhbnRlamFyIGwnZXF1YWNpw7MgJGEtOD0wJC4iLCAiSGFzIHBsYW50ZWphdCBsJ2VxdWFjacOzIGEgbCdpbnJldsOpczogw6lzICRhLTg9MCQsIG5vICQ4LWE9MCQuIiwgIiJdLCAiZXJyIjogWyJFWFBPTkVOVF9aRVJPIiwgIkVRVUFDSU9fRVhQT05FTlRfTVVMVElQTElDQVQiLCAiT1JEUkVfUkVTVEEiLCAiIl0sICJyZXMiOiBbIiRhLTg9MFxcUmlnaHRhcnJvdyBhPTgkIl19"
@@ -1278,7 +1278,7 @@ window.FULL = {
    ],
    "pistes": [
     "Potència d'una potència: multiplica els exponents, no els sumis.",
-    "$(2^3)^4=2^{3\\cdot 4}$."
+    "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es queda tal com és, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiB1bmEgcG90w6huY2lhIGQndW5hIHBvdMOobmNpYSwgZWxzIGV4cG9uZW50cyBlcyBNVUxUSVBMSVFVRU4sIG5vIHNlIHN1bWVuOiAkKGFebSlebj1hXnttXFxjZG90IG59JC4iLCAiVW4gY29wIHNpbXBsaWZpY2F0IGEgJDJeezEyfSQsIGhhcyBjYW52aWF0IGRlIGxsb2MgbGEgYmFzZSBpIGwnZXhwb25lbnQuIiwgIkhhcyBpZ25vcmF0IGwnZXhwb25lbnQgZXh0ZXJpb3IsICQ0JC4gVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSB1biBkZWxzIGZhY3RvcnMgZW4gY29tYmluYXIgZWxzIGV4cG9uZW50cy4iLCAiIl0sICJlcnIiOiBbIlBPVEVOQ0lBX1BPVEVOQ0lBX1NVTUFEQSIsICJCQVNFX0VYUE9ORU5UX0lOVEVSQ0FOVklBVFMiLCAiRkFDVE9SX09CTElEQVQiLCAiIl0sICJyZXMiOiBbIiQoMl4zKV40PTJeezNcXGNkb3QgNH09Ml57MTJ9JCJdfQ=="
@@ -1300,7 +1300,7 @@ window.FULL = {
    ],
    "pistes": [
     "Potència d'una potència: multiplica els exponents, no els sumis.",
-    "$[(-3)^3]^2=(-3)^{3\\cdot 2}$."
+    "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es queda tal com és, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbiB1bmEgcG90w6huY2lhIGQndW5hIHBvdMOobmNpYSwgZWxzIGV4cG9uZW50cyBlcyBNVUxUSVBMSVFVRU4sIG5vIHNlIHN1bWVuOiAkKGFebSlebj1hXnttXFxjZG90IG59JC4iLCAiIiwgIkhhcyBpZ25vcmF0IGwnZXhwb25lbnQgZXh0ZXJpb3IsICQyJC4gVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSB1biBkZWxzIGZhY3RvcnMgZW4gY29tYmluYXIgZWxzIGV4cG9uZW50cy4iLCAiSGFzIGNhbGN1bGF0IGwnZXhwb25lbnQgbm91IGNvbSAkM14yPTkkIGVuIGxsb2MgZGUgJDNcXGNkb3QgMj02JDogYWxzIGV4cG9uZW50cyBlcyBjb3VlbiBjb20gdW4gcHJvZHVjdGUgbm9ybWFsLCAkM1xcY2RvdCAyJCwgbm8gY29tIHVuYSBhbHRyYSBwb3TDqG5jaWEuIl0sICJlcnIiOiBbIlBPVEVOQ0lBX1BPVEVOQ0lBX1NVTUFEQSIsICIiLCAiRkFDVE9SX09CTElEQVQiLCAiUE9URU5DSUFfUE9URU5DSUFfU1VNQURBIl0sICJyZXMiOiBbIiRbKC0zKV4zXV4yPSgtMyleezNcXGNkb3QgMn09KC0zKV57Nn0kIl19"
@@ -1344,7 +1344,7 @@ window.FULL = {
    ],
    "pistes": [
     "Potència d'una potència: multiplica els exponents, no els sumis.",
-    "$\\left[\\left(\\dfrac13\\right)^2\\right]^4=\\left(\\dfrac13\\right)^{2\\cdot 4}$."
+    "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es queda tal com és, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGludmVydGl0IGxhIGZyYWNjacOzIGRlIGxhIGJhc2U6IGVzIHF1ZWRhICRcXGRmcmFjMTMkLCBubyBlcyBjb252ZXJ0ZWl4IGVuICQzJC4iLCAiRW4gdW5hIHBvdMOobmNpYSBkJ3VuYSBwb3TDqG5jaWEsIGVscyBleHBvbmVudHMgZXMgTVVMVElQTElRVUVOLCBubyBzZSBzdW1lbjogJChhXm0pXm49YV57bVxcY2RvdCBufSQuIiwgIkhhcyBpZ25vcmF0IGwnZXhwb25lbnQgZXh0ZXJpb3IsICQ0JC4gVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSB1biBkZWxzIGZhY3RvcnMgZW4gY29tYmluYXIgZWxzIGV4cG9uZW50cy4iXSwgImVyciI6IFsiIiwgIklOVkVSVElEQSIsICJQT1RFTkNJQV9QT1RFTkNJQV9TVU1BREEiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJFxcbGVmdFtcXGxlZnQoXFxkZnJhYzEzXFxyaWdodCleMlxccmlnaHRdXjQ9XFxsZWZ0KFxcZGZyYWMxM1xccmlnaHQpXnsyXFxjZG90IDR9PVxcbGVmdChcXGRmcmFjMTNcXHJpZ2h0KV57OH0kIl19"
@@ -1366,7 +1366,7 @@ window.FULL = {
    ],
    "pistes": [
     "Potència d'una potència: multiplica els exponents, no els sumis.",
-    "$\\left[\\left(-\\dfrac35\\right)^3\\right]^5=\\left(-\\dfrac35\\right)^{3\\cdot 5}$."
+    "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es queda tal com és, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW4gdW5hIHBvdMOobmNpYSBkJ3VuYSBwb3TDqG5jaWEsIGVscyBleHBvbmVudHMgZXMgTVVMVElQTElRVUVOLCBubyBzZSBzdW1lbjogJChhXm0pXm49YV57bVxcY2RvdCBufSQuIiwgIkhhcyBpZ25vcmF0IGwnZXhwb25lbnQgZXh0ZXJpb3IsICQ1JC4gVCdoYXMgZGVpeGF0IHBlbCBjYW3DrSB1biBkZWxzIGZhY3RvcnMgZW4gY29tYmluYXIgZWxzIGV4cG9uZW50cy4iLCAiRWwgcmVzdWx0YXQgaGEgZGUgY29uc2VydmFyIGxhIGJhc2UgdGFsIGNvbSBlcmEsICQtXFxkZnJhYzM1JCwgbm8gJFxcZGZyYWMzNSQ6IGwnZXhwb25lbnQgZmluYWwsICQxNSQsIMOpcyBzZW5hci4iXSwgImVyciI6IFsiIiwgIlBPVEVOQ0lBX1BPVEVOQ0lBX1NVTUFEQSIsICJGQUNUT1JfT0JMSURBVCIsICJCQVNFX1NJR05FX1BFUkRVVCJdLCAicmVzIjogWyIkXFxsZWZ0W1xcbGVmdCgtXFxkZnJhYzM1XFxyaWdodCleM1xccmlnaHRdXjU9XFxsZWZ0KC1cXGRmcmFjMzVcXHJpZ2h0KV57M1xcY2RvdCA1fT1cXGxlZnQoLVxcZGZyYWMzNVxccmlnaHQpXnsxNX0kIl19"
@@ -1718,7 +1718,7 @@ window.FULL = {
    ],
    "pistes": [
     "$(a^m)^n$: els exponents es multipliquen.",
-    "$(2^3)^2=2^{3\\cdot 2}$."
+    "$(2^3)^2$ vol dir $2^3\\cdot 2^3$: compta quants $2$ es multipliquen en total."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgcXVpbnMgZG9zIG7Dum1lcm9zIHMnaGFuIGRlIG11bHRpcGxpY2FyOiBzw7NuIGVsICQzJCBkZSBkaW5zIGkgZWwgJDIkIGRlIGZvcmEuIiwgIkhhcyBtdWx0aXBsaWNhdCAkM1xcY2RvdCAzJC4gTCdleHBvbmVudCBkZSBmb3JhIMOpcyAkMiQsIG5vICQzJC4iLCAiIiwgIkhhcyBzdW1hdCBlbHMgZXhwb25lbnRzICgkMysyJCkuIEFscyBwcm9kdWN0ZXMgZGUgbGEgbWF0ZWl4YSBiYXNlIHNlIHN1bWVuOyBhIHVuYSBwb3TDqG5jaWEgZCd1bmEgcG90w6huY2lhIGVzIE1VTFRJUExJUVVFTiwgcGVycXXDqCAkKDJeMyleMiQgdm9sIGRpciAkMl4zXFxjZG90IDJeMyQuIl0sICJlcnIiOiBbIlBPVEVOQ0lBX0FQTElDQURBX01BTEFNRU5UIiwgIkVYUE9ORU5UX01VTFRJUExJQ0FUIiwgIiIsICJQT1RFTkNJQV9QT1RFTkNJQV9TVU1BREEiXSwgInJlcyI6IFsiJCgyXnszfSleezJ9PTJeezNcXGNkb3QgMn09Ml57Nn0kIl19"
@@ -1740,7 +1740,7 @@ window.FULL = {
    ],
    "pistes": [
     "Els exponents es multipliquen.",
-    "$(5^2)^3=5^{2\\cdot 3}$."
+    "$(5^2)^3$ vol dir $5^2\\cdot 5^2\\cdot 5^2$: compta quants $5$ es multipliquen en total."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgJDIrMyQgZW4gbGxvYyBkZSBtdWx0aXBsaWNhci4iLCAiUmV2aXNhIGxhIG11bHRpcGxpY2FjacOzOiAkMlxcY2RvdCAzPTYkLiIsICIiLCAiSGFzIGVsZXZhdCBsJ2V4cG9uZW50IGRlIGZvcmEgYWwgcXVhZHJhdCBlbiBsbG9jIGRlIG11bHRpcGxpY2FyLWxvIHBlbCBkZSBkaW5zLiJdLCAiZXJyIjogWyJQT1RFTkNJQV9QT1RFTkNJQV9TVU1BREEiLCAiRVhQT05FTlRfTVVMVElQTElDQVQiLCAiIiwgIlBPVEVOQ0lBX0FQTElDQURBX01BTEFNRU5UIl0sICJyZXMiOiBbIiQoNV57Mn0pXnszfT01XnsyXFxjZG90IDN9PTVeezZ9JCJdfQ=="
@@ -1784,7 +1784,7 @@ window.FULL = {
    ],
    "pistes": [
     "Producte de potències de la mateixa base: els exponents se sumen.",
-    "$3^2\\cdot 3^4=3^{2+4}$."
+    "$3^2\\cdot 3^4$ són dos tresos per quatre tresos: quants tresos hi ha en total? La base no canvia."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbHMgZXhwb25lbnRzIGVzIHJlc3RlbiBxdWFuIGVzIERJVklERUlYLCBubyBxdWFuIGVzIG11bHRpcGxpY2EuIiwgIiIsICJMYSBiYXNlIG5vIGVzIHRvY2E6IGVzIHF1ZWRhIGVuICQzJC4gTm9tw6lzIGVzIHRvcXVlbiBlbHMgZXhwb25lbnRzLiIsICJIYXMgbXVsdGlwbGljYXQgZWxzIGV4cG9uZW50cy4gRW4gdW4gUFJPRFVDVEUgZGUgbGEgbWF0ZWl4YSBiYXNlIHNlIHN1bWVuOiAkM14yXFxjZG90IDNeNCQgc8OzbiBkb3MgdHJlc29zIGkgcXVhdHJlIHRyZXNvcywgc2lzIGVuIHRvdGFsLiJdLCAiZXJyIjogWyJFWFBPTkVOVFNfUkVTVEFUU19QUk9EVUNURSIsICIiLCAiQkFTRV9BTFRFUkFEQSIsICJFWFBPTkVOVFNfTVVMVElQTElDQVRTIl0sICJyZXMiOiBbIiQzXnsyfVxcY2RvdCAzXns0fT0zXnsyKzR9PTNeezZ9JCJdfQ=="
@@ -1806,7 +1806,7 @@ window.FULL = {
    ],
    "pistes": [
     "Quocient de potències de la mateixa base: els exponents es resten.",
-    "$2^7:2^4=2^{7-4}$."
+    "Dels set dosos de dalt, quatre se simplifiquen amb els quatre de baix. La base no canvia."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSBiYXNlIG5vIGVzIGRpdmlkZWl4OiBlcyBxdWVkYSBlbiAkMiQuIE5vbcOpcyBlcyByZXN0ZW4gZWxzIGV4cG9uZW50cy4iLCAiIiwgIkVscyBleHBvbmVudHMgbm9tw6lzIGVzIG11bHRpcGxpcXVlbiBhIHVuYSBwb3TDqG5jaWEgZCd1bmEgcG90w6huY2lhLiIsICJIYXMgc3VtYXQgZWxzIGV4cG9uZW50cy4gRW4gdW4gUVVPQ0lFTlQgZXMgcmVzdGVuOiAkNy00JC4iXSwgImVyciI6IFsiQkFTRV9BTFRFUkFEQSIsICIiLCAiRVhQT05FTlRTX01VTFRJUExJQ0FUUyIsICJFWFBPTkVOVFNfU1VNQVRTX1FVT0NJRU5UIl0sICJyZXMiOiBbIiQyXns3fToyXns0fT0yXns3LTR9PTJeezN9JCJdfQ=="
@@ -2070,7 +2070,7 @@ window.FULL = {
    ],
    "pistes": [
     "$(\\square^2)^5\\cdot\\square^3=\\square^{10}\\cdot\\square^3=\\square^{13}$.",
-    "$\\square^{13}=(-3)^{13}$: la base que falta és $-3$."
+    "Ara compara $\\square^{13}$ amb $(-3)^{13}$: tenen el mateix exponent. Compte amb el signe: amb exponent senar, el signe de la base es conserva."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgY29uZsOzcyBsJ2V4cG9uZW50IGZpbmFsLCAkMTMkLCBhbWIgbGEgYmFzZSBxdWUgZmFsdGEuIiwgIiIsICJBbWIgZXhwb25lbnQgc2VuYXIsIGVsIHNpZ25lIGRlIGxhIGJhc2UgZXMgY29uc2VydmEgZW4gZWwgcmVzdWx0YXQ6ICQzXnsxM30kIMOpcyBwb3NpdGl1IGkgJCgtMyleezEzfSQgw6lzIG5lZ2F0aXUsIG5vIHPDs24gaWd1YWxzLiBMYSBiYXNlIGhhIGRlIHNlciAkLTMkLiIsICJIYXMgY29uZsOzcyBsJ2V4cG9uZW50IGZpbmFsLCAkMTMkLCBhbWIgbGEgYmFzZSBxdWUgZmFsdGEuIl0sICJlcnIiOiBbIkJBU0VfRVhQT05FTlRfSU5URVJDQU5WSUFUUyIsICIiLCAiUEFSSVRBVF9FWFBPTkVOVCIsICJCQVNFX0VYUE9ORU5UX0lOVEVSQ0FOVklBVFMiXSwgInJlcyI6IFsiJChcXHNxdWFyZV4yKV41XFxjZG90XFxzcXVhcmVeMz1cXHNxdWFyZV57MTArM309XFxzcXVhcmVeezEzfT0oLTMpXnsxM31cXFJpZ2h0YXJyb3dcXHNxdWFyZT0tMyQiXX0="
@@ -2091,8 +2091,8 @@ window.FULL = {
     "$0$"
    ],
    "pistes": [
-    "Potència d'una potència: $(7^3)^5=7^{15}$.",
-    "$7^{15}:7^{\\square}=7^0=1$ (perquè és $1$). Planteja $15-\\square=0$."
+    "Potència d'una potència: calcula primer l'exponent de $(7^3)^5$ (els exponents es multipliquen).",
+    "Fixa't que $1=7^0$. Dividir potències de la mateixa base resta els exponents: planteja l'equació que han de complir."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGlnbm9yYXQgbCdleHBvbmVudCBleHRlcmlvciBkZWwgY2xhdWTDoHRvciwgJDUkOiAkKDdeMyleNT03XnsxNX0kLCBubyAkN14zJC4iLCAiSGFzIGNhbGN1bGF0IGwnZXhwb25lbnQgZGVsIGNsYXVkw6B0b3IgY29tICQzKzU9OCQgZW4gbGxvYyBkZSAkM1xcY2RvdCA1PTE1JC4iLCAiUXVlIGVsIHJlc3VsdGF0IHNpZ3VpICQxJCBubyB2b2wgZGlyIHF1ZSAkXFxzcXVhcmUkIGhhZ2kgZGUgc2VyICQwJDogY2FsIHJlc29sZHJlIGwnZXF1YWNpw7MgZGVscyBleHBvbmVudHMuIFF1YWxzZXZvbCBub21icmUgZGlmZXJlbnQgZGUgemVybyBlbGV2YXQgYSAkMCQgdmFsICQxJCwgbm8gJDAkLiJdLCAiZXJyIjogWyIiLCAiRkFDVE9SX09CTElEQVQiLCAiUE9URU5DSUFfUE9URU5DSUFfU1VNQURBIiwgIkVYUE9ORU5UX1pFUk8iXSwgInJlcyI6IFsiJCg3XjMpXjU9N157MTV9JDsgJDE1LVxcc3F1YXJlPTBcXFJpZ2h0YXJyb3cgXFxzcXVhcmU9MTUkIl19"

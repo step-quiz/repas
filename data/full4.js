@@ -375,7 +375,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(x-1)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHN1bWF0ICRQKHgpJCBlbiBsbG9jIGRlIHJlc3Rhci1sbzogc2kgJFAoeCkrUSh4KT1SKHgpJCwgYWxlc2hvcmVzICRRKHgpPVIoeCktUCh4KSQuIiwgIkhhcyByZXN0YXQgZW4gbCdvcmRyZSBlcXVpdm9jYXQ6IMOpcyAkUih4KS1QKHgpJCwgbm8gJFAoeCktUih4KSQuIiwgIkhhcyBjYW52aWF0IGVsIHNpZ25lIGRlbCB0ZXJtZSBpbmRlcGVuZGVudCBkZSAkUCh4KSQ6IMOpcyAkLTEkLCBubyAkKzEkLiJdLCAiZXJyIjogWyIiLCAiUEFSRU5URVNJX05PX0RJU1RSSUJVSVRfUE9MSSIsICJPUkRSRV9SRVNUQSIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9LXheezJ9LXgkIl19"
@@ -397,7 +397,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(2x^2-x-6)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcmVzdGF0IGVuIGwnb3JkcmUgZXF1aXZvY2F0OiDDqXMgJFIoeCktUCh4KSQsIG5vICRQKHgpLVIoeCkkLiIsICIiLCAiSGFzIGNhbnZpYXQgZWwgc2lnbmUgZGVsIHRlcm1lIGluZGVwZW5kZW50IGRlICRQKHgpJDogw6lzICQtMSQsIG5vICQrMSQuIiwgIkhhcyBzdW1hdCAkUCh4KSQgZW4gbGxvYyBkZSByZXN0YXItbG86IHNpICRQKHgpK1EoeCk9Uih4KSQsIGFsZXNob3JlcyAkUSh4KT1SKHgpLVAoeCkkLiJdLCAiZXJyIjogWyJPUkRSRV9SRVNUQSIsICIiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiUEFSRU5URVNJX05PX0RJU1RSSUJVSVRfUE9MSSJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9eF57Mn0tM3gtNSQiXX0="
@@ -419,7 +419,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(5x^2-x+1)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgY2FudmlhdCBlbCBzaWduZSBkZWwgdGVybWUgaW5kZXBlbmRlbnQgZGUgJFAoeCkkOiDDqXMgJC0xJCwgbm8gJCsxJC4iLCAiSGFzIHJlc3RhdCBlbiBsJ29yZHJlIGVxdWl2b2NhdDogw6lzICRSKHgpLVAoeCkkLCBubyAkUCh4KS1SKHgpJC4iLCAiSGFzIHN1bWF0ICRQKHgpJCBlbiBsbG9jIGRlIHJlc3Rhci1sbzogc2kgJFAoeCkrUSh4KT1SKHgpJCwgYWxlc2hvcmVzICRRKHgpPVIoeCktUCh4KSQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJPUkRSRV9SRVNUQSIsICJQQVJFTlRFU0lfTk9fRElTVFJJQlVJVF9QT0xJIiwgIiJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9NHheezJ9LTN4KzIkIl19"
@@ -441,7 +441,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(-7x^2-3x)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgY2FudmlhdCBlbCBzaWduZSBkZWwgdGVybWUgaW5kZXBlbmRlbnQgZGUgJFAoeCkkOiDDqXMgJC0xJCwgbm8gJCsxJC4iLCAiSGFzIHN1bWF0ICRQKHgpJCBlbiBsbG9jIGRlIHJlc3Rhci1sbzogc2kgJFAoeCkrUSh4KT1SKHgpJCwgYWxlc2hvcmVzICRRKHgpPVIoeCktUCh4KSQuIiwgIkhhcyByZXN0YXQgZW4gbCdvcmRyZSBlcXVpdm9jYXQ6IMOpcyAkUih4KS1QKHgpJCwgbm8gJFAoeCktUih4KSQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJQQVJFTlRFU0lfTk9fRElTVFJJQlVJVF9QT0xJIiwgIk9SRFJFX1JFU1RBIiwgIiJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9LTh4XnsyfS01eCsxJCJdfQ=="
@@ -463,7 +463,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(x^3-x)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgJFAoeCkkIGVuIGxsb2MgZGUgcmVzdGFyLWxvOiBzaSAkUCh4KStRKHgpPVIoeCkkLCBhbGVzaG9yZXMgJFEoeCk9Uih4KS1QKHgpJC4iLCAiSGFzIGNhbnZpYXQgZWwgc2lnbmUgZGVsIHRlcm1lIGluZGVwZW5kZW50IGRlICRQKHgpJDogw6lzICQtMSQsIG5vICQrMSQuIiwgIkhhcyByZXN0YXQgZW4gbCdvcmRyZSBlcXVpdm9jYXQ6IMOpcyAkUih4KS1QKHgpJCwgbm8gJFAoeCktUih4KSQuIiwgIiJdLCAiZXJyIjogWyJQQVJFTlRFU0lfTk9fRElTVFJJQlVJVF9QT0xJIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIiwgIk9SRFJFX1JFU1RBIiwgIiJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9eF57M30teF57Mn0tM3grMSQiXX0="
@@ -485,7 +485,7 @@ window.FULL = {
    ],
    "pistes": [
     "Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-    "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."
+    "Aquí $Q(x)=(x^3-x^2)-(x^2+2x-1)$: el menys canvia el signe de tots els termes de $P(x)$. Després agrupa per graus."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgJFAoeCkkIGVuIGxsb2MgZGUgcmVzdGFyLWxvOiBzaSAkUCh4KStRKHgpPVIoeCkkLCBhbGVzaG9yZXMgJFEoeCk9Uih4KS1QKHgpJC4iLCAiSGFzIHJlc3RhdCBlbiBsJ29yZHJlIGVxdWl2b2NhdDogw6lzICRSKHgpLVAoeCkkLCBubyAkUCh4KS1SKHgpJC4iLCAiIiwgIkhhcyBjYW52aWF0IGVsIHNpZ25lIGRlbCB0ZXJtZSBpbmRlcGVuZGVudCBkZSAkUCh4KSQ6IMOpcyAkLTEkLCBubyAkKzEkLiJdLCAiZXJyIjogWyJQQVJFTlRFU0lfTk9fRElTVFJJQlVJVF9QT0xJIiwgIk9SRFJFX1JFU1RBIiwgIiIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCJdLCAicmVzIjogWyIkUSh4KT1SKHgpLVAoeCk9eF57M30tMnheezJ9LTJ4KzEkIl19"
@@ -704,8 +704,8 @@ window.FULL = {
     "$x-3$"
    ],
    "pistes": [
-    "Posa a la caixa els coeficients $1$, $-3$, $2$ i baixa el $1$ del divisor.",
-    "$1$; després $-3+1\\cdot 1=-2$; el quocient és $1x-2$."
+    "Posa els coeficients $1$, $-3$, $2$ a la fila de dalt i, a l'esquerra, l'arrel del divisor: amb $x-1$, és $1$.",
+    "Baixa el primer coeficient, multiplica'l per l'arrel i suma'l al següent: $-3+1\\cdot1$. Els números de baix, menys l'últim, són els coeficients del quocient."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBxdW9jaWVudCB0w6kgdW4gZ3JhdSBNRU5ZUyBxdWUgZWwgZGl2aWRlbmQ6IGRlIGdyYXUgMiBlcyBwYXNzYSBhIGdyYXUgMS4gRWwgcXVvY2llbnQgZCd1bmEgZGl2aXNpw7MgZGUgUnVmZmluaSB0w6kgdW4gZ3JhdSBtZW55cyBxdWUgZWwgZGl2aWRlbmQsIG5vIGVsIG1hdGVpeCBncmF1LiIsICJIYXMgYmFpeGF0IHVuICQtMSQgYSBsYSBjYWl4YSBkZSBSdWZmaW5pLiBBbWIgZGl2aXNvciAkeC0xJCBoaSB2YSAkKzEkLiBBIGxhIHJlZ2xhIGRlIFJ1ZmZpbmkgZXMgZmEgc2VydmlyIGwnb3Bvc2F0IGRlbCB0ZXJtZSBpbmRlcGVuZGVudCBkZWwgZGl2aXNvcjogc2kgZWwgZGl2aXNvciDDqXMgJHgtYSQsIGVzIGJhaXhhIG11bHRpcGxpY2FudCBwZXIgJGEkLCBubyBwZXIgJC1hJC4iLCAiIiwgIkhhcyBjb3BpYXQgZWwgY29lZmljaWVudCAkLTMkIGRlbCBkaXZpZGVuZC4gQSBSdWZmaW5pLCBlbCBzZWdvbiBjb2VmaWNpZW50IGRlbCBxdW9jaWVudCDDqXMgJC0zKzE9LTIkLiJdLCAiZXJyIjogWyJSVUZGSU5JX1FVT0NJRU5UX0dSQVUiLCAiUlVGRklOSV9TSUdORV9BUlJFTCIsICIiLCAiUlVGRklOSV9QQVNfTUFMIl0sICJyZXMiOiBbIlJ1ZmZpbmkgYW1iICRhPTEkOiAkMSQsICQtMysxPS0yJCwgJDIrKC0yKT0wJC4gUXVvY2llbnQgJHgtMiQgaSByZXNpZHUgJDAkLiJdfQ=="
@@ -1188,8 +1188,8 @@ window.FULL = {
     "$(x-16)(x+16)$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Són dos termes que es resten: mira si tots dos són quadrats perfectes. Quina és l'arrel quadrada de $16$?",
+    "Una diferència de quadrats es factoritza així: $a^2-b^2=(a-b)(a+b)$, amb $a$ l'arrel de $x^2$ i $b$ la de $16$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyDDqXMgdW4gcXVhZHJhdCBwZXJmZWN0ZSAobm8gaGkgaGEgdGVybWUgZW4gJHgkIGRlIGdyYXUgJDEkIGEgbCdleHByZXNzacOzIG9yaWdpbmFsKTogw6lzIHVuYSBkaWZlcsOobmNpYSBkZSBxdWFkcmF0cywgJHheMi00XjIkLiIsICIiLCAiRWwgc2Vnb24gbm9tYnJlIGhhIGRlIHNlciBsJ2FycmVsIHF1YWRyYWRhIGRlICQxNiQsIHF1ZSDDqXMgJDQkLCBubyAkOCQuIiwgIk5vIGVzIGZhY3Rvcml0emEgZWwgJDE2JCB0YWwgcXVhbDogY2FsIHRyb2Jhci1uZSBsJ2FycmVsIHF1YWRyYWRhLCAkNCQuIl0sICJlcnIiOiBbIlFVQURSQVRfSU5DT01QTEVUIiwgIiIsICJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCJdLCAicmVzIjogWyIkeF4yLTE2PSh4LTQpKHgrNCkkIl19"
@@ -1210,8 +1210,8 @@ window.FULL = {
     "$(x^2-6)^2$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Són dos termes que es resten: mira si tots dos són quadrats perfectes. Quina expressió, elevada al quadrat, dona $x^4$?",
+    "Una diferència de quadrats es factoritza així: $a^2-b^2=(a-b)(a+b)$, amb $a$ l'arrel de $x^4$ i $b$ la de $36$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgc2Vnb24gbm9tYnJlIGhhIGRlIHNlciBsJ2FycmVsIHF1YWRyYWRhIGRlICQzNiQsIHF1ZSDDqXMgJDYkLCBubyAkMzYkLiIsICJFbCBwcmltZXIgdGVybWUgw6lzICR4XjQ9KHheMileMiQsIG5vICR4XjIkOiBlbCBwcmltZXIgZmFjdG9yIGhhIGRlIHBvcnRhciAkeF4yJCwgbm8gJHgkLiIsICJObyDDqXMgdW4gcXVhZHJhdCBwZXJmZWN0ZSwgc2luw7MgdW5hIGRpZmVyw6huY2lhIGRlIHF1YWRyYXRzOiBubyBoaSBoYSB0ZXJtZSBkZWwgbWlnIGEgbCdleHByZXNzacOzIG9yaWdpbmFsLiJdLCAiZXJyIjogWyIiLCAiRElGRVJFTkNJQV9RVUFEUkFUU19NQUwiLCAiR1JBVV9QUk9EVUNURV9NQUwiLCAiUVVBRFJBVF9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJHheNC0zNj0oeF4yLTYpKHheMis2KSQiXX0="
@@ -1232,8 +1232,8 @@ window.FULL = {
     "$(4x-25)(4x+25)$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Són dos termes que es resten: mira si tots dos són quadrats perfectes. Quina expressió, elevada al quadrat, dona $4x^2$?",
+    "Una diferència de quadrats es factoritza així: $a^2-b^2=(a-b)(a+b)$, amb $a$ l'arrel de $4x^2$ i $b$ la de $25$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzZWdvbiBub21icmUgaGEgZGUgc2VyIGwnYXJyZWwgcXVhZHJhZGEgZGUgJDI1JCwgcXVlIMOpcyAkNSQsIG5vICQyNSQuIiwgIk5vIMOpcyB1biBxdWFkcmF0IHBlcmZlY3RlOiBubyBoaSBoYSB0ZXJtZSBkZWwgbWlnIGEgbCdleHByZXNzacOzIG9yaWdpbmFsLCDDqXMgdW5hIGRpZmVyw6huY2lhIGRlIHF1YWRyYXRzLiIsICIiLCAiRWwgcHJpbWVyIHRlcm1lIMOpcyAkNHheMj0oMngpXjIkLCBubyAkKDR4KV4yJDogcmV2aXNhIGwnYXJyZWwgcXVhZHJhZGEgZGUgJDR4XjIkLiJdLCAiZXJyIjogWyJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICJRVUFEUkFUX0lOQ09NUExFVCIsICIiLCAiRElGRVJFTkNJQV9RVUFEUkFUU19NQUwiXSwgInJlcyI6IFsiJDR4XjItMjU9KDJ4LTUpKDJ4KzUpJCJdfQ=="
@@ -1254,8 +1254,8 @@ window.FULL = {
     "$(x-2)(x+2)$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Té tres termes: mira si és el quadrat d'un binomi. Els dels extrems, $x^2$ i $4$, són quadrats perfectes?",
+    "$x^2=(x)^2$ i $4=(2)^2$. Comprova si el terme del mig, $-4x$, és el doble producte $2\\cdot x\\cdot 2$, i fixa't en el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdGVybWUgZGVsIG1pZywgJC00eCQsIMOpcyBuZWdhdGl1OiBjb3JyZXNwb24gYSAkKHgtMileMiQsIGFtYiBzaWduZSAkLSQgZGlucyBkZWwgcGFyw6hudGVzaS4iLCAiQXF1ZXN0YSBleHByZXNzacOzIHTDqSB0ZXJtZSBkZWwgbWlnICgkLTR4JCk6IG5vIMOpcyB1bmEgZGlmZXLDqG5jaWEgZGUgcXVhZHJhdHMsIMOpcyB1biBxdWFkcmF0IHBlcmZlY3RlLiIsICJFbHMgZG9zIGZhY3RvcnMgaGFuIGRlIHNlciBpZ3VhbHMgKMOpcyB1biBxdWFkcmF0IHBlcmZlY3RlLCAkKHgtMileMiQpLCBubyB1biBkZSBzdW1hIGkgdW4gZGUgcmVzdGEuIl0sICJlcnIiOiBbIiIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIkdSQVVTX01BTF9BR1JVUEFUUyIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIl0sICJyZXMiOiBbIiR4XjItNHgrND0oeC0yKV4yJCJdfQ=="
@@ -1276,8 +1276,8 @@ window.FULL = {
     "$(4x-3y)^2$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Té tres termes: mira si és el quadrat d'un binomi. Els dels extrems, $16x^2$ i $9y^2$, són quadrats perfectes?",
+    "$16x^2=(4x)^2$ i $9y^2=(3y)^2$. Comprova si el terme del mig, $-24xy$, és el doble producte $2\\cdot 4x\\cdot 3y$, i fixa't en el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB0ZXJtZSBkZWwgbWlnLCAkLTI0eHkkLCDDqXMgbmVnYXRpdTogY29ycmVzcG9uIGEgJCg0eC0zeSleMiQsIGFtYiBzaWduZSAkLSQgZGlucyBkZWwgcGFyw6hudGVzaS4iLCAiRWwgc2Vnb24gdGVybWUgZGVsIGJpbm9taSBoYSBkZSBzZXIgbCdhcnJlbCBxdWFkcmFkYSBkZSAkOXleMiQsIHF1ZSDDqXMgJDN5JCwgbm8gJDl5JC4iLCAiQXF1ZXN0YSBleHByZXNzacOzIHTDqSB0ZXJtZSBkZWwgbWlnICgkLTI0eHkkKTogbm8gw6lzIHVuYSBkaWZlcsOobmNpYSBkZSBxdWFkcmF0cywgw6lzIHVuIHF1YWRyYXQgcGVyZmVjdGUuIiwgIiJdLCAiZXJyIjogWyJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIlFVQURSQVRfSU5DT01QTEVUIiwgIkdSQVVTX01BTF9BR1JVUEFUUyIsICIiXSwgInJlcyI6IFsiJDE2eF4yLTI0eHkrOXleMj0oNHgtM3kpXjIkIl19"
@@ -1298,8 +1298,8 @@ window.FULL = {
     "$(4x^2-3)^2$"
    ],
    "pistes": [
-    "Comprova si l'expressió és una diferència de quadrats ($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-    "Un cop identificat el patró, escriu-lo com a producte de dos factors (o el quadrat d'un binomi)."
+    "Té tres termes: mira si és el quadrat d'un binomi. Els dels extrems, $16x^4$ i $9$, són quadrats perfectes?",
+    "$16x^4=(4x^2)^2$ i $9=(3)^2$. Comprova si el terme del mig, $24x^2$, és el doble producte $2\\cdot 4x^2\\cdot 3$, i fixa't en el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSBleHByZXNzacOzIHTDqSB0ZXJtZSBkZWwgbWlnICgkKzI0eF4yJCk6IG5vIMOpcyB1bmEgZGlmZXLDqG5jaWEgZGUgcXVhZHJhdHMsIMOpcyB1biBxdWFkcmF0IHBlcmZlY3RlLiIsICJFbCBwcmltZXIgdGVybWUgZGVsIGJpbm9taSBoYSBkZSBzZXIgbCdhcnJlbCBxdWFkcmFkYSBkZSAkMTZ4XjQkLCBxdWUgw6lzICQ0eF4yJCwgbm8gJDh4XjIkLiIsICJFbCB0ZXJtZSBkZWwgbWlnLCAkKzI0eF4yJCwgw6lzIHBvc2l0aXU6IGNvcnJlc3BvbiBhICQoNHheMiszKV4yJCwgYW1iIHNpZ25lICQrJCBkaW5zIGRlbCBwYXLDqG50ZXNpLiJdLCAiZXJyIjogWyIiLCAiR1JBVVNfTUFMX0FHUlVQQVRTIiwgIlFVQURSQVRfSU5DT01QTEVUIiwgIklHVUFMVEFUX05PVEFCTEVfU0lHTkUiXSwgInJlcyI6IFsiJDE2eF40KzI0eF4yKzk9KDR4XjIrMyleMiQiXX0="
@@ -1408,8 +1408,8 @@ window.FULL = {
     "$(3x-y)^2-16$"
    ],
    "pistes": [
-    "Identifica el \\\"primer terme\\\" comú als dos factors i el \\\"segon\\\" que canvia de signe: aquí és $(3x-y)$ i $4$.",
-    "$[(3x-y)+4]\\cdot[(3x-y)-4]=(3x-y)^2-4^2$."
+    "Identifica el «primer terme» comú als dos factors i el «segon» que canvia de signe: aquí són $(3x-y)$ i $4$.",
+    "Segueix el patró de l'enunciat: el primer terme al quadrat menys el segon al quadrat. Compte a elevar també el $4$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwcmltZXIgdGVybWUgcydoYSBkZSBkZWl4YXIgY29tIGVsIHF1YWRyYXQgZGUgdG90IGVsIGJpbm9taSAkKDN4LXkpJCwgbm8gbm9tw6lzIGRlIGxhICR4JDogJCgzeC15KV4yXFxuZXEgOXheMi15XjIkLiIsICJFbiB1bmEgc3VtYSBwZXIgZGlmZXLDqG5jaWEsIGVsIHNlZ29uIHF1YWRyYXQgc2VtcHJlIHJlc3RhLCBtYWkgc3VtYTogJChhK2IpKGEtYik9YV4yLWJeMiQuIiwgIkVsIHNlZ29uIHRlcm1lIHMnaGEgZCdlbGV2YXIgYWwgcXVhZHJhdDogJDReMj0xNiQsIG5vICQ0JC4iLCAiIl0sICJlcnIiOiBbIkdSQVVTX01BTF9BR1JVUEFUUyIsICJTVU1BX1BFUl9ESUZFUkVOQ0lBX01BTCIsICJRVUFEUkFUX0lOQ09NUExFVCIsICIiXSwgInJlcyI6IFsiJFsoM3gteSkrNF1cXGNkb3RbKDN4LXkpLTRdPSgzeC15KV4yLTE2JCAoZGVzZW52b2x1cGF0IGRlbCB0b3Q6ICQ5eF4yLTZ4eSt5XjItMTYkKSJdfQ=="
@@ -1430,8 +1430,8 @@ window.FULL = {
     "$a^2+b^2-c^2$"
    ],
    "pistes": [
-    "Identifica el \\\"primer terme\\\" comú i el \\\"segon\\\" que canvia de signe: aquí són $(a+b)$ i $c$.",
-    "$[(a+b)+c]\\cdot[(a+b)-c]=(a+b)^2-c^2$."
+    "Identifica el «primer terme» comú i el «segon» que canvia de signe: aquí són $(a+b)$ i $c$.",
+    "Segueix el patró de l'enunciat: el primer terme al quadrat menys el segon al quadrat. El primer terme, $(a+b)$, es deixa sencer, sense desenvolupar."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiB1bmEgc3VtYSBwZXIgZGlmZXLDqG5jaWEsIGVsIHNlZ29uIHF1YWRyYXQgc2VtcHJlIHJlc3RhLCBtYWkgc3VtYS4iLCAiRWwgc2Vnb24gdGVybWUgcydoYSBkJ2VsZXZhciBhbCBxdWFkcmF0OiDDqXMgJGNeMiQsIG5vICRjJC4iLCAiIiwgIkVsIHByaW1lciB0ZXJtZSBzJ2hhIGRlIGRlaXhhciBjb20gZWwgcXVhZHJhdCBkZSB0b3QgZWwgYmlub21pICQoYStiKSQsIG5vIGRlc2Vudm9sdXBhdCBuaSBzZXBhcmF0LiJdLCAiZXJyIjogWyJTVU1BX1BFUl9ESUZFUkVOQ0lBX01BTCIsICJRVUFEUkFUX0lOQ09NUExFVCIsICIiLCAiR1JBVVNfTUFMX0FHUlVQQVRTIl0sICJyZXMiOiBbIiRbKGErYikrY11cXGNkb3RbKGErYiktY109KGErYileMi1jXjIkIChkZXNlbnZvbHVwYXQgZGVsIHRvdDogJGFeMisyYWIrYl4yLWNeMiQpIl19"
@@ -1540,8 +1540,8 @@ window.FULL = {
     "$7(x-1)$"
    ],
    "pistes": [
-    "Treu primer el factor comú $7$: $7x^2-14x+7=7(x^2-2x+1)$.",
-    "Un cop tret el $7$, reconeix que $x^2-2x+1$ és un quadrat perfecte, $(x-1)^2$."
+    "Els tres coeficients ($7$, $-14$ i $7$) són múltiples de $7$: treu-lo factor comú.",
+    "Dins del parèntesi queda $x^2-2x+1$. Mira si és el quadrat d'un binomi: $a^2-2ab+b^2=(a-b)^2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdGVybWUgZGVsIG1pZywgJC0xNHgkLCDDqXMgbmVnYXRpdTogY29ycmVzcG9uIGEgJCh4LTEpXjIkLCBhbWIgc2lnbmUgJC0kLiIsICJFbCAkNyQgcydoYSBkZSB0cmV1cmUgY29tIGEgZmFjdG9yIGNvbcO6IGFiYW5zIGRlIHJlY29uw6hpeGVyIGVsIHF1YWRyYXQgcGVyZmVjdGUsIG5vIGZpY2FyLWxvIGRpbnMgZGVsIHF1YWRyYXQuIiwgIlVuIGNvcCB0cmV0IGVsIGZhY3RvciAkNyQsIHF1ZWRhICR4XjItMngrMSQsIHF1ZSDDqXMgdW4gcXVhZHJhdCBwZXJmZWN0ZSwgJCh4LTEpXjIkOiBubyBlcyBwb3QgZGVpeGFyIHNlbnNlIGVsIHF1YWRyYXQuIl0sICJlcnIiOiBbIiIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJHUkFVX1BST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkN3heMi0xNHgrNz03KHheMi0yeCsxKT03KHgtMSleMiQiXX0="
@@ -1562,8 +1562,8 @@ window.FULL = {
     "$16(x+2)$"
    ],
    "pistes": [
-    "Treu primer el factor comú $16$: $16x^2+64x+64=16(x^2+4x+4)$.",
-    "Un cop tret el $16$, reconeix que $x^2+4x+4$ és un quadrat perfecte, $(x+2)^2$."
+    "Els tres coeficients ($16$, $64$ i $64$) són múltiples de $16$: treu-lo factor comú.",
+    "Dins del parèntesi queda $x^2+4x+4$. Mira si és el quadrat d'un binomi: $a^2+2ab+b^2=(a+b)^2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB0ZXJtZSBkZWwgbWlnLCAkKzY0eCQsIMOpcyBwb3NpdGl1OiBjb3JyZXNwb24gYSAkKHgrMileMiQsIGFtYiBzaWduZSAkKyQuIiwgIiIsICJFbCBmYWN0b3IgY29tw7ogZGUgJDE2JCwgJDY0JCBpICQ2NCQgw6lzICQxNiQsIG5vICQ4JC4iLCAiVW4gY29wIHRyZXQgZWwgZmFjdG9yICQxNiQsIHF1ZWRhICR4XjIrNHgrNCQsIHF1ZSDDqXMgdW4gcXVhZHJhdCBwZXJmZWN0ZSwgJCh4KzIpXjIkOiBubyBlcyBwb3QgZGVpeGFyIHNlbnNlIGVsIHF1YWRyYXQuIl0sICJlcnIiOiBbIklHVUFMVEFUX05PVEFCTEVfU0lHTkUiLCAiIiwgIkZBQ1RPUl9DT01VX0lOQ09NUExFVCIsICJHUkFVX1BST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkMTZ4XjIrNjR4KzY0PTE2KHheMis0eCs0KT0xNih4KzIpXjIkIl19"
@@ -1584,8 +1584,8 @@ window.FULL = {
     "$x(x-1)^2$"
    ],
    "pistes": [
-    "Treu primer el factor comú $x$: $x^3-2x^2+x=x(x^2-2x+1)$.",
-    "Un cop tret l'$x$, reconeix que $x^2-2x+1$ és un quadrat perfecte, $(x-1)^2$."
+    "Els tres termes porten $x$: treu-la factor comú.",
+    "Dins del parèntesi queda $x^2-2x+1$. Mira si és el quadrat d'un binomi: $a^2-2ab+b^2=(a-b)^2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJVbiBjb3AgdHJldCBlbCBmYWN0b3IgJHgkLCBxdWVkYSAkeF4yLTJ4KzEkLCBxdWUgw6lzIHVuIHF1YWRyYXQgcGVyZmVjdGUsICQoeC0xKV4yJDogbm8gZXMgcG90IGRlaXhhciBzZW5zZSBlbCBxdWFkcmF0LiIsICJUJ2hhcyBkZWl4YXQgZWwgZmFjdG9yIGNvbcO6ICR4JDogZWxzIHRyZXMgdGVybWVzICgkeF4zJCwgJC0yeF4yJCwgJHgkKSBlbCB0ZW5lbiBlbiBjb23Dui4iLCAiRWwgdGVybWUgZGVsIG1pZywgJC0yeF4yJCAodW4gY29wIHRyZXQgZWwgZmFjdG9yICR4JCwgJC0yeCQpLCDDqXMgbmVnYXRpdTogY29ycmVzcG9uIGEgJCh4LTEpXjIkLCBhbWIgc2lnbmUgJC0kLiIsICIiXSwgImVyciI6IFsiR1JBVV9QUk9EVUNURV9NQUwiLCAiRkFDVE9SX0NPTVVfSU5DT01QTEVUIiwgIklHVUFMVEFUX05PVEFCTEVfU0lHTkUiLCAiIl0sICJyZXMiOiBbIiR4XjMtMnheMit4PXgoeF4yLTJ4KzEpPXgoeC0xKV4yJCJdfQ=="
@@ -1606,8 +1606,8 @@ window.FULL = {
     "$2(3x^2-1)^2$"
    ],
    "pistes": [
-    "Treu primer el factor comú $2$: $18x^4-12x^2+2=2(9x^4-6x^2+1)$.",
-    "Un cop tret el $2$, reconeix que $9x^4-6x^2+1$ és un quadrat perfecte, $(3x^2-1)^2$."
+    "Els tres coeficients ($18$, $-12$ i $2$) són múltiples de $2$: treu-lo factor comú.",
+    "Dins del parèntesi queda $9x^4-6x^2+1$, i $9x^4=(3x^2)^2$. Mira si és el quadrat d'un binomi: $a^2-2ab+b^2=(a-b)^2$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJVbiBjb3AgdHJldCBlbCBmYWN0b3IgJDIkLCBxdWVkYSAkOXheNC02eF4yKzEkLCBxdWUgw6lzIHVuIHF1YWRyYXQgcGVyZmVjdGUsICQoM3heMi0xKV4yJDogbm8gZXMgcG90IGRlaXhhciBzZW5zZSBlbCBxdWFkcmF0LiIsICJFbCB0ZXJtZSBkZWwgbWlnLCAkLTZ4XjIkICh1biBjb3AgdHJldCBlbCAkMiQpLCDDqXMgbmVnYXRpdTogY29ycmVzcG9uIGEgJCgzeF4yLTEpXjIkLCBhbWIgc2lnbmUgJC0kLiIsICJFbCBmYWN0b3IgY29tw7ogZGUgJDE4JCwgJC0xMiQgaSAkMiQgw6lzICQyJCwgbm8gJDYkLiIsICIiXSwgImVyciI6IFsiR1JBVV9QUk9EVUNURV9NQUwiLCAiSUdVQUxUQVRfTk9UQUJMRV9TSUdORSIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiLCAiIl0sICJyZXMiOiBbIiQxOHheNC0xMnheMisyPTIoOXheNC02eF4yKzEpPTIoM3heMi0xKV4yJCJdfQ=="
@@ -1629,7 +1629,7 @@ window.FULL = {
    ],
    "pistes": [
     "Desenvolupa primer el producte: $(2x+4)(x-2)=2x^2-4x+4x-8=2x^2-8$.",
-    "Treu factor comú $2$ i reconeix la diferència de quadrats: $2(x^2-4)=2(x-2)(x+2)$."
+    "Treu el factor comú de $2x^2-8$ i mira què queda dins del parèntesi: és una diferència de quadrats, $a^2-b^2=(a-b)(a+b)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbiBjb3AgZGVzZW52b2x1cGF0IGkgdHJldCBlbCBmYWN0b3IgJDIkLCBxdWVkYSAkeF4yLTQkLCBxdWUgw6lzIHVuYSBESUZFUsOITkNJQSBkZSBxdWFkcmF0cywgJCh4LTIpKHgrMikkLCBubyB1biBxdWFkcmF0IHBlcmZlY3RlLiIsICIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgbCdoYXMgZGVpeGF0IGRlc2Vudm9sdXBhdCBpIGVzIGRlbWFuYSBmYWN0b3JpdHphdDogJDJ4XjItOD0yKHheMi00KT0yKHgtMikoeCsyKSQuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgY29tw7ogJDIkOiBlbCBkZXNlbnZvbHVwYW1lbnQgZG9uYSAkMnheMi04PTIoeF4yLTQpJCwgbm8gJHheMi00JC4iXSwgImVyciI6IFsiRElGRVJFTkNJQV9RVUFEUkFUU19NQUwiLCAiIiwgIkZBQ1RPUklUWkFDSU9fREVTRkVUQSIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJCgyeCs0KSh4LTIpPTJ4XjItOD0yKHheMi00KT0yKHgtMikoeCsyKSQiXX0="
@@ -1651,7 +1651,7 @@ window.FULL = {
    ],
    "pistes": [
     "Desenvolupa primer el producte: $(x-5)(x^2+5x)=x^3+5x^2-5x^2-25x=x^3-25x$.",
-    "Treu factor comú $x$ i reconeix la diferència de quadrats: $x(x^2-25)=x(x-5)(x+5)$."
+    "Treu el factor comú de $x^3-25x$ i mira què queda dins del parèntesi: és una diferència de quadrats ($25=5^2$)."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVzZW52b2x1cGFtZW50IMOpcyBjb3JyZWN0ZSwgcGVyw7IgbCdoYXMgZGVpeGF0IGRlc2Vudm9sdXBhdCBpIGVzIGRlbWFuYSBmYWN0b3JpdHphdDogJHheMy0yNXg9eCh4XjItMjUpPXgoeC01KSh4KzUpJC4iLCAiVW4gY29wIHRyZXQgZWwgZmFjdG9yICR4JCwgcXVlZGEgJHheMi0yNSQsIHF1ZSDDqXMgdW5hIERJRkVSw4hOQ0lBIGRlIHF1YWRyYXRzLCAkKHgtNSkoeCs1KSQsIG5vIHVuIHF1YWRyYXQgcGVyZmVjdGUuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgY29tw7ogJHgkOiBlbCBkZXNlbnZvbHVwYW1lbnQgZG9uYSAkeF4zLTI1eD14KHheMi0yNSkkLCBubyAkeF4yLTI1JC4iXSwgImVyciI6IFsiIiwgIkZBQ1RPUklUWkFDSU9fREVTRkVUQSIsICJESUZFUkVOQ0lBX1FVQURSQVRTX01BTCIsICJGQUNUT1JfQ09NVV9JTkNPTVBMRVQiXSwgInJlcyI6IFsiJCh4LTUpKHheMis1eCk9eF4zLTI1eD14KHheMi0yNSk9eCh4LTUpKHgrNSkkIl19"
@@ -1673,7 +1673,7 @@ window.FULL = {
    ],
    "pistes": [
     "Treu primer el signe menys comú del primer factor: $-x-7=-(x+7)$.",
-    "$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$."
+    "Queda $-(x+7)(x-7)$. Desenvolupa la suma per diferència, aplica-hi el signe menys i torna a factoritzar el que surti."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcHJpbWVyIGZhY3RvciDDqXMgJC14LTc9LSh4KzcpJCwgbm8gJHgtNyQ6IGVsIHNpZ25lIGdsb2JhbCBjYW52aWEgZWwgcmVzdWx0YXQgZmluYWwuIiwgIkVsIGRlc2Vudm9sdXBhbWVudCBjb3JyZWN0ZSBkb25hICQ0OS14XjIkLCBubyAkeF4yLTQ5JDogcmV2aXNhIGVsIHNpZ25lIGdsb2JhbCBlbiB0cmV1cmUgZWwgJC0xJCBjb23DuiBkZWwgcHJpbWVyIGZhY3Rvci4iLCAiSGkgc29icmEgdW4gc2lnbmUgbWVueXM6IGVuIHRyZXVyZSBlbCAkLTEkIGNvbcO6IGRlICQteC03JCBpIHJlb3JkZW5hci1obyBhICQoNy14KSg3K3gpJCwgYXF1ZXN0IG1lbnlzIGphIHMnaGEgZmV0IHNlcnZpci4gQ29tcHJvdmEtaG8gYW1iICR4PTAkOiBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWwgdmFsICQrNDkkLiJdLCAiZXJyIjogWyIiLCAiSUdVQUxUQVRfTk9UQUJMRV9TSUdORSIsICJJR1VBTFRBVF9OT1RBQkxFX1NJR05FIiwgIkZBQ1RPUl9DT01VX1NJR05FIl0sICJyZXMiOiBbIiQoLXgtNykoeC03KT0tKHgrNykoeC03KT00OS14XjI9KDcteCkoNyt4KSQiXX0="

@@ -538,7 +538,8 @@ window.FULL = {
     "Sí, perquè tots els termes són fraccions amb denominador $3$."
    ],
    "pistes": [
-    "Calcula la diferència entre cada terme i el següent."
+    "Calcula la diferència entre cada terme i el següent.",
+    "Comença per $\\dfrac43-\\dfrac53$ i $1-\\dfrac43$ (escriu $1=\\dfrac33$). Si totes les diferències surten iguals, és aritmètica."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFc3TDoHMgcmVzdGFudCB0ZXJtZXMgcXVlIG5vIHPDs24gY29uc2VjdXRpdXM6ICQxJCDDqXMgZWwgdGVyY2VyIHRlcm1lIGkgJFxcZGZyYWM1MyQgZWwgcHJpbWVyLCBlbHMgc2VwYXJlbiBkdWVzIHBvc2ljaW9ucy4gRW50cmUgdGVybWVzIGNvbnNlY3V0aXVzLCBjb20gJFxcZGZyYWM0My1cXGRmcmFjNTM9LVxcZGZyYWMxMyQsIGxhIGRpZmVyw6huY2lhIHPDrSBxdWUgw6lzIGNvbnN0YW50LiIsICJRdWUgZWxzIHRlcm1lcyBkaXNtaW51ZWl4aW4gbm8gaW1wZWRlaXggcXVlIHNpZ3VpIHVuYSBQQTogdW5hIGRpZmVyw6huY2lhIG5lZ2F0aXZhIGkgY29uc3RhbnQgdGFtYsOpIGRlZmluZWl4IHVuYSBwcm9ncmVzc2nDsyBhcml0bcOodGljYS4iLCAiIiwgIkVsIGZldCBxdWUgZWwgZGVub21pbmFkb3Igc2lndWkgJDMkIMOpcyBub23DqXMgdW5hIG1hbmVyYSBkJ2VzY3JpdXJlIGVscyB0ZXJtZXMgKCQxPVxcZGZyYWMzMyQpOiBlbCBxdWUgY2FsIGNvbXByb3ZhciDDqXMgcXVlIGxhIGRpZmVyw6huY2lhIGVudHJlIHRlcm1lcyBjb25zZWN1dGl1cyBzaWd1aSBjb25zdGFudC4iXSwgImVyciI6IFsiQ09NUEFSQV9URVJNRVMiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhYzQzLVxcZGZyYWM1Mz0tXFxkZnJhYzEzJCwgJDEtXFxkZnJhYzQzPS1cXGRmcmFjMTMkLCAkXFxkZnJhYzIzLTE9LVxcZGZyYWMxMyQsICRcXGRmcmFjMTMtXFxkZnJhYzIzPS1cXGRmcmFjMTMkOiBsYSBkaWZlcsOobmNpYSDDqXMgY29uc3RhbnQsICRkPS1cXGRmcmFjMTMkLCBwZXIgdGFudCBzw60gcXVlIMOpcyB1bmEgcHJvZ3Jlc3Npw7MgYXJpdG3DqHRpY2EiXX0="
@@ -1000,7 +1001,7 @@ window.FULL = {
    ],
    "pistes": [
     "El terme general d'una PG és $a_n=a_1\\cdot r^{\\,n-1}$.",
-    "$a_n=3\\cdot5^{\\,n-1}$."
+    "Substitueix-hi $a_1=3$ i $r=5$. Compte: el que s'eleva a $n-1$ és la raó, no el primer terme."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2V4cG9uZW50IGRlbCB0ZXJtZSBnZW5lcmFsIMOpcyAkbi0xJCwgbm8gJG4kOiBwZXIgJG49MSQgbCdleHBvbmVudCBoYSBkZSBzZXIgJDAkLiIsICIiLCAiSGFzIGludGVyY2FudmlhdCBlbCBwcmltZXIgdGVybWUgaSBsYSByYcOzOiBsYSBiYXNlIGRlIGxhIHBvdMOobmNpYSDDqXMgbGEgcmHDsyAoJDUkKSwgaSBlbCBmYWN0b3IgcXVlIGhpIG11bHRpcGxpY2Egw6lzICRhXzEkICgkMyQpLiIsICJFbCB0ZXJtZSBnZW5lcmFsIGQndW5hIFBHIMOpcyB1biBwcm9kdWN0ZSBhbWIgdW5hIHBvdMOobmNpYSwgJGFfMVxcY2RvdCByXntuLTF9JCwgbm8gdW5hIHN1bWEgY29tIGEgdW5hIFBBLiJdLCAiZXJyIjogWyJERVNQTEFDQU1FTlRfSU5ERVgiLCAiIiwgIk9SRFJFX1JFU1RBIiwgIlBPVEVOQ0lBX0RFX1NVTUEiXSwgInJlcyI6IFsiJGFfbj1hXzFcXGNkb3Qgcl57XFwsbi0xfT0zXFxjZG90NV57XFwsbi0xfSQiXX0="

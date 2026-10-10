@@ -50,9 +50,9 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <div class="it"><div class="cap"><span class="cod">236a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Treure una carta de la baralla espanyola.</div>
 <ol class="op"><li><span class="ok">L'espai mostral té $40$ resultats (una carta per a cada combinació de coll i valor)</span> — resposta correcta</li>
-<li>L'espai mostral té $4$ resultats (un per cada coll: ors, copes, espases i bastos)<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$4$ compta només els colls, no les cartes individuals: cada coll té $10$ cartes diferents ($1$ al $9$ i una figura), així que l'espai mostral inclou totes les cartes concretes, no només el coll.</span></li>
-<li>L'espai mostral té $48$ resultats, com en una baralla francesa<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$48$ no és el nombre de cartes d'una baralla espanyola: aquesta en té $40$ (quatre colls de $10$ cartes cadascun), no $48$.</span></li>
-<li>L'espai mostral té $10$ resultats, un per cada valor de l'$1$ al $9$ i la figura<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$10$ compta els valors possibles d'UN sol coll, però l'espai mostral de "treure una carta" ha d'incloure les cartes de TOTS els colls, no només d'un.</span></li>
+<li>L'espai mostral té $4$ resultats (un per cada coll: ors, copes, espases i bastos)<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$4$ compta només els colls, no les cartes individuals: cada coll té $10$ cartes diferents (de l'$1$ al $7$ i tres figures: sota, cavall i rei), així que l'espai mostral inclou totes les cartes concretes, no només el coll.</span></li>
+<li>L'espai mostral té $52$ resultats, com en una baralla francesa<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$52$ són les cartes de la baralla francesa (la del pòquer). La baralla espanyola en té $40$: quatre colls de $10$ cartes cadascun.</span></li>
+<li>L'espai mostral té $10$ resultats, les cartes d'un sol coll<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$10$ compta els valors possibles d'UN sol coll, però l'espai mostral de "treure una carta" ha d'incloure les cartes de TOTS els colls, no només d'un.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una baralla espanyola té $4$ colls (ors, copes, espases, bastos), cadascun amb $10$ cartes.</li><li>L'espai mostral és el conjunt de totes les cartes possibles, no només els colls.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La baralla espanyola té $4$ colls de $10$ cartes cadascun: $4\cdot10=40$ resultats possibles</li></ol>
@@ -102,9 +102,9 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <ol class="op"><li><span class="ok">L'espai mostral té $10$ resultats (les $10$ cartes del coll d'espases)</span> — resposta correcta</li>
 <li>L'espai mostral té $40$ resultats, com tota la baralla<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'enunciat restringeix l'experiment a UN sol coll (espases), no a la baralla sencera: només compten les $10$ cartes d'espases.</span></li>
 <li>L'espai mostral té $4$ resultats, un per cada coll<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">L'experiment ja fixa el coll (espases): el que varia és quina carta concreta d'espases surt, i n'hi ha $10$, no $4$.</span></li>
-<li>L'espai mostral té $9$ resultats, de l'$1$ al $9$, sense comptar la figura<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Cada coll d'una baralla espanyola també inclou una figura a més dels valors numèrics de l'$1$ al $9$: en total, $10$ cartes per coll, no $9$.</span></li>
+<li>L'espai mostral té $7$ resultats, de l'$1$ al $7$, sense comptar les figures<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Cada coll també té tres figures (sota, cavall i rei): $7+3=10$ cartes per coll, no $7$.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada coll d'una baralla espanyola té el mateix nombre de cartes.</li><li>Un coll té les cartes de l'$1$ al $9$ més una figura.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Cada coll d'una baralla espanyola té el mateix nombre de cartes.</li><li>La baralla té $40$ cartes repartides en $4$ colls iguals: quantes en toca a cada coll?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El coll d'espases té $10$ cartes: $E=\{1\text{ d'espases}, \ldots,\text{rei d'espases}\}$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">236g</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
@@ -134,7 +134,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <ol class="op"><li><span class="ok">Aquest esdeveniment és POSSIBLE: la baralla té $10$ ors, així que es poden treure dos</span> — resposta correcta</li>
 <li>Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un exemplar de cada carta<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Que hi hagi un únic exemplar de CADA CARTA CONCRETA (com el rei d'ors) no vol dir que hi hagi un únic exemplar de CADA COLL: el coll d'ors té $10$ cartes diferents, així que se'n poden treure dues. Revisa quantes cartes (o elements) diferents compleixen exactament la condició demanada: un esdeveniment és impossible només quan CAP resultat de l'espai mostral el compleix, no quan sembla poc habitual.</span></li>
 <li>Aquest esdeveniment és IMPOSSIBLE, perquè només es pot treure una carta d'ors per jugada<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">L'enunciat parla de treure DUES cartes en total, no d'una jugada limitada a una carta per coll: és perfectament possible que totes dues siguin d'ors.</span></li>
-<li>Aquest esdeveniment és IMPOSSIBLE, perquè un cop treta una carta d'ors, no en queda cap altra<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">El coll d'ors té $10$ cartes diferents (de l'$1$ al $9$ i una figura): després de treure'n una, encara en queden $9$ més per treure com a segona carta.</span></li>
+<li>Aquest esdeveniment és IMPOSSIBLE, perquè un cop treta una carta d'ors, no en queda cap altra<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">El coll d'ors té $10$ cartes diferents (de l'$1$ al $7$ i tres figures): després de treure'n una, encara en queden $9$ més per treure com a segona carta.</span></li>
 </ol>
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quantes cartes té el coll d'ors a una baralla espanyola.</li><li>Un esdeveniment és impossible quan no hi ha CAP manera que passi, no quan és poc probable.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Hi ha $10$ ors a la baralla, així que és perfectament possible treure'n dos: aquest esdeveniment NO és impossible</li></ol>
@@ -176,7 +176,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un or i una copa a tota la baralla<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Cada coll (ors, copes) té $10$ cartes diferents a la baralla, no una de sola: hi ha $10$ ors i $10$ copes possibles per triar.</span></li>
 <li>Aquest esdeveniment és IMPOSSIBLE, pel mateix motiu que "dos cavalls de copes"<br><span class="err">CARTES_REPETIDES_CONFOSES</span><span class="fb">Aquí no es demana repetir cap carta ni cap figura concreta: es demana una carta d'ors i una de copes, colls diferents amb moltes cartes cadascun.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en un exemple concret: pots treure un or i, després, una copa?</li><li>Compara-ho amb l'apartat c): també és un cas de "colls diferents", que sí que és possible.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa en un exemple concret: pots treure un or i, després, una copa?</li><li>Un or i una copa són dues cartes diferents, de colls diferents: hi ha res que impedeixi treure-les totes dues?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>És possible: n'hi ha prou en treure un or seguit d'una copa. Aquest esdeveniment NO és impossible</li></ol>
 </div>
 <p class="sec"><strong>Exercici 240.</strong> En llançar un dau, ordena, de grau més petit a més gran de probabilitat, els esdeveniments següents.</p>
@@ -218,7 +218,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P=\dfrac{1}{6}$, comptant el $6$ com a cas favorable<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">El $6$ NO és més gran que $7$: cap resultat del dau ho compleix, són $0$ casos favorables, no $1$.</span></li>
 <li>$P=\dfrac{1}{6}$, considerant el $7$ com un resultat possible del dau<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">Un dau només té $6$ cares, numerades de l'$1$ al $6$: el $7$ no és cap resultat possible, ni compta com a cas favorable ni com a possible.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins valors del $1$ al $6$ són més grans que $7$?</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins valors del $1$ al $6$ són més grans que $7$?</li><li>Si no hi ha cap cas favorable, quant val el numerador de la regla de Laplace?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho compleix, $0$ casos favorables. $P=\dfrac{0}{6}=0$ (esdeveniment impossible)</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">240e</span><span class="tip">tipus A · dificultat 3 (encadenada)</span></div>
@@ -472,7 +472,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$\dfrac{50}{100}$, comptant també la cara $6$ com si el dau en tingués<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Aquest és un dau TETRAÈDRIC: només té $4$ cares (de l'$1$ al $4$), no $6$ com un dau normal. Només la cara $3$ és múltiple de $3$.</span></li>
 <li>$\dfrac{100}{100}=1$, com si totes les cares fossin múltiples de $3$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Només la cara $3$ és múltiple de $3$ entre les $4$ possibles ($1,2,3,4$): no totes les tirades compleixen aquesta condició.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquest dau té només $4$ cares. Quina d'elles és múltiple de $3$?</li><li>Només la cara $3$: la seva freqüència relativa és $\frac{30}{100}$.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquest dau té només $4$ cares. Quina d'elles és múltiple de $3$?</li><li>La freqüència relativa és el nombre de vegades que ha sortit aquella cara dividit pel total de tirades, $100$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Múltiple de $3$ (només la cara $3$): $\dfrac{30}{100}=\dfrac{3}{10}$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">250b</span><span class="tip">tipus A · dificultat 3 (encadenada)</span></div>
@@ -502,7 +502,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$\dfrac{1}{100}$, com si hi hagués un únic cas favorable<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">No hi ha cap cas favorable, ni tan sols un: el dau tetraèdric només té cares numerades de l'$1$ al $4$, i cap d'elles és més petita que $1$.</span></li>
 <li>Aquest esdeveniment no es pot calcular perquè no té sentit<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Sí que té sentit calcular-lo, i dona una freqüència relativa de $0$: un esdeveniment impossible també té una probabilitat ben definida, que és $0$.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha alguna més petita que $1$?</li><li>Cap cara compleix aquesta condició: la freqüència és $0$.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha alguna més petita que $1$?</li><li>Si cap cara no compleix la condició, quantes vegades ha passat l'esdeveniment en les $100$ tirades?</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que el tetraedre només té cares de l'$1$ al $4$, no hi ha cap resultat més petit que $1$. $\dfrac{0}{100}=0$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 251.</strong> Llancem 4 monedes iguals.</p>
@@ -627,7 +627,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(F)=0$, perquè "divisible per $1$" no és una condició real<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">És una condició real, i la compleixen absolutament tots els nombres: per això la seva probabilitat és $1$ (esdeveniment segur), no $0$ (impossible).</span></li>
 <li>$P(F)=\dfrac{50}{100}=\dfrac12$, confonent-lo amb divisible per $2$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">"Divisible per $1$" no és el mateix que "divisible per $2$": absolutament tots els nombres compleixen la primera condició, no només la meitat.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins nombres NO són divisibles per $1$?</li><li>Cap: tot nombre enter és divisible per $1$.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins nombres NO són divisibles per $1$?</li><li>Compta quantes boles de l'$1$ al $100$ compleixen la condició i divideix entre $100$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$F$: divisibles per $1$, és a dir, tots els números de l'$1$ al $100$: $100$ esdeveniments elementals. $P(F)=\dfrac{100}{100}=1$ (l'esdeveniment segur)</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">253d</span><span class="tip">tipus B · dificultat 3 (encadenada)</span></div>
@@ -786,7 +786,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(\text{Cara},6)=\dfrac16$, agafant només la branca del dau<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">Cal seguir tot el camí des de l'arrel: primer la branca de "Cara" ($1/2$) i després la de "surt 6" ($1/6$), multiplicant-les totes dues.</span></li>
 <li>$P(\text{Cara},6)=\dfrac12\cdot\dfrac56=\dfrac{5}{12}$, agafant la branca de "no surt 6"<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">La pregunta demana la probabilitat que SURTI el $6$, que és la branca $1/6$, no la de "no surt 6" ($5/6$).</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí de l'arbre: primer la branca "Cara", després la branca "surt 6".</li><li>Multiplica les dues probabilitats del camí.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí de l'arbre: primer la branca "Cara", després la branca "surt 6".</li><li>Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{Cara},6)=\dfrac12\cdot\dfrac16=\dfrac{1}{12}$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">308b</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
@@ -808,7 +808,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(V_1)=\dfrac{4}{6}$, comparant-la amb les blaves<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El denominador ha de ser el TOTAL de boles a la bossa ($4+6=10$), no només el nombre de blaves.</span></li>
 <li>$P(V_1)=\dfrac{6}{10}$, calculant la de blava<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Es demana la probabilitat de VERMELLA, i n'hi ha $4$ de $10$; $6/10$ és la de blava.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles.</li><li>Aplica la regla de Laplace: casos favorables entre casos possibles. Que després no es torni la bola no afecta aquesta primera extracció.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(V_1)=\dfrac{4}{10}=\dfrac25$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">306b</span><span class="tip">tipus A · dificultat 3 (encadenada)</span></div>
@@ -851,7 +851,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(V,V)=\dfrac{2}{5}+\dfrac{1}{4}=\dfrac{13}{20}$<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">La probabilitat d'un camí de l'arbre és el producte de les seves branques, no la suma.</span></li>
 <li>$P(V,V)=\dfrac{1}{4}$, agafant només la segona branca<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">Cal seguir el camí sencer des de l'arrel: la probabilitat de la primera vermella ($2/5$) també compta, multiplicada per la segona.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí sencer: la branca «V» inicial ($2/5$) i la branca «V» que acabes de calcular ($1/4$).</li><li>Multiplica-les.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí sencer: la branca «V» inicial ($2/5$) i la branca «V» que acabes de calcular ($1/4$).</li><li>Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(V,V)=\dfrac25\cdot\dfrac14=\dfrac{2}{20}=\dfrac{1}{10}$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 311.</strong> Llancem 3 monedes a l&#x27;aire.</p>
@@ -929,7 +929,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(\text{positiu}|\text{malalt})=\dfrac{1}{10}$, agafant la probabilitat de fals positiu per error<br><span class="err">ASIMETRIA_CONDICIONADA_MAL</span><span class="fb">$1/10$ és la probabilitat de positiu ENTRE ELS SANS (el fals positiu): entre els malalts, la probabilitat de positiu és $9/10$, l'altra dada de l'enunciat.</span></li>
 <li>$P(\text{positiu}|\text{malalt})=\dfrac{9}{108}$, dividint pel total de positius en lloc del total de malalts<br><span class="err">CONDICIONADA_I_CONJUNTA_CONFOSES</span><span class="fb">El denominador que toca aquí és el de MALALTS ($10$), perquè la condició de la pregunta és "ser malalt"; el total de positius ($108$) és el denominador d'una pregunta diferent.</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts.</li><li>«Sabent que és malalta» vol dir que només mires els malalts. Compte a no agafar l'altra dada, la dels sans.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>L'enunciat ho diu directament: si la persona és malalta, el test dona positiu $9$ de cada $10$ vegades, $P(\text{positiu}|\text{malalt})=\dfrac{9}{10}$</li></ol>
 </div>
 <p class="sec"><strong>Exercici 314.</strong> En el mateix dinar de l&#x27;exercici 254 (28 homes i 32 dones; 16 homes i 20 dones han menjat carn, i la resta, peix), ara ens fixem només en un grup cada vegada.</p>
@@ -998,7 +998,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <li>$P(A,V)=\dfrac{1}{2}+\dfrac{2}{3}=\dfrac{7}{6}$<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">La probabilitat d'un camí de l'arbre és el producte de les seves branques, no la suma (i el resultat, a més, seria més gran que $1$, cosa impossible).</span></li>
 <li>$P(A,V)=\dfrac{1}{2}\cdot\dfrac{1}{4}=\dfrac{1}{8}$, fent servir la proporció de vermelles de la caixa B per error<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">La branca «V» que toca és la que penja de la caixa A ($2/3$, perquè hi ha $2$ vermelles de $3$ boles), no la de la caixa B ($1/4$).</span></li>
 </ol>
-<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí: primer la branca «Caixa A» ($1/2$), després la branca «V» que en penja ($2/3$).</li><li>Multiplica-les.</li></ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Segueix el camí: primer la branca «Caixa A» ($1/2$), després la branca «V» que en penja ($2/3$).</li><li>Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(A,V)=\dfrac{1}{2}\cdot\dfrac{2}{3}=\dfrac{2}{6}=\dfrac{1}{3}$</li></ol>
 </div>
 <div class="it"><div class="cap"><span class="cod">315b</span><span class="tip">tipus A · dificultat 4 (completa)</span></div>

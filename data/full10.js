@@ -202,7 +202,8 @@ window.FULL = {
     "$f(2)=20,\\ f(-2)=20,\\ f(3)=45,\\ f(-3)=45,\\ f(1)=5,\\ f(-1)=5$"
    ],
    "pistes": [
-    "Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant primer el quadrat."
+    "Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant primer el quadrat.",
+    "Fixa't que $x$ i $-x$ tenen el mateix quadrat, $(-2)^2=2^2$: amb aquesta funció, $f(2)$ i $f(-2)$ han de sortir iguals, i el mateix amb $3$ i $-3$, i amb $1$ i $-1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkeF4yJCBzZW1wcmUgw6lzIHBvc2l0aXUsIHRhbnQgc2kgJHgkIMOpcyBwb3NpdGl1IGNvbSBuZWdhdGl1OiAkKC0yKV4yPTQkLCBpZ3VhbCBxdWUgJDJeMj00JC4iLCAiIiwgIiR4XjIkIG5vIMOpcyAkMngkOiBwZXIgZXhlbXBsZSwgcGVyICR4PTIkLCAkeF4yPTQkIChubyAkMlxcY2RvdCAyPTQkLi4uIHByb3ZhLWhvIGFtYiAkeD0zJDogJHheMj05XFxuZXEgNiQpLiIsICJGYWx0YSByZXN0YXIgbCckMSQgZmluYWwgYSBjYWRhIGltYXRnZS4iXSwgImVyciI6IFsiU0lHTkVfRklOQUwiLCAiIiwgIlBPVEVOQ0lBX0NPTV9QUk9EVUNURSIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIlBlciBhIGNhZGEgdmFsb3IsIGNhbGN1bGEgcHJpbWVyICR4XjIkIGkgZGVzcHLDqXMgbXVsdGlwbGljYSBwZXIgJDUkIGkgcmVzdGEgJDEkLiIsICIkZigyKT01XFxjZG90IDQtMT0xOSQsICRmKC0yKT01XFxjZG90IDQtMT0xOSQgKGVsIHF1YWRyYXQgZWxpbWluYSBlbCBzaWduZSkuIiwgIiRmKDMpPTVcXGNkb3QgOS0xPTQ0JCwgJGYoLTMpPTQ0JCwgJGYoMSk9NCQsICRmKC0xKT00JC4iXX0=",
@@ -224,7 +225,8 @@ window.FULL = {
     "$f(2)=10,\\ f(-2)=6,\\ f(3)=21,\\ f(-3)=15,\\ f(1)=3,\\ f(-1)=1$"
    ],
    "pistes": [
-    "Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: primer el quadrat, després la resta."
+    "Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: primer el quadrat, després la resta.",
+    "Compte amb els negatius: $f(-2)=2\\cdot(-2)^2-(-2)$, i restar un nombre negatiu és sumar-lo."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkeF4yJCBubyDDqXMgJDJ4JDogY29tcHJvdmEtaG8gYW1iICR4PTMkLCBvbiAkeF4yPTkkIGkgbm8gJDJcXGNkb3QgMz02JC4iLCAiRWwgcXVhZHJhdCBub23DqXMgYWZlY3RhIGxhICR4JCwgbm8gZWwgJDJ4JCBzZW5jZXI6IMOpcyAkMlxcY2RvdCB4XjIkLCBubyAkKDJ4KV4yJC4iLCAiIiwgIkNhbCBSRVNUQVIgJHgkLCBubyBzdW1hci1sbzogJGYoeCk9MnheMi14JC4iXSwgImVyciI6IFsiUE9URU5DSUFfQ09NX1BST0RVQ1RFIiwgIlBPVEVOQ0lBX0FQTElDQURBX01BTEFNRU5UIiwgIiIsICJTVU1BX0VOX0xMT0NfUkVTVEEiXSwgInJlcyI6IFsiUGVyIGEgY2FkYSB2YWxvciwgY2FsY3VsYSAkeF4yJCwgbXVsdGlwbGljYSBwZXIgJDIkIGkgcmVzdGEgJHgkLiIsICIkZigyKT0yXFxjZG90IDQtMj02JCwgJGYoLTIpPTJcXGNkb3QgNC0oLTIpPTEwJC4iLCAiJGYoMyk9MlxcY2RvdCA5LTM9MTUkLCAkZigtMyk9MlxcY2RvdCA5LSgtMyk9MjEkLCAkZigxKT0xJCwgJGYoLTEpPTMkLiJdfQ=="
@@ -245,7 +247,8 @@ window.FULL = {
     "$f(2)=1,\\ f(-2)=-3,\\ f(3)=2,\\ f(-3)=-4,\\ f(1)=0,\\ f(-1)=-2$"
    ],
    "pistes": [
-    "Substitueix cada valor de $x$ a $x^2-x-1$."
+    "Substitueix cada valor de $x$ a $x^2-x-1$.",
+    "Posa cada valor entre parèntesis abans de substituir, per exemple $f(-2)=(-2)^2-(-2)-1$, i vigila el doble signe menys."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdGVybWUgJC14JCB0w6kgc2lnbmUgbmVnYXRpdTogY2FsIFJFU1RBUiAkeCQsIG5vIHN1bWFyLWxvLiIsICJGYWx0YSByZXN0YXIgbCckMSQgZmluYWwgYSBjYWRhIGltYXRnZS4iLCAiJHheMiQgbm8gw6lzICQyeCQ6IGNvbXByb3ZhLWhvIGFtYiAkeD0zJCwgb24gJHheMj05JCBpIG5vICQyXFxjZG90IDM9NiQuIl0sICJlcnIiOiBbIiIsICJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIlBPVEVOQ0lBX0NPTV9QUk9EVUNURSJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHZhbG9yLCBjYWxjdWxhICR4XjIkLCByZXN0YSAkeCQgaSByZXN0YSAkMSQuIiwgIiRmKDIpPTQtMi0xPTEkLCAkZigtMik9NC0oLTIpLTE9NSQuIiwgIiRmKDMpPTktMy0xPTUkLCAkZigtMyk9OS0oLTMpLTE9MTEkLCAkZigxKT0tMSQsICRmKC0xKT0xJC4iXX0="
@@ -266,7 +269,8 @@ window.FULL = {
     "$f(2)=-3,\\ f(-2)=-3,\\ f(3)=-8,\\ f(-3)=-8,\\ f(1)=0,\\ f(-1)=0$"
    ],
    "pistes": [
-    "Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ (sempre positiu) i després canvia'n el signe."
+    "Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ (sempre positiu) i després canvia'n el signe.",
+    "El menys de $-x^2$ s'aplica després del quadrat: $-(-3)^2=-9$, no $+9$. Al final, suma-hi $1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCAkKzEkIGZpbmFsIMOpcyBwb3NpdGl1OiBjYWwgU1VNQVItbG8sIG5vIHJlc3Rhci1sby4iLCAiRWwgc2lnbmUgJC0kIGRhdmFudCAkeF4yJCBhZmVjdGEgc2VtcHJlLCB0YW1iw6kgcXVhbiAkeCQgw6lzIG5lZ2F0aXU6ICQtKC0yKV4yPS00JCwgbm8gJCs0JC4iLCAiJHheMiQgbm8gw6lzICQyeCQ6IGNvbXByb3ZhLWhvIGFtYiAkeD0zJCwgb24gJHheMj05JCBpIG5vICQyXFxjZG90IDM9NiQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJTSUdORV9GSU5BTCIsICJQT1RFTkNJQV9DT01fUFJPRFVDVEUiLCAiIl0sICJyZXMiOiBbIlBlciBhIGNhZGEgdmFsb3IsIGNhbGN1bGEgJHheMiQsIGNhbnZpYSduIGVsIHNpZ25lIGkgc3VtYSAkMSQuIiwgIiRmKDIpPS00KzE9LTMkLCAkZigtMik9LTQrMT0tMyQgKGVsIHF1YWRyYXQgZWxpbWluYSBlbCBzaWduZSBkZSAkeCQgYWJhbnMgZGUgY2Fudmlhci1sbykuIiwgIiRmKDMpPS04JCwgJGYoLTMpPS04JCwgJGYoMSk9MCQsICRmKC0xKT0wJC4iXX0="
@@ -287,7 +291,8 @@ window.FULL = {
     "$f(-2)=7,\\ f(-1)=0,\\ f(0)=-1,\\ f(1)=0,\\ f(2)=7$"
    ],
    "pistes": [
-    "Substitueix cada valor a $x^3-1$, calculant primer el cub (recorda que el cub d'un negatiu és negatiu)."
+    "Substitueix cada valor a $x^3-1$, calculant primer el cub (recorda que el cub d'un negatiu és negatiu).",
+    "Per exemple, $f(-1)=(-1)^3-1$: primer el cub, que conserva el signe, i després resta $1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJGYWx0YSByZXN0YXIgbCckMSQgZmluYWwgYSBjYWRhIGltYXRnZS4iLCAiJHheMyQgbm8gw6lzICQzeCQ6IHBlciBleGVtcGxlLCBwZXIgJHg9MiQsICR4XjM9OCQgKG5vICQzXFxjZG90IDI9NiQpLiIsICIiLCAiRWwgY3ViIGQndW4gbm9tYnJlIG5lZ2F0aXUgw6lzIG5lZ2F0aXU6ICQoLTIpXjM9LTgkLCBubyAkOCQuIl0sICJlcnIiOiBbIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUE9URU5DSUFfQ09NX1BST0RVQ1RFIiwgIiIsICJQT1RFTkNJQV9BUExJQ0FEQV9NQUxBTUVOVCJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHZhbG9yLCBjYWxjdWxhICR4XjMkIGkgcmVzdGEgJDEkLiIsICIkZigtMik9KC0yKV4zLTE9LTgtMT0tOSQsICRmKC0xKT0tMS0xPS0yJCwgJGYoMCk9LTEkLCAkZigxKT0wJCwgJGYoMik9OC0xPTckLiJdfQ=="
@@ -308,7 +313,8 @@ window.FULL = {
     "$f(-2)=6,\\ f(-1)=3,\\ f(0)=2,\\ f(1)=3,\\ f(2)=6$"
    ],
    "pistes": [
-    "Calcula primer $x^2+2$ per a cada valor i després inverteix el resultat."
+    "Calcula primer $x^2+2$ per a cada valor i després inverteix el resultat.",
+    "Com que $x^2$ no depèn del signe de $x$, $f(-2)=f(2)$ i $f(-1)=f(1)$: només cal calcular tres valors diferents."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkeF4yJCBkZWwgZGVub21pbmFkb3Igw6lzIHNlbXByZSBwb3NpdGl1IGkgc2Ugc3VtYSAobm8gZXMgcmVzdGEpOiDDqXMgJHheMisyJCwgbm8gJC14XjIrMiQuIiwgIkZhbHRhIHN1bWFyIGVsICQyJCBkZWwgZGVub21pbmFkb3IgaSwgc29icmV0b3QsIGludmVydGlyIGxhIGZyYWNjacOzOiBlbCByZXN1bHRhdCDDqXMgJFxcZGZyYWN7MX17eF4yKzJ9JCwgbm8gJHheMiQuIiwgIiIsICJMYSBmcmFjY2nDsyBoYSBxdWVkYXQgaW52ZXJ0aWRhOiBsYSAkZih4KSQgY29ycmVjdGEgw6lzICRcXGRmcmFjezF9e3heMisyfSQsIG5vICR4XjIrMiQuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIklOVkVSVElEQSJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHZhbG9yLCBjYWxjdWxhICR4XjIrMiQgaSBmZXMtbmUgbGEgZnJhY2Npw7MgaW52ZXJzYS4iLCAiJGYoLTIpPVxcZGZyYWN7MX17NCsyfT1cXGRmcmFjezF9ezZ9JCwgJGYoLTEpPVxcZGZyYWN7MX17M30kLCAkZigwKT1cXGRmcmFjezF9ezJ9JCwgJGYoMSk9XFxkZnJhY3sxfXszfSQsICRmKDIpPVxcZGZyYWN7MX17Nn0kLiJdfQ=="
@@ -329,7 +335,8 @@ window.FULL = {
     "$f(-2)=1{,}73,\\ f(-1)=2{,}00,\\ f(0)=2{,}24,\\ f(1)=2{,}45,\\ f(2)=2{,}65$"
    ],
    "pistes": [
-    "Calcula primer el que hi ha dins l'arrel ($\\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora."
+    "Calcula primer el que hi ha dins l'arrel ($\\dfrac{x}{2}+5$) i després fes-ne l'arrel quadrada amb la calculadora.",
+    "Per a $x=-2$, dins de l'arrel queda $\\dfrac{-2}{2}+5$. Fes el mateix amb els altres valors i arrodoneix cada arrel a dos decimals."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2FycmVsIHF1YWRyYWRhIGQndW4gbm9tYnJlIHBvc2l0aXUgw6lzIHNlbXByZSBwb3NpdGl2YS4iLCAiUydoYSBlbGV2YXQgYWwgcXVhZHJhdCBlbiBsbG9jIGRlIGZlciBsJ2FycmVsOiBwZXIgZGVzZmVyIHVuYSBhcnJlbCBlcyBjYWxjdWxhIGwnYXJyZWwsIG5vIGVsIHF1YWRyYXQuIiwgIiIsICJGYWx0YSBkaXZpZGlyIGxhICR4JCBlbnRyZSAkMiQgYWJhbnMgZGUgc3VtYXIgJDUkOiBkaW5zIGRlIGwnYXJyZWwgaGkgaGEgJFxcZGZyYWN7eH17Mn0rNSQsIG5vICR4KzUkLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJPUEVSQUNJT19JTlZFUlNBIiwgIiIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIlBlciBhIGNhZGEgdmFsb3IsIGNhbGN1bGEgJFxcZGZyYWN7eH17Mn0rNSQgaSBmZXMtbmUgbCdhcnJlbCBxdWFkcmFkYSwgYXJyb2RvbmludCBhIGxlcyBjZW50w6hzaW1lcy4iLCAiJGYoLTIpPVxcc3FydHs0fT0yeyx9MDAkLCAkZigtMSk9XFxzcXJ0ezR7LH01fVxcYXBwcm94IDJ7LH0xMiQsICRmKDApPVxcc3FydHs1fVxcYXBwcm94IDJ7LH0yNCQsICRmKDEpPVxcc3FydHs1eyx9NX1cXGFwcHJveCAyeyx9MzUkLCAkZigyKT1cXHNxcnR7Nn1cXGFwcHJveCAyeyx9NDUkLiJdfQ=="
@@ -350,7 +357,8 @@ window.FULL = {
     "$f(-2)=-\\dfrac{31}{15},\\ f(-1)=-\\dfrac{16}{15},\\ f(0)=\\dfrac{3}{5},\\ f(1)=\\dfrac{44}{15},\\ f(2)=\\dfrac{89}{15}$"
    ],
    "pistes": [
-    "Substitueix cada valor a $\\dfrac{x^2}{3}-2x+\\dfrac{3}{5}$ i opera amb fraccions, buscant denominador comú (15) al final."
+    "Substitueix cada valor a $\\dfrac{x^2}{3}-2x+\\dfrac{3}{5}$ i opera amb fraccions, buscant denominador comú (15) al final.",
+    "Passa els tres termes a denominador $15$: $\\dfrac{x^2}{3}=\\dfrac{5x^2}{15}$, $-2x=\\dfrac{-30x}{15}$ i $\\dfrac35=\\dfrac{9}{15}$. Així només has de sumar numeradors."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB0ZXJtZSAkXFxkZnJhY3szfXs1fSQgw6lzIHBvc2l0aXUgaSBzZSBzdW1hLCBubyBzZSByZXN0YS4iLCAiIiwgIkZhbHRhIGRpdmlkaXIgJHheMiQgZW50cmUgJDMkOiBlbCBwcmltZXIgdGVybWUgw6lzICRcXGRmcmFje3heMn17M30kLCBubyAkeF4yJC4iLCAiRWwgdGVybWUgJDJ4JCBzZSBSRVNUQSwgbm8gc2Ugc3VtYTogw6lzICQtMngkLiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICJTVU1BX0VOX0xMT0NfUkVTVEEiXSwgInJlcyI6IFsiQ2FsY3VsYSBwZXIgc2VwYXJhdCAkXFxkZnJhY3t4XjJ9ezN9JCwgJC0yeCQgaSAkXFxkZnJhY3szfXs1fSQsIGkgc3VtYS1obyB0b3QgYW1iIGRlbm9taW5hZG9yIGNvbcO6ICQxNSQuIiwgIiRmKC0yKT1cXGRmcmFjezR9ezN9KzQrXFxkZnJhY3szfXs1fT1cXGRmcmFjezIwKzYwKzl9ezE1fT1cXGRmcmFjezg5fXsxNX0kLiIsICIkZigtMSk9XFxkZnJhY3s0NH17MTV9JCwgJGYoMCk9XFxkZnJhY3szfXs1fSQsICRmKDEpPS1cXGRmcmFjezE2fXsxNX0kLCAkZigyKT0tXFxkZnJhY3szMX17MTV9JC4iXX0="
@@ -371,7 +379,8 @@ window.FULL = {
     "Depèn: només és una funció si la paret és rectangular."
    ],
    "pistes": [
-    "Una relació és una funció quan a cada valor de la primera magnitud li correspon un ÚNIC valor de la segona, mai més d'un."
+    "Una relació és una funció quan a cada valor de la primera magnitud li correspon un ÚNIC valor de la segona, mai més d'un.",
+    "Pensa-ho amb el gruix de la capa fixat: si saps la mida d'una paret, la quantitat de pintura queda decidida, o en podria tenir dues de diferents?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcXVlIGZhIHF1ZSB1bmEgcmVsYWNpw7Mgc2lndWkgZnVuY2nDsyDDqXMgcXVlIGEgY2FkYSBtaWRhIGxpIGNvcnJlc3Bvbmd1aSB1biDDum5pYyB2YWxvciBkZSBwaW50dXJhIHNvdGEgbGVzIG1hdGVpeGVzIGNvbmRpY2lvbnMgKG1hdGVpeCBncnVpeCBkZSBjYXBhKTogYW1iIGFpeMOyIGZpeGF0LCBTw40gw6lzIHVuYSBmdW5jacOzLiIsICJGaXhhbnQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSAoY29tIHNlIHNvYnJlZW50w6luIGVuIHVuIGV4ZXJjaWNpIGQnYXF1ZXN0IHRpcHVzKSwgY2FkYSBtaWRhIGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdDogU8ONIMOpcyB1bmEgZnVuY2nDsywgZW5jYXJhIHF1ZSBhIGxhIHByw6BjdGljYSBoaSBwdWd1aW4gaGF2ZXIgcGV0aXRlcyB2YXJpYWNpb25zIHBlciBxdWkgcGludGEuIiwgIkxhIGZvcm1hIGNvbmNyZXRhIGRlIGxhIHBhcmV0IG5vIGFmZWN0YSBzaSBsYSByZWxhY2nDsyDDqXMgdW5hIGZ1bmNpw7M6IGVsIHF1ZSBpbXBvcnRhIMOpcyBxdWUgY2FkYSBtaWRhICjDoHJlYSkgZGV0ZXJtaW5pIHVuYSDDum5pY2EgcXVhbnRpdGF0IGRlIHBpbnR1cmEsIHNpZ3VpIHF1aW5hIHNpZ3VpIGxhIGZvcm1hLiJdLCAiZXJyIjogWyIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICJWRVJFRElDVEVfSU5WRVJUSVQiXSwgInJlcyI6IFsiRml4YXQgZWwgZ3J1aXggZGUgbGEgcGludHVyYSwgY2FkYSBtaWRhIGRlIHBhcmV0IGRldGVybWluYSB1bmEgw7puaWNhIHF1YW50aXRhdCBuZWNlc3PDoHJpYTogw6lzIHVuYSBmdW5jacOzLiJdfQ=="
@@ -414,7 +423,8 @@ window.FULL = {
     "Depèn: només és una funció si es fa servir un valor aproximat de $\\pi$."
    ],
    "pistes": [
-    "La fórmula del perímetre, $L=2\\pi r$, assigna a cada radi un únic valor de $L$."
+    "La fórmula del perímetre, $L=2\\pi r$, assigna a cada radi un únic valor de $L$.",
+    "Prova-ho amb un radi concret, per exemple $r=3$: quants perímetres diferents li poden correspondre?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJRdWUgZG9zIHBlcsOtbWV0cmVzIHNpZ3VpbiBcXGVtcGh7c2VtYmxhbnRzfSBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBpZ3VhbHM6IGxhIGbDs3JtdWxhICRMPTJcXHBpIHIkIGRvbmEsIHBlciBhIGNhZGEgcmFkaSBjb25jcmV0LCB1biDDum5pYyB2YWxvciBleGFjdGUgZGUgcGVyw61tZXRyZSwgc2Vuc2UgYW1iaWfDvGl0YXQuIiwgIiIsICJFbCBkacOgbWV0cmUgw6lzIHNlbXByZSBlbCBkb2JsZSBkZWwgcmFkaSAoJGQ9MnIkKSwgYWl4w60gcXVlIG5vIMOpcyB1bmEgbWFnbml0dWQgaW5kZXBlbmRlbnQ6IGZpeGF0IGVsIHJhZGksIGVsIHBlcsOtbWV0cmUgJEw9MlxccGkgciQgcXVlZGEgY29tcGxldGFtZW50IGRldGVybWluYXQuIiwgIkwnYXByb3hpbWFjacOzIGRlICRcXHBpJCBxdWUgZXMgZmFjaSBzZXJ2aXIgbm8gY2FudmlhIHF1ZSBsYSByZWxhY2nDsyBzaWd1aSB1bmEgZnVuY2nDszogcGVyIGEgY2FkYSByYWRpIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgY29ycmVzcG9uZW50LCBleGFjdGUgbyBhcHJveGltYXQuIl0sICJlcnIiOiBbIlZFUkVESUNURV9JTlZFUlRJVCIsICIiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQZXIgYSBjYWRhIHJhZGkgJHIkIGhpIGhhIHVuIMO6bmljIHBlcsOtbWV0cmUgJEw9MlxccGkgciQ6IMOpcyB1bmEgZnVuY2nDsy4iXX0="
@@ -435,7 +445,8 @@ window.FULL = {
     "Domini: $\\mathbb{R}-\\{2\\}$ (tots els reals excepte $2$). Recorregut: $\\mathbb{R}-\\{0\\}$ (tots els reals excepte $0$)."
    ],
    "pistes": [
-    "Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a tocar (les asímptotes): aquests són els que cal excloure."
+    "Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a tocar (les asímptotes): aquests són els que cal excloure.",
+    "Una recta vertical diu quin valor de $x$ no s'assoleix mai (domini); una d'horitzontal, quin valor de $y$ (recorregut)."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBncsOgZmljYSB0YW1wb2MgYXJyaWJhIGEgdG9jYXIgbGEgcmVjdGEgJHg9MiQ6IGNhbCBleGNsb3VyZSBhcXVlc3QgdmFsb3IgZGVsIGRvbWluaSwgaWd1YWwgcXVlIHMnZXhjbG91IGVsICQwJCBkZWwgcmVjb3JyZWd1dC4iLCAiRWwgZG9taW5pIMOpcyBlbCBjb25qdW50IGRlIHZhbG9ycyBkZSAkeCQgKGwnYXPDrW1wdG90YSB2ZXJ0aWNhbCDDqXMgJHg9MiQpIGkgZWwgcmVjb3JyZWd1dCBlbCBkZSAkeSQgKGwnYXPDrW1wdG90YSBob3JpdHpvbnRhbCDDqXMgJHk9MCQpOiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICIkeD0yJCBpICR5PTAkIG5vIHPDs24gZWxzIGV4dHJlbXMgZCd1biBpbnRlcnZhbCwgc8OzbiB2YWxvcnMgcXVlIGxhIGdyw6BmaWNhIG5vIGFycmliYSBhIHRvY2FyIG1haSAoYXPDrW1wdG90ZXMpOiBlbCBkb21pbmkgaSBlbCByZWNvcnJlZ3V0IHPDs24gdG90cyBlbHMgcmVhbHMgZXhjZXB0ZSBhcXVlc3RzIGRvcyB2YWxvcnMsIG5vIHVuIGludGVydmFsIHF1ZSBoaSBjb21lbmNpLiIsICIiXSwgImVyciI6IFsiUkVTVFJJQ0NJT19PQkxJREFEQSIsICJET01JTklfUkVDT1JSRUdVVF9JTlRFUkNBTlZJQVRTIiwgIkFTSU1QVE9UQV9DT01fTElNSVQiLCAiIl0sICJyZXMiOiBbIkxhIGdyw6BmaWNhIG5vIHRvY2EgbWFpIGxhIHJlY3RhIHZlcnRpY2FsICR4PTIkOiBlbCBkb21pbmkgw6lzICRcXG1hdGhiYntSfS1cXHsyXFx9JC4iLCAiVGFtcG9jIHRvY2EgbWFpIGxhIHJlY3RhIGhvcml0em9udGFsICR5PTAkOiBlbCByZWNvcnJlZ3V0IMOpcyAkXFxtYXRoYmJ7Un0tXFx7MFxcfSQuIl19",
@@ -457,7 +468,8 @@ window.FULL = {
     "Domini: $[-3,4]$. Recorregut: $[0,3]$."
    ],
    "pistes": [
-    "El domini és l'interval de valors de $x$ on existeix la gràfica; el recorregut, l'interval d'alçades ($y$) que arriba a assolir."
+    "El domini és l'interval de valors de $x$ on existeix la gràfica; el recorregut, l'interval d'alçades ($y$) que arriba a assolir.",
+    "Mira si els extrems hi són inclosos: si ho són, l'interval porta claudàtors, $[\\ ]$; si no, parèntesis, $(\\ )$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZG9taW5pIMOpcyBsJ2ludGVydmFsIGRlIHZhbG9ycyBkZSAkeCQgKCQtMyQgYSAkNCQpIGkgZWwgcmVjb3JyZWd1dCBlbCBkZSAkeSQgKCQtMiQgYSAkMyQpOiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICJFbHMgZXh0cmVtcyAkLTMkLCAkNCQsICQtMiQgaSAkMyQgZXN0YW4gaW5jbG9zb3MgKGxhIGdyw6BmaWNhIGhpIGFycmliYSksIGFpeMOtIHF1ZSBlbHMgaW50ZXJ2YWxzIHPDs24gdGFuY2F0cywgYW1iIGNsYXVkw6B0b3JzICRbXFwgXSQsIG5vIG9iZXJ0cyBhbWIgcGFyw6hudGVzaXMuIiwgIkwnYWzDp2FkYSBtw61uaW1hIGRlIGxhIGdyw6BmaWNhIMOpcyAkLTIkIChwZXIgc290YSBkZSBsJ2VpeCBob3JpdHpvbnRhbCksIG5vICQwJDogZWwgcmVjb3JyZWd1dCBjb21lbsOnYSBhICQtMiQuIl0sICJlcnIiOiBbIiIsICJET01JTklfUkVDT1JSRUdVVF9JTlRFUkNBTlZJQVRTIiwgIkVYVFJFTVNfT0JMSURBVFMiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiTGEgZ3LDoGZpY2EgdmEgZGUgJHg9LTMkIGEgJHg9NCQsIGFtYiBlbHMgZXh0cmVtcyBpbmNsb3NvczogZG9taW5pICRbLTMsNF0kLiIsICJMJ2Fsw6dhZGEgb3NjaWzCt2xhIGVudHJlICQtMiQgaSAkMyQsIHRhbWLDqSBpbmNsb3NvczogcmVjb3JyZWd1dCAkWy0yLDNdJC4iXX0=",
@@ -479,7 +491,8 @@ window.FULL = {
     "Domini: $\\mathbb{R}$. Recorregut: $(-1,+\\infty)$."
    ],
    "pistes": [
-    "Si la gràfica s'estén sense límit cap als dos costats horitzontalment, el domini és tot $\\mathbb{R}$; fixa't en si el punt més baix forma part o no de la gràfica."
+    "Si la gràfica s'estén sense límit cap als dos costats horitzontalment, el domini és tot $\\mathbb{R}$; fixa't en si el punt més baix forma part o no de la gràfica.",
+    "El recorregut són les alçades: comença al punt més baix i va cap amunt. Decideix si aquest extrem va amb claudàtor o amb parèntesi."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSBncsOgZmljYSBwdWphIGEgcGFydGlyIGRlbCBwdW50IG3DqXMgYmFpeCwgbm8gYmFpeGE6IGVscyB2YWxvcnMgZGUgJHkkIHZhbiBkZXMgZGUgJC0xJCBjYXAgQU1VTlQsIG5vIGNhcCBhdmFsbC4iLCAiIiwgIlF1ZSBsYSBncsOgZmljYSBzJ2VzdGVuZ3VpIHNlbnNlIGzDrW1pdCBjYXAgYSBsJ2VzcXVlcnJhIGkgbGEgZHJldGEgZGVzY3JpdSBlbCBkb21pbmkgKHZhbG9ycyBkZSAkeCQpOyBxdWUgdGluZ3VpIHVuIHB1bnQgbcOpcyBiYWl4IGEgYWzDp2FkYSAkLTEkIGRlc2NyaXUgZWwgcmVjb3JyZWd1dCAodmFsb3JzIGRlICR5JCk6IGVzdGFuIGludGVyY2FudmlhdHMuIiwgIkVsIHB1bnQgbcOpcyBiYWl4LCBhIGFsw6dhZGEgJC0xJCwgc8OtIGZvcm1hIHBhcnQgZGUgbGEgZ3LDoGZpY2EgKGhpIGhhIHVuIG3DrW5pbSwgbm8gdW5hIGFzw61tcHRvdGEpOiBsJ2ludGVydmFsIMOpcyB0YW5jYXQgcGVyIGFxdWVzdCBjb3N0YXQsICRbLTEsK1xcaW5mdHkpJCwgbm8gb2JlcnQuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIiIsICJET01JTklfUkVDT1JSRUdVVF9JTlRFUkNBTlZJQVRTIiwgIkVYVFJFTVNfT0JMSURBVFMiXSwgInJlcyI6IFsiTGEgZ3LDoGZpY2EgZXhpc3RlaXggcGVyIGEgcXVhbHNldm9sIHZhbG9yIGRlICR4JDogZG9taW5pICRcXG1hdGhiYntSfSQuIiwgIkVsIHZhbG9yIG3DqXMgYmFpeCBxdWUgYXNzb2xlaXggJHkkIMOpcyAkLTEkIChpbmNsw7JzKSwgaSBwdWphIHNlbnNlIGzDrW1pdDogcmVjb3JyZWd1dCAkWy0xLCtcXGluZnR5KSQuIl19",
@@ -501,7 +514,8 @@ window.FULL = {
     "Domini: $[5,+\\infty)$. Recorregut: $[0,+\\infty)$."
    ],
    "pistes": [
-    "Fixa't cap a quin costat s'estén sense límit horitzontalment, i si l'extrem $x=5$ forma part o no de la gràfica."
+    "Fixa't cap a quin costat s'estén sense límit horitzontalment, i si l'extrem $x=5$ forma part o no de la gràfica.",
+    "Per al recorregut, mira les alçades: la més baixa és la del punt $x=5$, i a partir d'aquí la gràfica puja sense límit."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUXVlIGV4aXN0ZWl4aSBmaW5zIGEgJHg9NSQgZGVzY3JpdSBlbCBkb21pbmkgKHZhbG9ycyBkZSAkeCQpOyBxdWUgdGluZ3VpIHVuIHB1bnQgbcOpcyBiYWl4IGEgJDAkIGRlc2NyaXUgZWwgcmVjb3JyZWd1dCAodmFsb3JzIGRlICR5JCk6IGVzdGFuIGludGVyY2FudmlhdHMuIiwgIkVsICQ1JCBlc3TDoCBpbmNsw7JzIChsYSBncsOgZmljYSBoaSBhcnJpYmEpOiBsJ2ludGVydmFsIMOpcyAkKC1cXGluZnR5LDVdJCwgdGFuY2F0IHBlciBhcXVlc3QgY29zdGF0LCBubyBvYmVydC4iLCAiTGEgZ3LDoGZpY2EgZXhpc3RlaXggY2FwIGEgbCdFU1FVRVJSQSBkZSAkeD01JCAoc2Vuc2UgbMOtbWl0IGNhcCBhIGwnZXNxdWVycmEpLCBubyBjYXAgYSBsYSBkcmV0YTogw6lzICQoLVxcaW5mdHksNV0kLCBubyAkWzUsK1xcaW5mdHkpJC4iXSwgImVyciI6IFsiIiwgIkRPTUlOSV9SRUNPUlJFR1VUX0lOVEVSQ0FOVklBVFMiLCAiRVhUUkVNU19PQkxJREFUUyIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJMYSBncsOgZmljYSBleGlzdGVpeCBwZXIgYSAkeFxcbGVxIDUkLCBhbWIgZWwgJDUkIGluY2zDsnM6IGRvbWluaSAkKC1cXGluZnR5LDVdJC4iLCAiRWwgdmFsb3IgbcOpcyBiYWl4IHF1ZSBhc3NvbGVpeCAkeSQgw6lzICQwJCAoYSAkeD01JCwgaW5jbMOycyksIGkgcHVqYSBzZW5zZSBsw61taXQgY29tIG3DqXMgcydhbGx1bnlhIGNhcCBhIGwnZXNxdWVycmE6IHJlY29ycmVndXQgJFswLCtcXGluZnR5KSQuIl19",
@@ -523,7 +537,8 @@ window.FULL = {
     "Domini i recorregut: $\\mathbb{R}$. És decreixent a tot el domini. No té cap màxim ni mínim."
    ],
    "pistes": [
-    "Una recta que puja sempre sense cap tram pla és creixent a tot arreu i no té cap punt on deixi de pujar (cap extrem)."
+    "Una recta que puja sempre sense cap tram pla és creixent a tot arreu i no té cap punt on deixi de pujar (cap extrem).",
+    "Falten el domini i el recorregut: una recta que travessa tot el pla, a quins valors de $x$ arriba? I de $y$?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbmEgcmVjdGEgcXVlIHRyYXZlc3NhIHRvdCBlbCBwbGEgc2Vuc2UgY2FwIGzDrW1pdCBhcnJpYmEgYSBxdWFsc2V2b2wgdmFsb3IgZGUgJHkkLCB0YW1iw6kgYWxzIG5lZ2F0aXVzOiBlbCByZWNvcnJlZ3V0IMOpcyB0b3QgJFxcbWF0aGJie1J9JCwgbm8gbm9tw6lzIGVscyBwb3NpdGl1cy4iLCAiIiwgIkVsIHB1bnQgb24gbGEgcmVjdGEgdGFsbGEgdW4gZWl4IG5vIMOpcyB1biBtw6B4aW0gbmkgdW4gbcOtbmltOiB1bmEgcmVjdGEgcXVlIHB1amEgc2VtcHJlIG5vIHTDqSBjYXAgcHVudCBvbiBjYW52acOvIGRlIHB1amFyIGEgYmFpeGFyLCBwZXIgdGFudCBubyB0w6kgY2FwIGV4dHJlbS4iLCAiUXVlIHB1Z2kgc2VtcHJlIHZvbCBkaXIgcXVlIMOpcyBDUkVJWEVOVCwgbm8gZGVjcmVpeGVudDogY29tIG3DqXMgZ3JhbiDDqXMgJHgkLCBtw6lzIGdyYW4gw6lzICR5JC4iXSwgImVyciI6IFsiUkVTVFJJQ0NJT19JTlZFTlRBREEiLCAiIiwgIlRBTExfQ09NX0VYVFJFTSIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJMYSByZWN0YSB0cmF2ZXNzYSB0b3QgZWwgcGxhIGVuIHRvdGVzIGRpcmVjY2lvbnM6IGRvbWluaSBpIHJlY29ycmVndXQgJFxcbWF0aGJie1J9JC4iLCAiUHVqYSBkZSBtYW5lcmEgY29uc3RhbnQsIHNlbnNlIGNhcCB0cmFtIG9uIGJhaXhpOiDDqXMgY3JlaXhlbnQgYSB0b3QgZWwgZG9taW5pLiIsICJDb20gcXVlIG5vIGNhbnZpYSBtYWkgZGUgcHVqYXIgYSBiYWl4YXIsIG5vIHTDqSBjYXAgbcOgeGltIG5pIG3DrW5pbS4iXX0="
@@ -544,7 +559,8 @@ window.FULL = {
     "Domini: $\\mathbb{R}$. Recorregut: $[-3,+\\infty)$. És decreixent a $(-\\infty,1)$ i creixent a $(1,+\\infty)$. Té un màxim absolut al punt $(1,-3)$."
    ],
    "pistes": [
-    "El punt més baix d'una paràbola oberta cap amunt és sempre un mínim; abans d'arribar-hi, la funció decreix, i després creix."
+    "El punt més baix d'una paràbola oberta cap amunt és sempre un mínim; abans d'arribar-hi, la funció decreix, i després creix.",
+    "Els trams de creixement es parteixen a la $x$ del punt més baix. Per al recorregut, quina és l'alçada més baixa que assoleix, i n'hi ha cap límit per dalt?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTGEgcGFyw6Bib2xhIHMnZXN0w6luIHNlbnNlIGzDrW1pdCBob3JpdHpvbnRhbG1lbnQgKGRvbWluaSAkXFxtYXRoYmJ7Un0kKSBwZXLDsiBub23DqXMgYXJyaWJhIGEgJHk9LTMkIHBlciBhdmFsbCAocmVjb3JyZWd1dCAkWy0zLCtcXGluZnR5KSQpOiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICJBYmFucyBkJ2FycmliYXIgYWwgcHVudCBtw6lzIGJhaXggbGEgZnVuY2nDsyBCQUlYQSAoZGVjcmVpeCksIGkgbm9tw6lzIHRvcm5hIGEgcHVqYXIgKGNyZWl4KSBkZXNwcsOpczogZWxzIGRvcyB0cmFtcyBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICJFbCBwdW50ICQoMSwtMykkIMOpcyBlbCBwdW50IG3DqXMgQkFJWCBkZSBsYSBncsOgZmljYSAobGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50KTogw6lzIHVuIG3DrW5pbSwgbm8gdW4gbcOgeGltLiJdLCAiZXJyIjogWyIiLCAiRE9NSU5JX1JFQ09SUkVHVVRfSU5URVJDQU5WSUFUUyIsICJDUkVJWEVNRU5UX0lOVkVSVElUIiwgIkVYVFJFTV9JTlZFUlRJVCJdLCAicmVzIjogWyJMYSBwYXLDoGJvbGEgcydlc3TDqW4gc2Vuc2UgbMOtbWl0IGhvcml0em9udGFsbWVudDogZG9taW5pICRcXG1hdGhiYntSfSQuIiwgIk1haSBiYWl4YSBkZSAkeT0tMyQgKMOpcyBlbCBwdW50IG3DqXMgYmFpeCk6IHJlY29ycmVndXQgJFstMywrXFxpbmZ0eSkkLiIsICJEZWNyZWl4IGZpbnMgYXJyaWJhciBhbCBwdW50ICQoMSwtMykkIGksIGEgcGFydGlyIGQnYXF1w60sIGNyZWl4OiBkZWNyZWl4ZW50IGEgJCgtXFxpbmZ0eSwxKSQsIGNyZWl4ZW50IGEgJCgxLCtcXGluZnR5KSQuIiwgIkVsIHB1bnQgJCgxLC0zKSQsIG9uIGNhbnZpYSBkZSBkZWNyw6lpeGVyIGEgY3LDqWl4ZXIsIMOpcyB1biBtw61uaW0gYWJzb2x1dC4iXX0=",
@@ -566,7 +582,8 @@ window.FULL = {
     "És creixent a $(-\\infty,0)$, decreixent a $(0,3)$ i creixent a $(3,+\\infty)$. Té un màxim relatiu al punt $(2,0)$ i un mínim relatiu al punt $(-1,3)$."
    ],
    "pistes": [
-    "Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a superar-lo més endavant o més enrere; és absolut només si és el punt més alt (o baix) de TOTA la gràfica."
+    "Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a superar-lo més endavant o més enrere; és absolut només si és el punt més alt (o baix) de TOTA la gràfica.",
+    "Els trams de creixement i decreixement canvien just a les $x$ dels dos punts, $x=0$ i $x=3$. Després, pensa si a la dreta la gràfica arriba a superar $y=2$, i si a l'esquerra baixa de $y=-1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDYWRhIHRyYW0gZGUgY3JlaXhlbWVudCBpIGRlY3JlaXhlbWVudCwgaSBjYWRhIG3DoHhpbSBpIG3DrW5pbSwgZXN0YW4gaW52ZXJ0aXRzIHJlc3BlY3RlIGEgbGEgZGVzY3JpcGNpw7M6IGxhIGZ1bmNpw7MgUFVKQSBhYmFucyBkZSAkKDAsMikkICjDqXMgdW4gbcOgeGltLCBubyB1biBtw61uaW0pIGkgdG9ybmEgYSBwdWphciBkZXNwcsOpcyBkZSAkKDMsLTEpJCAow6lzIHVuIG3DrW5pbSwgbm8gdW4gbcOgeGltKS4iLCAiQ29tIHF1ZSBsYSBncsOgZmljYSB0b3JuYSBhIHB1amFyIHNlbnNlIGzDrW1pdCBkZXNwcsOpcyBkZSAkKDMsK1xcaW5mdHkpJCwgaGkgaGEgdmFsb3JzIGRlICR5JCBtw6lzIGdyYW5zIHF1ZSAkMiQgbcOpcyBlbmRhdmFudDogJCgwLDIpJCBubyDDqXMgZWwgcHVudCBtw6lzIGFsdCBkZSBUT1RBIGxhIGdyw6BmaWNhIChubyDDqXMgYWJzb2x1dCksIG5vbcOpcyBobyDDqXMgY29tcGFyYXQgYW1iIGVscyBwdW50cyBkZWwgdm9sdGFudCAow6lzIHJlbGF0aXUpLiBFbCBtYXRlaXggcGFzc2EgYW1iIGVsIG3DrW5pbS4iLCAiIiwgIkEgY2FkYSBwdW50LCBsYSBwcmltZXJhIGNvb3JkZW5hZGEgw6lzIGVsIHZhbG9yIGRlICR4JCBpIGxhIHNlZ29uYSBlbCBkZSAkeSQ6IGVscyBtw6B4aW1zIGkgbcOtbmltcyBzw7NuIGFscyBwdW50cyAkKDAsMikkIGkgJCgzLC0xKSQsIG5vICQoMiwwKSQgaSAkKC0xLDMpJC4iXSwgImVyciI6IFsiQ1JFSVhFTUVOVF9JTlZFUlRJVCIsICJSRUxBVElVX0NPTV9BQlNPTFVUIiwgIiIsICJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyJdLCAicmVzIjogWyJQdWphIGZpbnMgYWwgcHVudCAkKDAsMikkOiBjcmVpeGVudCBhICQoLVxcaW5mdHksMCkkOyBhcXVlc3QgcHVudCDDqXMgdW4gbcOgeGltLiIsICJEZXNwcsOpcyBiYWl4YSBmaW5zIGFsIHB1bnQgJCgzLC0xKSQ6IGRlY3JlaXhlbnQgYSAkKDAsMykkOyBhcXVlc3QgcHVudCDDqXMgdW4gbcOtbmltLiIsICJBIHBhcnRpciBkJ2FxdcOtIHRvcm5hIGEgcHVqYXIgc2Vuc2UgbMOtbWl0OiBjcmVpeGVudCBhICQoMywrXFxpbmZ0eSkkLiIsICJDb20gcXVlIGEgbGEgZHJldGEgbGEgZ3LDoGZpY2EgcHVqYSBzZW5zZSBsw61taXQsIGVuIGFsZ3VuIG1vbWVudCB0b3JuYSBhIHN1cGVyYXIgJHk9MiQ6IGVsIG3DoHhpbSAkKDAsMikkIG5vIMOpcyBlbCBwdW50IG3DqXMgYWx0IGRlIHRvdGEgbGEgZ3LDoGZpY2EsIG5vbcOpcyBobyDDqXMgbG9jYWxtZW50IChyZWxhdGl1KS4gSSBjb20gcXVlIGEgbCdlc3F1ZXJyYSBsYSBncsOgZmljYSB2ZSBjcmVpeGVudCBkZXMgZGUgJC1cXGluZnR5JCwgYWJhbnMgZCdhcnJpYmFyIGEgJCgwLDIpJCBqYSBoYXZpYSBwYXNzYXQgcGVyIHZhbG9ycyBwZXIgc290YSBkZSAkeT0tMSQ6IGVsIG3DrW5pbSAkKDMsLTEpJCB0YW1wb2Mgw6lzIGVsIHB1bnQgbcOpcyBiYWl4IGRlIHRvdGEgbGEgZ3LDoGZpY2EgKHRhbWLDqSDDqXMgcmVsYXRpdSkuIl19",
@@ -588,7 +605,8 @@ window.FULL = {
     "$m=-3,\\ n=6$"
    ],
    "pistes": [
-    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$)."
+    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).",
+    "Compara $y=-3x+6$ amb $y=mx+n$ terme a terme. El signe que hi ha davant de cada número en forma part."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50IHRhbCBjb20gYXBhcmVpeCBhIGwnZXhwcmVzc2nDsyAoYW1iIGVsIHNldSBzaWduZSk6IG5vIGNhbCBjYW52aWFyLWxvLiIsICJFbCBwZW5kZW50IGNvbnNlcnZhIGVsIHNldSBzaWduZSB0YWwgY29tIGFwYXJlaXggYSBsJ2V4cHJlc3Npw7M6IG5vIGNhbCBjYW52aWFyLWxvLiIsICJFbCBwZW5kZW50IMOpcyBlbCBub21icmUgcXVlIE1VTFRJUExJQ0EgbGEgJHgkLCBpIGwnb3JkZW5hZGEgYSBsJ29yaWdlbiDDqXMgZWwgdGVybWUgaW5kZXBlbmRlbnQgKHNlbnNlICR4JCk6IGVzdGFuIGludGVyY2FudmlhdHMuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiQSAkeT1teCtuJCwgZWwgcGVuZGVudCDDqXMgJG0kIGkgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyAkbiQuIiwgIiR5PS0zeCs2JCB0w6kgJG09LTMkIGkgJG49NiQuIl19",
@@ -610,7 +628,8 @@ window.FULL = {
     "$m=10,\\ n=0$"
    ],
    "pistes": [
-    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$)."
+    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).",
+    "Compara $y=10x$ amb $y=mx+n$ terme a terme: quin número fa de $m$? I quin terme hi falta?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWFuIGwnZXhwcmVzc2nDsyBubyB0w6kgY2FwIHRlcm1lIGluZGVwZW5kZW50IGVzY3JpdCAoY29tICR5PTEweCQpLCBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQwJCwgbm8gJDEkOiBubyBoaSBoYSBjYXAgdGVybWUgcXVlIHN1bWFyLiIsICJFbCBwZW5kZW50IGNvbnNlcnZhIGVsIHNldSBzaWduZSB0YWwgY29tIGFwYXJlaXggYSBsJ2V4cHJlc3Npw7M6IG5vIGNhbCBjYW52aWFyLWxvLiIsICJFbCBwZW5kZW50IMOpcyBlbCBub21icmUgcXVlIE1VTFRJUExJQ0EgbGEgJHgkLCBpIGwnb3JkZW5hZGEgYSBsJ29yaWdlbiDDqXMgZWwgdGVybWUgaW5kZXBlbmRlbnQgKHNlbnNlICR4JCk6IGVzdGFuIGludGVyY2FudmlhdHMuIiwgIiJdLCAiZXJyIjogWyJPUkRFTkFEQV9OVUxBX09CTElEQURBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiJdLCAicmVzIjogWyJBICR5PW14K24kLCBlbCBwZW5kZW50IMOpcyAkbSQgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICRuJC4iLCAiJHk9MTB4JCB0w6kgJG09MTAkIGkgJG49MCQuIl19",
@@ -632,7 +651,8 @@ window.FULL = {
     "$m=-5,\\ n=-2$"
    ],
    "pistes": [
-    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$)."
+    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).",
+    "Compara $y=-2x-5$ amb $y=mx+n$ terme a terme. El signe que hi ha davant de cada número en forma part."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcGVuZGVudCBjb25zZXJ2YSBlbCBzZXUgc2lnbmUgdGFsIGNvbSBhcGFyZWl4IGEgbCdleHByZXNzacOzOiBubyBjYWwgY2Fudmlhci1sby4iLCAiTCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyBlbCB0ZXJtZSBpbmRlcGVuZGVudCB0YWwgY29tIGFwYXJlaXggYSBsJ2V4cHJlc3Npw7MgKGFtYiBlbCBzZXUgc2lnbmUpOiBubyBjYWwgY2Fudmlhci1sby4iLCAiRWwgcGVuZGVudCDDqXMgZWwgbm9tYnJlIHF1ZSBNVUxUSVBMSUNBIGxhICR4JCwgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50IChzZW5zZSAkeCQpOiBlc3RhbiBpbnRlcmNhbnZpYXRzLiJdLCAiZXJyIjogWyIiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQRU5ERU5UX09SREVOQURBX0lOVEVSQ0FOVklBVFMiXSwgInJlcyI6IFsiQSAkeT1teCtuJCwgZWwgcGVuZGVudCDDqXMgJG0kIGkgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyAkbiQuIiwgIiR5PS0yeC01JCB0w6kgJG09LTIkIGkgJG49LTUkLiJdfQ==",
@@ -654,7 +674,8 @@ window.FULL = {
     "$m=0,\\ n=-9$"
    ],
    "pistes": [
-    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$)."
+    "El pendent és el coeficient que acompanya la $x$; l'ordenada a l'origen és el terme que no té $x$ (si no n'hi ha cap d'escrit, l'ordenada és $0$).",
+    "Compara $y=-9x$ amb $y=mx+n$ terme a terme: quin número fa de $m$? I quin terme hi falta?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJRdWFuIGwnZXhwcmVzc2nDsyBubyB0w6kgY2FwIHRlcm1lIGluZGVwZW5kZW50IGVzY3JpdCAoY29tICR5PS05eCQpLCBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQwJCwgbm8gJDEkOiBubyBoaSBoYSBjYXAgdGVybWUgcXVlIHN1bWFyLiIsICIiLCAiRWwgcGVuZGVudCBjb25zZXJ2YSBlbCBzZXUgc2lnbmUgdGFsIGNvbSBhcGFyZWl4IGEgbCdleHByZXNzacOzOiBubyBjYWwgY2Fudmlhci1sby4iLCAiRWwgcGVuZGVudCDDqXMgZWwgbm9tYnJlIHF1ZSBNVUxUSVBMSUNBIGxhICR4JCwgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50IChzZW5zZSAkeCQpOiBlc3RhbiBpbnRlcmNhbnZpYXRzLiJdLCAiZXJyIjogWyJPUkRFTkFEQV9OVUxBX09CTElEQURBIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyJdLCAicmVzIjogWyJBICR5PW14K24kLCBlbCBwZW5kZW50IMOpcyAkbSQgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICRuJC4iLCAiJHk9LTl4JCB0w6kgJG09LTkkIGkgJG49MCQuIl19",
@@ -676,7 +697,8 @@ window.FULL = {
     "Decreixent"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "A $y=12x-1$, quin número multiplica la $x$? Mira'n el signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50ICQxMiQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iLCAiIiwgIkVsIHBlbmRlbnQgw6lzICQxMiQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iXSwgImVyciI6IFsiUkVQUkVTRU5UQUNJT19JTk5FQ0VTU0FSSUEiLCAiUEVOREVOVF9DT01fTlVMIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9MTJ4LTEkIMOpcyAkbT0xMiQuIiwgIkNvbSBxdWUgJG0kIMOpcyBwb3NpdGl1LCBsYSBmdW5jacOzIMOpcyBjcmVpeGVudC4iXX0="
@@ -697,7 +719,8 @@ window.FULL = {
     "Constant"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "$\\dfrac{x}{6}$ és el mateix que $\\dfrac16\\cdot x$: aquest és el pendent. Quin signe té?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50IMOpcyAkXFxkZnJhY3sxfXs2fSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iLCAiIiwgIkVsIHBlbmRlbnQgJFxcZGZyYWN7MX17Nn0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGFmw60gbm9tw6lzIMOpcyBjb25zdGFudCBxdWFuIGVsIHBlbmRlbnQgw6lzIG51bCwgaSBhcXXDrSBubyBobyDDqXMuIl0sICJlcnIiOiBbIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiIiwgIlBFTkRFTlRfQ09NX05VTCJdLCAicmVzIjogWyJFbCBwZW5kZW50IGRlICR5PVxcZGZyYWN7eH17Nn0rMyQgw6lzICRtPVxcZGZyYWN7MX17Nn0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
@@ -718,7 +741,8 @@ window.FULL = {
     "No es pot saber sense representar-la"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "$\\dfrac{x}{4}$ és el mateix que $\\dfrac14\\cdot x$: aquest és el pendent. Quin signe té?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezF9ezR9JCBubyDDqXMgJDAkOiB1bmEgZnVuY2nDsyBhZsOtIG5vbcOpcyDDqXMgY29uc3RhbnQgcXVhbiBlbCBwZW5kZW50IMOpcyBudWwsIGkgYXF1w60gbm8gaG8gw6lzLiIsICIiLCAiRWwgcGVuZGVudCDDqXMgJFxcZGZyYWN7MX17NH0kIChwb3NpdGl1KTogbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQsIG5vIGRlY3JlaXhlbnQuIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIl0sICJlcnIiOiBbIlBFTkRFTlRfQ09NX05VTCIsICIiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSJdLCAicmVzIjogWyJFbCBwZW5kZW50IGRlICR5PVxcZGZyYWN7eH17NH0tMiQgw6lzICRtPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
@@ -739,7 +763,8 @@ window.FULL = {
     "Constant"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "A $y=-7x+5$, quin número multiplica la $x$? El signe que porta al davant en forma part."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyAkLTckIChuZWdhdGl1KTogbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudCwgbm8gY3JlaXhlbnQuIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIiIsICJFbCBwZW5kZW50ICQtNyQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iXSwgImVyciI6IFsiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSIsICIiLCAiUEVOREVOVF9DT01fTlVMIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9LTd4KzUkIMOpcyAkbT0tNyQuIiwgIkNvbSBxdWUgJG0kIMOpcyBuZWdhdGl1LCBsYSBmdW5jacOzIMOpcyBkZWNyZWl4ZW50LiJdfQ=="
@@ -760,7 +785,8 @@ window.FULL = {
     "Creixent"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "$-\\dfrac{12x}{5}$ és el mateix que $-\\dfrac{12}{5}\\cdot x$: aquest és el pendent, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtXFxkZnJhY3sxMn17NX0kIG5vIMOpcyAkMCQ6IHVuYSBmdW5jacOzIGFmw60gbm9tw6lzIMOpcyBjb25zdGFudCBxdWFuIGVsIHBlbmRlbnQgw6lzIG51bCwgaSBhcXXDrSBubyBobyDDqXMuIiwgIiIsICJFbCBzaWduZSBkZWwgcGVuZGVudCBqYSBkZXRlcm1pbmEgc2kgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQgbyBkZWNyZWl4ZW50LCBzZW5zZSBuZWNlc3NpdGF0IGRlIHJlcHJlc2VudGFyLWxhLiIsICJFbCBwZW5kZW50IMOpcyAkLVxcZGZyYWN7MTJ9ezV9JCAobmVnYXRpdSk6IGxhIGZ1bmNpw7Mgw6lzIGRlY3JlaXhlbnQsIG5vIGNyZWl4ZW50LiJdLCAiZXJyIjogWyJQRU5ERU5UX0NPTV9OVUwiLCAiIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiRWwgcGVuZGVudCBkZSAkeT0tXFxkZnJhY3sxMnh9ezV9KzEkIMOpcyAkbT0tXFxkZnJhY3sxMn17NX0kLiIsICJDb20gcXVlICRtJCDDqXMgbmVnYXRpdSwgbGEgZnVuY2nDsyDDqXMgZGVjcmVpeGVudC4iXX0="
@@ -781,7 +807,8 @@ window.FULL = {
     "Decreixent"
    ],
    "pistes": [
-    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent."
+    "A $y=mx+n$, si el pendent $m$ és positiu la funció és creixent; si és negatiu, decreixent.",
+    "$\\dfrac{7x}{10}$ és el mateix que $\\dfrac{7}{10}\\cdot x$: aquest és el pendent. Quin signe té?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICRcXGRmcmFjezd9ezEwfSQgbm8gw6lzICQwJDogdW5hIGZ1bmNpw7MgYWbDrSBub23DqXMgw6lzIGNvbnN0YW50IHF1YW4gZWwgcGVuZGVudCDDqXMgbnVsLCBpIGFxdcOtIG5vIGhvIMOpcy4iLCAiIiwgIkVsIHNpZ25lIGRlbCBwZW5kZW50IGphIGRldGVybWluYSBzaSBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCBvIGRlY3JlaXhlbnQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgcmVwcmVzZW50YXItbGEuIiwgIkVsIHBlbmRlbnQgw6lzICRcXGRmcmFjezd9ezEwfSQgKHBvc2l0aXUpOiBsYSBmdW5jacOzIMOpcyBjcmVpeGVudCwgbm8gZGVjcmVpeGVudC4iXSwgImVyciI6IFsiUEVOREVOVF9DT01fTlVMIiwgIiIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgZGUgJHk9XFxkZnJhY3s3eH17MTB9JCDDqXMgJG09XFxkZnJhY3s3fXsxMH0kLiIsICJDb20gcXVlICRtJCDDqXMgcG9zaXRpdSwgbGEgZnVuY2nDsyDDqXMgY3JlaXhlbnQuIl19"
@@ -802,7 +829,8 @@ window.FULL = {
     "$y=-2x-1$"
    ],
    "pistes": [
-    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts."
+    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.",
+    "Pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$. De $(0,\\ -1)$ a $(1,\\ 1)$, quant canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a dalt i a baix."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBjb2VmaWNpZW50IHF1ZSBhY29tcGFueWEgbGEgJHgkOyBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICIiLCAiTCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyBlbCB2YWxvciBkZSAkeSQgZGVsIHB1bnQgb24gJHg9MCQsIMOpcyBhIGRpciwgZGVsIHB1bnQgJCgwLFxcIC0xKSQgKHF1ZSBkb25hICRuPS0xJCksIG5vIGRlbCBwdW50ICQoMSxcXCAxKSQuIiwgIkVsIHBlbmRlbnQgZXMgY2FsY3VsYSBjb20gJG09XFxkZnJhY3t5XzIteV8xfXt4XzIteF8xfSQsIHJlc3RhbnQgc2VtcHJlIGVuIGVsIG1hdGVpeCBvcmRyZSBhbCBudW1lcmFkb3IgaSBhbCBkZW5vbWluYWRvcjogc2kgcydpbnZlcnRlaXggbCdvcmRyZSBlbiB1biBkZWxzIGRvcywgZWwgc2lnbmUgc3VydCBjYW52aWF0LiJdLCAiZXJyIjogWyJQRU5ERU5UX09SREVOQURBX0lOVEVSQ0FOVklBVFMiLCAiIiwgIlBVTlRfT1JERU5BREFfQ09ORk9TIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiRWwgcGVuZGVudCDDqXMgJG09XFxkZnJhY3t5XzIteV8xfXt4XzIteF8xfT1cXGRmcmFjezEtKC0xKX17MS0oMCl9PTIkLiIsICJDb20gcXVlIGVsIHB1bnQgJCgwLFxcIC0xKSQgdMOpICR4PTAkLCBsYSBzZXZhICR5JCBqYSDDqXMgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuOiAkbj0tMSQuIiwgIkwnZXhwcmVzc2nDsyDDqXMgJHk9MngtMSQuIl19",
@@ -824,7 +852,8 @@ window.FULL = {
     "$y=2x+3$"
    ],
    "pistes": [
-    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts."
+    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.",
+    "Pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$. De $(0,\\ 1)$ a $(1,\\ 3)$, quant canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a dalt i a baix."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcGVuZGVudCDDqXMgZWwgY29lZmljaWVudCBxdWUgYWNvbXBhbnlhIGxhICR4JDsgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuIMOpcyBlbCB0ZXJtZSBpbmRlcGVuZGVudDogZXN0YW4gaW50ZXJjYW52aWF0cy4iLCAiRWwgcGVuZGVudCBlcyBjYWxjdWxhIGNvbSAkbT1cXGRmcmFje3lfMi15XzF9e3hfMi14XzF9JCwgcmVzdGFudCBzZW1wcmUgZW4gZWwgbWF0ZWl4IG9yZHJlIGFsIG51bWVyYWRvciBpIGFsIGRlbm9taW5hZG9yOiBzaSBzJ2ludmVydGVpeCBsJ29yZHJlIGVuIHVuIGRlbHMgZG9zLCBlbCBzaWduZSBzdXJ0IGNhbnZpYXQuIiwgIkwnb3JkZW5hZGEgYSBsJ29yaWdlbiDDqXMgZWwgdmFsb3IgZGUgJHkkIGRlbCBwdW50IG9uICR4PTAkLCDDqXMgYSBkaXIsIGRlbCBwdW50ICQoMCxcXCAxKSQgKHF1ZSBkb25hICRuPTEkKSwgbm8gZGVsIHB1bnQgJCgxLFxcIDMpJC4iXSwgImVyciI6IFsiIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlBVTlRfT1JERU5BREFfQ09ORk9TIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgw6lzICRtPVxcZGZyYWN7eV8yLXlfMX17eF8yLXhfMX09XFxkZnJhY3szLSgxKX17MS0oMCl9PTIkLiIsICJDb20gcXVlIGVsIHB1bnQgJCgwLFxcIDEpJCB0w6kgJHg9MCQsIGxhIHNldmEgJHkkIGphIMOpcyBsJ29yZGVuYWRhIGEgbCdvcmlnZW46ICRuPTEkLiIsICJMJ2V4cHJlc3Npw7Mgw6lzICR5PTJ4KzEkLiJdfQ==",
@@ -846,7 +875,8 @@ window.FULL = {
     "$y=-\\dfrac{1}{2}x+1$"
    ],
    "pistes": [
-    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts."
+    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.",
+    "Pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$. De $(0,\\ 1)$ a $(2,\\ 2)$, quant canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a dalt i a baix."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHZhbG9yIGRlICR5JCBkZWwgcHVudCBvbiAkeD0wJCwgw6lzIGEgZGlyLCBkZWwgcHVudCAkKDAsXFwgMSkkIChxdWUgZG9uYSAkbj0xJCksIG5vIGRlbCBwdW50ICQoMixcXCAyKSQuIiwgIiIsICJFbCBwZW5kZW50IMOpcyBlbCBjb2VmaWNpZW50IHF1ZSBhY29tcGFueWEgbGEgJHgkOyBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICJFbCBwZW5kZW50IGVzIGNhbGN1bGEgY29tICRtPVxcZGZyYWN7eV8yLXlfMX17eF8yLXhfMX0kLCByZXN0YW50IHNlbXByZSBlbiBlbCBtYXRlaXggb3JkcmUgYWwgbnVtZXJhZG9yIGkgYWwgZGVub21pbmFkb3I6IHNpIHMnaW52ZXJ0ZWl4IGwnb3JkcmUgZW4gdW4gZGVscyBkb3MsIGVsIHNpZ25lIHN1cnQgY2FudmlhdC4iXSwgImVyciI6IFsiUFVOVF9PUkRFTkFEQV9DT05GT1MiLCAiIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgw6lzICRtPVxcZGZyYWN7eV8yLXlfMX17eF8yLXhfMX09XFxkZnJhY3syLSgxKX17Mi0oMCl9PVxcZGZyYWN7MX17Mn0kLiIsICJDb20gcXVlIGVsIHB1bnQgJCgwLFxcIDEpJCB0w6kgJHg9MCQsIGxhIHNldmEgJHkkIGphIMOpcyBsJ29yZGVuYWRhIGEgbCdvcmlnZW46ICRuPTEkLiIsICJMJ2V4cHJlc3Npw7Mgw6lzICR5PVxcZGZyYWN7MX17Mn14KzEkLiJdfQ==",
@@ -868,7 +898,8 @@ window.FULL = {
     "$y=-2x-3$"
    ],
    "pistes": [
-    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts."
+    "Com que un dels punts té $x=0$, la seva $y$ ja és directament l'ordenada a l'origen $n$; només cal calcular el pendent $m$ amb els dos punts.",
+    "Pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$. De $(0,\\ -1)$ a $(1,\\ -3)$, quant canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a dalt i a baix."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBjb2VmaWNpZW50IHF1ZSBhY29tcGFueWEgbGEgJHgkOyBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBlc3RhbiBpbnRlcmNhbnZpYXRzLiIsICIiLCAiRWwgcGVuZGVudCBlcyBjYWxjdWxhIGNvbSAkbT1cXGRmcmFje3lfMi15XzF9e3hfMi14XzF9JCwgcmVzdGFudCBzZW1wcmUgZW4gZWwgbWF0ZWl4IG9yZHJlIGFsIG51bWVyYWRvciBpIGFsIGRlbm9taW5hZG9yOiBzaSBzJ2ludmVydGVpeCBsJ29yZHJlIGVuIHVuIGRlbHMgZG9zLCBlbCBzaWduZSBzdXJ0IGNhbnZpYXQuIiwgIkwnb3JkZW5hZGEgYSBsJ29yaWdlbiDDqXMgZWwgdmFsb3IgZGUgJHkkIGRlbCBwdW50IG9uICR4PTAkLCDDqXMgYSBkaXIsIGRlbCBwdW50ICQoMCxcXCAtMSkkIChxdWUgZG9uYSAkbj0tMSQpLCBubyBkZWwgcHVudCAkKDEsXFwgLTMpJC4iXSwgImVyciI6IFsiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIlBVTlRfT1JERU5BREFfQ09ORk9TIl0sICJyZXMiOiBbIkVsIHBlbmRlbnQgw6lzICRtPVxcZGZyYWN7eV8yLXlfMX17eF8yLXhfMX09XFxkZnJhY3stMy0oLTEpfXsxLSgwKX09LTIkLiIsICJDb20gcXVlIGVsIHB1bnQgJCgwLFxcIC0xKSQgdMOpICR4PTAkLCBsYSBzZXZhICR5JCBqYSDDqXMgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuOiAkbj0tMSQuIiwgIkwnZXhwcmVzc2nDsyDDqXMgJHk9LTJ4LTEkLiJdfQ==",
@@ -891,7 +922,7 @@ window.FULL = {
    ],
    "pistes": [
     "A $y=mx+n$, el pendent és el número que va davant de la $x$.",
-    "A $y=3x-2$, davant de la $x$ hi ha un $3$."
+    "Compara $y=3x-2$ amb $y=mx+n$ terme a terme: quin número ocupa el lloc de la $m$?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgYWdhZmF0IGVsIHRlcm1lIHNlbnNlICR4JCwgaSBhIG3DqXMgc2Vuc2UgZWwgc2V1IHNpZ25lLiIsICJFbCBwZW5kZW50IMOpcyBlbCBjb2VmaWNpZW50IHRhbCBxdWFsLCBubyBlbCBzZXUgaW52ZXJzLiIsICJFbCAkLTIkIMOpcyBsJ29yZGVuYWRhIGEgbCdvcmlnZW46IGVsIG7Dum1lcm8gcXVlIHZhIHNvbCwgc2Vuc2UgJHgkLiBFbCBwZW5kZW50IMOpcyBlbCBxdWUgbXVsdGlwbGljYSBsYSAkeCQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQRU5ERU5UX0lOVkVSVElUIiwgIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICIiXSwgInJlcyI6IFsiJHk9M3gtMlxcUmlnaHRhcnJvdyBtPTMkIl19"
@@ -935,7 +966,7 @@ window.FULL = {
    ],
    "pistes": [
     "Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ implícit.",
-    "$-x$ és $-1\\cdot x$."
+    "El signe que hi ha davant de la $x$ també forma part del pendent."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkNSQgw6lzIGwnb3JkZW5hZGEgYSBsJ29yaWdlbi4iLCAiRWwgc2lnbmUgY29tcHRhOiAkLXgkIHZvbCBkaXIgJC0xXFxjZG90IHgkLCBkZSBtYW5lcmEgcXVlIGVsIHBlbmRlbnQgw6lzICQtMSQuIFVuYSByZWN0YSBhbWIgcGVuZGVudCBuZWdhdGl1IGJhaXhhLiIsICIiLCAiSGFzIGFnYWZhdCBlbCB0ZXJtZSBzZW5zZSAkeCQgaSBsaSBoYXMgY2FudmlhdCBlbCBzaWduZS4iXSwgImVyciI6IFsiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiIiwgIlBFTkRFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS14KzU9LTFcXGNkb3QgeCs1XFxSaWdodGFycm93IG09LTEkIl19"
@@ -956,8 +987,8 @@ window.FULL = {
     "No en té"
    ],
    "pistes": [
-    "$y=4$ es pot escriure com $y=0\\cdot x+4$.",
-    "Una recta horitzontal no puja ni baixa: el seu pendent és $0$."
+    "A $y=mx+n$, el pendent és el número que multiplica la $x$. A $y=4$ la $x$ no hi apareix.",
+    "La recta $y=4$ és horitzontal: per molt que avancis cap a la dreta, no puja ni baixa. Quant val, doncs, el pendent?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkNCQgw6lzIGwnb3JkZW5hZGEgYSBsJ29yaWdlbi4gTGEgcmVjdGEgJHk9NCQgw6lzIGhvcml0em9udGFsIGkgcGFzc2EgcGVyIGwnYWx0dXJhICQ0JC4iLCAiU2kgZWwgcGVuZGVudCBmb3MgJDEkIGxhIHJlY3RhIHB1amFyaWEuICR5PTQkIMOpcyBwbGFuYS4iLCAiIiwgIkxhIHF1ZSBubyB0w6kgcGVuZGVudCDDqXMgbGEgVkVSVElDQUwsIGRlbCB0aXB1cyAkeD00JC4gQXF1ZXN0YSwgJHk9NCQsIMOpcyBob3JpdHpvbnRhbCwgaSB1bmEgcmVjdGEgaG9yaXR6b250YWwgdMOpIHBlbmRlbnQsIHF1ZSB2YWwgJDAkOiBubyBwdWphIG5pIGJhaXhhLiJdLCAiZXJyIjogWyJQRU5ERU5UX09SREVOQURBX0lOVEVSQ0FOVklBVFMiLCAiUEVOREVOVF9DT01fTlVMIiwgIiIsICJSRUNUQV9WRVJUSUNBTF9DT05GT1NBIl0sICJyZXMiOiBbIiR5PTQ9MFxcY2RvdCB4KzRcXFJpZ2h0YXJyb3cgbT0wJCJdfQ=="
@@ -1001,7 +1032,7 @@ window.FULL = {
    ],
    "pistes": [
     "$n=0$ vol dir que la recta passa per l'origen.",
-    "$y=-3x+0$, i el $+0$ no s'escriu."
+    "Escriu $y=mx+n$ amb els dos valors. Un terme que val $0$ no cal escriure'l."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyAkLTMkLCBuZWdhdGl1OiBsYSByZWN0YSBiYWl4YS4iLCAiVCdoYXMgcXVlZGF0IG5vbcOpcyBhbWIgJG4kIGkgaGFzIHBlcmR1dCBlbCBwZW5kZW50LiBBbWIgJG49MCQgZWwgcXVlIHBhc3NhIMOpcyBxdWUgZWwgdGVybWUgaW5kZXBlbmRlbnQgZGVzYXBhcmVpeCwgbm8gdG90YSBsYSByZWN0YS4iLCAiTCdvcmRlbmFkYSDDqXMgJDAkLCBubyAkMyQ6IG5vIHRlIGwnaGFzIGQnaW52ZW50YXIgYSBwYXJ0aXIgZGVsIHBlbmRlbnQuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiT1JERU5BREFfUEVSX0NPT1JERU5BREEiLCAiIl0sICJyZXMiOiBbIiR5PS0zeCswPS0zeCQgKHBhc3NhIHBlciBsJ29yaWdlbikiXX0="
@@ -1091,11 +1122,11 @@ window.FULL = {
     "$y=-x-1$"
    ],
    "pistes": [
-    "Parteix de $y=mx+n$ amb el pendent que et donen: $y=-1x+n$.",
-    "Substitueix-hi el punt i aïlla $n$: $3=-1\\cdot-2+n$."
+    "Parteix de $y=mx+n$ amb el pendent que et donen: $y=-x+n$.",
+    "Substitueix-hi el punt i aïlla $n$: $3=-1\\cdot(-2)+n$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBxdWUgZXQgZG9uYXZlbiwgJG09LTEkOiBubyBlcyBjYWxjdWxhLCBlcyBjb2zCt2xvY2EuIiwgIiIsICJIYXMgcG9zYXQgbGEgJHkkIGRlbCBwdW50IGNvbSBhIG9yZGVuYWRhIGEgbCdvcmlnZW4uIEVsICQzJCDDqXMgZWwgdmFsb3IgZGUgbGEgZnVuY2nDsyBhICR4PS0yJCwgbm8gYSAkeD0wJDogY2FsIGHDr2xsYXIgJG4kIGRlICQzPS0xXFxjZG90LTIrbiQuIiwgIkwnb3JkZW5hZGEgYSBsJ29yaWdlbiB0w6kgZWwgc2lnbmUgY2FudmlhdDogcmV2aXNhIGVsIHBhcyBkJ2HDr2xsYXIgJG4kLiJdLCAiZXJyIjogWyJQRU5ERU5UX01BTF9UUklBVCIsICIiLCAiT1JERU5BREFfUEVSX0NPT1JERU5BREEiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiJDM9LTFcXGNkb3QoLTIpK24kIiwgIiRuPTMtKDIpPTEkIiwgIiR5PS14KzEkIl19",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBxdWUgZXQgZG9uYXZlbiwgJG09LTEkOiBubyBlcyBjYWxjdWxhLCBlcyBjb2zCt2xvY2EuIiwgIiIsICJIYXMgcG9zYXQgbGEgJHkkIGRlbCBwdW50IGNvbSBhIG9yZGVuYWRhIGEgbCdvcmlnZW4uIEVsICQzJCDDqXMgZWwgdmFsb3IgZGUgbGEgZnVuY2nDsyBhICR4PS0yJCwgbm8gYSAkeD0wJDogY2FsIGHDr2xsYXIgJG4kIGRlICQzPS0xXFxjZG90KC0yKStuJC4iLCAiTCdvcmRlbmFkYSBhIGwnb3JpZ2VuIHTDqSBlbCBzaWduZSBjYW52aWF0OiByZXZpc2EgZWwgcGFzIGQnYcOvbGxhciAkbiQuIl0sICJlcnIiOiBbIlBFTkRFTlRfTUFMX1RSSUFUIiwgIiIsICJPUkRFTkFEQV9QRVJfQ09PUkRFTkFEQSIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyIkMz0tMVxcY2RvdCgtMikrbiQiLCAiJG49My0oMik9MSQiLCAiJHk9LXgrMSQiXX0=",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Núvol de 1 punts.</title><line class=\"fig-graella\" x1=\"38.9\" y1=\"190.0\" x2=\"38.9\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"74.4\" y1=\"190.0\" x2=\"74.4\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"181.1\" y1=\"190.0\" x2=\"181.1\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"127.8\" x2=\"190.0\" y2=\"127.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"92.2\" x2=\"190.0\" y2=\"92.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"56.7\" x2=\"190.0\" y2=\"56.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"163.3\" x2=\"190.0\" y2=\"163.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"145.6\" y1=\"190.0\" x2=\"145.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 163.3 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 145.6 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"177.333\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"147.556\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"38.9\" y=\"202\">-3</text><text x=\"74.4\" y=\"202\">-2</text><text x=\"110.0\" y=\"202\">-1</text><text x=\"145.6\" y=\"202\">0</text><text x=\"181.1\" y=\"202\">1</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"166.8\">0</text><text x=\"24.0\" y=\"131.3\">1</text><text x=\"24.0\" y=\"95.7\">2</text><text x=\"24.0\" y=\"60.2\">3</text></g><circle cx=\"74.4\" cy=\"56.7\" r=\"3.6\" fill=\"var(--fig-marca, #B3453C)\"/></svg>"
   },
   {
@@ -1115,7 +1146,7 @@ window.FULL = {
    ],
    "pistes": [
     "Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
-    "Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295."
+    "Amb el pendent, substitueix un dels dos punts a $y=mx+n$ i aïlla $n$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGNhbGN1bGF0ICRcXGRmcmFje1xcRGVsdGEgeH17XFxEZWx0YSB5fSQuIEVsIHBlbmRlbnQgw6lzICRcXGRmcmFje1xcRGVsdGEgeX17XFxEZWx0YSB4fSQ6IGVsIHF1ZSBwdWphIGVudHJlIGVsIHF1ZSBhdmFuw6dhLiIsICJFbCBwZW5kZW50IHTDqSBlbCBzaWduZSBjYW52aWF0OiBjb21wcm92YSBlbiBxdWluIHNlbnRpdCB2YXMgZGUgJCgxLDIpJCBhICQoMyw4KSQuIiwgIkhhcyBwcmVzIGxhICR5JCBkZWwgcHJpbWVyIHB1bnQgY29tIGEgb3JkZW5hZGEgYSBsJ29yaWdlbi4gTm9tw6lzIHNlcnZpcmlhIHNpIGFxdWVsbCBwdW50IGZvcyBhICR4PTAkLiJdLCAiZXJyIjogWyIiLCAiUEVOREVOVF9JTlZFUlRJVCIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIk9SREVOQURBX1BFUl9DT09SREVOQURBIl0sICJyZXMiOiBbIiRtPVxcZGZyYWN7OC0oMil9ezMtKDEpfT1cXGRmcmFjezZ9ezJ9PTMkIiwgIiQyPTNcXGNkb3QoMSkrblxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDtuPS0xJCIsICIkeT0zeC0xJCJdfQ==",
@@ -1138,7 +1169,7 @@ window.FULL = {
    ],
    "pistes": [
     "Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
-    "Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295."
+    "Amb el pendent, substitueix un dels dos punts a $y=mx+n$ i aïlla $n$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHByZXMgbGEgJHkkIGRlbCBwcmltZXIgcHVudCBjb20gYSBvcmRlbmFkYSBhIGwnb3JpZ2VuLiBOb23DqXMgc2VydmlyaWEgc2kgYXF1ZWxsIHB1bnQgZm9zIGEgJHg9MCQuIiwgIkhhcyBjYWxjdWxhdCAkXFxkZnJhY3tcXERlbHRhIHh9e1xcRGVsdGEgeX0kLiBFbCBwZW5kZW50IMOpcyAkXFxkZnJhY3tcXERlbHRhIHl9e1xcRGVsdGEgeH0kOiBlbCBxdWUgcHVqYSBlbnRyZSBlbCBxdWUgYXZhbsOnYS4iLCAiRWwgcGVuZGVudCB0w6kgZWwgc2lnbmUgY2FudmlhdDogY29tcHJvdmEgZW4gcXVpbiBzZW50aXQgdmFzIGRlICQoLTIsNSkkIGEgJCgyLC0zKSQuIl0sICJlcnIiOiBbIiIsICJPUkRFTkFEQV9QRVJfQ09PUkRFTkFEQSIsICJQRU5ERU5UX0lOVkVSVElUIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJG09XFxkZnJhY3stMy0oNSl9ezItKC0yKX09XFxkZnJhY3stOH17NH09LTIkIiwgIiQ1PS0yXFxjZG90KC0yKStuXFw7XFxMb25ncmlnaHRhcnJvd1xcO249MSQiLCAiJHk9LTJ4KzEkIl19",
@@ -1161,7 +1192,7 @@ window.FULL = {
    ],
    "pistes": [
     "Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
-    "Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295."
+    "Amb el pendent, substitueix un dels dos punts a $y=mx+n$ i aïlla $n$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZW5kZW50IHTDqSBlbCBzaWduZSBjYW52aWF0OiBjb21wcm92YSBlbiBxdWluIHNlbnRpdCB2YXMgZGUgJCgyLC0xKSQgYSAkKDYsMSkkLiIsICJIYXMgcHJlcyBsYSAkeSQgZGVsIHByaW1lciBwdW50IGNvbSBhIG9yZGVuYWRhIGEgbCdvcmlnZW4uIE5vbcOpcyBzZXJ2aXJpYSBzaSBhcXVlbGwgcHVudCBmb3MgYSAkeD0wJC4iLCAiSGFzIGNhbGN1bGF0ICRcXGRmcmFje1xcRGVsdGEgeH17XFxEZWx0YSB5fSQuIEVsIHBlbmRlbnQgw6lzICRcXGRmcmFje1xcRGVsdGEgeX17XFxEZWx0YSB4fSQ6IGVsIHF1ZSBwdWphIGVudHJlIGVsIHF1ZSBhdmFuw6dhLiIsICIiXSwgImVyciI6IFsiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJPUkRFTkFEQV9QRVJfQ09PUkRFTkFEQSIsICJQRU5ERU5UX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkbT1cXGRmcmFjezEtKC0xKX17Ni0oMil9PVxcZGZyYWN7Mn17NH09XFxkZnJhY3sxfXsyfSQiLCAiJC0xPVxcZGZyYWN7MX17Mn1cXGNkb3QoMikrblxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDtuPS0yJCIsICIkeT1cXGRmcmFjezF9ezJ9eC0yJCJdfQ==",
@@ -1184,7 +1215,7 @@ window.FULL = {
    ],
    "pistes": [
     "El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.",
-    "L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical."
+    "A $y=mx+n$, la $m$ és el pendent i la $n$ és on la recta talla l'eix vertical. No els intercanviïs."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZW5kZW50IHTDqSBlbCBzaWduZSBjYW52aWF0OiBzaSBsYSByZWN0YSBwdWphLCBlbCBwZW5kZW50IMOpcyBwb3NpdGl1OyBzaSBiYWl4YSwgbmVnYXRpdS4iLCAiSGFzIGludGVyY2FudmlhdCBlbCBwZW5kZW50IGkgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuLiBFbCBwZW5kZW50IMOpcyBlbCBxdWUgbXVsdGlwbGljYSBsYSAkeCQ7IGwnb3JkZW5hZGEsIGVsIHRlcm1lIHF1ZSB2YSBzb2wuIiwgIiIsICJMJ29yZGVuYWRhIGEgbCdvcmlnZW4gdMOpIGVsIHNpZ25lIGNhbnZpYXQuIl0sICJlcnIiOiBbIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJQZW5kZW50OiAkbT0zJCIsICJPcmRlbmFkYSBhIGwnb3JpZ2VuOiAkbj0tNCQiLCAiJHk9M3gtNCQiXX0="
@@ -1206,7 +1237,7 @@ window.FULL = {
    ],
    "pistes": [
     "El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.",
-    "L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical."
+    "Aquí avança $4$ unitats, no $1$: el pendent és el que baixa dividit pel que avança. I com que baixa, és negatiu."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZW5kZW50IHTDqSBlbCBzaWduZSBjYW52aWF0OiBzaSBsYSByZWN0YSBwdWphLCBlbCBwZW5kZW50IMOpcyBwb3NpdGl1OyBzaSBiYWl4YSwgbmVnYXRpdS4iLCAiTCdvcmRlbmFkYSBhIGwnb3JpZ2VuIHTDqSBlbCBzaWduZSBjYW52aWF0LiIsICJIYXMgaW50ZXJjYW52aWF0IGVsIHBlbmRlbnQgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4uIEVsIHBlbmRlbnQgw6lzIGVsIHF1ZSBtdWx0aXBsaWNhIGxhICR4JDsgbCdvcmRlbmFkYSwgZWwgdGVybWUgcXVlIHZhIHNvbC4iLCAiIl0sICJlcnIiOiBbIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiLCAiU0lHTkVfRklOQUwiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiJdLCAicmVzIjogWyJQZW5kZW50OiAkbT0tXFxkZnJhY3sxfXs0fSQiLCAiT3JkZW5hZGEgYSBsJ29yaWdlbjogJG49MiQiLCAiJHk9LVxcZGZyYWN7MX17NH14KzIkIl19"
@@ -1227,8 +1258,8 @@ window.FULL = {
     "$y=x-3$"
    ],
    "pistes": [
-    "El pendent diu quant puja o baixa la $y$ per cada unitat que avança la $x$.",
-    "L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on talla l'eix vertical."
+    "Una recta horitzontal no puja ni baixa: el pendent és $m=0$.",
+    "Amb $m=0$ l'equació queda $y=n$: tots els punts de la recta tenen la mateixa $y$. Compte: $x=\\ldots$ seria una recta vertical."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJVbmEgcmVjdGEgSE9SSVRaT05UQUwgw6lzICR5PSQgY29uc3RhbnQuIExhIGZvcm1hICR4PSQgY29uc3RhbnQgw6lzIHVuYSByZWN0YSB2ZXJ0aWNhbCwgaSBhcXVlbGxhIG5vIMOpcyBjYXAgZnVuY2nDsy4iLCAiSGFzIGludGVyY2FudmlhdCBlbCBwZW5kZW50IGkgbCdvcmRlbmFkYSBhIGwnb3JpZ2VuLiBFbCBwZW5kZW50IMOpcyBlbCBxdWUgbXVsdGlwbGljYSBsYSAkeCQ7IGwnb3JkZW5hZGEsIGVsIHRlcm1lIHF1ZSB2YSBzb2wuIiwgIiIsICJFbCBwZW5kZW50IHTDqSBlbCBzaWduZSBjYW52aWF0OiB1bmEgcmVjdGEgaG9yaXR6b250YWwgdMOpIHBlbmRlbnQgJDAkLCBubyAkMSQuIl0sICJlcnIiOiBbIlJFQ1RBX1ZFUlRJQ0FMX0NPTkZPU0EiLCAiUEVOREVOVF9PUkRFTkFEQV9JTlRFUkNBTlZJQVRTIiwgIiIsICJTSUdORV9QRU5ERU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIlBlbmRlbnQ6ICRtPTAkIiwgIk9yZGVuYWRhIGEgbCdvcmlnZW46ICRuPS0zJCIsICIkeT0tMyQiXX0="
@@ -1296,7 +1327,7 @@ window.FULL = {
    ],
    "pistes": [
     "Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.",
-    "Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$."
+    "Aquí $2x+1=-x+7$. Passa les $x$ a un costat i els nombres a l'altre. Després substitueix la $x$ a qualsevol de les dues rectes per trobar la $y$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gc3VydDogc3Vic3RpdHVlaXgtbGEgYSBxdWFsc2V2b2wgZGUgbGVzIGR1ZXMgcmVjdGVzIGkgY29tcHJvdmEgcXVlIGRvbmEgZWwgbWF0ZWl4IGEgdG90ZXMgZHVlcy4iLCAiQXF1ZXN0ZXMgc8OzbiBsZXMgZHVlcyBvcmRlbmFkZXMgYSBsJ29yaWdlbiwgw6lzIGEgZGlyLCBvbiB0YWxsYSBjYWRhIHJlY3RhIGwnZWl4ICRZJC4gRWwgcHVudCBkZSB0YWxsIGVudHJlIGVsbGVzIMOpcyBvbiBsZXMgZHVlcyAkeSQgY29pbmNpZGVpeGVuLiIsICJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpcy4gUHJpbWVyIHZhIGxhICR4JCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiIl0sICJlcnIiOiBbIlNVQlNUSVRVQ0lPX01BTF9GRVRBIiwgIk9SREVOQURFU19QRVJfVEFMTCIsICJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyIsICIiXSwgInJlcyI6IFsiJDJ4KzE9LXgrNyQiLCAiJHg9MiQiLCAiJHk9MlxcY2RvdDIrMT01JCIsICJQdW50IGRlIHRhbGw6ICQoMiw1KSQiXX0=",
@@ -1319,7 +1350,7 @@ window.FULL = {
    ],
    "pistes": [
     "Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.",
-    "Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$."
+    "Aquí $3x-2=x+2$. Passa les $x$ a un costat i els nombres a l'altre. Després substitueix la $x$ a qualsevol de les dues rectes per trobar la $y$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpcy4gUHJpbWVyIHZhIGxhICR4JCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiTGEgJHgkIMOpcyBjb3JyZWN0YSwgcGVyw7IgbGEgJHkkIG5vIHN1cnQ6IHN1YnN0aXR1ZWl4LWxhIGEgcXVhbHNldm9sIGRlIGxlcyBkdWVzIHJlY3RlcyBpIGNvbXByb3ZhIHF1ZSBkb25hIGVsIG1hdGVpeCBhIHRvdGVzIGR1ZXMuIiwgIiIsICJBcXVlc3RlcyBzw7NuIGxlcyBkdWVzIG9yZGVuYWRlcyBhIGwnb3JpZ2VuLCDDqXMgYSBkaXIsIG9uIHRhbGxhIGNhZGEgcmVjdGEgbCdlaXggJFkkLiBFbCBwdW50IGRlIHRhbGwgZW50cmUgZWxsZXMgw6lzIG9uIGxlcyBkdWVzICR5JCBjb2luY2lkZWl4ZW4uIl0sICJlcnIiOiBbIkNPT1JERU5BREVTX0lOVEVSQ0FOVklBREVTIiwgIlNVQlNUSVRVQ0lPX01BTF9GRVRBIiwgIiIsICJPUkRFTkFERVNfUEVSX1RBTEwiXSwgInJlcyI6IFsiJDN4LTI9eCsyJCIsICIkeD0yJCIsICIkeT0zXFxjZG90Mi0yPTQkIiwgIlB1bnQgZGUgdGFsbDogJCgyLDQpJCJdfQ==",
@@ -1342,10 +1373,10 @@ window.FULL = {
    ],
    "pistes": [
     "Al punt de tall les dues $y$ valen el mateix: iguala les dues expressions.",
-    "Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$."
+    "Aquí $-x+6=\\dfrac{1}{2}x+3$. Multiplica-ho tot per $2$ per treure el denominador i aïlla la $x$. Després substitueix la $x$ a qualsevol de les dues rectes per trobar la $y$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gc3VydDogc3Vic3RpdHVlaXgtbGEgYSBxdWFsc2V2b2wgZGUgbGVzIGR1ZXMgcmVjdGVzIGkgY29tcHJvdmEgcXVlIGRvbmEgZWwgbWF0ZWl4IGEgdG90ZXMgZHVlcy4iLCAiIiwgIkFxdWVzdGVzIHPDs24gbGVzIGR1ZXMgb3JkZW5hZGVzIGEgbCdvcmlnZW4sIMOpcyBhIGRpciwgb24gdGFsbGEgY2FkYSByZWN0YSBsJ2VpeCAkWSQuIEVsIHB1bnQgZGUgdGFsbCBlbnRyZSBlbGxlcyDDqXMgb24gbGVzIGR1ZXMgJHkkIGNvaW5jaWRlaXhlbi4iLCAiSGFzIHBvc2F0IGxlcyBjb29yZGVuYWRlcyBhbCByZXbDqXMuIFByaW1lciB2YSBsYSAkeCQgaSBkZXNwcsOpcyBsYSAkeSQuIl0sICJlcnIiOiBbIlNVQlNUSVRVQ0lPX01BTF9GRVRBIiwgIiIsICJPUkRFTkFERVNfUEVSX1RBTEwiLCAiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiXSwgInJlcyI6IFsiJC14KzY9XFxkZnJhY3sxfXsyfXgrMyQiLCAiJHg9MiQiLCAiJHk9LTFcXGNkb3QyKzY9NCQiLCAiUHVudCBkZSB0YWxsOiAkKDIsNCkkIl19",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gc3VydDogc3Vic3RpdHVlaXgtbGEgYSBxdWFsc2V2b2wgZGUgbGVzIGR1ZXMgcmVjdGVzIGkgY29tcHJvdmEgcXVlIGRvbmEgZWwgbWF0ZWl4IGEgdG90ZXMgZHVlcy4iLCAiIiwgIkFxdWVzdGVzIHPDs24gbGVzIGR1ZXMgb3JkZW5hZGVzIGEgbCdvcmlnZW4sIMOpcyBhIGRpciwgb24gdGFsbGEgY2FkYSByZWN0YSBsJ2VpeCAkWSQuIEVsIHB1bnQgZGUgdGFsbCBlbnRyZSBlbGxlcyDDqXMgb24gbGVzIGR1ZXMgJHkkIGNvaW5jaWRlaXhlbi4iLCAiSGFzIHBvc2F0IGxlcyBjb29yZGVuYWRlcyBhbCByZXbDqXMuIFByaW1lciB2YSBsYSAkeCQgaSBkZXNwcsOpcyBsYSAkeSQuIl0sICJlcnIiOiBbIlNVQlNUSVRVQ0lPX01BTF9GRVRBIiwgIiIsICJPUkRFTkFERVNfUEVSX1RBTEwiLCAiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiXSwgInJlcyI6IFsiJC14KzY9XFxkZnJhY3sxfXsyfXgrMyQiLCAiJHg9MiQiLCAiJHk9LTIrNj00JCIsICJQdW50IGRlIHRhbGw6ICQoMiw0KSQiXX0=",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues rectes: pendent -1 i ordenada 6; i pendent 0,5 i ordenada 3.</title><line class=\"fig-graella\" x1=\"62.4\" y1=\"190.0\" x2=\"62.4\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"157.6\" y1=\"190.0\" x2=\"157.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"186.2\" x2=\"190.0\" y2=\"186.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"91.0\" x2=\"190.0\" y2=\"91.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"43.3\" x2=\"190.0\" y2=\"43.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"138.6\" x2=\"190.0\" y2=\"138.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 138.6 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 110.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"152.571\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"112\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"62.4\" y=\"202\">-5</text><text x=\"110.0\" y=\"202\">0</text><text x=\"157.6\" y=\"202\">5</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"189.7\">-5</text><text x=\"24.0\" y=\"142.1\">0</text><text x=\"24.0\" y=\"94.5\">5</text><text x=\"24.0\" y=\"46.8\">10</text></g><path d=\"M 58.6 30.0 L 59.3 30.8 L 62.0 33.4 L 64.7 36.1 L 67.3 38.8 L 70.0 41.4 L 72.7 44.1 L 75.3 46.8 L 78.0 49.4 L 80.7 52.1 L 83.3 54.8 L 86.0 57.4 L 88.7 60.1 L 91.3 62.8 L 94.0 65.4 L 96.7 68.1 L 99.3 70.8 L 102.0 73.4 L 104.7 76.1 L 107.3 78.8 L 110.0 81.4 L 112.7 84.1 L 115.3 86.8 L 118.0 89.4 L 120.7 92.1 L 123.3 94.8 L 126.0 97.4 L 128.7 100.1 L 131.3 102.8 L 134.0 105.4 L 136.7 108.1 L 139.3 110.8 L 142.0 113.4 L 144.7 116.1 L 147.3 118.8 L 150.0 121.4 L 152.7 124.1 L 155.3 126.8 L 158.0 129.4 L 160.7 132.1 L 163.3 134.8 L 166.0 137.4 L 168.7 140.1 L 171.3 142.8 L 174.0 145.4 L 176.7 148.1 L 179.3 150.8 L 182.0 153.4 L 184.7 156.1 L 187.3 158.8 L 190.0 161.4\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/><path d=\"M 30.0 150.0 L 32.7 148.7 L 35.3 147.3 L 38.0 146.0 L 40.7 144.7 L 43.3 143.3 L 46.0 142.0 L 48.7 140.7 L 51.3 139.3 L 54.0 138.0 L 56.7 136.7 L 59.3 135.3 L 62.0 134.0 L 64.7 132.7 L 67.3 131.3 L 70.0 130.0 L 72.7 128.7 L 75.3 127.3 L 78.0 126.0 L 80.7 124.7 L 83.3 123.3 L 86.0 122.0 L 88.7 120.7 L 91.3 119.3 L 94.0 118.0 L 96.7 116.7 L 99.3 115.3 L 102.0 114.0 L 104.7 112.7 L 107.3 111.3 L 110.0 110.0 L 112.7 108.7 L 115.3 107.3 L 118.0 106.0 L 120.7 104.7 L 123.3 103.3 L 126.0 102.0 L 128.7 100.7 L 131.3 99.3 L 134.0 98.0 L 136.7 96.7 L 139.3 95.3 L 142.0 94.0 L 144.7 92.7 L 147.3 91.3 L 150.0 90.0 L 152.7 88.7 L 155.3 87.3 L 158.0 86.0 L 160.7 84.7 L 163.3 83.3 L 166.0 82.0 L 168.7 80.7 L 171.3 79.3 L 174.0 78.0 L 176.7 76.7 L 179.3 75.3 L 182.0 74.0 L 184.7 72.7 L 187.3 71.3 L 190.0 70.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   },
   {
@@ -1409,7 +1440,7 @@ window.FULL = {
    ],
    "pistes": [
     "La $c$ és el terme que no porta $x$.",
-    "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."
+    "Busca a $-2x^2+x$ algun terme sense $x$. Si no n'hi ha cap, quant val el que falta?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJyQxJCDDqXMgbGEgJGIkOiBlbCBjb2VmaWNpZW50IGRlIGxhICR4JC4gTGEgJGMkIMOpcyBlbCB0ZXJtZSBxdWUgdmEgc29sLCBzZW5zZSAkeCQuIiwgIsKrRWwgdGVybWUgbm8gaGkgYXBhcmVpeMK7IGkgwqtlbCBjb2VmaWNpZW50IG5vIGV4aXN0ZWl4wrsgbm8gc8OzbiBlbCBtYXRlaXguIFNpIG5vIGhpIHN1cnQgw6lzIHBlcnF1w6ggdmFsICQwJCwgaSBjYWwgY29tcHRhci1sbyBjb20gYSAkMCQgcXVhbiBzJ2FwbGljYSBxdWFsc2V2b2wgZsOzcm11bGEuIiwgIiIsICJFbCAkLTIkIMOpcyBsYSAkYSQ6IGVsIGNvZWZpY2llbnQgZGUgJHheMiQuIl0sICJlcnIiOiBbIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIiwgIk9SREVOQURBX05VTEFfT0JMSURBREEiLCAiIiwgIkNPRUZJQ0lFTlRfTUFMX1RSSUFUIl0sICJyZXMiOiBbIiR5PS0yeF4yKzF4KzBcXFJpZ2h0YXJyb3cgYz0wJCJdLCAiY29tIjogIlVuIGNvZWZpY2llbnQgcXVlIG5vIHMnZXNjcml1IG5vIMOpcyB1biBjb2VmaWNpZW50IHF1ZSBubyBoaSBzaWd1aTogdmFsICQwJCwgaSBhIGxlcyBmw7NybXVsZXMgcydoYSBkZSBjb21wdGFyIGNvbSBhICQwJC4ifQ=="
@@ -1497,7 +1528,7 @@ window.FULL = {
    ],
    "pistes": [
     "La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
-    "La $y$ s'obté substituint aquest valor a la funció."
+    "Aquí $a=1$ i $b=-6$: $x_v=\\dfrac{-(-6)}{2\\cdot1}$. Després substitueix la $x_v$ a la funció per trobar la $y$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpczogcHJpbWVyIGxhICR4JCBkZWwgdsOocnRleCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiVCdoYXMgZGVpeGF0IGVsIHNpZ25lIG1lbnlzOiAkeF92PVxcZGZyYWN7LWJ9ezJhfSQsIGkgYXF1w60gJGI9LTYkLiIsICJMYSAkeCQgZGVsIHbDqHJ0ZXggw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBjYWwgc3Vic3RpdHVpciAkeF92JCBhIGxhIGZ1bmNpw7MuIiwgIiJdLCAiZXJyIjogWyJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyIsICJTSUdORV9WRVJURVgiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiIl0sICJyZXMiOiBbIiR4X3Y9XFxkZnJhY3stKC02KX17MlxcY2RvdDF9PTMkIiwgIiR5X3Y9LTQkIiwgIlbDqHJ0ZXg6ICQoMywtNCkkIl19",
@@ -1520,10 +1551,10 @@ window.FULL = {
    ],
    "pistes": [
     "La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
-    "La $y$ s'obté substituint aquest valor a la funció."
+    "Aquí $a=2$ i $b=4$: $x_v=\\dfrac{-4}{2\\cdot2}$. Després substitueix la $x_v$ a la funció per trobar la $y$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpczogcHJpbWVyIGxhICR4JCBkZWwgdsOocnRleCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBlbCBzaWduZSBtZW55czogJHhfdj1cXGRmcmFjey1ifXsyYX0kLCBpIGFxdcOtICRiPTQkLiIsICJMYSAkeCQgZGVsIHbDqHJ0ZXggw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBjYWwgc3Vic3RpdHVpciAkeF92JCBhIGxhIGZ1bmNpw7MuIl0sICJlcnIiOiBbIkNPT1JERU5BREVTX0lOVEVSQ0FOVklBREVTIiwgIiIsICJTSUdORV9WRVJURVgiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey0oNCl9ezJcXGNkb3QyfT0tMSQiLCAiJHlfdj0tMyQiLCAiVsOocnRleDogJCgtMSwtMykkIl19",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpczogcHJpbWVyIGxhICR4JCBkZWwgdsOocnRleCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBlbCBzaWduZSBtZW55czogJHhfdj1cXGRmcmFjey1ifXsyYX0kLCBpIGFxdcOtICRiPTQkLiIsICJMYSAkeCQgZGVsIHbDqHJ0ZXggw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBjYWwgc3Vic3RpdHVpciAkeF92JCBhIGxhIGZ1bmNpw7MuIl0sICJlcnIiOiBbIkNPT1JERU5BREVTX0lOVEVSQ0FOVklBREVTIiwgIiIsICJTSUdORV9WRVJURVgiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey00fXsyXFxjZG90Mn09LTEkIiwgIiR5X3Y9LTMkIiwgIlbDqHJ0ZXg6ICQoLTEsLTMpJCJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 2·x² + 4·x - 1.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"50.0\" y1=\"190.0\" x2=\"50.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"70.0\" y1=\"190.0\" x2=\"70.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"90.0\" y1=\"190.0\" x2=\"90.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"170.0\" y1=\"190.0\" x2=\"170.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"181.8\" x2=\"190.0\" y2=\"181.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"161.3\" x2=\"190.0\" y2=\"161.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"120.3\" x2=\"190.0\" y2=\"120.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"99.7\" x2=\"190.0\" y2=\"99.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"58.7\" x2=\"190.0\" y2=\"58.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"38.2\" x2=\"190.0\" y2=\"38.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"140.8\" x2=\"190.0\" y2=\"140.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"130.0\" y1=\"190.0\" x2=\"130.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 140.8 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 130.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"154.769\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"132\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-5</text><text x=\"50.0\" y=\"202\">-4</text><text x=\"70.0\" y=\"202\">-3</text><text x=\"90.0\" y=\"202\">-2</text><text x=\"110.0\" y=\"202\">-1</text><text x=\"130.0\" y=\"202\">0</text><text x=\"150.0\" y=\"202\">1</text><text x=\"170.0\" y=\"202\">2</text><text x=\"190.0\" y=\"202\">3</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"185.3\">-4</text><text x=\"24.0\" y=\"164.8\">-2</text><text x=\"24.0\" y=\"144.3\">0</text><text x=\"24.0\" y=\"123.8\">2</text><text x=\"24.0\" y=\"103.2\">4</text><text x=\"24.0\" y=\"82.7\">6</text><text x=\"24.0\" y=\"62.2\">8</text><text x=\"24.0\" y=\"41.7\">10</text></g><path d=\"M 57.5 30.0 L 59.3 39.9 L 62.0 53.4 L 64.7 66.1 L 67.3 78.2 L 70.0 89.5 L 72.7 100.1 L 75.3 109.9 L 78.0 119.0 L 80.7 127.4 L 83.3 135.1 L 86.0 142.0 L 88.7 148.2 L 91.3 153.7 L 94.0 158.4 L 96.7 162.4 L 99.3 165.7 L 102.0 168.3 L 104.7 170.1 L 107.3 171.2 L 110.0 171.5 L 112.7 171.2 L 115.3 170.1 L 118.0 168.3 L 120.7 165.7 L 123.3 162.4 L 126.0 158.4 L 128.7 153.7 L 131.3 148.2 L 134.0 142.0 L 136.7 135.1 L 139.3 127.4 L 142.0 119.0 L 144.7 109.9 L 147.3 100.1 L 150.0 89.5 L 152.7 78.2 L 155.3 66.1 L 158.0 53.4 L 160.7 39.9 L 162.5 30.0\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   },
   {
@@ -1543,10 +1574,10 @@ window.FULL = {
    ],
    "pistes": [
     "La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
-    "La $y$ s'obté substituint aquest valor a la funció."
+    "Aquí $a=-1$ i $b=2$: $x_v=\\dfrac{-2}{2\\cdot(-1)}$. Compte: $a$ és negatiu, i el denominador també. Després substitueix la $x_v$ a la funció per trobar la $y$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgZWwgc2lnbmUgbWVueXM6ICR4X3Y9XFxkZnJhY3stYn17MmF9JCwgaSBhcXXDrSAkYj0yJC4iLCAiIiwgIkhhcyBwb3NhdCBsZXMgY29vcmRlbmFkZXMgYWwgcmV2w6lzOiBwcmltZXIgbGEgJHgkIGRlbCB2w6hydGV4IGkgZGVzcHLDqXMgbGEgJHkkLiIsICJMYSAkeCQgZGVsIHbDqHJ0ZXggw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBjYWwgc3Vic3RpdHVpciAkeF92JCBhIGxhIGZ1bmNpw7MuIl0sICJlcnIiOiBbIlNJR05FX1ZFUlRFWCIsICIiLCAiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey0oMil9ezJcXGNkb3QtMX09MSQiLCAiJHlfdj00JCIsICJWw6hydGV4OiAkKDEsNCkkIl19",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgZWwgc2lnbmUgbWVueXM6ICR4X3Y9XFxkZnJhY3stYn17MmF9JCwgaSBhcXXDrSAkYj0yJC4iLCAiIiwgIkhhcyBwb3NhdCBsZXMgY29vcmRlbmFkZXMgYWwgcmV2w6lzOiBwcmltZXIgbGEgJHgkIGRlbCB2w6hydGV4IGkgZGVzcHLDqXMgbGEgJHkkLiIsICJMYSAkeCQgZGVsIHbDqHJ0ZXggw6lzIGNvcnJlY3RhLCBwZXLDsiBsYSAkeSQgbm8gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBjYWwgc3Vic3RpdHVpciAkeF92JCBhIGxhIGZ1bmNpw7MuIl0sICJlcnIiOiBbIlNJR05FX1ZFUlRFWCIsICIiLCAiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey0yfXsyXFxjZG90KC0xKX09MSQiLCAiJHlfdj00JCIsICJWw6hydGV4OiAkKDEsNCkkIl19",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = -1·x² + 2·x + 3.</title><line class=\"fig-graella\" x1=\"30.0\" y1=\"190.0\" x2=\"30.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"50.0\" y1=\"190.0\" x2=\"50.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"70.0\" y1=\"190.0\" x2=\"70.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"130.0\" y1=\"190.0\" x2=\"130.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"150.0\" y1=\"190.0\" x2=\"150.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"170.0\" y1=\"190.0\" x2=\"170.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"190.0\" y1=\"190.0\" x2=\"190.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"156.2\" x2=\"190.0\" y2=\"156.2\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"117.7\" x2=\"190.0\" y2=\"117.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"40.8\" x2=\"190.0\" y2=\"40.8\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"79.2\" x2=\"190.0\" y2=\"79.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"90.0\" y1=\"190.0\" x2=\"90.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 79.2 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 90.0 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"93.2308\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"92\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"30.0\" y=\"202\">-3</text><text x=\"50.0\" y=\"202\">-2</text><text x=\"70.0\" y=\"202\">-1</text><text x=\"90.0\" y=\"202\">0</text><text x=\"110.0\" y=\"202\">1</text><text x=\"130.0\" y=\"202\">2</text><text x=\"150.0\" y=\"202\">3</text><text x=\"170.0\" y=\"202\">4</text><text x=\"190.0\" y=\"202\">5</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"159.7\">-10</text><text x=\"24.0\" y=\"121.2\">-5</text><text x=\"24.0\" y=\"82.7\">0</text><text x=\"24.0\" y=\"44.3\">5</text></g><path d=\"M 30.0 171.5 L 32.7 163.5 L 35.3 155.7 L 38.0 148.2 L 40.7 140.9 L 43.3 133.9 L 46.0 127.2 L 48.7 120.8 L 51.3 114.6 L 54.0 108.8 L 56.7 103.2 L 59.3 97.8 L 62.0 92.8 L 64.7 88.0 L 67.3 83.5 L 70.0 79.2 L 72.7 75.3 L 75.3 71.6 L 78.0 68.2 L 80.7 65.0 L 83.3 62.1 L 86.0 59.5 L 88.7 57.2 L 91.3 55.2 L 94.0 53.4 L 96.7 51.9 L 99.3 50.6 L 102.0 49.7 L 104.7 49.0 L 107.3 48.6 L 110.0 48.5 L 112.7 48.6 L 115.3 49.0 L 118.0 49.7 L 120.7 50.6 L 123.3 51.9 L 126.0 53.4 L 128.7 55.2 L 131.3 57.2 L 134.0 59.5 L 136.7 62.1 L 139.3 65.0 L 142.0 68.2 L 144.7 71.6 L 147.3 75.3 L 150.0 79.2 L 152.7 83.5 L 155.3 88.0 L 158.0 92.8 L 160.7 97.8 L 163.3 103.2 L 166.0 108.8 L 168.7 114.6 L 171.3 120.8 L 174.0 127.2 L 176.7 133.9 L 179.3 140.9 L 182.0 148.2 L 184.7 155.7 L 187.3 163.5 L 190.0 171.5\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   },
   {
@@ -1566,10 +1597,10 @@ window.FULL = {
    ],
    "pistes": [
     "La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
-    "La $y$ s'obté substituint aquest valor a la funció."
+    "Aquí $a=1$ i $b=8$: $x_v=\\dfrac{-8}{2\\cdot1}$. Després substitueix la $x_v$ a la funció per trobar la $y$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpczogcHJpbWVyIGxhICR4JCBkZWwgdsOocnRleCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiVCdoYXMgZGVpeGF0IGVsIHNpZ25lIG1lbnlzOiAkeF92PVxcZGZyYWN7LWJ9ezJhfSQsIGkgYXF1w60gJGI9OCQuIiwgIkxhICR4JCBkZWwgdsOocnRleCDDqXMgY29ycmVjdGEsIHBlcsOyIGxhICR5JCBubyDDqXMgZWwgdGVybWUgaW5kZXBlbmRlbnQ6IGNhbCBzdWJzdGl0dWlyICR4X3YkIGEgbGEgZnVuY2nDsy4iLCAiIl0sICJlcnIiOiBbIkNPT1JERU5BREVTX0lOVEVSQ0FOVklBREVTIiwgIlNJR05FX1ZFUlRFWCIsICJTVUJTVElUVUNJT19NQUxfRkVUQSIsICIiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey0oOCl9ezJcXGNkb3QxfT0tNCQiLCAiJHlfdj0tMjUkIiwgIlbDqHJ0ZXg6ICQoLTQsLTI1KSQiXX0=",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcG9zYXQgbGVzIGNvb3JkZW5hZGVzIGFsIHJldsOpczogcHJpbWVyIGxhICR4JCBkZWwgdsOocnRleCBpIGRlc3Byw6lzIGxhICR5JC4iLCAiVCdoYXMgZGVpeGF0IGVsIHNpZ25lIG1lbnlzOiAkeF92PVxcZGZyYWN7LWJ9ezJhfSQsIGkgYXF1w60gJGI9OCQuIiwgIkxhICR4JCBkZWwgdsOocnRleCDDqXMgY29ycmVjdGEsIHBlcsOyIGxhICR5JCBubyDDqXMgZWwgdGVybWUgaW5kZXBlbmRlbnQ6IGNhbCBzdWJzdGl0dWlyICR4X3YkIGEgbGEgZnVuY2nDsy4iLCAiIl0sICJlcnIiOiBbIkNPT1JERU5BREVTX0lOVEVSQ0FOVklBREVTIiwgIlNJR05FX1ZFUlRFWCIsICJTVUJTVElUVUNJT19NQUxfRkVUQSIsICIiXSwgInJlcyI6IFsiJHhfdj1cXGRmcmFjey04fXsyXFxjZG90MX09LTQkIiwgIiR5X3Y9LTI1JCIsICJWw6hydGV4OiAkKC00LC0yNSkkIl19",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Paràbola y = 1·x² + 8·x - 9.</title><line class=\"fig-graella\" x1=\"41.4\" y1=\"190.0\" x2=\"41.4\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"64.3\" y1=\"190.0\" x2=\"64.3\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"87.1\" y1=\"190.0\" x2=\"87.1\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"110.0\" y1=\"190.0\" x2=\"110.0\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"132.9\" y1=\"190.0\" x2=\"132.9\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"178.6\" y1=\"190.0\" x2=\"178.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"184.1\" x2=\"190.0\" y2=\"184.1\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"159.0\" x2=\"190.0\" y2=\"159.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"133.9\" x2=\"190.0\" y2=\"133.9\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"83.6\" x2=\"190.0\" y2=\"83.6\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"58.5\" x2=\"190.0\" y2=\"58.5\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"33.4\" x2=\"190.0\" y2=\"33.4\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"108.7\" x2=\"190.0\" y2=\"108.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"155.7\" y1=\"190.0\" x2=\"155.7\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 108.7 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 155.7 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"122.744\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"157.714\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"41.4\" y=\"202\">-10</text><text x=\"64.3\" y=\"202\">-8</text><text x=\"87.1\" y=\"202\">-6</text><text x=\"110.0\" y=\"202\">-4</text><text x=\"132.9\" y=\"202\">-2</text><text x=\"155.7\" y=\"202\">0</text><text x=\"178.6\" y=\"202\">2</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"187.6\">-30</text><text x=\"24.0\" y=\"162.5\">-20</text><text x=\"24.0\" y=\"137.4\">-10</text><text x=\"24.0\" y=\"112.2\">0</text><text x=\"24.0\" y=\"87.1\">10</text><text x=\"24.0\" y=\"62.0\">20</text><text x=\"24.0\" y=\"36.9\">30</text></g><path d=\"M 30.0 48.5 L 32.7 56.5 L 35.3 64.3 L 38.0 71.8 L 40.7 79.1 L 43.3 86.1 L 46.0 92.8 L 48.7 99.2 L 51.3 105.4 L 54.0 111.2 L 56.7 116.8 L 59.3 122.2 L 62.0 127.2 L 64.7 132.0 L 67.3 136.5 L 70.0 140.8 L 72.7 144.7 L 75.3 148.4 L 78.0 151.8 L 80.7 155.0 L 83.3 157.9 L 86.0 160.5 L 88.7 162.8 L 91.3 164.8 L 94.0 166.6 L 96.7 168.1 L 99.3 169.4 L 102.0 170.3 L 104.7 171.0 L 107.3 171.4 L 110.0 171.5 L 112.7 171.4 L 115.3 171.0 L 118.0 170.3 L 120.7 169.4 L 123.3 168.1 L 126.0 166.6 L 128.7 164.8 L 131.3 162.8 L 134.0 160.5 L 136.7 157.9 L 139.3 155.0 L 142.0 151.8 L 144.7 148.4 L 147.3 144.7 L 150.0 140.8 L 152.7 136.5 L 155.3 132.0 L 158.0 127.2 L 160.7 122.2 L 163.3 116.8 L 166.0 111.2 L 168.7 105.4 L 171.3 99.2 L 174.0 92.8 L 176.7 86.1 L 179.3 79.1 L 182.0 71.8 L 184.7 64.3 L 187.3 56.5 L 190.0 48.5\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
   },
   {
@@ -1588,8 +1619,8 @@ window.FULL = {
     "Amb $X$: $(2,0)$, $(3,0)$. Amb $Y$: $(0,-6)$."
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ surten de resoldre $y=0$.",
-    "El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent."
+    "Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix $Y$, de substituir $x=0$.",
+    "Aquí $x^2-5x+6=0$, amb $\\Delta=(-5)^2-4\\cdot1\\cdot6=1$. Els punts de l'eix $X$ s'escriuen $(x,0)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbHMgdGFsbHMgYW1iIGwnZWl4ICRYJCB0ZW5lbiBsYSBzZWdvbmEgY29vcmRlbmFkYSBpZ3VhbCBhICQwJCwgbm8gbGEgcHJpbWVyYTogc8OzbiBkZSBsYSBmb3JtYSAkKHgsMCkkLiIsICJFbHMgdGFsbHMgYW1iIGwnZWl4ICRYJCB0ZW5lbiBlbCBzaWduZSBjYW52aWF0LiBDb21wcm92YSdscyBzdWJzdGl0dWludC1sb3M6IGhhbiBkZSBmZXIgcXVlICR5JCB2YWxndWkgJDAkLiIsICIiLCAiRWwgdGFsbCBhbWIgbCdlaXggJFkkIMOpcyBlbCB2YWxvciBkZSBsYSBmdW5jacOzIGEgJHg9MCQsIHF1ZSDDqXMgZWwgdGVybWUgaW5kZXBlbmRlbnQgdGFsIGNvbSDDqXM6ICQ2JC4iXSwgImVyciI6IFsiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiLCAiU0lHTkVfQVJSRUxTIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyIkeF4yLTV4KzY9MCQgZG9uYSAkeD0yLFxcOzMkIiwgIlRhbGxzIGFtYiAkWCQ6ICQoMiwwKSQsICQoMywwKSQiLCAiQSAkeD0wJDogJHk9NiQsIG8gc2lndWkgZWwgcHVudCAkKDAsNikkIl19"
@@ -1610,8 +1641,8 @@ window.FULL = {
     "Amb $X$: $(0,-4)$, $(0,2)$. Amb $Y$: $(0,-8)$."
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ surten de resoldre $y=0$.",
-    "El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent."
+    "Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix $Y$, de substituir $x=0$.",
+    "Aquí $x^2+2x-8=0$, amb $\\Delta=2^2-4\\cdot1\\cdot(-8)=36$. Els punts de l'eix $X$ s'escriuen $(x,0)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbHMgdGFsbHMgYW1iIGwnZWl4ICRYJCB0ZW5lbiBlbCBzaWduZSBjYW52aWF0LiBDb21wcm92YSdscyBzdWJzdGl0dWludC1sb3M6IGhhbiBkZSBmZXIgcXVlICR5JCB2YWxndWkgJDAkLiIsICJFbCB0YWxsIGFtYiBsJ2VpeCAkWSQgw6lzIGVsIHZhbG9yIGRlIGxhIGZ1bmNpw7MgYSAkeD0wJCwgcXVlIMOpcyBlbCB0ZXJtZSBpbmRlcGVuZGVudCB0YWwgY29tIMOpczogJC04JC4iLCAiIiwgIkVscyB0YWxscyBhbWIgbCdlaXggJFgkIHRlbmVuIGxhIHNlZ29uYSBjb29yZGVuYWRhIGlndWFsIGEgJDAkLCBubyBsYSBwcmltZXJhOiBzw7NuIGRlIGxhIGZvcm1hICQoeCwwKSQuIl0sICJlcnIiOiBbIlNJR05FX0FSUkVMUyIsICJTSUdORV9GSU5BTCIsICIiLCAiQ09PUkRFTkFERVNfSU5URVJDQU5WSUFERVMiXSwgInJlcyI6IFsiJHheMisyeC04PTAkIGRvbmEgJHg9LTQsXFw7MiQiLCAiVGFsbHMgYW1iICRYJDogJCgtNCwwKSQsICQoMiwwKSQiLCAiQSAkeD0wJDogJHk9LTgkLCBvIHNpZ3VpIGVsIHB1bnQgJCgwLC04KSQiXX0="
@@ -1632,8 +1663,8 @@ window.FULL = {
     "Amb $X$: $(0,2)$. Amb $Y$: $(0,4)$."
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ surten de resoldre $y=0$.",
-    "El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme independent."
+    "Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix $Y$, de substituir $x=0$.",
+    "Aquí $x^2-4x+4=0$, amb $\\Delta=(-4)^2-4\\cdot1\\cdot4=0$. Els punts de l'eix $X$ s'escriuen $(x,0)$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbHMgdGFsbHMgYW1iIGwnZWl4ICRYJCB0ZW5lbiBlbCBzaWduZSBjYW52aWF0LiBDb21wcm92YSdscyBzdWJzdGl0dWludC1sb3M6IGhhbiBkZSBmZXIgcXVlICR5JCB2YWxndWkgJDAkLiIsICJFbCB0YWxsIGFtYiBsJ2VpeCAkWSQgw6lzIGVsIHZhbG9yIGRlIGxhIGZ1bmNpw7MgYSAkeD0wJCwgcXVlIMOpcyBlbCB0ZXJtZSBpbmRlcGVuZGVudCB0YWwgY29tIMOpczogJDQkLiIsICIiLCAiRWxzIHRhbGxzIGFtYiBsJ2VpeCAkWCQgdGVuZW4gbGEgc2Vnb25hIGNvb3JkZW5hZGEgaWd1YWwgYSAkMCQsIG5vIGxhIHByaW1lcmE6IHPDs24gZGUgbGEgZm9ybWEgJCh4LDApJC4iXSwgImVyciI6IFsiU0lHTkVfQVJSRUxTIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyJdLCAicmVzIjogWyIkeF4yLTR4KzQ9MCQgZG9uYSAkeD0yJCIsICJUYWxscyBhbWIgJFgkOiAkKDIsMCkkIiwgIkEgJHg9MCQ6ICR5PTQkLCBvIHNpZ3VpIGVsIHB1bnQgJCgwLDQpJCJdfQ=="
@@ -1788,7 +1819,8 @@ window.FULL = {
     "Oberta cap amunt i més estreta que $y=x^2$."
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.",
+    "Aquí $a=2$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: $y=x^2$ val $1$ i aquesta, $2$. La que s'allunya més de pressa de l'eix $X$ és la més estreta."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9MiQuIiwgIkVsIHNpZ25lIGRlICRhJCBkZXRlcm1pbmEgbCdvYmVydHVyYTogcG9zaXRpdSDDqXMgY2FwIGFtdW50LCBuZWdhdGl1IGNhcCBhdmFsbC4gQXF1w60gJGE9MiQuIiwgIkNvbSBtw6lzIGdyYW4gw6lzICR8YXwkLCBtw6lzIEVTVFJFVEEgw6lzIGxhIHBhcsOgYm9sYSAobm8gbcOpcyBhbXBsYSk6IGFxdcOtICR8YXw9MiQsIHF1ZSDDqXMgbcOpcyBncmFuIHF1ZSAkMSQuIiwgIiJdLCAiZXJyIjogWyJPQkVSVFVSQV9JX0FNUExBREFfSU5WRVJUSURFUyIsICJPQkVSVFVSQV9JTlZFUlRJREEiLCAiQU1QTEFEQV9JTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIkEgJHk9MnheMiQsICRhPTIkLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9MiQgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLCBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgZXN0cmV0YSBxdWUgJHk9eF4yJC4iXX0="
@@ -1809,7 +1841,8 @@ window.FULL = {
     "Oberta cap amunt i més estreta que $y=x^2$."
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.",
+    "Aquí $a=\\dfrac{1}{2}$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: $y=x^2$ val $1$ i aquesta, $\\dfrac{1}{2}$. La que s'allunya més de pressa de l'eix $X$ és la més estreta."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVGFudCBsJ29iZXJ0dXJhIGNvbSBsJ2FtcGxhZGEgZXN0YW4gaW52ZXJ0aWRlcyByZXNwZWN0ZSBhICRhPVxcZGZyYWN7MX17Mn0kLiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17Mn0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXsyfSQsICRhPVxcZGZyYWN7MX17Mn0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXsyfSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
@@ -1830,7 +1863,8 @@ window.FULL = {
     "Oberta cap amunt i més estreta que $y=x^2$."
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.",
+    "Aquí $a=-2$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: $y=x^2$ val $1$ i aquesta, $-2$. La que s'allunya més de pressa de l'eix $X$ és la més estreta."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PTIkLCBxdWUgw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9LTIkLiIsICIiLCAiRWwgc2lnbmUgZGUgJGEkIGRldGVybWluYSBsJ29iZXJ0dXJhOiBwb3NpdGl1IMOpcyBjYXAgYW11bnQsIG5lZ2F0aXUgY2FwIGF2YWxsLiBBcXXDrSAkYT0tMiQuIl0sICJlcnIiOiBbIkFNUExBREFfSU5WRVJUSURBIiwgIk9CRVJUVVJBX0lfQU1QTEFEQV9JTlZFUlRJREVTIiwgIiIsICJPQkVSVFVSQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiQSAkeT0tMnheMiQsICRhPS0yJC4iLCAiQ29tIHF1ZSAkYSQgw6lzIG5lZ2F0aXUsIGxhIHBhcsOgYm9sYSDDqXMgb2JlcnRhIGNhcCBhdmFsbC4iLCAiQ29tIHF1ZSAkfGF8PTIkIMOpcyBtw6lzIGdyYW4gcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGVzdHJldGEgcXVlICR5PXheMiQuIl19"
@@ -1851,7 +1885,8 @@ window.FULL = {
     "Oberta cap amunt i més estreta que $y=x^2$."
    ],
    "pistes": [
-    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada."
+    "El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor absolut de $a$ comparat amb $1$ determina l'amplada.",
+    "Aquí $a=\\dfrac{1}{4}$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: $y=x^2$ val $1$ i aquesta, $\\dfrac{1}{4}$. La que s'allunya més de pressa de l'eix $X$ és la més estreta."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUYW50IGwnb2JlcnR1cmEgY29tIGwnYW1wbGFkYSBlc3RhbiBpbnZlcnRpZGVzIHJlc3BlY3RlIGEgJGE9XFxkZnJhY3sxfXs0fSQuIiwgIiIsICJFbCBzaWduZSBkZSAkYSQgZGV0ZXJtaW5hIGwnb2JlcnR1cmE6IHBvc2l0aXUgw6lzIGNhcCBhbXVudCwgbmVnYXRpdSBjYXAgYXZhbGwuIEFxdcOtICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gbcOpcyBncmFuIMOpcyAkfGF8JCwgbcOpcyBFU1RSRVRBIMOpcyBsYSBwYXLDoGJvbGEgKG5vIG3DqXMgYW1wbGEpOiBhcXXDrSAkfGF8PVxcZGZyYWN7MX17NH0kLCBxdWUgw6lzIG3DqXMgcGV0aXQgcXVlICQxJC4iXSwgImVyciI6IFsiT0JFUlRVUkFfSV9BTVBMQURBX0lOVkVSVElERVMiLCAiIiwgIk9CRVJUVVJBX0lOVkVSVElEQSIsICJBTVBMQURBX0lOVkVSVElEQSJdLCAicmVzIjogWyJBICR5PVxcZGZyYWN7eF4yfXs0fSQsICRhPVxcZGZyYWN7MX17NH0kLiIsICJDb20gcXVlICRhJCDDqXMgcG9zaXRpdSwgbGEgcGFyw6Bib2xhIMOpcyBvYmVydGEgY2FwIGFtdW50LiIsICJDb20gcXVlICR8YXw9XFxkZnJhY3sxfXs0fSQgw6lzIG3DqXMgcGV0aXQgcXVlICQxJCwgbGEgcGFyw6Bib2xhIMOpcyBtw6lzIGFtcGxhIHF1ZSAkeT14XjIkLiJdfQ=="
@@ -1872,7 +1907,8 @@ window.FULL = {
     "$c=-2$"
    ],
    "pistes": [
-    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$.",
+    "Comprova-ho substituint $x=0$ a $y=x^2+c$: quina $y$ surt? Ha de ser la del vèrtex, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgdsOocnRleCBkZSAkeT14XjIrYyQgw6lzIHNlbXByZSBlbCBwdW50ICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBlbCB2YWxvciBkZSAkYyQgw6lzICQtMSQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIiRjJCBubyDDqXMgJDAkOiBlbCB2w6hydGV4IGRlICR5PXheMiQgKHNlbnNlIHN1bWFyIHJlcykgc2VyaWEgJCgwLDApJCwgaSBhcXXDrSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgLTEpJCwgbm8gbCdvcmlnZW4uIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIC0xKSQgZG9uYSBkaXJlY3RhbWVudCAkYz0tMSQsIHNlbnNlIG5lY2Vzc2l0YXQgZGUgbXVsdGlwbGljYXItbG8gcGVyIGNhcCBhbHRyZSBub21icmUuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJURVJNRV9JTkRFUEVOREVOVF9JR05PUkFUIiwgIlZBTE9SX0RVUExJQ0FUIl0sICJyZXMiOiBbIkNvbXBhcmFudCAkeT14XjIrYyQgYW1iICR5PXheMiQsIHN1bWFyICRjJCBkZXNwbGHDp2EgdG90YSBsYSBwYXLDoGJvbGEgJGMkIHVuaXRhdHMgYW11bnQgKHNpICRjPjAkKSBvIGF2YWxsIChzaSAkYzwwJCksIHNlbnNlIG1vdXJlLWxhIGhvcml0em9udGFsbWVudC4iLCAiUGVyIGFpeMOyIGVsIHbDqHJ0ZXggcGFzc2EgZGUgJCgwLDApJCBhICQoMCxjKSQ6IHNpIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAtMSkkLCBhbGVzaG9yZXMgJGM9LTEkLiJdfQ==",
@@ -1894,7 +1930,8 @@ window.FULL = {
     "$c=4$"
    ],
    "pistes": [
-    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$."
+    "El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt $(0,c)$: la segona coordenada del vèrtex ÉS el valor de $c$.",
+    "Comprova-ho substituint $x=0$ a $y=x^2+c$: quina $y$ surt? Ha de ser la del vèrtex, amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJGMkIG5vIMOpcyAkMCQ6IGVsIHbDqHJ0ZXggZGUgJHk9eF4yJCAoc2Vuc2Ugc3VtYXIgcmVzKSBzZXJpYSAkKDAsMCkkLCBpIGFxdcOtIGVsIHbDqHJ0ZXggZG9uYXQgw6lzICQoMCxcXCAyKSQsIG5vIGwnb3JpZ2VuLiIsICJFbCB2w6hydGV4IGRlICR5PXheMitjJCDDqXMgc2VtcHJlIGVsIHB1bnQgJCgwLGMpJDogc2kgZWwgdsOocnRleCBkb25hdCDDqXMgJCgwLFxcIDIpJCwgZWwgdmFsb3IgZGUgJGMkIMOpcyAkMiQsIGFtYiBlbCBtYXRlaXggc2lnbmUuIiwgIkVsIHbDqHJ0ZXggJCgwLFxcIDIpJCBkb25hIGRpcmVjdGFtZW50ICRjPTIkLCBzZW5zZSBuZWNlc3NpdGF0IGRlIG11bHRpcGxpY2FyLWxvIHBlciBjYXAgYWx0cmUgbm9tYnJlLiJdLCAiZXJyIjogWyIiLCAiVEVSTUVfSU5ERVBFTkRFTlRfSUdOT1JBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9EVVBMSUNBVCJdLCAicmVzIjogWyJDb21wYXJhbnQgJHk9eF4yK2MkIGFtYiAkeT14XjIkLCBzdW1hciAkYyQgZGVzcGxhw6dhIHRvdGEgbGEgcGFyw6Bib2xhICRjJCB1bml0YXRzIGFtdW50IChzaSAkYz4wJCkgbyBhdmFsbCAoc2kgJGM8MCQpLCBzZW5zZSBtb3VyZS1sYSBob3JpdHpvbnRhbG1lbnQuIiwgIlBlciBhaXjDsiBlbCB2w6hydGV4IHBhc3NhIGRlICQoMCwwKSQgYSAkKDAsYykkOiBzaSBlbCB2w6hydGV4IGRvbmF0IMOpcyAkKDAsXFwgMikkLCBhbGVzaG9yZXMgJGM9MiQuIl19",
@@ -1916,7 +1953,8 @@ window.FULL = {
     "És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex fora de l'eix $Y$."
    ],
    "pistes": [
-    "Abans de decidir de quin tipus de funció es tracta, redueix els termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$."
+    "Abans de decidir de quin tipus de funció es tracta, redueix els termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$.",
+    "Un cop reduït, mira el coeficient de $x^2$: el signe diu cap on obre i, comparat amb $1$, si és més estreta o més ampla que $y=x^2$. Sense terme en $x$, el vèrtex és a l'eix $Y$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgY29lZmljaWVudCBkZSAkeF4yJCDDqXMgJC0yJCwgaSAkfC0yfD0yPjEkOiBsYSBwYXLDoGJvbGEgw6lzIG3DqXMgRVNUUkVUQSBxdWUgJHk9eF4yJCwgbm8gbcOpcyBhbXBsYS4iLCAiJHheMi0zeF4yJCDDqXMgdW5hIHJlc3RhIG9uIGVsIHNlZ29uIHRlcm1lIMOpcyBtw6lzIGdyYW46IGVsIHJlc3VsdGF0IMOpcyBuZWdhdGl1LCAkLTJ4XjIkLCBubyAkMnheMiQuIiwgIkVscyBkb3MgdGVybWVzICR4XjIkIGkgJC0zeF4yJCBzw7NuIHRlcm1lcyBTRU1CTEFOVFMgKHRvdHMgZG9zIGVuICR4XjIkKSBpIHMnaGFuIGRlIHJlZHVpciBqdW50cywgY29tIHVuIHNvbCB0ZXJtZSAkLTJ4XjIkOyBhIGwnZXhwcmVzc2nDsyBvcmlnaW5hbCBubyBoaSBoYSBjYXAgdGVybWUgZW4gJHgkIChhIGxhIHByaW1lcmEgcG90w6huY2lhKSwgYWl4w60gcXVlIG5vIGVuIHBvdCBxdWVkYXIgY2FwIGRlc3Byw6lzIGRlIHJlZHVpci4iXSwgImVyciI6IFsiIiwgIkFNUExBREFfSU5WRVJUSURBIiwgIlNJR05FX0ZJTkFMIiwgIlRFUk1FU19OT19SRURVSVRTIl0sICJyZXMiOiBbIlJlZHVpbnQgdGVybWVzIHNlbWJsYW50czogJHheMi0zeF4yPS0yeF4yJCwgYWl4w60gcXVlIGwnZXhwcmVzc2nDsyDDqXMgJHk9LTJ4XjIrNCQuIiwgIsOJcyB1bmEgcGFyw6Bib2xhICh0w6kgdGVybWUgZW4gJHheMiQpLCBzZW5zZSB0ZXJtZSBlbiAkeCQgKHBlciB0YW50IHNpbcOodHJpY2EgcmVzcGVjdGUgYSBsJ2VpeCAkWSQpLiIsICJFbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkLTIkOiBuZWdhdGl1LCBvYmVydGEgY2FwIGF2YWxsOyAkfC0yfD4xJCwgbcOpcyBlc3RyZXRhIHF1ZSAkeT14XjIkLiIsICJFbCB2w6hydGV4IMOpcyAkKDAsNCkkLCBqYSBxdWUgbm8gaGkgaGEgdGVybWUgZW4gJHgkLiJdfQ=="
@@ -1937,7 +1975,8 @@ window.FULL = {
     "No té cap terme en $x^2$ escrit, però és una paràbola amb $a=0$: oberta cap avall, decreixent."
    ],
    "pistes": [
-    "Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta."
+    "Si l'expressió no té cap terme en $x^2$, no és una paràbola: és una recta.",
+    "Llavors mira el pendent (el número que multiplica la $x$, amb el seu signe) i l'ordenada a l'origen (el terme sense $x$, també amb el seu signe)."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50ICQtMSQgw6lzIG5lZ2F0aXU6IGxhIHJlY3RhIMOpcyBkZWNyZWl4ZW50LCBubyBjcmVpeGVudC4iLCAiIiwgIkVsIHRlcm1lIGluZGVwZW5kZW50IGRlICQteC0zJCDDqXMgJC0zJCAobmVnYXRpdSksIG5vICQzJDogbGEgcmVjdGEgdGFsbGEgbCdlaXggJFkkIGVuICQoMCwtMykkLiIsICJTaSBlbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkMCQsIGwnZXhwcmVzc2nDsyBkZWl4YSBkZSBzZXIgdW5hIHBhcsOgYm9sYTogc2Vuc2UgdGVybWUgZW4gJHheMiQsIMOpcyB1bmEgcmVjdGEgKGZ1bmNpw7MgYWbDrSksIG5vIHVuYSBwYXLDoGJvbGEgZXh0cmVtYW1lbnQgb2JlcnRhLiJdLCAiZXJyIjogWyJTSUdORV9QRU5ERU5UX0lOVkVSVElUIiwgIiIsICJTSUdORV9PUkRFTkFEQV9JTlZFUlRJVCIsICJQQVJBQk9MQV9BTUJfQV9aRVJPIl0sICJyZXMiOiBbIiR5PS14LTMkIG5vIHTDqSB0ZXJtZSBlbiAkeF4yJDogw6lzIHVuYSBmdW5jacOzIGFmw60gKHJlY3RhKSwgbm8gdW5hIHBhcsOgYm9sYS4iLCAiRWwgcGVuZGVudCDDqXMgJC0xJCAobmVnYXRpdSwgcGVyIHRhbnQgZGVjcmVpeGVudCkgaSBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzICQtMyQuIl19"
@@ -1958,7 +1997,8 @@ window.FULL = {
     "$y=x^2+1$"
    ],
    "pistes": [
-    "El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix l'altre punt a $y=ax^2+c$ per trobar $a$."
+    "El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix l'altre punt a $y=ax^2+c$ per trobar $a$.",
+    "Amb $c=1$, substitueix $x=1$ i $y=2$ a $y=ax^2+1$ i aïlla $a$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTdWJzdGl0dWludCBlbCBwdW50ICQoMSwyKSQgYSAkeT1heF4yKzEkOiAkMj1hXFxjZG90IDFeMisxJCwgcXVlIGRvbmEgJGE9MSQsIG5vICRhPTIkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgdMOpIGxhIHNlZ29uYSBjb29yZGVuYWRhIHBvc2l0aXZhOiAkYz0xJCwgbm8gJGM9LTEkLiIsICJFbCB2w6hydGV4ICQoMCwxKSQgamEgZGl1IGRpcmVjdGFtZW50IHF1ZSAkYz0xJDogZWwgJDIkIMOpcyBsYSAkeSQgZGVsIHB1bnQgJCgxLDIpJCwgbm8gZWwgdmFsb3IgZGUgJGMkLiIsICIiXSwgImVyciI6IFsiQ09FRklDSUVOVF9BX01BTF9DQUxDVUxBVCIsICJTSUdORV9GSU5BTCIsICJWQUxPUl9DX0NPTkZPUyIsICIiXSwgInJlcyI6IFsiRWwgdsOocnRleCAkKDAsMSkkIGRvbmEgJGM9MSQ6IGwnZXhwcmVzc2nDsyDDqXMgJHk9YXheMisxJC4iLCAiU3Vic3RpdHVpbnQgZWwgcHVudCAkKDEsMikkOiAkMj1hXFxjZG90IDFeMisxJCwgcGVyIHRhbnQgJGE9MSQuIiwgIkwnZXhwcmVzc2nDsyDDqXMgJHk9eF4yKzEkLiJdfQ==",
@@ -1980,7 +2020,8 @@ window.FULL = {
     "$\\text{talls: }(0,\\ 0),\\ (-3,\\ 0);\\ \\text{eix }x=-\\dfrac{3}{2};\\ \\text{vèrtex }\\left(-\\dfrac{3}{2},\\ \\dfrac{9}{4}\\right)$"
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.",
+    "Traient factor comú, $-x^2-3x=x(-x-3)$: iguala cada factor a zero. Després, substitueix la $x$ de l'eix a l'expressió per trobar la $y$ del vèrtex."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiIsICJDb20gcXVlIGwnZXhwcmVzc2nDsyBubyB0w6kgdGVybWUgaW5kZXBlbmRlbnQgKG5vIGhpIGhhICQrYyQpLCBsYSBwYXLDoGJvbGEgc2VtcHJlIHBhc3NhIHBlciBsJ29yaWdlbjogJCgwLDApJCB0YW1iw6kgw6lzIHVuIHRhbGwgYW1iIGVscyBlaXhvcywgbm8gbm9tw6lzIGwnYWx0cmEgYXJyZWwuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlNJR05FX0ZJTkFMIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkLXheMi0zeD14KC14LTMpJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD0tMyQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkKC0zLFxcIDApJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PS1cXGRmcmFjezN9ezJ9JC4iLCAiRWwgdsOocnRleCDDqXMgJFxcbGVmdCgtXFxkZnJhY3szfXsyfSxcXCBcXGRmcmFjezl9ezR9XFxyaWdodCkkLCBzdWJzdGl0dWludCAkeD0tXFxkZnJhY3szfXsyfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
@@ -2002,7 +2043,8 @@ window.FULL = {
     "$\\text{talls: }\\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{9}\\right)$"
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.",
+    "Traient factor comú, $x^2-\\dfrac23x=x(x-\\dfrac{2}{3})$: iguala cada factor a zero. Després, substitueix la $x$ de l'eix a l'expressió per trobar la $y$ del vèrtex."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiRUlYX1NJTUVUUklBX01BTF9DQUxDVUxBVCIsICJUQUxMX09SSUdFTl9PQkxJREFUIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yLVxcZGZyYWMyM3g9eCh4LVxcZGZyYWN7Mn17M30pJCwgcXVlIGRvbmEgJHg9MCQgaSAkeD1cXGRmcmFjezJ9ezN9JC4iLCAiVGFsbHMgYW1iIGVscyBlaXhvczogJCgwLFxcIDApJCBpICRcXGxlZnQoXFxkZnJhY3syfXszfSxcXCAwXFxyaWdodCkkLiIsICJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgcHVudCBtaWcgZGUgbGVzIGFycmVsczogJHg9XFxkZnJhY3sxfXszfSQuIiwgIkVsIHbDqHJ0ZXggw6lzICRcXGxlZnQoXFxkZnJhY3sxfXszfSxcXCAtXFxkZnJhY3sxfXs5fVxccmlnaHQpJCwgc3Vic3RpdHVpbnQgJHg9XFxkZnJhY3sxfXszfSQgYSBsJ2V4cHJlc3Npw7MuIl19",
@@ -2024,7 +2066,8 @@ window.FULL = {
     "$\\text{talls: }(0,\\ 0),\\ \\left(\\dfrac{2}{3},\\ 0\\right);\\ \\text{eix }x=\\dfrac{1}{3};\\ \\text{vèrtex }\\left(\\dfrac{1}{3},\\ -\\dfrac{1}{6}\\right)$"
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.",
+    "Traient factor comú, $\\dfrac32x^2-x=x(\\dfrac{3}{2}x-1)$: iguala cada factor a zero. Després, substitueix la $x$ de l'eix a l'expressió per trobar la $y$ del vèrtex."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICJMYSAkeSQgZGVsIHbDqHJ0ZXggcydvYnTDqSBzdWJzdGl0dWludCBsYSAkeCQgZGVsIHbDqHJ0ZXggYSBsJ2V4cHJlc3Npw7Mgb3JpZ2luYWw6IGNhbCBjYWxjdWxhci1sYSwgbm8gbm9tw6lzIGNhbnZpYXItbmUgZWwgc2lnbmUuIiwgIiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiU0lHTkVfRklOQUwiLCAiIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkXFxkZnJhYzMyeF4yLXg9eChcXGRmcmFjezN9ezJ9eC0xKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9XFxkZnJhY3syfXszfSQuIiwgIlRhbGxzIGFtYiBlbHMgZWl4b3M6ICQoMCxcXCAwKSQgaSAkXFxsZWZ0KFxcZGZyYWN7Mn17M30sXFwgMFxccmlnaHQpJC4iLCAiTCdlaXggZGUgc2ltZXRyaWEgcGFzc2EgcGVsIHB1bnQgbWlnIGRlIGxlcyBhcnJlbHM6ICR4PVxcZGZyYWN7MX17M30kLiIsICJFbCB2w6hydGV4IMOpcyAkXFxsZWZ0KFxcZGZyYWN7MX17M30sXFwgLVxcZGZyYWN7MX17Nn1cXHJpZ2h0KSQsIHN1YnN0aXR1aW50ICR4PVxcZGZyYWN7MX17M30kIGEgbCdleHByZXNzacOzLiJdfQ==",
@@ -2046,7 +2089,8 @@ window.FULL = {
     "$\\text{talls: }(0,\\ 0),\\ (-2,\\ 0);\\ \\text{eix }x=-1;\\ \\text{vèrtex }(-1,\\ 1)$"
    ],
    "pistes": [
-    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions."
+    "Els talls amb l'eix $X$ són les solucions de l'equació de segon grau (traient factor comú $x$, ja que no hi ha terme independent); l'eix de simetria passa pel punt mig entre aquestes dues solucions.",
+    "Traient factor comú, $x^2+2x=x(x+2)$: iguala cada factor a zero. Després, substitueix la $x$ de l'eix a l'expressió per trobar la $y$ del vèrtex."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VpeCBkZSBzaW1ldHJpYSBwYXNzYSBwZWwgUFVOVCBNSUcgZW50cmUgbGVzIGR1ZXMgYXJyZWxzLCBubyBwZXIgdW5hIGRlIGxlcyBhcnJlbHM6IGNvbSBxdWUgdW5hIGFycmVsIMOpcyAkMCQsIGVsIHB1bnQgbWlnIMOpcyBsYSBtZWl0YXQgZGUgbCdhbHRyYSBhcnJlbC4iLCAiQ29tIHF1ZSBsJ2V4cHJlc3Npw7Mgbm8gdMOpIHRlcm1lIGluZGVwZW5kZW50IChubyBoaSBoYSAkK2MkKSwgbGEgcGFyw6Bib2xhIHNlbXByZSBwYXNzYSBwZXIgbCdvcmlnZW46ICQoMCwwKSQgdGFtYsOpIMOpcyB1biB0YWxsIGFtYiBlbHMgZWl4b3MsIG5vIG5vbcOpcyBsJ2FsdHJhIGFycmVsLiIsICIiLCAiTGEgJHkkIGRlbCB2w6hydGV4IHMnb2J0w6kgc3Vic3RpdHVpbnQgbGEgJHgkIGRlbCB2w6hydGV4IGEgbCdleHByZXNzacOzIG9yaWdpbmFsOiBjYWwgY2FsY3VsYXItbGEsIG5vIG5vbcOpcyBjYW52aWFyLW5lIGVsIHNpZ25lLiJdLCAiZXJyIjogWyJFSVhfU0lNRVRSSUFfTUFMX0NBTENVTEFUIiwgIlRBTExfT1JJR0VOX09CTElEQVQiLCAiIiwgIlNJR05FX0ZJTkFMIl0sICJyZXMiOiBbIlRyYWllbnQgZmFjdG9yIGNvbcO6OiAkeF4yKzJ4PXgoeCsyKSQsIHF1ZSBkb25hICR4PTAkIGkgJHg9LTIkLiIsICJUYWxscyBhbWIgZWxzIGVpeG9zOiAkKDAsXFwgMCkkIGkgJCgtMixcXCAwKSQuIiwgIkwnZWl4IGRlIHNpbWV0cmlhIHBhc3NhIHBlbCBwdW50IG1pZyBkZSBsZXMgYXJyZWxzOiAkeD0tMSQuIiwgIkVsIHbDqHJ0ZXggw6lzICQoLTEsXFwgLTEpJCwgc3Vic3RpdHVpbnQgJHg9LTEkIGEgbCdleHByZXNzacOzLiJdfQ==",

@@ -176,10 +176,13 @@ for _ap, _part, _tot in _278:
        D("$%d\\,\\%%$" % (_tot - _part), "RESTA_PER_QUOCIENT",
          "Has restat les dues quantitats. Un percentatge surt d'una divisió, "
          "no d'una resta.")],
-      ["Divideix la part entre el total.",
-       "Multiplica el resultat per $100$ per expressar-lo en tant per cent."],
-      ["$\\dfrac{%d}{%d}=%s$" % (_part, _tot, texd(F(_part, _tot), 4)),
-       "$%s\\cdot100=%s\\,\\%%$" % (texd(F(_part, _tot), 4), pc(_p))],
+      ["Divideix la part, $%d$, entre el total, $%d$." % (_part, _tot),
+       "Multiplica el resultat per $100$. Comprova que té sentit: $%d$ és %s "
+       "de la meitat de $%d$, així que ha de sortir %s del $50\\,\\%%$."
+       % (_part, "menys" if 2 * _part < _tot else "més", _tot,
+          "menys" if 2 * _part < _tot else "més")],
+      ["$\\dfrac{%d}{%d}=%s$" % (_part, _tot, pc(F(_part, _tot), 4)),
+       "$%s\\cdot100=%s\\,\\%%$" % (pc(F(_part, _tot), 4), pc(_p))],
       ex_text=E278)
 
 

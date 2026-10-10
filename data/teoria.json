@@ -20,9 +20,10 @@
     "multiplicador, a fons'. Enviar-los tots dos al mateix lloc seria",
     "enviar-ne un dels dos al lloc equivocat.",
     "",
-    "`act` és OPCIONAL. Quan cap activitat del llibre no correspon prou bé,",
-    "s'omet i l'enllaç obre la unitat desplegada. Val més obrir la unitat",
-    "que enviar l'alumne a una activitat que no parla del que buscava.",
+    "`act` és OPCIONAL, però sense `act` l'enllaç NO obre «la unitat»: el",
+    "llibre (assets/js/app.js, objectiuDeLancora) desplega la unitat i n'obre",
+    "la PRIMERA activitat, que sol ser la introducció. Abans de deixar una",
+    "entrada sense `act`, mira què hi ha a l'A1 de la unitat.",
     "",
     "Si aquest fitxer no hi és, o un exercici no hi surt, `repas` funciona",
     "igual: simplement no apareix la icona de teoria.",
@@ -45,7 +46,15 @@
     "4eso": "4t ESO",
     "4eso-apl": "4t ESO (aplicades)"
   },
-  "items": {},
+  "items": {
+    "251c": {
+      "curs": "4eso",
+      "ud": 10,
+      "act": 2,
+      "titol": "Comptar amb arbre",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): només aquest apartat: compta amb combinacions. El 251a i el 251b (una sola manera entre 2⁴) es queden amb Laplace a 3r."
+    }
+  },
   "exercicis": {
     "109": {
       "curs": "1eso",
@@ -174,8 +183,9 @@
     "242": {
       "curs": "3eso",
       "ud": 2,
-      "titol": "És una qüestió de sort?",
-      "nota": "regla de Laplace pura; està al bloc `combinatoria` però no hi ha cap recompte"
+      "act": 5,
+      "titol": "La regla de Laplace",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Laplace pura; està al bloc `combinatoria` però no hi ha cap recompte."
     },
     "278": {
       "curs": "1eso",
@@ -217,6 +227,272 @@
       "act": 2,
       "titol": "El factor multiplicador, a fons",
       "nota": "augment i rebaixa encadenats, com el 280"
+    },
+    "126": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "perímetre d'un polígon: sumar costats, no hi ha Pitàgores. Heretava el destí del bloc `7:triangles`"
+    },
+    "332": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un triangle rectangle amb els catets com a base i altura: no cal Pitàgores"
+    },
+    "138": {
+      "curs": "2eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "Àrea i perímetre",
+      "nota": "àrea d'un rectangle a partir de la base i el perímetre: no cal Pitàgores"
+    },
+    "303": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 5,
+      "titol": "De l'enunciat a la fórmula i tornada",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): quota fixa més part variable: de l'enunciat a la fórmula d'una funció afí. Està al bloc `parabola_produccio`, i per això necessita la regla."
+    },
+    "91": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 8,
+      "titol": "Mètodes de resolució de sistemes",
+      "nota": "anell i estoig: les pistes i la resolució el plantegen amb dues incògnites i un sistema; el vídeo també és de sistemes"
+    },
+    "93": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 8,
+      "titol": "Mètodes de resolució de sistemes",
+      "nota": "edats d'en Miquel i l'Ignasi: dues incògnites i un sistema"
+    },
+    "98": {
+      "curs": "3eso",
+      "ud": 5,
+      "act": 8,
+      "titol": "Mètodes de resolució de sistemes",
+      "nota": "edats d'en Tomàs i l'Elena: dues incògnites i un sistema"
+    },
+    "252": {
+      "curs": "4eso",
+      "ud": 10,
+      "act": 2,
+      "titol": "Comptar amb arbre",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): els casos favorables es compten amb nombres combinatoris: combinacions (quan no importa l'ordre)."
+    },
+    "259": {
+      "curs": "4eso",
+      "ud": 10,
+      "act": 2,
+      "titol": "Comptar amb arbre",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): compta amb combinacions de 5 dies."
+    },
+    "5": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 3,
+      "titol": "Divisibilitat i factorització",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): descomposició en factors primers; el m.c.d. i el m.c.m. són a l'A4."
+    },
+    "340": {
+      "curs": "2eso",
+      "ud": 1,
+      "act": 3,
+      "titol": "Divisibilitat i factorització",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): descomposició en factors primers; el m.c.d. i el m.c.m. són a l'A4."
+    },
+    "26": {
+      "curs": "1eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "De la fracció al decimal",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): distingir decimals exactes, periòdics purs i mixtos dividint. La fracció generatriu dels periòdics (28, 29, 31-33) no surt enlloc del llibre."
+    },
+    "34": {
+      "curs": "1eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "De la fracció al decimal",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): distingir decimals exactes, periòdics purs i mixtos dividint. La fracció generatriu dels periòdics (28, 29, 31-33) no surt enlloc del llibre."
+    },
+    "45": {
+      "curs": "3eso",
+      "ud": 1,
+      "act": 3,
+      "titol": "L'exponent negatiu i les arrels",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): totes vuit porten exponent negatiu (pendent §5 de REVISIO-TEORIA-PENDENTS)."
+    },
+    "66": {
+      "curs": "4eso-apl",
+      "ud": 11,
+      "act": 2,
+      "titol": "Apèndix — Trencar un polinomi en trossos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Ruffini pas a pas. És l'únic lloc del llibre on surt: «Monomis i polinomis» (3r U5 A2) no parla de dividir. És un apèndix opcional de 4t d'aplicades."
+    },
+    "67": {
+      "curs": "4eso-apl",
+      "ud": 11,
+      "act": 2,
+      "titol": "Apèndix — Trencar un polinomi en trossos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Ruffini pas a pas. És l'únic lloc del llibre on surt: «Monomis i polinomis» (3r U5 A2) no parla de dividir. És un apèndix opcional de 4t d'aplicades."
+    },
+    "68": {
+      "curs": "4eso-apl",
+      "ud": 11,
+      "act": 2,
+      "titol": "Apèndix — Trencar un polinomi en trossos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Ruffini pas a pas. És l'únic lloc del llibre on surt: «Monomis i polinomis» (3r U5 A2) no parla de dividir. És un apèndix opcional de 4t d'aplicades."
+    },
+    "69": {
+      "curs": "4eso-apl",
+      "ud": 11,
+      "act": 2,
+      "titol": "Apèndix — Trencar un polinomi en trossos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Ruffini pas a pas. És l'únic lloc del llibre on surt: «Monomis i polinomis» (3r U5 A2) no parla de dividir. És un apèndix opcional de 4t d'aplicades."
+    },
+    "331": {
+      "curs": "4eso-apl",
+      "ud": 11,
+      "act": 2,
+      "titol": "Apèndix — Trencar un polinomi en trossos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): regla de Ruffini pas a pas. És l'únic lloc del llibre on surt: «Monomis i polinomis» (3r U5 A2) no parla de dividir. És un apèndix opcional de 4t d'aplicades."
+    },
+    "82": {
+      "curs": "4eso-apl",
+      "ud": 5,
+      "act": 2,
+      "titol": "Equacions de 2n grau senzilles",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): incompletes sense terme independent amb factor comú, i l'avís de no dividir per x."
+    },
+    "119": {
+      "curs": "1eso",
+      "ud": 6,
+      "act": 5,
+      "titol": "Triangles",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): els angles d'un triangle sumen 180° i la desigualtat triangular. Abans anava a Pitàgores."
+    },
+    "120": {
+      "curs": "1eso",
+      "ud": 6,
+      "act": 5,
+      "titol": "Triangles",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): els angles d'un triangle sumen 180° i la desigualtat triangular. Abans anava a Pitàgores."
+    },
+    "155": {
+      "curs": "3eso",
+      "ud": 3,
+      "act": 2,
+      "titol": "Tales i els triangles semblants",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): els tres criteris de semblança de triangles (dos angles; tres costats; angle entre dos costats proporcionals). L'activitat de 2n només dona la definició general."
+    },
+    "167": {
+      "curs": "4eso",
+      "ud": 7,
+      "act": 3,
+      "titol": "Resoldre triangles rectangles",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): amb angles d'elevació és trigonometria (tangent); abans anava a «Mesurar amb l'ombra» (pendent §3 de REVISIO-TEORIA-PENDENTS)."
+    },
+    "208": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 3,
+      "titol": "La funció lineal y = mx: pendent i creixement",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): el signe del pendent diu si la funció és creixent o decreixent."
+    },
+    "209": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 5,
+      "titol": "De l'enunciat a la fórmula i tornada",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): exercici resolt 32: la funció afí que passa per dos punts."
+    },
+    "336": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 4,
+      "titol": "Movem la recta: la funció afí y = mx + n",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): llegir i fer servir m i n de y = mx + n."
+    },
+    "337": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 4,
+      "titol": "Movem la recta: la funció afí y = mx + n",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): llegir i fer servir m i n de y = mx + n."
+    },
+    "299": {
+      "curs": "3eso",
+      "ud": 6,
+      "act": 6,
+      "titol": "Estudiar i comparar funcions; pont amb els sistemes",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): el punt de tall de dues rectes com a solució comuna."
+    },
+    "216": {
+      "curs": "4eso",
+      "ud": 5,
+      "act": 3,
+      "titol": "Vèrtex, eix i punts de tall",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): vèrtex, eix i talls amb els eixos."
+    },
+    "338": {
+      "curs": "4eso",
+      "ud": 5,
+      "act": 2,
+      "titol": "L'efecte dels coeficients",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): el signe de a diu cap on obre."
+    },
+    "304": {
+      "curs": "4eso",
+      "ud": 5,
+      "act": 4,
+      "titol": "Estudiar i interpretar una paràbola",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): interpretar el vèrtex en un context (màxim d'una àrea)."
+    },
+    "239": {
+      "curs": "3eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El llenguatge de l'atzar",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): succés segur, impossible i possible; improbable no vol dir impossible."
+    },
+    "240": {
+      "curs": "3eso",
+      "ud": 2,
+      "act": 2,
+      "titol": "El llenguatge de l'atzar",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): succés segur, impossible i possible; improbable no vol dir impossible."
+    },
+    "249": {
+      "curs": "3eso",
+      "ud": 2,
+      "act": 4,
+      "titol": "Provar-ho moltes vegades",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): freqüència relativa d'un experiment repetit."
+    },
+    "250": {
+      "curs": "3eso",
+      "ud": 2,
+      "act": 4,
+      "titol": "Provar-ho moltes vegades",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): freqüència relativa d'un experiment repetit."
+    },
+    "256": {
+      "curs": "4eso",
+      "ud": 10,
+      "act": 3,
+      "titol": "Mesurar l'atzar",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): P(A o B) amb la intersecció: unió de successos i diagrames de Venn."
+    },
+    "265": {
+      "curs": "4eso",
+      "ud": 9,
+      "act": 3,
+      "titol": "Mitjana ponderada i taules de dues variables",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): mitjana ponderada amb pesos en percentatge, com l'exercici resolt 18."
     }
   },
   "blocs": {
@@ -301,92 +577,128 @@
     "formula_general": {
       "curs": "4eso-apl",
       "ud": 5,
-      "titol": "Equacions de 2n grau"
+      "act": 3,
+      "titol": "Factoritzada i completa",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): fórmula general i discriminant. Abans no tenia `act` i l'enllaç obria l'A1, «Quan una recta no arriba», que és la introducció."
     },
     "factoritzacio": {
       "curs": "4eso-apl",
       "ud": 5,
-      "titol": "Equacions de 2n grau"
+      "act": 3,
+      "titol": "Factoritzada i completa",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): equacions factoritzades (producte igual a zero). Les incompletes sense terme independent (82) van a l'A2."
     },
     "funcions_quadratiques": {
       "curs": "4eso",
       "ud": 5,
-      "titol": "La paràbola: estudi de la funció quadràtica"
+      "act": 2,
+      "titol": "L'efecte dels coeficients",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): què fan a i c: orientació, obertura i desplaçament. Talls, vèrtex i eix (216) van a l'A3."
     },
     "parabola_produccio": {
       "curs": "4eso",
       "ud": 5,
-      "titol": "La paràbola: estudi de la funció quadràtica"
+      "act": 3,
+      "titol": "Vèrtex, eix i punts de tall",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): vèrtex, eix i talls de y = ax² + bx + c. «Cap on obre» (338) va a l'A2 i el problema del corral (304), a l'A4."
     },
     "concepte_funcio": {
       "curs": "3eso",
       "ud": 6,
-      "titol": "La funció més recta"
+      "act": 2,
+      "titol": "Què és una funció i les seves quatre cares",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): funció com a relació d'una entrada amb una sola sortida, les quatre representacions, i domini i recorregut. Abans no tenia `act` i l'enllaç obria l'A1, «Coses que canvien alhora»."
     },
     "funcions_lineals": {
       "curs": "3eso",
       "ud": 6,
-      "titol": "La funció més recta"
+      "act": 4,
+      "titol": "Movem la recta: la funció afí y = mx + n",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): m i n de y = mx + n. El creixement pel signe de m (208) va a l'A3 i la recta per dos punts (209), a l'A5."
     },
     "rectes_produccio": {
       "curs": "3eso",
       "ud": 6,
-      "titol": "La funció més recta"
+      "act": 5,
+      "titol": "De l'enunciat a la fórmula i tornada",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): trobar m i n a partir de dades (un punt i el pendent, dos punts). Llegir m i n (336, 337) va a l'A4 i el punt de tall de dues rectes (299), a l'A6."
     },
     "combinatoria": {
       "curs": "4eso",
       "ud": 10,
-      "titol": "Combinatòria i probabilitat"
+      "act": 2,
+      "titol": "Comptar amb arbre",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): arbre, principi multiplicatiu, variacions, permutacions i combinacions. El 242 és Laplace pur i va a 3r."
     },
     "probabilitat_condicionada": {
       "curs": "4eso",
       "ud": 10,
-      "titol": "Combinatòria i probabilitat"
+      "act": 4,
+      "titol": "Experiments compostos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): és l'activitat que parla de dependència i probabilitat condicionada."
     },
     "probabilitat_composta": {
       "curs": "4eso",
       "ud": 10,
-      "titol": "Combinatòria i probabilitat"
+      "act": 4,
+      "titol": "Experiments compostos",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): arbre de probabilitat, producte pel camí, amb i sense reposició."
     },
     "laplace": {
       "curs": "3eso",
       "ud": 2,
-      "titol": "És una qüestió de sort?"
+      "act": 5,
+      "titol": "La regla de Laplace",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): casos favorables entre possibles, i el contrari. La freqüència relativa (249, 250) va a l'A4."
     },
     "espais_mostrals": {
       "curs": "3eso",
       "ud": 2,
-      "titol": "És una qüestió de sort?"
+      "act": 3,
+      "titol": "Comptar sense oblidar-se de res",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): espai mostral i diagrama d'arbre. Impossible i segur (239, 240) van a l'A2."
     },
     "esdeveniments": {
       "curs": "3eso",
       "ud": 2,
-      "titol": "És una qüestió de sort?"
+      "act": 5,
+      "titol": "La regla de Laplace",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): Laplace i el contrari. La unió amb intersecció (256) va a 4t U10 A3, on hi ha els diagrames de Venn."
     },
     "variables": {
       "curs": "2eso",
       "ud": 6,
-      "titol": "Dades que parlen"
+      "act": 1,
+      "titol": "Qüestió d'estadística",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): població, mostra i tipus de variable (qualitativa, discreta, contínua)."
     },
     "frequencies": {
       "curs": "2eso",
       "ud": 6,
-      "titol": "Dades que parlen"
+      "act": 2,
+      "titol": "Organitzem les dades",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): taula de freqüències absoluta, relativa i percentatge."
     },
     "grafics": {
       "curs": "2eso",
       "ud": 6,
-      "titol": "Dades que parlen"
+      "act": 2,
+      "titol": "Organitzem les dades",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): barres, sectors i histograma. El polígon de freqüències i les acumulades no surten enlloc del llibre."
     },
     "centralitzacio": {
       "curs": "2eso",
       "ud": 6,
-      "titol": "Dades que parlen"
+      "act": 3,
+      "titol": "Resumim la informació",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): mitjana, mediana i moda. La mitjana ponderada (265) és de 4t i té regla d'exercici."
     },
     "dispersio": {
       "curs": "4eso",
       "ud": 9,
-      "nota": "Sense `titol` a posta: el rètol queda «4t ESO · Unitat 9», que és el que l'enllaç fa de debò. Deia «Estadística de dues variables» i les 17 fitxes (268a–274c) són recorregut, variància, desviació típica i coeficient de variació d'UNA variable: ni correlació, ni regressió, ni núvols de punts. La unitat sí que pot ser la bona; l'activitat concreta no la sabem sense el llibre. Quan es miri: si a la U9 hi ha una activitat de desviació típica, posar-hi `act` i el seu títol."
+      "act": 2,
+      "titol": "Posició i dispersió",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): rang i desviació típica (amb calculadora), i comparar distribucions amb la mateixa mitjana. Abans no tenia `act` i l'enllaç obria l'A1, «D'una a dues variables». El coeficient de variació (273) no surt al llibre."
     },
     "1:enters": {
       "curs": "2eso",
@@ -397,8 +709,9 @@
     "1:divisibilitat": {
       "curs": "2eso",
       "ud": 1,
-      "act": 3,
-      "titol": "Divisibilitat i factorització"
+      "act": 4,
+      "titol": "MCD i mcm",
+      "nota": "Verificat contra el text de l'activitat (10/10/2026): l'A4 és «MCD i mcm» i diu quin dels dos resol cada problema (exercicis 6-17). La descomposició sola (5, 340) va a l'A3 amb regla d'exercici."
     },
     "1:fraccions": {
       "curs": "2eso",

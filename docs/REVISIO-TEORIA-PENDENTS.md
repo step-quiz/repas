@@ -12,6 +12,27 @@ comprovació concreta que les tanca.
 
 Aquí queda el que segueix obert, més tres afirmacions que hem hagut de descartar.
 
+> **Estat a 10/10/2026, amb el llibre consultat** (vegeu la Fase 9 de
+> `REVISIO-PISTES-I-ENLLACOS.md`):
+>
+> - §1 cilindres: **tancat**. L'A4 de 3r U3 explica l'àrea del cilindre (dues
+>   tapes i la superfície lateral desplegada); l'A5 només dona el volum del con
+>   i el volum i l'àrea de l'esfera. Les quatre regles es queden.
+> - §2 dispersió: **tancat**. Va a 4t U9 A2 «Posició i dispersió» (rang i
+>   desviació típica). El coeficient de variació no surt al llibre.
+> - §3 `167`: **tancat**. Va a 4t U7 A3 «Resoldre triangles rectangles».
+> - §5 `45`: **tancat**. Regla d'exercici cap a 3r U1 A3.
+> - §6: `fraccions` **tancat** (2n U1 A8 explica equivalència i
+>   simplificació); `concepte_funcio` **tancat** (3r U6 A2); `divisio`
+>   **mig tancat**: Ruffini va a 4t apl. U11 A2, l'únic lloc on surt, i la
+>   divisió llarga i el teorema del residu no surten enlloc.
+> - §8 `242`: l'enllaç va ara a 3r U2 A5 «La regla de Laplace».
+> - §9: ja no hi ha cap entrada sense `act`. A més, la premissa era falsa: el
+>   llibre no obre «la unitat», obre la seva primera activitat.
+> - Continuen oberts §4 (`95`, cas mixt) i §7 (el rètol de
+>   `semblanca_arees`). Moure la `242` al bloc `laplace` (§8) és un canvi del
+>   banc, no de l'enllaç.
+
 ---
 
 ## 1 · Els cilindres del full 9 — 5 fitxes · **APLICAT, a confirmar**
@@ -108,6 +129,11 @@ arrels». Si vols afinar-ho, una regla per a l'exercici 45 ho resol.
 
 En tots tres el destí pot ser correcte si l'activitat del llibre és més ampla
 que el seu títol. Cal mirar-ho.
+
+*Actualització (10/10/2026):* a `concepte_funcio` s'ha tret el `titol`, com es
+va fer amb `dispersio`: l'entrada no té `act`, l'enllaç obre la U6 sencera i
+el rètol ara ho diu («3r ESO · Unitat 6»). Queda obert quina activitat de la U6
+li correspon. Vegeu `REVISIO-PISTES-I-ENLLACOS.md`.
 
 ---
 

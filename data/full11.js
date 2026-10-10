@@ -419,7 +419,7 @@ window.FULL = {
    ],
    "pistes": [
     "Els ingressos inclouen cèntims: pensa si admeten qualsevol valor decimal.",
-    "Compara-ho amb els diners gastats pels amics (exercici anterior): mateix tipus de variable."
+    "Compara-ho amb el pes o l'alçada, que són mesures, i amb el nombre de mascotes, que és un recompte: a quin grup s'assembla més?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWxzIGluZ3Jlc3NvcyBpbmNsb3VlbiBjw6hudGltczogZXMgcG9kZW4gbWVzdXJhciBhbWIgcXVhbHNldm9sIHByZWNpc2nDsyBkZWNpbWFsLCBubyBub23DqXMgZW4gZXVyb3Mgc2VuY2Vycy4gVW5hIHZhcmlhYmxlIHF1YW50aXRhdGl2YSDDqXMgZGlzY3JldGEgcXVhbiBub23DqXMgcG90IHByZW5kcmUgdmFsb3JzIGHDr2xsYXRzICh0w61waWNhbWVudCB1biByZWNvbXB0ZSksIGkgY29udMOtbnVhIHF1YW4gcG90IHByZW5kcmUgcXVhbHNldm9sIHZhbG9yIGRlY2ltYWwgZGlucyBkJ3VuIGludGVydmFsLiIsICJFbHMgaW5ncmVzc29zIHMnZXhwcmVzc2VuIGFtYiB1biBub21icmUgKGV1cm9zKTogw6lzIHVuYSB2YXJpYWJsZSBxdWFudGl0YXRpdmEsIG5vIHF1YWxpdGF0aXZhLiIsICJRdWUgY2FkYSBkaWEgZG9uaSB1biDDum5pYyByZXN1bHRhdCBubyBsYSBmYSBkaXNjcmV0YTogZWwgcXVlIGNvbXB0YSDDqXMgc2kgYXF1ZWxsIHJlc3VsdGF0IHBvdCBzZXIgcXVhbHNldm9sIHZhbG9yIGRlY2ltYWwgKGNvbSAkMTQ3eyx9MzUkIOKCrCksIGkgZWxzIGRpbmVycyBzw60gcXVlIGhvIGFkbWV0ZW4uIl0sICJlcnIiOiBbIiIsICJESVNDUkVUQV9DT05USU5VQV9DT05GT1NFUyIsICJRVUFMSVRBVElWQV9RVUFOVElUQVRJVkFfQ09ORk9TRVMiLCAiRElTQ1JFVEFfQ09OVElOVUFfQ09ORk9TRVMiXSwgInJlcyI6IFsiRWxzIGluZ3Jlc3NvcyBkaWFyaXMgZXMgcG9kZW4gbWVzdXJhciBhbWIgcXVhbHNldm9sIHByZWNpc2nDsyBkZWNpbWFsIChldXJvcyBpIGPDqG50aW1zKTogw6lzIENPTlTDjU5VQS4iXX0="
@@ -463,7 +463,7 @@ window.FULL = {
    ],
    "pistes": [
     "Recorre la llista de $30$ dades i marca cada vegada que trobis un $1$.",
-    "Compta-les totes abans de donar el resultat final."
+    "Per no perdre-te'n cap, ves de deu en deu dades. Per comprovar-ho, compta també els altres valors: tots junts han de sumar $30$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJUb3JuYSBhIGNvbXB0YXIgcXVhbnRlcyB2ZWdhZGVzIGFwYXJlaXggbCckMSQgYSBsYSBsbGlzdGEgZGUgJDMwJCBkYWRlczogbidoaSBoYSB1bmEgbcOpcy4iLCAiJDMkIMOpcyBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgZGUgJHhfaT0wJCwgbm8gZGUgJHhfaT0xJDogcmV2aXNhIHF1aW4gdmFsb3IgdG9jYSBjb21wdGFyLiIsICIiLCAiJDMwJCDDqXMgZWwgbm9tYnJlIFRPVEFMIGRlIGRhZGVzLCBubyBlbCByZWNvbXB0ZSBkJ3VuIHZhbG9yIGNvbmNyZXQuIENvbXB0YSBub23DqXMgcXVhbnRlcyB2ZWdhZGVzIGFwYXJlaXggbCckMSQuIl0sICJlcnIiOiBbIlJFQ09NUFRFX01BTF9GRVQiLCAiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiIiwgIlRPVEFMX0RBREVTX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyJDb21wdGFudCBsZXMgJDMwJCBkYWRlcywgbCckMSQgYXBhcmVpeCAkOCQgdmVnYWRlczogJGYoMSk9OCQuIl19"
@@ -529,7 +529,7 @@ window.FULL = {
    ],
    "pistes": [
     "La freqüència absoluta és directament el nombre d'alumnes que han triat cada esport, tal com dona l'enunciat.",
-    "L'enunciat ja diu directament quants han triat bàsquet."
+    "No cal fer cap càlcul: si divideixes entre $50$, obtens la freqüència relativa, que és una altra cosa."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMjQkIMOpcyBlbCBwZXJjZW50YXRnZSBkZWwgYsOgc3F1ZXQgKCQyNFxcLFxcJSQpLCBubyBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgKHF1ZSDDqXMgZWwgbm9tYnJlIGQnYWx1bW5lcywgJDEyJCkuIiwgIiQweyx9MjQkIMOpcyBsYSBmcmVxw7zDqG5jaWEgUkVMQVRJVkEgZGVsIGLDoHNxdWV0ICgkXFxmcmFjezEyfXs1MH0kKSwgbm8gbCdhYnNvbHV0YTogbGEgZnJlccO8w6huY2lhIGFic29sdXRhIMOpcyBlbCByZWNvbXB0ZSBkaXJlY3RlLCBzZW5zZSBkaXZpZGlyIHBlciByZXMuIiwgIiIsICIkNTAkIMOpcyBlbCB0b3RhbCBkJ2FsdW1uZXMgZW5xdWVzdGF0cyAobGEgc3VtYSBkZSB0b3RzIGVscyBlc3BvcnRzKSwgbm8gZWxzIHF1ZSBoYW4gdHJpYXQgYsOgc3F1ZXQgZW4gY29uY3JldC4iXSwgImVyciI6IFsiUEVSQ0VOVEFUR0VfTUFMX0NBTENVTEFUIiwgIkZSRVFfUkVMQVRJVkFfTUFMX0NBTENVTEFEQSIsICIiLCAiVE9UQUxfREFERVNfTUFMX0NBTENVTEFUIl0sICJyZXMiOiBbIkxhIGZyZXHDvMOobmNpYSBhYnNvbHV0YSBkZWwgYsOgc3F1ZXQgw6lzIGxhIHF1ZSBkb25hIGRpcmVjdGFtZW50IGwnZW51bmNpYXQ6ICQxMiQiXX0="
@@ -969,7 +969,7 @@ window.FULL = {
    ],
    "pistes": [
     "El $50\\,\\%$ de $30$ alumnes és $30\\cdot0{,}50$.",
-    "Calcula aquest producte."
+    "El $50\\,\\%$ és la meitat del total."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIG5vbWJyZSBkJ2FsdW1uZXMgcXVlIGhvIHZhbiBhcHJvdmFyIHRvdCAoJDEwXFwsXFwlJCBkZSAkMzAkKSwgbm8gZWxzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIGR1ZXMuIiwgIkFxdWVzdCDDqXMgZWwgbm9tYnJlIGQnYWx1bW5lcyBxdWUgZW4gdmFuIHN1c3BlbmRyZSBVTkEgKCQyMFxcLFxcJSQgZGUgJDMwJCksIG5vIGR1ZXM6IGNhbCBhcGxpY2FyIGVsICQ1MFxcLFxcJSQsIG5vIGVsICQyMFxcLFxcJSQuIiwgIiIsICIkNTAkIMOpcyBlbCBwZXJjZW50YXRnZSBkb25hdCAoJDUwXFwsXFwlJCksIG5vIGVsIG5vbWJyZSBkJ2FsdW1uZXM6IGNhbCBhcGxpY2FyLWxvIHNvYnJlIGVsIHRvdGFsLCAkMzBcXGNkb3Qweyx9NTAkLiJdLCAiZXJyIjogWyJQRVJDRU5UQVRHRV9NQUxfQ0FMQ1VMQVQiLCAiUEVSQ0VOVEFUR0VfTUFMX0NBTENVTEFUIiwgIiIsICJQRVJDRU5UQVRHRV9NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiJDUwXFwsXFwlJCBkZSAkMzA9MzBcXGNkb3Qweyx9NTA9MTUkIGFsdW1uZXMiXX0="
@@ -1166,8 +1166,8 @@ window.FULL = {
     "$30$ dades"
    ],
    "pistes": [
-    "El total de dades és la suma de totes les freqüències absolutes: $1+3+4+4+7+6$.",
-    "Suma-les totes."
+    "El total de dades és la suma de totes les freqüències absolutes.",
+    "Les freqüències són la segona coordenada de cada punt del polígon (les alçades), no els valors $5$, $10$, $15$…"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkNiQgw6lzIGVsIG5vbWJyZSBkZSBwdW50cyAodmFsb3JzIGRpZmVyZW50cyBkZSAkeF9pJCkgcXVlIHTDqSBlbCBwb2zDrWdvbiwgbm8gZWwgdG90YWwgZGUgZGFkZXM6IGNhbCBzdW1hciBsZXMgZnJlccO8w6huY2llcyBkZSBjYWRhc2N1bi4iLCAiIiwgIiQ3JCDDqXMgbm9tw6lzIGxhIGZyZXHDvMOobmNpYSBtw6lzIGFsdGEgZCdlbnRyZSBlbHMgcHVudHMgKCRmKDI1KT03JCksIG5vIGxhIHN1bWEgZGUgdG90ZXMuIiwgIiQzMCQgw6lzIGwnw7psdGltIHZhbG9yIGRlIGxhIHZhcmlhYmxlICgkeF9pPTMwJCksIG5vIGVsIHRvdGFsIGRlIGRhZGVzOiBlbCB0b3RhbCDDqXMgbGEgc3VtYSBkZSB0b3RlcyBsZXMgZnJlccO8w6huY2llcywgbm8gZWwgdmFsb3IgbcOpcyBncmFuIGRlICR4X2kkLiJdLCAiZXJyIjogWyJUT1RBTF9EQURFU19NQUxfQ0FMQ1VMQVQiLCAiIiwgIlJFQ09NUFRFX01BTF9GRVQiLCAiVE9UQUxfREFERVNfTUFMX0NBTENVTEFUIl0sICJyZXMiOiBbIiROPTErMys0KzQrNys2PTI1JCJdfQ=="
@@ -1232,8 +1232,8 @@ window.FULL = {
     "$27$"
    ],
    "pistes": [
-    "Calcula les freqüències absolutes dels intervals anteriors: $[150,155)\\to2$, $[155,160)\\to4$, $[160,165)\\to6$.",
-    "Suma-les totes amb la de $[165,170)$, que és $5$."
+    "L'acumulada d'un interval és la seva freqüència més les de tots els intervals anteriors.",
+    "Els anteriors tenen $2$, $4$ i $6$ joves. Falta comptar els de $[165,170)$: el $170$ ja no hi entra."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyIkMTIkIMOpcyBsJ2FjdW11bGFkYSBkZSBsJ2ludGVydmFsIGFudGVyaW9yLCAkWzE2MCwxNjUpJDogcGVyIGEgJFsxNjUsMTcwKSQgY2FsIHN1bWFyLWhpIHRhbWLDqSBsYSBzZXZhIHByw7JwaWEgZnJlccO8w6huY2lhLCAkNSQuIiwgIiIsICIkNSQgw6lzIGxhIGZyZXHDvMOobmNpYSBhYnNvbHV0YSBzaW1wbGUgZCdhcXVlc3QgaW50ZXJ2YWwgKG5vIGFjdW11bGFkYSk6IGNhbCBzdW1hci1oaSB0YW1iw6kgbGVzIGZyZXHDvMOobmNpZXMgZGVscyBpbnRlcnZhbHMgYW50ZXJpb3JzLiIsICIkMjckIMOpcyBlbCB0b3RhbCBkZSBqb3ZlcywgbGEgZnJlccO8w6huY2lhIGFjdW11bGFkYSBkZSBsJ8OaTFRJTSBpbnRlcnZhbCwgbm8gbGEgZGUgJFsxNjUsMTcwKSQuIl0sICJlcnIiOiBbIkZfQUNVTVVMQURBX05PX0NSRUlYRU5UIiwgIiIsICJGUkVRX0FCU09MVVRBX0FDVU1VTEFEQV9DT05GT1NFUyIsICJUT1RBTF9EQURFU19NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiRnJlccO8w6huY2llczogJDIsNCw2LDUkIHBlciBhbHMgcXVhdHJlIHByaW1lcnMgaW50ZXJ2YWxzIiwgIkFjdW11bGFkYSBkZSAkWzE2NSwxNzApJDogJDIrNCs2KzU9MTckIl19"
@@ -1651,7 +1651,7 @@ window.FULL = {
    ],
    "pistes": [
     "Busca la freqüència més alta de la taula.",
-    "La freqüència màxima és $7$."
+    "Compte: la moda és el valor $x_i$ que té aquesta freqüència, no la freqüència mateixa."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZG9uYXQgbGEgZnJlccO8w6huY2lhIG3DoHhpbWEgKCQ3JCBhbHVtbmVzKSwgbm8gZWwgdmFsb3IgcXVlIGxhIHTDqS4iLCAiQXF1ZXN0YSDDqXMgbGEgbWl0amFuYS4gTGEgbW9kYSBoYSBkZSBzZXIgdW4gZGVscyB2YWxvcnMgZGUgbGEgdGF1bGEuIiwgIiIsICJFbCAkNiQgw6lzIGVsIG5vbWJyZSBkZSB2aWF0Z2VzIG3DqXMgYWx0LCBwZXLDsiBub23DqXMgbCdoYW4gZmV0ICQyJCBhbHVtbmVzLiBMYSBtb2RhIMOpcyBlbCB2YWxvciBNw4lTIFJFUEVUSVQsIG5vIGVsIG3DqXMgZ3Jhbi4iXSwgImVyciI6IFsiTU9EQV9QRVJfRlJFUVVFTkNJQSIsICJNRURJQU5BX1BFUl9NT0RBIiwgIiIsICJFTF9NRVNfR1JBTiJdLCAicmVzIjogWyJMYSBmcmVxw7zDqG5jaWEgbcOpcyBhbHRhIMOpcyAkZl9pPTckLCBpIGxpIGNvcnJlc3BvbiBlbCB2YWxvciAkeF9pPTMkIl19"

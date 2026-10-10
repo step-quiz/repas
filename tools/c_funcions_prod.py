@@ -34,6 +34,12 @@ B1 = "rectes_produccio"
 B2 = "parabola_produccio"
 
 
+def factor(k):
+    r"""Un nombre com a factor d'un producte: entre parèntesis si és negatiu.
+    Sense, $-1\cdot-2$ posa dos signes seguits (295d)."""
+    return "(%s)" % tex(k) if k < 0 else tex(k)
+
+
 def recta_tex(m, n):
     """y = mx + n, escrit com ho escriuria una persona."""
     if m == 0:
@@ -69,16 +75,17 @@ for _ap, _m, (_x0, _y0) in _295:
       [D("$%s$" % recta_tex(_m, F(_y0)), "ORDENADA_PER_COORDENADA",
          "Has posat la $y$ del punt com a ordenada a l'origen. El $%d$ és el "
          "valor de la funció a $x=%d$, no a $x=0$: cal aïllar $n$ de "
-         "$%d=%s\\cdot%d+n$." % (_y0, _x0, _y0, tex(_m), _x0)),
+         "$%d=%s\\cdot%s+n$." % (_y0, _x0, _y0, tex(_m), factor(_x0))),
        D("$%s$" % recta_tex(_m, -_n), "SIGNE_FINAL",
          "L'ordenada a l'origen té el signe canviat: revisa el pas d'aïllar "
          "$n$."),
        D("$%s$" % recta_tex(F(_x0) if _x0 else F(_m) + 1, _n), "PENDENT_MAL_TRIAT",
          "El pendent és el que et donaven, $m=%s$: no es calcula, es "
          "col·loca." % tex(_m))],
-      ["Parteix de $y=mx+n$ amb el pendent que et donen: $y=%sx+n$." % tex(_m),
-       "Substitueix-hi el punt i aïlla $n$: $%d=%s\\cdot%d+n$."
-       % (_y0, tex(_m), _x0)],
+      ["Parteix de $y=mx+n$ amb el pendent que et donen: $y=%sx+n$."
+       % {1: "", -1: "-"}.get(_m, tex(_m)),
+       "Substitueix-hi el punt i aïlla $n$: $%d=%s\\cdot%s+n$."
+       % (_y0, tex(_m), factor(_x0))],
       ["$%d=%s\\cdot(%d)+n$" % (_y0, tex(_m), _x0),
        "$n=%d-(%s)=%s$" % (_y0, tex(_m * _x0), tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
@@ -122,7 +129,8 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
          "Has pres la $y$ del primer punt com a ordenada a l'origen. Només "
          "serviria si aquell punt fos a $x=0$.")],
       ["Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
-       "Amb el pendent i un dels dos punts, aïlla $n$ com a l'exercici 295."],
+       "Amb el pendent, substitueix un dels dos punts a $y=mx+n$ i aïlla "
+       "$n$."],
       ["$m=\\dfrac{%d-(%d)}{%d-(%d)}=\\dfrac{%d}{%d}=%s$"
        % (_y2, _y1, _x2, _x1, _y2 - _y1, _x2 - _x1, tex(_m)),
        "$%d=%s\\cdot(%d)+n\\;\\Longrightarrow\\;n=%s$" % (_y1, tex(_m), _x1, tex(_n)),
@@ -137,14 +145,26 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
 # =============================================================== Exercici 297
 E297 = ("D'una recta se'n sap això. Escriu-ne l'equació.")
 
+_P1_297 = ("El pendent diu quant puja o baixa la $y$ per cada unitat que "
+           "avança la $x$.")
 _297 = [
     ("a", "Talla l'eix d'ordenades a $-4$ i puja $3$ unitats cada vegada que avança $1$",
-     F(3), F(-4)),
+     F(3), F(-4),
+     [_P1_297,
+      "A $y=mx+n$, la $m$ és el pendent i la $n$ és on la recta talla l'eix "
+      "vertical. No els intercanviïs."]),
     ("b", "Talla l'eix d'ordenades a $2$ i baixa $1$ unitat cada vegada que avança $4$",
-     F(-1, 4), F(2)),
-    ("c", "És horitzontal i passa per $(7,-3)$", F(0), F(-3)),
+     F(-1, 4), F(2),
+     [_P1_297,
+      "Aquí avança $4$ unitats, no $1$: el pendent és el que baixa dividit "
+      "pel que avança. I com que baixa, és negatiu."]),
+    # Horitzontal: les pistes de pendent i ordenada no hi diuen res.
+    ("c", "És horitzontal i passa per $(7,-3)$", F(0), F(-3),
+     ["Una recta horitzontal no puja ni baixa: el pendent és $m=0$.",
+      "Amb $m=0$ l'equació queda $y=n$: tots els punts de la recta tenen la "
+      "mateixa $y$. Compte: $x=\\ldots$ seria una recta vertical."]),
 ]
-for _ap, _txt, _m, _n in _297:
+for _ap, _txt, _m, _n, _pistes in _297:
     Q("297%s" % _ap, 297, _ap, B1, "A",
       _txt + ".",
       "$%s$" % recta_tex(_m, _n),
@@ -162,10 +182,7 @@ for _ap, _txt, _m, _n in _297:
          "una recta vertical, i aquella no és cap funció."
          if _m == 0 else
          "L'ordenada a l'origen té el signe canviat.")],
-      ["El pendent diu quant puja o baixa la $y$ per cada unitat que avança "
-       "la $x$.",
-       "L'ordenada a l'origen és el valor de $y$ quan $x=0$, és a dir, on "
-       "talla l'eix vertical."],
+      _pistes,
       ["Pendent: $m=%s$" % tex(_m),
        "Ordenada a l'origen: $n=%s$" % tex(_n),
        "$%s$" % recta_tex(_m, _n)],
@@ -229,6 +246,12 @@ Q("298b", 298, "b", B1, "A",
 # =============================================================== Exercici 299
 E299 = "Troba el punt de tall de les dues rectes."
 
+def _coef(m):
+    """El coeficient de la x en un producte escrit a mà: res si és 1, «-»
+    si és -1. Sense, la resolució de 299c posava $-1\\cdot2$."""
+    return "" if m == 1 else "-" if m == -1 else "%s\\cdot" % tex(m)
+
+
 _299 = [
     ("a", F(2), F(1), F(-1), F(7)),    # 2x+1 = -x+7 -> x=2, y=5
     ("b", F(3), F(-2), F(1), F(2)),    # 3x-2 = x+2 -> x=2, y=4
@@ -253,12 +276,19 @@ for _ap, _m1, _n1, _m2, _n2 in _299:
          "$y$ coincideixen.")],
       ["Al punt de tall les dues $y$ valen el mateix: iguala les dues "
        "expressions.",
-       "Resol l'equació per trobar la $x$ i substitueix-la per trobar la $y$."],
+       ("Aquí $%s=%s$. %s Després substitueix la $x$ a qualsevol de les "
+        "dues rectes per trobar la $y$."
+        % (recta_tex(_m1, _n1).replace("y=", ""),
+           recta_tex(_m2, _n2).replace("y=", ""),
+           "Multiplica-ho tot per $%d$ per treure el denominador i aïlla la $x$."
+           % (_m1.denominator * _m2.denominator)
+           if _m1.denominator * _m2.denominator > 1 else
+           "Passa les $x$ a un costat i els nombres a l'altre."))],
       ["$%s=%s$" % (recta_tex(_m1, _n1).replace("y=", ""),
                     recta_tex(_m2, _n2).replace("y=", "")),
        "$x=%s$" % tex(_x),
-       "$y=%s\\cdot%s%s%s=%s$" % (tex(_m1), tex(_x), "+" if _n1 > 0 else "-",
-                                  tex(abs(_n1)), tex(_y)),
+       "$y=%s%s%s%s=%s$" % (_coef(_m1), factor(_x) if _m1 != 1 else tex(_x),
+                            "+" if _n1 > 0 else "-", tex(abs(_n1)), tex(_y)),
        "Punt de tall: $(%s,%s)$" % (tex(_x), tex(_y))],
       ex_text=E299,
       # Dues rectes dibuixades, SENSE marcar el punt de tall: és
@@ -297,8 +327,12 @@ for _ap, _a, _b, _c in _300:
          "La $x$ del vèrtex és correcta, però la $y$ no és el terme "
          "independent: cal substituir $x_v$ a la funció.")],
       ["La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
-       "La $y$ s'obté substituint aquest valor a la funció."],
-      ["$x_v=\\dfrac{-(%s)}{2\\cdot%s}=%s$" % (tex(_b), tex(_a), tex(_xv)),
+       "Aquí $a=%s$ i $b=%s$: $x_v=\\dfrac{-%s}{2\\cdot%s}$.%s Després "
+       "substitueix la $x_v$ a la funció per trobar la $y$."
+       % (tex(_a), tex(_b), factor(_b), factor(_a),
+          " Compte: $a$ és negatiu, i el denominador també." if _a < 0
+          else "")],
+      ["$x_v=\\dfrac{-%s}{2\\cdot%s}=%s$" % (factor(_b), factor(_a), tex(_xv)),
        "$y_v=%s$" % tex(_yv),
        "Vèrtex: $(%s,%s)$" % (tex(_xv), tex(_yv))],
       ex_text=E300,
@@ -336,9 +370,12 @@ for _ap, _a, _b, _c, _arrels in _301:
          "COORDENADES_INTERCANVIADES",
          "Els talls amb l'eix $X$ tenen la segona coordenada igual a $0$, no "
          "la primera: són de la forma $(x,0)$.")],
-      ["Els talls amb l'eix $X$ surten de resoldre $y=0$.",
-       "El tall amb l'eix $Y$ surt de substituir $x=0$: és el terme "
-       "independent."],
+      ["Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix "
+       "$Y$, de substituir $x=0$.",
+       "Aquí $%s=0$, amb $\\Delta=%s^2-4\\cdot%s\\cdot%s=%s$. Els punts de "
+       "l'eix $X$ s'escriuen $(x,0)$."
+       % (_txt, factor(_b), factor(_a), factor(_c),
+          tex(_b ** 2 - 4 * _a * _c))],
       ["$%s=0$ dona $x=%s$" % (_txt, ",\\;".join(str(r) for r in _arrels)),
        "Talls amb $X$: %s" % _sx,
        "A $x=0$: $y=%s$, o sigui el punt $(0,%s)$" % (tex(_c), tex(_c))],
@@ -525,7 +562,8 @@ Q("336a", 336, "a", B1, "A",
    D(r"$\dfrac{1}{3}$", "PENDENT_INVERTIT",
      "El pendent és el coeficient tal qual, no el seu invers.")],
   ["A $y=mx+n$, el pendent és el número que va davant de la $x$.",
-   "A $y=3x-2$, davant de la $x$ hi ha un $3$."],
+   "Compara $y=3x-2$ amb $y=mx+n$ terme a terme: quin número ocupa el "
+   "lloc de la $m$?"],
   [r"$y=3x-2\Rightarrow m=3$"],
   ex_text=E336)
 
@@ -557,7 +595,7 @@ Q("336c", 336, "c", B1, "A",
      "Has agafat el terme sense $x$ i li has canviat el signe.")],
   ["Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ "
    "implícit.",
-   "$-x$ és $-1\\cdot x$."],
+   "El signe que hi ha davant de la $x$ també forma part del pendent."],
   [r"$y=-x+5=-1\cdot x+5\Rightarrow m=-1$"],
   ex_text=E336)
 
@@ -573,8 +611,10 @@ Q("336d", 336, "d", B1, "A",
      "$0$: no puja ni baixa."),
    D("1", "PENDENT_COM_NUL",
      "Si el pendent fos $1$ la recta pujaria. $y=4$ és plana.")],
-  ["$y=4$ es pot escriure com $y=0\\cdot x+4$.",
-   "Una recta horitzontal no puja ni baixa: el seu pendent és $0$."],
+  ["A $y=mx+n$, el pendent és el número que multiplica la $x$. A $y=4$ la "
+   "$x$ no hi apareix.",
+   "La recta $y=4$ és horitzontal: per molt que avancis cap a la dreta, no "
+   "puja ni baixa. Quant val, doncs, el pendent?"],
   [r"$y=4=0\cdot x+4\Rightarrow m=0$"],
   ex_text=E336)
 
@@ -610,7 +650,8 @@ Q("337b", 337, "b", B1, "A",
      "T'has quedat només amb $n$ i has perdut el pendent. Amb $n=0$ el que "
      "passa és que el terme independent desapareix, no tota la recta.")],
   ["$n=0$ vol dir que la recta passa per l'origen.",
-   "$y=-3x+0$, i el $+0$ no s'escriu."],
+   "Escriu $y=mx+n$ amb els dos valors. Un terme que val $0$ no cal "
+   "escriure'l."],
   [r"$y=-3x+0=-3x$ (passa per l'origen)"],
   ex_text=E337)
 
@@ -663,7 +704,8 @@ Q("338c", 338, "c", B2, "A",
      "mateix. Si no hi surt és perquè val $0$, i cal comptar-lo com a $0$ "
      "quan s'aplica qualsevol fórmula.")],
   ["La $c$ és el terme que no porta $x$.",
-   "A $-2x^2+x$ no hi ha terme sense $x$, i això vol dir que val $0$."],
+   "Busca a $-2x^2+x$ algun terme sense $x$. Si no n'hi ha cap, quant val "
+   "el que falta?"],
   [r"$y=-2x^2+1x+0\Rightarrow c=0$"],
   ex_text=E338,
   # Comentari i no nota: «val 0» era la resposta.

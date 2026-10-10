@@ -707,11 +707,11 @@ window.FULL = {
     "$333{,}33\\,\\%$"
    ],
    "pistes": [
-    "Divideix la part entre el total.",
-    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+    "Divideix la part, $18$, entre el total, $60$.",
+    "Multiplica el resultat per $100$. Comprova que té sentit: $18$ és menys de la meitat de $60$, així que ha de sortir menys del $50\\,\\%$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICIiLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRcXGRmcmFjezE4fXs2MH09MHssfTMwMDAkIiwgIiQweyx9MzAwMFxcY2RvdDEwMD0zMFxcLFxcJSQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICIiLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIl0sICJlcnIiOiBbIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRcXGRmcmFjezE4fXs2MH09MHssfTMkIiwgIiQweyx9M1xcY2RvdDEwMD0zMFxcLFxcJSQiXX0="
   },
   {
    "id": "278b",
@@ -729,11 +729,11 @@ window.FULL = {
     "$25\\,\\%$"
    ],
    "pistes": [
-    "Divideix la part entre el total.",
-    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+    "Divideix la part, $7$, entre el total, $28$.",
+    "Multiplica el resultat per $100$. Comprova que té sentit: $7$ és menys de la meitat de $28$, així que ha de sortir menys del $50\\,\\%$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJJTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezd9ezI4fT0weyx9MjUwMCQiLCAiJDB7LH0yNTAwXFxjZG90MTAwPTI1XFwsXFwlJCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHF1b2NpZW50IGVuIGRlY2ltYWw6IHBlciBwYXNzYXItbG8gYSBwZXJjZW50YXRnZSBlbmNhcmEgZmFsdGEgbXVsdGlwbGljYXIgcGVyICQxMDAkLiIsICJIYXMgcmVzdGF0IGxlcyBkdWVzIHF1YW50aXRhdHMuIFVuIHBlcmNlbnRhdGdlIHN1cnQgZCd1bmEgZGl2aXNpw7MsIG5vIGQndW5hIHJlc3RhLiIsICJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiIl0sICJlcnIiOiBbIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIiwgIlJFU1RBX1BFUl9RVU9DSUVOVCIsICJJTlZFUlRJREEiLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezd9ezI4fT0weyx9MjUkIiwgIiQweyx9MjVcXGNkb3QxMDA9MjVcXCxcXCUkIl19"
   },
   {
    "id": "278c",
@@ -751,11 +751,11 @@ window.FULL = {
     "$0{,}15\\,\\%$"
    ],
    "pistes": [
-    "Divideix la part entre el total.",
-    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+    "Divideix la part, $45$, entre el total, $300$.",
+    "Multiplica el resultat per $100$. Comprova que té sentit: $45$ és menys de la meitat de $300$, així que ha de sortir menys del $50\\,\\%$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHJlc3RhdCBsZXMgZHVlcyBxdWFudGl0YXRzLiBVbiBwZXJjZW50YXRnZSBzdXJ0IGQndW5hIGRpdmlzacOzLCBubyBkJ3VuYSByZXN0YS4iLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIiwgIkFxdWVzdCDDqXMgZWwgcXVvY2llbnQgZW4gZGVjaW1hbDogcGVyIHBhc3Nhci1sbyBhIHBlcmNlbnRhdGdlIGVuY2FyYSBmYWx0YSBtdWx0aXBsaWNhciBwZXIgJDEwMCQuIl0sICJlcnIiOiBbIiIsICJSRVNUQV9QRVJfUVVPQ0lFTlQiLCAiSU5WRVJUSURBIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIl0sICJyZXMiOiBbIiRcXGRmcmFjezQ1fXszMDB9PTB7LH0xNTAwJCIsICIkMHssfTE1MDBcXGNkb3QxMDA9MTVcXCxcXCUkIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHJlc3RhdCBsZXMgZHVlcyBxdWFudGl0YXRzLiBVbiBwZXJjZW50YXRnZSBzdXJ0IGQndW5hIGRpdmlzacOzLCBubyBkJ3VuYSByZXN0YS4iLCAiSGFzIGRpdmlkaXQgYWwgcmV2w6lzLiBFbCBwZXJjZW50YXRnZSDDqXMgJFxcZGZyYWN7XFx0ZXh0e3BhcnR9fXtcXHRleHR7dG90YWx9fVxcY2RvdDEwMCQsIGkgbGEgcGFydCB2YSBhIGRhbHQuIiwgIkFxdWVzdCDDqXMgZWwgcXVvY2llbnQgZW4gZGVjaW1hbDogcGVyIHBhc3Nhci1sbyBhIHBlcmNlbnRhdGdlIGVuY2FyYSBmYWx0YSBtdWx0aXBsaWNhciBwZXIgJDEwMCQuIl0sICJlcnIiOiBbIiIsICJSRVNUQV9QRVJfUVVPQ0lFTlQiLCAiSU5WRVJUSURBIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIl0sICJyZXMiOiBbIiRcXGRmcmFjezQ1fXszMDB9PTB7LH0xNSQiLCAiJDB7LH0xNVxcY2RvdDEwMD0xNVxcLFxcJSQiXX0="
   },
   {
    "id": "278d",
@@ -773,11 +773,11 @@ window.FULL = {
     "$3\\,\\%$"
    ],
    "pistes": [
-    "Divideix la part entre el total.",
-    "Multiplica el resultat per $100$ per expressar-lo en tant per cent."
+    "Divideix la part, $12$, entre el total, $15$.",
+    "Multiplica el resultat per $100$. Comprova que té sentit: $12$ és més de la meitat de $15$, així que ha de sortir més del $50\\,\\%$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiQXF1ZXN0IMOpcyBlbCBxdW9jaWVudCBlbiBkZWNpbWFsOiBwZXIgcGFzc2FyLWxvIGEgcGVyY2VudGF0Z2UgZW5jYXJhIGZhbHRhIG11bHRpcGxpY2FyIHBlciAkMTAwJC4iLCAiIiwgIkhhcyByZXN0YXQgbGVzIGR1ZXMgcXVhbnRpdGF0cy4gVW4gcGVyY2VudGF0Z2Ugc3VydCBkJ3VuYSBkaXZpc2nDsywgbm8gZCd1bmEgcmVzdGEuIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiUkVTVEFfUEVSX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRcXGRmcmFjezEyfXsxNX09MHssfTgwMDAkIiwgIiQweyx9ODAwMFxcY2RvdDEwMD04MFxcLFxcJSQiXX0="
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXMuIEVsIHBlcmNlbnRhdGdlIMOpcyAkXFxkZnJhY3tcXHRleHR7cGFydH19e1xcdGV4dHt0b3RhbH19XFxjZG90MTAwJCwgaSBsYSBwYXJ0IHZhIGEgZGFsdC4iLCAiQXF1ZXN0IMOpcyBlbCBxdW9jaWVudCBlbiBkZWNpbWFsOiBwZXIgcGFzc2FyLWxvIGEgcGVyY2VudGF0Z2UgZW5jYXJhIGZhbHRhIG11bHRpcGxpY2FyIHBlciAkMTAwJC4iLCAiIiwgIkhhcyByZXN0YXQgbGVzIGR1ZXMgcXVhbnRpdGF0cy4gVW4gcGVyY2VudGF0Z2Ugc3VydCBkJ3VuYSBkaXZpc2nDsywgbm8gZCd1bmEgcmVzdGEuIl0sICJlcnIiOiBbIklOVkVSVElEQSIsICJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiUkVTVEFfUEVSX1FVT0NJRU5UIl0sICJyZXMiOiBbIiRcXGRmcmFjezEyfXsxNX09MHssfTgkIiwgIiQweyx9OFxcY2RvdDEwMD04MFxcLFxcJSQiXX0="
   },
   {
    "id": "279a",

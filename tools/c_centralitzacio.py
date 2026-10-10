@@ -285,7 +285,8 @@ Q("263c", 263, "c", B1, "A",
    D("$%s$" % tex(_m263), "MEDIANA_PER_MODA",
      "Aquesta és la mitjana. La moda ha de ser un dels valors de la taula.")],
   ["Busca la freqüència més alta de la taula.",
-   "La freqüència màxima és $%d$." % _f263],
+   "Compte: la moda és el valor $x_i$ que té aquesta freqüència, no la "
+   "freqüència mateixa."],
   ["La freqüència més alta és $f_i=%d$, i li correspon el valor $x_i=%d$"
    % (_f263, _mo263[0])],
   ex_text=E263)

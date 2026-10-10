@@ -811,8 +811,8 @@ window.FULL = {
     "$135$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $45$ i $27$.",
+    "$45=3^{2}\\cdot 5$, $27=3^{3}$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgZWxzIG5vbWJyZXMuIEVsIG0uYy5kLiDDqXMgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4sIG5vIGVsIHByb2R1Y3RlLiIsICJIYXMgYWdhZmF0IGVscyBmYWN0b3JzIGNvbXVucyBwZXLDsiBhbWIgZXhwb25lbnQgJDEkLiBDYWwgYWdhZmFyLWxvcyBlbGV2YXRzIGFsIE1FTk9SIGV4cG9uZW50IGFtYiBxdcOoIGFwYXJlaXhlbiwgcXVlIGFxdcOtIG5vIMOpcyAkMSQuIiwgIiIsICJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiJdLCAiZXJyIjogWyJQUk9EVUNURSIsICJFWFBPTkVOVF9NSU5JTSIsICIiLCAiTUNNX0VOX0xMT0NfREVfTUNEIl0sICJyZXMiOiBbIkRlc2NvbXBvc2ljaW9uczogJDQ1ID0gM157Mn1cXGNkb3QgNSQgwrcgJDI3ID0gM157M30kIiwgIkZhY3RvcnMgY29tdW5zIGFtYiBlbCBtZW5vciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSAzXnsyfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSA5JCJdfQ=="
@@ -833,8 +833,8 @@ window.FULL = {
     "$84$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $28$ i $21$.",
+    "$28=2^{2}\\cdot 7$, $21=3\\cdot 7$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBtw6lzIHBldGl0IGRlbHMgbm9tYnJlcyBub23DqXMgw6lzIGVsIG0uYy5kLiBzaSBkaXZpZGVpeCB0b3RzIGVscyBhbHRyZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgbm9tYnJlcy4gRWwgbS5jLmQuIMOpcyBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbiwgbm8gZWwgcHJvZHVjdGUuIiwgIiIsICJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiJdLCAiZXJyIjogWyJFTF9NRVNfUEVUSVQiLCAiUFJPRFVDVEUiLCAiIiwgIk1DTV9FTl9MTE9DX0RFX01DRCJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQyOCA9IDJeezJ9XFxjZG90IDckIMK3ICQyMSA9IDNcXGNkb3QgNyQiLCAiRmFjdG9ycyBjb211bnMgYW1iIGVsIG1lbm9yIGV4cG9uZW50OiAkXFxvcGVyYXRvcm5hbWV7bS5jLmQufSA9IDckIiwgIiRcXG9wZXJhdG9ybmFtZXttLmMuZC59ID0gNyQiXX0="
@@ -855,8 +855,8 @@ window.FULL = {
     "$216$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $18$ i $12$.",
+    "$18=2\\cdot 3^{2}$, $12=2^{2}\\cdot 3$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbcOpcyBwZXRpdCBkZWxzIG5vbWJyZXMgbm9tw6lzIMOpcyBlbCBtLmMuZC4gc2kgZGl2aWRlaXggdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICJIYXMgbXVsdGlwbGljYXQgZWxzIG5vbWJyZXMuIEVsIG0uYy5kLiDDqXMgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4sIG5vIGVsIHByb2R1Y3RlLiJdLCAiZXJyIjogWyIiLCAiRUxfTUVTX1BFVElUIiwgIk1DTV9FTl9MTE9DX0RFX01DRCIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQxOCA9IDJcXGNkb3QgM157Mn0kIMK3ICQxMiA9IDJeezJ9XFxjZG90IDMkIiwgIkZhY3RvcnMgY29tdW5zIGFtYiBlbCBtZW5vciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSAyXFxjZG90IDMkIiwgIiRcXG9wZXJhdG9ybmFtZXttLmMuZC59ID0gNiQiXX0="
@@ -877,8 +877,8 @@ window.FULL = {
     "$2$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $6$, $8$ i $12$.",
+    "$6=2\\cdot 3$, $8=2^{3}$, $12=2^{2}\\cdot 3$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICJIYXMgbXVsdGlwbGljYXQgZWxzIG5vbWJyZXMuIEVsIG0uYy5kLiDDqXMgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4sIG5vIGVsIHByb2R1Y3RlLiIsICJFbCBtw6lzIHBldGl0IGRlbHMgbm9tYnJlcyBub23DqXMgw6lzIGVsIG0uYy5kLiBzaSBkaXZpZGVpeCB0b3RzIGVscyBhbHRyZXMuIiwgIiJdLCAiZXJyIjogWyJNQ01fRU5fTExPQ19ERV9NQ0QiLCAiUFJPRFVDVEUiLCAiRUxfTUVTX1BFVElUIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ2ID0gMlxcY2RvdCAzJCDCtyAkOCA9IDJeezN9JCDCtyAkMTIgPSAyXnsyfVxcY2RvdCAzJCIsICJGYWN0b3JzIGNvbXVucyBhbWIgZWwgbWVub3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMuZC59ID0gMiQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSAyJCJdfQ=="
@@ -899,8 +899,8 @@ window.FULL = {
     "$8960$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $16$, $20$ i $28$.",
+    "$16=2^{4}$, $20=2^{2}\\cdot 5$, $28=2^{2}\\cdot 7$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICIiLCAiSGFzIGFnYWZhdCBlbHMgZmFjdG9ycyBjb211bnMgcGVyw7IgYW1iIGV4cG9uZW50ICQxJC4gQ2FsIGFnYWZhci1sb3MgZWxldmF0cyBhbCBNRU5PUiBleHBvbmVudCBhbWIgcXXDqCBhcGFyZWl4ZW4sIHF1ZSBhcXXDrSBubyDDqXMgJDEkLiIsICJIYXMgbXVsdGlwbGljYXQgZWxzIG5vbWJyZXMuIEVsIG0uYy5kLiDDqXMgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4sIG5vIGVsIHByb2R1Y3RlLiJdLCAiZXJyIjogWyJNQ01fRU5fTExPQ19ERV9NQ0QiLCAiIiwgIkVYUE9ORU5UX01JTklNIiwgIlBST0RVQ1RFIl0sICJyZXMiOiBbIkRlc2NvbXBvc2ljaW9uczogJDE2ID0gMl57NH0kIMK3ICQyMCA9IDJeezJ9XFxjZG90IDUkIMK3ICQyOCA9IDJeezJ9XFxjZG90IDckIiwgIkZhY3RvcnMgY29tdW5zIGFtYiBlbCBtZW5vciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSAyXnsyfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSA0JCJdfQ=="
@@ -921,8 +921,8 @@ window.FULL = {
     "$5$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $40$, $10$ i $25$.",
+    "$40=2^{3}\\cdot 5$, $10=2\\cdot 5$, $25=5^{2}$. Agafa NOMÉS els factors comuns, elevats al menor exponent."
    ],
    "nota": "El signe no afecta el m.c.d.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBtw6lzIHBldGl0IGRlbHMgbm9tYnJlcyBub23DqXMgw6lzIGVsIG0uYy5kLiBzaSBkaXZpZGVpeCB0b3RzIGVscyBhbHRyZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBlbHMgbm9tYnJlcy4gRWwgbS5jLmQuIMOpcyBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbiwgbm8gZWwgcHJvZHVjdGUuIiwgIkFpeMOyIMOpcyBlbCBtLmMubS4sIGVsIG3Dumx0aXBsZSBtw6lzIHBldGl0LiBFbCBtLmMuZC4gw6lzIHVuIGRpdmlzb3I6IGhhIGRlIHNlciBtw6lzIHBldGl0IG8gaWd1YWwgcXVlIHRvdHMgZWxzIG5vbWJyZXMuIiwgIiJdLCAiZXJyIjogWyJFTF9NRVNfUEVUSVQiLCAiUFJPRFVDVEUiLCAiTUNNX0VOX0xMT0NfREVfTUNEIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ0MCA9IDJeezN9XFxjZG90IDUkIMK3ICQxMCA9IDJcXGNkb3QgNSQgwrcgJDI1ID0gNV57Mn0kIiwgIkZhY3RvcnMgY29tdW5zIGFtYiBlbCBtZW5vciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSA1JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLmQufSA9IDUkIl19"
@@ -943,8 +943,8 @@ window.FULL = {
     "$216$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $12$ i $18$.",
+    "$12=2^{2}\\cdot 3$, $18=2\\cdot 3^{2}$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiTXVsdGlwbGljYXItbG9zIHNlbXByZSBkw7NuYSB1biBtw7psdGlwbGUgY29tw7osIHBlcsOyIG5vIGVsIG3DqXMgcGV0aXQgKG5vbcOpcyBjb2luY2lkZWl4IHNpIGVsIG0uYy5kLiDDqXMgJDEkKS4iXSwgImVyciI6IFsiIiwgIkVMX01FU19HUkFOIiwgIk1DRF9FTl9MTE9DX0RFX01DTSIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQxMiA9IDJeezJ9XFxjZG90IDMkIMK3ICQxOCA9IDJcXGNkb3QgM157Mn0kIiwgIlRvdHMgZWxzIGZhY3RvcnMgYW1iIGVsIG1ham9yIGV4cG9uZW50OiAkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDJeezJ9XFxjZG90IDNeezJ9JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDM2JCJdfQ=="
@@ -965,8 +965,8 @@ window.FULL = {
     "$675$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $15$ i $45$.",
+    "$15=3\\cdot 5$, $45=3^{2}\\cdot 5$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgc3VtYXQgZWxzIG5vbWJyZXM7IGVsIG0uYy5tLiBubyB0w6kgcmVzIGEgdmV1cmUgYW1iIGxhIHN1bWEuIiwgIiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiTXVsdGlwbGljYXItbG9zIHNlbXByZSBkw7NuYSB1biBtw7psdGlwbGUgY29tw7osIHBlcsOyIG5vIGVsIG3DqXMgcGV0aXQgKG5vbcOpcyBjb2luY2lkZWl4IHNpIGVsIG0uYy5kLiDDqXMgJDEkKS4iXSwgImVyciI6IFsiU1VNQSIsICIiLCAiTUNEX0VOX0xMT0NfREVfTUNNIiwgIlBST0RVQ1RFIl0sICJyZXMiOiBbIkRlc2NvbXBvc2ljaW9uczogJDE1ID0gM1xcY2RvdCA1JCDCtyAkNDUgPSAzXnsyfVxcY2RvdCA1JCIsICJUb3RzIGVscyBmYWN0b3JzIGFtYiBlbCBtYWpvciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAzXnsyfVxcY2RvdCA1JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDQ1JCJdfQ=="
@@ -987,8 +987,8 @@ window.FULL = {
     "$9$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $27$ i $18$.",
+    "$27=3^{3}$, $18=2\\cdot 3^{2}$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICIiLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iXSwgImVyciI6IFsiUFJPRFVDVEUiLCAiIiwgIkVMX01FU19HUkFOIiwgIk1DRF9FTl9MTE9DX0RFX01DTSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQyNyA9IDNeezN9JCDCtyAkMTggPSAyXFxjZG90IDNeezJ9JCIsICJUb3RzIGVscyBmYWN0b3JzIGFtYiBlbCBtYWpvciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAyXFxjZG90IDNeezN9JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDU0JCJdfQ=="
@@ -1009,8 +1009,8 @@ window.FULL = {
     "$42$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $42$ i $14$.",
+    "$42=2\\cdot 3\\cdot 7$, $14=2\\cdot 7$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiSGFzIHN1bWF0IGVscyBub21icmVzOyBlbCBtLmMubS4gbm8gdMOpIHJlcyBhIHZldXJlIGFtYiBsYSBzdW1hLiIsICIiXSwgImVyciI6IFsiUFJPRFVDVEUiLCAiTUNEX0VOX0xMT0NfREVfTUNNIiwgIlNVTUEiLCAiIl0sICJyZXMiOiBbIkRlc2NvbXBvc2ljaW9uczogJDQyID0gMlxcY2RvdCAzXFxjZG90IDckIMK3ICQxNCA9IDJcXGNkb3QgNyQiLCAiVG90cyBlbHMgZmFjdG9ycyBhbWIgZWwgbWFqb3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gMlxcY2RvdCAzXFxjZG90IDckIiwgIiRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gNDIkIl19"
@@ -1031,8 +1031,8 @@ window.FULL = {
     "$180$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $12$, $9$ i $10$.",
+    "$12=2^{2}\\cdot 3$, $9=3^{2}$, $10=2\\cdot 5$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBtw6lzIGdyYW4gbm9tw6lzIMOpcyBlbCBtLmMubS4gc2kgw6lzIG3Dumx0aXBsZSBkZSB0b3RzIGVscyBhbHRyZXMuIiwgIk11bHRpcGxpY2FyLWxvcyBzZW1wcmUgZMOzbmEgdW4gbcO6bHRpcGxlIGNvbcO6LCBwZXLDsiBubyBlbCBtw6lzIHBldGl0IChub23DqXMgY29pbmNpZGVpeCBzaSBlbCBtLmMuZC4gw6lzICQxJCkuIiwgIkFpeMOyIMOpcyBlbCBtLmMuZC4sIGVsIGRpdmlzb3IgY29tw7ogbcOpcyBncmFuLiBFbCBtLmMubS4gw6lzIHVuIG3Dumx0aXBsZTogaGEgZGUgc2VyIG3DqXMgZ3JhbiBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICIiXSwgImVyciI6IFsiRUxfTUVTX0dSQU4iLCAiUFJPRFVDVEUiLCAiTUNEX0VOX0xMT0NfREVfTUNNIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQxMiA9IDJeezJ9XFxjZG90IDMkIMK3ICQ5ID0gM157Mn0kIMK3ICQxMCA9IDJcXGNkb3QgNSQiLCAiVG90cyBlbHMgZmFjdG9ycyBhbWIgZWwgbWFqb3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gMl57Mn1cXGNkb3QgM157Mn1cXGNkb3QgNSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAxODAkIl19"
@@ -1053,8 +1053,8 @@ window.FULL = {
     "$1944$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $4$, $18$ i $27$.",
+    "$4=2^{2}$, $18=2\\cdot 3^{2}$, $27=3^{3}$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGVsIG0uYy5kLiwgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4uIEVsIG0uYy5tLiDDqXMgdW4gbcO6bHRpcGxlOiBoYSBkZSBzZXIgbcOpcyBncmFuIG8gaWd1YWwgcXVlIHRvdHMgZWxzIG5vbWJyZXMuIiwgIkVsIG3DqXMgZ3JhbiBub23DqXMgw6lzIGVsIG0uYy5tLiBzaSDDqXMgbcO6bHRpcGxlIGRlIHRvdHMgZWxzIGFsdHJlcy4iLCAiTXVsdGlwbGljYXItbG9zIHNlbXByZSBkw7NuYSB1biBtw7psdGlwbGUgY29tw7osIHBlcsOyIG5vIGVsIG3DqXMgcGV0aXQgKG5vbcOpcyBjb2luY2lkZWl4IHNpIGVsIG0uYy5kLiDDqXMgJDEkKS4iXSwgImVyciI6IFsiIiwgIk1DRF9FTl9MTE9DX0RFX01DTSIsICJFTF9NRVNfR1JBTiIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ0ID0gMl57Mn0kIMK3ICQxOCA9IDJcXGNkb3QgM157Mn0kIMK3ICQyNyA9IDNeezN9JCIsICJUb3RzIGVscyBmYWN0b3JzIGFtYiBlbCBtYWpvciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAyXnsyfVxcY2RvdCAzXnszfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAxMDgkIl19"
@@ -1075,8 +1075,8 @@ window.FULL = {
     "$5760$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $8$, $30$ i $24$.",
+    "$8=2^{3}$, $30=2\\cdot 3\\cdot 5$, $24=2^{3}\\cdot 3$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiTXVsdGlwbGljYXItbG9zIHNlbXByZSBkw7NuYSB1biBtw7psdGlwbGUgY29tw7osIHBlcsOyIG5vIGVsIG3DqXMgcGV0aXQgKG5vbcOpcyBjb2luY2lkZWl4IHNpIGVsIG0uYy5kLiDDqXMgJDEkKS4iXSwgImVyciI6IFsiIiwgIkVMX01FU19HUkFOIiwgIk1DRF9FTl9MTE9DX0RFX01DTSIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ4ID0gMl57M30kIMK3ICQzMCA9IDJcXGNkb3QgM1xcY2RvdCA1JCDCtyAkMjQgPSAyXnszfVxcY2RvdCAzJCIsICJUb3RzIGVscyBmYWN0b3JzIGFtYiBlbCBtYWpvciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAyXnszfVxcY2RvdCAzXFxjZG90IDUkIiwgIiRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gMTIwJCJdfQ=="
@@ -1097,8 +1097,8 @@ window.FULL = {
     "$50$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Descompon cada nombre en factors primers. El signe no hi compta: treballa amb $5$, $10$ i $25$.",
+    "$5=5$, $10=2\\cdot 5$, $25=5^{2}$. Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
    ],
    "nota": "El signe no afecta el m.c.m.: es treballa amb els valors absoluts.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBtw6lzIGdyYW4gbm9tw6lzIMOpcyBlbCBtLmMubS4gc2kgw6lzIG3Dumx0aXBsZSBkZSB0b3RzIGVscyBhbHRyZXMuIiwgIkFpeMOyIMOpcyBlbCBtLmMuZC4sIGVsIGRpdmlzb3IgY29tw7ogbcOpcyBncmFuLiBFbCBtLmMubS4gw6lzIHVuIG3Dumx0aXBsZTogaGEgZGUgc2VyIG3DqXMgZ3JhbiBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICIiXSwgImVyciI6IFsiRUxfTUVTX0dSQU4iLCAiTUNEX0VOX0xMT0NfREVfTUNNIiwgIlBST0RVQ1RFIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ1ID0gNSQgwrcgJDEwID0gMlxcY2RvdCA1JCDCtyAkMjUgPSA1XnsyfSQiLCAiVG90cyBlbHMgZmFjdG9ycyBhbWIgZWwgbWFqb3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMubS59ID0gMlxcY2RvdCA1XnsyfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSA1MCQiXX0="
@@ -1163,8 +1163,8 @@ window.FULL = {
     "$216$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa NOMÉS els factors comuns, elevats al menor exponent."
+    "Els trossos han de cabre un nombre exacte de vegades a cada corda: la seva longitud ha de DIVIDIR $4$, $6$ i $9$. El més gran possible és el m.c.d.",
+    "$4=2^2$, $6=2\\cdot3$ i $9=3^2$: hi ha cap factor primer que surti als tres alhora? Recorda que l'$1$ divideix qualsevol nombre."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbcOpcyBwZXRpdCBkZWxzIG5vbWJyZXMgbm9tw6lzIMOpcyBlbCBtLmMuZC4gc2kgZGl2aWRlaXggdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLm0uLCBlbCBtw7psdGlwbGUgbcOpcyBwZXRpdC4gRWwgbS5jLmQuIMOpcyB1biBkaXZpc29yOiBoYSBkZSBzZXIgbcOpcyBwZXRpdCBvIGlndWFsIHF1ZSB0b3RzIGVscyBub21icmVzLiIsICJIYXMgbXVsdGlwbGljYXQgZWxzIG5vbWJyZXMuIEVsIG0uYy5kLiDDqXMgZWwgZGl2aXNvciBjb23DuiBtw6lzIGdyYW4sIG5vIGVsIHByb2R1Y3RlLiJdLCAiZXJyIjogWyIiLCAiRUxfTUVTX1BFVElUIiwgIk1DTV9FTl9MTE9DX0RFX01DRCIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ0ID0gMl57Mn0kIMK3ICQ2ID0gMlxcY2RvdCAzJCDCtyAkOSA9IDNeezJ9JCIsICJGYWN0b3JzIGNvbXVucyBhbWIgZWwgbWVub3IgZXhwb25lbnQ6ICRcXG9wZXJhdG9ybmFtZXttLmMuZC59ID0gMSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5kLn0gPSAxJCJdfQ=="
@@ -1185,8 +1185,8 @@ window.FULL = {
     "$216$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "El nombre de llibres s'ha de poder repartir en piles de $4$, de $6$ i de $9$ sense que en sobri cap: ha de ser MÚLTIPLE dels tres alhora. El més petit és el m.c.m.",
+    "$4=2^2$, $6=2\\cdot3$ i $9=3^2$: agafa cada factor primer que hi surti, amb l'exponent més gran."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiTXVsdGlwbGljYXItbG9zIHNlbXByZSBkw7NuYSB1biBtw7psdGlwbGUgY29tw7osIHBlcsOyIG5vIGVsIG3DqXMgcGV0aXQgKG5vbcOpcyBjb2luY2lkZWl4IHNpIGVsIG0uYy5kLiDDqXMgJDEkKS4iXSwgImVyciI6IFsiIiwgIkVMX01FU19HUkFOIiwgIk1DRF9FTl9MTE9DX0RFX01DTSIsICJQUk9EVUNURSJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQ0ID0gMl57Mn0kIMK3ICQ2ID0gMlxcY2RvdCAzJCDCtyAkOSA9IDNeezJ9JCIsICJUb3RzIGVscyBmYWN0b3JzIGFtYiBlbCBtYWpvciBleHBvbmVudDogJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAyXnsyfVxcY2RvdCAzXnsyfSQiLCAiJFxcb3BlcmF0b3JuYW1le20uYy5tLn0gPSAzNiQiXX0="
@@ -1295,8 +1295,8 @@ window.FULL = {
     "$36$"
    ],
    "pistes": [
-    "Descompon cada nombre en factors primers.",
-    "Agafa TOTS els factors, comuns i no comuns, elevats al major exponent."
+    "Els fanals d'un lateral són a $12$, $24$… metres de l'inici, i els de l'altre a $18$… Tornen a quedar l'un davant de l'altre a una distància MÚLTIPLE de $12$ i de $18$ alhora: la primera vegada és el m.c.m.",
+    "$12=2^2\\cdot3$ i $18=2\\cdot3^2$: agafa cada factor primer amb l'exponent més gran."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICIiXSwgImVyciI6IFsiTUNEX0VOX0xMT0NfREVfTUNNIiwgIkVMX01FU19HUkFOIiwgIlBST0RVQ1RFIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQxMiA9IDJeezJ9XFxjZG90IDMkIMK3ICQxOCA9IDJcXGNkb3QgM157Mn0kIiwgIlRvdHMgZWxzIGZhY3RvcnMgYW1iIGVsIG1ham9yIGV4cG9uZW50OiAkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDJeezJ9XFxjZG90IDNeezJ9JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDM2JCJdfQ=="
@@ -1318,10 +1318,10 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $6\\cdot 48$ amb $3\\cdot 36$. Si et costa, simplifica totes dues fraccions i compara-les."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgZHVlcyBmcmFjY2lvbnMgZXMgcHVndWluIHNpbXBsaWZpY2FyIG5vIHZvbCBkaXIgcXVlIHNpZ3VpbiBlcXVpdmFsZW50czogY2FsIHF1ZSB0b3RlcyBkdWVzIHNpbXBsaWZpcXVpbiBhIGxhIE1BVEVJWEEgZnJhY2Npw7MgaXJyZWR1Y3RpYmxlLiIsICJDb21wcm92YS1obzogJDZcXGNkb3QgNDggPSAyODgkIGkgJDNcXGNkb3QgMzYgPSAxMDgkLiBObyBjb2luY2lkZWl4ZW4uIiwgIkhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIiJdLCAiZXJyIjogWyJDUklURVJJX0ZBTFMiLCAiUFJPRFVDVEVTX0NSRVVBVFMiLCAiUkFPTkFNRU5UX0FERElUSVUiLCAiIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNlxcY2RvdCA0OCA9IDI4OCQgXFxxdWFkIGkgXFxxdWFkICQzXFxjZG90IDM2ID0gMTA4JCIsICJObyBjb2luY2lkZWl4ZW46ICRcXGRmcmFjezZ9ezN9JCB2YWwgJDIkIGkgJFxcZGZyYWN7MzZ9ezQ4fSQgdmFsICRcXGRmcmFjezN9ezR9JC4iXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgZHVlcyBmcmFjY2lvbnMgZXMgcHVndWluIHNpbXBsaWZpY2FyIG5vIHZvbCBkaXIgcXVlIHNpZ3VpbiBlcXVpdmFsZW50czogY2FsIHF1ZSB0b3RlcyBkdWVzIHNpbXBsaWZpcXVpbiBhIGxhIE1BVEVJWEEgZnJhY2Npw7MgaXJyZWR1Y3RpYmxlLiIsICJDb21wcm92YS1obzogJDZcXGNkb3QgNDggPSAyODgkIGkgJDNcXGNkb3QgMzYgPSAxMDgkLiBObyBjb2luY2lkZWl4ZW4uIiwgIkhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIiJdLCAiZXJyIjogWyJDUklURVJJX0ZBTFMiLCAiUFJPRFVDVEVTX0NSRVVBVFMiLCAiUkFPTkFNRU5UX0FERElUSVUiLCAiIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNlxcY2RvdCA0OCA9IDI4OCQgXFxxdWFkIGkgXFxxdWFkICQzXFxjZG90IDM2ID0gMTA4JCIsICJObyBjb2luY2lkZWl4ZW4sIG8gc2lndWkgcXVlIG5vIHPDs24gZXF1aXZhbGVudHM6IHNpbXBsaWZpY2FkZXMsIHPDs24gJDIkIGkgJFxcZGZyYWN7M317NH0kLiJdfQ=="
   },
   {
    "id": "18b",
@@ -1340,7 +1340,7 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $15\\cdot 48$ amb $12\\cdot 60$. Si et costa, simplifica totes dues fraccions i compara-les."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICJIYXMgbXVsdGlwbGljYXQgbnVtZXJhZG9yIHBlciBudW1lcmFkb3IgaSBkZW5vbWluYWRvciBwZXIgZGVub21pbmFkb3IuIENhbCBjcmV1YXItbG9zOiBwcmltZXIgbnVtZXJhZG9yIHBlciBzZWdvbiBkZW5vbWluYWRvci4iLCAiIiwgIkR1ZXMgZnJhY2Npb25zIGVxdWl2YWxlbnRzIGdhaXJlYsOpIG1haSB0ZW5lbiBlbHMgbWF0ZWl4b3MgdGVybWVzOiBlbCBxdWUgaGEgZGUgY29pbmNpZGlyIMOpcyBlbCB2YWxvciwgbm8gbGVzIHhpZnJlcy4iXSwgImVyciI6IFsiUkFPTkFNRU5UX0FERElUSVUiLCAiUFJPRFVDVEVTX01BTF9DUkVVQVRTIiwgIiIsICJDT01QQVJBX1RFUk1FUyJdLCAicmVzIjogWyJQcm9kdWN0ZXMgY3JldWF0czogJDE1XFxjZG90IDQ4ID0gNzIwJCBcXHF1YWQgaSBcXHF1YWQgJDEyXFxjZG90IDYwID0gNzIwJCIsICJDb2luY2lkZWl4ZW4sIG8gc2lndWkgcXVlIHPDs24gZXF1aXZhbGVudHM6IHRvdGVzIGR1ZXMgdmFsZW4gJFxcZGZyYWN7NX17NH0kLiJdfQ=="
@@ -1362,10 +1362,10 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $5\\cdot 8$ amb $4\\cdot 15$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obzogJDVcXGNkb3QgOCA9IDQwJCBpICQ0XFxjZG90IDE1ID0gNjAkLiBObyBjb2luY2lkZWl4ZW4uIiwgIkhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIlF1ZSBkdWVzIGZyYWNjaW9ucyBlcyBwdWd1aW4gc2ltcGxpZmljYXIgbm8gdm9sIGRpciBxdWUgc2lndWluIGVxdWl2YWxlbnRzOiBjYWwgcXVlIHRvdGVzIGR1ZXMgc2ltcGxpZmlxdWluIGEgbGEgTUFURUlYQSBmcmFjY2nDsyBpcnJlZHVjdGlibGUuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURVNfQ1JFVUFUUyIsICJSQU9OQU1FTlRfQURESVRJVSIsICJDUklURVJJX0ZBTFMiLCAiIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNVxcY2RvdCA4ID0gNDAkIFxccXVhZCBpIFxccXVhZCAkNFxcY2RvdCAxNSA9IDYwJCIsICJObyBjb2luY2lkZWl4ZW46ICRcXGRmcmFjezV9ezR9JCB2YWwgJFxcZGZyYWN7NX17NH0kIGkgJFxcZGZyYWN7MTV9ezh9JCB2YWwgJFxcZGZyYWN7MTV9ezh9JC4iXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJDb21wcm92YS1obzogJDVcXGNkb3QgOCA9IDQwJCBpICQ0XFxjZG90IDE1ID0gNjAkLiBObyBjb2luY2lkZWl4ZW4uIiwgIkhhcyBwYXNzYXQgZCd1bmEgZnJhY2Npw7MgYSBsJ2FsdHJhIHN1bWFudC4gRHVlcyBmcmFjY2lvbnMgc8OzbiBlcXVpdmFsZW50cyBxdWFuIGVzIHBhc3NhIGQndW5hIGEgbCdhbHRyYSBNVUxUSVBMSUNBTlQgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIiwgIlF1ZSBkdWVzIGZyYWNjaW9ucyBlcyBwdWd1aW4gc2ltcGxpZmljYXIgbm8gdm9sIGRpciBxdWUgc2lndWluIGVxdWl2YWxlbnRzOiBjYWwgcXVlIHRvdGVzIGR1ZXMgc2ltcGxpZmlxdWluIGEgbGEgTUFURUlYQSBmcmFjY2nDsyBpcnJlZHVjdGlibGUuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURVNfQ1JFVUFUUyIsICJSQU9OQU1FTlRfQURESVRJVSIsICJDUklURVJJX0ZBTFMiLCAiIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNVxcY2RvdCA4ID0gNDAkIFxccXVhZCBpIFxccXVhZCAkNFxcY2RvdCAxNSA9IDYwJCIsICJObyBjb2luY2lkZWl4ZW4sIG8gc2lndWkgcXVlIG5vIHPDs24gZXF1aXZhbGVudHMuIl19"
   },
   {
    "id": "18d",
@@ -1384,10 +1384,10 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $8\\cdot 10$ amb $5\\cdot 24$. Si et costa, simplifica totes dues fraccions i compara-les."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiQ29tcHJvdmEtaG86ICQ4XFxjZG90IDEwID0gODAkIGkgJDVcXGNkb3QgMjQgPSAxMjAkLiBObyBjb2luY2lkZWl4ZW4uIiwgIlF1ZSBkdWVzIGZyYWNjaW9ucyBlcyBwdWd1aW4gc2ltcGxpZmljYXIgbm8gdm9sIGRpciBxdWUgc2lndWluIGVxdWl2YWxlbnRzOiBjYWwgcXVlIHRvdGVzIGR1ZXMgc2ltcGxpZmlxdWluIGEgbGEgTUFURUlYQSBmcmFjY2nDsyBpcnJlZHVjdGlibGUuIl0sICJlcnIiOiBbIlJBT05BTUVOVF9BRERJVElVIiwgIiIsICJQUk9EVUNURVNfQ1JFVUFUUyIsICJDUklURVJJX0ZBTFMiXSwgInJlcyI6IFsiUHJvZHVjdGVzIGNyZXVhdHM6ICQ4XFxjZG90IDEwID0gODAkIFxccXVhZCBpIFxccXVhZCAkNVxcY2RvdCAyNCA9IDEyMCQiLCAiTm8gY29pbmNpZGVpeGVuOiAkXFxkZnJhY3s4fXs1fSQgdmFsICRcXGRmcmFjezh9ezV9JCBpICRcXGRmcmFjezI0fXsxMH0kIHZhbCAkXFxkZnJhY3sxMn17NX0kLiJdfQ=="
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiQ29tcHJvdmEtaG86ICQ4XFxjZG90IDEwID0gODAkIGkgJDVcXGNkb3QgMjQgPSAxMjAkLiBObyBjb2luY2lkZWl4ZW4uIiwgIlF1ZSBkdWVzIGZyYWNjaW9ucyBlcyBwdWd1aW4gc2ltcGxpZmljYXIgbm8gdm9sIGRpciBxdWUgc2lndWluIGVxdWl2YWxlbnRzOiBjYWwgcXVlIHRvdGVzIGR1ZXMgc2ltcGxpZmlxdWluIGEgbGEgTUFURUlYQSBmcmFjY2nDsyBpcnJlZHVjdGlibGUuIl0sICJlcnIiOiBbIlJBT05BTUVOVF9BRERJVElVIiwgIiIsICJQUk9EVUNURVNfQ1JFVUFUUyIsICJDUklURVJJX0ZBTFMiXSwgInJlcyI6IFsiUHJvZHVjdGVzIGNyZXVhdHM6ICQ4XFxjZG90IDEwID0gODAkIFxccXVhZCBpIFxccXVhZCAkNVxcY2RvdCAyNCA9IDEyMCQiLCAiTm8gY29pbmNpZGVpeGVuLCBvIHNpZ3VpIHF1ZSBubyBzw7NuIGVxdWl2YWxlbnRzOiBzaW1wbGlmaWNhZGVzLCBzw7NuICRcXGRmcmFjezh9ezV9JCBpICRcXGRmcmFjezEyfXs1fSQuIl19"
   },
   {
    "id": "18e",
@@ -1406,7 +1406,7 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $9\\cdot 104$ amb $13\\cdot 72$. Si et costa, simplifica totes dues fraccions i compara-les."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICJEdWVzIGZyYWNjaW9ucyBlcXVpdmFsZW50cyBnYWlyZWLDqSBtYWkgdGVuZW4gZWxzIG1hdGVpeG9zIHRlcm1lczogZWwgcXVlIGhhIGRlIGNvaW5jaWRpciDDqXMgZWwgdmFsb3IsIG5vIGxlcyB4aWZyZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBudW1lcmFkb3IgcGVyIG51bWVyYWRvciBpIGRlbm9taW5hZG9yIHBlciBkZW5vbWluYWRvci4gQ2FsIGNyZXVhci1sb3M6IHByaW1lciBudW1lcmFkb3IgcGVyIHNlZ29uIGRlbm9taW5hZG9yLiIsICIiXSwgImVyciI6IFsiUkFPTkFNRU5UX0FERElUSVUiLCAiQ09NUEFSQV9URVJNRVMiLCAiUFJPRFVDVEVTX01BTF9DUkVVQVRTIiwgIiJdLCAicmVzIjogWyJQcm9kdWN0ZXMgY3JldWF0czogJDlcXGNkb3QgMTA0ID0gOTM2JCBcXHF1YWQgaSBcXHF1YWQgJDEzXFxjZG90IDcyID0gOTM2JCIsICJDb2luY2lkZWl4ZW4sIG8gc2lndWkgcXVlIHPDs24gZXF1aXZhbGVudHM6IHRvdGVzIGR1ZXMgdmFsZW4gJFxcZGZyYWN7OX17MTN9JC4iXX0="
@@ -1428,10 +1428,10 @@ window.FULL = {
    ],
    "pistes": [
     "Dues fraccions són equivalents si els productes creuats coincideixen: $\\dfrac{a}{b} = \\dfrac{c}{d}$ quan $a\\cdot d = b\\cdot c$.",
-    "També pots simplificar-les totes dues i comparar els resultats."
+    "Aquí compara $72\\cdot 115$ amb $25\\cdot 123$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiUXVlIGR1ZXMgZnJhY2Npb25zIGVzIHB1Z3VpbiBzaW1wbGlmaWNhciBubyB2b2wgZGlyIHF1ZSBzaWd1aW4gZXF1aXZhbGVudHM6IGNhbCBxdWUgdG90ZXMgZHVlcyBzaW1wbGlmaXF1aW4gYSBsYSBNQVRFSVhBIGZyYWNjacOzIGlycmVkdWN0aWJsZS4iLCAiQ29tcHJvdmEtaG86ICQ3MlxcY2RvdCAxMTUgPSA4MjgwJCBpICQyNVxcY2RvdCAxMjMgPSAzMDc1JC4gTm8gY29pbmNpZGVpeGVuLiJdLCAiZXJyIjogWyJSQU9OQU1FTlRfQURESVRJVSIsICIiLCAiQ1JJVEVSSV9GQUxTIiwgIlBST0RVQ1RFU19DUkVVQVRTIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNzJcXGNkb3QgMTE1ID0gODI4MCQgXFxxdWFkIGkgXFxxdWFkICQyNVxcY2RvdCAxMjMgPSAzMDc1JCIsICJObyBjb2luY2lkZWl4ZW46ICRcXGRmcmFjezcyfXsyNX0kIHZhbCAkXFxkZnJhY3s3Mn17MjV9JCBpICRcXGRmcmFjezEyM317MTE1fSQgdmFsICRcXGRmcmFjezEyM317MTE1fSQuIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGQndW5hIGZyYWNjacOzIGEgbCdhbHRyYSBzdW1hbnQuIER1ZXMgZnJhY2Npb25zIHPDs24gZXF1aXZhbGVudHMgcXVhbiBlcyBwYXNzYSBkJ3VuYSBhIGwnYWx0cmEgTVVMVElQTElDQU5UIGVscyBkb3MgdGVybWVzIHBlbCBtYXRlaXggbm9tYnJlLiIsICIiLCAiUXVlIGR1ZXMgZnJhY2Npb25zIGVzIHB1Z3VpbiBzaW1wbGlmaWNhciBubyB2b2wgZGlyIHF1ZSBzaWd1aW4gZXF1aXZhbGVudHM6IGNhbCBxdWUgdG90ZXMgZHVlcyBzaW1wbGlmaXF1aW4gYSBsYSBNQVRFSVhBIGZyYWNjacOzIGlycmVkdWN0aWJsZS4iLCAiQ29tcHJvdmEtaG86ICQ3MlxcY2RvdCAxMTUgPSA4MjgwJCBpICQyNVxcY2RvdCAxMjMgPSAzMDc1JC4gTm8gY29pbmNpZGVpeGVuLiJdLCAiZXJyIjogWyJSQU9OQU1FTlRfQURESVRJVSIsICIiLCAiQ1JJVEVSSV9GQUxTIiwgIlBST0RVQ1RFU19DUkVVQVRTIl0sICJyZXMiOiBbIlByb2R1Y3RlcyBjcmV1YXRzOiAkNzJcXGNkb3QgMTE1ID0gODI4MCQgXFxxdWFkIGkgXFxxdWFkICQyNVxcY2RvdCAxMjMgPSAzMDc1JCIsICJObyBjb2luY2lkZWl4ZW4sIG8gc2lndWkgcXVlIG5vIHPDs24gZXF1aXZhbGVudHMuIl19"
   },
   {
    "id": "20a",
@@ -1493,8 +1493,8 @@ window.FULL = {
     "$11$"
    ],
    "pistes": [
-    "$121$ és una potència de $11$.",
-    "$121 = 11\\cdot 11$."
+    "$121$ és el quadrat d'un nombre: de quin?",
+    "Escriu $121$ com a producte i simplifica el factor que comparteix amb el denominador. Si a baix queda un $1$, la fracció és un nombre enter."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTw60gcXVlIGVzIHBvdDogZW5jYXJhIHF1ZSBlbCBkZW5vbWluYWRvciBzaWd1aSBwcmltZXIsIHBvdCBzZXIgdW4gZmFjdG9yIGRlbCBudW1lcmFkb3IuIENvbXByb3ZhIHNlbXByZSBzaSBlbCBkZW5vbWluYWRvciBkaXZpZGVpeCBlbCBudW1lcmFkb3IuIEFxdcOtICQxMjEgPSAxMV57Mn0kLiIsICJIYXMgaW52ZXJ0aXQgbGEgZnJhY2Npw7MuIFNpbXBsaWZpY2FyIG5vIGNhbnZpYSBxdWluIHRlcm1lIMOpcyBhIGRhbHQgaSBxdWluIGEgYmFpeC4iLCAiSGFzIHJlc3RhdCAkMTIxLTExJC4gU2ltcGxpZmljYXIgw6lzIERJVklESVIgZWxzIGRvcyB0ZXJtZXMgcGVsIG1hdGVpeCBub21icmUuIFNpbXBsaWZpY2FyIMOpcyBESVZJRElSIGVsIG51bWVyYWRvciBpIGVsIGRlbm9taW5hZG9yIHBlbCBtYXRlaXggbm9tYnJlLCBubyByZXN0YXItbG9zLiBSZXN0YW50IGNhbnZpZXMgZWwgdmFsb3IgZGUgbGEgZnJhY2Npw7MuIiwgIiJdLCAiZXJyIjogWyJOT19TSU1QTElGSUNBQkxFIiwgIklOVkVSVElEQSIsICJTSU1QTElGSUNBUl9SRVNUQU5UIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3sxMjF9ezExfSA9IFxcZGZyYWN7MTFcXGNkb3QgMTF9ezExfSA9IDExJCIsICJFbCByZXN1bHRhdCDDqXMgdW4gZW50ZXI6IGxhIGZyYWNjacOzIGlycmVkdWN0aWJsZSDDqXMgJFxcZGZyYWN7MTF9ezF9ID0gMTEkLiJdfQ=="
@@ -1515,8 +1515,8 @@ window.FULL = {
     "$\\dfrac{1}{9}$"
    ],
    "pistes": [
-    "Escriu l'enter com una fracció de denominador $1$.",
-    "Redueix les dues fraccions a denominador comú i suma els numeradors."
+    "Escriu l'enter com una fracció amb el mateix denominador que l'altra: aquí, $9$.",
+    "$-3=-\\dfrac{27}{9}$: el signe es manté. Ara suma els numeradors."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIlJldmlzYSBlbCBzaWduZSBkZWwgdGVybWUgcXVlIHNlIHN1bWE6IHN1bWFyIHVuIG5lZ2F0aXUgZmEgZGlzbWludWlyLiIsICJIYXMgc3VtYXQgbCdlbnRlciBkaXJlY3RhbWVudCBhbCBudW1lcmFkb3IuIFVuIGVudGVyIMOpcyB1bmEgZnJhY2Npw7MgZGUgZGVub21pbmFkb3IgJDEkOiBjYWwgcmVkdWlyLWxvIGEgZGVub21pbmFkb3IgY29tw7ogYWJhbnMgZGUgc3VtYXIuIl0sICJlcnIiOiBbIiIsICJTSUdORV9GSU5BTCIsICJTSUdORV9TVU1BIiwgIkVOVEVSX0FMX05VTUVSQURPUiJdLCAicmVzIjogWyIkLTMgPSAtXFxkZnJhY3syN317OX0kLCBvIHNpZ3VpICQtXFxkZnJhY3syN317OX0gKyBcXGRmcmFjezR9ezl9JC4iLCAiUmVzdWx0YXQ6ICQtXFxkZnJhY3syM317OX0kIl19"
@@ -1537,8 +1537,8 @@ window.FULL = {
     "$-\\dfrac{42}{5}$"
    ],
    "pistes": [
-    "Escriu l'enter com una fracció de denominador $1$.",
-    "Redueix les dues fraccions a denominador comú i suma els numeradors."
+    "Primer el doble signe: restar $-\\dfrac{2}{5}$ és sumar $\\dfrac{2}{5}$.",
+    "Escriu el $8$ amb denominador $5$ i suma els numeradors."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXN0YXIgdW4gbm9tYnJlIG5lZ2F0aXUgw6lzIHN1bWFyLW5lIGwnb3Bvc2F0OiAkYS0oLWIpID0gYStiJC4iLCAiSGFzIHN1bWF0IGwnZW50ZXIgZGlyZWN0YW1lbnQgYWwgbnVtZXJhZG9yLiBVbiBlbnRlciDDqXMgdW5hIGZyYWNjacOzIGRlIGRlbm9taW5hZG9yICQxJDogY2FsIHJlZHVpci1sbyBhIGRlbm9taW5hZG9yIGNvbcO6IGFiYW5zIGRlIHN1bWFyLiIsICIiLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIl0sICJlcnIiOiBbIlJFU1RBX05FR0FUSVUiLCAiRU5URVJfQUxfTlVNRVJBRE9SIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyJSZXN0YXIgJC1cXGRmcmFjezJ9ezV9JCDDqXMgc3VtYXIgJFxcZGZyYWN7Mn17NX0kOiAkXFxkZnJhY3s0MH17NX0rXFxkZnJhY3syfXs1fSQuIiwgIlJlc3VsdGF0OiAkXFxkZnJhY3s0Mn17NX0kIl19"
@@ -1559,8 +1559,8 @@ window.FULL = {
     "$\\dfrac{53}{7}$"
    ],
    "pistes": [
-    "Escriu l'enter com una fracció de denominador $1$.",
-    "Redueix les dues fraccions a denominador comú i suma els numeradors."
+    "Sumar $(-8)$ és el mateix que restar $8$.",
+    "Escriu el $8$ amb denominador $7$ i opera els numeradors, cadascun amb el seu signe."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiIiwgIkhhcyBzdW1hdCBsJ2VudGVyIGRpcmVjdGFtZW50IGFsIG51bWVyYWRvci4gVW4gZW50ZXIgw6lzIHVuYSBmcmFjY2nDsyBkZSBkZW5vbWluYWRvciAkMSQ6IGNhbCByZWR1aXItbG8gYSBkZW5vbWluYWRvciBjb23DuiBhYmFucyBkZSBzdW1hci4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlbCB0ZXJtZSBxdWUgc2Ugc3VtYTogc3VtYXIgdW4gbmVnYXRpdSBmYSBkaXNtaW51aXIuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIiIsICJFTlRFUl9BTF9OVU1FUkFET1IiLCAiU0lHTkVfU1VNQSJdLCAicmVzIjogWyIkLTggPSAtXFxkZnJhY3s1Nn17N30kLiIsICJSZXN1bHRhdDogJC1cXGRmcmFjezU5fXs3fSQiXX0="
@@ -1581,8 +1581,8 @@ window.FULL = {
     "$-\\dfrac{33}{4}$"
    ],
    "pistes": [
-    "Escriu l'enter com una fracció de denominador $1$.",
-    "Redueix les dues fraccions a denominador comú i suma els numeradors."
+    "Primer el doble signe: restar $-7$ és sumar $7$.",
+    "Escriu el $7$ amb denominador $4$ i suma els numeradors."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmVzdGFyIHVuIG5vbWJyZSBuZWdhdGl1IMOpcyBzdW1hci1uZSBsJ29wb3NhdDogJGEtKC1iKSA9IGErYiQuIiwgIkhhcyBzdW1hdCBsJ2VudGVyIGRpcmVjdGFtZW50IGFsIG51bWVyYWRvci4gVW4gZW50ZXIgw6lzIHVuYSBmcmFjY2nDsyBkZSBkZW5vbWluYWRvciAkMSQ6IGNhbCByZWR1aXItbG8gYSBkZW5vbWluYWRvciBjb23DuiBhYmFucyBkZSBzdW1hci4iLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIl0sICJlcnIiOiBbIiIsICJSRVNUQV9ORUdBVElVIiwgIkVOVEVSX0FMX05VTUVSQURPUiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyIkNyA9IFxcZGZyYWN7Mjh9ezR9JC4iLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezMzfXs0fSQiXX0="
@@ -1603,8 +1603,8 @@ window.FULL = {
     "$-\\dfrac{10}{3}$"
    ],
    "pistes": [
-    "Escriu l'enter com una fracció de denominador $1$.",
-    "Redueix les dues fraccions a denominador comú i suma els numeradors."
+    "Sumar $(-6)$ és el mateix que restar $6$.",
+    "Escriu el $6$ amb denominador $3$ i opera els numeradors: tots dos termes són negatius."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlbCB0ZXJtZSBxdWUgc2Ugc3VtYTogc3VtYXIgdW4gbmVnYXRpdSBmYSBkaXNtaW51aXIuIiwgIiIsICJIYXMgc3VtYXQgbCdlbnRlciBkaXJlY3RhbWVudCBhbCBudW1lcmFkb3IuIFVuIGVudGVyIMOpcyB1bmEgZnJhY2Npw7MgZGUgZGVub21pbmFkb3IgJDEkOiBjYWwgcmVkdWlyLWxvIGEgZGVub21pbmFkb3IgY29tw7ogYWJhbnMgZGUgc3VtYXIuIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIlNJR05FX1NVTUEiLCAiIiwgIkVOVEVSX0FMX05VTUVSQURPUiJdLCAicmVzIjogWyIkLTYgPSAtXFxkZnJhY3sxOH17M30kLiIsICJSZXN1bHRhdDogJC1cXGRmcmFjezIyfXszfSQiXX0="
@@ -1956,7 +1956,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$\\dfrac{5}{6}\\cdot\\dfrac{1}{3}$: numerador per numerador i denominador per denominador. Després escriu el $2$ amb el mateix denominador."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJQZXIgbXVsdGlwbGljYXIgZnJhY2Npb25zIGVzIGZhIG51bWVyYWRvciBwZXIgbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVyIGRlbm9taW5hZG9yLiBDcmV1YXItbG9zIMOpcyBlbCBxdWUgZXMgZmEgcGVyIENPTVBBUkFSLWxlcywgbm8gcGVyIG11bHRpcGxpY2FyLWxlcy4iLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIiIsICJQcmltZXIgbGVzIG11bHRpcGxpY2FjaW9ucyBpIGRpdmlzaW9uczsgZGVzcHLDqXMsIGxlcyBzdW1lcyBpIHJlc3Rlcy4iXSwgImVyciI6IFsiUFJPRFVDVEVfQ1JFVUFUIiwgIlNJR05FX0ZJTkFMIiwgIiIsICJKRVJBUlFVSUEiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3s1fXs2fVxcY2RvdFxcZGZyYWN7MX17M30gPSBcXGRmcmFjezV9ezE4fSQiLCAiUmVzdWx0YXQ6ICQtXFxkZnJhY3szMX17MTh9JCJdfQ=="
@@ -1978,7 +1978,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$3\\cdot\\dfrac{4}{5}$: l'enter multiplica només el numerador, no el denominador. Després resta amb denominador comú."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiIiwgIlByaW1lciBsZXMgbXVsdGlwbGljYWNpb25zIGkgZGl2aXNpb25zOyBkZXNwcsOpcywgbGVzIHN1bWVzIGkgcmVzdGVzLiIsICJFbiBtdWx0aXBsaWNhciB1biBlbnRlciBwZXIgdW5hIGZyYWNjacOzLCBsJ2VudGVyIG11bHRpcGxpY2EgTk9Nw4lTIGVsIG51bWVyYWRvcjsgZWwgZGVub21pbmFkb3Igbm8gY2FudmlhLiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICIiLCAiSkVSQVJRVUlBIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkM1xcY2RvdFxcZGZyYWN7NH17NX0gPSBcXGRmcmFjezEyfXs1fSQiLCAiUmVzdWx0YXQ6ICRcXGRmcmFjezExfXsxMH0kIl19"
@@ -2000,7 +2000,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$\\dfrac{3}{2}\\cdot\\dfrac{7}{9}$: pots simplificar el $3$ amb el $9$ abans de multiplicar. Després escriu el $4$ amb el mateix denominador."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiUGVyIG11bHRpcGxpY2FyIGZyYWNjaW9ucyBlcyBmYSBudW1lcmFkb3IgcGVyIG51bWVyYWRvciBpIGRlbm9taW5hZG9yIHBlciBkZW5vbWluYWRvci4gQ3JldWFyLWxvcyDDqXMgZWwgcXVlIGVzIGZhIHBlciBDT01QQVJBUi1sZXMsIG5vIHBlciBtdWx0aXBsaWNhci1sZXMuIiwgIiIsICJQcmltZXIgbGVzIG11bHRpcGxpY2FjaW9ucyBpIGRpdmlzaW9uczsgZGVzcHLDqXMsIGxlcyBzdW1lcyBpIHJlc3Rlcy4iXSwgImVyciI6IFsiU0lHTkVfRklOQUwiLCAiUFJPRFVDVEVfQ1JFVUFUIiwgIiIsICJKRVJBUlFVSUEiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3szfXsyfVxcY2RvdFxcZGZyYWN7N317OX0gPSBcXGRmcmFjezd9ezZ9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7MTd9ezZ9JCJdfQ=="
@@ -2022,7 +2022,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$3\\cdot\\dfrac{1}{4}$: l'enter multiplica només el numerador, no el denominador. Després resta amb denominador comú."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW4gbXVsdGlwbGljYXIgdW4gZW50ZXIgcGVyIHVuYSBmcmFjY2nDsywgbCdlbnRlciBtdWx0aXBsaWNhIE5PTcOJUyBlbCBudW1lcmFkb3I7IGVsIGRlbm9taW5hZG9yIG5vIGNhbnZpYS4iLCAiRWwgcmVzdWx0YXQgdMOpIGVsIHNpZ25lIGNhbnZpYXQuIFJldmlzYSBxdWluIGRlbHMgZG9zIHRlcm1lcyDDqXMgbcOpcyBncmFuIGVuIHZhbG9yIGFic29sdXQuIiwgIlByaW1lciBsZXMgbXVsdGlwbGljYWNpb25zIGkgZGl2aXNpb25zOyBkZXNwcsOpcywgbGVzIHN1bWVzIGkgcmVzdGVzLiJdLCAiZXJyIjogWyIiLCAiRU5URVJfTVVMVElQTElDQV9ERU5PTUlOQURPUiIsICJTSUdORV9GSU5BTCIsICJKRVJBUlFVSUEiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkM1xcY2RvdFxcZGZyYWN7MX17NH0gPSBcXGRmcmFjezN9ezR9JCIsICJSZXN1bHRhdDogJFxcZGZyYWN7N317NH0kIl19"
@@ -2044,7 +2044,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$\\dfrac{4}{5}\\cdot\\dfrac{10}{8}$: simplifica abans de multiplicar (el $4$ amb el $8$ i el $10$ amb el $5$). Després suma-hi $-\\dfrac{3}{2}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiU3VtYXIgdW4gbm9tYnJlIG5lZ2F0aXUgw6lzIHJlc3Rhci1sby4iLCAiUGVyIG11bHRpcGxpY2FyIGZyYWNjaW9ucyBlcyBmYSBudW1lcmFkb3IgcGVyIG51bWVyYWRvciBpIGRlbm9taW5hZG9yIHBlciBkZW5vbWluYWRvci4gQ3JldWFyLWxvcyDDqXMgZWwgcXVlIGVzIGZhIHBlciBDT01QQVJBUi1sZXMsIG5vIHBlciBtdWx0aXBsaWNhci1sZXMuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9GSU5BTCIsICJTVU1BX0VOX0xMT0NfUkVTVEEiLCAiUFJPRFVDVEVfQ1JFVUFUIiwgIiJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICRcXGRmcmFjezR9ezV9XFxjZG90XFxkZnJhY3sxMH17OH0gPSAxJCIsICJSZXN1bHRhdDogJC1cXGRmcmFjezF9ezJ9JCJdfQ=="
@@ -2066,7 +2066,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "$\\dfrac{7}{9}\\cdot\\left(-\\dfrac{12}{5}\\right)$ és negatiu, i pots simplificar el $12$ amb el $9$. Després suma-hi $-\\dfrac{3}{4}$ amb denominador comú."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBwcm9kdWN0ZTogc2lnbmVzIGRpZmVyZW50cyBkb25lbiByZXN1bHRhdCBuZWdhdGl1LiIsICJQZXIgbXVsdGlwbGljYXIgZnJhY2Npb25zIGVzIGZhIG51bWVyYWRvciBwZXIgbnVtZXJhZG9yIGkgZGVub21pbmFkb3IgcGVyIGRlbm9taW5hZG9yLiBDcmV1YXItbG9zIMOpcyBlbCBxdWUgZXMgZmEgcGVyIENPTVBBUkFSLWxlcywgbm8gcGVyIG11bHRpcGxpY2FyLWxlcy4iLCAiU3VtYXIgdW4gbm9tYnJlIG5lZ2F0aXUgw6lzIHJlc3Rhci1sby4iXSwgImVyciI6IFsiIiwgIlNJR05FX1BST0RVQ1RFIiwgIlBST0RVQ1RFX0NSRVVBVCIsICJTVU1BX0VOX0xMT0NfUkVTVEEiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3s3fXs5fVxcY2RvdFxcZGZyYWN7LTEyfXs1fSA9IC1cXGRmcmFjezI4fXsxNX0kIiwgIlJlc3VsdGF0OiAkLVxcZGZyYWN7MTU3fXs2MH0kIl19"
@@ -2109,7 +2109,7 @@ window.FULL = {
     "$\\dfrac{66}{35}$"
    ],
    "pistes": [
-    "Compara aquest apartat amb l'anterior: només canvia on és el parèntesi.",
+    "Aquí el parèntesi agrupa la multiplicació I la resta: resol tot el parèntesi primer i després resta'l de $\\dfrac{5}{3}$.",
     "El parèntesi val $\\dfrac{7}{5}-\\dfrac{1}{3} = \\dfrac{16}{15}$."
    ],
    "nota": "",
@@ -2153,8 +2153,8 @@ window.FULL = {
     "$\\dfrac{26}{5}$"
    ],
    "pistes": [
-    "Primer la multiplicació, després la suma o la resta.",
-    "Per multiplicar fraccions: numerador per numerador i denominador per denominador."
+    "Primer les dues multiplicacions, després la resta.",
+    "$2\\cdot\\dfrac{5}{3}$: l'enter multiplica només el numerador. Els dos productes tenen denominadors $15$ i $3$: el comú és $15$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW4gbXVsdGlwbGljYXIgdW4gZW50ZXIgcGVyIHVuYSBmcmFjY2nDsywgbCdlbnRlciBtdWx0aXBsaWNhIE5PTcOJUyBlbCBudW1lcmFkb3I7IGVsIGRlbm9taW5hZG9yIG5vIGNhbnZpYS4iLCAiUmV2aXNhIGxhIHJlZ2xhIGRlbHMgc2lnbmVzIGRlbCBwcm9kdWN0ZTogc2lnbmVzIGRpZmVyZW50cyBkb25lbiByZXN1bHRhdCBuZWdhdGl1LiIsICJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iXSwgImVyciI6IFsiIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiU0lHTkVfUFJPRFVDVEUiLCAiU0lHTkVfRklOQUwiXSwgInJlcyI6IFsiQ2FsY3VsZW0gY2FkYSB0cm9zOiAkXFxkZnJhY3stN317M31cXGNkb3RcXGRmcmFjezR9ezV9ID0gLVxcZGZyYWN7Mjh9ezE1fSQgXFxxdWFkICQyXFxjZG90XFxkZnJhY3s1fXszfSA9IFxcZGZyYWN7MTB9ezN9JCIsICJSZXN1bHRhdDogJC1cXGRmcmFjezI2fXs1fSQiXX0="
@@ -2219,8 +2219,8 @@ window.FULL = {
     "$3{,}5$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "«Pur» vol dir que el període comença just després de la coma, sense cap xifra entremig.",
+    "Descarta primer les opcions sense barra: si les xifres s'acaben, no és periòdic, encara que una xifra es repeteixi dues vegades."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmVwZXRpciB1bmEgeGlmcmEgZG9zIGNvcHMgbm8gw6lzIHRlbmlyIHBlcsOtb2RlOiBlbCBwZXLDrW9kZSBlcyByZXBldGVpeCBzZW5zZSBmaS4iLCAiQXF1ZXN0IMOpcyBwZXJpw7JkaWMgTUlYVDogdMOpIHVuICQ0JCBkJ2FudGVwZXLDrW9kZSBlbnRyZSBsYSBjb21hIGkgZWwgcGVyw61vZGUuIiwgIkFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEgaSBubyByZXBldGVpeCByZXMuIl0sICJlcnIiOiBbIiIsICJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiUEVSSU9ERV9NQUxfSURFTlRJRklDQVQiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIl0sICJyZXMiOiBbIlVuIGRlY2ltYWwgcGVyacOyZGljIFBVUiB0w6kgZWwgcGVyw61vZGUganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hLiIsICJVbiBkZSBNSVhUIHTDqSBhbGd1bmEgeGlmcmEgKGwnYW50ZXBlcsOtb2RlKSBlbnRyZSBsYSBjb21hIGkgZWwgcGVyw61vZGUuIiwgIlVuIGRlY2ltYWwgRVhBQ1RFIHTDqSB1biBub21icmUgZmluaXQgZGUgeGlmcmVzIGRlY2ltYWxzLiIsICJMYSByZXNwb3N0YSBxdWUgY29tcGxlaXggbGEgY29uZGljacOzIMOpcyAkM3ssfVxcb3ZlcmxpbmV7NX0kLiJdfQ=="
@@ -2241,8 +2241,8 @@ window.FULL = {
     "$2{,}3\\overline{7}$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "Un decimal exacte no té barra de període: les seves xifres s'acaben.",
+    "Entre les opcions sense barra, compta les xifres que hi ha després de la coma."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZXLDrW9kZSBmYSBxdWUgZWwgbm9tYnJlIG5vIHMnYWNhYmkgbWFpOiBubyDDqXMgZXhhY3RlLiIsICJBcXVlc3Qgbm9tw6lzIHTDqSBkdWVzIHhpZnJlcyBkZWNpbWFscy4iLCAiIiwgIkFxdWVzdCBubyDDqXMgZXhhY3RlOiB0w6kgcGVyw61vZGUsIG8gc2lndWkgaW5maW5pdGVzIHhpZnJlcyBkZWNpbWFscy4iXSwgImVyciI6IFsiVFJBQ1RBVF9DT01fUEVSSU9ESUMiLCAiUE9URU5DSUFfMTAiLCAiIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIl0sICJyZXMiOiBbIlVuIGRlY2ltYWwgcGVyacOyZGljIFBVUiB0w6kgZWwgcGVyw61vZGUganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hLiIsICJVbiBkZSBNSVhUIHTDqSBhbGd1bmEgeGlmcmEgKGwnYW50ZXBlcsOtb2RlKSBlbnRyZSBsYSBjb21hIGkgZWwgcGVyw61vZGUuIiwgIlVuIGRlY2ltYWwgRVhBQ1RFIHTDqSB1biBub21icmUgZmluaXQgZGUgeGlmcmVzIGRlY2ltYWxzLiIsICJMYSByZXNwb3N0YSBxdWUgY29tcGxlaXggbGEgY29uZGljacOzIMOpcyAkMnssfTM3NSQuIl19"
@@ -2263,8 +2263,8 @@ window.FULL = {
     "$0{,}28\\overline{3}$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "«Mixt» vol dir que entre la coma i el període hi ha alguna xifra: aquestes xifres són l'anteperíode.",
+    "Les xifres que van entre la coma i la barra han de ser exactament $28$, i el període va darrere seu."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3Qgw6lzIHBlcmnDsmRpYyBQVVI6IG5vIHTDqSBhbnRlcGVyw61vZGUuIiwgIkFxdWVzdCDDqXMgZXhhY3RlOiBubyB0w6kgcGVyw61vZGUuIiwgIkFxdcOtIGVsICQyOCQgw6lzIGVsIHBlcsOtb2RlLCBubyBsJ2FudGVwZXLDrW9kZTogbCdhbnRlcGVyw61vZGUgw6lzIGVsICQzJC4iLCAiIl0sICJlcnIiOiBbIlBFUklPREVfTUFMX0lERU5USUZJQ0FUIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICJQRVJJT0RFX01BTF9JREVOVElGSUNBVCIsICIiXSwgInJlcyI6IFsiVW4gZGVjaW1hbCBwZXJpw7JkaWMgUFVSIHTDqSBlbCBwZXLDrW9kZSBqdXN0IGRlc3Byw6lzIGRlIGxhIGNvbWEuIiwgIlVuIGRlIE1JWFQgdMOpIGFsZ3VuYSB4aWZyYSAobCdhbnRlcGVyw61vZGUpIGVudHJlIGxhIGNvbWEgaSBlbCBwZXLDrW9kZS4iLCAiVW4gZGVjaW1hbCBFWEFDVEUgdMOpIHVuIG5vbWJyZSBmaW5pdCBkZSB4aWZyZXMgZGVjaW1hbHMuIiwgIkxhIHJlc3Bvc3RhIHF1ZSBjb21wbGVpeCBsYSBjb25kaWNpw7Mgw6lzICQweyx9MjhcXG92ZXJsaW5lezN9JC4iXX0="
@@ -2285,8 +2285,8 @@ window.FULL = {
     "$1{,}\\overline{2345}$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "«Pur» vol dir que el període comença just després de la coma, sense cap xifra entremig.",
+    "Compta les xifres que hi ha sota la barra: n'han de ser $4$. I entre la coma i la barra no n'hi ha d'haver cap."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBwZXLDrW9kZSB0w6kgJDMkIHhpZnJlcywgbm8gJDQkLiIsICJBcXVlc3Qgw6lzIGV4YWN0ZS4iLCAiw4lzIG1peHQgaSBlbCBwZXLDrW9kZSBub23DqXMgdMOpICQzJCB4aWZyZXMuIiwgIiJdLCAiZXJyIjogWyJQRVJJT0RFX01BTF9JREVOVElGSUNBVCIsICJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiUEVSSU9ERV9NQUxfSURFTlRJRklDQVQiLCAiIl0sICJyZXMiOiBbIlVuIGRlY2ltYWwgcGVyacOyZGljIFBVUiB0w6kgZWwgcGVyw61vZGUganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hLiIsICJVbiBkZSBNSVhUIHTDqSBhbGd1bmEgeGlmcmEgKGwnYW50ZXBlcsOtb2RlKSBlbnRyZSBsYSBjb21hIGkgZWwgcGVyw61vZGUuIiwgIlVuIGRlY2ltYWwgRVhBQ1RFIHTDqSB1biBub21icmUgZmluaXQgZGUgeGlmcmVzIGRlY2ltYWxzLiIsICJMYSByZXNwb3N0YSBxdWUgY29tcGxlaXggbGEgY29uZGljacOzIMOpcyAkMXssfVxcb3ZlcmxpbmV7MjM0NX0kLiJdfQ=="
@@ -2307,8 +2307,8 @@ window.FULL = {
     "$0{,}\\overline{37}$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "«Mixt» vol dir que entre la coma i el període hi ha alguna xifra: aquestes xifres són l'anteperíode.",
+    "El període és el que va sota la barra: aquí ha de ser $37$, amb alguna xifra al davant, entre la coma i la barra."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXXDrSBlbCAkMzckIGZhIGQnYW50ZXBlcsOtb2RlIGkgZWwgcGVyw61vZGUgw6lzIGVsICQ1JDoganVzdCBhbCByZXbDqXMuIiwgIiIsICJBcXVlc3Qgw6lzIGV4YWN0ZS4iLCAiQXF1ZXN0IMOpcyBwdXI6IHBlcnF1w6ggc2lndWkgbWl4dCBjYWwgYWxndW5hIHhpZnJhIGFiYW5zIGRlbCBwZXLDrW9kZS4iXSwgImVyciI6IFsiUEVSSU9ERV9NQUxfSURFTlRJRklDQVQiLCAiIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICJQRVJJT0RFX01BTF9JREVOVElGSUNBVCJdLCAicmVzIjogWyJVbiBkZWNpbWFsIHBlcmnDsmRpYyBQVVIgdMOpIGVsIHBlcsOtb2RlIGp1c3QgZGVzcHLDqXMgZGUgbGEgY29tYS4iLCAiVW4gZGUgTUlYVCB0w6kgYWxndW5hIHhpZnJhIChsJ2FudGVwZXLDrW9kZSkgZW50cmUgbGEgY29tYSBpIGVsIHBlcsOtb2RlLiIsICJVbiBkZWNpbWFsIEVYQUNURSB0w6kgdW4gbm9tYnJlIGZpbml0IGRlIHhpZnJlcyBkZWNpbWFscy4iLCAiTGEgcmVzcG9zdGEgcXVlIGNvbXBsZWl4IGxhIGNvbmRpY2nDsyDDqXMgJDB7LH01XFxvdmVybGluZXszN30kLiJdfQ=="
@@ -2329,8 +2329,8 @@ window.FULL = {
     "$0{,}2$"
    ],
    "pistes": [
-    "Mira on comença la barra del període: tot el que hi ha entre la coma i la barra és l'anteperíode.",
-    "Un decimal exacte s'acaba; un de periòdic no s'acaba mai."
+    "Un decimal exacte no té barra de període: les seves xifres s'acaben.",
+    "La part entera és el que hi ha abans de la coma: aquí ha de ser exactament $2$."
    ],
    "nota": "L'exercici original demana escriure'n un: aquí se'n proposen quatre i n'has de reconèixer el que compleix la condició.",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBwYXJ0IGVudGVyYSBkJ2FxdWVzdCBub21icmUgw6lzICQyMiQuIiwgIkFxdWVzdCBubyDDqXMgZXhhY3RlLiIsICIiLCAiTGEgcGFydCBlbnRlcmEgZCdhcXVlc3Qgbm9tYnJlIMOpcyAkMCQ7IGVsICQyJCDDqXMgdW5hIHhpZnJhIGRlY2ltYWwuIl0sICJlcnIiOiBbIlBBUlRfRU5URVJBX09CTElEQURBIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIiwgIiIsICJQQVJUX0VOVEVSQV9PQkxJREFEQSJdLCAicmVzIjogWyJVbiBkZWNpbWFsIHBlcmnDsmRpYyBQVVIgdMOpIGVsIHBlcsOtb2RlIGp1c3QgZGVzcHLDqXMgZGUgbGEgY29tYS4iLCAiVW4gZGUgTUlYVCB0w6kgYWxndW5hIHhpZnJhIChsJ2FudGVwZXLDrW9kZSkgZW50cmUgbGEgY29tYSBpIGVsIHBlcsOtb2RlLiIsICJVbiBkZWNpbWFsIEVYQUNURSB0w6kgdW4gbm9tYnJlIGZpbml0IGRlIHhpZnJlcyBkZWNpbWFscy4iLCAiTGEgcmVzcG9zdGEgcXVlIGNvbXBsZWl4IGxhIGNvbmRpY2nDsyDDqXMgJDJ7LH03NSQuIl19"
@@ -2352,7 +2352,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $1$ xifra després de la coma: el denominador és $10$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJIaSBmYWx0YSB1biB6ZXJvIGFsIGRlbm9taW5hZG9yLiBFbCBkZW5vbWluYWRvciBoYSBkZSB0ZW5pciB0YW50cyB6ZXJvcyBjb20geGlmcmVzIGRlY2ltYWxzIHTDqSBlbCBub21icmUuIENvbXB0YS1sZXMgdW5hIGFsdHJhIHZlZ2FkYS4iLCAiSGFzIHBvc2F0IG5vdXMgYWwgZGVub21pbmFkb3IsIHBlcsOyIGFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciB1bmEgcG90w6huY2lhIGRlICQxMCQuIiwgIiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJQT1RFTkNJQV8xMCIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICIiXSwgInJlcyI6IFsiJDB7LH0yID0gXFxkZnJhY3syfXsxMH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MX17NX0kIl19"
@@ -2374,7 +2374,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $2$ xifres després de la coma: el denominador és $100$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IG5vdXMgYWwgZGVub21pbmFkb3IsIHBlcsOyIGFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciB1bmEgcG90w6huY2lhIGRlICQxMCQuIiwgIkhpIGhhIHVuIHplcm8gZGUgbcOpcyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIlQnaGFzIGRlaXhhdCBsYSBwYXJ0IGVudGVyYS4gRWwgbnVtZXJhZG9yIMOpcyBlbCBub21icmUgc2VuY2VyIHNlbnNlIGxhIGNvbWEsIG5vIG5vbcOpcyBsZXMgeGlmcmVzIGRlY2ltYWxzLiJdLCAiZXJyIjogWyIiLCAiVFJBQ1RBVF9DT01fUEVSSU9ESUMiLCAiUE9URU5DSUFfMTAiLCAiUEFSVF9FTlRFUkFfT0JMSURBREEiXSwgInJlcyI6IFsiJDV7LH0yNSA9IFxcZGZyYWN7NTI1fXsxMDB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezIxfXs0fSQiXX0="
@@ -2396,7 +2396,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $1$ xifra després de la coma: el denominador és $10$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBsYSBwYXJ0IGVudGVyYS4gRWwgbnVtZXJhZG9yIMOpcyBlbCBub21icmUgc2VuY2VyIHNlbnNlIGxhIGNvbWEsIG5vIG5vbcOpcyBsZXMgeGlmcmVzIGRlY2ltYWxzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICIiLCAiUEFSVF9FTlRFUkFfT0JMSURBREEiXSwgInJlcyI6IFsiJDk1eyx9NyA9IFxcZGZyYWN7OTU3fXsxMH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7OTU3fXsxMH0kIl19"
@@ -2418,7 +2418,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $4$ xifres després de la coma: el denominador és $10\\,000$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBsYSBwYXJ0IGVudGVyYS4gRWwgbnVtZXJhZG9yIMOpcyBlbCBub21icmUgc2VuY2VyIHNlbnNlIGxhIGNvbWEsIG5vIG5vbcOpcyBsZXMgeGlmcmVzIGRlY2ltYWxzLiIsICJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiJdLCAiZXJyIjogWyJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICIiLCAiUEFSVF9FTlRFUkFfT0JMSURBREEiLCAiUE9URU5DSUFfMTAiXSwgInJlcyI6IFsiJDh7LH0wMDAyID0gXFxkZnJhY3s4MDAwMn17MTAwMDB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezQwMDAxfXs1MDAwfSQiXX0="
@@ -2440,7 +2440,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $2$ xifres després de la coma: el denominador és $100$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGkgZmFsdGEgdW4gemVybyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhpIGhhIHVuIHplcm8gZGUgbcOpcyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhhcyBwb3NhdCBub3VzIGFsIGRlbm9taW5hZG9yLCBwZXLDsiBhcXVlc3QgZGVjaW1hbCDDqXMgZXhhY3RlOiBzJ2FjYWJhLiBFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgdW5hIHBvdMOobmNpYSBkZSAkMTAkLiJdLCAiZXJyIjogWyIiLCAiUE9URU5DSUFfMTAiLCAiUE9URU5DSUFfMTAiLCAiVFJBQ1RBVF9DT01fUEVSSU9ESUMiXSwgInJlcyI6IFsiJDB7LH0wMSA9IFxcZGZyYWN7MX17MTAwfSQiLCAiU2ltcGxpZmljYW50OiAkXFxkZnJhY3sxfXsxMDB9JCJdfQ=="
@@ -2462,7 +2462,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $3$ xifres després de la coma: el denominador és $1000$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJUJ2hhcyBkZWl4YXQgbGEgcGFydCBlbnRlcmEuIEVsIG51bWVyYWRvciDDqXMgZWwgbm9tYnJlIHNlbmNlciBzZW5zZSBsYSBjb21hLCBubyBub23DqXMgbGVzIHhpZnJlcyBkZWNpbWFscy4iLCAiSGFzIHBvc2F0IG5vdXMgYWwgZGVub21pbmFkb3IsIHBlcsOyIGFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciB1bmEgcG90w6huY2lhIGRlICQxMCQuIiwgIiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJQQVJUX0VOVEVSQV9PQkxJREFEQSIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICIiXSwgInJlcyI6IFsiJDM3eyx9ODc1ID0gXFxkZnJhY3szNzg3NX17MTAwMH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MzAzfXs4fSQiXX0="
@@ -2484,7 +2484,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $2$ xifres després de la coma: el denominador és $100$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgbGEgcGFydCBlbnRlcmEuIEVsIG51bWVyYWRvciDDqXMgZWwgbm9tYnJlIHNlbmNlciBzZW5zZSBsYSBjb21hLCBubyBub23DqXMgbGVzIHhpZnJlcyBkZWNpbWFscy4iLCAiSGFzIHBvc2F0IG5vdXMgYWwgZGVub21pbmFkb3IsIHBlcsOyIGFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciB1bmEgcG90w6huY2lhIGRlICQxMCQuIiwgIkhpIGhhIHVuIHplcm8gZGUgbcOpcyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIiJdLCAiZXJyIjogWyJQQVJUX0VOVEVSQV9PQkxJREFEQSIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICJQT1RFTkNJQV8xMCIsICIiXSwgInJlcyI6IFsiJDM0MnssfTEyID0gXFxkZnJhY3szNDIxMn17MTAwfSQiLCAiU2ltcGxpZmljYW50OiAkXFxkZnJhY3s4NTUzfXsyNX0kIl19"
@@ -2506,7 +2506,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $6$ xifres després de la coma: el denominador és $1\\,000\\,000$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGkgZmFsdGEgdW4gemVybyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhpIGhhIHVuIHplcm8gZGUgbcOpcyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhhcyBwb3NhdCBub3VzIGFsIGRlbm9taW5hZG9yLCBwZXLDsiBhcXVlc3QgZGVjaW1hbCDDqXMgZXhhY3RlOiBzJ2FjYWJhLiBFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgdW5hIHBvdMOobmNpYSBkZSAkMTAkLiJdLCAiZXJyIjogWyIiLCAiUE9URU5DSUFfMTAiLCAiUE9URU5DSUFfMTAiLCAiVFJBQ1RBVF9DT01fUEVSSU9ESUMiXSwgInJlcyI6IFsiJDB7LH0wMDAwMDMgPSBcXGRmcmFjezN9ezEwMDAwMDB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezN9ezEwMDAwMDB9JCJdfQ=="
@@ -2527,8 +2527,8 @@ window.FULL = {
     "$\\dfrac{7}{2}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «5» i no hi ha anteperíode: el denominador porta un $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iXSwgImVyciI6IFsiIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJUUkFDVEFUX0NPTV9FWEFDVEUiXSwgInJlcyI6IFsiTm9tYnJlIHNlbmNlciBzZW5zZSBjb21hOiAkMzUkLiBQYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlOiAkMyQuIiwgIkRlbm9taW5hZG9yOiAkMSQgbm91IGkgJDAkIHplcm9zICRcXHJpZ2h0YXJyb3cgOSQiLCAiJDN7LH1cXG92ZXJsaW5lezV9ID0gXFxkZnJhY3szNSAtIDN9ezl9ID0gXFxkZnJhY3szMn17OX0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MzJ9ezl9JCJdfQ=="
@@ -2549,8 +2549,8 @@ window.FULL = {
     "$\\dfrac{5843}{990}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «02» i l'anteperíode, «9»: el denominador porta dos $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIkhhcyBwb3NhdCBub23DqXMgcG90w6huY2llcyBkZSAkMTAkIGFsIGRlbm9taW5hZG9yLiBBaXjDsiB2YWwgcGVyIGFscyBkZWNpbWFscyBleGFjdGVzOyBzaSBoaSBoYSBwZXLDrW9kZSwgZWwgZGVub21pbmFkb3IgaGEgZGUgZHVyIG5vdXMuIiwgIiJdLCAiZXJyIjogWyJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJOT1VTX0lfWkVST1MiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIiJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQ1OTAyJC4gUGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZTogJDU5JC4iLCAiRGVub21pbmFkb3I6ICQyJCBub3VzIGkgJDEkIHplcm8gJFxccmlnaHRhcnJvdyA5OTAkIiwgIiQ1eyx9OVxcb3ZlcmxpbmV7MDJ9ID0gXFxkZnJhY3s1OTAyIC0gNTl9ezk5MH0gPSBcXGRmcmFjezU4NDN9ezk5MH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7NTg0M317OTkwfSQiXX0="
@@ -2571,8 +2571,8 @@ window.FULL = {
     "$\\dfrac{1299}{100}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «9» i l'anteperíode, «9»: el denominador porta un $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiSGFzIHBvc2F0IHVuIG5vdSBkZSBtw6lzLiBBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIkhhcyBwb3NhdCBub23DqXMgcG90w6huY2llcyBkZSAkMTAkIGFsIGRlbm9taW5hZG9yLiBBaXjDsiB2YWwgcGVyIGFscyBkZWNpbWFscyBleGFjdGVzOyBzaSBoaSBoYSBwZXLDrW9kZSwgZWwgZGVub21pbmFkb3IgaGEgZGUgZHVyIG5vdXMuIl0sICJlcnIiOiBbIiIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJOT1VTX0lfWkVST1MiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDEyOTkkLiBQYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlOiAkMTI5JC4iLCAiRGVub21pbmFkb3I6ICQxJCBub3UgaSAkMSQgemVybyAkXFxyaWdodGFycm93IDkwJCIsICIkMTJ7LH05XFxvdmVybGluZXs5fSA9IFxcZGZyYWN7MTI5OSAtIDEyOX17OTB9ID0gXFxkZnJhY3sxMTcwfXs5MH0kIiwgIlNpbXBsaWZpY2FudDogJDEzJCJdLCAiY29tIjogIkZpeGEndCBlbiBlbCByZXN1bHRhdDogJDEyeyx9OVxcb3ZlcmxpbmV7OX0kIMOpcyBleGFjdGFtZW50ICQxMyQuIFVuIHBlcsOtb2RlIGRlIG5vdXMgc2VtcHJlIGZhIHB1amFyIHVuYSB1bml0YXQgbGEgeGlmcmEgZCdhYmFuczogJDB7LH1cXG92ZXJsaW5lezl9PTEkLiJ9"
@@ -2593,8 +2593,8 @@ window.FULL = {
     "$\\dfrac{237}{100}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «7» i l'anteperíode, «3»: el denominador porta un $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiSGFzIHBvc2F0IHVuIG5vdSBkZSBtw6lzLiBBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIkhhcyBwb3NhdCBub23DqXMgcG90w6huY2llcyBkZSAkMTAkIGFsIGRlbm9taW5hZG9yLiBBaXjDsiB2YWwgcGVyIGFscyBkZWNpbWFscyBleGFjdGVzOyBzaSBoaSBoYSBwZXLDrW9kZSwgZWwgZGVub21pbmFkb3IgaGEgZGUgZHVyIG5vdXMuIl0sICJlcnIiOiBbIiIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJOT1VTX0lfWkVST1MiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDIzNyQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQyMyQuIiwgIkRlbm9taW5hZG9yOiAkMSQgbm91IGkgJDEkIHplcm8gJFxccmlnaHRhcnJvdyA5MCQiLCAiJDJ7LH0zXFxvdmVybGluZXs3fSA9IFxcZGZyYWN7MjM3IC0gMjN9ezkwfSA9IFxcZGZyYWN7MjE0fXs5MH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MTA3fXs0NX0kIl19"
@@ -2615,8 +2615,8 @@ window.FULL = {
     "$\\dfrac{71}{4995}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «7» i l'anteperíode, «015»: el denominador porta un $9$ i tres $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiQWwgZGVub21pbmFkb3IgdmFuIHRhbnRzIE5PVVMgY29tIHhpZnJlcyB0w6kgZWwgcGVyw61vZGUsIGkgdGFudHMgWkVST1MgY29tIHhpZnJlcyB0w6kgbCdhbnRlcGVyw61vZGUuIEFxdcOtIGhvIHRlbnMgaW50ZXJjYW52aWF0LiJdLCAiZXJyIjogWyJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiIiwgIk5PVVNfSV9aRVJPUyJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQxNTckLiBQYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlOiAkMTUkLiIsICJEZW5vbWluYWRvcjogJDEkIG5vdSBpICQzJCB6ZXJvcyAkXFxyaWdodGFycm93IDkwMDAkIiwgIiQweyx9MDE1XFxvdmVybGluZXs3fSA9IFxcZGZyYWN7MTU3IC0gMTV9ezkwMDB9ID0gXFxkZnJhY3sxNDJ9ezkwMDB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezcxfXs0NTAwfSQiXX0="
@@ -2637,8 +2637,8 @@ window.FULL = {
     "$\\dfrac{21001}{500}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «2» i l'anteperíode, «00»: el denominador porta un $9$ i dos $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIiIsICJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiJdLCAiZXJyIjogWyJOT1VTX0lfWkVST1MiLCAiIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQ0MjAwMiQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQ0MjAwJC4iLCAiRGVub21pbmFkb3I6ICQxJCBub3UgaSAkMiQgemVyb3MgJFxccmlnaHRhcnJvdyA5MDAkIiwgIiQ0MnssfTAwXFxvdmVybGluZXsyfSA9IFxcZGZyYWN7NDIwMDIgLSA0MjAwfXs5MDB9ID0gXFxkZnJhY3szNzgwMn17OTAwfSQiLCAiU2ltcGxpZmljYW50OiAkXFxkZnJhY3sxODkwMX17NDUwfSQiXX0="
@@ -2659,8 +2659,8 @@ window.FULL = {
     "$\\dfrac{2129}{45}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «8» i l'anteperíode, «5»: el denominador porta un $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiSGFzIHBvc2F0IHVuIG5vdSBkZSBtw6lzLiBBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIkFsIG51bWVyYWRvciBjYWwgUkVTVEFSIGxhIHBhcnQgcXVlIG5vIGVzIHJlcGV0ZWl4OiB0b3QgZWwgbm9tYnJlIHNlbnNlIGNvbWEsIG1lbnlzIGxhIHBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGUuIl0sICJlcnIiOiBbIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiLCAiTk9VU19JX1pFUk9TIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDQyNTgkLiBQYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlOiAkNDI1JC4iLCAiRGVub21pbmFkb3I6ICQxJCBub3UgaSAkMSQgemVybyAkXFxyaWdodGFycm93IDkwJCIsICIkNDJ7LH01XFxvdmVybGluZXs4fSA9IFxcZGZyYWN7NDI1OCAtIDQyNX17OTB9ID0gXFxkZnJhY3szODMzfXs5MH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MzgzM317OTB9JCJdfQ=="
@@ -2681,8 +2681,8 @@ window.FULL = {
     "$\\dfrac{8}{99}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «8» i no hi ha anteperíode: el denominador porta un $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiSGFzIHBvc2F0IHVuIG5vdSBkZSBtw6lzLiBBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIl0sICJlcnIiOiBbIlBPVEVOQ0lBXzEwIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiLCAiTk9VU19JX1pFUk9TIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDgkLiBQYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlOiAkMCQuIiwgIkRlbm9taW5hZG9yOiAkMSQgbm91IGkgJDAkIHplcm9zICRcXHJpZ2h0YXJyb3cgOSQiLCAiJDB7LH1cXG92ZXJsaW5lezh9ID0gXFxkZnJhY3s4IC0gMH17OX0gPSBcXGRmcmFjezh9ezl9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezh9ezl9JCJdfQ=="
@@ -2703,8 +2703,8 @@ window.FULL = {
     "$\\dfrac{1255}{999}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «256» i no hi ha anteperíode: el denominador porta tres $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiXSwgImVyciI6IFsiTk9fUkVTVEFfQU5URVBFUklPREUiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiXSwgInJlcyI6IFsiTm9tYnJlIHNlbmNlciBzZW5zZSBjb21hOiAkMTI1NiQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQxJC4iLCAiRGVub21pbmFkb3I6ICQzJCBub3VzIGkgJDAkIHplcm9zICRcXHJpZ2h0YXJyb3cgOTk5JCIsICIkMXssfVxcb3ZlcmxpbmV7MjU2fSA9IFxcZGZyYWN7MTI1NiAtIDF9ezk5OX0gPSBcXGRmcmFjezEyNTV9ezk5OX0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MTI1NX17OTk5fSQiXX0="
@@ -2725,8 +2725,8 @@ window.FULL = {
     "$\\dfrac{5209}{450}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «23» i l'anteperíode, «5»: el denominador porta dos $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiQWwgZGVub21pbmFkb3IgdmFuIHRhbnRzIE5PVVMgY29tIHhpZnJlcyB0w6kgZWwgcGVyw61vZGUsIGkgdGFudHMgWkVST1MgY29tIHhpZnJlcyB0w6kgbCdhbnRlcGVyw61vZGUuIEFxdcOtIGhvIHRlbnMgaW50ZXJjYW52aWF0LiJdLCAiZXJyIjogWyJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIk5PVVNfSV9aRVJPUyJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQxMDUyMyQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQxMDUkLiIsICJEZW5vbWluYWRvcjogJDIkIG5vdXMgaSAkMSQgemVybyAkXFxyaWdodGFycm93IDk5MCQiLCAiJDEweyx9NVxcb3ZlcmxpbmV7MjN9ID0gXFxkZnJhY3sxMDUyMyAtIDEwNX17OTkwfSA9IFxcZGZyYWN7MTA0MTh9ezk5MH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7NTIwOX17NDk1fSQiXX0="
@@ -2747,8 +2747,8 @@ window.FULL = {
     "$\\dfrac{97}{999000}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «97» i l'anteperíode, «000»: el denominador porta dos $9$ i tres $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWwgZGVub21pbmFkb3IgdmFuIHRhbnRzIE5PVVMgY29tIHhpZnJlcyB0w6kgZWwgcGVyw61vZGUsIGkgdGFudHMgWkVST1MgY29tIHhpZnJlcyB0w6kgbCdhbnRlcGVyw61vZGUuIEFxdcOtIGhvIHRlbnMgaW50ZXJjYW52aWF0LiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICJIYXMgcG9zYXQgdW4gbm91IGRlIG3DqXMuIEFsIGRlbm9taW5hZG9yIHZhbiB0YW50cyBOT1VTIGNvbSB4aWZyZXMgdMOpIGVsIHBlcsOtb2RlLCBpIHRhbnRzIFpFUk9TIGNvbSB4aWZyZXMgdMOpIGwnYW50ZXBlcsOtb2RlLiBBcXXDrSBobyB0ZW5zIGludGVyY2FudmlhdC4iXSwgImVyciI6IFsiIiwgIk5PVVNfSV9aRVJPUyIsICJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiTk9VU19JX1pFUk9TIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDk3JC4gUGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZTogJDAkLiIsICJEZW5vbWluYWRvcjogJDIkIG5vdXMgaSAkMyQgemVyb3MgJFxccmlnaHRhcnJvdyA5OTAwMCQiLCAiJDB7LH0wMDBcXG92ZXJsaW5lezk3fSA9IFxcZGZyYWN7OTcgLSAwfXs5OTAwMH0gPSBcXGRmcmFjezk3fXs5OTAwMH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7OTd9ezk5MDAwfSQiXX0="
@@ -2769,8 +2769,8 @@ window.FULL = {
     "$\\dfrac{1627}{450}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «572» i l'anteperíode, «2»: el denominador porta tres $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiQWwgZGVub21pbmFkb3IgdmFuIHRhbnRzIE5PVVMgY29tIHhpZnJlcyB0w6kgZWwgcGVyw61vZGUsIGkgdGFudHMgWkVST1MgY29tIHhpZnJlcyB0w6kgbCdhbnRlcGVyw61vZGUuIEFxdcOtIGhvIHRlbnMgaW50ZXJjYW52aWF0LiJdLCAiZXJyIjogWyIiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIk5PVVNfSV9aRVJPUyJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQzMjU3MiQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQzMiQuIiwgIkRlbm9taW5hZG9yOiAkMyQgbm91cyBpICQxJCB6ZXJvICRcXHJpZ2h0YXJyb3cgOTk5MCQiLCAiJDN7LH0yXFxvdmVybGluZXs1NzJ9ID0gXFxkZnJhY3szMjU3MiAtIDMyfXs5OTkwfSA9IFxcZGZyYWN7MzI1NDB9ezk5OTB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezMyNTR9ezk5OX0kIl19"
@@ -2792,7 +2792,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "Aquí es repeteix «2», i abans hi ha «3», que no es repeteix: el denominador porta un $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiUmV2aXNhIHF1aW5lcyB4aWZyZXMgZXMgcmVwZXRlaXhlbiBpbmRlZmluaWRhbWVudCAoZWwgcGVyw61vZGUpIGkgcXVpbmVzIGFwYXJlaXhlbiB1biBzb2wgY29wIGRlc3Byw6lzIGRlIGxhIGNvbWEgKGwnYW50ZXBlcsOtb2RlKS4iLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iXSwgImVyciI6IFsiIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlBFUklPREVfTUFMX0lERU5USUZJQ0FUIiwgIlRSQUNUQVRfQ09NX0VYQUNURSJdLCAicmVzIjogWyJMZXMgeGlmcmVzIG5vIHMnYWNhYmVuIGkgZWwgcGVyw61vZGUgbm8gY29tZW7Dp2EganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hOiDDqXMgcGVyacOyZGljIG1peHQuIiwgIiRcXGRmcmFjezE1MzIgLSAxNTN9ezkwfSA9IFxcZGZyYWN7MTM3OX17OTB9JCJdfQ=="
@@ -2814,7 +2814,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "Aquí es repeteix «32» des de just després de la coma: el denominador porta dos $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICJSZXZpc2EgcXVpbmVzIHhpZnJlcyBlcyByZXBldGVpeGVuIGluZGVmaW5pZGFtZW50IChlbCBwZXLDrW9kZSkgaSBxdWluZXMgYXBhcmVpeGVuIHVuIHNvbCBjb3AgZGVzcHLDqXMgZGUgbGEgY29tYSAobCdhbnRlcGVyw61vZGUpLiIsICIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iXSwgImVyciI6IFsiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIlBFUklPREVfTUFMX0lERU5USUZJQ0FUIiwgIiIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSJdLCAicmVzIjogWyJMZXMgeGlmcmVzIG5vIHMnYWNhYmVuIGkgZWwgcGVyw61vZGUgY29tZW7Dp2EganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hOiDDqXMgcGVyacOyZGljIHB1ci4iLCAiJFxcZGZyYWN7MTUzMiAtIDE1fXs5OX0gPSBcXGRmcmFjezE1MTd9ezk5fSQiXX0="
@@ -2836,7 +2836,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "Aquí es repeteix «4», i abans hi ha «233», que no es repeteix: el denominador porta un $9$ i tres $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiUmV2aXNhIHF1aW5lcyB4aWZyZXMgZXMgcmVwZXRlaXhlbiBpbmRlZmluaWRhbWVudCAoZWwgcGVyw61vZGUpIGkgcXVpbmVzIGFwYXJlaXhlbiB1biBzb2wgY29wIGRlc3Byw6lzIGRlIGxhIGNvbWEgKGwnYW50ZXBlcsOtb2RlKS4iLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iXSwgImVyciI6IFsiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIiIsICJQRVJJT0RFX01BTF9JREVOVElGSUNBVCIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSJdLCAicmVzIjogWyJMZXMgeGlmcmVzIG5vIHMnYWNhYmVuIGkgZWwgcGVyw61vZGUgbm8gY29tZW7Dp2EganVzdCBkZXNwcsOpcyBkZSBsYSBjb21hOiDDqXMgcGVyacOyZGljIG1peHQuIiwgIiRcXGRmcmFjezE1MjMzNCAtIDE1MjMzfXs5MDAwfSA9IFxcZGZyYWN7MTM3MTAxfXs5MDAwfSQiXX0="
@@ -2858,7 +2858,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "Les xifres s'acaben: n'hi ha $2$ després de la coma, i el denominador és $100$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IG5vdXMgYWwgZGVub21pbmFkb3IsIHBlcsOyIGFxdWVzdCBkZWNpbWFsIMOpcyBleGFjdGU6IHMnYWNhYmEuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciB1bmEgcG90w6huY2lhIGRlICQxMCQuIiwgIkVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iXSwgImVyciI6IFsiIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIiwgIlBPVEVOQ0lBXzEwIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIl0sICJyZXMiOiBbIkxlcyB4aWZyZXMgZGVjaW1hbHMgcydhY2FiZW46IMOpcyB1biBkZWNpbWFsIEVYQUNURS4iLCAiJFxcZGZyYWN7MTUzMn17MTBeezJ9fSA9IFxcZGZyYWN7MzgzfXsyNX0kIl19"
@@ -2880,7 +2880,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "Les xifres s'acaben: n'hi ha $3$ després de la coma, i el denominador és $1000$."
    ],
    "nota": "Compte: no hi ha punts suspensius, o sigui que les xifres s'acaben. És exacte, no periòdic.",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iLCAiRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhhcyBwb3NhdCBub3VzIGFsIGRlbm9taW5hZG9yLCBwZXLDsiBhcXVlc3QgZGVjaW1hbCDDqXMgZXhhY3RlOiBzJ2FjYWJhLiBFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgdW5hIHBvdMOobmNpYSBkZSAkMTAkLiIsICIiXSwgImVyciI6IFsiVFJBQ1RBVF9DT01fUEVSSU9ESUMiLCAiUE9URU5DSUFfMTAiLCAiVFJBQ1RBVF9DT01fUEVSSU9ESUMiLCAiIl0sICJyZXMiOiBbIkxlcyB4aWZyZXMgZGVjaW1hbHMgcydhY2FiZW46IMOpcyB1biBkZWNpbWFsIEVYQUNURS4iLCAiJFxcZGZyYWN7MTUzMzN9ezEwXnszfX0gPSBcXGRmcmFjezE1MzMzfXsxMDAwfSQiXX0="
@@ -2902,7 +2902,7 @@ window.FULL = {
    ],
    "pistes": [
     "Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
-    "Cada tipus té la seva fórmula: només potències de $10$ si és exacte, nous si és pur, nous i zeros si és mixt."
+    "No té cap xifra decimal: és un nombre enter, que també compta com a decimal exacte."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIiwgIkhhcyBwb3NhdCBub3VzIGFsIGRlbm9taW5hZG9yLCBwZXLDsiBhcXVlc3QgZGVjaW1hbCDDqXMgZXhhY3RlOiBzJ2FjYWJhLiBFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgdW5hIHBvdMOobmNpYSBkZSAkMTAkLiIsICJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iXSwgImVyciI6IFsiIiwgIlBPVEVOQ0lBXzEwIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIiwgIlRSQUNUQVRfQ09NX1BFUklPRElDIl0sICJyZXMiOiBbIkxlcyB4aWZyZXMgZGVjaW1hbHMgcydhY2FiZW46IMOpcyB1biBkZWNpbWFsIEVYQUNURS4iLCAiJFxcZGZyYWN7MTV9ezEwXnswfX0gPSAxNSQiXX0="
@@ -2924,7 +2924,7 @@ window.FULL = {
    ],
    "pistes": [
     "El numerador és el nombre sense la coma; el denominador, un $1$ seguit de tants zeros com xifres decimals hi ha.",
-    "No t'oblidis de simplificar la fracció al final."
+    "Aquí hi ha $2$ xifres després de la coma: el denominador és $100$. Després simplifica la fracció, si es pot."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIaSBoYSB1biB6ZXJvIGRlIG3DqXMgYWwgZGVub21pbmFkb3IuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICJIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBsYSBwYXJ0IGVudGVyYS4gRWwgbnVtZXJhZG9yIMOpcyBlbCBub21icmUgc2VuY2VyIHNlbnNlIGxhIGNvbWEsIG5vIG5vbcOpcyBsZXMgeGlmcmVzIGRlY2ltYWxzLiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyIsICIiLCAiUEFSVF9FTlRFUkFfT0JMSURBREEiXSwgInJlcyI6IFsiJDJ7LH0yNSA9IFxcZGZyYWN7MjI1fXsxMDB9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezl9ezR9JCJdfQ=="
@@ -2945,8 +2945,8 @@ window.FULL = {
     "$\\dfrac{223}{100}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «25» i no hi ha anteperíode: el denominador porta dos $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iXSwgImVyciI6IFsiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIiIsICJOT19SRVNUQV9BTlRFUEVSSU9ERSIsICJUUkFDVEFUX0NPTV9FWEFDVEUiXSwgInJlcyI6IFsiTm9tYnJlIHNlbmNlciBzZW5zZSBjb21hOiAkMjI1JC4gUGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZTogJDIkLiIsICJEZW5vbWluYWRvcjogJDIkIG5vdXMgaSAkMCQgemVyb3MgJFxccmlnaHRhcnJvdyA5OSQiLCAiJDJ7LH1cXG92ZXJsaW5lezI1fSA9IFxcZGZyYWN7MjI1IC0gMn17OTl9ID0gXFxkZnJhY3syMjN9ezk5fSQiLCAiU2ltcGxpZmljYW50OiAkXFxkZnJhY3syMjN9ezk5fSQiXX0="
@@ -2967,8 +2967,8 @@ window.FULL = {
     "$\\dfrac{203}{9}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «5» i no hi ha anteperíode: el denominador porta un $9$ i cap $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiXSwgImVyciI6IFsiTk9fUkVTVEFfQU5URVBFUklPREUiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiXSwgInJlcyI6IFsiTm9tYnJlIHNlbmNlciBzZW5zZSBjb21hOiAkMjI1JC4gUGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZTogJDIyJC4iLCAiRGVub21pbmFkb3I6ICQxJCBub3UgaSAkMCQgemVyb3MgJFxccmlnaHRhcnJvdyA5JCIsICIkMjJ7LH1cXG92ZXJsaW5lezV9ID0gXFxkZnJhY3syMjUgLSAyMn17OX0gPSBcXGRmcmFjezIwM317OX0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MjAzfXs5fSQiXX0="
@@ -2989,8 +2989,8 @@ window.FULL = {
     "$\\dfrac{203}{90}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «5» i l'anteperíode, «2»: el denominador porta un $9$ i un $0$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICJIYXMgcG9zYXQgdW4gbm91IGRlIG3DqXMuIEFsIGRlbm9taW5hZG9yIHZhbiB0YW50cyBOT1VTIGNvbSB4aWZyZXMgdMOpIGVsIHBlcsOtb2RlLCBpIHRhbnRzIFpFUk9TIGNvbSB4aWZyZXMgdMOpIGwnYW50ZXBlcsOtb2RlLiBBcXXDrSBobyB0ZW5zIGludGVyY2FudmlhdC4iLCAiIl0sICJlcnIiOiBbIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICJOT1VTX0lfWkVST1MiLCAiIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDIyNSQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQyMiQuIiwgIkRlbm9taW5hZG9yOiAkMSQgbm91IGkgJDEkIHplcm8gJFxccmlnaHRhcnJvdyA5MCQiLCAiJDJ7LH0yXFxvdmVybGluZXs1fSA9IFxcZGZyYWN7MjI1IC0gMjJ9ezkwfSA9IFxcZGZyYWN7MjAzfXs5MH0kIiwgIlNpbXBsaWZpY2FudDogJFxcZGZyYWN7MjAzfXs5MH0kIl19"
@@ -3011,8 +3011,8 @@ window.FULL = {
     "$\\dfrac{167}{4995}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «334» i no hi ha anteperíode: el denominador porta tres $9$ i cap $0$."
    ],
    "nota": "El full de partida escriu $0{,}33433434\\dots$; aquí es llegeix com a $0{,}\\overline{334}$, amb el grup $334$ com a període.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IHVuIG5vdSBkZSBtw6lzLiBBbCBkZW5vbWluYWRvciB2YW4gdGFudHMgTk9VUyBjb20geGlmcmVzIHTDqSBlbCBwZXLDrW9kZSwgaSB0YW50cyBaRVJPUyBjb20geGlmcmVzIHTDqSBsJ2FudGVwZXLDrW9kZS4gQXF1w60gaG8gdGVucyBpbnRlcmNhbnZpYXQuIiwgIkhhcyBwb3NhdCBub23DqXMgcG90w6huY2llcyBkZSAkMTAkIGFsIGRlbm9taW5hZG9yLiBBaXjDsiB2YWwgcGVyIGFscyBkZWNpbWFscyBleGFjdGVzOyBzaSBoaSBoYSBwZXLDrW9kZSwgZWwgZGVub21pbmFkb3IgaGEgZGUgZHVyIG5vdXMuIiwgIkhpIGhhIHVuIHplcm8gZGUgbcOpcyBhbCBkZW5vbWluYWRvci4gRWwgZGVub21pbmFkb3IgaGEgZGUgdGVuaXIgdGFudHMgemVyb3MgY29tIHhpZnJlcyBkZWNpbWFscyB0w6kgZWwgbm9tYnJlLiBDb21wdGEtbGVzIHVuYSBhbHRyYSB2ZWdhZGEuIl0sICJlcnIiOiBbIiIsICJOT1VTX0lfWkVST1MiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIlBPVEVOQ0lBXzEwIl0sICJyZXMiOiBbIk5vbWJyZSBzZW5jZXIgc2Vuc2UgY29tYTogJDMzNCQuIFBhcnQgYW50ZXJpb3IgYWwgcGVyw61vZGU6ICQwJC4iLCAiRGVub21pbmFkb3I6ICQzJCBub3VzIGkgJDAkIHplcm9zICRcXHJpZ2h0YXJyb3cgOTk5JCIsICIkMHssfVxcb3ZlcmxpbmV7MzM0fSA9IFxcZGZyYWN7MzM0IC0gMH17OTk5fSA9IFxcZGZyYWN7MzM0fXs5OTl9JCIsICJTaW1wbGlmaWNhbnQ6ICRcXGRmcmFjezMzNH17OTk5fSQiXX0="
@@ -3033,8 +3033,8 @@ window.FULL = {
     "$\\dfrac{8571}{1000}$"
    ],
    "pistes": [
-    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix.",
-    "Denominador: un nou per cada xifra del període i un zero per cada xifra de l'anteperíode."
+    "Numerador: tot el nombre sense la coma MENYS la part que no es repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per cada xifra de l'anteperíode.",
+    "Aquí el període és «1» i l'anteperíode, «57»: el denominador porta un $9$ i dos $0$."
    ],
    "nota": "El full de partida escriu $8{,}5711\\dots$; aquí es llegeix com a $8{,}57\\overline{1}$, amb el $57$ d'anteperíode i l'$1$ de període.",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWwgZGVub21pbmFkb3IgdmFuIHRhbnRzIE5PVVMgY29tIHhpZnJlcyB0w6kgZWwgcGVyw61vZGUsIGkgdGFudHMgWkVST1MgY29tIHhpZnJlcyB0w6kgbCdhbnRlcGVyw61vZGUuIEFxdcOtIGhvIHRlbnMgaW50ZXJjYW52aWF0LiIsICJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiJdLCAiZXJyIjogWyIiLCAiTk9VU19JX1pFUk9TIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSJdLCAicmVzIjogWyJOb21icmUgc2VuY2VyIHNlbnNlIGNvbWE6ICQ4NTcxJC4gUGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZTogJDg1NyQuIiwgIkRlbm9taW5hZG9yOiAkMSQgbm91IGkgJDIkIHplcm9zICRcXHJpZ2h0YXJyb3cgOTAwJCIsICIkOHssfTU3XFxvdmVybGluZXsxfSA9IFxcZGZyYWN7ODU3MSAtIDg1N317OTAwfSA9IFxcZGZyYWN7NzcxNH17OTAwfSQiLCAiU2ltcGxpZmljYW50OiAkXFxkZnJhY3szODU3fXs0NTB9JCJdfQ=="
@@ -3276,7 +3276,7 @@ window.FULL = {
    ],
    "pistes": [
     "Passa cada decimal a fracció generatriu i compara les dues bandes.",
-    "Recorda: $\\dfrac{a}{b} = \\dfrac{c}{d}$ si $a\\cdot d = b\\cdot c$."
+    "Calcula la generatriu de $1{,}\\overline{9}$ amb la regla de sempre, encara que el resultat et sorprengui."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiVW4gZGVjaW1hbCBwZXJpw7JkaWMgbm8gwqtzJ2Fjb3N0YcK7IGEgdW4gdmFsb3I6IMOJUyBhcXVlc3QgdmFsb3IuIExhIGZyYWNjacOzIGdlbmVyYXRyaXUgaG8gZGVtb3N0cmEuIl0sICJlcnIiOiBbIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiLCAiSU5GSU5JVF9NQUlfQVJSSUJBIl0sICJyZXMiOiBbIiQxeyx9XFxvdmVybGluZXs5fSA9IFxcZGZyYWN7MTktMX17OX0gPSBcXGRmcmFjezE4fXs5fSA9IDIkIiwgIkxhIGlndWFsdGF0IMOpcyBjZXJ0YTogJDF7LH1cXG92ZXJsaW5lezl9JCBpICQyJCBzw7NuIGVsIG1hdGVpeCBub21icmUuIl19"
@@ -3298,7 +3298,7 @@ window.FULL = {
    ],
    "pistes": [
     "Passa cada decimal a fracció generatriu i compara les dues bandes.",
-    "Recorda: $\\dfrac{a}{b} = \\dfrac{c}{d}$ si $a\\cdot d = b\\cdot c$."
+    "Dividir entre $3$ és multiplicar per $\\dfrac13$. Calcula cada banda per separat i compara-les."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiRGl2aWRpciBlbnRyZSAkMyQgw6lzIG11bHRpcGxpY2FyIHBlciAkXFxkZnJhY3sxfXszfSQsIG5vIHBlciAkMyQuIl0sICJlcnIiOiBbIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICIiLCAiRElWSVNJT19JTlZFUlRJREEiXSwgInJlcyI6IFsiJDF7LH1cXG92ZXJsaW5lezN9ID0gXFxkZnJhY3sxMy0xfXs5fSA9IFxcZGZyYWN7NH17M30kIiwgIiRcXGRmcmFjezR9ezN9IDogMyA9IFxcZGZyYWN7NH17OX0kIiwgIiQweyx9XFxvdmVybGluZXs0fSA9IFxcZGZyYWN7NH17OX0kOiBsYSBpZ3VhbHRhdCDDqXMgY2VydGEuIl19"
@@ -3320,7 +3320,7 @@ window.FULL = {
    ],
    "pistes": [
     "Passa cada decimal a fracció generatriu i compara les dues bandes.",
-    "Recorda: $\\dfrac{a}{b} = \\dfrac{c}{d}$ si $a\\cdot d = b\\cdot c$."
+    "No arrodoneixis: $0{,}1\\overline{1}$ no és $0{,}1$. Passa cada decimal a fracció i suma amb denominador comú."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBbCBudW1lcmFkb3IgY2FsIFJFU1RBUiBsYSBwYXJ0IHF1ZSBubyBlcyByZXBldGVpeDogdG90IGVsIG5vbWJyZSBzZW5zZSBjb21hLCBtZW55cyBsYSBwYXJ0IGFudGVyaW9yIGFsIHBlcsOtb2RlLiIsICIiLCAiSGFzIGFycm9kb25pdCBlbHMgZG9zIGRlY2ltYWxzLiAkMXssfThcXG92ZXJsaW5lezl9JCBzw60gcXVlIHZhbCAkMXssfTkkLCBwZXLDsiAkMHssfTFcXG92ZXJsaW5lezF9JCB2YWwgJFxcZGZyYWN7MX17OX0kLCBubyAkMHssfTEkLiIsICJDb21wcm92YSBsYSBzdW1hOiBkw7NuYSAkXFxkZnJhY3sxODF9ezkwfSQsIG5vICRcXGRmcmFjezE4MH17OTB9JC4iXSwgImVyciI6IFsiTk9fUkVTVEFfQU5URVBFUklPREUiLCAiIiwgIlRSQUNUQVRfQ09NX0VYQUNURSIsICJDQUxDVUxfRk9Sw4dBVCJdLCAicmVzIjogWyIkMXssfThcXG92ZXJsaW5lezl9ID0gXFxkZnJhY3sxODktMTh9ezkwfSA9IFxcZGZyYWN7MTl9ezEwfSQiLCAiJDB7LH0xXFxvdmVybGluZXsxfSA9IFxcZGZyYWN7MTEtMX17OTB9ID0gXFxkZnJhY3sxfXs5fSQiLCAiJFxcZGZyYWN7MTl9ezEwfSArIFxcZGZyYWN7MX17OX0gPSBcXGRmcmFjezE3MSsxMH17OTB9ID0gXFxkZnJhY3sxODF9ezkwfSQiLCAiJFxcZGZyYWN7MTgxfXs5MH0gXFxuZSAyID0gXFxkZnJhY3sxODB9ezkwfSQ6IGxhIGlndWFsdGF0IMOpcyBGQUxTQSAocGVyIHBvYykuIl19"
@@ -3342,7 +3342,7 @@ window.FULL = {
    ],
    "pistes": [
     "Passa cada decimal a fracció generatriu i compara les dues bandes.",
-    "Recorda: $\\dfrac{a}{b} = \\dfrac{c}{d}$ si $a\\cdot d = b\\cdot c$."
+    "$0{,}1\\overline{1}$ és periòdic mixt i $0{,}\\overline{1}$, pur: calcula la generatriu de cadascun i resta-les."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcG9zYXQgbm9tw6lzIHBvdMOobmNpZXMgZGUgJDEwJCBhbCBkZW5vbWluYWRvci4gQWl4w7IgdmFsIHBlciBhbHMgZGVjaW1hbHMgZXhhY3Rlczsgc2kgaGkgaGEgcGVyw61vZGUsIGVsIGRlbm9taW5hZG9yIGhhIGRlIGR1ciBub3VzLiIsICIiLCAiQWwgbnVtZXJhZG9yIGNhbCBSRVNUQVIgbGEgcGFydCBxdWUgbm8gZXMgcmVwZXRlaXg6IHRvdCBlbCBub21icmUgc2Vuc2UgY29tYSwgbWVueXMgbGEgcGFydCBhbnRlcmlvciBhbCBwZXLDrW9kZS4iLCAiVG90ZXMgZHVlcyBlc2NyaXB0dXJlcyBkb25lbiAkMHssfTExMTFcXGRvdHMkOiBlbCBtYXRlaXggbm9tYnJlLiJdLCAiZXJyIjogWyJUUkFDVEFUX0NPTV9FWEFDVEUiLCAiIiwgIk5PX1JFU1RBX0FOVEVQRVJJT0RFIiwgIlBFUklPREVfTUFMX0lERU5USUZJQ0FUIl0sICJyZXMiOiBbIiQweyx9MVxcb3ZlcmxpbmV7MX0gPSBcXGRmcmFjezExLTF9ezkwfSA9IFxcZGZyYWN7MTB9ezkwfSA9IFxcZGZyYWN7MX17OX0kIiwgIiQweyx9XFxvdmVybGluZXsxfSA9IFxcZGZyYWN7MX17OX0kIiwgIlPDs24gZWwgbWF0ZWl4IG5vbWJyZSAoJDB7LH0xMTExXFxkb3RzJCksIG8gc2lndWkgcXVlIGxhIHJlc3RhIMOpcyAkMCQ6IGNlcnQuIl19"
@@ -3364,7 +3364,7 @@ window.FULL = {
    ],
    "pistes": [
     "Passa cada decimal a fracció generatriu i compara les dues bandes.",
-    "Recorda: $\\dfrac{a}{b} = \\dfrac{c}{d}$ si $a\\cdot d = b\\cdot c$."
+    "Tots dos són periòdics purs d'una xifra: un $9$ al denominador. Suma les dues fraccions i compara el resultat amb $1$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgc3VtYXQgbnVtZXJhZG9ycyBhbWIgbnVtZXJhZG9ycyBpIGRlbm9taW5hZG9ycyBhbWIgZGVub21pbmFkb3JzLiBQZXIgc3VtYXIgbyByZXN0YXIgZnJhY2Npb25zIGNhbCByZWR1aXItbGVzIHByaW1lciBhIGRlbm9taW5hZG9yIGNvbcO6LiIsICIiLCAiSGFzIHBvc2F0IG5vbcOpcyBwb3TDqG5jaWVzIGRlICQxMCQgYWwgZGVub21pbmFkb3IuIEFpeMOyIHZhbCBwZXIgYWxzIGRlY2ltYWxzIGV4YWN0ZXM7IHNpIGhpIGhhIHBlcsOtb2RlLCBlbCBkZW5vbWluYWRvciBoYSBkZSBkdXIgbm91cy4iLCAiVW4gZGVjaW1hbCBwZXJpw7JkaWMgbm8gwqtzJ2Fjb3N0YcK7IGEgdW4gdmFsb3I6IMOJUyBhcXVlc3QgdmFsb3IuIExhIGZyYWNjacOzIGdlbmVyYXRyaXUgaG8gZGVtb3N0cmEuIl0sICJlcnIiOiBbIlNVTUFfTlVNRVJBRE9SUyIsICIiLCAiVFJBQ1RBVF9DT01fRVhBQ1RFIiwgIklORklOSVRfTUFJX0FSUklCQSJdLCAicmVzIjogWyIkMHssfVxcb3ZlcmxpbmV7M30gPSBcXGRmcmFjezN9ezl9JCBcXHF1YWQgaSBcXHF1YWQgJDB7LH1cXG92ZXJsaW5lezZ9ID0gXFxkZnJhY3s2fXs5fSQiLCAiJFxcZGZyYWN7M317OX0gKyBcXGRmcmFjezZ9ezl9ID0gXFxkZnJhY3s5fXs5fSA9IDEkOiBjZXJ0LiJdfQ=="

@@ -150,8 +150,8 @@ window.FULL = {
     "$3{,}75$ cm"
    ],
    "pistes": [
-    "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Els segments es corresponen en ordre: el primer d'una secant amb el primer de l'altra, i el segon amb el segon. Aquí el $2{,}5$ va amb la $x$, i el $2$ amb el $3$.",
+    "Per Tales, totes dues secants queden dividides en la mateixa proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgbXVudGF0IGxhIHByb3BvcmNpw7MgYW1iIGVscyBzZWdtZW50cyBkZSBjYWRhIHNlY2FudCBpbnRlcmNhbnZpYXRzLiBQbGFudGVqYSAkXFxkZnJhY3syeyx9NX17Mn09XFxkZnJhY3t4fXszfSQsIG5vIGxhIHByb3BvcmNpw7MgaW52ZXJzYS4iLCAiU2VtYmxhIHF1ZSBoYXMgY2FsY3VsYXQgJDI6MnssfTVcXGNkb3QzJCBhbWIgZWxzIHRlcm1lcyBpbnRlcmNhbnZpYXRzOiByZXZpc2EgcXVpbiBzZWdtZW50IGZhIGRlIG51bWVyYWRvciBhIGNhZGEgc2VjYW50LiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkMnssfTVcXGNkb3QzJCBzZW5zZSBkaXZpZGlyIHBlciAkMiQ6ICR4PVxcZGZyYWN7MnssfTVcXGNkb3QzfXsyfSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIiwgIiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiXSwgInJlcyI6IFsiJFxcZGZyYWN7MnssfTV9ezJ9PVxcZGZyYWN7eH17M30gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7MnssfTVcXGNkb3QzfXsyfSQiLCAiJHg9M3ssfTc1JCBjbSJdfQ==",
@@ -173,8 +173,8 @@ window.FULL = {
     "$12$ cm"
    ],
    "pistes": [
-    "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Els segments es corresponen en ordre: el primer d'una secant amb el primer de l'altra, i el segon amb el segon. Aquí el $2$ va amb el $3$, i el $4$ amb la $x$.",
+    "Per Tales, totes dues secants queden dividides en la mateixa proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW4gc2VnbWVudCBjb3JyZXNwb24gYSBxdWluOiBwbGFudGVqYSAkXFxkZnJhY3s0fXsyfT1cXGRmcmFje3h9ezN9JCwgYW1iIGVsIHNlZ21lbnQgTcOJUyBncmFuIGRlIGxhIHByaW1lcmEgc2VjYW50ICgkNCQpIGNvcnJlc3BvbmVudCBhICR4JC4iLCAiQXF1ZXN0IHZhbG9yIG5vIHN1cnQgZGUgbGEgcHJvcG9yY2nDszogY29tcHJvdmEgJHg9XFxkZnJhY3s0XFxjZG90M317Mn0kIHBhcyBhIHBhcyBlbiBsbG9jIGRlIHJlcGV0aXIgdW4gc2VnbWVudCBxdWUgamEgYXBhcmVpeGlhIGEgbCdlbnVuY2lhdC4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0XFxjZG90MyQgc2Vuc2UgZGl2aWRpciBwZXIgJDIkOiAkeD1cXGRmcmFjezRcXGNkb3QzfXsyfSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIl0sICJlcnIiOiBbIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJQUk9HUkVTU0lPX0lOVkVOVEFEQSIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkXFxkZnJhY3s0fXsyfT1cXGRmcmFje3h9ezN9IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezRcXGNkb3QzfXsyfSQiLCAiJHg9NiQgY20iXX0=",
@@ -196,8 +196,8 @@ window.FULL = {
     "$12$ cm"
    ],
    "pistes": [
-    "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Els segments es corresponen en ordre: el primer d'una secant amb el primer de l'altra, i el segon amb el segon. Aquí el $8$ va amb la $x$, i el $4$ amb el $6$.",
+    "Per Tales, totes dues secants queden dividides en la mateixa proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW4gc2VnbWVudCBjb3JyZXNwb24gYSBxdWluOiBwbGFudGVqYSAkXFxkZnJhY3s4fXs0fT1cXGRmcmFje3h9ezZ9JCwgbm8gbGEgcHJvcG9yY2nDsyBhbWIgZWxzIHRlcm1lcyBpbnZlcnRpdHMuIiwgIlNlbWJsYSBxdWUgaGFzIGNhbGN1bGF0ICQ2XFxjZG90NDo4JCBhbWIgdW4gYWx0cmUgYXBhcmVsbGFtZW50IGRlIHNlZ21lbnRzOiByZXZpc2EgcXVpbnMgZG9zIHNlZ21lbnRzIHPDs24gY29ycmVzcG9uZW50cyBlbnRyZSBsZXMgZHVlcyBzZWNhbnRzLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkOFxcY2RvdDYkIHNlbnNlIGRpdmlkaXIgcGVyICQ0JDogJHg9XFxkZnJhY3s4XFxjZG90Nn17NH0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICIiXSwgImVyciI6IFsiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRcXGRmcmFjezh9ezR9PVxcZGZyYWN7eH17Nn0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7OFxcY2RvdDZ9ezR9JCIsICIkeD0xMiQgY20iXX0=",
@@ -219,8 +219,8 @@ window.FULL = {
     "$4$ cm"
    ],
    "pistes": [
-    "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Els segments es corresponen en ordre: el primer d'una secant amb el primer de l'altra, i el segon amb el segon. Aquí la $x$ va amb el $5$, i el $10$ amb el $8$.",
+    "Per Tales, totes dues secants queden dividides en la mateixa proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgaW50ZXJjYW52aWF0IHF1aW5hIGZyYWNjacOzIMOpcyBxdWluYTogcGxhbnRlamEgJFxcZGZyYWN7eH17MTB9PVxcZGZyYWN7NX17OH0kLCBhbWIgJHgkIGNvcnJlc3BvbmVudCBhbCBzZWdtZW50IGRlICQ1JCBjbSwgbm8gYWwgZGUgJDgkIGNtLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDEwXFxjZG90NSQgc2Vuc2UgZGl2aWRpciBwZXIgJDgkOiAkeD1cXGRmcmFjezEwXFxjZG90NX17OH0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxkZnJhY3s1XFxjZG90OH17MTB9JDogcmV2aXNhIHF1aW4gc2VnbWVudCDDqXMgZWwgcXVlIG11bHRpcGxpY2EgcGVyICQxMCQgaSBxdWluIGhpIGRpdmlkZWl4LiJdLCAiZXJyIjogWyJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiUFJPRFVDVEVfTUFMIl0sICJyZXMiOiBbIiRcXGRmcmFje3h9ezEwfT1cXGRmcmFjezV9ezh9IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezEwXFxjZG90NX17OH0kIiwgIiR4PTZ7LH0yNSQgY20iXX0=",
@@ -242,8 +242,8 @@ window.FULL = {
     "$1{,}25$ cm"
    ],
    "pistes": [
-    "Pel teorema de Tales, els segments de cada secant guarden la mateixa proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Els segments es corresponen en ordre: el primer d'una secant amb el primer de l'altra, i el segon amb el segon. Aquí el $4{,}8$ va amb la $x$, i el $2$ amb el $3$.",
+    "Per Tales, totes dues secants queden dividides en la mateixa proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBkaXZpZGl0ICQyOjR7LH04XFxjZG90MyQgYW1iIGVscyB0ZXJtZXMgaW50ZXJjYW52aWF0czogcmV2aXNhIHF1aW4gc2VnbWVudCBmYSBkZSBudW1lcmFkb3IgYSBjYWRhIHNlY2FudC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDR7LH04XFxjZG90MyQgc2Vuc2UgZGl2aWRpciBwZXIgJDIkOiAkeD1cXGRmcmFjezR7LH04XFxjZG90M317Mn0kLCBubyBub23DqXMgZWwgbnVtZXJhZG9yLiIsICIiLCAiSGFzIG11bnRhdCBsYSBwcm9wb3JjacOzIGFtYiBlbHMgc2VnbWVudHMgZGUgY2FkYSBzZWNhbnQgaW50ZXJjYW52aWF0cy4gUGxhbnRlamEgJFxcZGZyYWN7NHssfTh9ezJ9PVxcZGZyYWN7eH17M30kLCBubyBsYSBwcm9wb3JjacOzIGludmVyc2EuIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCJdLCAicmVzIjogWyIkXFxkZnJhY3s0eyx9OH17Mn09XFxkZnJhY3t4fXszfSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s0eyx9OFxcY2RvdDN9ezJ9JCIsICIkeD03eyx9MiQgY20iXX0=",
@@ -678,7 +678,7 @@ window.FULL = {
     "Les dues mesures van en la mateixa unitat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkNTAkIGNtIGRlIHJlYWxpdGF0LCBxdWUgZGVzcHLDqXMgZXMgcG9kZW4gcGFzc2FyIGEgbWV0cmVzIHNpIGNvbnbDqSAoJDUweyx9MDAgY20kKS4iLCAiIiwgIsOJcyBhbCByZXbDqXMuIEEgbCdlc2NhbGEgJDE6NTAkLCBlbCAkMSQgw6lzIGVsIHF1ZSBoaSBoYSBESUJVSVhBVCBpIGVsICQ1MCQgw6lzIGxhIHJlYWxpdGF0OiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQgcXVlIGwnb3JpZ2luYWwuIiwgIlVuYSBlc2NhbGEgJDE6NTAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkNTA6MSQpLiJdLCAiZXJyIjogWyJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIiIsICJFU0NBTEFfSU5WRVJUSURBIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6NTAkIHZvbCBkaXIgcXVlIGNhZGEgJDEkIGNtIGRlbCBkaWJ1aXggY29ycmVzcG9uIGEgJDUwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQ1MHssfTAwIGNtJCBkZSBkZWLDsiJdfQ==",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkNTAkIGNtIGRlIHJlYWxpdGF0LCBxdWUgZGVzcHLDqXMgZXMgcG9kZW4gcGFzc2FyIGEgbWV0cmVzIHNpIGNvbnbDqSAoJDB7LH01JCBtKS4iLCAiIiwgIsOJcyBhbCByZXbDqXMuIEEgbCdlc2NhbGEgJDE6NTAkLCBlbCAkMSQgw6lzIGVsIHF1ZSBoaSBoYSBESUJVSVhBVCBpIGVsICQ1MCQgw6lzIGxhIHJlYWxpdGF0OiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQgcXVlIGwnb3JpZ2luYWwuIiwgIlVuYSBlc2NhbGEgJDE6NTAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkNTA6MSQpLiJdLCAiZXJyIjogWyJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIiIsICJFU0NBTEFfSU5WRVJUSURBIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6NTAkIHZvbCBkaXIgcXVlIGNhZGEgJDEkIGNtIGRlbCBkaWJ1aXggY29ycmVzcG9uIGEgJDUwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQweyx9NSQgbSBkZSBkZWLDsiJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 50 cm de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 50 cm</text></svg>"
   },
   {
@@ -701,7 +701,7 @@ window.FULL = {
     "Les dues mesures van en la mateixa unitat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIGFsIHJldsOpcy4gQSBsJ2VzY2FsYSAkMToyNTAwMCQsIGVsICQxJCDDqXMgZWwgcXVlIGhpIGhhIERJQlVJWEFUIGkgZWwgJDI1MDAwJCDDqXMgbGEgcmVhbGl0YXQ6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdCBxdWUgbCdvcmlnaW5hbC4iLCAiTCdlc2NhbGEgcmVsYWNpb25hIG1lc3VyZXMgZW4gbGEgTUFURUlYQSB1bml0YXQ6ICQxJCBjbSBkZSBwbMOgbm9sIHPDs24gJDI1MDAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyNTB7LH0wMCBtJCkuIiwgIlVuYSBlc2NhbGEgJDE6MjUwMDAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkMjUwMDA6MSQpLiJdLCAiZXJyIjogWyIiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6MjUwMDAkIHZvbCBkaXIgcXVlIGNhZGEgJDEkIGNtIGRlbCBkaWJ1aXggY29ycmVzcG9uIGEgJDI1MDAwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQyNTB7LH0wMCBtJCBkZSBkZWLDsiJdfQ==",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIGFsIHJldsOpcy4gQSBsJ2VzY2FsYSAkMToyNTAwMCQsIGVsICQxJCDDqXMgZWwgcXVlIGhpIGhhIERJQlVJWEFUIGkgZWwgJDI1MDAwJCDDqXMgbGEgcmVhbGl0YXQ6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdCBxdWUgbCdvcmlnaW5hbC4iLCAiTCdlc2NhbGEgcmVsYWNpb25hIG1lc3VyZXMgZW4gbGEgTUFURUlYQSB1bml0YXQ6ICQxJCBjbSBkZSBwbMOgbm9sIHPDs24gJDI1MDAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyNTAkIG0pLiIsICJVbmEgZXNjYWxhICQxOjI1MDAwJCDDqXMgZGUgUkVEVUNDScOTOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIFBlcnF1w6ggZm9zIGQnYW1wbGlhY2nDsywgZWwgcHJpbWVyIG5vbWJyZSBoYXVyaWEgZGUgc2VyIGVsIG3DqXMgZ3JhbiAoJDI1MDAwOjEkKS4iXSwgImVyciI6IFsiIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIl0sICJyZXMiOiBbIiQxOjI1MDAwJCB2b2wgZGlyIHF1ZSBjYWRhICQxJCBjbSBkZWwgZGlidWl4IGNvcnJlc3BvbiBhICQyNTAwMCQgY20gcmVhbHMiLCAiw4lzIGEgZGlyLCAkMjUwJCBtIGRlIGRlYsOyIl19",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 250 m de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 250 m</text></svg>"
   },
   {
@@ -724,7 +724,7 @@ window.FULL = {
     "Les dues mesures van en la mateixa unitat."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkMjAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyeyx9MDAgbSQpLiIsICLDiXMgYWwgcmV2w6lzLiBBIGwnZXNjYWxhICQxOjIwMCQsIGVsICQxJCDDqXMgZWwgcXVlIGhpIGhhIERJQlVJWEFUIGkgZWwgJDIwMCQgw6lzIGxhIHJlYWxpdGF0OiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQgcXVlIGwnb3JpZ2luYWwuIiwgIiIsICJVbmEgZXNjYWxhICQxOjIwMCQgw6lzIGRlIFJFRFVDQ0nDkzogZWwgZGlidWl4IMOpcyBtw6lzIHBldGl0LiBQZXJxdcOoIGZvcyBkJ2FtcGxpYWNpw7MsIGVsIHByaW1lciBub21icmUgaGF1cmlhIGRlIHNlciBlbCBtw6lzIGdyYW4gKCQyMDA6MSQpLiJdLCAiZXJyIjogWyJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDE6MjAwJCB2b2wgZGlyIHF1ZSBjYWRhICQxJCBjbSBkZWwgZGlidWl4IGNvcnJlc3BvbiBhICQyMDAkIGNtIHJlYWxzIiwgIsOJcyBhIGRpciwgJDJ7LH0wMCBtJCBkZSBkZWLDsiJdfQ==",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMJ2VzY2FsYSByZWxhY2lvbmEgbWVzdXJlcyBlbiBsYSBNQVRFSVhBIHVuaXRhdDogJDEkIGNtIGRlIHBsw6Bub2wgc8OzbiAkMjAwJCBjbSBkZSByZWFsaXRhdCwgcXVlIGRlc3Byw6lzIGVzIHBvZGVuIHBhc3NhciBhIG1ldHJlcyBzaSBjb252w6kgKCQyJCBtKS4iLCAiw4lzIGFsIHJldsOpcy4gQSBsJ2VzY2FsYSAkMToyMDAkLCBlbCAkMSQgw6lzIGVsIHF1ZSBoaSBoYSBESUJVSVhBVCBpIGVsICQyMDAkIMOpcyBsYSByZWFsaXRhdDogZWwgZGlidWl4IMOpcyBtw6lzIHBldGl0IHF1ZSBsJ29yaWdpbmFsLiIsICIiLCAiVW5hIGVzY2FsYSAkMToyMDAkIMOpcyBkZSBSRURVQ0NJw5M6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4gUGVycXXDqCBmb3MgZCdhbXBsaWFjacOzLCBlbCBwcmltZXIgbm9tYnJlIGhhdXJpYSBkZSBzZXIgZWwgbcOpcyBncmFuICgkMjAwOjEkKS4iXSwgImVyciI6IFsiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIiwgIiIsICJFU0NBTEFfSU5WRVJUSURBIl0sICJyZXMiOiBbIiQxOjIwMCQgdm9sIGRpciBxdWUgY2FkYSAkMSQgY20gZGVsIGRpYnVpeCBjb3JyZXNwb24gYSAkMjAwJCBjbSByZWFscyIsICLDiXMgYSBkaXIsICQyJCBtIGRlIGRlYsOyIl19",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 216 76\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Regla d'escala gràfica: cada interval del dibuix, de 1 cm, representa 2 m de la realitat.</title><rect x=\"20.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><rect x=\"108.00\" y=\"18.00\" width=\"44.00\" height=\"24.00\" fill=\"var(--fig-plena, #E9F0F6)\"/><line x1=\"20.00\" y1=\"18.00\" x2=\"20.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"64.00\" y1=\"18.00\" x2=\"64.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"108.00\" y1=\"18.00\" x2=\"108.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"152.00\" y1=\"18.00\" x2=\"152.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"196.00\" y1=\"18.00\" x2=\"196.00\" y2=\"42.00\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"20.00\" y1=\"30.00\" x2=\"196.00\" y2=\"30.00\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"20.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">0</text><text x=\"64.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">1 cm</text><text x=\"108.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">2 cm</text><text x=\"152.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">3 cm</text><text x=\"196.0\" y=\"60.0\" text-anchor=\"middle\" class=\"fig-etq petita fig-etq-marc\">4 cm</text><text x=\"98\" y=\"8\" text-anchor=\"middle\" class=\"fig-etq petita\">cada interval = 2 m</text></svg>"
   },
   {
@@ -737,17 +737,17 @@ window.FULL = {
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$4$ cm al plànol.",
    "opcions": [
-    "$0{,}000160$ km",
-    "$0{,}00100$ km",
-    "$1000{,}0$ m",
+    "$0{,}00016$ km",
+    "$0{,}001$ km",
+    "$100000$ m",
     "$1$ km"
    ],
    "pistes": [
-    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
-    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+    "Multiplica la mesura del plànol, $4$ cm, per $25\\,000$: dona centímetres reals.",
+    "Per passar de centímetres a quilòmetres, divideix entre $100\\,000$, perquè $1$ km $=100\\,000$ cm."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhci4gQ29tIHF1ZSBlbCBwbMOgbm9sIMOpcyB1bmEgcmVkdWNjacOzLCBsYSBkaXN0w6BuY2lhIHJlYWwgaGEgZGUgc2VyIE3DiVMgZ3JhbiBxdWUgbGEgZGVsIHBsw6Bub2wuIiwgIkhhcyBkZXNwbGHDp2F0IG1hbGFtZW50IGxhIGNvbWEgZW4gcGFzc2FyIGRlIGNlbnTDrW1ldHJlcyBhIHF1aWzDsm1ldHJlcy4gUmVjb3JkYTogJDEkIGttICQ9MTAwXFwsMDAwJCBjbS4iLCAiRWwgdmFsb3Igw6lzIGNvcnJlY3RlIGVuIGNlbnTDrW1ldHJlcywgcGVyw7IgbGEgY29udmVyc2nDsyBubzogJDEwMDAwMCQgY20gc8OzbiAkMTAwMHssfTAkIG0sIGkgYWl4w7Igc8OzbiAkMXssfTAwMCQga20uIiwgIiJdLCAiZXJyIjogWyJFU0NBTEFfSU5WRVJUSURBIiwgIlBPVEVOQ0lBXzEwIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIl0sICJyZXMiOiBbIiQ0XFxjZG90MjUwMDA9MTAwMDAwJCBjbSIsICIkXFxkZnJhY3sxMDAwMDB9ezEwMDAwMH09MSQga20iXX0="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhci4gQ29tIHF1ZSBlbCBwbMOgbm9sIMOpcyB1bmEgcmVkdWNjacOzLCBsYSBkaXN0w6BuY2lhIHJlYWwgaGEgZGUgc2VyIE3DiVMgZ3JhbiBxdWUgbGEgZGVsIHBsw6Bub2wuIiwgIkhhcyBkZXNwbGHDp2F0IG1hbGFtZW50IGxhIGNvbWEgZW4gcGFzc2FyIGRlIGNlbnTDrW1ldHJlcyBhIHF1aWzDsm1ldHJlcy4gUmVjb3JkYTogJDEkIGttICQ9MTAwXFwsMDAwJCBjbS4iLCAiQXF1ZXN0IG5vbWJyZSBzw7NuIGNlbnTDrW1ldHJlcywgbm8gbWV0cmVzOiAkMTAwMDAwJCBjbSBzw7NuICQxMDAwJCBtLCBpIGFpeMOyIHPDs24gJDEkIGttLiIsICIiXSwgImVyciI6IFsiRVNDQUxBX0lOVkVSVElEQSIsICJQT1RFTkNJQV8xMCIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIiJdLCAicmVzIjogWyIkNFxcY2RvdDI1MDAwPTEwMDAwMCQgY20iLCAiJFxcZGZyYWN7MTAwMDAwfXsxMDAwMDB9PTEkIGttIl19"
   },
   {
    "id": "286b",
@@ -759,17 +759,17 @@ window.FULL = {
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$12$ cm al plànol.",
    "opcions": [
-    "$0{,}00300$ km",
+    "$0{,}003$ km",
     "$3$ km",
-    "$3000{,}0$ m",
-    "$0{,}000480$ km"
+    "$300000$ m",
+    "$0{,}00048$ km"
    ],
    "pistes": [
-    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
-    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+    "Multiplica la mesura del plànol, $12$ cm, per $25\\,000$: dona centímetres reals.",
+    "Per passar de centímetres a quilòmetres, divideix entre $100\\,000$, perquè $1$ km $=100\\,000$ cm."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIiIsICJFbCB2YWxvciDDqXMgY29ycmVjdGUgZW4gY2VudMOtbWV0cmVzLCBwZXLDsiBsYSBjb252ZXJzacOzIG5vOiAkMzAwMDAwJCBjbSBzw7NuICQzMDAweyx9MCQgbSwgaSBhaXjDsiBzw7NuICQzeyx9MDAwJCBrbS4iLCAiSGFzIGRpdmlkaXQgcGVyIGwnZXNjYWxhIGVuIGNvbXB0ZXMgZGUgbXVsdGlwbGljYXIuIENvbSBxdWUgZWwgcGzDoG5vbCDDqXMgdW5hIHJlZHVjY2nDsywgbGEgZGlzdMOgbmNpYSByZWFsIGhhIGRlIHNlciBNw4lTIGdyYW4gcXVlIGxhIGRlbCBwbMOgbm9sLiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICIiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIl0sICJyZXMiOiBbIiQxMlxcY2RvdDI1MDAwPTMwMDAwMCQgY20iLCAiJFxcZGZyYWN7MzAwMDAwfXsxMDAwMDB9PTMkIGttIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIiIsICJBcXVlc3Qgbm9tYnJlIHPDs24gY2VudMOtbWV0cmVzLCBubyBtZXRyZXM6ICQzMDAwMDAkIGNtIHPDs24gJDMwMDAkIG0sIGkgYWl4w7Igc8OzbiAkMyQga20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iXSwgImVyciI6IFsiUE9URU5DSUFfMTAiLCAiIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiRVNDQUxBX0lOVkVSVElEQSJdLCAicmVzIjogWyIkMTJcXGNkb3QyNTAwMD0zMDAwMDAkIGNtIiwgIiRcXGRmcmFjezMwMDAwMH17MTAwMDAwfT0zJCBrbSJdfQ=="
   },
   {
    "id": "286c",
@@ -781,17 +781,17 @@ window.FULL = {
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$2{,}5$ cm al plànol.",
    "opcions": [
-    "$625{,}0$ m",
+    "$62500$ m",
     "$0{,}625$ km",
-    "$0{,}00063$ km",
-    "$0{,}000100$ km"
+    "$0{,}000625$ km",
+    "$0{,}0001$ km"
    ],
    "pistes": [
-    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
-    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+    "Multiplica la mesura del plànol, $2{,}5$ cm, per $25\\,000$: dona centímetres reals.",
+    "Per passar de centímetres a quilòmetres, divideix entre $100\\,000$, perquè $1$ km $=100\\,000$ cm."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCB2YWxvciDDqXMgY29ycmVjdGUgZW4gY2VudMOtbWV0cmVzLCBwZXLDsiBsYSBjb252ZXJzacOzIG5vOiAkNjI1MDAkIGNtIHPDs24gJDYyNXssfTAkIG0sIGkgYWl4w7Igc8OzbiAkMHssfTYyNSQga20uIiwgIiIsICJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iXSwgImVyciI6IFsiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICIiLCAiUE9URU5DSUFfMTAiLCAiRVNDQUxBX0lOVkVSVElEQSJdLCAicmVzIjogWyIkMi41XFxjZG90MjUwMDA9NjI1MDAkIGNtIiwgIiRcXGRmcmFjezYyNTAwfXsxMDAwMDB9PTB7LH02MjUkIGttIl19"
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3Qgbm9tYnJlIHPDs24gY2VudMOtbWV0cmVzLCBubyBtZXRyZXM6ICQ2MjUwMCQgY20gc8OzbiAkNjI1JCBtLCBpIGFpeMOyIHPDs24gJDB7LH02MjUkIGttLiIsICIiLCAiSGFzIGRlc3BsYcOnYXQgbWFsYW1lbnQgbGEgY29tYSBlbiBwYXNzYXIgZGUgY2VudMOtbWV0cmVzIGEgcXVpbMOybWV0cmVzLiBSZWNvcmRhOiAkMSQga20gJD0xMDBcXCwwMDAkIGNtLiIsICJIYXMgZGl2aWRpdCBwZXIgbCdlc2NhbGEgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhci4gQ29tIHF1ZSBlbCBwbMOgbm9sIMOpcyB1bmEgcmVkdWNjacOzLCBsYSBkaXN0w6BuY2lhIHJlYWwgaGEgZGUgc2VyIE3DiVMgZ3JhbiBxdWUgbGEgZGVsIHBsw6Bub2wuIl0sICJlcnIiOiBbIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIiwgIlBPVEVOQ0lBXzEwIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDJ7LH01XFxjZG90MjUwMDA9NjI1MDAkIGNtIiwgIiRcXGRmcmFjezYyNTAwfXsxMDAwMDB9PTB7LH02MjUkIGttIl19"
   },
   {
    "id": "286d",
@@ -803,17 +803,17 @@ window.FULL = {
    "encapcalament": "Un plànol està fet a escala $1:25\\,000$. Quina distància real correspon a cada mesura del plànol?",
    "enunciat": "$30$ cm al plànol.",
    "opcions": [
-    "$0{,}00750$ km",
-    "$0{,}001200$ km",
-    "$7500{,}0$ m",
+    "$0{,}0075$ km",
+    "$0{,}0012$ km",
+    "$750000$ m",
     "$7{,}5$ km"
    ],
    "pistes": [
-    "Multiplica la mesura del plànol per $25\\,000$: dona centímetres reals.",
-    "Després passa'ls a quilòmetres dividint entre $100\\,000$."
+    "Multiplica la mesura del plànol, $30$ cm, per $25\\,000$: dona centímetres reals.",
+    "Per passar de centímetres a quilòmetres, divideix entre $100\\,000$, perquè $1$ km $=100\\,000$ cm."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iLCAiRWwgdmFsb3Igw6lzIGNvcnJlY3RlIGVuIGNlbnTDrW1ldHJlcywgcGVyw7IgbGEgY29udmVyc2nDsyBubzogJDc1MDAwMCQgY20gc8OzbiAkNzUwMHssfTAkIG0sIGkgYWl4w7Igc8OzbiAkN3ssfTUwMCQga20uIiwgIiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICJFU0NBTEFfSU5WRVJUSURBIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIl0sICJyZXMiOiBbIiQzMFxcY2RvdDI1MDAwPTc1MDAwMCQgY20iLCAiJFxcZGZyYWN7NzUwMDAwfXsxMDAwMDB9PTd7LH01JCBrbSJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGVzcGxhw6dhdCBtYWxhbWVudCBsYSBjb21hIGVuIHBhc3NhciBkZSBjZW50w61tZXRyZXMgYSBxdWlsw7JtZXRyZXMuIFJlY29yZGE6ICQxJCBrbSAkPTEwMFxcLDAwMCQgY20uIiwgIkhhcyBkaXZpZGl0IHBlciBsJ2VzY2FsYSBlbiBjb21wdGVzIGRlIG11bHRpcGxpY2FyLiBDb20gcXVlIGVsIHBsw6Bub2wgw6lzIHVuYSByZWR1Y2Npw7MsIGxhIGRpc3TDoG5jaWEgcmVhbCBoYSBkZSBzZXIgTcOJUyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iLCAiQXF1ZXN0IG5vbWJyZSBzw7NuIGNlbnTDrW1ldHJlcywgbm8gbWV0cmVzOiAkNzUwMDAwJCBjbSBzw7NuICQ3NTAwJCBtLCBpIGFpeMOyIHPDs24gJDd7LH01JCBrbS4iLCAiIl0sICJlcnIiOiBbIlBPVEVOQ0lBXzEwIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICIiXSwgInJlcyI6IFsiJDMwXFxjZG90MjUwMDA9NzUwMDAwJCBjbSIsICIkXFxkZnJhY3s3NTAwMDB9ezEwMDAwMH09N3ssfTUkIGttIl19"
   },
   {
    "id": "287a",
@@ -828,11 +828,11 @@ window.FULL = {
     "$160000$ cm",
     "$4$ cm",
     "$4$ m",
-    "$0{,}0400$ cm"
+    "$0{,}04$ cm"
    ],
    "pistes": [
-    "Passa la mesura real a centímetres.",
-    "Divideix-la entre $200$."
+    "Passa els $8$ m a centímetres: $1$ m $=100$ cm.",
+    "Al plànol tot es dibuixa $200$ vegades més petit: divideix entre $200$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgcGVyICQyMDAkLiBQZXIgYW5hciBkZSBsYSByZWFsaXRhdCBhbCBwbMOgbm9sIGNhbCBESVZJRElSOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIiwgIiIsICJFbCBuw7ptZXJvIMOpcyBjb3JyZWN0ZSwgcGVyw7IgbGVzIHVuaXRhdHMgbm86IGFsIHBsw6Bub2wgZXMgZGlidWl4ZW4gY2VudMOtbWV0cmVzLCBubyBtZXRyZXMuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDgkIG0gJD04MDAkIGNtLiJdLCAiZXJyIjogWyJFU0NBTEFfSU5WRVJUSURBIiwgIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiXSwgInJlcyI6IFsiJDgkIG0gJD04MDAkIGNtIiwgIiRcXGRmcmFjezgwMH17MjAwfT00JCBjbSJdfQ=="
@@ -848,13 +848,13 @@ window.FULL = {
    "enunciat": "Una paret de $14$ m.",
    "opcions": [
     "$7$ m",
-    "$0{,}0700$ cm",
+    "$0{,}07$ cm",
     "$280000$ cm",
     "$7$ cm"
    ],
    "pistes": [
-    "Passa la mesura real a centímetres.",
-    "Divideix-la entre $200$."
+    "Passa els $14$ m a centímetres: $1$ m $=100$ cm.",
+    "Al plànol tot es dibuixa $200$ vegades més petit: divideix entre $200$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBuw7ptZXJvIMOpcyBjb3JyZWN0ZSwgcGVyw7IgbGVzIHVuaXRhdHMgbm86IGFsIHBsw6Bub2wgZXMgZGlidWl4ZW4gY2VudMOtbWV0cmVzLCBubyBtZXRyZXMuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDE0JCBtICQ9MTQwMCQgY20uIiwgIkhhcyBtdWx0aXBsaWNhdCBwZXIgJDIwMCQuIFBlciBhbmFyIGRlIGxhIHJlYWxpdGF0IGFsIHBsw6Bub2wgY2FsIERJVklESVI6IGVsIGRpYnVpeCDDqXMgbcOpcyBwZXRpdC4iLCAiIl0sICJlcnIiOiBbIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyIsICJFU0NBTEFfSU5WRVJUSURBIiwgIiJdLCAicmVzIjogWyIkMTQkIG0gJD0xNDAwJCBjbSIsICIkXFxkZnJhY3sxNDAwfXsyMDB9PTckIGNtIl19"
@@ -867,19 +867,19 @@ window.FULL = {
    "tipus": "A",
    "dif": 3,
    "encapcalament": "Un arquitecte dibuixa un plànol a escala $1:200$. Quina mesura ha de fer servir al plànol?",
-   "enunciat": "Una paret de $2.4$ m.",
+   "enunciat": "Una paret de $2{,}4$ m.",
    "opcions": [
     "$1{,}2$ cm",
     "$1{,}2$ m",
     "$48000$ cm",
-    "$0{,}0120$ cm"
+    "$0{,}012$ cm"
    ],
    "pistes": [
-    "Passa la mesura real a centímetres.",
-    "Divideix-la entre $200$."
+    "Passa els $2{,}4$ m a centímetres: $1$ m $=100$ cm.",
+    "Al plànol tot es dibuixa $200$ vegades més petit: divideix entre $200$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbsO6bWVybyDDqXMgY29ycmVjdGUsIHBlcsOyIGxlcyB1bml0YXRzIG5vOiBhbCBwbMOgbm9sIGVzIGRpYnVpeGVuIGNlbnTDrW1ldHJlcywgbm8gbWV0cmVzLiIsICJIYXMgbXVsdGlwbGljYXQgcGVyICQyMDAkLiBQZXIgYW5hciBkZSBsYSByZWFsaXRhdCBhbCBwbMOgbm9sIGNhbCBESVZJRElSOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDIuNCQgbSAkPTI0MCQgY20uIl0sICJlcnIiOiBbIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiVU5JVEFUU19OT19DT05WRVJUSURFUyJdLCAicmVzIjogWyIkMi40JCBtICQ9MjQwJCBjbSIsICIkXFxkZnJhY3syNDB9ezIwMH09MXssfTIkIGNtIl19"
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgbsO6bWVybyDDqXMgY29ycmVjdGUsIHBlcsOyIGxlcyB1bml0YXRzIG5vOiBhbCBwbMOgbm9sIGVzIGRpYnVpeGVuIGNlbnTDrW1ldHJlcywgbm8gbWV0cmVzLiIsICJIYXMgbXVsdGlwbGljYXQgcGVyICQyMDAkLiBQZXIgYW5hciBkZSBsYSByZWFsaXRhdCBhbCBwbMOgbm9sIGNhbCBESVZJRElSOiBlbCBkaWJ1aXggw6lzIG3DqXMgcGV0aXQuIiwgIkhhcyBkaXZpZGl0IGVscyBtZXRyZXMgZGlyZWN0YW1lbnQuIFByaW1lciBjYWwgcGFzc2FyLWxvcyBhIGNlbnTDrW1ldHJlczogJDJ7LH00JCBtICQ9MjQwJCBjbS4iXSwgImVyciI6IFsiIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIiQyeyx9NCQgbSAkPTI0MCQgY20iLCAiJFxcZGZyYWN7MjQwfXsyMDB9PTF7LH0yJCBjbSJdfQ=="
   },
   {
    "id": "288a",
@@ -897,8 +897,8 @@ window.FULL = {
     "$1:0{,}50$"
    ],
    "pistes": [
-    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
-    "Divideix la mesura real entre la del dibuix."
+    "Passa els $2$ m a centímetres, la mateixa unitat que els $4$ cm del dibuix.",
+    "Divideix la mesura real entre la del dibuix: aquest quocient és el segon nombre de l'escala $1:\\ldots$"
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgbWVzdXJhIHJlYWwgZW4gY2VudMOtbWV0cmVzLCBubyBsJ2VzY2FsYS4gTCdlc2NhbGEgc3VydCBkZSBkaXZpZGlyLWxhIGVudHJlIGxhIG1lc3VyYSBkZWwgZGlidWl4LiIsICJMJ2hhcyBlc2NyaXRhIGRlbCByZXbDqXMuIEEgbCdlc2NhbGEsIGVsIHByaW1lciBub21icmUgw6lzIGVsIERJQlVJWCAocXVlIGFxdcOtIMOpcyBtw6lzIHBldGl0KSBpIGVsIHNlZ29uLCBsYSByZWFsaXRhdC4iLCAiSGFzIGNvbXBhcmF0ICQ0JCBhbWIgJDIkIHNlbnNlIHBhc3Nhci1obyB0b3QgYSBsYSBtYXRlaXhhIHVuaXRhdC4gJDIkIG0gc8OzbiAkMjAwJCBjbS4iXSwgImVyciI6IFsiIiwgIkRJVklTSU9fT0JMSURBREEiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIiQyJCBtICQ9MjAwJCBjbSIsICIkXFxkZnJhY3syMDB9ezR9PTUwJCwgbyBzaWd1aSBlc2NhbGEgJDE6NTAkIl19",
@@ -920,8 +920,8 @@ window.FULL = {
     "$1:4{,}00$"
    ],
    "pistes": [
-    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
-    "Divideix la mesura real entre la del dibuix."
+    "Passa els $12$ m a centímetres, la mateixa unitat que els $3$ cm del dibuix.",
+    "Divideix la mesura real entre la del dibuix: aquest quocient és el segon nombre de l'escala $1:\\ldots$"
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgcmVhbCBlbiBjZW50w61tZXRyZXMsIG5vIGwnZXNjYWxhLiBMJ2VzY2FsYSBzdXJ0IGRlIGRpdmlkaXItbGEgZW50cmUgbGEgbWVzdXJhIGRlbCBkaWJ1aXguIiwgIkwnaGFzIGVzY3JpdGEgZGVsIHJldsOpcy4gQSBsJ2VzY2FsYSwgZWwgcHJpbWVyIG5vbWJyZSDDqXMgZWwgRElCVUlYIChxdWUgYXF1w60gw6lzIG3DqXMgcGV0aXQpIGkgZWwgc2Vnb24sIGxhIHJlYWxpdGF0LiIsICIiLCAiSGFzIGNvbXBhcmF0ICQzJCBhbWIgJDEyJCBzZW5zZSBwYXNzYXItaG8gdG90IGEgbGEgbWF0ZWl4YSB1bml0YXQuICQxMiQgbSBzw7NuICQxMjAwJCBjbS4iXSwgImVyciI6IFsiRElWSVNJT19PQkxJREFEQSIsICJFU0NBTEFfSU5WRVJUSURBIiwgIiIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIiQxMiQgbSAkPTEyMDAkIGNtIiwgIiRcXGRmcmFjezEyMDB9ezN9PTQwMCQsIG8gc2lndWkgZXNjYWxhICQxOjQwMCQiXX0=",
@@ -943,8 +943,8 @@ window.FULL = {
     "$1:400000$"
    ],
    "pistes": [
-    "Passa les dues mesures a la mateixa unitat, normalment centímetres.",
-    "Divideix la mesura real entre la del dibuix."
+    "Passa els $4$ km a centímetres, la mateixa unitat que els $8$ cm del dibuix.",
+    "Divideix la mesura real entre la del dibuix: aquest quocient és el segon nombre de l'escala $1:\\ldots$"
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCdoYXMgZXNjcml0YSBkZWwgcmV2w6lzLiBBIGwnZXNjYWxhLCBlbCBwcmltZXIgbm9tYnJlIMOpcyBlbCBESUJVSVggKHF1ZSBhcXXDrSDDqXMgbcOpcyBwZXRpdCkgaSBlbCBzZWdvbiwgbGEgcmVhbGl0YXQuIiwgIkhhcyBjb21wYXJhdCAkOCQgYW1iICQ0JCBzZW5zZSBwYXNzYXItaG8gdG90IGEgbGEgbWF0ZWl4YSB1bml0YXQuICQ0JCBrbSBzw7NuICQ0MDAwMDAkIGNtLiIsICJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgcmVhbCBlbiBjZW50w61tZXRyZXMsIG5vIGwnZXNjYWxhLiBMJ2VzY2FsYSBzdXJ0IGRlIGRpdmlkaXItbGEgZW50cmUgbGEgbWVzdXJhIGRlbCBkaWJ1aXguIl0sICJlcnIiOiBbIiIsICJFU0NBTEFfSU5WRVJUSURBIiwgIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiRElWSVNJT19PQkxJREFEQSJdLCAicmVzIjogWyIkNCQga20gJD00MDAwMDAkIGNtIiwgIiRcXGRmcmFjezQwMDAwMH17OH09NTAwMDAkLCBvIHNpZ3VpIGVzY2FsYSAkMTo1MDAwMCQiXX0=",
@@ -1107,7 +1107,7 @@ window.FULL = {
     "$k^2=\\dfrac{25}{4}$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJGteMyQgw6lzIHBlciBhbHMgVk9MVU1TLiBVbmEgw6ByZWEgdMOpIGR1ZXMgZGltZW5zaW9ucywgaSBwZXIgYWl4w7IgdmEgYW1iICRrXjIkLiIsICJIYXMgbXVsdGlwbGljYXQgbCfDoHJlYSBwZXIgJGskLiBMZXMgw6ByZWVzIGVzIG11bHRpcGxpcXVlbiBwZXIgJGteMiQsIG5vIHBlciAkayQ6IHNpIGxlcyBsb25naXR1ZHMgZXMgZHVwbGlxdWVuLCBsJ8OgcmVhIGVzIG11bHRpcGxpY2EgcGVyICQ0JCwgbm8gcGVyICQyJC4iLCAiTGEgcmHDsyBtdWx0aXBsaWNhLCBubyBzdW1hLiJdLCAiZXJyIjogWyIiLCAiUkFPX0FMX0NVQiIsICJSQU9fU0VOU0VfUVVBRFJBVCIsICJQUk9EVUNURV9QRVJfU1VNQSJdLCAicmVzIjogWyIka14yPVxcZGZyYWN7NX17Mn1eMj1cXGRmcmFjezI1fXs0fSQiLCAiw4ByZWEgZ3JhbiAkPTEyXFxjZG90XFxkZnJhY3syNX17NH09NzUkIGNtJF4yJCJdfQ==",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJGteMyQgw6lzIHBlciBhbHMgVk9MVU1TLiBVbmEgw6ByZWEgdMOpIGR1ZXMgZGltZW5zaW9ucywgaSBwZXIgYWl4w7IgdmEgYW1iICRrXjIkLiIsICJIYXMgbXVsdGlwbGljYXQgbCfDoHJlYSBwZXIgJGskLiBMZXMgw6ByZWVzIGVzIG11bHRpcGxpcXVlbiBwZXIgJGteMiQsIG5vIHBlciAkayQ6IHNpIGxlcyBsb25naXR1ZHMgZXMgZHVwbGlxdWVuLCBsJ8OgcmVhIGVzIG11bHRpcGxpY2EgcGVyICQ0JCwgbm8gcGVyICQyJC4iLCAiTGEgcmHDsyBtdWx0aXBsaWNhLCBubyBzdW1hLiJdLCAiZXJyIjogWyIiLCAiUkFPX0FMX0NVQiIsICJSQU9fU0VOU0VfUVVBRFJBVCIsICJQUk9EVUNURV9QRVJfU1VNQSJdLCAicmVzIjogWyIka14yPVxcbGVmdChcXGRmcmFjezV9ezJ9XFxyaWdodCleMj1cXGRmcmFjezI1fXs0fSQiLCAiw4ByZWEgZ3JhbiAkPTEyXFxjZG90XFxkZnJhY3syNX17NH09NzUkIGNtJF4yJCJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 328 194\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues figures semblants, amb la raó entre una longitud i la seva corresponent marcada: dos quadrats.</title><g transform=\"translate(14.0,162.7)\"><polygon points=\"0.00,0.00 59.48,0.00 59.48,-59.48 0.00,-59.48\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"151.29,0.00 300.00,0.00 300.00,-148.71 151.29,-148.71\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"29.7\" y=\"14.4\" text-anchor=\"middle\" class=\"fig-etq\">1</text><text x=\"225.6\" y=\"14.4\" text-anchor=\"middle\" class=\"fig-etq\">k</text></g></svg>"
   },
   {
@@ -1287,8 +1287,8 @@ window.FULL = {
     "$18{,}75$ m"
    ],
    "pistes": [
-    "Com que els dos arbres projecten ombra al mateix moment, l'altura i l'ombra de cadascun són directament proporcionals: $\\dfrac{8}{10}=\\dfrac{15}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Al mateix moment, l'altura i l'ombra són proporcionals: cada arbre amb la seva ombra. Arbre petit: $8$ m d'altura i $10$ m d'ombra. Arbre gran: $15$ m d'altura i ombra $x$.",
+    "$\\dfrac{8}{10}=\\dfrac{15}{x}$. Aïlla $x$: com que l'arbre gran és més alt, la seva ombra ha de sortir més llarga."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkOFxcY2RvdDIkOiBjb21wcm92YSBlbCBjw6BsY3VsIGNvbXBsZXQgJHg9XFxmcmFjezE1XFxjZG90MTB9ezh9JCBwYXMgYSBwYXMgZW4gbGxvYyBkJ3VuYSBhcHJveGltYWNpw7MuIiwgIiQ4JCBtIMOpcyBsJ2FsdHVyYSBkZWwgcHJpbWVyIGFyYnJlLCBubyBsJ29tYnJhIHF1ZSBlcyBkZW1hbmEgcGVyIGFsIHNlZ29uOiB0b3JuYSBhIHBsYW50ZWphciBsYSBwcm9wb3JjacOzIGRlcyBkZSB6ZXJvLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkJ2ludmVydGlyIGxhIHByb3BvcmNpw7M6IGNvbSBxdWUgZWwgc2Vnb24gYXJicmUgw6lzIE3DiVMgQUxULCBsYSBzZXZhIG9tYnJhIGhhIGRlIHNlciBNw4lTIExMQVJHQSBxdWUgbGEgZGVsIHByaW1lciwgbm8gbcOpcyBjdXJ0YS4gUGxhbnRlamEgJFxcZnJhY3s4fXsxMH09XFxmcmFjezE1fXt4fSQuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURV9NQUwiLCAiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3s4fXsxMH09XFxkZnJhY3sxNX17eH0gXFw7XFxMb25ncmlnaHRhcnJvd1xcOyB4PVxcZGZyYWN7MTVcXGNkb3QxMH17OH0kIiwgIiR4PTE4eyx9NzUkIG0iXX0=",
@@ -1332,8 +1332,8 @@ window.FULL = {
     "$9$ m"
    ],
    "pistes": [
-    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{6}{5}=\\dfrac{10}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte amb la seva ombra. Arbre: $5$ m d'altura i $6$ m d'ombra. Edifici: altura $x$ i $10$ m d'ombra.",
+    "Ombra entre altura dona el mateix per als dos: $\\dfrac{6}{5}=\\dfrac{10}{x}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkNiQgbSDDqXMgbCdvbWJyYSBkZSBsJ2FyYnJlLCBubyBsJ2FsdHVyYSBkZSBsJ2VkaWZpY2kgcXVlIGVzIGRlbWFuYTogdG9ybmEgYSBwbGFudGVqYXIgbGEgcHJvcG9yY2nDsyBkZXMgZGUgemVyby4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezZ9ezV9PVxcZnJhY3sxMH17eH0kLCBhbWIgbCdhbHR1cmEgZGUgbCdhcmJyZSBjb3JyZXNwb25lbnQgYSBsYSBzZXZhIHByw7JwaWEgb21icmEsIG5vIGEgbGEgZGUgbCdlZGlmaWNpLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgc3VtYXIgbGEgZGlmZXLDqG5jaWEgZCdvbWJyZXMgKCQxMC02PTQkKSBhIGwnYWx0dXJhIGRlIGwnYXJicmU6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3s2fXs1fT1cXGRmcmFjezEwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s1XFxjZG90MTB9ezZ9PVxcZGZyYWN7NTB9ezZ9JCIsICIkeFxcYXBwcm94OHssfTMzJCBtIl19",
@@ -1355,8 +1355,8 @@ window.FULL = {
     "$5{,}5$ m"
    ],
    "pistes": [
-    "A la mateixa hora, l'altura i l'ombra de qualsevol objecte són directament proporcionals: $\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte amb la seva ombra. Pal: $1$ m d'altura i $1{,}5$ m d'ombra. Edifici: altura $x$ i $6$ m d'ombra.",
+    "Altura entre ombra dona el mateix per als dos: $\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNjoxeyx9NVxcY2RvdDF7LH02NyQsIGFtYiBlbHMgdGVybWVzIG1hbCBhcGFyZWxsYXRzOiByZXZpc2EgbGEgcHJvcG9yY2nDsyAkXFxmcmFjezF9ezF7LH01fT1cXGZyYWN7eH17Nn0kIHBhcyBhIHBhcy4iLCAiIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxfXsxeyx9NX09XFxmcmFje3h9ezZ9JCwgYW1iIGwnYWx0dXJhIGRlbCBwYWwgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIG9tYnJhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBzdW1hciBsYSBkaWZlcsOobmNpYSBkJ29tYnJlcyAoJDYtMXssfTU9NHssfTUkKSBhIGwnYWx0dXJhIGRlbCBwYWw6IGwnYWx0dXJhIGkgbCdvbWJyYSBzw7NuIFBST1BPUkNJT05BTFMsIG5vIHZhcmllbiBwZXIgdW5hIGRpZmVyw6huY2lhIHN1bWFkYS4iXSwgImVyciI6IFsiRElWSVNJT19RVU9DSUVOVF9SRVNJRFVfQ0FOVklBVFMiLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJSQU9OQU1FTlRfQURESVRJVSJdLCAicmVzIjogWyIkXFxkZnJhY3sxfXsxeyx9NX09XFxkZnJhY3t4fXs2fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3sxXFxjZG90Nn17MXssfTV9JCIsICIkeD00JCBtIl19",
@@ -1445,11 +1445,11 @@ window.FULL = {
     "$720$ m"
    ],
    "pistes": [
-    "L'altura dels ulls i la distància a la vora formen un triangle petit, semblant al triangle gran format per la profunditat del precipici i la distància total fins al poble: $\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "Hi ha dos triangles semblants amb el vèrtex a la vora del precipici. El petit: l'altura dels ulls ($1{,}6$ m) i la distància d'en Pere a la vora ($2$ m). El gran: la profunditat ($450$ m) i la distància de la vora al poble ($x$).",
+    "Vertical amb vertical i horitzontal amb horitzontal: $\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$. Aïlla $x$."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZCdpbnZlcnRpciBsYSBwcm9wb3JjacOzOiBwbGFudGVqYSAkXFxmcmFjezF7LH02fXsyfT1cXGZyYWN7NDUwfXt4fSQsIGFtYiBsJ2FsdHVyYSBkZWxzIHVsbHMgY29ycmVzcG9uZW50IGEgbGEgZGlzdMOgbmNpYSBkJ2VuIFBlcmUgYSBsYSB2b3JhLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSAkXFxmcmFjezQ1MFxcY2RvdDF7LH02fXsyXFxjZG90MXssfTZ9JCBhbWIgdW4gZmFjdG9yIGRlIG3DqXM6IHJldmlzYSBsYSBwcm9wb3JjacOzICRcXGZyYWN7MXssfTZ9ezJ9PVxcZnJhY3s0NTB9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0NTBcXGNkb3Qxeyx9NiQgc2Vuc2UgZGl2aWRpciBwZWwgJDIkOiAkeD1cXGZyYWN7MlxcY2RvdDQ1MH17MXssfTZ9JCwgaSBlbmNhcmEgZmFsdGEgb3JkZW5hciBiw6kgZWxzIGZhY3RvcnMuIl0sICJlcnIiOiBbIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJFxcZGZyYWN7MXssfTZ9ezJ9PVxcZGZyYWN7NDUwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3syXFxjZG90NDUwfXsxeyx9Nn09XFxkZnJhY3s5MDB9ezF7LH02fSQiLCAiJHg9NTYyeyx9NSQgbSJdfQ==",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDF7LH02JCBtIMOpcyBsJ2FsdHVyYSBkZWxzIHVsbHMgZCdlbiBQZXJlLCB1bmEgZGFkYSBkZSBsJ2VudW5jaWF0LiBMYSBkaXN0w6BuY2lhIGFsIHBvYmxlIGhhIGRlIHNlciBtb2x0IG3DqXMgZ3JhbjogZWwgdHJpYW5nbGUgZ3JhbiBmYSAkNDUwJCBtIGRlIGZvbmTDoHJpYS4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJFxcZnJhY3s0NTB9ezF7LH02fSQsIHNlbnNlIG11bHRpcGxpY2FyIHBlbHMgJDIkIG06IHJldmlzYSBsYSBwcm9wb3JjacOzICRcXGZyYWN7MXssfTZ9ezJ9PVxcZnJhY3s0NTB9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGRlICQ0NTBcXGNkb3Qxeyx9NiQ6IGhhcyBtdWx0aXBsaWNhdCBlbHMgZG9zIGNvc3RhdHMgdmVydGljYWxzLiBDYWwgJHg9XFxmcmFjezJcXGNkb3Q0NTB9ezF7LH02fSQuIl0sICJlcnIiOiBbIiIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJFxcZGZyYWN7MXssfTZ9ezJ9PVxcZGZyYWN7NDUwfXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3syXFxjZG90NDUwfXsxeyx9Nn09XFxkZnJhY3s5MDB9ezF7LH02fSQiLCAiJHg9NTYyeyx9NSQgbSJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 280 132\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles rectangles semblants, cadascun amb un costat vertical i un costat horitzontal, units per una mateixa línia de referència amb la mateixa inclinació.</title><g transform=\"translate(65.0,102.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"0.0\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"-40.0\" x2=\"50.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"90.0\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"0.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"90.0\" y1=\"-88.0\" x2=\"200.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"-40.0\" x2=\"-18.5\" y2=\"-40.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-18.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-15.0\" y1=\"-40.0\" x2=\"-15.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-44.0\" x2=\"-19.0\" y2=\"-36.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-11.0\" y1=\"-4.0\" x2=\"-19.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-2.5\" x2=\"0.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"50.0\" y1=\"-2.5\" x2=\"50.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"-15.0\" x2=\"50.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"-11.0\" x2=\"4.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"46.0\" y1=\"-11.0\" x2=\"54.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"-88.0\" x2=\"71.5\" y2=\"-88.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"87.5\" y1=\"0.0\" x2=\"71.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.0\" y1=\"-88.0\" x2=\"75.0\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-92.0\" x2=\"71.0\" y2=\"-84.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"79.0\" y1=\"-4.0\" x2=\"71.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-2.5\" x2=\"90.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"200.0\" y1=\"-2.5\" x2=\"200.0\" y2=\"-18.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"90.0\" y1=\"-15.0\" x2=\"200.0\" y2=\"-15.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"86.0\" y1=\"-11.0\" x2=\"94.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"196.0\" y1=\"-11.0\" x2=\"204.0\" y2=\"-19.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"-35\" y=\"-17.1\" text-anchor=\"middle\" class=\"fig-etq petita\">1,6 m</text><text x=\"37\" y=\"-27.1\" text-anchor=\"middle\" class=\"fig-etq petita\">2 m</text><text x=\"55\" y=\"-41.1\" text-anchor=\"middle\" class=\"fig-etq petita\">450 m</text><text x=\"145\" y=\"-23.1\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text><text x=\"25\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">Pere</text><text x=\"145\" y=\"12.9\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">poble</text></g></svg>"
   },
   {
@@ -1468,8 +1468,8 @@ window.FULL = {
     "$210$ m"
    ],
    "pistes": [
-    "L'alçada de l'home i la seva distància al bassal formen un triangle semblant al que formen l'edifici i la seva distància al bassal: $\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$.",
-    "Aïlla $x$ multiplicant en creu."
+    "El bassal fa de mirall: hi ha dos triangles semblants amb el vèrtex al bassal. El petit: l'alçada de l'home ($1{,}75$ m) i la seva distància al bassal ($4$ m). El gran: l'alçada de l'edifici ($52{,}5$ m) i la seva distància al bassal ($x$).",
+    "Alçada entre distància dona el mateix als dos triangles: $\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$. Aïlla $x$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igc3VydCBkZSAkNTJ7LH01OjF7LH03NSQgc2Vuc2UgbXVsdGlwbGljYXIgcGVscyAkNCQgbTogcmV2aXNhIGxhIHByb3BvcmNpw7MgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCBwYXMgYSBwYXMuIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnaW52ZXJ0aXIgbGEgcHJvcG9yY2nDszogcGxhbnRlamEgJFxcZnJhY3sxeyx9NzV9ezR9PVxcZnJhY3s1MnssfTV9e3h9JCwgYW1iIGwnYWzDp2FkYSBkZSBsJ2hvbWUgY29ycmVzcG9uZW50IGEgbGEgc2V2YSBwcsOycGlhIGRpc3TDoG5jaWEgYWwgYmFzc2FsLiIsICIiLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgJDRcXGNkb3Q1MnssfTUkIHNlbnNlIGRpdmlkaXIgcGVyICQxeyx9NzUkOiAkeD1cXGZyYWN7NFxcY2RvdDUyeyx9NX17MXssfTc1fSQsIG5vIG5vbcOpcyBlbCBudW1lcmFkb3IuIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkXFxkZnJhY3sxeyx9NzV9ezR9PVxcZGZyYWN7NTJ7LH01fXt4fSBcXDtcXExvbmdyaWdodGFycm93XFw7IHg9XFxkZnJhY3s0XFxjZG90NTJ7LH01fXsxeyx9NzV9JCIsICIkeD0xMjAkIG0iXX0=",

@@ -450,6 +450,8 @@ Tota a `docs/`:
 - **[`GALERIA.md`](docs/GALERIA.md)** — la galeria de captures de cada ítem.
 - **[`REVISIO-TEORIA-PENDENTS.md`](docs/REVISIO-TEORIA-PENDENTS.md)** — els
   enllaços de teoria que encara són dubtosos.
+- **[`REVISIO-PISTES-I-ENLLACOS.md`](docs/REVISIO-PISTES-I-ENLLACOS.md)** —
+  anàlisi de les pistes 1 i 2 i dels enllaços T i V, amb propostes.
 - **`docs/historic/`** — el que documenta feina ja feta.
 
 <!-- atribucio-centre:inici -->

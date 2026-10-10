@@ -183,8 +183,8 @@ window.FULL = {
    "encapcalament": "Escriu l'espai mostral dels experiments aleatoris següents.",
    "enunciat": "Treure una carta de la baralla espanyola.",
    "opcions": [
-    "L'espai mostral té $48$ resultats, com en una baralla francesa",
-    "L'espai mostral té $10$ resultats, un per cada valor de l'$1$ al $9$ i la figura",
+    "L'espai mostral té $52$ resultats, com en una baralla francesa",
+    "L'espai mostral té $10$ resultats, les cartes d'un sol coll",
     "L'espai mostral té $4$ resultats (un per cada coll: ors, copes, espases i bastos)",
     "L'espai mostral té $40$ resultats (una carta per a cada combinació de coll i valor)"
    ],
@@ -193,7 +193,7 @@ window.FULL = {
     "L'espai mostral és el conjunt de totes les cartes possibles, no només els colls."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkNDgkIG5vIMOpcyBlbCBub21icmUgZGUgY2FydGVzIGQndW5hIGJhcmFsbGEgZXNwYW55b2xhOiBhcXVlc3RhIGVuIHTDqSAkNDAkIChxdWF0cmUgY29sbHMgZGUgJDEwJCBjYXJ0ZXMgY2FkYXNjdW4pLCBubyAkNDgkLiIsICIkMTAkIGNvbXB0YSBlbHMgdmFsb3JzIHBvc3NpYmxlcyBkJ1VOIHNvbCBjb2xsLCBwZXLDsiBsJ2VzcGFpIG1vc3RyYWwgZGUgXCJ0cmV1cmUgdW5hIGNhcnRhXCIgaGEgZCdpbmNsb3VyZSBsZXMgY2FydGVzIGRlIFRPVFMgZWxzIGNvbGxzLCBubyBub23DqXMgZCd1bi4iLCAiJDQkIGNvbXB0YSBub23DqXMgZWxzIGNvbGxzLCBubyBsZXMgY2FydGVzIGluZGl2aWR1YWxzOiBjYWRhIGNvbGwgdMOpICQxMCQgY2FydGVzIGRpZmVyZW50cyAoJDEkIGFsICQ5JCBpIHVuYSBmaWd1cmEpLCBhaXjDrSBxdWUgbCdlc3BhaSBtb3N0cmFsIGluY2xvdSB0b3RlcyBsZXMgY2FydGVzIGNvbmNyZXRlcywgbm8gbm9tw6lzIGVsIGNvbGwuIiwgIiJdLCAiZXJyIjogWyJFU1BBSV9NT1NUUkFMX01BTF9DT01QVEFUIiwgIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICIiXSwgInJlcyI6IFsiTGEgYmFyYWxsYSBlc3BhbnlvbGEgdMOpICQ0JCBjb2xscyBkZSAkMTAkIGNhcnRlcyBjYWRhc2N1bjogJDRcXGNkb3QxMD00MCQgcmVzdWx0YXRzIHBvc3NpYmxlcyJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkNTIkIHPDs24gbGVzIGNhcnRlcyBkZSBsYSBiYXJhbGxhIGZyYW5jZXNhIChsYSBkZWwgcMOycXVlcikuIExhIGJhcmFsbGEgZXNwYW55b2xhIGVuIHTDqSAkNDAkOiBxdWF0cmUgY29sbHMgZGUgJDEwJCBjYXJ0ZXMgY2FkYXNjdW4uIiwgIiQxMCQgY29tcHRhIGVscyB2YWxvcnMgcG9zc2libGVzIGQnVU4gc29sIGNvbGwsIHBlcsOyIGwnZXNwYWkgbW9zdHJhbCBkZSBcInRyZXVyZSB1bmEgY2FydGFcIiBoYSBkJ2luY2xvdXJlIGxlcyBjYXJ0ZXMgZGUgVE9UUyBlbHMgY29sbHMsIG5vIG5vbcOpcyBkJ3VuLiIsICIkNCQgY29tcHRhIG5vbcOpcyBlbHMgY29sbHMsIG5vIGxlcyBjYXJ0ZXMgaW5kaXZpZHVhbHM6IGNhZGEgY29sbCB0w6kgJDEwJCBjYXJ0ZXMgZGlmZXJlbnRzIChkZSBsJyQxJCBhbCAkNyQgaSB0cmVzIGZpZ3VyZXM6IHNvdGEsIGNhdmFsbCBpIHJlaSksIGFpeMOtIHF1ZSBsJ2VzcGFpIG1vc3RyYWwgaW5jbG91IHRvdGVzIGxlcyBjYXJ0ZXMgY29uY3JldGVzLCBubyBub23DqXMgZWwgY29sbC4iLCAiIl0sICJlcnIiOiBbIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICJFU1BBSV9NT1NUUkFMX01BTF9DT01QVEFUIiwgIiJdLCAicmVzIjogWyJMYSBiYXJhbGxhIGVzcGFueW9sYSB0w6kgJDQkIGNvbGxzIGRlICQxMCQgY2FydGVzIGNhZGFzY3VuOiAkNFxcY2RvdDEwPTQwJCByZXN1bHRhdHMgcG9zc2libGVzIl19"
   },
   {
    "id": "236b",
@@ -295,15 +295,15 @@ window.FULL = {
    "opcions": [
     "L'espai mostral té $4$ resultats, un per cada coll",
     "L'espai mostral té $40$ resultats, com tota la baralla",
-    "L'espai mostral té $9$ resultats, de l'$1$ al $9$, sense comptar la figura",
+    "L'espai mostral té $7$ resultats, de l'$1$ al $7$, sense comptar les figures",
     "L'espai mostral té $10$ resultats (les $10$ cartes del coll d'espases)"
    ],
    "pistes": [
     "Cada coll d'una baralla espanyola té el mateix nombre de cartes.",
-    "Un coll té les cartes de l'$1$ al $9$ més una figura."
+    "La baralla té $40$ cartes repartides en $4$ colls iguals: quantes en toca a cada coll?"
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2V4cGVyaW1lbnQgamEgZml4YSBlbCBjb2xsIChlc3Bhc2VzKTogZWwgcXVlIHZhcmlhIMOpcyBxdWluYSBjYXJ0YSBjb25jcmV0YSBkJ2VzcGFzZXMgc3VydCwgaSBuJ2hpIGhhICQxMCQsIG5vICQ0JC4iLCAiTCdlbnVuY2lhdCByZXN0cmluZ2VpeCBsJ2V4cGVyaW1lbnQgYSBVTiBzb2wgY29sbCAoZXNwYXNlcyksIG5vIGEgbGEgYmFyYWxsYSBzZW5jZXJhOiBub23DqXMgY29tcHRlbiBsZXMgJDEwJCBjYXJ0ZXMgZCdlc3Bhc2VzLiIsICJDYWRhIGNvbGwgZCd1bmEgYmFyYWxsYSBlc3BhbnlvbGEgdGFtYsOpIGluY2xvdSB1bmEgZmlndXJhIGEgbcOpcyBkZWxzIHZhbG9ycyBudW3DqHJpY3MgZGUgbCckMSQgYWwgJDkkOiBlbiB0b3RhbCwgJDEwJCBjYXJ0ZXMgcGVyIGNvbGwsIG5vICQ5JC4iLCAiIl0sICJlcnIiOiBbIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICJFU1BBSV9NT1NUUkFMX01BTF9DT01QVEFUIiwgIiJdLCAicmVzIjogWyJFbCBjb2xsIGQnZXNwYXNlcyB0w6kgJDEwJCBjYXJ0ZXM6ICRFPVxcezFcXHRleHR7IGQnZXNwYXNlc30sIFxcbGRvdHMsXFx0ZXh0e3JlaSBkJ2VzcGFzZXN9XFx9JCJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2V4cGVyaW1lbnQgamEgZml4YSBlbCBjb2xsIChlc3Bhc2VzKTogZWwgcXVlIHZhcmlhIMOpcyBxdWluYSBjYXJ0YSBjb25jcmV0YSBkJ2VzcGFzZXMgc3VydCwgaSBuJ2hpIGhhICQxMCQsIG5vICQ0JC4iLCAiTCdlbnVuY2lhdCByZXN0cmluZ2VpeCBsJ2V4cGVyaW1lbnQgYSBVTiBzb2wgY29sbCAoZXNwYXNlcyksIG5vIGEgbGEgYmFyYWxsYSBzZW5jZXJhOiBub23DqXMgY29tcHRlbiBsZXMgJDEwJCBjYXJ0ZXMgZCdlc3Bhc2VzLiIsICJDYWRhIGNvbGwgdGFtYsOpIHTDqSB0cmVzIGZpZ3VyZXMgKHNvdGEsIGNhdmFsbCBpIHJlaSk6ICQ3KzM9MTAkIGNhcnRlcyBwZXIgY29sbCwgbm8gJDckLiIsICIiXSwgImVyciI6IFsiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICJFU1BBSV9NT1NUUkFMX01BTF9DT01QVEFUIiwgIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiIl0sICJyZXMiOiBbIkVsIGNvbGwgZCdlc3Bhc2VzIHTDqSAkMTAkIGNhcnRlczogJEU9XFx7MVxcdGV4dHsgZCdlc3Bhc2VzfSwgXFxsZG90cyxcXHRleHR7cmVpIGQnZXNwYXNlc31cXH0kIl19"
   },
   {
    "id": "236g",
@@ -369,7 +369,7 @@ window.FULL = {
     "Un esdeveniment és impossible quan no hi ha CAP manera que passi, no quan és poc probable."
    ],
    "nota": "",
-   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgaGkgaGFnaSB1biDDum5pYyBleGVtcGxhciBkZSBDQURBIENBUlRBIENPTkNSRVRBIChjb20gZWwgcmVpIGQnb3JzKSBubyB2b2wgZGlyIHF1ZSBoaSBoYWdpIHVuIMO6bmljIGV4ZW1wbGFyIGRlIENBREEgQ09MTDogZWwgY29sbCBkJ29ycyB0w6kgJDEwJCBjYXJ0ZXMgZGlmZXJlbnRzLCBhaXjDrSBxdWUgc2UnbiBwb2RlbiB0cmV1cmUgZHVlcy4gUmV2aXNhIHF1YW50ZXMgY2FydGVzIChvIGVsZW1lbnRzKSBkaWZlcmVudHMgY29tcGxlaXhlbiBleGFjdGFtZW50IGxhIGNvbmRpY2nDsyBkZW1hbmFkYTogdW4gZXNkZXZlbmltZW50IMOpcyBpbXBvc3NpYmxlIG5vbcOpcyBxdWFuIENBUCByZXN1bHRhdCBkZSBsJ2VzcGFpIG1vc3RyYWwgZWwgY29tcGxlaXgsIG5vIHF1YW4gc2VtYmxhIHBvYyBoYWJpdHVhbC4iLCAiRWwgY29sbCBkJ29ycyB0w6kgJDEwJCBjYXJ0ZXMgZGlmZXJlbnRzIChkZSBsJyQxJCBhbCAkOSQgaSB1bmEgZmlndXJhKTogZGVzcHLDqXMgZGUgdHJldXJlJ24gdW5hLCBlbmNhcmEgZW4gcXVlZGVuICQ5JCBtw6lzIHBlciB0cmV1cmUgY29tIGEgc2Vnb25hIGNhcnRhLiIsICJMJ2VudW5jaWF0IHBhcmxhIGRlIHRyZXVyZSBEVUVTIGNhcnRlcyBlbiB0b3RhbCwgbm8gZCd1bmEganVnYWRhIGxpbWl0YWRhIGEgdW5hIGNhcnRhIHBlciBjb2xsOiDDqXMgcGVyZmVjdGFtZW50IHBvc3NpYmxlIHF1ZSB0b3RlcyBkdWVzIHNpZ3VpbiBkJ29ycy4iLCAiIl0sICJlcnIiOiBbIkNBUlRFU19SRVBFVElERVNfQ09ORk9TRVMiLCAiQ0FSVEVTX1JFUEVUSURFU19DT05GT1NFUyIsICJDQVJURVNfUkVQRVRJREVTX0NPTkZPU0VTIiwgIiJdLCAicmVzIjogWyJIaSBoYSAkMTAkIG9ycyBhIGxhIGJhcmFsbGEsIGFpeMOtIHF1ZSDDqXMgcGVyZmVjdGFtZW50IHBvc3NpYmxlIHRyZXVyZSduIGRvczogYXF1ZXN0IGVzZGV2ZW5pbWVudCBOTyDDqXMgaW1wb3NzaWJsZSJdfQ=="
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgaGkgaGFnaSB1biDDum5pYyBleGVtcGxhciBkZSBDQURBIENBUlRBIENPTkNSRVRBIChjb20gZWwgcmVpIGQnb3JzKSBubyB2b2wgZGlyIHF1ZSBoaSBoYWdpIHVuIMO6bmljIGV4ZW1wbGFyIGRlIENBREEgQ09MTDogZWwgY29sbCBkJ29ycyB0w6kgJDEwJCBjYXJ0ZXMgZGlmZXJlbnRzLCBhaXjDrSBxdWUgc2UnbiBwb2RlbiB0cmV1cmUgZHVlcy4gUmV2aXNhIHF1YW50ZXMgY2FydGVzIChvIGVsZW1lbnRzKSBkaWZlcmVudHMgY29tcGxlaXhlbiBleGFjdGFtZW50IGxhIGNvbmRpY2nDsyBkZW1hbmFkYTogdW4gZXNkZXZlbmltZW50IMOpcyBpbXBvc3NpYmxlIG5vbcOpcyBxdWFuIENBUCByZXN1bHRhdCBkZSBsJ2VzcGFpIG1vc3RyYWwgZWwgY29tcGxlaXgsIG5vIHF1YW4gc2VtYmxhIHBvYyBoYWJpdHVhbC4iLCAiRWwgY29sbCBkJ29ycyB0w6kgJDEwJCBjYXJ0ZXMgZGlmZXJlbnRzIChkZSBsJyQxJCBhbCAkNyQgaSB0cmVzIGZpZ3VyZXMpOiBkZXNwcsOpcyBkZSB0cmV1cmUnbiB1bmEsIGVuY2FyYSBlbiBxdWVkZW4gJDkkIG3DqXMgcGVyIHRyZXVyZSBjb20gYSBzZWdvbmEgY2FydGEuIiwgIkwnZW51bmNpYXQgcGFybGEgZGUgdHJldXJlIERVRVMgY2FydGVzIGVuIHRvdGFsLCBubyBkJ3VuYSBqdWdhZGEgbGltaXRhZGEgYSB1bmEgY2FydGEgcGVyIGNvbGw6IMOpcyBwZXJmZWN0YW1lbnQgcG9zc2libGUgcXVlIHRvdGVzIGR1ZXMgc2lndWluIGQnb3JzLiIsICIiXSwgImVyciI6IFsiQ0FSVEVTX1JFUEVUSURFU19DT05GT1NFUyIsICJDQVJURVNfUkVQRVRJREVTX0NPTkZPU0VTIiwgIkNBUlRFU19SRVBFVElERVNfQ09ORk9TRVMiLCAiIl0sICJyZXMiOiBbIkhpIGhhICQxMCQgb3JzIGEgbGEgYmFyYWxsYSwgYWl4w60gcXVlIMOpcyBwZXJmZWN0YW1lbnQgcG9zc2libGUgdHJldXJlJ24gZG9zOiBhcXVlc3QgZXNkZXZlbmltZW50IE5PIMOpcyBpbXBvc3NpYmxlIl19"
   },
   {
    "id": "239b",
@@ -454,7 +454,7 @@ window.FULL = {
    ],
    "pistes": [
     "Pensa en un exemple concret: pots treure un or i, després, una copa?",
-    "Compara-ho amb l'apartat c): també és un cas de \"colls diferents\", que sí que és possible."
+    "Un or i una copa són dues cartes diferents, de colls diferents: hi ha res que impedeixi treure-les totes dues?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJDYWRhIGNvbGwgKG9ycywgY29wZXMpIHTDqSAkMTAkIGNhcnRlcyBkaWZlcmVudHMgYSBsYSBiYXJhbGxhLCBubyB1bmEgZGUgc29sYTogaGkgaGEgJDEwJCBvcnMgaSAkMTAkIGNvcGVzIHBvc3NpYmxlcyBwZXIgdHJpYXIuIiwgIiIsICJBcXXDrSBubyBlcyBkZW1hbmEgcmVwZXRpciBjYXAgY2FydGEgbmkgY2FwIGZpZ3VyYSBjb25jcmV0YTogZXMgZGVtYW5hIHVuYSBjYXJ0YSBkJ29ycyBpIHVuYSBkZSBjb3BlcywgY29sbHMgZGlmZXJlbnRzIGFtYiBtb2x0ZXMgY2FydGVzIGNhZGFzY3VuLiIsICJObyBoaSBoYSBjYXAgaW1wZWRpbWVudCBwZXIgdHJldXJlIHVuYSBjYXJ0YSBkJ29ycyBpIHVuYSBkZSBjb3BlcyBlbiBsYSBtYXRlaXhhIGV4dHJhY2Npw7MgZGUgZHVlcyBjYXJ0ZXM6IHPDs24gY29sbHMgZGlmZXJlbnRzIGFtYiBsZXMgc2V2ZXMgcHLDsnBpZXMgY2FydGVzLiJdLCAiZXJyIjogWyJDQVJURVNfUkVQRVRJREVTX0NPTkZPU0VTIiwgIiIsICJDQVJURVNfUkVQRVRJREVTX0NPTkZPU0VTIiwgIkNBUlRFU19SRVBFVElERVNfQ09ORk9TRVMiXSwgInJlcyI6IFsiw4lzIHBvc3NpYmxlOiBuJ2hpIGhhIHByb3UgZW4gdHJldXJlIHVuIG9yIHNlZ3VpdCBkJ3VuYSBjb3BhLiBBcXVlc3QgZXNkZXZlbmltZW50IE5PIMOpcyBpbXBvc3NpYmxlIl19"
@@ -541,7 +541,8 @@ window.FULL = {
     "$P=\\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i per tant és un esdeveniment segur"
    ],
    "pistes": [
-    "Quins valors del $1$ al $6$ són més grans que $7$?"
+    "Quins valors del $1$ al $6$ són més grans que $7$?",
+    "Si no hi ha cap cas favorable, quant val el numerador de la regla de Laplace?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCAkNiQgTk8gw6lzIG3DqXMgZ3JhbiBxdWUgJDckOiBjYXAgcmVzdWx0YXQgZGVsIGRhdSBobyBjb21wbGVpeCwgc8OzbiAkMCQgY2Fzb3MgZmF2b3JhYmxlcywgbm8gJDEkLiIsICIiLCAiVW4gZGF1IG5vbcOpcyB0w6kgJDYkIGNhcmVzLCBudW1lcmFkZXMgZGUgbCckMSQgYWwgJDYkOiBlbCAkNyQgbm8gw6lzIGNhcCByZXN1bHRhdCBwb3NzaWJsZSwgbmkgY29tcHRhIGNvbSBhIGNhcyBmYXZvcmFibGUgbmkgY29tIGEgcG9zc2libGUuIiwgIlF1ZSBjYXAgcmVzdWx0YXQgZGVsIGRhdSBjb21wbGVpeGkgbGEgY29uZGljacOzIMOpcyBleGFjdGFtZW50IGVsIG1vdGl1IHBlbCBxdWFsIGFxdWVzdCBlc2RldmVuaW1lbnQgw6lzIElNUE9TU0lCTEUgKCRQPTAkKSwgbm8gc2VndXI6IHNpIGNhcCBjYXMgw6lzIGZhdm9yYWJsZSwgbGEgcHJvYmFiaWxpdGF0IMOpcyAkMCQsIG5vICQxJC4iXSwgImVyciI6IFsiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiLCAiIiwgIkNBU09TX1BPU1NJQkxFU19NQUxfQ09NUFRBVFMiLCAiVkVSRURJQ1RFX0lOVkVSVElUIl0sICJyZXMiOiBbIsKrTm9tYnJlIG3DqXMgZ3JhbiBxdWUgJDckwrs6IGNhcCByZXN1bHRhdCBkZWwgZGF1ICgkMSQgYSAkNiQpIGhvIGNvbXBsZWl4LCAkMCQgY2Fzb3MgZmF2b3JhYmxlcy4gJFA9XFxkZnJhY3swfXs2fT0wJCAoZXNkZXZlbmltZW50IGltcG9zc2libGUpIl19"
@@ -1069,7 +1070,7 @@ window.FULL = {
    ],
    "pistes": [
     "Aquest dau té només $4$ cares. Quina d'elles és múltiple de $3$?",
-    "Només la cara $3$: la seva freqüència relativa és $\\frac{30}{100}$."
+    "La freqüència relativa és el nombre de vegades que ha sortit aquella cara dividit pel total de tirades, $100$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3Qgw6lzIHVuIGRhdSBURVRSQcOIRFJJQzogbm9tw6lzIHTDqSAkNCQgY2FyZXMgKGRlIGwnJDEkIGFsICQ0JCksIG5vICQ2JCBjb20gdW4gZGF1IG5vcm1hbC4gTm9tw6lzIGxhIGNhcmEgJDMkIMOpcyBtw7psdGlwbGUgZGUgJDMkLiIsICIiLCAiXCJNw7psdGlwbGUgZGUgJDMkXCIgZW4gYXF1ZXN0IGRhdSAoY2FyZXMgJDEkIGEgJDQkKSBub23DqXMgbCfDqXMgbGEgY2FyYSAkMyQ6IGxhIGZyZXHDvMOobmNpYSByZWxhdGl2YSDDqXMgbGEgc2V2YSBmcmVxw7zDqG5jaWEgb2JzZXJ2YWRhICgkMzAkKSBlbnRyZSBlbCB0b3RhbCAoJDEwMCQpLCBubyBlbCBwcm9waSB2YWxvciAkMyQuIiwgIk5vbcOpcyBsYSBjYXJhICQzJCDDqXMgbcO6bHRpcGxlIGRlICQzJCBlbnRyZSBsZXMgJDQkIHBvc3NpYmxlcyAoJDEsMiwzLDQkKTogbm8gdG90ZXMgbGVzIHRpcmFkZXMgY29tcGxlaXhlbiBhcXVlc3RhIGNvbmRpY2nDsy4iXSwgImVyciI6IFsiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICIiLCAiRlJFUV9SRUxBVElWQV9QUk9CQUJJTElUQVRfQ09ORk9TRVMiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCJdLCAicmVzIjogWyJNw7psdGlwbGUgZGUgJDMkIChub23DqXMgbGEgY2FyYSAkMyQpOiAkXFxkZnJhY3szMH17MTAwfT1cXGRmcmFjezN9ezEwfSQiXX0="
@@ -1135,7 +1136,7 @@ window.FULL = {
    ],
    "pistes": [
     "El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha alguna més petita que $1$?",
-    "Cap cara compleix aquesta condició: la freqüència és $0$."
+    "Si cap cara no compleix la condició, quantes vegades ha passat l'esdeveniment en les $100$ tirades?"
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJObyBoaSBoYSBjYXAgY2FzIGZhdm9yYWJsZSwgbmkgdGFuIHNvbHMgdW46IGVsIGRhdSB0ZXRyYcOoZHJpYyBub23DqXMgdMOpIGNhcmVzIG51bWVyYWRlcyBkZSBsJyQxJCBhbCAkNCQsIGkgY2FwIGQnZWxsZXMgw6lzIG3DqXMgcGV0aXRhIHF1ZSAkMSQuIiwgIlwiTcOpcyBwZXRpdGEgcXVlICQxJFwiIE5PIGluY2xvdSBsYSBwcsOycGlhIGNhcmEgJDEkIChxdWUgw6lzIElHVUFMIGEgJDEkLCBubyBNw4lTIFBFVElUQSk6IGNhcCBjYXJhIGRlbCBkYXUgKG51bWVyYWRlcyBkZSBsJyQxJCBhbCAkNCQpIGNvbXBsZWl4IGFxdWVzdGEgY29uZGljacOzLiIsICJTw60gcXVlIHTDqSBzZW50aXQgY2FsY3VsYXItbG8sIGkgZG9uYSB1bmEgZnJlccO8w6huY2lhIHJlbGF0aXZhIGRlICQwJDogdW4gZXNkZXZlbmltZW50IGltcG9zc2libGUgdGFtYsOpIHTDqSB1bmEgcHJvYmFiaWxpdGF0IGJlbiBkZWZpbmlkYSwgcXVlIMOpcyAkMCQuIiwgIiJdLCAiZXJyIjogWyJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIiJdLCAicmVzIjogWyJDb20gcXVlIGVsIHRldHJhZWRyZSBub23DqXMgdMOpIGNhcmVzIGRlIGwnJDEkIGFsICQ0JCwgbm8gaGkgaGEgY2FwIHJlc3VsdGF0IG3DqXMgcGV0aXQgcXVlICQxJC4gJFxcZGZyYWN7MH17MTAwfT0wJCJdfQ=="
@@ -1399,7 +1400,7 @@ window.FULL = {
    ],
    "pistes": [
     "Quins nombres NO són divisibles per $1$?",
-    "Cap: tot nombre enter és divisible per $1$."
+    "Compta quantes boles de l'$1$ al $100$ compleixen la condició i divideix entre $100$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiw4lzIHVuYSBjb25kaWNpw7MgcmVhbCwgaSBsYSBjb21wbGVpeGVuIGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzOiBwZXIgYWl4w7IgbGEgc2V2YSBwcm9iYWJpbGl0YXQgw6lzICQxJCAoZXNkZXZlbmltZW50IHNlZ3VyKSwgbm8gJDAkIChpbXBvc3NpYmxlKS4iLCAiVE9UUyBlbHMgbm9tYnJlcyBlbnRlcnMgc8OzbiBkaXZpc2libGVzIHBlciAkMSQsIG5vIG5vbcOpcyB1bjogZWxzICQxMDAkIG5vbWJyZXMgZGUgbCd1cm5hIGNvbXBsZWl4ZW4gYXF1ZXN0YSBjb25kaWNpw7MuIiwgIlwiRGl2aXNpYmxlIHBlciAkMSRcIiBubyDDqXMgZWwgbWF0ZWl4IHF1ZSBcImRpdmlzaWJsZSBwZXIgJDIkXCI6IGFic29sdXRhbWVudCB0b3RzIGVscyBub21icmVzIGNvbXBsZWl4ZW4gbGEgcHJpbWVyYSBjb25kaWNpw7MsIG5vIG5vbcOpcyBsYSBtZWl0YXQuIl0sICJlcnIiOiBbIiIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkRiQ6IGRpdmlzaWJsZXMgcGVyICQxJCwgw6lzIGEgZGlyLCB0b3RzIGVscyBuw7ptZXJvcyBkZSBsJyQxJCBhbCAkMTAwJDogJDEwMCQgZXNkZXZlbmltZW50cyBlbGVtZW50YWxzLiAkUChGKT1cXGRmcmFjezEwMH17MTAwfT0xJCAobCdlc2RldmVuaW1lbnQgc2VndXIpIl19"
@@ -1729,7 +1730,7 @@ window.FULL = {
    ],
    "pistes": [
     "Segueix el camí de l'arbre: primer la branca \"Cara\", després la branca \"surt 6\".",
-    "Multiplica les dues probabilitats del camí."
+    "Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDYWwgc2VndWlyIHRvdCBlbCBjYW3DrSBkZXMgZGUgbCdhcnJlbDogcHJpbWVyIGxhIGJyYW5jYSBkZSBcIkNhcmFcIiAoJDEvMiQpIGkgZGVzcHLDqXMgbGEgZGUgXCJzdXJ0IDZcIiAoJDEvNiQpLCBtdWx0aXBsaWNhbnQtbGVzIHRvdGVzIGR1ZXMuIiwgIkxhIHByb2JhYmlsaXRhdCBkJ3VuIGNhbcOtIGRlIGwnYXJicmUgKGNhcmEsIGkgZGVzcHLDqXMgdW4gJDYkKSDDqXMgZWwgUFJPRFVDVEUgZGUgbGVzIGR1ZXMgYnJhbnF1ZXMsIG5vIGxhIHNldmEgc3VtYS4iLCAiIiwgIkxhIHByZWd1bnRhIGRlbWFuYSBsYSBwcm9iYWJpbGl0YXQgcXVlIFNVUlRJIGVsICQ2JCwgcXVlIMOpcyBsYSBicmFuY2EgJDEvNiQsIG5vIGxhIGRlIFwibm8gc3VydCA2XCIgKCQ1LzYkKS4iXSwgImVyciI6IFsiQ0FNSV9BUkJSRV9NQUxfTVVMVElQTElDQVQiLCAiQ0FNSV9BUkJSRV9NQUxfTVVMVElQTElDQVQiLCAiIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIl0sICJyZXMiOiBbIiRQKFxcdGV4dHtDYXJhfSw2KT1cXGRmcmFjMTJcXGNkb3RcXGRmcmFjMTY9XFxkZnJhY3sxfXsxMn0kIl19",
@@ -1774,7 +1775,8 @@ window.FULL = {
     "$P(V_1)=\\dfrac{6}{10}$, calculant la de blava"
    ],
    "pistes": [
-    "A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles."
+    "A la primera extracció encara hi ha totes les boles: $10$ en total, $4$ de vermelles.",
+    "Aplica la regla de Laplace: casos favorables entre casos possibles. Que després no es torni la bola no afecta aquesta primera extracció."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBQUklNRVJBIGV4dHJhY2Npw7MgZW5jYXJhIGVzIGZhIGFtYiB0b3RlcyBsZXMgYm9sZXMgYSBsYSBib3NzYTogJDEwJCBlbiB0b3RhbCwgJDQkIGRlIHZlcm1lbGxlcy4gRWwgZGVub21pbmFkb3Igbm9tw6lzIGNhbnZpYSBhIHBhcnRpciBkZSBsYSBzZWdvbmEgZXh0cmFjY2nDsy4iLCAiRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIGVsIFRPVEFMIGRlIGJvbGVzIGEgbGEgYm9zc2EgKCQ0KzY9MTAkKSwgbm8gbm9tw6lzIGVsIG5vbWJyZSBkZSBibGF2ZXMuIiwgIiIsICJFcyBkZW1hbmEgbGEgcHJvYmFiaWxpdGF0IGRlIFZFUk1FTExBLCBpIG4naGkgaGEgJDQkIGRlICQxMCQ7ICQ2LzEwJCDDqXMgbGEgZGUgYmxhdmEuIl0sICJlcnIiOiBbIlJFRU1QTEFDQU1FTlRfTUFMX0NPTlNJREVSQVQiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICIiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyIkUChWXzEpPVxcZGZyYWN7NH17MTB9PVxcZGZyYWMyNSQiXX0="
@@ -1864,7 +1866,7 @@ window.FULL = {
    ],
    "pistes": [
     "Segueix el camí sencer: la branca «V» inicial ($2/5$) i la branca «V» que acabes de calcular ($1/4$).",
-    "Multiplica-les."
+    "Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBwcm9iYWJpbGl0YXQgZCd1biBjYW3DrSBkZSBsJ2FyYnJlIMOpcyBlbCBwcm9kdWN0ZSBkZSBsZXMgc2V2ZXMgYnJhbnF1ZXMsIG5vIGxhIHN1bWEuIiwgIkxhIHNlZ29uYSBwcm9iYWJpbGl0YXQsIHVuIGNvcCB0cmV0YSB1bmEgdmVybWVsbGEgc2Vuc2UgcmVwb3Nhci1sYSwgw6lzICQxLzQkIChsYSBxdWUgYWNhYmVzIGRlIGNhbGN1bGFyKSwgbm8gJDIvNSQgdW5hIGFsdHJhIHZlZ2FkYS4iLCAiIiwgIkNhbCBzZWd1aXIgZWwgY2Ftw60gc2VuY2VyIGRlcyBkZSBsJ2FycmVsOiBsYSBwcm9iYWJpbGl0YXQgZGUgbGEgcHJpbWVyYSB2ZXJtZWxsYSAoJDIvNSQpIHRhbWLDqSBjb21wdGEsIG11bHRpcGxpY2FkYSBwZXIgbGEgc2Vnb25hLiJdLCAiZXJyIjogWyJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCIsICJSRUVNUExBQ0FNRU5UX01BTF9DT05TSURFUkFUIiwgIiIsICJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCJdLCAicmVzIjogWyIkUChWLFYpPVxcZGZyYWMyNVxcY2RvdFxcZGZyYWMxND1cXGRmcmFjezJ9ezIwfT1cXGRmcmFjezF9ezEwfSQiXX0=",
@@ -2023,7 +2025,8 @@ window.FULL = {
     "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, dividint pel total de la població en lloc del total de malalts"
    ],
    "pistes": [
-    "Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts."
+    "Aquesta dada la dona directament l'enunciat: la probabilitat de positiu entre els malalts.",
+    "«Sabent que és malalta» vol dir que només mires els malalts. Compte a no agafar l'altra dada, la dels sans."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgZGVub21pbmFkb3IgcXVlIHRvY2EgYXF1w60gw6lzIGVsIGRlIE1BTEFMVFMgKCQxMCQpLCBwZXJxdcOoIGxhIGNvbmRpY2nDsyBkZSBsYSBwcmVndW50YSDDqXMgXCJzZXIgbWFsYWx0XCI7IGVsIHRvdGFsIGRlIHBvc2l0aXVzICgkMTA4JCkgw6lzIGVsIGRlbm9taW5hZG9yIGQndW5hIHByZWd1bnRhIGRpZmVyZW50LiIsICIkMS8xMCQgw6lzIGxhIHByb2JhYmlsaXRhdCBkZSBwb3NpdGl1IEVOVFJFIEVMUyBTQU5TIChlbCBmYWxzIHBvc2l0aXUpOiBlbnRyZSBlbHMgbWFsYWx0cywgbGEgcHJvYmFiaWxpdGF0IGRlIHBvc2l0aXUgw6lzICQ5LzEwJCwgbCdhbHRyYSBkYWRhIGRlIGwnZW51bmNpYXQuIiwgIlwiU2FiZW50IHF1ZSBsYSBwZXJzb25hIMOpcyBtYWxhbHRhXCIgZml4YSBlbCBncnVwIGVuIGxlcyAkMTAkIHBlcnNvbmVzIG1hbGFsdGVzLCBubyBlbiB0b3RhIGxhIHBvYmxhY2nDsyBkZSAkMTAwMCQ6IGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciAkMTAkLCBubyAkMTAwMCQuIl0sICJlcnIiOiBbIiIsICJDT05ESUNJT05BREFfSV9DT05KVU5UQV9DT05GT1NFUyIsICJBU0lNRVRSSUFfQ09ORElDSU9OQURBX01BTCIsICJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCJdLCAicmVzIjogWyJMJ2VudW5jaWF0IGhvIGRpdSBkaXJlY3RhbWVudDogc2kgbGEgcGVyc29uYSDDqXMgbWFsYWx0YSwgZWwgdGVzdCBkb25hIHBvc2l0aXUgJDkkIGRlIGNhZGEgJDEwJCB2ZWdhZGVzLCAkUChcXHRleHR7cG9zaXRpdX18XFx0ZXh0e21hbGFsdH0pPVxcZGZyYWN7OX17MTB9JCJdfQ==",
@@ -2161,7 +2164,7 @@ window.FULL = {
    ],
    "pistes": [
     "Segueix el camí: primer la branca «Caixa A» ($1/2$), després la branca «V» que en penja ($2/3$).",
-    "Multiplica-les."
+    "Al llarg d'un mateix camí les probabilitats es multipliquen; només se sumen quan s'ajunten camins diferents."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJDYWwgc2VndWlyIGVsIGNhbcOtIHNlbmNlcjogcHJpbWVyIHRyaWFyIGxhIGNhaXhhIEEgKCQxLzIkKSBpIGRlc3Byw6lzIHRyZXVyZSduIHVuYSB2ZXJtZWxsYSAoJDIvMyQpLCBtdWx0aXBsaWNhbnQtbGVzLiIsICIiLCAiTGEgcHJvYmFiaWxpdGF0IGQndW4gY2Ftw60gZGUgbCdhcmJyZSDDqXMgZWwgcHJvZHVjdGUgZGUgbGVzIHNldmVzIGJyYW5xdWVzLCBubyBsYSBzdW1hIChpIGVsIHJlc3VsdGF0LCBhIG3DqXMsIHNlcmlhIG3DqXMgZ3JhbiBxdWUgJDEkLCBjb3NhIGltcG9zc2libGUpLiIsICJMYSBicmFuY2EgwqtWwrsgcXVlIHRvY2Egw6lzIGxhIHF1ZSBwZW5qYSBkZSBsYSBjYWl4YSBBICgkMi8zJCwgcGVycXXDqCBoaSBoYSAkMiQgdmVybWVsbGVzIGRlICQzJCBib2xlcyksIG5vIGxhIGRlIGxhIGNhaXhhIEIgKCQxLzQkKS4iXSwgImVyciI6IFsiQ0FNSV9BUkJSRV9NQUxfTVVMVElQTElDQVQiLCAiIiwgIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIl0sICJyZXMiOiBbIiRQKEEsVik9XFxkZnJhY3sxfXsyfVxcY2RvdFxcZGZyYWN7Mn17M309XFxkZnJhY3syfXs2fT1cXGRmcmFjezF9ezN9JCJdfQ==",

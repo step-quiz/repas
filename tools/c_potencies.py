@@ -526,7 +526,8 @@ Q("39a", 39, "a", B2, "A",
       extra="Has copiat el segon membre tal qual, sense tenir en compte el factor $2^3$ que ja hi és."),
    DT(pot("2", 3 - 8), "ORDRE_RESTA")],
   ["Si $2^3\\cdot\\square=2^8$, aleshores $\\square=2^8:2^3$.",
-   "$\\square=2^{8-3}$."],
+   "Dividir potències de la mateixa base resta els exponents. Deixa el "
+   "resultat com una potència de base $2$."],
   [r"$\square=2^8:2^3=2^{8-3}=2^5$"],
   ex_text=E39)
 
@@ -540,7 +541,8 @@ Q("39b", 39, "b", B2, "A",
    D(r"4^{5}", "BASE_SIGNE_PERDUT",
      "El factor que falta ha de conservar la base tal com era, $(-4)$, no $4$.")],
   ["Si $(-4)^5\\cdot\\square=(-4)^{10}$, aleshores $\\square=(-4)^{10}:(-4)^5$.",
-   "$\\square=(-4)^{10-5}$."],
+   "Dividir potències de la mateixa base resta els exponents. Deixa el "
+   "resultat com una potència de base $(-4)$."],
   [r"$\square=(-4)^{10}:(-4)^5=(-4)^{10-5}=(-4)^5$"],
   ex_text=E39)
 
@@ -555,7 +557,8 @@ Q("39c", 39, "c", B2, "A",
    DT(pot(r"(\dfrac{7}{2})", 6 - 7), "ORDRE_RESTA")],
   ["Si $\\left(\\dfrac72\\right)^6\\cdot\\square=\\left(\\dfrac72\\right)^7$, aleshores "
    "$\\square=\\left(\\dfrac72\\right)^7:\\left(\\dfrac72\\right)^6$.",
-   "$\\square=\\left(\\dfrac72\\right)^{7-6}=\\left(\\dfrac72\\right)^1$."],
+   "Dividir potències de la mateixa base resta els exponents. Si "
+   "l'exponent queda $1$, la potència és la base mateixa."],
   [r"$\square=\left(\dfrac72\right)^{7-6}=\left(\dfrac72\right)^1=\dfrac72$"],
   ex_text=E39)
 
@@ -568,7 +571,8 @@ Q("39d", 39, "d", B2, "A",
       extra="Has copiat el dividend tal qual, sense tenir en compte el resultat, $(-3)^6$."),
    DT(pot("(-3)", 6 - 12), "ORDRE_RESTA")],
   ["Si $(-3)^{12}:\\square=(-3)^6$, aleshores $\\square=(-3)^{12}:(-3)^6$.",
-   "$\\square=(-3)^{12-6}$."],
+   "Dividir potències de la mateixa base resta els exponents. Deixa el "
+   "resultat com una potència de base $(-3)$."],
   [r"$\square=(-3)^{12}:(-3)^6=(-3)^{12-6}=(-3)^6$"],
   ex_text=E39)
 
@@ -581,7 +585,8 @@ Q("39e", 39, "e", B2, "A",
      "Per aïllar el dividend cal multiplicar $5^6\\cdot 5$, no dividir."),
    DT(pot("5", 6 - 1), "ORDRE_RESTA")],
   ["Si $\\square:5^6=5$, aleshores $\\square=5^6\\cdot 5$.",
-   "$\\square=5^{6+1}$."],
+   "Multiplicar potències de la mateixa base suma els exponents. Recorda "
+   "que $5$ és $5^1$."],
   [r"$\square=5^6\cdot 5^1=5^{6+1}=5^7$"],
   ex_text=E39)
 
@@ -596,7 +601,8 @@ Q("39f", 39, "f", B2, "A",
      "El factor que falta ha de conservar la base tal com era, $-\\dfrac13$, no $\\dfrac13$.")],
   ["Si $\\square:\\left(-\\dfrac13\\right)^6=\\left(-\\dfrac13\\right)^3$, aleshores "
    "$\\square=\\left(-\\dfrac13\\right)^3\\cdot\\left(-\\dfrac13\\right)^6$.",
-   "$\\square=\\left(-\\dfrac13\\right)^{3+6}$."],
+   "Multiplicar potències de la mateixa base suma els exponents. Deixa el "
+   "resultat com una potència de base $-\\dfrac13$."],
   [r"$\square=\left(-\dfrac13\right)^3\cdot\left(-\dfrac13\right)^6"
    r"=\left(-\dfrac13\right)^{3+6}=\left(-\dfrac13\right)^9$"],
   ex_text=E39)
@@ -642,8 +648,10 @@ Q("40c", 40, "c", B2, "A",
      "Has plantejat l'equació a l'inrevés: és $a-8=0$, no $8-a=0$."),
    D("16", "EQUACIO_EXPONENT_MULTIPLICAT",
      "Has doblat l'exponent $8$ en lloc de plantejar l'equació $a-8=0$.")],
-  ["Si les bases són iguals, els exponents han de complir $a-8=0$.",
-   "Aïlla $a$: $a=8$."],
+  ["Dividir potències de la mateixa base resta els exponents: "
+   "$(-6)^a:(-6)^8=(-6)^{a-8}$.",
+   "Perquè les dues bandes siguin iguals, l'exponent $a-8$ ha de valer el "
+   "mateix que el de la dreta, $0$."],
   ["$a-8=0\\Rightarrow a=8$"],
   ex_text=E40)
 
@@ -982,7 +990,8 @@ Q("43a", 43, "a", B3, "A",
    D(tex(ev("12**2")), "BASE_EXPONENT_INTERCANVIATS",
      "Un cop simplificat a $2^{12}$, has canviat de lloc la base i l'exponent.")],
   ["Potència d'una potència: multiplica els exponents, no els sumis.",
-   "$(2^3)^4=2^{3\\cdot 4}$."],
+   "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es "
+   "queda tal com és, amb el seu signe."],
   ["$(2^3)^4=2^{3\\cdot 4}=2^{12}$"],
   ex_text="Expressa com a potència única.")
 
@@ -996,7 +1005,8 @@ Q("43b", 43, "b", B3, "A",
      "Has calculat l'exponent nou com $3^2=9$ en lloc de $3\\cdot 2=6$: als "
      "exponents es couen com un producte normal, $3\\cdot 2$, no com una altra potència.")],
   ["Potència d'una potència: multiplica els exponents, no els sumis.",
-   "$[(-3)^3]^2=(-3)^{3\\cdot 2}$."],
+   "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es "
+   "queda tal com és, amb el seu signe."],
   ["$[(-3)^3]^2=(-3)^{3\\cdot 2}=(-3)^{6}$"],
   ex_text="Expressa com a potència única.")
 
@@ -1026,7 +1036,8 @@ Q("43d", 43, "d", B3, "A",
      "Has invertit la fracció de la base: es queda $\\dfrac13$, no es converteix "
      "en $3$.")],
   ["Potència d'una potència: multiplica els exponents, no els sumis.",
-   "$\\left[\\left(\\dfrac13\\right)^2\\right]^4=\\left(\\dfrac13\\right)^{2\\cdot 4}$."],
+   "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es "
+   "queda tal com és, amb el seu signe."],
   [r"$\left[\left(\dfrac13\right)^2\right]^4=\left(\dfrac13\right)^{2\cdot 4}"
    r"=\left(\dfrac13\right)^{8}$"],
   ex_text="Expressa com a potència única.")
@@ -1041,7 +1052,8 @@ Q("43e", 43, "e", B3, "A",
      "El resultat ha de conservar la base tal com era, $-\\dfrac35$, no $\\dfrac35$: "
      "l'exponent final, $15$, és senar.")],
   ["Potència d'una potència: multiplica els exponents, no els sumis.",
-   "$\\left[\\left(-\\dfrac35\\right)^3\\right]^5=\\left(-\\dfrac35\\right)^{3\\cdot 5}$."],
+   "Compte: no sumis els exponents ni elevis l'un a l'altre. La base es "
+   "queda tal com és, amb el seu signe."],
   [r"$\left[\left(-\dfrac35\right)^3\right]^5=\left(-\dfrac35\right)^{3\cdot 5}"
    r"=\left(-\dfrac35\right)^{15}$"],
   ex_text="Expressa com a potència única.")
@@ -1260,7 +1272,9 @@ Q("46b", 46, "b", B4, "A",
    D("13", "BASE_EXPONENT_INTERCANVIATS",
      "Has confós l'exponent final, $13$, amb la base que falta.")],
   ["$(\\square^2)^5\\cdot\\square^3=\\square^{10}\\cdot\\square^3=\\square^{13}$.",
-   "$\\square^{13}=(-3)^{13}$: la base que falta és $-3$."],
+   "Ara compara $\\square^{13}$ amb $(-3)^{13}$: tenen el mateix exponent. "
+   "Compte amb el signe: amb exponent senar, el signe de la base es "
+   "conserva."],
   ["$(\\square^2)^5\\cdot\\square^3=\\square^{10+3}=\\square^{13}=(-3)^{13}\\Rightarrow"
    "\\square=-3$"],
   ex_text=E46)
@@ -1276,8 +1290,10 @@ Q("46c", 46, "c", B4, "A",
      "$7^3$."),
    D("8", "POTENCIA_POTENCIA_SUMADA",
      "Has calculat l'exponent del claudàtor com $3+5=8$ en lloc de $3\\cdot 5=15$.")],
-  ["Potència d'una potència: $(7^3)^5=7^{15}$.",
-   "$7^{15}:7^{\\square}=7^0=1$ (perquè és $1$). Planteja $15-\\square=0$."],
+  ["Potència d'una potència: calcula primer l'exponent de $(7^3)^5$ "
+   "(els exponents es multipliquen).",
+   "Fixa't que $1=7^0$. Dividir potències de la mateixa base resta els "
+   "exponents: planteja l'equació que han de complir."],
   ["$(7^3)^5=7^{15}$; $15-\\square=0\\Rightarrow \\square=15$"],
   ex_text=E46)
 
@@ -1374,8 +1390,8 @@ Q("321d", 321, "d", B2, "A",
      "El menys és de l'exponent, no del resultat."),
    D(ev("1/20"), "EXPONENT_COM_PRODUCTE",
      "Has multiplicat $10\\cdot 2$. A sota hi va $10^2=100$.")],
-  ["$10^{-n}$ és $1$ dividit per un $1$ seguit de $n$ zeros.",
-   "$10^{-2}=\\dfrac{1}{10^{2}}=\\dfrac{1}{100}$."],
+  ["Un exponent negatiu vol dir l'invers: $a^{-n}=\\dfrac{1}{a^{n}}$.",
+   "Aquí la base és $10$ i l'exponent, $-2$: a sota hi va $10^2$."],
   [r"$10^{-2}=\dfrac{1}{10^{2}}=\dfrac{1}{100}=0{,}01$"],
   ex_text=E321)
 
@@ -1460,7 +1476,8 @@ Q("323a", 323, "a", B4, "A",
      "Revisa quins dos números s'han de multiplicar: són el $3$ de dins i el "
      "$2$ de fora.")],
   ["$(a^m)^n$: els exponents es multipliquen.",
-   "$(2^3)^2=2^{3\\cdot 2}$."],
+   "$(2^3)^2$ vol dir $2^3\\cdot 2^3$: compta quants $2$ es multipliquen "
+   "en total."],
   [r"$(2^{3})^{2}=2^{3\cdot 2}=2^{6}$"],
   ex_text=E323)
 
@@ -1475,7 +1492,8 @@ Q("323b", 323, "b", B4, "A",
      "Has elevat l'exponent de fora al quadrat en lloc de multiplicar-lo pel "
      "de dins.")],
   ["Els exponents es multipliquen.",
-   "$(5^2)^3=5^{2\\cdot 3}$."],
+   "$(5^2)^3$ vol dir $5^2\\cdot 5^2\\cdot 5^2$: compta quants $5$ es "
+   "multipliquen en total."],
   [r"$(5^{2})^{3}=5^{2\cdot 3}=5^{6}$"],
   ex_text=E323)
 
@@ -1514,7 +1532,8 @@ Q("324a", 324, "a", B4, "A",
    D("$" + pot("3", 2) + "$", "EXPONENTS_RESTATS_PRODUCTE",
      "Els exponents es resten quan es DIVIDEIX, no quan es multiplica.")],
   ["Producte de potències de la mateixa base: els exponents se sumen.",
-   "$3^2\\cdot 3^4=3^{2+4}$."],
+   "$3^2\\cdot 3^4$ són dos tresos per quatre tresos: quants tresos hi ha "
+   "en total? La base no canvia."],
   [r"$3^{2}\cdot 3^{4}=3^{2+4}=3^{6}$"],
   ex_text=E324)
 
@@ -1528,6 +1547,7 @@ Q("324b", 324, "b", B4, "A",
    D("$1^{3}$", "BASE_ALTERADA",
      "La base no es divideix: es queda en $2$. Només es resten els exponents.")],
   ["Quocient de potències de la mateixa base: els exponents es resten.",
-   "$2^7:2^4=2^{7-4}$."],
+   "Dels set dosos de dalt, quatre se simplifiquen amb els quatre de baix. "
+   "La base no canvia."],
   [r"$2^{7}:2^{4}=2^{7-4}=2^{3}$"],
   ex_text=E324)

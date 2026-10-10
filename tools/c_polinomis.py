@@ -205,7 +205,8 @@ def item63(letra, R, enunciat_r):
          "Has canviat el signe del terme independent de $P(x)$: és $-1$, "
          "no $+1$.")],
       ["Si $P(x)+Q(x)=R(x)$, aïllant $Q(x)$ queda $Q(x)=R(x)-P(x)$.",
-       "Resta $P(x)=x^2+2x-1$ de $R(x)$, terme a terme."],
+       r"Aquí $Q(x)=(%s)-(x^2+2x-1)$: el menys canvia el signe de tots els "
+       r"termes de $P(x)$. Després agrupa per graus." % enunciat_r],
       [r"$Q(x)=R(x)-P(x)=%s$" % poli_tex_raw(correcta)],
       ex_text=E63)
 
@@ -873,6 +874,33 @@ Q("70d", 70, "d", B3, "A",
 E71 = "Factoritza, reconeixent-hi una igualtat notable."
 
 
+# Pistes de l'exercici 71, apartat per apartat. Abans eren les mateixes per
+# als sis, i la segona («un cop identificat el patró, escriu-lo com a
+# producte») no hi afegia res. Ara la primera fa reconèixer el patró amb els
+# termes d'aquell apartat, i la segona dona l'eina sense fer la substitució.
+_DIF_71 = "Són dos termes que es resten: mira si tots dos són quadrats perfectes."
+_TRI_71 = "Té tres termes: mira si és el quadrat d'un binomi."
+_FORM_71 = ("Una diferència de quadrats es factoritza així: "
+            "$a^2-b^2=(a-b)(a+b)$, amb $a$ l'arrel de $%s$ i $b$ la de $%s$.")
+_MIG_71 = ("$%s=(%s)^2$ i $%s=(%s)^2$. Comprova si el terme del mig, $%s$, és "
+           "el doble producte $2\\cdot %s\\cdot %s$, i fixa't en el seu signe.")
+pistes_71 = {
+    "a": [_DIF_71 + " Quina és l'arrel quadrada de $16$?",
+          _FORM_71 % ("x^2", "16")],
+    "b": [_DIF_71 + " Quina expressió, elevada al quadrat, dona $x^4$?",
+          _FORM_71 % ("x^4", "36")],
+    "c": [_DIF_71 + " Quina expressió, elevada al quadrat, dona $4x^2$?",
+          _FORM_71 % ("4x^2", "25")],
+    "d": [_TRI_71 + " Els dels extrems, $x^2$ i $4$, són quadrats perfectes?",
+          _MIG_71 % ("x^2", "x", "4", "2", "-4x", "x", "2")],
+    "e": [_TRI_71 + " Els dels extrems, $16x^2$ i $9y^2$, són quadrats "
+          "perfectes?",
+          _MIG_71 % ("16x^2", "4x", "9y^2", "3y", "-24xy", "4x", "3y")],
+    "f": [_TRI_71 + " Els dels extrems, $16x^4$ i $9$, són quadrats perfectes?",
+          _MIG_71 % ("16x^4", "4x^2", "9", "3", "24x^2", "4x^2", "3")],
+}
+
+
 def item71(letra, expr, correcta_txt, dist_txts_amb_tag):
     """Genera l'ítem 71<letra>. dist_txts_amb_tag: llista de (text, tag,
     feedback)."""
@@ -880,10 +908,7 @@ def item71(letra, expr, correcta_txt, dist_txts_amb_tag):
       r"$%s$" % expr,
       r"$%s$" % correcta_txt,
       [D(r"$%s$" % t, tag, fb) for (t, tag, fb) in dist_txts_amb_tag],
-      ["Comprova si l'expressió és una diferència de quadrats "
-       "($a^2-b^2$) o el quadrat d'un binomi ($a^2\\pm2ab+b^2$).",
-       "Un cop identificat el patró, escriu-lo com a producte de dos "
-       "factors (o el quadrat d'un binomi)."],
+      pistes_71[letra],
       [r"$%s=%s$" % (expr, correcta_txt)],
       ex_text=E71)
 
@@ -971,9 +996,10 @@ Q("72a", 72, "a", B3, "A",
    D(r"$9x^2-y^2-16$", "GRAUS_MAL_AGRUPATS",
      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
      "$(3x-y)$, no només de la $x$: $(3x-y)^2\\neq 9x^2-y^2$.")],
-  [r"Identifica el \"primer terme\" comú als dos factors i el "
-   r"\"segon\" que canvia de signe: aquí és $(3x-y)$ i $4$.",
-   r"$[(3x-y)+4]\cdot[(3x-y)-4]=(3x-y)^2-4^2$."],
+  [r"Identifica el «primer terme» comú als dos factors i el «segon» que "
+   r"canvia de signe: aquí són $(3x-y)$ i $4$.",
+   r"Segueix el patró de l'enunciat: el primer terme al quadrat menys el "
+   r"segon al quadrat. Compte a elevar també el $4$."],
   [r"$[(3x-y)+4]\cdot[(3x-y)-4]=(3x-y)^2-16$ (desenvolupat del tot: "
    r"$9x^2-6xy+y^2-16$)"],
   ex_text=E72)
@@ -989,9 +1015,11 @@ Q("72b", 72, "b", B3, "A",
    D(r"$a^2+b^2-c^2$", "GRAUS_MAL_AGRUPATS",
      "El primer terme s'ha de deixar com el quadrat de tot el binomi "
      "$(a+b)$, no desenvolupat ni separat.")],
-  [r"Identifica el \"primer terme\" comú i el \"segon\" que canvia de "
+  [r"Identifica el «primer terme» comú i el «segon» que canvia de "
    r"signe: aquí són $(a+b)$ i $c$.",
-   r"$[(a+b)+c]\cdot[(a+b)-c]=(a+b)^2-c^2$."],
+   r"Segueix el patró de l'enunciat: el primer terme al quadrat menys el "
+   r"segon al quadrat. El primer terme, $(a+b)$, es deixa sencer, sense "
+   r"desenvolupar."],
   [r"$[(a+b)+c]\cdot[(a+b)-c]=(a+b)^2-c^2$ (desenvolupat del tot: "
    r"$a^2+2ab+b^2-c^2$)"],
   ex_text=E72)
@@ -1097,9 +1125,10 @@ Q("74a", 74, "a", B4, "A",
    D(r"$(7x-7)^2$", "FACTOR_COMU_INCOMPLET",
      "El $7$ s'ha de treure com a factor comú abans de reconèixer el "
      "quadrat perfecte, no ficar-lo dins del quadrat.")],
-  ["Treu primer el factor comú $7$: $7x^2-14x+7=7(x^2-2x+1)$.",
-   "Un cop tret el $7$, reconeix que $x^2-2x+1$ és un quadrat "
-   "perfecte, $(x-1)^2$."],
+  ["Els tres coeficients ($7$, $-14$ i $7$) són múltiples de $7$: "
+   "treu-lo factor comú.",
+   "Dins del parèntesi queda $x^2-2x+1$. Mira si és el quadrat d'un "
+   "binomi: $a^2-2ab+b^2=(a-b)^2$."],
   [r"$7x^2-14x+7=7(x^2-2x+1)=7(x-1)^2$"],
   ex_text=E74)
 
@@ -1114,9 +1143,10 @@ Q("74b", 74, "b", B4, "A",
      "amb signe $+$."),
    D(r"$8(x+2)^2$", "FACTOR_COMU_INCOMPLET",
      "El factor comú de $16$, $64$ i $64$ és $16$, no $8$.")],
-  ["Treu primer el factor comú $16$: $16x^2+64x+64=16(x^2+4x+4)$.",
-   "Un cop tret el $16$, reconeix que $x^2+4x+4$ és un quadrat "
-   "perfecte, $(x+2)^2$."],
+  ["Els tres coeficients ($16$, $64$ i $64$) són múltiples de $16$: "
+   "treu-lo factor comú.",
+   "Dins del parèntesi queda $x^2+4x+4$. Mira si és el quadrat d'un "
+   "binomi: $a^2+2ab+b^2=(a+b)^2$."],
   [r"$16x^2+64x+64=16(x^2+4x+4)=16(x+2)^2$"],
   ex_text=E74)
 
@@ -1132,9 +1162,9 @@ Q("74c", 74, "c", B4, "A",
    D(r"$(x-1)^2$", "FACTOR_COMU_INCOMPLET",
      "T'has deixat el factor comú $x$: els tres termes ($x^3$, "
      "$-2x^2$, $x$) el tenen en comú.")],
-  ["Treu primer el factor comú $x$: $x^3-2x^2+x=x(x^2-2x+1)$.",
-   "Un cop tret l'$x$, reconeix que $x^2-2x+1$ és un quadrat "
-   "perfecte, $(x-1)^2$."],
+  ["Els tres termes porten $x$: treu-la factor comú.",
+   "Dins del parèntesi queda $x^2-2x+1$. Mira si és el quadrat d'un "
+   "binomi: $a^2-2ab+b^2=(a-b)^2$."],
   [r"$x^3-2x^2+x=x(x^2-2x+1)=x(x-1)^2$"],
   ex_text=E74)
 
@@ -1150,9 +1180,10 @@ Q("74d", 74, "d", B4, "A",
      "correspon a $(3x^2-1)^2$, amb signe $-$."),
    D(r"$6(3x^2-1)^2$", "FACTOR_COMU_INCOMPLET",
      "El factor comú de $18$, $-12$ i $2$ és $2$, no $6$.")],
-  ["Treu primer el factor comú $2$: $18x^4-12x^2+2=2(9x^4-6x^2+1)$.",
-   "Un cop tret el $2$, reconeix que $9x^4-6x^2+1$ és un quadrat "
-   "perfecte, $(3x^2-1)^2$."],
+  ["Els tres coeficients ($18$, $-12$ i $2$) són múltiples de $2$: "
+   "treu-lo factor comú.",
+   "Dins del parèntesi queda $9x^4-6x^2+1$, i $9x^4=(3x^2)^2$. Mira si "
+   "és el quadrat d'un binomi: $a^2-2ab+b^2=(a-b)^2$."],
   [r"$18x^4-12x^2+2=2(9x^4-6x^2+1)=2(3x^2-1)^2$"],
   ex_text=E74)
 
@@ -1171,8 +1202,8 @@ Q("74e", 74, "e", B4, "A",
      "perfecte.")],
   ["Desenvolupa primer el producte: "
    "$(2x+4)(x-2)=2x^2-4x+4x-8=2x^2-8$.",
-   "Treu factor comú $2$ i reconeix la diferència de quadrats: "
-   "$2(x^2-4)=2(x-2)(x+2)$."],
+   "Treu el factor comú de $2x^2-8$ i mira què queda dins del "
+   "parèntesi: és una diferència de quadrats, $a^2-b^2=(a-b)(a+b)$."],
   [r"$(2x+4)(x-2)=2x^2-8=2(x^2-4)=2(x-2)(x+2)$"],
   ex_text=E74)
 
@@ -1190,8 +1221,8 @@ Q("74f", 74, "f", B4, "A",
      "DIFERÈNCIA de quadrats, $(x-5)(x+5)$, no un quadrat perfecte.")],
   ["Desenvolupa primer el producte: "
    "$(x-5)(x^2+5x)=x^3+5x^2-5x^2-25x=x^3-25x$.",
-   "Treu factor comú $x$ i reconeix la diferència de quadrats: "
-   "$x(x^2-25)=x(x-5)(x+5)$."],
+   "Treu el factor comú de $x^3-25x$ i mira què queda dins del "
+   "parèntesi: és una diferència de quadrats ($25=5^2$)."],
   [r"$(x-5)(x^2+5x)=x^3-25x=x(x^2-25)=x(x-5)(x+5)$"],
   ex_text=E74)
 
@@ -1210,7 +1241,8 @@ Q("74g", 74, "g", B4, "A",
      "Comprova-ho amb $x=0$: l'expressió original val $+49$.")],
   [r"Treu primer el signe menys comú del primer factor: "
    r"$-x-7=-(x+7)$.",
-   r"$(-x-7)(x-7)=-(x+7)(x-7)=-(x^2-49)=49-x^2=(7-x)(7+x)$."],
+   r"Queda $-(x+7)(x-7)$. Desenvolupa la suma per diferència, aplica-hi "
+   r"el signe menys i torna a factoritzar el que surti."],
   [r"$(-x-7)(x-7)=-(x+7)(x-7)=49-x^2=(7-x)(7+x)$"],
   ex_text=E74)
 
@@ -1468,9 +1500,11 @@ Q("331a", 331, "a", B2, "A",
    D("$x-3$", "RUFFINI_PAS_MAL",
      "Has copiat el coeficient $-3$ del dividend. A Ruffini, el segon "
      "coeficient del quocient és $-3+1=-2$.")],
-  ["Posa a la caixa els coeficients $1$, $-3$, $2$ i baixa el $1$ del "
-   "divisor.",
-   "$1$; després $-3+1\\cdot 1=-2$; el quocient és $1x-2$."],
+  ["Posa els coeficients $1$, $-3$, $2$ a la fila de dalt i, a "
+   "l'esquerra, l'arrel del divisor: amb $x-1$, és $1$.",
+   "Baixa el primer coeficient, multiplica'l per l'arrel i suma'l al "
+   "següent: $-3+1\\cdot1$. Els números de baix, menys l'últim, són els "
+   "coeficients del quocient."],
   [r"Ruffini amb $a=1$: $1$, $-3+1=-2$, $2+(-2)=0$. "
    r"Quocient $x-2$ i residu $0$."],
   ex_text=E331)

@@ -371,10 +371,24 @@ for letra, coef, dreta, correcta in casos_76:
     enun = r"$%s = %s$" % (esq, dreta_tex)
     # Pistes i resolució s'adapten al cas: si el coeficient ja ve enter no hi
     # ha cap denominador per treure, i si la x va sola no cal dividir res.
+    # Pista 2: si després de treure el denominador la x ja queda sola
+    # (coeficient ±1), no hi ha res a dividir, i dir-ho confonia (76a, 76b).
+    _dreta_f = ("(%s)" % frac_tex(dreta)) if dreta < 0 else frac_tex(dreta)
     if den != 1:
-        pistes_76 = ["Multiplica els dos costats pel denominador per fer-lo "
-                     "desaparèixer.",
-                     "Aïlla $x$ dividint pel nombre que l'acompanya."]
+        if num == 1:
+            _p2_76 = (r"$%s=%s$ vol dir que $x$ és $%d$ vegades $%s$."
+                      % (esq, dreta_tex, den, dreta_tex))
+        elif num == -1:
+            _p2_76 = (r"Després de multiplicar per $%d$ queda $-x=%d\cdot%s$. "
+                      r"Al final, canvia el signe als dos costats."
+                      % (den, den, _dreta_f))
+        else:
+            _p2_76 = (r"Després de multiplicar per $%d$ queda $%s=%d\cdot%s$. "
+                      r"Ara divideix els dos costats per $%d$, amb el seu "
+                      r"signe." % (den, coef_x, den, _dreta_f, num))
+        pistes_76 = ["Multiplica els dos costats per $%d$ per fer desaparèixer "
+                     "el denominador." % den,
+                     _p2_76]
         passos_76 = [r"$%s=%s \;\Longrightarrow\; %s=%s$"
                      % (esq, frac_tex(dreta), coef_x, frac_tex(dreta * den))]
         if coef_x != "x":
@@ -382,8 +396,9 @@ for letra, coef, dreta, correcta in casos_76:
     else:
         pistes_76 = ["Aquí no hi ha cap denominador: la $x$ ja només porta un "
                      "coeficient al davant.",
-                     "Aïlla $x$ dividint els dos costats pel nombre que "
-                     "l'acompanya."]
+                     "Divideix els dos costats per $%d$. Si la divisió no és "
+                     "exacta, deixa el resultat en forma de fracció, amb el "
+                     "seu signe." % num]
         passos_76 = [r"$%s=%s \;\Longrightarrow\; x=%s$"
                      % (esq, frac_tex(dreta), frac_tex(correcta))]
     # distractor: oblidar multiplicar per dreta*den (queda dreta/num en lloc de dreta*den/num)
@@ -443,7 +458,9 @@ Q("77a", 77, "a", B1, "A",
    D(x_tex(F(1, 5)), "INVERTIDA",
      "No cal invertir res: multiplica els dos costats per $5$ per "
      "eliminar el denominador i després aïlla $x$.")],
-  ["Multiplica els dos costats per $5$ per eliminar el denominador."],
+  ["Multiplica els dos costats per $5$ per eliminar el denominador.",
+   "A l'esquerra et queda tot el numerador, $x-2$. Aïlla la $x$ i "
+   "comprova el resultat substituint-lo a l'equació."],
   [r"$\dfrac{x-2}{5}=1 \;\Longrightarrow\; x-2=5$", "$x=7$"],
   ex_text=E77)
 
@@ -739,6 +756,14 @@ Q("79e", 79, "e", B1, "A",
 # ---- exercici 80: fórmula general ----
 E80 = "Resol les equacions de segon grau aplicant-hi la fórmula general."
 
+def _delta_tex(a, b, c):
+    """$b^2-4ac$ amb els valors substituïts i els negatius entre parèntesis,
+    sense calcular-lo: és el pas que fa l'alumne a la pista 2 (80 i 81)."""
+    def p(k):
+        return "(%d)" % k if k < 0 else "%d" % k
+    return r"%s^2-4\cdot %s\cdot %s" % (p(b), p(a), p(c))
+
+
 def _q80(letra, a, b, c, correcta, dists):
     """Helper intern només per registrar l'exercici 80, cas a cas, sense
     generació condicional: cada cas es defineix explícitament més avall
@@ -747,10 +772,13 @@ def _q80(letra, a, b, c, correcta, dists):
     la resposta correcta (com va passar en un primer intent amb 80a)."""
     enun = r"$%s$" % eq2_tex(a, b, c)
     Q("80" + letra, 80, letra, B2, "A", enun, correcta, dists,
-      ["Identifica $a$, $b$ i $c$ i calcula primer el discriminant "
-       "$\\Delta=b^2-4ac$.",
-       "El signe de $\\Delta$ et diu quantes solucions reals hi ha "
-       "abans d'aplicar la fórmula sencera."],
+      [r"Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=%d$, $b=%d$ i "
+       r"$c=%d$." % (a, b, c),
+       r"Calcula primer $\Delta=%s$. Si surt negatiu, no hi ha solucions "
+       r"reals; si no, aplica $x=\dfrac{-b\pm\sqrt{\Delta}}{2a}$.%s"
+       % (_delta_tex(a, b, c),
+          r" Compte: com que $a$ és negatiu, el denominador $2a$ també ho és."
+          if a < 0 else "")],
       [r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c))]
       + ([r"Com que $\Delta<0$, l'equació no té solucions reals."]
          if disc(a, b, c) < 0 else
@@ -889,8 +917,9 @@ for letra, a, b, c in casos_81:
       [D(v, t, fb[t]) for v, t in zip(dists_vals, dists_tags)],
       ["No cal resoldre l'equació: només calcula el discriminant "
        "$\\Delta=b^2-4ac$ i mira'n el signe.",
-       "$\\Delta>0$: dues solucions. $\\Delta=0$: una (doble). "
-       "$\\Delta<0$: cap de real."],
+       r"Aquí $\Delta=%s$: compte amb els signes. Després: $\Delta>0$, dues "
+       r"solucions; $\Delta=0$, una (doble); $\Delta<0$, cap de real."
+       % _delta_tex(a, b, c)],
       [r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c)),
        "%s $\\Rightarrow$ %s" % (
            ("$\\Delta>0$" if d > 0 else ("$\\Delta=0$" if d == 0 else "$\\Delta<0$")),
@@ -921,6 +950,53 @@ enuncs_82 = {
     "d": r"$x^2-10x=0$", "e": r"$16x(x-5)=0$", "f": r"$3x^2-12x=0$",
     "g": r"$3x = 4x^2-2x$", "h": r"$4x^2=5x$", "i": r"$25x^2-100x=0$",
 }
+# Pista 1 i primer pas de la resolució, apartat per apartat. Abans tots nou
+# compartien «treu factor comú x», que no encaixava amb l'apartat e (ja ve
+# factoritzat) ni amb el g i el h (cal passar-ho tot a un costat primer).
+_PRODUCTE_82 = ("Et queda un producte igualat a zero: iguala cada factor a "
+                "zero per separat. No t'oblidis de la solució que dona el "
+                "factor $%s$.")
+pistes_82 = {
+    "a": ["Els dos termes, $x^2$ i $-7x$, porten $x$: treu-la factor comú.",
+          _PRODUCTE_82 % "x"],
+    "b": ["Els dos termes, $x^2$ i $3x$, porten $x$: treu-la factor comú.",
+          _PRODUCTE_82 % "x"],
+    "c": ["Els dos termes, $x^2$ i $-25x$, porten $x$: treu-la factor comú.",
+          _PRODUCTE_82 % "x"],
+    "d": ["Els dos termes, $x^2$ i $-10x$, porten $x$: treu-la factor comú.",
+          _PRODUCTE_82 % "x"],
+    "e": ["Ja és un producte igualat a zero: no cal factoritzar res.",
+          "Iguala a zero cada factor que porta $x$. El $16$ no hi canvia res: "
+          "si $16x=0$, quant val $x$?"],
+    "f": ["Els dos termes, $3x^2$ i $-12x$, tenen en comú $3x$: treu-lo "
+          "factor comú.",
+          _PRODUCTE_82 % "3x"],
+    "g": ["Primer passa-ho tot a un costat i ajunta els termes en $x$: "
+          "l'equació ha de quedar igualada a zero.",
+          "Queda $4x^2-5x=0$: treu factor comú $x$ i iguala cada factor a "
+          "zero."],
+    "h": ["Passa-ho tot a un costat: $4x^2-5x=0$.",
+          "Treu factor comú $x$ i iguala cada factor a zero. No divideixis els "
+          "dos costats per $x$: perdries la solució $x=0$."],
+    "i": ["Els dos termes, $25x^2$ i $-100x$, tenen en comú $25x$: treu-lo "
+          "factor comú.",
+          _PRODUCTE_82 % "25x"],
+}
+res_82 = {
+    "a": [r"$x^2-7x=x(x-7)=0$", r"$x=0$ o $x-7=0$"],
+    "b": [r"$x^2+3x=x(x+3)=0$", r"$x=0$ o $x+3=0$"],
+    "c": [r"$x^2-25x=x(x-25)=0$", r"$x=0$ o $x-25=0$"],
+    "d": [r"$x^2-10x=x(x-10)=0$", r"$x=0$ o $x-10=0$"],
+    "e": [r"$16x(x-5)=0$ ja és un producte igualat a zero",
+          r"$16x=0$ o $x-5=0$"],
+    "f": [r"$3x^2-12x=3x(x-4)=0$", r"$3x=0$ o $x-4=0$"],
+    "g": [r"$3x=4x^2-2x \;\Longrightarrow\; 0=4x^2-5x=x(4x-5)$",
+          r"$x=0$ o $4x-5=0$"],
+    "h": [r"$4x^2=5x \;\Longrightarrow\; 4x^2-5x=0 \;\Longrightarrow\; "
+          r"x(4x-5)=0$",
+          r"$x=0$ o $4x-5=0$"],
+    "i": [r"$25x^2-100x=25x(x-4)=0$", r"$25x=0$ o $x-4=0$"],
+}
 for letra, a, b, sols in casos_82:
     correcta = x_multi_tex(sols)
     zero, altra = sols[0], sols[1]
@@ -937,13 +1013,8 @@ for letra, a, b, sols in casos_82:
           "En dividir pel factor comú, revisa que cada terme quedi "
           "dividit correctament, no només un.")]
     Q("82" + letra, 82, letra, B3, "A", enuncs_82[letra], correcta, dists,
-      ["Treu factor comú $x$ (o el factor comú que correspongui) per "
-       "convertir-ho en un producte igualat a zero.",
-       "Un producte val zero quan algun dels seus factors ho és: "
-       "iguala cada factor a zero per separat."],
-      ["Factoritzem traient el factor comú corresponent i igualem "
-       "cada factor a zero.",
-       correcta],
+      pistes_82[letra],
+      res_82[letra] + [correcta],
       ex_text=E82)
 
 

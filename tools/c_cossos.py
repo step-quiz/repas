@@ -152,6 +152,23 @@ def val(x, n=2, unitat=""):
 # resoldre.
 E170 = ("Calcula l'àrea total d'aquest prisma recte:")
 
+# Pista 1 dels prismes i piràmides (170-183): l'estructura de l'àrea total,
+# que és on falla l'alumne (una sola base, només la lateral). Abans la
+# pista 1 ja calculava l'àrea de la base i la 2, la lateral: només quedava
+# sumar. Ara la 2 posa les dades a les fórmules i el càlcul és de l'alumne.
+P1_PRISMA = ("L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+"
+             "A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de "
+             "la base}\\cdot\\text{altura}$. ")
+P1_REGULAR = ("La base és un %s regular: $A_{\\text{base}}="
+              "\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.")
+P1_PIRAMIDE = ("L'àrea total d'una piràmide és $A_{\\text{base}}+A_{\\text{lateral}}$ "
+               "(una sola base), amb $A_{\\text{lateral}}=\\dfrac{\\text{perímetre "
+               "de la base}\\cdot\\text{apotema de la piràmide}}{2}$.")
+P1_ALTURA = ("Et donen l'altura, no l'apotema de la piràmide. L'altura, "
+             "l'apotema de la base i l'apotema de la piràmide formen un "
+             "triangle rectangle, i l'apotema de la piràmide n'és la "
+             "hipotenusa.")
+
 # 170a: rectangular 7x2x4 -> A=100 (exacte)
 Q("170a", 170, "a", B1, "A",
   f"{E170} un ortoedre (prisma recte de base rectangular) d'arestes "
@@ -191,11 +208,10 @@ Q("170b", 170, "b", B1, "A",
    D(apx(175.95, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot A_{\\text{base}}+15\\cdot9$: revisa "
      "per separat l'àrea del triangle equilàter i l'àrea lateral.")],
-  ["L'àrea d'un triangle equilàter de costat $c$ és "
-   "$A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$; amb $c=5$, "
-   "$A_{\\text{base}}\\approx10{,}83$ cm$^2$.",
-   "El perímetre de la base és $3\\cdot5=15$ cm; l'àrea lateral és "
-   "$15\\cdot9=135$ cm$^2$."],
+  [P1_PRISMA + "La base és un triangle equilàter: "
+   "$A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
+   "$A_{\\text{base}}=\\dfrac{5^2\\sqrt3}{4}$ i "
+   "$A_{\\text{lateral}}=(3\\cdot5)\\cdot9$."],
   [r"$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$",
    "$A_{\\text{lateral}}=15\\cdot9=135$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot10{,}83+135\\approx156{,}65$ cm$^2$"],
@@ -226,11 +242,10 @@ Q("170c", 170, "c", B1, "A",
    D(val(662.4, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot93{,}6+36\\cdot8$: revisa per "
      "separat l'àrea de la base hexagonal i l'àrea lateral.")],
-  ["L'àrea d'un polígon regular és "
-   "$A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; "
-   "amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, "
-   "$A_{\\text{base}}=93{,}6$ cm$^2$.",
-   "L'àrea lateral és $36\\cdot8=288$ cm$^2$."],
+  [P1_PRISMA + P1_REGULAR % "hexàgon",
+   "Perímetre de la base: $6\\cdot6=36$ cm. Llavors "
+   "$A_{\\text{base}}=\\dfrac{36\\cdot5{,}2}{2}$ i "
+   "$A_{\\text{lateral}}=36\\cdot8$."],
   [r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$",
    "$A_{\\text{lateral}}=36\\cdot8=288$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot93{,}6+288=475{,}2$ cm$^2$"],
@@ -251,9 +266,10 @@ Q("170d", 170, "d", B1, "A",
    D(val(472, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot43+25\\cdot12$: revisa per separat "
      "l'àrea de la base i l'àrea lateral.")],
-  ["Perímetre de la base: $5\\cdot5=25$ cm; "
-   "$A_{\\text{base}}=\\dfrac{25\\cdot3{,}44}{2}=43$ cm$^2$.",
-   "Àrea lateral: $25\\cdot12=300$ cm$^2$."],
+  [P1_PRISMA + P1_REGULAR % "pentàgon",
+   "Perímetre de la base: $5\\cdot5=25$ cm. Llavors "
+   "$A_{\\text{base}}=\\dfrac{25\\cdot3{,}44}{2}$ i "
+   "$A_{\\text{lateral}}=25\\cdot12$."],
   [r"$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$",
    "$A_{\\text{lateral}}=25\\cdot12=300$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot43+300=386$ cm$^2$"],
@@ -275,11 +291,11 @@ Q("170e", 170, "e", B1, "A",
    D(val(216, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot24+24\\cdot5$: revisa per separat "
      "l'àrea de la base i l'àrea lateral.")],
-  ["L'àrea de la base (triangle rectangle) és "
-   "$A_{\\text{base}}=\\dfrac{6\\cdot8}{2}=24$ cm$^2$.",
-   "La hipotenusa, per Pitàgores, és $\\sqrt{6^2+8^2}=10$ cm, així "
-   "que el perímetre és $6+8+10=24$ cm i l'àrea lateral, "
-   "$24\\cdot5=120$ cm$^2$."],
+  [P1_PRISMA + "La base és un triangle rectangle: per al perímetre et "
+   "cal també la hipotenusa.",
+   "Hipotenusa: $\\sqrt{6^2+8^2}$. Llavors "
+   "$A_{\\text{base}}=\\dfrac{6\\cdot8}{2}$ i "
+   "$A_{\\text{lateral}}=(6+8+\\text{hipotenusa})\\cdot5$."],
   [r"$A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$",
    "Hipotenusa: $\\sqrt{6^2+8^2}=10$ cm; perímetre $=24$ cm",
    "$A_{\\text{total}}=2\\cdot24+24\\cdot5=48+120=168$ cm$^2$"],
@@ -332,7 +348,8 @@ Q("170g", 170, "g", B1, "A",
    D(val(332.64, 2, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'àrea de les dues bases: encara falta sumar-hi la "
      "lateral.")],
-  ["El perímetre de la base és $6\\cdot8=48$ cm.",
+  [P1_PRISMA + P1_REGULAR % "hexàgon",
+   "Perímetre de la base: $6\\cdot8=48$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i "
    "$A_{\\text{lateral}}=48\\cdot12$."],
   [r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$",
@@ -352,7 +369,8 @@ Q("170h", 170, "h", B1, "A",
      "Només has comptat una base hexagonal en lloc de dues."),
    D(val(127.5, 1, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'àrea de les dues bases, sense la lateral.")],
-  ["Perímetre de la base: $6\\cdot5=30$ cm.",
+  [P1_PRISMA + P1_REGULAR % "hexàgon",
+   "Perímetre de la base: $6\\cdot5=30$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i "
    "$A_{\\text{lateral}}=30\\cdot11$."],
   [r"$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$",
@@ -373,8 +391,9 @@ Q("170i", 170, "i", B1, "A",
    D(val(800.64, 2, "cm$^2$"), "N_MAL_COMPTAT",
      "Sembla que has fet servir sis costats en comptes de vuit: el "
      "perímetre d'un octàgon de costat $6$ és $8\\cdot6=48$ cm.")],
-  ["Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
-   "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i "
+  [P1_PRISMA + P1_REGULAR % "octàgon",
+   "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm. "
+   "Llavors $A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i "
    "$A_{\\text{lateral}}=48\\cdot15$."],
   [r"$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot15=720$ cm$^2$",
@@ -398,10 +417,10 @@ Q("171", 171, "", B1, "A",
    D(apx(24.93, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot1{,}73+6\\cdot3$: revisa per "
      "separat l'àrea de la base i l'àrea lateral.")],
-  ["Àrea de la base: $A_{\\text{base}}=\\dfrac{2^2\\sqrt3}{4}"
-   "\\approx1{,}73$ cm$^2$.",
-   "Perímetre de la base: $3\\cdot2=6$ cm; àrea lateral "
-   "$=6\\cdot3=18$ cm$^2$."],
+  [P1_PRISMA + "La base és un triangle equilàter: "
+   "$A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
+   "$A_{\\text{base}}=\\dfrac{2^2\\sqrt3}{4}$ i "
+   "$A_{\\text{lateral}}=(3\\cdot2)\\cdot3$."],
   [r"$A_{\text{base}}=\dfrac{2^2\sqrt3}{4}\approx1{,}73$ cm$^2$",
    "$A_{\\text{lateral}}=6\\cdot3=18$ cm$^2$",
    "$A_{\\text{total}}\\approx2\\cdot1{,}73+18\\approx21{,}46$ cm$^2$"],
@@ -423,10 +442,12 @@ Q("172", 172, "", B1, "A",
      "L'apotema d'un hexàgon regular de costat $8$ cm és "
      "$4\\sqrt3\\approx6{,}93$ cm, no $8$ cm: apotema i costat "
      "només coincideixen en el cas del quadrat.")],
-  ["L'apotema d'un hexàgon regular de costat $c$ és "
-   "$a=\\dfrac{c\\sqrt3}{2}$; amb $c=8$, $a\\approx6{,}93$ cm.",
-   "Perímetre $=6\\cdot8=48$ cm; "
-   "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}\\approx166{,}28$ cm$^2$."],
+  [P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
+   "donen: en un hexàgon regular de costat $c$, "
+   "$a=\\dfrac{c\\sqrt3}{2}$.",
+   "Aquí $a=\\dfrac{8\\sqrt3}{2}$ i el perímetre és $6\\cdot8=48$ cm. "
+   "Llavors $A_{\\text{base}}=\\dfrac{48\\cdot a}{2}$ i "
+   "$A_{\\text{lateral}}=48\\cdot10$."],
   [r"$a=\dfrac{8\sqrt3}{2}\approx6{,}93$ cm",
    r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}\approx166{,}28$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot10=480$ cm$^2$",
@@ -448,9 +469,12 @@ Q("173", 173, "", B1, "A",
    D(apx(576, 2, "cm$^2$"), "SIGNE_TERME_INDEPENDENT",
      "L'apotema d'un hexàgon regular de costat $6$ cm és "
      "$3\\sqrt3\\approx5{,}2$ cm, no $6$ cm.")],
-  ["L'apotema és $a=\\dfrac{6\\sqrt3}{2}\\approx5{,}2$ cm.",
-   "Perímetre $=6\\cdot6=36$ cm; "
-   "$A_{\\text{base}}=\\dfrac{36\\cdot5{,}2}{2}\\approx93{,}53$ cm$^2$."],
+  [P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
+   "donen: en un hexàgon regular de costat $c$, "
+   "$a=\\dfrac{c\\sqrt3}{2}$.",
+   "Aquí $a=\\dfrac{6\\sqrt3}{2}$ i el perímetre és $6\\cdot6=36$ cm. "
+   "Llavors $A_{\\text{base}}=\\dfrac{36\\cdot a}{2}$ i "
+   "$A_{\\text{lateral}}=36\\cdot10$."],
   [r"$a=\dfrac{6\sqrt3}{2}\approx5{,}2$ cm",
    r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ cm$^2$",
    "$A_{\\text{lateral}}=36\\cdot10=360$ cm$^2$",
@@ -577,9 +601,10 @@ Q("177", 177, "", B2, "A",
      "Sembla que no has dividit per $2$ l'àrea lateral: "
      "$A_{\\text{lateral}}=\\dfrac{\\text{perímetre}\\cdot"
      "\\text{apotema piràmide}}{2}$, no sense dividir.")],
-  ["Perímetre de la base: $5\\cdot4=20$ cm; "
-   "$A_{\\text{base}}=\\dfrac{20\\cdot2{,}75}{2}=27{,}5$ cm$^2$.",
-   "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}=118{,}3$ cm$^2$."],
+  [P1_PIRAMIDE,
+   "Perímetre de la base: $5\\cdot4=20$ cm. Llavors "
+   "$A_{\\text{base}}=\\dfrac{20\\cdot2{,}75}{2}$ i "
+   "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}$."],
   [r"$A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$",
    r"$A_{\text{lateral}}=\dfrac{20\cdot11{,}83}{2}=118{,}3$ cm$^2$",
    "$A_{\\text{total}}=27{,}5+118{,}3=145{,}8$ cm$^2$"],
@@ -599,9 +624,10 @@ Q("179a", 179, "a", B2, "A",
      "l'àrea lateral."),
    D(val(3400, 2, "m$^2$"), "SIGNE_TERME_INDEPENDENT",
      "Sembla que no has dividit per $2$ l'àrea lateral.")],
-  ["Àrea de la base: $A_{\\text{base}}=25^2=625$ m$^2$.",
-   "Perímetre $=4\\cdot25=100$ m; "
-   "$A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}=1700$ m$^2$."],
+  [P1_PIRAMIDE,
+   "Perímetre de la base: $4\\cdot25=100$ m. Llavors "
+   "$A_{\\text{base}}=25^2$ i "
+   "$A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}$."],
   [r"$A_{\text{base}}=25^2=625$ m$^2$",
    r"$A_{\text{lateral}}=\dfrac{100\cdot34}{2}=1700$ m$^2$",
    "$A_{\\text{total}}=625+1700=2325$ m$^2$"],
@@ -626,10 +652,10 @@ Q("179b", 179, "b", B2, "A",
      "($9$ m) com si fos l'apotema de la piràmide en comptes de "
      "calcular-la amb Pitàgores a partir de l'altura i l'apotema "
      "de la base.")],
-  ["Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}"
-   "\\approx5{,}2$ m.",
-   "Apotema de la piràmide (Pitàgores, amb l'altura $9$ m i "
-   "$a_{\\text{base}}$): $\\sqrt{9^2+5{,}2^2}\\approx10{,}39$ m."],
+  [P1_ALTURA,
+   "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. "
+   "Apotema de la piràmide: $\\sqrt{9^2+a_{\\text{base}}^2}$. Després, "
+   "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."],
   [r"$a_{\text{base}}\approx5{,}2$ m",
    r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ m$^2$",
    r"$a_{\text{piràmide}}=\sqrt{9^2+5{,}2^2}\approx10{,}39$ m",
@@ -658,7 +684,8 @@ for qid, letra, L, area in [
          "té $4$ cares (factor $4$), no $8$.")],
       ["Cada cara és un triangle equilàter d'àrea "
        f"$\\dfrac{{L^2\\sqrt3}}{{4}}$, i n'hi ha $4$ d'iguals.",
-       "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."],
+       f"Les quatre cares juntes: $A=4\\cdot\\dfrac{{L^2\\sqrt3}}{{4}}=L^2\\sqrt3$. "
+       f"Aquí $L={dz(L)}$ cm: no t'oblidis de l'arrel."],
       [f"$A=L^2\\sqrt3={dz(L)}^2\\cdot\\sqrt3$",
        f"$A\\approx{dz(area)}$ cm$^2$"],
       figura=tetraedre(L),
@@ -680,10 +707,10 @@ Q("181a", 181, "a", B2, "A",
      "Sembla que has fet servir directament l'altura de la "
      "piràmide ($10$ m) com a apotema de la piràmide, sense "
      "aplicar Pitàgores amb l'apotema de la base.")],
-  ["Apotema de la piràmide (Pitàgores): amb altura $10$ m i "
-   "apotema de la base $4$ m, $\\sqrt{10^2+4^2}\\approx10{,}77$ m.",
-   "$A_{\\text{base}}=8^2=64$ m$^2$; "
-   "$A_{\\text{lateral}}=\\dfrac{32\\cdot10{,}77}{2}\\approx172{,}33$ m$^2$."],
+  [P1_ALTURA,
+   "En una base quadrada, l'apotema és la meitat del costat: $4$ m. "
+   "Apotema de la piràmide: $\\sqrt{10^2+4^2}$. Després, "
+   "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $4\\cdot8=32$ m."],
   [r"$a_{\text{piràmide}}=\sqrt{10^2+4^2}\approx10{,}77$ m",
    r"$A_{\text{lateral}}=\dfrac{32\cdot10{,}77}{2}\approx172{,}33$ m$^2$",
    "$A_{\\text{total}}\\approx64+172{,}33\\approx236{,}33$ m$^2$"],
@@ -706,10 +733,10 @@ Q("181b", 181, "b", B2, "A",
      "Sembla que has fet servir directament l'altura de la "
      "piràmide ($8$ m) com a apotema de la piràmide, sense aplicar "
      "Pitàgores amb l'apotema de la base.")],
-  ["Apotema de la base: $\\approx5{,}2$ m; apotema de la piràmide "
-   "(Pitàgores amb l'altura $8$ m): $\\sqrt{8^2+5{,}2^2}\\approx9{,}54$ m.",
-   "$A_{\\text{base}}\\approx93{,}53$ m$^2$; "
-   "$A_{\\text{lateral}}\\approx\\dfrac{36\\cdot9{,}54}{2}\\approx171{,}71$ m$^2$."],
+  [P1_ALTURA,
+   "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. "
+   "Apotema de la piràmide: $\\sqrt{8^2+a_{\\text{base}}^2}$. Després, "
+   "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."],
   [r"$a_{\text{base}}\approx5{,}2$ m",
    r"$a_{\text{piràmide}}=\sqrt{8^2+5{,}2^2}\approx9{,}54$ m",
    r"$A_{\text{lateral}}\approx\dfrac{36\cdot9{,}54}{2}\approx171{,}71$ m$^2$",
@@ -754,10 +781,12 @@ Q("183", 183, "", B2, "A",
    D(apx(6.53, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "No coincideix amb $\\sqrt{113{,}38:\\sqrt3}$: comprova que "
      "divideixes per $\\sqrt3$ (no per $3$) abans de fer l'arrel.")],
-  ["Apotema de la base: $\\dfrac{3\\sqrt3}{2}\\approx2{,}6$ cm; "
-   "$A_{\\text{base}}=\\dfrac{18\\cdot2{,}6}{2}\\approx23{,}38$ cm$^2$.",
-   "$A_{\\text{lateral}}=\\dfrac{18\\cdot10}{2}=90$ cm$^2$, així que "
-   "$A_{\\text{total,piràmide}}\\approx23{,}38+90\\approx113{,}38$ cm$^2$.",
+  ["Primer calcula l'àrea total de la piràmide (base més lateral); "
+   "després busca l'aresta $L$ del tetraedre que té aquesta mateixa "
+   "àrea.",
+   "Apotema de la base: $a_{\\text{base}}=\\dfrac{3\\sqrt3}{2}$; "
+   "perímetre: $6\\cdot3=18$ cm. Llavors $A_{\\text{piràmide}}="
+   "\\dfrac{18\\cdot a_{\\text{base}}}{2}+\\dfrac{18\\cdot10}{2}$.",
    "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."],
   [r"$a_{\text{base}}\approx2{,}6$ cm; "
    r"$A_{\text{base}}\approx23{,}38$ cm$^2$",
@@ -1129,7 +1158,9 @@ Q("195f", 195, "f", B4, "A",
    D(val(96, 2, "cm$^3$"), "PRODUCTE_MAL",
      "No coincideix amb $4^3$: comprova el càlcul de la potència "
      "pas a pas.")],
-  ["El volum d'un cub d'aresta $L$ és $V=L^3$."],
+  ["El volum d'un cub d'aresta $L$ és $V=L^3$.",
+   r"$4^3$ vol dir $4\cdot4\cdot4$. Compte: $4^2$ seria l'àrea d'una cara, "
+   r"i $6\cdot4^2$, l'àrea de tot el cub."],
   [r"$V=4^3=4\cdot4\cdot4$",
    "$V=64$ cm$^3$"],
   figura=cub(4),

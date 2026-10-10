@@ -87,13 +87,20 @@ def item_equiv(qid, ap, a, b, c, d):
     Q(qid, 18, ap, B, "B", latex, correcta, ds,
       ["Dues fraccions són equivalents si els productes creuats coincideixen: "
        r"$\dfrac{a}{b} = \dfrac{c}{d}$ quan $a\cdot d = b\cdot c$.",
-       "També pots simplificar-les totes dues i comparar els resultats."],
+       r"Aquí compara $%d\cdot %d$ amb $%d\cdot %d$.%s" % (
+           a, d, b, c,
+           # Si cap no se simplifica (18c, 18f), l'alternativa no ajuda.
+           "" if F(a, b).denominator == b and F(c, d).denominator == d else
+           " Si et costa, simplifica totes dues fraccions i compara-les.")],
       [r"Productes creuats: $%d\cdot %d = %d$ \quad i \quad $%d\cdot %d = %d$"
        % (a, d, a * d, b, c, b * c),
        (r"Coincideixen, o sigui que són equivalents: totes dues valen $%s$."
         % tex(F(a, b))) if eq else
-       (r"No coincideixen: $%s$ val $%s$ i $%s$ val $%s$."
-        % (fr(a, b), tex(F(a, b)), fr(c, d), tex(F(c, d))))],
+       # «$\dfrac54$ val $\dfrac54$» (18c, 18f): si no se simplifiquen, no
+       # hi ha res a dir del que valen.
+       (r"No coincideixen, o sigui que no són equivalents%s." % (
+           "" if F(a, b).denominator == b and F(c, d).denominator == d else
+           r": simplificades, són $%s$ i $%s$" % (tex(F(a, b)), tex(F(c, d)))))],
       ex_text=E18)
 
 
@@ -187,8 +194,9 @@ Q("20c", 20, "c", B, "A", r"$\dfrac{121}{11}$", 11,
    DT(F(1, 11), "INVERTIDA", ""),
    DT(110, "SIMPLIFICAR_RESTANT",
       r"Has restat $121-11$. Simplificar és DIVIDIR els dos termes pel mateix nombre.")],
-  [r"$121$ és una potència de $11$.",
-   r"$121 = 11\cdot 11$."],
+  [r"$121$ és el quadrat d'un nombre: de quin?",
+   r"Escriu $121$ com a producte i simplifica el factor que comparteix amb "
+   r"el denominador. Si a baix queda un $1$, la fracció és un nombre enter."],
   [r"$\dfrac{121}{11} = \dfrac{11\cdot 11}{11} = 11$",
    r"El resultat és un enter: la fracció irreductible és $\dfrac{11}{1} = 11$."],
   ex_text=E20)
@@ -269,38 +277,41 @@ FQ("21f", 21, "f",
 
 # =============================================================== Exercici 22
 E22 = "Fes aquestes operacions."
-P22 = ["Escriu l'enter com una fracció de denominador $1$.",
-       "Redueix les dues fraccions a denominador comú i suma els numeradors."]
 
 FQ("22a", 22, "a", r"$-3 + \dfrac{4}{9}$", "-3 + 4/9", [],
    [("(-3+4)/9", "ENTER_AL_NUMERADOR", ""),
     ("3 - 4/9", "SIGNE_FINAL", ""),
     ("-3 - 4/9", "SIGNE_SUMA", "")],
-   P22, E22, final=r"$-3 = -\dfrac{27}{9}$, o sigui $-\dfrac{27}{9} + \dfrac{4}{9}$.")
+   [r"Escriu l'enter com una fracció amb el mateix denominador que l'altra: aquí, $9$.",
+    r"$-3=-\dfrac{27}{9}$: el signe es manté. Ara suma els numeradors."], E22, final=r"$-3 = -\dfrac{27}{9}$, o sigui $-\dfrac{27}{9} + \dfrac{4}{9}$.")
 
 FQ("22b", 22, "b", r"$8 - \left(-\dfrac{2}{5}\right)$", "8 - (-2/5)", [],
    [("8 - 2/5", "RESTA_NEGATIU", ""),
     ("(8-2)/5", "ENTER_AL_NUMERADOR", ""),
     ("-(8 + 2/5)", "SIGNE_FINAL", "")],
-   P22, E22, final=r"Restar $-\dfrac{2}{5}$ és sumar $\dfrac{2}{5}$: $\dfrac{40}{5}+\dfrac{2}{5}$.")
+   [r"Primer el doble signe: restar $-\dfrac{2}{5}$ és sumar $\dfrac{2}{5}$.",
+    r"Escriu el $8$ amb denominador $5$ i suma els numeradors."], E22, final=r"Restar $-\dfrac{2}{5}$ és sumar $\dfrac{2}{5}$: $\dfrac{40}{5}+\dfrac{2}{5}$.")
 
 FQ("22c", 22, "c", r"$\dfrac{-3}{7} + (-8)$", "-3/7 + (-8)", [],
    [("-3/7 + 8", "SIGNE_SUMA", ""),
     ("(-3-8)/7", "ENTER_AL_NUMERADOR", ""),
     ("3/7 + 8", "SIGNE_FINAL", "")],
-   P22, E22, final=r"$-8 = -\dfrac{56}{7}$.")
+   [r"Sumar $(-8)$ és el mateix que restar $8$.",
+    r"Escriu el $8$ amb denominador $7$ i opera els numeradors, cadascun amb el seu signe."], E22, final=r"$-8 = -\dfrac{56}{7}$.")
 
 FQ("22d", 22, "d", r"$\dfrac{5}{4} - (-7)$", "5/4 - (-7)", [],
    [("5/4 - 7", "RESTA_NEGATIU", ""),
     ("(5+7)/4", "ENTER_AL_NUMERADOR", ""),
     ("-(5/4 + 7)", "SIGNE_FINAL", "")],
-   P22, E22, final=r"$7 = \dfrac{28}{4}$.")
+   [r"Primer el doble signe: restar $-7$ és sumar $7$.",
+    r"Escriu el $7$ amb denominador $4$ i suma els numeradors."], E22, final=r"$7 = \dfrac{28}{4}$.")
 
 FQ("22e", 22, "e", r"$\dfrac{-4}{3} + (-6)$", "-4/3 + (-6)", [],
    [("-4/3 + 6", "SIGNE_SUMA", ""),
     ("(-4-6)/3", "ENTER_AL_NUMERADOR", ""),
     ("4/3 + 6", "SIGNE_FINAL", "")],
-   P22, E22, final=r"$-6 = -\dfrac{18}{3}$.")
+   [r"Sumar $(-6)$ és el mateix que restar $6$.",
+    r"Escriu el $6$ amb denominador $3$ i opera els numeradors: tots dos termes són negatius."], E22, final=r"$-6 = -\dfrac{18}{3}$.")
 
 FQ("22f", 22, "f", r"$-\left(\dfrac{-3}{4}\right) - 2$", "-(-3/4) - 2", [],
    [("-3/4 - 2", "DOBLE_NEGATIU", ""),
@@ -352,36 +363,38 @@ FQ("23d", 23, "d", r"$-7 + \left(-\dfrac{3}{2} + \dfrac{1}{7}\right)$",
 
 # =============================================================== Exercici 24
 E24 = "Efectua les operacions."
-P24 = ["Primer la multiplicació, després la suma o la resta.",
-       "Per multiplicar fraccions: numerador per numerador i denominador per denominador."]
 
 FQ("24a", 24, "a", r"$\dfrac{5}{6} \cdot \dfrac{1}{3} - 2$", "5/6*1/3 - 2",
    [(r"\dfrac{5}{6}\cdot\dfrac{1}{3}", "5/6*1/3")],
    [("5/6*(1/3 - 2)", "JERARQUIA", ""),
     ("(5*3)/(6*1) - 2", "PRODUCTE_CREUAT", ""),
     ("-(5/6*1/3 - 2)", "SIGNE_FINAL", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$\dfrac{5}{6}\cdot\dfrac{1}{3}$: numerador per numerador i denominador per denominador. Després escriu el $2$ amb el mateix denominador."], E24)
 
 FQ("24b", 24, "b", r"$\dfrac{7}{2} - 3 \cdot \dfrac{4}{5}$", "7/2 - 3*4/5",
    [(r"3\cdot\dfrac{4}{5}", "3*4/5")],
    [("(7/2 - 3)*4/5", "JERARQUIA", ""),
     ("7/2 - 12/15", "ENTER_MULTIPLICA_DENOMINADOR", ""),
     ("-(7/2 - 3*4/5)", "SIGNE_FINAL", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$3\cdot\dfrac{4}{5}$: l'enter multiplica només el numerador, no el denominador. Després resta amb denominador comú."], E24)
 
 FQ("24c", 24, "c", r"$4 - \dfrac{3}{2} \cdot \dfrac{7}{9}$", "4 - 3/2*7/9",
    [(r"\dfrac{3}{2}\cdot\dfrac{7}{9}", "3/2*7/9")],
    [("(4 - 3/2)*7/9", "JERARQUIA", ""),
     ("4 - (3*9)/(2*7)", "PRODUCTE_CREUAT", ""),
     ("-(4 - 3/2*7/9)", "SIGNE_FINAL", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$\dfrac{3}{2}\cdot\dfrac{7}{9}$: pots simplificar el $3$ amb el $9$ abans de multiplicar. Després escriu el $4$ amb el mateix denominador."], E24)
 
 FQ("24d", 24, "d", r"$\dfrac{5}{2} - 3 \cdot \dfrac{1}{4}$", "5/2 - 3*1/4",
    [(r"3\cdot\dfrac{1}{4}", "3*1/4")],
    [("(5/2 - 3)*1/4", "JERARQUIA", ""),
     ("5/2 - 3/12", "ENTER_MULTIPLICA_DENOMINADOR", ""),
     ("-(5/2 - 3*1/4)", "SIGNE_FINAL", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$3\cdot\dfrac{1}{4}$: l'enter multiplica només el numerador, no el denominador. Després resta amb denominador comú."], E24)
 
 FQ("24e", 24, "e",
    r"$\dfrac{4}{5} \cdot \dfrac{10}{8} + \left(\dfrac{-3}{2}\right)$",
@@ -389,7 +402,8 @@ FQ("24e", 24, "e",
    [("(4*8)/(5*10) + (-3/2)", "PRODUCTE_CREUAT", ""),
     ("4/5*10/8 + 3/2", "SUMA_EN_LLOC_RESTA", ""),
     ("-(4/5*10/8 + (-3/2))", "SIGNE_FINAL", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$\dfrac{4}{5}\cdot\dfrac{10}{8}$: simplifica abans de multiplicar (el $4$ amb el $8$ i el $10$ amb el $5$). Després suma-hi $-\dfrac{3}{2}$."], E24)
 
 FQ("24f", 24, "f",
    r"$\dfrac{7}{9} \cdot \left(\dfrac{-12}{5}\right) + \left(\dfrac{-3}{4}\right)$",
@@ -397,7 +411,8 @@ FQ("24f", 24, "f",
    [("7/9*(12/5) + (-3/4)", "SIGNE_PRODUCTE", ""),
     ("(7*5)/(9*(-12)) + (-3/4)", "PRODUCTE_CREUAT", ""),
     ("7/9*(-12/5) + 3/4", "SUMA_EN_LLOC_RESTA", "")],
-   P24, E24)
+   [r"Primer la multiplicació, després la suma o la resta.",
+    r"$\dfrac{7}{9}\cdot\left(-\dfrac{12}{5}\right)$ és negatiu, i pots simplificar el $12$ amb el $9$. Després suma-hi $-\dfrac{3}{4}$ amb denominador comú."], E24)
 
 # =============================================================== Exercici 25
 E25 = "Fes les operacions següents."
@@ -421,7 +436,8 @@ FQ("25b", 25, "b",
      "el parèntesi canvia el problema."),
     ("5/3 - (2*2)/(5*7) + 1/3", "PRODUCTE_CREUAT", ""),
     ("-(5/3 - (2/5*7/2 - 1/3))", "SIGNE_FINAL", "")],
-   ["Compara aquest apartat amb l'anterior: només canvia on és el parèntesi.",
+   ["Aquí el parèntesi agrupa la multiplicació I la resta: resol tot el "
+    "parèntesi primer i després resta'l de $\\dfrac{5}{3}$.",
     r"El parèntesi val $\dfrac{7}{5}-\dfrac{1}{3} = \dfrac{16}{15}$."],
    E25)
 
@@ -443,7 +459,8 @@ FQ("25d", 25, "d",
    [("(7/3)*4/5 - 2*5/3", "SIGNE_PRODUCTE", ""),
     ("(-7/3)*4/5 - 10/6", "ENTER_MULTIPLICA_DENOMINADOR", ""),
     ("-((-7/3)*4/5 - 2*5/3)", "SIGNE_FINAL", "")],
-   P24, E25)
+   [r"Primer les dues multiplicacions, després la resta.",
+    r"$2\cdot\dfrac{5}{3}$: l'enter multiplica només el numerador. Els dos productes tenen denominadors $15$ i $3$: el comú és $15$."], E25)
 
 FQ("25e", 25, "e",
    r"$\left(\dfrac{5}{4} - \dfrac{3}{8} \cdot \dfrac{4}{9}\right) - \dfrac{4}{5} \cdot 2$",

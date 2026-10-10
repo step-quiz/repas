@@ -146,8 +146,8 @@ window.FULL = {
     "$\\approx156{,}65$ cm$^2$"
    ],
    "pistes": [
-    "L'àrea d'un triangle equilàter de costat $c$ és $A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$; amb $c=5$, $A_{\\text{base}}\\approx10{,}83$ cm$^2$.",
-    "El perímetre de la base és $3\\cdot5=15$ cm; l'àrea lateral és $15\\cdot9=135$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un triangle equilàter: $A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
+    "$A_{\\text{base}}=\\dfrac{5^2\\sqrt3}{4}$ i $A_{\\text{lateral}}=(3\\cdot5)\\cdot9$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQxNVxcY2RvdDk6MiQsIGEgbcOpcyBhbWIgdW5hIGRpdmlzacOzIGRlIG3DqXMpOyBsJ8OgcmVhIGxhdGVyYWwgZCd1biBwcmlzbWEgbm8gZXMgZGl2aWRlaXggZW50cmUgJDIkLCBpIGVuY2FyYSBjYWwgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0rMTVcXGNkb3Q5JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXIgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIkZhbHRhIGNvbXB0YXIgbGVzIERVRVMgYmFzZXMgdHJpYW5ndWxhcnMsIG5vIG5vbcOpcyB1bmE6IGwnw6ByZWEgdG90YWwgaW5jbG91ICQyXFxjZG90IEFfe1xcdGV4dHtiYXNlfX0kLCBubyAkMSQgc29sYS4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUkVQRVRJREEiLCAiUFJPRFVDVEVfTUFMIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NV4yXFxzcXJ0M317NH1cXGFwcHJveDEweyx9ODMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0xNVxcY2RvdDk9MTM1JCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QxMHssfTgzKzEzNVxcYXBwcm94MTU2eyx9NjUkIGNtJF4yJCJdfQ==",
@@ -169,8 +169,8 @@ window.FULL = {
     "$662{,}4$ cm$^2$"
    ],
    "pistes": [
-    "L'àrea d'un polígon regular és $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$; amb perímetre $6\\cdot6=36$ cm i apotema $5{,}2$ cm, $A_{\\text{base}}=93{,}6$ cm$^2$.",
-    "L'àrea lateral és $36\\cdot8=288$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un hexàgon regular: $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.",
+    "Perímetre de la base: $6\\cdot6=36$ cm. Llavors $A_{\\text{base}}=\\dfrac{36\\cdot5{,}2}{2}$ i $A_{\\text{lateral}}=36\\cdot8$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzOiB1biBwcmlzbWEgc2VtcHJlIGVuIHTDqSBkdWVzLCB1bmEgYSBjYWRhIGV4dHJlbS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMzZcXGNkb3Q4JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDJcXGNkb3Q5M3ssfTYrMzZcXGNkb3Q4JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwgaSBsJ8OgcmVhIGxhdGVyYWwuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iLCAiIiwgIlBST0RVQ1RFX01BTCJdLCAicmVzIjogWyIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9PTkzeyx9NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTM2XFxjZG90OD0yODgkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDkzeyx9NisyODg9NDc1eyx9MiQgY20kXjIkIl19",
@@ -192,8 +192,8 @@ window.FULL = {
     "$386$ cm$^2$"
    ],
    "pistes": [
-    "Perímetre de la base: $5\\cdot5=25$ cm; $A_{\\text{base}}=\\dfrac{25\\cdot3{,}44}{2}=43$ cm$^2$.",
-    "Àrea lateral: $25\\cdot12=300$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un pentàgon regular: $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.",
+    "Perímetre de la base: $5\\cdot5=25$ cm. Llavors $A_{\\text{base}}=\\dfrac{25\\cdot3{,}44}{2}$ i $A_{\\text{lateral}}=25\\cdot12$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQyNVxcY2RvdDEyJCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyBwZW50YWdvbmFscy4iLCAiU2VtYmxhIHF1ZSBub23DqXMgaGFzIGNvbXB0YXQgVU5BIGJhc2UgcGVudGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90NDMrMjVcXGNkb3QxMiQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syNVxcY2RvdDN7LH00NH17Mn09NDMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0yNVxcY2RvdDEyPTMwMCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90NDMrMzAwPTM4NiQgY20kXjIkIl19",
@@ -215,8 +215,8 @@ window.FULL = {
     "$120$ cm$^2$"
    ],
    "pistes": [
-    "L'àrea de la base (triangle rectangle) és $A_{\\text{base}}=\\dfrac{6\\cdot8}{2}=24$ cm$^2$.",
-    "La hipotenusa, per Pitàgores, és $\\sqrt{6^2+8^2}=10$ cm, així que el perímetre és $6+8+10=24$ cm i l'àrea lateral, $24\\cdot5=120$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un triangle rectangle: per al perímetre et cal també la hipotenusa.",
+    "Hipotenusa: $\\sqrt{6^2+8^2}$. Llavors $A_{\\text{base}}=\\dfrac{6\\cdot8}{2}$ i $A_{\\text{lateral}}=(6+8+\\text{hipotenusa})\\cdot5$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm8gaGFzIGZldCBzZXJ2aXIgbGEgaGlwb3RlbnVzYSAoJDEwJCBjbSwgcGVyIFBpdMOgZ29yZXMpIGVuIGVsIHBlcsOtbWV0cmUgZGUgbGEgYmFzZTogZWwgcGVyw61tZXRyZSBkZWwgdHJpYW5nbGUgcmVjdGFuZ2xlIMOpcyAkNis4KzEwPTI0JCBjbSwgbm8gJDYrOD0xNCQgY20uIiwgIk5vIGNvaW5jaWRlaXggYW1iICQyXFxjZG90MjQrMjRcXGNkb3Q1JDogcmV2aXNhIHBlciBzZXBhcmF0IGwnw6ByZWEgZGUgbGEgYmFzZSBpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkMjRcXGNkb3Q1JCk6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsZXMgZHVlcyBiYXNlcyB0cmlhbmd1bGFycy4iXSwgImVyciI6IFsiIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIiwgIlBST0RVQ1RFX01BTCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NlxcY2RvdDh9ezJ9PTI0JCBjbSReMiQiLCAiSGlwb3RlbnVzYTogJFxcc3FydHs2XjIrOF4yfT0xMCQgY207IHBlcsOtbWV0cmUgJD0yNCQgY20iLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3QyNCsyNFxcY2RvdDU9NDgrMTIwPTE2OCQgY20kXjIkIl19"
@@ -260,8 +260,8 @@ window.FULL = {
     "$332{,}64$ cm$^2$"
    ],
    "pistes": [
-    "El perímetre de la base és $6\\cdot8=48$ cm.",
-    "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i $A_{\\text{lateral}}=48\\cdot12$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un hexàgon regular: $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.",
+    "Perímetre de la base: $6\\cdot8=48$ cm. Llavors $A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i $A_{\\text{lateral}}=48\\cdot12$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDEyJCk6IGZhbHRlbiBsZXMgZHVlcyBiYXNlcyBoZXhhZ29uYWxzLiIsICIiLCAiTm9tw6lzIGhhcyBjb21wdGF0IHVuYSBiYXNlLiBVbiBwcmlzbWEgZW4gdMOpIGR1ZXMsIHVuYSBhIGNhZGEgZXh0cmVtLiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbGEgbGF0ZXJhbC4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiRkFDVE9SX09CTElEQVQiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDZ7LH05M317Mn09MTY2eyx9MzIkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT00OFxcY2RvdDEyPTU3NiQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fT0yXFxjZG90MTY2eyx9MzIrNTc2PTkwOHssfTY0JCBjbSReMiQiXX0=",
@@ -283,8 +283,8 @@ window.FULL = {
     "$393{,}75$ cm$^2$"
    ],
    "pistes": [
-    "Perímetre de la base: $6\\cdot5=30$ cm.",
-    "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i $A_{\\text{lateral}}=30\\cdot11$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un hexàgon regular: $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.",
+    "Perímetre de la base: $6\\cdot5=30$ cm. Llavors $A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i $A_{\\text{lateral}}=30\\cdot11$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQzMFxcY2RvdDExJCkuIiwgIiIsICJBcXVlc3RhIMOpcyBsJ8OgcmVhIGRlIGxlcyBkdWVzIGJhc2VzLCBzZW5zZSBsYSBsYXRlcmFsLiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2UgaGV4YWdvbmFsIGVuIGxsb2MgZGUgZHVlcy4iXSwgImVyciI6IFsiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiRkFDVE9SX09CTElEQVQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3szMFxcY2RvdDR7LH0yNX17Mn09NjN7LH03NSQgY20kXjIkIiwgIiRBX3tcXHRleHR7bGF0ZXJhbH19PTMwXFxjZG90MTE9MzMwJCBjbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19PTJcXGNkb3Q2M3ssfTc1KzMzMD00NTd7LH01JCBjbSReMiQiXX0=",
@@ -306,8 +306,8 @@ window.FULL = {
     "$800{,}64$ cm$^2$"
    ],
    "pistes": [
-    "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm.",
-    "$A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i $A_{\\text{lateral}}=48\\cdot15$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un octàgon regular: $A_{\\text{base}}=\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.",
+    "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm. Llavors $A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i $A_{\\text{lateral}}=48\\cdot15$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWwgKCQ0OFxcY2RvdDE1JCkuIiwgIiIsICJOb23DqXMgaGFzIGNvbXB0YXQgdW5hIGJhc2Ugb2N0b2dvbmFsIGVuIGxsb2MgZGUgZHVlcy4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBzaXMgY29zdGF0cyBlbiBjb21wdGVzIGRlIHZ1aXQ6IGVsIHBlcsOtbWV0cmUgZCd1biBvY3TDoGdvbiBkZSBjb3N0YXQgJDYkIMOpcyAkOFxcY2RvdDY9NDgkIGNtLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJGQUNUT1JfT0JMSURBVCIsICJOX01BTF9DT01QVEFUIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7NDhcXGNkb3Q3eyx9MjR9ezJ9PTE3M3ssfTc2JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3QxNT03MjAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09MlxcY2RvdDE3M3ssfTc2KzcyMD0xXFwsMDY3eyx9NTIkIGNtJF4yJCJdfQ==",
@@ -329,8 +329,8 @@ window.FULL = {
     "$\\approx21{,}46$ cm$^2$"
    ],
    "pistes": [
-    "Àrea de la base: $A_{\\text{base}}=\\dfrac{2^2\\sqrt3}{4}\\approx1{,}73$ cm$^2$.",
-    "Perímetre de la base: $3\\cdot2=6$ cm; àrea lateral $=6\\cdot3=18$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. La base és un triangle equilàter: $A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
+    "$A_{\\text{base}}=\\dfrac{2^2\\sqrt3}{4}$ i $A_{\\text{lateral}}=(3\\cdot2)\\cdot3$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSB0cmlhbmd1bGFyIGVuIGxsb2MgZGUgZHVlczogdW4gcHJpc21hIHNlbXByZSBlbiB0w6kgZHVlcy4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkNlxcY2RvdDMkKTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGxlcyBkdWVzIGJhc2VzIHRyaWFuZ3VsYXJzLiIsICJObyBjb2luY2lkZWl4IGFtYiAkMlxcY2RvdDF7LH03Mys2XFxjZG90MyQ6IHJldmlzYSBwZXIgc2VwYXJhdCBsJ8OgcmVhIGRlIGxhIGJhc2UgaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIiJdLCAiZXJyIjogWyJGQUNUT1JfT0JMSURBVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIlBST0RVQ1RFX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syXjJcXHNxcnQzfXs0fVxcYXBwcm94MXssfTczJCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NlxcY2RvdDM9MTgkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX1cXGFwcHJveDJcXGNkb3Qxeyx9NzMrMThcXGFwcHJveDIxeyx9NDYkIGNtJF4yJCJdfQ==",
@@ -352,8 +352,8 @@ window.FULL = {
     "$\\approx480$ cm$^2$"
    ],
    "pistes": [
-    "L'apotema d'un hexàgon regular de costat $c$ és $a=\\dfrac{c\\sqrt3}{2}$; amb $c=8$, $a\\approx6{,}93$ cm.",
-    "Perímetre $=6\\cdot8=48$ cm; $A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}\\approx166{,}28$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. Per a l'àrea de l'hexàgon et cal l'apotema, que no et donen: en un hexàgon regular de costat $c$, $a=\\dfrac{c\\sqrt3}{2}$.",
+    "Aquí $a=\\dfrac{8\\sqrt3}{2}$ i el perímetre és $6\\cdot8=48$ cm. Llavors $A_{\\text{base}}=\\dfrac{48\\cdot a}{2}$ i $A_{\\text{lateral}}=48\\cdot10$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vbcOpcyBoYXMgY29tcHRhdCBVTkEgYmFzZSBoZXhhZ29uYWwgZW4gbGxvYyBkZSBkdWVzLiIsICJMJ2Fwb3RlbWEgZCd1biBoZXjDoGdvbiByZWd1bGFyIGRlIGNvc3RhdCAkOCQgY20gw6lzICQ0XFxzcXJ0M1xcYXBwcm94NnssfTkzJCBjbSwgbm8gJDgkIGNtOiBhcG90ZW1hIGkgY29zdGF0IG5vbcOpcyBjb2luY2lkZWl4ZW4gZW4gZWwgY2FzIGRlbCBxdWFkcmF0LiIsICIiLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsICgkNDhcXGNkb3QxMCQpOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbGVzIGR1ZXMgYmFzZXMgaGV4YWdvbmFscy4iXSwgImVyciI6IFsiRkFDVE9SX09CTElEQVQiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJGE9XFxkZnJhY3s4XFxzcXJ0M317Mn1cXGFwcHJveDZ7LH05MyQgY20iLCAiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3s0OFxcY2RvdDZ7LH05M317Mn1cXGFwcHJveDE2NnssfTI4JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09NDhcXGNkb3QxMD00ODAkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX1cXGFwcHJveDJcXGNkb3QxNjZ7LH0yOCs0ODBcXGFwcHJveDgxMnssfTU1JCBjbSReMiQiXX0=",
@@ -375,8 +375,8 @@ window.FULL = {
     "$\\approx547{,}06$ cm$^2$"
    ],
    "pistes": [
-    "L'apotema és $a=\\dfrac{6\\sqrt3}{2}\\approx5{,}2$ cm.",
-    "Perímetre $=6\\cdot6=36$ cm; $A_{\\text{base}}=\\dfrac{36\\cdot5{,}2}{2}\\approx93{,}53$ cm$^2$."
+    "L'àrea total d'un prisma és $2\\cdot A_{\\text{base}}+A_{\\text{lateral}}$, amb $A_{\\text{lateral}}=\\text{perímetre de la base}\\cdot\\text{altura}$. Per a l'àrea de l'hexàgon et cal l'apotema, que no et donen: en un hexàgon regular de costat $c$, $a=\\dfrac{c\\sqrt3}{2}$.",
+    "Aquí $a=\\dfrac{6\\sqrt3}{2}$ i el perímetre és $6\\cdot6=36$ cm. Llavors $A_{\\text{base}}=\\dfrac{36\\cdot a}{2}$ i $A_{\\text{lateral}}=36\\cdot10$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMJ2Fwb3RlbWEgZCd1biBoZXjDoGdvbiByZWd1bGFyIGRlIGNvc3RhdCAkNiQgY20gw6lzICQzXFxzcXJ0M1xcYXBwcm94NXssfTIkIGNtLCBubyAkNiQgY20uIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbCAoJDM2XFxjZG90MTAkKTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGxlcyBkdWVzIGJhc2VzIGhleGFnb25hbHMuIiwgIlNlbWJsYSBxdWUgbm9tw6lzIGhhcyBjb21wdGF0IFVOQSBiYXNlIGhleGFnb25hbCBlbiBsbG9jIGRlIGR1ZXMuIiwgIiJdLCAiZXJyIjogWyJTSUdORV9URVJNRV9JTkRFUEVOREVOVCIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkZBQ1RPUl9PQkxJREFUIiwgIiJdLCAicmVzIjogWyIkYT1cXGRmcmFjezZcXHNxcnQzfXsyfVxcYXBwcm94NXssfTIkIGNtIiwgIiRBX3tcXHRleHR7YmFzZX19PVxcZGZyYWN7MzZcXGNkb3Q1eyx9Mn17Mn1cXGFwcHJveDkzeyx9NTMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT0zNlxcY2RvdDEwPTM2MCQgY20kXjIkIiwgIiRBX3tcXHRleHR7dG90YWx9fVxcYXBwcm94MlxcY2RvdDkzeyx9NTMrMzYwXFxhcHByb3g1NDd7LH0wNiQgY20kXjIkIl19",
@@ -605,8 +605,8 @@ window.FULL = {
     "$236{,}6$ cm$^2$"
    ],
    "pistes": [
-    "Perímetre de la base: $5\\cdot4=20$ cm; $A_{\\text{base}}=\\dfrac{20\\cdot2{,}75}{2}=27{,}5$ cm$^2$.",
-    "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}=118{,}3$ cm$^2$."
+    "L'àrea total d'una piràmide és $A_{\\text{base}}+A_{\\text{lateral}}$ (una sola base), amb $A_{\\text{lateral}}=\\dfrac{\\text{perímetre de la base}\\cdot\\text{apotema de la piràmide}}{2}$.",
+    "Perímetre de la base: $5\\cdot4=20$ cm. Llavors $A_{\\text{base}}=\\dfrac{20\\cdot2{,}75}{2}$ i $A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3QgdmFsb3Igw6lzIG5vbcOpcyBsJ8OgcmVhIGxhdGVyYWw6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGRlIGxhIGJhc2UgcGVudGFnb25hbC4iLCAiIiwgIkFxdWVzdGEgw6lzIG5vbcOpcyBsJ8OgcmVhIGRlIGxhIGJhc2U6IGVuY2FyYSBmYWx0YSBzdW1hci1oaSBsJ8OgcmVhIGxhdGVyYWwuIiwgIlNlbWJsYSBxdWUgbm8gaGFzIGRpdmlkaXQgcGVyICQyJCBsJ8OgcmVhIGxhdGVyYWw6ICRBX3tcXHRleHR7bGF0ZXJhbH19PVxcZGZyYWN7XFx0ZXh0e3BlcsOtbWV0cmV9XFxjZG90XFx0ZXh0e2Fwb3RlbWEgcGlyw6BtaWRlfX17Mn0kLCBubyBzZW5zZSBkaXZpZGlyLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIiIsICJTVU1BX0RFX1BBUlRTX0lOQ09NUExFVEEiLCAiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtiYXNlfX09XFxkZnJhY3syMFxcY2RvdDJ7LH03NX17Mn09Mjd7LH01JCBjbSReMiQiLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3syMFxcY2RvdDExeyx9ODN9ezJ9PTExOHssfTMkIGNtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09Mjd7LH01KzExOHssfTM9MTQ1eyx9OCQgY20kXjIkIl19",
@@ -628,8 +628,8 @@ window.FULL = {
     "$625$ m$^2$"
    ],
    "pistes": [
-    "Àrea de la base: $A_{\\text{base}}=25^2=625$ m$^2$.",
-    "Perímetre $=4\\cdot25=100$ m; $A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}=1700$ m$^2$."
+    "L'àrea total d'una piràmide és $A_{\\text{base}}+A_{\\text{lateral}}$ (una sola base), amb $A_{\\text{lateral}}=\\dfrac{\\text{perímetre de la base}\\cdot\\text{apotema de la piràmide}}{2}$.",
+    "Perímetre de la base: $4\\cdot25=100$ m. Llavors $A_{\\text{base}}=25^2$ i $A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}$."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJTZW1ibGEgcXVlIG5vIGhhcyBkaXZpZGl0IHBlciAkMiQgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiIiwgIlNVTUFfREVfUEFSVFNfSU5DT01QTEVUQSIsICJURVJNRV9PQkxJREFUX09QRVJBQ0lPIl0sICJyZXMiOiBbIiRBX3tcXHRleHR7YmFzZX19PTI1XjI9NjI1JCBtJF4yJCIsICIkQV97XFx0ZXh0e2xhdGVyYWx9fT1cXGRmcmFjezEwMFxcY2RvdDM0fXsyfT0xNzAwJCBtJF4yJCIsICIkQV97XFx0ZXh0e3RvdGFsfX09NjI1KzE3MDA9MjMyNSQgbSReMiQiXX0=",
@@ -651,8 +651,8 @@ window.FULL = {
     "$\\approx93{,}53$ m$^2$"
    ],
    "pistes": [
-    "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}\\approx5{,}2$ m.",
-    "Apotema de la piràmide (Pitàgores, amb l'altura $9$ m i $a_{\\text{base}}$): $\\sqrt{9^2+5{,}2^2}\\approx10{,}39$ m."
+    "Et donen l'altura, no l'apotema de la piràmide. L'altura, l'apotema de la base i l'apotema de la piràmide formen un triangle rectangle, i l'apotema de la piràmide n'és la hipotenusa.",
+    "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. Apotema de la piràmide: $\\sqrt{9^2+a_{\\text{base}}^2}$. Després, $A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJTZW1ibGEgcXVlIGhhcyBmZXQgc2VydmlyIGRpcmVjdGFtZW50IGwnYWx0dXJhIGRlIGxhIHBpcsOgbWlkZSAoJDkkIG0pIGNvbSBzaSBmb3MgbCdhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSBlbiBjb21wdGVzIGRlIGNhbGN1bGFyLWxhIGFtYiBQaXTDoGdvcmVzIGEgcGFydGlyIGRlIGwnYWx0dXJhIGkgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBoZXhhZ29uYWwuIiwgIiIsICJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiJdLCAiZXJyIjogWyJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyIsICIiLCAiU1VNQV9ERV9QQVJUU19JTkNPTVBMRVRBIl0sICJyZXMiOiBbIiRhX3tcXHRleHR7YmFzZX19XFxhcHByb3g1eyx9MiQgbSIsICIkQV97XFx0ZXh0e2Jhc2V9fT1cXGRmcmFjezM2XFxjZG90NXssfTJ9ezJ9XFxhcHByb3g5M3ssfTUzJCBtJF4yJCIsICIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHs5XjIrNXssfTJeMn1cXGFwcHJveDEweyx9MzkkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szNlxcY2RvdDEweyx9Mzl9ezJ9XFxhcHByb3gxODd7LH0wNiQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE4N3ssfTA2XFxhcHByb3gyODB7LH01OSQgbSReMiQiXX0=",
@@ -675,7 +675,7 @@ window.FULL = {
    ],
    "pistes": [
     "Cada cara és un triangle equilàter d'àrea $\\dfrac{L^2\\sqrt3}{4}$, i n'hi ha $4$ d'iguals.",
-    "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."
+    "Les quatre cares juntes: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$. Aquí $L=3$ cm: no t'oblidis de l'arrel."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVW4gdGV0cmFlZHJlIHJlZ3VsYXIgdMOpICQ0JCBjYXJlcyB0cmlhbmd1bGFycyBpZ3VhbHMsIG5vICQxJDogYXF1ZXN0IHZhbG9yIG5vbcOpcyDDqXMgbCfDoHJlYSBkJ1VOQSBjYXJhLiIsICJUJ2hhcyBkZWl4YXQgZWwgZmFjdG9yICRcXHNxcnQzJCBkZSBsJ8OgcmVhIGRlbCB0cmlhbmdsZSBlcXVpbMOgdGVyOiBsJ8OgcmVhIHRvdGFsIMOpcyAkTF4yXFxzcXJ0MyQsIG5vICRMXjIkLiIsICJBcXVlc3QgdmFsb3IgZHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogdW4gdGV0cmFlZHJlIHTDqSAkNCQgY2FyZXMgKGZhY3RvciAkNCQpLCBubyAkOCQuIl0sICJlcnIiOiBbIiIsICJGQUNUT1JfT0JMSURBVCIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiUFJPRFVDVEVfTUFMIl0sICJyZXMiOiBbIiRBPUxeMlxcc3FydDM9M14yXFxjZG90XFxzcXJ0MyQiLCAiJEFcXGFwcHJveDE1eyx9NTkkIGNtJF4yJCJdfQ==",
@@ -698,7 +698,7 @@ window.FULL = {
    ],
    "pistes": [
     "Cada cara és un triangle equilàter d'àrea $\\dfrac{L^2\\sqrt3}{4}$, i n'hi ha $4$ d'iguals.",
-    "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."
+    "Les quatre cares juntes: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$. Aquí $L=5$ cm: no t'oblidis de l'arrel."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbiB0ZXRyYWVkcmUgcmVndWxhciB0w6kgJDQkIGNhcmVzIHRyaWFuZ3VsYXJzIGlndWFscywgbm8gJDEkOiBhcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGQnVU5BIGNhcmEuIiwgIiIsICJUJ2hhcyBkZWl4YXQgZWwgZmFjdG9yICRcXHNxcnQzJCBkZSBsJ8OgcmVhIGRlbCB0cmlhbmdsZSBlcXVpbMOgdGVyOiBsJ8OgcmVhIHRvdGFsIMOpcyAkTF4yXFxzcXJ0MyQsIG5vICRMXjIkLiIsICJBcXVlc3QgdmFsb3IgZHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogdW4gdGV0cmFlZHJlIHTDqSAkNCQgY2FyZXMgKGZhY3RvciAkNCQpLCBubyAkOCQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIiIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiUFJPRFVDVEVfTUFMIl0sICJyZXMiOiBbIiRBPUxeMlxcc3FydDM9NV4yXFxjZG90XFxzcXJ0MyQiLCAiJEFcXGFwcHJveDQzeyx9MyQgY20kXjIkIl19",
@@ -721,7 +721,7 @@ window.FULL = {
    ],
    "pistes": [
     "Cada cara és un triangle equilàter d'àrea $\\dfrac{L^2\\sqrt3}{4}$, i n'hi ha $4$ d'iguals.",
-    "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."
+    "Les quatre cares juntes: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$. Aquí $L=9$ cm: no t'oblidis de l'arrel."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbiB0ZXRyYWVkcmUgcmVndWxhciB0w6kgJDQkIGNhcmVzIHRyaWFuZ3VsYXJzIGlndWFscywgbm8gJDEkOiBhcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGQnVU5BIGNhcmEuIiwgIiIsICJBcXVlc3QgdmFsb3IgZHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogdW4gdGV0cmFlZHJlIHTDqSAkNCQgY2FyZXMgKGZhY3RvciAkNCQpLCBubyAkOCQuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgJFxcc3FydDMkIGRlIGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXI6IGwnw6ByZWEgdG90YWwgw6lzICRMXjJcXHNxcnQzJCwgbm8gJExeMiQuIl0sICJlcnIiOiBbIkZBQ1RPUl9PQkxJREFUIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQVJSRUxfTUFMX0FQTElDQURBIl0sICJyZXMiOiBbIiRBPUxeMlxcc3FydDM9OV4yXFxjZG90XFxzcXJ0MyQiLCAiJEFcXGFwcHJveDE0MHssfTMkIGNtJF4yJCJdfQ==",
@@ -744,7 +744,7 @@ window.FULL = {
    ],
    "pistes": [
     "Cada cara és un triangle equilàter d'àrea $\\dfrac{L^2\\sqrt3}{4}$, i n'hi ha $4$ d'iguals.",
-    "Àrea total: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$."
+    "Les quatre cares juntes: $A=4\\cdot\\dfrac{L^2\\sqrt3}{4}=L^2\\sqrt3$. Aquí $L=6{,}2$ cm: no t'oblidis de l'arrel."
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJBcXVlc3QgdmFsb3IgZHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogdW4gdGV0cmFlZHJlIHTDqSAkNCQgY2FyZXMgKGZhY3RvciAkNCQpLCBubyAkOCQuIiwgIlQnaGFzIGRlaXhhdCBlbCBmYWN0b3IgJFxcc3FydDMkIGRlIGwnw6ByZWEgZGVsIHRyaWFuZ2xlIGVxdWlsw6B0ZXI6IGwnw6ByZWEgdG90YWwgw6lzICRMXjJcXHNxcnQzJCwgbm8gJExeMiQuIiwgIiIsICJVbiB0ZXRyYWVkcmUgcmVndWxhciB0w6kgJDQkIGNhcmVzIHRyaWFuZ3VsYXJzIGlndWFscywgbm8gJDEkOiBhcXVlc3QgdmFsb3Igbm9tw6lzIMOpcyBsJ8OgcmVhIGQnVU5BIGNhcmEuIl0sICJlcnIiOiBbIlBST0RVQ1RFX01BTCIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiIiwgIkZBQ1RPUl9PQkxJREFUIl0sICJyZXMiOiBbIiRBPUxeMlxcc3FydDM9NnssfTJeMlxcY2RvdFxcc3FydDMkIiwgIiRBXFxhcHByb3g2NnssfTU4JCBjbSReMiQiXX0=",
@@ -766,8 +766,8 @@ window.FULL = {
     "$\\approx65{,}46$ cm"
    ],
    "pistes": [
-    "Apotema de la base: $\\dfrac{3\\sqrt3}{2}\\approx2{,}6$ cm; $A_{\\text{base}}=\\dfrac{18\\cdot2{,}6}{2}\\approx23{,}38$ cm$^2$.",
-    "$A_{\\text{lateral}}=\\dfrac{18\\cdot10}{2}=90$ cm$^2$, així que $A_{\\text{total,piràmide}}\\approx23{,}38+90\\approx113{,}38$ cm$^2$.",
+    "Primer calcula l'àrea total de la piràmide (base més lateral); després busca l'aresta $L$ del tetraedre que té aquesta mateixa àrea.",
+    "Apotema de la base: $a_{\\text{base}}=\\dfrac{3\\sqrt3}{2}$; perímetre: $6\\cdot3=18$ cm. Llavors $A_{\\text{piràmide}}=\\dfrac{18\\cdot a_{\\text{base}}}{2}+\\dfrac{18\\cdot10}{2}$.",
     "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."
    ],
    "nota": "",
@@ -790,8 +790,8 @@ window.FULL = {
     "$\\approx172{,}33$ m$^2$"
    ],
    "pistes": [
-    "Apotema de la piràmide (Pitàgores): amb altura $10$ m i apotema de la base $4$ m, $\\sqrt{10^2+4^2}\\approx10{,}77$ m.",
-    "$A_{\\text{base}}=8^2=64$ m$^2$; $A_{\\text{lateral}}=\\dfrac{32\\cdot10{,}77}{2}\\approx172{,}33$ m$^2$."
+    "Et donen l'altura, no l'apotema de la piràmide. L'altura, l'apotema de la base i l'apotema de la piràmide formen un triangle rectangle, i l'apotema de la piràmide n'és la hipotenusa.",
+    "En una base quadrada, l'apotema és la meitat del costat: $4$ m. Apotema de la piràmide: $\\sqrt{10^2+4^2}$. Després, $A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $4\\cdot8=32$ m."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBub23DqXMgbCfDoHJlYSBkZSBsYSBiYXNlOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBsYXRlcmFsLiIsICIiLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQxMCQgbSkgY29tIGEgYXBvdGVtYSBkZSBsYSBwaXLDoG1pZGUsIHNlbnNlIGFwbGljYXIgUGl0w6Bnb3JlcyBhbWIgbCdhcG90ZW1hIGRlIGxhIGJhc2UuIiwgIkFxdWVzdCB2YWxvciDDqXMgbm9tw6lzIGwnw6ByZWEgbGF0ZXJhbDogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgZGUgbGEgYmFzZSBxdWFkcmFkYS4iXSwgImVyciI6IFsiU1VNQV9ERV9QQVJUU19JTkNPTVBMRVRBIiwgIiIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e3BpcsOgbWlkZX19PVxcc3FydHsxMF4yKzReMn1cXGFwcHJveDEweyx9NzckIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX09XFxkZnJhY3szMlxcY2RvdDEweyx9Nzd9ezJ9XFxhcHByb3gxNzJ7LH0zMyQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g2NCsxNzJ7LH0zM1xcYXBwcm94MjM2eyx9MzMkIG0kXjIkIl19",
@@ -813,8 +813,8 @@ window.FULL = {
     "$\\approx171{,}71$ m$^2$"
    ],
    "pistes": [
-    "Apotema de la base: $\\approx5{,}2$ m; apotema de la piràmide (Pitàgores amb l'altura $8$ m): $\\sqrt{8^2+5{,}2^2}\\approx9{,}54$ m.",
-    "$A_{\\text{base}}\\approx93{,}53$ m$^2$; $A_{\\text{lateral}}\\approx\\dfrac{36\\cdot9{,}54}{2}\\approx171{,}71$ m$^2$."
+    "Et donen l'altura, no l'apotema de la piràmide. L'altura, l'apotema de la base i l'apotema de la piràmide formen un triangle rectangle, i l'apotema de la piràmide n'és la hipotenusa.",
+    "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. Apotema de la piràmide: $\\sqrt{8^2+a_{\\text{base}}^2}$. Després, $A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbm9tw6lzIGwnw6ByZWEgZGUgbGEgYmFzZTogZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnw6ByZWEgbGF0ZXJhbC4iLCAiU2VtYmxhIHF1ZSBoYXMgZmV0IHNlcnZpciBkaXJlY3RhbWVudCBsJ2FsdHVyYSBkZSBsYSBwaXLDoG1pZGUgKCQ4JCBtKSBjb20gYSBhcG90ZW1hIGRlIGxhIHBpcsOgbWlkZSwgc2Vuc2UgYXBsaWNhciBQaXTDoGdvcmVzIGFtYiBsJ2Fwb3RlbWEgZGUgbGEgYmFzZS4iLCAiQXF1ZXN0IHZhbG9yIMOpcyBub23DqXMgbCfDoHJlYSBsYXRlcmFsOiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCfDoHJlYSBkZSBsYSBiYXNlIGhleGFnb25hbC4iXSwgImVyciI6IFsiIiwgIlNVTUFfREVfUEFSVFNfSU5DT01QTEVUQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiVEVSTUVfT0JMSURBVF9PUEVSQUNJTyJdLCAicmVzIjogWyIkYV97XFx0ZXh0e2Jhc2V9fVxcYXBwcm94NXssfTIkIG0iLCAiJGFfe1xcdGV4dHtwaXLDoG1pZGV9fT1cXHNxcnR7OF4yKzV7LH0yXjJ9XFxhcHByb3g5eyx9NTQkIG0iLCAiJEFfe1xcdGV4dHtsYXRlcmFsfX1cXGFwcHJveFxcZGZyYWN7MzZcXGNkb3Q5eyx9NTR9ezJ9XFxhcHByb3gxNzF7LH03MSQgbSReMiQiLCAiJEFfe1xcdGV4dHt0b3RhbH19XFxhcHByb3g5M3ssfTUzKzE3MXssfTcxXFxhcHByb3gyNjV7LH0yNCQgbSReMiQiXX0=",
@@ -1181,7 +1181,8 @@ window.FULL = {
     "$16$ cm$^3$"
    ],
    "pistes": [
-    "El volum d'un cub d'aresta $L$ és $V=L^3$."
+    "El volum d'un cub d'aresta $L$ és $V=L^3$.",
+    "$4^3$ vol dir $4\\cdot4\\cdot4$. Compte: $4^2$ seria l'àrea d'una cara, i $6\\cdot4^2$, l'àrea de tot el cub."
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBjb2luY2lkZWl4IGFtYiAkNF4zJDogY29tcHJvdmEgZWwgY8OgbGN1bCBkZSBsYSBwb3TDqG5jaWEgcGFzIGEgcGFzLiIsICIiLCAiTm8gY29pbmNpZGVpeCBhbWIgJDRcXGNkb3Q0XFxjZG90NCQ6IHJldmlzYSBlbCBwcm9kdWN0ZSBkZWxzIHRyZXMgZmFjdG9ycy4iLCAiQXF1ZXN0IHZhbG9yIMOpcyAkNF4yJCwgbm8gJDReMyQ6IGVsIHZvbHVtIGQndW4gY3ViIMOpcyAkVj1MXjMkLCBubyAkTF4yJC4iXSwgImVyciI6IFsiUFJPRFVDVEVfTUFMIiwgIiIsICJPUkRSRV9NVUxUSVBMSUNBQ0lPX0RJVklTSU8iLCAiRElNRU5TSU9fRVhQT05FTlRfTUFMIl0sICJyZXMiOiBbIiRWPTReMz00XFxjZG90NFxcY2RvdDQkIiwgIiRWPTY0JCBjbSReMyQiXX0=",

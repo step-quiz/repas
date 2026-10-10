@@ -37,13 +37,20 @@ B1 = "escales_calcul"
 B2 = "semblanca_arees"
 
 
+def _num(v, dec=2):
+    """Un nombre amb coma decimal i sense zeros sobrers: 2.4 -> 2{,}4.
+    Amb "%g" sortia «2.4», amb punt. `dec` ha de ser 1 o més: amb 0 no hi
+    ha coma i el rstrip es menjaria els zeros de l'enter."""
+    return texd(F(v).limit_denominator(), dec).rstrip("0").rstrip("{,}")
+
+
 def km_tex(cm):
-    """Centímetres reals -> el múltiple que quedi més llegible."""
+    """Centímetres reals -> metres o quilòmetres, amb la unitat fora de la
+    fórmula: «$0{,}5$ m». Abans sortia «$50{,}00 cm$», amb la unitat en
+    cursiva i enganxada (285a)."""
     if cm >= 100000:
-        return "%s km" % texd(F(cm, 100000), 2)
-    if cm >= 100:
-        return "%s m" % texd(F(cm, 100), 2)
-    return "%s cm" % texd(cm, 2)
+        return "$%s$ km" % _num(F(cm, 100000))
+    return "$%s$ m" % _num(F(cm, 100))
 
 
 # =============================================================== Exercici 285
@@ -77,7 +84,7 @@ for _ap, _txt, _k, _tipus in _285:
        D("$1$ cm al plànol són $%d$ m de debò." % _k, "UNITATS_NO_CONVERTIDES",
          "L'escala relaciona mesures en la MATEIXA unitat: $1$ cm de plànol "
          "són $%d$ cm de realitat, que després es poden passar a metres si "
-         "convé ($%s$)." % (_k, km_tex(_k))),
+         "convé (%s)." % (_k, km_tex(_k))),
        D("El dibuix és $%d$ vegades més gran que la realitat." % _k,
          "ESCALA_INVERTIDA",
          "Una escala $1:%d$ és de REDUCCIÓ: el dibuix és més petit. Perquè "
@@ -88,7 +95,7 @@ for _ap, _txt, _k, _tipus in _285:
        "Les dues mesures van en la mateixa unitat."],
       ["$1:%d$ vol dir que cada $1$ cm del dibuix correspon a $%d$ cm reals"
        % (_k, _k),
-       "És a dir, $%s$ de debò" % km_tex(_k)],
+       "És a dir, %s de debò" % km_tex(_k)],
       ex_text=E285,
       figura=escala_regla(1, "cm", _unitat_llegible(_k)))
 
@@ -104,23 +111,26 @@ for _ap, _cm in _286:
       "$%s$ cm al plànol." % texd(_cm, 2).rstrip("0").rstrip("{,}")
       if "{,}" in texd(_cm, 2) else "$%g$ cm al plànol." % _cm,
       "$%s$ km" % texd(F(_real, 100000), 3).rstrip("0").rstrip("{,}"),
-      [D("$%s$ m" % texd(F(_real, 100), 1), "UNITATS_NO_CONVERTIDES",
-         "El valor és correcte en centímetres, però la conversió no: "
-         "$%s$ cm són $%s$ m, i això són $%s$ km."
-         % (texd(_real, 0), texd(F(_real, 100), 1), texd(F(_real, 100000), 3))),
-       D("$%s$ km" % texd(F(_real, 100000) / 25000 * 25000 / 1000, 5),
+      # Abans aquest distractor era «$1000{,}0$ m» a la 286a: la distància
+      # bona en metres, marcada com a errònia.
+      [D("$%s$ m" % texd(_real, 0), "UNITATS_NO_CONVERTIDES",
+         "Aquest nombre són centímetres, no metres: $%s$ cm són $%s$ m, i "
+         "això són $%s$ km."
+         % (texd(_real, 0), _num(F(_real, 100), 1), _num(F(_real, 100000), 3))),
+       D("$%s$ km" % _num(F(_real, 100000) / 1000, 7),
          "POTENCIA_10",
          "Has desplaçat malament la coma en passar de centímetres a "
          "quilòmetres. Recorda: $1$ km $=100\\,000$ cm."),
-       D("$%s$ km" % texd(F(F(_cm).limit_denominator(), 25000) * 100000 / 100000, 6),
+       D("$%s$ km" % _num(F(F(_cm).limit_denominator(), 25000), 7),
          "ESCALA_INVERTIDA",
          "Has dividit per l'escala en comptes de multiplicar. Com que el "
          "plànol és una reducció, la distància real ha de ser MÉS gran que "
          "la del plànol.")],
-      ["Multiplica la mesura del plànol per $25\\,000$: dona centímetres "
-       "reals.",
-       "Després passa'ls a quilòmetres dividint entre $100\\,000$."],
-      ["$%g\\cdot25000=%s$ cm" % (_cm, texd(_real, 0)),
+      ["Multiplica la mesura del plànol, $%s$ cm, per $25\\,000$: dona "
+       "centímetres reals." % _num(_cm),
+       "Per passar de centímetres a quilòmetres, divideix entre "
+       "$100\\,000$, perquè $1$ km $=100\\,000$ cm."],
+      ["$%s\\cdot25000=%s$ cm" % (_num(_cm), texd(_real, 0)),
        "$\\dfrac{%s}{100000}=%s$ km"
        % (texd(_real, 0), texd(F(_real, 100000), 3).rstrip("0").rstrip("{,}"))],
       ex_text=E286)
@@ -135,20 +145,21 @@ for _ap, _m, _u in _287:
     _cm_real = F(_m).limit_denominator() * 100
     _plano = _cm_real / 200
     Q("287%s" % _ap, 287, _ap, B1, "A",
-      "Una paret de $%g$ m." % _m,
+      "Una paret de $%s$ m." % _num(_m),
       "$%s$ cm" % texd(_plano, 2).rstrip("0").rstrip("{,}"),
       [D("$%s$ cm" % texd(_cm_real * 200, 0), "ESCALA_INVERTIDA",
          "Has multiplicat per $200$. Per anar de la realitat al plànol cal "
          "DIVIDIR: el dibuix és més petit."),
-       D("$%s$ cm" % texd(F(_m).limit_denominator() / 200, 4), "UNITATS_NO_CONVERTIDES",
+       D("$%s$ cm" % _num(F(_m).limit_denominator() / 200, 4), "UNITATS_NO_CONVERTIDES",
          "Has dividit els metres directament. Primer cal passar-los a "
-         "centímetres: $%g$ m $=%s$ cm." % (_m, texd(_cm_real, 0))),
+         "centímetres: $%s$ m $=%s$ cm." % (_num(_m), texd(_cm_real, 0))),
        D("$%s$ m" % texd(_plano, 2).rstrip("0").rstrip("{,}"), "UNITATS_NO_CONVERTIDES",
          "El número és correcte, però les unitats no: al plànol es dibuixen "
          "centímetres, no metres.")],
-      ["Passa la mesura real a centímetres.",
-       "Divideix-la entre $200$."],
-      ["$%g$ m $=%s$ cm" % (_m, texd(_cm_real, 0)),
+      ["Passa els $%s$ m a centímetres: $1$ m $=100$ cm." % _num(_m),
+       "Al plànol tot es dibuixa $200$ vegades més petit: divideix entre "
+       "$200$."],
+      ["$%s$ m $=%s$ cm" % (_num(_m), texd(_cm_real, 0)),
        "$\\dfrac{%s}{200}=%s$ cm"
        % (texd(_cm_real, 0), texd(_plano, 2).rstrip("0").rstrip("{,}"))],
       ex_text=E287)
@@ -182,8 +193,10 @@ for _ap, _dib, _real, _ud, _ur in _288:
        D("$1:%s$" % texd(_cm, 0), "DIVISIO_OBLIDADA",
          "Aquesta és la mesura real en centímetres, no l'escala. L'escala "
          "surt de dividir-la entre la mesura del dibuix.")],
-      ["Passa les dues mesures a la mateixa unitat, normalment centímetres.",
-       "Divideix la mesura real entre la del dibuix."],
+      ["Passa els $%g$ %s a centímetres, la mateixa unitat que els $%g$ cm "
+       "del dibuix." % (_real, _ur, _dib),
+       "Divideix la mesura real entre la del dibuix: aquest quocient és el "
+       "segon nombre de l'escala $1:\\ldots$"],
       ["$%g$ %s $=%s$ cm" % (_real, _ur, texd(_cm, 0)),
        "$\\dfrac{%s}{%g}=%s$, o sigui escala $1:%s$"
        % (texd(_cm, 0), _dib, texd(_k, 0), texd(_k, 0))],
@@ -269,7 +282,9 @@ for _ap, _k, _area in _291:
          "La raó multiplica, no suma.")],
       ["Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
        "$k^2=%s$." % tex(_k ** 2)],
-      ["$k^2=%s^2=%s$" % (tex(_k), tex(_k ** 2)),
+      # Entre parèntesis si és una fracció: $\dfrac52^2$ semblava 5/4 (291c).
+      ["$k^2=%s^2=%s$" % (tex(_k) if _k.denominator == 1 else
+                          "\\left(%s\\right)" % tex(_k), tex(_k ** 2)),
        "Àrea gran $=%d\\cdot%s=%s$ cm$^2$"
        % (_area, tex(_k ** 2), texd(_gran, 2).rstrip("0").rstrip("{,}"))],
       ex_text=E291,
