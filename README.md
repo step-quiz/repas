@@ -69,15 +69,16 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
   a 15 min per visita), alguna pista oberta, o les
   opcions mostrades (`opc`). També el que es va fallar al primer intent i
   encara té el segon. La regla és `RE.esAMitges()` a `js/nucli.js`.
-- **On surt.** A dalt de la portada, «Tens exercicis a mitges», de tots els
+- **On surt.** A dalt de la portada, «Exercicis no acabats», de tots els
   fulls i del més recent al més antic. Cada fila porta el full i el bloc,
-  «No l'has acabat:» i el motiu concret, i quan va ser («ahir a les 18:42 ·
+  el motiu concret, i quan va ser («ahir a les 18:42 ·
   4 min»). Els motius, del pas més avançat al menys (se'n mostra un):
   «has fallat el primer intent i et queda el segon», «has demanat «Mostra'm
   les opcions», però no has respost», «has demanat pista, però no has
   respost», «has clicat «Següent exercici» sense respondre» i «has llegit
-  l'enunciat, però no has fet res més» (`RE.motiuAMitges()`). El mateix text
-  surt a dalt de l'exercici quan s'hi torna. A la pàgina del full, els
+  l'enunciat, però no has fet res més» (`RE.motiuAMitges()`). A dalt de
+  l'exercici, quan s'hi torna, surt el mateix motiu precedit de «No l'has
+  acabat:». A la pàgina del full, els
   d'aquell full; i al mapa, amb casella pròpia (½). Una creu el treu de la llista
   (amb «Desfés»); si s'hi torna a treballar 40 s més, hi torna a sortir.
 - **«Continua on ho vas deixar»** porta a l'exercici a mitges més recent del
@@ -108,7 +109,7 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
     js/nucli.js           progrés a localStorage, mapa de caselles, KaTeX
     js/inici.js           controlador del Nivell 0 (taula FULLS)
     js/hub.js             controlador del Nivell 1
-    js/amitges.js         «Tens exercicis a mitges» i el cercador per codi
+    js/amitges.js         «Exercicis no acabats» i el cercador per codi
     js/practica.js        controlador del Nivell 2
     js/teoria.js          els botons «Teoria» (llibre de text) i «Vídeo»
                           (exercici semblant resolt) de cada exercici

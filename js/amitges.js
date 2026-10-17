@@ -1,4 +1,4 @@
-/* amitges.js — la llista «Tens exercicis a mitges» i el cercador per codi.
+/* amitges.js — la llista «Exercicis no acabats» i el cercador per codi.
 
    El cas que resol: un alumne obre un exercici, el resol a la llibreta i
    passa al següent sense mostrar les opcions o sense comprovar la resposta.
@@ -79,6 +79,8 @@ window.RE_MITGES = (function () {
     return [quan(e.quan), durada(e.it.tact)].filter(Boolean).join(" · ");
   }
 
+  function majuscula(t) { return t.charAt(0).toUpperCase() + t.slice(1); }
+
   function url(e) {
     return "practica.html?full=" + e.full + "&q=" + encodeURIComponent(e.id);
   }
@@ -92,8 +94,7 @@ window.RE_MITGES = (function () {
         '<span class="codi">' + esc(e.id) + "</span>" +
         '<span class="amitges-cos">' +
           '<span class="amitges-on">' + esc(on) + "</span>" +
-          '<span class="amitges-motiu"><span class="amitges-motiu-cap">No l\'has acabat:</span><br>' +
-            esc(RE.motiuAMitges(e.it)) + "</span>" +
+          '<span class="amitges-motiu">' + esc(majuscula(RE.motiuAMitges(e.it))) + "</span>" +
           '<span class="amitges-detall">' + esc(detall(e)) + "</span>" +
         "</span>" +
         '<span class="amitges-cta"><span class="amitges-cta-txt">Acaba\'l</span>' +
@@ -123,8 +124,7 @@ window.RE_MITGES = (function () {
     var visibles = obert ? llista : llista.slice(0, max);
     var resta = llista.length - visibles.length;
     cont.innerHTML =
-      '<h2 id="amitges-titol">Tens ' + (llista.length === 1 ? "un exercici" : llista.length + " exercicis") +
-        " a mitges</h2>" +
+      '<h2 id="amitges-titol">Exercicis no acabats</h2>' +
       '<ul class="amitges-llista">' +
         visibles.map(function (e) { return fila(e, !opts.full); }).join("") +
       "</ul>" +

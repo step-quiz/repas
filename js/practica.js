@@ -114,7 +114,7 @@
       '<h2 id="avis-sortida-titol">Encara no has respost aquest exercici</h2>' +
       "<p>" + motiu + "</p>" +
       '<p class="petit apagat">Si el deixes ara, el trobaràs a la portada, a ' +
-      "<strong>«Tens exercicis a mitges»</strong>. Apunta't el codi " +
+      "<strong>«Exercicis no acabats»</strong>. Apunta't el codi " +
       '<span class="codi">' + item.id + "</span> a la llibreta.</p>" +
       '<div class="accions">' +
         '<button type="button" class="btn" id="avis-respon">Respon ara</button>' +
@@ -193,7 +193,7 @@
   RE.mat(document.body);
   /* `visita` posa "vist" si encara no hi havia res (com abans) i renova
      `tvis`, l'última visita. El rellotge compta el temps actiu d'aquest
-     exercici: és el que fa que, l'endemà, surti a «Tens exercicis a mitges». */
+     exercici: és el que fa que, l'endemà, surti a «Exercicis no acabats». */
   RE.visita(D.full, item.id);
   RE.rellotge();
   var crono = RE.cronoExercici(D.full, item.id);

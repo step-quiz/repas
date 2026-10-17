@@ -538,13 +538,14 @@ async function obre(pagina, query, estat) {
       const f = sec.querySelector(".amitges-fila");
       assert.ok(/Full 7 · /.test(f.textContent), f.textContent);
       assert.ok(/4 min/.test(f.textContent), f.textContent);
-      assert.ok(/No l'has acabat:has llegit l'enunciat, però no has fet res més/.test(f.textContent), f.textContent);
+      assert.ok(/Has llegit l'enunciat, però no has fet res més/.test(f.textContent), f.textContent);
       const f2 = sec.querySelectorAll(".amitges-fila")[1];
-      assert.ok(/No l'has acabat:has demanat pista, però no has respost/.test(f2.textContent), f2.textContent);
+      assert.ok(/Has demanat pista, però no has respost/.test(f2.textContent), f2.textContent);
       assert.ok(f.querySelector("a").getAttribute("href") === "practica.html?full=7&q=121b");
     });
-    prova("el paràgraf genèric de dalt ja no hi és", () => {
-      assert.ok(!/El vas treballar|Els vas treballar|només així queda anotat/.test(sec.textContent));
+    prova("el títol és «Exercicis no acabats», sense «No l'has acabat:» a les files", () => {
+      assert.strictEqual(sec.querySelector("h2").textContent, "Exercicis no acabats");
+      assert.ok(!/No l'has acabat|El vas treballar|només així queda anotat/.test(sec.textContent));
     });
     sec.querySelector(".amitges-treu").click();
     prova("la creu el treu i ofereix «Desfés»", () => {

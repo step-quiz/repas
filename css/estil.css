@@ -318,7 +318,6 @@ button{font:inherit;font-family:var(--cos)}
 .amitges-on{font-weight:600;overflow-wrap:anywhere}
 /* «No l'has acabat:» i, a sota, el cas concret (RE.motiuAMitges). */
 .amitges-motiu{font-size:.9rem;line-height:1.35;margin-top:.2rem}
-.amitges-motiu-cap{font-weight:700;color:#6B4200}
 .amitges-detall{font-size:.82rem;color:var(--apagat);margin-top:.15rem}
 .amitges-cta{display:inline-flex;align-items:center;gap:.3rem;font-weight:700;color:var(--blau);
   white-space:nowrap}
