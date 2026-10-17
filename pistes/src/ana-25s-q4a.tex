@@ -1,0 +1,37 @@
+% Pista ana-25s-q4a · Anàlisi
+% Procedència: PAU Catalunya 2025 · Convocatòria de setembre · Sèrie 3 · Exercici 4 — Opció A
+\documentclass[11pt,a4paper]{article}
+\usepackage{pista}
+\pistainfo{Catalunya 2025}{Convocatòria de setembre}{Sèrie 3}
+
+\begin{document}
+
+\section*{\textcolor{blauPista}{Exercici 4 --- Opció A}}
+
+\noindent Un vidrier està reparant un dels vitralls de la Sagrada Família la forma del qual és la de la part ombrejada de la figura adjunta. S'ha adonat que Gaudí el va dissenyar de manera que un dels costats segueix la funció $y = 3\sin(x/4)$ i un altre segueix la funció $y = 3\cos(x/4)$, on $x$ i $y$ estan expressades en metres.
+
+\noindent\textit{(A la figura: $B$ és sobre l'eix $OY$. Una gràfica passa per $A$ i $C$, i l'altra per $B$ i $C$; $C$ és el primer punt de tall de les dues gràfiques a la dreta de l'eix $OY$. La part ombrejada és la regió limitada per les dues gràfiques i el segment $AB$.)}
+
+\subsection*{\textit{a)} \normalfont Raoneu a quina funció correspon cada gràfica i calculeu les coordenades dels punts $B$ i $C$ assenyalats a la figura (tenint en compte que $A$ és l'origen de coordenades). \hspace*{\fill}\textnormal{[1~punt]}}
+
+\pista{\textit{Quina funció és cada gràfica?} Avalua les dues funcions a $x = 0$: una passa per l'origen $A$ i l'altra, per $B$.
+
+\medskip
+\textit{El punt $C$.} És la intersecció de les dues corbes.
+\begin{itemize}
+\item Iguala $3\sin(x/4) = 3\cos(x/4)$ i resol l'equació treballant en radiants.
+\item De totes les solucions, queda't amb la del punt $C$ de la figura.
+\item Substitueix-la en una de les dues funcions per obtenir l'ordenada de $C$.
+\end{itemize}}
+
+\subsection*{\textit{b)} \normalfont Calculeu el preu del vitrall sabent que costa 750\,\euro/m$^{2}$. \hspace*{\fill}\textnormal{[1,5~punts]}}
+
+\pista{L'àrea és el valor absolut de la integral de la diferència de les dues funcions, entre les abscisses d'$A$ i de $C$ de l'apartat anterior:
+\[
+\text{Àrea} = \left| \int_{x_{A}}^{x_{C}} \Bigl(3\cos\frac{x}{4} - 3\sin\frac{x}{4}\Bigr)\,dx \right|
+\]
+
+\medskip
+\textbf{Atenció:} quan calculis la primitiva, vigila el coeficient que hi apareix. I no t'aturis a l'àrea: per obtenir el preu, multiplica-la pel que costa cada $\text{m}^{2}$.}
+
+\end{document}
