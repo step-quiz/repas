@@ -10,9 +10,26 @@
 <body>
 <main class="embolcall">
   <p class="cimera">Repàs de Matemàtiques</p>
+
+  <!-- Exercicis treballats i no resposts: els pinta js/amitges.js. Amagat
+       si no n'hi ha cap. Va a dalt de tot perquè és el que l'alumne busca
+       quan torna l'endemà. -->
+  <section class="amitges" id="amitges" hidden></section>
+
   <div id="tutor"></div>
 
   <h1>Escull un full i una activitat</h1>
+
+  <form class="cerca" id="cerca" role="search" autocomplete="off" novalidate>
+    <label for="cerca-codi" class="cerca-etiqueta">Tens el codi d'un exercici apuntat a la llibreta?</label>
+    <div class="cerca-fila">
+      <input id="cerca-codi" name="codi" type="text" placeholder="p. ex. 121b"
+             autocapitalize="off" autocorrect="off" spellcheck="false"
+             enterkeyhint="go" maxlength="16">
+      <button class="btn" type="submit">Vés-hi</button>
+    </div>
+    <p class="cerca-resposta petit" aria-live="polite" hidden></p>
+  </form>
 
   <div class="fulls" id="fulls" style="margin-top:1.2rem"></div>
 
@@ -28,6 +45,7 @@
 <script src="js/codi-taules.js"></script>
 <script src="js/codi.js"></script>
 <script src="js/codi-ui.js"></script>
+<script src="js/amitges.js"></script>
 <script src="js/inici.js"></script>
 </body>
 </html>

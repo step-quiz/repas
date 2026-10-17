@@ -409,6 +409,19 @@ propi registre.
 
 El progrés viu a `localStorage["repas-eso:full" + N]`, una clau per full.
 
+**Exercicis a mitges.** `RE.visita(full, id)` (en obrir l'exercici) posa
+`vist` si no hi havia res i renova `tvis`; `RE.rellotge(5, full, id)` suma el
+temps actiu a `tact` (en segons, sense tocar `ts`); `RE.marcaOpcions()` posa
+`opc: 1`. `RE.esAMitges(it)` decideix: sense desenllaç i amb `tact >= 40`,
+pistes o opcions, o fallat amb un sol intent. `RE.aMitges(full?)` els torna
+ordenats per `tvis` (o `ts` per als registres antics); `RE.nomesOberts(full)`
+dona els `vist` sense cap senyal. `RE.descartaAMitges()` desa `amd`/`amt`
+(quan i quant temps portava); `RE.recuperaAMitges()` ho desfà. La interfície
+—la llista de la portada i del full, i el cercador per codi— és a
+`js/amitges.js` (`window.RE_MITGES`). Cap d'aquests camps entra al codi de
+verificació: `codi.js` només llegeix `estat`, `npis`, `tf`, `rep`, `errs` i
+`imp`.
+
 ### 4.2 Els controladors
 
 `inici.js` pinta les targetes de full a partir de la taula `FULLS` que porta
@@ -416,12 +429,16 @@ a dins; és l'únic lloc del JS on hi ha el títol i el total de preguntes de
 cada full escrits a mà.
 
 `hub.js` pinta la pàgina d'un full a partir de `window.FULL`. Amb `?bloc=<id>`
-destaca aquell bloc i hi fa scroll.
+destaca aquell bloc i hi fa scroll. «Continua on ho vas deixar» va a
+l'exercici a mitges més recent d'aquell full i, si no n'hi ha, al primer
+pendent.
 
 `practica.js` porta el cicle de quatre passos. Amb `?origen=itinerari` canvia
 **tota** la navegació de sortida —Següent, Anterior i l'enllaç de tornada— cap
 a `itinerari.html`; sense el paràmetre es comporta exactament com si el tutor
-no existís.
+no existís. Totes les sortides passen per `surt()`, que, si l'exercici és a
+mitges i encara no s'ha avisat en aquesta pàgina, mostra `#avis-sortida` en
+lloc de marxar.
 
 ---
 
@@ -610,7 +627,7 @@ l'alumne espera del botó.
 
 | Clau | Propietari | Contingut |
 |---|---|---|
-| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full |
+| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full. Per ítem, a més de l'estat: `tact` (s actius), `tvis` (última visita), `opc` (opcions mostrades), `amd`/`amt` (tret de «a mitges») |
 | `repas-eso:diagnostic` | `RE_DIAG` | `{ts, versio: 2, respostes: [{prova, estat, encert}]}` — `encert` és `null` si no es va comprovar |
 | `repas-eso:itinerari` | `RE_ITI` | `{ts, ruta: [{full, bloc, blocTitol, tema, id}]}` — sense estat |
 

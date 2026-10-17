@@ -187,8 +187,13 @@ window.RE = (function () {
   /* Rellotge de feina activa. No mesura temps de pantalla oberta: només suma
      mentre la pestanya és visible, i es para sola. Serveix per a una sola
      cosa, que ara mateix és invisible: distingir 60 exercicis fets en dues
-     setmanes de 60 exercicis "fets" en nou minuts. */
-  function rellotge(interval) {
+     setmanes de 60 exercicis "fets" en nou minuts.
+
+     Amb `full` i `id` compta també el temps d'AQUELL exercici (`tact`, en
+     segons, acumulat de totes les visites) i en renova `tvis`. És el que
+     permet saber, l'endemà, quin exercici es va treballar a la llibreta i es
+     va deixar sense respondre (vegeu «a mitges», més avall). */
+  function rellotge(interval, full, idItem) {
     var pas = interval || 15;
     var id = setInterval(function () {
       if (document.hidden) return;
@@ -196,8 +201,124 @@ window.RE = (function () {
       m.seg = (m.seg || 0) + pas;
       m.min = Math.floor(m.seg / 60);
       desaMeta(m);
+      if (full && idItem) {
+        toca(full, idItem, function (it) {
+          it.tact = (it.tact || 0) + pas;
+          it.tvis = Date.now();
+        });
+      }
     }, pas * 1000);
     return function () { clearInterval(id); };
+  }
+
+  /* Escriu camps d'un ítem SENSE tocar `ts`. `ts` vol dir «l'última vegada
+     que va canviar el registre» i el fa servir la migració de dates; el
+     rellotge, que escriu cada pocs segons, no l'ha de moure. */
+  function toca(full, id, fn) {
+    var p = llegeix(full);
+    var it = p.items[id] = Object.assign({}, p.items[id]);
+    fn(it);
+    desa(full, p);
+    return it;
+  }
+
+  /* ── exercicis «a mitges» ────────────────────────────────────────────────
+
+     El cas que es vol resoldre: l'alumne obre un exercici, el resol a la
+     llibreta i passa al següent sense mostrar les opcions o sense confirmar
+     la resposta. L'endemà no sap quin era. L'estat "vist" no ho pot dir: es
+     posa només per carregar la pàgina, i qui passa deu exercicis amb
+     «Següent» en té deu de "vistos".
+
+     Un exercici és A MITGES si encara no té cap desenllaç i hi ha senyal de
+     feina de debò:
+       · ha estat obert, amb la pestanya visible, LLINDAR segons o més (`tact`);
+       · s'hi ha obert alguna pista (`npis`);
+       · s'han mostrat les opcions (`opc`).
+     També ho és el que es va fallar al primer intent i encara té el segon:
+     el registre ja hi diu "fallat", però l'alumne hi pot tornar.
+
+     Res d'això entra al codi de verificació (codi.js només llegeix `estat`,
+     `npis`, `tf`, `rep`, `errs` i `imp`): són ajudes per a l'alumne, no
+     dades per al professorat.
+
+     L'alumne pot treure un exercici de la llista («No el vull fer ara»):
+     es desa `amd` (quan) i `amt` (el temps que hi portava). Hi torna a sortir
+     només si després hi torna a treballar LLINDAR segons més. */
+  var LLINDAR = 40;
+
+  function esAMitges(it) {
+    if (!it || it.tancat) return false;
+    if (it.amd && (it.tact || 0) - (it.amt || 0) < LLINDAR) return false;
+    var e = it.estat || "";
+    if (e === "fallat") return (it.nint || 0) < 2;
+    if (e && e !== "vist") return false;
+    return (it.tact || 0) >= LLINDAR || (it.npis || 0) > 0 || !!it.opc;
+  }
+
+  /* Ids que existeixen de debò al banc actual. Si un exercici s'ha retirat,
+     el registre antic el pot portar encara, i no s'ha d'oferir un enllaç que
+     porta a «aquest exercici no és en aquest full». */
+  function existeix(full, id) {
+    var t = window.RE_TAULES && window.RE_TAULES.fulls
+          && (window.RE_TAULES.fulls[full] || window.RE_TAULES.fulls[String(full)]);
+    if (window.FULL && +window.FULL.full === +full && window.FULL.items) {
+      return window.FULL.items.some(function (i) { return i.id === id; });
+    }
+    return t && t.items ? t.items.indexOf(id) >= 0 : true;
+  }
+
+  function quanVa(it) { return it.tvis || it.ts || 0; }
+
+  /* Els exercicis a mitges d'un full (o de tots, sense `full`), del més
+     recent al més antic. */
+  function aMitges(full) {
+    var fulls = full ? [full] : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    var r = [];
+    fulls.forEach(function (n) {
+      var p = llegeix(n).items;
+      Object.keys(p).forEach(function (id) {
+        if (esAMitges(p[id]) && existeix(n, id)) {
+          r.push({ full: n, id: id, it: p[id], quan: quanVa(p[id]) });
+        }
+      });
+    });
+    return r.sort(function (a, b) { return b.quan - a.quan; });
+  }
+
+  /* Els que només s'han obert (cap senyal de feina). Serveix per al
+     desplegable «oberts sense respondre» de la pàgina del full: és l'única
+     manera de trobar els que es van deixar abans que existís `tact`. */
+  function nomesOberts(full) {
+    var p = llegeix(full).items, r = [];
+    Object.keys(p).forEach(function (id) {
+      var it = p[id];
+      if (it.estat === "vist" && !it.tancat && !esAMitges(it) && existeix(full, id)) {
+        r.push({ full: full, id: id, it: it, quan: quanVa(it) });
+      }
+    });
+    return r.sort(function (a, b) { return b.quan - a.quan; });
+  }
+
+  function visita(full, id) {
+    return toca(full, id, function (it) {
+      if (!it.estat) { it.estat = "vist"; it.ts = Date.now(); }
+      it.tvis = Date.now();
+    });
+  }
+
+  function marcaOpcions(full, id) {
+    toca(full, id, function (it) { it.opc = 1; it.tvis = Date.now(); });
+  }
+
+  function descartaAMitges(full, id) {
+    toca(full, id, function (it) { it.amd = Date.now(); it.amt = it.tact || 0; });
+  }
+
+  /* El «Desfés» de la llista: un toc de més en una tauleta no ha de fer
+     desaparèixer l'exercici que es buscava. */
+  function recuperaAMitges(full, id) {
+    toca(full, id, function (it) { delete it.amd; delete it.amt; });
   }
 
   function esborra(full) {
@@ -218,7 +339,8 @@ window.RE = (function () {
     pista: "encertat amb pista",
     segon: "encertat al segon intent",
     fallat: "fallat",
-    vist: "vist, sense respondre",
+    vist: "només obert",
+    amitges: "a mitges, sense respondre",
     "": "per fer"
   };
 
@@ -235,11 +357,15 @@ window.RE = (function () {
       fila.className = "mapa";
       bloc.items.forEach(function (id) {
         var e = (p[id] || {}).estat || "";
+        /* Un "vist" amb feina a dins no és el mateix que un "vist" de passada:
+           té casella pròpia (½), perquè és el que l'alumne busca l'endemà. */
+        var clase = e === "vist" && esAMitges(p[id]) ? "vist mig" : e;
+        var txt = ETIQ[clase === "vist mig" ? "amitges" : e];
         var b = document.createElement("button");
-        b.className = "cel " + e;
+        b.className = "cel " + clase;
         b.type = "button";
-        b.title = id + " — " + ETIQ[e];
-        b.setAttribute("aria-label", "Pregunta " + id + ": " + ETIQ[e]);
+        b.title = id + " — " + txt;
+        b.setAttribute("aria-label", "Pregunta " + id + ": " + txt);
         b.onclick = function () { onClic(id); };
         fila.appendChild(b);
       });
@@ -265,6 +391,9 @@ window.RE = (function () {
     estat: estat, esborra: esborra, item: item,
     intent: intent, pista: pista, estatDe: estatDe,
     meta: meta, desaMeta: desaMeta, sumaMeta: sumaMeta, rellotge: rellotge,
-    clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ
+    clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ,
+    LLINDAR: LLINDAR, esAMitges: esAMitges, aMitges: aMitges, nomesOberts: nomesOberts,
+    visita: visita, marcaOpcions: marcaOpcions,
+    descartaAMitges: descartaAMitges, recuperaAMitges: recuperaAMitges
   };
 })();

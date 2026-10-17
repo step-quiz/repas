@@ -20,10 +20,24 @@
 
   <div style="margin:0 0 1.15rem">
     <button class="btn gran" id="continua">Continua on ho vas deixar</button>
+    <p class="petit apagat continua-nota" id="continua-nota" hidden></p>
   </div>
+
+  <!-- Exercicis d'aquest full treballats i no resposts (js/amitges.js). -->
+  <section class="amitges" id="amitges" hidden></section>
 
   <h2 style="margin-top:1.4rem">Per blocs</h2>
   <div class="blocs" id="blocs"></div>
+
+  <!-- Els oberts sense cap senyal de feina: potser només s'hi va passar,
+       però és l'única manera de trobar els que es van deixar abans que el
+       registre comptés el temps de cada exercici. -->
+  <details class="desplegable" id="oberts" hidden>
+    <summary><span id="oberts-titol">Oberts sense respondre</span> <span class="fletxa">▾</span></summary>
+    <p class="petit apagat" style="margin:.5rem 0 .4rem">Els has obert però no hi ha rastre que
+      hi treballessis. Si algun el tens fet a la llibreta, entra-hi i respon-lo.</p>
+    <div class="xips" id="oberts-llista"></div>
+  </details>
 
   <details class="desplegable">
     <summary>Veure el mapa complet <span class="fletxa">▾</span></summary>
@@ -35,7 +49,8 @@
       <span><i class="cel pista"></i>amb pista</span>
       <span><i class="cel segon"></i>al segon intent</span>
       <span><i class="cel fallat"></i>fallat</span>
-      <span><i class="cel vist"></i>començat</span>
+      <span><i class="cel vist mig"></i>a mitges</span>
+      <span><i class="cel vist"></i>només obert</span>
       <span><i class="cel"></i>per fer</span>
     </div>
   </details>
@@ -76,6 +91,7 @@
 <script src="js/codi-taules.js"></script>
 <script src="js/codi.js"></script>
 <script src="js/codi-ui.js"></script>
+<script src="js/amitges.js"></script>
 <script src="js/hub.js"></script>
 </body>
 </html>

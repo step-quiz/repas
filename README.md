@@ -56,6 +56,35 @@ personalitzat d'exercicis.
 El progrés es desa al navegador (`localStorage`), amb una clau per full. No
 hi ha comptes ni sincronització entre dispositius.
 
+## Exercicis a mitges
+
+El cas: l'alumne obre un exercici, el resol a la llibreta i passa al següent
+sense mostrar les opcions o sense comprovar la resposta. L'endemà no sap quin
+era. L'estat `vist` no ho pot dir, perquè es posa només per obrir la pàgina:
+qui passa deu exercicis amb «Següent» en té deu de vistos.
+
+- **Què és «a mitges».** Un exercici sense desenllaç on hi ha senyal de feina:
+  40 s o més amb la pestanya visible (`tact`), alguna pista oberta, o les
+  opcions mostrades (`opc`). També el que es va fallar al primer intent i
+  encara té el segon. La regla és `RE.esAMitges()` a `js/nucli.js`.
+- **On surt.** A dalt de la portada, «Tens exercicis a mitges», de tots els
+  fulls i del més recent al més antic, amb el full, el bloc, quan i què s'hi va
+  fer («ahir a les 18:42 · 4 min · opcions obertes»). A la pàgina del full, els
+  d'aquell full; i al mapa, amb casella pròpia (½). Una creu el treu de la llista
+  (amb «Desfés»); si s'hi torna a treballar 40 s més, hi torna a sortir.
+- **«Continua on ho vas deixar»** porta a l'exercici a mitges més recent del
+  full, i diu quin és. Si no n'hi ha cap, al primer pendent, com abans.
+- **Avís en sortir.** Qui prem «Següent», «Anterior» o l'enllaç de dalt amb
+  un exercici a mitges (o amb una opció triada i no comprovada) veu, una sola
+  vegada, un avís dins de la targeta: «Respon ara» o «Deixa'l per a més tard».
+  No bloqueja res: el segon clic ja marxa. Qui només fulleja no veu res.
+- **Cercador per codi.** A la portada, «Tens el codi d'un exercici apuntat a la
+  llibreta?»: escrivint `121b` s'hi va directament; amb `121` s'ofereixen els
+  apartats.
+- **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `tvis`,
+  `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
+  `tests/test_amitges.js`.
+
 ## Estructura de fitxers
 
 A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
@@ -71,6 +100,7 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
     js/nucli.js           progrés a localStorage, mapa de caselles, KaTeX
     js/inici.js           controlador del Nivell 0 (taula FULLS)
     js/hub.js             controlador del Nivell 1
+    js/amitges.js         «Tens exercicis a mitges» i el cercador per codi
     js/practica.js        controlador del Nivell 2
     js/teoria.js          els botons «Teoria» (llibre de text) i «Vídeo»
                           (exercici semblant resolt) de cada exercici
@@ -361,13 +391,14 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-466 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
+516 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
 navegador real si hi ha Playwright (`test_visibilitat_real.js`). Les de Python i
 les del codi de verificació no demanen instal·lar res: `unittest` de la
-biblioteca estàndard i Node pelat. Quatre blocs (analitzador, accessibilitat,
-flux de la resolució i botons dels recursos) necessiten un DOM i se salten
-sols si `jsdom` no hi és — **però llavors l'script ho diu en groc i no declara
-«tot en verd»**, perquè un verd que amaga 179 comprovacions no executades és
+biblioteca estàndard i Node pelat. Cinc blocs (analitzador, accessibilitat,
+flux de la resolució, botons dels recursos i les pàgines dels exercicis a
+mitges) necessiten un DOM i se salten sols si `jsdom` no hi és — **però llavors
+l'script ho diu en groc i no declara «tot en verd»**, perquè un verd que amaga
+202 comprovacions no executades és
 pitjor que un avís:
 
 ```sh

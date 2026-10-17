@@ -122,4 +122,10 @@
     };
   }
   pintaTutor();
+
+  /* ---- exercicis a mitges i cercador per codi (js/amitges.js) ---- */
+  if (window.RE_MITGES) {
+    RE_MITGES.pinta($("#amitges"), { max: 3 });
+    RE_MITGES.cercador($("#cerca"));
+  }
 })();

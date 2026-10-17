@@ -292,3 +292,100 @@ button{font:inherit;font-family:var(--cos)}
 .recurs-obert{display:inline-flex;flex-direction:column;gap:.1rem}
 .recurs-obert a{font-size:.82rem;color:var(--blau)}
 .recurs-avis{font-size:.78rem;color:var(--apagat);line-height:1.3}
+
+/* ---- exercicis a mitges (js/amitges.js) -------------------------------
+   Treballats i no resposts: l'alumne els va resoldre a la llibreta i va
+   passar al següent sense comprovar-los. Ambre, com la nota i les pistes:
+   no és un error, és feina pendent.
+
+   Pensat per a tres maneres de tocar-ho:
+     · ratolí o trackpad (portàtil): hover només dins de (hover:hover);
+     · dit (tauleta, Chromebook en mode tauleta, mòbil): totes les zones
+       tocables fan 44 px o més, i el toc dona resposta amb :active;
+     · teclat: cada fila és un sol enllaç tabulable, i la creu és un botó
+       a part amb el seu nom («Treu el 145b de la llista»). */
+.amitges{background:var(--ambre-suau);border:1px solid #EBD3A3;border-left:4px solid var(--ambre);
+  border-radius:12px;padding:.9rem 1rem 1rem;margin:.9rem 0 1.4rem}
+.amitges h2{font-size:1.06rem}
+.amitges-intro{margin:.3rem 0 .75rem;line-height:1.4}
+.amitges-llista{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.amitges-fila{display:flex;align-items:stretch;background:var(--card);border:1px solid #EBD3A3;
+  border-radius:10px;overflow:hidden;transition:border-color .12s}
+.amitges-enllac{flex:1;min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;gap:.75rem;padding:.6rem .8rem;min-height:3.25rem;color:inherit;
+  text-decoration:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.amitges-enllac .codi{font-size:13px;padding:.32rem .5rem}
+.amitges-cos{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.amitges-on{font-weight:600;overflow-wrap:anywhere}
+.amitges-detall{font-size:.82rem;color:var(--apagat);margin-top:.12rem}
+.amitges-cta{display:inline-flex;align-items:center;gap:.3rem;font-weight:700;color:var(--blau);
+  white-space:nowrap}
+.amitges-fletxa{font-size:1.1rem;line-height:1}
+.amitges-treu{flex:0 0 3rem;border:0;border-left:1px solid var(--vora);background:transparent;
+  color:var(--apagat);font-size:1.4rem;line-height:1;cursor:pointer;padding:0;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.amitges-enllac:active{background:var(--blau-suau)}
+.amitges-treu:active{background:var(--vermell-suau);color:var(--vermell)}
+@media (hover:hover){
+  .amitges-fila:hover{border-color:var(--blau)}
+  .amitges-enllac:hover .amitges-cta{text-decoration:underline}
+  .amitges-treu:hover{background:var(--vermell-suau);color:var(--vermell)}
+}
+.amitges-enllac:focus-visible,.amitges-treu:focus-visible{outline-offset:-3px}
+.amitges-fila.treta{align-items:center;justify-content:space-between;gap:.6rem;
+  padding:.45rem .5rem .45rem .8rem;background:transparent;border-style:dashed;flex-wrap:wrap}
+.amitges-tret{font-size:.9rem;color:var(--apagat)}
+.amitges-desfes{padding:.45rem .85rem;min-height:2.75rem}
+.amitges-mes{margin-top:.6rem;min-height:2.75rem}
+/* Mòbil vertical: el «Acaba'l» es queda només en fletxa i la fila guanya
+   amplada per al nom del bloc. La fletxa no perd mida: és la pista que la
+   fila es pot tocar. */
+@media (max-width:460px){
+  .amitges{padding:.8rem .75rem .85rem}
+  .amitges-enllac{gap:.6rem;padding:.55rem .65rem}
+  .amitges-on{font-size:.95rem}
+  .amitges-cta-txt{display:none}
+  .amitges-fletxa{font-size:1.3rem}
+}
+
+/* La casella del mapa: ½ sobre ambre clar. Forma pròpia, no només color,
+   com la resta d'estats del mapa (vegeu el comentari de .mapa). */
+.cel.vist.mig{background:var(--ambre-suau);border:2px solid var(--ambre)}
+.cel.vist.mig::after{content:"\00BD";color:#6B4200}
+.continua-nota{margin:.5rem 0 0;text-align:center;line-height:1.4}
+
+/* Xips de codi d'exercici: el desplegable «Oberts sense respondre» i les
+   opcions del cercador quan un número té apartats. */
+.xips{display:flex;flex-wrap:wrap;gap:.45rem;margin:.5rem 0 .2rem}
+.xip{display:inline-flex;align-items:center;justify-content:center;min-width:3.1rem;
+  min-height:2.5rem;padding:0 .7rem;font:700 .85rem/1 var(--mono);color:var(--tinta);
+  background:var(--card);border:1px solid var(--vora);border-radius:8px;text-decoration:none;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.xip:active{background:var(--blau-suau)}
+@media (hover:hover){.xip:hover{border-color:var(--blau);color:var(--blau)}}
+@media (pointer:coarse){.xip{min-height:2.75rem;min-width:3.4rem}}
+
+/* ---- cercador per codi (index.html) ---- */
+.cerca{margin:1rem 0 0}
+.cerca-etiqueta{display:block;font-weight:600;font-size:.92rem;margin-bottom:.4rem;line-height:1.35}
+.cerca-fila{display:flex;gap:.5rem;max-width:26rem}
+/* 16 px o més: per sota, Safari a l'iPad fa zoom en tocar el camp i la
+   pàgina queda descentrada. */
+.cerca-fila input{flex:1 1 auto;min-width:0;font:600 1rem/1.2 var(--mono);letter-spacing:.03em;
+  padding:.6rem .75rem;min-height:2.75rem;border:1.5px solid var(--vora);border-radius:9px;
+  background:var(--card);color:var(--tinta)}
+.cerca-fila input::placeholder{color:#8A97A8;font-weight:500}
+.cerca-fila input:focus{border-color:var(--blau)}
+.cerca-fila .btn{min-height:2.75rem;flex:none;touch-action:manipulation}
+.cerca-resposta{margin:.6rem 0 0;line-height:1.45}
+
+/* ---- avís en sortir d'un exercici a mitges (practica.html) ---- */
+.avis-sortida{margin-top:1rem;background:var(--ambre-suau);border:1px solid #EBD3A3;
+  border-left:4px solid var(--ambre);border-radius:10px;padding:.85rem 1rem}
+.avis-sortida h2{font-size:1.02rem;margin-bottom:.25rem}
+.avis-sortida p{margin:.3rem 0;line-height:1.45}
+.avis-sortida .accions{margin-top:.75rem}
+.avis-sortida .btn{min-height:2.75rem;touch-action:manipulation}
+@media (max-width:460px){
+  .avis-sortida .accions .btn{flex:1 1 100%;justify-content:center}
+}

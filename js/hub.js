@@ -30,12 +30,38 @@
 
   function comptes() {
     var p = RE.llegeix(D.full).items;
-    var n = { net: 0, pista: 0, segon: 0, fallat: 0, vist: 0 };
+    var n = { net: 0, pista: 0, segon: 0, fallat: 0, vist: 0, amitges: 0 };
     D.items.forEach(function (it) {
       var e = (p[it.id] || {}).estat;
-      if (e) n[e]++;
+      if (e === "vist" && RE.esAMitges(p[it.id])) n.amitges++;
+      else if (e) n[e]++;
     });
     return n;
+  }
+
+  /* «Continua on ho vas deixar» ha de fer el que diu. Abans portava al
+     PRIMER exercici no resolt segons l'ordre del full, que no té per què ser
+     on l'alumne era: qui havia fet del 1 al 30 i s'havia saltat el 4 tornava
+     al 4. Ara, si hi ha algun exercici a mitges, va al més recent; si no,
+     al primer pendent, com abans. */
+  function onContinuar() {
+    var ult = RE.aMitges(D.full)[0];
+    if (ult) return { id: ult.id, aMitges: ult };
+    return { id: primerPendent(D.items.map(function (i) { return i.id; })) };
+  }
+
+  function pintaOberts() {
+    var det = $("#oberts");
+    if (!det) return;
+    var ll = RE.nomesOberts(D.full);
+    if (!ll.length) { det.hidden = true; return; }
+    det.hidden = false;
+    $("#oberts-titol").textContent = "Oberts sense respondre (" + ll.length + ")";
+    $("#oberts-llista").innerHTML = ll.map(function (e) {
+      var q = RE_MITGES.quan(e.quan);
+      return '<a class="xip" href="' + RE_MITGES.url(e) + '"' +
+        (q ? ' title="Obert ' + q + '"' : "") + ">" + e.id + "</a>";
+    }).join("");
   }
 
   function pintaBlocs() {
@@ -151,17 +177,36 @@
     if ($("#comptador-linia")) {
       $("#comptador-linia").innerHTML = "<strong>" + fets + " de " + D.items.length + "</strong> resoltes";
     }
-    $("#detall").textContent = n.fallat
-      ? n.fallat + " per revisar · " + n.vist + " començades sense acabar"
+    var trossos = [];
+    if (n.fallat) trossos.push(n.fallat + " per revisar");
+    if (n.amitges) trossos.push(n.amitges + " a mitges");
+    if (n.vist) trossos.push(n.vist + " només obertes");
+    $("#detall").textContent = trossos.length
+      ? trossos.join(" · ")
       : "Cada quadret és un apartat. Toca'n un per anar-hi directament.";
 
     RE.mapa($("#mapa"), D, ves);
     pintaBlocs();
     pintaErrors();
+    if (window.RE_MITGES) {
+      RE_MITGES.pinta($("#amitges"), { full: D.full, canvi: function () { pintaContinua(); RE.mapa($("#mapa"), D, ves); pintaOberts(); } });
+      pintaOberts();
+    }
+    pintaContinua();
+  }
 
-    $("#continua").onclick = function () {
-      ves(primerPendent(D.items.map(function (i) { return i.id; })));
-    };
+  function pintaContinua() {
+    var on = onContinuar(), nota = $("#continua-nota");
+    if (nota) {
+      if (on.aMitges) {
+        nota.innerHTML = "Et porta al <strong>" + on.id + "</strong>, que vas deixar a mitges " +
+          (window.RE_MITGES ? RE_MITGES.quan(on.aMitges.quan) : "") + ".";
+        nota.hidden = false;
+      } else {
+        nota.hidden = true;
+      }
+    }
+    $("#continua").onclick = function () { ves(on.id); };
   }
 
   if ($("#reinicia")) {

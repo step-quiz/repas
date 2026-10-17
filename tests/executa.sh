@@ -38,6 +38,10 @@ echo "── JavaScript: el registre no es pot rentar ────────�
 node tests/test_registre.js || fallades=1
 
 echo
+echo "── JavaScript: els exercicis a mitges es retroben ────────────"
+node tests/test_amitges.js || fallades=1
+
+echo
 echo "── JavaScript: analitzador ───────────────────────────────────"
 node tests/analitzador.test.js || fallades=1
 
@@ -102,9 +106,10 @@ elif [ "$sense_taules" -ne 0 ]; then
   printf '  compilació i s\047han saltat proves. Executa:  python3 tools/build_tot.py\033[0m\n'
   exit 0
 elif [ "$hi_ha_jsdom" -eq 0 ]; then
-  printf '\033[33m⚠ Les proves executades passen, PERÒ quatre blocs (analitzador,\n'
-  printf '  accessibilitat, flux de la resolució i botons dels recursos) s\047han\n'
-  printf '  saltat perquè falta jsdom: són 179 comprovacions de 466 que no\n'
+  printf '\033[33m⚠ Les proves executades passen, PERÒ cinc blocs (analitzador,\n'
+  printf '  accessibilitat, flux de la resolució, botons dels recursos i pàgines\n'
+  printf '  dels exercicis a mitges) s\047han saltat perquè falta jsdom: són\n'
+  printf '  202 comprovacions de 516 que no\n'
   printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0

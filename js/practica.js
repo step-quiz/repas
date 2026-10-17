@@ -60,15 +60,89 @@
      endavant/enrere des de dins l'exercici — allà l'alumne ja veu tot el
      recorregut i tria on continuar. */
   function ves(n) {
-    if (deLitinerari) { location.href = "itinerari.html"; return; }
-    if (n < 0 || n >= ids.length) { location.href = "full.html?full=" + D.full; return; }
-    location.href = "practica.html?full=" + D.full + "&q=" + ids[n];
+    if (deLitinerari) { surt("itinerari.html"); return; }
+    if (n < 0 || n >= ids.length) { surt("full.html?full=" + D.full); return; }
+    surt("practica.html?full=" + D.full + "&q=" + ids[n]);
+  }
+
+  /* ---- sortir d'un exercici a mitges ----
+
+     Si l'alumne marxa d'un exercici que ha treballat però no ha respost, se
+     li diu UNA vegada, dins de la targeta i sense bloquejar res: el segon
+     «Següent» (o «Deixa'l per a més tard») ja marxa. No és un confirm() del
+     navegador a posta: en una tauleta aquell diàleg tapa la pantalla, no diu
+     res de l'exercici i s'aprèn a acceptar-lo sense llegir.
+
+     Qui només fulleja (menys de RE.LLINDAR segons, sense pistes ni opcions)
+     no veu res. Qui acaba de fallar el primer intent tampoc: el veredicte que
+     té a la vista ja li diu que si marxa l'exercici queda fallat. */
+  var avisat = false;
+  function calAvisar() {
+    if (avisat || tancat || repas || intentsPagina > 0) return false;
+    if (triada >= 0) return true;                       /* triada i no comprovada */
+    return RE.esAMitges(RE.item(D.full, item.id));
+  }
+
+  function surt(desti) {
+    if (!calAvisar()) { location.href = desti; return; }
+    avisat = true;
+    mostraAvisSortida(desti);
+  }
+
+  function mostraAvisSortida(desti) {
+    var caixa = $("#avis-sortida");
+    if (!caixa) { location.href = desti; return; }
+    var reg2 = RE.item(D.full, item.id);
+    var motiu = triada >= 0
+      ? "Has triat la <strong>" + LLETRES[triada] + "</strong>, però encara no l'has comprovada."
+      : (reg2.estat === "fallat"
+        ? "Vas fallar el primer intent i encara et queda el segon."
+        : "Si ja el tens resolt a la llibreta, mostra les opcions i comprova la resposta: només així queda anotat.");
+    caixa.innerHTML =
+      '<h2 id="avis-sortida-titol">Encara no has respost aquest exercici</h2>' +
+      "<p>" + motiu + "</p>" +
+      '<p class="petit apagat">Si el deixes ara, el trobaràs a la portada, a ' +
+      "<strong>«Tens exercicis a mitges»</strong>. Apunta't el codi " +
+      '<span class="codi">' + item.id + "</span> a la llibreta.</p>" +
+      '<div class="accions">' +
+        '<button type="button" class="btn" id="avis-respon">Respon ara</button>' +
+        '<button type="button" class="btn buit" id="avis-marxa">Deixa\'l per a més tard →</button>' +
+      "</div>";
+    caixa.hidden = false;
+    $("#avis-respon").onclick = function () {
+      caixa.hidden = true;
+      if ($("#zona-resposta").hidden) {
+        $("#mostra").click();
+      } else {
+        var op = $("#opcions");
+        if (op.scrollIntoView) op.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      /* El focus va on toca seguir: a «Comprova» si ja hi ha opció triada,
+         a la primera opció viva si no. Sense això, amb teclat el focus es
+         quedaria en un botó que acaba de desaparèixer. */
+      var desti2 = triada >= 0 ? $("#comprova")
+        : Array.prototype.filter.call($("#opcions").children, function (c) { return !c.disabled; })[0];
+      if (desti2 && desti2.focus) desti2.focus({ preventScroll: true });
+    };
+    $("#avis-marxa").onclick = function () { location.href = desti; };
+    if (caixa.scrollIntoView) caixa.scrollIntoView({ behavior: "smooth", block: "center" });
+    var b = $("#avis-respon");
+    if (b && b.focus) b.focus({ preventScroll: true });
   }
 
   /* ---- capçalera ---- */
   var bloc = D.blocs.filter(function (b) { return b.id === item.bloc; })[0];
   $("#tornar").textContent = deLitinerari ? "← El teu itinerari" : "← " + D.titol;
   $("#tornar").href = deLitinerari ? "itinerari.html" : "full.html?full=" + D.full;
+  /* L'enllaç de dalt també és una sortida. Amb Ctrl/Cmd/clic del mig
+     s'obre en una pestanya nova i l'exercici es queda obert: llavors no cal
+     cap avís. */
+  $("#tornar").addEventListener("click", function (e) {
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+    if (!calAvisar()) return;
+    e.preventDefault();
+    surt($("#tornar").href);
+  });
   $("#codi").textContent = item.id;
   $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
   $("#encap").textContent = item.encapcalament;
@@ -105,8 +179,11 @@
     } catch (e) { /* sense icona de teoria; l'exercici continua */ }
   }
   RE.mat(document.body);
-  if (!RE.estat(D.full, item.id)) RE.apunta(D.full, item.id, { estat: "vist" });
-  RE.rellotge();
+  /* `visita` posa "vist" si encara no hi havia res (com abans) i renova
+     `tvis`, l'última visita. El rellotge compta el temps actiu d'aquest
+     exercici: és el que fa que, l'endemà, surti a «Tens exercicis a mitges». */
+  RE.visita(D.full, item.id);
+  RE.rellotge(5, D.full, item.id);
 
   /* Si l'exercici ja té estat definitiu, o si en una visita anterior es va
      deixar a mitges després d'un error, cal dir-ho abans que l'alumne
@@ -130,6 +207,19 @@
       (intents && pistes ? " i " : "") +
       (pistes ? pistes + (pistes === 1 ? " pista" : " pistes") : "") +
       ". Compten igual que si no haguessis marxat.");
+  } else if (RE.esAMitges(reg)) {
+    /* Hi havia estat treballant però no va respondre: és just el cas que
+       l'alumne busca. Se li diu, i on és el botó, sense fer-ho per ell. */
+    avisEstat("L'última vegada hi vas estar " + durada(reg.tact || 0) +
+      " i no el vas respondre. Si ja el tens resolt a la llibreta, prem "
+      + "<strong>«Ja ho tinc, mostra'm les opcions»</strong> i comprova la resposta.");
+  }
+
+  function durada(seg) {
+    if (seg < 60) return "una estona";
+    var m = Math.round(seg / 60);
+    if (m < 60) return m + " min";
+    return Math.floor(m / 60) + " h " + (m % 60) + " min";
   }
 
   /* ---- pistes ---- */
@@ -226,6 +316,7 @@
   $("#mostra").onclick = function () {
     $("#mostra").hidden = true;
     $("#zona-resposta").hidden = false;
+    if (!repas) RE.marcaOpcions(D.full, item.id);
     var op = $("#opcions");
     if (op.scrollIntoView) op.scrollIntoView({ behavior: "smooth", block: "center" });
   };
