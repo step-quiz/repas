@@ -8,8 +8,12 @@ by agents. Everything *inside* the project — code comments, docstrings, UI
 strings, error feedback — is in Catalan, and must stay in Catalan. Do not
 translate the project.
 
-**Status as of this document:** 864 exercises across 12 sheets, 125 automated
-checks green, build deterministic.
+**Status as of this document:** written when the bank had 864 exercises and 125
+automated checks. **Updated 2026-10-17:** 951 exercises in 56 blocks across 12
+sheets, 197 with a figure; `sh tests/executa.sh` runs 532 checks (207 of them need
+`jsdom`). Parts V–IX are kept as the record of how the work was planned; Part VII
+has the current numbers, and the parallel tracks of Part IX have been carried out
+(`tools/figures/` package, `tests/test_a11y.js`, `tests/test_probabilitat_nou.py`…).
 
 ---
 
@@ -573,23 +577,27 @@ values differ.
 
 ## 7.1 The bank
 
-| Sheet | Topic | Blocks | Items | With figure | L1/L2/L3 | kB |
-|---:|---|---:|---:|---:|---|---:|
-| 1 | Integers, fractions, decimals | 4 | 140 | 0 | 52/60/28 | 194 |
-| 2 | Powers | 4 | 76 | 0 | 12/40/24 | 103 |
-| 3 | Sequences and progressions | 4 | 50 | 0 | 10/26/14 | 83 |
-| 4 | Polynomials | 4 | 59 | 0 | 10/25/24 | 80 |
-| 5 | Equations and systems | 5 | 99 | 0 | 40/42/17 | 137 |
-| 6 | Proportionality, percentages | 5 | 48 | 0 | 12/20/16 | 73 |
-| 7 | Pythagoras, areas | 4 | 55 | 4 | 8/32/15 | 85 |
-| 8 | Thales, similarity | 6 | 59 | 0 | 17/27/15 | 93 |
-| 9 | Solids, area and volume | 4 | 47 | **42** | 16/15/16 | 123 |
-| 10 | Functions | 5 | 73 | 0 | 22/29/22 | 119 |
-| 11 | Statistics | 5 | 91 | 0 | 35/35/21 | 153 |
-| 12 | Combinatorics, probability | 4 | 67 | 0 | 16/35/16 | 131 |
-| | **Total** | **54** | **864** | **46** | 250/351/238 | 1 374 |
+Recomputed from `data/fullN.js` on 2026-10-17.
+
+| Sheet | Topic | Blocks | Items | With figure | kB |
+|---:|---|---:|---:|---:|---:|
+| 1 | Integers, fractions, decimals | 4 | 144 | 0 | 205 |
+| 2 | Powers | 4 | 89 | 0 | 120 |
+| 3 | Sequences and progressions | 4 | 56 | 0 | 90 |
+| 4 | Polynomials | 4 | 71 | 0 | 98 |
+| 5 | Equations and systems | 5 | 99 | 0 | 138 |
+| 6 | Proportionality, percentages | 5 | 48 | 0 | 74 |
+| 7 | Pythagoras, areas | 4 | 62 | 52 | 175 |
+| 8 | Thales, similarity | 6 | 59 | 43 | 173 |
+| 9 | Solids, area and volume | 4 | 52 | 47 | 187 |
+| 10 | Functions | 5 | 85 | 40 | 271 |
+| 11 | Statistics | 5 | 91 | 0 | 155 |
+| 12 | Combinatorics, probability | 6 | 95 | 15 | 245 |
+| | **Total** | **56** | **951** | **197** | 1931 |
 
 ## 7.2 Other numbers
+
+*(The figures below are from the original snapshot, with 864 items; they have not been recomputed.)*
 
 - Error-tag catalogue: **245 tags**, covering 97 % of the 2 580 distractors
 - Tutor reach: **42 of 54 blocks**, 673 of 864 questions
@@ -766,6 +774,12 @@ The file-ownership map below is now disjoint. Two additions worth knowing:
   `per_id()` and `num()`. It imports nothing from `tools/`, deliberately.
 
 ## 9.3 Track definitions
+
+*(Status 2026-10-17: these tracks have been executed. Their files exist —
+`tools/figures/planes.py`, `tools/figures/grafics.py`, `tests/test_a11y.js`; Track D's
+independent check is `tests/test_probabilitat_nou.py` instead of `test_contingut_nou.py`,
+and its error tags went to the existing `tools/tax/` modules instead of a new
+`tax_contingut.py`.)*
 
 Each track is sized for one agent working independently.
 

@@ -24,7 +24,7 @@ personalitzat d'exercicis.
 | 9 | Cossos geomètrics. Àrea i volum | 4 | 52 |
 | 10 | Funcions | 5 | 85 |
 | 11 | Estadística | 5 | 91 |
-| 12 | Combinatòria i probabilitat | 4 | 95 |
+| 12 | Combinatòria i probabilitat | 6 | 95 |
 
 ## Navegació
 
@@ -153,6 +153,14 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
     tools/fes-paquet-professorat.py zip amb l'analitzador, KaTeX i la guia
     tools/fes-exemple.js  full de respostes d'exemple per a l'analitzador
     tools/fes-galeria.py  captura cada ítem tal com es veu (docs/galeria/)
+    tools/codi-ordre.json     ordre dels ítems dins del codi (generat, sensible a l'ordre)
+    tools/analitzador-plantilla.html  plantilla de l'analitzador (la munta build_analitzador.py)
+    tools/_banc.json, tools/_taules.json  generats per build_tot.py; es mantenen al repositori
+                          perquè les proves els necessiten
+    tools/_*.py           scripts interns d'auditoria del banc (contrast, cotes, etiquetes, opcions…)
+    tools/auditoria/      auditoria de control del banc
+    tools/proposa-teoria.py   proposa l'enllaç de teoria (llibre de text) de cada exercici
+    tools/LLEGEIX-ME-REVISIO.md  registre de la revisió de les figures i de les eines _*.py
 
     tests/                les proves; `sh tests/executa.sh` les passa totes
     docs/                 la documentació (vegeu la secció Documentació)

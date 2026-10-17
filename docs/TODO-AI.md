@@ -257,7 +257,9 @@ the `pistes` argument.
 
 ---
 
-## 9. jsdom is not installed by default and 156 checks skip in yellow
+## 9. jsdom is not installed by default and 207 checks skip in yellow
+
+*(2026-10-17: the number is now 207 of 532; it was 156 when this section was written.)*
 
 **Severity:** medium. This has already cost real bugs.
 
