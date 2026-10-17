@@ -73,19 +73,10 @@ window.RE_MITGES = (function () {
     return Math.floor(m / 60) + " h " + (m % 60 ? (m % 60) + " min" : "");
   }
 
-  /* Què hi va fer, en poques paraules: és el que fa que l'alumne reconegui
-     l'exercici («ah, el de les dues pistes»). */
+  /* Quan i quanta estona: el que ajuda a reconèixer l'exercici («ah, el
+     d'ahir a la tarda»). Què hi va fer ja ho diu el motiu (RE.motiuAMitges). */
   function detall(e) {
-    var it = e.it, parts = [quan(e.quan)];
-    if (it.estat === "fallat") {
-      parts.push("et queda un segon intent");
-    } else {
-      var d = durada(it.tact);
-      if (d) parts.push(d);
-      if (it.npis) parts.push(it.npis + (it.npis === 1 ? " pista" : " pistes"));
-      if (it.opc) parts.push("opcions obertes");
-    }
-    return parts.filter(Boolean).join(" · ");
+    return [quan(e.quan), durada(e.it.tact)].filter(Boolean).join(" · ");
   }
 
   function url(e) {
@@ -101,6 +92,8 @@ window.RE_MITGES = (function () {
         '<span class="codi">' + esc(e.id) + "</span>" +
         '<span class="amitges-cos">' +
           '<span class="amitges-on">' + esc(on) + "</span>" +
+          '<span class="amitges-motiu"><span class="amitges-motiu-cap">No l\'has acabat:</span><br>' +
+            esc(RE.motiuAMitges(e.it)) + "</span>" +
           '<span class="amitges-detall">' + esc(detall(e)) + "</span>" +
         "</span>" +
         '<span class="amitges-cta"><span class="amitges-cta-txt">Acaba\'l</span>' +
@@ -132,10 +125,6 @@ window.RE_MITGES = (function () {
     cont.innerHTML =
       '<h2 id="amitges-titol">Tens ' + (llista.length === 1 ? "un exercici" : llista.length + " exercicis") +
         " a mitges</h2>" +
-      '<p class="petit apagat amitges-intro">' +
-        (llista.length === 1 ? "El vas treballar però no el vas respondre. Si ja el tens resolt"
-                             : "Els vas treballar però no els vas respondre. Si ja els tens resolts") +
-        " a la llibreta, entra-hi i comprova la resposta: només així queda anotat.</p>" +
       '<ul class="amitges-llista">' +
         visibles.map(function (e) { return fila(e, !opts.full); }).join("") +
       "</ul>" +

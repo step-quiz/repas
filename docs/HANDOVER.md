@@ -414,7 +414,10 @@ El progrés viu a `localStorage["repas-eso:full" + N]`, una clau per full.
 `tact` el temps que l'exercici ha estat obert (en segons, pel rellotge i no
 només amb la pantalla visible: un mòbil s'apaga sol mentre l'alumne escriu;
 màxim 15 min per visita; sense tocar `ts`); `RE.marcaOpcions()` posa
-`opc: 1`. `RE.esAMitges(it)` decideix: sense desenllaç i amb `tact >= 40`,
+`opc: 1`; `RE.marcaSeguent()` posa `sseg: 1` quan se surt amb «Següent
+exercici» (o la fletxa →) sense respondre. `RE.motiuAMitges(it)` dona la
+frase que va darrere de «No l'has acabat:», triada pel pas més avançat:
+fallat amb un intent > opcions > pista > «Següent» > només llegit. `RE.esAMitges(it)` decideix: sense desenllaç i amb `tact >= 40`,
 pistes o opcions, o fallat amb un sol intent. `RE.aMitges(full?)` els torna
 ordenats per `tvis` (o `ts` per als registres antics); `RE.nomesOberts(full)`
 dona els `vist` sense cap senyal. `RE.descartaAMitges()` desa `amd`/`amt`
@@ -629,7 +632,7 @@ l'alumne espera del botó.
 
 | Clau | Propietari | Contingut |
 |---|---|---|
-| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full. Per ítem, a més de l'estat: `tact` (s actius), `tvis` (última visita), `opc` (opcions mostrades), `amd`/`amt` (tret de «a mitges») |
+| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full. Per ítem, a més de l'estat: `tact` (s actius), `tvis` (última visita), `opc` (opcions mostrades), `sseg` (sortit amb «Següent» sense respondre), `amd`/`amt` (tret de «a mitges») |
 | `repas-eso:diagnostic` | `RE_DIAG` | `{ts, versio: 2, respostes: [{prova, estat, encert}]}` — `encert` és `null` si no es va comprovar |
 | `repas-eso:itinerari` | `RE_ITI` | `{ts, ruta: [{full, bloc, blocTitol, tema, id}]}` — sense estat |
 

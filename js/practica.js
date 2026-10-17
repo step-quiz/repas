@@ -60,9 +60,13 @@
      endavant/enrere des de dins l'exercici — allà l'alumne ja veu tot el
      recorregut i tria on continuar. */
   function ves(n) {
-    if (deLitinerari) { surt("itinerari.html"); return; }
-    if (n < 0 || n >= ids.length) { surt("full.html?full=" + D.full); return; }
-    surt("practica.html?full=" + D.full + "&q=" + ids[n]);
+    /* «Següent exercici» (botó o fletxa →) es distingeix de la resta de
+       sortides perquè la llista d'exercicis a mitges ho diu: «has clicat
+       «Següent exercici» sense respondre». */
+    var tipus = n === idx + 1 ? "seguent" : "altre";
+    if (deLitinerari) { surt("itinerari.html", tipus); return; }
+    if (n < 0 || n >= ids.length) { surt("full.html?full=" + D.full, tipus); return; }
+    surt("practica.html?full=" + D.full + "&q=" + ids[n], tipus);
   }
 
   /* ---- sortir d'un exercici a mitges ----
@@ -84,15 +88,22 @@
     return RE.esAMitges(RE.item(D.full, item.id));
   }
 
-  function surt(desti) {
-    if (!calAvisar()) { location.href = desti; return; }
+  function surt(desti, tipus) {
+    if (!calAvisar()) { marxa(desti, tipus); return; }
     avisat = true;
-    mostraAvisSortida(desti);
+    mostraAvisSortida(desti, tipus);
   }
 
-  function mostraAvisSortida(desti) {
+  /* La sortida de debò. Si és per «Següent» i l'exercici no està respost,
+     es deixa anotat abans de marxar. */
+  function marxa(desti, tipus) {
+    if (tipus === "seguent" && !tancat && !repas) RE.marcaSeguent(D.full, item.id);
+    location.href = desti;
+  }
+
+  function mostraAvisSortida(desti, tipus) {
     var caixa = $("#avis-sortida");
-    if (!caixa) { location.href = desti; return; }
+    if (!caixa) { marxa(desti, tipus); return; }
     var reg2 = RE.item(D.full, item.id);
     var motiu = triada >= 0
       ? "Has triat la <strong>" + LLETRES[triada] + "</strong>, però encara no l'has comprovada."
@@ -125,7 +136,7 @@
         : Array.prototype.filter.call($("#opcions").children, function (c) { return !c.disabled; })[0];
       if (desti2 && desti2.focus) desti2.focus({ preventScroll: true });
     };
-    $("#avis-marxa").onclick = function () { location.href = desti; };
+    $("#avis-marxa").onclick = function () { marxa(desti, tipus); };
     if (caixa.scrollIntoView) caixa.scrollIntoView({ behavior: "smooth", block: "center" });
     var b = $("#avis-respon");
     if (b && b.focus) b.focus({ preventScroll: true });
@@ -142,7 +153,7 @@
     if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
     if (!calAvisar()) return;
     e.preventDefault();
-    surt($("#tornar").href);
+    surt($("#tornar").href, "tornar");
   });
   $("#codi").textContent = item.id;
   $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
@@ -191,9 +202,9 @@
      deixar a mitges després d'un error, cal dir-ho abans que l'alumne
      respongui: el que passi ara no val el mateix que la primera vegada, i
      amagar-ho seria convidar-lo a jugar-hi. */
-  function avisEstat(txt) {
+  function avisEstat(txt, classe) {
     var d = document.createElement("p");
-    d.className = "petit apagat";
+    d.className = classe || "petit apagat";
     d.style.margin = ".2rem 0 .6rem";
     d.innerHTML = txt;
     var enc = $("#encap");
@@ -211,17 +222,9 @@
       ". Compten igual que si no haguessis marxat.");
   } else if (RE.esAMitges(reg)) {
     /* Hi havia estat treballant però no va respondre: és just el cas que
-       l'alumne busca. Se li diu, i on és el botó, sense fer-ho per ell. */
-    avisEstat("L'última vegada hi vas estar " + durada(reg.tact || 0) +
-      " i no el vas respondre. Si ja el tens resolt a la llibreta, prem "
-      + "<strong>«Ja ho tinc, mostra'm les opcions»</strong> i comprova la resposta.");
-  }
-
-  function durada(seg) {
-    if (seg < 60) return "una estona";
-    var m = Math.round(seg / 60);
-    if (m < 60) return m + " min";
-    return Math.floor(m / 60) + " h " + (m % 60) + " min";
+       l'alumne busca. El mateix text que a la llista «a mitges», perquè qui
+       hi arriba des d'allà es retrobi. */
+    avisEstat("<strong>No l'has acabat:</strong><br>" + RE.motiuAMitges(reg), "petit avis-amitges");
   }
 
   /* ---- pistes ---- */

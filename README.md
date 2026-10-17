@@ -70,8 +70,14 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
   opcions mostrades (`opc`). També el que es va fallar al primer intent i
   encara té el segon. La regla és `RE.esAMitges()` a `js/nucli.js`.
 - **On surt.** A dalt de la portada, «Tens exercicis a mitges», de tots els
-  fulls i del més recent al més antic, amb el full, el bloc, quan i què s'hi va
-  fer («ahir a les 18:42 · 4 min · opcions obertes»). A la pàgina del full, els
+  fulls i del més recent al més antic. Cada fila porta el full i el bloc,
+  «No l'has acabat:» i el motiu concret, i quan va ser («ahir a les 18:42 ·
+  4 min»). Els motius, del pas més avançat al menys (se'n mostra un):
+  «has fallat el primer intent i et queda el segon», «has demanat «Mostra'm
+  les opcions», però no has respost», «has demanat pista, però no has
+  respost», «has clicat «Següent exercici» sense respondre» i «has llegit
+  l'enunciat, però no has fet res més» (`RE.motiuAMitges()`). El mateix text
+  surt a dalt de l'exercici quan s'hi torna. A la pàgina del full, els
   d'aquell full; i al mapa, amb casella pròpia (½). Una creu el treu de la llista
   (amb «Desfés»); si s'hi torna a treballar 40 s més, hi torna a sortir.
 - **«Continua on ho vas deixar»** porta a l'exercici a mitges més recent del
@@ -83,8 +89,8 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
 - **Cercador per codi.** A la portada, «Tens el codi d'un exercici apuntat a la
   llibreta?»: escrivint `121b` s'hi va directament; amb `121` s'ofereixen els
   apartats.
-- **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `tvis`,
-  `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
+- **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `sseg`,
+  `tvis`, `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
   `tests/test_amitges.js`.
 
 ## Estructura de fitxers
@@ -393,14 +399,14 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-521 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
+532 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
 navegador real si hi ha Playwright (`test_visibilitat_real.js`). Les de Python i
 les del codi de verificació no demanen instal·lar res: `unittest` de la
 biblioteca estàndard i Node pelat. Cinc blocs (analitzador, accessibilitat,
 flux de la resolució, botons dels recursos i les pàgines dels exercicis a
 mitges) necessiten un DOM i se salten sols si `jsdom` no hi és — **però llavors
 l'script ho diu en groc i no declara «tot en verd»**, perquè un verd que amaga
-202 comprovacions no executades és
+207 comprovacions no executades és
 pitjor que un avís:
 
 ```sh

@@ -335,6 +335,26 @@ window.RE = (function () {
     toca(full, id, function (it) { it.opc = 1; it.tvis = Date.now(); });
   }
 
+  /* L'alumne ha sortit de l'exercici amb «Següent exercici» (o la fletxa →)
+     sense haver-lo respost. Només serveix per al text de la llista. */
+  function marcaSeguent(full, id) {
+    toca(full, id, function (it) { it.sseg = 1; });
+  }
+
+  /* Per què un exercici és a mitges, en una frase que va darrere de
+     «No l'has acabat:». Se'n tria UNA, la del pas més avançat que va fer:
+     les opcions són a un toc de respondre; la pista, a dos; «Següent» vol
+     dir que va passar de llarg; i si no hi ha res d'això, només el va llegir
+     (prou estona per comptar, vegeu LLINDAR). */
+  function motiuAMitges(it) {
+    it = it || {};
+    if (it.estat === "fallat") return "has fallat el primer intent i et queda el segon";
+    if (it.opc) return "has demanat «Mostra'm les opcions», però no has respost";
+    if (it.npis) return "has demanat pista, però no has respost";
+    if (it.sseg) return "has clicat «Següent exercici» sense respondre";
+    return "has llegit l'enunciat, però no has fet res més";
+  }
+
   function descartaAMitges(full, id) {
     toca(full, id, function (it) { it.amd = Date.now(); it.amt = it.tact || 0; });
   }
@@ -417,7 +437,8 @@ window.RE = (function () {
     meta: meta, desaMeta: desaMeta, sumaMeta: sumaMeta, rellotge: rellotge,
     clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ,
     LLINDAR: LLINDAR, MAX_VISITA: MAX_VISITA, cronoExercici: cronoExercici, esAMitges: esAMitges, aMitges: aMitges, nomesOberts: nomesOberts,
-    visita: visita, marcaOpcions: marcaOpcions,
+    visita: visita, marcaOpcions: marcaOpcions, marcaSeguent: marcaSeguent,
+    motiuAMitges: motiuAMitges,
     descartaAMitges: descartaAMitges, recuperaAMitges: recuperaAMitges
   };
 })();

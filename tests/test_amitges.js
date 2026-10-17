@@ -243,6 +243,35 @@ prova("el temps global del codi (minuts actius) continua comptant només amb pan
   assert.strictEqual(RE.meta().seg, 5);
 });
 
+seccio("«No l'has acabat:» i el motiu de cada cas");
+
+prova("només temps: «has llegit l'enunciat, però no has fet res més»", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "vist", tact: 90 }),
+    "has llegit l'enunciat, però no has fet res més");
+});
+prova("ha sortit amb «Següent»: «has clicat «Següent exercici» sense respondre»", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "vist", tact: 90, sseg: 1 }),
+    "has clicat «Següent exercici» sense respondre");
+});
+prova("pista: «has demanat pista, però no has respost» (mana sobre «Següent»)", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "vist", npis: 2, sseg: 1 }),
+    "has demanat pista, però no has respost");
+});
+prova("opcions: «has demanat «Mostra'm les opcions», però no has respost» (mana sobre la pista)", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "vist", npis: 1, opc: 1, sseg: 1 }),
+    "has demanat «Mostra'm les opcions», però no has respost");
+});
+prova("fallat amb un intent: «has fallat el primer intent i et queda el segon»", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "fallat", nint: 1, opc: 1 }),
+    "has fallat el primer intent i et queda el segon");
+});
+prova("«Següent» queda anotat al registre", () => {
+  net();
+  RE.visita(FULL, IDS[0]);
+  RE.marcaSeguent(FULL, IDS[0]);
+  assert.strictEqual(RE.item(FULL, IDS[0]).sseg, 1);
+});
+
 seccio("El codi de verificació no canvia gens");
 
 prova("els camps nous no entren a recull() ni a genera()", () => {
@@ -251,7 +280,7 @@ prova("els camps nous no entren a recull() ni a genera()", () => {
   posa(FULL, IDS[1], { estat: "net", nint: 1, npis: 0, tancat: 1, tf: 1700000000000, ts: 1 });
   posa(FULL, IDS[2], { estat: "fallat", nint: 1, tf: 1700000000000, ts: 1 });
   const abans = JSON.stringify(CODI.recull());
-  posa(FULL, IDS[0], { tact: 300, opc: 1, tvis: 99 });
+  posa(FULL, IDS[0], { tact: 300, opc: 1, tvis: 99, sseg: 1 });
   posa(FULL, IDS[2], { tact: 45, tvis: 98, amd: 97, amt: 45 });
   const despres = JSON.stringify(CODI.recull());
   assert.strictEqual(despres, abans);
@@ -368,11 +397,23 @@ async function obre(pagina, query, estat) {
 (async () => {
   seccio("practica.html: fullejar no demana res");
   {
-    const { d, anades, tanca } = await obre("practica.html", "?full=7&q=120a");
+    const { w, d, anades, tanca } = await obre("practica.html", "?full=7&q=120a");
     d.getElementById("seguent").click();
     prova("«Següent» sense haver fet res: marxa i no avisa", () => {
       assert.strictEqual(d.getElementById("avis-sortida").hidden, true);
       assert.strictEqual(anades.length, 1);
+    });
+    prova("i queda anotat que va sortir amb «Següent» sense respondre", () => {
+      assert.strictEqual(w.RE.item(7, "120a").sseg, 1);
+    });
+    tanca();
+  }
+  {
+    const { w, d, anades, tanca } = await obre("practica.html", "?full=7&q=120b");
+    d.getElementById("anterior").click();
+    prova("amb «Anterior» no s'anota «Següent»", () => {
+      assert.strictEqual(anades.length, 1);
+      assert.strictEqual(w.RE.item(7, "120b").sseg, undefined);
     });
     tanca();
   }
@@ -407,6 +448,11 @@ async function obre(pagina, query, estat) {
     prova("el segon «Següent» ja marxa: només s'avisa un cop", () => {
       assert.strictEqual(anades.length, 1);
     });
+    prova("i a la llista dirà el pas més avançat: les opcions", () => {
+      const it = w.RE.item(7, "120a");
+      assert.strictEqual(it.sseg, 1);
+      assert.strictEqual(w.RE.motiuAMitges(it), "has demanat «Mostra'm les opcions», però no has respost");
+    });
     tanca();
   }
 
@@ -425,9 +471,20 @@ async function obre(pagina, query, estat) {
     prova("«Respon ara» posa el focus a «Comprova la resposta»", () => {
       assert.strictEqual(d.activeElement.id, "comprova");
     });
-    d.getElementById("avis-marxa");
     tanca();
     void anades;
+  }
+  {
+    const { w, d, anades, tanca } = await obre("practica.html", "?full=7&q=120c", {
+      "repas-eso:full7": { v: 1, tfv: 1, items: { "120c": { estat: "vist", tact: 100, tvis: 1 } } }
+    });
+    d.getElementById("seguent").click();
+    d.getElementById("avis-marxa").click();
+    prova("«Deixa'l per a més tard» després de «Següent»: marxa i anota «Següent»", () => {
+      assert.strictEqual(anades.length, 1);
+      assert.strictEqual(w.RE.item(7, "120c").sseg, 1);
+    });
+    tanca();
   }
 
   seccio("practica.html: respondre treu l'avís");
@@ -451,9 +508,9 @@ async function obre(pagina, query, estat) {
     const { d, tanca } = await obre("practica.html", "?full=7&q=121b", {
       "repas-eso:full7": { v: 1, tfv: 1, items: { "121b": { estat: "vist", tact: 300, tvis: ahir, ts: ahir } } }
     });
-    prova("diu quant hi va estar i quin botó ha de prémer", () => {
+    prova("en tornar-hi diu «No l'has acabat:» i el motiu", () => {
       const t = d.querySelector(".targeta").textContent;
-      assert.ok(/L'última vegada hi vas estar 5 min/.test(t), t.slice(0, 300));
+      assert.ok(/No l'has acabat:has llegit l'enunciat, però no has fet res més/.test(t), t.slice(0, 300));
     });
     tanca();
   }
@@ -481,7 +538,13 @@ async function obre(pagina, query, estat) {
       const f = sec.querySelector(".amitges-fila");
       assert.ok(/Full 7 · /.test(f.textContent), f.textContent);
       assert.ok(/4 min/.test(f.textContent), f.textContent);
+      assert.ok(/No l'has acabat:has llegit l'enunciat, però no has fet res més/.test(f.textContent), f.textContent);
+      const f2 = sec.querySelectorAll(".amitges-fila")[1];
+      assert.ok(/No l'has acabat:has demanat pista, però no has respost/.test(f2.textContent), f2.textContent);
       assert.ok(f.querySelector("a").getAttribute("href") === "practica.html?full=7&q=121b");
+    });
+    prova("el paràgraf genèric de dalt ja no hi és", () => {
+      assert.ok(!/El vas treballar|Els vas treballar|només així queda anotat/.test(sec.textContent));
     });
     sec.querySelector(".amitges-treu").click();
     prova("la creu el treu i ofereix «Desfés»", () => {
