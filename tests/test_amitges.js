@@ -154,34 +154,93 @@ prova("tret, obrir-lo un moment no el torna a posar; treballar-hi 40 s més, sí
   assert.strictEqual(RE.aMitges(FULL).length, 1);
 });
 
-seccio("El rellotge compta el temps de l'exercici, i no toca `ts`");
+seccio("El temps de l'exercici es compta pel rellotge, i no toca `ts`");
 
-prova("tres tocs de 5 s amb la pestanya visible: 15 s", () => {
+/* Rellotge de mentida: `Date.now` i `setInterval` controlats. */
+function ambRellotge(fn) {
+  const vellNow = Date.now, vellInt = global.setInterval;
+  let ara = 1_000_000_000_000, tic = null;
+  Date.now = () => ara;
+  global.setInterval = f => { tic = f; return 1; };
+  try { fn({ passa: s => { ara += s * 1000; }, tic: () => tic() }); }
+  finally { Date.now = vellNow; global.setInterval = vellInt; }
+}
+
+prova("45 s oberts sense tocar res: a mitges", () => {
   net();
-  posa(FULL, IDS[0], { estat: "vist", ts: 42 });
-  const vell = global.setInterval;
-  let fn = null;
-  global.setInterval = f => { fn = f; return 1; };
-  RE.rellotge(5, FULL, IDS[0]);
-  global.setInterval = vell;
-  fn(); fn(); fn();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist", ts: 42 });
+    RE.cronoExercici(FULL, IDS[0]);
+    r.passa(45); r.tic();
+  });
   const it = RE.item(FULL, IDS[0]);
-  assert.strictEqual(it.tact, 15);
-  assert.ok(it.tvis > 0);
+  assert.strictEqual(it.tact, 45);
   assert.strictEqual(it.ts, 42, "el rellotge no ha de moure `ts`");
-  assert.strictEqual(RE.meta().seg, 15, "el temps global continua sumant igual");
+  assert.strictEqual(RE.aMitges(FULL).length, 1);
 });
 
-prova("amb la pestanya amagada no compta", () => {
+prova("EL CAS DEL MÒBIL: la pantalla s'apaga als 30 s i torna als 70 s; compten 70", () => {
+  net();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist" });
+    const c = RE.cronoExercici(FULL, IDS[0]);
+    r.passa(30); global.document.hidden = true; c.desa();   /* visibilitychange */
+    r.passa(40);                                            /* congelat: cap tic */
+    global.document.hidden = false; c.desa();               /* torna: visibilitychange */
+  });
+  assert.strictEqual(RE.item(FULL, IDS[0]).tact, 70);
+  assert.strictEqual(RE.aMitges(FULL).length, 1);
+});
+
+prova("sense cap tic (interval congelat), desa() abans de decidir ja dona el temps bo", () => {
+  net();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist" });
+    const c = RE.cronoExercici(FULL, IDS[0]);
+    r.passa(41); c.desa();
+  });
+  assert.strictEqual(RE.item(FULL, IDS[0]).tact, 41);
+});
+
+prova("una pestanya oblidada 3 hores aporta com a màxim 15 min", () => {
+  net();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist" });
+    RE.cronoExercici(FULL, IDS[0]);
+    r.passa(3 * 3600); r.tic();
+  });
+  assert.strictEqual(RE.item(FULL, IDS[0]).tact, RE.MAX_VISITA);
+});
+
+prova("les visites se sumen: 20 s avui + 25 s demà = 45 s", () => {
+  net();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist" });
+    let c = RE.cronoExercici(FULL, IDS[0]); r.passa(20); c.desa(); c.para();
+    r.passa(86400);
+    c = RE.cronoExercici(FULL, IDS[0]); r.passa(25); c.desa();
+  });
+  assert.strictEqual(RE.item(FULL, IDS[0]).tact, 45);
+});
+
+prova("fullejar (8 s) no hi arriba", () => {
+  net();
+  ambRellotge(r => {
+    posa(FULL, IDS[0], { estat: "vist" });
+    RE.cronoExercici(FULL, IDS[0]); r.passa(8); r.tic();
+  });
+  assert.strictEqual(RE.aMitges(FULL).length, 0);
+});
+
+prova("el temps global del codi (minuts actius) continua comptant només amb pantalla visible", () => {
   net();
   const vell = global.setInterval;
   let fn = null;
   global.setInterval = f => { fn = f; return 1; };
-  RE.rellotge(5, FULL, IDS[0]);
+  RE.rellotge(5);
   global.setInterval = vell;
-  global.document.hidden = true; fn(); fn();
-  global.document.hidden = false;
-  assert.strictEqual(RE.item(FULL, IDS[0]).tact, undefined);
+  fn(); global.document.hidden = true; fn(); global.document.hidden = false;
+  assert.strictEqual(RE.meta().seg, 5);
 });
 
 seccio("El codi de verificació no canvia gens");

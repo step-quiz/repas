@@ -189,11 +189,8 @@ window.RE = (function () {
      cosa, que ara mateix és invisible: distingir 60 exercicis fets en dues
      setmanes de 60 exercicis "fets" en nou minuts.
 
-     Amb `full` i `id` compta també el temps d'AQUELL exercici (`tact`, en
-     segons, acumulat de totes les visites) i en renova `tvis`. És el que
-     permet saber, l'endemà, quin exercici es va treballar a la llibreta i es
-     va deixar sense respondre (vegeu «a mitges», més avall). */
-  function rellotge(interval, full, idItem) {
+     El temps de CADA exercici no es compta aquí: vegeu `cronoExercici`. */
+  function rellotge(interval) {
     var pas = interval || 15;
     var id = setInterval(function () {
       if (document.hidden) return;
@@ -201,14 +198,40 @@ window.RE = (function () {
       m.seg = (m.seg || 0) + pas;
       m.min = Math.floor(m.seg / 60);
       desaMeta(m);
-      if (full && idItem) {
-        toca(full, idItem, function (it) {
-          it.tact = (it.tact || 0) + pas;
-          it.tvis = Date.now();
-        });
-      }
     }, pas * 1000);
     return function () { clearInterval(id); };
+  }
+
+  /* Temps que un exercici ha estat obert (`tact`, en segons, acumulat de
+     totes les visites). És el que permet saber, l'endemà, quin exercici es va
+     treballar a la llibreta i es va deixar sense respondre.
+
+     Es compta PEL RELLOTGE (ara − quan es va obrir), no sumant tocs només
+     amb la pantalla visible. La primera versió ho feia així i en un mòbil
+     no funcionava: qui resol a la llibreta no toca la pantalla, el mòbil
+     l'apaga sola al cap de 30 s, la pàgina passa a «amagada» i el comptador
+     s'aturava abans d'arribar al llindar. Precisament el cas que es volia
+     detectar.
+
+     Perquè una pestanya oblidada no compti hores, cada visita aporta com a
+     màxim MAX_VISITA segons. Retorna `desa()`, que la pàgina crida abans de
+     decidir res (per no dependre de quan ha saltat l'últim interval: amb la
+     pantalla apagada el navegador els congela). */
+  var MAX_VISITA = 15 * 60;
+
+  function cronoExercici(full, id) {
+    var inici = Date.now(), base = (item(full, id).tact) || 0;
+    function desa() {
+      var seg = Math.max(0, Math.min(MAX_VISITA, Math.round((Date.now() - inici) / 1000)));
+      toca(full, id, function (it) {
+        it.tact = base + seg;
+        it.tvis = inici + seg * 1000;
+      });
+    }
+    var t = setInterval(desa, 5000);
+    if (document.addEventListener) document.addEventListener("visibilitychange", desa);
+    if (window.addEventListener) window.addEventListener("pagehide", desa);
+    return { desa: desa, para: function () { clearInterval(t); } };
   }
 
   /* Escriu camps d'un ítem SENSE tocar `ts`. `ts` vol dir «l'última vegada
@@ -232,7 +255,8 @@ window.RE = (function () {
 
      Un exercici és A MITGES si encara no té cap desenllaç i hi ha senyal de
      feina de debò:
-       · ha estat obert, amb la pestanya visible, LLINDAR segons o més (`tact`);
+       · ha estat obert LLINDAR segons o més (`tact`), encara que la
+         pantalla s'hagi apagat mentre l'alumne escrivia (vegeu `cronoExercici`);
        · s'hi ha obert alguna pista (`npis`);
        · s'han mostrat les opcions (`opc`).
      També ho és el que es va fallar al primer intent i encara té el segon:
@@ -392,7 +416,7 @@ window.RE = (function () {
     intent: intent, pista: pista, estatDe: estatDe,
     meta: meta, desaMeta: desaMeta, sumaMeta: sumaMeta, rellotge: rellotge,
     clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ,
-    LLINDAR: LLINDAR, esAMitges: esAMitges, aMitges: aMitges, nomesOberts: nomesOberts,
+    LLINDAR: LLINDAR, MAX_VISITA: MAX_VISITA, cronoExercici: cronoExercici, esAMitges: esAMitges, aMitges: aMitges, nomesOberts: nomesOberts,
     visita: visita, marcaOpcions: marcaOpcions,
     descartaAMitges: descartaAMitges, recuperaAMitges: recuperaAMitges
   };

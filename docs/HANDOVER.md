@@ -410,8 +410,10 @@ propi registre.
 El progrés viu a `localStorage["repas-eso:full" + N]`, una clau per full.
 
 **Exercicis a mitges.** `RE.visita(full, id)` (en obrir l'exercici) posa
-`vist` si no hi havia res i renova `tvis`; `RE.rellotge(5, full, id)` suma el
-temps actiu a `tact` (en segons, sense tocar `ts`); `RE.marcaOpcions()` posa
+`vist` si no hi havia res i renova `tvis`; `RE.cronoExercici(full, id)` desa a
+`tact` el temps que l'exercici ha estat obert (en segons, pel rellotge i no
+només amb la pantalla visible: un mòbil s'apaga sol mentre l'alumne escriu;
+màxim 15 min per visita; sense tocar `ts`); `RE.marcaOpcions()` posa
 `opc: 1`. `RE.esAMitges(it)` decideix: sense desenllaç i amb `tact >= 40`,
 pistes o opcions, o fallat amb un sol intent. `RE.aMitges(full?)` els torna
 ordenats per `tvis` (o `ts` per als registres antics); `RE.nomesOberts(full)`

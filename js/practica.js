@@ -80,6 +80,7 @@
   function calAvisar() {
     if (avisat || tancat || repas || intentsPagina > 0) return false;
     if (triada >= 0) return true;                       /* triada i no comprovada */
+    crono.desa();                  /* el temps d'ara, no el de l'últim interval */
     return RE.esAMitges(RE.item(D.full, item.id));
   }
 
@@ -183,7 +184,8 @@
      `tvis`, l'última visita. El rellotge compta el temps actiu d'aquest
      exercici: és el que fa que, l'endemà, surti a «Tens exercicis a mitges». */
   RE.visita(D.full, item.id);
-  RE.rellotge(5, D.full, item.id);
+  RE.rellotge();
+  var crono = RE.cronoExercici(D.full, item.id);
 
   /* Si l'exercici ja té estat definitiu, o si en una visita anterior es va
      deixar a mitges després d'un error, cal dir-ho abans que l'alumne

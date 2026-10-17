@@ -109,7 +109,7 @@ elif [ "$hi_ha_jsdom" -eq 0 ]; then
   printf '\033[33m⚠ Les proves executades passen, PERÒ cinc blocs (analitzador,\n'
   printf '  accessibilitat, flux de la resolució, botons dels recursos i pàgines\n'
   printf '  dels exercicis a mitges) s\047han saltat perquè falta jsdom: són\n'
-  printf '  202 comprovacions de 516 que no\n'
+  printf '  202 comprovacions de 521 que no\n'
   printf '  s\047han arribat a executar.\n'
   printf '  Per passar-les totes:  npm install --no-save jsdom\033[0m\n'
   exit 0

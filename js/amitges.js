@@ -133,9 +133,9 @@ window.RE_MITGES = (function () {
       '<h2 id="amitges-titol">Tens ' + (llista.length === 1 ? "un exercici" : llista.length + " exercicis") +
         " a mitges</h2>" +
       '<p class="petit apagat amitges-intro">' +
-        (llista.length === 1 ? "El vas treballar però no el vas respondre. Si ja el tens"
-                             : "Els vas treballar però no els vas respondre. Si ja els tens") +
-        " resolts a la llibreta, entra-hi i comprova la resposta: només així queda anotat.</p>" +
+        (llista.length === 1 ? "El vas treballar però no el vas respondre. Si ja el tens resolt"
+                             : "Els vas treballar però no els vas respondre. Si ja els tens resolts") +
+        " a la llibreta, entra-hi i comprova la resposta: només així queda anotat.</p>" +
       '<ul class="amitges-llista">' +
         visibles.map(function (e) { return fila(e, !opts.full); }).join("") +
       "</ul>" +

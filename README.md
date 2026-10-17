@@ -64,7 +64,9 @@ era. L'estat `vist` no ho pot dir, perquè es posa només per obrir la pàgina:
 qui passa deu exercicis amb «Següent» en té deu de vistos.
 
 - **Què és «a mitges».** Un exercici sense desenllaç on hi ha senyal de feina:
-  40 s o més amb la pestanya visible (`tact`), alguna pista oberta, o les
+  40 s o més amb l'exercici obert (`tact`, comptat pel rellotge: també compta
+  si la pantalla del mòbil s'apaga mentre l'alumne escriu a la llibreta, fins
+  a 15 min per visita), alguna pista oberta, o les
   opcions mostrades (`opc`). També el que es va fallar al primer intent i
   encara té el segon. La regla és `RE.esAMitges()` a `js/nucli.js`.
 - **On surt.** A dalt de la portada, «Tens exercicis a mitges», de tots els
@@ -391,7 +393,7 @@ així, i endevinar-les seria pitjor que deixar-les fora.
 sh tests/executa.sh
 ```
 
-516 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
+521 comprovacions, més les quatre bateries del mini-examen i 15 més amb un
 navegador real si hi ha Playwright (`test_visibilitat_real.js`). Les de Python i
 les del codi de verificació no demanen instal·lar res: `unittest` de la
 biblioteca estàndard i Node pelat. Cinc blocs (analitzador, accessibilitat,
