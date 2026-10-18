@@ -38,12 +38,11 @@ const ARREL = path.join(__dirname, "..");
    hi ha document.write pel mig, així que un setTimeout curt és la manera
    habitual de donar-li el torn a la cua de tasques. */
 function espera(ms) { return new Promise(res => setTimeout(res, ms)); }
-/* Una espera fixa no n'hi ha prou en una màquina lenta (a GitHub, 600 ms no
-   arribaven: les opcions encara no hi eren i les proves de focus fallaven).
-   Després de l'espera mínima, es mira cada 50 ms si la pàgina ja ha pintat
-   les opcions (role="radio"; el teclat s'hi connecta en el mateix pas) i es
-   continua quan hi són. Les pàgines que no n'han de pintar cap (adreces
-   dolentes a propòsit) arriben al límit i les proves continuen igualment. */
+/* Una espera fixa depèn de la velocitat de la màquina. Després de l'espera
+   mínima, es mira cada 50 ms si la pàgina ja ha pintat les opcions
+   (role="radio"; el teclat s'hi connecta en el mateix pas) i es continua quan
+   hi són. Les pàgines que no n'han de pintar cap (adreces dolentes a propòsit)
+   arriben al límit i les proves continuen igualment. */
 async function esperaOpcions(d, minim, limit) {
   await espera(minim);
   const fi = Date.now() + (limit || 5000);
@@ -154,6 +153,11 @@ seccio("practica.html — navegació amb fletxes dins del grup");
 {
   const { w, d, tanca } = await obrePractica();
   const caixa = d.getElementById("opcions");
+  /* Com un alumne: primer «Ja ho tinc, mostra'm les opcions». Mentre la zona
+     de resposta és [hidden], un navegador no deixa posar-hi el focus, i des de
+     la versió 30 jsdom tampoc (la 29 sí que ho deixava, i per això aquestes
+     proves passaven en local i fallaven a GitHub). */
+  d.getElementById("mostra").click();
 
   prova("ArrowDown mou el focus (i el tabindex) a la següent opció", () => {
     caixa.children[0].focus();
