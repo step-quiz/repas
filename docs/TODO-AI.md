@@ -265,7 +265,9 @@ the `pistes` argument.
 
 ## 9. jsdom is not installed by default and 207 checks skip in yellow
 
-*(2026-10-17: the number is now 207 of 532; it was 156 when this section was written.)*
+*(2026-10-17: the number is now 207 of 532; it was 156 when this section was written.
+2026-10-18: `.github/workflows/tests.yml` installs jsdom and runs `sh tests/executa.sh` on every
+push and PR, so on GitHub none of them is skipped. Locally the warning still applies.)*
 
 **Severity:** medium. This has already cost real bugs.
 

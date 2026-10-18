@@ -168,6 +168,8 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
                           correccions, briefs dels agents, notes de fusió
     _uploads/             on es deixen els zips que el workflow de
                           .github/ descomprimeix i commiteja
+    .github/workflows/    unzip-upload.yml (els ZIP) i tests.yml, que passa
+                          tests/executa.sh amb jsdom a cada push i PR
 
 ## Com es construeix el banc
 
