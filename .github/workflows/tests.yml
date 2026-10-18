@@ -36,5 +36,16 @@ jobs:
           npm install --no-save --no-audit --no-fund jsdom
           pip install sympy
 
+      # Si alguna prova falla, les línies que ho diuen surten com a anotacions al
+      # resum de l'execució (així es veu què ha fallat sense obrir el registre).
       - name: Proves
-        run: sh tests/executa.sh
+        shell: bash
+        run: |
+          set +e
+          sh tests/executa.sh 2>&1 | tee "$RUNNER_TEMP/proves.txt"
+          rc=${PIPESTATUS[0]}
+          if [ "$rc" -ne 0 ]; then
+            grep -E '✗|FAIL|ERROR|Error|Traceback|fallad' "$RUNNER_TEMP/proves.txt" | grep -v ' 0 fallades' | head -20 |
+              while IFS= read -r l; do echo "::error::$l"; done
+          fi
+          exit "$rc"
