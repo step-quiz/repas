@@ -1,5 +1,5 @@
 # Totes les proves del projecte (tests/executa.sh), també les de l'analitzador,
-# que necessiten jsdom (sense jsdom se n'saltarien unes 200) i les del motor, que
+# que necessiten jsdom (sense jsdom se'n saltarien unes 200) i les del motor, que
 # necessiten SymPy.
 # S'executa a cada canvi a main, a cada pull request i a mà (Actions → Tests →
 # Run workflow). No escriu res al repositori.
