@@ -34,6 +34,10 @@ echo "── JavaScript: codi de verificació ───────────�
 node tests/codi.test.js || fallades=1
 
 echo
+echo "── Documentació ↔ codi ───────────────────────────────────────"
+python3 tests/docs_vs_codi.py || fallades=1
+
+echo
 echo "── JavaScript: el registre no es pot rentar ──────────────────"
 node tests/test_registre.js || fallades=1
 

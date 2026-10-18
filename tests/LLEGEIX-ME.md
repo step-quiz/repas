@@ -33,6 +33,7 @@ SymPy (`pip install sympy`).
 | Fitxer | | Comprova |
 |---|---:|---|
 | `comu.py` | — | Carrega el banc un cop i el deixa a `TOTS` i `PLANS`. No importa res de `tools/` |
+| `docs_vs_codi.py` | — | Que la documentació diu el mateix que el codi: les rutes que citen els documents principals existeixen i la taula de fulls del README (blocs i preguntes) i el total quadren amb `data/fullN.js`. L'executa `executa.sh` |
 | `test_lib.py` | 38 | Els ajudants de `tools/lib.py` i que `_valida()` aturi de veritat el que diu que atura |
 | `test_banc.py` | 21 | El banc compilat: estructura, presentació, catàleg d'errors, coherència de les taules, i que cap nota visible doni la resposta |
 | `test_matematiques.py` | 14 | Recàlcul independent de les respostes, i que cap distractor algebraic sigui una resposta correcta |
