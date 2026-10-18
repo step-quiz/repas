@@ -91,6 +91,12 @@ tree. The bot commit then makes it permanent.
 extraction to a subdirectory, reject entries with `..` or absolute paths,
 and never `git add -A` (add explicit paths only).
 
+*(2026-10-18: the workflow was rewritten. It ignores `.github/`, `__MACOSX/` and `.DS_Store`,
+and a broken ZIP is removed without saving anything. Info-ZIP `unzip` already strips `../`
+components and leading `/` (it only keeps them with `-:`), so a ZIP cannot write outside the
+tree: checked with a crafted ZIP. Overwriting tracked files is the intended behaviour — it is how
+deliveries arrive — so the workflow stays.)*
+
 **Again, a human decision** — someone may depend on this. `.gitignore` now
 exists, which reduces (does not remove) the blast radius.
 
