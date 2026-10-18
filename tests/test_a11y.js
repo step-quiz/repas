@@ -38,6 +38,18 @@ const ARREL = path.join(__dirname, "..");
    hi ha document.write pel mig, així que un setTimeout curt és la manera
    habitual de donar-li el torn a la cua de tasques. */
 function espera(ms) { return new Promise(res => setTimeout(res, ms)); }
+/* Una espera fixa no n'hi ha prou en una màquina lenta (a GitHub, 600 ms no
+   arribaven: les opcions encara no hi eren i les proves de focus fallaven).
+   Després de l'espera mínima, es mira cada 50 ms si la pàgina ja ha pintat
+   les opcions (role="radio"; el teclat s'hi connecta en el mateix pas) i es
+   continua quan hi són. Les pàgines que no n'han de pintar cap (adreces
+   dolentes a propòsit) arriben al límit i les proves continuen igualment. */
+async function esperaOpcions(d, minim, limit) {
+  await espera(minim);
+  const fi = Date.now() + (limit || 5000);
+  while (!d.querySelector('[role="radio"]') && Date.now() < fi) await espera(50);
+  await espera(50);
+}
 
 async function obrePractica(query) {
   const dom = await JSDOM.fromFile(path.join(ARREL, "practica.html"), {
@@ -45,7 +57,7 @@ async function obrePractica(query) {
     resources: "usable",
     url: "file://" + path.join(ARREL, "practica.html") + (query || "?full=1")
   });
-  await espera(600);
+  await esperaOpcions(dom.window.document, 600);
   return { w: dom.window, d: dom.window.document, tanca: () => dom.window.close() };
 }
 
@@ -55,7 +67,7 @@ async function obreDiagnostic() {
     resources: "usable",
     url: "file://" + path.join(ARREL, "diagnostic.html")
   });
-  await espera(400);
+  await esperaOpcions(dom.window.document, 400);
   return { w: dom.window, d: dom.window.document, tanca: () => dom.window.close() };
 }
 
@@ -519,7 +531,7 @@ seccio("practica.html — les fletxes no canvien d'exercici mentre s'escriu");
     runScripts: "dangerously", resources: "usable", virtualConsole: vc,
     url: "file://" + path.join(ARREL, "practica.html") + "?full=1&q=1b"
   });
-  await espera(600);
+  await esperaOpcions(dom.window.document, 600);
   const w = dom.window, d = w.document;
   const camp = d.createElement("input");
   camp.type = "text";
