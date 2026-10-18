@@ -1,5 +1,6 @@
 # Totes les proves del projecte (tests/executa.sh), també les de l'analitzador,
-# que necessiten jsdom (sense jsdom se'n saltarien unes 200).
+# que necessiten jsdom (sense jsdom se n'saltarien unes 200) i les del motor, que
+# necessiten SymPy.
 # S'executa a cada canvi a main, a cada pull request i a mà (Actions → Tests →
 # Run workflow). No escriu res al repositori.
 # Els commits del bot dels ZIP no el disparen per si sols (regla de GitHub):
@@ -30,8 +31,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Instal·la jsdom
-        run: npm install --no-save --no-audit --no-fund jsdom
+      - name: Instal·la jsdom i SymPy
+        run: |
+          npm install --no-save --no-audit --no-fund jsdom
+          pip install sympy
 
       - name: Proves
         run: sh tests/executa.sh
