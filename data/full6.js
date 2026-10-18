@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Proporcionalitat directa i inversa",
    "descripcio": "Regla de tres directa i inversa amb repartiments i problemes.",
    "items": [
+    "354a",
+    "354b",
     "101",
     "104",
     "102",
@@ -26,6 +28,8 @@ window.FULL = {
    "titol": "Percentatges",
    "descripcio": "Percentatge d'una quantitat, i trobar el total o la quantitat original a partir d'un percentatge.",
    "items": [
+    "355a",
+    "355b",
     "109",
     "110",
     "111",
@@ -38,6 +42,8 @@ window.FULL = {
    "titol": "El factor multiplicador",
    "descripcio": "Pujar un 15 % és multiplicar per 1,15 i baixar-lo, per 0,85: una sola operació per a cada variació, i com desfer-la.",
    "items": [
+    "356a",
+    "356b",
     "275a",
     "275b",
     "275c",
@@ -98,6 +104,7 @@ window.FULL = {
   "ES_POT_DETERMINAR": "Has dit que no es pot saber, però amb les dades de l'enunciat n'hi ha prou. Abans de descartar una pregunta, mira si algun teorema o criteri et permet respondre-la amb el que ja tens.",
   "FACTOR_INVERS_OBLIDAT": "Per desfer una variació percentual no es fa la contrària: es DIVIDEIX pel factor. Si un preu ha pujat un 10 %, baixar-lo un 10 % no el torna al punt de partida.",
   "FACTOR_PER_PERCENTATGE": "Has donat NOMÉS la part que puja o baixa, no la quantitat final. El factor multiplicador és $1+p$ per augmentar i $1-p$ per rebaixar: d'un sol cop et dona el resultat, no la variació.",
+  "FORMULA_INVERTIDA": "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula sencera abans de substituir-hi els valors.",
   "FRACCIO_COM_PERCENTATGE": "Has pres el numerador de la fracció com si ja fos el percentatge. Per arribar-hi cal portar la fracció sencera a denominador $100$.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "MAGNITUD_NO_CONVERTIDA": "Has donat el mateix número per a dues magnituds diferents. Fes servir la constant que les relaciona (densitat, preu unitari, velocitat) per passar d'una a l'altra.",
@@ -119,6 +126,50 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "354a",
+   "ex": 354,
+   "ap": "a",
+   "bloc": "directa_inversa",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el valor que falta. L'enunciat diu si les dues magnituds són directament o inversament proporcionals.",
+   "enunciat": "$1$ kg de pomes costa $2$ €. Quant costen $5$ kg? (El preu és directament proporcional als kg.)",
+   "opcions": [
+    "$10$ €",
+    "$0{,}4$ €",
+    "$7$ €",
+    "$2{,}5$ €"
+   ],
+   "pistes": [
+    "Directament proporcional: si una magnitud es multiplica per $5$, l'altra també.",
+    "$5$ kg són cinc vegades $1$ kg."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGZldCBjb20gc2kgZm9zIGludmVyc2EgKCQyOjUkKS4gw4lzIGRpcmVjdGE6IGVsIGRvYmxlIGRlIGtnLCBlbCBkb2JsZSBkZSBwcmV1LiIsICJIYXMgc3VtYXQgJDIrNSQuIFNpICQxJCBrZyBjb3N0YSAkMiQg4oKsLCAkNSQga2cgY29zdGVuIGNpbmMgdmVnYWRlcyBtw6lzOiAkNVxcY2RvdDIkLiIsICJIYXMgZGl2aWRpdCAkNToyJC4gQW1iIG3DqXMga2cgZWwgcHJldSBoYSBkZSBQVUpBUjogJDVcXGNkb3QyJC4iXSwgImVyciI6IFsiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJQUk9EVUNURV9QRVJfU1VNQSIsICJGT1JNVUxBX0lOVkVSVElEQSJdLCAicmVzIjogWyIkNVxcY2RvdDI9MTAkIOKCrCJdfQ=="
+  },
+  {
+   "id": "354b",
+   "ex": 354,
+   "ap": "b",
+   "bloc": "directa_inversa",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el valor que falta. L'enunciat diu si les dues magnituds són directament o inversament proporcionals.",
+   "enunciat": "$1$ obrer tarda $12$ dies a fer una feina. Quants dies hi tardaran $3$ obrers que treballen al mateix ritme? (Els dies són inversament proporcionals als obrers.)",
+   "opcions": [
+    "$9$ dies",
+    "$15$ dies",
+    "$4$ dies",
+    "$36$ dies"
+   ],
+   "pistes": [
+    "Inversament proporcional: si una magnitud es multiplica per $3$, l'altra es divideix per $3$.",
+    "$3$ obrers són el triple d'$1$ obrer."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0ICQxMi0zJC4gQW1iIGVsIHRyaXBsZSBkJ29icmVycywgZXMgdGFyZGEgbGEgdGVyY2VyYSBwYXJ0OiAkMTI6MyQuIiwgIkhhcyBzdW1hdCAkMTIrMyQuIEFtYiBtw6lzIG9icmVycyBubyBlcyBwb3QgdGFyZGFyIG3DqXMuIiwgIiIsICJIYXMgZmV0IGNvbSBzaSBmb3MgZGlyZWN0YSAoJDEyXFxjZG90MyQpLiBBbWIgbcOpcyBvYnJlcnMgbGEgZmVpbmEgcydhY2FiYSBBQkFOUzogJDEyOjMkLiJdLCAiZXJyIjogWyJQUk9EVUNURV9QRVJfU1VNQSIsICJQUk9EVUNURV9QRVJfU1VNQSIsICIiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQxMjozPTQkIGRpZXMiXX0="
+  },
   {
    "id": "101",
    "ex": 101,
@@ -340,6 +391,50 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgbm9tYnJlIHRvdGFsIGQnaG9zdGVzOiBhcmEgbidoaSBoYSAkMTgrNj0yNCQsIG5vICQxOCs2KzE9MjUkIG5pIGNhcCBhbHRyYSB4aWZyYTsgcmVwYXJ0ZWl4IGVscyAkMjE2JCBkaWVzLWhvc3RlIGVudHJlICQyNCQgaG9zdGVzLiIsICJIYXMgdHJhY3RhdCBob3N0ZXMgaSBkaWVzIGNvbSBhIG1hZ25pdHVkcyBkaXJlY3RhbWVudCBwcm9wb3JjaW9uYWxzOyBhcXXDrSBzw7NuIElOVkVSU0FNRU5UIHByb3BvcmNpb25hbHM6IGEgTcOJUyBob3N0ZXMsIGVsIG1lbmphciBkdXJhIE1FTllTIGRpZXMsIG5vIG3DqXMuIiwgIiIsICJBcXVlc3QgdmFsb3Igbm8gc3VydCBkZSByZXBhcnRpciBlbCB0b3RhbCBkZSBkaWVzLWhvc3RlICgkMjE2JCkgZW50cmUgZWxzICQyNCQgaG9zdGVzIGFjdHVhbHM6IHJldmlzYSBlbCBjw6BsY3VsICQyMTY6MjQkLiJdLCAiZXJyIjogWyJURVJNRV9PQkxJREFUX09QRVJBQ0lPIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICIiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIl0sICJyZXMiOiBbIk1lbmphciB0b3RhbDogJDE4XFxjZG90MTI9MjE2JCBkaWVzLWhvc3RlIiwgIkhvc3RlcyBhY3R1YWxzOiAkMTgrNj0yNCQiLCAiJFxcZGZyYWN7MjE2fXsyNH09OSQgZGllcyJdfQ=="
   },
   {
+   "id": "355a",
+   "ex": 355,
+   "ap": "a",
+   "bloc": "percentatges",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquest percentatge de la quantitat que es dona.",
+   "enunciat": "El $10\\,\\%$ de $80$",
+   "opcions": [
+    "$800$",
+    "$8$",
+    "$70$",
+    "$0{,}8$"
+   ],
+   "pistes": [
+    "El $10\\,\\%$ és la desena part.",
+    "$80:10$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgbXVsdGlwbGljYXQgcGVyICQxMCQgc2Vuc2UgZGl2aWRpciBwZXIgJDEwMCQ6IGVsICQxMFxcLFxcJSQgw6lzICQweyx9MSQsIG5vICQxMCQuIiwgIiIsICJIYXMgcmVzdGF0ICQ4MC0xMCQuIEVsICQxMFxcLFxcJSQgZGUgJDgwJCDDqXMgbGEgZGVzZW5hIHBhcnQgZGUgJDgwJC4iLCAiRWwgJDEwXFwsXFwlJCDDqXMgJDB7LH0xJCwgbm8gJDB7LH0wMSQ6IGVzIGRpdmlkZWl4IHBlciAkMTAwJCwgbm8gcGVyICQxXFwsMDAwJC4iXSwgImVyciI6IFsiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiIiwgIlBST0RVQ1RFX1BFUl9TVU1BIiwgIlBFUkNFTlRBVEdFX0RFQ0lNQUxfTUFMIl0sICJyZXMiOiBbIiQ4MFxcY2RvdFxcZGZyYWN7MTB9ezEwMH09XFxkZnJhY3s4MDB9ezEwMH09OCQiXX0="
+  },
+  {
+   "id": "355b",
+   "ex": 355,
+   "ap": "b",
+   "bloc": "percentatges",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquest percentatge de la quantitat que es dona.",
+   "enunciat": "El $50\\,\\%$ de $36$",
+   "opcions": [
+    "$18$",
+    "$1{,}8$",
+    "$14$",
+    "$72$"
+   ],
+   "pistes": [
+    "El $50\\,\\%$ és la meitat.",
+    "$36:2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRWwgJDUwXFwsXFwlJCDDqXMgJDB7LH01JCwgbm8gJDB7LH0wNSQ6IGVzIGRpdmlkZWl4IHBlciAkMTAwJCwgbm8gcGVyICQxXFwsMDAwJC4iLCAiSGFzIGZldCAkNTAtMzYkLiBFbCAkNTBcXCxcXCUkIGRlICQzNiQgw6lzIGxhIG1laXRhdCBkZSAkMzYkLiIsICJIYXMgZGl2aWRpdCBwZXIgJDB7LH01JCAobyBtdWx0aXBsaWNhdCBwZXIgJDIkKS4gRWwgJDUwXFwsXFwlJCDDqXMgbGEgTUVJVEFULiJdLCAiZXJyIjogWyIiLCAiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiUFJPRFVDVEVfUEVSX1NVTUEiLCAiRk9STVVMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDM2XFxjZG90XFxkZnJhY3s1MH17MTAwfT1cXGRmcmFjezM2fXsyfT0xOCQiXX0="
+  },
+  {
    "id": "109",
    "ex": 109,
    "ap": "",
@@ -448,6 +543,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgdW5hIHhpZnJhIHBlbCBjYW3DrSBlbiBjb252ZXJ0aXIgZWwgJDB7LH04XFwsXFwlJCBhIGRlY2ltYWw6IHJldmlzYSBxdWUgJDB7LH04XFwsXFwlPTB7LH0wMDgkLCBpIG11bHRpcGxpY2EgZGUgbm91LiIsICIiLCAiVCdoYXMgZGVpeGF0IHVuYSB4aWZyYSBwZWwgY2Ftw60gZW4gY29udmVydGlyIGVsICQweyx9OFxcLFxcJSQgYSBkZWNpbWFsOiAkMHssfThcXCxcXCU9MHssfTAwOCQsIG5vICQweyx9MDgkOyBtdWx0aXBsaWNhIGRlIG5vdSAkNDVcXCwwMDBcXGNkb3Qweyx9MDA4JC4iLCAiQXF1ZXN0IHZhbG9yIHN1cnQgZGUgZGl2aWRpciAkNDVcXCwwMDA6MHssfTAwOCQgZW4gY29tcHRlcyBkZSBtdWx0aXBsaWNhcjogYXF1w60gZXMgZGVtYW5hIGxhIGNvbWlzc2nDsyBhIHBhcnRpciBkZSBsZXMgdmVuZGVzLCBhaXjDrSBxdWUgY2FsICQweyx9MDA4XFxjZG90NDVcXCwwMDAkLiJdLCAiZXJyIjogWyJQRVJDRU5UQVRHRV9ERUNJTUFMX01BTCIsICIiLCAiUEVSQ0VOVEFUR0VfREVDSU1BTF9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQweyx9MDA4XFxjZG90NDVcXCwwMDAkIiwgIiQzNjAkIOKCrCJdfQ=="
+  },
+  {
+   "id": "356a",
+   "ex": 356,
+   "ap": "a",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la quantitat final aplicant-hi el factor multiplicador que es dona.",
+   "enunciat": "$100$ € pugen un $25\\,\\%$: es multipliquen per $1{,}25$.",
+   "opcions": [
+    "$25$ €",
+    "$125$ €",
+    "$80$ €",
+    "$101{,}25$ €"
+   ],
+   "pistes": [
+    "El factor ja te'l donen: no cal calcular-lo.",
+    "$100\\cdot1{,}25$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiDDqXMgZWwgcXVlIFBVSkEuIE11bHRpcGxpY2FudCBwZXIgJDF7LH0yNSQgamEgc3VydCBsYSBxdWFudGl0YXQgZmluYWwsIGFtYiBsYSBwdWphZGEgaW5jbG9zYS4iLCAiIiwgIkhhcyBkaXZpZGl0IHBlciAkMXssfTI1JC4gU2kgcHVqYSwgZWwgcmVzdWx0YXQgaGEgZGUgc2VyIG3DqXMgZ3JhbiBxdWUgJDEwMCQuIiwgIkhhcyBzdW1hdCBlbCBmYWN0b3IuIEVsIGZhY3RvciBlcyBNVUxUSVBMSUNBOiAkMTAwXFxjZG90MXssfTI1JC4iXSwgImVyciI6IFsiRkFDVE9SX1BFUl9QRVJDRU5UQVRHRSIsICIiLCAiRk9STVVMQV9JTlZFUlRJREEiLCAiUFJPRFVDVEVfUEVSX1NVTUEiXSwgInJlcyI6IFsiJDEwMFxcY2RvdDF7LH0yNT0xMjUkIOKCrCJdfQ=="
+  },
+  {
+   "id": "356b",
+   "ex": 356,
+   "ap": "b",
+   "bloc": "factor_multiplicador",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la quantitat final aplicant-hi el factor multiplicador que es dona.",
+   "enunciat": "$200$ € baixen un $10\\,\\%$: es multipliquen per $0{,}90$.",
+   "opcions": [
+    "$\\approx222{,}22$ €",
+    "$199{,}10$ €",
+    "$180$ €",
+    "$20$ €"
+   ],
+   "pistes": [
+    "El factor ja te'l donen: no cal calcular-lo.",
+    "$200\\cdot0{,}90$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgJDB7LH05MCQuIFNpIGJhaXhhLCBlbCByZXN1bHRhdCBoYSBkZSBzZXIgbcOpcyBwZXRpdCBxdWUgJDIwMCQuIiwgIkhhcyByZXN0YXQgZWwgZmFjdG9yLiBFbCBmYWN0b3IgZXMgTVVMVElQTElDQTogJDIwMFxcY2RvdDB7LH05MCQuIiwgIiIsICJBaXjDsiDDqXMgZWwgcXVlIEJBSVhBLiBNdWx0aXBsaWNhbnQgcGVyICQweyx9OTAkIGphIHN1cnQgbGEgcXVhbnRpdGF0IGZpbmFsLCBhbWIgbGEgcmViYWl4YSBmZXRhLiJdLCAiZXJyIjogWyJGT1JNVUxBX0lOVkVSVElEQSIsICJQUk9EVUNURV9QRVJfU1VNQSIsICIiLCAiRkFDVE9SX1BFUl9QRVJDRU5UQVRHRSJdLCAicmVzIjogWyIkMjAwXFxjZG90MHssfTkwPTE4MCQg4oKsIl19"
   },
   {
    "id": "275a",

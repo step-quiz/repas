@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 2</h1>
-<p class="meta">89 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">93 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Càlcul de potències <span class="tip">· 23 preguntes</span></h2>
+<h2>Càlcul de potències <span class="tip">· 25 preguntes</span></h2>
+<p class="sec"><strong>Exercici 344.</strong> Expressa aquest producte com una sola potència. Recorda: $a^m\cdot a^n=a^{m+n}$.</p>
+<div class="it"><div class="cap"><span class="cod">344a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$2^3\cdot 2^4$</div>
+<ol class="op"><li><span class="ok">$2^{7}$</span> — resposta correcta</li>
+<li>$2^{12}$<br><span class="err">EXPONENTS_MULTIPLICATS</span><span class="fb">En multiplicar potències de la mateixa base, els exponents se SUMEN, no es multipliquen: $a^m\cdot a^n=a^{m+n}$.</span></li>
+<li>$4^{7}$<br><span class="err">BASE_ALTERADA</span><span class="fb">La base és $2$ als dos factors i es queda $2$. En combinar potències de la mateixa base, la base es queda tal qual; només canvia l'exponent.</span></li>
+<li>$2^{1}$<br><span class="err">EXPONENTS_RESTATS_PRODUCTE</span><span class="fb">En multiplicar potències de la mateixa base, els exponents se sumen; restar-los és la regla del quocient, no la del producte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les dues potències tenen la mateixa base, $2$.</li><li>Suma els exponents: $3+4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2^3\cdot2^4=2^{3+4}=2^{7}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">344b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$5^2\cdot 5^6$</div>
+<ol class="op"><li><span class="ok">$5^{8}$</span> — resposta correcta</li>
+<li>$5^{12}$<br><span class="err">EXPONENTS_MULTIPLICATS</span><span class="fb">En multiplicar potències de la mateixa base, els exponents se SUMEN, no es multipliquen: $a^m\cdot a^n=a^{m+n}$.</span></li>
+<li>$25^{8}$<br><span class="err">BASE_ALTERADA</span><span class="fb">La base és $5$ als dos factors i es queda $5$. En combinar potències de la mateixa base, la base es queda tal qual; només canvia l'exponent.</span></li>
+<li>$5^{4}$<br><span class="err">EXPONENTS_RESTATS_PRODUCTE</span><span class="fb">En multiplicar potències de la mateixa base, els exponents se sumen; restar-los és la regla del quocient, no la del producte.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Les dues potències tenen la mateixa base, $5$.</li><li>Suma els exponents: $2+6$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$5^2\cdot5^6=5^{2+6}=5^{8}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 35.</strong> Troba el valor d&#x27;aquestes potències.</p>
 <div class="it"><div class="cap"><span class="cod">35a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$2^5\cdot 2^3$</div>
@@ -555,7 +576,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si les bases són iguals, els exponents han de complir $3+2a=9$.</li><li>$2a=9-3=6$. Aïlla $a$: $a=6:2$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3+2a=9\Rightarrow 2a=6\Rightarrow a=3$</li></ol>
 </div>
-<h2>Verifica, corregeix i simplifica <span class="tip">· 20 preguntes</span></h2>
+<h2>Verifica, corregeix i simplifica <span class="tip">· 22 preguntes</span></h2>
+<p class="sec"><strong>Exercici 345.</strong> Digues si aquesta igualtat entre potències és certa o falsa, comprovant-la amb la propietat que hi correspon.</p>
+<div class="it"><div class="cap"><span class="cod">345a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$3^2\cdot 3^5=3^{7}$</div>
+<ol class="op"><li><span class="ok">Certa</span> — resposta correcta</li>
+<li>Falsa: és $3^{10}$<br><span class="err">EXPONENTS_MULTIPLICATS</span><span class="fb">En un PRODUCTE de potències de la mateixa base els exponents se sumen: $2+5=7$. La igualtat és certa.</span></li>
+<li>Falsa: és $9^{7}$<br><span class="err">BASE_ALTERADA</span><span class="fb">La base no es multiplica: es queda $3$. La igualtat és certa.</span></li>
+<li>Falsa: és $3^{3}$<br><span class="err">EXPONENTS_RESTATS_PRODUCTE</span><span class="fb">Restar exponents és per DIVIDIR. Aquí es multiplica: $2+5=7$. La igualtat és certa.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>És un producte de potències de la mateixa base.</li><li>Els exponents se sumen: quant fa $2+5$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3^2\cdot3^5=3^{2+5}=3^{7}$: la igualtat és certa.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">345b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$\left(2^3\right)^2=2^{5}$</div>
+<ol class="op"><li><span class="ok">Falsa: és $2^{6}$</span> — resposta correcta</li>
+<li>Certa<br><span class="err">POTENCIA_POTENCIA_SUMADA</span><span class="fb">Has sumat els exponents. En una potència d'una potència es MULTIPLIQUEN: $3\cdot2=6$, no $3+2=5$.</span></li>
+<li>Falsa: és $2^{9}$<br><span class="err">POTENCIA_APLICADA_MALAMENT</span><span class="fb">Has elevat l'exponent al quadrat, $3^2=9$. Els exponents es multipliquen: $3\cdot2=6$.</span></li>
+<li>Falsa: és $4^{5}$<br><span class="err">BASE_ALTERADA</span><span class="fb">La base no canvia: es queda $2$. I els exponents es multipliquen.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>És una potència elevada a una altra potència.</li><li>Els exponents es multipliquen: quant fa $3\cdot2$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\left(2^3\right)^2=2^{3\cdot2}=2^{6}$, no $2^{5}$: la igualtat és falsa.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 43.</strong> Expressa com a potència única.</p>
 <div class="it"><div class="cap"><span class="cod">43a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$(2^3)^4$</div>
@@ -957,26 +999,26 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(11^2)^3=11^6$; $11^9\cdot 11^6=11^{9+6}=11^{15}\Rightarrow \square=15$</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Càlcul de potències <span class="err">obre pel mig</span></td><td>0</td><td>6</td><td>17</td><td>0</td><td><span class="err">directa</span></td></tr>
+<tr><td>Càlcul de potències</td><td>2</td><td>6</td><td>17</td><td>0</td><td>trivial</td></tr>
 <tr><td>Exponent negatiu i equacions</td><td>8</td><td>0</td><td>15</td><td>4</td><td>trivial</td></tr>
-<tr><td>Verifica, corregeix i simplifica <span class="err">obre pel mig</span></td><td>0</td><td>6</td><td>6</td><td>8</td><td><span class="err">directa</span></td></tr>
+<tr><td>Verifica, corregeix i simplifica</td><td>2</td><td>6</td><td>6</td><td>8</td><td>trivial</td></tr>
 <tr><td>Combina potències</td><td>5</td><td>0</td><td>2</td><td>12</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>FACTOR_OBLIDAT</code></td><td>44</td><td>35c, 35d, 36a, 36b, 36c, 36d, 36e, 36g, 37g, 37h, 37i, 37j, 38b, 38f…</td></tr>
+<tr><td><code>POTENCIA_POTENCIA_SUMADA</code></td><td>25</td><td>38b, 38d, 38f, 38i, 345b, 43a, 43b, 43b, 43c, 43d, 43e, 43f, 42f, 41d…</td></tr>
 <tr><td><code>EXPONENT_NEGATIU_SIGNE</code></td><td>24</td><td>321a, 321b, 321c, 321d, 322b, 322c, 38a, 38a, 38b, 38c, 38d, 38e, 38e, 38g…</td></tr>
-<tr><td><code>POTENCIA_POTENCIA_SUMADA</code></td><td>24</td><td>38b, 38d, 38f, 38i, 43a, 43b, 43b, 43c, 43d, 43e, 43f, 42f, 41d, 41g…</td></tr>
+<tr><td><code>EXPONENTS_MULTIPLICATS</code></td><td>19</td><td>344a, 344b, 35a, 35c, 36a, 36b, 36d, 36e, 36g, 37g, 37h, 37j, 38a, 345a…</td></tr>
 <tr><td><code>EXPONENTS_SUMATS_QUOCIENT</code></td><td>17</td><td>35b, 35e, 36a, 36c, 36d, 36f, 38c, 38d, 38f, 39a, 39b, 39c, 39d, 40b…</td></tr>
-<tr><td><code>EXPONENTS_MULTIPLICATS</code></td><td>16</td><td>35a, 35c, 36a, 36b, 36d, 36e, 36g, 37g, 37h, 37j, 38a, 41b, 41e, 324a…</td></tr>
 <tr><td><code>ORDRE_RESTA</code></td><td>13</td><td>35b, 38g, 38h, 39a, 39c, 39d, 39e, 39f, 40a, 40b, 40c, 40d, 46a</td></tr>
 <tr><td><code>PARITAT_EXPONENT</code></td><td>13</td><td>35d, 35e, 37b, 37i, 37j, 321c, 43f, 42c, 41d, 41f, 323c, 45c, 46b</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>11</td><td>42a, 42a, 42b, 42b, 42c, 42d, 42d, 42e, 42e, 42f, 42f</td></tr>
+<tr><td><code>BASE_ALTERADA</code></td><td>10</td><td>344a, 344b, 35b, 345a, 345b, 41a, 41e, 41h, 324a, 324b</td></tr>
+<tr><td><code>EXPONENTS_RESTATS_PRODUCTE</code></td><td>8</td><td>344a, 344b, 35a, 37g, 37i, 38i, 345a, 324a</td></tr>
 <tr><td><code>BASE_EXPONENT_INTERCANVIATS</code></td><td>8</td><td>35a, 35c, 35d, 322a, 322c, 43a, 46b, 46b</td></tr>
 <tr><td><code>CAP_ERROR</code></td><td>8</td><td>41a, 41b, 41c, 41d, 41e, 41f, 41g, 41h</td></tr>
-<tr><td><code>BASE_ALTERADA</code></td><td>6</td><td>35b, 41a, 41e, 41h, 324a, 324b</td></tr>
 <tr><td><code>EXPONENT_ZERO</code></td><td>6</td><td>35f, 322c, 40c, 41b, 41h, 46c</td></tr>
 <tr><td><code>BASE_SIGNE_PERDUT</code></td><td>6</td><td>36b, 36f, 39b, 39f, 43e, 44a</td></tr>
-<tr><td><code>EXPONENTS_RESTATS_PRODUCTE</code></td><td>5</td><td>35a, 37g, 37i, 38i, 324a</td></tr>
 <tr><td><code>POTENCIA_PRODUCTE_UN_FACTOR</code></td><td>5</td><td>35f, 37a, 37b, 37c, 37f</td></tr>
 <tr><td><code>REGLA_NOMES_QUOCIENT</code></td><td>5</td><td>38c, 38e, 38g, 38h, 41g</td></tr>
 <tr><td><code>MENYS_SENSE_PARENTESI</code></td><td>5</td><td>43c, 41f, 45e, 45f, 45g</td></tr>
@@ -987,6 +1029,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>INVERTIDA</code></td><td>3</td><td>37d, 37e, 43d</td></tr>
 <tr><td><code>EXPONENT_COM_PRODUCTE</code></td><td>3</td><td>321a, 321d, 323c</td></tr>
 <tr><td><code>EXPONENT_MULTIPLICAT</code></td><td>3</td><td>321b, 323a, 323b</td></tr>
+<tr><td><code>POTENCIA_APLICADA_MALAMENT</code></td><td>3</td><td>345b, 323a, 323b</td></tr>
 <tr><td><code>SIGNE_PRODUCTE</code></td><td>2</td><td>37c, 37f</td></tr>
 <tr><td><code>POTENCIA_QUOCIENT_UN_FACTOR</code></td><td>2</td><td>37d, 37e</td></tr>
 <tr><td><code>COMA_DECIMAL_DESPLAÇADA</code></td><td>2</td><td>37e, 37h</td></tr>
@@ -994,7 +1037,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>POTENCIA_10</code></td><td>2</td><td>321d, 322d</td></tr>
 <tr><td><code>BASE_MAL_TRIADA</code></td><td>2</td><td>322a, 322b</td></tr>
 <tr><td><code>EXPONENT_SENSE_DESPLACAR</code></td><td>2</td><td>322d, 322d</td></tr>
-<tr><td><code>POTENCIA_APLICADA_MALAMENT</code></td><td>2</td><td>323a, 323b</td></tr>
 <tr><td><code>EXPONENT_IGNORAT</code></td><td>1</td><td>35f</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>1</td><td>36c</td></tr>
 <tr><td><code>EXPONENT_OBLIDAT</code></td><td>1</td><td>37a</td></tr>

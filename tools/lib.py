@@ -239,10 +239,14 @@ def dificultats(taula):
     _DIF.update(taula)
 
 
-def Q(qid, ex, ap, bloc, tipus, enunciat,
+def Q(qid, ex, ap, bloc, *, tipus, enunciat,
       correcta, distractors, pistes, resolucio, ex_text="", nota="", dif=None,
       nota_interna="", figura="", comentari=""):
-    """Registra una pregunta al banc, validant-la."""
+    """Registra una pregunta al banc, validant-la.
+
+    Després de `bloc`, tots els arguments van amb el nom (tipus=, enunciat=,
+    correcta=, distractors=, pistes=, resolucio=…): així cada crida es llegeix
+    sola i un canvi de contingut es veu clar al diff (docs/TODO-AI.md §7)."""
     item = {
         "id": qid,
         "ex": ex,

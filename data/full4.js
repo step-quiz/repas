@@ -70,6 +70,8 @@ window.FULL = {
    "titol": "Igualtats notables",
    "descripcio": "Completar i reconèixer quadrats de binomis i sumes per diferències.",
    "items": [
+    "348a",
+    "348b",
     "71a",
     "71b",
     "71c",
@@ -89,6 +91,8 @@ window.FULL = {
    "titol": "Factor comú i simplificació",
    "descripcio": "Factor comú i combinació amb igualtats notables.",
    "items": [
+    "349a",
+    "349b",
     "73a",
     "73b",
     "73c",
@@ -1173,6 +1177,50 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB2YWxvciBkZSAkXFxzcXVhcmUkIMOpcyBjb3JyZWN0ZSwgcGVyw7IgZWwgcmVzaWR1IHTDqSBlbCBzaWduZSBjYW52aWF0LiIsICJFbCB2YWxvciBkZSAkXFxzcXVhcmUkIMOpcyBjb3JyZWN0ZSwgcGVyw7IgYWxndW4gcGFzIHBvc3RlcmlvciBkZSBsYSB0YXVsYSBubyBzJ2hhIGNvbXBsZXRhdCBiw6kuIiwgIlNpICRcXHNxdWFyZVxcY2RvdCgtNCk9OCQsIGHDr2xsYW50IHN1cnQgJFxcc3F1YXJlPS0yJCwgbm8gJDIkOiByZXZpc2EgZWwgc2lnbmUgZW4gcmVzb2xkcmUgbCdlcXVhY2nDsy4iLCAiIl0sICJlcnIiOiBbIkRJVklTSU9fUVVPQ0lFTlRfUkVTSURVX0NBTlZJQVRTIiwgIlJVRkZJTklfUEFTX01BTCIsICJSVUZGSU5JX1NJR05FX0FSUkVMIiwgIiJdLCAicmVzIjogWyJEZSAkXFxzcXVhcmVcXGNkb3QoLTQpPTgkIHN1cnQgJFxcc3F1YXJlPS0yJDsgYW1iIGFxdWVzdGEgYXJyZWwsIHF1b2NpZW50ICQtMnheezJ9Kzh4LTMyJCBpIHJlc2lkdSAkMTI1JCJdfQ=="
   },
   {
+   "id": "348a",
+   "ex": 348,
+   "ap": "a",
+   "bloc": "notables",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Desenvolupa aquesta igualtat notable. Recorda: $(a+b)^2=a^2+2ab+b^2$ i $(a-b)^2=a^2-2ab+b^2$.",
+   "enunciat": "$(x+3)^2$",
+   "opcions": [
+    "$x^2+6x+9$",
+    "$x^2+9$",
+    "$x^2+3x+9$",
+    "$x^2-6x+9$"
+   ],
+   "pistes": [
+    "Aquí $a=x$ i $b=3$.",
+    "$x^2+2\\cdot x\\cdot3+3^2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiVCdoYXMgZGVpeGF0IGVsIHRlcm1lIGRlbCBtaWcsIGVsIGRvYmxlIHByb2R1Y3RlICQyXFxjZG90IHhcXGNkb3QzJC4gUGVyIHJlY29uw6hpeGVyIHVuIHF1YWRyYXQgcGVyZmVjdGUgY2FsZW4gZWxzIFRSRVMgdGVybWVzOiBlbCBxdWFkcmF0IGRlbCBwcmltZXIsIGVsIGRvYmxlIHByb2R1Y3RlLCBpIGVsIHF1YWRyYXQgZGVsIHNlZ29uLiBSZXZpc2EgcXVlIGhpIHPDs24gdG90cy4iLCAiQWwgcXVhZHJhdCBkJ3VuYSBzdW1hIG8gZCd1bmEgcmVzdGEsIGVsIHRlcm1lIGRlbCBtaWcgw6lzIGVsIERPQkxFIHByb2R1Y3RlLCAkMmFiJCwgbm8gbm9tw6lzICRhYiQuIiwgIkFxdcOtIMOpcyB1bmEgU1VNQTogZWwgdGVybWUgZGVsIG1pZyDDqXMgcG9zaXRpdS4gUmV2aXNhIGVsIHNpZ25lIGRlbCB0ZXJtZSBkZWwgbWlnOiAkKGEtYileMj1hXjItMmFiK2JeMiQsIGFtYiBlbCB0ZXJtZSBkZWwgbWlnIE5FR0FUSVUsIGEgZGlmZXLDqG5jaWEgZGUgJChhK2IpXjIkLiJdLCAiZXJyIjogWyIiLCAiUVVBRFJBVF9JTkNPTVBMRVQiLCAiSUdVQUxUQVRfTk9UQUJMRV9ET0JMRV9PQkxJREFUIiwgIklHVUFMVEFUX05PVEFCTEVfU0lHTkUiXSwgInJlcyI6IFsiJCh4KzMpXjI9eF4yKzJcXGNkb3QgeFxcY2RvdDMrM14yPXheMis2eCs5JCJdfQ=="
+  },
+  {
+   "id": "348b",
+   "ex": 348,
+   "ap": "b",
+   "bloc": "notables",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Desenvolupa aquesta igualtat notable. Recorda: $(a+b)^2=a^2+2ab+b^2$ i $(a-b)^2=a^2-2ab+b^2$.",
+   "enunciat": "$(x-5)^2$",
+   "opcions": [
+    "$x^2-25$",
+    "$x^2-10x+25$",
+    "$x^2-5x+25$",
+    "$x^2+10x+25$"
+   ],
+   "pistes": [
+    "Aquí $a=x$ i $b=5$, i és el quadrat d'una RESTA.",
+    "$x^2-2\\cdot x\\cdot5+5^2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZWxldmF0IGNhZGEgdGVybWUgYWwgcXVhZHJhdCBpIHQnaGFzIGRlaXhhdCBlbCBkb2JsZSBwcm9kdWN0ZS4gQSBtw6lzLCAkKC01KV4yPSsyNSQuIFBlciByZWNvbsOoaXhlciB1biBxdWFkcmF0IHBlcmZlY3RlIGNhbGVuIGVscyBUUkVTIHRlcm1lczogZWwgcXVhZHJhdCBkZWwgcHJpbWVyLCBlbCBkb2JsZSBwcm9kdWN0ZSwgaSBlbCBxdWFkcmF0IGRlbCBzZWdvbi4gUmV2aXNhIHF1ZSBoaSBzw7NuIHRvdHMuIiwgIiIsICJBbCBxdWFkcmF0IGQndW5hIHN1bWEgbyBkJ3VuYSByZXN0YSwgZWwgdGVybWUgZGVsIG1pZyDDqXMgZWwgRE9CTEUgcHJvZHVjdGUsICQyYWIkLCBubyBub23DqXMgJGFiJC4iLCAiUmV2aXNhIGVsIHNpZ25lIGRlbCB0ZXJtZSBkZWwgbWlnOiAkKGEtYileMj1hXjItMmFiK2JeMiQsIGFtYiBlbCB0ZXJtZSBkZWwgbWlnIE5FR0FUSVUsIGEgZGlmZXLDqG5jaWEgZGUgJChhK2IpXjIkLiJdLCAiZXJyIjogWyJRVUFEUkFUX0lOQ09NUExFVCIsICIiLCAiSUdVQUxUQVRfTk9UQUJMRV9ET0JMRV9PQkxJREFUIiwgIklHVUFMVEFUX05PVEFCTEVfU0lHTkUiXSwgInJlcyI6IFsiJCh4LTUpXjI9eF4yLTJcXGNkb3QgeFxcY2RvdDUrNV4yPXheMi0xMHgrMjUkIl19"
+  },
+  {
    "id": "71a",
    "ex": 71,
    "ap": "a",
@@ -1435,6 +1483,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiB1bmEgc3VtYSBwZXIgZGlmZXLDqG5jaWEsIGVsIHNlZ29uIHF1YWRyYXQgc2VtcHJlIHJlc3RhLCBtYWkgc3VtYS4iLCAiRWwgc2Vnb24gdGVybWUgcydoYSBkJ2VsZXZhciBhbCBxdWFkcmF0OiDDqXMgJGNeMiQsIG5vICRjJC4iLCAiIiwgIkVsIHByaW1lciB0ZXJtZSBzJ2hhIGRlIGRlaXhhciBjb20gZWwgcXVhZHJhdCBkZSB0b3QgZWwgYmlub21pICQoYStiKSQsIG5vIGRlc2Vudm9sdXBhdCBuaSBzZXBhcmF0LiJdLCAiZXJyIjogWyJTVU1BX1BFUl9ESUZFUkVOQ0lBX01BTCIsICJRVUFEUkFUX0lOQ09NUExFVCIsICIiLCAiR1JBVVNfTUFMX0FHUlVQQVRTIl0sICJyZXMiOiBbIiRbKGErYikrY11cXGNkb3RbKGErYiktY109KGErYileMi1jXjIkIChkZXNlbnZvbHVwYXQgZGVsIHRvdDogJGFeMisyYWIrYl4yLWNeMiQpIl19"
+  },
+  {
+   "id": "349a",
+   "ex": 349,
+   "ap": "a",
+   "bloc": "factor_comu",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Treu factor comú en aquesta expressió: escriu-la com el factor que es repeteix multiplicat per un parèntesi.",
+   "enunciat": "$5x+10$",
+   "opcions": [
+    "$2(x+5)$",
+    "$5(x+10)$",
+    "$15x$",
+    "$5(x+2)$"
+   ],
+   "pistes": [
+    "Quin nombre divideix el $5$ i el $10$ alhora?",
+    "Divideix cada terme per $5$ i posa el resultat dins del parèntesi."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJTaSBkZXNmw6BzIGVsIHBhcsOobnRlc2ksICQyKHgrNSk9MngrMTAkLCBxdWUgbm8gw6lzICQ1eCsxMCQuIEVsIGZhY3RvciBjb23DuiDDqXMgZWwgJDUkLiIsICJFbCAkMTAkIHRhbWLDqSBzJ2hhIGRlIGRpdmlkaXIgcGVyICQ1JC4gRW4gdHJldXJlIGZhY3RvciBjb23DuiwgY2FkYSB0ZXJtZSBzJ2hhIGRlIGRpdmlkaXIgcGVsIGZhY3RvciBjb23DujogYWxndW4gdGVybWUgZGUgZGlucyBkZWwgcGFyw6hudGVzaSBubyBzJ2hhIGRpdmlkaXQgY29ycmVjdGFtZW50LiIsICIkNXgkIGkgJDEwJCBubyBzw7NuIHRlcm1lcyBzZW1ibGFudHMgKHVuIHBvcnRhICR4JCBpIGwnYWx0cmUgbm8pOiBubyBlcyBwb2RlbiBzdW1hci4iLCAiIl0sICJlcnIiOiBbIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkZBQ1RPUl9DT01VX01BTF9ESVZJRElUIiwgIkdSQVVTX01BTF9BR1JVUEFUUyIsICIiXSwgInJlcyI6IFsiJDV4PTVcXGNkb3QgeCQgaSAkMTA9NVxcY2RvdDIkIiwgIiQ1eCsxMD01KHgrMikkIl19"
+  },
+  {
+   "id": "349b",
+   "ex": 349,
+   "ap": "b",
+   "bloc": "factor_comu",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Treu factor comú en aquesta expressió: escriu-la com el factor que es repeteix multiplicat per un parèntesi.",
+   "enunciat": "$x^2+7x$",
+   "opcions": [
+    "$8x^3$",
+    "$x(x^2+7)$",
+    "$x(x+7x)$",
+    "$x(x+7)$"
+   ],
+   "pistes": [
+    "Quina lletra es repeteix als dos termes?",
+    "Divideix cada terme per $x$ i posa el resultat dins del parèntesi."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkeF4yJCBpICQ3eCQgbm8gc8OzbiB0ZXJtZXMgc2VtYmxhbnRzICh0ZW5lbiBncmF1cyBkaWZlcmVudHMpOiBubyBlcyBwb2RlbiBzdW1hci4iLCAiJHheMiQgZGl2aWRpdCBwZXIgJHgkIMOpcyAkeCQsIG5vICR4XjIkLiBFbiB0cmV1cmUgZmFjdG9yIGNvbcO6LCBjYWRhIHRlcm1lIHMnaGEgZGUgZGl2aWRpciBwZWwgZmFjdG9yIGNvbcO6OiBhbGd1biB0ZXJtZSBkZSBkaW5zIGRlbCBwYXLDqG50ZXNpIG5vIHMnaGEgZGl2aWRpdCBjb3JyZWN0YW1lbnQuIiwgIiQ3eCQgZGl2aWRpdCBwZXIgJHgkIMOpcyAkNyQ6IGxhICR4JCBqYSDDqXMgZm9yYSBkZWwgcGFyw6hudGVzaS4iLCAiIl0sICJlcnIiOiBbIkdSQVVTX01BTF9BR1JVUEFUUyIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICJGQUNUT1JfQ09NVV9NQUxfRElWSURJVCIsICIiXSwgInJlcyI6IFsiJHheMj14XFxjZG90IHgkIGkgJDd4PXhcXGNkb3Q3JCIsICIkeF4yKzd4PXgoeCs3KSQiXX0="
   },
   {
    "id": "73a",

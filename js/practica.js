@@ -7,10 +7,20 @@
    l'ordre del full; sense aquest paràmetre el comportament és el normal. */
 (function () {
   "use strict";
-  if (!window.FULL) return;   /* practica.html ja mostra "aquest full encara no està preparat" */
+  /* Les dades (window.FULL) arriben amb un <script> que afegeix practica.html:
+     poden arribar abans o després d'aquest fitxer. S'espera l'avís
+     «re:dades» (RE_DADES_LLESTES) si encara no hi són. Si no arriben mai,
+     practica.html ja mostra "aquest full encara no està preparat". */
+  if (window.RE_DADES_OK) inicia();
+  else document.addEventListener("re:dades", inicia, { once: true });
+
+  function inicia() {
+  if (!window.FULL) return;
 
   var D = window.FULL, $ = function (s) { return document.querySelector(s); };
-  var ids = D.items.map(function (i) { return i.id; });
+  /* Tots els exercicis del full, en ordre (per a Anterior/Següent i «N de M»).
+     Surten dels blocs: D.items només porta els del bloc d'aquest exercici. */
+  var ids = [].concat.apply([], D.blocs.map(function (b) { return b.items; }));
   var params = new URLSearchParams(location.search);
   var qid = params.get("q") || ids[0];
   var deLitinerari = params.get("origen") === "itinerari";
@@ -31,7 +41,9 @@
       '<a class="btn" href="full.html?full=' + D.full + '">Torna al full</a>';
     return;
   }
-  var item = D.items[idx], k = RE.clau(item);
+  var item = D.items.filter(function (it) { return it.id === qid; })[0];
+  if (!item) { RE_FULL_ABSENT(); return; }   /* (no passa: practica.html carrega el bloc de qid) */
+  var k = RE.clau(item);
 
   var ordre = [0, 1, 2, 3];                       /* barreja per sessió */
   for (var i = 3; i > 0; i--) {
@@ -454,4 +466,5 @@
     if (e.key === "ArrowRight") ves(idx + 1);
     if (e.key === "ArrowLeft") ves(idx - 1);
   });
+  }
 })();

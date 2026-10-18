@@ -100,11 +100,11 @@ B4 = "esdeveniments"
 
 E236 = "Escriu l'espai mostral dels experiments aleatoris següents."
 
-Q("236a", 236, "a", B1, "A",
-  "Treure una carta de la baralla espanyola.",
-  "L'espai mostral té $40$ resultats (una carta per a cada combinació "
+Q("236a", 236, "a", B1, tipus="A",
+  enunciat="Treure una carta de la baralla espanyola.",
+  correcta="L'espai mostral té $40$ resultats (una carta per a cada combinació "
   "de coll i valor)",
-  [D("L'espai mostral té $4$ resultats (un per cada coll: ors, copes, "
+  distractors=[D("L'espai mostral té $4$ resultats (un per cada coll: ors, copes, "
      "espases i bastos)", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "$4$ compta només els colls, no les cartes individuals: cada "
      "coll té $10$ cartes diferents (de l'$1$ al $7$ i tres figures: "
@@ -120,19 +120,19 @@ Q("236a", 236, "a", B1, "A",
      "$10$ compta els valors possibles d'UN sol coll, però l'espai "
      "mostral de \"treure una carta\" ha d'incloure les cartes de "
      "TOTS els colls, no només d'un.")],
-  ["Una baralla espanyola té $4$ colls (ors, copes, espases, bastos), "
+  pistes=["Una baralla espanyola té $4$ colls (ors, copes, espases, bastos), "
    "cadascun amb $10$ cartes.",
    "L'espai mostral és el conjunt de totes les cartes possibles, no "
    "només els colls."],
-  ["La baralla espanyola té $4$ colls de $10$ cartes cadascun: "
+  resolucio=["La baralla espanyola té $4$ colls de $10$ cartes cadascun: "
    "$4\\cdot10=40$ resultats possibles"],
   ex_text=E236)
 
-Q("236b", 236, "b", B1, "A",
-  "Llançar una xinxeta i anotar la posició de caiguda.",
-  "L'espai mostral té $2$ resultats: $\\{\\text{punta amunt, de "
+Q("236b", 236, "b", B1, tipus="A",
+  enunciat="Llançar una xinxeta i anotar la posició de caiguda.",
+  correcta="L'espai mostral té $2$ resultats: $\\{\\text{punta amunt, de "
   "costat}\\}$",
-  [D("L'espai mostral té $6$ resultats, com un dau", "ESPAI_MOSTRAL_MAL_COMPTAT",
+  distractors=[D("L'espai mostral té $6$ resultats, com un dau", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "Una xinxeta no és un dau: només té dues maneres físiques de "
      "caure, no sis."),
    D("L'espai mostral té $1$ resultat, perquè sempre cau de la "
@@ -145,20 +145,20 @@ Q("236b", 236, "b", B1, "A",
      "El que es demana anotar no és l'angle exacte de caiguda, sinó "
      "la posició (de punta o de costat): amb aquest criteri només hi "
      "ha dos resultats possibles.")],
-  ["Pensa en les dues úniques maneres físiques en què pot quedar una "
+  pistes=["Pensa en les dues úniques maneres físiques en què pot quedar una "
    "xinxeta en caure a terra.",
    "No confonguis \"totes les posicions possibles\" amb \"totes les "
    "categories que es demana anotar\"."],
-  ["Una xinxeta pot caure de dues maneres: de punta cap amunt o de "
+  resolucio=["Una xinxeta pot caure de dues maneres: de punta cap amunt o de "
    "costat. $E=\\{\\text{punta amunt, de costat}\\}$"],
   ex_text=E236)
 
-Q("236c", 236, "c", B1, "A",
-  "Treure una bola d'una urna amb 5 boles vermelles, 3 de blaves i 2 "
+Q("236c", 236, "c", B1, tipus="A",
+  enunciat="Treure una bola d'una urna amb 5 boles vermelles, 3 de blaves i 2 "
   "de verdes.",
-  "L'espai mostral té $3$ resultats: $\\{\\text{vermella, blava, "
+  correcta="L'espai mostral té $3$ resultats: $\\{\\text{vermella, blava, "
   "verda}\\}$ (un per cada color possible)",
-  [D("L'espai mostral té $10$ resultats, un per cada bola física de "
+  distractors=[D("L'espai mostral té $10$ resultats, un per cada bola física de "
      "l'urna", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "L'espai mostral es descriu pels resultats DISTINGIBLES de "
      "l'experiment (el color observat), no per cada bola física: "
@@ -175,18 +175,18 @@ Q("236c", 236, "c", B1, "A",
      "L'enunciat no demana distingir només si és vermella o no: "
      "demana el color de la bola, i hi ha $3$ colors diferents a "
      "l'urna.")],
-  ["Pensa en els resultats DIFERENTS que es poden distingir en "
+  pistes=["Pensa en els resultats DIFERENTS que es poden distingir en "
    "treure una bola, no en el nombre total de boles.",
    "Hi ha $3$ colors a l'urna: vermell, blau i verd."],
-  ["L'urna té $5+3+2=10$ boles, però només $3$ colors diferents: "
+  resolucio=["L'urna té $5+3+2=10$ boles, però només $3$ colors diferents: "
    "$E=\\{\\text{vermella, blava, verda}\\}$"],
   ex_text=E236)
 
-Q("236d", 236, "d", B1, "A",
-  "Llançar 2 daus i restar les cares superiors.",
-  "L'espai mostral té $11$ resultats: $\\{-5,-4,-3,-2,-1,0,1,2,3,4,"
+Q("236d", 236, "d", B1, tipus="A",
+  enunciat="Llançar 2 daus i restar les cares superiors.",
+  correcta="L'espai mostral té $11$ resultats: $\\{-5,-4,-3,-2,-1,0,1,2,3,4,"
   "5\\}$",
-  [D("L'espai mostral té $6$ resultats, com un sol dau",
+  distractors=[D("L'espai mostral té $6$ resultats, com un sol dau",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
      "Amb dos daus i una resta, els resultats possibles no es "
      "limiten a l'$1$-$6$ d'un sol dau: poden sortir valors negatius "
@@ -202,19 +202,19 @@ Q("236d", 236, "d", B1, "A",
      "La resta de dues cares també pot donar $0$ o valors negatius "
      "(si la segona cara és més gran que la primera): no es pot "
      "descartar aquesta part de l'espai mostral.")],
-  ["La resta de les cares superiors pot anar des de $1-6$ fins a "
+  pistes=["La resta de les cares superiors pot anar des de $1-6$ fins a "
    "$6-1$.",
    "Calcula el valor mínim i el màxim, i compta tots els enters "
    "entremig, incloent-hi el $0$."],
-  ["La resta va de $1-6=-5$ fins a $6-1=5$: "
+  resolucio=["La resta va de $1-6=-5$ fins a $6-1=5$: "
    "$E=\\{-5,-4,-3,-2,-1,0,1,2,3,4,5\\}$, $11$ resultats"],
   ex_text=E236)
 
-Q("236e", 236, "e", B1, "A",
-  "Llançar 2 daus i multiplicar les cares superiors.",
-  "L'espai mostral té $18$ resultats: $\\{1,2,3,4,5,6,8,9,10,12,15,"
+Q("236e", 236, "e", B1, tipus="A",
+  enunciat="Llançar 2 daus i multiplicar les cares superiors.",
+  correcta="L'espai mostral té $18$ resultats: $\\{1,2,3,4,5,6,8,9,10,12,15,"
   "16,18,20,24,25,30,36\\}$",
-  [D("L'espai mostral té $36$ resultats, un per cada parell de "
+  distractors=[D("L'espai mostral té $36$ resultats, un per cada parell de "
      "cares", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "$36$ és el nombre de PARELLS de resultats dels dos daus, no el "
      "nombre de valors DIFERENTS del seu producte: diversos parells "
@@ -231,22 +231,22 @@ Q("236e", 236, "e", B1, "A",
      "com a producte de dues cares d'un dau: per exemple, l'$11$, el "
      "$13$, el $14$ o el $17$ no es poden obtenir. Cal llistar "
      "només els que realment s'obtenen.")],
-  ["El producte de les cares pot anar d'$1\\cdot1=1$ fins a "
+  pistes=["El producte de les cares pot anar d'$1\\cdot1=1$ fins a "
    "$6\\cdot6=36$, però no tots els valors intermedis s'obtenen.",
    "Llista tots els productes possibles de $i\\cdot j$ amb "
    "$i,j\\in\\{1,\\ldots,6\\}$ i queda't només amb els valors "
    "diferents."],
-  ["Els productes possibles, sense repetir valors, són "
+  resolucio=["Els productes possibles, sense repetir valors, són "
    "$\\{1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36\\}$: "
    "$18$ resultats"],
   ex_text=E236)
 
-Q("236f", 236, "f", B1, "A",
-  "Considerar les espases de la baralla espanyola i treure una carta "
+Q("236f", 236, "f", B1, tipus="A",
+  enunciat="Considerar les espases de la baralla espanyola i treure una carta "
   "d'aquest grup.",
-  "L'espai mostral té $10$ resultats (les $10$ cartes del coll "
+  correcta="L'espai mostral té $10$ resultats (les $10$ cartes del coll "
   "d'espases)",
-  [D("L'espai mostral té $40$ resultats, com tota la baralla",
+  distractors=[D("L'espai mostral té $40$ resultats, com tota la baralla",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
      "L'enunciat restringeix l'experiment a UN sol coll (espases), "
      "no a la baralla sencera: només compten les $10$ cartes "
@@ -259,18 +259,18 @@ Q("236f", 236, "f", B1, "A",
      "comptar les figures", "ESPAI_MOSTRAL_MAL_COMPTAT",
      "Cada coll també té tres figures (sota, cavall i rei): "
      "$7+3=10$ cartes per coll, no $7$.")],
-  ["Cada coll d'una baralla espanyola té el mateix nombre de cartes.",
+  pistes=["Cada coll d'una baralla espanyola té el mateix nombre de cartes.",
    "La baralla té $40$ cartes repartides en $4$ colls iguals: "
    "quantes en toca a cada coll?"],
-  ["El coll d'espases té $10$ cartes: $E=\\{1\\text{ d'espases}, "
+  resolucio=["El coll d'espases té $10$ cartes: $E=\\{1\\text{ d'espases}, "
    "\\ldots,\\text{rei d'espases}\\}$"],
   ex_text=E236)
 
-Q("236g", 236, "g", B1, "A",
-  "Escollir a l'atzar un país de la Unió Europea.",
-  "L'espai mostral té $27$ resultats (els $27$ estats membres de la "
+Q("236g", 236, "g", B1, tipus="A",
+  enunciat="Escollir a l'atzar un país de la Unió Europea.",
+  correcta="L'espai mostral té $27$ resultats (els $27$ estats membres de la "
   "Unió Europea)",
-  [D("L'espai mostral té $28$ resultats, incloent-hi el Regne Unit",
+  distractors=[D("L'espai mostral té $28$ resultats, incloent-hi el Regne Unit",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
      "El Regne Unit ja no és estat membre de la Unió Europea: "
      "l'espai mostral d'aquest experiment té $27$ països, no "
@@ -284,20 +284,20 @@ Q("236g", 236, "g", B1, "A",
      "ESPAI_MOSTRAL_MAL_COMPTAT",
      "L'enunciat parla de la Unió Europea, no dels Estats Units: cal "
      "el nombre d'estats membres de la UE, que és $27$, no $50$.")],
-  ["Pensa en quants estats formen actualment la Unió Europea.",
+  pistes=["Pensa en quants estats formen actualment la Unió Europea.",
    "No confonguis \"país\" amb \"habitant\": l'experiment tria un "
    "país sencer."],
-  ["La Unió Europea té $27$ estats membres: $E=\\{$els $27$ països "
+  resolucio=["La Unió Europea té $27$ estats membres: $E=\\{$els $27$ països "
    "membres de la UE$\\}$"],
   ex_text=E236)
 
 # ---- exercici 237: dos daus diferenciats per color ----
-Q("237", 237, "", B1, "A",
-  "Llancem 2 daus, un de vermell i un de blau. Quin és l'espai "
+Q("237", 237, "", B1, tipus="A",
+  enunciat="Llancem 2 daus, un de vermell i un de blau. Quin és l'espai "
   "mostral d'aquest experiment?",
-  "$E=\\{(v,b):v,b\\in\\{1,\\ldots,6\\}\\}$, amb $36$ parells "
+  correcta="$E=\\{(v,b):v,b\\in\\{1,\\ldots,6\\}\\}$, amb $36$ parells "
   "ordenats, ja que $(3,5)$ i $(5,3)$ són resultats diferents",
-  [D("$E$ té $21$ resultats, perquè no importa l'ordre dels daus",
+  distractors=[D("$E$ té $21$ resultats, perquè no importa l'ordre dels daus",
      "ORDRE_NO_CONSIDERAT",
      "Els dos daus són diferents (un vermell, un blau): el parell "
      "$(3,5)$ (vermell $3$, blau $5$) és un resultat diferent del "
@@ -313,11 +313,11 @@ Q("237", 237, "", B1, "A",
      "Encara que els dos daus tinguin les mateixes cares possibles "
      "($1$ a $6$), el resultat de l'experiment és el PARELL de "
      "valors (un de cada dau), no un únic valor: cal combinar-los.")],
-  ["Com que els daus són de colors diferents, es pot distingir quin "
+  pistes=["Com que els daus són de colors diferents, es pot distingir quin "
    "resultat prové de cada un: l'ordre importa.",
    "Per cada un dels $6$ resultats del dau vermell, el dau blau pot "
    "donar $6$ resultats més: aplica el principi multiplicatiu."],
-  ["Cada parell $(v,b)$ amb $v,b\\in\\{1,\\ldots,6\\}$ és un "
+  resolucio=["Cada parell $(v,b)$ amb $v,b\\in\\{1,\\ldots,6\\}$ és un "
    "resultat diferent",
    "Pel principi multiplicatiu: $6\\cdot6=36$ parells ordenats "
    "possibles"],
@@ -326,11 +326,11 @@ Q("237", 237, "", B1, "A",
 # ---- exercici 238: producte de dos daus, esdeveniments no elementals ----
 E238 = "Llancem 2 daus i multipliquem el nombre de punts obtingut a cada un."
 
-Q("238a", 238, "a", B1, "A",
-  "Quants resultats DIFERENTS es poden obtenir com a producte de les "
+Q("238a", 238, "a", B1, tipus="A",
+  enunciat="Quants resultats DIFERENTS es poden obtenir com a producte de les "
   "dues cares?",
-  "$18$ resultats diferents",
-  [D("$36$ resultats diferents", "PARELLS_VALORS_CONFOSOS",
+  correcta="$18$ resultats diferents",
+  distractors=[D("$36$ resultats diferents", "PARELLS_VALORS_CONFOSOS",
      "$36$ és el nombre de PARELLS de resultats possibles dels dos "
      "daus, no el nombre de PRODUCTES diferents: diversos parells "
      "donen el mateix producte (per exemple, $2\\cdot3=6$ i "
@@ -343,23 +343,23 @@ Q("238a", 238, "a", B1, "A",
      "El producte de dos daus pot donar valors molt més grans que "
      "els d'un sol dau (fins a $36$): l'espai mostral té més de "
      "$6$ resultats.")],
-  ["Llista tots els productes possibles $i\\cdot j$ amb "
+  pistes=["Llista tots els productes possibles $i\\cdot j$ amb "
    "$i,j\\in\\{1,\\ldots,6\\}$ i queda't només amb els valors "
    "diferents.",
    "Recorda que diversos parells poden donar el mateix producte: no "
    "els comptis dues vegades."],
-  ["Els productes diferents que s'obtenen són "
+  resolucio=["Els productes diferents que s'obtenen són "
    "$1,2,3,4,5,6,8,9,10,12,15,16,18,20,24,25,30,36$: en total, $18$ "
    "resultats"],
   ex_text=E238)
 
-Q("238b", 238, "b", B1, "A",
-  "Quin d'aquests és un exemple d'esdeveniment NO elemental (format "
+Q("238b", 238, "b", B1, tipus="A",
+  enunciat="Quin d'aquests és un exemple d'esdeveniment NO elemental (format "
   "per més d'un resultat) de l'espai mostral del producte de les "
   "dues cares?",
-  "«Obtenir un producte més petit que $5$» (el formen els resultats "
+  correcta="«Obtenir un producte més petit que $5$» (el formen els resultats "
   "$1,2,3,4$, quatre resultats de l'espai mostral)",
-  [D("«Obtenir un producte igual a $12$» (un únic resultat de "
+  distractors=[D("«Obtenir un producte igual a $12$» (un únic resultat de "
      "l'espai mostral)", "ELEMENTAL_NO_ELEMENTAL_CONFOSOS",
      "Encara que hi hagi diversos PARELLS de daus que donen "
      "producte $12$ (com $(2,6)$ i $(3,4)$), dins de l'ESPAI "
@@ -378,12 +378,12 @@ Q("238b", 238, "b", B1, "A",
      "Tot número és múltiple de si mateix i d'$1$: aquest "
      "esdeveniment no correspon a cap resultat vàlid de l'espai "
      "mostral, ni elemental ni compost.")],
-  ["Un esdeveniment elemental és un ÚNIC resultat de l'espai "
+  pistes=["Un esdeveniment elemental és un ÚNIC resultat de l'espai "
    "mostral; un esdeveniment NO elemental n'agrupa diversos.",
    "Pensa quins resultats de l'espai mostral del producte "
    "$\\{1,2,3,4,5,6,8,\\ldots\\}$ compleixen \"ser més petit que "
    "$5$\"."],
-  ["«Obtenir un producte més petit que $5$» agrupa els resultats "
+  resolucio=["«Obtenir un producte més petit que $5$» agrupa els resultats "
    "$1,2,3,4$ de l'espai mostral: és un esdeveniment NO elemental, "
    "format per $4$ resultats diferents"],
   ex_text=E238)
@@ -391,11 +391,11 @@ Q("238b", 238, "b", B1, "A",
 # ---- exercici 239: esdeveniment impossible (baralla espanyola) ----
 E239 = "Traiem dues cartes d'una baralla espanyola. Un esdeveniment impossible és:"
 
-Q("239a", 239, "a", B1, "A",
-  "«Treure dos ors»",
-  "Aquest esdeveniment és POSSIBLE: la baralla té $10$ ors, així que "
+Q("239a", 239, "a", B1, tipus="A",
+  enunciat="«Treure dos ors»",
+  correcta="Aquest esdeveniment és POSSIBLE: la baralla té $10$ ors, així que "
   "es poden treure dos",
-  [DT("Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un exemplar "
+  distractors=[DT("Aquest esdeveniment és IMPOSSIBLE, perquè només hi ha un exemplar "
       "de cada carta", "CARTES_REPETIDES_CONFOSES",
       "Que hi hagi un únic exemplar de CADA CARTA CONCRETA (com el rei "
       "d'ors) no vol dir que hi hagi un únic exemplar de CADA COLL: "
@@ -411,18 +411,18 @@ Q("239a", 239, "a", B1, "A",
      "El coll d'ors té $10$ cartes diferents (de l'$1$ al $7$ i tres "
      "figures): després de treure'n una, encara en queden $9$ més "
      "per treure com a segona carta.")],
-  ["Compta quantes cartes té el coll d'ors a una baralla espanyola.",
+  pistes=["Compta quantes cartes té el coll d'ors a una baralla espanyola.",
    "Un esdeveniment és impossible quan no hi ha CAP manera que "
    "passi, no quan és poc probable."],
-  ["Hi ha $10$ ors a la baralla, així que és perfectament possible "
+  resolucio=["Hi ha $10$ ors a la baralla, així que és perfectament possible "
    "treure'n dos: aquest esdeveniment NO és impossible"],
   ex_text=E239)
 
-Q("239b", 239, "b", B1, "A",
-  "«Treure dos cavalls de copes»",
-  "Aquest esdeveniment és IMPOSSIBLE: només hi ha un cavall de copes "
+Q("239b", 239, "b", B1, tipus="A",
+  enunciat="«Treure dos cavalls de copes»",
+  correcta="Aquest esdeveniment és IMPOSSIBLE: només hi ha un cavall de copes "
   "a tota la baralla",
-  [D("Aquest esdeveniment és POSSIBLE, perquè hi ha diversos cavalls "
+  distractors=[D("Aquest esdeveniment és POSSIBLE, perquè hi ha diversos cavalls "
      "a la baralla", "CARTES_REPETIDES_CONFOSES",
      "Hi ha diversos cavalls a la baralla (un per coll), però el "
      "\"cavall de copes\" concret és una única carta: no se'n poden "
@@ -438,20 +438,20 @@ Q("239b", 239, "b", B1, "A",
      "Que hi hagi un cavall per coll no ajuda aquí: l'esdeveniment "
      "demana el cavall D'UN SOL coll (copes) DOS cops, i només n'hi "
      "ha un exemplar.")],
-  ["Compta quants \"cavalls de copes\" (exactament aquesta carta) hi "
+  pistes=["Compta quants \"cavalls de copes\" (exactament aquesta carta) hi "
    "ha a la baralla.",
    "Un cop treta l'única carta d'aquest tipus, no en queda cap "
    "altra igual per treure una segona vegada."],
-  ["Només hi ha un cavall de copes a tota la baralla: un cop l'hem "
+  resolucio=["Només hi ha un cavall de copes a tota la baralla: un cop l'hem "
    "tret, no en queda cap altre igual. Aquest esdeveniment és "
    "IMPOSSIBLE"],
   ex_text=E239)
 
-Q("239c", 239, "c", B1, "A",
-  "«Treure dues cartes de coll diferent»",
-  "Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure, per "
+Q("239c", 239, "c", B1, tipus="A",
+  enunciat="«Treure dues cartes de coll diferent»",
+  correcta="Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure, per "
   "exemple, un or i una copa",
-  [D("Aquest esdeveniment és IMPOSSIBLE, perquè cada coll té les "
+  distractors=[D("Aquest esdeveniment és IMPOSSIBLE, perquè cada coll té les "
      "seves pròpies cartes", "CARTES_REPETIDES_CONFOSES",
      "Que cada coll tingui les seves pròpies cartes no impedeix "
      "treure'n una de cada: precisament per això és fàcil aconseguir "
@@ -466,19 +466,19 @@ Q("239c", 239, "c", B1, "A",
      "No hi ha cap raó perquè dues cartes triades a l'atzar hagin de "
      "coincidir de coll: és, de fet, el resultat més fàcil "
      "d'aconseguir.")],
-  ["Pensa en un exemple concret: pots treure un or i, després, una "
+  pistes=["Pensa en un exemple concret: pots treure un or i, després, una "
    "copa?",
    "Un esdeveniment és impossible només si no hi ha CAP manera que "
    "passi."],
-  ["És possible: n'hi ha prou en treure, per exemple, un or i una "
+  resolucio=["És possible: n'hi ha prou en treure, per exemple, un or i una "
    "copa. Aquest esdeveniment NO és impossible"],
   ex_text=E239)
 
-Q("239d", 239, "d", B1, "A",
-  "«Treure dues figures iguals del mateix coll»",
-  "Aquest esdeveniment és IMPOSSIBLE: cada figura (sota, cavall, "
+Q("239d", 239, "d", B1, tipus="A",
+  enunciat="«Treure dues figures iguals del mateix coll»",
+  correcta="Aquest esdeveniment és IMPOSSIBLE: cada figura (sota, cavall, "
   "rei) només té un exemplar per coll",
-  [D("Aquest esdeveniment és POSSIBLE, perquè cada coll té tres "
+  distractors=[D("Aquest esdeveniment és POSSIBLE, perquè cada coll té tres "
      "figures (sota, cavall, rei)", "CARTES_REPETIDES_CONFOSES",
      "Que cada coll tingui tres figures DIFERENTS no vol dir que en "
      "tingui dues d'IGUALS: per exemple, no hi ha dos reis d'ors "
@@ -493,20 +493,20 @@ Q("239d", 239, "d", B1, "A",
      "Les figures no es confonen: cada carta és única i "
      "distingible. El rei d'ors és una única carta a tota la "
      "baralla, no n'hi ha cap altra igual.")],
-  ["Compta quants \"reis d'ors\" (exactament aquesta carta) hi ha a "
+  pistes=["Compta quants \"reis d'ors\" (exactament aquesta carta) hi ha a "
    "la baralla.",
    "Cada figura concreta (sota, cavall o rei d'un coll determinat) "
    "és una única carta a tota la baralla."],
-  ["Cada figura (sota, cavall, rei) només té un exemplar per coll: "
+  resolucio=["Cada figura (sota, cavall, rei) només té un exemplar per coll: "
    "no hi ha, per exemple, dos reis d'ors diferents. Aquest "
    "esdeveniment és IMPOSSIBLE"],
   ex_text=E239)
 
-Q("239e", 239, "e", B1, "A",
-  "«Treure un or i una copa»",
-  "Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure un or "
+Q("239e", 239, "e", B1, tipus="A",
+  enunciat="«Treure un or i una copa»",
+  correcta="Aquest esdeveniment és POSSIBLE: n'hi ha prou en treure un or "
   "seguit d'una copa",
-  [D("Aquest esdeveniment és IMPOSSIBLE, perquè l'or i la copa mai "
+  distractors=[D("Aquest esdeveniment és IMPOSSIBLE, perquè l'or i la copa mai "
      "es poden treure juntes", "CARTES_REPETIDES_CONFOSES",
      "No hi ha cap impediment per treure una carta d'ors i una de "
      "copes en la mateixa extracció de dues cartes: són colls "
@@ -521,11 +521,11 @@ Q("239e", 239, "e", B1, "A",
      "Aquí no es demana repetir cap carta ni cap figura concreta: "
      "es demana una carta d'ors i una de copes, colls diferents amb "
      "moltes cartes cadascun.")],
-  ["Pensa en un exemple concret: pots treure un or i, després, una "
+  pistes=["Pensa en un exemple concret: pots treure un or i, després, una "
    "copa?",
    "Un or i una copa són dues cartes diferents, de colls diferents: hi "
    "ha res que impedeixi treure-les totes dues?"],
-  ["És possible: n'hi ha prou en treure un or seguit d'una copa. "
+  resolucio=["És possible: n'hi ha prou en treure un or seguit d'una copa. "
    "Aquest esdeveniment NO és impossible"],
   ex_text=E239)
 
@@ -533,11 +533,11 @@ Q("239e", 239, "e", B1, "A",
 E240 = ("En llançar un dau, ordena, de grau més petit a més gran de "
         "probabilitat, els esdeveniments següents.")
 
-Q("240a", 240, "a", B1, "A",
-  "«Nombre imparell»",
-  "$P=\\dfrac{3}{6}=\\dfrac12$ ($1$, $3$ i $5$ són $3$ casos "
+Q("240a", 240, "a", B1, tipus="A",
+  enunciat="«Nombre imparell»",
+  correcta="$P=\\dfrac{3}{6}=\\dfrac12$ ($1$, $3$ i $5$ són $3$ casos "
   "favorables d'entre $6$ possibles)",
-  [D("$P=\\dfrac{1}{6}$, perquè només compta un nombre imparell "
+  distractors=[D("$P=\\dfrac{1}{6}$, perquè només compta un nombre imparell "
      "concret", "CASOS_FAVORABLES_MAL_COMPTATS",
      "L'esdeveniment \"nombre imparell\" agrupa TOTS els resultats "
      "imparells del dau ($1$, $3$ i $5$), no un de sol: són $3$ "
@@ -550,18 +550,18 @@ Q("240a", 240, "a", B1, "A",
      "Aquest raonament confondria l'esdeveniment \"imparell o "
      "parell\" (que sí és segur) amb \"imparell\" tot sol, que "
      "només compleixen la meitat dels resultats.")],
-  ["Els casos possibles en un dau són sempre $6$.",
+  pistes=["Els casos possibles en un dau són sempre $6$.",
    "Compta quants resultats del $1$ al $6$ són imparells: $1$, "
    "$3$ i $5$."],
-  ["«Nombre imparell»: $1,3,5$ són $3$ casos favorables. "
+  resolucio=["«Nombre imparell»: $1,3,5$ són $3$ casos favorables. "
    "$P=\\dfrac{3}{6}=\\dfrac12$"],
   ex_text=E240)
 
-Q("240b", 240, "b", B1, "A",
-  "«Nombre igual o més gran que $5$»",
-  "$P=\\dfrac{2}{6}=\\dfrac13$ ($5$ i $6$ són $2$ casos favorables "
+Q("240b", 240, "b", B1, tipus="A",
+  enunciat="«Nombre igual o més gran que $5$»",
+  correcta="$P=\\dfrac{2}{6}=\\dfrac13$ ($5$ i $6$ són $2$ casos favorables "
   "d'entre $6$ possibles)",
-  [D("$P=\\dfrac{1}{6}$, comptant només el $6$", "CASOS_FAVORABLES_MAL_COMPTATS",
+  distractors=[D("$P=\\dfrac{1}{6}$, comptant només el $6$", "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"Igual o més gran que $5$\" inclou el propi $5$, no només els "
      "valors estrictament més grans: cal comptar tant el $5$ com el "
      "$6$."),
@@ -575,18 +575,18 @@ Q("240b", 240, "b", B1, "A",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "El $4$ no compleix \"igual o més gran que $5$\": només el $5$ "
      "i el $6$ ho compleixen, $2$ casos, no $3$.")],
-  ["\"Igual o més gran que $5$\" inclou el mateix $5$: quins valors "
+  pistes=["\"Igual o més gran que $5$\" inclou el mateix $5$: quins valors "
    "del $1$ al $6$ ho compleixen?",
    "Compta'ls: només en queden dos."],
-  ["«Nombre igual o més gran que $5$»: $5,6$ són $2$ casos "
+  resolucio=["«Nombre igual o més gran que $5$»: $5,6$ són $2$ casos "
    "favorables. $P=\\dfrac{2}{6}=\\dfrac13$"],
   ex_text=E240)
 
-Q("240c", 240, "c", B1, "A",
-  "«Nombre més petit que $7$»",
-  "$P=\\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho "
+Q("240c", 240, "c", B1, tipus="A",
+  enunciat="«Nombre més petit que $7$»",
+  correcta="$P=\\dfrac{6}{6}=1$ (tots els resultats $1,2,3,4,5,6$ ho "
   "compleixen: és un esdeveniment segur)",
-  [D("$P=\\dfrac{5}{6}$, perquè el $6$ no compta",
+  distractors=[D("$P=\\dfrac{5}{6}$, perquè el $6$ no compta",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "El $6$ SÍ és més petit que $7$: també compta com a cas "
      "favorable. Tots els resultats del dau ($1$ a $6$) compleixen "
@@ -601,9 +601,9 @@ Q("240c", 240, "c", B1, "A",
      "Que el dau no arribi a $7$ és exactament el motiu pel qual "
      "TOTS els seus resultats són més petits que $7$: aquest "
      "esdeveniment és segur ($P=1$), no impossible.")],
-  ["Quins valors del $1$ al $6$ són més petits que $7$?",
+  pistes=["Quins valors del $1$ al $6$ són més petits que $7$?",
    "Compara-ho amb els casos possibles totals del dau."],
-  ["«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho "
+  resolucio=["«Nombre més petit que $7$»: tots els resultats $1,2,3,4,5,6$ ho "
    "compleixen, $6$ casos favorables. $P=\\dfrac{6}{6}=1$ "
    "(esdeveniment segur)"],
   ex_text=E240,
@@ -614,11 +614,11 @@ Q("240c", 240, "c", B1, "A",
                "text es repeteix literalment). Es mantenen els dos "
                "apartats amb el mateix esdeveniment, com fa r-im12.")
 
-Q("240d", 240, "d", B1, "A",
-  "«Nombre més gran que $7$»",
-  "$P=\\dfrac{0}{6}=0$ (cap resultat del dau, de l'$1$ al $6$, supera "
+Q("240d", 240, "d", B1, tipus="A",
+  enunciat="«Nombre més gran que $7$»",
+  correcta="$P=\\dfrac{0}{6}=0$ (cap resultat del dau, de l'$1$ al $6$, supera "
   "el $7$: és un esdeveniment impossible)",
-  [D("$P=\\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i "
+  distractors=[D("$P=\\dfrac{6}{6}=1$, perquè cap resultat compleix la condició i "
      "per tant és un esdeveniment segur", "VEREDICTE_INVERTIT",
      "Que cap resultat del dau compleixi la condició és exactament el "
      "motiu pel qual aquest esdeveniment és IMPOSSIBLE ($P=0$), no "
@@ -632,19 +632,19 @@ Q("240d", 240, "d", B1, "A",
      "Un dau només té $6$ cares, numerades de l'$1$ al $6$: el $7$ "
      "no és cap resultat possible, ni compta com a cas favorable ni "
      "com a possible.")],
-  ["Quins valors del $1$ al $6$ són més grans que $7$?",
+  pistes=["Quins valors del $1$ al $6$ són més grans que $7$?",
    "Si no hi ha cap cas favorable, quant val el numerador de la regla de "
    "Laplace?"],
-  ["«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho "
+  resolucio=["«Nombre més gran que $7$»: cap resultat del dau ($1$ a $6$) ho "
    "compleix, $0$ casos favorables. $P=\\dfrac{0}{6}=0$ "
    "(esdeveniment impossible)"],
   ex_text=E240)
 
-Q("240e", 240, "e", B1, "A",
-  "«Nombre més gran o igual que $2$»",
-  "$P=\\dfrac{5}{6}$ ($2,3,4,5,6$ són $5$ casos favorables d'entre "
+Q("240e", 240, "e", B1, tipus="A",
+  enunciat="«Nombre més gran o igual que $2$»",
+  correcta="$P=\\dfrac{5}{6}$ ($2,3,4,5,6$ són $5$ casos favorables d'entre "
   "$6$ possibles)",
-  [D("$P=\\dfrac{4}{6}=\\dfrac23$, sense comptar el propi $2$",
+  distractors=[D("$P=\\dfrac{4}{6}=\\dfrac23$, sense comptar el propi $2$",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"Més gran o igual que $2$\" inclou el propi $2$, no només els "
      "valors estrictament més grans: cal comptar-lo com a cas "
@@ -657,10 +657,10 @@ Q("240e", 240, "e", B1, "A",
      "compleixen", "CASOS_FAVORABLES_MAL_COMPTATS",
      "El $1$ NO compleix \"més gran o igual que $2$\": no tots els "
      "$6$ resultats del dau ho fan, només $5$ d'ells.")],
-  ["\"Més gran o igual que $2$\" inclou el propi $2$: quins valors "
+  pistes=["\"Més gran o igual que $2$\" inclou el propi $2$: quins valors "
    "del $1$ al $6$ ho compleixen?",
    "Descarta només el $1$."],
-  ["«Nombre més gran o igual que $2$»: $2,3,4,5,6$ són $5$ casos "
+  resolucio=["«Nombre més gran o igual que $2$»: $2,3,4,5,6$ són $5$ casos "
    "favorables. $P=\\dfrac{5}{6}$"],
   ex_text=E240)
 
@@ -670,12 +670,12 @@ Q("240e", 240, "e", B1, "A",
 # =====================================================================
 
 # ---- exercici 242: suma de la resta de les cares d'un dau ----
-Q("242", 242, "", B2, "A",
-  "Llancem un dau a l'aire i sumem els punts de totes les cares "
+Q("242", 242, "", B2, tipus="A",
+  enunciat="Llancem un dau a l'aire i sumem els punts de totes les cares "
   "MENYS la de dalt. Calcula la probabilitat d'obtenir un nombre "
   "múltiple de $3$.",
-  "$P=\\dfrac13$ ($18$ i $15$ són $2$ casos favorables d'entre $6$)",
-  [D("$P=\\dfrac16$, comptant només un cas favorable",
+  correcta="$P=\\dfrac13$ ($18$ i $15$ són $2$ casos favorables d'entre $6$)",
+  distractors=[D("$P=\\dfrac16$, comptant només un cas favorable",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "Hi ha DOS valors múltiples de $3$ entre les sis sumes "
      "possibles ($15$ i $18$), no només un: revisa la taula de "
@@ -689,11 +689,11 @@ Q("242", 242, "", B2, "A",
      "resultats POSSIBLES de l'experiment (les $6$ cares que poden "
      "quedar de dalt), no la suma total de punts del dau "
      "($1+2+\\cdots+6=21$).")],
-  ["La suma de totes les cares d'un dau és $21$. Si la cara de dalt "
+  pistes=["La suma de totes les cares d'un dau és $21$. Si la cara de dalt "
    "és $i$, la resta de cares suma $21-i$.",
    "Calcula aquesta suma per a cada valor de $i$ de l'$1$ al $6$, i "
    "mira quins resultats són múltiples de $3$."],
-  ["Si la cara de dalt és $i$, la suma de la resta és $21-i$: per "
+  resolucio=["Si la cara de dalt és $i$, la suma de la resta és $21-i$: per "
    "$i=1,\\ldots,6$ s'obté $20,19,18,17,16,15$",
    "L'espai mostral d'aquesta suma és $\\{15,16,17,18,19,20\\}$, un "
    "resultat per cada cara, cadascun amb probabilitat $\\frac16$",
@@ -702,13 +702,13 @@ Q("242", 242, "", B2, "A",
   ex_text="")
 
 # ---- exercici 243: diagrama d'arbre roba (3 nivells) ----
-Q("243", 243, "", B2, "A",
-  "La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de "
+Q("243", 243, "", B2, tipus="A",
+  enunciat="La Susanna té a l'armari 2 faldilles, 3 parells de pantalons de "
   "diferents colors, 2 bruses, 3 samarretes i 3 barrets. Quantes "
   "combinacions diferents pot fer (una peça de la part de baix, una "
   "de la part de dalt i un barret)?",
-  "$75$ combinacions",
-  [D("$10$ combinacions, sumant totes les peces ($2+3+2+3+3$)",
+  correcta="$75$ combinacions",
+  distractors=[D("$10$ combinacions, sumant totes les peces ($2+3+2+3+3$)",
      "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Quan es combinen diverses eleccions independents (part de "
      "baix, part de dalt, barret), el nombre de combinacions es "
@@ -724,11 +724,11 @@ Q("243", 243, "", B2, "A",
      "L'armari també inclou pantalons (part de baix) i samarretes "
      "(part de dalt) com a alternatives: cal sumar-los a les seves "
      "categories respectives, no ignorar-los.")],
-  ["Agrupa la roba en tres nivells: peça de baix (faldilla o "
+  pistes=["Agrupa la roba en tres nivells: peça de baix (faldilla o "
    "pantalons), peça de dalt (brusa o samarreta) i barret.",
    "Compta les opcions de cada nivell per separat: "
    "$2+3=5$ (baix), $2+3=5$ (dalt), $3$ (barret). Multiplica-les."],
-  ["Peça de baix: $2$ faldilles $+3$ pantalons $=5$ opcions",
+  resolucio=["Peça de baix: $2$ faldilles $+3$ pantalons $=5$ opcions",
    "Peça de dalt: $2$ bruses $+3$ samarretes $=5$ opcions",
    "Barret: $3$ opcions",
    "Pel principi multiplicatiu: $5\\cdot5\\cdot3=75$ combinacions"],
@@ -744,11 +744,11 @@ Q("243", 243, "", B2, "A",
   )
 
 # ---- exercici 244: 10 tirades d'una moneda ----
-Q("244", 244, "", B2, "A",
-  "Quants resultats possibles s'obtenen en llançar una moneda a "
+Q("244", 244, "", B2, tipus="A",
+  enunciat="Quants resultats possibles s'obtenen en llançar una moneda a "
   "l'aire i anotar el resultat de $10$ tirades?",
-  "$2^{10}=1\\,024$ resultats possibles",
-  [D("$10\\cdot2=20$ resultats possibles", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+  correcta="$2^{10}=1\\,024$ resultats possibles",
+  distractors=[D("$10\\cdot2=20$ resultats possibles", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Quan es combinen $10$ tirades independents, cadascuna amb $2$ "
      "resultats possibles, el total es multiplica $10$ vegades "
      "seguides ($2^{10}$), no es multiplica només un cop pel nombre "
@@ -764,22 +764,22 @@ Q("244", 244, "", B2, "A",
      "El nombre de resultats depèn del nombre de tirades i "
      "d'opcions per tirada d'AQUEST experiment concret ($2^{10}$), "
      "no de xifres que apareguin en altres exercicis diferents.")],
-  ["Cada tirada té $2$ resultats (cara o creu). Amb $10$ tirades "
+  pistes=["Cada tirada té $2$ resultats (cara o creu). Amb $10$ tirades "
    "independents, el nombre de resultats es multiplica $10$ "
    "vegades.",
    "Calcula $2^{10}$."],
-  ["Cada tirada dobla el nombre de resultats possibles respecte a "
+  resolucio=["Cada tirada dobla el nombre de resultats possibles respecte a "
    "l'anterior: amb $10$ tirades, $2^{10}=1\\,024$ resultats "
    "possibles"],
   ex_text="")
 
 # ---- exercici 245: menú restaurant (3x3x4) ----
-Q("245", 245, "", B2, "A",
-  "En un restaurant, el menú del dia té $3$ primers plats, $3$ "
+Q("245", 245, "", B2, tipus="A",
+  enunciat="En un restaurant, el menú del dia té $3$ primers plats, $3$ "
   "segons i $4$ postres. Quants menús diferents es poden "
   "confeccionar, triant un primer, un segon i unes postres?",
-  "$36$ menús diferents",
-  [D("$10$ menús diferents, sumant $3+3+4$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+  correcta="$36$ menús diferents",
+  distractors=[D("$10$ menús diferents, sumant $3+3+4$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Quan cada client tria un plat de cada categoria de manera "
      "independent, el nombre de combinacions es MULTIPLICA, no se "
      "suma: $3\\cdot3\\cdot4$, no $3+3+4$."),
@@ -792,22 +792,22 @@ Q("245", 245, "", B2, "A",
      "Cada opció de postres es pot combinar amb qualsevol primer i "
      "qualsevol segon: no n'hi ha prou en comptar només les "
      "postres, cal combinar-les amb totes les altres opcions.")],
-  ["Cada client tria un plat de cada categoria de manera "
+  pistes=["Cada client tria un plat de cada categoria de manera "
    "independent: primer, segon i postres.",
    "Aplica el mètode del producte: $3\\cdot3\\cdot4$."],
-  ["Cada client tria un primer ($3$ opcions), un segon ($3$ opcions) "
+  resolucio=["Cada client tria un primer ($3$ opcions), un segon ($3$ opcions) "
    "i unes postres ($4$ opcions), de manera independent",
    "Pel mètode del producte: $3\\cdot3\\cdot4=36$ menús diferents"],
   ex_text="")
 
 # ---- exercici 246: clau accés 4 caràcters (62^4) ----
-Q("246", 246, "", B2, "A",
-  "La clau d'accés d'un ordinador consta de $4$ caràcters (només "
+Q("246", 246, "", B2, tipus="A",
+  enunciat="La clau d'accés d'un ordinador consta de $4$ caràcters (només "
   "lletres o nombres) i distingeix entre lletres majúscules i "
   "minúscules. Calcula el nombre de possibilitats diferents que hi "
   "ha per escriure la clau.",
-  "$62^4=14\\,776\\,336$ claus diferents possibles",
-  [D("$36^4$ claus diferents, sense distingir majúscules de "
+  correcta="$62^4=14\\,776\\,336$ claus diferents possibles",
+  distractors=[D("$36^4$ claus diferents, sense distingir majúscules de "
      "minúscules", "CASOS_POSSIBLES_MAL_COMPTATS",
      "L'enunciat diu explícitament que es distingeixen majúscules i "
      "minúscules: cal comptar-les per separat ($26+26=52$ lletres), "
@@ -822,22 +822,22 @@ Q("246", 246, "", B2, "A",
      "(no diu que hagin de ser tots diferents): a cada posició hi ha "
      "sempre $62$ opcions disponibles, encara que ja s'hagi fet "
      "servir algun caràcter en una posició anterior.")],
-  ["Compta quants caràcters diferents hi ha disponibles per a cada "
+  pistes=["Compta quants caràcters diferents hi ha disponibles per a cada "
    "posició: $26$ majúscules $+26$ minúscules $+10$ dígits.",
    "Amb $4$ posicions independents (es poden repetir caràcters), "
    "aplica el principi multiplicatiu: $62^4$."],
-  ["Caràcters possibles per posició: $26$ majúscules $+26$ "
+  resolucio=["Caràcters possibles per posició: $26$ majúscules $+26$ "
    "minúscules $+10$ dígits $=62$",
    "Amb $4$ posicions independents: $62\\cdot62\\cdot62\\cdot62="
    "62^4=14\\,776\\,336$ claus diferents"],
   ex_text="")
 
 # ---- exercici 247: PIN 4 dígits ----
-Q("247", 247, "", B2, "A",
-  "El codi PIN d'un telèfon mòbil està format per $4$ dígits. Troba "
+Q("247", 247, "", B2, tipus="A",
+  enunciat="El codi PIN d'un telèfon mòbil està format per $4$ dígits. Troba "
   "el nombre de codis diferents que podem posar al telèfon.",
-  "$10^4=10\\,000$ codis diferents",
-  [D("$10\\cdot4=40$ codis diferents", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+  correcta="$10^4=10\\,000$ codis diferents",
+  distractors=[D("$10\\cdot4=40$ codis diferents", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Amb $4$ posicions independents, cadascuna amb $10$ opcions "
      "(dígits del $0$ al $9$), el nombre de codis es multiplica $4$ "
      "vegades seguides ($10^4$), no es multiplica només un cop pel "
@@ -852,10 +852,10 @@ Q("247", 247, "", B2, "A",
      "No es tracta d'ordenar $4$ dígits ja triats: a cada una de "
      "les $4$ posicions es pot triar QUALSEVOL dels $10$ dígits "
      "possibles, independentment de les altres posicions.")],
-  ["Cada posició del PIN es tria de manera independent, entre "
+  pistes=["Cada posició del PIN es tria de manera independent, entre "
    "$10$ dígits possibles (del $0$ al $9$), i es poden repetir.",
    "Amb $4$ posicions: aplica el principi multiplicatiu, $10^4$."],
-  ["Cada dígit del PIN pot prendre $10$ valors diferents, i es "
+  resolucio=["Cada dígit del PIN pot prendre $10$ valors diferents, i es "
    "poden repetir: amb $4$ xifres, $10\\cdot10\\cdot10\\cdot10="
    "10^4=10\\,000$ codis diferents"],
   ex_text="")
@@ -865,10 +865,10 @@ E248 = ("Escriu totes les paraules de 3 lletres, amb o sense sentit, "
         "que es poden formar amb les lletres de la paraula HOLA "
         "(sense repetir cap lletra dins de la mateixa paraula).")
 
-Q("248a", 248, "a", B2, "A",
-  "Quantes paraules de $3$ lletres es poden formar en total?",
-  "$24$ paraules",
-  [D("$12$ paraules, la meitat per error de comptar només la meitat "
+Q("248a", 248, "a", B2, tipus="A",
+  enunciat="Quantes paraules de $3$ lletres es poden formar en total?",
+  correcta="$24$ paraules",
+  distractors=[D("$12$ paraules, la meitat per error de comptar només la meitat "
      "dels ordres", "VARIACIONS_SENSE_REPETICIO_MAL",
      "Per a cada tria de $3$ lletres de les $4$, cal comptar TOTS "
      "els ordres possibles en què es poden col·locar, no només la "
@@ -885,19 +885,19 @@ Q("248a", 248, "a", B2, "A",
      "multiplicant $4$ tres vegades seguides ($4^3=64$): cal anar "
      "reduint les opcions disponibles a cada posició, "
      "$4\\cdot3\\cdot2$.")],
-  ["HOLA té $4$ lletres totes diferents. Per a la primera posició "
+  pistes=["HOLA té $4$ lletres totes diferents. Per a la primera posició "
    "hi ha $4$ opcions; per a la segona, com que ja se n'ha fet "
    "servir una, en queden $3$; per a la tercera, $2$.",
    "Multiplica $4\\cdot3\\cdot2$."],
-  ["Primera posició: $4$ lletres possibles; segona: $3$ (ja "
+  resolucio=["Primera posició: $4$ lletres possibles; segona: $3$ (ja "
    "n'hem fet servir una); tercera: $2$",
    "$4\\cdot3\\cdot2=24$ paraules de $3$ lletres diferents"],
   ex_text=E248)
 
-Q("248b", 248, "b", B2, "A",
-  "Quantes d'aquestes paraules comencen amb la lletra H?",
-  "$6$ paraules",
-  [D("$24$ paraules, totes, perquè qualsevol ordre és vàlid",
+Q("248b", 248, "b", B2, tipus="A",
+  enunciat="Quantes d'aquestes paraules comencen amb la lletra H?",
+  correcta="$6$ paraules",
+  distractors=[D("$24$ paraules, totes, perquè qualsevol ordre és vàlid",
      "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "No totes les $24$ paraules comencen per H: fixar la primera "
      "lletra com a H redueix les opcions per a les altres dues "
@@ -912,20 +912,20 @@ Q("248b", 248, "b", B2, "A",
      "Amb la H fixada, encara queden DUES posicions per omplir "
      "(segona i tercera lletra), no només una: cal "
      "$3\\cdot2=6$, no només l'opció de l'última posició.")],
-  ["Si la paraula comença per H, la primera posició ja està fixada "
+  pistes=["Si la paraula comença per H, la primera posició ja està fixada "
    "(1 opció).",
    "Per a la segona posició queden $3$ lletres (O, L, A), i per a "
    "la tercera, $2$: multiplica-les."],
-  ["Primera posició fixada en H (1 opció); segona: $3$ lletres "
+  resolucio=["Primera posició fixada en H (1 opció); segona: $3$ lletres "
    "restants; tercera: $2$",
    "$1\\cdot3\\cdot2=6$ paraules que comencen per H"],
   ex_text=E248)
 
-Q("248c", 248, "c", B2, "A",
-  "I quantes paraules contenen alhora les lletres L i A (en "
+Q("248c", 248, "c", B2, tipus="A",
+  enunciat="I quantes paraules contenen alhora les lletres L i A (en "
   "qualsevol ordre)?",
-  "$12$ paraules",
-  [D("$6$ paraules, oblidant que la tercera lletra pot ser H o O "
+  correcta="$12$ paraules",
+  distractors=[D("$6$ paraules, oblidant que la tercera lletra pot ser H o O "
      "(2 opcions)", "CASOS_FAVORABLES_MAL_COMPTATS",
      "La tercera lletra de la paraula (a més de L i A) pot ser H o "
      "O: dues opcions diferents, no només una. Cal multiplicar-ho "
@@ -941,19 +941,19 @@ Q("248c", 248, "c", B2, "A",
      "No totes les $24$ paraules contenen alhora L i A: moltes "
      "combinacions no inclouen totes dues lletres a la vegada "
      "(per exemple, H-O-L no té la A).")],
-  ["La tercera lletra (a més de L i A) ha de ser H o O: $2$ "
+  pistes=["La tercera lletra (a més de L i A) ha de ser H o O: $2$ "
    "opcions.",
    "Un cop triades les $3$ lletres, es poden ordenar de $3!=6$ "
    "maneres. Multiplica $2\\cdot6$."],
-  ["La tercera lletra ha de ser H o O ($2$ opcions). Un cop triades "
+  resolucio=["La tercera lletra ha de ser H o O ($2$ opcions). Un cop triades "
    "les $3$ lletres, hi ha $3!=6$ ordenacions possibles",
    "En total: $2\\cdot6=12$ paraules"],
   ex_text=E248)
 
-Q("248d", 248, "d", B2, "A",
-  "Quantes paraules acabaran amb la lletra O?",
-  "$6$ paraules",
-  [D("$24$ paraules, totes, perquè qualsevol ordre és vàlid",
+Q("248d", 248, "d", B2, tipus="A",
+  enunciat="Quantes paraules acabaran amb la lletra O?",
+  correcta="$6$ paraules",
+  distractors=[D("$24$ paraules, totes, perquè qualsevol ordre és vàlid",
      "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "No totes les $24$ paraules acaben en O: fixar l'última "
      "lletra com a O redueix les opcions per a les altres dues "
@@ -968,20 +968,20 @@ Q("248d", 248, "d", B2, "A",
      "Amb la O fixada, encara queden DUES posicions per omplir "
      "(primera i segona lletra), no només una: cal "
      "$3\\cdot2=6$.")],
-  ["Si la paraula acaba en O, l'última posició ja està fixada "
+  pistes=["Si la paraula acaba en O, l'última posició ja està fixada "
    "(1 opció).",
    "Per a la primera posició queden $3$ lletres (H, L, A), i per a "
    "la segona, $2$: multiplica-les."],
-  ["Última posició fixada en O (1 opció); primera: $3$ lletres "
+  resolucio=["Última posició fixada en O (1 opció); primera: $3$ lletres "
    "restants; segona: $2$",
    "$3\\cdot2\\cdot1=6$ paraules que acaben en O"],
   ex_text=E248)
 
-Q("248e", 248, "e", B2, "A",
-  "Quantes paraules acabaran amb les lletres \"LO\" (penúltima L, "
+Q("248e", 248, "e", B2, tipus="A",
+  enunciat="Quantes paraules acabaran amb les lletres \"LO\" (penúltima L, "
   "última O)?",
-  "$2$ paraules",
-  [D("$6$ paraules, com si només es fixés l'última lletra",
+  correcta="$2$ paraules",
+  distractors=[D("$6$ paraules, com si només es fixés l'última lletra",
      "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Aquí es fixen DUES posicions (penúltima L, última O), no "
      "només una: només queda per triar la primera lletra, entre "
@@ -996,10 +996,10 @@ Q("248e", 248, "e", B2, "A",
      "La lletra O ja s'ha fet servir a l'última posició: no es pot "
      "tornar a fer servir a la primera. Només queden H i A "
      "disponibles.")],
-  ["Amb la L i la O ja fixades a les seves posicions, només queda "
+  pistes=["Amb la L i la O ja fixades a les seves posicions, només queda "
    "triar la primera lletra.",
    "Quines lletres queden disponibles (sense repetir L ni O)?"],
-  ["Amb \"LO\" fixat al final, només cal triar la primera lletra "
+  resolucio=["Amb \"LO\" fixat al final, només cal triar la primera lletra "
    "entre H i A: $2$ opcions"],
   ex_text=E248)
 
@@ -1012,10 +1012,10 @@ Q("248e", 248, "e", B2, "A",
 E241 = ("D'una baralla de 40 cartes traiem una carta. Calcula les "
         "probabilitats d'aquests esdeveniments.")
 
-Q("241a", 241, "a", B3, "A",
-  "$A=$ «Obtenir ors»",
-  "$P(A)=\\dfrac{10}{40}=\\dfrac14$",
-  [D("$P(A)=\\dfrac{1}{40}$, comptant només una carta d'ors",
+Q("241a", 241, "a", B3, tipus="A",
+  enunciat="$A=$ «Obtenir ors»",
+  correcta="$P(A)=\\dfrac{10}{40}=\\dfrac14$",
+  distractors=[D("$P(A)=\\dfrac{1}{40}$, comptant només una carta d'ors",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"Obtenir ors\" inclou QUALSEVOL carta del coll d'ors, no "
      "només una en concret: n'hi ha $10$ cartes d'ors a la "
@@ -1029,16 +1029,16 @@ Q("241a", 241, "a", B3, "A",
      "Una probabilitat mai pot ser més gran que $1$: el nombre de "
      "casos favorables va al numerador, i el de casos possibles "
      "(el total de cartes) al denominador.")],
-  ["Hi ha $10$ ors a la baralla de $40$ cartes.",
+  pistes=["Hi ha $10$ ors a la baralla de $40$ cartes.",
    "Aplica la regla de Laplace: casos favorables entre casos "
    "possibles."],
-  ["Hi ha $10$ ors. $P(A)=\\dfrac{10}{40}=\\dfrac14$"],
+  resolucio=["Hi ha $10$ ors. $P(A)=\\dfrac{10}{40}=\\dfrac14$"],
   ex_text=E241)
 
-Q("241b", 241, "b", B3, "A",
-  "$B=$ «Obtenir el rei d'ors»",
-  "$P(B)=\\dfrac{1}{40}$",
-  [D("$P(B)=\\dfrac{10}{40}=\\dfrac14$, com si fos \"obtenir un or "
+Q("241b", 241, "b", B3, tipus="A",
+  enunciat="$B=$ «Obtenir el rei d'ors»",
+  correcta="$P(B)=\\dfrac{1}{40}$",
+  distractors=[D("$P(B)=\\dfrac{10}{40}=\\dfrac14$, com si fos \"obtenir un or "
      "qualsevol\"", "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"El rei d'ors\" és UNA única carta concreta, no qualsevol "
      "carta del coll d'ors: només hi ha $1$ cas favorable, no "
@@ -1052,15 +1052,15 @@ Q("241b", 241, "b", B3, "A",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "L'esdeveniment no és \"obtenir alguna figura d'ors\": és "
      "obtenir EXACTAMENT el rei d'ors, una única carta.")],
-  ["El rei d'ors és una única carta a tota la baralla.",
+  pistes=["El rei d'ors és una única carta a tota la baralla.",
    "Aplica la regla de Laplace amb $1$ cas favorable."],
-  ["El rei d'ors és una única carta. $P(B)=\\dfrac{1}{40}$"],
+  resolucio=["El rei d'ors és una única carta. $P(B)=\\dfrac{1}{40}$"],
   ex_text=E241)
 
-Q("241c", 241, "c", B3, "A",
-  "$C=$ «Obtenir espases o copes»",
-  "$P(C)=\\dfrac{20}{40}=\\dfrac12$",
-  [D("$P(C)=\\dfrac{10}{40}=\\dfrac14$, comptant només un coll",
+Q("241c", 241, "c", B3, tipus="A",
+  enunciat="$C=$ «Obtenir espases o copes»",
+  correcta="$P(C)=\\dfrac{20}{40}=\\dfrac12$",
+  distractors=[D("$P(C)=\\dfrac{10}{40}=\\dfrac14$, comptant només un coll",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "L'esdeveniment inclou DOS colls (espases I copes), no només "
      "un: cal sumar les cartes de tots dos, $10+10=20$."),
@@ -1074,16 +1074,16 @@ Q("241c", 241, "c", B3, "A",
      "El denominador de la probabilitat és sempre el nombre TOTAL "
      "de cartes de la baralla, $40$, no cap múltiple d'aquest "
      "nombre.")],
-  ["Espases i copes sumen quantes cartes en total?",
+  pistes=["Espases i copes sumen quantes cartes en total?",
    "$10+10=20$ cartes favorables d'entre $40$ possibles."],
-  ["Espases i copes sumen $10+10=20$ cartes. "
+  resolucio=["Espases i copes sumen $10+10=20$ cartes. "
    "$P(C)=\\dfrac{20}{40}=\\dfrac12$"],
   ex_text=E241)
 
-Q("241d", 241, "d", B3, "A",
-  "$D=$ «Obtenir una figura»",
-  "$P(D)=\\dfrac{12}{40}=\\dfrac{3}{10}$",
-  [D("$P(D)=\\dfrac{3}{40}$, comptant només les figures d'un coll",
+Q("241d", 241, "d", B3, tipus="A",
+  enunciat="$D=$ «Obtenir una figura»",
+  correcta="$P(D)=\\dfrac{12}{40}=\\dfrac{3}{10}$",
+  distractors=[D("$P(D)=\\dfrac{3}{40}$, comptant només les figures d'un coll",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "Cada coll té $3$ figures (sota, cavall, rei), però hi ha "
      "$4$ colls diferents: cal multiplicar $3\\cdot4=12$ figures "
@@ -1097,17 +1097,17 @@ Q("241d", 241, "d", B3, "A",
      "Una probabilitat mai pot ser més gran que $1$: el nombre de "
      "cartes favorables va al numerador, i el total de la baralla "
      "al denominador.")],
-  ["Cada coll té $3$ figures (sota, cavall, rei), i hi ha $4$ "
+  pistes=["Cada coll té $3$ figures (sota, cavall, rei), i hi ha $4$ "
    "colls.",
    "Multiplica $3\\cdot4$ per obtenir el total de figures."],
-  ["Les figures (sota, cavall, rei), $3$ per coll i $4$ colls: "
+  resolucio=["Les figures (sota, cavall, rei), $3$ per coll i $4$ colls: "
    "$3\\cdot4=12$ figures. $P(D)=\\dfrac{12}{40}=\\dfrac{3}{10}$"],
   ex_text=E241)
 
-Q("241e", 241, "e", B3, "A",
-  "$E=$ «Obtenir un as»",
-  "$P(E)=\\dfrac{4}{40}=\\dfrac1{10}$",
-  [D("$P(E)=\\dfrac{1}{40}$, comptant només un as", "CASOS_FAVORABLES_MAL_COMPTATS",
+Q("241e", 241, "e", B3, tipus="A",
+  enunciat="$E=$ «Obtenir un as»",
+  correcta="$P(E)=\\dfrac{4}{40}=\\dfrac1{10}$",
+  distractors=[D("$P(E)=\\dfrac{1}{40}$, comptant només un as", "CASOS_FAVORABLES_MAL_COMPTATS",
      "Hi ha un as per coll, i $4$ colls diferents: en total, $4$ "
      "asos a la baralla, no només $1$."),
    D("$P(E)=\\dfrac{10}{40}=\\dfrac14$, com si fos \"obtenir un or\"",
@@ -1119,9 +1119,9 @@ Q("241e", 241, "e", B3, "A",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "Hi ha $4$ colls a la baralla espanyola (ors, copes, espases, "
      "bastos), no $3$: cada un té el seu propi as.")],
-  ["Hi ha un as per coll, i quatre colls diferents.",
+  pistes=["Hi ha un as per coll, i quatre colls diferents.",
    "Suma els asos: $1+1+1+1=4$."],
-  ["Hi ha un as per coll: $4$ asos en total. "
+  resolucio=["Hi ha un as per coll: $4$ asos en total. "
    "$P(E)=\\dfrac{4}{40}=\\dfrac1{10}$"],
   ex_text=E241)
 
@@ -1132,11 +1132,11 @@ E249 = ("En un bombo hi ha 10 boles numerades del 0 al 9. Es repeteix "
         "5->10, 6->12, 7->6, 8->10, 9->11. Esdeveniments: "
         "$A=$«Múltiple de 3», $B=$«Nombre senar», $C=$«Divisor de 6».")
 
-Q("249a", 249, "a", B3, "A",
-  "Quina és la freqüència relativa de l'esdeveniment $A=$«Múltiple "
+Q("249a", 249, "a", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de l'esdeveniment $A=$«Múltiple "
   "de $3$»?",
-  "$\\dfrac{42}{100}=\\dfrac{21}{50}$",
-  [D("$\\dfrac{4}{100}$, comptant només els valors de $A$ "
+  correcta="$\\dfrac{42}{100}=\\dfrac{21}{50}$",
+  distractors=[D("$\\dfrac{4}{100}$, comptant només els valors de $A$ "
      "($0,3,6,9$) com a $4$ boles", "FREQ_RELATIVA_PROBABILITAT_CONFOSES",
      "$A$ està format per $4$ valors DIFERENTS ($0,3,6,9$), però la "
      "freqüència relativa suma les vegades que ha SORTIT cadascun "
@@ -1152,17 +1152,17 @@ Q("249a", 249, "a", B3, "A",
      "\"Múltiple de $3$\" no és només el valor $9$: també inclou el "
      "$0$, el $3$ i el $6$. Cal sumar les freqüències de tots "
      "quatre.")],
-  ["\"Múltiple de $3$\" agrupa les boles $0$, $3$, $6$ i $9$.",
+  pistes=["\"Múltiple de $3$\" agrupa les boles $0$, $3$, $6$ i $9$.",
    "Suma les seves freqüències: $7+12+12+11$."],
-  ["$A=\\{0,3,6,9\\}$: $f_A=7+12+12+11=42$",
+  resolucio=["$A=\\{0,3,6,9\\}$: $f_A=7+12+12+11=42$",
    "$\\dfrac{f_A}{100}=\\dfrac{42}{100}=\\dfrac{21}{50}$"],
   ex_text=E249)
 
-Q("249b", 249, "b", B3, "A",
-  "Quina és la freqüència relativa de $A\\cup B$ (múltiple de $3$ "
+Q("249b", 249, "b", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de $A\\cup B$ (múltiple de $3$ "
   "o nombre senar)?",
-  "$\\dfrac{71}{100}$",
-  [D("$\\dfrac{94}{100}$, sumant directament les freqüències de $A$ "
+  correcta="$\\dfrac{71}{100}$",
+  distractors=[D("$\\dfrac{94}{100}$, sumant directament les freqüències de $A$ "
      "i de $B$ sense ajustar res", "UNIO_DOBLE_COMPTADA",
      "Sumar directament $f_A+f_B$ compta DUES vegades les boles que "
      "compleixen totes dues condicions alhora (el $3$ i el $9$, que "
@@ -1177,20 +1177,20 @@ Q("249b", 249, "b", B3, "A",
      "$52$ és la freqüència relativa de $B$ tot sol, no de la unió "
      "$A\\cup B$: cal combinar-la amb els valors que només "
      "compleixen $A$.")],
-  ["$A\\cup B$ inclou totes les boles que compleixen $A$, $B$, o "
+  pistes=["$A\\cup B$ inclou totes les boles que compleixen $A$, $B$, o "
    "totes dues alhora: $\\{0,1,3,5,6,7,9\\}$, sense repetir el $3$ "
    "i el $9$.",
    "Suma les freqüències d'aquests $7$ valors, un sol cop cadascun."],
-  ["$A\\cup B=\\{0,1,3,5,6,7,9\\}$ (unint $A$ i $B$, sense repetir "
+  resolucio=["$A\\cup B=\\{0,1,3,5,6,7,9\\}$ (unint $A$ i $B$, sense repetir "
    "el $3$ i el $9$, que ja hi són a totes dues)",
    "$f=7+13+12+10+12+6+11=71\\Rightarrow\\dfrac{71}{100}$"],
   ex_text=E249)
 
-Q("249c", 249, "c", B3, "A",
-  "Quina és la freqüència relativa de $A\\cap B$ (múltiple de $3$ "
+Q("249c", 249, "c", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de $A\\cap B$ (múltiple de $3$ "
   "i, alhora, senar)?",
-  "$\\dfrac{23}{100}$",
-  [D("$\\dfrac{71}{100}$, calculant en realitat la unió $A\\cup B$",
+  correcta="$\\dfrac{23}{100}$",
+  distractors=[D("$\\dfrac{71}{100}$, calculant en realitat la unió $A\\cup B$",
      "UNIO_INTERSECCIO_CONFOSES",
      "$71$ és la freqüència de la UNIÓ ($A\\cup B$, boles que "
      "compleixen almenys una condició), no de la intersecció (boles "
@@ -1205,20 +1205,20 @@ Q("249c", 249, "c", B3, "A",
      "$42$ és la freqüència relativa de $A$ tot sol, no de la "
      "intersecció $A\\cap B$: cal identificar quins valors de $A$ "
      "són TAMBÉ senars.")],
-  ["$A\\cap B$ inclou només les boles que són múltiple de $3$ I "
+  pistes=["$A\\cap B$ inclou només les boles que són múltiple de $3$ I "
    "senars alhora: revisa quins valors de $\\{0,3,6,9\\}$ són "
    "senars.",
    "Només el $3$ i el $9$ compleixen totes dues condicions."],
-  ["$A\\cap B=\\{3,9\\}$ (boles que compleixen alhora ser múltiple "
+  resolucio=["$A\\cap B=\\{3,9\\}$ (boles que compleixen alhora ser múltiple "
    "de $3$ i senars)",
    "$f=12+11=23\\Rightarrow\\dfrac{23}{100}$"],
   ex_text=E249)
 
-Q("249d", 249, "d", B3, "A",
-  "Quina és la freqüència relativa de $A\\cup C$ (múltiple de $3$ "
+Q("249d", 249, "d", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de $A\\cup C$ (múltiple de $3$ "
   "o divisor de $6$)?",
-  "$\\dfrac{66}{100}=\\dfrac{33}{50}$",
-  [D("$\\dfrac{90}{100}$, sumant directament les freqüències de $A$ "
+  correcta="$\\dfrac{66}{100}=\\dfrac{33}{50}$",
+  distractors=[D("$\\dfrac{90}{100}$, sumant directament les freqüències de $A$ "
      "i de $C$ sense ajustar res", "UNIO_DOBLE_COMPTADA",
      "Sumar directament $f_A+f_C$ compta DUES vegades les boles que "
      "compleixen totes dues condicions alhora ($3$ i $6$, que són "
@@ -1235,11 +1235,11 @@ Q("249d", 249, "d", B3, "A",
      "$48$ és la freqüència relativa de $C$ tot sol, no de la unió "
      "$A\\cup C$: cal combinar-la amb els valors que només "
      "compleixen $A$.")],
-  ["$A\\cup C$ inclou totes les boles que compleixen $A=\\{0,3,6,"
+  pistes=["$A\\cup C$ inclou totes les boles que compleixen $A=\\{0,3,6,"
    "9\\}$, $C=\\{1,2,3,6\\}$, o totes dues alhora, sense repetir "
    "el $3$ i el $6$.",
    "Suma les freqüències d'aquests valors, un sol cop cadascun."],
-  ["$A\\cup C=\\{0,1,2,3,6,9\\}$ (sense repetir el $3$ i el $6$, "
+  resolucio=["$A\\cup C=\\{0,1,2,3,6,9\\}$ (sense repetir el $3$ i el $6$, "
    "que ja hi són a totes dues)",
    "$f=7+13+11+12+12+11=66\\Rightarrow\\dfrac{66}{100}=\\dfrac"
    "{33}{50}$"],
@@ -1250,11 +1250,11 @@ E250 = ("Llancem 100 vegades un dau tetraèdric, anotem el nombre de "
         "la cara oculta: cara 1->28, cara 2->22, cara 3->30, "
         "cara 4->20.")
 
-Q("250a", 250, "a", B3, "A",
-  "Quina és la freqüència relativa de l'esdeveniment «Múltiple de "
+Q("250a", 250, "a", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de l'esdeveniment «Múltiple de "
   "$3$»?",
-  "$\\dfrac{30}{100}=\\dfrac{3}{10}$",
-  [D("$\\dfrac{3}{100}$, confonent el valor de la cara amb la seva "
+  correcta="$\\dfrac{30}{100}=\\dfrac{3}{10}$",
+  distractors=[D("$\\dfrac{3}{100}$, confonent el valor de la cara amb la seva "
      "freqüència", "FREQ_RELATIVA_PROBABILITAT_CONFOSES",
      "\"Múltiple de $3$\" en aquest dau (cares $1$ a $4$) només "
      "l'és la cara $3$: la freqüència relativa és la seva "
@@ -1270,19 +1270,19 @@ Q("250a", 250, "a", B3, "A",
      "Només la cara $3$ és múltiple de $3$ entre les $4$ possibles "
      "($1,2,3,4$): no totes les tirades compleixen aquesta "
      "condició.")],
-  ["Aquest dau té només $4$ cares. Quina d'elles és múltiple de "
+  pistes=["Aquest dau té només $4$ cares. Quina d'elles és múltiple de "
    "$3$?",
    "La freqüència relativa és el nombre de vegades que ha sortit "
    "aquella cara dividit pel total de tirades, $100$."],
-  ["Múltiple de $3$ (només la cara $3$): "
+  resolucio=["Múltiple de $3$ (només la cara $3$): "
    "$\\dfrac{30}{100}=\\dfrac{3}{10}$"],
   ex_text=E250)
 
-Q("250b", 250, "b", B3, "A",
-  "Quina és la freqüència relativa de l'esdeveniment «Múltiple de "
+Q("250b", 250, "b", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de l'esdeveniment «Múltiple de "
   "$2$»?",
-  "$\\dfrac{42}{100}=\\dfrac{21}{50}$",
-  [D("$\\dfrac{22}{100}$, comptant només la cara $2$",
+  correcta="$\\dfrac{42}{100}=\\dfrac{21}{50}$",
+  distractors=[D("$\\dfrac{22}{100}$, comptant només la cara $2$",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"Múltiple de $2$\" no és només la cara $2$: la cara $4$ "
      "també ho és. Cal sumar les freqüències de totes dues."),
@@ -1295,17 +1295,17 @@ Q("250b", 250, "b", B3, "A",
      "Aquest valor correspon a les cares $2$, $3$ i $4$ (més grans "
      "que $1$), no a les que són múltiples de $2$: entre aquestes, "
      "el $3$ no és múltiple de $2$.")],
-  ["Quines cares del $1$ al $4$ són múltiples de $2$?",
+  pistes=["Quines cares del $1$ al $4$ són múltiples de $2$?",
    "Les cares $2$ i $4$: suma les seves freqüències."],
-  ["Múltiple de $2$ (cares $2$ i $4$): "
+  resolucio=["Múltiple de $2$ (cares $2$ i $4$): "
    "$\\dfrac{22+20}{100}=\\dfrac{42}{100}=\\dfrac{21}{50}$"],
   ex_text=E250)
 
-Q("250c", 250, "c", B3, "A",
-  "Quina és la freqüència relativa de l'esdeveniment «Cara més gran "
+Q("250c", 250, "c", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de l'esdeveniment «Cara més gran "
   "que $1$»?",
-  "$\\dfrac{72}{100}=\\dfrac{18}{25}$",
-  [D("$\\dfrac{28}{100}$, calculant en realitat el contrari (cara "
+  correcta="$\\dfrac{72}{100}=\\dfrac{18}{25}$",
+  distractors=[D("$\\dfrac{28}{100}$, calculant en realitat el contrari (cara "
      "igual a $1$)", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "$28$ és la freqüència de la cara $1$ (l'esdeveniment "
      "CONTRARI), no de les cares més grans que $1$: cal sumar les "
@@ -1318,18 +1318,18 @@ Q("250c", 250, "c", B3, "A",
      "condició", "CASOS_FAVORABLES_MAL_COMPTATS",
      "La cara $1$ NO és més gran que $1$: no totes les $4$ cares "
      "compleixen aquesta condició, només $3$ d'elles.")],
-  ["\"Més gran que $1$\" inclou les cares $2$, $3$ i $4$.",
+  pistes=["\"Més gran que $1$\" inclou les cares $2$, $3$ i $4$.",
    "Suma les seves freqüències: $22+30+20$."],
-  ["Més gran que $1$ (cares $2$, $3$ i $4$): "
+  resolucio=["Més gran que $1$ (cares $2$, $3$ i $4$): "
    "$\\dfrac{22+30+20}{100}=\\dfrac{72}{100}=\\dfrac{18}{25}$"],
   ex_text=E250)
 
-Q("250d", 250, "d", B3, "A",
-  "Quina és la freqüència relativa de l'esdeveniment «Cara més "
+Q("250d", 250, "d", B3, tipus="A",
+  enunciat="Quina és la freqüència relativa de l'esdeveniment «Cara més "
   "petita que $1$»?",
-  "$0$ (esdeveniment impossible: cap cara del dau tetraèdric és més "
+  correcta="$0$ (esdeveniment impossible: cap cara del dau tetraèdric és més "
   "petita que $1$)",
-  [D("$\\dfrac{28}{100}$, confonent-lo amb la freqüència de la cara "
+  distractors=[D("$\\dfrac{28}{100}$, confonent-lo amb la freqüència de la cara "
      "$1$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "\"Més petita que $1$\" NO inclou la pròpia cara $1$ (que és "
      "IGUAL a $1$, no MÉS PETITA): cap cara del dau (numerades de "
@@ -1344,21 +1344,21 @@ Q("250d", 250, "d", B3, "A",
      "Sí que té sentit calcular-lo, i dona una freqüència relativa "
      "de $0$: un esdeveniment impossible també té una probabilitat "
      "ben definida, que és $0$.")],
-  ["El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha "
+  pistes=["El dau tetraèdric té cares numerades de l'$1$ al $4$: n'hi ha "
    "alguna més petita que $1$?",
    "Si cap cara no compleix la condició, quantes vegades ha passat "
    "l'esdeveniment en les $100$ tirades?"],
-  ["Com que el tetraedre només té cares de l'$1$ al $4$, no hi ha "
+  resolucio=["Com que el tetraedre només té cares de l'$1$ al $4$, no hi ha "
    "cap resultat més petit que $1$. $\\dfrac{0}{100}=0$"],
   ex_text=E250)
 
 # ---- exercici 251: 4 monedes ----
 E251 = "Llancem 4 monedes iguals."
 
-Q("251a", 251, "a", B3, "A",
-  "Quina és la probabilitat d'obtenir $4$ cares?",
-  "$P=\\dfrac{1}{16}$",
-  [D("$P=\\dfrac14$, com si cada moneda es tractés per separat i es "
+Q("251a", 251, "a", B3, tipus="A",
+  enunciat="Quina és la probabilitat d'obtenir $4$ cares?",
+  correcta="$P=\\dfrac{1}{16}$",
+  distractors=[D("$P=\\dfrac14$, com si cada moneda es tractés per separat i es "
      "multipliquessin per $4$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
      "Amb $4$ monedes hi ha $2^4=16$ resultats possibles en total, "
      "no $4$: cal comptar tots els resultats possibles, no només "
@@ -1375,19 +1375,19 @@ Q("251a", 251, "a", B3, "A",
      "però per combinar-les en un sol esdeveniment (les $4$ cares "
      "alhora) cal multiplicar-les totes, no quedar-se amb la "
      "probabilitat d'una sola moneda.")],
-  ["Amb $4$ monedes hi ha $2^4=16$ resultats possibles en total, "
+  pistes=["Amb $4$ monedes hi ha $2^4=16$ resultats possibles en total, "
    "tots igualment probables.",
    "Només hi ha UNA manera d'obtenir $4$ cares (CCCC)."],
-  ["Amb $4$ monedes: $2^4=16$ resultats possibles",
+  resolucio=["Amb $4$ monedes: $2^4=16$ resultats possibles",
    "Només hi ha una manera d'obtenir $4$ cares (CCCC): "
    "$P=\\dfrac{1}{16}$"],
   ex_text=E251)
 
-Q("251b", 251, "b", B3, "A",
-  "Quina és la probabilitat de NO obtenir cap cara (és a dir, "
+Q("251b", 251, "b", B3, tipus="A",
+  enunciat="Quina és la probabilitat de NO obtenir cap cara (és a dir, "
   "totes creus)?",
-  "$P=\\dfrac{1}{16}$",
-  [D("$P=0$, perquè sempre surt alguna cara amb $4$ monedes",
+  correcta="$P=\\dfrac{1}{16}$",
+  distractors=[D("$P=0$, perquè sempre surt alguna cara amb $4$ monedes",
      "VEREDICTE_INVERTIT",
      "No és impossible que surtin $4$ creus seguides: és poc "
      "probable, però perfectament possible. La probabilitat és "
@@ -1402,19 +1402,19 @@ Q("251b", 251, "b", B3, "A",
      "Aquest valor correspon a l'esdeveniment CONTRARI, \"obtenir "
      "almenys una cara\": la pregunta demana \"cap cara\", que és "
      "l'esdeveniment complementari.")],
-  ["\"No obtenir cap cara\" equival a obtenir $4$ creus (XXXX).",
+  pistes=["\"No obtenir cap cara\" equival a obtenir $4$ creus (XXXX).",
    "Igual que amb $4$ cares, només hi ha un resultat possible "
    "d'entre els $16$."],
-  ["\"No obtenir cap cara\" equival a obtenir $4$ creus (XXXX), "
+  resolucio=["\"No obtenir cap cara\" equival a obtenir $4$ creus (XXXX), "
    "també un únic resultat: $P=\\dfrac{1}{16}$"],
   ex_text=E251)
 
-Q("251c", 251, "c", B3, "A",
-  "Quin esdeveniment és més probable: obtenir $2$ cares, o obtenir "
+Q("251c", 251, "c", B3, tipus="A",
+  enunciat="Quin esdeveniment és més probable: obtenir $2$ cares, o obtenir "
   "almenys $3$ creus?",
-  "És més probable obtenir $2$ cares ($P=\\frac{6}{16}=\\frac38$) "
+  correcta="És més probable obtenir $2$ cares ($P=\\frac{6}{16}=\\frac38$) "
   "que almenys $3$ creus ($P=\\frac{5}{16}$)",
-  [D("És més probable obtenir almenys $3$ creus, perquè \"almenys\" "
+  distractors=[D("És més probable obtenir almenys $3$ creus, perquè \"almenys\" "
      "sona a més casos possibles", "VEREDICTE_INVERTIT",
      "\"Sonar a més casos\" no és un càlcul: comptant amb cura, "
      "\"almenys $3$ creus\" té $5$ casos favorables "
@@ -1432,11 +1432,11 @@ Q("251c", 251, "c", B3, "A",
      "$\\frac{6}{16}$ és la probabilitat d'\"exactament $2$ "
      "cares\", però \"almenys $3$ creus\" té una probabilitat "
      "diferent, $\\frac{5}{16}$: no coincideixen.")],
-  ["Compta els casos favorables de cada esdeveniment amb "
+  pistes=["Compta els casos favorables de cada esdeveniment amb "
    "combinacions: $\\binom{4}{2}$ per a $2$ cares exactes, i "
    "$\\binom{4}{3}+\\binom{4}{4}$ per a almenys $3$ creus.",
    "Compara els dos numeradors sobre el mateix denominador, $16$."],
-  ["$2$ cares exactes: $\\binom{4}{2}=6$ resultats, "
+  resolucio=["$2$ cares exactes: $\\binom{4}{2}=6$ resultats, "
    "$P=\\dfrac{6}{16}=\\dfrac38$",
    "Almenys $3$ creus: $\\binom{4}{3}+\\binom{4}{4}=4+1=5$ "
    "resultats, $P=\\dfrac{5}{16}$",
@@ -1448,11 +1448,11 @@ Q("251c", 251, "c", B3, "A",
 E252 = ("Un examen de tipus test consta de 5 preguntes, cada una de "
         "les quals té 3 respostes possibles.")
 
-Q("252a", 252, "a", B3, "A",
-  "Calcula la probabilitat d'encertar exactament $3$ preguntes si "
+Q("252a", 252, "a", B3, tipus="A",
+  enunciat="Calcula la probabilitat d'encertar exactament $3$ preguntes si "
   "contestes a l'atzar.",
-  "$P=\\dfrac{40}{243}$",
-  [D("$P=\\dfrac{10}{243}$, oblidant multiplicar les maneres de "
+  correcta="$P=\\dfrac{40}{243}$",
+  distractors=[D("$P=\\dfrac{10}{243}$, oblidant multiplicar les maneres de "
      "fallar les $2$ preguntes restants", "COMBINACIONS_MAL_COMPTADES",
      "Un cop triades les $3$ preguntes que s'encerten "
      "($\\binom{5}{3}=10$ maneres), per a les $2$ preguntes "
@@ -1470,22 +1470,22 @@ Q("252a", 252, "a", B3, "A",
      "El denominador de la probabilitat ha de ser el nombre TOTAL "
      "de maneres de contestar l'examen sencer ($3^5=243$), no el "
      "nombre de preguntes.")],
-  ["El total de maneres de contestar l'examen és $3^5=243$.",
+  pistes=["El total de maneres de contestar l'examen és $3^5=243$.",
    "Per als casos favorables: tria quines $3$ preguntes s'encerten "
    "($\\binom{5}{3}$), i per a les altres $2$, compta les maneres "
    "de fallar-les ($2$ cadascuna)."],
-  ["Total de maneres de contestar: $3^5=243$",
+  resolucio=["Total de maneres de contestar: $3^5=243$",
    "Casos favorables: $\\binom{5}{3}=10$ maneres de triar quines "
    "$3$ s'encerten, i $2\\cdot2=4$ maneres de fallar les altres "
    "$2$: $10\\cdot1\\cdot4=40$",
    "$P(\\text{exactament }3\\text{ encerts})=\\dfrac{40}{243}$"],
   ex_text=E252)
 
-Q("252b", 252, "b", B3, "A",
-  "Si per aprovar l'examen s'han de contestar almenys $3$ preguntes "
+Q("252b", 252, "b", B3, tipus="A",
+  enunciat="Si per aprovar l'examen s'han de contestar almenys $3$ preguntes "
   "correctament, quina és la probabilitat d'aprovar?",
-  "$P(\\text{aprovar})=\\dfrac{51}{243}=\\dfrac{17}{81}$",
-  [D("$P(\\text{aprovar})=\\dfrac{40}{243}$, comptant només els "
+  correcta="$P(\\text{aprovar})=\\dfrac{51}{243}=\\dfrac{17}{81}$",
+  distractors=[D("$P(\\text{aprovar})=\\dfrac{40}{243}$, comptant només els "
      "casos d'encertar exactament $3$", "CASOS_FAVORABLES_MAL_COMPTATS",
      "\"Almenys $3$\" inclou també encertar exactament $4$ o "
      "exactament $5$ preguntes, no només $3$: cal sumar els casos "
@@ -1503,22 +1503,22 @@ Q("252b", 252, "b", B3, "A",
      "d'una fracció fixa per pregunta: cal comptar tots els casos "
      "favorables sobre el total de $243$ maneres de contestar "
      "l'examen sencer.")],
-  ["\"Almenys $3$\" inclou $3$, $4$ i $5$ encerts. Calcula els "
+  pistes=["\"Almenys $3$\" inclou $3$, $4$ i $5$ encerts. Calcula els "
    "casos favorables de cada escenari per separat i suma'ls.",
    "Exactament $4$: $\\binom{5}{4}\\cdot1\\cdot2=10$. Exactament "
    "$5$: $\\binom{5}{5}=1$. Suma-ho amb els $40$ d'exactament "
    "$3$."],
-  ["Exactament $3$ encerts: $40$ casos (apartat anterior)",
+  resolucio=["Exactament $3$ encerts: $40$ casos (apartat anterior)",
    "Exactament $4$ encerts: $\\binom{5}{4}\\cdot1\\cdot2=10$ casos",
    "Exactament $5$ encerts: $\\binom{5}{5}=1$ cas",
    "Casos favorables per aprovar: $40+10+1=51$",
    "$P(\\text{aprovar})=\\dfrac{51}{243}=\\dfrac{17}{81}$"],
   ex_text=E252)
 
-Q("252c", 252, "c", B3, "A",
-  "I quina és la probabilitat de suspendre l'examen?",
-  "$P(\\text{suspendre})=1-\\dfrac{17}{81}=\\dfrac{64}{81}$",
-  [D("$P(\\text{suspendre})=\\dfrac{17}{81}$, confonent-la amb la "
+Q("252c", 252, "c", B3, tipus="A",
+  enunciat="I quina és la probabilitat de suspendre l'examen?",
+  correcta="$P(\\text{suspendre})=1-\\dfrac{17}{81}=\\dfrac{64}{81}$",
+  distractors=[D("$P(\\text{suspendre})=\\dfrac{17}{81}$, confonent-la amb la "
      "d'aprovar", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "Aquest és el valor de $P(\\text{aprovar})$, no de "
      "$P(\\text{suspendre})$: com que suspendre és l'esdeveniment "
@@ -1535,9 +1535,9 @@ Q("252c", 252, "c", B3, "A",
      "\\frac{192}{243}$... torna a fer la resta amb cura: el "
      "numerador correcte de $1-\\frac{51}{243}$ és $243-51=192$, "
      "que simplificat dona $\\frac{64}{81}$, no un altre valor.")],
-  ["Suspendre és l'esdeveniment CONTRARI d'aprovar.",
+  pistes=["Suspendre és l'esdeveniment CONTRARI d'aprovar.",
    "$P(\\text{suspendre})=1-P(\\text{aprovar})$."],
-  ["Com que suspendre és el contrari d'aprovar: "
+  resolucio=["Com que suspendre és el contrari d'aprovar: "
    "$P(\\text{suspendre})=1-\\dfrac{17}{81}=\\dfrac{64}{81}$"],
   ex_text=E252)
 
@@ -1551,11 +1551,11 @@ E253 = ("En una urna hi ha 100 boles numerades de l'1 al 100. "
         "$A=$«múltiple de 5», $B=$«múltiple de 3», $C=$«divisible "
         "per 2», $D=$«divisible per 10», $F=$«divisible per 1».")
 
-Q("253a", 253, "a", B4, "A",
-  "Quants esdeveniments elementals componen $B=$«múltiple de $3$», "
+Q("253a", 253, "a", B4, tipus="A",
+  enunciat="Quants esdeveniments elementals componen $B=$«múltiple de $3$», "
   "i quina és la seva probabilitat?",
-  "$33$ esdeveniments elementals; $P(B)=\\dfrac{33}{100}$",
-  [D("$33$ esdeveniments elementals; $P(B)=\\dfrac{100}{33}$",
+  correcta="$33$ esdeveniments elementals; $P(B)=\\dfrac{33}{100}$",
+  distractors=[D("$33$ esdeveniments elementals; $P(B)=\\dfrac{100}{33}$",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "Una probabilitat mai pot ser més gran que $1$: el nombre de "
      "múltiples de $3$ va al numerador, i el total de boles ($100$) "
@@ -1570,18 +1570,18 @@ Q("253a", 253, "a", B4, "A",
      "T'has deixat pel camí els múltiples de $3$ entre $91$ i "
      "$100$ (com el $93$, el $96$ i el $99$): el recompte correcte "
      "des d'$1$ fins a $100$ és $33$.")],
-  ["Divideix $100$ entre $3$ i queda't amb la part entera: aquest "
+  pistes=["Divideix $100$ entre $3$ i queda't amb la part entera: aquest "
    "és el nombre de múltiples de $3$ entre $1$ i $100$.",
    "$\\left\\lfloor\\frac{100}{3}\\right\\rfloor=33$."],
-  ["$B$: múltiples de $3$, des de $3$ fins a $99$: $33$ "
+  resolucio=["$B$: múltiples de $3$, des de $3$ fins a $99$: $33$ "
    "esdeveniments elementals ($\\lfloor100/3\\rfloor=33$). "
    "$P(B)=\\dfrac{33}{100}$"],
   ex_text=E253)
 
-Q("253b", 253, "b", B4, "A",
-  "Quina és la probabilitat de $D=$«divisible per $10$»?",
-  "$P(D)=\\dfrac{10}{100}=\\dfrac1{10}$",
-  [D("$P(D)=\\dfrac{100}{100}=1$, com si tots els números ho "
+Q("253b", 253, "b", B4, tipus="A",
+  enunciat="Quina és la probabilitat de $D=$«divisible per $10$»?",
+  correcta="$P(D)=\\dfrac{10}{100}=\\dfrac1{10}$",
+  distractors=[D("$P(D)=\\dfrac{100}{100}=1$, com si tots els números ho "
      "complissin", "CASOS_FAVORABLES_MAL_COMPTATS",
      "No tots els números de l'$1$ al $100$ són divisibles per "
      "$10$: només ho són $10, 20, 30,\\ldots,100$, en total $10$ "
@@ -1597,18 +1597,18 @@ Q("253b", 253, "b", B4, "A",
      "$5$\": tots els múltiples de $10$ ho són també de $5$, però "
      "no al revés (el $5$, el $15$... són múltiples de $5$ però "
      "no de $10$).")],
-  ["Compta els múltiples de $10$ entre $1$ i $100$: "
+  pistes=["Compta els múltiples de $10$ entre $1$ i $100$: "
    "$10,20,\\ldots,100$.",
    "Divideix $100$ entre $10$."],
-  ["$D$: divisibles per $10$, des de $10$ fins a $100$: $10$ "
+  resolucio=["$D$: divisibles per $10$, des de $10$ fins a $100$: $10$ "
    "esdeveniments elementals. $P(D)=\\dfrac{10}{100}=\\dfrac1{10}$"],
   ex_text=E253)
 
-Q("253c", 253, "c", B4, "A",
-  "Quina és la probabilitat de $F=$«divisible per $1$»?",
-  "$P(F)=1$ (és l'esdeveniment segur: tots els números són "
+Q("253c", 253, "c", B4, tipus="A",
+  enunciat="Quina és la probabilitat de $F=$«divisible per $1$»?",
+  correcta="$P(F)=1$ (és l'esdeveniment segur: tots els números són "
   "divisibles per $1$)",
-  [D("$P(F)=\\dfrac{1}{100}$, com si només un número ho complís",
+  distractors=[D("$P(F)=\\dfrac{1}{100}$, com si només un número ho complís",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "TOTS els nombres enters són divisibles per $1$, no només "
      "un: els $100$ nombres de l'urna compleixen aquesta condició."),
@@ -1622,22 +1622,22 @@ Q("253c", 253, "c", B4, "A",
      "\"Divisible per $1$\" no és el mateix que \"divisible per "
      "$2$\": absolutament tots els nombres compleixen la primera "
      "condició, no només la meitat.")],
-  ["Quins nombres NO són divisibles per $1$?",
+  pistes=["Quins nombres NO són divisibles per $1$?",
    "Compta quantes boles de l'$1$ al $100$ compleixen la condició i "
    "divideix entre $100$."],
-  ["$F$: divisibles per $1$, és a dir, tots els números de l'$1$ "
+  resolucio=["$F$: divisibles per $1$, és a dir, tots els números de l'$1$ "
    "al $100$: $100$ esdeveniments elementals. "
    "$P(F)=\\dfrac{100}{100}=1$ (l'esdeveniment segur)"],
   ex_text=E253)
 
-Q("253d", 253, "d", B4, "B",
-  "«Hi ha algun parell d'esdeveniments incompatibles entre "
+Q("253d", 253, "d", B4, tipus="B",
+  enunciat="«Hi ha algun parell d'esdeveniments incompatibles entre "
   "$A$, $B$, $C$, $D$ i $F$»",
-  "Fals: cap parell d'aquests cinc esdeveniments és incompatible, "
+  correcta="Fals: cap parell d'aquests cinc esdeveniments és incompatible, "
   "perquè sempre hi ha algun número que compleix totes dues "
   "condicions alhora (per exemple, el $30$ compleix totes cinc "
   "condicions a la vegada)",
-  [D("Cert: $D$ i $C$ són incompatibles, perquè un múltiple de "
+  distractors=[D("Cert: $D$ i $C$ són incompatibles, perquè un múltiple de "
      "$10$ no pot ser parell", "COMPATIBLE_INCOMPATIBLE_CONFOSOS",
      "Un múltiple de $10$ SEMPRE és parell (tot múltiple de $10$ ho "
      "és també de $2$): $D$ i $C$ comparteixen molts elements, no "
@@ -1653,23 +1653,23 @@ Q("253d", 253, "d", B4, "B",
      "COMPARTEIXI elements amb qualsevol altre esdeveniment (tots "
      "els d'aquell altre esdeveniment): això el fa compatible amb "
      "tots, no incompatible.")],
-  ["Dos esdeveniments són incompatibles quan no comparteixen CAP "
+  pistes=["Dos esdeveniments són incompatibles quan no comparteixen CAP "
    "número en comú.",
    "Prova amb un número com el $30$: compleix múltiples condicions "
    "alhora?"],
-  ["El $30$ és múltiple de $5$, de $3$, parell, múltiple de $10$ i "
+  resolucio=["El $30$ és múltiple de $5$, de $3$, parell, múltiple de $10$ i "
    "divisible per $1$, tot a la vegada: cap parell d'aquests "
    "esdeveniments és incompatible"],
   ex_text=E253)
 
-Q("253e", 253, "e", B4, "B",
-  "«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, "
+Q("253e", 253, "e", B4, tipus="B",
+  enunciat="«Hi ha algun parell d'esdeveniments contraris entre $A$, $B$, "
   "$C$, $D$ i $F$»",
-  "Fals: cap parell d'$A$, $B$, $C$, $D$, $F$ és contrari, ja que "
+  correcta="Fals: cap parell d'$A$, $B$, $C$, $D$, $F$ és contrari, ja que "
   "dos esdeveniments contraris han d'esgotar l'espai mostral sense "
   "superposar-se, i aquí tots els parells són compatibles (es "
   "superposen)",
-  [D("Cert: $C$ (divisible per $2$) i $F$ (divisible per $1$) són "
+  distractors=[D("Cert: $C$ (divisible per $2$) i $F$ (divisible per $1$) són "
      "contraris", "COMPATIBLE_INCOMPATIBLE_CONFOSOS",
      "$C$ i $F$ no són contraris: de fet, $C$ està CONTINGUT dins "
      "de $F$ (tot múltiple de $2$ també és divisible per $1$), i "
@@ -1684,11 +1684,11 @@ Q("253e", 253, "e", B4, "B",
      "$B$ i $C$ comparteixen elements (com el $6$, múltiple de $3$ "
      "i divisible per $2$ alhora): dos esdeveniments contraris no "
      "poden tenir cap element en comú, així que no ho són.")],
-  ["Dos esdeveniments contraris no comparteixen cap element I, "
+  pistes=["Dos esdeveniments contraris no comparteixen cap element I, "
    "junts, inclouen tots els resultats possibles.",
    "Comprova si cada parell comparteix algun número: si en "
    "comparteixen, no poden ser contraris."],
-  ["Tots els parells d'aquests esdeveniments comparteixen algun "
+  resolucio=["Tots els parells d'aquests esdeveniments comparteixen algun "
    "número (són compatibles): per tant, cap parell és contrari, ja "
    "que els contraris mai comparteixen elements"],
   ex_text=E253)
@@ -1697,11 +1697,11 @@ Q("253e", 253, "e", B4, "B",
 E254 = ("En un dinar hi ha 28 homes i 32 dones. Han menjat carn 16 "
         "homes i 20 dones, i la resta, peix.")
 
-Q("254a", 254, "a", B4, "A",
-  "Si escollim una persona a l'atzar, quina és la probabilitat que "
+Q("254a", 254, "a", B4, tipus="A",
+  enunciat="Si escollim una persona a l'atzar, quina és la probabilitat que "
   "sigui home?",
-  "$P(\\text{home})=\\dfrac{28}{60}=\\dfrac{7}{15}$",
-  [D("$P(\\text{home})=\\dfrac{16}{60}$, comptant només els homes "
+  correcta="$P(\\text{home})=\\dfrac{28}{60}=\\dfrac{7}{15}$",
+  distractors=[D("$P(\\text{home})=\\dfrac{16}{60}$, comptant només els homes "
      "que han menjat carn", "PROBABILITAT_CONDICIONADA_MAL",
      "La pregunta demana la probabilitat de ser home EN GENERAL, no "
      "d'entre els que han menjat carn: cal el total d'homes ($28$), "
@@ -1714,16 +1714,16 @@ Q("254a", 254, "a", B4, "A",
      "nombre d'homes i dones", "CASOS_FAVORABLES_MAL_COMPTATS",
      "Hi ha $28$ homes i $32$ dones: no són el mateix nombre, així "
      "que la probabilitat no és exactament $\\frac12$.")],
-  ["El total de persones al dinar és $28+32=60$.",
+  pistes=["El total de persones al dinar és $28+32=60$.",
    "La probabilitat de ser home és $\\dfrac{28}{60}$."],
-  ["Hi ha $28$ homes d'entre $60$ persones: "
+  resolucio=["Hi ha $28$ homes d'entre $60$ persones: "
    "$P(\\text{home})=\\dfrac{28}{60}=\\dfrac{7}{15}$"],
   ex_text=E254)
 
-Q("254b", 254, "b", B4, "A",
-  "Quina és la probabilitat que hagi menjat peix?",
-  "$P(\\text{peix})=\\dfrac{24}{60}=\\dfrac25$",
-  [D("$P(\\text{peix})=\\dfrac{36}{60}$, calculant en realitat la "
+Q("254b", 254, "b", B4, tipus="A",
+  enunciat="Quina és la probabilitat que hagi menjat peix?",
+  correcta="$P(\\text{peix})=\\dfrac{24}{60}=\\dfrac25$",
+  distractors=[D("$P(\\text{peix})=\\dfrac{36}{60}$, calculant en realitat la "
      "probabilitat de menjar carn", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "$36$ és el total de persones que han menjat CARN "
      "($16+20$), no peix: la resta, $60-36=24$, és qui ha menjat "
@@ -1738,17 +1738,17 @@ Q("254b", 254, "b", B4, "A",
      "$20$ és el nombre de dones que han menjat CARN, no peix: cal "
      "calcular primer qui ha menjat peix (la resta, $60-36=24$ "
      "persones en total).")],
-  ["Calcula primer quantes persones han menjat carn en total: "
+  pistes=["Calcula primer quantes persones han menjat carn en total: "
    "$16+20=36$.",
    "Les que han menjat peix són la resta: $60-36$."],
-  ["Han menjat carn $16+20=36$ persones, i per tant peix, "
+  resolucio=["Han menjat carn $16+20=36$ persones, i per tant peix, "
    "$60-36=24$ persones: $P(\\text{peix})=\\dfrac{24}{60}=\\dfrac25$"],
   ex_text=E254)
 
-Q("254c", 254, "c", B4, "A",
-  "Quina és la probabilitat que sigui home I hagi menjat peix?",
-  "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15$",
-  [D("$P(\\text{home i peix})=\\dfrac{28}{60}$, agafant només la "
+Q("254c", 254, "c", B4, tipus="A",
+  enunciat="Quina és la probabilitat que sigui home I hagi menjat peix?",
+  correcta="$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15$",
+  distractors=[D("$P(\\text{home i peix})=\\dfrac{28}{60}$, agafant només la "
      "probabilitat de ser home", "UNIO_INTERSECCIO_CONFOSES",
      "\"Home i peix\" demana totes dues condicions ALHORA, no "
      "només \"ser home\": cal comptar quants homes concretament han "
@@ -1763,21 +1763,21 @@ Q("254c", 254, "c", B4, "A",
      "es couen sumant les probabilitats individuals, cal comptar "
      "directament quantes persones compleixen totes dues condicions "
      "alhora.")],
-  ["Dels $28$ homes, quants han menjat peix (no carn)?",
+  pistes=["Dels $28$ homes, quants han menjat peix (no carn)?",
    "$28-16=12$ homes han menjat peix: aquest és el numerador."],
-  ["Han menjat peix i, a més, són homes, $12$ persones "
+  resolucio=["Han menjat peix i, a més, són homes, $12$ persones "
    "($28-16=12$) d'entre $60$: "
    "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15$"],
   ex_text=E254)
 
 # ---- exercici 255: guarderia, nen o cabells negres ----
-Q("255", 255, "", B4, "A",
-  "En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i "
+Q("255", 255, "", B4, tipus="A",
+  enunciat="En una guarderia hi ha 20 nens i 16 nenes. La meitat dels nens i "
   "tres quartes parts de les nenes tenen els cabells negres, i la "
   "resta, rossos. Quina és la probabilitat que, si n'escollim un a "
   "l'atzar, sigui nen o tingui els cabells negres?",
-  "$P=\\dfrac{32}{36}=\\dfrac89$",
-  [D("$P=\\dfrac{20}{36}+\\dfrac{22}{36}$, sumant \"ser nen\" i "
+  correcta="$P=\\dfrac{32}{36}=\\dfrac89$",
+  distractors=[D("$P=\\dfrac{20}{36}+\\dfrac{22}{36}$, sumant \"ser nen\" i "
      "\"tenir cabells negres\" sense evitar la doble comptabilitat",
      "UNIO_DOBLE_COMPTADA",
      "Tots els nens amb cabells negres ($10$) ja estan comptats "
@@ -1796,12 +1796,12 @@ Q("255", 255, "", B4, "A",
      "\"Nen o cabells negres\" inclou més gent que només \"ser "
      "nen\": també hi entren les nenes que tenen els cabells "
      "negres, encara que no siguin nens.")],
-  ["Tots els nens (siguin del color de cabells que siguin) ja "
+  pistes=["Tots els nens (siguin del color de cabells que siguin) ja "
    "compleixen \"ser nen\": només cal afegir-hi les nenes de "
    "cabells negres, que encara no comptaves.",
    "Nenes de cabells negres: $16\\cdot\\frac34=12$. "
    "Suma-les als $20$ nens."],
-  ["Cabells negres: $20\\cdot\\frac12=10$ nens i "
+  resolucio=["Cabells negres: $20\\cdot\\frac12=10$ nens i "
    "$16\\cdot\\frac34=12$ nenes",
    "Casos favorables: tots els nens ($20$) més les nenes de "
    "cabells negres ($12$), sense superposició entre \"nen\" i "
@@ -1813,11 +1813,11 @@ Q("255", 255, "", B4, "A",
 E256 = ("En una ciutat llegeixen el diari A el 30% dels habitants, "
         "el diari B el 20%, i el 7% llegeixen els dos diaris.")
 
-Q("256a", 256, "a", B4, "A",
-  "Quina probabilitat hi ha que, si n'escollim un a l'atzar, "
+Q("256a", 256, "a", B4, tipus="A",
+  enunciat="Quina probabilitat hi ha que, si n'escollim un a l'atzar, "
   "llegeixi algun dels dos diaris?",
-  "$P(A\\cup B)=0{,}43$",
-  [D("$P(A\\cup B)=0{,}50$, sumant directament $0{,}30+0{,}20$ "
+  correcta="$P(A\\cup B)=0{,}43$",
+  distractors=[D("$P(A\\cup B)=0{,}50$, sumant directament $0{,}30+0{,}20$ "
      "sense restar res", "UNIO_DOBLE_COMPTADA",
      "Sumar directament $P(A)+P(B)$ compta dues vegades les "
      "persones que llegeixen tots dos diaris: cal restar-los un "
@@ -1831,17 +1831,17 @@ Q("256a", 256, "a", B4, "A",
      "$0{,}57$ correspondria, si de cas, a la probabilitat contrària "
      "(\"no llegir cap diari\"), no a la de \"llegir algun dels "
      "dos\".")],
-  ["Sumar les probabilitats individuals compta dues vegades les "
+  pistes=["Sumar les probabilitats individuals compta dues vegades les "
    "persones que llegeixen els dos diaris.",
    "$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)$."],
-  ["$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)=0{,}30+0{,}20-0{,}07="
+  resolucio=["$P(A\\cup B)=P(A)+P(B)-P(A\\cap B)=0{,}30+0{,}20-0{,}07="
    "0{,}43$"],
   ex_text=E256)
 
-Q("256b", 256, "b", B4, "A",
-  "I quina probabilitat hi ha que no llegeixi cap dels dos diaris?",
-  "$P(\\text{cap diari})=1-0{,}43=0{,}57$",
-  [D("$P(\\text{cap diari})=0{,}43$, confonent-la amb \"llegir "
+Q("256b", 256, "b", B4, tipus="A",
+  enunciat="I quina probabilitat hi ha que no llegeixi cap dels dos diaris?",
+  correcta="$P(\\text{cap diari})=1-0{,}43=0{,}57$",
+  distractors=[D("$P(\\text{cap diari})=0{,}43$, confonent-la amb \"llegir "
      "algun dels dos\"", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "Aquest és el valor de $P(A\\cup B)$ (llegir algun diari), no "
      "de \"no llegir cap\": cal restar-lo d'$1$, no repetir-lo."),
@@ -1855,19 +1855,19 @@ Q("256b", 256, "b", B4, "A",
      "$0{,}07$ és la probabilitat de llegir TOTS DOS diaris alhora, "
      "no de no llegir-ne cap: són esdeveniments completament "
      "diferents.")],
-  ["\"No llegir cap diari\" és l'esdeveniment contrari de "
+  pistes=["\"No llegir cap diari\" és l'esdeveniment contrari de "
    "\"llegir algun dels dos\".",
    "$P(\\text{cap})=1-P(A\\cup B)$."],
-  ["No llegir cap diari és l'esdeveniment contrari de \"llegir "
+  resolucio=["No llegir cap diari és l'esdeveniment contrari de \"llegir "
    "algun dels dos\": $P(\\text{cap diari})=1-P(A\\cup B)="
    "1-0{,}43=0{,}57$"],
   ex_text=E256)
 
-Q("256c", 256, "c", B4, "A",
-  "Quina probabilitat hi ha que llegeixi exactament UN dels dos "
+Q("256c", 256, "c", B4, tipus="A",
+  enunciat="Quina probabilitat hi ha que llegeixi exactament UN dels dos "
   "diaris (no els dos)?",
-  "$P(\\text{exactament un})=0{,}36$",
-  [D("$P(\\text{exactament un})=0{,}43$, confonent-la amb \"algun "
+  correcta="$P(\\text{exactament un})=0{,}36$",
+  distractors=[D("$P(\\text{exactament un})=0{,}43$, confonent-la amb \"algun "
      "dels dos\"", "UNIO_INTERSECCIO_CONFOSES",
      "$0{,}43$ inclou també els que en llegeixen els DOS: "
      "\"exactament un\" ha d'excloure aquest grup, restant-lo de "
@@ -1882,11 +1882,11 @@ Q("256c", 256, "c", B4, "A",
      "$0{,}07$ és la probabilitat de llegir els DOS diaris, que és "
      "precisament el que cal EXCLOURE per calcular \"exactament "
      "un\".")],
-  ["Resta la intersecció de cada probabilitat individual per "
+  pistes=["Resta la intersecció de cada probabilitat individual per "
    "obtenir \"només A\" i \"només B\" per separat.",
    "Suma els dos resultats: "
    "$(0{,}30-0{,}07)+(0{,}20-0{,}07)$."],
-  ["Només A: $P(A)-P(A\\cap B)=0{,}30-0{,}07=0{,}23$",
+  resolucio=["Només A: $P(A)-P(A\\cap B)=0{,}30-0{,}07=0{,}23$",
    "Només B: $P(B)-P(A\\cap B)=0{,}20-0{,}07=0{,}13$",
    "Exactament un: $0{,}23+0{,}13=0{,}36$"],
   ex_text=E256)
@@ -1897,11 +1897,11 @@ E257 = ("En Lluís i en Joan han de recollir l'habitació. En Lluís "
         "blava, i proposa treure'n una: si és vermella, recull en "
         "Joan; si és blava, recull ell.")
 
-Q("257a", 257, "a", B4, "A",
-  "Quina és la probabilitat de cada color de bola?",
-  "$P(\\text{vermella})=\\dfrac12$, $P(\\text{verda})=\\dfrac13$, "
+Q("257a", 257, "a", B4, tipus="A",
+  enunciat="Quina és la probabilitat de cada color de bola?",
+  correcta="$P(\\text{vermella})=\\dfrac12$, $P(\\text{verda})=\\dfrac13$, "
   "$P(\\text{blava})=\\dfrac16$",
-  [D("$P(\\text{vermella})=\\dfrac35$, $P(\\text{verda})=\\dfrac25$, "
+  distractors=[D("$P(\\text{vermella})=\\dfrac35$, $P(\\text{verda})=\\dfrac25$, "
      "$P(\\text{blava})=\\dfrac15$",
      "CASOS_POSSIBLES_MAL_COMPTATS",
      "El denominador ha de ser el TOTAL de boles de la bossa, "
@@ -1918,21 +1918,21 @@ Q("257a", 257, "a", B4, "A",
      "El nombre de COLORS diferents ($3$) no determina la "
      "probabilitat: cal comptar quantes boles té cada color, i no "
      "en té el mateix nombre cadascun.")],
-  ["La bossa té $3+2+1=6$ boles en total: aquest és el nombre de "
+  pistes=["La bossa té $3+2+1=6$ boles en total: aquest és el nombre de "
    "casos possibles per als tres colors.",
    "Aplica la regla de Laplace a cada color per separat: casos "
    "favorables d'aquell color entre $6$."],
-  ["$P(\\text{vermella})=\\dfrac36=\\dfrac12$, "
+  resolucio=["$P(\\text{vermella})=\\dfrac36=\\dfrac12$, "
    "$P(\\text{verda})=\\dfrac26=\\dfrac13$, "
    "$P(\\text{blava})=\\dfrac16$"],
   ex_text=E257)
 
-Q("257b", 257, "b", B4, "A",
-  "És just el tracte que proposa en Lluís (vermella: recull en "
+Q("257b", 257, "b", B4, tipus="A",
+  enunciat="És just el tracte que proposa en Lluís (vermella: recull en "
   "Joan; blava: recull en Lluís)?",
-  "No és just: en Joan tindria una probabilitat de recollir molt "
+  correcta="No és just: en Joan tindria una probabilitat de recollir molt "
   "més alta ($\\frac12$) que en Lluís ($\\frac16$)",
-  [D("Sí, és just, perquè cada germà té assignat un color diferent",
+  distractors=[D("Sí, és just, perquè cada germà té assignat un color diferent",
      "PROBABILITAT_CONDICIONADA_MAL",
      "Tenir un color assignat no fa el tracte just per si sol: cal "
      "que la PROBABILITAT de sortir aquell color sigui igual per a "
@@ -1949,22 +1949,22 @@ Q("257b", 257, "b", B4, "A",
      "La justícia del tracte no depèn de preferències personals "
      "pels colors: depèn únicament de si les probabilitats "
      "assignades a cada germà són iguals o no.")],
-  ["Compara la probabilitat que li toca a en Joan (vermella) amb "
+  pistes=["Compara la probabilitat que li toca a en Joan (vermella) amb "
    "la que li toca a en Lluís (blava).",
    "$P(\\text{vermella})=\\frac12$ enfront de "
    "$P(\\text{blava})=\\frac16$: són iguals?"],
-  ["En Joan recull si surt vermella ($P=\\frac12$), en Lluís si "
+  resolucio=["En Joan recull si surt vermella ($P=\\frac12$), en Lluís si "
    "surt blava ($P=\\frac16$). Com que les probabilitats no són "
    "iguals, el tracte NO és just"],
   ex_text=E257)
 
-Q("257c", 257, "c", B4, "A",
-  "En Joan proposa un nou tracte: si surt vermell, recollirà ell; "
+Q("257c", 257, "c", B4, tipus="A",
+  enunciat="En Joan proposa un nou tracte: si surt vermell, recollirà ell; "
   "si surt blau o verd, recollirà en Lluís. És just aquest tracte?",
-  "Sí, és just: totes dues probabilitats són $\\frac12$ "
+  correcta="Sí, és just: totes dues probabilitats són $\\frac12$ "
   "($P(\\text{vermella})=\\frac12$, $P(\\text{blava o verda})="
   "\\frac16+\\frac13=\\frac12$)",
-  [D("No és just, perquè en Joan té assignat un sol color i en "
+  distractors=[D("No és just, perquè en Joan té assignat un sol color i en "
      "Lluís dos colors diferents", "PROBABILITAT_CONDICIONADA_MAL",
      "El nombre de colors assignats a cadascú no determina la "
      "justícia del tracte: el que importa és la probabilitat total "
@@ -1983,23 +1983,23 @@ Q("257c", 257, "c", B4, "A",
      "corresponents: $\\frac16+\\frac13=\\frac12$, exactament igual "
      "que $P(\\text{vermella})=\\frac12$: no és casualitat, és un "
      "càlcul exacte.")],
-  ["Suma les probabilitats de \"blau o verd\": "
+  pistes=["Suma les probabilitats de \"blau o verd\": "
    "$\\frac16+\\frac13$.",
    "Compara aquest resultat amb $P(\\text{vermella})=\\frac12$."],
-  ["Recull en Joan si surt vermell ($P=\\frac12$), i en Lluís si "
+  resolucio=["Recull en Joan si surt vermell ($P=\\frac12$), i en Lluís si "
    "surt blau o verd ($P=\\frac16+\\frac13=\\frac12$). Com que "
    "totes dues probabilitats són $\\frac12$, aquest tracte SÍ és "
    "just"],
   ex_text=E257)
 
 # ---- exercici 258: claus i panys ----
-Q("258", 258, "", B4, "A",
-  "Si tinc 3 claus que obren els 3 panys d'una porta, però no sé "
+Q("258", 258, "", B4, tipus="A",
+  enunciat="Si tinc 3 claus que obren els 3 panys d'una porta, però no sé "
   "quina és la que obre cada pany, quina és la probabilitat "
   "d'encertar, al primer intent, la clau d'un dels panys? I si "
   "tingués 3 claus i només 2 panys (una clau no obre cap pany)?",
-  "En tots dos casos, $P(\\text{encertar})=\\dfrac13$",
-  [D("Amb $3$ claus i $3$ panys, $P=\\dfrac13$; però amb $3$ claus "
+  correcta="En tots dos casos, $P(\\text{encertar})=\\dfrac13$",
+  distractors=[D("Amb $3$ claus i $3$ panys, $P=\\dfrac13$; però amb $3$ claus "
      "i $2$ panys, $P=\\dfrac12$, perquè hi ha menys panys",
      "CASOS_POSSIBLES_MAL_COMPTATS",
      "El que compta no és quants panys hi ha, sinó quantes CLAUS "
@@ -2016,10 +2016,10 @@ Q("258", 258, "", B4, "A",
      "Sí que es pot calcular sense conèixer l'ordre: la probabilitat "
      "d'encertar al primer intent només depèn de quantes claus tens "
      "per triar i quantes són vàlides per al pany que proves.")],
-  ["En tots dos casos, tens $3$ claus per triar a l'atzar.",
+  pistes=["En tots dos casos, tens $3$ claus per triar a l'atzar.",
    "En tots dos casos, només $1$ de les $3$ claus obre el pany "
    "concret que proves."],
-  ["Amb $3$ claus, cadascuna obrint un pany diferent dels $3$: "
+  resolucio=["Amb $3$ claus, cadascuna obrint un pany diferent dels $3$: "
    "$P(\\text{encertar})=\\dfrac13$",
    "Amb $3$ claus però només $2$ panys (una no obre res): segueixes "
    "tenint $3$ claus, i només $1$ obre el pany concret: "
@@ -2027,13 +2027,13 @@ Q("258", 258, "", B4, "A",
   ex_text="")
 
 # ---- exercici 259: coincidència Paula/Robert a la botiga ----
-Q("259", 259, "", B4, "A",
-  "La Paula va a una botiga 2 vegades per setmana, i en Robert hi "
+Q("259", 259, "", B4, tipus="A",
+  enunciat="La Paula va a una botiga 2 vegades per setmana, i en Robert hi "
   "treballa 4 dies a la setmana. Si el divendres és l'únic dia en "
   "què no hi va cap dels dos (i la botiga tanca els diumenges), "
   "quina és la probabilitat que coincideixin dos dies?",
-  "$P=\\dfrac{30}{50}=\\dfrac35$",
-  [D("$P=\\dfrac{2}{4}=\\dfrac12$, comparant directament els dies "
+  correcta="$P=\\dfrac{30}{50}=\\dfrac35$",
+  distractors=[D("$P=\\dfrac{2}{4}=\\dfrac12$, comparant directament els dies "
      "de cadascú sense combinatòria", "COMBINACIONS_MAL_COMPTADES",
      "El càlcul no és una simple comparació de $2$ contra $4$: cal "
      "comptar de quantes maneres es poden triar els dies de "
@@ -2053,13 +2053,13 @@ Q("259", 259, "", B4, "A",
      "que els $2$ dies concrets de la Paula hi coincideixin "
      "tots dos: si un d'ells és justament el dia lliure d'en "
      "Robert, només hi coincidirà $1$ dia, no $2$.")],
-  ["Els dos trien dies d'entre els mateixos $5$ dies (tots menys "
+  pistes=["Els dos trien dies d'entre els mateixos $5$ dies (tots menys "
    "divendres i diumenge). Compta les combinacions possibles per a "
    "cadascun amb $\\binom{5}{2}$ i $\\binom{5}{4}$.",
    "Després, compta en quantes d'aquestes combinacions els $2$ "
    "dies de la Paula cauen tots dos dins dels $4$ dies d'en "
    "Robert."],
-  ["La Paula tria $2$ dies d'entre $5$: $\\binom{5}{2}=10$ "
+  resolucio=["La Paula tria $2$ dies d'entre $5$: $\\binom{5}{2}=10$ "
    "maneres. En Robert en treballa $4$ (li'n falta triar $1$ de "
    "lliure): $\\binom{5}{4}=5$ maneres",
    "Total de combinacions possibles: $10\\cdot5=50$",
@@ -2133,10 +2133,10 @@ E305 = ("Una bossa té 4 boles vermelles i 6 de blaves. En traiem una "
         "bola, apuntem el color, la TORNEM a la bossa, remenem, i en "
         "traiem una altra.")
 
-Q("305a", 305, "a", BC1, "A",
-  "Quina és la probabilitat que les dues boles siguin vermelles?",
-  "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
-  [DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
+Q("305a", 305, "a", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que les dues boles siguin vermelles?",
+  correcta="$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
+  distractors=[DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
       "REEMPLACAMENT_MAL_CONSIDERAT",
       "Aquí SÍ que es reposa la bola: la segona extracció torna a "
       "tenir $10$ boles a la bossa, $4$ de vermelles, exactament "
@@ -2151,21 +2151,21 @@ Q("305a", 305, "a", BC1, "A",
      "Cal tenir en compte TOTES DUES extraccions, no només la "
      "primera: la probabilitat que passin les dues coses alhora és "
      "més petita que la d'una de sola.")],
-  ["Com que la bola es reposa, les dues extraccions tenen exactament "
+  pistes=["Com que la bola es reposa, les dues extraccions tenen exactament "
    "la mateixa probabilitat: $\\dfrac{4}{10}$ de vermella cada "
    "vegada.",
    "\"I\" (les dues coses alhora) es tradueix en multiplicar les "
    "probabilitats."],
-  ["Amb reposició, cada extracció és independent de l'altra: "
+  resolucio=["Amb reposició, cada extracció és independent de l'altra: "
    "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{16}{100}"
    "=\\dfrac{4}{25}$"],
   ex_text=E305)
 
-Q("305b", 305, "b", BC1, "A",
-  "Quina és la probabilitat que la primera sigui vermella i la "
+Q("305b", 305, "b", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que la primera sigui vermella i la "
   "segona blava?",
-  "$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{6}{25}$",
-  [D("$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{5}{9}=\\dfrac{2}{9}$",
+  correcta="$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{6}{25}$",
+  distractors=[D("$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{5}{9}=\\dfrac{2}{9}$",
      "REEMPLACAMENT_MAL_CONSIDERAT",
      "La bola es reposa: a la segona extracció hi torna a haver "
      "$10$ boles en total, $6$ de blaves, com a la primera."),
@@ -2191,17 +2191,17 @@ Q("305b", 305, "b", BC1, "A",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "La segona bola ha de ser BLAVA, no vermella una altra vegada: "
      "la seva probabilitat és $6/10$, no $4/10$.")],
-  ["La primera extracció (vermella) té probabilitat $4/10$.",
+  pistes=["La primera extracció (vermella) té probabilitat $4/10$.",
    "La segona (blava) té probabilitat $6/10$, i com que la bola "
    "s'ha reposat, aquesta xifra no canvia respecte de l'inici."],
-  ["$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{24}{100}"
+  resolucio=["$P(V,B)=\\dfrac{4}{10}\\cdot\\dfrac{6}{10}=\\dfrac{24}{100}"
    "=\\dfrac{6}{25}$"],
   ex_text=E305)
 
-Q("305c", 305, "c", BC1, "A",
-  "Quina és la probabilitat que les dues boles siguin blaves?",
-  "$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{9}{25}$",
-  [DT("$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{5}{9}=\\dfrac{1}{3}$",
+Q("305c", 305, "c", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que les dues boles siguin blaves?",
+  correcta="$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{9}{25}$",
+  distractors=[DT("$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{5}{9}=\\dfrac{1}{3}$",
       "REEMPLACAMENT_MAL_CONSIDERAT",
       "La bola es reposa: la segona extracció torna a tenir $10$ "
       "boles en total, $6$ de blaves."),
@@ -2215,10 +2215,10 @@ Q("305c", 305, "c", BC1, "A",
      "Cal que TOTES DUES boles siguin blaves, no només una: "
      "s'han de multiplicar les probabilitats de les dues "
      "extraccions.")],
-  ["Cada extracció té probabilitat $6/10$ de sortir blava, i com "
+  pistes=["Cada extracció té probabilitat $6/10$ de sortir blava, i com "
    "que es reposa, això no canvia a la segona.",
    "Multiplica-les: $\\dfrac{6}{10}\\cdot\\dfrac{6}{10}$."],
-  ["$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{36}{100}"
+  resolucio=["$P(B,B)=\\dfrac{6}{10}\\cdot\\dfrac{6}{10}=\\dfrac{36}{100}"
    "=\\dfrac{9}{25}$"],
   ex_text=E305)
 
@@ -2227,10 +2227,10 @@ E306 = ("La mateixa bossa, 4 boles vermelles i 6 de blaves. Ara en "
         "traiem una, apuntem el color, i SENSE tornar-la a la bossa, "
         "en traiem una altra.")
 
-Q("306a", 306, "a", BC1, "A",
-  "Quina és la probabilitat que la primera sigui vermella?",
-  "$P(V_1)=\\dfrac{4}{10}=\\dfrac{2}{5}$",
-  [D("$P(V_1)=\\dfrac{4}{9}$, ja descomptant la bola que encara no "
+Q("306a", 306, "a", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que la primera sigui vermella?",
+  correcta="$P(V_1)=\\dfrac{4}{10}=\\dfrac{2}{5}$",
+  distractors=[D("$P(V_1)=\\dfrac{4}{9}$, ja descomptant la bola que encara no "
      "s'ha tret", "REEMPLACAMENT_MAL_CONSIDERAT",
      "La PRIMERA extracció encara es fa amb totes les boles a la "
      "bossa: $10$ en total, $4$ de vermelles. El denominador només "
@@ -2243,18 +2243,18 @@ Q("306a", 306, "a", BC1, "A",
      "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "Es demana la probabilitat de VERMELLA, i n'hi ha $4$ de $10$; "
      "$6/10$ és la de blava.")],
-  ["A la primera extracció encara hi ha totes les boles: $10$ en "
+  pistes=["A la primera extracció encara hi ha totes les boles: $10$ en "
    "total, $4$ de vermelles.",
    "Aplica la regla de Laplace: casos favorables entre casos possibles. "
    "Que després no es torni la bola no afecta aquesta primera extracció."],
-  ["$P(V_1)=\\dfrac{4}{10}=\\dfrac25$"],
+  resolucio=["$P(V_1)=\\dfrac{4}{10}=\\dfrac25$"],
   ex_text=E306)
 
-Q("306b", 306, "b", BC1, "A",
-  "Si la primera ha sortit vermella, quina és ara la probabilitat "
+Q("306b", 306, "b", BC1, tipus="A",
+  enunciat="Si la primera ha sortit vermella, quina és ara la probabilitat "
   "que la segona també ho sigui?",
-  "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac{1}{3}$",
-  [DT("$P(V_2|V_1)=\\dfrac{4}{9}$, sense descomptar la vermella ja "
+  correcta="$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac{1}{3}$",
+  distractors=[DT("$P(V_2|V_1)=\\dfrac{4}{9}$, sense descomptar la vermella ja "
       "treta", "REEMPLACAMENT_MAL_CONSIDERAT",
       "La bola vermella que ha sortit primer NO torna a la bossa: "
       "de les $4$ vermelles inicials, ara en queden $3$."),
@@ -2267,17 +2267,17 @@ Q("306b", 306, "b", BC1, "A",
      "Si es descompta la bola vermella treta del numerador ($4\\to"
      "3$), també cal descomptar-la del total de boles a la bossa "
      "($10\\to9$): els dos nombres baixen alhora.")],
-  ["Un cop treta la vermella, a la bossa ja no en queden $10$ "
+  pistes=["Un cop treta la vermella, a la bossa ja no en queden $10$ "
    "boles, sinó $9$.",
    "De les $4$ vermelles inicials, ara en queden $3$."],
-  ["Han quedat $9$ boles a la bossa, $3$ de vermelles: "
+  resolucio=["Han quedat $9$ boles a la bossa, $3$ de vermelles: "
    "$P(V_2|V_1)=\\dfrac{3}{9}=\\dfrac13$"],
   ex_text=E306)
 
-Q("306c", 306, "c", BC1, "A",
-  "Quina és la probabilitat que les dues boles siguin vermelles?",
-  "$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
-  [DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
+Q("306c", 306, "c", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que les dues boles siguin vermelles?",
+  correcta="$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{2}{15}$",
+  distractors=[DT("$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}{25}$",
       "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
       "Aquí NO es reposa la bola: la segona extracció es fa amb "
       "una bola vermella menys i una bola menys en total, així que "
@@ -2291,23 +2291,23 @@ Q("306c", 306, "c", BC1, "A",
      "Cal tenir en compte TOTES DUES extraccions: la probabilitat "
      "que la primera també surti vermella s'ha de multiplicar, no "
      "descartar.")],
-  ["La primera extracció té probabilitat $4/10$.",
+  pistes=["La primera extracció té probabilitat $4/10$.",
    "Un cop treta la vermella, la segona té probabilitat $3/9$.",
    "Multiplica-les."],
-  ["$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{12}{90}"
+  resolucio=["$P(V,V)=\\dfrac{4}{10}\\cdot\\dfrac{3}{9}=\\dfrac{12}{90}"
    "=\\dfrac{2}{15}$"],
   ex_text=E306)
 
 # ---- exercici 307: comparar amb reposició i sense (conceptual) ----
-Q("307", 307, "", BC1, "B",
-  "«A la mateixa bossa de 4 vermelles i 6 blaves, la probabilitat de "
+Q("307", 307, "", BC1, tipus="B",
+  enunciat="«A la mateixa bossa de 4 vermelles i 6 blaves, la probabilitat de "
   "treure dues vermelles seguides val el mateix es reposi la bola o "
   "no»",
-  "Fals: amb reposició és $\\dfrac{4}{25}=0{,}16$ i sense reposició "
+  correcta="Fals: amb reposició és $\\dfrac{4}{25}=0{,}16$ i sense reposició "
   "és $\\dfrac{2}{15}\\approx0{,}133$; sense reposició la segona "
   "probabilitat baixa (queden menys vermelles i menys boles en "
   "total), així que el producte final és més petit",
-  [D("Cert: en tots dos casos la probabilitat de cada extracció és "
+  distractors=[D("Cert: en tots dos casos la probabilitat de cada extracció és "
      "$4/10$", "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
      "Això només és veritat amb reposició. Sense reposició, un cop "
      "treta la primera vermella, en queden $3$ de $9$ boles per a "
@@ -2324,11 +2324,11 @@ Q("307", 307, "", BC1, "B",
      "mateixa probabilitat inicial ($4/10$ les dues vegades), que "
      "és més gran que la segona probabilitat quan no es reposa "
      "($3/9$).")],
-  ["Calcula per separat el cas amb reposició ($4/10$ dues vegades) "
+  pistes=["Calcula per separat el cas amb reposició ($4/10$ dues vegades) "
    "i el cas sense reposició ($4/10$ i després $3/9$).",
    "Compara els dos resultats en decimal si costa comparar les "
    "fraccions a ull."],
-  ["Amb reposició: $\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}"
+  resolucio=["Amb reposició: $\\dfrac{4}{10}\\cdot\\dfrac{4}{10}=\\dfrac{4}"
    "{25}=0{,}16$. Sense reposició: $\\dfrac{4}{10}\\cdot\\dfrac{3}"
    "{9}=\\dfrac{2}{15}\\approx0{,}133$. Són diferents, i la segona "
    "és més petita perquè, un cop treta una vermella, en queden "
@@ -2348,10 +2348,10 @@ E308 = ("Llancem una moneda. Si surt cara, tirem un dau i mirem si "
         "surt el $6$. Si surt creu, tirem el dau i mirem si el "
         "resultat és parell. L'arbre mostra totes les probabilitats.")
 
-Q("308a", 308, "a", BC1, "A",
-  "Quina és la probabilitat de treure cara i després un $6$?",
-  "$P(\\text{Cara},6)=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}=\\dfrac{1}{12}$",
-  [D("$P(\\text{Cara},6)=\\dfrac12+\\dfrac16=\\dfrac23$",
+Q("308a", 308, "a", BC1, tipus="A",
+  enunciat="Quina és la probabilitat de treure cara i després un $6$?",
+  correcta="$P(\\text{Cara},6)=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}=\\dfrac{1}{12}$",
+  distractors=[D("$P(\\text{Cara},6)=\\dfrac12+\\dfrac16=\\dfrac23$",
      "CAMI_ARBRE_MAL_MULTIPLICAT",
      "La probabilitat d'un camí de l'arbre (cara, i després un $6$) "
      "és el PRODUCTE de les dues branques, no la seva suma."),
@@ -2365,19 +2365,19 @@ Q("308a", 308, "a", BC1, "A",
      "CASOS_FAVORABLES_MAL_COMPTATS",
      "La pregunta demana la probabilitat que SURTI el $6$, que és "
      "la branca $1/6$, no la de \"no surt 6\" ($5/6$).")],
-  ["Segueix el camí de l'arbre: primer la branca \"Cara\", després "
+  pistes=["Segueix el camí de l'arbre: primer la branca \"Cara\", després "
    "la branca \"surt 6\".",
    "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
    "se sumen quan s'ajunten camins diferents."],
-  ["$P(\\text{Cara},6)=\\dfrac12\\cdot\\dfrac16=\\dfrac{1}{12}$"],
+  resolucio=["$P(\\text{Cara},6)=\\dfrac12\\cdot\\dfrac16=\\dfrac{1}{12}$"],
   figura=FIG308, ex_text=E308)
 
-Q("308b", 308, "b", BC1, "A",
-  "Quina és la probabilitat de treure creu i després un número "
+Q("308b", 308, "b", BC1, tipus="A",
+  enunciat="Quina és la probabilitat de treure creu i després un número "
   "parell (de l'$1$ al $6$)?",
-  "$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{2}"
+  correcta="$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{2}"
   "=\\dfrac{1}{4}$",
-  [D("$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}"
+  distractors=[D("$P(\\text{Creu},\\text{parell})=\\dfrac{1}{2}\\cdot\\dfrac{1}{6}"
      "=\\dfrac{1}{12}$, seguint la branca del $6$ per error",
      "CAMI_ARBRE_MAL_MULTIPLICAT",
      "Un cop surt CREU, la branca del dau que toca és la de "
@@ -2392,10 +2392,10 @@ Q("308b", 308, "b", BC1, "A",
      "CAMI_ARBRE_MAL_MULTIPLICAT",
      "Les branques d'un mateix camí es multipliquen, no se sumen: "
      "sumar-les mai pot donar la probabilitat d'un camí concret.")],
-  ["Un cop surt creu, la branca del dau que segueix és la de "
+  pistes=["Un cop surt creu, la branca del dau que segueix és la de "
    "\"parell\".",
    "Multiplica la probabilitat de creu per la de \"parell\"."],
-  ["$P(\\text{Creu},\\text{parell})=\\dfrac12\\cdot\\dfrac12"
+  resolucio=["$P(\\text{Creu},\\text{parell})=\\dfrac12\\cdot\\dfrac12"
    "=\\dfrac14$"],
   figura=FIG308, ex_text=E308)
 
@@ -2412,11 +2412,11 @@ E309 = ("Una urna té 2 boles vermelles i 3 de blaves. En traiem una "
         "SENSE reposar-la i després una altra. A l'arbre falta una "
         "probabilitat, marcada amb un interrogant.")
 
-Q("309a", 309, "a", BC1, "A",
-  "Quina probabilitat falta a la branca marcada amb «?», sabent que "
+Q("309a", 309, "a", BC1, tipus="A",
+  enunciat="Quina probabilitat falta a la branca marcada amb «?», sabent que "
   "la seva branca veïna (la de «B») val $3/4$?",
-  "$P(V_2|V_1)=\\dfrac{1}{4}$",
-  [DT("$P(V_2|V_1)=\\dfrac{3}{4}$, copiant la branca veïna «B» del "
+  correcta="$P(V_2|V_1)=\\dfrac{1}{4}$",
+  distractors=[DT("$P(V_2|V_1)=\\dfrac{3}{4}$, copiant la branca veïna «B» del "
       "mateix node", "BRANCA_ARBRE_MAL_CALCULADA",
       "Les dues branques que surten d'un mateix node han de sumar "
       "$1$: si la de «B» és $3/4$, la de «V» ha de ser "
@@ -2430,18 +2430,18 @@ Q("309a", 309, "a", BC1, "A",
      "cada 5", "BRANCA_ARBRE_MAL_CALCULADA",
      "Un cop treta la primera bola, en queden $4$ a l'urna (no "
      "$5$): d'aquestes $4$, en queda $1$ de vermella.")],
-  ["Les dues branques que surten d'un mateix node sumen $1$.",
+  pistes=["Les dues branques que surten d'un mateix node sumen $1$.",
    "La branca veïna («B» després de «V») val $3/4$: la que falta "
    "és $1-3/4$."],
-  ["Les branques d'un node sumen $1$: $1-\\dfrac{3}{4}=\\dfrac{1}{4}$"],
+  resolucio=["Les branques d'un node sumen $1$: $1-\\dfrac{3}{4}=\\dfrac{1}{4}$"],
   figura=FIG309, ex_text=E309)
 
-Q("309b", 309, "b", BC1, "A",
-  "Sabent que $P(V_1)=2/5$ i que la branca que acabes de calcular "
+Q("309b", 309, "b", BC1, tipus="A",
+  enunciat="Sabent que $P(V_1)=2/5$ i que la branca que acabes de calcular "
   "val $1/4$, quina és la probabilitat de treure dues boles "
   "vermelles?",
-  "$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{1}{4}=\\dfrac{1}{10}$",
-  [D("$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{2}{5}=\\dfrac{4}{25}$, "
+  correcta="$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{1}{4}=\\dfrac{1}{10}$",
+  distractors=[D("$P(V,V)=\\dfrac{2}{5}\\cdot\\dfrac{2}{5}=\\dfrac{4}{25}$, "
      "repetint la probabilitat inicial a la segona branca",
      "REEMPLACAMENT_MAL_CONSIDERAT",
      "La segona probabilitat, un cop treta una vermella sense "
@@ -2456,21 +2456,21 @@ Q("309b", 309, "b", BC1, "A",
      "Cal seguir el camí sencer des de l'arrel: la probabilitat de "
      "la primera vermella ($2/5$) també compta, multiplicada per "
      "la segona.")],
-  ["Segueix el camí sencer: la branca «V» inicial ($2/5$) i la "
+  pistes=["Segueix el camí sencer: la branca «V» inicial ($2/5$) i la "
    "branca «V» que acabes de calcular ($1/4$).",
    "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
    "se sumen quan s'ajunten camins diferents."],
-  ["$P(V,V)=\\dfrac25\\cdot\\dfrac14=\\dfrac{2}{20}=\\dfrac{1}{10}$"],
+  resolucio=["$P(V,V)=\\dfrac25\\cdot\\dfrac14=\\dfrac{2}{20}=\\dfrac{1}{10}$"],
   figura=FIG309, ex_text=E309)
 
 # ---- exercici 310: construir un arbre des de l'enunciat (sense figura, l'alumne l'ha de muntar) ----
 E310 = ("Un calaix té 5 mitjons negres i 3 de blancs, tots solts. "
         "Se'n treuen 2 SENSE reposar-los.")
 
-Q("310a", 310, "a", BC1, "A",
-  "Quina és la probabilitat que els dos mitjons siguin negres?",
-  "$P(N,N)=\\dfrac{5}{8}\\cdot\\dfrac{4}{7}=\\dfrac{5}{14}$",
-  [DT("$P(N,N)=\\dfrac58\\cdot\\dfrac58=\\dfrac{25}{64}$",
+Q("310a", 310, "a", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que els dos mitjons siguin negres?",
+  correcta="$P(N,N)=\\dfrac{5}{8}\\cdot\\dfrac{4}{7}=\\dfrac{5}{14}$",
+  distractors=[DT("$P(N,N)=\\dfrac58\\cdot\\dfrac58=\\dfrac{25}{64}$",
       "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
       "Els mitjons no es reposen: un cop tret un mitjó negre, en "
       "queden $4$ de $7$ per a la segona extracció, no $5$ de "
@@ -2485,21 +2485,21 @@ Q("310a", 310, "a", BC1, "A",
      "\"I\" (els dos mitjons alhora) es tradueix en multiplicar les "
      "probabilitats, no en sumar-les (i el resultat, a més, seria "
      "més gran que $1$, cosa impossible per a una probabilitat).")],
-  ["Comença per la probabilitat de treure un mitjó negre d'entre "
+  pistes=["Comença per la probabilitat de treure un mitjó negre d'entre "
    "$8$: $5/8$.",
    "Un cop tret, al calaix en queden $7$, dels quals $4$ són "
    "negres.",
    "Multiplica les dues probabilitats."],
-  ["Primer mitjó negre: $\\dfrac58$. Segon, sense reposar-lo: "
+  resolucio=["Primer mitjó negre: $\\dfrac58$. Segon, sense reposar-lo: "
    "$\\dfrac47$ (en queden $4$ negres de $7$ en total). "
    "$P(N,N)=\\dfrac58\\cdot\\dfrac47=\\dfrac{20}{56}=\\dfrac{5}{14}$"],
   ex_text=E310)
 
-Q("310b", 310, "b", BC1, "A",
-  "Quina és la probabilitat que els dos mitjons siguin del mateix "
+Q("310b", 310, "b", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que els dos mitjons siguin del mateix "
   "color?",
-  "$P(N,N)+P(B,B)=\\dfrac{5}{14}+\\dfrac{3}{28}=\\dfrac{13}{28}$",
-  [D("$P(N,N)\\cdot P(B,B)=\\dfrac{5}{14}\\cdot\\dfrac{3}{28}"
+  correcta="$P(N,N)+P(B,B)=\\dfrac{5}{14}+\\dfrac{3}{28}=\\dfrac{13}{28}$",
+  distractors=[D("$P(N,N)\\cdot P(B,B)=\\dfrac{5}{14}\\cdot\\dfrac{3}{28}"
      "=\\dfrac{15}{392}$, multiplicant els dos casos en lloc de "
      "sumar-los", "UNIO_INTERSECCIO_CONFOSES",
      "\"Del mateix color\" vol dir «tots dos negres» O «tots dos "
@@ -2517,12 +2517,12 @@ Q("310b", 310, "b", BC1, "A",
      "Els mitjons no es reposen: un cop tret un mitjó blanc, en "
      "queden $2$ de $7$ per a la segona extracció, no $3$ de "
      "$8$ una altra vegada.")],
-  ["\"Del mateix color\" és «dos negres» o «dos blancs»: calcula "
+  pistes=["\"Del mateix color\" és «dos negres» o «dos blancs»: calcula "
    "les dues probabilitats per separat.",
    "$P(N,N)$ ja la tens de l'apartat anterior: $5/14$.",
    "$P(B,B)=\\dfrac38\\cdot\\dfrac27$: calcula-la i suma-la a "
    "l'anterior."],
-  ["$P(B,B)=\\dfrac38\\cdot\\dfrac27=\\dfrac{6}{56}=\\dfrac{3}{28}$. "
+  resolucio=["$P(B,B)=\\dfrac38\\cdot\\dfrac27=\\dfrac{6}{56}=\\dfrac{3}{28}$. "
    "Sumant-hi $P(N,N)=\\dfrac{5}{14}=\\dfrac{10}{28}$: "
    "$\\dfrac{10}{28}+\\dfrac{3}{28}=\\dfrac{13}{28}$"],
   ex_text=E310)
@@ -2530,11 +2530,11 @@ Q("310b", 310, "b", BC1, "A",
 # ---- exercici 311: almenys un, cas clàssic (monedes) ----
 E311 = ("Llancem 3 monedes a l'aire.")
 
-Q("311", 311, "", BC1, "A",
-  "Quina és la probabilitat de treure almenys una cara?",
-  "$P(\\text{almenys 1 cara})=1-P(\\text{cap cara})=1-\\dfrac{1}{8}"
+Q("311", 311, "", BC1, tipus="A",
+  enunciat="Quina és la probabilitat de treure almenys una cara?",
+  correcta="$P(\\text{almenys 1 cara})=1-P(\\text{cap cara})=1-\\dfrac{1}{8}"
   "=\\dfrac{7}{8}$",
-  [D("$P(\\text{almenys 1 cara})=3\\cdot\\dfrac12=\\dfrac32$, "
+  distractors=[D("$P(\\text{almenys 1 cara})=3\\cdot\\dfrac12=\\dfrac32$, "
      "multiplicant la probabilitat d'una moneda pel nombre "
      "d'intents", "COMPLEMENT_ALMENYS_UN_MAL",
      "Aquest càlcul dona més d'$1$, cosa impossible per a una "
@@ -2552,12 +2552,12 @@ Q("311", 311, "", BC1, "A",
      "$1/8$ és la probabilitat que NO surti cap cara (les 3 "
      "creus): la que es demana, \"almenys una cara\", és tot el "
      "contrari, $1$ menys aquesta xifra.")],
-  ["El contrari de \"almenys una cara\" és \"cap cara\", és a dir, "
+  pistes=["El contrari de \"almenys una cara\" és \"cap cara\", és a dir, "
    "les tres monedes surten creu.",
    "$P(\\text{cap cara})=\\dfrac12\\cdot\\dfrac12\\cdot\\dfrac12"
    "=\\dfrac18$.",
    "$P(\\text{almenys 1 cara})=1-\\dfrac18$."],
-  ["El contrari de \"almenys una cara\" és que surtin les tres "
+  resolucio=["El contrari de \"almenys una cara\" és que surtin les tres "
    "creus: $P(\\text{3 creus})=\\left(\\dfrac12\\right)^3=\\dfrac18$. "
    "$P(\\text{almenys 1 cara})=1-\\dfrac18=\\dfrac78$"],
   ex_text=E311)
@@ -2565,11 +2565,11 @@ Q("311", 311, "", BC1, "A",
 # ---- exercici 312: almenys un, dos daus ----
 E312 = ("Llancem un dau 2 vegades.")
 
-Q("312", 312, "", BC1, "A",
-  "Quina és la probabilitat de treure almenys un $6$?",
-  "$P(\\text{almenys un }6)=1-\\left(\\dfrac{5}{6}\\right)^2"
+Q("312", 312, "", BC1, tipus="A",
+  enunciat="Quina és la probabilitat de treure almenys un $6$?",
+  correcta="$P(\\text{almenys un }6)=1-\\left(\\dfrac{5}{6}\\right)^2"
   "=1-\\dfrac{25}{36}=\\dfrac{11}{36}$",
-  [D("$P(\\text{almenys un }6)=2\\cdot\\dfrac16=\\dfrac13$, "
+  distractors=[D("$P(\\text{almenys un }6)=2\\cdot\\dfrac16=\\dfrac13$, "
      "multiplicant la probabilitat d'un $6$ pel nombre de tirades",
      "COMPLEMENT_ALMENYS_UN_MAL",
      "\"Almenys un\" no es calcula multiplicant la probabilitat "
@@ -2587,11 +2587,11 @@ Q("312", 312, "", BC1, "A",
      "$5/6$ és la probabilitat de no treure un $6$ en UNA sola "
      "tirada: falta elevar-ho al quadrat per a les dues tirades, i "
      "després restar-ho d'$1$.")],
-  ["El contrari de \"almenys un $6$\" és \"cap 6 en cap de les dues "
+  pistes=["El contrari de \"almenys un $6$\" és \"cap 6 en cap de les dues "
    "tirades\".",
    "$P(\\text{cap }6)=\\dfrac56\\cdot\\dfrac56=\\dfrac{25}{36}$.",
    "$P(\\text{almenys un }6)=1-\\dfrac{25}{36}$."],
-  ["$P(\\text{cap }6\\text{ en les 2 tirades})=\\left(\\dfrac56"
+  resolucio=["$P(\\text{cap }6\\text{ en les 2 tirades})=\\left(\\dfrac56"
    "\\right)^2=\\dfrac{25}{36}$. "
    "$P(\\text{almenys un }6)=1-\\dfrac{25}{36}=\\dfrac{11}{36}$"],
   ex_text=E312)
@@ -2600,12 +2600,12 @@ Q("312", 312, "", BC1, "A",
 E313 = ("D'una capsa amb 12 bombetes, 3 són defectuoses. Se'n trien "
         "2 a l'atzar, SENSE reposar-les.")
 
-Q("313", 313, "", BC1, "A",
-  "Quina és la probabilitat que almenys una de les 2 bombetes sigui "
+Q("313", 313, "", BC1, tipus="A",
+  enunciat="Quina és la probabilitat que almenys una de les 2 bombetes sigui "
   "defectuosa?",
-  "$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot\\dfrac"
+  correcta="$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot\\dfrac"
   "{8}{11}=1-\\dfrac{6}{11}=\\dfrac{5}{11}$",
-  [DT("$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot"
+  distractors=[DT("$P(\\text{almenys 1 defectuosa})=1-\\dfrac{9}{12}\\cdot"
       "\\dfrac{9}{12}=1-\\dfrac{9}{16}=\\dfrac{7}{16}$",
       "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU",
       "Les bombetes no es reposen: un cop triada la primera bona, "
@@ -2624,12 +2624,12 @@ Q("313", 313, "", BC1, "A",
      "probabilitat que CAP de les dues sigui defectuosa (les dues "
      "bones): la que es demana és el contrari, encara falta "
      "restar-la d'$1$.")],
-  ["El contrari de \"almenys una defectuosa\" és \"cap de les dues "
+  pistes=["El contrari de \"almenys una defectuosa\" és \"cap de les dues "
    "defectuosa\" (les dues bones).",
    "$P(\\text{cap defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac{8}{11}$ "
    "(sense reposar-les).",
    "Resta el resultat d'$1$."],
-  ["$P(\\text{cap defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac{8}{11}"
+  resolucio=["$P(\\text{cap defectuosa})=\\dfrac{9}{12}\\cdot\\dfrac{8}{11}"
    "=\\dfrac{72}{132}=\\dfrac{6}{11}$. "
    "$P(\\text{almenys 1 defectuosa})=1-\\dfrac{6}{11}=\\dfrac{5}"
    "{11}$"],
@@ -2650,11 +2650,11 @@ E314 = ("En el mateix dinar de l'exercici 254 (28 homes i 32 dones; "
         "16 homes i 20 dones han menjat carn, i la resta, peix), ara "
         "ens fixem només en un grup cada vegada.")
 
-Q("314a", 314, "a", BC2, "A",
-  "D'entre els $28$ HOMES només, quina és la probabilitat que hagi "
+Q("314a", 314, "a", BC2, tipus="A",
+  enunciat="D'entre els $28$ HOMES només, quina és la probabilitat que hagi "
   "menjat peix? (és a dir, $P(\\text{peix}|\\text{home})$)",
-  "$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac{3}{7}$",
-  [DT("$P(\\text{peix}|\\text{home})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
+  correcta="$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac{3}{7}$",
+  distractors=[DT("$P(\\text{peix}|\\text{home})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
       "dividint pel total de persones en lloc del total d'homes",
       "PROBABILITAT_CONDICIONADA_MAL",
       "\"D'entre els homes\" fixa el grup de referència en els "
@@ -2671,20 +2671,20 @@ Q("314a", 314, "a", BC2, "A",
      "El denominador ha de ser el nombre d'HOMES ($28$), que és el "
      "grup sobre el qual es demana la probabilitat, no el de "
      "dones.")],
-  ["\"D'entre els homes\" vol dir que el denominador és el total "
+  pistes=["\"D'entre els homes\" vol dir que el denominador és el total "
    "d'homes, $28$, no el total del dinar.",
    "Dels $28$ homes, $16$ han menjat carn i la resta, peix: "
    "$28-16=12$."],
-  ["Dels $28$ homes, $12$ han menjat peix ($28-16$): "
+  resolucio=["Dels $28$ homes, $12$ han menjat peix ($28-16$): "
    "$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac{3}{7}$"],
   figura=FIG314, ex_text=E314)
 
-Q("314b", 314, "b", BC2, "A",
-  "D'entre les $24$ persones que han menjat PEIX, quina és la "
+Q("314b", 314, "b", BC2, tipus="A",
+  enunciat="D'entre les $24$ persones que han menjat PEIX, quina és la "
   "probabilitat que sigui home? (és a dir, "
   "$P(\\text{home}|\\text{peix})$)",
-  "$P(\\text{home}|\\text{peix})=\\dfrac{12}{24}=\\dfrac{1}{2}$",
-  [DT("$P(\\text{home}|\\text{peix})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
+  correcta="$P(\\text{home}|\\text{peix})=\\dfrac{12}{24}=\\dfrac{1}{2}$",
+  distractors=[DT("$P(\\text{home}|\\text{peix})=\\dfrac{12}{60}=\\dfrac{1}{5}$, "
       "dividint pel total de persones en lloc del total que ha "
       "menjat peix", "PROBABILITAT_CONDICIONADA_MAL",
       "\"D'entre qui ha menjat peix\" fixa el grup en les persones "
@@ -2701,23 +2701,23 @@ Q("314b", 314, "b", BC2, "A",
      "CONDICIONADA_I_CONJUNTA_CONFOSES",
      "$\\dfrac{24}{60}$ és la probabilitat de menjar peix EN "
      "GENERAL, no la d'ésser home entre qui ha menjat peix.")],
-  ["El total de persones que han menjat peix és $24$ ($12$ homes + "
+  pistes=["El total de persones que han menjat peix és $24$ ($12$ homes + "
    "$12$ dones): aquest és el denominador.",
    "D'aquestes $24$, $12$ són homes."],
-  ["En total han menjat peix $24$ persones, de les quals $12$ són "
+  resolucio=["En total han menjat peix $24$ persones, de les quals $12$ són "
    "homes: $P(\\text{home}|\\text{peix})=\\dfrac{12}{24}=\\dfrac{1}{2}$"],
   figura=FIG314, ex_text=E314)
 
-Q("314c", 314, "c", BC2, "B",
-  "«En un dinar de $60$ persones, $P(\\text{peix}|\\text{home})$ i "
+Q("314c", 314, "c", BC2, tipus="B",
+  enunciat="«En un dinar de $60$ persones, $P(\\text{peix}|\\text{home})$ i "
   "$P(\\text{home i peix})$ valen el mateix, perquè totes dues "
   "parlen d'homes que mengen peix»",
-  "Fals: $P(\\text{peix}|\\text{home})=\\dfrac{3}{7}$ es calcula "
+  correcta="Fals: $P(\\text{peix}|\\text{home})=\\dfrac{3}{7}$ es calcula "
   "només sobre els homes ($28$), mentre que $P(\\text{home i "
   "peix})=\\dfrac{12}{60}=\\dfrac{1}{5}$ es calcula sobre el total "
   "del dinar ($60$); són preguntes diferents i, de fet, donen "
   "resultats diferents",
-  [D("Cert: com que les dues fan referència als mateixos $12$ "
+  distractors=[D("Cert: com que les dues fan referència als mateixos $12$ "
      "homes que han menjat peix, el resultat ha de ser idèntic",
      "CONDICIONADA_I_CONJUNTA_CONFOSES",
      "El numerador ($12$) sí que coincideix, però el denominador "
@@ -2735,9 +2735,9 @@ Q("314c", 314, "c", BC2, "B",
      "és més gran que $P(\\text{home i peix})=1/5=0{,}2$, perquè "
      "dividir per un grup més petit ($28$ homes) dona un resultat "
      "més gran que dividir pel total ($60$ persones).")],
-  ["Calcula totes dues probabilitats per separat i compara-les.",
+  pistes=["Calcula totes dues probabilitats per separat i compara-les.",
    "Fixa't especialment en el denominador que fa servir cadascuna."],
-  ["$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac37"
+  resolucio=["$P(\\text{peix}|\\text{home})=\\dfrac{12}{28}=\\dfrac37"
    "\\approx0{,}43$ (denominador: només homes). "
    "$P(\\text{home i peix})=\\dfrac{12}{60}=\\dfrac15=0{,}2$ "
    "(denominador: tothom). Són diferents"],
@@ -2757,11 +2757,11 @@ E315 = ("Hi ha dues caixes. La caixa A té 2 boles vermelles i 1 "
         "Triem una caixa a l'atzar (mateixa probabilitat per a "
         "totes dues) i, sense mirar quina és, en traiem una bola.")
 
-Q("315a", 315, "a", BC2, "A",
-  "La caixa A té $2$ boles vermelles i $1$ de blava. Quina és la "
+Q("315a", 315, "a", BC2, tipus="A",
+  enunciat="La caixa A té $2$ boles vermelles i $1$ de blava. Quina és la "
   "probabilitat de triar la caixa A i treure'n una bola vermella?",
-  "$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{1}{3}$",
-  [D("$P(A,V)=\\dfrac{2}{3}$, agafant només la probabilitat de la "
+  correcta="$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{1}{3}$",
+  distractors=[D("$P(A,V)=\\dfrac{2}{3}$, agafant només la probabilitat de la "
      "caixa A", "CAMI_ARBRE_MAL_MULTIPLICAT",
      "Cal seguir el camí sencer: primer triar la caixa A ($1/2$) i "
      "després treure'n una vermella ($2/3$), multiplicant-les."),
@@ -2776,21 +2776,21 @@ Q("315a", 315, "a", BC2, "A",
      "La branca «V» que toca és la que penja de la caixa A "
      "($2/3$, perquè hi ha $2$ vermelles de $3$ boles), no la de "
      "la caixa B ($1/4$).")],
-  ["Segueix el camí: primer la branca «Caixa A» ($1/2$), després "
+  pistes=["Segueix el camí: primer la branca «Caixa A» ($1/2$), després "
    "la branca «V» que en penja ($2/3$).",
    "Al llarg d'un mateix camí les probabilitats es multipliquen; només "
    "se sumen quan s'ajunten camins diferents."],
-  ["$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{2}{6}"
+  resolucio=["$P(A,V)=\\dfrac{1}{2}\\cdot\\dfrac{2}{3}=\\dfrac{2}{6}"
    "=\\dfrac{1}{3}$"],
   figura=FIG315, ex_text=E315)
 
-Q("315b", 315, "b", BC2, "A",
-  "Amb $P(A,V)=1/3$ ja calculat, i sabent que la caixa B dona una "
+Q("315b", 315, "b", BC2, tipus="A",
+  enunciat="Amb $P(A,V)=1/3$ ja calculat, i sabent que la caixa B dona una "
   "vermella amb probabilitat $1/4$, quina és la probabilitat, en "
   "total, de treure una bola vermella (sigui de la caixa que "
   "sigui)?",
-  "$P(V)=\\dfrac{1}{3}+\\dfrac{1}{8}=\\dfrac{11}{24}$",
-  [D("$P(V)=\\dfrac{2}{3}+\\dfrac{1}{4}=\\dfrac{11}{12}$, sumant "
+  correcta="$P(V)=\\dfrac{1}{3}+\\dfrac{1}{8}=\\dfrac{11}{24}$",
+  distractors=[D("$P(V)=\\dfrac{2}{3}+\\dfrac{1}{4}=\\dfrac{11}{12}$, sumant "
      "les dues branques «V» directament, sense multiplicar-les "
      "abans per la probabilitat de triar cada caixa",
      "CAMI_ARBRE_MAL_MULTIPLICAT",
@@ -2809,21 +2809,21 @@ Q("315b", 315, "b", BC2, "A",
      "Una bola vermella també es pot treure triant la caixa B "
      "(encara que hi hagi menys probabilitat): cal sumar-hi també "
      "aquest camí, $1/8$.")],
-  ["Hi ha dos camins que acaben en «vermella»: per la caixa A "
+  pistes=["Hi ha dos camins que acaben en «vermella»: per la caixa A "
    "($1/3$, calculat a l'apartat anterior) i per la caixa B.",
    "Calcula el camí per la caixa B: $\\dfrac{1}{2}\\cdot"
    "\\dfrac{1}{4}$.",
    "Suma els dos camins."],
-  ["Camí per B: $P(B,V)=\\dfrac{1}{2}\\cdot\\dfrac{1}{4}"
+  resolucio=["Camí per B: $P(B,V)=\\dfrac{1}{2}\\cdot\\dfrac{1}{4}"
    "=\\dfrac{1}{8}$. Sumant-hi el de A ($1/3$): $\\dfrac{1}{3}"
    "+\\dfrac{1}{8}=\\dfrac{8}{24}+\\dfrac{3}{24}=\\dfrac{11}{24}$"],
   figura=FIG315, ex_text=E315)
 
-Q("315c", 315, "c", BC2, "A",
-  "Sabent que la bola ha sortit vermella (amb $P(V)=11/24$ en "
+Q("315c", 315, "c", BC2, tipus="A",
+  enunciat="Sabent que la bola ha sortit vermella (amb $P(V)=11/24$ en "
   "total), quina és la probabilitat que vingués de la caixa A?",
-  "$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{8}{11}$",
-  [D("$P(A|V)=\\dfrac{1}{2}$, com si un cop sabent el color, cada "
+  correcta="$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{8}{11}$",
+  distractors=[D("$P(A|V)=\\dfrac{1}{2}$, com si un cop sabent el color, cada "
      "caixa tornés a tenir la mateixa probabilitat",
      "ASIMETRIA_CONDICIONADA_MAL",
      "Saber que la bola és vermella SÍ que canvia les "
@@ -2843,11 +2843,11 @@ Q("315c", 315, "c", BC2, "A",
      "la caixa A), que és una pregunta diferent de $P(A|V)$ (la "
      "probabilitat que sigui la caixa A sabent que ha sortit "
      "vermella).")],
-  ["$P(A|V)$ es calcula dividint la probabilitat del camí «A i "
+  pistes=["$P(A|V)$ es calcula dividint la probabilitat del camí «A i "
    "vermella» entre la probabilitat total de «vermella».",
    "Ja tens totes dues xifres dels apartats anteriors: "
    "$P(A,V)=1/3$ i $P(V)=11/24$."],
-  ["$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{1}{3}"
+  resolucio=["$P(A|V)=\\dfrac{P(A,V)}{P(V)}=\\dfrac{1/3}{11/24}=\\dfrac{1}{3}"
    "\\cdot\\dfrac{24}{11}=\\dfrac{8}{11}$"],
   figura=FIG315, ex_text=E315)
 
@@ -2858,11 +2858,11 @@ FIG316 = taula_doble(["Fumador", "No fumador"], ["Tos", "No tos"],
 E316 = ("En una revisió mèdica a 50 persones, 20 són fumadores. "
         "Tenen tos 14 de les fumadores i 9 de les no fumadores.")
 
-Q("316a", 316, "a", BC2, "A",
-  "D'entre les $50$ persones enquestades, quina és la probabilitat "
+Q("316a", 316, "a", BC2, tipus="A",
+  enunciat="D'entre les $50$ persones enquestades, quina és la probabilitat "
   "que una triada a l'atzar sigui fumadora I tingui tos?",
-  "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$",
-  [DT("$P(\\text{F i T})=\\dfrac{14}{20}=\\dfrac{7}{10}$, dividint "
+  correcta="$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$",
+  distractors=[DT("$P(\\text{F i T})=\\dfrac{14}{20}=\\dfrac{7}{10}$, dividint "
       "pel total de fumadores en lloc del total de persones",
       "PROBABILITAT_CONDICIONADA_MAL",
       "\"Triada a l'atzar\" sense cap condició prèvia vol dir que "
@@ -2879,18 +2879,18 @@ Q("316a", 316, "a", BC2, "A",
      "amb tos per error", "CASOS_FAVORABLES_MAL_COMPTATS",
      "$9$ són les persones NO fumadores amb tos: les fumadores amb "
      "tos són $14$.")],
-  ["\"Fumadora i tos\" alhora: quantes persones compleixen totes "
+  pistes=["\"Fumadora i tos\" alhora: quantes persones compleixen totes "
    "dues coses?",
    "El denominador és el total de persones enquestades, $50$."],
-  ["$14$ de les $50$ persones són fumadores i tenen tos: "
+  resolucio=["$14$ de les $50$ persones són fumadores i tenen tos: "
    "$P(\\text{F i T})=\\dfrac{14}{50}=\\dfrac{7}{25}$"],
   figura=FIG316, ex_text=E316)
 
-Q("316b", 316, "b", BC2, "A",
-  "D'entre les $20$ persones FUMADORES, quina és la probabilitat "
+Q("316b", 316, "b", BC2, tipus="A",
+  enunciat="D'entre les $20$ persones FUMADORES, quina és la probabilitat "
   "que tinguin tos?",
-  "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$",
-  [DT("$P(\\text{T}|\\text{F})=\\dfrac{14}{50}=\\dfrac{7}{25}$, "
+  correcta="$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$",
+  distractors=[DT("$P(\\text{T}|\\text{F})=\\dfrac{14}{50}=\\dfrac{7}{25}$, "
       "dividint pel total de persones en lloc del total de "
       "fumadores", "PROBABILITAT_CONDICIONADA_MAL",
       "\"D'entre les fumadores\" fixa el grup en les $20$ "
@@ -2908,21 +2908,21 @@ Q("316b", 316, "b", BC2, "A",
      "$23$ és el total de persones amb tos (fumadores i no "
      "fumadores): el denominador que toca aquí és el de "
      "fumadores, $20$, perquè la condició és \"ser fumadora\".")],
-  ["El grup de referència són les $20$ fumadores: aquest és el "
+  pistes=["El grup de referència són les $20$ fumadores: aquest és el "
    "denominador.",
    "D'aquestes $20$, en tenen tos $14$."],
-  ["De les $20$ fumadores, en tenen tos $14$: "
+  resolucio=["De les $20$ fumadores, en tenen tos $14$: "
    "$P(\\text{T}|\\text{F})=\\dfrac{14}{20}=\\dfrac{7}{10}$"],
   figura=FIG316, ex_text=E316)
 
 # ---- exercici 317: la condicionada inversa, mateixes dades ----
-Q("317", 317, "", BC2, "A",
-  "D'entre les $23$ persones que TENEN TOS, quina és la "
+Q("317", 317, "", BC2, tipus="A",
+  enunciat="D'entre les $23$ persones que TENEN TOS, quina és la "
   "probabilitat que siguin fumadores? Compara el resultat amb el "
   "de l'apartat anterior.",
-  "$P(\\text{F}|\\text{T})=\\dfrac{14}{23}$, diferent de "
+  correcta="$P(\\text{F}|\\text{T})=\\dfrac{14}{23}$, diferent de "
   "$P(\\text{T}|\\text{F})=\\dfrac{7}{10}$ de l'exercici anterior",
-  [DT("$P(\\text{F}|\\text{T})=\\dfrac{7}{10}$, el mateix resultat "
+  distractors=[DT("$P(\\text{F}|\\text{T})=\\dfrac{7}{10}$, el mateix resultat "
       "que $P(\\text{T}|\\text{F})$", "ASIMETRIA_CONDICIONADA_MAL",
       "$P(\\text{F}|\\text{T})$ i $P(\\text{T}|\\text{F})$ es "
       "calculen sobre denominadors diferents (persones amb tos en "
@@ -2937,12 +2937,12 @@ Q("317", 317, "", BC2, "A",
      "amb tos que NO fumen", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
      "$9$ són les persones amb tos que NO fumen: les que fumen I "
      "tenen tos són $14$, no $9$.")],
-  ["El total de persones amb tos és $14+9=23$: aquest és ara el "
+  pistes=["El total de persones amb tos és $14+9=23$: aquest és ara el "
    "denominador.",
    "D'aquestes $23$, quantes fumen?",
    "Compara aquest resultat amb $P(\\text{T}|\\text{F})=7/10$ de "
    "l'apartat anterior: són el mateix?"],
-  ["Tenen tos $14+9=23$ persones, de les quals $14$ fumen: "
+  resolucio=["Tenen tos $14+9=23$ persones, de les quals $14$ fumen: "
    "$P(\\text{F}|\\text{T})=\\dfrac{14}{23}\\approx0{,}61$, que no "
    "coincideix amb $P(\\text{T}|\\text{F})=\\dfrac{7}{10}=0{,}7$ de "
    "l'apartat anterior: cadascuna es calcula sobre un grup de "
@@ -2954,11 +2954,11 @@ E318 = ("Llancem dos daus. Sigui $A$ l'esdeveniment «el primer dau "
         "surt parell» i $B$ l'esdeveniment «la suma dels dos daus "
         "és $8$».")
 
-Q("318", 318, "", BC2, "A",
-  "Sabent que el primer dau ha sortit parell, quina és la "
+Q("318", 318, "", BC2, tipus="A",
+  enunciat="Sabent que el primer dau ha sortit parell, quina és la "
   "probabilitat que la suma sigui $8$? (és a dir, $P(B|A)$)",
-  "$P(B|A)=\\dfrac{3}{18}=\\dfrac{1}{6}$",
-  [DT("$P(B|A)=\\dfrac{5}{36}$, calculant en realitat "
+  correcta="$P(B|A)=\\dfrac{3}{18}=\\dfrac{1}{6}$",
+  distractors=[DT("$P(B|A)=\\dfrac{5}{36}$, calculant en realitat "
       "$P(B)$ sense fer servir la condició del primer dau",
       "PROBABILITAT_CONDICIONADA_MAL",
       "$5/36$ és la probabilitat que la suma sigui $8$ SENSE cap "
@@ -2979,11 +2979,11 @@ Q("318", 318, "", BC2, "A",
      "correcte, però al numerador falta comptar $(2,6)$: amb "
      "primer dau parell hi ha tres parelles que sumen $8$, no dues "
      "— $(2,6)$, $(4,4)$ i $(6,2)$.")],
-  ["Un cop sabem que el primer dau és parell, només queden $18$ "
+  pistes=["Un cop sabem que el primer dau és parell, només queden $18$ "
    "resultats possibles (dels $36$ inicials).",
    "D'aquests $18$, quants tenen suma $8$? (primer dau $2$, $4$ o "
    "$6$, i el segon el que calgui per arribar a $8$)"],
-  ["Amb el primer dau parell hi ha $18$ resultats possibles. "
+  resolucio=["Amb el primer dau parell hi ha $18$ resultats possibles. "
    "D'aquests, sumen $8$ les parelles $(2,6)$, $(4,4)$ i $(6,2)$: "
    "$3$ casos. $P(B|A)=\\dfrac{3}{18}=\\dfrac16$"],
   ex_text=E318)
@@ -2998,13 +2998,13 @@ E319 = ("D'una població de 1000 persones, 10 tenen una malaltia "
         "la persona és sana, el test dona positiu (fals positiu) 1 "
         "de cada 10 vegades.")
 
-Q("319", 319, "", BC2, "A",
-  "Segons l'enunciat, si la persona és malalta el test dona "
+Q("319", 319, "", BC2, tipus="A",
+  enunciat="Segons l'enunciat, si la persona és malalta el test dona "
   "positiu $9$ de cada $10$ vegades. Quina és la probabilitat que "
   "el test doni positiu SABENT que la persona és malalta? (és a "
   "dir, $P(\\text{positiu}|\\text{malalt})$)",
-  "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$",
-  [D("$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, "
+  correcta="$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$",
+  distractors=[D("$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{1000}$, "
      "dividint pel total de la població en lloc del total de "
      "malalts", "PROBABILITAT_CONDICIONADA_MAL",
      "\"Sabent que la persona és malalta\" fixa el grup en les "
@@ -3022,25 +3022,25 @@ Q("319", 319, "", BC2, "A",
      "El denominador que toca aquí és el de MALALTS ($10$), perquè "
      "la condició de la pregunta és \"ser malalt\"; el total de "
      "positius ($108$) és el denominador d'una pregunta diferent.")],
-  ["Aquesta dada la dona directament l'enunciat: la probabilitat "
+  pistes=["Aquesta dada la dona directament l'enunciat: la probabilitat "
    "de positiu entre els malalts.",
    "«Sabent que és malalta» vol dir que només mires els malalts. Compte "
    "a no agafar l'altra dada, la dels sans."],
-  ["L'enunciat ho diu directament: si la persona és malalta, el "
+  resolucio=["L'enunciat ho diu directament: si la persona és malalta, el "
    "test dona positiu $9$ de cada $10$ vegades, "
    "$P(\\text{positiu}|\\text{malalt})=\\dfrac{9}{10}$"],
   figura=FIG319, ex_text=E319)
 
-Q("320", 320, "", BC2, "A",
-  "Recorda que el test dona positiu $9$ de cada $10$ vegades quan "
+Q("320", 320, "", BC2, tipus="A",
+  enunciat="Recorda que el test dona positiu $9$ de cada $10$ vegades quan "
   "la persona és malalta, i $1$ de cada $10$ quan és sana (fals "
   "positiu). Ara al revés: si el test ha donat POSITIU, quina és "
   "la probabilitat que la persona realment estigui malalta? "
   "Compara-ho amb el resultat de l'exercici anterior.",
-  "$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{108}=\\dfrac{1}{12}"
+  correcta="$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{108}=\\dfrac{1}{12}"
   "\\approx0{,}083$, molt més petita que $P(\\text{positiu}|"
   "\\text{malalt})=\\dfrac{9}{10}=0{,}9$ de l'exercici anterior",
-  [DT("$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{10}$, el mateix "
+  distractors=[DT("$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{10}$, el mateix "
       "resultat que $P(\\text{positiu}|\\text{malalt})$",
       "ASIMETRIA_CONDICIONADA_MAL",
       "Encara que el test sigui molt fiable (\"positiu sabent que "
@@ -3060,13 +3060,13 @@ Q("320", 320, "", BC2, "A",
      "El denominador ha de ser el total de PERSONES amb positiu "
      "($99$ sans positius MÉS els $9$ malalts positius, "
      "$99+9=108$), no només els sans positius.")],
-  ["Primer, quantes persones en total donen positiu? (malalts "
+  pistes=["Primer, quantes persones en total donen positiu? (malalts "
    "positius més sans positius, és a dir, falsos positius)",
    "$9$ malalts donen positiu; dels $990$ sans, en donen positiu "
    "$990\\cdot\\dfrac{1}{10}=99$ (falsos positius).",
    "D'entre tots els positius, quina proporció són realment "
    "malalts?"],
-  ["Donen positiu $9$ malalts i $990\\cdot\\dfrac{1}{10}=99$ sans "
+  resolucio=["Donen positiu $9$ malalts i $990\\cdot\\dfrac{1}{10}=99$ sans "
    "(falsos positius): en total, $9+99=108$ positius. D'aquests, "
    "només $9$ són malalts de veritat: "
    "$P(\\text{malalt}|\\text{positiu})=\\dfrac{9}{108}=\\dfrac{1}{12}"
@@ -3082,3 +3082,251 @@ Q("320", 320, "", BC2, "A",
             "donar, tot i així, més falsos positius que positius certs "
             "quan la condició que es busca és poc freqüent.",
   figura=FIG319, ex_text=E319)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 374-379)
+# =====================================================================
+# Els sis blocs obrien amb la baralla de 40 cartes, amb tres colors de
+# boles en dues bosses, amb deu tirades d'una moneda, o amb un test mèdic.
+# Aquí, cadascun amb la definició del bloc i un experiment que no cal
+# explicar: un dau, una moneda, una bossa amb dos colors, una classe.
+
+dificultats({
+    374: 1,  # escriure l'espai mostral d'un dau o d'una moneda
+    375: 1,  # principi multiplicatiu amb dues eleccions
+    376: 1,  # regla de Laplace amb un dau o una bossa
+    377: 1,  # esdeveniment contrari
+    378: 1,  # dos experiments independents: es multiplica
+    379: 1,  # condicionada: comptar dins del grup
+})
+
+
+E374 = ("Escriu l'espai mostral d'aquest experiment aleatori: el conjunt de "
+        "TOTS els resultats possibles.")
+
+Q("374a", 374, "a", B1, tipus="A",
+  enunciat="Llancem un dau de sis cares i mirem el número de dalt.",
+  correcta=r"$E=\{1,2,3,4,5,6\}$",
+  distractors=[D(r"$E=\{6\}$", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "Has escrit QUANTS resultats hi ha, o només un. L'espai mostral és la "
+     "llista de TOTS els resultats."),
+   D(r"$E=\{\text{parell},\text{senar}\}$", "ELEMENTAL_NO_ELEMENTAL_CONFOSOS",
+     "«Parell» i «senar» agrupen diversos resultats cadascun. L'espai "
+     "mostral recull els resultats un per un: $1$, $2$, $3$..."),
+   D(r"$E=\{0,1,2,3,4,5,6\}$", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "Un dau no té cap cara amb el $0$.")],
+  pistes=["Quins números poden sortir?",
+   "Escriu-los tots, sense repetir-ne cap."],
+  resolucio=[r"$E=\{1,2,3,4,5,6\}$: sis resultats."],
+  ex_text=E374)
+
+Q("374b", 374, "b", B1, tipus="A",
+  enunciat="Llancem una moneda i mirem quina cara queda a dalt.",
+  correcta=r"$E=\{\text{cara},\text{creu}\}$",
+  distractors=[D(r"$E=\{\text{cara}\}$", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "Només has posat un resultat. L'espai mostral els recull TOTS: també "
+     "pot sortir creu."),
+   D(r"$E=\{\text{cara},\text{creu},\text{cara i creu}\}$",
+     "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "En una sola tirada no poden quedar a dalt totes dues cares alhora."),
+   D(r"$E=\{2\}$", "ESPAI_MOSTRAL_MAL_COMPTAT",
+     "$2$ és QUANTS resultats hi ha. L'espai mostral és la llista dels "
+     "resultats, no el seu nombre.")],
+  pistes=["Què pot quedar a dalt?",
+   "Escriu-ho tot, sense repetir res."],
+  resolucio=[r"$E=\{\text{cara},\text{creu}\}$: dos resultats."],
+  ex_text=E374)
+
+
+E375 = ("Compta els resultats possibles fent servir el principi "
+        "multiplicatiu: si una elecció té $m$ opcions i l'altra $n$, "
+        "entre totes dues n'hi ha $m\\cdot n$.")
+
+Q("375a", 375, "a", B2, tipus="A",
+  enunciat=("Tens $3$ samarretes i $2$ pantalons. Quantes combinacions "
+            "diferents de samarreta i pantalons pots fer?"),
+  correcta="$6$",
+  distractors=[DT("$5$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+      extra="Has sumat $3+2$."),
+   D("$9$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+     "Has fet $3^2$. Cada samarreta va amb cada un dels $2$ pantalons: "
+     "$3\\cdot2$."),
+   D("$8$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+     "Has fet $2^3$. Cada samarreta va amb cada un dels $2$ pantalons: "
+     "$3\\cdot2$.")],
+  pistes=["Amb la primera samarreta, quantes combinacions pots fer?",
+   "I amb les $3$ samarretes?"],
+  resolucio=[r"$3\cdot2=6$ combinacions"],
+  ex_text=E375)
+
+Q("375b", 375, "b", B2, tipus="A",
+  enunciat=("Un menú té $4$ primers plats i $3$ segons. Quants menús "
+            "diferents es poden fer amb un primer i un segon?"),
+  correcta="$12$",
+  distractors=[DT("$7$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+      extra="Has sumat $4+3$."),
+   D("$64$", "PRINCIPI_MULTIPLICATIU_MAL_APLICAT",
+     "Has fet $4^3$. Cada primer va amb cada un dels $3$ segons: "
+     "$4\\cdot3$."),
+   D("$24$", "FACTORIAL_MAL_APLICAT",
+     "Has fet $4!=4\\cdot3\\cdot2\\cdot1$. No s'ordenen els plats: es tria "
+     "un primer i un segon, $4\\cdot3$.")],
+  pistes=["Amb el primer plat número 1, quants menús pots fer?",
+   "I amb els $4$ primers?"],
+  resolucio=[r"$4\cdot3=12$ menús"],
+  ex_text=E375)
+
+
+E376 = ("Calcula aquesta probabilitat amb la regla de Laplace: casos "
+        "favorables dividit per casos possibles.")
+
+Q("376a", 376, "a", B3, tipus="A",
+  enunciat="Llancem un dau de sis cares. Probabilitat de treure un $5$.",
+  correcta=r"$\dfrac{1}{6}$",
+  distractors=[DT(r"$\dfrac{1}{5}$", "CASOS_POSSIBLES_MAL_COMPTATS",
+      extra="El dau té $6$ cares, no $5$."),
+   D(r"$\dfrac{5}{6}$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "$\\dfrac56$ és la probabilitat de NO treure un $5$. Treure un $5$ és "
+     "un sol cas favorable."),
+   D("$6$", "INVERTIDA",
+     "Has dividit els possibles entre els favorables. Una probabilitat mai "
+     "no és més gran que $1$.")],
+  pistes=["Quantes cares tenen un $5$? Quantes cares hi ha en total?",
+   "$\\dfrac{\\text{favorables}}{\\text{possibles}}$."],
+  resolucio=[r"$P(5)=\dfrac{1}{6}$"],
+  ex_text=E376)
+
+Q("376b", 376, "b", B3, tipus="A",
+  enunciat=("Una bossa té $3$ boles vermelles i $7$ de blaves. Traiem una "
+            "bola. Probabilitat que sigui vermella."),
+  correcta=r"$\dfrac{3}{10}$",
+  distractors=[D(r"$\dfrac{3}{7}$", "CASOS_POSSIBLES_MAL_COMPTATS",
+     "Has dividit per les blaves. Els casos possibles són TOTES les boles: "
+     "$3+7=10$."),
+   D(r"$\dfrac{7}{10}$", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "Aquesta és la probabilitat de treure una bola BLAVA."),
+   D(r"$\dfrac{10}{3}$", "INVERTIDA",
+     "Has dividit els possibles entre els favorables. Una probabilitat mai "
+     "no és més gran que $1$.")],
+  pistes=["Quantes boles hi ha en total?",
+   "$\\dfrac{\\text{vermelles}}{\\text{total}}$."],
+  resolucio=[r"$P(\text{vermella})=\dfrac{3}{3+7}=\dfrac{3}{10}$"],
+  ex_text=E376)
+
+
+E377 = ("Calcula la probabilitat de l'esdeveniment contrari. Recorda: "
+        r"$P(\text{no }A)=1-P(A)$.")
+
+Q("377a", 377, "a", B4, tipus="A",
+  enunciat=("La probabilitat que plogui demà és $0{,}3$. Quina és la "
+            "probabilitat que NO plogui?"),
+  correcta="$0{,}7$",
+  distractors=[D("$0{,}3$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Aquesta és la probabilitat que SÍ que plogui. La del contrari és el "
+     "que falta fins a $1$."),
+   D("$1{,}3$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Has sumat $1+0{,}3$. Una probabilitat no pot passar d'$1$: es resta."),
+   D("$-0{,}3$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Has canviat el signe. Una probabilitat no pot ser negativa: "
+     "$1-0{,}3$.")],
+  pistes=["Ploure i no ploure, entre totes dues, sumen $1$.",
+   "$1-0{,}3$."],
+  resolucio=[r"$P(\text{no ploure})=1-0{,}3=0{,}7$"],
+  ex_text=E377)
+
+Q("377b", 377, "b", B4, tipus="A",
+  enunciat=r"$P(A)=\dfrac{1}{4}$. Calcula $P(\text{no }A)$.",
+  correcta=r"$\dfrac{3}{4}$",
+  distractors=[D(r"$\dfrac{1}{4}$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Aquesta és $P(A)$. La del contrari és el que falta fins a $1$."),
+   D(r"$\dfrac{5}{4}$", "ESDEVENIMENT_CONTRARI_MAL_CALCULAT",
+     "Has sumat $1+\\dfrac14$. Una probabilitat no pot passar d'$1$: es resta."),
+   D("$4$", "INVERTIDA",
+     "Has invertit la fracció. Una probabilitat no pot passar d'$1$: "
+     "$1-\\dfrac14$.")],
+  pistes=["$A$ i «no $A$», entre totes dues, sumen $1$.",
+   "$1-\\dfrac14=\\dfrac44-\\dfrac14$."],
+  resolucio=[r"$P(\text{no }A)=1-\dfrac{1}{4}=\dfrac{3}{4}$"],
+  ex_text=E377)
+
+
+E378 = ("Calcula la probabilitat que passin totes dues coses. Els dos "
+        "experiments són independents: es multipliquen les probabilitats.")
+
+Q("378a", 378, "a", BC1, tipus="A",
+  enunciat=("Llancem una moneda dues vegades. Probabilitat de treure cara "
+            "les dues vegades."),
+  correcta=r"$\dfrac{1}{4}$",
+  distractors=[D(r"$\dfrac{1}{2}$", "PAS_INTERMEDI_PER_RESPOSTA",
+     "Aquesta és la probabilitat d'una sola tirada. Es demana cara I cara: "
+     "$\\dfrac12\\cdot\\dfrac12$."),
+   D("$1$", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Has sumat $\\dfrac12+\\dfrac12$. Perquè passin les dues coses es "
+     "MULTIPLICA."),
+   D(r"$\dfrac{1}{3}$", "ORDRE_NO_CONSIDERAT",
+     "Has comptat tres resultats (dues cares, dues creus, una de cada). "
+     "Però «una de cada» són dos resultats: cara-creu i creu-cara. N'hi ha "
+     "quatre.")],
+  pistes=["La probabilitat de cara en una tirada és $\\dfrac12$.",
+   "$\\dfrac12\\cdot\\dfrac12$."],
+  resolucio=[r"$P(\text{C},\text{C})=\dfrac{1}{2}\cdot\dfrac{1}{2}=\dfrac{1}{4}$"],
+  ex_text=E378)
+
+Q("378b", 378, "b", BC1, tipus="A",
+  enunciat=("Llancem un dau dues vegades. Probabilitat de treure un $6$ "
+            "les dues vegades."),
+  correcta=r"$\dfrac{1}{36}$",
+  distractors=[D(r"$\dfrac{1}{6}$", "PAS_INTERMEDI_PER_RESPOSTA",
+     "Aquesta és la probabilitat d'una sola tirada. Es demana $6$ I $6$: "
+     "$\\dfrac16\\cdot\\dfrac16$."),
+   D(r"$\dfrac{1}{3}$", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Has sumat $\\dfrac16+\\dfrac16$. Perquè passin les dues coses es "
+     "MULTIPLICA."),
+   D(r"$\dfrac{1}{12}$", "CAMI_ARBRE_MAL_MULTIPLICAT",
+     "Has sumat els denominadors. En multiplicar fraccions es multiplica: "
+     "$6\\cdot6=36$.")],
+  pistes=["La probabilitat de treure un $6$ en una tirada és $\\dfrac16$.",
+   "$\\dfrac16\\cdot\\dfrac16$."],
+  resolucio=[r"$P(6,6)=\dfrac{1}{6}\cdot\dfrac{1}{6}=\dfrac{1}{36}$"],
+  ex_text=E378)
+
+
+E379 = ("Calcula aquesta probabilitat condicionada: ja sabem de quin grup és "
+        "la persona triada, així que només es compta dins d'aquest grup.")
+
+Q("379a", 379, "a", BC2, tipus="A",
+  enunciat=("En una classe de $20$ alumnes hi ha $10$ noies, i $4$ d'aquestes "
+            "noies porten ulleres. Triem una NOIA a l'atzar. Quina és la "
+            "probabilitat que porti ulleres?"),
+  correcta=r"$\dfrac{4}{10}=\dfrac{2}{5}$",
+  distractors=[DT(r"$\dfrac{4}{20}=\dfrac{1}{5}$", "PROBABILITAT_CONDICIONADA_MAL",
+      extra="Ja sabem que és una noia: el denominador són les $10$ noies, "
+            "no els $20$ alumnes."),
+   D(r"$\dfrac{6}{10}=\dfrac{3}{5}$", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "$6$ són les noies que NO porten ulleres."),
+   D(r"$\dfrac{10}{20}=\dfrac{1}{2}$", "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "Aquesta és la probabilitat de triar una noia d'entre tota la classe. "
+     "Es demana una altra cosa: d'entre les noies, quantes porten ulleres.")],
+  pistes=["Quantes noies hi ha? Aquests són els casos possibles.",
+   "D'aquestes noies, quantes porten ulleres?"],
+  resolucio=[r"$P(\text{ulleres}\mid\text{noia})=\dfrac{4}{10}=\dfrac{2}{5}$"],
+  ex_text=E379)
+
+Q("379b", 379, "b", BC2, tipus="A",
+  enunciat=("En un institut de $200$ alumnes, $50$ fan teatre, i $15$ "
+            "d'aquests $50$ són de 4t. Triem a l'atzar un alumne que fa "
+            "teatre. Quina és la probabilitat que sigui de 4t?"),
+  correcta=r"$\dfrac{15}{50}=\dfrac{3}{10}$",
+  distractors=[DT(r"$\dfrac{15}{200}=\dfrac{3}{40}$", "PROBABILITAT_CONDICIONADA_MAL",
+      extra="Ja sabem que fa teatre: el denominador són els $50$ alumnes de "
+            "teatre, no els $200$."),
+   D(r"$\dfrac{35}{50}=\dfrac{7}{10}$", "CASOS_FAVORABLES_MAL_COMPTATS",
+     "$35$ són els alumnes de teatre que NO són de 4t."),
+   D(r"$\dfrac{50}{200}=\dfrac{1}{4}$", "CONDICIONADA_I_CONJUNTA_CONFOSES",
+     "Aquesta és la probabilitat que un alumne qualsevol faci teatre. Es "
+     "demana una altra cosa: d'entre els de teatre, quants són de 4t.")],
+  pistes=["Quants alumnes fan teatre? Aquests són els casos possibles.",
+   "D'aquests, quants són de 4t?"],
+  resolucio=[r"$P(\text{4t}\mid\text{teatre})=\dfrac{15}{50}=\dfrac{3}{10}$"],
+  ex_text=E379)

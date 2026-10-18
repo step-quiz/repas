@@ -105,7 +105,7 @@ def acaba(nom):
     print(f'✓ {nom}: la documentació quadra amb el codi.')
 
 DOCUMENTS = ['README.md', 'tests/LLEGEIX-ME.md']
-EXCEPCIONS = ['data/fullN.js', 'revisio/REVISIO-fullN.html']
+EXCEPCIONS = ['data/fullN-index.js', 'data/fullN.js', 'revisio/REVISIO-fullN.html']
 
 comprova_rutes(DOCUMENTS, EXCEPCIONS)
 

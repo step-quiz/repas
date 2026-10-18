@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 12</h1>
-<p class="meta">95 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">107 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Espais mostrals i esdeveniments <span class="tip">· 20 preguntes</span></h2>
+<h2>Espais mostrals i esdeveniments <span class="tip">· 22 preguntes</span></h2>
+<p class="sec"><strong>Exercici 374.</strong> Escriu l&#x27;espai mostral d&#x27;aquest experiment aleatori: el conjunt de TOTS els resultats possibles.</p>
+<div class="it"><div class="cap"><span class="cod">374a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Llancem un dau de sis cares i mirem el número de dalt.</div>
+<ol class="op"><li><span class="ok">$E=\{1,2,3,4,5,6\}$</span> — resposta correcta</li>
+<li>$E=\{6\}$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Has escrit QUANTS resultats hi ha, o només un. L'espai mostral és la llista de TOTS els resultats.</span></li>
+<li>$E=\{\text{parell},\text{senar}\}$<br><span class="err">ELEMENTAL_NO_ELEMENTAL_CONFOSOS</span><span class="fb">«Parell» i «senar» agrupen diversos resultats cadascun. L'espai mostral recull els resultats un per un: $1$, $2$, $3$...</span></li>
+<li>$E=\{0,1,2,3,4,5,6\}$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Un dau no té cap cara amb el $0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quins números poden sortir?</li><li>Escriu-los tots, sense repetir-ne cap.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$E=\{1,2,3,4,5,6\}$: sis resultats.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">374b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Llancem una moneda i mirem quina cara queda a dalt.</div>
+<ol class="op"><li><span class="ok">$E=\{\text{cara},\text{creu}\}$</span> — resposta correcta</li>
+<li>$E=\{\text{cara}\}$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">Només has posat un resultat. L'espai mostral els recull TOTS: també pot sortir creu.</span></li>
+<li>$E=\{\text{cara},\text{creu},\text{cara i creu}\}$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">En una sola tirada no poden quedar a dalt totes dues cares alhora.</span></li>
+<li>$E=\{2\}$<br><span class="err">ESPAI_MOSTRAL_MAL_COMPTAT</span><span class="fb">$2$ és QUANTS resultats hi ha. L'espai mostral és la llista dels resultats, no el seu nombre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Què pot quedar a dalt?</li><li>Escriu-ho tot, sense repetir res.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$E=\{\text{cara},\text{creu}\}$: dos resultats.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 236.</strong> Escriu l&#x27;espai mostral dels experiments aleatoris següents.</p>
 <div class="it"><div class="cap"><span class="cod">236a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Treure una carta de la baralla espanyola.</div>
@@ -252,7 +273,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un esdeveniment elemental és un ÚNIC resultat de l'espai mostral; un esdeveniment NO elemental n'agrupa diversos.</li><li>Pensa quins resultats de l'espai mostral del producte $\{1,2,3,4,5,6,8,\ldots\}$ compleixen "ser més petit que $5$".</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>«Obtenir un producte més petit que $5$» agrupa els resultats $1,2,3,4$ de l'espai mostral: és un esdeveniment NO elemental, format per $4$ resultats diferents</li></ol>
 </div>
-<h2>Combinatòria: principi multiplicatiu <span class="tip">· 11 preguntes</span></h2>
+<h2>Combinatòria: principi multiplicatiu <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 375.</strong> Compta els resultats possibles fent servir el principi multiplicatiu: si una elecció té $m$ opcions i l&#x27;altra $n$, entre totes dues n&#x27;hi ha $m\cdot n$.</p>
+<div class="it"><div class="cap"><span class="cod">375a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Tens $3$ samarretes i $2$ pantalons. Quantes combinacions diferents de samarreta i pantalons pots fer?</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$5$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Has sumat $3+2$. Quan es combinen diverses eleccions independents, el nombre total de resultats es MULTIPLICA (no se suma): si la primera elecció té $m$ opcions i la segona en té $n$, en total hi ha $m\cdot n$ combinacions.</span></li>
+<li>$9$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Has fet $3^2$. Cada samarreta va amb cada un dels $2$ pantalons: $3\cdot2$.</span></li>
+<li>$8$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Has fet $2^3$. Cada samarreta va amb cada un dels $2$ pantalons: $3\cdot2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb la primera samarreta, quantes combinacions pots fer?</li><li>I amb les $3$ samarretes?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3\cdot2=6$ combinacions</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">375b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Un menú té $4$ primers plats i $3$ segons. Quants menús diferents es poden fer amb un primer i un segon?</div>
+<ol class="op"><li><span class="ok">$12$</span> — resposta correcta</li>
+<li>$7$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Has sumat $4+3$. Quan es combinen diverses eleccions independents, el nombre total de resultats es MULTIPLICA (no se suma): si la primera elecció té $m$ opcions i la segona en té $n$, en total hi ha $m\cdot n$ combinacions.</span></li>
+<li>$64$<br><span class="err">PRINCIPI_MULTIPLICATIU_MAL_APLICAT</span><span class="fb">Has fet $4^3$. Cada primer va amb cada un dels $3$ segons: $4\cdot3$.</span></li>
+<li>$24$<br><span class="err">FACTORIAL_MAL_APLICAT</span><span class="fb">Has fet $4!=4\cdot3\cdot2\cdot1$. No s'ordenen els plats: es tria un primer i un segon, $4\cdot3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Amb el primer plat número 1, quants menús pots fer?</li><li>I amb els $4$ primers?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$4\cdot3=12$ menús</li></ol>
+</div>
 <p class="sec"><strong>Exercici 244.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">244</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Quants resultats possibles s'obtenen en llançar una moneda a l'aire i anotar el resultat de $10$ tirades?</div>
@@ -371,7 +413,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Compta quants caràcters diferents hi ha disponibles per a cada posició: $26$ majúscules $+26$ minúscules $+10$ dígits.</li><li>Amb $4$ posicions independents (es poden repetir caràcters), aplica el principi multiplicatiu: $62^4$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Caràcters possibles per posició: $26$ majúscules $+26$ minúscules $+10$ dígits $=62$</li><li>Amb $4$ posicions independents: $62\cdot62\cdot62\cdot62=62^4=14\,776\,336$ claus diferents</li></ol>
 </div>
-<h2>Regla de Laplace i freqüència relativa <span class="tip">· 19 preguntes</span></h2>
+<h2>Regla de Laplace i freqüència relativa <span class="tip">· 21 preguntes</span></h2>
+<p class="sec"><strong>Exercici 376.</strong> Calcula aquesta probabilitat amb la regla de Laplace: casos favorables dividit per casos possibles.</p>
+<div class="it"><div class="cap"><span class="cod">376a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Llancem un dau de sis cares. Probabilitat de treure un $5$.</div>
+<ol class="op"><li><span class="ok">$\dfrac{1}{6}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{5}$<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">El dau té $6$ cares, no $5$. Revisa quants resultats TOTALS té l'experiment (els casos possibles): ha de ser el denominador de la probabilitat, no un altre nombre de l'enunciat.</span></li>
+<li>$\dfrac{5}{6}$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">$\dfrac56$ és la probabilitat de NO treure un $5$. Treure un $5$ és un sol cas favorable.</span></li>
+<li>$6$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit els possibles entre els favorables. Una probabilitat mai no és més gran que $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quantes cares tenen un $5$? Quantes cares hi ha en total?</li><li>$\dfrac{\text{favorables}}{\text{possibles}}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(5)=\dfrac{1}{6}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">376b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Una bossa té $3$ boles vermelles i $7$ de blaves. Traiem una bola. Probabilitat que sigui vermella.</div>
+<ol class="op"><li><span class="ok">$\dfrac{3}{10}$</span> — resposta correcta</li>
+<li>$\dfrac{3}{7}$<br><span class="err">CASOS_POSSIBLES_MAL_COMPTATS</span><span class="fb">Has dividit per les blaves. Els casos possibles són TOTES les boles: $3+7=10$.</span></li>
+<li>$\dfrac{7}{10}$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">Aquesta és la probabilitat de treure una bola BLAVA.</span></li>
+<li>$\dfrac{10}{3}$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit els possibles entre els favorables. Una probabilitat mai no és més gran que $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quantes boles hi ha en total?</li><li>$\dfrac{\text{vermelles}}{\text{total}}$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{vermella})=\dfrac{3}{3+7}=\dfrac{3}{10}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 241.</strong> D&#x27;una baralla de 40 cartes traiem una carta. Calcula les probabilitats d&#x27;aquests esdeveniments.</p>
 <div class="it"><div class="cap"><span class="cod">241a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$A=$ «Obtenir ors»</div>
@@ -567,7 +630,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suspendre és l'esdeveniment CONTRARI d'aprovar.</li><li>$P(\text{suspendre})=1-P(\text{aprovar})$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Com que suspendre és el contrari d'aprovar: $P(\text{suspendre})=1-\dfrac{17}{81}=\dfrac{64}{81}$</li></ol>
 </div>
-<h2>Esdeveniments compostos <span class="tip">· 17 preguntes</span></h2>
+<h2>Esdeveniments compostos <span class="tip">· 19 preguntes</span></h2>
+<p class="sec"><strong>Exercici 377.</strong> Calcula la probabilitat de l&#x27;esdeveniment contrari. Recorda: $P(\text{no }A)=1-P(A)$.</p>
+<div class="it"><div class="cap"><span class="cod">377a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">La probabilitat que plogui demà és $0{,}3$. Quina és la probabilitat que NO plogui?</div>
+<ol class="op"><li><span class="ok">$0{,}7$</span> — resposta correcta</li>
+<li>$0{,}3$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Aquesta és la probabilitat que SÍ que plogui. La del contrari és el que falta fins a $1$.</span></li>
+<li>$1{,}3$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Has sumat $1+0{,}3$. Una probabilitat no pot passar d'$1$: es resta.</span></li>
+<li>$-0{,}3$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Has canviat el signe. Una probabilitat no pot ser negativa: $1-0{,}3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ploure i no ploure, entre totes dues, sumen $1$.</li><li>$1-0{,}3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{no ploure})=1-0{,}3=0{,}7$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">377b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$P(A)=\dfrac{1}{4}$. Calcula $P(\text{no }A)$.</div>
+<ol class="op"><li><span class="ok">$\dfrac{3}{4}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{4}$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Aquesta és $P(A)$. La del contrari és el que falta fins a $1$.</span></li>
+<li>$\dfrac{5}{4}$<br><span class="err">ESDEVENIMENT_CONTRARI_MAL_CALCULAT</span><span class="fb">Has sumat $1+\dfrac14$. Una probabilitat no pot passar d'$1$: es resta.</span></li>
+<li>$4$<br><span class="err">INVERTIDA</span><span class="fb">Has invertit la fracció. Una probabilitat no pot passar d'$1$: $1-\dfrac14$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>$A$ i «no $A$», entre totes dues, sumen $1$.</li><li>$1-\dfrac14=\dfrac44-\dfrac14$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{no }A)=1-\dfrac{1}{4}=\dfrac{3}{4}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 257.</strong> En Lluís i en Joan han de recollir l&#x27;habitació. En Lluís posa en una bossa 3 boles vermelles, 2 de verdes i 1 de blava, i proposa treure&#x27;n una: si és vermella, recull en Joan; si és blava, recull ell.</p>
 <div class="it"><div class="cap"><span class="cod">257a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Quina és la probabilitat de cada color de bola?</div>
@@ -745,7 +829,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos trien dies d'entre els mateixos $5$ dies (tots menys divendres i diumenge). Compta les combinacions possibles per a cadascun amb $\binom{5}{2}$ i $\binom{5}{4}$.</li><li>Després, compta en quantes d'aquestes combinacions els $2$ dies de la Paula cauen tots dos dins dels $4$ dies d'en Robert.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La Paula tria $2$ dies d'entre $5$: $\binom{5}{2}=10$ maneres. En Robert en treballa $4$ (li'n falta triar $1$ de lliure): $\binom{5}{4}=5$ maneres</li><li>Total de combinacions possibles: $10\cdot5=50$</li><li>Coincidència completa (els $2$ dies de la Paula són dels $4$ d'en Robert) quan els dies de la Paula no inclouen el dia lliure d'en Robert: per a cada un dels $5$ possibles dies lliures, hi ha $\binom{4}{2}=6$ parells de la Paula que no l'inclouen: $5\cdot6=30$ casos</li><li>$P(\text{coincidir }2\text{ dies})=\dfrac{30}{50}=\dfrac35$</li></ol>
 </div>
-<h2>Probabilitat composta: dos experiments <span class="tip">· 16 preguntes</span></h2>
+<h2>Probabilitat composta: dos experiments <span class="tip">· 18 preguntes</span></h2>
+<p class="sec"><strong>Exercici 378.</strong> Calcula la probabilitat que passin totes dues coses. Els dos experiments són independents: es multipliquen les probabilitats.</p>
+<div class="it"><div class="cap"><span class="cod">378a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Llancem una moneda dues vegades. Probabilitat de treure cara les dues vegades.</div>
+<ol class="op"><li><span class="ok">$\dfrac{1}{4}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{2}$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la probabilitat d'una sola tirada. Es demana cara I cara: $\dfrac12\cdot\dfrac12$.</span></li>
+<li>$1$<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">Has sumat $\dfrac12+\dfrac12$. Perquè passin les dues coses es MULTIPLICA.</span></li>
+<li>$\dfrac{1}{3}$<br><span class="err">ORDRE_NO_CONSIDERAT</span><span class="fb">Has comptat tres resultats (dues cares, dues creus, una de cada). Però «una de cada» són dos resultats: cara-creu i creu-cara. N'hi ha quatre.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La probabilitat de cara en una tirada és $\dfrac12$.</li><li>$\dfrac12\cdot\dfrac12$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{C},\text{C})=\dfrac{1}{2}\cdot\dfrac{1}{2}=\dfrac{1}{4}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">378b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Llancem un dau dues vegades. Probabilitat de treure un $6$ les dues vegades.</div>
+<ol class="op"><li><span class="ok">$\dfrac{1}{36}$</span> — resposta correcta</li>
+<li>$\dfrac{1}{6}$<br><span class="err">PAS_INTERMEDI_PER_RESPOSTA</span><span class="fb">Aquesta és la probabilitat d'una sola tirada. Es demana $6$ I $6$: $\dfrac16\cdot\dfrac16$.</span></li>
+<li>$\dfrac{1}{3}$<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">Has sumat $\dfrac16+\dfrac16$. Perquè passin les dues coses es MULTIPLICA.</span></li>
+<li>$\dfrac{1}{12}$<br><span class="err">CAMI_ARBRE_MAL_MULTIPLICAT</span><span class="fb">Has sumat els denominadors. En multiplicar fraccions es multiplica: $6\cdot6=36$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La probabilitat de treure un $6$ en una tirada és $\dfrac16$.</li><li>$\dfrac16\cdot\dfrac16$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(6,6)=\dfrac{1}{6}\cdot\dfrac{1}{6}=\dfrac{1}{36}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 305.</strong> Una bossa té 4 boles vermelles i 6 de blaves. En traiem una bola, apuntem el color, la TORNEM a la bossa, remenem, i en traiem una altra.</p>
 <div class="it"><div class="cap"><span class="cod">305a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Quina és la probabilitat que les dues boles siguin vermelles?</div>
@@ -919,7 +1024,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El contrari de "almenys una defectuosa" és "cap de les dues defectuosa" (les dues bones).</li><li>$P(\text{cap defectuosa})=\dfrac{9}{12}\cdot\dfrac{8}{11}$ (sense reposar-les).</li><li>Resta el resultat d'$1$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{cap defectuosa})=\dfrac{9}{12}\cdot\dfrac{8}{11}=\dfrac{72}{132}=\dfrac{6}{11}$. $P(\text{almenys 1 defectuosa})=1-\dfrac{6}{11}=\dfrac{5}{11}$</li></ol>
 </div>
-<h2>Probabilitat condicionada <span class="tip">· 12 preguntes</span></h2>
+<h2>Probabilitat condicionada <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 379.</strong> Calcula aquesta probabilitat condicionada: ja sabem de quin grup és la persona triada, així que només es compta dins d&#x27;aquest grup.</p>
+<div class="it"><div class="cap"><span class="cod">379a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">En una classe de $20$ alumnes hi ha $10$ noies, i $4$ d'aquestes noies porten ulleres. Triem una NOIA a l'atzar. Quina és la probabilitat que porti ulleres?</div>
+<ol class="op"><li><span class="ok">$\dfrac{4}{10}=\dfrac{2}{5}$</span> — resposta correcta</li>
+<li>$\dfrac{4}{20}=\dfrac{1}{5}$<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Ja sabem que és una noia: el denominador són les $10$ noies, no els $20$ alumnes. Quan es demana la probabilitat DINS d'un grup concret (no de tota la població), el denominador ha de ser la mida d'aquell grup, no el total de tots els casos.</span></li>
+<li>$\dfrac{6}{10}=\dfrac{3}{5}$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">$6$ són les noies que NO porten ulleres.</span></li>
+<li>$\dfrac{10}{20}=\dfrac{1}{2}$<br><span class="err">CONDICIONADA_I_CONJUNTA_CONFOSES</span><span class="fb">Aquesta és la probabilitat de triar una noia d'entre tota la classe. Es demana una altra cosa: d'entre les noies, quantes porten ulleres.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quantes noies hi ha? Aquests són els casos possibles.</li><li>D'aquestes noies, quantes porten ulleres?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{ulleres}\mid\text{noia})=\dfrac{4}{10}=\dfrac{2}{5}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">379b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">En un institut de $200$ alumnes, $50$ fan teatre, i $15$ d'aquests $50$ són de 4t. Triem a l'atzar un alumne que fa teatre. Quina és la probabilitat que sigui de 4t?</div>
+<ol class="op"><li><span class="ok">$\dfrac{15}{50}=\dfrac{3}{10}$</span> — resposta correcta</li>
+<li>$\dfrac{15}{200}=\dfrac{3}{40}$<br><span class="err">PROBABILITAT_CONDICIONADA_MAL</span><span class="fb">Ja sabem que fa teatre: el denominador són els $50$ alumnes de teatre, no els $200$. Quan es demana la probabilitat DINS d'un grup concret (no de tota la població), el denominador ha de ser la mida d'aquell grup, no el total de tots els casos.</span></li>
+<li>$\dfrac{35}{50}=\dfrac{7}{10}$<br><span class="err">CASOS_FAVORABLES_MAL_COMPTATS</span><span class="fb">$35$ són els alumnes de teatre que NO són de 4t.</span></li>
+<li>$\dfrac{50}{200}=\dfrac{1}{4}$<br><span class="err">CONDICIONADA_I_CONJUNTA_CONFOSES</span><span class="fb">Aquesta és la probabilitat que un alumne qualsevol faci teatre. Es demana una altra cosa: d'entre els de teatre, quants són de 4t.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quants alumnes fan teatre? Aquests són els casos possibles.</li><li>D'aquests, quants són de 4t?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$P(\text{4t}\mid\text{teatre})=\dfrac{15}{50}=\dfrac{3}{10}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 319.</strong> D&#x27;una població de 1000 persones, 10 tenen una malaltia poc freqüent. Hi ha un test per detectar-la: si la persona és malalta, el test dona positiu 9 de cada 10 vegades; si la persona és sana, el test dona positiu (fals positiu) 1 de cada 10 vegades.</p>
 <div class="it"><div class="cap"><span class="cod">319</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Segons l'enunciat, si la persona és malalta el test dona positiu $9$ de cada $10$ vegades. Quina és la probabilitat que el test doni positiu SABENT que la persona és malalta? (és a dir, $P(\text{positiu}|\text{malalt})$)</div>
@@ -1060,39 +1186,41 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="nota"><strong>Per recordar</strong> (surt amb la resolució, després de respondre): Aquest és l'exemple clàssic que mostra per què $P(B|A)$ i $P(A|B)$ poden ser molt diferents: un test molt fiable pot donar, tot i així, més falsos positius que positius certs quan la condició que es busca és poc freqüent.</p>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Espais mostrals i esdeveniments <span class="err">obre pel mig</span></td><td>0</td><td>7</td><td>11</td><td>2</td><td><span class="err">directa</span></td></tr>
-<tr><td>Combinatòria: principi multiplicatiu <span class="err">obre pel mig</span></td><td>0</td><td>1</td><td>8</td><td>2</td><td><span class="err">directa</span></td></tr>
-<tr><td>Regla de Laplace i freqüència relativa <span class="err">obre pel mig</span></td><td>0</td><td>5</td><td>8</td><td>6</td><td><span class="err">directa</span></td></tr>
-<tr><td>Esdeveniments compostos <span class="err">obre pel mig</span></td><td>0</td><td>3</td><td>8</td><td>6</td><td><span class="err">directa</span></td></tr>
-<tr><td>Probabilitat composta: dos experiments <span class="err">obre pel mig</span></td><td>0</td><td>5</td><td>7</td><td>4</td><td><span class="err">directa</span></td></tr>
-<tr><td>Probabilitat condicionada <span class="err">obre pel mig</span></td><td>0</td><td>1</td><td>5</td><td>6</td><td><span class="err">directa</span></td></tr>
+<tr><td>Espais mostrals i esdeveniments</td><td>2</td><td>7</td><td>11</td><td>2</td><td>trivial</td></tr>
+<tr><td>Combinatòria: principi multiplicatiu</td><td>2</td><td>1</td><td>8</td><td>2</td><td>trivial</td></tr>
+<tr><td>Regla de Laplace i freqüència relativa</td><td>2</td><td>5</td><td>8</td><td>6</td><td>trivial</td></tr>
+<tr><td>Esdeveniments compostos</td><td>2</td><td>3</td><td>8</td><td>6</td><td>trivial</td></tr>
+<tr><td>Probabilitat composta: dos experiments</td><td>2</td><td>5</td><td>7</td><td>4</td><td>trivial</td></tr>
+<tr><td>Probabilitat condicionada</td><td>2</td><td>1</td><td>5</td><td>6</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>CASOS_FAVORABLES_MAL_COMPTATS</code></td><td>59</td><td>240a, 240a, 240b, 240b, 240b, 240c, 240c, 240d, 240e, 240e, 240e, 248c, 248c, 248e…</td></tr>
-<tr><td><code>ESPAI_MOSTRAL_MAL_COMPTAT</code></td><td>27</td><td>236a, 236a, 236a, 236b, 236b, 236b, 236c, 236c, 236c, 236d, 236d, 236d, 236e, 236e…</td></tr>
-<tr><td><code>PRINCIPI_MULTIPLICATIU_MAL_APLICAT</code></td><td>22</td><td>237, 237, 244, 244, 244, 243, 243, 243, 245, 245, 245, 247, 248a, 248b…</td></tr>
+<tr><td><code>CASOS_FAVORABLES_MAL_COMPTATS</code></td><td>62</td><td>240a, 240a, 240b, 240b, 240b, 240c, 240c, 240d, 240e, 240e, 240e, 248c, 248c, 248e…</td></tr>
+<tr><td><code>ESPAI_MOSTRAL_MAL_COMPTAT</code></td><td>32</td><td>374a, 374a, 374b, 374b, 374b, 236a, 236a, 236a, 236b, 236b, 236b, 236c, 236c, 236c…</td></tr>
+<tr><td><code>PRINCIPI_MULTIPLICATIU_MAL_APLICAT</code></td><td>27</td><td>237, 237, 375a, 375a, 375a, 375b, 375b, 244, 244, 244, 243, 243, 243, 245…</td></tr>
+<tr><td><code>ESDEVENIMENT_CONTRARI_MAL_CALCULAT</code></td><td>20</td><td>376a, 250c, 250d, 251b, 252c, 252c, 252c, 377a, 377a, 377a, 377b, 377b, 254b, 256a…</td></tr>
+<tr><td><code>PROBABILITAT_CONDICIONADA_MAL</code></td><td>20</td><td>257b, 257b, 257b, 257c, 257c, 257c, 254a, 254b, 254b, 379a, 379b, 319, 314a, 314b…</td></tr>
 <tr><td><code>UNIO_INTERSECCIO_CONFOSES</code></td><td>19</td><td>249b, 249b, 249c, 249c, 249c, 249d, 249d, 254c, 254c, 254c, 255, 255, 256a, 256b…</td></tr>
-<tr><td><code>PROBABILITAT_CONDICIONADA_MAL</code></td><td>18</td><td>257b, 257b, 257b, 257c, 257c, 257c, 254a, 254b, 254b, 319, 314a, 314b, 314c, 316a…</td></tr>
-<tr><td><code>CAMI_ARBRE_MAL_MULTIPLICAT</code></td><td>16</td><td>305a, 305a, 305c, 308a, 308a, 308b, 308b, 308b, 306c, 306c, 309b, 309b, 310a, 315a…</td></tr>
+<tr><td><code>CAMI_ARBRE_MAL_MULTIPLICAT</code></td><td>19</td><td>378a, 378b, 378b, 305a, 305a, 305c, 308a, 308a, 308b, 308b, 308b, 306c, 306c, 309b…</td></tr>
+<tr><td><code>CASOS_POSSIBLES_MAL_COMPTATS</code></td><td>17</td><td>240d, 242, 246, 376a, 376b, 241c, 252a, 252b, 257a, 254a, 258, 258, 259, 306a…</td></tr>
 <tr><td><code>CARTES_REPETIDES_CONFOSES</code></td><td>15</td><td>239a, 239a, 239a, 239b, 239b, 239b, 239c, 239c, 239c, 239d, 239d, 239d, 239e, 239e…</td></tr>
-<tr><td><code>CASOS_POSSIBLES_MAL_COMPTATS</code></td><td>15</td><td>240d, 242, 246, 241c, 252a, 252b, 257a, 254a, 258, 258, 259, 306a, 314a, 318…</td></tr>
-<tr><td><code>ESDEVENIMENT_CONTRARI_MAL_CALCULAT</code></td><td>14</td><td>250c, 250d, 251b, 252c, 252c, 252c, 254b, 256a, 256b, 306a, 311, 312, 314a, 317</td></tr>
 <tr><td><code>REEMPLACAMENT_MAL_CONSIDERAT</code></td><td>13</td><td>305a, 305b, 305c, 306a, 306b, 306b, 306b, 309a, 309b, 307, 307, 310a, 310b</td></tr>
-<tr><td><code>CONDICIONADA_I_CONJUNTA_CONFOSES</code></td><td>10</td><td>319, 314b, 314b, 314c, 314c, 316b, 316b, 315c, 315c, 318</td></tr>
+<tr><td><code>CONDICIONADA_I_CONJUNTA_CONFOSES</code></td><td>12</td><td>379a, 379b, 319, 314b, 314b, 314c, 314c, 316b, 316b, 315c, 315c, 318</td></tr>
 <tr><td><code>COMPLEMENT_ALMENYS_UN_MAL</code></td><td>7</td><td>305c, 311, 311, 312, 312, 313, 313</td></tr>
 <tr><td><code>UNIO_DOBLE_COMPTADA</code></td><td>6</td><td>249b, 249d, 255, 256a, 256b, 256c</td></tr>
 <tr><td><code>COMBINACIONS_MAL_COMPTADES</code></td><td>6</td><td>251c, 251c, 252a, 252a, 252b, 259</td></tr>
 <tr><td><code>COMPATIBLE_INCOMPATIBLE_CONFOSOS</code></td><td>6</td><td>253d, 253d, 253d, 253e, 253e, 253e</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>5</td><td>240a, 240c, 240d, 251b, 251c</td></tr>
+<tr><td><code>ELEMENTAL_NO_ELEMENTAL_CONFOSOS</code></td><td>4</td><td>374a, 238b, 238b, 238b</td></tr>
 <tr><td><code>VARIACIONS_SENSE_REPETICIO_MAL</code></td><td>4</td><td>247, 248a, 248a, 246</td></tr>
 <tr><td><code>INDEPENDENCIA_SUPOSADA_SENSE_MOTIU</code></td><td>4</td><td>306c, 307, 310a, 313</td></tr>
 <tr><td><code>ASIMETRIA_CONDICIONADA_MAL</code></td><td>4</td><td>319, 315c, 317, 320</td></tr>
-<tr><td><code>ELEMENTAL_NO_ELEMENTAL_CONFOSOS</code></td><td>3</td><td>238b, 238b, 238b</td></tr>
-<tr><td><code>FACTORIAL_MAL_APLICAT</code></td><td>2</td><td>247, 248c</td></tr>
+<tr><td><code>FACTORIAL_MAL_APLICAT</code></td><td>3</td><td>375b, 247, 248c</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>3</td><td>376a, 376b, 377b</td></tr>
+<tr><td><code>ORDRE_NO_CONSIDERAT</code></td><td>2</td><td>237, 378a</td></tr>
 <tr><td><code>FREQ_RELATIVA_PROBABILITAT_CONFOSES</code></td><td>2</td><td>249a, 250a</td></tr>
 <tr><td><code>RECOMPTE_MAL_FET</code></td><td>2</td><td>249a, 257a</td></tr>
+<tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>2</td><td>378a, 378b</td></tr>
 <tr><td><code>BRANCA_ARBRE_MAL_CALCULADA</code></td><td>2</td><td>309a, 309a</td></tr>
-<tr><td><code>ORDRE_NO_CONSIDERAT</code></td><td>1</td><td>237</td></tr>
 <tr><td><code>PARELLS_VALORS_CONFOSOS</code></td><td>1</td><td>238a</td></tr>
 <tr><td><code>ESDEVENIMENTS_INDEPENDENTS_MAL_COMBINATS</code></td><td>1</td><td>251a</td></tr>
 <tr><td><code>ORDRE_NO_DEMANAT</code></td><td>1</td><td>305b</td></tr>

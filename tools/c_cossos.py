@@ -170,11 +170,11 @@ P1_ALTURA = ("Et donen l'altura, no l'apotema de la piràmide. L'altura, "
              "hipotenusa.")
 
 # 170a: rectangular 7x2x4 -> A=100 (exacte)
-Q("170a", 170, "a", B1, "A",
-  f"{E170} un ortoedre (prisma recte de base rectangular) d'arestes "
+Q("170a", 170, "a", B1, tipus="A",
+  enunciat=f"{E170} un ortoedre (prisma recte de base rectangular) d'arestes "
   "$7$ cm, $2$ cm i $4$ cm.",
-  "$100$ cm$^2$",
-  [D("$56$ cm$^2$", "FACTOR_OBLIDAT",
+  correcta="$100$ cm$^2$",
+  distractors=[D("$56$ cm$^2$", "FACTOR_OBLIDAT",
      "T'has deixat una parella de cares pel camí: un ortoedre en té "
      "TRES parelles diferents ($7\\times2$, $7\\times4$ i $2\\times4$), "
      "no només dues."),
@@ -185,20 +185,20 @@ Q("170a", 170, "a", B1, "A",
    D("$112$ cm$^2$", "PRODUCTE_MAL",
      "No coincideix amb $2(7\\cdot2+7\\cdot4+2\\cdot4)$: revisa el "
      "producte de cada parella de cares per separat abans de sumar-les.")],
-  ["L'àrea total d'un ortoedre és la suma de les seves $6$ cares: "
+  pistes=["L'àrea total d'un ortoedre és la suma de les seves $6$ cares: "
    "$3$ parelles de rectangles iguals.",
    "$A=2(a\\cdot b+a\\cdot c+b\\cdot c)$, amb $a=7$, $b=2$, $c=4$."],
-  ["$A=2(7\\cdot2+7\\cdot4+2\\cdot4)=2(14+28+8)$",
+  resolucio=["$A=2(7\\cdot2+7\\cdot4+2\\cdot4)=2(14+28+8)$",
    "$A=2\\cdot50=100$ cm$^2$"],
   figura=ortoedre(7, 2, 4),
   ex_text=E170)
 
 # 170b: triangular equilater costat 5, altura 9 -> A~156.65
-Q("170b", 170, "b", B1, "A",
-  f"{E170} un prisma de base triangular equilàtera de $5$ cm de "
+Q("170b", 170, "b", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base triangular equilàtera de $5$ cm de "
   "costat i $9$ cm d'altura.",
-  apx(156.65, 2, "cm$^2$"),
-  [D(apx(146.25, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(156.65, 2, "cm$^2$"),
+  distractors=[D(apx(146.25, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Falta comptar les DUES bases triangulars, no només una: "
      "l'àrea total inclou $2\\cdot A_{\\text{base}}$, no $1$ sola."),
    D(apx(67.5, 2, "cm$^2$"), "DIVISIO_REPETIDA",
@@ -208,11 +208,11 @@ Q("170b", 170, "b", B1, "A",
    D(apx(175.95, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot A_{\\text{base}}+15\\cdot9$: revisa "
      "per separat l'àrea del triangle equilàter i l'àrea lateral.")],
-  [P1_PRISMA + "La base és un triangle equilàter: "
+  pistes=[P1_PRISMA + "La base és un triangle equilàter: "
    "$A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
    "$A_{\\text{base}}=\\dfrac{5^2\\sqrt3}{4}$ i "
    "$A_{\\text{lateral}}=(3\\cdot5)\\cdot9$."],
-  [r"$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{5^2\sqrt3}{4}\approx10{,}83$ cm$^2$",
    "$A_{\\text{lateral}}=15\\cdot9=135$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot10{,}83+135\\approx156{,}65$ cm$^2$"],
   figura=prisma_regular(3, 5, 9),
@@ -229,11 +229,11 @@ Q("170b", 170, "b", B1, "A",
 # Aquesta comprovació —contrastar l'apotema que dona el llibre amb la que
 # surt de la fórmula— val per a tots els prismes i piràmides de base regular,
 # i és el que permet llegir una figura escanejada sense endevinar.
-Q("170c", 170, "c", B1, "A",
-  f"{E170} un prisma de base hexagonal regular de $6$ cm de costat i "
+Q("170c", 170, "c", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base hexagonal regular de $6$ cm de costat i "
   "$5{,}2$ cm d'apotema, amb $8$ cm d'altura.",
-  val(475.2, 2, "cm$^2$"),
-  [D(val(288, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(475.2, 2, "cm$^2$"),
+  distractors=[D(val(288, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($36\\cdot8$): encara "
      "falta sumar-hi les dues bases hexagonals."),
    D(val(381.6, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -242,22 +242,22 @@ Q("170c", 170, "c", B1, "A",
    D(val(662.4, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot93{,}6+36\\cdot8$: revisa per "
      "separat l'àrea de la base hexagonal i l'àrea lateral.")],
-  [P1_PRISMA + P1_REGULAR % "hexàgon",
+  pistes=[P1_PRISMA + P1_REGULAR % "hexàgon",
    "Perímetre de la base: $6\\cdot6=36$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{36\\cdot5{,}2}{2}$ i "
    "$A_{\\text{lateral}}=36\\cdot8$."],
-  [r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}=93{,}6$ cm$^2$",
    "$A_{\\text{lateral}}=36\\cdot8=288$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot93{,}6+288=475{,}2$ cm$^2$"],
   figura=prisma_regular(6, 6, 8, apotema=5.2),
   ex_text=E170)
 
 # 170d: pentagonal costat 5 apotema 3.44 altura 12 -> A=386 (exacte)
-Q("170d", 170, "d", B1, "A",
-  f"{E170} un prisma de base pentagonal regular de $5$ cm de costat i "
+Q("170d", 170, "d", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base pentagonal regular de $5$ cm de costat i "
   "$3{,}44$ cm d'apotema, amb $12$ cm d'altura.",
-  val(386, 2, "cm$^2$"),
-  [D(val(300, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(386, 2, "cm$^2$"),
+  distractors=[D(val(300, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($25\\cdot12$): encara "
      "falta sumar-hi les dues bases pentagonals."),
    D(val(343, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -266,22 +266,22 @@ Q("170d", 170, "d", B1, "A",
    D(val(472, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot43+25\\cdot12$: revisa per separat "
      "l'àrea de la base i l'àrea lateral.")],
-  [P1_PRISMA + P1_REGULAR % "pentàgon",
+  pistes=[P1_PRISMA + P1_REGULAR % "pentàgon",
    "Perímetre de la base: $5\\cdot5=25$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{25\\cdot3{,}44}{2}$ i "
    "$A_{\\text{lateral}}=25\\cdot12$."],
-  [r"$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{25\cdot3{,}44}{2}=43$ cm$^2$",
    "$A_{\\text{lateral}}=25\\cdot12=300$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot43+300=386$ cm$^2$"],
   figura=prisma_regular(5, 5, 12, apotema=3.44),
   ex_text=E170)
 
 # 170e: triangular rectangle catets 6,8 altura 5 -> A=168 (exacte)
-Q("170e", 170, "e", B1, "A",
-  f"{E170} un prisma de $5$ cm d'altura amb la base en forma de "
+Q("170e", 170, "e", B1, tipus="A",
+  enunciat=f"{E170} un prisma de $5$ cm d'altura amb la base en forma de "
   "triangle rectangle de catets $6$ cm i $8$ cm.",
-  val(168, 2, "cm$^2$"),
-  [D(val(120, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(168, 2, "cm$^2$"),
+  distractors=[D(val(120, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($24\\cdot5$): encara "
      "falta sumar-hi les dues bases triangulars."),
    D(val(158, 2, "cm$^2$"), "SIGNE_TERME_INDEPENDENT",
@@ -291,12 +291,12 @@ Q("170e", 170, "e", B1, "A",
    D(val(216, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot24+24\\cdot5$: revisa per separat "
      "l'àrea de la base i l'àrea lateral.")],
-  [P1_PRISMA + "La base és un triangle rectangle: per al perímetre et "
+  pistes=[P1_PRISMA + "La base és un triangle rectangle: per al perímetre et "
    "cal també la hipotenusa.",
    "Hipotenusa: $\\sqrt{6^2+8^2}$. Llavors "
    "$A_{\\text{base}}=\\dfrac{6\\cdot8}{2}$ i "
    "$A_{\\text{lateral}}=(6+8+\\text{hipotenusa})\\cdot5$."],
-  [r"$A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{6\cdot8}{2}=24$ cm$^2$",
    "Hipotenusa: $\\sqrt{6^2+8^2}=10$ cm; perímetre $=24$ cm",
    "$A_{\\text{total}}=2\\cdot24+24\\cdot5=48+120=168$ cm$^2$"],
   ex_text=E170)
@@ -317,10 +317,10 @@ Q("170e", 170, "e", B1, "A",
 # de costat 8 té apotema 6,93. La cota de 8 era l'altura.
 
 # 170f: cub d'aresta 7 -> A = 6·49 = 294 (exacte)
-Q("170f", 170, "f", B1, "A",
-  f"{E170} un cub d'aresta $7$ cm.",
-  val(294, 0, "cm$^2$"),
-  [D(val(49, 0, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+Q("170f", 170, "f", B1, tipus="A",
+  enunciat=f"{E170} un cub d'aresta $7$ cm.",
+  correcta=val(294, 0, "cm$^2$"),
+  distractors=[D(val(49, 0, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquesta és l'àrea d'UNA cara. Un cub en té sis, totes iguals."),
    D(val(343, 0, "cm$^2$"), "DIMENSIO_EXPONENT_MAL",
      "$7^3=343$ és el VOLUM del cub. L'àrea total va amb el quadrat: "
@@ -328,19 +328,19 @@ Q("170f", 170, "f", B1, "A",
    D(val(196, 0, "cm$^2$"), "FACTOR_OBLIDAT",
      "Sembla que has comptat quatre cares. Un cub en té sis: les quatre "
      "laterals més la de dalt i la de baix.")],
-  ["Totes les cares d'un cub són quadrats iguals.",
+  pistes=["Totes les cares d'un cub són quadrats iguals.",
    "Calcula l'àrea d'una cara i multiplica-la pel nombre de cares."],
-  ["Cada cara: $7^2=49$ cm$^2$",
+  resolucio=["Cada cara: $7^2=49$ cm$^2$",
    "$A_{\\text{total}}=6\\cdot49=294$ cm$^2$"],
   figura=cub(7),
   ex_text=E170)
 
 # 170g: hexagonal costat 8 apotema 6,93 altura 12 -> A = 908,64
-Q("170g", 170, "g", B1, "A",
-  f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
+Q("170g", 170, "g", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base hexagonal regular de $8$ cm de costat i "
   "$6{,}93$ cm d'apotema, amb $12$ cm d'altura.",
-  val(908.64, 2, "cm$^2$"),
-  [D(val(576, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(908.64, 2, "cm$^2$"),
+  distractors=[D(val(576, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($48\\cdot12$): falten les "
      "dues bases hexagonals."),
    D(val(742.32, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -348,54 +348,54 @@ Q("170g", 170, "g", B1, "A",
    D(val(332.64, 2, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'àrea de les dues bases: encara falta sumar-hi la "
      "lateral.")],
-  [P1_PRISMA + P1_REGULAR % "hexàgon",
+  pistes=[P1_PRISMA + P1_REGULAR % "hexàgon",
    "Perímetre de la base: $6\\cdot8=48$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{48\\cdot6{,}93}{2}$ i "
    "$A_{\\text{lateral}}=48\\cdot12$."],
-  [r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}=166{,}32$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot12=576$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot166{,}32+576=908{,}64$ cm$^2$"],
   figura=prisma_regular(6, 8, 12, apotema=6.93),
   ex_text=E170)
 
 # 170h: hexagonal costat 5 apotema 4,25 altura 11 -> A = 457,5 (exacte)
-Q("170h", 170, "h", B1, "A",
-  f"{E170} un prisma de base hexagonal regular de $5$ cm de costat i "
+Q("170h", 170, "h", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base hexagonal regular de $5$ cm de costat i "
   "$4{,}25$ cm d'apotema, amb $11$ cm d'altura.",
-  val(457.5, 1, "cm$^2$"),
-  [D(val(330, 1, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(457.5, 1, "cm$^2$"),
+  distractors=[D(val(330, 1, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($30\\cdot11$)."),
    D(val(393.75, 2, "cm$^2$"), "FACTOR_OBLIDAT",
      "Només has comptat una base hexagonal en lloc de dues."),
    D(val(127.5, 1, "cm$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'àrea de les dues bases, sense la lateral.")],
-  [P1_PRISMA + P1_REGULAR % "hexàgon",
+  pistes=[P1_PRISMA + P1_REGULAR % "hexàgon",
    "Perímetre de la base: $6\\cdot5=30$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{30\\cdot4{,}25}{2}$ i "
    "$A_{\\text{lateral}}=30\\cdot11$."],
-  [r"$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{30\cdot4{,}25}{2}=63{,}75$ cm$^2$",
    "$A_{\\text{lateral}}=30\\cdot11=330$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot63{,}75+330=457{,}5$ cm$^2$"],
   figura=prisma_regular(6, 5, 11, apotema=4.25),
   ex_text=E170)
 
 # 170i: octogonal costat 6 apotema 7,24 altura 15 -> A = 1067,52
-Q("170i", 170, "i", B1, "A",
-  f"{E170} un prisma de base octogonal regular de $6$ cm de costat i "
+Q("170i", 170, "i", B1, tipus="A",
+  enunciat=f"{E170} un prisma de base octogonal regular de $6$ cm de costat i "
   "$7{,}24$ cm d'apotema, amb $15$ cm d'altura.",
-  val(1067.52, 2, "cm$^2$"),
-  [D(val(720, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(1067.52, 2, "cm$^2$"),
+  distractors=[D(val(720, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($48\\cdot15$)."),
    D(val(893.76, 2, "cm$^2$"), "FACTOR_OBLIDAT",
      "Només has comptat una base octogonal en lloc de dues."),
    D(val(800.64, 2, "cm$^2$"), "N_MAL_COMPTAT",
      "Sembla que has fet servir sis costats en comptes de vuit: el "
      "perímetre d'un octàgon de costat $6$ és $8\\cdot6=48$ cm.")],
-  [P1_PRISMA + P1_REGULAR % "octàgon",
+  pistes=[P1_PRISMA + P1_REGULAR % "octàgon",
    "Un octàgon té VUIT costats: el perímetre és $8\\cdot6=48$ cm. "
    "Llavors $A_{\\text{base}}=\\dfrac{48\\cdot7{,}24}{2}$ i "
    "$A_{\\text{lateral}}=48\\cdot15$."],
-  [r"$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{48\cdot7{,}24}{2}=173{,}76$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot15=720$ cm$^2$",
    "$A_{\\text{total}}=2\\cdot173{,}76+720=1\\,067{,}52$ cm$^2$"],
   figura=prisma_regular(8, 6, 15, apotema=7.24),
@@ -404,11 +404,11 @@ Q("170i", 170, "i", B1, "A",
 
 # ---- exercici 171: prisma triangular equilàter, costat 2 cm, altura 3 cm ----
 # Ab=sqrt3~1.7321, Alat=18, Atot~21.46
-Q("171", 171, "", B1, "A",
-  "Calcula l'àrea total d'un prisma recte de base triangular "
+Q("171", 171, "", B1, tipus="A",
+  enunciat="Calcula l'àrea total d'un prisma recte de base triangular "
   "equilàtera de costat $2$ cm i altura $3$ cm.",
-  apx(21.46, 2, "cm$^2$"),
-  [D(apx(18, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(21.46, 2, "cm$^2$"),
+  distractors=[D(apx(18, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($6\\cdot3$): encara "
      "falta sumar-hi les dues bases triangulars."),
    D(apx(19.73, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -417,22 +417,22 @@ Q("171", 171, "", B1, "A",
    D(apx(24.93, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $2\\cdot1{,}73+6\\cdot3$: revisa per "
      "separat l'àrea de la base i l'àrea lateral.")],
-  [P1_PRISMA + "La base és un triangle equilàter: "
+  pistes=[P1_PRISMA + "La base és un triangle equilàter: "
    "$A_{\\text{base}}=\\dfrac{c^2\\sqrt3}{4}$.",
    "$A_{\\text{base}}=\\dfrac{2^2\\sqrt3}{4}$ i "
    "$A_{\\text{lateral}}=(3\\cdot2)\\cdot3$."],
-  [r"$A_{\text{base}}=\dfrac{2^2\sqrt3}{4}\approx1{,}73$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{2^2\sqrt3}{4}\approx1{,}73$ cm$^2$",
    "$A_{\\text{lateral}}=6\\cdot3=18$ cm$^2$",
    "$A_{\\text{total}}\\approx2\\cdot1{,}73+18\\approx21{,}46$ cm$^2$"],
   figura=prisma_regular(3, 2, 3))
 
 # ---- exercici 172: prisma hexagonal, costat 8 cm, altura 10 cm ----
 # apotema=4sqrt3~6.93, Ab~166.28, Alat=480, Atot~812.55
-Q("172", 172, "", B1, "A",
-  "Calcula l'àrea total d'un prisma hexagonal regular de costat "
+Q("172", 172, "", B1, tipus="A",
+  enunciat="Calcula l'àrea total d'un prisma hexagonal regular de costat "
   "$8$ cm i altura $10$ cm.",
-  apx(812.55, 2, "cm$^2$"),
-  [D(apx(480, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(812.55, 2, "cm$^2$"),
+  distractors=[D(apx(480, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($48\\cdot10$): encara "
      "falta sumar-hi les dues bases hexagonals."),
    D(apx(646.28, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -442,13 +442,13 @@ Q("172", 172, "", B1, "A",
      "L'apotema d'un hexàgon regular de costat $8$ cm és "
      "$4\\sqrt3\\approx6{,}93$ cm, no $8$ cm: apotema i costat "
      "només coincideixen en el cas del quadrat.")],
-  [P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
+  pistes=[P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
    "donen: en un hexàgon regular de costat $c$, "
    "$a=\\dfrac{c\\sqrt3}{2}$.",
    "Aquí $a=\\dfrac{8\\sqrt3}{2}$ i el perímetre és $6\\cdot8=48$ cm. "
    "Llavors $A_{\\text{base}}=\\dfrac{48\\cdot a}{2}$ i "
    "$A_{\\text{lateral}}=48\\cdot10$."],
-  [r"$a=\dfrac{8\sqrt3}{2}\approx6{,}93$ cm",
+  resolucio=[r"$a=\dfrac{8\sqrt3}{2}\approx6{,}93$ cm",
    r"$A_{\text{base}}=\dfrac{48\cdot6{,}93}{2}\approx166{,}28$ cm$^2$",
    "$A_{\\text{lateral}}=48\\cdot10=480$ cm$^2$",
    "$A_{\\text{total}}\\approx2\\cdot166{,}28+480\\approx812{,}55$ cm$^2$"],
@@ -456,11 +456,11 @@ Q("172", 172, "", B1, "A",
 
 # ---- exercici 173: prisma hexagonal, costat 6 cm, altura 10 cm ----
 # apotema=3sqrt3~5.2, Ab~93.53, Alat=360, Atot~547.06
-Q("173", 173, "", B1, "A",
-  "Calcula l'àrea total d'un prisma hexagonal regular de costat "
+Q("173", 173, "", B1, tipus="A",
+  enunciat="Calcula l'àrea total d'un prisma hexagonal regular de costat "
   "$6$ cm i altura $10$ cm.",
-  apx(547.06, 2, "cm$^2$"),
-  [D(apx(360, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(547.06, 2, "cm$^2$"),
+  distractors=[D(apx(360, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral ($36\\cdot10$): encara "
      "falta sumar-hi les dues bases hexagonals."),
    D(apx(453.53, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -469,13 +469,13 @@ Q("173", 173, "", B1, "A",
    D(apx(576, 2, "cm$^2$"), "SIGNE_TERME_INDEPENDENT",
      "L'apotema d'un hexàgon regular de costat $6$ cm és "
      "$3\\sqrt3\\approx5{,}2$ cm, no $6$ cm.")],
-  [P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
+  pistes=[P1_PRISMA + "Per a l'àrea de l'hexàgon et cal l'apotema, que no et "
    "donen: en un hexàgon regular de costat $c$, "
    "$a=\\dfrac{c\\sqrt3}{2}$.",
    "Aquí $a=\\dfrac{6\\sqrt3}{2}$ i el perímetre és $6\\cdot6=36$ cm. "
    "Llavors $A_{\\text{base}}=\\dfrac{36\\cdot a}{2}$ i "
    "$A_{\\text{lateral}}=36\\cdot10$."],
-  [r"$a=\dfrac{6\sqrt3}{2}\approx5{,}2$ cm",
+  resolucio=[r"$a=\dfrac{6\sqrt3}{2}\approx5{,}2$ cm",
    r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ cm$^2$",
    "$A_{\\text{lateral}}=36\\cdot10=360$ cm$^2$",
    "$A_{\\text{total}}\\approx2\\cdot93{,}53+360\\approx547{,}06$ cm$^2$"],
@@ -483,11 +483,11 @@ Q("173", 173, "", B1, "A",
 
 # ---- exercici 174: cub d'àrea total 24 cm^2, troba la diagonal ----
 # L=2, dcub=2sqrt3~3.46
-Q("174", 174, "", B1, "A",
-  "L'àrea total d'un cub és $24$ cm$^2$. Calcula la longitud de la "
+Q("174", 174, "", B1, tipus="A",
+  enunciat="L'àrea total d'un cub és $24$ cm$^2$. Calcula la longitud de la "
   "seva diagonal.",
-  apx(3.46, 2, "cm"),
-  [D(val(4, 2, "cm"), "ARREL_MAL_APLICADA",
+  correcta=apx(3.46, 2, "cm"),
+  distractors=[D(val(4, 2, "cm"), "ARREL_MAL_APLICADA",
      "Sembla que has confós la diagonal del cub amb l'aresta de "
      "cara al quadrat, o has fet una arrel malament: comprova primer "
      "$L=\\sqrt{24:6}=2$ cm i després aplica $d=L\\sqrt3$."),
@@ -498,20 +498,20 @@ Q("174", 174, "", B1, "A",
    D(val(2, 2, "cm"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'aresta del cub, no la diagonal: encara falta "
      "multiplicar per $\\sqrt3$.")],
-  ["Un cub té $6$ cares iguals, així que l'aresta compleix "
+  pistes=["Un cub té $6$ cares iguals, així que l'aresta compleix "
    "$6L^2=24 \\Rightarrow L^2=4 \\Rightarrow L=2$ cm.",
    "La diagonal del cub és $d=L\\sqrt3$."],
-  [r"$L=\sqrt{24:6}=\sqrt4=2$ cm",
+  resolucio=[r"$L=\sqrt{24:6}=\sqrt4=2$ cm",
    r"$d=L\sqrt3=2\sqrt3\approx3{,}46$ cm"],
   figura=cub(0, etq="a"))
 
 # ---- exercici 175: cub d'àrea total 150 m^2, troba la diagonal ----
 # L=5, d=5sqrt3~8.66
-Q("175", 175, "", B1, "A",
-  "L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la "
+Q("175", 175, "", B1, tipus="A",
+  enunciat="L'àrea total d'un cub és $150$ m$^2$. Calcula la longitud de la "
   "seva diagonal.",
-  apx(8.66, 2, "m"),
-  [D(val(5, 2, "m"), "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta=apx(8.66, 2, "m"),
+  distractors=[D(val(5, 2, "m"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'aresta del cub, no la diagonal: encara falta "
      "multiplicar per $\\sqrt3$."),
    D(apx(7.07, 2, "m"), "TERME_OBLIDAT_OPERACIO",
@@ -520,9 +520,9 @@ Q("175", 175, "", B1, "A",
    D(val(25, 2, "m"), "ARREL_MAL_APLICADA",
      "No has fet l'arrel quadrada de $150:6=25$: l'aresta és "
      "$L=\\sqrt{25}=5$ m, no $25$ m.")],
-  ["Aresta: $6L^2=150 \\Rightarrow L^2=25 \\Rightarrow L=5$ m.",
+  pistes=["Aresta: $6L^2=150 \\Rightarrow L^2=25 \\Rightarrow L=5$ m.",
    "Diagonal: $d=L\\sqrt3$."],
-  [r"$L=\sqrt{150:6}=\sqrt{25}=5$ m",
+  resolucio=[r"$L=\sqrt{150:6}=\sqrt{25}=5$ m",
    r"$d=L\sqrt3=5\sqrt3\approx8{,}66$ m"],
   figura=cub(0, etq="a"))
 
@@ -540,10 +540,10 @@ E176 = ("En un estudi d'arquitectura s'ha dissenyat un edifici que té "
         "triangular equilàtera de $6$ m de costat.")
 
 # 176a: nomes area lateral -> A=360 (exacte)
-Q("176a", 176, "a", B1, "A",
-  f"{E176} Quant mesura l'àrea lateral de l'edifici?",
-  val(360, 2, "m$^2$"),
-  [D(apx(15.59, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+Q("176a", 176, "a", B1, tipus="A",
+  enunciat=f"{E176} Quant mesura l'àrea lateral de l'edifici?",
+  correcta=val(360, 2, "m$^2$"),
+  distractors=[D(apx(15.59, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'àrea d'una base triangular, no l'àrea lateral: "
      "l'àrea lateral és perímetre per altura, no depèn de la "
      "fórmula del triangle equilàter."),
@@ -554,18 +554,18 @@ Q("176a", 176, "a", B1, "A",
      "No coincideix amb $18\\cdot20$: comprova que el perímetre "
      "de la base ($3\\cdot6=18$ m) és correcte abans de "
      "multiplicar-lo per l'altura.")],
-  ["El perímetre de la base triangular és $3\\cdot6=18$ m.",
+  pistes=["El perímetre de la base triangular és $3\\cdot6=18$ m.",
    "Àrea lateral d'un prisma: perímetre de la base per l'altura."],
-  [r"$A_{\text{lateral}}=18\cdot20$",
+  resolucio=[r"$A_{\text{lateral}}=18\cdot20$",
    "$A_{\\text{lateral}}=360$ m$^2$"],
   figura=prisma_regular(3, 6, 20, etq_costat="6 m", etq_altura="20 m"),
   ex_text=E176)
 
 # 176b: area total -> A~391.18
-Q("176b", 176, "b", B1, "A",
-  f"{E176} Quant mesura l'àrea total de l'edifici?",
-  apx(391.18, 2, "m$^2$"),
-  [D(val(360, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+Q("176b", 176, "b", B1, tipus="A",
+  enunciat=f"{E176} Quant mesura l'àrea total de l'edifici?",
+  correcta=apx(391.18, 2, "m$^2$"),
+  distractors=[D(val(360, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral (l'apartat anterior): "
      "encara falta sumar-hi les dues bases triangulars."),
    D(apx(375.59, 2, "m$^2$"), "FACTOR_OBLIDAT",
@@ -575,23 +575,23 @@ Q("176b", 176, "b", B1, "A",
      "No coincideix amb $360+2\\cdot15{,}59$: revisa el producte "
      "de l'àrea del triangle equilàter abans de sumar-la dues "
      "vegades.")],
-  ["Àrea de la base: $A_{\\text{base}}=\\dfrac{6^2\\sqrt3}{4}"
+  pistes=["Àrea de la base: $A_{\\text{base}}=\\dfrac{6^2\\sqrt3}{4}"
    "\\approx15{,}59$ m$^2$.",
    "Àrea total $=$ àrea lateral (calculada abans, $360$ m$^2$) "
    "més les dues bases."],
-  [r"$A_{\text{base}}=\dfrac{6^2\sqrt3}{4}\approx15{,}59$ m$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{6^2\sqrt3}{4}\approx15{,}59$ m$^2$",
    "$A_{\\text{total}}=360+2\\cdot15{,}59\\approx391{,}18$ m$^2$"],
   figura=prisma_regular(3, 6, 20, etq_costat="6 m", etq_altura="20 m"),
   ex_text=E176)
 
 # ---- exercici 177: piràmide pentagonal ----
 # costat 4, apotema base 2.75, apotema piramide 11.83 -> Ab=27.5 Alat=118.3 Atot=145.8
-Q("177", 177, "", B2, "A",
-  "Una piràmide pentagonal regular té la base de costat $4$ cm i "
+Q("177", 177, "", B2, tipus="A",
+  enunciat="Una piràmide pentagonal regular té la base de costat $4$ cm i "
   "apotema $2{,}75$ cm; l'apotema de la piràmide és $11{,}83$ cm. "
   "Calcula la seva àrea total.",
-  val(145.8, 2, "cm$^2$"),
-  [D(val(118.3, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(145.8, 2, "cm$^2$"),
+  distractors=[D(val(118.3, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base pentagonal."),
    D(val(27.5, 2, "cm$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
@@ -601,22 +601,22 @@ Q("177", 177, "", B2, "A",
      "Sembla que no has dividit per $2$ l'àrea lateral: "
      "$A_{\\text{lateral}}=\\dfrac{\\text{perímetre}\\cdot"
      "\\text{apotema piràmide}}{2}$, no sense dividir.")],
-  [P1_PIRAMIDE,
+  pistes=[P1_PIRAMIDE,
    "Perímetre de la base: $5\\cdot4=20$ cm. Llavors "
    "$A_{\\text{base}}=\\dfrac{20\\cdot2{,}75}{2}$ i "
    "$A_{\\text{lateral}}=\\dfrac{20\\cdot11{,}83}{2}$."],
-  [r"$A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$",
+  resolucio=[r"$A_{\text{base}}=\dfrac{20\cdot2{,}75}{2}=27{,}5$ cm$^2$",
    r"$A_{\text{lateral}}=\dfrac{20\cdot11{,}83}{2}=118{,}3$ cm$^2$",
    "$A_{\\text{total}}=27{,}5+118{,}3=145{,}8$ cm$^2$"],
   figura=piramide_regular(5, 4, apotema_piramide=11.83))
 
 # ---- exercici 179: dues piràmides (quadrangular i hexagonal) ----
 # 179a: piramide quadrangular costat 25 apotema piramide 34
-Q("179a", 179, "a", B2, "A",
-  "Una piràmide quadrangular regular té la base de costat $25$ m i "
+Q("179a", 179, "a", B2, tipus="A",
+  enunciat="Una piràmide quadrangular regular té la base de costat $25$ m i "
   "l'apotema de la piràmide fa $34$ m. Calcula la seva àrea total.",
-  val(2325, 2, "m$^2$"),
-  [D(val(1700, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
+  correcta=val(2325, 2, "m$^2$"),
+  distractors=[D(val(1700, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
      "Aquesta és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base quadrada."),
    D(val(625, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
@@ -624,11 +624,11 @@ Q("179a", 179, "a", B2, "A",
      "l'àrea lateral."),
    D(val(3400, 2, "m$^2$"), "SIGNE_TERME_INDEPENDENT",
      "Sembla que no has dividit per $2$ l'àrea lateral.")],
-  [P1_PIRAMIDE,
+  pistes=[P1_PIRAMIDE,
    "Perímetre de la base: $4\\cdot25=100$ m. Llavors "
    "$A_{\\text{base}}=25^2$ i "
    "$A_{\\text{lateral}}=\\dfrac{100\\cdot34}{2}$."],
-  [r"$A_{\text{base}}=25^2=625$ m$^2$",
+  resolucio=[r"$A_{\text{base}}=25^2=625$ m$^2$",
    r"$A_{\text{lateral}}=\dfrac{100\cdot34}{2}=1700$ m$^2$",
    "$A_{\\text{total}}=625+1700=2325$ m$^2$"],
   figura=piramide_regular(4, 25, apotema_piramide=34, etq_costat="25 m",
@@ -636,12 +636,12 @@ Q("179a", 179, "a", B2, "A",
   ex_text="Dues piràmides regulars.")
 
 # 179b: piramide hexagonal costat 6 altura 9 -> Atot~280.59
-Q("179b", 179, "b", B2, "A",
-  "Una piràmide hexagonal regular té la base de costat $6$ m i "
+Q("179b", 179, "b", B2, tipus="A",
+  enunciat="Una piràmide hexagonal regular té la base de costat $6$ m i "
   "l'altura de la piràmide (no l'apotema) fa $9$ m. Calcula la "
   "seva àrea total.",
-  apx(280.59, 2, "m$^2$"),
-  [D(apx(187.06, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(280.59, 2, "m$^2$"),
+  distractors=[D(apx(187.06, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base hexagonal."),
    D(apx(93.53, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
@@ -652,11 +652,11 @@ Q("179b", 179, "b", B2, "A",
      "($9$ m) com si fos l'apotema de la piràmide en comptes de "
      "calcular-la amb Pitàgores a partir de l'altura i l'apotema "
      "de la base.")],
-  [P1_ALTURA,
+  pistes=[P1_ALTURA,
    "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. "
    "Apotema de la piràmide: $\\sqrt{9^2+a_{\\text{base}}^2}$. Després, "
    "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."],
-  [r"$a_{\text{base}}\approx5{,}2$ m",
+  resolucio=[r"$a_{\text{base}}\approx5{,}2$ m",
    r"$A_{\text{base}}=\dfrac{36\cdot5{,}2}{2}\approx93{,}53$ m$^2$",
    r"$a_{\text{piràmide}}=\sqrt{9^2+5{,}2^2}\approx10{,}39$ m",
    r"$A_{\text{lateral}}=\dfrac{36\cdot10{,}39}{2}\approx187{,}06$ m$^2$",
@@ -670,10 +670,10 @@ E180 = "Calcula l'àrea total d'un tetraedre regular d'aresta:"
 for qid, letra, L, area in [
         ("180a", "a", 3, 15.59), ("180b", "b", 5, 43.30),
         ("180c", "c", 9, 140.30), ("180d", "d", 6.2, 66.58)]:
-    Q(qid, 180, letra, B2, "A",
-      f"{E180} ${dz(L)}$ cm.",
-      apx(area, 2, "cm$^2$"),
-      [D(apx(area / 4, 2, "cm$^2$"), "FACTOR_OBLIDAT",
+    Q(qid, 180, letra, B2, tipus="A",
+      enunciat=f"{E180} ${dz(L)}$ cm.",
+      correcta=apx(area, 2, "cm$^2$"),
+      distractors=[D(apx(area / 4, 2, "cm$^2$"), "FACTOR_OBLIDAT",
          "Un tetraedre regular té $4$ cares triangulars iguals, "
          "no $1$: aquest valor només és l'àrea d'UNA cara."),
        D(apx(L ** 2, 2, "cm$^2$"), "ARREL_MAL_APLICADA",
@@ -682,22 +682,22 @@ for qid, letra, L, area in [
        D(apx(2 * L ** 2 * SQRT3, 2, "cm$^2$"), "PRODUCTE_MAL",
          "Aquest valor duplica el resultat correcte: un tetraedre "
          "té $4$ cares (factor $4$), no $8$.")],
-      ["Cada cara és un triangle equilàter d'àrea "
+      pistes=["Cada cara és un triangle equilàter d'àrea "
        f"$\\dfrac{{L^2\\sqrt3}}{{4}}$, i n'hi ha $4$ d'iguals.",
        f"Les quatre cares juntes: $A=4\\cdot\\dfrac{{L^2\\sqrt3}}{{4}}=L^2\\sqrt3$. "
        f"Aquí $L={dz(L)}$ cm: no t'oblidis de l'arrel."],
-      [f"$A=L^2\\sqrt3={dz(L)}^2\\cdot\\sqrt3$",
+      resolucio=[f"$A=L^2\\sqrt3={dz(L)}^2\\cdot\\sqrt3$",
        f"$A\\approx{dz(area)}$ cm$^2$"],
       figura=tetraedre(L),
       ex_text=E180)
 
 # ---- exercici 181: dues piràmides (quadrangular i hexagonal) ----
 # 181a: piramide quadrangular costat 8 altura 10 -> Atot~236.33
-Q("181a", 181, "a", B2, "A",
-  "Una piràmide quadrangular regular té la base de costat $8$ m i "
+Q("181a", 181, "a", B2, tipus="A",
+  enunciat="Una piràmide quadrangular regular té la base de costat $8$ m i "
   "l'altura (no l'apotema) fa $10$ m. Calcula la seva àrea total.",
-  apx(236.33, 2, "m$^2$"),
-  [D(apx(172.33, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(236.33, 2, "m$^2$"),
+  distractors=[D(apx(172.33, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base quadrada."),
    D(apx(64, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
@@ -707,11 +707,11 @@ Q("181a", 181, "a", B2, "A",
      "Sembla que has fet servir directament l'altura de la "
      "piràmide ($10$ m) com a apotema de la piràmide, sense "
      "aplicar Pitàgores amb l'apotema de la base.")],
-  [P1_ALTURA,
+  pistes=[P1_ALTURA,
    "En una base quadrada, l'apotema és la meitat del costat: $4$ m. "
    "Apotema de la piràmide: $\\sqrt{10^2+4^2}$. Després, "
    "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $4\\cdot8=32$ m."],
-  [r"$a_{\text{piràmide}}=\sqrt{10^2+4^2}\approx10{,}77$ m",
+  resolucio=[r"$a_{\text{piràmide}}=\sqrt{10^2+4^2}\approx10{,}77$ m",
    r"$A_{\text{lateral}}=\dfrac{32\cdot10{,}77}{2}\approx172{,}33$ m$^2$",
    "$A_{\\text{total}}\\approx64+172{,}33\\approx236{,}33$ m$^2$"],
   figura=piramide_regular(4, 8, altura=10, etq_costat="8 m", etq_altura="10 m"),
@@ -719,11 +719,11 @@ Q("181a", 181, "a", B2, "A",
 
 # 181b: piramide hexagonal costat 6 altura 8 -> Atot~265.24 (vegeu nota
 # de capçalera: precisió completa, sense arrodonir passos intermedis)
-Q("181b", 181, "b", B2, "A",
-  "Una piràmide hexagonal regular té la base de costat $6$ m i "
+Q("181b", 181, "b", B2, tipus="A",
+  enunciat="Una piràmide hexagonal regular té la base de costat $6$ m i "
   "l'altura (no l'apotema) fa $8$ m. Calcula la seva àrea total.",
-  apx(265.24, 2, "m$^2$"),
-  [D(apx(171.71, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(265.24, 2, "m$^2$"),
+  distractors=[D(apx(171.71, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base hexagonal."),
    D(apx(93.53, 2, "m$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
@@ -733,11 +733,11 @@ Q("181b", 181, "b", B2, "A",
      "Sembla que has fet servir directament l'altura de la "
      "piràmide ($8$ m) com a apotema de la piràmide, sense aplicar "
      "Pitàgores amb l'apotema de la base.")],
-  [P1_ALTURA,
+  pistes=[P1_ALTURA,
    "Apotema de la base: $a_{\\text{base}}=\\dfrac{6\\sqrt3}{2}$. "
    "Apotema de la piràmide: $\\sqrt{8^2+a_{\\text{base}}^2}$. Després, "
    "$A_{\\text{base}}+A_{\\text{lateral}}$, amb perímetre $6\\cdot6=36$ m."],
-  [r"$a_{\text{base}}\approx5{,}2$ m",
+  resolucio=[r"$a_{\text{base}}\approx5{,}2$ m",
    r"$a_{\text{piràmide}}=\sqrt{8^2+5{,}2^2}\approx9{,}54$ m",
    r"$A_{\text{lateral}}\approx\dfrac{36\cdot9{,}54}{2}\approx171{,}71$ m$^2$",
    "$A_{\\text{total}}\\approx93{,}53+171{,}71\\approx265{,}24$ m$^2$"],
@@ -746,11 +746,11 @@ Q("181b", 181, "b", B2, "A",
 
 # ---- exercici 182: cub amb la mateixa àrea total que una piràmide ----
 # piramide amb Atot=4 -> cub L=sqrt(4/6)~0.82
-Q("182", 182, "", B2, "A",
-  "Quina aresta té un cub que té la mateixa àrea total que una "
+Q("182", 182, "", B2, tipus="A",
+  enunciat="Quina aresta té un cub que té la mateixa àrea total que una "
   "piràmide d'àrea total $4$ cm$^2$?",
-  apx(0.82, 2, "cm"),
-  [D(val(4, 2, "cm"), "ARREL_OBLIDADA",
+  correcta=apx(0.82, 2, "cm"),
+  distractors=[D(val(4, 2, "cm"), "ARREL_OBLIDADA",
      "L'àrea total del cub no és directament l'aresta: cal aïllar "
      "$L$ de $6L^2=4$, no fer servir $4$ directament com a aresta."),
    D(apx(0.67, 2, "cm"), "ARREL_MAL_APLICADA",
@@ -759,19 +759,19 @@ Q("182", 182, "", B2, "A",
    D(val(24, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "Sembla que has multiplicat $4\\cdot6$ en lloc de dividir "
      "$4:6$: la relació és $6L^2=4$, per tant $L^2=4:6$.")],
-  ["Un cub d'aresta $L$ té àrea total $6L^2$; iguala-la a $4$ cm$^2$.",
+  pistes=["Un cub d'aresta $L$ té àrea total $6L^2$; iguala-la a $4$ cm$^2$.",
    "Aïlla $L$: $L^2=4:6$."],
-  [r"$6L^2=4 \Rightarrow L^2=4:6\approx0{,}67$",
+  resolucio=[r"$6L^2=4 \Rightarrow L^2=4:6\approx0{,}67$",
    r"$L=\sqrt{0{,}67}\approx0{,}82$ cm"])
 
 # ---- exercici 183: tetraedre amb la mateixa àrea que una piràmide ----
 # piramide hexagonal aresta 3, apotema piramide 10 -> Atot~113.38
-Q("183", 183, "", B2, "A",
-  "Una piràmide hexagonal regular té la base de costat $3$ cm i "
+Q("183", 183, "", B2, tipus="A",
+  enunciat="Una piràmide hexagonal regular té la base de costat $3$ cm i "
   "l'apotema de la piràmide fa $10$ cm. Quina aresta ha de tenir un "
   "tetraedre regular perquè la seva àrea total sigui la mateixa?",
-  apx(8.09, 2, "cm"),
-  [D(apx(113.38, 2, "cm"), "ARREL_OBLIDADA",
+  correcta=apx(8.09, 2, "cm"),
+  distractors=[D(apx(113.38, 2, "cm"), "ARREL_OBLIDADA",
      "Aquesta és l'àrea total de la piràmide (en cm$^2$), no "
      "l'aresta del tetraedre: encara falta aïllar $L$ de "
      "$L^2\\sqrt3\\approx113{,}38$."),
@@ -781,14 +781,14 @@ Q("183", 183, "", B2, "A",
    D(apx(6.53, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "No coincideix amb $\\sqrt{113{,}38:\\sqrt3}$: comprova que "
      "divideixes per $\\sqrt3$ (no per $3$) abans de fer l'arrel.")],
-  ["Primer calcula l'àrea total de la piràmide (base més lateral); "
+  pistes=["Primer calcula l'àrea total de la piràmide (base més lateral); "
    "després busca l'aresta $L$ del tetraedre que té aquesta mateixa "
    "àrea.",
    "Apotema de la base: $a_{\\text{base}}=\\dfrac{3\\sqrt3}{2}$; "
    "perímetre: $6\\cdot3=18$ cm. Llavors $A_{\\text{piràmide}}="
    "\\dfrac{18\\cdot a_{\\text{base}}}{2}+\\dfrac{18\\cdot10}{2}$.",
    "Iguala aquesta àrea a la del tetraedre, $L^2\\sqrt3$, i aïlla $L$."],
-  [r"$a_{\text{base}}\approx2{,}6$ cm; "
+  resolucio=[r"$a_{\text{base}}\approx2{,}6$ cm; "
    r"$A_{\text{base}}\approx23{,}38$ cm$^2$",
    r"$A_{\text{lateral}}=\dfrac{18\cdot10}{2}=90$ cm$^2$",
    r"$A_{\text{total,piràmide}}\approx23{,}38+90\approx113{,}38$ cm$^2$",
@@ -806,13 +806,13 @@ Q("183", 183, "", B2, "A",
 # S'usa π ≈ 3,14, la mateixa aproximació que fa servir `r-im10.tex`.
 
 # ---- exercici 184: cilindre h=9 cm, diàmetre=6 cm (desenvolupament pla) ----
-Q("184", 184, "", B3, "A",
-  "Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. "
+Q("184", 184, "", B3, tipus="A",
+  enunciat="Un cilindre té $9$ cm d'altura i $6$ cm de diàmetre de la base. "
   "En dibuixar-ne el desenvolupament pla, el rectangle lateral té "
   "una amplada igual a la longitud de la circumferència de la "
   "base. Calcula aquesta longitud.",
-  apx(18.84, 2, "cm"),
-  [D(apx(9.42, 2, "cm"), "FACTOR_OBLIDAT",
+  correcta=apx(18.84, 2, "cm"),
+  distractors=[D(apx(9.42, 2, "cm"), "FACTOR_OBLIDAT",
      "Has fet servir el radi ($3$ cm) en lloc del diàmetre a la "
      "fórmula: la longitud és $L=2\\pi r=\\pi d$, comprova que "
      "multipliques per $2$ el radi, o directament pel diàmetre."),
@@ -823,19 +823,19 @@ Q("184", 184, "", B3, "A",
      "Aquest valor no fa servir $\\pi$: la longitud d'una "
      "circumferència sempre és $2\\pi r$, no un simple producte "
      "de nombres enters.")],
-  ["El diàmetre és $6$ cm, així que el radi és $3$ cm.",
+  pistes=["El diàmetre és $6$ cm, així que el radi és $3$ cm.",
    "La longitud de la circumferència és $L=2\\pi r$."],
-  [r"$L=2\pi r=2\cdot3{,}14\cdot3$",
+  resolucio=[r"$L=2\pi r=2\cdot3{,}14\cdot3$",
    "$L\\approx18{,}84$ cm"],
   figura=cilindre(diametre=6, altura=9))
 
 # ---- exercici 185: dos cilindres, àrea total ----
 # 185a: r=7 h=10
-Q("185a", 185, "a", B3, "A",
-  "Calcula l'àrea total d'un cilindre de radi $7$ m i altura "
+Q("185a", 185, "a", B3, tipus="A",
+  enunciat="Calcula l'àrea total d'un cilindre de radi $7$ m i altura "
   "$10$ m.",
-  apx(747.32, 2, "m$^2$"),
-  [D(apx(439.6, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(747.32, 2, "m$^2$"),
+  distractors=[D(apx(439.6, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "les dues bases circulars."),
    D(apx(593.46, 2, "m$^2$"), "FACTOR_OBLIDAT",
@@ -845,19 +845,19 @@ Q("185a", 185, "a", B3, "A",
      "No coincideix amb $2\\pi\\cdot7^2+2\\pi\\cdot7\\cdot10$: "
      "sembla que t'has deixat un factor $2$ en algun dels dos "
      "termes.")],
-  ["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx153{,}86$ m$^2$.",
+  pistes=["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx153{,}86$ m$^2$.",
    "Àrea lateral: $A_{\\text{lateral}}=2\\pi rh\\approx439{,}6$ m$^2$."],
-  [r"$A_{\text{base}}=\pi\cdot7^2\approx153{,}86$ m$^2$",
+  resolucio=[r"$A_{\text{base}}=\pi\cdot7^2\approx153{,}86$ m$^2$",
    r"$A_{\text{lateral}}=2\pi\cdot7\cdot10\approx439{,}6$ m$^2$",
    "$A_{\\text{total}}\\approx2\\cdot153{,}86+439{,}6\\approx747{,}32$ m$^2$"],
   figura=cilindre(radi=7, altura=10, etq_radi="7 m", etq_altura="10 m"))
 
 # 185b: diametre=12 (r=6) h=5
-Q("185b", 185, "b", B3, "A",
-  "Calcula l'àrea total d'un cilindre de diàmetre de la base "
+Q("185b", 185, "b", B3, tipus="A",
+  enunciat="Calcula l'àrea total d'un cilindre de diàmetre de la base "
   "$12$ m i altura $5$ m.",
-  apx(414.48, 2, "m$^2$"),
-  [D(apx(188.4, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(414.48, 2, "m$^2$"),
+  distractors=[D(apx(188.4, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "les dues bases circulars."),
    D(apx(301.44, 2, "m$^2$"), "FACTOR_OBLIDAT",
@@ -866,21 +866,21 @@ Q("185b", 185, "b", B3, "A",
    D(apx(583.36, 2, "m$^2$"), "SIGNE_TERME_INDEPENDENT",
      "Sembla que has fet servir el diàmetre ($12$ m) directament "
      "com a radi: el radi és la meitat del diàmetre, $6$ m.")],
-  ["El radi és la meitat del diàmetre: $12:2=6$ m.",
+  pistes=["El radi és la meitat del diàmetre: $12:2=6$ m.",
    "Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx113{,}04$ m$^2$.",
    "Àrea lateral: $A_{\\text{lateral}}=2\\pi rh\\approx188{,}4$ m$^2$."],
-  [r"$r=12:2=6$ m",
+  resolucio=[r"$r=12:2=6$ m",
    r"$A_{\text{base}}=\pi\cdot6^2\approx113{,}04$ m$^2$",
    r"$A_{\text{lateral}}=2\pi\cdot6\cdot5\approx188{,}4$ m$^2$",
    "$A_{\\text{total}}\\approx2\\cdot113{,}04+188{,}4\\approx414{,}48$ m$^2$"],
   figura=cilindre(diametre=12, altura=5, etq_radi="12 m", etq_altura="5 m"))
 
 # ---- exercici 186: cilindre Alat=756,6 cm^2, r=10 cm -> h ----
-Q("186", 186, "", B3, "A",
-  "L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. "
+Q("186", 186, "", B3, tipus="A",
+  enunciat="L'àrea lateral d'un cilindre de radi $10$ cm és $756{,}6$ cm$^2$. "
   "Calcula la seva altura.",
-  apx(12.05, 2, "cm"),
-  [D(val(75.66, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
+  correcta=apx(12.05, 2, "cm"),
+  distractors=[D(val(75.66, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "No has dividit pel producte complet $2\\pi r$: cal dividir "
      "$756{,}6$ entre $2\\cdot3{,}14\\cdot10$, no només entre $10$."),
    D(apx(24.09, 2, "cm"), "FACTOR_OBLIDAT",
@@ -890,18 +890,18 @@ Q("186", 186, "", B3, "A",
    D(apx(240.95, 2, "cm"), "ARREL_MAL_APLICADA",
      "No coincideix amb $756{,}6:(2\\pi\\cdot10)$: revisa el "
      "denominador complet abans de dividir.")],
-  ["L'àrea lateral d'un cilindre és $A_{\\text{lateral}}=2\\pi rh$.",
+  pistes=["L'àrea lateral d'un cilindre és $A_{\\text{lateral}}=2\\pi rh$.",
    "Aïlla $h$: $h=\\dfrac{A_{\\text{lateral}}}{2\\pi r}$."],
-  [r"$h=\dfrac{756{,}6}{2\cdot3{,}14\cdot10}$",
+  resolucio=[r"$h=\dfrac{756{,}6}{2\cdot3{,}14\cdot10}$",
    "$h\\approx12{,}05$ cm"],
   figura=cilindre(radi=10, altura=0, etq_altura="h"))
 
 # ---- exercici 187: cilindre Atot=471, altura=2·radi -> r, h ----
-Q("187", 187, "", B3, "A",
-  "L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és "
+Q("187", 187, "", B3, tipus="A",
+  enunciat="L'àrea total d'un cilindre és $471$ cm$^2$ i la seva altura és "
   "el doble del radi. Calcula el radi i l'altura del cilindre.",
-  r"$r=5$ cm, $h=10$ cm",
-  [D(r"$r=10$ cm, $h=5$ cm", "PAPERS_INTERCANVIATS",
+  correcta=r"$r=5$ cm, $h=10$ cm",
+  distractors=[D(r"$r=10$ cm, $h=5$ cm", "PAPERS_INTERCANVIATS",
      "Has intercanviat els papers del radi i l'altura: l'enunciat "
      "diu que l'altura és el DOBLE del radi, no al revés."),
    D(r"$r=2{,}5$ cm, $h=5$ cm", "ARREL_MAL_APLICADA",
@@ -912,21 +912,21 @@ Q("187", 187, "", B3, "A",
      "No coincideix amb aïllar $r$ de $6\\pi r^2=471$: comprova "
      "que divideixes per $6\\pi$ (no per un altre factor) abans "
      "de fer l'arrel quadrada.")],
-  ["Amb $h=2r$: $A_{\\text{total}}=2\\pi r^2+2\\pi r\\cdot2r"
+  pistes=["Amb $h=2r$: $A_{\\text{total}}=2\\pi r^2+2\\pi r\\cdot2r"
    "=6\\pi r^2$.",
    "Aïlla $r^2=\\dfrac{471}{6\\pi}$ i fes l'arrel quadrada."],
-  [r"$6\pi r^2=471 \Rightarrow r^2=\dfrac{471}{6\cdot3{,}14}=25$",
+  resolucio=[r"$6\pi r^2=471 \Rightarrow r^2=\dfrac{471}{6\cdot3{,}14}=25$",
    "$r=\\sqrt{25}=5$ cm $\\Rightarrow h=2\\cdot5=10$ cm"],
   figura=cilindre(radi=0, altura=0, etq_radi="r", etq_altura="2r"))
 
 # ---- exercici 188: con r=4 cm, generatriu=15 cm ----
-Q("188", 188, "", B3, "A",
-  "Un con té $4$ cm de radi de la base i $15$ cm de generatriu. "
+Q("188", 188, "", B3, tipus="A",
+  enunciat="Un con té $4$ cm de radi de la base i $15$ cm de generatriu. "
   "Calcula la longitud de l'arc que descriu la base en desplegar "
   "la superfície lateral del con (és a dir, la longitud de la "
   "circumferència de la base).",
-  apx(25.12, 2, "cm"),
-  [D(apx(94.2, 2, "cm"), "FACTOR_OBLIDAT",
+  correcta=apx(25.12, 2, "cm"),
+  distractors=[D(apx(94.2, 2, "cm"), "FACTOR_OBLIDAT",
      "Aquest valor fa servir la generatriu ($15$ cm) com a radi: "
      "la longitud de la circumferència de la base depèn del radi "
      "de la base ($4$ cm), no de la generatriu."),
@@ -936,19 +936,19 @@ Q("188", 188, "", B3, "A",
    D(val(19, 2, "cm"), "PI_OBLIDAT",
      "Aquest valor no fa servir $\\pi$: la longitud d'una "
      "circumferència sempre és $2\\pi r$.")],
-  ["La circumferència de la base d'un con té radi igual al radi "
+  pistes=["La circumferència de la base d'un con té radi igual al radi "
    "del con, $4$ cm (la generatriu no hi intervé).",
    "Longitud: $L=2\\pi r$."],
-  [r"$L=2\pi r=2\cdot3{,}14\cdot4$",
+  resolucio=[r"$L=2\pi r=2\cdot3{,}14\cdot4$",
    "$L\\approx25{,}12$ cm"],
   figura=con(radi=4, generatriu=15))
 
 # ---- exercici 189: con diàmetre=8 cm, generatriu=12 cm -> Atot ----
-Q("189", 189, "", B3, "A",
-  "Calcula l'àrea total d'un con de $8$ cm de diàmetre de la base "
+Q("189", 189, "", B3, tipus="A",
+  enunciat="Calcula l'àrea total d'un con de $8$ cm de diàmetre de la base "
   "i $12$ cm de generatriu.",
-  apx(200.96, 2, "cm$^2$"),
-  [D(apx(150.72, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=apx(200.96, 2, "cm$^2$"),
+  distractors=[D(apx(150.72, 2, "cm$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Aquest valor és només l'àrea lateral: encara falta sumar-hi "
      "l'àrea de la base circular."),
    D(apx(50.24, 2, "cm$^2$"), "SUMA_DE_PARTS_INCOMPLETA",
@@ -958,21 +958,21 @@ Q("189", 189, "", B3, "A",
      "Sembla que has fet servir el diàmetre ($8$ cm) directament "
      "com a radi: el radi de la base és la meitat del diàmetre, "
      "$4$ cm.")],
-  ["El radi de la base és la meitat del diàmetre: $4$ cm.",
+  pistes=["El radi de la base és la meitat del diàmetre: $4$ cm.",
    "$A_{\\text{base}}=\\pi r^2\\approx50{,}24$ cm$^2$; "
    "$A_{\\text{lateral}}=\\pi rg\\approx150{,}72$ cm$^2$."],
-  [r"$r=8:2=4$ cm",
+  resolucio=[r"$r=8:2=4$ cm",
    r"$A_{\text{base}}=\pi\cdot4^2\approx50{,}24$ cm$^2$",
    r"$A_{\text{lateral}}=\pi\cdot4\cdot12\approx150{,}72$ cm$^2$",
    "$A_{\\text{total}}\\approx50{,}24+150{,}72\\approx200{,}96$ cm$^2$"],
   figura=con(diametre=8, generatriu=12))
 
 # ---- exercici 190: con generatriu=13 cm, radi=5 cm -> altura ----
-Q("190", 190, "", B3, "A",
-  "Un con té $13$ cm de generatriu i $5$ cm de radi de la base. "
+Q("190", 190, "", B3, tipus="A",
+  enunciat="Un con té $13$ cm de generatriu i $5$ cm de radi de la base. "
   "Calcula la seva altura.",
-  val(12, 2, "cm"),
-  [D(val(18, 2, "cm"), "SIGNE_TERME_INDEPENDENT",
+  correcta=val(12, 2, "cm"),
+  distractors=[D(val(18, 2, "cm"), "SIGNE_TERME_INDEPENDENT",
      "Has sumat generatriu i radi ($13+5$) en lloc d'aplicar "
      "Pitàgores: l'altura, el radi i la generatriu formen un "
      "triangle rectangle amb la generatriu com a hipotenusa."),
@@ -983,18 +983,18 @@ Q("190", 190, "", B3, "A",
    D(apx(13.93, 2, "cm"), "ARREL_MAL_APLICADA",
      "No coincideix amb $\\sqrt{13^2-5^2}$: comprova que restes "
      "$r^2$ de $g^2$ (no que els sumis) abans de fer l'arrel.")],
-  ["En un con, la generatriu $g$, el radi $r$ i l'altura $h$ "
+  pistes=["En un con, la generatriu $g$, el radi $r$ i l'altura $h$ "
    "compleixen $g^2=r^2+h^2$ (Pitàgores).",
    "Aïlla $h$: $h=\\sqrt{g^2-r^2}$."],
-  [r"$h=\sqrt{13^2-5^2}=\sqrt{169-25}=\sqrt{144}$",
+  resolucio=[r"$h=\sqrt{13^2-5^2}=\sqrt{169-25}=\sqrt{144}$",
    "$h=12$ cm"],
   figura=con(radi=5, generatriu=13))
 
 # ---- exercici 191: esfera d'àrea 803,84 cm^2 -> radi ----
-Q("191", 191, "", B3, "A",
-  "L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.",
-  val(8, 2, "cm"),
-  [D(val(64, 2, "cm"), "ARREL_OBLIDADA",
+Q("191", 191, "", B3, tipus="A",
+  enunciat="L'àrea d'una esfera és $803{,}84$ cm$^2$. Calcula el seu radi.",
+  correcta=val(8, 2, "cm"),
+  distractors=[D(val(64, 2, "cm"), "ARREL_OBLIDADA",
      "Aquest és el valor de $r^2$ ($803{,}84:4\\pi$), no de $r$: "
      "encara falta fer l'arrel quadrada."),
    D(apx(15.98, 2, "cm"), "FACTOR_OBLIDAT",
@@ -1004,9 +1004,9 @@ Q("191", 191, "", B3, "A",
    D(apx(200.96, 2, "cm"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "No coincideix amb aïllar $r$ de $4\\pi r^2=803{,}84$: "
      "comprova que divideixes (no multipliques) per $4\\pi$.")],
-  ["L'àrea d'una esfera és $A=4\\pi r^2$.",
+  pistes=["L'àrea d'una esfera és $A=4\\pi r^2$.",
    "Aïlla $r^2=\\dfrac{A}{4\\pi}$ i fes l'arrel quadrada."],
-  [r"$r^2=\dfrac{803{,}84}{4\cdot3{,}14}=64$",
+  resolucio=[r"$r^2=\dfrac{803{,}84}{4\cdot3{,}14}=64$",
    "$r=\\sqrt{64}=8$ cm"],
   figura=esfera(0, etq_radi="r"))
 
@@ -1023,11 +1023,11 @@ E193 = ("Un cilindre té radi $10$ cm i altura $10$ cm. Es vol "
         "construir un con amb el mateix radi de base.")
 
 # 193a: mateixa Alat -> g=20
-Q("193a", 193, "a", B3, "A",
-  f"{E193} Quina generatriu ha de tenir el con perquè la seva àrea "
+Q("193a", 193, "a", B3, tipus="A",
+  enunciat=f"{E193} Quina generatriu ha de tenir el con perquè la seva àrea "
   "lateral coincideixi amb l'àrea lateral del cilindre?",
-  val(20, 2, "cm"),
-  [D(val(10, 2, "cm"), "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta=val(20, 2, "cm"),
+  distractors=[D(val(10, 2, "cm"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest valor és el radi, no la generatriu que fa que "
      "coincideixin les àrees laterals: cal igualar "
      "$2\\pi rh_{\\text{cil}}=\\pi rg$ i aïllar $g$."),
@@ -1039,20 +1039,20 @@ Q("193a", 193, "a", B3, "A",
      "Aquest exercici no necessita cap arrel quadrada: l'àrea "
      "lateral del con és lineal en $g$, no hi intervé cap "
      "Pitàgores en aquest apartat.")],
-  ["Àrea lateral del cilindre: $A_{\\text{lateral,cil}}=2\\pi rh"
+  pistes=["Àrea lateral del cilindre: $A_{\\text{lateral,cil}}=2\\pi rh"
    "\\approx628$ cm$^2$.",
    "Iguala-la a l'àrea lateral del con, $\\pi rg$, i aïlla $g$."],
-  [r"$2\pi\cdot10\cdot10=\pi\cdot10\cdot g$",
+  resolucio=[r"$2\pi\cdot10\cdot10=\pi\cdot10\cdot g$",
    "$g=\\dfrac{2\\cdot10\\cdot10}{10}=20$ cm"],
   figura=cilindre(radi=10, altura=10),
   ex_text=E193)
 
 # 193b: mateixa Atot -> g=30
-Q("193b", 193, "b", B3, "A",
-  f"{E193} Quina generatriu ha de tenir el con perquè la seva àrea "
+Q("193b", 193, "b", B3, tipus="A",
+  enunciat=f"{E193} Quina generatriu ha de tenir el con perquè la seva àrea "
   "total coincideixi amb l'àrea total del cilindre?",
-  val(30, 2, "cm"),
-  [D(val(20, 2, "cm"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(30, 2, "cm"),
+  distractors=[D(val(20, 2, "cm"), "TERME_OBLIDAT_OPERACIO",
      "Aquest és el valor de l'apartat anterior (igualant només les "
      "àrees laterals): aquí cal igualar les àrees TOTALS, que "
      "també inclouen les bases circulars."),
@@ -1063,12 +1063,12 @@ Q("193b", 193, "b", B3, "A",
    D(val(60, 2, "cm"), "PRODUCTE_MAL",
      "Duplica el resultat correcte: revisa el pas d'aïllar $g$ "
      "després de simplificar $r$ a banda i banda de l'equació.")],
-  ["Àrea total del cilindre: $A_{\\text{total,cil}}=2\\pi r^2+2\\pi rh"
+  pistes=["Àrea total del cilindre: $A_{\\text{total,cil}}=2\\pi r^2+2\\pi rh"
    "\\approx1256$ cm$^2$.",
    "Iguala-la a l'àrea total del con, $\\pi r^2+\\pi rg$, i aïlla $g$: "
    "com que les dues tenen una base $\\pi r^2$ igual, es "
    "simplifica a $\\pi rg=2\\pi r^2+2\\pi rh-\\pi r^2$."],
-  [r"$\pi\cdot10^2+\pi\cdot10\cdot g=2\pi\cdot10^2+2\pi\cdot10\cdot10$",
+  resolucio=[r"$\pi\cdot10^2+\pi\cdot10\cdot g=2\pi\cdot10^2+2\pi\cdot10\cdot10$",
    r"$10g=2\cdot10^2+2\cdot10\cdot10-10^2=300$",
    "$g=30$ cm"],
   figura=cilindre(radi=10, altura=10),
@@ -1078,11 +1078,11 @@ Q("193b", 193, "b", B3, "A",
 E195 = "Calcula el volum d'aquest cos geomètric:"
 
 # 195a: piramide quadrangular base 4x4 altura 2 -> V=32/3~10.67
-Q("195a", 195, "a", B4, "A",
-  f"{E195} una piràmide quadrangular regular de costat de base "
+Q("195a", 195, "a", B4, tipus="A",
+  enunciat=f"{E195} una piràmide quadrangular regular de costat de base "
   "$4$ cm i altura $2$ cm.",
-  apx(10.67, 2, "cm$^3$"),
-  [D(val(32, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
+  correcta=apx(10.67, 2, "cm$^3$"),
+  distractors=[D(val(32, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
      "No has dividit entre $3$: el volum d'una piràmide és "
      "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$, no "
      "$A_{\\text{base}}\\cdot h$ sense dividir."),
@@ -1093,9 +1093,9 @@ Q("195a", 195, "a", B4, "A",
      "L'àrea de la base d'un quadrat de costat $4$ cm és "
      "$16$ cm$^2$, no $4$ cm$^2$: comprova que has elevat el "
      "costat al quadrat.")],
-  ["Àrea de la base: $A_{\\text{base}}=4^2=16$ cm$^2$.",
+  pistes=["Àrea de la base: $A_{\\text{base}}=4^2=16$ cm$^2$.",
    "Volum d'una piràmide: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
-  [r"$V=\dfrac{16\cdot2}{3}$",
+  resolucio=[r"$V=\dfrac{16\cdot2}{3}$",
    "$V\\approx10{,}67$ cm$^3$"],
   figura=piramide_regular(4, 4, altura=2),
   ex_text=E195,
@@ -1103,10 +1103,10 @@ Q("195a", 195, "a", B4, "A",
        "cossos que no es poden identificar amb seguretat sense la figura.")
 
 # 195c: cilindre r=4 h=4 -> V~200.96
-Q("195c", 195, "c", B4, "A",
-  f"{E195} un cilindre de radi $4$ cm i altura $4$ cm.",
-  apx(200.96, 2, "cm$^3$"),
-  [D(apx(50.24, 2, "cm$^3$"), "FACTOR_OBLIDAT",
+Q("195c", 195, "c", B4, tipus="A",
+  enunciat=f"{E195} un cilindre de radi $4$ cm i altura $4$ cm.",
+  correcta=apx(200.96, 2, "cm$^3$"),
+  distractors=[D(apx(50.24, 2, "cm$^3$"), "FACTOR_OBLIDAT",
      "Aquest valor és l'àrea de la base, no el volum: encara "
      "falta multiplicar-la per l'altura."),
    D(apx(66.99, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
@@ -1115,18 +1115,18 @@ Q("195c", 195, "c", B4, "A",
    D(apx(401.92, 2, "cm$^3$"), "PRODUCTE_MAL",
      "Duplica el resultat correcte: revisa el producte "
      "$\\pi\\cdot4^2\\cdot4$ pas a pas.")],
-  ["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx50{,}24$ cm$^2$.",
+  pistes=["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx50{,}24$ cm$^2$.",
    "Volum d'un cilindre: $V=A_{\\text{base}}\\cdot h$."],
-  [r"$V=\pi\cdot4^2\cdot4$",
+  resolucio=[r"$V=\pi\cdot4^2\cdot4$",
    "$V\\approx200{,}96$ cm$^3$"],
   figura=cilindre(radi=4, altura=4),
   ex_text=E195)
 
 # 195e: con r=1.5 h=5 -> V~11.775 -> 11.78
-Q("195e", 195, "e", B4, "A",
-  f"{E195} un con de radi $1{{,}}5$ cm i altura $5$ cm.",
-  apx(11.78, 2, "cm$^3$"),
-  [D(apx(35.33, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
+Q("195e", 195, "e", B4, tipus="A",
+  enunciat=f"{E195} un con de radi $1{{,}}5$ cm i altura $5$ cm.",
+  correcta=apx(11.78, 2, "cm$^3$"),
+  distractors=[D(apx(35.33, 2, "cm$^3$"), "FACTOR_TRES_VOLUM",
      "No has dividit entre $3$: el volum d'un con és "
      "$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$, no "
      "$A_{\\text{base}}\\cdot h$ sense dividir."),
@@ -1138,18 +1138,18 @@ Q("195e", 195, "e", B4, "A",
      "L'àrea de la base és $\\pi\\cdot1{,}5^2\\approx7{,}07$ "
      "cm$^2$, no $\\pi\\cdot1{,}5\\approx4{,}71$ cm$^2$: comprova "
      "que has elevat el radi al quadrat.")],
-  ["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx7{,}07$ cm$^2$.",
+  pistes=["Àrea de la base: $A_{\\text{base}}=\\pi r^2\\approx7{,}07$ cm$^2$.",
    "Volum d'un con: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$."],
-  [r"$V=\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$",
+  resolucio=[r"$V=\dfrac{\pi\cdot1{,}5^2\cdot5}{3}$",
    "$V\\approx11{,}78$ cm$^3$"],
   figura=con(radi=1.5, altura=5),
   ex_text=E195)
 
 # 195f: cub aresta 4 -> V=64
-Q("195f", 195, "f", B4, "A",
-  f"{E195} un cub d'aresta $4$ cm.",
-  val(64, 2, "cm$^3$"),
-  [D(val(16, 2, "cm$^3$"), "DIMENSIO_EXPONENT_MAL",
+Q("195f", 195, "f", B4, tipus="A",
+  enunciat=f"{E195} un cub d'aresta $4$ cm.",
+  correcta=val(64, 2, "cm$^3$"),
+  distractors=[D(val(16, 2, "cm$^3$"), "DIMENSIO_EXPONENT_MAL",
      "Aquest valor és $4^2$, no $4^3$: el volum d'un cub és "
      "$V=L^3$, no $L^2$."),
    D(val(48, 2, "cm$^3$"), "ORDRE_MULTIPLICACIO_DIVISIO",
@@ -1158,10 +1158,10 @@ Q("195f", 195, "f", B4, "A",
    D(val(96, 2, "cm$^3$"), "PRODUCTE_MAL",
      "No coincideix amb $4^3$: comprova el càlcul de la potència "
      "pas a pas.")],
-  ["El volum d'un cub d'aresta $L$ és $V=L^3$.",
+  pistes=["El volum d'un cub d'aresta $L$ és $V=L^3$.",
    r"$4^3$ vol dir $4\cdot4\cdot4$. Compte: $4^2$ seria l'àrea d'una cara, "
    r"i $6\cdot4^2$, l'àrea de tot el cub."],
-  [r"$V=4^3=4\cdot4\cdot4$",
+  resolucio=[r"$V=4^3=4\cdot4\cdot4$",
    "$V=64$ cm$^3$"],
   figura=cub(4),
   ex_text=E195)
@@ -1172,10 +1172,10 @@ E196 = ("Es vol pintar una habitació de $4$ m per $6$ m i $3$ m "
         "de pintura cobreix $30$ m$^2$.")
 
 # 196a: pots minim necessaris -> 3
-Q("196a", 196, "a", B4, "A",
-  f"{E196} Quants pots de pintura calen com a mínim?",
-  "$3$ pots",
-  [D("$2$ pots", "ARREL_MAL_APLICADA",
+Q("196a", 196, "a", B4, tipus="A",
+  enunciat=f"{E196} Quants pots de pintura calen com a mínim?",
+  correcta="$3$ pots",
+  distractors=[D("$2$ pots", "ARREL_MAL_APLICADA",
      "Amb $2$ pots només es cobreixen $60$ m$^2$, i la superfície "
      "a pintar és més gran que això: torna a calcular l'àrea "
      "total abans de dividir entre $30$."),
@@ -1187,24 +1187,24 @@ Q("196a", 196, "a", B4, "A",
      "Sembla que has comptat alguna superfície de més (per "
      "exemple, el terra, que l'enunciat exclou explícitament): "
      "revisa quines cares s'han de pintar.")],
-  ["Superfície de les parets: $2(4\\cdot3)+2(6\\cdot3)=60$ m$^2$.",
+  pistes=["Superfície de les parets: $2(4\\cdot3)+2(6\\cdot3)=60$ m$^2$.",
    "Superfície del sostre: $4\\cdot6=24$ m$^2$; total $84$ m$^2$ "
    "(el terra no es pinta).",
    "Nombre de pots: $84:30=2{,}8$, i com que amb $2$ pots no "
    "n'hi ha prou, cal arrodonir cap amunt."],
-  [r"$A_{\text{parets}}=2(4\cdot3)+2(6\cdot3)=60$ m$^2$",
+  resolucio=[r"$A_{\text{parets}}=2(4\cdot3)+2(6\cdot3)=60$ m$^2$",
    r"$A_{\text{sostre}}=4\cdot6=24$ m$^2$",
    r"$A_{\text{total}}=60+24=84$ m$^2$",
    r"$84:30=2{,}8 \Rightarrow$ calen $3$ pots"],
   ex_text=E196)
 
 # 196b: si es reparteix Atotal entre 4 pots -> 21 m2/pot
-Q("196b", 196, "b", B4, "A",
-  f"{E196} Si finalment es fan servir $4$ pots per repartir-hi tota "
+Q("196b", 196, "b", B4, tipus="A",
+  enunciat=f"{E196} Si finalment es fan servir $4$ pots per repartir-hi tota "
   "la superfície a parts iguals, quants metres quadrats cobrirà "
   "cada pot?",
-  val(21, 2, "m$^2$"),
-  [D(val(30, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta=val(21, 2, "m$^2$"),
+  distractors=[D(val(30, 2, "m$^2$"), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la cobertura estàndard d'un pot ($30$ m$^2$), no "
      "el resultat de repartir els $84$ m$^2$ totals entre $4$ pots."),
    D(apx(28, 2, "m$^2$"), "FACTOR_OBLIDAT",
@@ -1213,20 +1213,20 @@ Q("196b", 196, "b", B4, "A",
      "($60$ m$^2$)."),
    D(val(6, 2, "m$^2$"), "ORDRE_MULTIPLICACIO_DIVISIO",
      "No coincideix amb $84:4$: revisa la divisió pas a pas.")],
-  ["La superfície total a pintar és $84$ m$^2$ (calculada a "
+  pistes=["La superfície total a pintar és $84$ m$^2$ (calculada a "
    "l'apartat anterior).",
    "Reparteix-la entre els $4$ pots: $84:4$."],
-  [r"$84:4=21$",
+  resolucio=[r"$84:4=21$",
    "$21$ m$^2$ per pot"],
   ex_text=E196)
 
 # ---- exercici 197: piràmide de Kheops ----
-Q("197", 197, "", B4, "A",
-  "La piràmide de Kheops té una base quadrada d'aresta "
+Q("197", 197, "", B4, tipus="A",
+  enunciat="La piràmide de Kheops té una base quadrada d'aresta "
   "$215{,}25$ m i una apotema (de la piràmide) de $179{,}37$ m. "
   "Calcula la seva altura.",
-  apx(143.49, 2, "m"),
-  [D(apx(210.32, 2, "m"), "SIGNE_TERME_INDEPENDENT",
+  correcta=apx(143.49, 2, "m"),
+  distractors=[D(apx(210.32, 2, "m"), "SIGNE_TERME_INDEPENDENT",
      "Has sumat en lloc de restar dins l'arrel: la relació "
      "pitagòrica entre l'altura, l'apotema de la base i l'apotema "
      "de la piràmide és $a_{\\text{piràmide}}^2=a_{\\text{base}}^2"
@@ -1239,26 +1239,26 @@ Q("197", 197, "", B4, "A",
      "No coincideix amb $\\sqrt{179{,}37^2-107{,}625^2}$: revisa "
      "que l'apotema de la BASE (la meitat de l'aresta, "
      "$107{,}625$ m) és el catet que falta, no un altre valor.")],
-  ["L'apotema de la base és la meitat de l'aresta: "
+  pistes=["L'apotema de la base és la meitat de l'aresta: "
    "$215{,}25:2=107{,}625$ m.",
    "L'altura, l'apotema de la base i l'apotema de la piràmide "
    "formen un triangle rectangle: "
    "$a_{\\text{piràmide}}^2=a_{\\text{base}}^2+h^2$."],
-  [r"$h=\sqrt{179{,}37^2-107{,}625^2}$",
+  resolucio=[r"$h=\sqrt{179{,}37^2-107{,}625^2}$",
    "$h\\approx143{,}49$ m"],
   figura=piramide_regular(4, 215.25, apotema_piramide=179.37,
                    etq_costat="215,25 m", etq_apotema="179,37 m"))
 
 # ---- exercici 198: torre (cub + teulada piramidal) ----
-Q("198", 198, "", B4, "A",
-  "Una torre té la forma d'un cub de $10$ m d'aresta (sense la cara "
+Q("198", 198, "", B4, tipus="A",
+  enunciat="Una torre té la forma d'un cub de $10$ m d'aresta (sense la cara "
   "de dalt, que fa de base de la teulada) coronat per una teulada "
   "piramidal de base quadrada igual a la del cub i $12$ m d'altura. "
   "Calcula l'àrea total de la superfície exterior de la torre "
   "(parets del cub, terra del cub i teulada, sense la cara "
   "compartida entre cub i teulada).",
-  val(760, 2, "m$^2$"),
-  [D(val(500, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
+  correcta=val(760, 2, "m$^2$"),
+  distractors=[D(val(500, 2, "m$^2$"), "TERME_OBLIDAT_OPERACIO",
      "Falta sumar-hi l'àrea lateral del cub ($400$ m$^2$) o la "
      "de la teulada ($260$ m$^2$): revisa que hi siguin les tres "
      "peces (parets, terra i teulada)."),
@@ -1272,26 +1272,26 @@ Q("198", 198, "", B4, "A",
      "amb Pitàgores: revisa que l'apotema de la piràmide surt de "
      "$\\sqrt{12^2+5^2}$, amb l'apotema de la base $5$ m (la "
      "meitat de l'aresta $10$ m).")],
-  ["Parets del cub (4 cares laterals): $4\\cdot10^2=400$ m$^2$; "
+  pistes=["Parets del cub (4 cares laterals): $4\\cdot10^2=400$ m$^2$; "
    "terra del cub: $10^2=100$ m$^2$.",
    "Apotema de la teulada (Pitàgores, amb altura $12$ m i "
    "apotema de la base $5$ m): $\\sqrt{12^2+5^2}=13$ m; àrea "
    "lateral de la teulada: $\\dfrac{40\\cdot13}{2}=260$ m$^2$."],
-  [r"$A_{\text{parets}}=4\cdot10^2=400$ m$^2$",
+  resolucio=[r"$A_{\text{parets}}=4\cdot10^2=400$ m$^2$",
    r"$A_{\text{terra}}=10^2=100$ m$^2$",
    r"$a_{\text{teulada}}=\sqrt{12^2+5^2}=13$ m",
    r"$A_{\text{teulada}}=\dfrac{40\cdot13}{2}=260$ m$^2$",
    "$A_{\\text{total}}=400+100+260=760$ m$^2$"])
 
 # ---- exercici 199: cub i esfera del mateix volum ----
-Q("199", 199, "", B4, "A",
-  "Un cub i una esfera tenen el mateix volum, $125$ cm$^3$. Es vol "
+Q("199", 199, "", B4, tipus="A",
+  enunciat="Un cub i una esfera tenen el mateix volum, $125$ cm$^3$. Es vol "
   "saber quin dels dos té l'àrea total més petita (és a dir, amb "
   "quina forma caldria menys material per construir un dipòsit "
   "d'aquest volum). Calcula l'àrea total del cub per començar a "
   "comparar-ho.",
-  val(150, 2, "cm$^2$"),
-  [D(val(125, 2, "cm$^2$"), "ARREL_OBLIDADA",
+  correcta=val(150, 2, "cm$^2$"),
+  distractors=[D(val(125, 2, "cm$^2$"), "ARREL_OBLIDADA",
      "Aquest és el volum, no l'àrea total: primer cal aïllar "
      "l'aresta $L=\\sqrt[3]{125}=5$ cm i després calcular $6L^2$."),
    D(val(25, 2, "cm$^2$"), "FACTOR_OBLIDAT",
@@ -1300,9 +1300,9 @@ Q("199", 199, "", B4, "A",
    D(val(75, 2, "cm$^2$"), "PRODUCTE_MAL",
      "No coincideix amb $6\\cdot5^2$: revisa el producte pas a "
      "pas.")],
-  ["Aresta del cub: $V=L^3=125 \\Rightarrow L=\\sqrt[3]{125}=5$ cm.",
+  pistes=["Aresta del cub: $V=L^3=125 \\Rightarrow L=\\sqrt[3]{125}=5$ cm.",
    "Àrea total del cub: $A=6L^2$."],
-  [r"$L=\sqrt[3]{125}=5$ cm",
+  resolucio=[r"$L=\sqrt[3]{125}=5$ cm",
    r"$A=6\cdot5^2$",
    "$A=150$ cm$^2$",
    r"(Per comparar: l'esfera del mateix volum té radi "
@@ -1330,10 +1330,10 @@ dificultats({
 E334 = ("Calcula el volum d'aquesta piràmide, a partir de les dades "
         "següents. Recorda: $V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.")
 
-Q("334a", 334, "a", B2, "A",
-  r"Àrea de la base $=12$ cm$^2$; altura $=5$ cm.",
-  r"$20$ cm$^3$",
-  [DT(r"$60$ cm$^3$", "FACTOR_TRES_VOLUM",
+Q("334a", 334, "a", B2, tipus="A",
+  enunciat=r"Àrea de la base $=12$ cm$^2$; altura $=5$ cm.",
+  correcta=r"$20$ cm$^3$",
+  distractors=[DT(r"$60$ cm$^3$", "FACTOR_TRES_VOLUM",
       extra="$12\\cdot 5=60$ és el volum del PRISMA de la mateixa base i "
             "altura. La piràmide n'és la tercera part."),
    D(r"$180$ cm$^3$", "FACTOR_TRES_VOLUM",
@@ -1341,42 +1341,42 @@ Q("334a", 334, "a", B2, "A",
      "que el prisma, no tres vegades més gran."),
    DT(r"$17$ cm$^3$", "FORMULA_INVERTIDA",
       extra="Has sumat $12+5$ en lloc de multiplicar.")],
-  ["L'àrea de la base ja te la donen: no l'has de calcular.",
+  pistes=["L'àrea de la base ja te la donen: no l'has de calcular.",
    "$V=\\dfrac{12\\cdot 5}{3}$."],
-  [r"$V=\dfrac{A_{\text{base}}\cdot h}{3}=\dfrac{12\cdot 5}{3}"
+  resolucio=[r"$V=\dfrac{A_{\text{base}}\cdot h}{3}=\dfrac{12\cdot 5}{3}"
    r"=\dfrac{60}{3}=20$ cm$^3$"],
   ex_text=E334,
   figura=piramide_regular(4, 4, altura=5, etq_costat=False,
                           etq_altura="h = 5 cm"))
 
-Q("334b", 334, "b", B2, "A",
-  r"Àrea de la base $=30$ m$^2$; altura $=4$ m.",
-  r"$40$ m$^3$",
-  [DT(r"$120$ m$^3$", "FACTOR_TRES_VOLUM",
+Q("334b", 334, "b", B2, tipus="A",
+  enunciat=r"Àrea de la base $=30$ m$^2$; altura $=4$ m.",
+  correcta=r"$40$ m$^3$",
+  distractors=[DT(r"$120$ m$^3$", "FACTOR_TRES_VOLUM",
       extra="Falta dividir per $3$."),
    D(r"$360$ m$^3$", "FACTOR_TRES_VOLUM",
      "Has multiplicat per $3$ en lloc de dividir."),
    DT(r"$34$ m$^3$", "FORMULA_INVERTIDA",
       extra="Has sumat en lloc de multiplicar.")],
-  ["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+  pistes=["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
    "$\\dfrac{30\\cdot 4}{3}=\\dfrac{120}{3}$."],
-  [r"$V=\dfrac{30\cdot 4}{3}=\dfrac{120}{3}=40$ m$^3$"],
+  resolucio=[r"$V=\dfrac{30\cdot 4}{3}=\dfrac{120}{3}=40$ m$^3$"],
   ex_text=E334,
   figura=piramide_regular(4, 4, altura=4, etq_costat=False,
                           etq_altura="h = 4 m", unitat="m"))
 
-Q("334c", 334, "c", B2, "A",
-  r"Àrea de la base $=9$ cm$^2$; altura $=7$ cm.",
-  r"$21$ cm$^3$",
-  [DT(r"$63$ cm$^3$", "FACTOR_TRES_VOLUM",
+Q("334c", 334, "c", B2, tipus="A",
+  enunciat=r"Àrea de la base $=9$ cm$^2$; altura $=7$ cm.",
+  correcta=r"$21$ cm$^3$",
+  distractors=[DT(r"$63$ cm$^3$", "FACTOR_TRES_VOLUM",
       extra="Falta dividir per $3$."),
    D(r"$189$ cm$^3$", "FACTOR_TRES_VOLUM",
      "Has multiplicat per $3$ en lloc de dividir."),
    DT(r"$16$ cm$^3$", "FORMULA_INVERTIDA",
       extra="Has sumat $9+7$.")],
-  ["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
+  pistes=["$V=\\dfrac{A_{\\text{base}}\\cdot h}{3}$.",
    "$\\dfrac{9\\cdot 7}{3}=\\dfrac{63}{3}$."],
-  [r"$V=\dfrac{9\cdot 7}{3}=\dfrac{63}{3}=21$ cm$^3$"],
+  resolucio=[r"$V=\dfrac{9\cdot 7}{3}=\dfrac{63}{3}=21$ cm$^3$"],
   ex_text=E334,
   figura=piramide_regular(4, 4, altura=7, etq_costat=False,
                           etq_altura="h = 7 cm"))
@@ -1387,10 +1387,10 @@ E335 = ("Calcula l'àrea lateral d'aquesta piràmide de base quadrada, a "
         "$A_{\\text{lat}}=\\dfrac{P_{\\text{base}}\\cdot a_p}{2}$, on $a_p$ "
         "és l'apotema de la piràmide.")
 
-Q("335a", 335, "a", B2, "A",
-  r"Perímetre de la base $=20$ cm; apotema de la piràmide $=6$ cm.",
-  r"$60$ cm$^2$",
-  [DT(r"$120$ cm$^2$", "MEITAT_OBLIDADA",
+Q("335a", 335, "a", B2, tipus="A",
+  enunciat=r"Perímetre de la base $=20$ cm; apotema de la piràmide $=6$ cm.",
+  correcta=r"$60$ cm$^2$",
+  distractors=[DT(r"$120$ cm$^2$", "MEITAT_OBLIDADA",
       extra="$20\\cdot 6=120$; falta dividir per $2$. Les cares laterals "
             "són triangles, i cada triangle porta el seu mig."),
    DT(r"$26$ cm$^2$", "FORMULA_INVERTIDA",
@@ -1398,28 +1398,154 @@ Q("335a", 335, "a", B2, "A",
    D(r"$40$ cm$^2$", "FACTOR_TRES_VOLUM",
      "Has dividit per $3$. El $3$ és de la fórmula del VOLUM; aquí és una "
      "àrea i el que hi va és dividir per $2$.")],
-  ["Les cares laterals són triangles: tots junts fan un sol triangle de "
+  pistes=["Les cares laterals són triangles: tots junts fan un sol triangle de "
    "base el perímetre.",
    "$A_{\\text{lat}}=\\dfrac{20\\cdot 6}{2}$."],
-  [r"$A_{\text{lat}}=\dfrac{P\cdot a_p}{2}=\dfrac{20\cdot 6}{2}"
+  resolucio=[r"$A_{\text{lat}}=\dfrac{P\cdot a_p}{2}=\dfrac{20\cdot 6}{2}"
    r"=\dfrac{120}{2}=60$ cm$^2$"],
   ex_text=E335,
   figura=piramide_regular(4, 5, apotema_piramide=6, etq_costat=False,
                           etq_apotema="a = 6 cm"))
 
-Q("335b", 335, "b", B2, "A",
-  r"Perímetre de la base $=24$ m; apotema de la piràmide $=5$ m.",
-  r"$60$ m$^2$",
-  [DT(r"$120$ m$^2$", "MEITAT_OBLIDADA",
+Q("335b", 335, "b", B2, tipus="A",
+  enunciat=r"Perímetre de la base $=24$ m; apotema de la piràmide $=5$ m.",
+  correcta=r"$60$ m$^2$",
+  distractors=[DT(r"$120$ m$^2$", "MEITAT_OBLIDADA",
       extra="Falta dividir per $2$."),
    DT(r"$29$ m$^2$", "FORMULA_INVERTIDA",
       extra="Has sumat $24+5$."),
    D(r"$40$ m$^2$", "FACTOR_TRES_VOLUM",
      "Has dividit per $3$, que és el de la fórmula del volum. Per a una "
      "àrea lateral es divideix per $2$.")],
-  ["$A_{\\text{lat}}=\\dfrac{P\\cdot a_p}{2}$.",
+  pistes=["$A_{\\text{lat}}=\\dfrac{P\\cdot a_p}{2}$.",
    "$\\dfrac{24\\cdot 5}{2}=\\dfrac{120}{2}$."],
-  [r"$A_{\text{lat}}=\dfrac{24\cdot 5}{2}=\dfrac{120}{2}=60$ m$^2$"],
+  resolucio=[r"$A_{\text{lat}}=\dfrac{24\cdot 5}{2}=\dfrac{120}{2}=60$ m$^2$"],
   ex_text=E335,
   figura=piramide_regular(4, 6, apotema_piramide=5, etq_costat=False,
                           etq_apotema="a = 5 m", unitat="m"))
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 363-365)
+# =====================================================================
+# «Prismes» obria amb l'àrea total d'un ortoedre (tres parells de cares
+# diferents), «cilindres, cons i esfera» amb l'àrea total d'un cilindre amb
+# decimals, i «volums» amb una piràmide. Aquí, una sola fórmula per
+# exercici amb nombres que es fan de cap: l'àrea del cub, l'àrea lateral
+# del cilindre (amb π ≈ 3,14, com tot el bloc) i el volum de l'ortoedre.
+
+dificultats({
+    363: 1,  # àrea total del cub, A = 6a^2
+    364: 1,  # àrea lateral del cilindre, A = 2·π·r·h
+    365: 1,  # volum de l'ortoedre, V = a·b·c
+})
+
+
+E363 = ("Calcula l'àrea total d'aquest cub. Recorda: té $6$ cares quadrades "
+        "iguals, així que $A=6a^2$.")
+
+Q("363a", 363, "a", B1, tipus="A",
+  enunciat=r"Aresta $a=2$ cm.",
+  correcta="$24$ cm$^2$",
+  distractors=[D("$12$ cm$^2$", "POTENCIA_COM_PRODUCTE",
+     "Has fet $6\\cdot2$: cal elevar l'aresta al quadrat, $2^2=4$, "
+     "abans de multiplicar per $6$."),
+   DT("$4$ cm$^2$", "SUMA_DE_PARTS_INCOMPLETA",
+      extra="$4$ cm$^2$ és UNA cara. El cub en té $6$."),
+   D("$8$ cm$^3$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat el volum, $a^3$. L'àrea és la superfície de les $6$ "
+     "cares, i va en cm$^2$.")],
+  pistes=["Una cara és un quadrat de costat $2$: $2^2=4$ cm$^2$.",
+   "Hi ha $6$ cares: $6\\cdot4$."],
+  resolucio=[r"$A=6a^2=6\cdot2^2=6\cdot4=24$ cm$^2$"],
+  ex_text=E363,
+  figura=cub(2))
+
+Q("363b", 363, "b", B1, tipus="A",
+  enunciat=r"Aresta $a=5$ cm.",
+  correcta="$150$ cm$^2$",
+  distractors=[D("$30$ cm$^2$", "POTENCIA_COM_PRODUCTE",
+     "Has fet $6\\cdot5$: cal elevar l'aresta al quadrat, $5^2=25$, "
+     "abans de multiplicar per $6$."),
+   DT("$25$ cm$^2$", "SUMA_DE_PARTS_INCOMPLETA",
+      extra="$25$ cm$^2$ és UNA cara. El cub en té $6$."),
+   D("$125$ cm$^3$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat el volum, $a^3$. L'àrea és la superfície de les $6$ "
+     "cares, i va en cm$^2$.")],
+  pistes=["Una cara és un quadrat de costat $5$: $5^2=25$ cm$^2$.",
+   "Hi ha $6$ cares: $6\\cdot25$."],
+  resolucio=[r"$A=6a^2=6\cdot5^2=6\cdot25=150$ cm$^2$"],
+  ex_text=E363,
+  figura=cub(5))
+
+
+E364 = ("Calcula l'àrea lateral d'aquest cilindre. Recorda: "
+        r"$A_{\text{lat}}=2\pi r h$, i pren $\pi\approx3{,}14$.")
+
+Q("364a", 364, "a", B3, tipus="A",
+  enunciat=r"Radi $r=5$ cm; altura $h=10$ cm.",
+  correcta="$314$ cm$^2$",
+  distractors=[DT("$157$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="Has fet $\\pi r h$: la fórmula porta un $2$ al davant."),
+   DT("$100$ cm$^2$", "PI_OBLIDAT",
+      extra="Has fet $2\\cdot5\\cdot10$."),
+   D("$785$ cm$^3$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat el volum, $\\pi r^2 h$. L'àrea lateral és la superfície "
+     "del costat: $2\\pi r h$, en cm$^2$.")],
+  pistes=["$2\\cdot3{,}14\\cdot5\\cdot10$.",
+   "$2\\cdot5\\cdot10=100$, i $100\\cdot3{,}14$."],
+  resolucio=[r"$A_{\text{lat}}=2\pi r h\approx2\cdot3{,}14\cdot5\cdot10=314$ cm$^2$"],
+  ex_text=E364,
+  figura=cilindre(radi=5, altura=10))
+
+Q("364b", 364, "b", B3, tipus="A",
+  enunciat=r"Radi $r=3$ cm; altura $h=10$ cm.",
+  correcta="$188{,}4$ cm$^2$",
+  distractors=[DT("$94{,}2$ cm$^2$", "MEITAT_OBLIDADA",
+      extra="Has fet $\\pi r h$: la fórmula porta un $2$ al davant."),
+   DT("$60$ cm$^2$", "PI_OBLIDAT",
+      extra="Has fet $2\\cdot3\\cdot10$."),
+   D("$282{,}6$ cm$^3$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat el volum, $\\pi r^2 h$. L'àrea lateral és la superfície "
+     "del costat: $2\\pi r h$, en cm$^2$.")],
+  pistes=["$2\\cdot3{,}14\\cdot3\\cdot10$.",
+   "$2\\cdot3\\cdot10=60$, i $60\\cdot3{,}14$."],
+  resolucio=[r"$A_{\text{lat}}=2\pi r h\approx2\cdot3{,}14\cdot3\cdot10=188{,}4$ cm$^2$"],
+  ex_text=E364,
+  figura=cilindre(radi=3, altura=10))
+
+
+E365 = ("Calcula el volum d'aquest ortoedre (prisma de base rectangular). "
+        r"Recorda: $V=a\cdot b\cdot c$.")
+
+Q("365a", 365, "a", B4, tipus="A",
+  enunciat=r"Arestes de $2$ cm, $3$ cm i $4$ cm.",
+  correcta="$24$ cm$^3$",
+  distractors=[D("$9$ cm$^3$", "PRODUCTE_PER_SUMA",
+     "Has sumat les arestes. El volum és el PRODUCTE: $2\\cdot3\\cdot4$."),
+   DT("$8$ cm$^3$", "FACTOR_TRES_VOLUM",
+      extra="Has dividit per $3$."),
+   D("$52$ cm$^2$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat l'àrea total (la superfície de les cares). Es demana el "
+     "volum, en cm$^3$.")],
+  pistes=["Multiplica les tres arestes.",
+   "$2\\cdot3=6$, i $6\\cdot4$."],
+  resolucio=[r"$V=2\cdot3\cdot4=24$ cm$^3$"],
+  ex_text=E365,
+  figura=ortoedre(2, 3, 4))
+
+Q("365b", 365, "b", B4, tipus="A",
+  enunciat=r"Arestes de $5$ cm, $2$ cm i $10$ cm.",
+  correcta="$100$ cm$^3$",
+  distractors=[D("$17$ cm$^3$", "PRODUCTE_PER_SUMA",
+     "Has sumat les arestes. El volum és el PRODUCTE: $5\\cdot2\\cdot10$."),
+   DT(r"$\approx33{,}33$ cm$^3$", "FACTOR_TRES_VOLUM",
+      extra="Has dividit per $3$."),
+   D("$160$ cm$^2$", "DIMENSIO_EXPONENT_MAL",
+     "Has calculat l'àrea total (la superfície de les cares). Es demana el "
+     "volum, en cm$^3$.")],
+  pistes=["Multiplica les tres arestes.",
+   "$5\\cdot2=10$, i $10\\cdot10$."],
+  resolucio=[r"$V=5\cdot2\cdot10=100$ cm$^3$"],
+  ex_text=E365,
+  figura=ortoedre(5, 2, 10))

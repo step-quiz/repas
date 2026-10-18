@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Espais mostrals i esdeveniments",
    "descripcio": "Espai mostral d'un experiment aleatori, esdeveniments elementals i impossibles, i comparació de probabilitats.",
    "items": [
+    "374a",
+    "374b",
     "236a",
     "236b",
     "236c",
@@ -36,6 +38,8 @@ window.FULL = {
    "titol": "Combinatòria: principi multiplicatiu",
    "descripcio": "Diagrames d'arbre, mètode del producte, i variacions sense repetició.",
    "items": [
+    "375a",
+    "375b",
     "244",
     "243",
     "245",
@@ -54,6 +58,8 @@ window.FULL = {
    "titol": "Regla de Laplace i freqüència relativa",
    "descripcio": "Probabilitat d'un esdeveniment, freqüència relativa i llei dels grans nombres.",
    "items": [
+    "376a",
+    "376b",
     "241a",
     "241b",
     "241c",
@@ -80,6 +86,8 @@ window.FULL = {
    "titol": "Esdeveniments compostos",
    "descripcio": "Esdeveniments compatibles, incompatibles i contraris, unió i intersecció, i probabilitat condicionada senzilla.",
    "items": [
+    "377a",
+    "377b",
     "257a",
     "257b",
     "257c",
@@ -104,6 +112,8 @@ window.FULL = {
    "titol": "Probabilitat composta: dos experiments",
    "descripcio": "Experiments amb i sense reposició, diagrames d'arbre, i la probabilitat d'\"almenys un\" a través del contrari.",
    "items": [
+    "378a",
+    "378b",
     "305a",
     "305b",
     "305c",
@@ -127,6 +137,8 @@ window.FULL = {
    "titol": "Probabilitat condicionada",
    "descripcio": "La probabilitat d'un esdeveniment quan ja se'n sap un altre: P(B|A), i per què no és el mateix que P(A|B).",
    "items": [
+    "379a",
+    "379b",
     "319",
     "314a",
     "314b",
@@ -160,9 +172,11 @@ window.FULL = {
   "FACTORIAL_MAL_APLICAT": "El nombre de maneres d'ordenar $n$ elements diferents és $n!$ ($n$ factorial): revisa que estàs calculant permutacions dels elements correctes.",
   "FREQ_RELATIVA_PROBABILITAT_CONFOSES": "La freqüència relativa és el resultat observat en repetir un experiment un nombre concret de vegades; la probabilitat teòrica és el valor que s'espera a llarg termini. Quan hi ha moltes repeticions, la freqüència relativa s'aproxima a la probabilitat, però es calculen amb les dades donades a cada cas.",
   "INDEPENDENCIA_SUPOSADA_SENSE_MOTIU": "Multiplicar directament les dues probabilitats només val quan els esdeveniments són INDEPENDENTS (amb reposició, o dos experiments que no s'afecten). Si el segon depèn del que ha passat al primer (per exemple, sense reposar l'element extret), cal fer servir la probabilitat CONDICIONADA del segon esdeveniment, no la de partida.",
+  "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "ORDRE_NO_CONSIDERAT": "Quan els dos elements combinats es poden distingir (per exemple, per color), l'ordre importa: el parell $(a,b)$ és un resultat diferent del $(b,a)$.",
   "ORDRE_NO_DEMANAT": "Has comptat els dos ordres possibles quan l'enunciat en demana un de concret. Cada camí de l'arbre és una seqüència: (V,B) i (B,V) són dos camins diferents, i sumar-los només val si la pregunta no distingeix l'ordre.",
   "PARELLS_VALORS_CONFOSOS": "No confonguis el nombre de PARELLS de resultats (per exemple, dels dos daus) amb el nombre de VALORS diferents que en resulten (com la seva suma o el seu producte): diversos parells poden donar el mateix valor final.",
+  "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
   "PRINCIPI_MULTIPLICATIU_MAL_APLICAT": "Quan es combinen diverses eleccions independents, el nombre total de resultats es MULTIPLICA (no se suma): si la primera elecció té $m$ opcions i la segona en té $n$, en total hi ha $m\\cdot n$ combinacions.",
   "PROBABILITAT_CONDICIONADA_MAL": "Quan es demana la probabilitat DINS d'un grup concret (no de tota la població), el denominador ha de ser la mida d'aquell grup, no el total de tots els casos.",
   "RECOMPTE_MAL_FET": "Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.",
@@ -173,6 +187,50 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "374a",
+   "ex": 374,
+   "ap": "a",
+   "bloc": "espais_mostrals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Escriu l'espai mostral d'aquest experiment aleatori: el conjunt de TOTS els resultats possibles.",
+   "enunciat": "Llancem un dau de sis cares i mirem el número de dalt.",
+   "opcions": [
+    "$E=\\{\\text{parell},\\text{senar}\\}$",
+    "$E=\\{1,2,3,4,5,6\\}$",
+    "$E=\\{0,1,2,3,4,5,6\\}$",
+    "$E=\\{6\\}$"
+   ],
+   "pistes": [
+    "Quins números poden sortir?",
+    "Escriu-los tots, sense repetir-ne cap."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyLCq1BhcmVsbMK7IGkgwqtzZW5hcsK7IGFncnVwZW4gZGl2ZXJzb3MgcmVzdWx0YXRzIGNhZGFzY3VuLiBMJ2VzcGFpIG1vc3RyYWwgcmVjdWxsIGVscyByZXN1bHRhdHMgdW4gcGVyIHVuOiAkMSQsICQyJCwgJDMkLi4uIiwgIiIsICJVbiBkYXUgbm8gdMOpIGNhcCBjYXJhIGFtYiBlbCAkMCQuIiwgIkhhcyBlc2NyaXQgUVVBTlRTIHJlc3VsdGF0cyBoaSBoYSwgbyBub23DqXMgdW4uIEwnZXNwYWkgbW9zdHJhbCDDqXMgbGEgbGxpc3RhIGRlIFRPVFMgZWxzIHJlc3VsdGF0cy4iXSwgImVyciI6IFsiRUxFTUVOVEFMX05PX0VMRU1FTlRBTF9DT05GT1NPUyIsICIiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICJFU1BBSV9NT1NUUkFMX01BTF9DT01QVEFUIl0sICJyZXMiOiBbIiRFPVxcezEsMiwzLDQsNSw2XFx9JDogc2lzIHJlc3VsdGF0cy4iXX0="
+  },
+  {
+   "id": "374b",
+   "ex": 374,
+   "ap": "b",
+   "bloc": "espais_mostrals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Escriu l'espai mostral d'aquest experiment aleatori: el conjunt de TOTS els resultats possibles.",
+   "enunciat": "Llancem una moneda i mirem quina cara queda a dalt.",
+   "opcions": [
+    "$E=\\{\\text{cara},\\text{creu},\\text{cara i creu}\\}$",
+    "$E=\\{\\text{cara}\\}$",
+    "$E=\\{\\text{cara},\\text{creu}\\}$",
+    "$E=\\{2\\}$"
+   ],
+   "pistes": [
+    "Què pot quedar a dalt?",
+    "Escriu-ho tot, sense repetir res."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbiB1bmEgc29sYSB0aXJhZGEgbm8gcG9kZW4gcXVlZGFyIGEgZGFsdCB0b3RlcyBkdWVzIGNhcmVzIGFsaG9yYS4iLCAiTm9tw6lzIGhhcyBwb3NhdCB1biByZXN1bHRhdC4gTCdlc3BhaSBtb3N0cmFsIGVscyByZWN1bGwgVE9UUzogdGFtYsOpIHBvdCBzb3J0aXIgY3JldS4iLCAiIiwgIiQyJCDDqXMgUVVBTlRTIHJlc3VsdGF0cyBoaSBoYS4gTCdlc3BhaSBtb3N0cmFsIMOpcyBsYSBsbGlzdGEgZGVscyByZXN1bHRhdHMsIG5vIGVsIHNldSBub21icmUuIl0sICJlcnIiOiBbIkVTUEFJX01PU1RSQUxfTUFMX0NPTVBUQVQiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCIsICIiLCAiRVNQQUlfTU9TVFJBTF9NQUxfQ09NUFRBVCJdLCAicmVzIjogWyIkRT1cXHtcXHRleHR7Y2FyYX0sXFx0ZXh0e2NyZXV9XFx9JDogZG9zIHJlc3VsdGF0cy4iXX0="
+  },
   {
    "id": "236a",
    "ex": 236,
@@ -614,6 +672,50 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRW5jYXJhIHF1ZSBoaSBoYWdpIGRpdmVyc29zIFBBUkVMTFMgZGUgZGF1cyBxdWUgZG9uZW4gcHJvZHVjdGUgJDEyJCAoY29tICQoMiw2KSQgaSAkKDMsNCkkKSwgZGlucyBkZSBsJ0VTUEFJIE1PU1RSQUwgREVMIFBST0RVQ1RFIGVsIHZhbG9yICQxMiQgw6lzIHVuIMO6bmljIHJlc3VsdGF0OiBhcXVlc3QgZXNkZXZlbmltZW50IMOpcyBlbGVtZW50YWwsIG5vIGNvbXBvc3QgcGVyIGRpdmVyc29zIHJlc3VsdGF0cyBkZSBsJ2VzcGFpIG1vc3RyYWwgZGVsIHByb2R1Y3RlLiIsICJUb3QgbsO6bWVybyDDqXMgbcO6bHRpcGxlIGRlIHNpIG1hdGVpeCBpIGQnJDEkOiBhcXVlc3QgZXNkZXZlbmltZW50IG5vIGNvcnJlc3BvbiBhIGNhcCByZXN1bHRhdCB2w6BsaWQgZGUgbCdlc3BhaSBtb3N0cmFsLCBuaSBlbGVtZW50YWwgbmkgY29tcG9zdC4iLCAiJDM2JCDDqXMgdW4gw7puaWMgdmFsb3IgZGUgbCdlc3BhaSBtb3N0cmFsIGRlbCBwcm9kdWN0ZSAoJFxcezEsMixcXGxkb3RzLDM2XFx9JCBhbWIgZWxzIHZhbG9ycyBxdWUgcydoaSBwb2RlbiBvYnRlbmlyKTogYXF1ZXN0IGVzZGV2ZW5pbWVudCDDqXMgZWxlbWVudGFsLCBubyBmb3JtYXQgcGVyIGRpdmVyc29zIHJlc3VsdGF0cy4iXSwgImVyciI6IFsiIiwgIkVMRU1FTlRBTF9OT19FTEVNRU5UQUxfQ09ORk9TT1MiLCAiRUxFTUVOVEFMX05PX0VMRU1FTlRBTF9DT05GT1NPUyIsICJFTEVNRU5UQUxfTk9fRUxFTUVOVEFMX0NPTkZPU09TIl0sICJyZXMiOiBbIsKrT2J0ZW5pciB1biBwcm9kdWN0ZSBtw6lzIHBldGl0IHF1ZSAkNSTCuyBhZ3J1cGEgZWxzIHJlc3VsdGF0cyAkMSwyLDMsNCQgZGUgbCdlc3BhaSBtb3N0cmFsOiDDqXMgdW4gZXNkZXZlbmltZW50IE5PIGVsZW1lbnRhbCwgZm9ybWF0IHBlciAkNCQgcmVzdWx0YXRzIGRpZmVyZW50cyJdfQ=="
   },
   {
+   "id": "375a",
+   "ex": 375,
+   "ap": "a",
+   "bloc": "combinatoria",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Compta els resultats possibles fent servir el principi multiplicatiu: si una elecció té $m$ opcions i l'altra $n$, entre totes dues n'hi ha $m\\cdot n$.",
+   "enunciat": "Tens $3$ samarretes i $2$ pantalons. Quantes combinacions diferents de samarreta i pantalons pots fer?",
+   "opcions": [
+    "$9$",
+    "$5$",
+    "$6$",
+    "$8$"
+   ],
+   "pistes": [
+    "Amb la primera samarreta, quantes combinacions pots fer?",
+    "I amb les $3$ samarretes?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZmV0ICQzXjIkLiBDYWRhIHNhbWFycmV0YSB2YSBhbWIgY2FkYSB1biBkZWxzICQyJCBwYW50YWxvbnM6ICQzXFxjZG90MiQuIiwgIkhhcyBzdW1hdCAkMysyJC4gUXVhbiBlcyBjb21iaW5lbiBkaXZlcnNlcyBlbGVjY2lvbnMgaW5kZXBlbmRlbnRzLCBlbCBub21icmUgdG90YWwgZGUgcmVzdWx0YXRzIGVzIE1VTFRJUExJQ0EgKG5vIHNlIHN1bWEpOiBzaSBsYSBwcmltZXJhIGVsZWNjacOzIHTDqSAkbSQgb3BjaW9ucyBpIGxhIHNlZ29uYSBlbiB0w6kgJG4kLCBlbiB0b3RhbCBoaSBoYSAkbVxcY2RvdCBuJCBjb21iaW5hY2lvbnMuIiwgIiIsICJIYXMgZmV0ICQyXjMkLiBDYWRhIHNhbWFycmV0YSB2YSBhbWIgY2FkYSB1biBkZWxzICQyJCBwYW50YWxvbnM6ICQzXFxjZG90MiQuIl0sICJlcnIiOiBbIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCJdLCAicmVzIjogWyIkM1xcY2RvdDI9NiQgY29tYmluYWNpb25zIl19"
+  },
+  {
+   "id": "375b",
+   "ex": 375,
+   "ap": "b",
+   "bloc": "combinatoria",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Compta els resultats possibles fent servir el principi multiplicatiu: si una elecció té $m$ opcions i l'altra $n$, entre totes dues n'hi ha $m\\cdot n$.",
+   "enunciat": "Un menú té $4$ primers plats i $3$ segons. Quants menús diferents es poden fer amb un primer i un segon?",
+   "opcions": [
+    "$64$",
+    "$24$",
+    "$7$",
+    "$12$"
+   ],
+   "pistes": [
+    "Amb el primer plat número 1, quants menús pots fer?",
+    "I amb els $4$ primers?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZmV0ICQ0XjMkLiBDYWRhIHByaW1lciB2YSBhbWIgY2FkYSB1biBkZWxzICQzJCBzZWdvbnM6ICQ0XFxjZG90MyQuIiwgIkhhcyBmZXQgJDQhPTRcXGNkb3QzXFxjZG90MlxcY2RvdDEkLiBObyBzJ29yZGVuZW4gZWxzIHBsYXRzOiBlcyB0cmlhIHVuIHByaW1lciBpIHVuIHNlZ29uLCAkNFxcY2RvdDMkLiIsICJIYXMgc3VtYXQgJDQrMyQuIFF1YW4gZXMgY29tYmluZW4gZGl2ZXJzZXMgZWxlY2Npb25zIGluZGVwZW5kZW50cywgZWwgbm9tYnJlIHRvdGFsIGRlIHJlc3VsdGF0cyBlcyBNVUxUSVBMSUNBIChubyBzZSBzdW1hKTogc2kgbGEgcHJpbWVyYSBlbGVjY2nDsyB0w6kgJG0kIG9wY2lvbnMgaSBsYSBzZWdvbmEgZW4gdMOpICRuJCwgZW4gdG90YWwgaGkgaGEgJG1cXGNkb3QgbiQgY29tYmluYWNpb25zLiIsICIiXSwgImVyciI6IFsiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICJGQUNUT1JJQUxfTUFMX0FQTElDQVQiLCAiUFJJTkNJUElfTVVMVElQTElDQVRJVV9NQUxfQVBMSUNBVCIsICIiXSwgInJlcyI6IFsiJDRcXGNkb3QzPTEyJCBtZW7DunMiXX0="
+  },
+  {
    "id": "244",
    "ex": 244,
    "ap": "",
@@ -854,6 +956,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBbWIgJDQkIHBvc2ljaW9ucyBpbmRlcGVuZGVudHMsIGNhZGFzY3VuYSBhbWIgJDYyJCBvcGNpb25zLCBlbCBub21icmUgZGUgY2xhdXMgZXMgbXVsdGlwbGljYSAkNCQgdmVnYWRlcyBzZWd1aWRlcyAoJDYyXjQkKSwgbm8gZXMgbXVsdGlwbGljYSBub23DqXMgdW4gY29wIHBlbCBub21icmUgZGUgcG9zaWNpb25zLiIsICIiLCAiTCdlbnVuY2lhdCBubyBwcm9oaWJlaXggcmVwZXRpciBjYXLDoGN0ZXJzIGRpbnMgZGUgbGEgY2xhdSAobm8gZGl1IHF1ZSBoYWdpbiBkZSBzZXIgdG90cyBkaWZlcmVudHMpOiBhIGNhZGEgcG9zaWNpw7MgaGkgaGEgc2VtcHJlICQ2MiQgb3BjaW9ucyBkaXNwb25pYmxlcywgZW5jYXJhIHF1ZSBqYSBzJ2hhZ2kgZmV0IHNlcnZpciBhbGd1biBjYXLDoGN0ZXIgZW4gdW5hIHBvc2ljacOzIGFudGVyaW9yLiIsICJMJ2VudW5jaWF0IGRpdSBleHBsw61jaXRhbWVudCBxdWUgZXMgZGlzdGluZ2VpeGVuIG1hasO6c2N1bGVzIGkgbWluw7pzY3VsZXM6IGNhbCBjb21wdGFyLWxlcyBwZXIgc2VwYXJhdCAoJDI2KzI2PTUyJCBsbGV0cmVzKSwgbm8gY29tIHVuIHNvbCBncnVwIGRlICQyNiQuIl0sICJlcnIiOiBbIlBSSU5DSVBJX01VTFRJUExJQ0FUSVVfTUFMX0FQTElDQVQiLCAiIiwgIlZBUklBQ0lPTlNfU0VOU0VfUkVQRVRJQ0lPX01BTCIsICJDQVNPU19QT1NTSUJMRVNfTUFMX0NPTVBUQVRTIl0sICJyZXMiOiBbIkNhcsOgY3RlcnMgcG9zc2libGVzIHBlciBwb3NpY2nDszogJDI2JCBtYWrDunNjdWxlcyAkKzI2JCBtaW7DunNjdWxlcyAkKzEwJCBkw61naXRzICQ9NjIkIiwgIkFtYiAkNCQgcG9zaWNpb25zIGluZGVwZW5kZW50czogJDYyXFxjZG90NjJcXGNkb3Q2MlxcY2RvdDYyPTYyXjQ9MTRcXCw3NzZcXCwzMzYkIGNsYXVzIGRpZmVyZW50cyJdfQ=="
+  },
+  {
+   "id": "376a",
+   "ex": 376,
+   "ap": "a",
+   "bloc": "laplace",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquesta probabilitat amb la regla de Laplace: casos favorables dividit per casos possibles.",
+   "enunciat": "Llancem un dau de sis cares. Probabilitat de treure un $5$.",
+   "opcions": [
+    "$\\dfrac{1}{5}$",
+    "$\\dfrac{1}{6}$",
+    "$6$",
+    "$\\dfrac{5}{6}$"
+   ],
+   "pistes": [
+    "Quantes cares tenen un $5$? Quantes cares hi ha en total?",
+    "$\\dfrac{\\text{favorables}}{\\text{possibles}}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBkYXUgdMOpICQ2JCBjYXJlcywgbm8gJDUkLiBSZXZpc2EgcXVhbnRzIHJlc3VsdGF0cyBUT1RBTFMgdMOpIGwnZXhwZXJpbWVudCAoZWxzIGNhc29zIHBvc3NpYmxlcyk6IGhhIGRlIHNlciBlbCBkZW5vbWluYWRvciBkZSBsYSBwcm9iYWJpbGl0YXQsIG5vIHVuIGFsdHJlIG5vbWJyZSBkZSBsJ2VudW5jaWF0LiIsICIiLCAiSGFzIGRpdmlkaXQgZWxzIHBvc3NpYmxlcyBlbnRyZSBlbHMgZmF2b3JhYmxlcy4gVW5hIHByb2JhYmlsaXRhdCBtYWkgbm8gw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICIkXFxkZnJhYzU2JCDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIE5PIHRyZXVyZSB1biAkNSQuIFRyZXVyZSB1biAkNSQgw6lzIHVuIHNvbCBjYXMgZmF2b3JhYmxlLiJdLCAiZXJyIjogWyJDQVNPU19QT1NTSUJMRVNfTUFMX0NPTVBUQVRTIiwgIiIsICJJTlZFUlRJREEiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyIkUCg1KT1cXGRmcmFjezF9ezZ9JCJdfQ=="
+  },
+  {
+   "id": "376b",
+   "ex": 376,
+   "ap": "b",
+   "bloc": "laplace",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquesta probabilitat amb la regla de Laplace: casos favorables dividit per casos possibles.",
+   "enunciat": "Una bossa té $3$ boles vermelles i $7$ de blaves. Traiem una bola. Probabilitat que sigui vermella.",
+   "opcions": [
+    "$\\dfrac{7}{10}$",
+    "$\\dfrac{3}{10}$",
+    "$\\dfrac{10}{3}$",
+    "$\\dfrac{3}{7}$"
+   ],
+   "pistes": [
+    "Quantes boles hi ha en total?",
+    "$\\dfrac{\\text{vermelles}}{\\text{total}}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyBsYSBwcm9iYWJpbGl0YXQgZGUgdHJldXJlIHVuYSBib2xhIEJMQVZBLiIsICIiLCAiSGFzIGRpdmlkaXQgZWxzIHBvc3NpYmxlcyBlbnRyZSBlbHMgZmF2b3JhYmxlcy4gVW5hIHByb2JhYmlsaXRhdCBtYWkgbm8gw6lzIG3DqXMgZ3JhbiBxdWUgJDEkLiIsICJIYXMgZGl2aWRpdCBwZXIgbGVzIGJsYXZlcy4gRWxzIGNhc29zIHBvc3NpYmxlcyBzw7NuIFRPVEVTIGxlcyBib2xlczogJDMrNz0xMCQuIl0sICJlcnIiOiBbIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIiIsICJJTlZFUlRJREEiLCAiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyJdLCAicmVzIjogWyIkUChcXHRleHR7dmVybWVsbGF9KT1cXGRmcmFjezN9ezMrN309XFxkZnJhY3szfXsxMH0kIl19"
   },
   {
    "id": "241a",
@@ -1274,6 +1420,50 @@ window.FULL = {
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3Qgw6lzIGVsIHZhbG9yIGRlICRQKFxcdGV4dHthcHJvdmFyfSkkLCBubyBkZSAkUChcXHRleHR7c3VzcGVuZHJlfSkkOiBjb20gcXVlIHN1c3BlbmRyZSDDqXMgbCdlc2RldmVuaW1lbnQgQ09OVFJBUkkgZCdhcHJvdmFyLCBjYWwgcmVzdGFyLWxvIGQnJDEkLCBubyByZXBldGlyLWxvLiIsICIiLCAiJFxcZnJhY3sxOTJ9ezI0M30kIG5vIGNvaW5jaWRlaXggYW1iICQxLVxcZnJhY3s1MX17MjQzfT1cXGZyYWN7MTkyfXsyNDN9JC4uLiB0b3JuYSBhIGZlciBsYSByZXN0YSBhbWIgY3VyYTogZWwgbnVtZXJhZG9yIGNvcnJlY3RlIGRlICQxLVxcZnJhY3s1MX17MjQzfSQgw6lzICQyNDMtNTE9MTkyJCwgcXVlIHNpbXBsaWZpY2F0IGRvbmEgJFxcZnJhY3s2NH17ODF9JCwgbm8gdW4gYWx0cmUgdmFsb3IuIiwgIkNhbCByZXN0YXIgbGEgUFJPQkFCSUxJVEFUICgkXFxmcmFjezE3fXs4MX0kLCB1biB2YWxvciBlbnRyZSAkMCQgaSAkMSQpIGRlICQxJCwgbm8gZWwgbm9tYnJlIGRlIGNhc29zIGZhdm9yYWJsZXMgKHF1ZSDDqXMgJDUxJCwgdW4gZW50ZXIpOiB1bmEgcHJvYmFiaWxpdGF0IG1haSBwb3Qgc2VyIG5lZ2F0aXZhLiJdLCAiZXJyIjogWyJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIiIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIkVTREVWRU5JTUVOVF9DT05UUkFSSV9NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiQ29tIHF1ZSBzdXNwZW5kcmUgw6lzIGVsIGNvbnRyYXJpIGQnYXByb3ZhcjogJFAoXFx0ZXh0e3N1c3BlbmRyZX0pPTEtXFxkZnJhY3sxN317ODF9PVxcZGZyYWN7NjR9ezgxfSQiXX0="
   },
   {
+   "id": "377a",
+   "ex": 377,
+   "ap": "a",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la probabilitat de l'esdeveniment contrari. Recorda: $P(\\text{no }A)=1-P(A)$.",
+   "enunciat": "La probabilitat que plogui demà és $0{,}3$. Quina és la probabilitat que NO plogui?",
+   "opcions": [
+    "$0{,}7$",
+    "$0{,}3$",
+    "$-0{,}3$",
+    "$1{,}3$"
+   ],
+   "pistes": [
+    "Ploure i no ploure, entre totes dues, sumen $1$.",
+    "$1-0{,}3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgcHJvYmFiaWxpdGF0IHF1ZSBTw40gcXVlIHBsb2d1aS4gTGEgZGVsIGNvbnRyYXJpIMOpcyBlbCBxdWUgZmFsdGEgZmlucyBhICQxJC4iLCAiSGFzIGNhbnZpYXQgZWwgc2lnbmUuIFVuYSBwcm9iYWJpbGl0YXQgbm8gcG90IHNlciBuZWdhdGl2YTogJDEtMHssfTMkLiIsICJIYXMgc3VtYXQgJDErMHssfTMkLiBVbmEgcHJvYmFiaWxpdGF0IG5vIHBvdCBwYXNzYXIgZCckMSQ6IGVzIHJlc3RhLiJdLCAiZXJyIjogWyIiLCAiRVNERVZFTklNRU5UX0NPTlRSQVJJX01BTF9DQUxDVUxBVCIsICJFU0RFVkVOSU1FTlRfQ09OVFJBUklfTUFMX0NBTENVTEFUIiwgIkVTREVWRU5JTUVOVF9DT05UUkFSSV9NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e25vIHBsb3VyZX0pPTEtMHssfTM9MHssfTckIl19"
+  },
+  {
+   "id": "377b",
+   "ex": 377,
+   "ap": "b",
+   "bloc": "esdeveniments",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la probabilitat de l'esdeveniment contrari. Recorda: $P(\\text{no }A)=1-P(A)$.",
+   "enunciat": "$P(A)=\\dfrac{1}{4}$. Calcula $P(\\text{no }A)$.",
+   "opcions": [
+    "$\\dfrac{1}{4}$",
+    "$\\dfrac{3}{4}$",
+    "$\\dfrac{5}{4}$",
+    "$4$"
+   ],
+   "pistes": [
+    "$A$ i «no $A$», entre totes dues, sumen $1$.",
+    "$1-\\dfrac14=\\dfrac44-\\dfrac14$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBcXVlc3RhIMOpcyAkUChBKSQuIExhIGRlbCBjb250cmFyaSDDqXMgZWwgcXVlIGZhbHRhIGZpbnMgYSAkMSQuIiwgIiIsICJIYXMgc3VtYXQgJDErXFxkZnJhYzE0JC4gVW5hIHByb2JhYmlsaXRhdCBubyBwb3QgcGFzc2FyIGQnJDEkOiBlcyByZXN0YS4iLCAiSGFzIGludmVydGl0IGxhIGZyYWNjacOzLiBVbmEgcHJvYmFiaWxpdGF0IG5vIHBvdCBwYXNzYXIgZCckMSQ6ICQxLVxcZGZyYWMxNCQuIl0sICJlcnIiOiBbIkVTREVWRU5JTUVOVF9DT05UUkFSSV9NQUxfQ0FMQ1VMQVQiLCAiIiwgIkVTREVWRU5JTUVOVF9DT05UUkFSSV9NQUxfQ0FMQ1VMQVQiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRQKFxcdGV4dHtubyB9QSk9MS1cXGRmcmFjezF9ezR9PVxcZGZyYWN7M317NH0kIl19"
+  },
+  {
    "id": "257a",
    "ex": 257,
    "ap": "a",
@@ -1648,6 +1838,50 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB0b3RhbCBkZSBjb21iaW5hY2lvbnMgcG9zc2libGVzIMOpcyAkXFxiaW5vbXs1fXsyfVxcY2RvdFxcYmlub217NX17NH09MTBcXGNkb3Q1PTUwJCwgbm8gJDEwJDogYXF1ZXN0IGRhcnJlciB2YWxvciDDqXMgbm9tw6lzIGVsIG5vbWJyZSBkZSB0cmllcyBkZSBsYSBQYXVsYSwgc2Vuc2UgY29tYmluYXItbG8gYW1iIGxlcyBkJ2VuIFJvYmVydC4iLCAiRW5jYXJhIHF1ZSBlbiBSb2JlcnQgdHJlYmFsbGkgJDQkIGRlbHMgJDUkIGRpZXMsIG5vIMOpcyBzZWd1ciBxdWUgZWxzICQyJCBkaWVzIGNvbmNyZXRzIGRlIGxhIFBhdWxhIGhpIGNvaW5jaWRlaXhpbiB0b3RzIGRvczogc2kgdW4gZCdlbGxzIMOpcyBqdXN0YW1lbnQgZWwgZGlhIGxsaXVyZSBkJ2VuIFJvYmVydCwgbm9tw6lzIGhpIGNvaW5jaWRpcsOgICQxJCBkaWEsIG5vICQyJC4iLCAiRWwgY8OgbGN1bCBubyDDqXMgdW5hIHNpbXBsZSBjb21wYXJhY2nDsyBkZSAkMiQgY29udHJhICQ0JDogY2FsIGNvbXB0YXIgZGUgcXVhbnRlcyBtYW5lcmVzIGVzIHBvZGVuIHRyaWFyIGVscyBkaWVzIGRlIGNhZGFzY8O6ICgkXFxiaW5vbXs1fXsyfSQgaSAkXFxiaW5vbXs1fXs0fSQpIGksIGQnZW50cmUgdG90ZXMgYXF1ZXN0ZXMgY29tYmluYWNpb25zLCBxdWFudGVzIGZhbiBxdWUgY29pbmNpZGVpeGluIGV4YWN0YW1lbnQgZWxzICQyJCBkaWVzIGRlIGxhIFBhdWxhLiIsICIiXSwgImVyciI6IFsiQ0FTT1NfUE9TU0lCTEVTX01BTF9DT01QVEFUUyIsICJDQVNPU19GQVZPUkFCTEVTX01BTF9DT01QVEFUUyIsICJDT01CSU5BQ0lPTlNfTUFMX0NPTVBUQURFUyIsICIiXSwgInJlcyI6IFsiTGEgUGF1bGEgdHJpYSAkMiQgZGllcyBkJ2VudHJlICQ1JDogJFxcYmlub217NX17Mn09MTAkIG1hbmVyZXMuIEVuIFJvYmVydCBlbiB0cmViYWxsYSAkNCQgKGxpJ24gZmFsdGEgdHJpYXIgJDEkIGRlIGxsaXVyZSk6ICRcXGJpbm9tezV9ezR9PTUkIG1hbmVyZXMiLCAiVG90YWwgZGUgY29tYmluYWNpb25zIHBvc3NpYmxlczogJDEwXFxjZG90NT01MCQiLCAiQ29pbmNpZMOobmNpYSBjb21wbGV0YSAoZWxzICQyJCBkaWVzIGRlIGxhIFBhdWxhIHPDs24gZGVscyAkNCQgZCdlbiBSb2JlcnQpIHF1YW4gZWxzIGRpZXMgZGUgbGEgUGF1bGEgbm8gaW5jbG91ZW4gZWwgZGlhIGxsaXVyZSBkJ2VuIFJvYmVydDogcGVyIGEgY2FkYSB1biBkZWxzICQ1JCBwb3NzaWJsZXMgZGllcyBsbGl1cmVzLCBoaSBoYSAkXFxiaW5vbXs0fXsyfT02JCBwYXJlbGxzIGRlIGxhIFBhdWxhIHF1ZSBubyBsJ2luY2xvdWVuOiAkNVxcY2RvdDY9MzAkIGNhc29zIiwgIiRQKFxcdGV4dHtjb2luY2lkaXIgfTJcXHRleHR7IGRpZXN9KT1cXGRmcmFjezMwfXs1MH09XFxkZnJhYzM1JCJdfQ=="
   },
   {
+   "id": "378a",
+   "ex": 378,
+   "ap": "a",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la probabilitat que passin totes dues coses. Els dos experiments són independents: es multipliquen les probabilitats.",
+   "enunciat": "Llancem una moneda dues vegades. Probabilitat de treure cara les dues vegades.",
+   "opcions": [
+    "$\\dfrac{1}{3}$",
+    "$1$",
+    "$\\dfrac{1}{4}$",
+    "$\\dfrac{1}{2}$"
+   ],
+   "pistes": [
+    "La probabilitat de cara en una tirada és $\\dfrac12$.",
+    "$\\dfrac12\\cdot\\dfrac12$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgY29tcHRhdCB0cmVzIHJlc3VsdGF0cyAoZHVlcyBjYXJlcywgZHVlcyBjcmV1cywgdW5hIGRlIGNhZGEpLiBQZXLDsiDCq3VuYSBkZSBjYWRhwrsgc8OzbiBkb3MgcmVzdWx0YXRzOiBjYXJhLWNyZXUgaSBjcmV1LWNhcmEuIE4naGkgaGEgcXVhdHJlLiIsICJIYXMgc3VtYXQgJFxcZGZyYWMxMitcXGRmcmFjMTIkLiBQZXJxdcOoIHBhc3NpbiBsZXMgZHVlcyBjb3NlcyBlcyBNVUxUSVBMSUNBLiIsICIiLCAiQXF1ZXN0YSDDqXMgbGEgcHJvYmFiaWxpdGF0IGQndW5hIHNvbGEgdGlyYWRhLiBFcyBkZW1hbmEgY2FyYSBJIGNhcmE6ICRcXGRmcmFjMTJcXGNkb3RcXGRmcmFjMTIkLiJdLCAiZXJyIjogWyJPUkRSRV9OT19DT05TSURFUkFUIiwgIkNBTUlfQVJCUkVfTUFMX01VTFRJUExJQ0FUIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyIkUChcXHRleHR7Q30sXFx0ZXh0e0N9KT1cXGRmcmFjezF9ezJ9XFxjZG90XFxkZnJhY3sxfXsyfT1cXGRmcmFjezF9ezR9JCJdfQ=="
+  },
+  {
+   "id": "378b",
+   "ex": 378,
+   "ap": "b",
+   "bloc": "probabilitat_composta",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la probabilitat que passin totes dues coses. Els dos experiments són independents: es multipliquen les probabilitats.",
+   "enunciat": "Llancem un dau dues vegades. Probabilitat de treure un $6$ les dues vegades.",
+   "opcions": [
+    "$\\dfrac{1}{12}$",
+    "$\\dfrac{1}{3}$",
+    "$\\dfrac{1}{6}$",
+    "$\\dfrac{1}{36}$"
+   ],
+   "pistes": [
+    "La probabilitat de treure un $6$ en una tirada és $\\dfrac16$.",
+    "$\\dfrac16\\cdot\\dfrac16$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgZWxzIGRlbm9taW5hZG9ycy4gRW4gbXVsdGlwbGljYXIgZnJhY2Npb25zIGVzIG11bHRpcGxpY2E6ICQ2XFxjZG90Nj0zNiQuIiwgIkhhcyBzdW1hdCAkXFxkZnJhYzE2K1xcZGZyYWMxNiQuIFBlcnF1w6ggcGFzc2luIGxlcyBkdWVzIGNvc2VzIGVzIE1VTFRJUExJQ0EuIiwgIkFxdWVzdGEgw6lzIGxhIHByb2JhYmlsaXRhdCBkJ3VuYSBzb2xhIHRpcmFkYS4gRXMgZGVtYW5hICQ2JCBJICQ2JDogJFxcZGZyYWMxNlxcY2RvdFxcZGZyYWMxNiQuIiwgIiJdLCAiZXJyIjogWyJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCIsICJDQU1JX0FSQlJFX01BTF9NVUxUSVBMSUNBVCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICIiXSwgInJlcyI6IFsiJFAoNiw2KT1cXGRmcmFjezF9ezZ9XFxjZG90XFxkZnJhY3sxfXs2fT1cXGRmcmFjezF9ezM2fSQiXX0="
+  },
+  {
    "id": "305a",
    "ex": 305,
    "ap": "a",
@@ -2008,6 +2242,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiXCJBbG1lbnlzIHVuYVwiIGVzIGNhbGN1bGEgYW1iIGVsIGNvbnRyYXJpLCBcImNhcCBkZWZlY3R1b3NhXCIsIGkgcmVzdGFudC1sbyBkJyQxJDsgbm8gc3VtYW50IGRpcmVjdGFtZW50IGxhIHByb2JhYmlsaXRhdCBkZSBkZWZlY3R1b3NhIGEgY2FkYSBleHRyYWNjacOzLiIsICJMZXMgYm9tYmV0ZXMgbm8gZXMgcmVwb3NlbjogdW4gY29wIHRyaWFkYSBsYSBwcmltZXJhIGJvbmEsIGVuIHF1ZWRlbiAkOCQgZGUgYm9uZXMgaSAkMTEkIGVuIHRvdGFsIHBlciBhIGxhIHNlZ29uYSwgbm8gJDkkIGRlICQxMiQgdW5hIGFsdHJhIHZlZ2FkYS4gTXVsdGlwbGljYXIgZGlyZWN0YW1lbnQgbGVzIGR1ZXMgcHJvYmFiaWxpdGF0cyBub23DqXMgdmFsIHF1YW4gZWxzIGVzZGV2ZW5pbWVudHMgc8OzbiBJTkRFUEVOREVOVFMgKGFtYiByZXBvc2ljacOzLCBvIGRvcyBleHBlcmltZW50cyBxdWUgbm8gcydhZmVjdGVuKS4gU2kgZWwgc2Vnb24gZGVww6huIGRlbCBxdWUgaGEgcGFzc2F0IGFsIHByaW1lciAocGVyIGV4ZW1wbGUsIHNlbnNlIHJlcG9zYXIgbCdlbGVtZW50IGV4dHJldCksIGNhbCBmZXIgc2VydmlyIGxhIHByb2JhYmlsaXRhdCBDT05ESUNJT05BREEgZGVsIHNlZ29uIGVzZGV2ZW5pbWVudCwgbm8gbGEgZGUgcGFydGlkYS4iLCAiJFxcZGZyYWN7OX17MTJ9XFxjZG90XFxkZnJhY3s4fXsxMX09XFxkZnJhY3s2fXsxMX0kIMOpcyBsYSBwcm9iYWJpbGl0YXQgcXVlIENBUCBkZSBsZXMgZHVlcyBzaWd1aSBkZWZlY3R1b3NhIChsZXMgZHVlcyBib25lcyk6IGxhIHF1ZSBlcyBkZW1hbmEgw6lzIGVsIGNvbnRyYXJpLCBlbmNhcmEgZmFsdGEgcmVzdGFyLWxhIGQnJDEkLiJdLCAiZXJyIjogWyIiLCAiQ09NUExFTUVOVF9BTE1FTllTX1VOX01BTCIsICJJTkRFUEVOREVOQ0lBX1NVUE9TQURBX1NFTlNFX01PVElVIiwgIkNPTVBMRU1FTlRfQUxNRU5ZU19VTl9NQUwiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e2NhcCBkZWZlY3R1b3NhfSk9XFxkZnJhY3s5fXsxMn1cXGNkb3RcXGRmcmFjezh9ezExfT1cXGRmcmFjezcyfXsxMzJ9PVxcZGZyYWN7Nn17MTF9JC4gJFAoXFx0ZXh0e2FsbWVueXMgMSBkZWZlY3R1b3NhfSk9MS1cXGRmcmFjezZ9ezExfT1cXGRmcmFjezV9ezExfSQiXX0="
+  },
+  {
+   "id": "379a",
+   "ex": 379,
+   "ap": "a",
+   "bloc": "probabilitat_condicionada",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquesta probabilitat condicionada: ja sabem de quin grup és la persona triada, així que només es compta dins d'aquest grup.",
+   "enunciat": "En una classe de $20$ alumnes hi ha $10$ noies, i $4$ d'aquestes noies porten ulleres. Triem una NOIA a l'atzar. Quina és la probabilitat que porti ulleres?",
+   "opcions": [
+    "$\\dfrac{4}{20}=\\dfrac{1}{5}$",
+    "$\\dfrac{10}{20}=\\dfrac{1}{2}$",
+    "$\\dfrac{4}{10}=\\dfrac{2}{5}$",
+    "$\\dfrac{6}{10}=\\dfrac{3}{5}$"
+   ],
+   "pistes": [
+    "Quantes noies hi ha? Aquests són els casos possibles.",
+    "D'aquestes noies, quantes porten ulleres?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJKYSBzYWJlbSBxdWUgw6lzIHVuYSBub2lhOiBlbCBkZW5vbWluYWRvciBzw7NuIGxlcyAkMTAkIG5vaWVzLCBubyBlbHMgJDIwJCBhbHVtbmVzLiBRdWFuIGVzIGRlbWFuYSBsYSBwcm9iYWJpbGl0YXQgRElOUyBkJ3VuIGdydXAgY29uY3JldCAobm8gZGUgdG90YSBsYSBwb2JsYWNpw7MpLCBlbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgbGEgbWlkYSBkJ2FxdWVsbCBncnVwLCBubyBlbCB0b3RhbCBkZSB0b3RzIGVscyBjYXNvcy4iLCAiQXF1ZXN0YSDDqXMgbGEgcHJvYmFiaWxpdGF0IGRlIHRyaWFyIHVuYSBub2lhIGQnZW50cmUgdG90YSBsYSBjbGFzc2UuIEVzIGRlbWFuYSB1bmEgYWx0cmEgY29zYTogZCdlbnRyZSBsZXMgbm9pZXMsIHF1YW50ZXMgcG9ydGVuIHVsbGVyZXMuIiwgIiIsICIkNiQgc8OzbiBsZXMgbm9pZXMgcXVlIE5PIHBvcnRlbiB1bGxlcmVzLiJdLCAiZXJyIjogWyJQUk9CQUJJTElUQVRfQ09ORElDSU9OQURBX01BTCIsICJDT05ESUNJT05BREFfSV9DT05KVU5UQV9DT05GT1NFUyIsICIiLCAiQ0FTT1NfRkFWT1JBQkxFU19NQUxfQ09NUFRBVFMiXSwgInJlcyI6IFsiJFAoXFx0ZXh0e3VsbGVyZXN9XFxtaWRcXHRleHR7bm9pYX0pPVxcZGZyYWN7NH17MTB9PVxcZGZyYWN7Mn17NX0kIl19"
+  },
+  {
+   "id": "379b",
+   "ex": 379,
+   "ap": "b",
+   "bloc": "probabilitat_condicionada",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquesta probabilitat condicionada: ja sabem de quin grup és la persona triada, així que només es compta dins d'aquest grup.",
+   "enunciat": "En un institut de $200$ alumnes, $50$ fan teatre, i $15$ d'aquests $50$ són de 4t. Triem a l'atzar un alumne que fa teatre. Quina és la probabilitat que sigui de 4t?",
+   "opcions": [
+    "$\\dfrac{15}{200}=\\dfrac{3}{40}$",
+    "$\\dfrac{50}{200}=\\dfrac{1}{4}$",
+    "$\\dfrac{35}{50}=\\dfrac{7}{10}$",
+    "$\\dfrac{15}{50}=\\dfrac{3}{10}$"
+   ],
+   "pistes": [
+    "Quants alumnes fan teatre? Aquests són els casos possibles.",
+    "D'aquests, quants són de 4t?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJKYSBzYWJlbSBxdWUgZmEgdGVhdHJlOiBlbCBkZW5vbWluYWRvciBzw7NuIGVscyAkNTAkIGFsdW1uZXMgZGUgdGVhdHJlLCBubyBlbHMgJDIwMCQuIFF1YW4gZXMgZGVtYW5hIGxhIHByb2JhYmlsaXRhdCBESU5TIGQndW4gZ3J1cCBjb25jcmV0IChubyBkZSB0b3RhIGxhIHBvYmxhY2nDsyksIGVsIGRlbm9taW5hZG9yIGhhIGRlIHNlciBsYSBtaWRhIGQnYXF1ZWxsIGdydXAsIG5vIGVsIHRvdGFsIGRlIHRvdHMgZWxzIGNhc29zLiIsICJBcXVlc3RhIMOpcyBsYSBwcm9iYWJpbGl0YXQgcXVlIHVuIGFsdW1uZSBxdWFsc2V2b2wgZmFjaSB0ZWF0cmUuIEVzIGRlbWFuYSB1bmEgYWx0cmEgY29zYTogZCdlbnRyZSBlbHMgZGUgdGVhdHJlLCBxdWFudHMgc8OzbiBkZSA0dC4iLCAiJDM1JCBzw7NuIGVscyBhbHVtbmVzIGRlIHRlYXRyZSBxdWUgTk8gc8OzbiBkZSA0dC4iLCAiIl0sICJlcnIiOiBbIlBST0JBQklMSVRBVF9DT05ESUNJT05BREFfTUFMIiwgIkNPTkRJQ0lPTkFEQV9JX0NPTkpVTlRBX0NPTkZPU0VTIiwgIkNBU09TX0ZBVk9SQUJMRVNfTUFMX0NPTVBUQVRTIiwgIiJdLCAicmVzIjogWyIkUChcXHRleHR7NHR9XFxtaWRcXHRleHR7dGVhdHJlfSk9XFxkZnJhY3sxNX17NTB9PVxcZGZyYWN7M317MTB9JCJdfQ=="
   },
   {
    "id": "319",

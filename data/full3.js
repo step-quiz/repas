@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Termes d'una successió",
    "descripcio": "Terme general, successions recurrents i comprovar si és una progressió aritmètica.",
    "items": [
+    "346a",
+    "346b",
     "47a",
     "47b",
     "47c",
@@ -62,6 +64,8 @@ window.FULL = {
    "titol": "Progressions geomètriques",
    "descripcio": "Raó, terme general i termes que falten.",
    "items": [
+    "347a",
+    "347b",
     "56a",
     "56b",
     "56c",
@@ -110,6 +114,7 @@ window.FULL = {
   "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
   "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
+  "POTENCIA_COM_PRODUCTE": "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.",
   "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
   "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
   "PRIMER_TERME_PER_DIFERENCIA": "Has donat el primer terme de la progressió, no la diferència. La diferència $d$ és el que se suma per passar d'un terme al següent: resta dos termes consecutius i la tindràs.",
@@ -126,6 +131,50 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "346a",
+   "ex": 346,
+   "ap": "a",
+   "bloc": "termes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el terme que es demana substituint el valor de $n$ al terme general de la successió.",
+   "enunciat": "$a_n=3n+1$. Calcula $a_2$.",
+   "opcions": [
+    "$a_2=10$",
+    "$a_2=9$",
+    "$a_2=7$",
+    "$a_2=4$"
+   ],
+   "pistes": [
+    "Substitueix $n=2$ a l'expressió.",
+    "$a_2=3\\cdot2+1$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTAkIMOpcyAkYV8zJCwgZWwgdGVyY2VyIHRlcm1lLiBSZXZpc2EgYSBwYXJ0aXIgZGUgcXVpbiB2YWxvciBkZSAkbiQgY29tZW5jZXMgYSBzdWJzdGl0dWlyLCBvIHF1aW4gZXhwb25lbnQgbGkgY29ycmVzcG9uOiB0J2hhcyBkZXNwbGHDp2F0IHVuYSBwb3NpY2nDsy4iLCAiSGFzIGZldCAkM1xcY2RvdCgyKzEpJC4gUHJpbWVyIGVzIG11bHRpcGxpY2EsICQzXFxjZG90Mj02JCwgaSBkZXNwcsOpcyBzZSBzdW1hICQxJC4iLCAiIiwgIiQ0JCDDqXMgJGFfMSQsIGVsIHByaW1lciB0ZXJtZS4gUmV2aXNhIGEgcGFydGlyIGRlIHF1aW4gdmFsb3IgZGUgJG4kIGNvbWVuY2VzIGEgc3Vic3RpdHVpciwgbyBxdWluIGV4cG9uZW50IGxpIGNvcnJlc3BvbjogdCdoYXMgZGVzcGxhw6dhdCB1bmEgcG9zaWNpw7MuIl0sICJlcnIiOiBbIkRFU1BMQUNBTUVOVF9JTkRFWCIsICJKRVJBUlFVSUEiLCAiIiwgIkRFU1BMQUNBTUVOVF9JTkRFWCJdLCAicmVzIjogWyIkYV8yPTNcXGNkb3QyKzE9NisxPTckIl19"
+  },
+  {
+   "id": "346b",
+   "ex": 346,
+   "ap": "b",
+   "bloc": "termes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el terme que es demana substituint el valor de $n$ al terme general de la successió.",
+   "enunciat": "$a_n=n^2$. Calcula $a_5$.",
+   "opcions": [
+    "$a_5=25$",
+    "$a_5=10$",
+    "$a_5=32$",
+    "$a_5=16$"
+   ],
+   "pistes": [
+    "Substitueix $n=5$ a l'expressió.",
+    "$a_5=5^2=5\\cdot5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDVeMj01XFxjZG90NSQsIG5vICQyXFxjZG90NSQuICR4XjIkIG5vIMOpcyAkMngkOiDDqXMgJHhcXGNkb3QgeCQuIFByb3ZhLWhvIGFtYiAkeD0zJCwgcXVlIGRvbmEgJDkkIGkgbm8gJDYkLiIsICJIYXMgY2FsY3VsYXQgJDJeNSQsIGkgw6lzICQ1XjIkLiBIYXMgY2FudmlhdCBkZSBsbG9jIGxhIGJhc2UgaSBsJ2V4cG9uZW50OiBubyDDqXMgZWwgbWF0ZWl4ICRhXmIkIHF1ZSAkYl5hJC4iLCAiJDE2JCDDqXMgJGFfNCQuIFJldmlzYSBhIHBhcnRpciBkZSBxdWluIHZhbG9yIGRlICRuJCBjb21lbmNlcyBhIHN1YnN0aXR1aXIsIG8gcXVpbiBleHBvbmVudCBsaSBjb3JyZXNwb246IHQnaGFzIGRlc3BsYcOnYXQgdW5hIHBvc2ljacOzLiJdLCAiZXJyIjogWyIiLCAiUE9URU5DSUFfQ09NX1BST0RVQ1RFIiwgIkJBU0VfRVhQT05FTlRfSU5URVJDQU5WSUFUUyIsICJERVNQTEFDQU1FTlRfSU5ERVgiXSwgInJlcyI6IFsiJGFfNT01XjI9MjUkIl19"
+  },
   {
    "id": "47a",
    "ex": 47,
@@ -983,6 +1032,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgbGEgcG9zaWNpw7MgZGVsIHRlcmNlciB0ZXJtZTogZW50cmUgZWwgc2Vnb24gKCRcXGRmcmFjMTQkKSBpIGVsIGNpbnF1w6ggKCRcXGRmcmFjMTIkKSBoaSBoYSBleGFjdGFtZW50IHRyZXMgcGFzc29zIGRlICRkJCwgbm8gZG9zLiIsICJFbCBwcmltZXIgdGVybWUgcydvYnTDqSByZXN0YW50ICRkJCBhbCBzZWdvbiB0ZXJtZSwgJFxcZGZyYWMxNC1cXGRmcmFjezF9ezEyfSQsIG5vIGRpdmlkaW50LWxvLiIsICIiLCAiUmV2aXNhIGVsIGRhcnJlciB0ZXJtZTogJFxcZGZyYWMxMitcXGRmcmFjezF9ezEyfT1cXGRmcmFjezd9ezEyfSQsIG5vICRcXGRmcmFjMjMkLiJdLCAiZXJyIjogWyJERVNQTEFDQU1FTlRfSU5ERVgiLCAiRU5URVJfQUxfTlVNRVJBRE9SIiwgIiIsICJTSUdORV9GSU5BTCJdLCAicmVzIjogWyIkM2Q9XFxkZnJhYzEyLVxcZGZyYWMxND1cXGRmcmFjMTRcXFJpZ2h0YXJyb3cgZD1cXGRmcmFjezF9ezEyfSQiLCAiJGFfMT1hXzItZD1cXGRmcmFjMTQtXFxkZnJhY3sxfXsxMn09XFxkZnJhYzE2JCIsICIkYV8zPWFfMitkPVxcZGZyYWMxNCtcXGRmcmFjezF9ezEyfT1cXGRmcmFjMTMkIiwgIiRhXzQ9YV8zK2Q9XFxkZnJhYzEzK1xcZGZyYWN7MX17MTJ9PVxcZGZyYWN7NX17MTJ9JCIsICIkYV82PWFfNStkPVxcZGZyYWMxMitcXGRmcmFjezF9ezEyfT1cXGRmcmFjezd9ezEyfSQiLCAiRWxzIHNpcyB0ZXJtZXMgc8OzbiAkXFxkZnJhYzE2LFxcO1xcZGZyYWMxNCxcXDtcXGRmcmFjMTMsXFw7XFxkZnJhY3s1fXsxMn0sXFw7XFxkZnJhYzEyLFxcO1xcZGZyYWN7N317MTJ9JCJdfQ=="
+  },
+  {
+   "id": "347a",
+   "ex": 347,
+   "ap": "a",
+   "bloc": "geometriques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aquesta progressió sabem que és geomètrica. Quina és la seva raó $r$?",
+   "enunciat": "$2,\\;6,\\;18,\\;54,\\;\\dots$",
+   "opcions": [
+    "$r=3$",
+    "$r=2$",
+    "$r=4$",
+    "$r=\\dfrac{1}{3}$"
+   ],
+   "pistes": [
+    "Per quin nombre multipliques el $2$ per obtenir el $6$?",
+    "Divideix dos termes consecutius: $6:2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDIkIMOpcyBlbCBwcmltZXIgdGVybWUsICRhXzEkLCBubyBsYSByYcOzLiIsICJIYXMgcmVzdGF0IGRvcyB0ZXJtZXMgKCQ2LTIkKTogYWl4w7Igc2VyaWEgbGEgZGlmZXLDqG5jaWEgZCd1bmEgcHJvZ3Jlc3Npw7MgYXJpdG3DqHRpY2EuIEVuIHVuYSBnZW9tw6h0cmljYSwgY2FkYSB0ZXJtZSBzJ29idMOpIE1VTFRJUExJQ0FOVCBsJ2FudGVyaW9yIHBlciBsYSByYcOzLiIsICJIYXMgZGl2aWRpdCBsJ2FudGVyaW9yIGVudHJlIGVsIHNlZ8O8ZW50LiBMYSByYcOzIMOpcyBlbCBzZWfDvGVudCBlbnRyZSBsJ2FudGVyaW9yOiAkNjoyJC4gTGEgcHJvZ3Jlc3Npw7MgY3JlaXgsIGFpeMOtIHF1ZSAkcj4xJC4iXSwgImVyciI6IFsiIiwgIlBSSU1FUl9URVJNRV9QRVJfRElGRVJFTkNJQSIsICJSQU9fTUFMX0FQTElDQURBIiwgIklOVkVSVElEQSJdLCAicmVzIjogWyIkcj02OjI9MyQgKGkgZXMgY29tcHJvdmE6ICQxODo2PTMkLCAkNTQ6MTg9MyQpIl19"
+  },
+  {
+   "id": "347b",
+   "ex": 347,
+   "ap": "b",
+   "bloc": "geometriques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aquesta progressió sabem que és geomètrica. Quina és la seva raó $r$?",
+   "enunciat": "$5,\\;10,\\;20,\\;40,\\;\\dots$",
+   "opcions": [
+    "$r=5$",
+    "$r=2$",
+    "$r=10$",
+    "$r=\\dfrac{1}{2}$"
+   ],
+   "pistes": [
+    "Per quin nombre multipliques el $5$ per obtenir el $10$?",
+    "Divideix dos termes consecutius: $10:5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcmVzdGF0IGRvcyB0ZXJtZXMgKCQxMC01JCk6IGFpeMOyIHNlcmlhIGxhIGRpZmVyw6huY2lhIGQndW5hIHByb2dyZXNzacOzIGFyaXRtw6h0aWNhLiBDb21wcm92YS1obzogJDIwLTEwPTEwJCwgbm8gJDUkLiIsICIiLCAiJDEwJCDDqXMgZWwgc2Vnb24gdGVybWUsIG5vIGxhIHJhw7MuIiwgIkhhcyBkaXZpZGl0IGwnYW50ZXJpb3IgZW50cmUgZWwgc2Vnw7xlbnQuIExhIHJhw7Mgw6lzIGVsIHNlZ8O8ZW50IGVudHJlIGwnYW50ZXJpb3I6ICQxMDo1JC4gTGEgcHJvZ3Jlc3Npw7MgY3JlaXgsIGFpeMOtIHF1ZSAkcj4xJC4iXSwgImVyciI6IFsiUkFPX01BTF9BUExJQ0FEQSIsICIiLCAiQ09NUEFSQV9URVJNRVMiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiRyPTEwOjU9MiQgKGkgZXMgY29tcHJvdmE6ICQyMDoxMD0yJCwgJDQwOjIwPTIkKSJdfQ=="
   },
   {
    "id": "56a",

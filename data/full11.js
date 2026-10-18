@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Variables estadístiques",
    "descripcio": "Tipus de variable (qualitativa/quantitativa, discreta/contínua) i mostra o població.",
    "items": [
+    "369a",
+    "369b",
     "218a",
     "218b",
     "218c",
@@ -28,6 +30,8 @@ window.FULL = {
    "titol": "Taules de freqüències",
    "descripcio": "Recompte de dades i freqüències absolutes, acumulades, relatives i percentatges.",
    "items": [
+    "370a",
+    "370b",
     "220a",
     "220b",
     "220c",
@@ -61,6 +65,8 @@ window.FULL = {
    "titol": "Gràfics estadístics",
    "descripcio": "Diagrames de barres, histogrames, polígons de freqüències i gràfics de sectors.",
    "items": [
+    "371a",
+    "371b",
     "227",
     "229",
     "230a",
@@ -82,6 +88,8 @@ window.FULL = {
    "titol": "Mitjana, mediana i moda",
    "descripcio": "Les tres mesures de centralització, des d'una llista i des d'una taula de freqüències, i quina respon cada pregunta.",
    "items": [
+    "372a",
+    "372b",
     "260a",
     "260b",
     "260c",
@@ -111,6 +119,8 @@ window.FULL = {
    "titol": "Recorregut i desviació típica",
    "descripcio": "Com d'esteses estan les dades: recorregut, variància, desviació típica i coeficient de variació.",
    "items": [
+    "373a",
+    "373b",
     "268a",
     "268b",
     "268c",
@@ -182,6 +192,50 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "369a",
+   "ex": 369,
+   "ap": "a",
+   "bloc": "variables",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Tria, d'entre aquestes variables estadístiques, la que és del tipus que es demana.",
+   "enunciat": "Quina d'aquestes variables és QUALITATIVA?",
+   "opcions": [
+    "El nombre de germans",
+    "L'edat en anys",
+    "El color preferit",
+    "L'alçada en cm"
+   ],
+   "pistes": [
+    "Una variable qualitativa respon amb una paraula (una qualitat), no amb un nombre.",
+    "Quina d'aquestes preguntes es respon amb una paraula?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBub21icmUgZGUgZ2VybWFucyDDqXMgdW4gbm9tYnJlOiDDqXMgcXVhbnRpdGF0aXZhLiIsICJMJ2VkYXQgcydleHByZXNzYSBhbWIgdW4gbm9tYnJlOiDDqXMgcXVhbnRpdGF0aXZhLiIsICIiLCAiTCdhbMOnYWRhIGVzIG1lc3VyYSBhbWIgdW4gbm9tYnJlOiDDqXMgcXVhbnRpdGF0aXZhLiJdLCAiZXJyIjogWyJRVUFMSVRBVElWQV9RVUFOVElUQVRJVkFfQ09ORk9TRVMiLCAiUVVBTElUQVRJVkFfUVVBTlRJVEFUSVZBX0NPTkZPU0VTIiwgIiIsICJRVUFMSVRBVElWQV9RVUFOVElUQVRJVkFfQ09ORk9TRVMiXSwgInJlcyI6IFsiRWwgY29sb3IgcHJlZmVyaXQgZXMgcmVzcG9uIGFtYiB1bmEgcGFyYXVsYSAoYmxhdSwgdmVyZC4uLik6IMOpcyBxdWFsaXRhdGl2YS4gTGVzIGFsdHJlcyB0cmVzIGVzIHJlc3BvbmVuIGFtYiB1biBub21icmUuIl19"
+  },
+  {
+   "id": "369b",
+   "ex": 369,
+   "ap": "b",
+   "bloc": "variables",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Tria, d'entre aquestes variables estadístiques, la que és del tipus que es demana.",
+   "enunciat": "Quina d'aquestes variables és QUANTITATIVA?",
+   "opcions": [
+    "La marca del mòbil",
+    "El grup sanguini",
+    "L'esport preferit",
+    "El nombre de mascotes que hi ha a casa"
+   ],
+   "pistes": [
+    "Una variable quantitativa respon amb un nombre.",
+    "Quina d'aquestes preguntes es respon comptant o mesurant?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJMYSBtYXJjYSBkZWwgbcOyYmlsIGVzIHJlc3BvbiBhbWIgdW4gbm9tOiDDqXMgcXVhbGl0YXRpdmEuIiwgIkVsIGdydXAgc2FuZ3VpbmkgKEEsIEIsIEFCLCAwKSDDqXMgdW5hIGNhdGVnb3JpYSwgbm8gdW5hIHF1YW50aXRhdDogw6lzIHF1YWxpdGF0aXZhLiIsICJMJ2VzcG9ydCBwcmVmZXJpdCBlcyByZXNwb24gYW1iIHVuYSBwYXJhdWxhOiDDqXMgcXVhbGl0YXRpdmEuIiwgIiJdLCAiZXJyIjogWyJRVUFMSVRBVElWQV9RVUFOVElUQVRJVkFfQ09ORk9TRVMiLCAiUVVBTElUQVRJVkFfUVVBTlRJVEFUSVZBX0NPTkZPU0VTIiwgIlFVQUxJVEFUSVZBX1FVQU5USVRBVElWQV9DT05GT1NFUyIsICIiXSwgInJlcyI6IFsiRWwgbm9tYnJlIGRlIG1hc2NvdGVzIGVzIHJlc3BvbiBhbWIgdW4gbm9tYnJlICgwLCAxLCAyLi4uKTogw6lzIHF1YW50aXRhdGl2YS4gTGVzIGFsdHJlcyB0cmVzIGVzIHJlc3BvbmVuIGFtYiB1bmEgcGFyYXVsYSBvIHVuYSBjYXRlZ29yaWEuIl19"
+  },
   {
    "id": "218a",
    "ex": 218,
@@ -445,6 +499,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJRdWUgc2lndWkgdW4gw7puaWMgdG90YWwgbm8gbGEgZmEgZGlzY3JldGE6IGVsIHF1ZSBjb21wdGEgw6lzIHNpIGFxdWVsbCB0b3RhbCBwb3QgcHJlbmRyZSBxdWFsc2V2b2wgdmFsb3IgZGVjaW1hbCwgaSB1biBwZXMgc2VtcHJlIGhvIGFkbWV0LiIsICJFbHMgcXVpbG9ncmFtcyBjb25zdW1pdHMgcydleHByZXNzZW4gYW1iIHVuIG5vbWJyZTogw6lzIHVuYSB2YXJpYWJsZSBxdWFudGl0YXRpdmEsIG5vIHF1YWxpdGF0aXZhLiIsICJVbiBwZXMgZXMgcG90IG1lc3VyYXIgYW1iIHF1YWxzZXZvbCBwcmVjaXNpw7MgZGVjaW1hbCAoZ3JhbXMsIGNlbnTDqHNpbWVzIGRlIHF1aWxvZ3JhbS4uLiksIG5vIG5vbcOpcyBlbiBxdWlsb2dyYW1zIHNlbmNlcnMuIFVuYSB2YXJpYWJsZSBxdWFudGl0YXRpdmEgw6lzIGRpc2NyZXRhIHF1YW4gbm9tw6lzIHBvdCBwcmVuZHJlIHZhbG9ycyBhw69sbGF0cyAodMOtcGljYW1lbnQgdW4gcmVjb21wdGUpLCBpIGNvbnTDrW51YSBxdWFuIHBvdCBwcmVuZHJlIHF1YWxzZXZvbCB2YWxvciBkZWNpbWFsIGRpbnMgZCd1biBpbnRlcnZhbC4iLCAiIl0sICJlcnIiOiBbIkRJU0NSRVRBX0NPTlRJTlVBX0NPTkZPU0VTIiwgIlFVQUxJVEFUSVZBX1FVQU5USVRBVElWQV9DT05GT1NFUyIsICJESVNDUkVUQV9DT05USU5VQV9DT05GT1NFUyIsICIiXSwgInJlcyI6IFsiRWxzIHF1aWxvZ3JhbXMgZGUgY2FybiBjb25zdW1pdHMgZXMgcG9kZW4gbWVzdXJhciBhbWIgcXVhbHNldm9sIHByZWNpc2nDsyBkZWNpbWFsOiDDqXMgQ09OVMONTlVBLiJdfQ=="
+  },
+  {
+   "id": "370a",
+   "ex": 370,
+   "ap": "a",
+   "bloc": "frequencies",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la freqüència absoluta del valor que es demana? És el nombre de vegades que apareix a la llista de dades.",
+   "enunciat": "Dades: $2,\\;3,\\;2,\\;5,\\;2,\\;3$. Valor: $2$.",
+   "opcions": [
+    "$\\dfrac{1}{2}$",
+    "$3$",
+    "$4$",
+    "$6$"
+   ],
+   "pistes": [
+    "Ratlla cada $2$ que trobis a la llista.",
+    "Quants n'has ratllat?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJBaXjDsiDDqXMgbGEgZnJlccO8w6huY2lhIFJFTEFUSVZBLCAkXFxkZnJhY3szfXs2fSQuIEwnYWJzb2x1dGEgw6lzIGVsIHJlY29tcHRlLCBzZW5zZSBkaXZpZGlyLiIsICIiLCAiVG9ybmEgYSBjb21wdGFyIGxlcyBkYWRlcyB1bmEgcGVyIHVuYTogw6lzIGbDoGNpbCBzYWx0YXItc2UnbiBhbGd1bmEgbyBjb21wdGFyLW5lIGFsZ3VuYSBkdWVzIHZlZ2FkZXMgZW4gdW4gcmVjb21wdGUgbGxhcmcuIiwgIiQ2JCDDqXMgZWwgbm9tYnJlIHRvdGFsIGRlIGRhZGVzLiBFcyBkZW1hbmEgcXVhbnRlcyB2ZWdhZGVzIHN1cnQgZWwgJDIkLiJdLCAiZXJyIjogWyJGUkVRX1JFTEFUSVZBX01BTF9DQUxDVUxBREEiLCAiIiwgIlJFQ09NUFRFX01BTF9GRVQiLCAiVE9UQUxfREFERVNfTUFMX0NBTENVTEFUIl0sICJyZXMiOiBbIiRcXHVuZGVybGluZXsyfSxcXDszLFxcO1xcdW5kZXJsaW5lezJ9LFxcOzUsXFw7XFx1bmRlcmxpbmV7Mn0sXFw7MyQ6IGVsICQyJCBzdXJ0ICQzJCB2ZWdhZGVzLiJdfQ=="
+  },
+  {
+   "id": "370b",
+   "ex": 370,
+   "ap": "b",
+   "bloc": "frequencies",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quina és la freqüència absoluta del valor que es demana? És el nombre de vegades que apareix a la llista de dades.",
+   "enunciat": "Dades: $1,\\;4,\\;4,\\;1,\\;4,\\;0,\\;4$. Valor: $4$.",
+   "opcions": [
+    "$4$",
+    "$\\dfrac{4}{7}$",
+    "$7$",
+    "$3$"
+   ],
+   "pistes": [
+    "Ratlla cada $4$ que trobis a la llista.",
+    "Quants n'has ratllat?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQWl4w7Igw6lzIGxhIGZyZXHDvMOobmNpYSBSRUxBVElWQS4gTCdhYnNvbHV0YSDDqXMgZWwgcmVjb21wdGUsIHNlbnNlIGRpdmlkaXIgcGVsIHRvdGFsLiIsICIkNyQgw6lzIGVsIG5vbWJyZSB0b3RhbCBkZSBkYWRlcy4gRXMgZGVtYW5hIHF1YW50ZXMgdmVnYWRlcyBzdXJ0IGVsICQ0JC4iLCAiVG9ybmEgYSBjb21wdGFyIGxlcyBkYWRlcyB1bmEgcGVyIHVuYTogw6lzIGbDoGNpbCBzYWx0YXItc2UnbiBhbGd1bmEgbyBjb21wdGFyLW5lIGFsZ3VuYSBkdWVzIHZlZ2FkZXMgZW4gdW4gcmVjb21wdGUgbGxhcmcuIl0sICJlcnIiOiBbIiIsICJGUkVRX1JFTEFUSVZBX01BTF9DQUxDVUxBREEiLCAiVE9UQUxfREFERVNfTUFMX0NBTENVTEFUIiwgIlJFQ09NUFRFX01BTF9GRVQiXSwgInJlcyI6IFsiJDEsXFw7XFx1bmRlcmxpbmV7NH0sXFw7XFx1bmRlcmxpbmV7NH0sXFw7MSxcXDtcXHVuZGVybGluZXs0fSxcXDswLFxcO1xcdW5kZXJsaW5lezR9JDogZWwgJDQkIHN1cnQgJDQkIHZlZ2FkZXMuIl19"
   },
   {
    "id": "220a",
@@ -1019,6 +1117,50 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBmcmVxw7zDqG5jaWEgcmVsYXRpdmEgZGUgXCIkMiRcIiBub23DqXMgcGFybGEgZGVscyBhbHVtbmVzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIGV4YWN0YW1lbnQgJDIkLCBubyBkZWxzIHF1ZSBlbiB2YW4gc3VzcGVuZHJlIG1lbnlzIGRlICQyJC4iLCAiTGEgZnJlccO8w6huY2lhIGFjdW11bGFkYSBkZSBcIiQyJFwiICgkRl8yJCkgaW5jbG91IHRhbWLDqSBlbHMgcXVlIGVuIHZhbiBzdXNwZW5kcmUgZXhhY3RhbWVudCAkMiQsIGkgbGEgcHJlZ3VudGEgZGVtYW5hIE1FTllTIGRlIGR1ZXMsIMOpcyBhIGRpciwgbm9tw6lzICQwJCBvICQxJDogY2FsIGwnYWN1bXVsYWRhIGRlIFwiJDEkXCIsIG5vIGxhIGRlIFwiJDIkXCIuIiwgIiIsICJTw60gcXVlIG4naGkgaGEgdW5hOiBsYSBmcmVxw7zDqG5jaWEgYWJzb2x1dGEgQUNVTVVMQURBIGQndW4gdmFsb3Igc3VtYSB0b3RlcyBsZXMgcXVlIGVsIHByZWNlZGVpeGVuLCBxdWUgw6lzIGV4YWN0YW1lbnQgZWwgcXVlIGRlbWFuYSBcIm1lbnlzIGRlIGR1ZXNcIi4iXSwgImVyciI6IFsiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiRlJFUV9BQlNPTFVUQV9BQ1VNVUxBREFfQ09ORk9TRVMiLCAiIiwgIkVTX1BPVF9ERVRFUk1JTkFSIl0sICJyZXMiOiBbIiRGXzE9Zl8wK2ZfMT0zKzY9OSQ6IGxhIGZyZXHDvMOobmNpYSBhYnNvbHV0YSBhY3VtdWxhZGEgZGVsIHZhbG9yIFwiJDEkXCIgcmVzcG9uIGV4YWN0YW1lbnQgYSBsYSBwcmVndW50YSIsICJQZXIgdGFudCwgc8OtLCAkOSQgYWx1bW5lcyB2YW4gc3VzcGVuZHJlIG1lbnlzIGRlIGR1ZXMgYXNzaWduYXR1cmVzIl19"
   },
   {
+   "id": "371a",
+   "ex": 371,
+   "ap": "a",
+   "bloc": "grafics",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'angle del sector que correspon a aquesta categoria en un gràfic de sectors. Tot el cercle són $360^\\circ$.",
+   "enunciat": "La categoria és la meitat de les dades ($50\\,\\%$).",
+   "opcions": [
+    "$180^\\circ$",
+    "$50^\\circ$",
+    "$90^\\circ$",
+    "$360^\\circ$"
+   ],
+   "pistes": [
+    "La meitat de les dades és la meitat del cercle.",
+    "$360:2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIHBvc2F0IGVsIHBlcmNlbnRhdGdlIGNvbSBzaSBmb3NzaW4gZ3JhdXMuIEwnYW5nbGUgZGUgY2FkYSBzZWN0b3IgcydvYnTDqSBtdWx0aXBsaWNhbnQgbGEgc2V2YSBmcmVxw7zDqG5jaWEgcmVsYXRpdmEgcGVscyAkMzYwXlxcY2lyYyQgdG90YWxzIGRlIGxhIGNpcmN1bWZlcsOobmNpYSwgbm8gcGVyIGNhcCBhbHRyZSBub21icmUuIiwgIiQ5MF5cXGNpcmMkIMOpcyB1biBxdWFydCBkZSBjZXJjbGUuIExhIG1laXRhdCBkZSAkMzYwXlxcY2lyYyQgw6lzICQxODBeXFxjaXJjJC4iLCAiJDM2MF5cXGNpcmMkIMOpcyB0b3QgZWwgY2VyY2xlLiBBcXVlc3RhIGNhdGVnb3JpYSBub23DqXMgbifDqXMgbGEgbWVpdGF0LiJdLCAiZXJyIjogWyIiLCAiU0VDVE9SX0FOR0xFX01BTF9DQUxDVUxBVCIsICJTRUNUT1JfQU5HTEVfTUFMX0NBTENVTEFUIiwgIlNFQ1RPUl9BTkdMRV9NQUxfQ0FMQ1VMQVQiXSwgInJlcyI6IFsiJFxcZGZyYWN7MX17Mn1cXGNkb3QzNjBeXFxjaXJjPTE4MF5cXGNpcmMkIl19"
+  },
+  {
+   "id": "371b",
+   "ex": 371,
+   "ap": "b",
+   "bloc": "grafics",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'angle del sector que correspon a aquesta categoria en un gràfic de sectors. Tot el cercle són $360^\\circ$.",
+   "enunciat": "La categoria és la quarta part de les dades ($25\\,\\%$).",
+   "opcions": [
+    "$100^\\circ$",
+    "$90^\\circ$",
+    "$25^\\circ$",
+    "$45^\\circ$"
+   ],
+   "pistes": [
+    "La quarta part de les dades és la quarta part del cercle.",
+    "$360:4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZmV0ICQyNVxcY2RvdDQkLiBFcyBkaXZpZGVpeCBlbCBjZXJjbGUgZW4gcXVhdHJlOiAkMzYwOjQkLiIsICIiLCAiSGFzIHBvc2F0IGVsIHBlcmNlbnRhdGdlIGNvbSBzaSBmb3NzaW4gZ3JhdXMuIEwnYW5nbGUgZGUgY2FkYSBzZWN0b3IgcydvYnTDqSBtdWx0aXBsaWNhbnQgbGEgc2V2YSBmcmVxw7zDqG5jaWEgcmVsYXRpdmEgcGVscyAkMzYwXlxcY2lyYyQgdG90YWxzIGRlIGxhIGNpcmN1bWZlcsOobmNpYSwgbm8gcGVyIGNhcCBhbHRyZSBub21icmUuIiwgIkhhcyBwcmVzICQxODBeXFxjaXJjJCBjb20gc2kgZm9zIGVsIGNlcmNsZSBzZW5jZXIuIFRvdCBlbCBjZXJjbGUgc8OzbiAkMzYwXlxcY2lyYyQ6ICQzNjA6ND05MCQuIl0sICJlcnIiOiBbIlNFQ1RPUl9BTkdMRV9NQUxfQ0FMQ1VMQVQiLCAiIiwgIlNFQ1RPUl9BTkdMRV9NQUxfQ0FMQ1VMQVQiLCAiU0VDVE9SX0FOR0xFX01BTF9DQUxDVUxBVCJdLCAicmVzIjogWyIkXFxkZnJhY3sxfXs0fVxcY2RvdDM2MF5cXGNpcmM9OTBeXFxjaXJjJCJdfQ=="
+  },
+  {
    "id": "227",
    "ex": 227,
    "ap": "",
@@ -1325,6 +1467,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTm8gc2VtcHJlOiBsJ2hpc3RvZ3JhbWEgw6lzIHByb3BpIGRlIHZhcmlhYmxlcyBjb250w61udWVzIGFncnVwYWRlcyBlbiBpbnRlcnZhbHMuIFVuYSB2YXJpYWJsZSBkaXNjcmV0YSBjb20gZWwgcmVzdWx0YXQgZCd1biBkYXUgZXMgcmVwcmVzZW50YSBhbWIgdW4gZGlhZ3JhbWEgZGUgYmFycmVzLCBubyBhbWIgdW4gaGlzdG9ncmFtYS4iLCAiRWwgdmVyZWRpY3RlIChcIm5vXCIpIGEgbCdoaXN0b2dyYW1hIMOpcyBjb3JyZWN0ZSwgcGVyw7Igbm8gw6lzIGwnw7puaWMgZ3LDoGZpYyBwb3NzaWJsZTogZWwgZGlhZ3JhbWEgZGUgYmFycmVzIGkgZWwgcG9sw61nb24gZGUgZnJlccO8w6huY2llcyB0YW1iw6kgc8OzbiBhZGVxdWF0cyBwZXIgYSBhcXVlc3RhIHZhcmlhYmxlIGRpc2NyZXRhLiIsICJFbCBub21icmUgZGUgdmFsb3JzIGRpZmVyZW50cyBubyBkZXRlcm1pbmEgc2kgZXMgcG90IGZlciB1biBoaXN0b2dyYW1hOiBlbCBxdWUgaG8gZGV0ZXJtaW5hIMOpcyBzaSBsYSB2YXJpYWJsZSDDqXMgY29udMOtbnVhIGkgbGVzIGRhZGVzIGVzdGFuIGFncnVwYWRlcyBlbiBpbnRlcnZhbHMsIGkgYXF1w60gbm8gw6lzIGVsIGNhcy4iXSwgImVyciI6IFsiIiwgIkRJQUdSQU1BX0hJU1RPR1JBTUFfQ09ORk9TT1MiLCAiRElBR1JBTUFfSElTVE9HUkFNQV9DT05GT1NPUyIsICJESUFHUkFNQV9ISVNUT0dSQU1BX0NPTkZPU09TIl0sICJyZXMiOiBbIkVsIHJlc3VsdGF0IGQndW4gZGF1IMOpcyB1bmEgdmFyaWFibGUgZGlzY3JldGEgKHZhbG9ycyAkMSQgYSAkNiQsIHNlcGFyYXRzKSwgbm8gY29udMOtbnVhOiBubyBjb3JyZXNwb24gZmVyLWhpIHVuIGhpc3RvZ3JhbWEsIHNpbsOzIHVuIGRpYWdyYW1hIGRlIGJhcnJlcyJdfQ=="
+  },
+  {
+   "id": "372a",
+   "ex": 372,
+   "ap": "a",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica d'aquestes dades. Recorda: és la suma de totes les dades dividida pel nombre de dades.",
+   "enunciat": "$2,\\;4,\\;9$",
+   "opcions": [
+    "$4$",
+    "$15$",
+    "$5$",
+    "$9$"
+   ],
+   "pistes": [
+    "Suma les tres dades.",
+    "$2+4+9=15$. Divideix per $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkNCQgw6lzIGxhIGRhZGEgZGVsIG1pZywgbGEgbWVkaWFuYS4gTGEgbWl0amFuYSBlcyBjYWxjdWxhOiBzdW1hIGkgZGl2aWRlaXguIiwgIiQxNSQgw6lzIGxhIHN1bWEuIEZhbHRhIGRpdmlkaXItbGEgcGVsIG5vbWJyZSBkZSBkYWRlcywgJDMkLiIsICIiLCAiJDkkIMOpcyBsYSBkYWRhIG3DqXMgZ3Jhbi4gTGEgbWl0amFuYSDDqXMgZWwgdmFsb3IgcXVlIGVzIHJlcGFydGlyaWEgaWd1YWwgZW50cmUgdG90ZXM6IHN1bWEgaSBkaXZpZGVpeC4iXSwgImVyciI6IFsiTUVESUFOQV9QRVJfTUlUSkFOQSIsICJESVZJU0lPX09CTElEQURBIiwgIiIsICJFTF9NRVNfR1JBTiJdLCAicmVzIjogWyIkXFxiYXIgeD1cXGRmcmFjezIrNCs5fXszfT1cXGRmcmFjezE1fXszfT01JCJdfQ=="
+  },
+  {
+   "id": "372b",
+   "ex": 372,
+   "ap": "b",
+   "bloc": "centralitzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mitjana aritmètica d'aquestes dades. Recorda: és la suma de totes les dades dividida pel nombre de dades.",
+   "enunciat": "$1,\\;5,\\;6$",
+   "opcions": [
+    "$5$",
+    "$6$",
+    "$4$",
+    "$12$"
+   ],
+   "pistes": [
+    "Suma les tres dades.",
+    "$1+5+6=12$. Divideix per $3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkNSQgw6lzIGxhIGRhZGEgZGVsIG1pZywgbGEgbWVkaWFuYS4gTGEgbWl0amFuYSBlcyBjYWxjdWxhOiBzdW1hIGkgZGl2aWRlaXguIiwgIiQ2JCDDqXMgbGEgZGFkYSBtw6lzIGdyYW4uIExhIG1pdGphbmEgw6lzIGVsIHZhbG9yIHF1ZSBlcyByZXBhcnRpcmlhIGlndWFsIGVudHJlIHRvdGVzOiBzdW1hIGkgZGl2aWRlaXguIiwgIiIsICIkMTIkIMOpcyBsYSBzdW1hLiBGYWx0YSBkaXZpZGlyLWxhIHBlbCBub21icmUgZGUgZGFkZXMsICQzJC4iXSwgImVyciI6IFsiTUVESUFOQV9QRVJfTUlUSkFOQSIsICJFTF9NRVNfR1JBTiIsICIiLCAiRElWSVNJT19PQkxJREFEQSJdLCAicmVzIjogWyIkXFxiYXIgeD1cXGRmcmFjezErNSs2fXszfT1cXGRmcmFjezEyfXszfT00JCJdfQ=="
   },
   {
    "id": "260a",
@@ -1809,6 +1995,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiQXF1ZXN0YSDDqXMgbGEgc3VtYSBkZSBUT1RFUyBsZXMgZGFkZXM6IGVuY2FyYSBjYWwgcmVzdGFyLWhpIGxlcyBxdWUgamEgY29uZWl4ZXMuIiwgIkhhcyBtdWx0aXBsaWNhdCBsYSBtaXRqYW5hIHBlciBsZXMgZGFkZXMgcXVlIGphIGNvbmVpeGllcyAoJDUkKSwgbm8gcGVyIHRvdGVzIGxlcyBxdWUgaGkgaGEgKCQ2JCkuIiwgIkFxdWVzdGEgw6lzIGxhIG1pdGphbmEsIHF1ZSBqYSB0ZSBsYSBkb25hdmVuLiBMYSBkYWRhIHF1ZSBmYWx0YSBubyB0w6kgcGVyIHF1w6ggY29pbmNpZGlyLWhpLiJdLCAiZXJyIjogWyIiLCAiUEFTX0lOVEVSTUVESV9QRVJfUkVTUE9TVEEiLCAiTl9NQUxfQ09NUFRBVCIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSJdLCAicmVzIjogWyJTdW1hIHRvdGFsOiAkNlxcY2RvdDEyPTcyJCIsICJTdW1hIGNvbmVndWRhOiAkMTIrOCsxNSsxMSs5PTU1JCIsICJEYWRhIHF1ZSBmYWx0YTogJDcyLTU1PTE3JCJdfQ=="
+  },
+  {
+   "id": "373a",
+   "ex": 373,
+   "ap": "a",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el recorregut (o rang) d'aquestes dades, que ja estan ordenades: la dada més gran menys la més petita.",
+   "enunciat": "$2,\\;5,\\;11$",
+   "opcions": [
+    "$11$",
+    "$5$",
+    "$13$",
+    "$9$"
+   ],
+   "pistes": [
+    "Quina és la dada més gran? I la més petita?",
+    "$11-2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkMTEkIMOpcyBsYSBkYWRhIG3DqXMgZ3Jhbi4gTGkgZmFsdGEgcmVzdGFyLWhpIGxhIG3DqXMgcGV0aXRhOiAkMTEtMiQuIiwgIiQ1JCDDqXMgbGEgZGFkYSBkZWwgbWlnLiBFbCByZWNvcnJlZ3V0IMOpcyBsYSBkaXN0w6BuY2lhIGVudHJlIGVscyBkb3MgZXh0cmVtczogJDExLTIkLiIsICJIYXMgc3VtYXQgZWxzIGV4dHJlbXMuIEVsIHJlY29ycmVndXQgw6lzIGxhIHNldmEgRElGRVLDiE5DSUE6ICQxMS0yJC4iLCAiIl0sICJlcnIiOiBbIkVMX01FU19HUkFOIiwgIlJBTkdfUEVSX01FRElBTkEiLCAiUFJPRFVDVEVfUEVSX1NVTUEiLCAiIl0sICJyZXMiOiBbIlJlY29ycmVndXQgJD0xMS0yPTkkIl19"
+  },
+  {
+   "id": "373b",
+   "ex": 373,
+   "ap": "b",
+   "bloc": "dispersio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el recorregut (o rang) d'aquestes dades, que ja estan ordenades: la dada més gran menys la més petita.",
+   "enunciat": "$4,\\;6,\\;9,\\;14$",
+   "opcions": [
+    "$10$",
+    "$7{,}5$",
+    "$18$",
+    "$14$"
+   ],
+   "pistes": [
+    "Quina és la dada més gran? I la més petita?",
+    "$14-4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDd7LH01JCDDqXMgbGEgbWVkaWFuYSwgZWwgdmFsb3IgZGVsIG1pZy4gRWwgcmVjb3JyZWd1dCDDqXMgbGEgZGlzdMOgbmNpYSBlbnRyZSBlbHMgZG9zIGV4dHJlbXM6ICQxNC00JC4iLCAiSGFzIHN1bWF0IGVscyBleHRyZW1zLiBFbCByZWNvcnJlZ3V0IMOpcyBsYSBzZXZhIERJRkVSw4hOQ0lBOiAkMTQtNCQuIiwgIiQxNCQgw6lzIGxhIGRhZGEgbcOpcyBncmFuLiBMaSBmYWx0YSByZXN0YXItaGkgbGEgbcOpcyBwZXRpdGE6ICQxNC00JC4iXSwgImVyciI6IFsiIiwgIlJBTkdfUEVSX01FRElBTkEiLCAiUFJPRFVDVEVfUEVSX1NVTUEiLCAiRUxfTUVTX0dSQU4iXSwgInJlcyI6IFsiUmVjb3JyZWd1dCAkPTE0LTQ9MTAkIl19"
   },
   {
    "id": "268a",

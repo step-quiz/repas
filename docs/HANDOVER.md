@@ -38,18 +38,18 @@ vagi un per sota del número de fitxer:
 
 | Full | Tema | Font | Exercicis | De la font | Nous | Total |
 |---|---|---|---|---:|---:|---:|
-| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 144 | — | 144 |
-| 2 | Potències | `im2.tex` | 35–46 | 89 | — | 89 |
-| 3 | Successions i progressions | `im3.tex` | 47–61 | 56 | — | 56 |
-| 4 | Polinomis | `im4.tex` | 62–74 | 71 | — | 71 |
-| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 | — | 99 |
-| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 48 | +27 | 48 |
-| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 62 | — | 62 |
-| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 59 | +27 | 59 |
-| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 52 | +4 | 52 |
-| 10 | Funcions | `im11.tex` | 200–217 | 85 | +28 | 85 |
-| 11 | Estadística | `im12.tex` | 218–235 | 91 | +39 | 91 |
-| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259, 305–320 | 95 | +28 | 95 |
+| 1 | Nombres enters, fraccions i decimals | `im1.tex` | 1–34 | 144 | — | 150 |
+| 2 | Potències | `im2.tex` | 35–46 | 89 | — | 93 |
+| 3 | Successions i progressions | `im3.tex` | 47–61 | 56 | — | 60 |
+| 4 | Polinomis | `im4.tex` | 62–74 | 71 | — | 75 |
+| 5 | Equacions i sistemes | `im5.tex` + `im6.tex` | 75–100 | 99 | — | 107 |
+| 6 | Proporcionalitat i percentatges | `im7.tex` | 101–118 | 48 | +27 | 54 |
+| 7 | Teorema de Pitàgores. Àrees | `im8.tex` | 119–151 | 62 | — | 64 |
+| 8 | Teorema de Tales. Semblança | `im9.tex` | 152–169 | 59 | +27 | 69 |
+| 9 | Cossos geomètrics. Àrea i volum | `im10.tex` | 170–199 | 52 | +4 | 58 |
+| 10 | Funcions | `im11.tex` | 200–217 | 85 | +28 | 91 |
+| 11 | Estadística | `im12.tex` | 218–235 | 91 | +39 | 101 |
+| 12 | Combinatòria i probabilitat | `im13.tex` | 236–259, 305–320 | 95 | +28 | 107 |
 
 **Aquesta taula és normativa.** Està repetida al capdamunt de `js/inici.js`
 perquè qui hi arribi primer la trobi sense buscar-la.

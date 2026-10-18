@@ -51,8 +51,8 @@ def FQ(qid, ex, ap, enunciat, expr, parts, variants, pistes, ex_text, final=None
     if final:
         res.append(final)
     res.append("Resultat: $%s$" % tex(c))
-    Q(qid, ex, ap, B, "A", enunciat, c,
-      [DT(ev(e), t, x) for e, t, x in variants], pistes, res, ex_text=ex_text)
+    Q(qid, ex, ap, B, tipus="A", enunciat=enunciat, correcta=c,
+      distractors=[DT(ev(e), t, x) for e, t, x in variants], pistes=pistes, resolucio=res, ex_text=ex_text)
 
 
 # =============================================================== Exercici 18
@@ -84,15 +84,15 @@ def item_equiv(qid, ap, a, b, c, d):
             D(r"Sí, perquè totes dues es poden simplificar.",
               "CRITERI_FALS", TAX["CRITERI_FALS"]),
         ]
-    Q(qid, 18, ap, B, "B", latex, correcta, ds,
-      ["Dues fraccions són equivalents si els productes creuats coincideixen: "
+    Q(qid, 18, ap, B, tipus="B", enunciat=latex, correcta=correcta, distractors=ds,
+      pistes=["Dues fraccions són equivalents si els productes creuats coincideixen: "
        r"$\dfrac{a}{b} = \dfrac{c}{d}$ quan $a\cdot d = b\cdot c$.",
        r"Aquí compara $%d\cdot %d$ amb $%d\cdot %d$.%s" % (
            a, d, b, c,
            # Si cap no se simplifica (18c, 18f), l'alternativa no ajuda.
            "" if F(a, b).denominator == b and F(c, d).denominator == d else
            " Si et costa, simplifica totes dues fraccions i compara-les.")],
-      [r"Productes creuats: $%d\cdot %d = %d$ \quad i \quad $%d\cdot %d = %d$"
+      resolucio=[r"Productes creuats: $%d\cdot %d = %d$ \quad i \quad $%d\cdot %d = %d$"
        % (a, d, a * d, b, c, b * c),
        (r"Coincideixen, o sigui que són equivalents: totes dues valen $%s$."
         % tex(F(a, b))) if eq else
@@ -114,51 +114,51 @@ item_equiv("18f", "f", 72, 25, 123, 115)
 # =============================================================== Exercici 19
 E19 = "Calcula el nombre que falta perquè les fraccions siguin equivalents."
 
-Q("19a", 19, "a", B, "A", r"$\dfrac{6}{\square} = \dfrac{9}{3}$", 2,
-  [DT(ev("9*3/6"), "CREUAMENT_INVERTIT",
+Q("19a", 19, "a", B, tipus="A", enunciat=r"$\dfrac{6}{\square} = \dfrac{9}{3}$", correcta=2,
+  distractors=[DT(ev("9*3/6"), "CREUAMENT_INVERTIT",
       r"De $6\cdot 3 = 9\cdot\square$ surt $\square = \dfrac{6\cdot 3}{9}$."),
    DT(ev("6*3"), "PRODUCTE_MAL", ""),
    DT(3, "COMPARA_TERMES",
       "Has copiat el denominador de l'altra fracció.")],
-  [r"Aplica els productes creuats: $6\cdot 3 = 9\cdot\square$.",
+  pistes=[r"Aplica els productes creuats: $6\cdot 3 = 9\cdot\square$.",
    r"$\dfrac{9}{3}$ val $3$, o sigui que $\dfrac{6}{\square}$ també ha de valer $3$."],
-  [r"$6\cdot 3 = 9\cdot \square \;\Rightarrow\; 18 = 9\cdot\square$",
+  resolucio=[r"$6\cdot 3 = 9\cdot \square \;\Rightarrow\; 18 = 9\cdot\square$",
    r"$\square = 18 : 9 = 2$",
    r"Comprovació: $\dfrac{6}{2} = 3 = \dfrac{9}{3}$"],
   ex_text=E19)
 
-Q("19b", 19, "b", B, "A", r"$\dfrac{4}{5} = \dfrac{\square}{10}$", 8,
-  [DT(9, "RAONAMENT_ADDITIU",
+Q("19b", 19, "b", B, tipus="A", enunciat=r"$\dfrac{4}{5} = \dfrac{\square}{10}$", correcta=8,
+  distractors=[DT(9, "RAONAMENT_ADDITIU",
       r"De $5$ a $10$ no s'hi suma $5$: es multiplica per $2$."),
    DT(ev("4*10"), "PRODUCTE_MAL", ""),
    DT(ev("5*10/4"), "CREUAMENT_INVERTIT", "")],
-  [r"De $5$ a $10$, per quant s'ha multiplicat el denominador?",
+  pistes=[r"De $5$ a $10$, per quant s'ha multiplicat el denominador?",
    "El que facis al denominador, fes-ho al numerador."],
-  [r"$5\cdot 2 = 10$, o sigui que el numerador també es multiplica per $2$.",
+  resolucio=[r"$5\cdot 2 = 10$, o sigui que el numerador també es multiplica per $2$.",
    r"$\square = 4\cdot 2 = 8$",
    r"Comprovació: $\dfrac{8}{10} = \dfrac{4}{5}$"],
   ex_text=E19)
 
-Q("19c", 19, "c", B, "A", r"$\dfrac{8}{12} = \dfrac{2}{\square}$", 3,
-  [DT(6, "RAONAMENT_ADDITIU",
+Q("19c", 19, "c", B, tipus="A", enunciat=r"$\dfrac{8}{12} = \dfrac{2}{\square}$", correcta=3,
+  distractors=[DT(6, "RAONAMENT_ADDITIU",
       r"De $8$ a $2$ no s'hi resta $6$: es divideix entre $4$."),
    DT(ev("2*12"), "PRODUCTE_MAL", ""),
    DT(ev("8*2/12"), "CREUAMENT_INVERTIT", "")],
-  [r"De $8$ a $2$, per quant s'ha dividit el numerador?",
+  pistes=[r"De $8$ a $2$, per quant s'ha dividit el numerador?",
    "Divideix el denominador pel mateix nombre."],
-  [r"$8 : 4 = 2$, o sigui que el denominador també es divideix entre $4$.",
+  resolucio=[r"$8 : 4 = 2$, o sigui que el denominador també es divideix entre $4$.",
    r"$\square = 12 : 4 = 3$",
    r"Comprovació: $\dfrac{2}{3} = \dfrac{8}{12}$"],
   ex_text=E19)
 
-Q("19d", 19, "d", B, "A", r"$\dfrac{\square}{9} = \dfrac{8}{18}$", 4,
-  [DT(ev("8*18/9"), "CREUAMENT_INVERTIT",
+Q("19d", 19, "d", B, tipus="A", enunciat=r"$\dfrac{\square}{9} = \dfrac{8}{18}$", correcta=4,
+  distractors=[DT(ev("8*18/9"), "CREUAMENT_INVERTIT",
       r"De $\square\cdot 18 = 9\cdot 8$ surt $\square = \dfrac{9\cdot 8}{18}$."),
    DT(ev("8*9"), "PRODUCTE_MAL", ""),
    DT(ev("9*18/8"), "CREUAMENT_INVERTIT", "")],
-  [r"$18$ és el doble de $9$: què li passa al numerador?",
+  pistes=[r"$18$ és el doble de $9$: què li passa al numerador?",
    r"$\square\cdot 18 = 9\cdot 8$."],
-  [r"$\square\cdot 18 = 9\cdot 8 = 72$",
+  resolucio=[r"$\square\cdot 18 = 9\cdot 8 = 72$",
    r"$\square = 72 : 18 = 4$",
    r"Comprovació: $\dfrac{4}{9} = \dfrac{8}{18}$"],
   ex_text=E19)
@@ -166,38 +166,38 @@ Q("19d", 19, "d", B, "A", r"$\dfrac{\square}{9} = \dfrac{8}{18}$", 4,
 # =============================================================== Exercici 20
 E20 = "Calcula la fracció irreductible."
 
-Q("20a", 20, "a", B, "A", r"$\dfrac{75}{30}$", F(5, 2),
-  [DT(r"\dfrac{25}{10}", "SIMPLIFICACIO_INCOMPLETA", "Has dividit només entre $3$."),
+Q("20a", 20, "a", B, tipus="A", enunciat=r"$\dfrac{75}{30}$", correcta=F(5, 2),
+  distractors=[DT(r"\dfrac{25}{10}", "SIMPLIFICACIO_INCOMPLETA", "Has dividit només entre $3$."),
    DT(r"\dfrac{15}{6}", "SIMPLIFICACIO_INCOMPLETA", "Has dividit només entre $5$."),
    DT(F(2, 5), "INVERTIDA", "")],
-  [r"Busca el $\operatorname{m.c.d.}(75, 30)$ i divideix-hi els dos termes.",
+  pistes=[r"Busca el $\operatorname{m.c.d.}(75, 30)$ i divideix-hi els dos termes.",
    r"$75 = 3\cdot 5^{2}$ i $30 = 2\cdot 3\cdot 5$, o sigui que el m.c.d. és $15$."],
-  [r"$\operatorname{m.c.d.}(75,30) = 15$",
+  resolucio=[r"$\operatorname{m.c.d.}(75,30) = 15$",
    r"$\dfrac{75:15}{30:15} = \dfrac{5}{2}$"],
   ex_text=E20)
 
-Q("20b", 20, "b", B, "A", r"$\dfrac{182}{48}$", F(91, 24),
-  [DT(F(91, 48), "SIMPLIFICA_NOMES_NUMERADOR", ""),
+Q("20b", 20, "b", B, tipus="A", enunciat=r"$\dfrac{182}{48}$", correcta=F(91, 24),
+  distractors=[DT(F(91, 48), "SIMPLIFICA_NOMES_NUMERADOR", ""),
    DT(F(24, 91), "INVERTIDA", ""),
    DT(F(13, 24), "SIMPLIFICA_NOMES_NUMERADOR",
       r"Has dividit el numerador entre $7$, però $24$ no és múltiple de $7$.")],
-  [r"$182$ i $48$ són parells: quin és el m.c.d.?",
+  pistes=[r"$182$ i $48$ són parells: quin és el m.c.d.?",
    r"$182 = 2\cdot 7\cdot 13$ i $48 = 2^{4}\cdot 3$: només comparteixen un $2$."],
-  [r"$\operatorname{m.c.d.}(182,48) = 2$",
+  resolucio=[r"$\operatorname{m.c.d.}(182,48) = 2$",
    r"$\dfrac{182:2}{48:2} = \dfrac{91}{24}$",
    r"$91 = 7\cdot 13$ i $24 = 2^{3}\cdot 3$ ja no tenen factors comuns."],
   ex_text=E20)
 
-Q("20c", 20, "c", B, "A", r"$\dfrac{121}{11}$", 11,
-  [D(r"No es pot simplificar, perquè $11$ és primer.", "NO_SIMPLIFICABLE",
+Q("20c", 20, "c", B, tipus="A", enunciat=r"$\dfrac{121}{11}$", correcta=11,
+  distractors=[D(r"No es pot simplificar, perquè $11$ és primer.", "NO_SIMPLIFICABLE",
      TAX["NO_SIMPLIFICABLE"] + r" Aquí $121 = 11^{2}$."),
    DT(F(1, 11), "INVERTIDA", ""),
    DT(110, "SIMPLIFICAR_RESTANT",
       r"Has restat $121-11$. Simplificar és DIVIDIR els dos termes pel mateix nombre.")],
-  [r"$121$ és el quadrat d'un nombre: de quin?",
+  pistes=[r"$121$ és el quadrat d'un nombre: de quin?",
    r"Escriu $121$ com a producte i simplifica el factor que comparteix amb "
    r"el denominador. Si a baix queda un $1$, la fracció és un nombre enter."],
-  [r"$\dfrac{121}{11} = \dfrac{11\cdot 11}{11} = 11$",
+  resolucio=[r"$\dfrac{121}{11} = \dfrac{11\cdot 11}{11} = 11$",
    r"El resultat és un enter: la fracció irreductible és $\dfrac{11}{1} = 11$."],
   ex_text=E20)
 
@@ -483,3 +483,48 @@ FQ("25f", 25, "f",
    ["El parèntesi dóna un nombre negatiu: restar-lo és sumar-lo.",
     r"$\dfrac{7}{8}\cdot 5 - 9 = \dfrac{35}{8} - \dfrac{72}{8} = -\dfrac{37}{8}$."],
    E25)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercici 342)
+# =====================================================================
+# El bloc obria comprovant equivalències amb productes creuats de
+# nombres de dues xifres. Aquí es mira només si l'alumne sap què vol dir
+# simplificar: dividir els DOS termes pel MATEIX nombre, amb divisors que
+# es veuen de seguida.
+
+dificultats({
+    342: 1,  # simplificar una fracció petita: dividir els dos termes
+})
+
+
+E342 = ("Simplifica aquesta fracció fins a la fracció irreductible: divideix "
+        "el numerador i el denominador pel mateix nombre.")
+
+Q("342a", 342, "a", B, tipus="A",
+  enunciat=r"$\dfrac{6}{8}$",
+  correcta=r"$\dfrac{3}{4}$",
+  distractors=[D(r"$\dfrac{4}{3}$", "INVERTIDA",
+     "Has girat la fracció. El numerador continua a dalt: $6:2=3$ a dalt, "
+     "$8:2=4$ a baix."),
+   DT(r"$\dfrac{3}{8}$", "SIMPLIFICA_NOMES_NUMERADOR"),
+   DT(r"$\dfrac{4}{6}$", "SIMPLIFICAR_RESTANT",
+      extra="Has fet $6-2$ i $8-2$.")],
+  pistes=["Busca un nombre que divideixi el $6$ i el $8$ alhora.",
+   "Tots dos són parells: divideix-los per $2$."],
+  resolucio=[r"$\dfrac{6}{8}=\dfrac{6:2}{8:2}=\dfrac{3}{4}$"],
+  ex_text=E342)
+
+Q("342b", 342, "b", B, tipus="A",
+  enunciat=r"$\dfrac{10}{15}$",
+  correcta=r"$\dfrac{2}{3}$",
+  distractors=[D(r"$\dfrac{3}{2}$", "INVERTIDA",
+     "Has girat la fracció. El numerador continua a dalt: $10:5=2$ a dalt, "
+     "$15:5=3$ a baix."),
+   DT(r"$\dfrac{2}{15}$", "SIMPLIFICA_NOMES_NUMERADOR"),
+   DT(r"$\dfrac{5}{10}$", "SIMPLIFICAR_RESTANT",
+      extra="Has fet $10-5$ i $15-5$.")],
+  pistes=["Busca un nombre que divideixi el $10$ i el $15$ alhora.",
+   "Tots dos acaben en $0$ o en $5$: divideix-los per $5$."],
+  resolucio=[r"$\dfrac{10}{15}=\dfrac{10:5}{15:5}=\dfrac{2}{3}$"],
+  ex_text=E342)

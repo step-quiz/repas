@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Teorema de Tales",
    "descripcio": "Segments proporcionals entre rectes paral·leles i triangles en posició de Tales.",
    "items": [
+    "358a",
+    "358b",
     "152a",
     "152b",
     "152c",
@@ -24,6 +26,8 @@ window.FULL = {
    "titol": "Semblança de triangles",
    "descripcio": "Raó de semblança i els tres criteris per determinar si dos triangles són semblants.",
    "items": [
+    "359a",
+    "359b",
     "154a",
     "154b",
     "154c",
@@ -40,6 +44,8 @@ window.FULL = {
    "titol": "Escales",
    "descripcio": "Escala numèrica i problemes de mapes i plànols.",
    "items": [
+    "360a",
+    "360b",
     "156a",
     "156b",
     "158",
@@ -53,6 +59,8 @@ window.FULL = {
    "titol": "Càlcul amb escales",
    "descripcio": "Del plànol a la realitat i al revés, trobar l'escala, i escales amb canvi d'unitats.",
    "items": [
+    "361a",
+    "361b",
     "285a",
     "285b",
     "285c",
@@ -74,6 +82,8 @@ window.FULL = {
    "titol": "Raó de semblança, àrees i volums",
    "descripcio": "Si les longituds es multipliquen per k, les àrees ho fan per k² i els volums per k³.",
    "items": [
+    "362a",
+    "362b",
     "290a",
     "290b",
     "290c",
@@ -113,13 +123,16 @@ window.FULL = {
   "CATET_HIPOTENUSA_CONFOSOS": "Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre el costat més llarg i va sola a un costat de la igualtat.",
   "CREUAMENT_INVERTIT": "Has creuat els termes al revés en aïllar la incògnita.",
   "CRITERI_SEMBLANCA_INSUFICIENT": "Has dit que falten dades, però el criteri que toca ja es pot aplicar amb el que dona l'enunciat: tres costats, o dos costats i l'angle que formen, o dos angles.",
+  "DADES_MAL_TRIADES": "Has fet servir una dada de l'enunciat que no és la que toca. Torna a llegir què representa cada número abans de col·locar-lo.",
   "DIVISIO_OBLIDADA": "T'has quedat amb la suma sense dividir-la entre el nombre de dades. La variància és una MITJANA de quadrats, no una suma.",
   "DIVISIO_QUOCIENT_RESIDU_CANVIATS": "Has intercanviat el quocient i el residu: el quocient és el polinomi que queda a la fila de baix (llevat de l'últim terme), i el residu és l'últim número, una constant.",
   "ESCALA_INVERTIDA": "Has fet servir l'escala del revés. A l'escala $a:b$, el primer nombre és el DIBUIX i el segon la REALITAT: si és una reducció, la mesura real sempre surt més gran que la del plànol.",
   "ESCALA_NO_APLICADA": "Has donat la mesura tal com surt al plànol (o a la realitat) sense passar-la per l'escala. Les dues mesures només coincideixen si l'escala és $1:1$.",
+  "FORMULA_INVERTIDA": "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula sencera abans de substituir-hi els valors.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
   "POTENCIA_10": "El denominador d'un decimal exacte és una potència de $10$ amb tants zeros com xifres decimals hi ha. Torna-les a comptar.",
+  "POTENCIA_COM_PRODUCTE": "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.",
   "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
   "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
@@ -134,6 +147,52 @@ window.FULL = {
   "UNITATS_NO_CONVERTIDES": "Has barrejat unitats diferents en la mateixa operació. Passa-ho tot a la mateixa unitat abans de calcular res."
  },
  "items": [
+  {
+   "id": "358a",
+   "ex": 358,
+   "ap": "a",
+   "bloc": "tales",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Les rectes que tallen aquestes dues secants són paral·leles. Fent servir el teorema de Tales, calcula la longitud $x$.",
+   "enunciat": "Una secant té segments de $2$ cm i $6$ cm; l'altra, $3$ cm i $x$ (segments corresponents en el mateix ordre).",
+   "opcions": [
+    "$x=7$ cm",
+    "$x=1$ cm",
+    "$x=18$ cm",
+    "$x=9$ cm"
+   ],
+   "pistes": [
+    "Quantes vegades és més llarg el $6$ que el $2$?",
+    "$\\dfrac{6}{2}=\\dfrac{x}{3}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgbGEgbWF0ZWl4YSBxdWFudGl0YXQgKCQ2LTI9NCQsIGkgJDMrND03JCkuIFRhbGVzIGRpdSBxdWUgZWxzIHNlZ21lbnRzIHPDs24gUFJPUE9SQ0lPTkFMUzogZWwgJDYkIMOpcyBlbCB0cmlwbGUgZGVsICQyJCwgYWl4w60gcXVlIGxhICR4JCDDqXMgZWwgdHJpcGxlIGRlbCAkMyQuIiwgIkhhcyBjcmV1YXQgZWxzIHRlcm1lcyBhbCByZXbDqXM6ICRcXGRmcmFjezJcXGNkb3QzfXs2fSQuIExhIHByb3BvcmNpw7Mgw6lzICRcXGRmcmFjezZ9ezJ9PVxcZGZyYWN7eH17M30kLiIsICJIYXMgZmV0ICQzXFxjZG90NiQgaSBubyBoYXMgZGl2aWRpdCBwZXIgJDIkOiAkeD1cXGRmcmFjezNcXGNkb3Q2fXsyfSQuIiwgIiJdLCAiZXJyIjogWyJQUk9HUkVTU0lPX0lOVkVOVEFEQSIsICJDUkVVQU1FTlRfSU5WRVJUSVQiLCAiUFJPRFVDVEVfTUFMIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3s2fXsyfT1cXGRmcmFje3h9ezN9XFw7XFxMb25ncmlnaHRhcnJvd1xcO3g9XFxkZnJhY3s2XFxjZG90M317Mn09OSQgY20iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 203 135\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues rectes secants que surten d'un mateix punt O, tallades per un joc de rectes paral·leles, amb els punts x marcats.</title><g transform=\"translate(19.0,71.0)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"112.8\" y2=\"25.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"169.2\" y2=\"-37.5\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"28.2\" y1=\"6.3\" x2=\"42.3\" y2=\"-9.4\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"112.8\" y1=\"25.0\" x2=\"169.2\" y2=\"-37.5\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"-0.5\" y1=\"2.4\" x2=\"-4.7\" y2=\"21.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"27.7\" y1=\"8.7\" x2=\"23.6\" y2=\"27.2\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-3.9\" y1=\"17.6\" x2=\"24.3\" y2=\"23.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-6.9\" y1=\"12.8\" x2=\"-0.9\" y2=\"22.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"21.3\" y1=\"19.1\" x2=\"27.3\" y2=\"28.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"27.7\" y1=\"8.7\" x2=\"23.6\" y2=\"27.2\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"112.3\" y1=\"27.5\" x2=\"108.2\" y2=\"46.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"24.3\" y1=\"23.8\" x2=\"108.9\" y2=\"42.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"21.3\" y1=\"19.1\" x2=\"27.3\" y2=\"28.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"105.9\" y1=\"37.8\" x2=\"112.0\" y2=\"47.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-0.5\" y1=\"-2.4\" x2=\"-4.7\" y2=\"-21.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"41.8\" y1=\"-11.8\" x2=\"37.7\" y2=\"-30.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-3.9\" y1=\"-17.6\" x2=\"38.4\" y2=\"-27.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-6.9\" y1=\"-12.8\" x2=\"-0.9\" y2=\"-22.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"35.4\" y1=\"-22.2\" x2=\"41.4\" y2=\"-31.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"41.8\" y1=\"-11.8\" x2=\"37.7\" y2=\"-30.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"168.7\" y1=\"-40.0\" x2=\"164.6\" y2=\"-58.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"38.4\" y1=\"-27.0\" x2=\"165.3\" y2=\"-55.1\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"35.4\" y1=\"-22.2\" x2=\"41.4\" y2=\"-31.7\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"162.3\" y1=\"-50.3\" x2=\"168.4\" y2=\"-59.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"7.8\" y=\"34.4\" text-anchor=\"middle\" class=\"fig-etq petita\">2 cm</text><text x=\"64.2\" y=\"46.9\" text-anchor=\"middle\" class=\"fig-etq petita\">6 cm</text><text x=\"14.9\" y=\"-30.1\" text-anchor=\"middle\" class=\"fig-etq petita\">3 cm</text><text x=\"99.5\" y=\"-48.8\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text></g></svg>"
+  },
+  {
+   "id": "358b",
+   "ex": 358,
+   "ap": "b",
+   "bloc": "tales",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Les rectes que tallen aquestes dues secants són paral·leles. Fent servir el teorema de Tales, calcula la longitud $x$.",
+   "enunciat": "Una secant té segments de $5$ cm i $10$ cm; l'altra, $2$ cm i $x$ (segments corresponents en el mateix ordre).",
+   "opcions": [
+    "$x=7$ cm",
+    "$x=4$ cm",
+    "$x=1$ cm",
+    "$x=20$ cm"
+   ],
+   "pistes": [
+    "Quantes vegades és més llarg el $10$ que el $5$?",
+    "$\\dfrac{10}{5}=\\dfrac{x}{2}$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgc3VtYXQgbGEgbWF0ZWl4YSBxdWFudGl0YXQgKCQxMC01PTUkLCBpICQyKzU9NyQpLiBUYWxlcyBkaXUgcXVlIGVscyBzZWdtZW50cyBzw7NuIFBST1BPUkNJT05BTFM6IGVsICQxMCQgw6lzIGVsIGRvYmxlIGRlbCAkNSQsIGFpeMOtIHF1ZSBsYSAkeCQgw6lzIGVsIGRvYmxlIGRlbCAkMiQuIiwgIiIsICJIYXMgY3JldWF0IGVscyB0ZXJtZXMgYWwgcmV2w6lzOiAkXFxkZnJhY3s1XFxjZG90Mn17MTB9JC4gTGEgcHJvcG9yY2nDsyDDqXMgJFxcZGZyYWN7MTB9ezV9PVxcZGZyYWN7eH17Mn0kLiIsICJIYXMgZmV0ICQyXFxjZG90MTAkIGkgbm8gaGFzIGRpdmlkaXQgcGVyICQ1JDogJHg9XFxkZnJhY3syXFxjZG90MTB9ezV9JC4iXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiIiwgIkNSRVVBTUVOVF9JTlZFUlRJVCIsICJQUk9EVUNURV9NQUwiXSwgInJlcyI6IFsiJFxcZGZyYWN7MTB9ezV9PVxcZGZyYWN7eH17Mn1cXDtcXExvbmdyaWdodGFycm93XFw7eD1cXGRmcmFjezEwXFxjZG90Mn17NX09NCQgY20iXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 225 135\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues rectes secants que surten d'un mateix punt O, tallades per un joc de rectes paral·leles, amb els punts x marcats.</title><g transform=\"translate(20.4,58.8)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"190.4\" y2=\"42.2\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"76.2\" y2=\"-16.9\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"63.5\" y1=\"14.1\" x2=\"25.4\" y2=\"-5.6\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"190.4\" y1=\"42.2\" x2=\"76.2\" y2=\"-16.9\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"-0.5\" y1=\"2.4\" x2=\"-4.7\" y2=\"21.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"62.9\" y1=\"16.5\" x2=\"58.8\" y2=\"35.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-3.9\" y1=\"17.6\" x2=\"59.6\" y2=\"31.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-6.9\" y1=\"12.8\" x2=\"-0.9\" y2=\"22.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"56.5\" y1=\"26.9\" x2=\"62.6\" y2=\"36.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"62.9\" y1=\"16.5\" x2=\"58.8\" y2=\"35.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"189.8\" y1=\"44.6\" x2=\"185.7\" y2=\"63.2\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"59.6\" y1=\"31.6\" x2=\"186.5\" y2=\"59.8\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"56.5\" y1=\"26.9\" x2=\"62.6\" y2=\"36.4\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"183.4\" y1=\"55.0\" x2=\"189.5\" y2=\"64.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-0.5\" y1=\"-2.4\" x2=\"-4.7\" y2=\"-21.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"24.8\" y1=\"-8.1\" x2=\"20.7\" y2=\"-26.6\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-3.9\" y1=\"-17.6\" x2=\"21.5\" y2=\"-23.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-6.9\" y1=\"-12.8\" x2=\"-0.9\" y2=\"-22.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"18.4\" y1=\"-18.4\" x2=\"24.5\" y2=\"-28.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"24.8\" y1=\"-8.1\" x2=\"20.7\" y2=\"-26.6\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.6\" y1=\"-19.3\" x2=\"71.5\" y2=\"-37.9\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"21.5\" y1=\"-23.2\" x2=\"72.3\" y2=\"-34.5\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"18.4\" y1=\"-18.4\" x2=\"24.5\" y2=\"-28.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"69.2\" y1=\"-29.7\" x2=\"75.3\" y2=\"-39.2\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"25.5\" y=\"38.3\" text-anchor=\"middle\" class=\"fig-etq petita\">5 cm</text><text x=\"120.6\" y=\"59.4\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"6.4\" y=\"-28.2\" text-anchor=\"middle\" class=\"fig-etq petita\">2 cm</text><text x=\"44.5\" y=\"-36.6\" text-anchor=\"middle\" class=\"fig-etq petita\">x</text></g></svg>"
+  },
   {
    "id": "152a",
    "ex": 152,
@@ -317,6 +376,51 @@ window.FULL = {
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyIkMTUkIGNtIMOpcyBlbCB2YWxvciBkZSAkT0IkLCBubyBkZSAkQUIkOiBlbmNhcmEgaGFzIGRlIHJlc3Rhci1oaSAkT0E9NSQgY20uIiwgIkFxdWVzdCB2YWxvciBzdXJ0IGQnYXBsaWNhciBsYSByYcOzICRrJCBhICRPQSQgZW4gY29tcHRlcyBkJ3VzYXItbGEgcGVyIHRyb2JhciAkT0IkIGEgcGFydGlyIGRlICRPQickOiAkT0I9XFxmcmFje09CJ317a30kLCBpIGRlc3Byw6lzICRBQj1PQi1PQSQuIiwgIiIsICIkOCQgY20gw6lzIGVsIHZhbG9yIGRlICRPQSckLCBubyBkZSAkQUI9T0ItT0EkOiB1biBjb3AgdGluZ3VpcyAkT0IkLCBlbmNhcmEgbCdoYXMgZGUgY29tcGFyYXIgYW1iICRPQSQsIG5vIGFtYiAkT0EnJC4iXSwgImVyciI6IFsiUFJPR1JFU1NJT19JTlZFTlRBREEiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIiwgIiIsICJQUk9HUkVTU0lPX0lOVkVOVEFEQSJdLCAicmVzIjogWyIkaz1cXGRmcmFje09DJ317T0N9PVxcZGZyYWN7MzZ9ezIyeyx9NX09MXssfTYkIiwgIiRPQj1cXGRmcmFje09CJ317a309XFxkZnJhY3syNH17MXssfTZ9PTE1JCBjbSIsICIkQUI9T0ItT0E9MTUtNT0xMCQgY20iXX0=",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 179 103\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dues rectes secants que surten d'un mateix punt O, tallades per un joc de rectes paral·leles, amb els punts AB marcats.</title><g transform=\"translate(27.7,56.6)\"><line x1=\"0.0\" y1=\"0.0\" x2=\"79.3\" y2=\"17.6\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"126.9\" y2=\"-28.1\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"17.6\" y1=\"3.9\" x2=\"28.2\" y2=\"-6.3\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.9\" y1=\"11.7\" x2=\"84.6\" y2=\"-18.8\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"79.3\" y1=\"17.6\" x2=\"126.9\" y2=\"-28.1\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"-10\" y=\"3.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom\">O</text><text x=\"22.8\" y=\"18.8\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">A</text><text x=\"58.1\" y=\"26.6\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">B</text><text x=\"83.3\" y=\"29.7\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">C</text><text x=\"33.4\" y=\"-15.2\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">A'</text><text x=\"89.8\" y=\"-27.7\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">B'</text><text x=\"130.9\" y=\"-34.4\" text-anchor=\"middle\" class=\"fig-etq fig-etq-nom petita\">C'</text></g></svg>"
+  },
+  {
+   "id": "359a",
+   "ex": 359,
+   "ap": "a",
+   "bloc": "semblanca",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aquests dos triangles són semblants. Respon la pregunta fent servir la raó de semblança $k$, que va del triangle petit al gran.",
+   "enunciat": "Triangle petit de costats $2$, $3$ i $4$ cm; triangle gran de costats $6$, $9$ i $12$ cm. Quina és la raó de semblança?",
+   "opcions": [
+    "$k=6$",
+    "$k=\\dfrac{1}{3}$",
+    "$k=4$",
+    "$k=3$"
+   ],
+   "pistes": [
+    "Agafa dos costats que es corresponen: el $2$ i el $6$.",
+    "Divideix el del gran entre el del petit."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyIkNiQgw6lzIHVuIGNvc3RhdCBkZWwgZ3Jhbiwgbm8gbGEgcmHDsy4gTGEgcmHDsyBjb21wYXJhIGRvcyBjb3N0YXRzIGNvcnJlc3BvbmVudHM6ICQ2OjIkLiIsICJIYXMgZGl2aWRpdCBlbCBwZXRpdCBlbnRyZSBlbCBncmFuLiBEZWwgcGV0aXQgYWwgZ3JhbiDDqXMgZ3JhbiBlbnRyZSBwZXRpdDogJDY6MiQuIENvbSBxdWUgZWwgZ3JhbiDDqXMgbcOpcyBncmFuLCAkaz4xJC4iLCAiSGFzIHJlc3RhdCAkNi0yJC4gTGEgcmHDsyBzdXJ0IGRlIERJVklESVI6ICQ2OjIkLiBDb21wcm92YS1obyBhbWIgdW4gYWx0cmUgcGFyZWxsOiAkOS0zPTYkLCBubyAkNCQuIiwgIiJdLCAiZXJyIjogWyJEQURFU19NQUxfVFJJQURFUyIsICJJTlZFUlRJREEiLCAiUkVTVEFfUEVSX1FVT0NJRU5UIiwgIiJdLCAicmVzIjogWyIkaz1cXGRmcmFjezZ9ezJ9PVxcZGZyYWN7OX17M309XFxkZnJhY3sxMn17NH09MyQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 488 313\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Dos triangles amb els costats corresponents marcats.</title><g transform=\"translate(14.0,282.3)\"><polygon points=\"0.0,0.0 90.0,0.0 10.0,-89.4\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"190.0,0.0 460.0,0.0 220.0,-268.3\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><text x=\"45\" y=\"13.9\" text-anchor=\"middle\" class=\"fig-etq petita\">2 cm</text><text x=\"19.9\" y=\"-40.1\" text-anchor=\"middle\" class=\"fig-etq petita\">3 cm</text><text x=\"61.2\" y=\"-51.8\" text-anchor=\"middle\" class=\"fig-etq petita\">4 cm</text><text x=\"325\" y=\"13.9\" text-anchor=\"middle\" class=\"fig-etq petita\">6 cm</text><text x=\"219.9\" y=\"-129.6\" text-anchor=\"middle\" class=\"fig-etq petita\">9 cm</text><text x=\"357.6\" y=\"-89\" text-anchor=\"middle\" class=\"fig-etq petita\">12 cm</text></g></svg>"
+  },
+  {
+   "id": "359b",
+   "ex": 359,
+   "ap": "b",
+   "bloc": "semblanca",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Aquests dos triangles són semblants. Respon la pregunta fent servir la raó de semblança $k$, que va del triangle petit al gran.",
+   "enunciat": "La raó de semblança és $k=2$. Un costat del triangle petit fa $5$ cm. Quant fa el costat corresponent del gran?",
+   "opcions": [
+    "$10$ cm",
+    "$2{,}5$ cm",
+    "$25$ cm",
+    "$7$ cm"
+   ],
+   "pistes": [
+    "$k=2$ vol dir que cada costat del gran és el doble del del petit.",
+    "$5\\cdot2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGRpdmlkaXQgcGVyICQyJC4gRGVsIHBldGl0IGFsIGdyYW4gZXMgbXVsdGlwbGljYTogZWwgY29zdGF0IGhhIGRlIHNvcnRpciBNw4lTIGxsYXJnLiIsICJIYXMgZWxldmF0IGFsIHF1YWRyYXQuIEVscyBjb3N0YXRzIHPDs24gbG9uZ2l0dWRzOiB2YW4gYW1iICRrJCwgbm8gYW1iICRrXjIkLiIsICJIYXMgc3VtYXQgJDUrMiQuIExhIHJhw7MgZXMgTVVMVElQTElDQTogZWwgZ3JhbiDDqXMgZWwgZG9ibGUgZGVsIHBldGl0LiJdLCAiZXJyIjogWyIiLCAiRk9STVVMQV9JTlZFUlRJREEiLCAiUkFPX0FMX1FVQURSQVQiLCAiUFJPRFVDVEVfUEVSX1NVTUEiXSwgInJlcyI6IFsiJDVcXGNkb3QyPTEwJCBjbSJdfQ=="
   },
   {
    "id": "154a",
@@ -525,6 +629,50 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlIMOpcyBzdWZpY2llbnQgcGVyIHNpIHNvbDogc2kgZWxzIHRyZXMgYW5nbGVzIGNvaW5jaWRlaXhlbiwgZWxzIHRyaWFuZ2xlcyBqYSBzw7NuIHNlbWJsYW50cywgc2Vuc2UgbmVjZXNzaXRhdCBkZSBjb21wcm92YXIgZWxzIGNvc3RhdHMgYSBwYXJ0LiIsICJBbWIgZWxzIHRyZXMgYW5nbGVzIGRlIGNhZGEgdHJpYW5nbGUgKHVuIGNvcCBjYWxjdWxhdCBlbCB0ZXJjZXIpIGphIG4naGkgaGEgcHJvdSBwZXIgYXBsaWNhciBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlOiBubyBjYWxlbiBlbHMgY29zdGF0cy4iLCAiQ2FsIGNhbGN1bGFyIGVsIFRFUkNFUiBhbmdsZSBkZSBjYWRhIHRyaWFuZ2xlIGFiYW5zIGRlIGNvbmNsb3VyZSByZXM6ICQxODBeXFxjaXJjLTkwXlxcY2lyYy01MF5cXGNpcmM9NDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJCwgYWl4w60gcXVlIGVuIHJlYWxpdGF0IGVscyBkb3MgdHJpYW5nbGVzIHRlbmVuIGVscyBtYXRlaXhvcyB0cmVzIGFuZ2xlcy4iLCAiIl0sICJlcnIiOiBbIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIkNSSVRFUklfU0VNQkxBTkNBX0lOU1VGSUNJRU5UIiwgIiJdLCAicmVzIjogWyJUcmlhbmdsZSBhbWIgYW5nbGUgYWd1dCBkZSAkNTBeXFxjaXJjJDogdMOpIGFuZ2xlcyAkOTBeXFxjaXJjJCwgJDUwXlxcY2lyYyQgaSAkMTgwXlxcY2lyYy05MF5cXGNpcmMtNTBeXFxjaXJjPTQwXlxcY2lyYyQuIiwgIlRyaWFuZ2xlIGFtYiBhbmdsZSBhZ3V0IGRlICQ0MF5cXGNpcmMkOiB0w6kgYW5nbGVzICQ5MF5cXGNpcmMkLCAkNDBeXFxjaXJjJCBpICQxODBeXFxjaXJjLTkwXlxcY2lyYy00MF5cXGNpcmM9NTBeXFxjaXJjJC4iLCAiRWxzIGRvcyB0cmlhbmdsZXMgdGVuZW4gZWxzIG1hdGVpeG9zIHRyZXMgYW5nbGVzOiBTw40gc8OzbiBzZW1ibGFudHMsIHBlbCBjcml0ZXJpIGFuZ2xlLWFuZ2xlLWFuZ2xlLiJdfQ=="
   },
   {
+   "id": "360a",
+   "ex": 360,
+   "ap": "a",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Escriu l'escala numèrica que correspon a aquesta equivalència entre el dibuix i la realitat.",
+   "enunciat": "$1$ cm al plànol són $50$ cm a la realitat.",
+   "opcions": [
+    "$1:50$",
+    "$50:1$",
+    "$1:5\\,000$",
+    "$1:0{,}5$"
+   ],
+   "pistes": [
+    "A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.",
+    "Les dues mesures ja van en cm."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGZldCBzZXJ2aXIgbCdlc2NhbGEgZGVsIHJldsOpcy4gQSBsJ2VzY2FsYSAkYTpiJCwgZWwgcHJpbWVyIG5vbWJyZSDDqXMgZWwgRElCVUlYIGkgZWwgc2Vnb24gbGEgUkVBTElUQVQ6IHNpIMOpcyB1bmEgcmVkdWNjacOzLCBsYSBtZXN1cmEgcmVhbCBzZW1wcmUgc3VydCBtw6lzIGdyYW4gcXVlIGxhIGRlbCBwbMOgbm9sLiIsICJIYXMgYWZlZ2l0IHplcm9zLiBMZXMgZHVlcyBtZXN1cmVzIGphIHZhbiBlbiBjbTogbCdlc2NhbGEgw6lzIGRpcmVjdGFtZW50ICQxOjUwJC4iLCAiSGFzIHBhc3NhdCBlbHMgJDUwJCBjbSBhIG1ldHJlcyAoJDB7LH01JCBtKSBpIGhhcyBkZWl4YXQgbCckMSQgZW4gY20uIEVscyBkb3Mgbm9tYnJlcyBkZSBsJ2VzY2FsYSBoYW4gZCdhbmFyIGVuIGxhIG1hdGVpeGEgdW5pdGF0LiJdLCAiZXJyIjogWyIiLCAiRVNDQUxBX0lOVkVSVElEQSIsICJQT1RFTkNJQV8xMCIsICJVTklUQVRTX05PX0NPTlZFUlRJREVTIl0sICJyZXMiOiBbIkRpYnVpeCAkMSQgY20sIHJlYWxpdGF0ICQ1MCQgY206IGVzY2FsYSAkMTo1MCQuIl19"
+  },
+  {
+   "id": "360b",
+   "ex": 360,
+   "ap": "b",
+   "bloc": "escales",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Escriu l'escala numèrica que correspon a aquesta equivalència entre el dibuix i la realitat.",
+   "enunciat": "$1$ cm al mapa són $1\\,000$ cm a la realitat.",
+   "opcions": [
+    "$1:10$",
+    "$1:1\\,000$",
+    "$1\\,000:1$",
+    "$1:100$"
+   ],
+   "pistes": [
+    "A l'escala $a:b$, el primer nombre és el dibuix i el segon, la realitat.",
+    "Les dues mesures ja van en cm."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgcGFzc2F0IGVscyAkMVxcLDAwMCQgY20gYSBtZXRyZXMgKCQxMCQgbSkgaSBoYXMgZGVpeGF0IGwnJDEkIGVuIGNtLiBFbHMgZG9zIG5vbWJyZXMgZGUgbCdlc2NhbGEgaGFuIGQnYW5hciBlbiBsYSBtYXRlaXhhIHVuaXRhdC4iLCAiIiwgIkhhcyBmZXQgc2VydmlyIGwnZXNjYWxhIGRlbCByZXbDqXMuIEEgbCdlc2NhbGEgJGE6YiQsIGVsIHByaW1lciBub21icmUgw6lzIGVsIERJQlVJWCBpIGVsIHNlZ29uIGxhIFJFQUxJVEFUOiBzaSDDqXMgdW5hIHJlZHVjY2nDsywgbGEgbWVzdXJhIHJlYWwgc2VtcHJlIHN1cnQgbcOpcyBncmFuIHF1ZSBsYSBkZWwgcGzDoG5vbC4iLCAiVCdoYXMgZGVpeGF0IHVuIHplcm8uIExlcyBkdWVzIG1lc3VyZXMgamEgdmFuIGVuIGNtOiBsJ2VzY2FsYSDDqXMgZGlyZWN0YW1lbnQgJDE6MVxcLDAwMCQuIl0sICJlcnIiOiBbIlVOSVRBVFNfTk9fQ09OVkVSVElERVMiLCAiIiwgIkVTQ0FMQV9JTlZFUlRJREEiLCAiUE9URU5DSUFfMTAiXSwgInJlcyI6IFsiRGlidWl4ICQxJCBjbSwgcmVhbGl0YXQgJDFcXCwwMDAkIGNtOiBlc2NhbGEgJDE6MVxcLDAwMCQuIl19"
+  },
+  {
    "id": "156a",
    "ex": 156,
    "ap": "a",
@@ -657,6 +805,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJObyBoYXMgZmV0IHNlcnZpciBsJ2VzY2FsYTogbGVzIG1lc3VyZXMgZGVsIHBsw6Bub2wgaSBsZXMgcmVhbHMgbm8gY29pbmNpZGVpeGVuIGEgbWVueXMgcXVlIGwnZXNjYWxhIGZvcyAkMToxJC4iLCAiIiwgIkFxdWVzdCB2YWxvciB0w6kgdW4gZmFjdG9yICQxMCQgZGUgbWVueXM6IHJldmlzYSBsYSBjb252ZXJzacOzICQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSBhYmFucyBkZSBkaXZpZGlyIHBlciAkNjAkLiIsICJBcXVlc3QgdmFsb3Igc3VydCBkZSBtdWx0aXBsaWNhciBwZXIgJDYwJCBlbiBjb21wdGVzIGRlIGRpdmlkaXItaGk6IGEgbCdlc2NhbGEgJDE6NjAkLCBsYSBtZXN1cmEgQUwgUEzDgE5PTCDDqXMgbGEgbWVzdXJhIHJlYWwgRElWSURJREEgcGVyICQ2MCQsIG5vIG11bHRpcGxpY2FkYS4iXSwgImVyciI6IFsiRVNDQUxBX05PX0FQTElDQURBIiwgIiIsICJQUk9EVUNURV9NQUwiLCAiQ1JFVUFNRU5UX0lOVkVSVElUIl0sICJyZXMiOiBbIiQ3eyx9NVxcdGV4dHsgbX09NzUwJCBjbSIsICIkNzUwOjYwPTEyeyx9NSQgY20iXX0="
+  },
+  {
+   "id": "361a",
+   "ex": 361,
+   "ap": "a",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mesura real a partir de la mesura al plànol i de l'escala. Dona-la en cm.",
+   "enunciat": "Escala $1:100$. Un segment fa $3$ cm al plànol.",
+   "opcions": [
+    "$103$ cm",
+    "$0{,}03$ cm",
+    "$3$ cm",
+    "$300$ cm"
+   ],
+   "pistes": [
+    "$1:100$ vol dir que $1$ cm al plànol són $100$ cm de debò.",
+    "$3\\cdot100$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgJDMrMTAwJC4gTCdlc2NhbGEgZXMgTVVMVElQTElDQTogJDNcXGNkb3QxMDAkLiIsICJIYXMgZGl2aWRpdCBwZXIgJDEwMCQuIEEgbCdlc2NhbGEgJDE6MTAwJCwgY2FkYSBjbSBkZWwgcGzDoG5vbCBzw7NuICQxMDAkIGNtIGRlIGxhIHJlYWxpdGF0OiBsYSBtZXN1cmEgcmVhbCDDqXMgTcOJUyBncmFuLiIsICJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgZGVsIHBsw6Bub2wuIENhbCBtdWx0aXBsaWNhci1sYSBwZXIgJDEwMCQuIiwgIiJdLCAiZXJyIjogWyJQUk9EVUNURV9QRVJfU1VNQSIsICJFU0NBTEFfSU5WRVJUSURBIiwgIkVTQ0FMQV9OT19BUExJQ0FEQSIsICIiXSwgInJlcyI6IFsiJDNcXGNkb3QxMDA9MzAwJCBjbSJdfQ=="
+  },
+  {
+   "id": "361b",
+   "ex": 361,
+   "ap": "b",
+   "bloc": "escales_calcul",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la mesura real a partir de la mesura al plànol i de l'escala. Dona-la en cm.",
+   "enunciat": "Escala $1:1\\,000$. Un segment fa $5$ cm al plànol.",
+   "opcions": [
+    "$1\\,005$ cm",
+    "$5\\,000$ cm",
+    "$5$ cm",
+    "$0{,}005$ cm"
+   ],
+   "pistes": [
+    "$1:1\\,000$ vol dir que $1$ cm al plànol són $1\\,000$ cm de debò.",
+    "$5\\cdot1\\,000$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgc3VtYXQgJDUrMVxcLDAwMCQuIEwnZXNjYWxhIGVzIE1VTFRJUExJQ0E6ICQ1XFxjZG90MVxcLDAwMCQuIiwgIiIsICJBcXVlc3RhIMOpcyBsYSBtZXN1cmEgZGVsIHBsw6Bub2wuIENhbCBtdWx0aXBsaWNhci1sYSBwZXIgJDFcXCwwMDAkLiIsICJIYXMgZGl2aWRpdCBwZXIgJDFcXCwwMDAkLiBBIGwnZXNjYWxhICQxOjFcXCwwMDAkLCBjYWRhIGNtIGRlbCBwbMOgbm9sIHPDs24gJDFcXCwwMDAkIGNtIGRlIGxhIHJlYWxpdGF0OiBsYSBtZXN1cmEgcmVhbCDDqXMgTcOJUyBncmFuLiJdLCAiZXJyIjogWyJQUk9EVUNURV9QRVJfU1VNQSIsICIiLCAiRVNDQUxBX05PX0FQTElDQURBIiwgIkVTQ0FMQV9JTlZFUlRJREEiXSwgInJlcyI6IFsiJDVcXGNkb3QxXFwsMDAwPTVcXCwwMDAkIGNtIl19"
   },
   {
    "id": "285a",
@@ -971,6 +1163,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBhbCByZXbDqXM6IGVsIHRlbXBzIMOpcyAkXFxkZnJhY3tcXHRleHR7ZGlzdMOgbmNpYX19e1xcdGV4dHt2ZWxvY2l0YXR9fSQsIG5vIGEgbCdpbnJldsOpcy4iLCAiIiwgIkFxdWVzdGEgw6lzIGxhIGRpc3TDoG5jaWEgcmVhbCwgcXVlIMOpcyBlbCBwcmltZXIgcGFzLiBFbmNhcmEgZmFsdGEgY2FsY3VsYXIgZWwgdGVtcHM6ICRcXGRmcmFjezl7LH02fXsyNH0kIGguIiwgIkVsIHRlbXBzIGVuIGhvcmVzIMOpcyAkMHssfTQkLCBpICQweyx9NCQgaCBubyBzw7NuICQ0JCBtaW4gc2luw7MgJDB7LH00XFxjZG90NjA9MjQkIG1pbi4iXSwgImVyciI6IFsiSU5WRVJUSURBIiwgIiIsICJQQVNfSU5URVJNRURJX1BFUl9SRVNQT1NUQSIsICJQT1RFTkNJQV8xMCJdLCAicmVzIjogWyIkNnssfTRcXGNkb3QxNTAwMDA9OTYwXFwsMDAwJCBjbSIsICIkOTYwMDAwJCBjbSAkPTl7LH02JCBrbSIsICIkdD1cXGRmcmFjezl7LH02fXsyNH09MHssfTQkIGggJD0weyx9NFxcY2RvdDYwPTI0JCBtaW4iXX0="
+  },
+  {
+   "id": "362a",
+   "ex": 362,
+   "ap": "a",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Dues figures són semblants i la raó de semblança, de la petita a la gran, és $k$. Quantes vegades més gran és l'ÀREA de la gran? Recorda: les àrees es multipliquen per $k^2$.",
+   "enunciat": "$k=2$",
+   "opcions": [
+    "$8$ vegades",
+    "$4$ vegades",
+    "$2$ vegades",
+    "$\\sqrt{2}$ vegades"
+   ],
+   "pistes": [
+    "L'àrea va amb $k^2$.",
+    "$2^2=2\\cdot2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyIka14zJCDDqXMgcGVyIGFscyB2b2x1bXMuIEwnw6ByZWEgdmEgYW1iICRrXjI9Ml4yJC4iLCAiIiwgIlBlciAkayQgbm9tw6lzIGVzIG11bHRpcGxpcXVlbiBsZXMgTE9OR0lUVURTLiBMJ8OgcmVhIGVzIG11bHRpcGxpY2EgcGVyICRrXjI9Ml4yJC4iLCAiSGFzIGZldCBsJ2FycmVsLiBMJ8OgcmVhIGVzIG11bHRpcGxpY2EgcGVyICRrJCBBTCBRVUFEUkFUOiAkMl4yJC4iXSwgImVyciI6IFsiUkFPX0FMX0NVQiIsICIiLCAiUkFPX1NFTlNFX1FVQURSQVQiLCAiQVJSRUxfTUFMX0FQTElDQURBIl0sICJyZXMiOiBbIiRrXjI9Ml4yPTQkOiBsJ8OgcmVhIGRlIGxhIGdyYW4gw6lzICQ0JCB2ZWdhZGVzIGxhIGRlIGxhIHBldGl0YS4iXX0="
+  },
+  {
+   "id": "362b",
+   "ex": 362,
+   "ap": "b",
+   "bloc": "semblanca_arees",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Dues figures són semblants i la raó de semblança, de la petita a la gran, és $k$. Quantes vegades més gran és l'ÀREA de la gran? Recorda: les àrees es multipliquen per $k^2$.",
+   "enunciat": "$k=3$",
+   "opcions": [
+    "$6$ vegades",
+    "$27$ vegades",
+    "$3$ vegades",
+    "$9$ vegades"
+   ],
+   "pistes": [
+    "L'àrea va amb $k^2$.",
+    "$3^2=3\\cdot3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZmV0ICQzXFxjZG90MiQuIEVsZXZhciBhbCBxdWFkcmF0IMOpcyBtdWx0aXBsaWNhciBlbCBub21icmUgcGVyIGVsbCBtYXRlaXg6ICQzXFxjZG90MyQuIiwgIiRrXjMkIMOpcyBwZXIgYWxzIHZvbHVtcy4gTCfDoHJlYSB2YSBhbWIgJGteMj0zXjIkLiIsICJQZXIgJGskIG5vbcOpcyBlcyBtdWx0aXBsaXF1ZW4gbGVzIExPTkdJVFVEUy4gTCfDoHJlYSBlcyBtdWx0aXBsaWNhIHBlciAka14yPTNeMiQuIiwgIiJdLCAiZXJyIjogWyJQT1RFTkNJQV9DT01fUFJPRFVDVEUiLCAiUkFPX0FMX0NVQiIsICJSQU9fU0VOU0VfUVVBRFJBVCIsICIiXSwgInJlcyI6IFsiJGteMj0zXjI9OSQ6IGwnw6ByZWEgZGUgbGEgZ3JhbiDDqXMgJDkkIHZlZ2FkZXMgbGEgZGUgbGEgcGV0aXRhLiJdfQ=="
   },
   {
    "id": "290a",

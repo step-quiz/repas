@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 3</h1>
-<p class="meta">56 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">60 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Termes d'una successió <span class="tip">· 20 preguntes</span></h2>
+<h2>Termes d'una successió <span class="tip">· 22 preguntes</span></h2>
+<p class="sec"><strong>Exercici 346.</strong> Calcula el terme que es demana substituint el valor de $n$ al terme general de la successió.</p>
+<div class="it"><div class="cap"><span class="cod">346a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$a_n=3n+1$. Calcula $a_2$.</div>
+<ol class="op"><li><span class="ok">$a_2=7$</span> — resposta correcta</li>
+<li>$a_2=4$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$4$ és $a_1$, el primer terme. Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.</span></li>
+<li>$a_2=10$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$10$ és $a_3$, el tercer terme. Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.</span></li>
+<li>$a_2=9$<br><span class="err">JERARQUIA</span><span class="fb">Has fet $3\cdot(2+1)$. Primer es multiplica, $3\cdot2=6$, i després se suma $1$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $n=2$ a l'expressió.</li><li>$a_2=3\cdot2+1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_2=3\cdot2+1=6+1=7$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">346b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$a_n=n^2$. Calcula $a_5$.</div>
+<ol class="op"><li><span class="ok">$a_5=25$</span> — resposta correcta</li>
+<li>$a_5=10$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$5^2=5\cdot5$, no $2\cdot5$. $x^2$ no és $2x$: és $x\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.</span></li>
+<li>$a_5=16$<br><span class="err">DESPLACAMENT_INDEX</span><span class="fb">$16$ és $a_4$. Revisa a partir de quin valor de $n$ comences a substituir, o quin exponent li correspon: t'has desplaçat una posició.</span></li>
+<li>$a_5=32$<br><span class="err">BASE_EXPONENT_INTERCANVIATS</span><span class="fb">Has calculat $2^5$, i és $5^2$. Has canviat de lloc la base i l'exponent: no és el mateix $a^b$ que $b^a$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix $n=5$ a l'expressió.</li><li>$a_5=5^2=5\cdot5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a_5=5^2=25$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 47.</strong> Troba els cinc primers termes de la successió el terme general de la qual és:</p>
 <div class="it"><div class="cap"><span class="cod">47a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$a_n = 2^n$</div>
@@ -449,7 +470,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els dos termes coneguts són a les posicions $2$ i $5$: la diferència entre ells és $3d$.</li><li>$3d=\dfrac12-\dfrac14=\dfrac14\Rightarrow d=\dfrac{1}{12}$. A partir d'aquí, suma o resta $\dfrac{1}{12}$ per completar.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$3d=\dfrac12-\dfrac14=\dfrac14\Rightarrow d=\dfrac{1}{12}$</li><li>$a_1=a_2-d=\dfrac14-\dfrac{1}{12}=\dfrac16$</li><li>$a_3=a_2+d=\dfrac14+\dfrac{1}{12}=\dfrac13$</li><li>$a_4=a_3+d=\dfrac13+\dfrac{1}{12}=\dfrac{5}{12}$</li><li>$a_6=a_5+d=\dfrac12+\dfrac{1}{12}=\dfrac{7}{12}$</li><li>Els sis termes són $\dfrac16,\;\dfrac14,\;\dfrac13,\;\dfrac{5}{12},\;\dfrac12,\;\dfrac{7}{12}$</li></ol>
 </div>
-<h2>Progressions geomètriques <span class="tip">· 11 preguntes</span></h2>
+<h2>Progressions geomètriques <span class="tip">· 13 preguntes</span></h2>
+<p class="sec"><strong>Exercici 347.</strong> Aquesta progressió sabem que és geomètrica. Quina és la seva raó $r$?</p>
+<div class="it"><div class="cap"><span class="cod">347a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$2,\;6,\;18,\;54,\;\dots$</div>
+<ol class="op"><li><span class="ok">$r=3$</span> — resposta correcta</li>
+<li>$r=4$<br><span class="err">RAO_MAL_APLICADA</span><span class="fb">Has restat dos termes ($6-2$): això seria la diferència d'una progressió aritmètica. En una geomètrica, cada terme s'obté MULTIPLICANT l'anterior per la raó.</span></li>
+<li>$r=\dfrac{1}{3}$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit l'anterior entre el següent. La raó és el següent entre l'anterior: $6:2$. La progressió creix, així que $r>1$.</span></li>
+<li>$r=2$<br><span class="err">PRIMER_TERME_PER_DIFERENCIA</span><span class="fb">$2$ és el primer terme, $a_1$, no la raó.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Per quin nombre multipliques el $2$ per obtenir el $6$?</li><li>Divideix dos termes consecutius: $6:2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=6:2=3$ (i es comprova: $18:6=3$, $54:18=3$)</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">347b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$5,\;10,\;20,\;40,\;\dots$</div>
+<ol class="op"><li><span class="ok">$r=2$</span> — resposta correcta</li>
+<li>$r=5$<br><span class="err">RAO_MAL_APLICADA</span><span class="fb">Has restat dos termes ($10-5$): això seria la diferència d'una progressió aritmètica. Comprova-ho: $20-10=10$, no $5$.</span></li>
+<li>$r=\dfrac{1}{2}$<br><span class="err">INVERTIDA</span><span class="fb">Has dividit l'anterior entre el següent. La raó és el següent entre l'anterior: $10:5$. La progressió creix, així que $r>1$.</span></li>
+<li>$r=10$<br><span class="err">COMPARA_TERMES</span><span class="fb">$10$ és el segon terme, no la raó.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Per quin nombre multipliques el $5$ per obtenir el $10$?</li><li>Divideix dos termes consecutius: $10:5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$r=10:5=2$ (i es comprova: $20:10=2$, $40:20=2$)</li></ol>
+</div>
 <p class="sec"><strong>Exercici 56.</strong> Calcula, en una progressió geomètrica amb $a_1=3$ i $r=5$.</p>
 <div class="it"><div class="cap"><span class="cod">56a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Terme general amb $a_1=3$ i $r=5$</div>
@@ -630,32 +672,33 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els dos termes consecutius tenen raó $r=\dfrac43$ (el quocient entre ells)</li><li>$a_2=\dfrac{27}{16}\cdot\dfrac43=\dfrac94$</li><li>$a_3=\dfrac{27}{16}\cdot\left(\dfrac43\right)^2=3$</li><li>$a_4=\dfrac{27}{16}\cdot\left(\dfrac43\right)^3=4$</li><li>Els termes que valen $3$ i $4$ ocupen les posicions $3$ i $4$</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Termes d&#x27;una successió <span class="err">obre pel mig</span></td><td>0</td><td>7</td><td>13</td><td>0</td><td><span class="err">directa</span></td></tr>
+<tr><td>Termes d&#x27;una successió</td><td>2</td><td>7</td><td>13</td><td>0</td><td>trivial</td></tr>
 <tr><td>Progressions aritmètiques</td><td>6</td><td>0</td><td>10</td><td>3</td><td>trivial</td></tr>
-<tr><td>Progressions geomètriques <span class="err">obre pel mig</span></td><td>0</td><td>3</td><td>3</td><td>5</td><td><span class="err">directa</span></td></tr>
+<tr><td>Progressions geomètriques</td><td>2</td><td>3</td><td>3</td><td>5</td><td>trivial</td></tr>
 <tr><td>Aplicacions <span class="tip">nivell avançat</span></td><td>0</td><td>0</td><td>0</td><td>6</td><td>avançat a posta</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>DESPLACAMENT_INDEX</code></td><td>35</td><td>47a, 47d, 47e, 47f, 48d, 49a, 49b, 49c, 49d, 50b, 50c, 51b, 52a, 52a…</td></tr>
-<tr><td><code>COMPARA_TERMES</code></td><td>19</td><td>49a, 49b, 49c, 51a, 325a, 325b, 325c, 52a, 52b, 52c, 52d, 54c, 53b, 55…</td></tr>
+<tr><td><code>DESPLACAMENT_INDEX</code></td><td>38</td><td>346a, 346a, 346b, 47a, 47d, 47e, 47f, 48d, 49a, 49b, 49c, 49d, 50b, 50c…</td></tr>
+<tr><td><code>COMPARA_TERMES</code></td><td>20</td><td>49a, 49b, 49c, 51a, 325a, 325b, 325c, 52a, 52b, 52c, 52d, 54c, 53b, 347b…</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>14</td><td>47c, 48a, 48b, 48d, 49d, 50b, 54a, 54b, 54c, 54d, 54e, 54f, 58a, 59a</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>14</td><td>50a, 50a, 51a, 57a, 57a, 58d, 59a, 59b, 59b, 59c, 59c, 59d, 59d, 59d</td></tr>
 <tr><td><code>SIGNE_FINAL</code></td><td>12</td><td>47c, 47g, 49a, 49c, 49d, 51b, 52b, 54b, 54e, 54f, 53b, 53c</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>9</td><td>51b, 52c, 54d, 347a, 347b, 57b, 57c, 55, 58b</td></tr>
 <tr><td><code>ORDRE_RESTA</code></td><td>8</td><td>48a, 48b, 48c, 325a, 325b, 325c, 56a, 60</td></tr>
-<tr><td><code>INVERTIDA</code></td><td>7</td><td>51b, 52c, 54d, 57b, 57c, 55, 58b</td></tr>
+<tr><td><code>RAO_MAL_APLICADA</code></td><td>7</td><td>326c, 347a, 347b, 58a, 58b, 58c, 58d</td></tr>
 <tr><td><code>TERME_MAL_CALCULAT</code></td><td>6</td><td>326a, 326a, 326b, 326b, 54c, 53a</td></tr>
 <tr><td><code>ENTER_AL_NUMERADOR</code></td><td>5</td><td>49b, 50c, 53a, 53b, 53c</td></tr>
 <tr><td><code>RAONAMENT_ADDITIU</code></td><td>5</td><td>50a, 51a, 326a, 57a, 59b</td></tr>
-<tr><td><code>RAO_MAL_APLICADA</code></td><td>5</td><td>326c, 58a, 58b, 58c, 58d</td></tr>
 <tr><td><code>FACTOR_OBLIDAT</code></td><td>4</td><td>47e, 48c, 57b, 57c</td></tr>
+<tr><td><code>PRIMER_TERME_PER_DIFERENCIA</code></td><td>4</td><td>325a, 325b, 326c, 347a</td></tr>
 <tr><td><code>POTENCIA_DE_SUMA</code></td><td>4</td><td>54a, 56a, 56b, 56c</td></tr>
+<tr><td><code>JERARQUIA</code></td><td>3</td><td>346a, 47d, 47f</td></tr>
+<tr><td><code>BASE_EXPONENT_INTERCANVIATS</code></td><td>3</td><td>346b, 47a, 50c</td></tr>
 <tr><td><code>EXPONENT_COM_PRODUCTE</code></td><td>3</td><td>47a, 48d, 50b</td></tr>
-<tr><td><code>PRIMER_TERME_PER_DIFERENCIA</code></td><td>3</td><td>325a, 325b, 326c</td></tr>
 <tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>3</td><td>326b, 326c, 58d</td></tr>
-<tr><td><code>BASE_EXPONENT_INTERCANVIATS</code></td><td>2</td><td>47a, 50c</td></tr>
-<tr><td><code>JERARQUIA</code></td><td>2</td><td>47d, 47f</td></tr>
 <tr><td><code>ENTER_MULTIPLICA_DENOMINADOR</code></td><td>2</td><td>47g, 52d</td></tr>
 <tr><td><code>REGLA_NOMES_QUOCIENT</code></td><td>2</td><td>48a, 48b</td></tr>
+<tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>1</td><td>346b</td></tr>
 <tr><td><code>EXPONENT_SENSE_DESPLACAR</code></td><td>1</td><td>47b</td></tr>
 <tr><td><code>BASE_SIGNE_PERDUT</code></td><td>1</td><td>47b</td></tr>
 <tr><td><code>EXPONENT_MULTIPLICAT</code></td><td>1</td><td>47b</td></tr>

@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 6</h1>
-<p class="meta">48 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">54 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Proporcionalitat directa i inversa <span class="tip">· 10 preguntes</span></h2>
+<h2>Proporcionalitat directa i inversa <span class="tip">· 12 preguntes</span></h2>
+<p class="sec"><strong>Exercici 354.</strong> Calcula el valor que falta. L&#x27;enunciat diu si les dues magnituds són directament o inversament proporcionals.</p>
+<div class="it"><div class="cap"><span class="cod">354a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$1$ kg de pomes costa $2$ €. Quant costen $5$ kg? (El preu és directament proporcional als kg.)</div>
+<ol class="op"><li><span class="ok">$10$ €</span> — resposta correcta</li>
+<li>$7$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat $2+5$. Si $1$ kg costa $2$ €, $5$ kg costen cinc vegades més: $5\cdot2$.</span></li>
+<li>$2{,}5$ €<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has dividit $5:2$. Amb més kg el preu ha de PUJAR: $5\cdot2$.</span></li>
+<li>$0{,}4$ €<br><span class="err">CREUAMENT_INVERTIT</span><span class="fb">Has fet com si fos inversa ($2:5$). És directa: el doble de kg, el doble de preu.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Directament proporcional: si una magnitud es multiplica per $5$, l'altra també.</li><li>$5$ kg són cinc vegades $1$ kg.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$5\cdot2=10$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">354b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$1$ obrer tarda $12$ dies a fer una feina. Quants dies hi tardaran $3$ obrers que treballen al mateix ritme? (Els dies són inversament proporcionals als obrers.)</div>
+<ol class="op"><li><span class="ok">$4$ dies</span> — resposta correcta</li>
+<li>$36$ dies<br><span class="err">CREUAMENT_INVERTIT</span><span class="fb">Has fet com si fos directa ($12\cdot3$). Amb més obrers la feina s'acaba ABANS: $12:3$.</span></li>
+<li>$9$ dies<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has restat $12-3$. Amb el triple d'obrers, es tarda la tercera part: $12:3$.</span></li>
+<li>$15$ dies<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat $12+3$. Amb més obrers no es pot tardar més.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Inversament proporcional: si una magnitud es multiplica per $3$, l'altra es divideix per $3$.</li><li>$3$ obrers són el triple d'$1$ obrer.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$12:3=4$ dies</li></ol>
+</div>
 <p class="sec"><strong>Exercici 101.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">101</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Per elaborar una recepta per a 6 persones es necessiten 240 g de salmó. Esbrina quina quantitat de salmó necessito per a 8 persones.</div>
@@ -154,7 +175,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Calcula primer la quantitat total de menjar en «dies-hoste»: $18\cdot12=216$.</li><li>Ara hi ha $18+6=24$ hostes. Hostes i dies són inversament proporcionals: reparteix el total entre els $24$ hostes.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Menjar total: $18\cdot12=216$ dies-hoste</li><li>Hostes actuals: $18+6=24$</li><li>$\dfrac{216}{24}=9$ dies</li></ol>
 </div>
-<h2>Percentatges <span class="tip">· 5 preguntes</span></h2>
+<h2>Percentatges <span class="tip">· 7 preguntes</span></h2>
+<p class="sec"><strong>Exercici 355.</strong> Calcula aquest percentatge de la quantitat que es dona.</p>
+<div class="it"><div class="cap"><span class="cod">355a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">El $10\,\%$ de $80$</div>
+<ol class="op"><li><span class="ok">$8$</span> — resposta correcta</li>
+<li>$0{,}8$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $10\,\%$ és $0{,}1$, no $0{,}01$: es divideix per $100$, no per $1\,000$.</span></li>
+<li>$800$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">Has multiplicat per $10$ sense dividir per $100$: el $10\,\%$ és $0{,}1$, no $10$.</span></li>
+<li>$70$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has restat $80-10$. El $10\,\%$ de $80$ és la desena part de $80$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $10\,\%$ és la desena part.</li><li>$80:10$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$80\cdot\dfrac{10}{100}=\dfrac{800}{100}=8$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">355b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">El $50\,\%$ de $36$</div>
+<ol class="op"><li><span class="ok">$18$</span> — resposta correcta</li>
+<li>$1{,}8$<br><span class="err">PERCENTATGE_DECIMAL_MAL</span><span class="fb">El $50\,\%$ és $0{,}5$, no $0{,}05$: es divideix per $100$, no per $1\,000$.</span></li>
+<li>$72$<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has dividit per $0{,}5$ (o multiplicat per $2$). El $50\,\%$ és la MEITAT.</span></li>
+<li>$14$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has fet $50-36$. El $50\,\%$ de $36$ és la meitat de $36$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El $50\,\%$ és la meitat.</li><li>$36:2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$36\cdot\dfrac{50}{100}=\dfrac{36}{2}=18$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 109.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">109</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Tres de cada cinc alumnes han tingut la grip durant el mes de gener. Expressa aquesta dada en forma de percentatge.</div>
@@ -209,7 +251,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La comissió és el $0{,}8\,\%$ de les vendes: $0{,}008\cdot45\,000$.</li><li>Multiplica amb cura la posició de la coma decimal.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0{,}008\cdot45\,000$</li><li>$360$ €</li></ol>
 </div>
-<h2>El factor multiplicador <span class="tip">· 18 preguntes</span></h2>
+<h2>El factor multiplicador <span class="tip">· 20 preguntes</span></h2>
+<p class="sec"><strong>Exercici 356.</strong> Calcula la quantitat final aplicant-hi el factor multiplicador que es dona.</p>
+<div class="it"><div class="cap"><span class="cod">356a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$100$ € pugen un $25\,\%$: es multipliquen per $1{,}25$.</div>
+<ol class="op"><li><span class="ok">$125$ €</span> — resposta correcta</li>
+<li>$25$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és el que PUJA. Multiplicant per $1{,}25$ ja surt la quantitat final, amb la pujada inclosa.</span></li>
+<li>$80$ €<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has dividit per $1{,}25$. Si puja, el resultat ha de ser més gran que $100$.</span></li>
+<li>$101{,}25$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat el factor. El factor es MULTIPLICA: $100\cdot1{,}25$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El factor ja te'l donen: no cal calcular-lo.</li><li>$100\cdot1{,}25$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$100\cdot1{,}25=125$ €</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">356b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$200$ € baixen un $10\,\%$: es multipliquen per $0{,}90$.</div>
+<ol class="op"><li><span class="ok">$180$ €</span> — resposta correcta</li>
+<li>$20$ €<br><span class="err">FACTOR_PER_PERCENTATGE</span><span class="fb">Això és el que BAIXA. Multiplicant per $0{,}90$ ja surt la quantitat final, amb la rebaixa feta.</span></li>
+<li>$\approx222{,}22$ €<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has dividit per $0{,}90$. Si baixa, el resultat ha de ser més petit que $200$.</span></li>
+<li>$199{,}10$ €<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has restat el factor. El factor es MULTIPLICA: $200\cdot0{,}90$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El factor ja te'l donen: no cal calcular-lo.</li><li>$200\cdot0{,}90$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$200\cdot0{,}90=180$ €</li></ol>
+</div>
 <p class="sec"><strong>Exercici 275.</strong> Per quin nombre s&#x27;ha de multiplicar una quantitat per fer-hi aquesta variació?</p>
 <div class="it"><div class="cap"><span class="cod">275a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Augmentar-la un $20\,\%$.</div>
@@ -562,27 +625,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Un $25\,\%$ real donaria $1\cdot1{,}25=1{,}25$ kg, però l'envàs actual pesa només $1{,}2$ kg</li><li>Increment real: $\dfrac{1{,}2-1}{1}=0{,}20\Rightarrow20\,\%$</li><li>Per tant el pes (i el nombre de galetes, si cada una pesa igual) només ha augmentat un $20\,\%$, no un $25\,\%$</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Proporcionalitat directa i inversa <span class="err">obre pel mig</span></td><td>0</td><td>2</td><td>7</td><td>1</td><td><span class="err">directa</span></td></tr>
-<tr><td>Percentatges <span class="err">obre pel mig</span></td><td>0</td><td>2</td><td>3</td><td>0</td><td><span class="err">directa</span></td></tr>
-<tr><td>El factor multiplicador <span class="err">obre pel mig</span></td><td>0</td><td>8</td><td>10</td><td>0</td><td><span class="err">directa</span></td></tr>
+<tr><td>Proporcionalitat directa i inversa</td><td>2</td><td>2</td><td>7</td><td>1</td><td>trivial</td></tr>
+<tr><td>Percentatges</td><td>2</td><td>2</td><td>3</td><td>0</td><td>trivial</td></tr>
+<tr><td>El factor multiplicador</td><td>2</td><td>8</td><td>10</td><td>0</td><td>trivial</td></tr>
 <tr><td>Descomptes, IVA i interessos <span class="tip">nivell avançat</span></td><td>0</td><td>0</td><td>0</td><td>9</td><td>avançat a posta</td></tr>
 <tr><td>Augments i disminucions encadenats <span class="tip">nivell avançat</span></td><td>0</td><td>0</td><td>0</td><td>6</td><td>avançat a posta</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>17</td><td>355a, 355a, 355b, 112a, 112a, 112b, 112b, 275a, 275b, 275c, 275d, 278a, 278b, 278c…</td></tr>
+<tr><td><code>CREUAMENT_INVERTIT</code></td><td>15</td><td>354a, 354b, 101, 104, 102, 103, 105a, 105b, 106a, 106b, 107, 108, 111, 112a…</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>15</td><td>110, 275a, 275b, 275c, 275d, 276a, 276b, 276c, 276d, 279a, 279b, 279c, 284, 115…</td></tr>
-<tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>14</td><td>112a, 112a, 112b, 112b, 275a, 275b, 275c, 275d, 278a, 278b, 278c, 278d, 282a, 283b</td></tr>
-<tr><td><code>CREUAMENT_INVERTIT</code></td><td>13</td><td>101, 104, 102, 103, 105a, 105b, 106a, 106b, 107, 108, 111, 112a, 112b</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>12</td><td>354a, 354b, 354b, 355a, 355b, 356a, 356b, 276a, 276b, 276c, 276d, 280b</td></tr>
+<tr><td><code>FACTOR_PER_PERCENTATGE</code></td><td>12</td><td>356a, 356b, 275a, 275b, 275c, 275d, 276a, 276b, 276c, 276d, 280a, 280b</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>10</td><td>102, 106b, 107, 108, 109, 110, 111, 114, 115, 118</td></tr>
-<tr><td><code>FACTOR_PER_PERCENTATGE</code></td><td>10</td><td>275a, 275b, 275c, 275d, 276a, 276b, 276c, 276d, 280a, 280b</td></tr>
 <tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>8</td><td>277a, 277b, 277c, 280a, 281a, 282a, 282b, 283a</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>7</td><td>101, 104, 106a, 110, 113, 116, 117</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>7</td><td>104, 103, 105b, 108, 281a, 113, 115</td></tr>
 <tr><td><code>INVERTIDA</code></td><td>7</td><td>277a, 277b, 277c, 278a, 278b, 278c, 278d</td></tr>
 <tr><td><code>PRODUCTE_MAL</code></td><td>5</td><td>101, 109, 114, 116, 118</td></tr>
 <tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>5</td><td>102, 103, 105a, 106a, 107</td></tr>
-<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>5</td><td>276a, 276b, 276c, 276d, 280b</td></tr>
 <tr><td><code>PERCENTATGE_MAL_CALCULAT</code></td><td>5</td><td>279a, 279b, 279c, 282a, 282b</td></tr>
 <tr><td><code>PERCENTATGES_SUMATS</code></td><td>5</td><td>280a, 280b, 281a, 284, 284</td></tr>
+<tr><td><code>FORMULA_INVERTIDA</code></td><td>4</td><td>354a, 355b, 356a, 356b</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>4</td><td>106b, 111, 113, 114</td></tr>
 <tr><td><code>RESTA_PER_QUOCIENT</code></td><td>4</td><td>278a, 278b, 278c, 278d</td></tr>
 <tr><td><code>FACTOR_INVERS_OBLIDAT</code></td><td>3</td><td>277a, 277b, 277c</td></tr>

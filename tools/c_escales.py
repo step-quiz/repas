@@ -74,10 +74,10 @@ def _unitat_llegible(cm):
 
 
 for _ap, _txt, _k, _tipus in _285:
-    Q("285%s" % _ap, 285, _ap, B1, "B",
-      "Escala $%s$." % _txt,
-      "$1$ cm al plànol són $%d$ cm de debò." % _k,
-      [D("$%d$ cm al plànol són $1$ cm de debò." % _k, "ESCALA_INVERTIDA",
+    Q("285%s" % _ap, 285, _ap, B1, tipus="B",
+      enunciat="Escala $%s$." % _txt,
+      correcta="$1$ cm al plànol són $%d$ cm de debò." % _k,
+      distractors=[D("$%d$ cm al plànol són $1$ cm de debò." % _k, "ESCALA_INVERTIDA",
          "És al revés. A l'escala $1:%d$, el $1$ és el que hi ha DIBUIXAT i "
          "el $%d$ és la realitat: el dibuix és més petit que l'original."
          % (_k, _k)),
@@ -90,10 +90,10 @@ for _ap, _txt, _k, _tipus in _285:
          "Una escala $1:%d$ és de REDUCCIÓ: el dibuix és més petit. Perquè "
          "fos d'ampliació, el primer nombre hauria de ser el més gran "
          "($%d:1$)." % (_k, _k))],
-      ["A l'escala $a:b$, el primer nombre és el dibuix i el segon, la "
+      pistes=["A l'escala $a:b$, el primer nombre és el dibuix i el segon, la "
        "realitat.",
        "Les dues mesures van en la mateixa unitat."],
-      ["$1:%d$ vol dir que cada $1$ cm del dibuix correspon a $%d$ cm reals"
+      resolucio=["$1:%d$ vol dir que cada $1$ cm del dibuix correspon a $%d$ cm reals"
        % (_k, _k),
        "És a dir, %s de debò" % km_tex(_k)],
       ex_text=E285,
@@ -107,13 +107,13 @@ E286 = ("Un plànol està fet a escala $1:%s$. Quina distància real "
 _286 = [("a", 4), ("b", 12), ("c", 2.5), ("d", 30)]
 for _ap, _cm in _286:
     _real = F(_cm).limit_denominator() * 25000
-    Q("286%s" % _ap, 286, _ap, B1, "A",
-      "$%s$ cm al plànol." % texd(_cm, 2).rstrip("0").rstrip("{,}")
+    Q("286%s" % _ap, 286, _ap, B1, tipus="A",
+      enunciat="$%s$ cm al plànol." % texd(_cm, 2).rstrip("0").rstrip("{,}")
       if "{,}" in texd(_cm, 2) else "$%g$ cm al plànol." % _cm,
-      "$%s$ km" % texd(F(_real, 100000), 3).rstrip("0").rstrip("{,}"),
+      correcta="$%s$ km" % texd(F(_real, 100000), 3).rstrip("0").rstrip("{,}"),
       # Abans aquest distractor era «$1000{,}0$ m» a la 286a: la distància
       # bona en metres, marcada com a errònia.
-      [D("$%s$ m" % texd(_real, 0), "UNITATS_NO_CONVERTIDES",
+      distractors=[D("$%s$ m" % texd(_real, 0), "UNITATS_NO_CONVERTIDES",
          "Aquest nombre són centímetres, no metres: $%s$ cm són $%s$ m, i "
          "això són $%s$ km."
          % (texd(_real, 0), _num(F(_real, 100), 1), _num(F(_real, 100000), 3))),
@@ -126,11 +126,11 @@ for _ap, _cm in _286:
          "Has dividit per l'escala en comptes de multiplicar. Com que el "
          "plànol és una reducció, la distància real ha de ser MÉS gran que "
          "la del plànol.")],
-      ["Multiplica la mesura del plànol, $%s$ cm, per $25\\,000$: dona "
+      pistes=["Multiplica la mesura del plànol, $%s$ cm, per $25\\,000$: dona "
        "centímetres reals." % _num(_cm),
        "Per passar de centímetres a quilòmetres, divideix entre "
        "$100\\,000$, perquè $1$ km $=100\\,000$ cm."],
-      ["$%s\\cdot25000=%s$ cm" % (_num(_cm), texd(_real, 0)),
+      resolucio=["$%s\\cdot25000=%s$ cm" % (_num(_cm), texd(_real, 0)),
        "$\\dfrac{%s}{100000}=%s$ km"
        % (texd(_real, 0), texd(F(_real, 100000), 3).rstrip("0").rstrip("{,}"))],
       ex_text=E286)
@@ -144,10 +144,10 @@ _287 = [("a", 8, "m"), ("b", 14, "m"), ("c", 2.4, "m")]
 for _ap, _m, _u in _287:
     _cm_real = F(_m).limit_denominator() * 100
     _plano = _cm_real / 200
-    Q("287%s" % _ap, 287, _ap, B1, "A",
-      "Una paret de $%s$ m." % _num(_m),
-      "$%s$ cm" % texd(_plano, 2).rstrip("0").rstrip("{,}"),
-      [D("$%s$ cm" % texd(_cm_real * 200, 0), "ESCALA_INVERTIDA",
+    Q("287%s" % _ap, 287, _ap, B1, tipus="A",
+      enunciat="Una paret de $%s$ m." % _num(_m),
+      correcta="$%s$ cm" % texd(_plano, 2).rstrip("0").rstrip("{,}"),
+      distractors=[D("$%s$ cm" % texd(_cm_real * 200, 0), "ESCALA_INVERTIDA",
          "Has multiplicat per $200$. Per anar de la realitat al plànol cal "
          "DIVIDIR: el dibuix és més petit."),
        D("$%s$ cm" % _num(F(_m).limit_denominator() / 200, 4), "UNITATS_NO_CONVERTIDES",
@@ -156,10 +156,10 @@ for _ap, _m, _u in _287:
        D("$%s$ m" % texd(_plano, 2).rstrip("0").rstrip("{,}"), "UNITATS_NO_CONVERTIDES",
          "El número és correcte, però les unitats no: al plànol es dibuixen "
          "centímetres, no metres.")],
-      ["Passa els $%s$ m a centímetres: $1$ m $=100$ cm." % _num(_m),
+      pistes=["Passa els $%s$ m a centímetres: $1$ m $=100$ cm." % _num(_m),
        "Al plànol tot es dibuixa $200$ vegades més petit: divideix entre "
        "$200$."],
-      ["$%s$ m $=%s$ cm" % (_num(_m), texd(_cm_real, 0)),
+      resolucio=["$%s$ m $=%s$ cm" % (_num(_m), texd(_cm_real, 0)),
        "$\\dfrac{%s}{200}=%s$ cm"
        % (texd(_cm_real, 0), texd(_plano, 2).rstrip("0").rstrip("{,}"))],
       ex_text=E287)
@@ -180,10 +180,10 @@ for _ap, _dib, _real, _ud, _ur in _288:
     _fact = {"cm": 1, "m": 100, "km": 100000}[_ur]
     _cm = _real * _fact
     _k = F(_cm, _dib)
-    Q("288%s" % _ap, 288, _ap, B1, "A",
-      "$%g$ %s al dibuix corresponen a $%g$ %s de debò." % (_dib, _ud, _real, _ur),
-      "$1:%s$" % texd(_k, 0),
-      [D("$1:%g$" % (_real / _dib) if _ur == "cm" else "$1:%s$" % texd(F(_real, _dib), 2),
+    Q("288%s" % _ap, 288, _ap, B1, tipus="A",
+      enunciat="$%g$ %s al dibuix corresponen a $%g$ %s de debò." % (_dib, _ud, _real, _ur),
+      correcta="$1:%s$" % texd(_k, 0),
+      distractors=[D("$1:%g$" % (_real / _dib) if _ur == "cm" else "$1:%s$" % texd(F(_real, _dib), 2),
          "UNITATS_NO_CONVERTIDES",
          "Has comparat $%g$ amb $%g$ sense passar-ho tot a la mateixa unitat. "
          "$%g$ %s són $%s$ cm." % (_dib, _real, _real, _ur, texd(_cm, 0))),
@@ -193,11 +193,11 @@ for _ap, _dib, _real, _ud, _ur in _288:
        D("$1:%s$" % texd(_cm, 0), "DIVISIO_OBLIDADA",
          "Aquesta és la mesura real en centímetres, no l'escala. L'escala "
          "surt de dividir-la entre la mesura del dibuix.")],
-      ["Passa els $%g$ %s a centímetres, la mateixa unitat que els $%g$ cm "
+      pistes=["Passa els $%g$ %s a centímetres, la mateixa unitat que els $%g$ cm "
        "del dibuix." % (_real, _ur, _dib),
        "Divideix la mesura real entre la del dibuix: aquest quocient és el "
        "segon nombre de l'escala $1:\\ldots$"],
-      ["$%g$ %s $=%s$ cm" % (_real, _ur, texd(_cm, 0)),
+      resolucio=["$%g$ %s $=%s$ cm" % (_real, _ur, texd(_cm, 0)),
        "$\\dfrac{%s}{%g}=%s$, o sigui escala $1:%s$"
        % (texd(_cm, 0), _dib, texd(_k, 0), texd(_k, 0))],
       ex_text=E288,
@@ -205,11 +205,11 @@ for _ap, _dib, _real, _ud, _ur in _288:
 
 
 # =============================================================== Exercici 289
-Q("289", 289, "", B1, "A",
-  "En un mapa a escala $1:150\\,000$, dues poblacions estan a $6{,}4$ cm. "
+Q("289", 289, "", B1, tipus="A",
+  enunciat="En un mapa a escala $1:150\\,000$, dues poblacions estan a $6{,}4$ cm. "
   "Un ciclista fa el recorregut a $24$ km/h. Quant triga?",
-  "$24$ min",
-  [D("$9{,}6$ km", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$24$ min",
+  distractors=[D("$9{,}6$ km", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la distància real, que és el primer pas. Encara falta "
      "calcular el temps: $\\dfrac{9{,}6}{24}$ h."),
    D("$0{,}4$ h $=4$ min", "POTENCIA_10",
@@ -218,10 +218,10 @@ Q("289", 289, "", B1, "A",
    D("$2{,}5$ h", "INVERTIDA",
      "Has dividit al revés: el temps és $\\dfrac{\\text{distància}}"
      "{\\text{velocitat}}$, no a l'inrevés.")],
-  ["Troba primer la distància real en quilòmetres.",
+  pistes=["Troba primer la distància real en quilòmetres.",
    "Després, temps $=\\dfrac{\\text{distància}}{\\text{velocitat}}$, i "
    "passa'l a minuts."],
-  ["$6{,}4\\cdot150000=960\\,000$ cm",
+  resolucio=["$6{,}4\\cdot150000=960\\,000$ cm",
    "$960000$ cm $=9{,}6$ km",
    "$t=\\dfrac{9{,}6}{24}=0{,}4$ h $=0{,}4\\cdot60=24$ min"],
   ex_text="",
@@ -237,11 +237,11 @@ E290 = ("Dues figures són semblants. Troba'n la raó de semblança $k$ (de la "
 _290 = [("a", 3, 12), ("b", 5, 20), ("c", 6, 9)]
 for _ap, _a, _b in _290:
     _k = F(_b, _a)
-    Q("290%s" % _ap, 290, _ap, B2, "A",
-      "Un costat de la petita fa $%d$ cm i el corresponent de la gran, "
+    Q("290%s" % _ap, 290, _ap, B2, tipus="A",
+      enunciat="Un costat de la petita fa $%d$ cm i el corresponent de la gran, "
       "$%d$ cm." % (_a, _b),
-      "$k=%s$" % tex(_k),
-      [D("$k=%s$" % tex(F(_a, _b)), "INVERTIDA",
+      correcta="$k=%s$" % tex(_k),
+      distractors=[D("$k=%s$" % tex(F(_a, _b)), "INVERTIDA",
          "Aquesta és la raó de la gran a la petita. Com que es demana de la "
          "petita a la gran, $k$ ha de ser més gran que $1$."),
        D("$k=%d$" % (_b - _a), "RESTA_PER_QUOCIENT",
@@ -250,9 +250,9 @@ for _ap, _a, _b in _290:
        D("$k=%d$" % (_a * _b), "PRODUCTE_PER_SUMA",
          "Els has multiplicat. La raó surt de dividir el costat de la gran "
          "entre el de la petita.")],
-      ["La raó de semblança és el quocient entre dos costats corresponents.",
+      pistes=["La raó de semblança és el quocient entre dos costats corresponents.",
        "De la petita a la gran: $\\dfrac{%d}{%d}$." % (_b, _a)],
-      ["$k=\\dfrac{%d}{%d}=%s$" % (_b, _a, tex(_k))],
+      resolucio=["$k=\\dfrac{%d}{%d}=%s$" % (_b, _a, tex(_k))],
       ex_text=E290,
       figura=figures_semblants_k(float(_k), "triangle"))
 
@@ -265,10 +265,10 @@ _291 = [("a", 2, 15), ("b", 3, 8), ("c", F(5, 2), 12)]
 for _ap, _k, _area in _291:
     _k = F(_k)
     _gran = _area * _k ** 2
-    Q("291%s" % _ap, 291, _ap, B2, "A",
-      "$k=%s$ i àrea del petit $=%d$ cm$^2$." % (tex(_k), _area),
-      "$%s$ cm$^2$" % texd(_gran, 2).rstrip("0").rstrip("{,}"),
-      [D("$%s$ cm$^2$" % texd(_area * _k, 2).rstrip("0").rstrip("{,}"),
+    Q("291%s" % _ap, 291, _ap, B2, tipus="A",
+      enunciat="$k=%s$ i àrea del petit $=%d$ cm$^2$." % (tex(_k), _area),
+      correcta="$%s$ cm$^2$" % texd(_gran, 2).rstrip("0").rstrip("{,}"),
+      distractors=[D("$%s$ cm$^2$" % texd(_area * _k, 2).rstrip("0").rstrip("{,}"),
          "RAO_SENSE_QUADRAT",
          "Has multiplicat l'àrea per $k$. Les àrees es multipliquen per "
          "$k^2$, no per $k$: si les longituds es dupliquen, l'àrea es "
@@ -280,10 +280,10 @@ for _ap, _k, _area in _291:
        D("$%s$ cm$^2$" % texd(_area + _k, 2).rstrip("0").rstrip("{,}"),
          "PRODUCTE_PER_SUMA",
          "La raó multiplica, no suma.")],
-      ["Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
+      pistes=["Les longituds es multipliquen per $k$; les àrees, per $k^2$.",
        "$k^2=%s$." % tex(_k ** 2)],
       # Entre parèntesis si és una fracció: $\dfrac52^2$ semblava 5/4 (291c).
-      ["$k^2=%s^2=%s$" % (tex(_k) if _k.denominator == 1 else
+      resolucio=["$k^2=%s^2=%s$" % (tex(_k) if _k.denominator == 1 else
                           "\\left(%s\\right)" % tex(_k), tex(_k ** 2)),
        "Àrea gran $=%d\\cdot%s=%s$ cm$^2$"
        % (_area, tex(_k ** 2), texd(_gran, 2).rstrip("0").rstrip("{,}"))],
@@ -304,10 +304,10 @@ _292 = [("a", 2, 30), ("b", 3, 5)]
 for _ap, _k, _vol in _292:
     _k = F(_k)
     _gran = _vol * _k ** 3
-    Q("292%s" % _ap, 292, _ap, B2, "A",
-      "$k=%s$ i volum del petit $=%d$ cm$^3$." % (tex(_k), _vol),
-      "$%s$ cm$^3$" % texd(_gran, 0),
-      [D("$%s$ cm$^3$" % texd(_vol * _k, 0), "RAO_SENSE_QUADRAT",
+    Q("292%s" % _ap, 292, _ap, B2, tipus="A",
+      enunciat="$k=%s$ i volum del petit $=%d$ cm$^3$." % (tex(_k), _vol),
+      correcta="$%s$ cm$^3$" % texd(_gran, 0),
+      distractors=[D("$%s$ cm$^3$" % texd(_vol * _k, 0), "RAO_SENSE_QUADRAT",
          "Has multiplicat pel $k$ tot sol. Un volum té tres dimensions: si "
          "les longituds es multipliquen per $%s$, el volum ho fa per "
          "$%s^3=%s$." % (tex(_k), tex(_k), tex(_k ** 3))),
@@ -315,9 +315,9 @@ for _ap, _k, _vol in _292:
          "El $k^2$ és per a les ÀREES. Els volums van amb $k^3$."),
        D("$%s$ cm$^3$" % texd(_vol + _k ** 3, 0), "PRODUCTE_PER_SUMA",
          "La raó multiplica el volum, no s'hi suma.")],
-      ["Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.",
+      pistes=["Les longituds van amb $k$, les àrees amb $k^2$ i els volums amb $k^3$.",
        "$k^3=%s$." % tex(_k ** 3)],
-      ["$k^3=%s^3=%s$" % (tex(_k), tex(_k ** 3)),
+      resolucio=["$k^3=%s^3=%s$" % (tex(_k), tex(_k ** 3)),
        "Volum gran $=%d\\cdot%s=%s$ cm$^3$" % (_vol, tex(_k ** 3), texd(_gran, 0))],
       ex_text=E292,
       figura=figures_semblants_k(float(_k), "cub"),
@@ -332,11 +332,11 @@ for _ap, _k, _vol in _292:
 # =============================================================== Exercici 293
 E293 = "A l'inrevés: del que saps de les àrees, dedueix la raó de longituds."
 
-Q("293a", 293, "a", B2, "A",
-  "Dos triangles semblants tenen àrees de $12$ cm$^2$ i $108$ cm$^2$. Quina "
+Q("293a", 293, "a", B2, tipus="A",
+  enunciat="Dos triangles semblants tenen àrees de $12$ cm$^2$ i $108$ cm$^2$. Quina "
   "és la raó entre els seus costats?",
-  "$k=3$",
-  [D("$k=9$", "RAO_AL_QUADRAT",
+  correcta="$k=3$",
+  distractors=[D("$k=9$", "RAO_AL_QUADRAT",
      "El $9$ és la raó entre les ÀREES ($108:12$). La raó entre els costats "
      "n'és l'arrel quadrada: $k=\\sqrt{9}=3$."),
    D("$k=96$", "RESTA_PER_QUOCIENT",
@@ -344,18 +344,18 @@ Q("293a", 293, "a", B2, "A",
    D("$k=\\sqrt{108-12}$", "RESTA_PER_QUOCIENT",
      "Ni resta ni arrel de la resta: primer es divideixen les àrees i "
      "després es fa l'arrel del quocient.")],
-  ["La raó entre les àrees és $k^2$.",
+  pistes=["La raó entre les àrees és $k^2$.",
    "Divideix les àrees i fes l'arrel quadrada del resultat."],
-  ["$\\dfrac{108}{12}=9$, i això és $k^2$",
+  resolucio=["$\\dfrac{108}{12}=9$, i això és $k^2$",
    "$k=\\sqrt{9}=3$"],
   ex_text=E293,
   figura=figures_semblants_k(3, "quadrat"))
 
-Q("293b", 293, "b", B2, "A",
-  "Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina "
+Q("293b", 293, "b", B2, tipus="A",
+  enunciat="Dues esferes semblants tenen volums de $8$ cm$^3$ i $216$ cm$^3$. Quina "
   "és la raó entre els seus radis?",
-  "$k=3$",
-  [D("$k=27$", "RAO_AL_CUB",
+  correcta="$k=3$",
+  distractors=[D("$k=27$", "RAO_AL_CUB",
      "El $27$ és la raó entre els VOLUMS ($216:8$). La raó entre els radis "
      "n'és l'arrel CÚBICA: $k=\\sqrt[3]{27}=3$."),
    D("$k=\\sqrt{27}$", "ARREL_MAL_APLICADA",
@@ -363,9 +363,9 @@ Q("293b", 293, "b", B2, "A",
      "cúbica."),
    D("$k=208$", "RESTA_PER_QUOCIENT",
      "Has restat els volums en comptes de dividir-los.")],
-  ["La raó entre els volums és $k^3$.",
+  pistes=["La raó entre els volums és $k^3$.",
    "Divideix els volums i fes-ne l'arrel cúbica."],
-  ["$\\dfrac{216}{8}=27$, i això és $k^3$",
+  resolucio=["$\\dfrac{216}{8}=27$, i això és $k^3$",
    "$k=\\sqrt[3]{27}=3$"],
   ex_text=E293,
   figura=figures_semblants_k(3, "cub"))
@@ -376,29 +376,29 @@ E294 = ("Una maqueta d'un edifici està feta a escala $1:50$. L'edifici de "
         "debò fa $30$ m d'alçada, té una façana de $600$ m$^2$ i un volum "
         "de $9\\,000$ m$^3$.")
 
-Q("294a", 294, "a", B2, "A",
-  "Amb l'escala $1:50$, quina alçada fa la maqueta si l'edifici real "
+Q("294a", 294, "a", B2, tipus="A",
+  enunciat="Amb l'escala $1:50$, quina alçada fa la maqueta si l'edifici real "
   "fa $30$ m?",
-  "$60$ cm",
-  [D("$1\\,500$ m", "ESCALA_INVERTIDA",
+  correcta="$60$ cm",
+  distractors=[D("$1\\,500$ m", "ESCALA_INVERTIDA",
      "Has multiplicat per $50$. La maqueta és una REDUCCIÓ: cal dividir."),
    D("$0{,}6$ m $=6$ cm", "POTENCIA_10",
      "$30:50=0{,}6$ m, i $0{,}6$ m són $60$ cm, no $6$."),
    D("$60$ m", "UNITATS_NO_CONVERTIDES",
      "El número és correcte però la unitat no: $0{,}6$ m són $60$ "
      "centímetres.")],
-  ["Divideix l'alçada real entre $50$.",
+  pistes=["Divideix l'alçada real entre $50$.",
    "Passa el resultat a centímetres."],
-  ["$\\dfrac{30}{50}=0{,}6$ m",
+  resolucio=["$\\dfrac{30}{50}=0{,}6$ m",
    "$0{,}6$ m $=60$ cm"],
   ex_text=E294,
   figura=figures_semblants_k(1 / 50, "triangle"))
 
-Q("294b", 294, "b", B2, "A",
-  "Amb la mateixa escala $1:50$, quina superfície té la façana de la "
+Q("294b", 294, "b", B2, tipus="A",
+  enunciat="Amb la mateixa escala $1:50$, quina superfície té la façana de la "
   "maqueta, si la de l'edifici real és de $600$ m$^2$?",
-  "$0{,}24$ m$^2$ (és a dir, $2\\,400$ cm$^2$)",
-  [D("$12$ m$^2$", "RAO_SENSE_QUADRAT",
+  correcta="$0{,}24$ m$^2$ (és a dir, $2\\,400$ cm$^2$)",
+  distractors=[D("$12$ m$^2$", "RAO_SENSE_QUADRAT",
      "Has dividit l'àrea entre $50$. Les àrees van amb $k^2$: cal dividir "
      "entre $50^2=2\\,500$."),
    D("$0{,}0048$ m$^2$", "RAO_AL_CUB",
@@ -406,28 +406,28 @@ Q("294b", 294, "b", B2, "A",
      "àrea i va amb el quadrat."),
    D("$600$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la façana real, la que ja et donaven.")],
-  ["La raó de longituds és $\\dfrac{1}{50}$; la d'àrees, "
+  pistes=["La raó de longituds és $\\dfrac{1}{50}$; la d'àrees, "
    "$\\left(\\dfrac{1}{50}\\right)^2$.",
    "$50^2=2\\,500$."],
-  ["$\\dfrac{600}{50^2}=\\dfrac{600}{2500}=0{,}24$ m$^2$",
+  resolucio=["$\\dfrac{600}{50^2}=\\dfrac{600}{2500}=0{,}24$ m$^2$",
    "$0{,}24$ m$^2=2\\,400$ cm$^2$"],
   ex_text=E294,
   figura=figures_semblants_k(1 / 50, "quadrat"))
 
-Q("294c", 294, "c", B2, "A",
-  "Amb la mateixa escala $1:50$, quin volum té la maqueta, si "
+Q("294c", 294, "c", B2, tipus="A",
+  enunciat="Amb la mateixa escala $1:50$, quin volum té la maqueta, si "
   "l'edifici real en fa $9\\,000$ m$^3$?",
-  "$0{,}072$ m$^3$ (és a dir, $72\\,000$ cm$^3$)",
-  [D("$180$ m$^3$", "RAO_SENSE_QUADRAT",
+  correcta="$0{,}072$ m$^3$ (és a dir, $72\\,000$ cm$^3$)",
+  distractors=[D("$180$ m$^3$", "RAO_SENSE_QUADRAT",
      "Has dividit entre $50$. Els volums van amb $k^3$: entre "
      "$50^3=125\\,000$."),
    D("$3{,}6$ m$^3$", "RAO_AL_QUADRAT",
      "Has dividit entre $50^2$. El quadrat és per a les àrees."),
    D("$72$ m$^3$", "POTENCIA_10",
      "T'has desplaçat tres llocs: $\\dfrac{9000}{125000}=0{,}072$, no $72$.")],
-  ["La raó de volums és $\\left(\\dfrac{1}{50}\\right)^3$.",
+  pistes=["La raó de volums és $\\left(\\dfrac{1}{50}\\right)^3$.",
    "$50^3=125\\,000$."],
-  ["$\\dfrac{9000}{50^3}=\\dfrac{9000}{125000}=0{,}072$ m$^3$",
+  resolucio=["$\\dfrac{9000}{50^3}=\\dfrac{9000}{125000}=0{,}072$ m$^3$",
    "$0{,}072$ m$^3=72\\,000$ cm$^3$",
    "La maqueta és $50$ vegades més curta, $2\\,500$ vegades més petita de "
    "façana i $125\\,000$ vegades més petita de volum"],
@@ -436,3 +436,87 @@ Q("294c", 294, "c", B2, "A",
   comentari="Els tres apartats junts són el resum del bloc: una sola "
             "escala, tres factors diferents segons si el que mesures té "
             "una, dues o tres dimensions.")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 361-362)
+# =====================================================================
+# «Càlcul amb escales» obria interpretant una escala en paraules, i el
+# següent exercici ja demanava passar de cm a km. «Raó de semblança, àrees i
+# volums» obria buscant $k$. Aquí, del plànol a la realitat sense canviar
+# d'unitat, i quantes vegades creix l'àrea amb una $k$ entera.
+
+dificultats({
+    361: 1,  # del plànol a la realitat, mateixa unitat
+    362: 1,  # l'àrea es multiplica per k^2
+})
+
+
+E361 = ("Calcula la mesura real a partir de la mesura al plànol i de "
+        "l'escala. Dona-la en cm.")
+
+Q("361a", 361, "a", B1, tipus="A",
+  enunciat=r"Escala $1:100$. Un segment fa $3$ cm al plànol.",
+  correcta="$300$ cm",
+  distractors=[D("$0{,}03$ cm", "ESCALA_INVERTIDA",
+     "Has dividit per $100$. A l'escala $1:100$, cada cm del plànol són "
+     "$100$ cm de la realitat: la mesura real és MÉS gran."),
+   D("$3$ cm", "ESCALA_NO_APLICADA",
+     "Aquesta és la mesura del plànol. Cal multiplicar-la per $100$."),
+   D("$103$ cm", "PRODUCTE_PER_SUMA",
+     "Has sumat $3+100$. L'escala es MULTIPLICA: $3\\cdot100$.")],
+  pistes=["$1:100$ vol dir que $1$ cm al plànol són $100$ cm de debò.",
+   "$3\\cdot100$."],
+  resolucio=[r"$3\cdot100=300$ cm"],
+  ex_text=E361)
+
+Q("361b", 361, "b", B1, tipus="A",
+  enunciat=r"Escala $1:1\,000$. Un segment fa $5$ cm al plànol.",
+  correcta=r"$5\,000$ cm",
+  distractors=[D("$0{,}005$ cm", "ESCALA_INVERTIDA",
+     "Has dividit per $1\\,000$. A l'escala $1:1\\,000$, cada cm del plànol "
+     "són $1\\,000$ cm de la realitat: la mesura real és MÉS gran."),
+   D("$5$ cm", "ESCALA_NO_APLICADA",
+     "Aquesta és la mesura del plànol. Cal multiplicar-la per $1\\,000$."),
+   D(r"$1\,005$ cm", "PRODUCTE_PER_SUMA",
+     "Has sumat $5+1\\,000$. L'escala es MULTIPLICA: $5\\cdot1\\,000$.")],
+  pistes=["$1:1\\,000$ vol dir que $1$ cm al plànol són $1\\,000$ cm de debò.",
+   "$5\\cdot1\\,000$."],
+  resolucio=[r"$5\cdot1\,000=5\,000$ cm"],
+  ex_text=E361)
+
+
+E362 = ("Dues figures són semblants i la raó de semblança, de la petita a la "
+        "gran, és $k$. Quantes vegades més gran és l'ÀREA de la gran? "
+        "Recorda: les àrees es multipliquen per $k^2$.")
+
+Q("362a", 362, "a", B2, tipus="A",
+  enunciat=r"$k=2$",
+  correcta="$4$ vegades",
+  distractors=[D("$2$ vegades", "RAO_SENSE_QUADRAT",
+     "Per $k$ només es multipliquen les LONGITUDS. L'àrea es multiplica per "
+     "$k^2=2^2$."),
+   D("$8$ vegades", "RAO_AL_CUB",
+     "$k^3$ és per als volums. L'àrea va amb $k^2=2^2$."),
+   D(r"$\sqrt{2}$ vegades", "ARREL_MAL_APLICADA",
+     "Has fet l'arrel. L'àrea es multiplica per $k$ AL QUADRAT: $2^2$.")],
+  pistes=["L'àrea va amb $k^2$.",
+   "$2^2=2\\cdot2$."],
+  resolucio=[r"$k^2=2^2=4$: l'àrea de la gran és $4$ vegades la de la petita."],
+  ex_text=E362)
+
+Q("362b", 362, "b", B2, tipus="A",
+  enunciat=r"$k=3$",
+  correcta="$9$ vegades",
+  distractors=[D("$3$ vegades", "RAO_SENSE_QUADRAT",
+     "Per $k$ només es multipliquen les LONGITUDS. L'àrea es multiplica per "
+     "$k^2=3^2$."),
+   D("$27$ vegades", "RAO_AL_CUB",
+     "$k^3$ és per als volums. L'àrea va amb $k^2=3^2$."),
+   D("$6$ vegades", "POTENCIA_COM_PRODUCTE",
+     "Has fet $3\\cdot2$. Elevar al quadrat és multiplicar el nombre per ell "
+     "mateix: $3\\cdot3$.")],
+  pistes=["L'àrea va amb $k^2$.",
+   "$3^2=3\\cdot3$."],
+  resolucio=[r"$k^2=3^2=9$: l'àrea de la gran és $9$ vegades la de la petita."],
+  ex_text=E362)

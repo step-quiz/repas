@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Equacions de primer grau",
    "descripcio": "Equacions amb parèntesis i amb un o diversos denominadors.",
    "items": [
+    "350a",
+    "350b",
     "76a",
     "76b",
     "76c",
@@ -43,6 +45,8 @@ window.FULL = {
    "titol": "Segon grau: fórmula i discriminant",
    "descripcio": "Fórmula general i nombre de solucions segons el discriminant.",
    "items": [
+    "351a",
+    "351b",
     "80a",
     "80b",
     "80c",
@@ -64,6 +68,8 @@ window.FULL = {
    "titol": "Segon grau: factor comú i factorització",
    "descripcio": "Equacions incompletes, ja factoritzades i que cal reordenar.",
    "items": [
+    "352a",
+    "352b",
     "82a",
     "82b",
     "82c",
@@ -93,6 +99,8 @@ window.FULL = {
    "titol": "Sistemes d'equacions",
    "descripcio": "Substitució, igualació i reducció, amb denominadors i parèntesis.",
    "items": [
+    "353a",
+    "353b",
     "85a",
     "85b",
     "85c",
@@ -163,25 +171,74 @@ window.FULL = {
   "JERARQUIA": "Primer les multiplicacions i divisions; després, les sumes i restes.",
   "MENYS_PARENTESI": "El signe $-$ davant d'un parèntesi canvia el signe de TOTS els termes de dins, no només del primer.",
   "NUMERADORS_SENSE_AJUSTAR": "Has posat el denominador comú correcte, però has copiat els numeradors tal qual. Cada numerador s'ha de multiplicar pel mateix nombre que el seu denominador.",
+  "OPERACIO_INVERSA": "Has fet l'operació contrària a la que tocava per desfer el pas anterior.",
   "ORDRE_ARREL_DIVISIO": "Has fet l'arrel abans de dividir. De $ax^2=k$ cal aïllar primer $x^2$ dividint per $a$, i fer l'arrel al final.",
   "ORDRE_DIVISIONS": "El que hi ha entre claudàtors s'ha de resoldre primer: no es poden restar tots els exponents seguits com si no hi hagués claudàtor.",
   "ORDRE_MULTIPLICACIO_DIVISIO": "La divisió i la multiplicació tenen la mateixa prioritat i es fan d'esquerra a dreta: no es pot agrupar la multiplicació primer perquè \"queda més bé\".",
   "ORDRE_RESTA": "Has restat en l'ordre equivocat: revisa quin terme ha d'anar primer.",
   "PARENTESI_NO_DISTRIBUIT": "No has canviat cap signe en treure el parèntesi. Restar un parèntesi vol dir restar-ne tots els termes.",
   "PARITAT_EXPONENT": "Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.",
+  "POTENCIA_COM_PRODUCTE": "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.",
   "POTENCIA_DE_SUMA": "Aquí els dos nombres es MULTIPLIQUEN dins del parèntesi, no se sumen: la potència és d'un producte, $(a\\cdot b)^n$, no d'una suma, $(a+b)^n$.",
   "PRODUCTE_CREUAT": "Per multiplicar fraccions es fa numerador per numerador i denominador per denominador. Creuar-los és el que es fa per COMPARAR-les, no per multiplicar-les.",
   "PROGRESSIO_INVENTADA": "El terme s'ha de calcular seguint estrictament la regla que defineix la successió (el terme general o la relació de recurrència), no un patró aproximat o inventat.",
   "QUADRAT_INCOMPLET": "Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat del primer, el doble producte, i el quadrat del segon. Revisa que hi són tots.",
+  "SIGNE_ARRELS": "Les arrels tenen el signe canviat. Comprova-les substituint-les: han de fer que la funció valgui $0$.",
   "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
   "SIGNE_PRODUCTE": "Revisa la regla dels signes del producte: signes diferents donen resultat negatiu.",
   "SIGNE_QUOCIENT": "Revisa la regla dels signes del quocient: signes diferents donen resultat negatiu.",
   "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
   "SIMPLIFICACIO_INCOMPLETA": "Encara es pot simplificar més: busca el m.c.d. del numerador i el denominador i divideix-los pel m.c.d. d'un sol cop.",
+  "SUBSTITUCIO_MAL_FETA": "La primera part surt bé, però en substituir per trobar la segona hi ha un error. Comprova el resultat posant-lo a l'expressió original.",
+  "SUMA_EN_LLOC_RESTA": "Sumar un nombre negatiu és restar-lo.",
   "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau.",
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "350a",
+   "ex": 350,
+   "ap": "a",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Resol aquesta equació de primer grau desfent l'única operació que acompanya la $x$.",
+   "enunciat": "$x+7=12$",
+   "opcions": [
+    "$x=5$",
+    "$x=-5$",
+    "$x=19$",
+    "$x=\\dfrac{12}{7}$"
+   ],
+   "pistes": [
+    "Quina operació fa el $7$ amb la $x$?",
+    "Resta $7$ als dos costats."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGZldCAkNy0xMiQuIMOJcyAkMTItNyQ6IGNvbXByb3ZhLWhvLCAkNSs3PTEyJC4iLCAiRWwgJDckIFNVTUE6IHBlciBkZXNmZXItaG8sIGVzIHJlc3RhLiAkMTItNyQsIG5vICQxMis3JC4gSGFzIGZldCBsJ29wZXJhY2nDsyBjb250csOgcmlhIGEgbGEgcXVlIHRvY2F2YSBwZXIgZGVzZmVyIGVsIHBhcyBhbnRlcmlvci4iLCAiRWwgJDckIG5vIG11bHRpcGxpY2EgbGEgJHgkOiBzJ2hpIHN1bWEuIEVzIGRlc2bDoCByZXN0YW50LiBIYXMgZmV0IGwnb3BlcmFjacOzIGNvbnRyw6ByaWEgYSBsYSBxdWUgdG9jYXZhIHBlciBkZXNmZXIgZWwgcGFzIGFudGVyaW9yLiJdLCAiZXJyIjogWyIiLCAiU0lHTkVfRklOQUwiLCAiT1BFUkFDSU9fSU5WRVJTQSIsICJPUEVSQUNJT19JTlZFUlNBIl0sICJyZXMiOiBbIiR4PTEyLTc9NSQiLCAiQ29tcHJvdmFjacOzOiAkNSs3PTEyJCJdfQ=="
+  },
+  {
+   "id": "350b",
+   "ex": 350,
+   "ap": "b",
+   "bloc": "primer_grau",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Resol aquesta equació de primer grau desfent l'única operació que acompanya la $x$.",
+   "enunciat": "$3x=21$",
+   "opcions": [
+    "$x=18$",
+    "$x=63$",
+    "$x=7$",
+    "$x=\\dfrac{1}{7}$"
+   ],
+   "pistes": [
+    "Quina operació fa el $3$ amb la $x$?",
+    "Divideix per $3$ els dos costats."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCAkMyQgbm8gc2Ugc3VtYSBhIGxhICR4JDogbGEgbXVsdGlwbGljYS4gRXMgZGVzZsOgIGRpdmlkaW50LiBIYXMgZmV0IGwnb3BlcmFjacOzIGNvbnRyw6ByaWEgYSBsYSBxdWUgdG9jYXZhIHBlciBkZXNmZXIgZWwgcGFzIGFudGVyaW9yLiIsICJFbCAkMyQgTVVMVElQTElDQTogcGVyIGRlc2Zlci1obywgZXMgZGl2aWRlaXguICQyMTozJCwgbm8gJDIxXFxjZG90MyQuIEhhcyBmZXQgbCdvcGVyYWNpw7MgY29udHLDoHJpYSBhIGxhIHF1ZSB0b2NhdmEgcGVyIGRlc2ZlciBlbCBwYXMgYW50ZXJpb3IuIiwgIiIsICJIYXMgZmV0ICQzOjIxJC4gw4lzICQyMTozJDogY29tcHJvdmEtaG8sICQzXFxjZG90Nz0yMSQuIl0sICJlcnIiOiBbIk9QRVJBQ0lPX0lOVkVSU0EiLCAiT1BFUkFDSU9fSU5WRVJTQSIsICIiLCAiSU5WRVJUSURBIl0sICJyZXMiOiBbIiR4PVxcZGZyYWN7MjF9ezN9PTckIiwgIkNvbXByb3ZhY2nDszogJDNcXGNkb3Q3PTIxJCJdfQ=="
+  },
   {
    "id": "76a",
    "ex": 76,
@@ -777,6 +834,50 @@ window.FULL = {
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJSZXZpc2EgZWwgdGVybWUgaW5kZXBlbmRlbnQ6IGVsICQtMzYkIGRlIGwnZXNxdWVycmEgcGFzc2EgYSBsJ2FsdHJlIG1lbWJyZSBTVU1BTlQsICQxMjQ1KzM2PTEyODEkLiBBbWIgJDE1OXg9MTIxNSQgc29ydGlyaWEgYXF1ZXN0IHZhbG9yLCBwZXLDsiBsJ2VxdWFjacOzIGRvbmEgJDE1OXg9MTI4MSQuIiwgIlJldmlzYSBlbCBzaWduZSBmaW5hbDogJDE1OXg9MTI4MSQgZG9uYSB1bmEgJHgkIHBvc2l0aXZhLiIsICIiLCAiSGFzIHNpbXBsaWZpY2F0IG5vbcOpcyBlbCBudW1lcmFkb3IgaSBubyBlbCBkZW5vbWluYWRvcjogJFxcZnJhY3sxMjgxfXsxNTl9JCBzJ2hhIGRlIGRpdmlkaXIgcGVyICQzJCBhbHMgRE9TIGNvc3RhdHMgZGUgbGEgZnJhY2Npw7MgcGVyIGFycmliYXIgYSAkXFxmcmFjezQyN317NTN9JC4iXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiU0lHTkVfRklOQUwiLCAiIiwgIlNJTVBMSUZJQ0FDSU9fUEFSQ0lBTCJdLCAicmVzIjogWyJNLmMubS4kKDEwLDEsMTIpPTYwJDogJDYoNHgtNikrMTIweD0xMjYwLTE1KHgrMSkkIiwgIiQyNHgtMzYrMTIweD0xMjYwLTE1eC0xNSBcXDtcXExvbmdyaWdodGFycm93XFw7IDE0NHgtMzY9MTI0NS0xNXgkIiwgIiQxNDR4KzE1eD0xMjQ1KzM2IFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgMTU5eD0xMjgxIFxcO1xcTG9uZ3JpZ2h0YXJyb3dcXDsgeD1cXGRmcmFjezEyODF9ezE1OX09XFxkZnJhY3s0Mjd9ezUzfSQiXX0="
   },
   {
+   "id": "351a",
+   "ex": 351,
+   "ap": "a",
+   "bloc": "formula_general",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el discriminant d'aquesta equació de segon grau. Recorda: a $ax^2+bx+c=0$, el discriminant és $\\Delta=b^2-4ac$.",
+   "enunciat": "$x^2+5x+4=0$",
+   "opcions": [
+    "$\\Delta=9$",
+    "$\\Delta=-6$",
+    "$\\Delta=41$",
+    "$\\Delta=21$"
+   ],
+   "pistes": [
+    "Aquí $a=1$, $b=5$ i $c=4$.",
+    "$\\Delta=5^2-4\\cdot1\\cdot4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJGJeMj01XjI9MjUkLCBubyAkMlxcY2RvdDU9MTAkLiAkeF4yJCBubyDDqXMgJDJ4JDogw6lzICR4XFxjZG90IHgkLiBQcm92YS1obyBhbWIgJHg9MyQsIHF1ZSBkb25hICQ5JCBpIG5vICQ2JC4iLCAiSGFzIHN1bWF0ICQ0YWMkLiBMYSBmw7NybXVsYSBlbCBSRVNUQTogJDI1LTE2JC4iLCAiSGFzIHJlc3RhdCBub23DqXMgZWwgJDQkLiBTw7NuICQ0XFxjZG90IGFcXGNkb3QgYz00XFxjZG90MVxcY2RvdDQ9MTYkLiJdLCAiZXJyIjogWyIiLCAiUE9URU5DSUFfQ09NX1BST0RVQ1RFIiwgIlNVTUFfRU5fTExPQ19SRVNUQSIsICJGQUNUT1JfT0JMSURBVCJdLCAicmVzIjogWyIkYT0xLFxcIGI9NSxcXCBjPTQkIiwgIiRcXERlbHRhPTVeMi00XFxjZG90MVxcY2RvdDQ9MjUtMTY9OSQiXX0="
+  },
+  {
+   "id": "351b",
+   "ex": 351,
+   "ap": "b",
+   "bloc": "formula_general",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el discriminant d'aquesta equació de segon grau. Recorda: a $ax^2+bx+c=0$, el discriminant és $\\Delta=b^2-4ac$.",
+   "enunciat": "$x^2-6x+5=0$",
+   "opcions": [
+    "$\\Delta=16$",
+    "$\\Delta=-56$",
+    "$\\Delta=56$",
+    "$\\Delta=-32$"
+   ],
+   "pistes": [
+    "Aquí $a=1$, $b=-6$ i $c=5$.",
+    "$\\Delta=(-6)^2-4\\cdot1\\cdot5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJCgtNileMj0rMzYkLCBubyAkLTM2JC4gUmV2aXNhIGxhIHBhcml0YXQgZGUgbCdleHBvbmVudDogYW1iIGV4cG9uZW50IHBhcmVsbCwgdW5hIGJhc2UgbmVnYXRpdmEgZMOzbmEgcmVzdWx0YXQgcG9zaXRpdTsgYW1iIGV4cG9uZW50IHNlbmFyLCBlbCByZXN1bHRhdCBlcyBxdWVkYSBuZWdhdGl1LiIsICJIYXMgc3VtYXQgJDRhYyQuIExhIGbDs3JtdWxhIGVsIFJFU1RBOiAkMzYtMjAkLiIsICIkYl4yPSgtNileMj0zNiQsIG5vICQyXFxjZG90KC02KT0tMTIkLiAkeF4yJCBubyDDqXMgJDJ4JDogw6lzICR4XFxjZG90IHgkLiBQcm92YS1obyBhbWIgJHg9MyQsIHF1ZSBkb25hICQ5JCBpIG5vICQ2JC4iXSwgImVyciI6IFsiIiwgIlBBUklUQVRfRVhQT05FTlQiLCAiU1VNQV9FTl9MTE9DX1JFU1RBIiwgIlBPVEVOQ0lBX0NPTV9QUk9EVUNURSJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTYsXFwgYz01JCIsICIkXFxEZWx0YT0oLTYpXjItNFxcY2RvdDFcXGNkb3Q1PTM2LTIwPTE2JCJdfQ=="
+  },
+  {
    "id": "80a",
    "ex": 80,
    "ap": "a",
@@ -1083,6 +1184,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJSZXZpc2EgZWwgY8OgbGN1bCBkZSAkXFxEZWx0YT1iXjItNGFjJCBhbWIgZWxzIHNpZ25lcyBjb3JyZWN0ZXMgZGUgJGEkLCAkYiQgaSAkYyQ6IHVuIGVycm9yIGRlIHNpZ25lIGFxdcOtIGNhbnZpYSBjb21wbGV0YW1lbnQgZWwgdmVyZWRpY3RlLiIsICJFbCB2ZXJlZGljdGUgbm8gY29pbmNpZGVpeCBhbWIgZWwgc2lnbmUgcmVhbCBkZWwgZGlzY3JpbWluYW50IHF1ZSBoYXMgKG8gaGF1cmllcyBkJ2hhdmVyKSBjYWxjdWxhdDogdG9ybmEtaGkgYSBtaXJhci4iLCAiIl0sICJlcnIiOiBbIlNJR05FX1BST0RVQ1RFIiwgIlNJR05FX1BST0RVQ1RFIiwgIlZFUkVESUNURV9JTlZFUlRJVCIsICIiXSwgInJlcyI6IFsiJGE9NyxcXCBiPS0zLFxcIGM9MSQ6ICRcXERlbHRhPSgtMyleMi00XFxjZG90N1xcY2RvdDE9OS0yOD0tMTkkIiwgIiRcXERlbHRhPDAkICRcXFJpZ2h0YXJyb3ckIENhcCBzb2x1Y2nDsyByZWFsIl19"
+  },
+  {
+   "id": "352a",
+   "ex": 352,
+   "ap": "a",
+   "bloc": "factoritzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Resol aquesta equació, que ja està factoritzada. Un producte val zero quan algun dels seus factors val zero.",
+   "enunciat": "$x(x-4)=0$",
+   "opcions": [
+    "$x=-4$",
+    "$x=4$",
+    "$x=0,\\ 4$",
+    "$x=0,\\ -4$"
+   ],
+   "pistes": [
+    "Hi ha dos factors: $x$ i $(x-4)$.",
+    "Iguala cada factor a zero: $x=0$, i $x-4=0$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJUJ2hhcyBkZWl4YXQgbGEgc29sdWNpw7MgJHg9MCQsIGkgZGUgJHgtND0wJCBzdXJ0ICR4PTQkLCBubyAkLTQkLiIsICJUJ2hhcyBkZWl4YXQgdW5hIHNvbHVjacOzOiBlbCBwcmltZXIgZmFjdG9yLCAkeCQsIHRhbWLDqSBwb3QgdmFsZXIgemVyby4gQ29tcHJvdmEtaG86ICQwXFxjZG90KDAtNCk9MCQuIiwgIiIsICJEZSAkeC00PTAkIHN1cnQgJHg9NCQsIG5vICQtNCQuIExlcyBhcnJlbHMgdGVuZW4gZWwgc2lnbmUgY2FudmlhdC4gQ29tcHJvdmEtbGVzIHN1YnN0aXR1aW50LWxlczogaGFuIGRlIGZlciBxdWUgbGEgZnVuY2nDsyB2YWxndWkgJDAkLiJdLCAiZXJyIjogWyJTSUdORV9BUlJFTFMiLCAiQUlMTEFNRU5UX0lOQ09NUExFVCIsICIiLCAiU0lHTkVfQVJSRUxTIl0sICJyZXMiOiBbIiR4PTAkIG8gYsOpICR4LTQ9MFxcUmlnaHRhcnJvdyB4PTQkIl19"
+  },
+  {
+   "id": "352b",
+   "ex": 352,
+   "ap": "b",
+   "bloc": "factoritzacio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Resol aquesta equació, que ja està factoritzada. Un producte val zero quan algun dels seus factors val zero.",
+   "enunciat": "$(x-3)(x+1)=0$",
+   "opcions": [
+    "$x=-3,\\ 1$",
+    "$x=3,\\ -1$",
+    "$x=3,\\ 1$",
+    "$x=3$"
+   ],
+   "pistes": [
+    "Hi ha dos factors: $(x-3)$ i $(x+1)$.",
+    "Iguala cada factor a zero."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJMZXMgYXJyZWxzIHRlbmVuIGVsIHNpZ25lIGNhbnZpYXQuIENvbXByb3ZhLWxlcyBzdWJzdGl0dWludC1sZXM6IGhhbiBkZSBmZXIgcXVlIGxhIGZ1bmNpw7MgdmFsZ3VpICQwJC4iLCAiIiwgIkRlICR4KzE9MCQgc3VydCAkeD0tMSQsIG5vICQxJC4gQ29tcHJvdmEtaG86ICQxKzE9MlxcbmUwJC4iLCAiVCdoYXMgZGVpeGF0IHVuYSBzb2x1Y2nDszogZWwgc2Vnb24gZmFjdG9yIHRhbWLDqSBwb3QgdmFsZXIgemVybywgYW1iICR4PS0xJC4iXSwgImVyciI6IFsiU0lHTkVfQVJSRUxTIiwgIiIsICJTSUdORV9BUlJFTFMiLCAiQUlMTEFNRU5UX0lOQ09NUExFVCJdLCAicmVzIjogWyIkeC0zPTBcXFJpZ2h0YXJyb3cgeD0zJCBvIGLDqSAkeCsxPTBcXFJpZ2h0YXJyb3cgeD0tMSQiXX0="
   },
   {
    "id": "82a",
@@ -1567,6 +1712,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiUmV2aXNhIGVsIHNpZ25lIGRlICQtYiQgYWwgbnVtZXJhZG9yOiBhbWIgJGI9LTckLCBlbCBudW1lcmFkb3IgcG9ydGEgJCs3JCwgaSBlbCByZXN1bHRhdCBmaW5hbCDDqXMgcG9zaXRpdS4iLCAiQWwgZmluYWwgY2FsIGRpdmlkaXIgZW50cmUgJDJhPTIkIChwZXJxdcOoICRhPTEkKSwgbm8gZW50cmUgJDQkOiByZXZpc2EgZWwgZGVub21pbmFkb3IgZGUgbGVzIGR1ZXMgc29sdWNpb25zLiIsICJSZXZpc2EgbGEgc2Vnb25hIHNvbHVjacOzOiAkXFxkZnJhY3sxM317Mn0kIG5vIGVzIHNpbXBsaWZpY2EgYSAkNiQ7IGNvbXByb3ZhIGxhIGRpdmlzacOzICRcXGRmcmFjezcrNn17Mn0kLiJdLCAiZXJyIjogWyIiLCAiU0lHTkVfUVVPQ0lFTlQiLCAiT1JEUkVfRElWSVNJT05TIiwgIkFSSVRNRVRJQ0FfUEFTX0lOVEVSTUVESSJdLCAicmVzIjogWyIkYT0xLFxcIGI9LTcsXFwgYz1cXGRmcmFjezEzfXs0fSQ6ICRcXERlbHRhPSgtNyleMi00XFxjZG90MVxcY2RvdFxcZGZyYWN7MTN9ezR9PTQ5LTEzPTM2JCIsICIkXFxzcXJ0ezM2fT02JDogJHg9XFxkZnJhY3s3XFxwbTZ9ezJ9JCIsICIkeD1cXGRmcmFjezEzfXsyfSQgbyAkeD1cXGRmcmFjezF9ezJ9JCJdfQ=="
+  },
+  {
+   "id": "353a",
+   "ex": 353,
+   "ap": "a",
+   "bloc": "sistemes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Comprova si el parell de valors donat és solució d'aquest sistema substituint-lo a les dues equacions.",
+   "enunciat": "$\\left.\\begin{array}{r}x+y=5\\\\ x-y=1\\end{array}\\right\\}\\qquad x=3,\\ y=2$",
+   "opcions": [
+    "No: només compleix la primera",
+    "No: no en compleix cap",
+    "Sí: compleix les dues equacions",
+    "No: només compleix la segona"
+   ],
+   "pistes": [
+    "Posa $x=3$ i $y=2$ a la primera equació. Dona $5$?",
+    "Fes el mateix a la segona. Dona $1$?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJUb3JuYSBhIGZlciBsYSBzZWdvbmE6ICQzLTI9MSQuIFRhbWLDqSBlcyBjb21wbGVpeC4iLCAiJDMrMj01JCBpICQzLTI9MSQ6IGVzIGNvbXBsZWl4ZW4gdG90ZXMgZHVlcy4iLCAiIiwgIlRvcm5hIGEgZmVyIGxhIHByaW1lcmE6ICQzKzI9NSQuIFRhbWLDqSBlcyBjb21wbGVpeC4iXSwgImVyciI6IFsiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiVkVSRURJQ1RFX0lOVkVSVElUIiwgIiIsICJTVUJTVElUVUNJT19NQUxfRkVUQSJdLCAicmVzIjogWyJQcmltZXJhOiAkMysyPTUkIOKckyIsICJTZWdvbmE6ICQzLTI9MSQg4pyTIiwgIkNvbXBsZWl4IHRvdGVzIGR1ZXM6IMOpcyBzb2x1Y2nDsy4iXX0="
+  },
+  {
+   "id": "353b",
+   "ex": 353,
+   "ap": "b",
+   "bloc": "sistemes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Comprova si el parell de valors donat és solució d'aquest sistema substituint-lo a les dues equacions.",
+   "enunciat": "$\\left.\\begin{array}{r}x+y=6\\\\ 2x-y=1\\end{array}\\right\\}\\qquad x=4,\\ y=2$",
+   "opcions": [
+    "No: compleix la segona però no la primera",
+    "No: no en compleix cap",
+    "No: compleix la primera però no la segona",
+    "Sí: compleix les dues equacions"
+   ],
+   "pistes": [
+    "Posa $x=4$ i $y=2$ a la primera equació. Dona $6$?",
+    "Fes el mateix a la segona: $2\\cdot4-2$. Dona $1$?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyLDiXMgYWwgcmV2w6lzOiAkNCsyPTYkIGVzIGNvbXBsZWl4LCBpICQyXFxjZG90NC0yPTZcXG5lMSQgbm8uIiwgIlRvcm5hIGEgZmVyIGxhIHByaW1lcmE6ICQ0KzI9NiQuIEFxdWVzdGEgc8OtIHF1ZSBlcyBjb21wbGVpeC4iLCAiIiwgIkhhcyBjb21wcm92YXQgbm9tw6lzIGxhIHByaW1lcmEuIEEgbGEgc2Vnb25hLCAkMlxcY2RvdDQtMj02JCwgaSBubyAkMSQuIFBlciBzZXIgc29sdWNpw7MgaGEgZGUgY29tcGxpciBUT1RFUyBkdWVzIGVxdWFjaW9ucy4iXSwgImVyciI6IFsiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiIiwgIlZFUkVESUNURV9JTlZFUlRJVCJdLCAicmVzIjogWyJQcmltZXJhOiAkNCsyPTYkIOKckyIsICJTZWdvbmE6ICQyXFxjZG90NC0yPTZcXG5lMSQg4pyXIiwgIk5vIGNvbXBsZWl4IGxhIHNlZ29uYTogbm8gw6lzIHNvbHVjacOzIGRlbCBzaXN0ZW1hLiJdfQ=="
   },
   {
    "id": "85a",

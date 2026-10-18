@@ -119,10 +119,10 @@ pistes_26 = {
                      "de ser exactament $2$."],
 }
 for qid, ap, cond, ok, ds in _p26:
-    Q(qid, 26, ap, B, "B", cond, ok,
-      [D(t, e, f) for t, e, f in ds],
-      pistes_26[qid],
-      ["Un decimal periòdic PUR té el període just després de la coma.",
+    Q(qid, 26, ap, B, tipus="B", enunciat=cond, correcta=ok,
+      distractors=[D(t, e, f) for t, e, f in ds],
+      pistes=pistes_26[qid],
+      resolucio=["Un decimal periòdic PUR té el període just després de la coma.",
        "Un de MIXT té alguna xifra (l'anteperíode) entre la coma i el període.",
        "Un decimal EXACTE té un nombre finit de xifres decimals.",
        "La resposta que compleix la condició és " + ok + "."],
@@ -160,14 +160,14 @@ def item_exacte(qid, ap, txt, ent, decs, ex=27, ex_text=None):
         DT(F(int(str(ent) + decs), 10 ** max(nd - 1, 0)), "POTENCIA_10",
            "Hi falta un zero al denominador."),
     ]
-    Q(qid, ex, ap, B, "A", "$%s{,}%s$" % (ent, decs) if decs else "$%s$" % ent,
-      c, tria(c, cands),
-      ["El numerador és el nombre sense la coma; el denominador, un $1$ seguit "
+    Q(qid, ex, ap, B, tipus="A", enunciat="$%s{,}%s$" % (ent, decs) if decs else "$%s$" % ent,
+      correcta=c, distractors=tria(c, cands),
+      pistes=["El numerador és el nombre sense la coma; el denominador, un $1$ seguit "
        "de tants zeros com xifres decimals hi ha.",
        "Aquí hi ha $%d$ %s després de la coma: el denominador és $%s$. "
        "Després simplifica la fracció, si es pot."
        % (nd, "xifra" if nd == 1 else "xifres", _milers(10 ** nd))],
-      [r"$%s{,}%s = \dfrac{%d}{%d}$" % (ent, decs, int(str(ent) + decs), 10 ** nd),
+      resolucio=[r"$%s{,}%s = \dfrac{%d}{%d}$" % (ent, decs, int(str(ent) + decs), 10 ** nd),
        r"Simplificant: $%s$" % tex(c)],
       ex_text=ex_text or E27)
 
@@ -228,12 +228,12 @@ def item_periodic(qid, ap, ent, ante, per, ex=28, ex_text=None, nota="",
     else:
         _p2 = ("Aquí el període és «%s» i no hi ha anteperíode: el "
                "denominador porta %s $9$ i cap $0$." % (per, _q[len(per)]))
-    Q(qid, ex, ap, B, "A", "$%s$" % fmt, c, tria(c, cands),
-      ["Numerador: tot el nombre sense la coma MENYS la part que no es "
+    Q(qid, ex, ap, B, tipus="A", enunciat="$%s$" % fmt, correcta=c, distractors=tria(c, cands),
+      pistes=["Numerador: tot el nombre sense la coma MENYS la part que no es "
        "repeteix. Denominador: un $9$ per cada xifra del període i un $0$ per "
        "cada xifra de l'anteperíode.",
        _p2],
-      passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna,
+      resolucio=passos, ex_text=ex_text or E28, nota=nota, nota_interna=nota_interna,
       comentari=comentari)
 
 
@@ -313,10 +313,10 @@ def item_tipus(qid, ap, mostra, tipus, ent, ante, per, exacte=False, nota=""):
     else:
         _p2 = ("Aquí es repeteix «%s» des de just després de la coma: el "
                "denominador porta %s $9$ i cap $0$." % (per, _q[len(per)]))
-    Q(qid, 29, ap, B, "B", mostra, correcta, ds,
-      ["Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
+    Q(qid, 29, ap, B, tipus="B", enunciat=mostra, correcta=correcta, distractors=ds,
+      pistes=["Primer classifica'l: s'acaben les xifres? Si no, on comença la repetició?",
        _p2],
-      passos, ex_text=E29, nota=nota)
+      resolucio=passos, ex_text=E29, nota=nota)
 
 
 item_tipus("29a", "a", r"$15{,}3222\dots$", "Periòdic mixt", 15, "3", "2")
@@ -402,10 +402,10 @@ def item_opera(qid, ap, ex, mostra, a, b, op, ex_text, pistes=None):
                         "SUMA_NUMERADORS", ""))
     cands.append(DT(ops[op](vb, va) if op in "-/" else -c, "SIGNE_FINAL",
                     "Revisa l'ordre dels dos nombres."))
-    Q(qid, ex, ap, B, "A", mostra, c, tria(c, cands),
-      pistes or ["Passa cada decimal a fracció generatriu ABANS d'operar.",
+    Q(qid, ex, ap, B, tipus="A", enunciat=mostra, correcta=c, distractors=tria(c, cands),
+      pistes=pistes or ["Passa cada decimal a fracció generatriu ABANS d'operar.",
                  r"$%s = %s$ i $%s = %s$" % (fmt(a), tex(va), fmt(b), tex(vb))],
-      [r"$%s = %s$ \quad i \quad $%s = %s$" % (fmt(a), tex(va), fmt(b), tex(vb)),
+      resolucio=[r"$%s = %s$ \quad i \quad $%s = %s$" % (fmt(a), tex(va), fmt(b), tex(vb)),
        r"$%s %s %s = %s$" % (tex(va), {"*": r"\cdot", "/": ":"}.get(op, op), tex(vb), tex(c))],
       ex_text=ex_text)
 
@@ -436,10 +436,10 @@ def item_cert(qid, ap, mostra, esquerra, dreta, passos, ds, p2):
     cert = esquerra == dreta
     correcta = (r"Cert: totes dues bandes valen $%s$." % tex(esquerra)) if cert else \
                (r"Fals: l'esquerra val $%s$ i la dreta, $%s$." % (tex(esquerra), tex(dreta)))
-    Q(qid, 33, ap, B, "B", mostra, correcta, [D(t, e, f) for t, e, f in ds],
-      ["Passa cada decimal a fracció generatriu i compara les dues bandes.",
+    Q(qid, 33, ap, B, tipus="B", enunciat=mostra, correcta=correcta, distractors=[D(t, e, f) for t, e, f in ds],
+      pistes=["Passa cada decimal a fracció generatriu i compara les dues bandes.",
        p2],
-      passos, ex_text=E33)
+      resolucio=passos, ex_text=E33)
 
 
 _a33 = per_frac(1, "", "9")
@@ -513,10 +513,10 @@ item_cert("33e", "e", r"$0{,}\overline{3} + 0{,}\overline{6} = 1$", _e33e, F(1, 
           r"Suma les dues fraccions i compara el resultat amb $1$.")
 
 # =============================================================== Exercici 34
-Q("34", 34, "", B, "C",
-  r"Quina és la vint-i-sisena xifra decimal de $\dfrac{128}{9999}$?",
-  "1",
-  [D("0", "DESPLACAMENT",
+Q("34", 34, "", B, tipus="C",
+  enunciat=r"Quina és la vint-i-sisena xifra decimal de $\dfrac{128}{9999}$?",
+  correcta="1",
+  distractors=[D("0", "DESPLACAMENT",
      r"El $0$ ocupa les posicions $1, 5, 9,\dots$ (les que donen residu $1$). "
      r"La $26$ dóna residu $2$."),
    D("2", "DESPLACAMENT",
@@ -525,13 +525,58 @@ Q("34", 34, "", B, "C",
    D("8", "ULTIMA_XIFRA",
      r"El $8$ és l'última xifra del període: ocupa les posicions múltiples de $4$. "
      r"El $26$ no ho és.")],
-  [r"Fes la divisió i mira quines xifres es repeteixen.",
+  pistes=[r"Fes la divisió i mira quines xifres es repeteixen.",
    r"$\dfrac{128}{9999} = 0{,}\overline{0128}$: el període té $4$ xifres. "
    r"Divideix $26$ entre $4$ i mira el residu."],
-  [r"$\dfrac{128}{9999} = 0{,}0128\,0128\,0128\dots = 0{,}\overline{0128}$",
+  resolucio=[r"$\dfrac{128}{9999} = 0{,}0128\,0128\,0128\dots = 0{,}\overline{0128}$",
    r"El període $0128$ té $4$ xifres, o sigui que la xifra es repeteix cada $4$ posicions.",
    r"$26 = 4\cdot 6 + 2$: la xifra $26$ és la mateixa que la $2$a del període.",
    r"La $2$a xifra de $0128$ és $\mathbf{1}$."],
   ex_text="Raona la resposta.",
   nota="Aquest exercici demana raonament: fixa't que $\\dfrac{1}{9999}$ genera "
        "sempre períodes de $4$ xifres.")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercici 343)
+# =====================================================================
+# El bloc obria classificant decimals per tipus i passant a fracció
+# decimals periòdics amb anteperíode. Aquí només hi ha decimals exactes
+# d'una o dues xifres: la generatriu és el nombre sense la coma partit per
+# una potència de 10, i no hi ha res més.
+
+dificultats({
+    343: 1,  # generatriu d'un decimal exacte d'una o dues xifres
+})
+
+
+E343 = "Troba la fracció generatriu d'aquest nombre decimal exacte."
+
+Q("343a", 343, "a", B, tipus="A",
+  enunciat=r"$0{,}7$",
+  correcta=r"$\dfrac{7}{10}$",
+  distractors=[DT(r"$\dfrac{7}{100}$", "POTENCIA_10",
+      extra="Hi ha UNA xifra decimal: el denominador és $10$."),
+   DT(r"$\dfrac{7}{9}$", "TRACTAT_COM_PERIODIC",
+      extra="$\\dfrac{7}{9}=0{,}777\\dots$, que no és $0{,}7$."),
+   D(r"$\dfrac{10}{7}$", "INVERTIDA",
+     "Has girat la fracció: $\\dfrac{10}{7}$ és més gran que $1$, i "
+     "$0{,}7$ és més petit.")],
+  pistes=["Llegeix el nombre en veu alta: «set dècimes».",
+   "Set dècimes vol dir $7$ partit per $10$."],
+  resolucio=[r"$0{,}7=\dfrac{7}{10}$ (una xifra decimal: denominador $10$)"],
+  ex_text=E343)
+
+Q("343b", 343, "b", B, tipus="A",
+  enunciat=r"$0{,}23$",
+  correcta=r"$\dfrac{23}{100}$",
+  distractors=[DT(r"$\dfrac{23}{10}$", "POTENCIA_10",
+      extra="Hi ha DUES xifres decimals: el denominador és $100$."),
+   DT(r"$\dfrac{23}{99}$", "TRACTAT_COM_PERIODIC",
+      extra="$\\dfrac{23}{99}=0{,}2323\\dots$, que no és $0{,}23$."),
+   DT(r"$\dfrac{23}{1\,000}$", "POTENCIA_10",
+      extra="Hi ha dues xifres decimals, no tres.")],
+  pistes=["Llegeix el nombre en veu alta: «vint-i-tres centèsimes».",
+   "Vint-i-tres centèsimes vol dir $23$ partit per $100$."],
+  resolucio=[r"$0{,}23=\dfrac{23}{100}$ (dues xifres decimals: denominador $100$)"],
+  ex_text=E343)

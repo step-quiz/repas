@@ -72,8 +72,8 @@ d'un codi RC3 es llegeix com a una sola pista. Un encert al segon intent és
 sempre `2`, encara que s'hagin obert pistes.
 
 **Llargada real.** Un full de 71 exercicis fet a mitges: **46 caràcters**.
-Els 951 exercicis dels dotze fulls més el diagnòstic: 611. Els grups finals
-buits no s'escriuen, de manera que la llargada creix amb la feina feta i no
+Amb els 951 exercicis que tenia el banc el 17/10/2026, els dotze fulls més el
+diagnòstic: 611. Els grups finals buits no s'escriuen, de manera que la llargada creix amb la feina feta i no
 amb la mida del full.
 
 Aquestes xifres es queden enrere cada vegada que creix el banc, i s'hi han

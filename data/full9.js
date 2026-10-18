@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Prismes i el cub",
    "descripcio": "Àrea total de prismes rectes i del cub, incloent-hi la diagonal a partir de l'àrea.",
    "items": [
+    "363a",
+    "363b",
     "170a",
     "170b",
     "170c",
@@ -55,6 +57,8 @@ window.FULL = {
    "titol": "Cilindres, cons i l'esfera",
    "descripcio": "Àrea total de cossos de revolució i problemes inversos per trobar radi, altura o generatriu. En aquest bloc prenem π ≈ 3,14.",
    "items": [
+    "364a",
+    "364b",
     "185a",
     "185b",
     "188",
@@ -73,6 +77,8 @@ window.FULL = {
    "titol": "Volums i problemes aplicats",
    "descripcio": "Volum de prismes, piràmides, cilindres, cons, l'esfera i el cub, i problemes de la vida real. En els cossos rodons prenem π ≈ 3,14.",
    "items": [
+    "365a",
+    "365b",
     "195a",
     "195c",
     "195e",
@@ -100,13 +106,61 @@ window.FULL = {
   "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
   "PAS_INTERMEDI_PER_RESPOSTA": "El valor que has triat és correcte, però és un pas intermedi, no el que et demanen. Torna a llegir la pregunta i mira quina magnitud has d'acabar donant: sovint només falta una operació més.",
   "PI_OBLIDAT": "Falta $\\pi$: qualsevol longitud, àrea o volum que surti d'un cercle en porta. La circumferència és $2\\pi r$ i el cercle, $\\pi r^2$.",
+  "POTENCIA_COM_PRODUCTE": "$x^2$ no és $2x$: és $x\\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.",
   "POTENCIA_PRODUCTE_UN_FACTOR": "L'exponent afecta TOTS els factors del producte, no només un: $(a\\cdot b)^n=a^n\\cdot b^n$.",
   "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "SIGNE_TERME_INDEPENDENT": "Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.",
   "SUMA_DE_PARTS_INCOMPLETA": "L'àrea total d'un cos és la suma de TOTES les seves cares. Has calculat bé una part (la base, o la lateral) però encara falta sumar-hi l'altra.",
   "TERME_OBLIDAT_OPERACIO": "T'has deixat algun terme pel camí en combinar els polinomis: revisa'ls tots un per un, grau a grau."
  },
  "items": [
+  {
+   "id": "363a",
+   "ex": 363,
+   "ap": "a",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest cub. Recorda: té $6$ cares quadrades iguals, així que $A=6a^2$.",
+   "enunciat": "Aresta $a=2$ cm.",
+   "opcions": [
+    "$24$ cm$^2$",
+    "$4$ cm$^2$",
+    "$8$ cm$^3$",
+    "$12$ cm$^2$"
+   ],
+   "pistes": [
+    "Una cara és un quadrat de costat $2$: $2^2=4$ cm$^2$.",
+    "Hi ha $6$ cares: $6\\cdot4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDQkIGNtJF4yJCDDqXMgVU5BIGNhcmEuIEVsIGN1YiBlbiB0w6kgJDYkLiBMJ8OgcmVhIHRvdGFsIGQndW4gY29zIMOpcyBsYSBzdW1hIGRlIFRPVEVTIGxlcyBzZXZlcyBjYXJlcy4gSGFzIGNhbGN1bGF0IGLDqSB1bmEgcGFydCAobGEgYmFzZSwgbyBsYSBsYXRlcmFsKSBwZXLDsiBlbmNhcmEgZmFsdGEgc3VtYXItaGkgbCdhbHRyYS4iLCAiSGFzIGNhbGN1bGF0IGVsIHZvbHVtLCAkYV4zJC4gTCfDoHJlYSDDqXMgbGEgc3VwZXJmw61jaWUgZGUgbGVzICQ2JCBjYXJlcywgaSB2YSBlbiBjbSReMiQuIiwgIkhhcyBmZXQgJDZcXGNkb3QyJDogY2FsIGVsZXZhciBsJ2FyZXN0YSBhbCBxdWFkcmF0LCAkMl4yPTQkLCBhYmFucyBkZSBtdWx0aXBsaWNhciBwZXIgJDYkLiJdLCAiZXJyIjogWyIiLCAiU1VNQV9ERV9QQVJUU19JTkNPTVBMRVRBIiwgIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICJQT1RFTkNJQV9DT01fUFJPRFVDVEUiXSwgInJlcyI6IFsiJEE9NmFeMj02XFxjZG90Ml4yPTZcXGNkb3Q0PTI0JCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 158 191\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cub d'aresta 2 cm, dibuixat en perspectiva.</title><g transform=\"translate(14.0,48.0)\"><polygon points=\"0.0,0.0 96.0,0.0 96.0,96.0 0.0,96.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,0.0 34.0,-34.0 130.0,-34.0 96.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"96.0,0.0 130.0,-34.0 130.0,62.0 96.0,96.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"96.0\" x2=\"34.0\" y2=\"62.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"34.0\" y1=\"62.0\" x2=\"34.0\" y2=\"-34.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"34.0\" y1=\"62.0\" x2=\"130.0\" y2=\"62.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"98.5\" x2=\"0.0\" y2=\"115.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"96.0\" y1=\"98.5\" x2=\"96.0\" y2=\"115.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"112.0\" x2=\"96.0\" y2=\"112.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"108.0\" x2=\"4.0\" y2=\"116.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"92.0\" y1=\"108.0\" x2=\"100.0\" y2=\"116.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"48\" y=\"126.4\" text-anchor=\"middle\" class=\"fig-etq\">2 cm</text></g></svg>"
+  },
+  {
+   "id": "363b",
+   "ex": 363,
+   "ap": "b",
+   "bloc": "prismes",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea total d'aquest cub. Recorda: té $6$ cares quadrades iguals, així que $A=6a^2$.",
+   "enunciat": "Aresta $a=5$ cm.",
+   "opcions": [
+    "$150$ cm$^2$",
+    "$25$ cm$^2$",
+    "$30$ cm$^2$",
+    "$125$ cm$^3$"
+   ],
+   "pistes": [
+    "Una cara és un quadrat de costat $5$: $5^2=25$ cm$^2$.",
+    "Hi ha $6$ cares: $6\\cdot25$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiJDI1JCBjbSReMiQgw6lzIFVOQSBjYXJhLiBFbCBjdWIgZW4gdMOpICQ2JC4gTCfDoHJlYSB0b3RhbCBkJ3VuIGNvcyDDqXMgbGEgc3VtYSBkZSBUT1RFUyBsZXMgc2V2ZXMgY2FyZXMuIEhhcyBjYWxjdWxhdCBiw6kgdW5hIHBhcnQgKGxhIGJhc2UsIG8gbGEgbGF0ZXJhbCkgcGVyw7IgZW5jYXJhIGZhbHRhIHN1bWFyLWhpIGwnYWx0cmEuIiwgIkhhcyBmZXQgJDZcXGNkb3Q1JDogY2FsIGVsZXZhciBsJ2FyZXN0YSBhbCBxdWFkcmF0LCAkNV4yPTI1JCwgYWJhbnMgZGUgbXVsdGlwbGljYXIgcGVyICQ2JC4iLCAiSGFzIGNhbGN1bGF0IGVsIHZvbHVtLCAkYV4zJC4gTCfDoHJlYSDDqXMgbGEgc3VwZXJmw61jaWUgZGUgbGVzICQ2JCBjYXJlcywgaSB2YSBlbiBjbSReMiQuIl0sICJlcnIiOiBbIiIsICJTVU1BX0RFX1BBUlRTX0lOQ09NUExFVEEiLCAiUE9URU5DSUFfQ09NX1BST0RVQ1RFIiwgIkRJTUVOU0lPX0VYUE9ORU5UX01BTCJdLCAicmVzIjogWyIkQT02YV4yPTZcXGNkb3Q1XjI9NlxcY2RvdDI1PTE1MCQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 158 191\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cub d'aresta 5 cm, dibuixat en perspectiva.</title><g transform=\"translate(14.0,48.0)\"><polygon points=\"0.0,0.0 96.0,0.0 96.0,96.0 0.0,96.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,0.0 34.0,-34.0 130.0,-34.0 96.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"96.0,0.0 130.0,-34.0 130.0,62.0 96.0,96.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"96.0\" x2=\"34.0\" y2=\"62.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"34.0\" y1=\"62.0\" x2=\"34.0\" y2=\"-34.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line x1=\"34.0\" y1=\"62.0\" x2=\"130.0\" y2=\"62.0\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"98.5\" x2=\"0.0\" y2=\"115.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"96.0\" y1=\"98.5\" x2=\"96.0\" y2=\"115.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"112.0\" x2=\"96.0\" y2=\"112.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"108.0\" x2=\"4.0\" y2=\"116.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"92.0\" y1=\"108.0\" x2=\"100.0\" y2=\"116.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"48\" y=\"126.4\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text></g></svg>"
+  },
   {
    "id": "170a",
    "ex": 170,
@@ -843,6 +897,52 @@ window.FULL = {
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiTCfDoHJlYSB0b3RhbCBkZWwgY3ViIG5vIMOpcyBkaXJlY3RhbWVudCBsJ2FyZXN0YTogY2FsIGHDr2xsYXIgJEwkIGRlICQ2TF4yPTQkLCBubyBmZXIgc2VydmlyICQ0JCBkaXJlY3RhbWVudCBjb20gYSBhcmVzdGEuIiwgIk5vIGNvaW5jaWRlaXggYW1iICRcXHNxcnR7NDo2fSQ6IGNvbXByb3ZhIHF1ZSBkaXZpZGVpeGVzIGwnw6ByZWEgZW50cmUgJDYkIGNhcmVzIGFiYW5zIGRlIGZlciBsJ2FycmVsIHF1YWRyYWRhLiIsICJTZW1ibGEgcXVlIGhhcyBtdWx0aXBsaWNhdCAkNFxcY2RvdDYkIGVuIGxsb2MgZGUgZGl2aWRpciAkNDo2JDogbGEgcmVsYWNpw7Mgw6lzICQ2TF4yPTQkLCBwZXIgdGFudCAkTF4yPTQ6NiQuIl0sICJlcnIiOiBbIiIsICJBUlJFTF9PQkxJREFEQSIsICJBUlJFTF9NQUxfQVBMSUNBREEiLCAiT1JEUkVfTVVMVElQTElDQUNJT19ESVZJU0lPIl0sICJyZXMiOiBbIiQ2TF4yPTQgXFxSaWdodGFycm93IExeMj00OjZcXGFwcHJveDB7LH02NyQiLCAiJEw9XFxzcXJ0ezB7LH02N31cXGFwcHJveDB7LH04MiQgY20iXX0="
   },
   {
+   "id": "364a",
+   "ex": 364,
+   "ap": "a",
+   "bloc": "cossos_rodons",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea lateral d'aquest cilindre. Recorda: $A_{\\text{lat}}=2\\pi r h$, i pren $\\pi\\approx3{,}14$.",
+   "enunciat": "Radi $r=5$ cm; altura $h=10$ cm.",
+   "opcions": [
+    "$314$ cm$^2$",
+    "$100$ cm$^2$",
+    "$785$ cm$^3$",
+    "$157$ cm$^2$"
+   ],
+   "pistes": [
+    "$2\\cdot3{,}14\\cdot5\\cdot10$.",
+    "$2\\cdot5\\cdot10=100$, i $100\\cdot3{,}14$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGZldCAkMlxcY2RvdDVcXGNkb3QxMCQuIEZhbHRhICRcXHBpJDogcXVhbHNldm9sIGxvbmdpdHVkLCDDoHJlYSBvIHZvbHVtIHF1ZSBzdXJ0aSBkJ3VuIGNlcmNsZSBlbiBwb3J0YS4gTGEgY2lyY3VtZmVyw6huY2lhIMOpcyAkMlxccGkgciQgaSBlbCBjZXJjbGUsICRcXHBpIHJeMiQuIiwgIkhhcyBjYWxjdWxhdCBlbCB2b2x1bSwgJFxccGkgcl4yIGgkLiBMJ8OgcmVhIGxhdGVyYWwgw6lzIGxhIHN1cGVyZsOtY2llIGRlbCBjb3N0YXQ6ICQyXFxwaSByIGgkLCBlbiBjbSReMiQuIiwgIkhhcyBmZXQgJFxccGkgciBoJDogbGEgZsOzcm11bGEgcG9ydGEgdW4gJDIkIGFsIGRhdmFudC4gSGkgaGEgdW4gZmFjdG9yICQyJCBwZWwgbWlnIHF1ZSB0J2hhcyBkZWl4YXQ6IHJhZGkgaSBkacOgbWV0cmUsIHNlbWliYXNlIGkgYmFzZSwgc2VtaWRpYWdvbmFsIGkgZGlhZ29uYWwuIENvbXByb3ZhIHF1aW5hIGRlIGxlcyBkdWVzIGV0IGRlbWFuZW4uIl0sICJlcnIiOiBbIiIsICJQSV9PQkxJREFUIiwgIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICJNRUlUQVRfT0JMSURBREEiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtsYXR9fT0yXFxwaSByIGhcXGFwcHJveDJcXGNkb3Qzeyx9MTRcXGNkb3Q1XFxjZG90MTA9MzE0JCBjbSReMiQiXX0=",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 197 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">5 cm</text><text x=\"98\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">10 cm</text></g></svg>"
+  },
+  {
+   "id": "364b",
+   "ex": 364,
+   "ap": "b",
+   "bloc": "cossos_rodons",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula l'àrea lateral d'aquest cilindre. Recorda: $A_{\\text{lat}}=2\\pi r h$, i pren $\\pi\\approx3{,}14$.",
+   "enunciat": "Radi $r=3$ cm; altura $h=10$ cm.",
+   "opcions": [
+    "$60$ cm$^2$",
+    "$94{,}2$ cm$^2$",
+    "$282{,}6$ cm$^3$",
+    "$188{,}4$ cm$^2$"
+   ],
+   "pistes": [
+    "$2\\cdot3{,}14\\cdot3\\cdot10$.",
+    "$2\\cdot3\\cdot10=60$, i $60\\cdot3{,}14$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZmV0ICQyXFxjZG90M1xcY2RvdDEwJC4gRmFsdGEgJFxccGkkOiBxdWFsc2V2b2wgbG9uZ2l0dWQsIMOgcmVhIG8gdm9sdW0gcXVlIHN1cnRpIGQndW4gY2VyY2xlIGVuIHBvcnRhLiBMYSBjaXJjdW1mZXLDqG5jaWEgw6lzICQyXFxwaSByJCBpIGVsIGNlcmNsZSwgJFxccGkgcl4yJC4iLCAiSGFzIGZldCAkXFxwaSByIGgkOiBsYSBmw7NybXVsYSBwb3J0YSB1biAkMiQgYWwgZGF2YW50LiBIaSBoYSB1biBmYWN0b3IgJDIkIHBlbCBtaWcgcXVlIHQnaGFzIGRlaXhhdDogcmFkaSBpIGRpw6BtZXRyZSwgc2VtaWJhc2UgaSBiYXNlLCBzZW1pZGlhZ29uYWwgaSBkaWFnb25hbC4gQ29tcHJvdmEgcXVpbmEgZGUgbGVzIGR1ZXMgZXQgZGVtYW5lbi4iLCAiSGFzIGNhbGN1bGF0IGVsIHZvbHVtLCAkXFxwaSByXjIgaCQuIEwnw6ByZWEgbGF0ZXJhbCDDqXMgbGEgc3VwZXJmw61jaWUgZGVsIGNvc3RhdDogJDJcXHBpIHIgaCQsIGVuIGNtJF4yJC4iLCAiIl0sICJlcnIiOiBbIlBJX09CTElEQVQiLCAiTUVJVEFUX09CTElEQURBIiwgIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICIiXSwgInJlcyI6IFsiJEFfe1xcdGV4dHtsYXR9fT0yXFxwaSByIGhcXGFwcHJveDJcXGNkb3Qzeyx9MTRcXGNkb3QzXFxjZG90MTA9MTg4eyx9NCQgY20kXjIkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 197 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">3 cm</text><text x=\"98\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">10 cm</text></g></svg>"
+  },
+  {
    "id": "185a",
    "ex": 185,
    "ap": "a",
@@ -1095,6 +1195,52 @@ window.FULL = {
    "nota": "",
    "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiRHVwbGljYSBlbCByZXN1bHRhdCBjb3JyZWN0ZTogcmV2aXNhIGVsIHBhcyBkJ2HDr2xsYXIgJGckIGRlc3Byw6lzIGRlIHNpbXBsaWZpY2FyICRyJCBhIGJhbmRhIGkgYmFuZGEgZGUgbCdlcXVhY2nDsy4iLCAiQ29tcHJvdmEgZWwgc2lnbmUgZW4gYcOvbGxhciAkZyQgZGUgJFxccGkgcl4yK1xccGkgcmc9MlxccGkgcl4yKzJcXHBpIHJoJDogbGEgYmFzZSBkZWwgY29uICgkXFxwaSByXjIkKSByZXN0YSBhIGJhbmRhIGkgYmFuZGEsIG5vIHNlIHN1bWEgZHVlcyB2ZWdhZGVzLiIsICJBcXVlc3Qgw6lzIGVsIHZhbG9yIGRlIGwnYXBhcnRhdCBhbnRlcmlvciAoaWd1YWxhbnQgbm9tw6lzIGxlcyDDoHJlZXMgbGF0ZXJhbHMpOiBhcXXDrSBjYWwgaWd1YWxhciBsZXMgw6ByZWVzIFRPVEFMUywgcXVlIHRhbWLDqSBpbmNsb3VlbiBsZXMgYmFzZXMgY2lyY3VsYXJzLiJdLCAiZXJyIjogWyIiLCAiUFJPRFVDVEVfTUFMIiwgIlNJR05FX1RFUk1FX0lOREVQRU5ERU5UIiwgIlRFUk1FX09CTElEQVRfT1BFUkFDSU8iXSwgInJlcyI6IFsiJFxccGlcXGNkb3QxMF4yK1xccGlcXGNkb3QxMFxcY2RvdCBnPTJcXHBpXFxjZG90MTBeMisyXFxwaVxcY2RvdDEwXFxjZG90MTAkIiwgIiQxMGc9MlxcY2RvdDEwXjIrMlxcY2RvdDEwXFxjZG90MTAtMTBeMj0zMDAkIiwgIiRnPTMwJCBjbSJdfQ==",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 197 164\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Cilindre recte, dibuixat en perspectiva.</title><g transform=\"translate(66.0,29.6)\"><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 0 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M -52.0 104.0 A 52.0 15.6 0 0 1 52.0 104.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.1\" stroke-dasharray=\"4 3\"/><rect x=\"-52.0\" y=\"0.0\" width=\"104.0\" height=\"104.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"none\"/><line x1=\"-52.0\" y1=\"0.0\" x2=\"-52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"52.0\" y1=\"0.0\" x2=\"52.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"2\"/><ellipse cx=\"0.0\" cy=\"0.0\" rx=\"52.0\" ry=\"15.6\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line x1=\"0.0\" y1=\"0.0\" x2=\"52.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"2.5\" x2=\"0.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"52.0\" y1=\"2.5\" x2=\"52.0\" y2=\"33.1\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"29.6\" x2=\"52.0\" y2=\"29.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"25.6\" x2=\"4.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"48.0\" y1=\"25.6\" x2=\"56.0\" y2=\"33.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"0.0\" x2=\"75.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"54.5\" y1=\"104.0\" x2=\"75.5\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"72.0\" y1=\"0.0\" x2=\"72.0\" y2=\"104.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"-4.0\" x2=\"76.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"68.0\" y1=\"100.0\" x2=\"76.0\" y2=\"108.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"26\" y=\"43.5\" text-anchor=\"middle\" class=\"fig-etq petita\">10 cm</text><text x=\"98\" y=\"55.4\" text-anchor=\"middle\" class=\"fig-etq\">10 cm</text></g></svg>"
+  },
+  {
+   "id": "365a",
+   "ex": 365,
+   "ap": "a",
+   "bloc": "volums_aplicacions",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el volum d'aquest ortoedre (prisma de base rectangular). Recorda: $V=a\\cdot b\\cdot c$.",
+   "enunciat": "Arestes de $2$ cm, $3$ cm i $4$ cm.",
+   "opcions": [
+    "$9$ cm$^3$",
+    "$8$ cm$^3$",
+    "$24$ cm$^3$",
+    "$52$ cm$^2$"
+   ],
+   "pistes": [
+    "Multiplica les tres arestes.",
+    "$2\\cdot3=6$, i $6\\cdot4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgc3VtYXQgbGVzIGFyZXN0ZXMuIEVsIHZvbHVtIMOpcyBlbCBQUk9EVUNURTogJDJcXGNkb3QzXFxjZG90NCQuIiwgIkhhcyBkaXZpZGl0IHBlciAkMyQuIEVsIHRlcsOnIGRlbCB2b2x1bSB2YSBub23DqXMgYW1iIHBpcsOgbWlkZXMgaSBjb25zLiBQcmlzbWVzLCBjaWxpbmRyZXMgaSBjdWJzIHPDs24gYmFzZSBwZXIgYWx0dXJhLCBzZW5zZSBkaXZpZGlyLiIsICIiLCAiSGFzIGNhbGN1bGF0IGwnw6ByZWEgdG90YWwgKGxhIHN1cGVyZsOtY2llIGRlIGxlcyBjYXJlcykuIEVzIGRlbWFuYSBlbCB2b2x1bSwgZW4gY20kXjMkLiJdLCAiZXJyIjogWyJQUk9EVUNURV9QRVJfU1VNQSIsICJGQUNUT1JfVFJFU19WT0xVTSIsICIiLCAiRElNRU5TSU9fRVhQT05FTlRfTUFMIl0sICJyZXMiOiBbIiRWPTJcXGNkb3QzXFxjZG90ND0yNCQgY20kXjMkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 180 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Ortoedre d'arestes 2 cm, 3 cm i 4 cm, en perspectiva.</title><g transform=\"translate(64.6,73.8)\"><polygon points=\"0.0,0.0 55.0,0.0 55.0,110.0 0.0,110.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,0.0 46.0,-46.0 101.0,-46.0 55.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"55.0,0.0 101.0,-46.0 101.0,64.0 55.0,110.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"112.5\" x2=\"0.0\" y2=\"129.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"55.0\" y1=\"112.5\" x2=\"55.0\" y2=\"129.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"126.0\" x2=\"55.0\" y2=\"126.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"122.0\" x2=\"4.0\" y2=\"130.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"51.0\" y1=\"122.0\" x2=\"59.0\" y2=\"130.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"110.0\" x2=\"-19.5\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"106.0\" x2=\"-20.0\" y2=\"114.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"53.2\" y1=\"-1.8\" x2=\"42.6\" y2=\"-12.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"99.2\" y1=\"-47.8\" x2=\"88.6\" y2=\"-58.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"45.1\" y1=\"-9.9\" x2=\"91.1\" y2=\"-55.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"45.1\" y1=\"-4.2\" x2=\"45.1\" y2=\"-15.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"91.1\" y1=\"-50.2\" x2=\"91.1\" y2=\"-61.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"27.5\" y=\"140.4\" text-anchor=\"middle\" class=\"fig-etq\">2 cm</text><text x=\"-36\" y=\"58.4\" text-anchor=\"middle\" class=\"fig-etq\">4 cm</text><text x=\"68.5\" y=\"-51.6\" text-anchor=\"middle\" class=\"fig-etq petita\">3 cm</text></g></svg>"
+  },
+  {
+   "id": "365b",
+   "ex": 365,
+   "ap": "b",
+   "bloc": "volums_aplicacions",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula el volum d'aquest ortoedre (prisma de base rectangular). Recorda: $V=a\\cdot b\\cdot c$.",
+   "enunciat": "Arestes de $5$ cm, $2$ cm i $10$ cm.",
+   "opcions": [
+    "$\\approx33{,}33$ cm$^3$",
+    "$100$ cm$^3$",
+    "$160$ cm$^2$",
+    "$17$ cm$^3$"
+   ],
+   "pistes": [
+    "Multiplica les tres arestes.",
+    "$5\\cdot2=10$, i $10\\cdot10$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIYXMgZGl2aWRpdCBwZXIgJDMkLiBFbCB0ZXLDpyBkZWwgdm9sdW0gdmEgbm9tw6lzIGFtYiBwaXLDoG1pZGVzIGkgY29ucy4gUHJpc21lcywgY2lsaW5kcmVzIGkgY3VicyBzw7NuIGJhc2UgcGVyIGFsdHVyYSwgc2Vuc2UgZGl2aWRpci4iLCAiIiwgIkhhcyBjYWxjdWxhdCBsJ8OgcmVhIHRvdGFsIChsYSBzdXBlcmbDrWNpZSBkZSBsZXMgY2FyZXMpLiBFcyBkZW1hbmEgZWwgdm9sdW0sIGVuIGNtJF4zJC4iLCAiSGFzIHN1bWF0IGxlcyBhcmVzdGVzLiBFbCB2b2x1bSDDqXMgZWwgUFJPRFVDVEU6ICQ1XFxjZG90MlxcY2RvdDEwJC4iXSwgImVyciI6IFsiRkFDVE9SX1RSRVNfVk9MVU0iLCAiIiwgIkRJTUVOU0lPX0VYUE9ORU5UX01BTCIsICJQUk9EVUNURV9QRVJfU1VNQSJdLCAicmVzIjogWyIkVj01XFxjZG90MlxcY2RvdDEwPTEwMCQgY20kXjMkIl19",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 166 208\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Ortoedre d'arestes 5 cm, 2 cm i 10 cm, en perspectiva.</title><g transform=\"translate(74.3,50.8)\"><polygon points=\"0.0,0.0 55.0,0.0 55.0,110.0 0.0,110.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"0.0,0.0 22.0,-22.0 77.0,-22.0 55.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><polygon points=\"55.0,0.0 77.0,-22.0 77.0,88.0 55.0,110.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"112.5\" x2=\"0.0\" y2=\"129.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"55.0\" y1=\"112.5\" x2=\"55.0\" y2=\"129.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"126.0\" x2=\"55.0\" y2=\"126.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"122.0\" x2=\"4.0\" y2=\"130.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"51.0\" y1=\"122.0\" x2=\"59.0\" y2=\"130.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"110.0\" x2=\"-19.5\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"110.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"106.0\" x2=\"-20.0\" y2=\"114.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"53.2\" y1=\"-1.8\" x2=\"42.6\" y2=\"-12.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"75.2\" y1=\"-23.8\" x2=\"64.6\" y2=\"-34.4\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"45.1\" y1=\"-9.9\" x2=\"67.1\" y2=\"-31.9\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"45.1\" y1=\"-4.2\" x2=\"45.1\" y2=\"-15.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"67.1\" y1=\"-26.2\" x2=\"67.1\" y2=\"-37.6\" stroke=\"currentColor\" stroke-width=\"1.1\"/><text x=\"27.5\" y=\"140.4\" text-anchor=\"middle\" class=\"fig-etq\">5 cm</text><text x=\"-42\" y=\"58.4\" text-anchor=\"middle\" class=\"fig-etq\">10 cm</text><text x=\"45.5\" y=\"-28.6\" text-anchor=\"middle\" class=\"fig-etq petita\">2 cm</text></g></svg>"
   },
   {
    "id": "195a",

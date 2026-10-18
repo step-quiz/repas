@@ -63,34 +63,34 @@
       '<p class="apagat" style="margin:.6rem 0 1.4rem">Torna al llistat de fulls.</p>' +
       '<a class="btn" href="index.html">← Tots els fulls</a>';
   };
-  /* El número de full es valida abans de fer-lo servir enlloc. Amb
-     `document.write` i el paràmetre enganxat en cru, n'hi havia prou amb un
-     ?full= que tanqués l'atribut i l'etiqueta per
-     injectar JavaScript arbitrari a la pàgina: en un lloc estàtic sense
-     comptes la gravetat és baixa, però n'hi havia prou amb un enllaç per
-     escriure el localStorage d'un alumne, i el localStorage és el que genera
-     el codi que el professorat qualifica. El `document.write` de sota es manté a
-     posta; el motiu és a la nota que l'acompanya. */
+  /* El número de full es valida abans de fer-lo servir enlloc: si no, un
+     ?full= fet a mida podria fer carregar qualsevol fitxer. */
   var FULL_N = new URLSearchParams(location.search).get("full") || "1";
+  /* Les dades es carreguen afegint <script> (funciona també amb file://), en
+     dos passos: l'índex del full (quins exercicis té cada bloc, pocs kB) i
+     després NOMÉS el bloc de l'exercici demanat (docs/TODO-AI.md §4). Abans
+     es carregava el full sencer amb document.write. Quan les dades hi són,
+     RE_DADES_LLESTES avisa js/practica.js, que les espera (§10). */
+  window.RE_DADES_LLESTES = function () {
+    window.RE_DADES_OK = true;
+    document.dispatchEvent(new Event("re:dades"));
+  };
+  function carrega(src, enAcabar) {
+    var s = document.createElement("script");
+    s.src = src;
+    s.onload = enAcabar;
+    s.onerror = function () { RE_FULL_ABSENT(); };
+    document.head.appendChild(s);
+  }
   if (!/^([1-9]|1[0-2])$/.test(FULL_N)) {
     document.addEventListener("DOMContentLoaded", function () { RE_FULL_ABSENT(); });
   } else {
-    /* `document.write` ÉS DELIBERAT, i no s'ha de canviar per createElement
-       sense canviar res més. Bloqueja el parseig, i aquí aquest bloqueig fa
-       feina: garanteix que `data/fullN.js` s'executi abans que el
-       `<script src="js/practica.js">` que ve a continuació al document. Amb
-       `document.head.appendChild()` i `async = false` l'ordre només està
-       garantit respecte d'altres scripts inserits per codi, no respecte dels
-       que ja són al document: practica.js corre primer, es troba
-       `window.FULL` buit, surt pel `return` de la primera línia i la pàgina
-       queda en blanc. Provat i comprovat amb `tests/test_a11y.js`.
-
-       Per treure'l de debò caldria que els controladors esperessin les dades
-       en lloc de donar-les per presents (un `RE_ARRENCA()` que cridés el
-       propi data/fullN.js, o `defer` a tot arreu). Val la pena, però és un
-       canvi als quatre controladors, no aquí. */
-    document.write('<script src="data/full' + FULL_N
-      + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
+    carrega("data/full" + FULL_N + "-index.js", function () {
+      var I = window.FULL_INDEX, q = new URLSearchParams(location.search).get("q");
+      if (!I || !I.blocs || !I.blocs.length) { RE_FULL_ABSENT(); return; }
+      var bloc = I.blocs.filter(function (b) { return q && b.items.indexOf(q) >= 0; })[0] || I.blocs[0];
+      carrega("data/full" + FULL_N + "-" + bloc.id + ".js", RE_DADES_LLESTES);
+    });
   }
 </script>
 <script src="js/calendari.js"></script>

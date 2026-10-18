@@ -216,10 +216,10 @@ def solve_quad(a, b, c):
 E75 = "Resol."
 
 # 75a: 6(x+11) = 40+6(x+2) — sense solució (identitat falsa)
-Q("75a", 75, "a", B1, "A",
-  r"$6(x+11) = 40 + 6(x+2)$",
-  sense_solucio_tex(),
-  [D(x_tex(F(-52, 6)), "PARENTESI_NO_DISTRIBUIT",
+Q("75a", 75, "a", B1, tipus="A",
+  enunciat=r"$6(x+11) = 40 + 6(x+2)$",
+  correcta=sense_solucio_tex(),
+  distractors=[D(x_tex(F(-52, 6)), "PARENTESI_NO_DISTRIBUIT",
      "Si tot just canviessis de banda sense distribuir bé el parèntesi et "
      "sortiria un valor, però revisa: en desenvolupar els dos parèntesis, "
      "els termes amb $x$ es cancel·len i queda una igualtat numèrica "
@@ -232,10 +232,10 @@ Q("75a", 75, "a", B1, "A",
      "Has operat els números abans de distribuir correctament els "
      "parèntesis. Desenvolupa primer $6(x+11)$ i $6(x+2)$ per separat; "
      "veuràs que els termes amb $x$ s'anul·len i queda una igualtat falsa.")],
-  ["Distribueix el $6$ a dins de cada parèntesi abans de res.",
+  pistes=["Distribueix el $6$ a dins de cada parèntesi abans de res.",
    "Un cop distribuïts els parèntesis, agrupa els termes amb $x$ a un "
    "costat i els números a l'altre."],
-  ["$6(x+11)=40+6(x+2) \\;\\Longrightarrow\\; 6x+66=40+6x+12$",
+  resolucio=["$6(x+11)=40+6(x+2) \\;\\Longrightarrow\\; 6x+66=40+6x+12$",
    "$6x+66=6x+52$: els termes amb $x$ es cancel·len i queda $66=52$, "
    "una igualtat numèrica falsa.",
    "Com que no hi ha cap valor de $x$ que faci certa aquesta igualtat, "
@@ -243,10 +243,10 @@ Q("75a", 75, "a", B1, "A",
   ex_text=E75)
 
 # 75b: 2(x-17) = x-3(12-2x) -> x=2/5
-Q("75b", 75, "b", B1, "A",
-  r"$2(x-17) = x - 3(12-2x)$",
-  x_tex(F(2, 5)),
-  [D(x_tex(F(-2, 5)), "SIGNE_FINAL",
+Q("75b", 75, "b", B1, tipus="A",
+  enunciat=r"$2(x-17) = x - 3(12-2x)$",
+  correcta=x_tex(F(2, 5)),
+  distractors=[D(x_tex(F(-2, 5)), "SIGNE_FINAL",
      "El resultat final té el signe canviat: revisa el pas en què "
      "agrupes els termes independents a un costat."),
    D(x_tex(F(2, 11)), "MENYS_PARENTESI",
@@ -255,20 +255,20 @@ Q("75b", 75, "b", B1, "A",
    D(x_tex(F(70, 5)), "TERME_OBLIDAT_OPERACIO",
      "S'ha perdut algun terme en agrupar; revisa que has passat TOTS "
      "els termes amb $x$ a un costat i tots els números a l'altre.")],
-  ["Distribueix els dos parèntesis: el de l'esquerra ($2$) i el de la "
+  pistes=["Distribueix els dos parèntesis: el de l'esquerra ($2$) i el de la "
    "dreta, on el $-3$ afecta els dos termes de dins.",
    "Un cop sense parèntesis, agrupa els termes amb $x$ a un costat i "
    "els números a l'altre."],
-  ["$2(x-17)=x-3(12-2x) \\;\\Longrightarrow\\; 2x-34=x-36+6x$",
+  resolucio=["$2(x-17)=x-3(12-2x) \\;\\Longrightarrow\\; 2x-34=x-36+6x$",
    "$2x-34=7x-36 \\;\\Longrightarrow\\; -34+36=7x-2x \\;\\Longrightarrow\\; 2=5x$",
    "$x=\\dfrac{2}{5}$"],
   ex_text=E75)
 
 # 75c: x-5(x-2)=6 -> x=1
-Q("75c", 75, "c", B1, "A",
-  r"$x - 5(x-2) = 6$",
-  x_tex(F(1, 1)),
-  [D(x_tex(F(-4, 1)), "MENYS_PARENTESI",
+Q("75c", 75, "c", B1, tipus="A",
+  enunciat=r"$x - 5(x-2) = 6$",
+  correcta=x_tex(F(1, 1)),
+  distractors=[D(x_tex(F(-4, 1)), "MENYS_PARENTESI",
      "El $-5$ ha d'afectar els DOS termes de dins del parèntesi: "
      "$-5\\cdot x=-5x$ i $-5\\cdot(-2)=+10$, no només el primer."),
    D(x_tex(F(2, 1)), "SIGNE_TERME_INDEPENDENT",
@@ -277,18 +277,18 @@ Q("75c", 75, "c", B1, "A",
    D(x_tex(F(-1, 4)), "PRODUCTE_CREUAT",
      "Aquesta equació no té denominadors: no cal creuar res, només "
      "distribuir el parèntesi i aïllar $x$.")],
-  ["Distribueix $-5(x-2)$: el signe $-$ afecta els dos termes de dins.",
+  pistes=["Distribueix $-5(x-2)$: el signe $-$ afecta els dos termes de dins.",
    "Agrupa els termes amb $x$ a un costat i els números a l'altre."],
-  ["$x-5(x-2)=6 \\;\\Longrightarrow\\; x-5x+10=6$",
+  resolucio=["$x-5(x-2)=6 \\;\\Longrightarrow\\; x-5x+10=6$",
    "$-4x=6-10 \\;\\Longrightarrow\\; -4x=-4$",
    "$x=1$"],
   ex_text=E75)
 
 # 75d: 120 = 2x-(15-7x) -> x=15
-Q("75d", 75, "d", B1, "A",
-  r"$120 = 2x - (15-7x)$",
-  x_tex(F(15, 1)),
-  [D(x_tex(F(15, 9)), "AILLAMENT_INCOMPLET",
+Q("75d", 75, "d", B1, tipus="A",
+  enunciat=r"$120 = 2x - (15-7x)$",
+  correcta=x_tex(F(15, 1)),
+  distractors=[D(x_tex(F(15, 9)), "AILLAMENT_INCOMPLET",
      "Has arribat a $135=9x$ però encara no has dividit els dos "
      "costats per $9$: falta l'últim pas."),
    D(x_tex(F(-15, 1)), "MENYS_PARENTESI",
@@ -297,18 +297,18 @@ Q("75d", 75, "d", B1, "A",
    D(x_tex(F(105, 9)), "TERME_OBLIDAT_OPERACIO",
      "S'ha perdut un terme en agrupar; revisa un per un els números "
      "que passen a l'altre costat.")],
-  ["El $-$ davant del parèntesi $(15-7x)$ afecta els dos termes de dins.",
+  pistes=["El $-$ davant del parèntesi $(15-7x)$ afecta els dos termes de dins.",
    "Un cop distribuït, agrupa tots els termes amb $x$ a un costat."],
-  ["$120=2x-(15-7x) \\;\\Longrightarrow\\; 120=2x-15+7x$",
+  resolucio=["$120=2x-(15-7x) \\;\\Longrightarrow\\; 120=2x-15+7x$",
    "$120+15=9x \\;\\Longrightarrow\\; 135=9x$",
    "$x=15$"],
   ex_text=E75)
 
 # 75e: 5(x+4)=7(x-2) -> x=17
-Q("75e", 75, "e", B1, "A",
-  r"$5(x+4) = 7(x-2)$",
-  x_tex(F(17, 1)),
-  [D(x_tex(F(-17, 1)), "SIGNE_FINAL",
+Q("75e", 75, "e", B1, tipus="A",
+  enunciat=r"$5(x+4) = 7(x-2)$",
+  correcta=x_tex(F(17, 1)),
+  distractors=[D(x_tex(F(-17, 1)), "SIGNE_FINAL",
      "El resultat té el signe canviat: revisa a quin costat has "
      "passat els termes amb $x$ i quin signe els correspon."),
    D(x_tex(F(6, 2)), "TERME_OBLIDAT_OPERACIO",
@@ -317,18 +317,18 @@ Q("75e", 75, "e", B1, "A",
    D(x_tex(F(34, 12)), "GRAUS_MAL_AGRUPATS",
      "Has agrupat malament els termes amb $x$ amb els termes "
      "independents; revisa quins van junts a cada costat.")],
-  ["Distribueix els dos parèntesis per separat.",
+  pistes=["Distribueix els dos parèntesis per separat.",
    "Agrupa els termes amb $x$ a un costat i els números a l'altre."],
-  ["$5(x+4)=7(x-2) \\;\\Longrightarrow\\; 5x+20=7x-14$",
+  resolucio=["$5(x+4)=7(x-2) \\;\\Longrightarrow\\; 5x+20=7x-14$",
    "$20+14=7x-5x \\;\\Longrightarrow\\; 34=2x$",
    "$x=17$"],
   ex_text=E75)
 
 # 75f: 3(x+7)-6=2(x+8) -> x=1
-Q("75f", 75, "f", B1, "A",
-  r"$3(x+7) - 6 = 2(x+8)$",
-  x_tex(F(1, 1)),
-  [D(x_tex(F(31, 1)), "SIGNE_TERME_INDEPENDENT",
+Q("75f", 75, "f", B1, tipus="A",
+  enunciat=r"$3(x+7) - 6 = 2(x+8)$",
+  correcta=x_tex(F(1, 1)),
+  distractors=[D(x_tex(F(31, 1)), "SIGNE_TERME_INDEPENDENT",
      "Revisa el signe del $-6$: no forma part del parèntesi, ja ve "
      "restant directament i s'ha de mantenir tal qual en agrupar."),
    D(x_tex(F(-1, 1)), "SIGNE_FINAL",
@@ -337,9 +337,9 @@ Q("75f", 75, "f", B1, "A",
    D(x_tex(F(37, 5)), "TERME_OBLIDAT_OPERACIO",
      "S'ha perdut algun terme independent pel camí; revisa'ls tots "
      "un per un abans d'aïllar $x$.")],
-  ["Distribueix el parèntesi de l'esquerra ($3$) i el de la dreta ($2$).",
+  pistes=["Distribueix el parèntesi de l'esquerra ($3$) i el de la dreta ($2$).",
    "El $-6$ no forma part de cap parèntesi: es queda tal qual en agrupar."],
-  ["$3(x+7)-6=2(x+8) \\;\\Longrightarrow\\; 3x+21-6=2x+16$",
+  resolucio=["$3(x+7)-6=2(x+8) \\;\\Longrightarrow\\; 3x+21-6=2x+16$",
    "$3x+15=2x+16 \\;\\Longrightarrow\\; 3x-2x=16-15$",
    "$x=1$"],
   ex_text=E75)
@@ -426,8 +426,8 @@ for letra, coef, dreta, correcta in casos_76:
             seen.add(cand)
             finals.append(cand)
     d1, d2, d3 = finals[:3]
-    Q("76" + letra, 76, letra, B1, "A", enun, x_tex(correcta),
-      [D(x_tex(d1), "DENOMINADOR_NO_ELIMINAT",
+    Q("76" + letra, 76, letra, B1, tipus="A", enunciat=enun, correcta=x_tex(correcta),
+      distractors=[D(x_tex(d1), "DENOMINADOR_NO_ELIMINAT",
          "Has dividit pel nombre que acompanya la $x$, però t'has saltat "
          "el denominador: de $\\dfrac{ax}{b}=c$ surt primer $ax=b\\cdot c$, "
          "i només llavors es divideix per $a$."),
@@ -438,18 +438,18 @@ for letra, coef, dreta, correcta in casos_76:
          "Revisa els signes: si el numerador del coeficient de $x$ és "
          "negatiu, el resultat final n'hereta el signe segons la regla "
          "dels signes del quocient.")],
-      pistes_76,
-      passos_76,
+      pistes=pistes_76,
+      resolucio=passos_76,
       ex_text=E76)
 
 
 # ---- exercici 77: equacions amb denominador afectant tota una banda ----
 E77 = "Resol."
 
-Q("77a", 77, "a", B1, "A",
-  r"$\dfrac{x-2}{5} = 1$",
-  x_tex(F(7, 1)),
-  [D(x_tex(F(3, 1)), "PRODUCTE_CREUAT",
+Q("77a", 77, "a", B1, tipus="A",
+  enunciat=r"$\dfrac{x-2}{5} = 1$",
+  correcta=x_tex(F(7, 1)),
+  distractors=[D(x_tex(F(3, 1)), "PRODUCTE_CREUAT",
      "Per treure el denominador cal multiplicar els DOS costats per $5$: "
      "$x-2=5$, no dividir el $2$ per $5$."),
    D(x_tex(F(-3, 1)), "SIGNE_FINAL",
@@ -458,16 +458,16 @@ Q("77a", 77, "a", B1, "A",
    D(x_tex(F(1, 5)), "INVERTIDA",
      "No cal invertir res: multiplica els dos costats per $5$ per "
      "eliminar el denominador i després aïlla $x$.")],
-  ["Multiplica els dos costats per $5$ per eliminar el denominador.",
+  pistes=["Multiplica els dos costats per $5$ per eliminar el denominador.",
    "A l'esquerra et queda tot el numerador, $x-2$. Aïlla la $x$ i "
    "comprova el resultat substituint-lo a l'equació."],
-  [r"$\dfrac{x-2}{5}=1 \;\Longrightarrow\; x-2=5$", "$x=7$"],
+  resolucio=[r"$\dfrac{x-2}{5}=1 \;\Longrightarrow\; x-2=5$", "$x=7$"],
   ex_text=E77)
 
-Q("77b", 77, "b", B1, "A",
-  r"$\dfrac{3x+15}{6} = -7$",
-  x_tex(F(-19, 1)),
-  [D(x_tex(F(-9, 1)), "TERME_OBLIDAT_OPERACIO",
+Q("77b", 77, "b", B1, tipus="A",
+  enunciat=r"$\dfrac{3x+15}{6} = -7$",
+  correcta=x_tex(F(-19, 1)),
+  distractors=[D(x_tex(F(-9, 1)), "TERME_OBLIDAT_OPERACIO",
      "En passar el $15$ a l'altre costat, revisa el signe: "
      "$3x=-42-15$."),
    D(x_tex(F(19, 1)), "SIGNE_FINAL",
@@ -476,16 +476,16 @@ Q("77b", 77, "b", B1, "A",
    D(x_tex(F(-3, 1)), "ENTER_MULTIPLICA_DENOMINADOR",
      "Quan multipliques els dos costats per $6$, el $-7$ de la dreta "
      "també es multiplica sencer: $6\\cdot(-7)=-42$.")],
-  ["Multiplica els dos costats per $6$ per eliminar el denominador.",
+  pistes=["Multiplica els dos costats per $6$ per eliminar el denominador.",
    "Aïlla $x$: primer passa el $15$ a l'altre costat, després divideix."],
-  [r"$\dfrac{3x+15}{6}=-7 \;\Longrightarrow\; 3x+15=-42$",
+  resolucio=[r"$\dfrac{3x+15}{6}=-7 \;\Longrightarrow\; 3x+15=-42$",
    "$3x=-57$", "$x=-19$"],
   ex_text=E77)
 
-Q("77c", 77, "c", B1, "A",
-  r"$\dfrac{3x}{2} + 20 = x + 25$",
-  x_tex(F(10, 1)),
-  [D(x_tex(F(90, 1)), "TERME_OBLIDAT_OPERACIO",
+Q("77c", 77, "c", B1, tipus="A",
+  enunciat=r"$\dfrac{3x}{2} + 20 = x + 25$",
+  correcta=x_tex(F(10, 1)),
+  distractors=[D(x_tex(F(90, 1)), "TERME_OBLIDAT_OPERACIO",
      "En multiplicar tota l'equació pel m.c.m., cal multiplicar CADA "
      "terme, incloent-hi els que ja no tenen denominador."),
    D(x_tex(F(-10, 1)), "SIGNE_FINAL",
@@ -493,18 +493,18 @@ Q("77c", 77, "c", B1, "A",
    D(x_tex(F(2, 1)), "ARITMETICA_PAS_INTERMEDI",
      "Després de multiplicar per $2$ i agrupar, revisa l'aritmètica "
      "del pas $3x-2x=50-40$.")],
-  ["Multiplica tota l'equació pel m.c.m.$(2,1)=2$ per eliminar el "
+  pistes=["Multiplica tota l'equació pel m.c.m.$(2,1)=2$ per eliminar el "
    "denominador.",
    "Un cop sense fraccions, agrupa termes amb $x$ i números per separat."],
-  [r"Multipliquem per $2$: $\dfrac{3x}{2}+20=x+25 \;\Longrightarrow\; "
+  resolucio=[r"Multipliquem per $2$: $\dfrac{3x}{2}+20=x+25 \;\Longrightarrow\; "
    r"3x+40=2x+50$",
    "$3x-2x=50-40$", "$x=10$"],
   ex_text=E77)
 
-Q("77d", 77, "d", B1, "A",
-  r"$\dfrac{3x}{4} - 1 = 12 - 3x$",
-  x_tex(F(52, 15)),
-  [D(x_tex(F(52, 3)), "FACTOR_COMU_INCOMPLET",
+Q("77d", 77, "d", B1, tipus="A",
+  enunciat=r"$\dfrac{3x}{4} - 1 = 12 - 3x$",
+  correcta=x_tex(F(52, 15)),
+  distractors=[D(x_tex(F(52, 3)), "FACTOR_COMU_INCOMPLET",
      "Després d'agrupar tens $15x=52$: el $15$ prové de $3+12$, "
      "revisa aquest pas de suma dels coeficients de $x$."),
    D(x_tex(F(13, 3)), "SIGNE_TERME_INDEPENDENT",
@@ -513,10 +513,10 @@ Q("77d", 77, "d", B1, "A",
    D(x_tex(F(-52, 15)), "SIGNE_FINAL",
      "El resultat té el signe canviat; revisa que els dos costats "
      "de l'equació $15x=52$ siguin positius.")],
-  ["Multiplica tota l'equació pel m.c.m.$(4,1)=4$.",
+  pistes=["Multiplica tota l'equació pel m.c.m.$(4,1)=4$.",
    "Agrupa tots els termes amb $x$ a un costat (compte amb el $-3x$ "
    "de la dreta, que passa sumant)."],
-  [r"Multipliquem per $4$: $\dfrac{3x}{4}-1=12-3x \;\Longrightarrow\; "
+  resolucio=[r"Multipliquem per $4$: $\dfrac{3x}{4}-1=12-3x \;\Longrightarrow\; "
    r"3x-4=48-12x$",
    "$3x+12x=48+4 \\;\\Longrightarrow\\; 15x=52$",
    r"$x=\dfrac{52}{15}$"],
@@ -526,10 +526,10 @@ Q("77d", 77, "d", B1, "A",
 # ---- exercici 78: equacions amb dos denominadors, m.c.m. ----
 E78 = "Calcula el valor de $x$."
 
-Q("78a", 78, "a", B1, "A",
-  r"$\dfrac{3x}{5} + 7 = \dfrac{2x}{6} + 9$",
-  x_tex(F(15, 2)),
-  [D(x_tex(F(1, 2)), "NUMERADORS_SENSE_AJUSTAR",
+Q("78a", 78, "a", B1, tipus="A",
+  enunciat=r"$\dfrac{3x}{5} + 7 = \dfrac{2x}{6} + 9$",
+  correcta=x_tex(F(15, 2)),
+  distractors=[D(x_tex(F(1, 2)), "NUMERADORS_SENSE_AJUSTAR",
      "En passar de denominador $5$ (o $6$) al comú $30$, cada "
      "numerador s'ha de multiplicar pel mateix factor que el seu "
      "denominador: $\\frac{3x}{5}\\to\\frac{18x}{30}$, no $\\frac{3x}{30}$."),
@@ -539,18 +539,18 @@ Q("78a", 78, "a", B1, "A",
      "denominador entre $4$."),
    D(x_tex(F(-15, 2)), "SIGNE_FINAL",
      "El resultat té el signe canviat: $8x=60$ dona una $x$ positiva.")],
-  ["El m.c.m.$(5,6)=30$: multiplica tota l'equació per $30$.",
+  pistes=["El m.c.m.$(5,6)=30$: multiplica tota l'equació per $30$.",
    "Un cop sense denominadors, agrupa termes amb $x$ i números."],
-  [r"M.c.m.$(5,6)=30$: $\dfrac{3x}{5}+7=\dfrac{2x}{6}+9 "
+  resolucio=[r"M.c.m.$(5,6)=30$: $\dfrac{3x}{5}+7=\dfrac{2x}{6}+9 "
    r"\;\Longrightarrow\; 18x+210=10x+270$",
    "$18x-10x=270-210 \\;\\Longrightarrow\\; 8x=60$",
    r"$x=\dfrac{60}{8}=\dfrac{15}{2}$"],
   ex_text=E78)
 
-Q("78b", 78, "b", B1, "A",
-  r"$\dfrac{x+2}{3} = 5x - 46$",
-  x_tex(F(10, 1)),
-  [D(x_tex(F(140, 16)), "GRAU_PRODUCTE_MAL",
+Q("78b", 78, "b", B1, tipus="A",
+  enunciat=r"$\dfrac{x+2}{3} = 5x - 46$",
+  correcta=x_tex(F(10, 1)),
+  distractors=[D(x_tex(F(140, 16)), "GRAU_PRODUCTE_MAL",
      "Revisa quants termes amb $x$ queden en total a la dreta: "
      "$15x-x=14x$, no $16x$."),
    D(x_tex(F(-10, 1)), "SIGNE_TERME_INDEPENDENT",
@@ -558,16 +558,16 @@ Q("78b", 78, "b", B1, "A",
      "resultat és $15x-138$, i aquest $-138$ passa sumant a l'esquerra."),
    D(x_tex(F(136, 14)), "ARITMETICA_PAS_INTERMEDI",
      "Revisa l'aritmètica final: $2+138=140$, i $140:14=10$ exacte.")],
-  ["Multiplica els dos costats per $3$ per eliminar el denominador.",
+  pistes=["Multiplica els dos costats per $3$ per eliminar el denominador.",
    "Agrupa tots els termes amb $x$ a un costat."],
-  [r"$\dfrac{x+2}{3}=5x-46 \;\Longrightarrow\; x+2=15x-138$",
+  resolucio=[r"$\dfrac{x+2}{3}=5x-46 \;\Longrightarrow\; x+2=15x-138$",
    "$2+138=15x-x \\;\\Longrightarrow\\; 140=14x$", "$x=10$"],
   ex_text=E78)
 
-Q("78c", 78, "c", B1, "A",
-  r"$x - \dfrac{x+4}{5} = 1 + \dfrac{x}{2}$",
-  x_tex(F(6, 1)),
-  [D(x_tex(F(18, 13)), "AGRUPACIO_TERMES_MAL",
+Q("78c", 78, "c", B1, tipus="A",
+  enunciat=r"$x - \dfrac{x+4}{5} = 1 + \dfrac{x}{2}$",
+  correcta=x_tex(F(6, 1)),
+  distractors=[D(x_tex(F(18, 13)), "AGRUPACIO_TERMES_MAL",
      "Revisa que has agrupat bé els termes amb $x$: $10x-2x-5x=3x$, "
      "no un altre coeficient."),
    D(x_tex(F(-6, 1)), "SIGNE_FINAL",
@@ -576,19 +576,19 @@ Q("78c", 78, "c", B1, "A",
      "En multiplicar pel m.c.m.$(5,2)=10$, cada terme s'ha de "
      "multiplicar pel factor que li correspon segons el seu propi "
      "denominador, no tots pel mateix nombre.")],
-  ["El m.c.m.$(5,2)=10$: multiplica tota l'equació per $10$.",
+  pistes=["El m.c.m.$(5,2)=10$: multiplica tota l'equació per $10$.",
    "Compte amb el signe: $-\\frac{x+4}{5}$ multiplicat per $10$ dona "
    "$-2(x+4)$, i el parèntesi s'ha de distribuir sencer."],
-  [r"M.c.m.$(5,2)=10$: $x-\dfrac{x+4}{5}=1+\dfrac{x}{2} "
+  resolucio=[r"M.c.m.$(5,2)=10$: $x-\dfrac{x+4}{5}=1+\dfrac{x}{2} "
    r"\;\Longrightarrow\; 10x-2(x+4)=10+5x$",
    "$10x-2x-8=10+5x \\;\\Longrightarrow\\; 8x-5x=10+8$",
    "$3x=18 \\;\\Longrightarrow\\; x=6$"],
   ex_text=E78)
 
-Q("78d", 78, "d", B1, "A",
-  r"$\dfrac{x+8}{2} - \dfrac{x-4}{6} = 2$",
-  x_tex(F(-8, 1)),
-  [D(x_tex(F(8, 1)), "SIGNE_FINAL",
+Q("78d", 78, "d", B1, tipus="A",
+  enunciat=r"$\dfrac{x+8}{2} - \dfrac{x-4}{6} = 2$",
+  correcta=x_tex(F(-8, 1)),
+  distractors=[D(x_tex(F(8, 1)), "SIGNE_FINAL",
      "Revisa el signe final: de $2x=-16$ surt una $x$ negativa."),
    D(x_tex(F(-4, 1)), "MENYS_PARENTESI",
      "En distribuir $-(x-4)$ (que ve de $-\\frac{x-4}{6}\\cdot6$), el "
@@ -596,19 +596,19 @@ Q("78d", 78, "d", B1, "A",
    D(x_tex(F(2, 1)), "TERME_OBLIDAT_OPERACIO",
      "Revisa que has passat TOTS els números a l'esquerra: "
      "$12-28=-16$, no un altre valor.")],
-  ["El m.c.m.$(2,6)=6$: multiplica tota l'equació per $6$.",
+  pistes=["El m.c.m.$(2,6)=6$: multiplica tota l'equació per $6$.",
    "El $-\\frac{x-4}{6}$ es converteix en $-(x-4)$: distribueix el "
    "signe menys als dos termes."],
-  [r"M.c.m.$(2,6)=6$: $\dfrac{x+8}{2}-\dfrac{x-4}{6}=2 "
+  resolucio=[r"M.c.m.$(2,6)=6$: $\dfrac{x+8}{2}-\dfrac{x-4}{6}=2 "
    r"\;\Longrightarrow\; 3(x+8)-(x-4)=12$",
    "$3x+24-x+4=12 \\;\\Longrightarrow\\; 2x=12-28$",
    "$2x=-16 \\;\\Longrightarrow\\; x=-8$"],
   ex_text=E78)
 
-Q("78e", 78, "e", B1, "A",
-  r"$\dfrac{x-5}{5} + \dfrac{8-x}{2} + \dfrac{2x-10}{2} = 3$",
-  x_tex(F(50, 7)),
-  [D(x_tex(F(-50, 7)), "SIGNE_FINAL",
+Q("78e", 78, "e", B1, tipus="A",
+  enunciat=r"$\dfrac{x-5}{5} + \dfrac{8-x}{2} + \dfrac{2x-10}{2} = 3$",
+  correcta=x_tex(F(50, 7)),
+  distractors=[D(x_tex(F(-50, 7)), "SIGNE_FINAL",
      "Revisa el signe final: $7x=50$ dona una $x$ positiva."),
    D(x_tex(F(30, 7)), "TERME_OBLIDAT_OPERACIO",
      "En agrupar els números de l'esquerra revisa un a un: "
@@ -616,19 +616,19 @@ Q("78e", 78, "e", B1, "A",
    D(x_tex(F(50, 17)), "GRAUS_MAL_AGRUPATS",
      "Revisa la suma dels coeficients de $x$: $2x-5x+10x=7x$, no un "
      "altre coeficient.")],
-  ["El m.c.m.$(5,2,2)=10$: multiplica tota l'equació per $10$.",
+  pistes=["El m.c.m.$(5,2,2)=10$: multiplica tota l'equació per $10$.",
    "Un cop sense denominadors, agrupa per separat els termes amb "
    "$x$ i els números."],
-  [r"M.c.m.$(5,2,2)=10$: multipliquem cada terme pel factor que li "
+  resolucio=[r"M.c.m.$(5,2,2)=10$: multipliquem cada terme pel factor que li "
    r"correspon: $2(x-5)+5(8-x)+5(2x-10)=30$",
    "$2x-10+40-5x+10x-50=30 \\;\\Longrightarrow\\; 7x-20=30$",
    r"$7x=50 \;\Longrightarrow\; x=\dfrac{50}{7}$"],
   ex_text=E78)
 
-Q("78f", 78, "f", B1, "A",
-  r"$\dfrac{x-10}{2} - \dfrac{x-20}{4} - \dfrac{x-30}{3} = 5$",
-  x_tex(F(60, 1)),
-  [D(x_tex(F(-60, 1)), "SIGNE_FINAL",
+Q("78f", 78, "f", B1, tipus="A",
+  enunciat=r"$\dfrac{x-10}{2} - \dfrac{x-20}{4} - \dfrac{x-30}{3} = 5$",
+  correcta=x_tex(F(60, 1)),
+  distractors=[D(x_tex(F(-60, 1)), "SIGNE_FINAL",
      "Revisa el signe final: de $-x=-60$ surt una $x$ positiva."),
    D(x_tex(F(180, 1)), "SIGNE_TERME_INDEPENDENT",
      "Revisa el pas $-x+120=60$: el $120$ ha de restar a banda i "
@@ -636,10 +636,10 @@ Q("78f", 78, "f", B1, "A",
    D(x_tex(F(20, 1)), "MENYS_PARENTESI",
      "Quan distribueixes $-3(x-20)$ i $-4(x-30)$, el signe $-$ ha "
      "d'afectar els dos termes de cada parèntesi.")],
-  ["El m.c.m.$(2,4,3)=12$: multiplica tota l'equació per $12$.",
+  pistes=["El m.c.m.$(2,4,3)=12$: multiplica tota l'equació per $12$.",
    "Compte amb els signes en distribuir cada parèntesi que resulta "
    "de multiplicar pel m.c.m."],
-  [r"M.c.m.$(2,4,3)=12$: $6(x-10)-3(x-20)-4(x-30)=60$",
+  resolucio=[r"M.c.m.$(2,4,3)=12$: $6(x-10)-3(x-20)-4(x-30)=60$",
    "$6x-60-3x+60-4x+120=60 \\;\\Longrightarrow\\; -x+120=60$",
    "$-x=-60 \\;\\Longrightarrow\\; x=60$"],
   ex_text=E78)
@@ -648,10 +648,10 @@ Q("78f", 78, "f", B1, "A",
 # ---- exercici 79: equacions amb denominadors, més complexes ----
 E79 = "Busca la solució d'aquestes equacions."
 
-Q("79a", 79, "a", B1, "A",
-  r"$\dfrac{2x-10}{3} - \dfrac{3(x-12)}{4} = -1$",
-  x_tex(F(80, 1)),
-  [D(x_tex(F(-80, 1)), "SIGNE_FINAL",
+Q("79a", 79, "a", B1, tipus="A",
+  enunciat=r"$\dfrac{2x-10}{3} - \dfrac{3(x-12)}{4} = -1$",
+  correcta=x_tex(F(80, 1)),
+  distractors=[D(x_tex(F(-80, 1)), "SIGNE_FINAL",
      "Revisa el signe final: de $-x=-80$ surt una $x$ positiva."),
    D(x_tex(F(148, 4)), "DISTRIBUCIO_INCOMPLETA",
      "En distribuir $-3\\cdot3(x-12)$, el factor $9$ ha de "
@@ -659,18 +659,18 @@ Q("79a", 79, "a", B1, "A",
    D(x_tex(F(48, 1)), "TERME_OBLIDAT_OPERACIO",
      "Revisa el pas $-x+68=-12$: cal aïllar correctament passant "
      "el $68$ a l'altre costat.")],
-  ["El m.c.m.$(3,4)=12$: multiplica tota l'equació per $12$.",
+  pistes=["El m.c.m.$(3,4)=12$: multiplica tota l'equació per $12$.",
    "Distribueix amb cura: el $-3(x-12)$ multiplicat per $3$ dona "
    "$-9(x-12)=-9x+108$."],
-  [r"M.c.m.$(3,4)=12$: $4(2x-10)-3\cdot3(x-12)=-12$",
+  resolucio=[r"M.c.m.$(3,4)=12$: $4(2x-10)-3\cdot3(x-12)=-12$",
    "$8x-40-9x+108=-12 \\;\\Longrightarrow\\; -x+68=-12$",
    "$-x=-80 \\;\\Longrightarrow\\; x=80$"],
   ex_text=E79)
 
-Q("79b", 79, "b", B1, "A",
-  r"$\dfrac{-3x-3}{5} = 3 - 4(x+2)$",
-  x_tex(F(-22, 17)),
-  [D(x_tex(F(22, 17)), "SIGNE_FINAL",
+Q("79b", 79, "b", B1, tipus="A",
+  enunciat=r"$\dfrac{-3x-3}{5} = 3 - 4(x+2)$",
+  correcta=x_tex(F(-22, 17)),
+  distractors=[D(x_tex(F(22, 17)), "SIGNE_FINAL",
      "Revisa el signe: $17x=-22$ dona una $x$ negativa."),
    D(x_tex(F(-28, 17)), "MENYS_PARENTESI",
      "En distribuir $-4(x+2)$, el signe $-$ afecta els dos termes: "
@@ -678,19 +678,19 @@ Q("79b", 79, "b", B1, "A",
    D(x_tex(F(-22, 23)), "GRAUS_MAL_AGRUPATS",
      "Revisa la suma final dels coeficients de $x$: "
      "$-3x+20x=17x$, no un altre coeficient.")],
-  ["Multiplica els dos costats per $5$ per eliminar el denominador.",
+  pistes=["Multiplica els dos costats per $5$ per eliminar el denominador.",
    "Distribueix $5\\cdot(3-4(x+2))$ amb cura: primer el $-4(x+2)$, "
    "després el $5$ per tot."],
-  [r"Multipliquem per $5$: $-3x-3=5(3-4x-8)$",
+  resolucio=[r"Multipliquem per $5$: $-3x-3=5(3-4x-8)$",
    "$-3x-3=15-20x-40 \\;\\Longrightarrow\\; -3x-3=-20x-25$",
    r"$-3x+20x=-25+3 \;\Longrightarrow\; 17x=-22 \;\Longrightarrow\; "
    r"x=-\dfrac{22}{17}$"],
   ex_text=E79)
 
-Q("79c", 79, "c", B1, "A",
-  r"$\dfrac{2x-5}{5} + \dfrac{x+1}{4} = 20 - x$",
-  x_tex(F(415, 33)),
-  [D(x_tex(F(-415, 33)), "SIGNE_FINAL",
+Q("79c", 79, "c", B1, tipus="A",
+  enunciat=r"$\dfrac{2x-5}{5} + \dfrac{x+1}{4} = 20 - x$",
+  correcta=x_tex(F(415, 33)),
+  distractors=[D(x_tex(F(-415, 33)), "SIGNE_FINAL",
      "Revisa el signe final: $33x=415$ dona una $x$ positiva."),
    D(x_tex(F(400, 33)), "TERME_OBLIDAT_OPERACIO",
      "Revisa la suma dels números a l'esquerra: $-20+5=-15$, i "
@@ -698,38 +698,38 @@ Q("79c", 79, "c", B1, "A",
    D(x_tex(F(415, 13)), "GRAUS_MAL_AGRUPATS",
      "Revisa la suma dels coeficients de $x$ al pas final: "
      "$13x+20x=33x$, no un altre coeficient.")],
-  ["El m.c.m.$(5,4)=20$: multiplica tota l'equació per $20$.",
+  pistes=["El m.c.m.$(5,4)=20$: multiplica tota l'equació per $20$.",
    "Un cop sense denominadors, passa tots els termes amb $x$ a un "
    "costat i els números a l'altre."],
-  [r"M.c.m.$(5,4)=20$: $4(2x-5)+5(x+1)=20(20-x)$",
+  resolucio=[r"M.c.m.$(5,4)=20$: $4(2x-5)+5(x+1)=20(20-x)$",
    "$8x-20+5x+5=400-20x \\;\\Longrightarrow\\; 13x-15=400-20x$",
    r"$13x+20x=400+15 \;\Longrightarrow\; 33x=415 \;\Longrightarrow\; "
    r"x=\dfrac{415}{33}$"],
   ex_text=E79)
 
-Q("79d", 79, "d", B1, "A",
-  r"$\dfrac{3-x}{7} - x = \dfrac{3+2(x-1)}{14}$",
-  x_tex(F(5, 18)),
-  [D(x_tex(F(-5, 18)), "SIGNE_FINAL",
+Q("79d", 79, "d", B1, tipus="A",
+  enunciat=r"$\dfrac{3-x}{7} - x = \dfrac{3+2(x-1)}{14}$",
+  correcta=x_tex(F(5, 18)),
+  distractors=[D(x_tex(F(-5, 18)), "SIGNE_FINAL",
      "Revisa el signe final: $-18x=-5$ dona una $x$ positiva."),
    D(x_tex(F(5, 14)), "DISTRIBUCIO_INCOMPLETA",
      "Revisa el terme $2(x-1)$ dins del numerador de la dreta: "
      "$2x-2$, i després $3+2x-2=2x+1$."),
    D(x_tex(F(1, 18)), "TERME_OBLIDAT_OPERACIO",
      "Revisa la suma final: $1-6=-5$, no un altre valor.")],
-  ["El m.c.m.$(7,14)=14$: multiplica tota l'equació per $14$.",
+  pistes=["El m.c.m.$(7,14)=14$: multiplica tota l'equació per $14$.",
    "El numerador de la dreta ja porta un parèntesi a dins, "
    "$3+2(x-1)$: distribueix-lo abans de simplificar."],
-  [r"M.c.m.$(7,14)=14$: $2(3-x)-14x=3+2(x-1)$",
+  resolucio=[r"M.c.m.$(7,14)=14$: $2(3-x)-14x=3+2(x-1)$",
    "$6-2x-14x=3+2x-2 \\;\\Longrightarrow\\; 6-16x=1+2x$",
    r"$-16x-2x=1-6 \;\Longrightarrow\; -18x=-5 \;\Longrightarrow\; "
    r"x=\dfrac{5}{18}$"],
   ex_text=E79)
 
-Q("79e", 79, "e", B1, "A",
-  r"$\dfrac{4x-6}{10} + 2x = 21 - \dfrac{3(x+1)}{12}$",
-  x_tex(F(427, 53)),
-  [D(x_tex(F(-427, 53)), "SIGNE_FINAL",
+Q("79e", 79, "e", B1, tipus="A",
+  enunciat=r"$\dfrac{4x-6}{10} + 2x = 21 - \dfrac{3(x+1)}{12}$",
+  correcta=x_tex(F(427, 53)),
+  distractors=[D(x_tex(F(-427, 53)), "SIGNE_FINAL",
      "Revisa el signe final: $159x=1281$ dona una $x$ positiva."),
    D("$x=\\dfrac{405}{53}$", "SIGNE_TERME_INDEPENDENT",
      "Revisa el terme independent: el $-36$ de l'esquerra passa a "
@@ -739,10 +739,10 @@ Q("79e", 79, "e", B1, "A",
      "Has simplificat només el numerador i no el denominador: "
      "$\\frac{1281}{159}$ s'ha de dividir per $3$ als DOS costats "
      "de la fracció per arribar a $\\frac{427}{53}$.")],
-  ["El m.c.m.$(10,1,12)=60$: multiplica tota l'equació per $60$.",
+  pistes=["El m.c.m.$(10,1,12)=60$: multiplica tota l'equació per $60$.",
    "Un cop sense denominadors, agrupa termes amb $x$ i números, i "
    "simplifica la fracció final al màxim."],
-  [r"M.c.m.$(10,1,12)=60$: $6(4x-6)+120x=1260-15(x+1)$",
+  resolucio=[r"M.c.m.$(10,1,12)=60$: $6(4x-6)+120x=1260-15(x+1)$",
    "$24x-36+120x=1260-15x-15 \\;\\Longrightarrow\\; 144x-36=1245-15x$",
    r"$144x+15x=1245+36 \;\Longrightarrow\; 159x=1281 \;\Longrightarrow\; "
    r"x=\dfrac{1281}{159}=\dfrac{427}{53}$"],
@@ -771,15 +771,15 @@ def _q80(letra, a, b, c, correcta, dists):
     no expressions genèriques que puguin coincidir per casualitat amb
     la resposta correcta (com va passar en un primer intent amb 80a)."""
     enun = r"$%s$" % eq2_tex(a, b, c)
-    Q("80" + letra, 80, letra, B2, "A", enun, correcta, dists,
-      [r"Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=%d$, $b=%d$ i "
+    Q("80" + letra, 80, letra, B2, tipus="A", enunciat=enun, correcta=correcta, distractors=dists,
+      pistes=[r"Identifica $a$, $b$ i $c$ amb el seu signe: aquí $a=%d$, $b=%d$ i "
        r"$c=%d$." % (a, b, c),
        r"Calcula primer $\Delta=%s$. Si surt negatiu, no hi ha solucions "
        r"reals; si no, aplica $x=\dfrac{-b\pm\sqrt{\Delta}}{2a}$.%s"
        % (_delta_tex(a, b, c),
           r" Compte: com que $a$ és negatiu, el denominador $2a$ també ho és."
           if a < 0 else "")],
-      [r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c))]
+      resolucio=[r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c))]
       + ([r"Com que $\Delta<0$, l'equació no té solucions reals."]
          if disc(a, b, c) < 0 else
          [r"$x=\dfrac{%d\pm\sqrt{%d}}{%d}$" % (-b, disc(a, b, c), 2 * a),
@@ -912,15 +912,15 @@ for letra, a, b, c in casos_81:
         "PARITAT_EXPONENT": "Una equació de segon grau (grau 2) té com a molt "
             "2 solucions reals, mai 3: revisa que has identificat bé el grau.",
     }
-    Q("81" + letra, 81, letra, B2, "A",
-      r"$%s$" % eq2_tex(a, b, c), correcta,
-      [D(v, t, fb[t]) for v, t in zip(dists_vals, dists_tags)],
-      ["No cal resoldre l'equació: només calcula el discriminant "
+    Q("81" + letra, 81, letra, B2, tipus="A",
+      enunciat=r"$%s$" % eq2_tex(a, b, c), correcta=correcta,
+      distractors=[D(v, t, fb[t]) for v, t in zip(dists_vals, dists_tags)],
+      pistes=["No cal resoldre l'equació: només calcula el discriminant "
        "$\\Delta=b^2-4ac$ i mira'n el signe.",
        r"Aquí $\Delta=%s$: compte amb els signes. Després: $\Delta>0$, dues "
        r"solucions; $\Delta=0$, una (doble); $\Delta<0$, cap de real."
        % _delta_tex(a, b, c)],
-      [r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c)),
+      resolucio=[r"$a=%d,\ b=%d,\ c=%d$: $%s$" % (a, b, c, disc_tex(a, b, c)),
        "%s $\\Rightarrow$ %s" % (
            ("$\\Delta>0$" if d > 0 else ("$\\Delta=0$" if d == 0 else "$\\Delta<0$")),
            correcta)],
@@ -1012,19 +1012,19 @@ for letra, a, b, sols in casos_82:
           "FACTOR_COMU_MAL_DIVIDIT",
           "En dividir pel factor comú, revisa que cada terme quedi "
           "dividit correctament, no només un.")]
-    Q("82" + letra, 82, letra, B3, "A", enuncs_82[letra], correcta, dists,
-      pistes_82[letra],
-      res_82[letra] + [correcta],
+    Q("82" + letra, 82, letra, B3, tipus="A", enunciat=enuncs_82[letra], correcta=correcta, distractors=dists,
+      pistes=pistes_82[letra],
+      resolucio=res_82[letra] + [correcta],
       ex_text=E82)
 
 
 # ---- exercici 83: ja factoritzada, producte de factors = 0 ----
 E83 = "Calcula sense aplicar-hi la fórmula general."
 
-Q("83a", 83, "a", B3, "A",
-  r"$(x+2)(x-2) = 0$",
-  x_multi_tex([F(-2), F(2)]),
-  [D(x_tex(F(-2)), "FACTOR_COMU_INCOMPLET",
+Q("83a", 83, "a", B3, tipus="A",
+  enunciat=r"$(x+2)(x-2) = 0$",
+  correcta=x_multi_tex([F(-2), F(2)]),
+  distractors=[D(x_tex(F(-2)), "FACTOR_COMU_INCOMPLET",
      "Un producte de dos factors igualat a zero té DUES solucions, "
      "una per cada factor: no en descartis cap."),
    D(x_tex(F(2)), "FACTOR_COMU_INCOMPLET",
@@ -1034,16 +1034,16 @@ Q("83a", 83, "a", B3, "A",
      "No cal desenvolupar el producte com $x^2-4=0$ i després "
      "\"sumar\" res: amb els factors ja donats, iguala cadascun a "
      "zero directament.")],
-  ["Un producte val zero quan algun dels seus factors ho és.",
+  pistes=["Un producte val zero quan algun dels seus factors ho és.",
    "Iguala cada factor a zero per separat i aïlla $x$."],
-  ["$(x+2)(x-2)=0 \\;\\Longrightarrow\\; x+2=0$ o $x-2=0$",
+  resolucio=["$(x+2)(x-2)=0 \\;\\Longrightarrow\\; x+2=0$ o $x-2=0$",
    "$x=-2$ o $x=2$"],
   ex_text=E83)
 
-Q("83b", 83, "b", B3, "A",
-  r"$(x-3)(x+3) = 0$",
-  x_multi_tex([F(-3), F(3)]),
-  [D(x_tex(F(3)), "FACTOR_COMU_INCOMPLET",
+Q("83b", 83, "b", B3, tipus="A",
+  enunciat=r"$(x-3)(x+3) = 0$",
+  correcta=x_multi_tex([F(-3), F(3)]),
+  distractors=[D(x_tex(F(3)), "FACTOR_COMU_INCOMPLET",
      "Aquest producte té DUES solucions, una per cada factor: no en "
      "descartis cap."),
    D(x_tex(F(-3)), "FACTOR_COMU_INCOMPLET",
@@ -1052,16 +1052,16 @@ Q("83b", 83, "b", B3, "A",
    D(x_tex(F(9)), "POTENCIA_DE_SUMA",
      "No cal calcular cap quadrat: amb els factors ja donats, iguala "
      "cadascun a zero directament.")],
-  ["Un producte val zero quan algun dels seus factors ho és.",
+  pistes=["Un producte val zero quan algun dels seus factors ho és.",
    "Iguala cada factor a zero per separat."],
-  ["$(x-3)(x+3)=0 \\;\\Longrightarrow\\; x-3=0$ o $x+3=0$",
+  resolucio=["$(x-3)(x+3)=0 \\;\\Longrightarrow\\; x-3=0$ o $x+3=0$",
    "$x=3$ o $x=-3$"],
   ex_text=E83)
 
-Q("83c", 83, "c", B3, "A",
-  r"$(x+3)(2x-5)\left(5 - \dfrac{x}{2}\right) = 0$",
-  x_multi_tex([F(-3), F(5, 2), F(10)]),
-  [D(x_multi_tex([F(-3), F(5, 2)]), "FACTOR_COMU_INCOMPLET",
+Q("83c", 83, "c", B3, tipus="A",
+  enunciat=r"$(x+3)(2x-5)\left(5 - \dfrac{x}{2}\right) = 0$",
+  correcta=x_multi_tex([F(-3), F(5, 2), F(10)]),
+  distractors=[D(x_multi_tex([F(-3), F(5, 2)]), "FACTOR_COMU_INCOMPLET",
      "Hi ha TRES factors en aquest producte, no dos: el tercer, "
      "$5-\\frac{x}{2}$, també aporta la seva solució."),
    D(x_multi_tex([F(3), F(-5, 2), F(-10)]), "SIGNE_FINAL",
@@ -1070,17 +1070,17 @@ Q("83c", 83, "c", B3, "A",
    D(x_multi_tex([F(-3), F(5, 2), F(-10)]), "SIGNE_QUOCIENT",
      "Revisa el tercer factor: $5-\\frac{x}{2}=0 \\Rightarrow "
      "\\frac{x}{2}=5 \\Rightarrow x=10$, amb signe positiu.")],
-  ["Aquí hi ha tres factors: n'hi ha prou que un sigui zero.",
+  pistes=["Aquí hi ha tres factors: n'hi ha prou que un sigui zero.",
    "Iguala cadascun dels tres factors a zero per separat."],
-  ["$x+3=0 \\Rightarrow x=-3$",
+  resolucio=["$x+3=0 \\Rightarrow x=-3$",
    r"$2x-5=0 \Rightarrow x=\dfrac{5}{2}$",
    r"$5-\dfrac{x}{2}=0 \Rightarrow x=10$"],
   ex_text=E83)
 
-Q("83d", 83, "d", B3, "A",
-  r"$(x-5)^2 = 0$",
-  x_doble_tex(F(5)),
-  [D(x_multi_tex([F(5), F(-5)]), "IGUALTAT_NOTABLE_SIGNE",
+Q("83d", 83, "d", B3, tipus="A",
+  enunciat=r"$(x-5)^2 = 0$",
+  correcta=x_doble_tex(F(5)),
+  distractors=[D(x_multi_tex([F(5), F(-5)]), "IGUALTAT_NOTABLE_SIGNE",
      "Un quadrat $(x-5)^2$ només val zero quan la base val zero: "
      "$x-5=0$, una única solució (doble), no dues de signe oposat."),
    D(x_doble_tex(F(-5)), "SIGNE_FINAL",
@@ -1088,16 +1088,16 @@ Q("83d", 83, "d", B3, "A",
    D(x_tex(F(25)), "QUADRAT_INCOMPLET",
      "No cal desenvolupar el quadrat: com que ja ve factoritzat, "
      "n'hi ha prou d'igualar la base a zero.")],
-  ["Un quadrat només val zero quan la base val zero.",
+  pistes=["Un quadrat només val zero quan la base val zero.",
    "Iguala la base a zero: és una solució doble."],
-  ["$(x-5)^2=0 \\;\\Longrightarrow\\; x-5=0$",
+  resolucio=["$(x-5)^2=0 \\;\\Longrightarrow\\; x-5=0$",
    "$x=5$ (solució doble)"],
   ex_text=E83)
 
-Q("83e", 83, "e", B3, "A",
-  r"$(x-2)^2 + x = x$",
-  x_doble_tex(F(2)),
-  [D(x_multi_tex([F(2), F(0)]), "TERME_OBLIDAT_OPERACIO",
+Q("83e", 83, "e", B3, tipus="A",
+  enunciat=r"$(x-2)^2 + x = x$",
+  correcta=x_doble_tex(F(2)),
+  distractors=[D(x_multi_tex([F(2), F(0)]), "TERME_OBLIDAT_OPERACIO",
      "La $x$ dels dos costats es cancel·la primer ($+x=x$), "
      "deixant només $(x-2)^2=0$: no hi ha una segona solució $x=0$."),
    D(x_doble_tex(F(-2)), "SIGNE_FINAL",
@@ -1105,17 +1105,17 @@ Q("83e", 83, "e", B3, "A",
    D(x_tex(F(4)), "QUADRAT_INCOMPLET",
      "No cal desenvolupar el quadrat; simplifica primer cancel·lant "
      "la $x$ dels dos costats i iguala la base a zero.")],
-  ["Simplifica primer: la $x$ apareix als dos costats i es cancel·la.",
+  pistes=["Simplifica primer: la $x$ apareix als dos costats i es cancel·la.",
    "Un cop simplificat queda un quadrat igualat a zero."],
-  ["La $x$ dels dos costats es cancel·la: $(x-2)^2+x=x "
+  resolucio=["La $x$ dels dos costats es cancel·la: $(x-2)^2+x=x "
    "\\;\\Longrightarrow\\; (x-2)^2=0$",
    "$x=2$ (solució doble)"],
   ex_text=E83)
 
-Q("83f", 83, "f", B3, "A",
-  r"$x\left(\dfrac{3x}{4} - \dfrac{4}{5}\right)^2 = 0$",
-  x_multi_tex([F(0), F(16, 15)]),
-  [D(x_tex(F(16, 15)), "FACTOR_COMU_INCOMPLET",
+Q("83f", 83, "f", B3, tipus="A",
+  enunciat=r"$x\left(\dfrac{3x}{4} - \dfrac{4}{5}\right)^2 = 0$",
+  correcta=x_multi_tex([F(0), F(16, 15)]),
+  distractors=[D(x_tex(F(16, 15)), "FACTOR_COMU_INCOMPLET",
      "Aquest producte té DOS factors ($x$ i el quadrat): la solució "
      "$x=0$ del primer factor també compta, no només la de dins del "
      "quadrat."),
@@ -1126,11 +1126,11 @@ Q("83f", 83, "f", B3, "A",
    D(x_multi_tex([F(0), F(4, 5)]), "AILLAMENT_INCOMPLET",
      "Un cop aïllada $\\frac{3x}{4}=\\frac{4}{5}$, encara falta "
      "multiplicar per $\\frac{4}{3}$ per acabar d'aïllar $x$.")],
-  ["Un producte val zero quan algun dels seus factors ho és: aquí "
+  pistes=["Un producte val zero quan algun dels seus factors ho és: aquí "
    "hi ha el factor $x$ i el factor al quadrat.",
    "El factor al quadrat compta com una única solució, no cal "
    "repetir-la."],
-  ["$x=0$ o $\\left(\\dfrac{3x}{4}-\\dfrac{4}{5}\\right)^2=0$",
+  resolucio=["$x=0$ o $\\left(\\dfrac{3x}{4}-\\dfrac{4}{5}\\right)^2=0$",
    r"Del segon factor: $\dfrac{3x}{4}=\dfrac{4}{5} "
    r"\Rightarrow x=\dfrac{16}{15}$"],
   ex_text=E83)
@@ -1139,10 +1139,10 @@ Q("83f", 83, "f", B3, "A",
 # ---- exercici 84: cal desenvolupar/reordenar abans de resoldre ----
 E84 = "Resol les equacions següents."
 
-Q("84a", 84, "a", B3, "A",
-  r"$(x+1)(x-3) + 3 = 0$",
-  x_multi_tex([F(0), F(2)]),
-  [D(x_multi_tex([F(-1), F(3)]), "FACTOR_COMU_INCOMPLET",
+Q("84a", 84, "a", B3, tipus="A",
+  enunciat=r"$(x+1)(x-3) + 3 = 0$",
+  correcta=x_multi_tex([F(0), F(2)]),
+  distractors=[D(x_multi_tex([F(-1), F(3)]), "FACTOR_COMU_INCOMPLET",
      "Aquests serien els valors que anul·len $(x+1)$ i $(x-3)$ per "
      "separat, però l'equació té un $+3$ addicional que canvia el "
      "resultat: primer cal desenvolupar i simplificar."),
@@ -1153,18 +1153,18 @@ Q("84a", 84, "a", B3, "A",
      "Revisa el desenvolupament de $(x+1)(x-3)$: el terme en $x$ "
      "surt de $-3x+x=-2x$, i sumant el $+3$ final el terme "
      "independent s'anul·la.")],
-  ["Desenvolupa el producte $(x+1)(x-3)$ i simplifica sumant-hi el $3$.",
+  pistes=["Desenvolupa el producte $(x+1)(x-3)$ i simplifica sumant-hi el $3$.",
    "Un cop simplificat, hauria de quedar una equació incompleta "
    "(sense terme independent)."],
-  ["$(x+1)(x-3)+3=0 \\;\\Longrightarrow\\; x^2-3x+x-3+3=0$",
+  resolucio=["$(x+1)(x-3)+3=0 \\;\\Longrightarrow\\; x^2-3x+x-3+3=0$",
    "$x^2-2x=0 \\;\\Longrightarrow\\; x(x-2)=0$",
    "$x=0$ o $x=2$"],
   ex_text=E84)
 
-Q("84b", 84, "b", B3, "A",
-  r"$(x+9)(x-9) = 3(x-27)$",
-  x_multi_tex([F(0), F(3)]),
-  [D(x_multi_tex([F(-9), F(9)]), "TERME_OBLIDAT_OPERACIO",
+Q("84b", 84, "b", B3, tipus="A",
+  enunciat=r"$(x+9)(x-9) = 3(x-27)$",
+  correcta=x_multi_tex([F(0), F(3)]),
+  distractors=[D(x_multi_tex([F(-9), F(9)]), "TERME_OBLIDAT_OPERACIO",
      "Aquests serien els valors que anul·len el costat esquerre tot "
      "sol, però l'equació té un costat dret que cal desenvolupar i "
      "passar a l'esquerra abans de resoldre."),
@@ -1173,18 +1173,18 @@ Q("84b", 84, "b", B3, "A",
    D(x_multi_tex([F(0), F(9)]), "DISTRIBUCIO_INCOMPLETA",
      "Revisa el pas $x^2-81=3x-81$: el $-81$ es cancel·la als dos "
      "costats, i queda $x^2=3x$, no $x^2=9x$.")],
-  ["Desenvolupa $(x+9)(x-9)$ com a diferència de quadrats i el "
+  pistes=["Desenvolupa $(x+9)(x-9)$ com a diferència de quadrats i el "
    "costat dret per separat.",
    "Passa tot a un costat: hauria de quedar una equació incompleta."],
-  ["$(x+9)(x-9)=3(x-27) \\;\\Longrightarrow\\; x^2-81=3x-81$",
+  resolucio=["$(x+9)(x-9)=3(x-27) \\;\\Longrightarrow\\; x^2-81=3x-81$",
    "$x^2-3x=0 \\;\\Longrightarrow\\; x(x-3)=0$",
    "$x=0$ o $x=3$"],
   ex_text=E84)
 
-Q("84c", 84, "c", B3, "A",
-  r"$x(3x-2) = 65$",
-  x_multi_tex([F(-13, 3), F(5)]),
-  [D(x_multi_tex([F(13, 3), F(-5)]), "SIGNE_QUOCIENT",
+Q("84c", 84, "c", B3, tipus="A",
+  enunciat=r"$x(3x-2) = 65$",
+  correcta=x_multi_tex([F(-13, 3), F(5)]),
+  distractors=[D(x_multi_tex([F(13, 3), F(-5)]), "SIGNE_QUOCIENT",
      "Revisa el signe de $-b$ al numerador de la fórmula general: "
      "l'equació és $3x^2-2x-65=0$, amb $b=-2$."),
    D(x_multi_tex([F(-2, 6), F(1)]), "ORDRE_DIVISIONS",
@@ -1193,19 +1193,19 @@ Q("84c", 84, "c", B3, "A",
    D(x_multi_tex([F(13, 3), F(5)]), "SIGNE_FINAL",
      "Una de les dues solucions és negativa: revisa els dos casos "
      "del $\\pm$ per separat.")],
-  ["Desenvolupa el producte per obtenir una equació de la forma "
+  pistes=["Desenvolupa el producte per obtenir una equació de la forma "
    "$ax^2+bx+c=0$.",
    "Aplica la fórmula general amb $a=3,\\ b=-2,\\ c=-65$."],
-  ["$x(3x-2)=65 \\;\\Longrightarrow\\; 3x^2-2x-65=0$",
+  resolucio=["$x(3x-2)=65 \\;\\Longrightarrow\\; 3x^2-2x-65=0$",
    r"$\Delta=(-2)^2-4\cdot3\cdot(-65)=4+780=784$, $\sqrt{784}=28$",
    r"$x=\dfrac{2\pm28}{6} \;\Longrightarrow\; x=5$ o "
    r"$x=\dfrac{-26}{6}=-\dfrac{13}{3}$"],
   ex_text=E84)
 
-Q("84d", 84, "d", B3, "A",
-  r"$4x - (x^2-4) = 2x - 4$",
-  x_multi_tex([F(-2), F(4)]),
-  [D(x_multi_tex([F(2), F(-4)]), "SIGNE_QUOCIENT",
+Q("84d", 84, "d", B3, tipus="A",
+  enunciat=r"$4x - (x^2-4) = 2x - 4$",
+  correcta=x_multi_tex([F(-2), F(4)]),
+  distractors=[D(x_multi_tex([F(2), F(-4)]), "SIGNE_QUOCIENT",
      "Revisa el signe de $-b$ al numerador: l'equació reordenada és "
      "$-x^2+2x+8=0$, amb $b=2$, així que el numerador porta $-2$."),
    D(x_multi_tex([F(-8), F(1)]), "MENYS_PARENTESI",
@@ -1214,18 +1214,18 @@ Q("84d", 84, "d", B3, "A",
    D(x_multi_tex([F(2), F(4)]), "TERME_OBLIDAT_OPERACIO",
      "Revisa que has passat TOTS els termes a un costat: "
      "$4x-x^2+4-2x+4=0$ dona $-x^2+2x+8=0$.")],
-  ["Distribueix el $-(x^2-4)$ i passa tots els termes a un costat.",
+  pistes=["Distribueix el $-(x^2-4)$ i passa tots els termes a un costat.",
    "Aplica la fórmula general amb $a=-1,\\ b=2,\\ c=8$."],
-  ["$4x-(x^2-4)=2x-4 \\;\\Longrightarrow\\; 4x-x^2+4=2x-4$",
+  resolucio=["$4x-(x^2-4)=2x-4 \\;\\Longrightarrow\\; 4x-x^2+4=2x-4$",
    "$-x^2+4x-2x+4+4=0 \\;\\Longrightarrow\\; -x^2+2x+8=0$",
    r"$\Delta=2^2-4\cdot(-1)\cdot8=4+32=36$, $\sqrt{36}=6$: "
    r"$x=\dfrac{-2\pm6}{-2} \;\Longrightarrow\; x=-2$ o $x=4$"],
   ex_text=E84)
 
-Q("84e", 84, "e", B3, "A",
-  r"$(2x+3)(2x-3) = 135$",
-  x_multi_tex([F(-6), F(6)]),
-  [D(x_tex(F(6)), "FACTOR_COMU_INCOMPLET",
+Q("84e", 84, "e", B3, tipus="A",
+  enunciat=r"$(2x+3)(2x-3) = 135$",
+  correcta=x_multi_tex([F(-6), F(6)]),
+  distractors=[D(x_tex(F(6)), "FACTOR_COMU_INCOMPLET",
      "Un quadrat $x^2=36$ té DUES solucions, $x=6$ i $x=-6$: no en "
      "descartis cap arran de l'arrel quadrada."),
    D(x_multi_tex([F(-72), F(72)]), "ORDRE_ARREL_DIVISIO",
@@ -1235,19 +1235,19 @@ Q("84e", 84, "e", B3, "A",
    D(x_multi_tex([F(-3), F(3)]), "QUADRAT_INCOMPLET",
      "Revisa el desenvolupament $(2x+3)(2x-3)=4x^2-9$: el terme en "
      "$x$ va multiplicat per $4$, no per $1$.")],
-  ["Desenvolupa el producte com a diferència de quadrats: "
+  pistes=["Desenvolupa el producte com a diferència de quadrats: "
    "$(2x+3)(2x-3)=4x^2-9$.",
    "Aïlla $x^2$ i fes l'arrel quadrada als dos costats (recorda el "
    "$\\pm$)."],
-  ["$(2x+3)(2x-3)=135 \\;\\Longrightarrow\\; 4x^2-9=135$",
+  resolucio=["$(2x+3)(2x-3)=135 \\;\\Longrightarrow\\; 4x^2-9=135$",
    "$4x^2=144 \\;\\Longrightarrow\\; x^2=36$",
    "$x=\\pm6$"],
   ex_text=E84)
 
-Q("84f", 84, "f", B3, "A",
-  r"$x^2 - \dfrac{23}{4}x = 18$",
-  x_multi_tex([F(-9, 4), F(8)]),
-  [D(x_multi_tex([F(9, 4), F(-8)]), "SIGNE_QUOCIENT",
+Q("84f", 84, "f", B3, tipus="A",
+  enunciat=r"$x^2 - \dfrac{23}{4}x = 18$",
+  correcta=x_multi_tex([F(-9, 4), F(8)]),
+  distractors=[D(x_multi_tex([F(9, 4), F(-8)]), "SIGNE_QUOCIENT",
      "Revisa el signe de $-b$ al numerador: amb $b=-23$, el "
      "numerador porta $+23$."),
    D(x_multi_tex([F(-9, 8), F(4)]), "ORDRE_DIVISIONS",
@@ -1256,10 +1256,10 @@ Q("84f", 84, "f", B3, "A",
    D(x_multi_tex([F(-72, 4), F(64, 4)]), "SIMPLIFICACIO_INCOMPLETA",
      "Les fraccions finals encara es poden simplificar: revisa el "
      "m.c.d. de numerador i denominador a cada solució.")],
-  ["Multiplica tota l'equació per $4$ per eliminar el denominador i "
+  pistes=["Multiplica tota l'equació per $4$ per eliminar el denominador i "
    "obtenir una equació de segon grau amb coeficients enters.",
    "Aplica la fórmula general amb $a=4,\\ b=-23,\\ c=-72$."],
-  [r"Multipliquem per $4$: $4x^2-23x=72 \;\Longrightarrow\; "
+  resolucio=[r"Multipliquem per $4$: $4x^2-23x=72 \;\Longrightarrow\; "
    r"4x^2-23x-72=0$",
    r"$\Delta=(-23)^2-4\cdot4\cdot(-72)=529+1152=1681$, "
    r"$\sqrt{1681}=41$",
@@ -1267,10 +1267,10 @@ Q("84f", 84, "f", B3, "A",
    r"$x=\dfrac{-18}{8}=-\dfrac{9}{4}$"],
   ex_text=E84)
 
-Q("84g", 84, "g", B3, "A",
-  r"$x^2 - 7x + \dfrac{13}{4} = 0$",
-  x_multi_tex([F(1, 2), F(13, 2)]),
-  [D(x_multi_tex([F(-1, 2), F(-13, 2)]), "SIGNE_QUOCIENT",
+Q("84g", 84, "g", B3, tipus="A",
+  enunciat=r"$x^2 - 7x + \dfrac{13}{4} = 0$",
+  correcta=x_multi_tex([F(1, 2), F(13, 2)]),
+  distractors=[D(x_multi_tex([F(-1, 2), F(-13, 2)]), "SIGNE_QUOCIENT",
      "Revisa el signe de $-b$ al numerador: amb $b=-7$, el "
      "numerador porta $+7$, i el resultat final és positiu."),
    D(x_multi_tex([F(1, 4), F(13, 4)]), "ORDRE_DIVISIONS",
@@ -1279,10 +1279,10 @@ Q("84g", 84, "g", B3, "A",
    D(x_multi_tex([F(1, 2), F(6)]), "ARITMETICA_PAS_INTERMEDI",
      "Revisa la segona solució: $\\dfrac{13}{2}$ no es simplifica "
      "a $6$; comprova la divisió $\\dfrac{7+6}{2}$.")],
-  ["El terme independent ja és una fracció: pots deixar l'equació "
+  pistes=["El terme independent ja és una fracció: pots deixar l'equació "
    "tal qual i aplicar la fórmula directament amb $c=\\frac{13}{4}$.",
    "Aplica la fórmula general amb $a=1,\\ b=-7,\\ c=\\frac{13}{4}$."],
-  [r"$a=1,\ b=-7,\ c=\dfrac{13}{4}$: "
+  resolucio=[r"$a=1,\ b=-7,\ c=\dfrac{13}{4}$: "
    r"$\Delta=(-7)^2-4\cdot1\cdot\dfrac{13}{4}=49-13=36$",
    r"$\sqrt{36}=6$: $x=\dfrac{7\pm6}{2}$",
    r"$x=\dfrac{13}{2}$ o $x=\dfrac{1}{2}$"],
@@ -1295,10 +1295,10 @@ Q("84g", 84, "g", B3, "A",
 
 E85 = "Resol pel mètode més adequat."
 
-Q("85a", 85, "a", B4, "A",
-  r"$\left.\begin{array}{r}x+y=2\\ x-y=6\end{array}\right\}$",
-  xy_tex(F(4), F(-2)),
-  [D(xy_tex(F(-2), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85a", 85, "a", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x+y=2\\ x-y=6\end{array}\right\}$",
+  correcta=xy_tex(F(4), F(-2)),
+  distractors=[D(xy_tex(F(-2), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat els valors de $x$ i $y$: torna a substituir "
      "el valor trobat a una de les equacions originals per "
      "comprovar quin és quin."),
@@ -1308,19 +1308,19 @@ Q("85a", 85, "a", B4, "A",
    D(xy_tex(F(8), F(-6)), "FACTOR_COMU_MAL_DIVIDIT",
      "Després de sumar les dues equacions t'ha de quedar $2x=8$: "
      "encara falta dividir entre $2$ per aïllar $x$.")],
-  ["Suma les dues equacions directament: els termes en $y$ són "
+  pistes=["Suma les dues equacions directament: els termes en $y$ són "
    "oposats i s'anul·len (mètode de reducció).",
    "Un cop trobada $x$, substitueix-la a qualsevol de les dues "
    "equacions per trobar $y$."],
-  ["Sumant les dues equacions, la $y$ s'elimina: "
+  resolucio=["Sumant les dues equacions, la $y$ s'elimina: "
    r"$\begin{array}{r}x+y=2\\x-y=6\\\hline 2x=8\end{array}$",
    "$x=4$", "$y=2-4=-2$"],
   ex_text=E85)
 
-Q("85b", 85, "b", B4, "A",
-  r"$\left.\begin{array}{r}2x+3y=4\\ 2x-3y=4\end{array}\right\}$",
-  xy_tex(F(2), F(0)),
-  [D(xy_tex(F(0), F(2)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85b", 85, "b", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2x+3y=4\\ 2x-3y=4\end{array}\right\}$",
+  correcta=xy_tex(F(2), F(0)),
+  distractors=[D(xy_tex(F(0), F(2)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat els valors de $x$ i $y$: torna a substituir "
      "a una equació original per confirmar quin valor és de quina "
      "incògnita."),
@@ -1330,18 +1330,18 @@ Q("85b", 85, "b", B4, "A",
    D(xy_tex(F(2), F(4, 3)), "SIGNE_FINAL",
      "Un cop $x=2$, substitueix a $2x+3y=4$: "
      "$4+3y=4 \\Rightarrow 3y=0 \\Rightarrow y=0$.")],
-  ["Els coeficients de $y$ ja són oposats: suma les dues equacions "
+  pistes=["Els coeficients de $y$ ja són oposats: suma les dues equacions "
    "directament (reducció).",
    "Un cop trobada $x$, substitueix per trobar $y$."],
-  ["Sumant les equacions, la $y$ s'elimina: "
+  resolucio=["Sumant les equacions, la $y$ s'elimina: "
    r"$\begin{array}{r}2x+3y=4\\2x-3y=4\\\hline 4x=8\end{array}$",
    "$x=2$", "$3y=4-2\\cdot2=0 \\Rightarrow y=0$"],
   ex_text=E85)
 
-Q("85c", 85, "c", B4, "A",
-  r"$\left.\begin{array}{r}x+2y=5\\ 2x+5y=11\end{array}\right\}$",
-  xy_tex(F(3), F(1)),
-  [D(xy_tex(F(1), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85c", 85, "c", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x+2y=5\\ 2x+5y=11\end{array}\right\}$",
+  correcta=xy_tex(F(3), F(1)),
+  distractors=[D(xy_tex(F(1), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: substitueix a l'equació original "
      "per comprovar quin valor correspon a quina incògnita."),
    D(xy_tex(F(3), F(-1)), "SIGNE_FINAL",
@@ -1350,19 +1350,19 @@ Q("85c", 85, "c", B4, "A",
    D(xy_tex(F(-5), F(1)), "ENTER_MULTIPLICA_DENOMINADOR",
      "En multiplicar la primera equació per $-2$, TOTS els seus "
      "termes es multipliquen, incloent-hi el $5$ de la dreta.")],
-  ["Multiplica la primera equació per $-2$ perquè els coeficients "
+  pistes=["Multiplica la primera equació per $-2$ perquè els coeficients "
    "de $x$ es cancel·lin en sumar (reducció).",
    "Un cop trobada $y$, substitueix a qualsevol equació original "
    "per trobar $x$."],
-  ["Multipliquem la primera per $-2$: "
+  resolucio=["Multipliquem la primera per $-2$: "
    r"$\begin{array}{r}-2x-4y=-10\\2x+5y=11\\\hline y=1\end{array}$",
    "Amb $y=1$: $x+2\\cdot1=5 \\Rightarrow x=3$"],
   ex_text=E85)
 
-Q("85d", 85, "d", B4, "A",
-  r"$\left.\begin{array}{r}2x+3y=8\\ x+2y=3\end{array}\right\}$",
-  xy_tex(F(7), F(-2)),
-  [D(xy_tex(F(-2), F(7)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85d", 85, "d", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2x+3y=8\\ x+2y=3\end{array}\right\}$",
+  correcta=xy_tex(F(7), F(-2)),
+  distractors=[D(xy_tex(F(-2), F(7)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(7), F(2)), "SIGNE_FINAL",
@@ -1371,18 +1371,18 @@ Q("85d", 85, "d", B4, "A",
    D(xy_tex(F(1), F(2)), "ENTER_MULTIPLICA_DENOMINADOR",
      "En multiplicar la segona equació per $-2$, TOTS els seus "
      "termes es multipliquen, incloent-hi el $3$ de la dreta.")],
-  ["Multiplica la segona equació per $-2$ perquè els coeficients "
+  pistes=["Multiplica la segona equació per $-2$ perquè els coeficients "
    "de $x$ es cancel·lin en sumar.",
    "Un cop trobada $y$, substitueix a qualsevol equació original."],
-  ["Multipliquem la segona per $-2$: "
+  resolucio=["Multipliquem la segona per $-2$: "
    r"$\begin{array}{r}2x+3y=8\\-2x-4y=-6\\\hline -y=2\end{array}$",
    "$y=-2$; substituint: $x+2\\cdot(-2)=3 \\Rightarrow x=7$"],
   ex_text=E85)
 
-Q("85e", 85, "e", B4, "A",
-  r"$\left.\begin{array}{r}x+y=9\\ 20x-3y=-4\end{array}\right\}$",
-  xy_tex(F(1), F(8)),
-  [D(xy_tex(F(8), F(1)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85e", 85, "e", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x+y=9\\ 20x-3y=-4\end{array}\right\}$",
+  correcta=xy_tex(F(1), F(8)),
+  distractors=[D(xy_tex(F(8), F(1)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: substitueix a l'equació original "
      "per comprovar-ho."),
    D(xy_tex(F(-1), F(10)), "SIGNE_FINAL",
@@ -1391,17 +1391,17 @@ Q("85e", 85, "e", B4, "A",
    D(xy_tex(F(1), F(-8)), "TERME_OBLIDAT_OPERACIO",
      "Un cop $y=8$, substitueix a $x+y=9$: "
      "$x=9-8=1$, amb signe positiu.")],
-  ["Aïlla $x=9-y$ de la primera equació (substitució).",
+  pistes=["Aïlla $x=9-y$ de la primera equació (substitució).",
    "Substitueix aquesta expressió a la segona equació i resol per $y$."],
-  ["Aïllem $x=9-y$ i ho posem a la segona: "
+  resolucio=["Aïllem $x=9-y$ i ho posem a la segona: "
    "$20(9-y)-3y=-4 \\;\\Longrightarrow\\; 180-20y-3y=-4$",
    "$-23y=-184 \\Rightarrow y=8$", "$x=9-8=1$"],
   ex_text=E85)
 
-Q("85f", 85, "f", B4, "A",
-  r"$\left.\begin{array}{r}2x-3y=-25\\ 12x-3y=75\end{array}\right\}$",
-  xy_tex(F(10), F(15)),
-  [D(xy_tex(F(15), F(10)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85f", 85, "f", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2x-3y=-25\\ 12x-3y=75\end{array}\right\}$",
+  correcta=xy_tex(F(10), F(15)),
+  distractors=[D(xy_tex(F(15), F(10)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-10), F(15)), "SIGNE_FINAL",
@@ -1410,18 +1410,18 @@ Q("85f", 85, "f", B4, "A",
    D(xy_tex(F(10), F(-15)), "SIGNE_FINAL",
      "Un cop $x=10$, substitueix a $2x-3y=-25$: "
      "$20-3y=-25 \\Rightarrow y=15$, amb signe positiu.")],
-  ["Resta la segona equació de la primera: el coeficient de $y$ "
+  pistes=["Resta la segona equació de la primera: el coeficient de $y$ "
    "coincideix i s'anul·la (reducció).",
    "Un cop trobada $x$, substitueix a qualsevol equació original."],
-  ["Restant, la $y$ s'elimina: "
+  resolucio=["Restant, la $y$ s'elimina: "
    r"$\begin{array}{r}2x-3y=-25\\12x-3y=75\\\hline -10x=-100\end{array}$",
    "$x=10$; substituint: $20-3y=-25 \\Rightarrow y=15$"],
   ex_text=E85)
 
-Q("85g", 85, "g", B4, "A",
-  r"$\left.\begin{array}{r}x+2y=5\\ 2x+y=7\end{array}\right\}$",
-  xy_tex(F(3), F(1)),
-  [D(xy_tex(F(1), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85g", 85, "g", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x+2y=5\\ 2x+y=7\end{array}\right\}$",
+  correcta=xy_tex(F(3), F(1)),
+  distractors=[D(xy_tex(F(1), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(3), F(-1)), "SIGNE_FINAL",
@@ -1430,18 +1430,18 @@ Q("85g", 85, "g", B4, "A",
    D(xy_tex(F(9), F(-2)), "ENTER_MULTIPLICA_DENOMINADOR",
      "En multiplicar la segona equació per $-2$, TOTS els seus "
      "termes es multipliquen, incloent-hi el $7$ de la dreta.")],
-  ["Multiplica la segona equació per $-2$ perquè els coeficients "
+  pistes=["Multiplica la segona equació per $-2$ perquè els coeficients "
    "de $x$ es cancel·lin en sumar.",
    "Un cop trobada $x$, substitueix a qualsevol equació original."],
-  ["Multipliquem la segona per $-2$: "
+  resolucio=["Multipliquem la segona per $-2$: "
    r"$\begin{array}{r}x+2y=5\\-4x-2y=-14\\\hline -3x=-9\end{array}$",
    "$x=3$; substituint: $3+2y=5 \\Rightarrow y=1$"],
   ex_text=E85)
 
-Q("85h", 85, "h", B4, "A",
-  r"$\left.\begin{array}{r}5x-y=23\\ -9x+5y=13\end{array}\right\}$",
-  xy_tex(F(8), F(17)),
-  [D(xy_tex(F(17), F(8)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("85h", 85, "h", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}5x-y=23\\ -9x+5y=13\end{array}\right\}$",
+  correcta=xy_tex(F(8), F(17)),
+  distractors=[D(xy_tex(F(17), F(8)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-8), F(-17)), "SIGNE_FINAL",
@@ -1450,9 +1450,9 @@ Q("85h", 85, "h", B4, "A",
    D(xy_tex(F(8), F(-17)), "SIGNE_FINAL",
      "Un cop $x=8$, substitueix a $y=5x-23$: "
      "$y=5\\cdot8-23=17$, amb signe positiu.")],
-  ["Aïlla $y=5x-23$ de la primera equació (substitució).",
+  pistes=["Aïlla $y=5x-23$ de la primera equació (substitució).",
    "Substitueix aquesta expressió a la segona equació."],
-  ["Aïllem $y=5x-23$ i ho posem a la segona: "
+  resolucio=["Aïllem $y=5x-23$ i ho posem a la segona: "
    "$-9x+5(5x-23)=13 \\;\\Longrightarrow\\; -9x+25x-115=13$",
    "$16x=128 \\Rightarrow x=8$", "$y=5\\cdot8-23=17$"],
   ex_text=E85)
@@ -1460,10 +1460,10 @@ Q("85h", 85, "h", B4, "A",
 
 E86 = "Resol amb el mètode més adequat."
 
-Q("86a", 86, "a", B4, "A",
-  r"$\left.\begin{array}{r}x-3y=4\\ 2x-5y=8\end{array}\right\}$",
-  xy_tex(F(4), F(0)),
-  [D(xy_tex(F(0), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("86a", 86, "a", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x-3y=4\\ 2x-5y=8\end{array}\right\}$",
+  correcta=xy_tex(F(4), F(0)),
+  distractors=[D(xy_tex(F(0), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-4), F(0)), "SIGNE_FINAL",
@@ -1472,18 +1472,18 @@ Q("86a", 86, "a", B4, "A",
    D(xy_tex(F(4), F(-8)), "TERME_OBLIDAT_OPERACIO",
      "Revisa el resultat de sumar les dues equacions "
      "transformades: hauria de quedar $y=0$, no un altre valor.")],
-  ["Multiplica la primera equació per $-2$ perquè els coeficients "
+  pistes=["Multiplica la primera equació per $-2$ perquè els coeficients "
    "de $x$ es cancel·lin (reducció).",
    "Un cop trobada $y$, substitueix a qualsevol equació original."],
-  ["Multipliquem la primera per $-2$: "
+  resolucio=["Multipliquem la primera per $-2$: "
    r"$\begin{array}{r}-2x+6y=-8\\2x-5y=8\\\hline y=0\end{array}$",
    "Amb $y=0$: $x-3\\cdot0=4 \\Rightarrow x=4$"],
   ex_text=E86)
 
-Q("86b", 86, "b", B4, "A",
-  r"$\left.\begin{array}{r}3x+y=3\\ 6x-y=0\end{array}\right\}$",
-  xy_tex(F(1, 3), F(2)),
-  [D(xy_tex(F(2), F(1, 3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("86b", 86, "b", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3x+y=3\\ 6x-y=0\end{array}\right\}$",
+  correcta=xy_tex(F(1, 3), F(2)),
+  distractors=[D(xy_tex(F(2), F(1, 3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-1, 3), F(2)), "SIGNE_FINAL",
@@ -1491,18 +1491,18 @@ Q("86b", 86, "b", B4, "A",
    D(xy_tex(F(1, 3), F(-2)), "SIGNE_FINAL",
      "Un cop $x=\\frac13$, substitueix a $y=3-3x$: "
      "$y=3-3\\cdot\\frac13=2$, amb signe positiu.")],
-  ["Aïlla $y=3-3x$ de la primera equació (substitució).",
+  pistes=["Aïlla $y=3-3x$ de la primera equació (substitució).",
    "Substitueix aquesta expressió a la segona equació."],
-  ["Aïllem $y=3-3x$ i ho posem a la segona: "
+  resolucio=["Aïllem $y=3-3x$ i ho posem a la segona: "
    "$6x-(3-3x)=0 \\;\\Longrightarrow\\; 6x-3+3x=0$",
    r"$9x=3 \Rightarrow x=\dfrac{1}{3}$",
    r"$y=3-3\cdot\dfrac13=2$"],
   ex_text=E86)
 
-Q("86c", 86, "c", B4, "A",
-  r"$\left.\begin{array}{r}4x-5y=10\\ 2x+7y=-4\end{array}\right\}$",
-  xy_tex(F(25, 19), F(-18, 19)),
-  [D(xy_tex(F(-18, 19), F(25, 19)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("86c", 86, "c", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}4x-5y=10\\ 2x+7y=-4\end{array}\right\}$",
+  correcta=xy_tex(F(25, 19), F(-18, 19)),
+  distractors=[D(xy_tex(F(-18, 19), F(25, 19)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(25, 19), F(18, 19)), "SIGNE_FINAL",
@@ -1511,21 +1511,21 @@ Q("86c", 86, "c", B4, "A",
    D(r"$x=\dfrac{25}{19},\ y=-\dfrac{126}{19}$", "FACTOR_OBLIDAT",
      "T'has quedat a mig aïllar la $y$: de $7y=-\\frac{126}{19}$ "
      "encara cal dividir entre $7$, i queda $y=-\\frac{18}{19}$.")],
-  ["Multiplica la primera equació per $7$ i la segona per $5$ per "
+  pistes=["Multiplica la primera equació per $7$ i la segona per $5$ per "
    "igualar el coeficient de $y$ (reducció).",
    "Un cop trobada $x$, substitueix a qualsevol equació original i "
    "aïlla $y$."],
-  ["Multipliquem per $7$ i per $5$: "
+  resolucio=["Multipliquem per $7$ i per $5$: "
    r"$\begin{array}{r}28x-35y=70\\10x+35y=-20\\\hline 38x=50\end{array}$",
    r"$x=\dfrac{50}{38}=\dfrac{25}{19}$",
    r"Substituint a $2x+7y=-4$: $7y=-4-\dfrac{50}{19}"
    r"=\dfrac{-126}{19} \Rightarrow y=-\dfrac{18}{19}$"],
   ex_text=E86)
 
-Q("86d", 86, "d", B4, "A",
-  r"$\left.\begin{array}{r}x-3y=13\\ 5x-2y=26\end{array}\right\}$",
-  xy_tex(F(4), F(-3)),
-  [D(xy_tex(F(-3), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("86d", 86, "d", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}x-3y=13\\ 5x-2y=26\end{array}\right\}$",
+  correcta=xy_tex(F(4), F(-3)),
+  distractors=[D(xy_tex(F(-3), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(4), F(3)), "SIGNE_FINAL",
@@ -1533,18 +1533,18 @@ Q("86d", 86, "d", B4, "A",
    D(xy_tex(F(-4), F(-3)), "SIGNE_FINAL",
      "Un cop $y=-3$, substitueix a $x-3y=13$: "
      "$x+9=13 \\Rightarrow x=4$, positiu.")],
-  ["Multiplica la primera equació per $-5$ perquè els coeficients "
+  pistes=["Multiplica la primera equació per $-5$ perquè els coeficients "
    "de $x$ es cancel·lin (reducció).",
    "Un cop trobada $y$, substitueix a qualsevol equació original."],
-  ["Multipliquem la primera per $-5$: "
+  resolucio=["Multipliquem la primera per $-5$: "
    r"$\begin{array}{r}-5x+15y=-65\\5x-2y=26\\\hline 13y=-39\end{array}$",
    "$y=-3$; substituint: $x-3\\cdot(-3)=13 \\Rightarrow x=4$"],
   ex_text=E86)
 
-Q("86e", 86, "e", B4, "A",
-  r"$\left.\begin{array}{r}8x+14y=-6\\ x+y=0\end{array}\right\}$",
-  xy_tex(F(1), F(-1)),
-  [D(xy_tex(F(-1), F(1)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("86e", 86, "e", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}8x+14y=-6\\ x+y=0\end{array}\right\}$",
+  correcta=xy_tex(F(1), F(-1)),
+  distractors=[D(xy_tex(F(-1), F(1)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-1), F(-1)), "SIGNE_FINAL",
@@ -1552,18 +1552,18 @@ Q("86e", 86, "e", B4, "A",
    D(xy_tex(F(1), F(1)), "TERME_OBLIDAT_OPERACIO",
      "Un cop $y=-1$, substitueix a $x=-y$: "
      "$x=-(-1)=1$, amb signe positiu.")],
-  ["Aïlla $x=-y$ de la segona equació (substitució).",
+  pistes=["Aïlla $x=-y$ de la segona equació (substitució).",
    "Substitueix aquesta expressió a la primera equació."],
-  ["Aïllem $x=-y$ i ho posem a la primera: "
+  resolucio=["Aïllem $x=-y$ i ho posem a la primera: "
    "$8(-y)+14y=-6 \\;\\Longrightarrow\\; 6y=-6$",
    "$y=-1$", "$x=-(-1)=1$"],
   ex_text=E86)
 
-Q("86f", 86, "f", B4, "A",
-  r"$\left.\begin{array}{r}3x-\dfrac{4}{5}y=13\\[4pt] "
+Q("86f", 86, "f", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3x-\dfrac{4}{5}y=13\\[4pt] "
   r"\dfrac{8}{3}x-y=-4\end{array}\right\}$",
-  xy_tex(F(243, 13), F(700, 13)),
-  [D(xy_tex(F(700, 13), F(243, 13)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(243, 13), F(700, 13)),
+  distractors=[D(xy_tex(F(700, 13), F(243, 13)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a "
      "l'equació original."),
    D(xy_tex(F(-243, 13), F(700, 13)), "SIGNE_FINAL",
@@ -1572,12 +1572,12 @@ Q("86f", 86, "f", B4, "A",
      xy_tex(F(1215, 60), F(700, 13)), "SIMPLIFICACIO_INCOMPLETA",
      "$\\frac{1215}{65}$ encara es pot simplificar dividint "
      "numerador i denominador pel seu m.c.d.")],
-  ["Multiplica cada equació pel denominador del seu terme "
+  pistes=["Multiplica cada equació pel denominador del seu terme "
    "fraccionari (m.c.m.$(5,1)=5$ i m.c.m.$(3,1)=3$) per treure "
    "denominadors.",
    "Un cop sense fraccions, multiplica per igualar un dels "
    "coeficients i aplica reducció."],
-  [r"Multiplicant per treure denominadors: "
+  resolucio=[r"Multiplicant per treure denominadors: "
    r"$45x-12y=195$ i $40x-15y=-60$",
    r"Multipliquem la primera per $5$ i la segona per $4$: "
    r"$\begin{array}{r}225x-60y=975\\160x-60y=-240\\\hline "
@@ -1590,11 +1590,11 @@ Q("86f", 86, "f", B4, "A",
 
 E87 = "Resol:"
 
-Q("87", 87, "", B4, "A",
-  r"$\left.\begin{array}{r}2(x-2)-3(y+1)+6=17\\[4pt] "
+Q("87", 87, "", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2(x-2)-3(y+1)+6=17\\[4pt] "
   r"4(x-y)-\dfrac{x}{3}+\dfrac{y}{2}=25\end{array}\right\}$",
-  xy_tex(F(3), F(-4)),
-  [D(xy_tex(F(-4), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(3), F(-4)),
+  distractors=[D(xy_tex(F(-4), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una de "
      "les equacions originals."),
    D(xy_tex(F(-3), F(4)), "SIGNE_FINAL",
@@ -1602,10 +1602,10 @@ Q("87", 87, "", B4, "A",
    D(xy_tex(F(3), F(4)), "SIGNE_FINAL",
      "Un cop $x=3$, substitueix a $2x-3y=18$: "
      "$6-3y=18 \\Rightarrow y=-4$, amb signe negatiu.")],
-  ["Simplifica cada equació per separat (distribueix parèntesis, "
+  pistes=["Simplifica cada equació per separat (distribueix parèntesis, "
    "treu denominadors) fins deixar-les en la forma $ax+by=c$.",
    "Un cop simplificades, resol el sistema per reducció."],
-  ["Simplificant la primera: $2(x-2)-3(y+1)+6=17 "
+  resolucio=["Simplificant la primera: $2(x-2)-3(y+1)+6=17 "
    "\\;\\Longrightarrow\\; 2x-3y=18$",
    "Simplificant la segona (multiplicant per $6$): "
    "$22x-21y=150$",
@@ -1618,10 +1618,10 @@ Q("87", 87, "", B4, "A",
 
 E88 = "Resol aquests sistemes."
 
-Q("88a", 88, "a", B4, "A",
-  r"$\left.\begin{array}{r}2x+3y=5+x+2y\\ x-2y-3=3-4y\end{array}\right\}$",
-  xy_tex(F(4), F(1)),
-  [D(xy_tex(F(1), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("88a", 88, "a", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2x+3y=5+x+2y\\ x-2y-3=3-4y\end{array}\right\}$",
+  correcta=xy_tex(F(4), F(1)),
+  distractors=[D(xy_tex(F(1), F(4)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(4), F(-1)), "SIGNE_FINAL",
@@ -1630,18 +1630,18 @@ Q("88a", 88, "a", B4, "A",
    D(xy_tex(F(5), F(0)), "TERME_OBLIDAT_OPERACIO",
      "Revisa que has agrupat bé els termes en simplificar cada "
      "equació abans de resoldre el sistema.")],
-  ["Simplifica cada equació agrupant termes amb $x$/$y$ a "
+  pistes=["Simplifica cada equació agrupant termes amb $x$/$y$ a "
    "l'esquerra i números a la dreta.",
    "Un cop simplificades, resta-les per eliminar la $x$ (reducció)."],
-  ["Simplificant: $x+y=5$ i $x+2y=6$",
+  resolucio=["Simplificant: $x+y=5$ i $x+2y=6$",
    "Restant la primera de la segona: $y=1$",
    "Substituint: $x+1=5 \\Rightarrow x=4$"],
   ex_text=E88)
 
-Q("88b", 88, "b", B4, "A",
-  r"$\left.\begin{array}{r}2y-x-1=4-y-2x\\ 2x-y=1+x\end{array}\right\}$",
-  xy_tex(F(2), F(1)),
-  [D(xy_tex(F(1), F(2)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("88b", 88, "b", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}2y-x-1=4-y-2x\\ 2x-y=1+x\end{array}\right\}$",
+  correcta=xy_tex(F(2), F(1)),
+  distractors=[D(xy_tex(F(1), F(2)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(2), F(-1)), "SIGNE_FINAL",
@@ -1650,20 +1650,20 @@ Q("88b", 88, "b", B4, "A",
    D(xy_tex(F(0), F(1, 3)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de cada equació per separat abans de "
      "combinar-les.")],
-  ["Simplifica cada equació: agrupa termes amb $x$/$y$ a "
+  pistes=["Simplifica cada equació: agrupa termes amb $x$/$y$ a "
    "l'esquerra.",
    "Un cop simplificades ($x+3y=5$ i $x-y=1$), resta-les per "
    "eliminar la $x$."],
-  ["Simplificant: $x+3y=5$ i $x-y=1$",
+  resolucio=["Simplificant: $x+3y=5$ i $x-y=1$",
    "Restant: $(x+3y)-(x-y)=5-1 \\Rightarrow 4y=4 \\Rightarrow y=1$",
    "Substituint: $x-1=1 \\Rightarrow x=2$"],
   ex_text=E88)
 
-Q("88c", 88, "c", B4, "A",
-  r"$\left.\begin{array}{r}3y-2=x-2(x+y)\\ "
+Q("88c", 88, "c", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3y-2=x-2(x+y)\\ "
   r"(x+4)+2\cdot(y-2)=18-x-y\end{array}\right\}$",
-  xy_tex(F(12), F(-2)),
-  [D(xy_tex(F(-2), F(12)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(12), F(-2)),
+  distractors=[D(xy_tex(F(-2), F(12)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(12), F(2)), "SIGNE_FINAL",
@@ -1671,19 +1671,19 @@ Q("88c", 88, "c", B4, "A",
    D(xy_tex(F(-12), F(-2)), "SIGNE_FINAL",
      "Un cop $y=-2$, substitueix a $x+5y=2$: "
      "$x-10=2 \\Rightarrow x=12$, positiu.")],
-  ["Simplifica cada equació distribuint els parèntesis.",
+  pistes=["Simplifica cada equació distribuint els parèntesis.",
    "Un cop simplificades ($x+5y=2$ i $2x+3y=18$), aplica reducció."],
-  ["Simplificant: $x+5y=2$ i $2x+3y=18$",
+  resolucio=["Simplificant: $x+5y=2$ i $2x+3y=18$",
    r"Multipliquem la primera per $-2$: "
    r"$\begin{array}{r}-2x-10y=-4\\2x+3y=18\\\hline -7y=14\end{array}$",
    "$y=-2$; substituint: $x-10=2 \\Rightarrow x=12$"],
   ex_text=E88)
 
-Q("88d", 88, "d", B4, "A",
-  r"$\left.\begin{array}{r}3x-2(y-1)=y-x+1\\ "
+Q("88d", 88, "d", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3x-2(y-1)=y-x+1\\ "
   r"2x-y=x+y-9\end{array}\right\}$",
-  xy_tex(F(5), F(7)),
-  [D(xy_tex(F(7), F(5)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(5), F(7)),
+  distractors=[D(xy_tex(F(7), F(5)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(5), F(-7)), "SIGNE_FINAL",
@@ -1692,20 +1692,20 @@ Q("88d", 88, "d", B4, "A",
    D(xy_tex(F(-1), F(-2)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de cada equació per separat abans de "
      "combinar-les.")],
-  ["Simplifica cada equació distribuint el parèntesi i agrupant "
+  pistes=["Simplifica cada equació distribuint el parèntesi i agrupant "
    "termes.",
    "Un cop simplificades ($4x-3y=-1$ i $x-2y=-9$), aplica reducció."],
-  ["Simplificant: $4x-3y=-1$ i $x-2y=-9$",
+  resolucio=["Simplificant: $4x-3y=-1$ i $x-2y=-9$",
    r"Multipliquem la segona per $-4$: "
    r"$\begin{array}{r}4x-3y=-1\\-4x+8y=36\\\hline 5y=35\end{array}$",
    "$y=7$; substituint a $x-2y=-9$: $x-14=-9 \\Rightarrow x=5$"],
   ex_text=E88)
 
-Q("88e", 88, "e", B4, "A",
-  r"$\left.\begin{array}{r}\dfrac{x}{2}-\dfrac{y}{5}=\dfrac{11}{5}\\[4pt] "
+Q("88e", 88, "e", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}\dfrac{x}{2}-\dfrac{y}{5}=\dfrac{11}{5}\\[4pt] "
   r"\dfrac{4x-5y}{2}=2\end{array}\right\}$",
-  xy_tex(F(6), F(4)),
-  [D(xy_tex(F(4), F(6)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(6), F(4)),
+  distractors=[D(xy_tex(F(4), F(6)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(-6), F(4)), "SIGNE_FINAL",
@@ -1713,22 +1713,22 @@ Q("88e", 88, "e", B4, "A",
    D(xy_tex(F(6), F(-4)), "SIGNE_FINAL",
      "Un cop $x=6$, substitueix a $5x-2y=22$: "
      "$30-2y=22 \\Rightarrow y=4$, positiu.")],
-  ["Multiplica cada equació pel seu denominador per treure "
+  pistes=["Multiplica cada equació pel seu denominador per treure "
    "fraccions.",
    "Un cop en forma $ax+by=c$, iguala un dels coeficients i aplica "
    "reducció."],
-  ["Traient denominadors: $5x-2y=22$ i $4x-5y=4$",
+  resolucio=["Traient denominadors: $5x-2y=22$ i $4x-5y=4$",
    r"Multipliquem la primera per $5$ i la segona per $-2$: "
    r"$\begin{array}{r}25x-10y=110\\-8x+10y=-8\\\hline "
    r"17x=102\end{array}$",
    "$x=6$; substituint: $30-2y=22 \\Rightarrow y=4$"],
   ex_text=E88)
 
-Q("88f", 88, "f", B4, "A",
-  r"$\left.\begin{array}{r}\dfrac{x+4y}{3}+\dfrac{x-y}{5}=\dfrac{2}{3}\\[4pt] "
+Q("88f", 88, "f", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}\dfrac{x+4y}{3}+\dfrac{x-y}{5}=\dfrac{2}{3}\\[4pt] "
   r"-x+5y=13\end{array}\right\}$",
-  xy_tex(F(-3), F(2)),
-  [D(xy_tex(F(2), F(-3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+  correcta=xy_tex(F(-3), F(2)),
+  distractors=[D(xy_tex(F(2), F(-3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(3), F(2)), "SIGNE_FINAL",
@@ -1736,11 +1736,11 @@ Q("88f", 88, "f", B4, "A",
      "surt $x=-3$, negatiu."),
    D(xy_tex(F(-3), F(-2)), "SIGNE_FINAL",
      "Revisa el signe de $y$: $57y=114 \\Rightarrow y=2$, positiu.")],
-  ["Multiplica la primera equació pel m.c.m. dels seus "
+  pistes=["Multiplica la primera equació pel m.c.m. dels seus "
    "denominadors ($15$) per eliminar-los.",
    "Un cop simplificada, iguala el coeficient de $x$ amb la segona "
    "equació i aplica reducció."],
-  ["Multiplicant la primera per $15$: $8x+17y=10$",
+  resolucio=["Multiplicant la primera per $15$: $8x+17y=10$",
    r"Multipliquem la segona per $8$: "
    r"$\begin{array}{r}8x+17y=10\\-8x+40y=104\\\hline "
    r"57y=114\end{array}$",
@@ -1750,10 +1750,10 @@ Q("88f", 88, "f", B4, "A",
 
 E89 = "Resol amb el mètode que consideris més adequat."
 
-Q("89a", 89, "a", B4, "A",
-  r"$\left.\begin{array}{r}-2(x-2)=y-4\\ 3y-2x=0\end{array}\right\}$",
-  xy_tex(F(3), F(2)),
-  [D(xy_tex(F(2), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("89a", 89, "a", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}-2(x-2)=y-4\\ 3y-2x=0\end{array}\right\}$",
+  correcta=xy_tex(F(3), F(2)),
+  distractors=[D(xy_tex(F(2), F(3)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(-3), F(2)), "SIGNE_FINAL",
@@ -1761,19 +1761,19 @@ Q("89a", 89, "a", B4, "A",
      "$2x+2=8 \\Rightarrow x=3$, positiu."),
    D(xy_tex(F(3), F(-2)), "SIGNE_FINAL",
      "Revisa el signe de $y$: $4y=8 \\Rightarrow y=2$, positiu.")],
-  ["Distribueix el parèntesi de la primera equació.",
+  pistes=["Distribueix el parèntesi de la primera equació.",
    "Un cop en forma $2x+y=8$ i $-2x+3y=0$, suma-les (reducció)."],
-  ["Simplificant la primera: $-2(x-2)=y-4 \\;\\Longrightarrow\\; "
+  resolucio=["Simplificant la primera: $-2(x-2)=y-4 \\;\\Longrightarrow\\; "
    "2x+y=8$",
    r"Sumant amb $-2x+3y=0$: "
    r"$\begin{array}{r}2x+y=8\\-2x+3y=0\\\hline 4y=8\end{array}$",
    "$y=2$; substituint: $2x+2=8 \\Rightarrow x=3$"],
   ex_text=E89)
 
-Q("89b", 89, "b", B4, "A",
-  r"$\left.\begin{array}{r}-5(y-2)=x-2\\ x-3y=-4\end{array}\right\}$",
-  xy_tex(F(2), F(2)),
-  [D(xy_tex(F(-2), F(2)), "SIGNE_FINAL",
+Q("89b", 89, "b", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}-5(y-2)=x-2\\ x-3y=-4\end{array}\right\}$",
+  correcta=xy_tex(F(2), F(2)),
+  distractors=[D(xy_tex(F(-2), F(2)), "SIGNE_FINAL",
      "Revisa el signe de $x$: $x-3\\cdot2=-4 \\Rightarrow x=2$, "
      "positiu."),
    D(xy_tex(F(2), F(-2)), "SIGNE_FINAL",
@@ -1781,19 +1781,19 @@ Q("89b", 89, "b", B4, "A",
    D(xy_tex(F(12), F(2)), "EQUACIO_NO_SIMPLIFICADA",
      "Revisa la simplificació de la primera equació abans de "
      "combinar-la amb la segona.")],
-  ["Distribueix el parèntesi de la primera equació.",
+  pistes=["Distribueix el parèntesi de la primera equació.",
    "Un cop en forma $x+5y=12$ i $x-3y=-4$, resta-les (reducció)."],
-  ["Simplificant la primera: $-5(y-2)=x-2 \\;\\Longrightarrow\\; "
+  resolucio=["Simplificant la primera: $-5(y-2)=x-2 \\;\\Longrightarrow\\; "
    "x+5y=12$",
    r"Restant amb $x-3y=-4$: "
    r"$\begin{array}{r}x+5y=12\\x-3y=-4\\\hline 8y=16\end{array}$",
    "$y=2$; substituint: $x-3\\cdot2=-4 \\Rightarrow x=2$"],
   ex_text=E89)
 
-Q("89c", 89, "c", B4, "A",
-  r"$\left.\begin{array}{r}3(x+y)-x+2y=15\\ 2x-(y+8)=-11\end{array}\right\}$",
-  xy_tex(F(0), F(3)),
-  [D(xy_tex(F(3), F(0)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("89c", 89, "c", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3(x+y)-x+2y=15\\ 2x-(y+8)=-11\end{array}\right\}$",
+  correcta=xy_tex(F(0), F(3)),
+  distractors=[D(xy_tex(F(3), F(0)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(0), F(-3)), "SIGNE_FINAL",
@@ -1801,19 +1801,19 @@ Q("89c", 89, "c", B4, "A",
    D(xy_tex(F(-3), F(3)), "SIGNE_FINAL",
      "Un cop $y=3$, substitueix a $2x-y=-3$: "
      "$2x-3=-3 \\Rightarrow x=0$.")],
-  ["Simplifica cada equació distribuint parèntesis.",
+  pistes=["Simplifica cada equació distribuint parèntesis.",
    "Un cop en forma $2x+5y=15$ i $2x-y=-3$, resta-les (reducció, "
    "ja que el coeficient de $x$ coincideix)."],
-  ["Simplificant: $2x+5y=15$ i $2x-y=-3$",
+  resolucio=["Simplificant: $2x+5y=15$ i $2x-y=-3$",
    r"Restant: "
    r"$\begin{array}{r}2x+5y=15\\2x-y=-3\\\hline 6y=18\end{array}$",
    "$y=3$; substituint: $2x-3=-3 \\Rightarrow x=0$"],
   ex_text=E89)
 
-Q("89d", 89, "d", B4, "A",
-  r"$\left.\begin{array}{r}3(x+2)-7(x+y)=5\\ 5(x+1)-y=14\end{array}\right\}$",
-  xy_tex(F(64, 39), F(-31, 39)),
-  [D(xy_tex(F(-31, 39), F(64, 39)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
+Q("89d", 89, "d", B4, tipus="A",
+  enunciat=r"$\left.\begin{array}{r}3(x+2)-7(x+y)=5\\ 5(x+1)-y=14\end{array}\right\}$",
+  correcta=xy_tex(F(64, 39), F(-31, 39)),
+  distractors=[D(xy_tex(F(-31, 39), F(64, 39)), "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Has intercanviat $x$ i $y$: comprova-ho substituint a una "
      "equació original."),
    D(xy_tex(F(-64, 39), F(31, 39)), "SIGNE_FINAL",
@@ -1822,11 +1822,11 @@ Q("89d", 89, "d", B4, "A",
    D(xy_tex(F(64, 39), F(31, 39)), "SIGNE_FINAL",
      "Un cop $x=\\frac{64}{39}$, substitueix a $y=5x-9$: el "
      "resultat surt negatiu perquè $5x<9$.")],
-  ["Distribueix els parèntesis de les dues equacions per deixar-les "
+  pistes=["Distribueix els parèntesis de les dues equacions per deixar-les "
    "en forma $ax+by=c$.",
    "Un cop simplificades ($-4x-7y=-1$ i $5x-y=9$), aïlla $y$ de la "
    "segona i substitueix a la primera."],
-  ["Simplificant: $-4x-7y=-1$ i $5x-y=9$",
+  resolucio=["Simplificant: $-4x-7y=-1$ i $5x-y=9$",
    "Aïllem $y=5x-9$ de la segona i ho posem a la primera: "
    "$-4x-7(5x-9)=-1 \\;\\Longrightarrow\\; -4x-35x+63=-1$",
    r"$-39x=-64 \Rightarrow x=\dfrac{64}{39}$; "
@@ -1838,11 +1838,11 @@ Q("89d", 89, "d", B4, "A",
 # BLOC 5 — PROBLEMES AMB EQUACIONS I SISTEMES (exercicis 90-100)
 # =====================================================================
 
-Q("90", 90, "", B5, "A",
-  "Troba dos nombres consecutius, sabent que la diferència dels seus "
+Q("90", 90, "", B5, tipus="A",
+  enunciat="Troba dos nombres consecutius, sabent que la diferència dels seus "
   "quadrats és 567.",
-  "$283$ i $284$",
-  [D("$282$ i $283$", "TERME_OBLIDAT_OPERACIO",
+  correcta="$283$ i $284$",
+  distractors=[D("$282$ i $283$", "TERME_OBLIDAT_OPERACIO",
      "Comprova-ho: $283^2-282^2=161\\,845-79\\,524$... millor "
      "torna a plantejar l'equació $(x+1)^2-x^2=567$ i resol-la des "
      "de zero."),
@@ -1852,19 +1852,19 @@ Q("90", 90, "", B5, "A",
    D("$567$ i $568$", "PROGRESSIO_INVENTADA",
      "El $567$ és la diferència de quadrats que dona l'enunciat, "
      "no un dels dos nombres que busques.")],
-  ["Anomena $x$ el primer nombre; el consecutiu és $x+1$.",
+  pistes=["Anomena $x$ el primer nombre; el consecutiu és $x+1$.",
    "Planteja l'equació $(x+1)^2-x^2=567$ i observa que el terme "
    "$x^2$ es cancel·la en desenvolupar-la."],
-  ["$(x+1)^2-x^2=567 \\;\\Longrightarrow\\; x^2+2x+1-x^2=567$",
+  resolucio=["$(x+1)^2-x^2=567 \\;\\Longrightarrow\\; x^2+2x+1-x^2=567$",
    "$2x+1=567 \\;\\Longrightarrow\\; 2x=566 \\;\\Longrightarrow\\; x=283$",
    "Els dos nombres consecutius són $283$ i $284$."],
   ex_text="")
 
-Q("91", 91, "", B5, "A",
-  "El preu d'un anell i el seu estoig és de $10\\,200$ €, i l'anell val "
+Q("91", 91, "", B5, tipus="A",
+  enunciat="El preu d'un anell i el seu estoig és de $10\\,200$ €, i l'anell val "
   "$10\\,000$ € més que l'estoig. Quin és el preu de cada article?",
-  "L'anell val $10\\,100$ € i l'estoig, $100$ €",
-  [D("L'anell val $10\\,000$ € i l'estoig, $200$ €",
+  correcta="L'anell val $10\\,100$ € i l'estoig, $100$ €",
+  distractors=[D("L'anell val $10\\,000$ € i l'estoig, $200$ €",
      "TERME_OBLIDAT_OPERACIO",
      "Comprova-ho amb les dues condicions: $10\\,000+200=10\\,200$ "
      "(hi quadra), però $10\\,000-200=9\\,800\\ne10\\,000$ (la "
@@ -1877,21 +1877,21 @@ Q("91", 91, "", B5, "A",
      "VEREDICTE_INVERTIT",
      "L'enunciat diu que l'anell val MÉS que l'estoig (per "
      "$10\\,000$ €), no que valguin el mateix.")],
-  ["Anomena $a$ el preu de l'anell i $e$ el de l'estoig, i planteja "
+  pistes=["Anomena $a$ el preu de l'anell i $e$ el de l'estoig, i planteja "
    "el sistema amb les dues condicions.",
    "Substitueix $a=e+10\\,000$ a la primera equació."],
-  ["Sistema: $a+e=10\\,200,\\quad a=e+10\\,000$",
+  resolucio=["Sistema: $a+e=10\\,200,\\quad a=e+10\\,000$",
    "Substituint: $(e+10\\,000)+e=10\\,200 \\;\\Longrightarrow\\; "
    "2e=200 \\;\\Longrightarrow\\; e=100$",
    "$a=100+10\\,000=10\\,100$"],
   ex_text="")
 
-Q("92", 92, "", B5, "A",
-  "Una bodega va exportar al gener la meitat dels seus barrils i, al "
+Q("92", 92, "", B5, tipus="A",
+  enunciat="Una bodega va exportar al gener la meitat dels seus barrils i, al "
   "cap de dos mesos, un terç dels que li quedaven. Quants barrils "
   "tenia al començament si ara hi ha $40\\,000$ barrils?",
-  "$120\\,000$ barrils",
-  [D("$60\\,000$ barrils", "EXPONENT_SENSE_DESPLACAR",
+  correcta="$120\\,000$ barrils",
+  distractors=[D("$60\\,000$ barrils", "EXPONENT_SENSE_DESPLACAR",
      "Aquest seria el resultat de considerar només UNA de les dues "
      "exportacions; l'enunciat en descriu dues seguides."),
    D("$180\\,000$ barrils", "ORDRE_MULTIPLICACIO_DIVISIO",
@@ -1901,20 +1901,20 @@ Q("92", 92, "", B5, "A",
    D("$40\\,000$ barrils", "PROGRESSIO_INVENTADA",
      "$40\\,000$ és el nombre de barrils ARA, després de les dues "
      "exportacions, no el nombre inicial que es demana.")],
-  ["Anomena $B$ el nombre inicial de barrils. Després del gener en "
+  pistes=["Anomena $B$ el nombre inicial de barrils. Després del gener en "
    "queden $\\frac{B}{2}$.",
    "Al cap de dos mesos n'exporta un terç DELS QUE LI QUEDAVEN: "
    "li'n queden els altres dos terços d'aquesta meitat."],
-  [r"Li queden $\dfrac{B}{2}\cdot\dfrac{2}{3}=\dfrac{B}{3}$",
+  resolucio=[r"Li queden $\dfrac{B}{2}\cdot\dfrac{2}{3}=\dfrac{B}{3}$",
    r"Com que ara hi ha $40\,000$: $\dfrac{B}{3}=40\,000$",
    "$B=120\\,000$ barrils"],
   ex_text="")
 
-Q("93", 93, "", B5, "A",
-  "En Miquel té 4 anys més que el seu cosí Ignasi i, al cap de 3 "
+Q("93", 93, "", B5, tipus="A",
+  enunciat="En Miquel té 4 anys més que el seu cosí Ignasi i, al cap de 3 "
   "anys, entre els dos sumaran 20 anys. Quants anys té cadascú?",
-  "En Miquel té $9$ anys i l'Ignasi, $5$ anys",
-  [D("En Miquel té $12$ anys i l'Ignasi, $8$ anys", "TERME_OBLIDAT_OPERACIO",
+  correcta="En Miquel té $9$ anys i l'Ignasi, $5$ anys",
+  distractors=[D("En Miquel té $12$ anys i l'Ignasi, $8$ anys", "TERME_OBLIDAT_OPERACIO",
      "Comprova la primera condició: $12-8=4$ (hi quadra), però "
      "revisa la segona: d'aquí a 3 anys sumarien $15+11=26$, no $20$."),
    D("En Miquel té $8$ anys i l'Ignasi, $4$ anys", "SIGNE_FINAL",
@@ -1923,20 +1923,20 @@ Q("93", 93, "", B5, "A",
    D("En Miquel té $10$ anys i l'Ignasi, $6$ anys", "DESPLACAMENT_INDEX",
      "Comprova-ho: d'aquí a 3 anys sumarien $13+9=22$, no $20$; "
      "revisa l'equació que expressa \"d'aquí a 3 anys\".")],
-  ["Anomena $m$ l'edat d'en Miquel i $i$ la de l'Ignasi. La primera "
+  pistes=["Anomena $m$ l'edat d'en Miquel i $i$ la de l'Ignasi. La primera "
    "condició dona $m=i+4$.",
    "La segona condició, \"al cap de 3 anys sumaran 20\", és "
    "$(m+3)+(i+3)=20$."],
-  ["Sistema: $m=i+4,\\quad (m+3)+(i+3)=20$",
+  resolucio=["Sistema: $m=i+4,\\quad (m+3)+(i+3)=20$",
    "Substituint: $(i+4+3)+(i+3)=20 \\;\\Longrightarrow\\; 2i+10=20$",
    "$i=5$; per tant $m=5+4=9$"],
   ex_text="")
 
-Q("94", 94, "", B5, "A",
-  "Quina edat tinc ara si al cap de 12 anys tindré el triple de "
+Q("94", 94, "", B5, tipus="A",
+  enunciat="Quina edat tinc ara si al cap de 12 anys tindré el triple de "
   "l'edat que tenia fa 6 anys?",
-  "$15$ anys",
-  [D("$9$ anys", "DESPLACAMENT_INDEX",
+  correcta="$15$ anys",
+  distractors=[D("$9$ anys", "DESPLACAMENT_INDEX",
      "Comprova-ho: d'aquí a 12 anys tindria $21$, i fa 6 anys "
      "tenia $3$; el triple de $3$ és $9$, no $21$."),
    D("$21$ anys", "EXPONENT_MULTIPLICAT",
@@ -1945,19 +1945,19 @@ Q("94", 94, "", B5, "A",
    D("$30$ anys", "ORDRE_RESTA",
      "Comprova-ho: d'aquí a 12 anys tindria $42$, i fa 6 anys "
      "tenia $24$; el triple de $24$ no és $42$.")],
-  ["Anomena $e$ l'edat actual. \"Fa 6 anys\" és $e-6$; \"al cap de "
+  pistes=["Anomena $e$ l'edat actual. \"Fa 6 anys\" és $e-6$; \"al cap de "
    "12 anys\" és $e+12$.",
    "Planteja l'equació: $e+12=3(e-6)$."],
-  ["$e+12=3(e-6) \\;\\Longrightarrow\\; e+12=3e-18$",
+  resolucio=["$e+12=3(e-6) \\;\\Longrightarrow\\; e+12=3e-18$",
    "$12+18=3e-e \\;\\Longrightarrow\\; 30=2e$", "$e=15$ anys"],
   ex_text="")
 
-Q("95", 95, "", B5, "A",
-  "En un triangle rectangle de 24 m de perímetre, la longitud d'un "
+Q("95", 95, "", B5, tipus="A",
+  enunciat="En un triangle rectangle de 24 m de perímetre, la longitud d'un "
   "catet és igual als tres quarts de la longitud de l'altre. Troba'n "
   "les dimensions.",
-  "Catets de $8$ m i $6$ m, i hipotenusa de $10$ m",
-  [D("Catets de $9$ m i $12$ m, i hipotenusa de $3$ m", "VEREDICTE_INVERTIT",
+  correcta="Catets de $8$ m i $6$ m, i hipotenusa de $10$ m",
+  distractors=[D("Catets de $9$ m i $12$ m, i hipotenusa de $3$ m", "VEREDICTE_INVERTIT",
      "La hipotenusa ha de ser el costat MÉS LLARG del triangle "
      "rectangle, mai el més curt: revisa quin dels tres valors "
      "surt de l'arrel quadrada."),
@@ -1970,12 +1970,12 @@ Q("95", 95, "", B5, "A",
      "($10+7{,}5+6{,}5=24$, sí que hi quadra la suma, però "
      "comprova Pitàgores: $10^2+7{,}5^2\\ne6{,}5^2$, així que no "
      "pot ser un triangle rectangle amb aquests costats).")],
-  ["Anomena $a$ el catet més llarg; l'altre val $\\frac{3}{4}a$. "
+  pistes=["Anomena $a$ el catet més llarg; l'altre val $\\frac{3}{4}a$. "
    "La hipotenusa és $\\sqrt{a^2+\\left(\\frac34a\\right)^2}$.",
    "Com que el perímetre és $24$, planteja "
    "$a+\\frac34a+\\sqrt{a^2+\\frac{9}{16}a^2}=24$ i simplifica "
    "l'arrel abans de resoldre."],
-  [r"Dins l'arrel: $a^2+\dfrac{9}{16}a^2=\dfrac{25}{16}a^2$, i com "
+  resolucio=[r"Dins l'arrel: $a^2+\dfrac{9}{16}a^2=\dfrac{25}{16}a^2$, i com "
    r"que $a>0$: $\sqrt{\dfrac{25}{16}a^2}=\dfrac{5}{4}a$",
    r"L'equació queda $a+\dfrac34a+\dfrac54a=24 "
    r"\;\Longrightarrow\; 3a=24 \;\Longrightarrow\; a=8$",
@@ -1983,12 +1983,12 @@ Q("95", 95, "", B5, "A",
    r"$\dfrac54\cdot8=10$ m"],
   ex_text="")
 
-Q("96", 96, "", B5, "A",
-  "Per enrajolar una sala de 8 m de llarg per 6 m d'ample s'han fet "
+Q("96", 96, "", B5, tipus="A",
+  enunciat="Per enrajolar una sala de 8 m de llarg per 6 m d'ample s'han fet "
   "servir 300 rajoles quadrades. Quant mesura el costat de les "
   "rajoles?",
-  "$0{,}4$ m (és a dir, $40$ cm) de costat",
-  [D("$0{,}16$ m de costat", "ARREL_OBLIDADA",
+  correcta="$0{,}4$ m (és a dir, $40$ cm) de costat",
+  distractors=[D("$0{,}16$ m de costat", "ARREL_OBLIDADA",
      "Aquest seria el valor de $L^2$ (l'àrea d'una rajola), no de "
      "$L$ (el costat): encara falta fer l'arrel quadrada."),
    D("$4$ m de costat", "ORDRE_MULTIPLICACIO_DIVISIO",
@@ -1998,20 +1998,20 @@ Q("96", 96, "", B5, "A",
    D("$1{,}25$ m de costat", "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Aquest valor surt de dividir $300$ entre $48$ enlloc de $48$ "
      "entre $300$ dins de l'equació $300\\cdot L^2=48$.")],
-  ["La superfície de la sala és $8\\cdot6=48$ m$^2$. Si $L$ és el "
+  pistes=["La superfície de la sala és $8\\cdot6=48$ m$^2$. Si $L$ és el "
    "costat d'una rajola, la seva àrea és $L^2$.",
    "Com que se n'han fet servir $300$ per cobrir tota la sala: "
    "$300\\cdot L^2=48$."],
-  [r"$300\cdot L^2=48 \;\Longrightarrow\; L^2=\dfrac{48}{300}"
+  resolucio=[r"$300\cdot L^2=48 \;\Longrightarrow\; L^2=\dfrac{48}{300}"
    r"=\dfrac{4}{25}$",
    r"$L=\sqrt{\dfrac{4}{25}}=\dfrac{2}{5}=0{,}4$ m"],
   ex_text="")
 
-Q("97", 97, "", B5, "A",
-  "En Pau té 8 anys i la seva germana, 2 anys. Al cap de quants anys "
+Q("97", 97, "", B5, tipus="A",
+  enunciat="En Pau té 8 anys i la seva germana, 2 anys. Al cap de quants anys "
   "l'edat d'en Pau serà el doble que la de la seva germana?",
-  "D'aquí a $4$ anys",
-  [D("D'aquí a $2$ anys", "PROGRESSIO_INVENTADA",
+  correcta="D'aquí a $4$ anys",
+  distractors=[D("D'aquí a $2$ anys", "PROGRESSIO_INVENTADA",
      "Comprova-ho: d'aquí a 2 anys en Pau tindria $10$ i la "
      "germana $4$; $10$ no és el doble de $4$."),
    D("D'aquí a $6$ anys", "ORDRE_RESTA",
@@ -2021,18 +2021,18 @@ Q("97", 97, "", B5, "A",
      "Ara en Pau té $8$ i la germana $2$: $8$ és el quàdruple de "
      "$2$, no el doble; cal que passi temps perquè la proporció "
      "canviï cap al doble.")],
-  ["Anomena $x$ els anys que han de passar. En Pau tindrà $8+x$ "
+  pistes=["Anomena $x$ els anys que han de passar. En Pau tindrà $8+x$ "
    "anys, i la germana, $2+x$.",
    "Planteja l'equació \"el doble\": $8+x=2(2+x)$."],
-  ["$8+x=2(2+x) \\;\\Longrightarrow\\; 8+x=4+2x$",
+  resolucio=["$8+x=2(2+x) \\;\\Longrightarrow\\; 8+x=4+2x$",
    "$8-4=2x-x$", "$x=4$ anys"],
   ex_text="")
 
-Q("98", 98, "", B5, "A",
-  "En Tomàs és 5 anys més gran que l'Elena i, fa 10 anys, l'edat d'en "
+Q("98", 98, "", B5, tipus="A",
+  enunciat="En Tomàs és 5 anys més gran que l'Elena i, fa 10 anys, l'edat d'en "
   "Tomàs era el doble de l'edat de l'Elena. Quina edat té en Tomàs?",
-  "En Tomàs té $20$ anys (i l'Elena, $15$)",
-  [D("En Tomàs té $15$ anys (i l'Elena, $10$)", "DESPLACAMENT_INDEX",
+  correcta="En Tomàs té $20$ anys (i l'Elena, $15$)",
+  distractors=[D("En Tomàs té $15$ anys (i l'Elena, $10$)", "DESPLACAMENT_INDEX",
      "Comprova la segona condició: fa 10 anys en Tomàs tenia $5$ i "
      "l'Elena $0$; $5$ no és el doble de $0$ (i a més $0$ anys fa "
      "10 anys no té sentit amb aquestes dades)."),
@@ -2044,22 +2044,22 @@ Q("98", 98, "", B5, "A",
      "El sistema de dues equacions (diferència d'edats i relació "
      "\"fa 10 anys\") té solució única: no cal descartar el "
      "problema.")],
-  ["Anomena $t$ l'edat d'en Tomàs i $e$ la de l'Elena. La primera "
+  pistes=["Anomena $t$ l'edat d'en Tomàs i $e$ la de l'Elena. La primera "
    "condició dona $t=e+5$.",
    "\"Fa 10 anys\" és $t-10$ i $e-10$; la segona condició diu que "
    "el primer és el doble del segon: $t-10=2(e-10)$."],
-  ["Sistema: $t=e+5,\\quad t-10=2(e-10)$",
+  resolucio=["Sistema: $t=e+5,\\quad t-10=2(e-10)$",
    "Substituint: $(e+5)-10=2(e-10) \\;\\Longrightarrow\\; "
    "e-5=2e-20$",
    "$-5+20=2e-e \\;\\Longrightarrow\\; e=15$; per tant $t=15+5=20$"],
   ex_text="")
 
-Q("99", 99, "", B5, "A",
-  "Canviem el valor de diverses monedes d'1 cèntim d'euro per "
+Q("99", 99, "", B5, tipus="A",
+  enunciat="Canviem el valor de diverses monedes d'1 cèntim d'euro per "
   "monedes de 5 cèntims, amb la qual cosa obtenim 60 monedes menys. "
   "Quantes monedes hi ha de cada classe?",
-  "$75$ monedes d'1 cèntim, que es canvien per $15$ monedes de $5$ cèntims",
-  [D("$60$ monedes d'1 cèntim, que es canvien per $12$ monedes de $5$ cèntims",
+  correcta="$75$ monedes d'1 cèntim, que es canvien per $15$ monedes de $5$ cèntims",
+  distractors=[D("$60$ monedes d'1 cèntim, que es canvien per $12$ monedes de $5$ cèntims",
      "PROGRESSIO_INVENTADA",
      "Comprova-ho: $60-12=48$, no $60$; aquesta parella no compleix "
      "la condició de \"60 monedes menys\"."),
@@ -2071,23 +2071,23 @@ Q("99", 99, "", B5, "A",
      "PROGRESSIO_INVENTADA",
      "Comprova-ho: $100-20=80$, no $60$; aquesta parella no "
      "compleix la condició exacta de l'enunciat.")],
-  ["Anomena $n$ el nombre de monedes d'1 cèntim. Cada $5$ monedes "
+  pistes=["Anomena $n$ el nombre de monedes d'1 cèntim. Cada $5$ monedes "
    "originals es converteixen en $1$ moneda nova, així que en "
    "queden $\\frac{n}{5}$.",
    "La diferència de nombre de monedes és $60$: "
    "$n-\\frac{n}{5}=60$."],
-  [r"$n-\dfrac{n}{5}=60$; multipliquem per $5$: "
+  resolucio=[r"$n-\dfrac{n}{5}=60$; multipliquem per $5$: "
    r"$5n-n=300 \;\Longrightarrow\; 4n=300$",
    "$n=75$ monedes d'1 cèntim",
    r"Es converteixen en $\dfrac{75}{5}=15$ monedes de $5$ cèntims"],
   ex_text="")
 
-Q("100", 100, "", B5, "A",
-  "Un matrimoni i els seus tres fills viatgen en tren. Si el bitllet "
+Q("100", 100, "", B5, tipus="A",
+  enunciat="Un matrimoni i els seus tres fills viatgen en tren. Si el bitllet "
   "d'adult costa el doble que el de nen i el cost total dels "
   "bitllets és de 8,75 €, quant ha costat cada bitllet?",
-  "Bitllet de nen: $1{,}25$ €; bitllet d'adult: $2{,}5$ €",
-  [D("Bitllet de nen: $1{,}75$ €; bitllet d'adult: $3{,}5$ €",
+  correcta="Bitllet de nen: $1{,}25$ €; bitllet d'adult: $2{,}5$ €",
+  distractors=[D("Bitllet de nen: $1{,}75$ €; bitllet d'adult: $3{,}5$ €",
      "TERME_OBLIDAT_OPERACIO",
      "Comprova-ho: $2\\cdot(2\\cdot1{,}75)+3\\cdot1{,}75=7+5{,}25"
      "=12{,}25$ €, no $8{,}75$ €."),
@@ -2099,10 +2099,161 @@ Q("100", 100, "", B5, "A",
      "FACTOR_COMU_INCOMPLET",
      "Revisa quants adults i quants nens hi ha: 2 adults i 3 "
      "nens, no 1 de cada, en l'equació del cost total.")],
-  ["Anomena $n$ el preu del bitllet de nen; el d'adult val $2n$. "
+  pistes=["Anomena $n$ el preu del bitllet de nen; el d'adult val $2n$. "
    "Hi ha $2$ adults i $3$ nens.",
    "Planteja el cost total: $2\\cdot(2n)+3\\cdot n=8{,}75$."],
-  ["$2\\cdot(2n)+3n=8{,}75 \\;\\Longrightarrow\\; 4n+3n=8{,}75$",
+  resolucio=["$2\\cdot(2n)+3n=8{,}75 \\;\\Longrightarrow\\; 4n+3n=8{,}75$",
    "$7n=8{,}75 \\;\\Longrightarrow\\; n=1{,}25$",
    "El bitllet d'adult val el doble: $2\\cdot1{,}25=2{,}5$ €"],
   ex_text="")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 350-353)
+# =====================================================================
+# Els quatre blocs obrien ja amb el procediment complet: denominadors, la
+# fórmula general sencera, una equació que primer s'ha de factoritzar, un
+# sistema per resoldre. Aquí es mira la peça de sota: desfer UNA operació,
+# calcular el discriminant i prou, llegir les solucions d'un producte que ja
+# és zero, i saber què vol dir que un parell és solució d'un sistema.
+
+dificultats({
+    350: 1,  # equació d'un sol pas
+    351: 1,  # només el discriminant
+    352: 1,  # producte igualat a zero, ja factoritzat
+    353: 1,  # comprovar si un parell és solució d'un sistema
+})
+
+
+E350 = ("Resol aquesta equació de primer grau desfent l'única operació que "
+        "acompanya la $x$.")
+
+Q("350a", 350, "a", B1, tipus="A",
+  enunciat=r"$x+7=12$",
+  correcta="$x=5$",
+  distractors=[DT("$x=19$", "OPERACIO_INVERSA",
+      extra="El $7$ SUMA: per desfer-ho, es resta. $12-7$, no $12+7$."),
+   D("$x=-5$", "SIGNE_FINAL",
+     "Has fet $7-12$. És $12-7$: comprova-ho, $5+7=12$."),
+   DT(r"$x=\dfrac{12}{7}$", "OPERACIO_INVERSA",
+      extra="El $7$ no multiplica la $x$: s'hi suma. Es desfà restant.")],
+  pistes=["Quina operació fa el $7$ amb la $x$?",
+   "Resta $7$ als dos costats."],
+  resolucio=[r"$x=12-7=5$", "Comprovació: $5+7=12$"],
+  ex_text=E350)
+
+Q("350b", 350, "b", B1, tipus="A",
+  enunciat=r"$3x=21$",
+  correcta="$x=7$",
+  distractors=[DT("$x=63$", "OPERACIO_INVERSA",
+      extra="El $3$ MULTIPLICA: per desfer-ho, es divideix. $21:3$, no $21\\cdot3$."),
+   DT("$x=18$", "OPERACIO_INVERSA",
+      extra="El $3$ no se suma a la $x$: la multiplica. Es desfà dividint."),
+   D(r"$x=\dfrac{1}{7}$", "INVERTIDA",
+     "Has fet $3:21$. És $21:3$: comprova-ho, $3\\cdot7=21$.")],
+  pistes=["Quina operació fa el $3$ amb la $x$?",
+   "Divideix per $3$ els dos costats."],
+  resolucio=[r"$x=\dfrac{21}{3}=7$", r"Comprovació: $3\cdot7=21$"],
+  ex_text=E350)
+
+
+E351 = ("Calcula el discriminant d'aquesta equació de segon grau. Recorda: "
+        r"a $ax^2+bx+c=0$, el discriminant és $\Delta=b^2-4ac$.")
+
+Q("351a", 351, "a", B2, tipus="A",
+  enunciat=r"$x^2+5x+4=0$",
+  correcta=r"$\Delta=9$",
+  distractors=[D(r"$\Delta=41$", "SUMA_EN_LLOC_RESTA",
+     "Has sumat $4ac$. La fórmula el RESTA: $25-16$."),
+   DT(r"$\Delta=-6$", "POTENCIA_COM_PRODUCTE",
+      extra="$b^2=5^2=25$, no $2\\cdot5=10$."),
+   D(r"$\Delta=21$", "FACTOR_OBLIDAT",
+     "Has restat només el $4$. Són $4\\cdot a\\cdot c=4\\cdot1\\cdot4=16$.")],
+  pistes=["Aquí $a=1$, $b=5$ i $c=4$.",
+   "$\\Delta=5^2-4\\cdot1\\cdot4$."],
+  resolucio=[r"$a=1,\ b=5,\ c=4$",
+   r"$\Delta=5^2-4\cdot1\cdot4=25-16=9$"],
+  ex_text=E351)
+
+Q("351b", 351, "b", B2, tipus="A",
+  enunciat=r"$x^2-6x+5=0$",
+  correcta=r"$\Delta=16$",
+  distractors=[DT(r"$\Delta=-56$", "PARITAT_EXPONENT",
+      extra="$(-6)^2=+36$, no $-36$."),
+   D(r"$\Delta=56$", "SUMA_EN_LLOC_RESTA",
+     "Has sumat $4ac$. La fórmula el RESTA: $36-20$."),
+   DT(r"$\Delta=-32$", "POTENCIA_COM_PRODUCTE",
+      extra="$b^2=(-6)^2=36$, no $2\\cdot(-6)=-12$.")],
+  pistes=["Aquí $a=1$, $b=-6$ i $c=5$.",
+   "$\\Delta=(-6)^2-4\\cdot1\\cdot5$."],
+  resolucio=[r"$a=1,\ b=-6,\ c=5$",
+   r"$\Delta=(-6)^2-4\cdot1\cdot5=36-20=16$"],
+  ex_text=E351)
+
+
+E352 = ("Resol aquesta equació, que ja està factoritzada. Un producte val "
+        "zero quan algun dels seus factors val zero.")
+
+Q("352a", 352, "a", B3, tipus="A",
+  enunciat=r"$x(x-4)=0$",
+  correcta=r"$x=0,\ 4$",
+  distractors=[D(r"$x=4$", "AILLAMENT_INCOMPLET",
+     "T'has deixat una solució: el primer factor, $x$, també pot valer "
+     "zero. Comprova-ho: $0\\cdot(0-4)=0$."),
+   DT(r"$x=0,\ -4$", "SIGNE_ARRELS",
+      extra="De $x-4=0$ surt $x=4$, no $-4$."),
+   D(r"$x=-4$", "SIGNE_ARRELS",
+     "T'has deixat la solució $x=0$, i de $x-4=0$ surt $x=4$, no $-4$.")],
+  pistes=["Hi ha dos factors: $x$ i $(x-4)$.",
+   "Iguala cada factor a zero: $x=0$, i $x-4=0$."],
+  resolucio=[r"$x=0$ o bé $x-4=0\Rightarrow x=4$"],
+  ex_text=E352)
+
+Q("352b", 352, "b", B3, tipus="A",
+  enunciat=r"$(x-3)(x+1)=0$",
+  correcta=r"$x=3,\ -1$",
+  distractors=[DT(r"$x=-3,\ 1$", "SIGNE_ARRELS"),
+   D(r"$x=3$", "AILLAMENT_INCOMPLET",
+     "T'has deixat una solució: el segon factor també pot valer zero, "
+     "amb $x=-1$."),
+   D(r"$x=3,\ 1$", "SIGNE_ARRELS",
+     "De $x+1=0$ surt $x=-1$, no $1$. Comprova-ho: $1+1=2\\ne0$.")],
+  pistes=["Hi ha dos factors: $(x-3)$ i $(x+1)$.",
+   "Iguala cada factor a zero."],
+  resolucio=[r"$x-3=0\Rightarrow x=3$ o bé $x+1=0\Rightarrow x=-1$"],
+  ex_text=E352)
+
+
+E353 = ("Comprova si el parell de valors donat és solució d'aquest sistema "
+        "substituint-lo a les dues equacions.")
+
+Q("353a", 353, "a", B4, tipus="A",
+  enunciat=(r"$\left.\begin{array}{r}x+y=5\\ x-y=1\end{array}\right\}\qquad x=3,\ y=2$"),
+  correcta="Sí: compleix les dues equacions",
+  distractors=[D("No: només compleix la primera", "SUBSTITUCIO_MAL_FETA",
+     "Torna a fer la segona: $3-2=1$. També es compleix."),
+   D("No: només compleix la segona", "SUBSTITUCIO_MAL_FETA",
+     "Torna a fer la primera: $3+2=5$. També es compleix."),
+   D("No: no en compleix cap", "VEREDICTE_INVERTIT",
+     "$3+2=5$ i $3-2=1$: es compleixen totes dues.")],
+  pistes=["Posa $x=3$ i $y=2$ a la primera equació. Dona $5$?",
+   "Fes el mateix a la segona. Dona $1$?"],
+  resolucio=[r"Primera: $3+2=5$ ✓", r"Segona: $3-2=1$ ✓",
+   "Compleix totes dues: és solució."],
+  ex_text=E353)
+
+Q("353b", 353, "b", B4, tipus="A",
+  enunciat=(r"$\left.\begin{array}{r}x+y=6\\ 2x-y=1\end{array}\right\}\qquad x=4,\ y=2$"),
+  correcta="No: compleix la primera però no la segona",
+  distractors=[D("Sí: compleix les dues equacions", "VEREDICTE_INVERTIT",
+     "Has comprovat només la primera. A la segona, $2\\cdot4-2=6$, i no "
+     "$1$. Per ser solució ha de complir TOTES dues equacions."),
+   D("No: no en compleix cap", "SUBSTITUCIO_MAL_FETA",
+     "Torna a fer la primera: $4+2=6$. Aquesta sí que es compleix."),
+   D("No: compleix la segona però no la primera", "SUBSTITUCIO_MAL_FETA",
+     "És al revés: $4+2=6$ es compleix, i $2\\cdot4-2=6\\ne1$ no.")],
+  pistes=["Posa $x=4$ i $y=2$ a la primera equació. Dona $6$?",
+   "Fes el mateix a la segona: $2\\cdot4-2$. Dona $1$?"],
+  resolucio=[r"Primera: $4+2=6$ ✓", r"Segona: $2\cdot4-2=6\ne1$ ✗",
+   "No compleix la segona: no és solució del sistema."],
+  ex_text=E353)

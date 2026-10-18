@@ -64,24 +64,26 @@
       'per a aquest full. Torna més endavant o tria\'n un altre.</p>' +
       '<a class="btn" href="index.html">← Tots els fulls</a>';
   };
-  /* El número de full es valida abans de fer-lo servir enlloc. Amb
-     `document.write` i el paràmetre enganxat en cru, n'hi havia prou amb un
-     ?full= que tanqués l'atribut i l'etiqueta per
-     injectar JavaScript arbitrari a la pàgina: en un lloc estàtic sense
-     comptes la gravetat és baixa, però n'hi havia prou amb un enllaç per
-     escriure el localStorage d'un alumne, i el localStorage és el que genera
-     el codi que el professorat qualifica. El `document.write` de sota es manté a
-     posta; el motiu és a la nota que l'acompanya. */
+  /* El número de full es valida abans de fer-lo servir enlloc: si no, un
+     ?full= fet a mida podria fer carregar qualsevol fitxer. */
   var FULL_N = new URLSearchParams(location.search).get("full") || "1";
+  /* El full sencer es carrega afegint un <script> (funciona també amb
+     file://). Quan hi és, RE_DADES_LLESTES avisa js/hub.js, que l'espera
+     (docs/TODO-AI.md §10: abans es feia amb document.write). */
+  window.RE_DADES_LLESTES = function () {
+    window.RE_DADES_OK = true;
+    document.dispatchEvent(new Event("re:dades"));
+  };
   if (!/^([1-9]|1[0-2])$/.test(FULL_N)) {
     document.addEventListener("DOMContentLoaded", function () { RE_FULL_ABSENT(); });
   } else {
-    /* `document.write` ÉS DELIBERAT: vegeu la nota llarga a practica.html.
-       Bloqueja el parseig, i aquest bloqueig és el que garanteix que
-       `data/fullN.js` corri abans que `js/hub.js`. Amb createElement +
-       async=false, hub.js es troba `window.FULL` buit. */
-    document.write('<script src="data/full' + FULL_N
-      + '.js" onerror="RE_FULL_ABSENT()"><\/script>');
+    (function () {
+      var s = document.createElement("script");
+      s.src = "data/full" + FULL_N + ".js";
+      s.onload = RE_DADES_LLESTES;
+      s.onerror = function () { RE_FULL_ABSENT(); };
+      document.head.appendChild(s);
+    })();
   }
 </script>
 <script src="js/calendari.js"></script>

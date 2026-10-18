@@ -312,7 +312,7 @@ prova("«12» no s'empassa el 121", () => {
 prova("un exercici sense apartats va directe («119»)", () => {
   assert.deepStrictEqual(M.cerca("119"), { tipus: "un", full: 7, id: "119" });
 });
-prova("tots els 951 codis del banc es troben", () => {
+prova("tots els codis del banc es troben", () => {
   Object.keys(T.fulls).forEach(n => T.fulls[n].items.forEach(id => {
     const r = M.cerca(id);
     assert.ok(r.tipus === "un" && r.full === +n && r.id === id, id);

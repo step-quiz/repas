@@ -68,11 +68,11 @@ B3 = "encadenats"
 # =====================================================================
 
 # ---- exercici 101: recepta (directa) ----
-Q("101", 101, "", B1, "A",
-  "Per elaborar una recepta per a 6 persones es necessiten 240 g de "
+Q("101", 101, "", B1, tipus="A",
+  enunciat="Per elaborar una recepta per a 6 persones es necessiten 240 g de "
   "salmó. Esbrina quina quantitat de salmó necessito per a 8 persones.",
-  "$320$ g",
-  [D("$180$ g", "CREUAMENT_INVERTIT",
+  correcta="$320$ g",
+  distractors=[D("$180$ g", "CREUAMENT_INVERTIT",
      "Has fet servir la regla de tres al revés: a MÉS persones els "
      "correspon MÉS salmó, no menys. Planteja "
      "$\\frac{6}{240}=\\frac{8}{x}$, no la fracció invertida."),
@@ -86,25 +86,25 @@ Q("101", 101, "", B1, "A",
    D("$300$ g", "PROGRESSIO_INVENTADA",
      "Aquest valor no surt de la proporció donada: comprova-ho amb la "
      "regla de tres $\\frac{6}{240}=\\frac{8}{x}$ en comptes d'estimar-lo.")],
-  ["Persones i quantitat de salmó són magnituds directament "
+  pistes=["Persones i quantitat de salmó són magnituds directament "
    "proporcionals: a més persones, més salmó.",
    "Planteja la regla de tres directa "
    "$\\dfrac{6\\text{ persones}}{240\\text{ g}}="
    "\\dfrac{8\\text{ persones}}{x}$."],
-  [r"$\dfrac{6}{240}=\dfrac{8}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{6}{240}=\dfrac{8}{x} \;\Longrightarrow\; "
    r"x=\dfrac{240\cdot8}{6}$",
    "$x=320$ g de salmó"],
   ex_text="")
 
 # ---- exercici 102: pots de pintura (inversa) ----
-Q("102", 102, "", B1, "A",
-  "En Carles va pintar la seva habitació amb 6 pots, de 4 kg de "
+Q("102", 102, "", B1, tipus="A",
+  enunciat="En Carles va pintar la seva habitació amb 6 pots, de 4 kg de "
   "pintura cada un, però ara només venen pots de 3 kg. Quants pots de "
   "pintura necessita per tornar-la a pintar?",
-  "$8$ pots",
+  correcta="$8$ pots",
   # Mateix motiu que a l'ítem anterior: fracció impròpia en comptes de
   # nombre mixt.
-  [D("$\\dfrac{9}{2}$ pots", "CREUAMENT_INVERTIT",
+  distractors=[D("$\\dfrac{9}{2}$ pots", "CREUAMENT_INVERTIT",
      "Has plantejat la proporció com si fos directa. Aquí la mida del "
      "pot i el nombre de pots són INVERSAMENT proporcionals: a pots "
      "més petits, en calen més, no menys."),
@@ -115,20 +115,20 @@ Q("102", 102, "", B1, "A",
      "Sembla que has dividit $3:24$ en comptes de $24:3$: la "
      "quantitat total de pintura es reparteix entre la mida de cada "
      "pot nou, no al revés.")],
-  ["Calcula primer la pintura total: $6$ pots de $4$ kg són "
+  pistes=["Calcula primer la pintura total: $6$ pots de $4$ kg són "
    "$6\\cdot4=24$ kg.",
    "El nombre de pots i la seva mida són inversament proporcionals: "
    "reparteix els $24$ kg entre pots de $3$ kg dividint directament."],
-  ["Pintura total: $6\\cdot4=24$ kg",
+  resolucio=["Pintura total: $6\\cdot4=24$ kg",
    r"$\dfrac{24}{3}=8$ pots de $3$ kg"],
   ex_text="")
 
 # ---- exercici 103: diners diaris (inversa) ----
-Q("103", 103, "", B1, "A",
-  "Amb els diners que tinc puc gastar 15 € diaris durant 6 dies. Si "
+Q("103", 103, "", B1, tipus="A",
+  enunciat="Amb els diners que tinc puc gastar 15 € diaris durant 6 dies. Si "
   "vull que em durin 9 dies, quant puc gastar cada dia?",
-  "$10$ €",
-  [D("$22{,}5$ €", "CREUAMENT_INVERTIT",
+  correcta="$10$ €",
+  distractors=[D("$22{,}5$ €", "CREUAMENT_INVERTIT",
      "Has tractat dies i despesa diària com a magnituds directament "
      "proporcionals; aquí són INVERSAMENT proporcionals: si vols que "
      "et durin més dies, has de gastar menys cada dia."),
@@ -139,21 +139,21 @@ Q("103", 103, "", B1, "A",
    D("$1{,}67$ €", "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Sembla que has dividit $9:15$ en comptes de repartir els $90$ € "
      "totals entre els $9$ dies.")],
-  ["Calcula primer els diners totals de què disposes: "
+  pistes=["Calcula primer els diners totals de què disposes: "
    "$15\\cdot6=90$ €.",
    "Dies i despesa diària són inversament proporcionals: reparteix "
    "els $90$ € entre els $9$ dies nous dividint directament."],
-  ["Diners totals: $15\\cdot6=90$ €",
+  resolucio=["Diners totals: $15\\cdot6=90$ €",
    r"$\dfrac{90}{9}=10$ € diaris"],
   ex_text="")
 
 # ---- exercici 104: coet (directa) ----
-Q("104", 104, "", B1, "A",
-  "Un coet espacial tarda 2 minuts a assolir una velocitat de "
+Q("104", 104, "", B1, tipus="A",
+  enunciat="Un coet espacial tarda 2 minuts a assolir una velocitat de "
   "$30\\,000$ km/h. A aquest mateix ritme, quina velocitat pot assolir "
   "en 5 minuts?",
-  "$75\\,000$ km/h",
-  [D("$12\\,000$ km/h", "CREUAMENT_INVERTIT",
+  correcta="$75\\,000$ km/h",
+  distractors=[D("$12\\,000$ km/h", "CREUAMENT_INVERTIT",
      "Has invertit la proporció: a MÉS temps accelerant, MÉS "
      "velocitat s'assoleix, no menys. Planteja "
      "$\\frac{2}{30\\,000}=\\frac{5}{x}$."),
@@ -163,12 +163,12 @@ Q("104", 104, "", B1, "A",
    D("$45\\,000$ km/h", "TERME_OBLIDAT_OPERACIO",
      "No coincideix amb $\\dfrac{30\\,000\\cdot5}{2}$: revisa "
      "el producte i la divisió per separat.")],
-  ["Temps i velocitat assolida són directament proporcionals: el coet "
+  pistes=["Temps i velocitat assolida són directament proporcionals: el coet "
    "accelera a ritme constant.",
    "Planteja la regla de tres directa "
    "$\\dfrac{2\\text{ min}}{30\\,000\\text{ km/h}}="
    "\\dfrac{5\\text{ min}}{x}$."],
-  [r"$\dfrac{2}{30\,000}=\dfrac{5}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{2}{30\,000}=\dfrac{5}{x} \;\Longrightarrow\; "
    r"x=\dfrac{30\,000\cdot5}{2}$",
    "$x=75\\,000$ km/h"],
   ex_text="")
@@ -178,10 +178,10 @@ E105 = "La densitat mitjana del cos humà és d'1,15 kg/ℓ."
 
 # 105a: V = m/d, m=65 -> V ≈ 56,52 ℓ (valor no exacte al solucionari: es
 # presenta arrodonit a 2 decimals, igual que r-im7.tex)
-Q("105a", 105, "a", B1, "A",
-  "Quin és el volum d'una persona que pesa 65 kg?",
-  "$56{,}52$ ℓ (aproximadament)",
-  [D("$74{,}75$ ℓ", "CREUAMENT_INVERTIT",
+Q("105a", 105, "a", B1, tipus="A",
+  enunciat="Quin és el volum d'una persona que pesa 65 kg?",
+  correcta="$56{,}52$ ℓ (aproximadament)",
+  distractors=[D("$74{,}75$ ℓ", "CREUAMENT_INVERTIT",
      "Aquest valor surt de multiplicar $65\\cdot1{,}15$ en comptes de "
      "dividir: per aïllar el volum de $d=\\frac{m}{V}$ cal fer "
      "$V=\\frac{m}{d}$, no $m\\cdot d$."),
@@ -192,18 +192,18 @@ Q("105a", 105, "a", B1, "A",
      "No has fet servir la densitat per convertir la massa en volum: "
      "$65$ kg i $65$ ℓ no representen el mateix a menys que la "
      "densitat fos exactament $1$ kg/ℓ.")],
-  ["La densitat relaciona massa i volum: $d=\\dfrac{m}{V}$, amb "
+  pistes=["La densitat relaciona massa i volum: $d=\\dfrac{m}{V}$, amb "
    "$d=1{,}15$ kg/ℓ.",
    "Aïlla el volum: $V=\\dfrac{m}{d}$, i substitueix $m=65$ kg."],
-  [r"$V=\dfrac{m}{d}=\dfrac{65}{1{,}15}$",
+  resolucio=[r"$V=\dfrac{m}{d}=\dfrac{65}{1{,}15}$",
    "$V\\approx56{,}52$ ℓ"],
   ex_text=E105)
 
 # 105b: m = d*V, V=42 -> 48,3 kg (exacte)
-Q("105b", 105, "b", B1, "A",
-  "Quant pesarà una persona que té un volum de 42 ℓ?",
-  "$48{,}3$ kg",
-  [D("$36{,}52$ kg", "CREUAMENT_INVERTIT",
+Q("105b", 105, "b", B1, tipus="A",
+  enunciat="Quant pesarà una persona que té un volum de 42 ℓ?",
+  correcta="$48{,}3$ kg",
+  distractors=[D("$36{,}52$ kg", "CREUAMENT_INVERTIT",
      "Aquest valor surt de dividir $42:1{,}15$ en comptes de "
      "multiplicar: per trobar la massa a partir del volum cal "
      "$m=d\\cdot V$, no $\\frac{V}{d}$."),
@@ -214,9 +214,9 @@ Q("105b", 105, "b", B1, "A",
      "No has fet servir la densitat per convertir el volum en massa: "
      "$42$ ℓ i $42$ kg no representen el mateix a menys que la "
      "densitat fos exactament $1$ kg/ℓ.")],
-  ["Aïlla la massa de la mateixa fórmula: $m=d\\cdot V$.",
+  pistes=["Aïlla la massa de la mateixa fórmula: $m=d\\cdot V$.",
    "Substitueix $d=1{,}15$ kg/ℓ i $V=42$ ℓ."],
-  ["$m=d\\cdot V=1{,}15\\cdot42$",
+  resolucio=["$m=d\\cdot V=1{,}15\\cdot42$",
    "$m=48{,}3$ kg"],
   ex_text=E105)
 
@@ -225,11 +225,11 @@ E106 = ("Una persona està situada a 50 m d'una paret i rep l'eco de la "
         "seva veu 3 dècimes de segon després d'haver cridat.")
 
 # 106a: 50m->0,3s ; 80m -> x = 0,48s (exacte)
-Q("106a", 106, "a", B1, "A",
-  "Si es col·loca a 80 m de distància, quant de temps tardarà a "
+Q("106a", 106, "a", B1, tipus="A",
+  enunciat="Si es col·loca a 80 m de distància, quant de temps tardarà a "
   "sentir l'eco?",
-  "$0{,}48$ s",
-  [D("$0{,}1875$ s", "CREUAMENT_INVERTIT",
+  correcta="$0{,}48$ s",
+  distractors=[D("$0{,}1875$ s", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: a MÉS distància, "
      "l'eco triga MÉS a arribar, no menys. Planteja "
      "$\\frac{50}{0{,}3}=\\frac{80}{x}$."),
@@ -241,21 +241,21 @@ Q("106a", 106, "a", B1, "A",
      "Sembla que has dividit $80:0{,}3\\cdot50$ en un ordre "
      "equivocat: revisa la regla de tres $\\frac{50}{0{,}3}="
      "\\frac{80}{x}$ pas a pas.")],
-  ["Distància i temps de l'eco són directament proporcionals: a $50$ "
+  pistes=["Distància i temps de l'eco són directament proporcionals: a $50$ "
    "m corresponen $0{,}3$ s.",
    "Planteja la regla de tres directa "
    "$\\dfrac{50\\text{ m}}{0{,}3\\text{ s}}=\\dfrac{80\\text{ m}}{x}$."],
-  [r"$\dfrac{50}{0{,}3}=\dfrac{80}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{50}{0{,}3}=\dfrac{80}{x} \;\Longrightarrow\; "
    r"x=\dfrac{0{,}3\cdot80}{50}$",
    "$x=0{,}48$ s"],
   ex_text=E106)
 
 # 106b: 50m->0,3s ; 1s -> x = 500/3 ≈ 166,67 m (no exacte, com al solucionari)
-Q("106b", 106, "b", B1, "A",
-  "A quina distància s'haurà de col·locar per sentir l'eco després "
+Q("106b", 106, "b", B1, tipus="A",
+  enunciat="A quina distància s'haurà de col·locar per sentir l'eco després "
   "d'1 segon?",
-  "$166{,}67$ m (aproximadament)",
-  [D("$0{,}006$ m", "CREUAMENT_INVERTIT",
+  correcta="$166{,}67$ m (aproximadament)",
+  distractors=[D("$0{,}006$ m", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: cal "
      "$\\frac{50}{0{,}3}=\\frac{x}{1}$, no la fracció al revés."),
    D("$15$ m", "ORDRE_MULTIPLICACIO_DIVISIO",
@@ -264,20 +264,20 @@ Q("106b", 106, "b", B1, "A",
    D("$50{,}3$ m", "SUMA_EN_LLOC_RESTA",
      "Has sumat $50$ i $0{,}3$ en comptes de plantejar la regla de "
      "tres $\\frac{50}{0{,}3}=\\frac{x}{1}$.")],
-  ["Fes servir la mateixa proporció directa: "
+  pistes=["Fes servir la mateixa proporció directa: "
    "$\\dfrac{50\\text{ m}}{0{,}3\\text{ s}}=\\dfrac{x}{1\\text{ s}}$.",
    "Aïlla $x$ multiplicant en creu."],
-  [r"$\dfrac{50}{0{,}3}=\dfrac{x}{1} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{50}{0{,}3}=\dfrac{x}{1} \;\Longrightarrow\; "
    r"x=\dfrac{50\cdot1}{0{,}3}=\dfrac{500}{3}$",
    "$x\\approx166{,}67$ m"],
   ex_text=E106)
 
 # ---- exercici 107: camió (inversa) ----
-Q("107", 107, "", B1, "A",
-  "Un camió pot transportar 9 caixes que pesen 200 kg cada una. Si es "
+Q("107", 107, "", B1, tipus="A",
+  enunciat="Un camió pot transportar 9 caixes que pesen 200 kg cada una. Si es "
   "carreguen caixes de 150 kg, quantes caixes pot portar?",
-  "$12$ caixes",
-  [D("$6{,}75$ caixes", "CREUAMENT_INVERTIT",
+  correcta="$12$ caixes",
+  distractors=[D("$6{,}75$ caixes", "CREUAMENT_INVERTIT",
      "Has tractat el pes de la caixa i el nombre de caixes com a "
      "magnituds directament proporcionals; aquí són INVERSAMENT "
      "proporcionals: a caixes més lleugeres, en caben més."),
@@ -288,21 +288,21 @@ Q("107", 107, "", B1, "A",
    D("$0{,}08$ caixes", "DIVISIO_QUOCIENT_RESIDU_CANVIATS",
      "Sembla que has dividit $150:1\\,800$ en comptes de "
      "$1\\,800:150$.")],
-  ["Calcula primer el pes total que pot transportar el camió: "
+  pistes=["Calcula primer el pes total que pot transportar el camió: "
    "$9\\cdot200=1\\,800$ kg.",
    "El nombre de caixes i el pes de cada caixa són inversament "
    "proporcionals: reparteix el pes total entre caixes de $150$ kg."],
-  ["Pes total: $9\\cdot200=1\\,800$ kg",
+  resolucio=["Pes total: $9\\cdot200=1\\,800$ kg",
    r"$\dfrac{1\,800}{150}=12$ caixes"],
   ex_text="")
 
 # ---- exercici 108: pensió (inversa) ----
-Q("108", 108, "", B1, "A",
-  "La propietària d'una pensió disposa de menjar per alimentar els "
+Q("108", 108, "", B1, tipus="A",
+  enunciat="La propietària d'una pensió disposa de menjar per alimentar els "
   "seus 18 hostes durant 12 dies. A última hora, el nombre d'hostes "
   "ha augmentat en 6 persones. Per a quants dies tindrà menjar?",
-  "$9$ dies",
-  [D("$16$ dies", "CREUAMENT_INVERTIT",
+  correcta="$9$ dies",
+  distractors=[D("$16$ dies", "CREUAMENT_INVERTIT",
      "Has tractat hostes i dies com a magnituds directament "
      "proporcionals; aquí són INVERSAMENT proporcionals: a MÉS "
      "hostes, el menjar dura MENYS dies, no més."),
@@ -314,11 +314,11 @@ Q("108", 108, "", B1, "A",
      "Aquest valor no surt de repartir el total de dies-hoste ($216$) "
      "entre els $24$ hostes actuals: revisa el càlcul "
      "$216:24$.")],
-  ["Calcula primer la quantitat total de menjar en «dies-hoste»: "
+  pistes=["Calcula primer la quantitat total de menjar en «dies-hoste»: "
    "$18\\cdot12=216$.",
    "Ara hi ha $18+6=24$ hostes. Hostes i dies són inversament "
    "proporcionals: reparteix el total entre els $24$ hostes."],
-  ["Menjar total: $18\\cdot12=216$ dies-hoste",
+  resolucio=["Menjar total: $18\\cdot12=216$ dies-hoste",
    "Hostes actuals: $18+6=24$",
    r"$\dfrac{216}{24}=9$ dies"],
   ex_text="")
@@ -329,11 +329,11 @@ Q("108", 108, "", B1, "A",
 # =====================================================================
 
 # ---- exercici 109: fracció a percentatge ----
-Q("109", 109, "", B2, "A",
-  "Tres de cada cinc alumnes han tingut la grip durant el mes de "
+Q("109", 109, "", B2, tipus="A",
+  enunciat="Tres de cada cinc alumnes han tingut la grip durant el mes de "
   "gener. Expressa aquesta dada en forma de percentatge.",
-  "$60\\,\\%$",
-  [D("$35\\,\\%$", "PRODUCTE_MAL",
+  correcta="$60\\,\\%$",
+  distractors=[D("$35\\,\\%$", "PRODUCTE_MAL",
      "Sembla que has ajuntat les xifres $3$ i $5$ en comptes de "
      "convertir la fracció $\\frac{3}{5}$ a denominador $100$."),
    D("$53\\,\\%$", "ORDRE_MULTIPLICACIO_DIVISIO",
@@ -344,18 +344,18 @@ Q("109", 109, "", B2, "A",
      "Has agafat només el numerador de la fracció com si ja fos el "
      "percentatge: cal convertir la fracció sencera a denominador "
      "$100$.")],
-  ["Escriu la dada com una fracció: $\\frac{3}{5}$ dels alumnes.",
+  pistes=["Escriu la dada com una fracció: $\\frac{3}{5}$ dels alumnes.",
    "Converteix-la a una fracció equivalent de denominador $100$."],
-  [r"$\dfrac{3}{5}=\dfrac{3\cdot20}{5\cdot20}=\dfrac{60}{100}$",
+  resolucio=[r"$\dfrac{3}{5}=\dfrac{3\cdot20}{5\cdot20}=\dfrac{60}{100}$",
    "$\\dfrac{60}{100}=60\\,\\%$"],
   ex_text="")
 
 # ---- exercici 110: descompte ----
-Q("110", 110, "", B2, "A",
-  "Per un CD que costa 21 € em fan un $15\\,\\%$ de descompte. Quants "
+Q("110", 110, "", B2, tipus="A",
+  enunciat="Per un CD que costa 21 € em fan un $15\\,\\%$ de descompte. Quants "
   "diners m'estalvio?",
-  "$3{,}15$ €",
-  [D("$17{,}85$ €", "VEREDICTE_INVERTIT",
+  correcta="$3{,}15$ €",
+  distractors=[D("$17{,}85$ €", "VEREDICTE_INVERTIT",
      "Aquest és el preu final DESPRÉS del descompte, no l'estalvi "
      "(els diners que et descompten): l'enunciat pregunta quant "
      "t'estalvies, no quant pagues."),
@@ -365,18 +365,18 @@ Q("110", 110, "", B2, "A",
    D("$6$ €", "PROGRESSIO_INVENTADA",
      "Aquest valor no surt de calcular el $15\\,\\%$ de $21$: fes "
      "$21\\cdot\\dfrac{15}{100}$ i comprova el resultat.")],
-  ["L'estalvi és el $15\\,\\%$ del preu original, $21$ €.",
+  pistes=["L'estalvi és el $15\\,\\%$ del preu original, $21$ €.",
    "Calcula'l com $21\\cdot\\dfrac{15}{100}$."],
-  [r"$21\cdot\dfrac{15}{100}=21\cdot0{,}15$",
+  resolucio=[r"$21\cdot\dfrac{15}{100}=21\cdot0{,}15$",
    "$3{,}15$ €"],
   ex_text="")
 
 # ---- exercici 111: trobar el total a partir d'un percentatge ----
-Q("111", 111, "", B2, "A",
-  "En un institut, 63 alumnes, que són el $15\\,\\%$ del total, han "
+Q("111", 111, "", B2, tipus="A",
+  enunciat="En un institut, 63 alumnes, que són el $15\\,\\%$ del total, han "
   "viatjat a l'estranger. Quants alumnes té l'institut?",
-  "$420$ alumnes",
-  [D("$9{,}45$ alumnes", "CREUAMENT_INVERTIT",
+  correcta="$420$ alumnes",
+  distractors=[D("$9{,}45$ alumnes", "CREUAMENT_INVERTIT",
      "Aquest valor surt de multiplicar $63\\cdot0{,}15$ en comptes de "
      "dividir: com que $63$ és el $15\\,\\%$ (una part), cal dividir "
      "$63$ entre $0{,}15$ per trobar el total, no multiplicar."),
@@ -386,10 +386,10 @@ Q("111", 111, "", B2, "A",
    D("$630$ alumnes", "ORDRE_MULTIPLICACIO_DIVISIO",
      "No coincideix amb $\\dfrac{63}{0{,}15}$: revisa la divisió, "
      "sobretot la posició de la coma.")],
-  ["Anomena $T$ el total d'alumnes de l'institut. Els $63$ que han "
+  pistes=["Anomena $T$ el total d'alumnes de l'institut. Els $63$ que han "
    "viatjat són el $15\\,\\%$ d'aquest total: $0{,}15\\cdot T=63$.",
    "Aïlla $T$ dividint: $T=\\dfrac{63}{0{,}15}$."],
-  [r"$0{,}15\cdot T=63 \;\Longrightarrow\; T=\dfrac{63}{0{,}15}$",
+  resolucio=[r"$0{,}15\cdot T=63 \;\Longrightarrow\; T=\dfrac{63}{0{,}15}$",
    "$T=420$ alumnes"],
   ex_text="")
 
@@ -397,10 +397,10 @@ Q("111", 111, "", B2, "A",
 E112 = "Un venedor de cotxes rep com a comissió el $0{,}8\\,\\%$ de les vendes que fa."
 
 # 112a: 0,008*V=300 -> V=37500
-Q("112a", 112, "a", B2, "A",
-  "Si en un mes va rebre 300 € de comissió, quines vendes va fer?",
-  "$37\\,500$ €",
-  [D("$2{,}4$ €", "CREUAMENT_INVERTIT",
+Q("112a", 112, "a", B2, tipus="A",
+  enunciat="Si en un mes va rebre 300 € de comissió, quines vendes va fer?",
+  correcta="$37\\,500$ €",
+  distractors=[D("$2{,}4$ €", "CREUAMENT_INVERTIT",
      "Aquest valor surt de multiplicar $300\\cdot0{,}008$ en comptes "
      "de dividir: com que $300$ és el resultat d'aplicar el "
      "$0{,}8\\,\\%$ a les vendes, cal dividir $300$ entre $0{,}008$."),
@@ -412,19 +412,19 @@ Q("112a", 112, "a", B2, "A",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; revisa la divisió "
      "$300:0{,}008$ amb aquest valor.")],
-  ["Anomena $V$ les vendes del mes. La comissió és el $0{,}8\\,\\%$ "
+  pistes=["Anomena $V$ les vendes del mes. La comissió és el $0{,}8\\,\\%$ "
    "de $V$: $0{,}008\\cdot V=300$.",
    "Aïlla $V$ dividint: $V=\\dfrac{300}{0{,}008}$."],
-  [r"$0{,}008\cdot V=300 \;\Longrightarrow\; V=\dfrac{300}{0{,}008}$",
+  resolucio=[r"$0{,}008\cdot V=300 \;\Longrightarrow\; V=\dfrac{300}{0{,}008}$",
    "$V=37\\,500$ €"],
   ex_text=E112)
 
 # 112b: 0,008*45000=360
-Q("112b", 112, "b", B2, "A",
-  "Si el mes següent va vendre per valor de $45\\,000$ €, quina "
+Q("112b", 112, "b", B2, tipus="A",
+  enunciat="Si el mes següent va vendre per valor de $45\\,000$ €, quina "
   "comissió va obtenir?",
-  "$360$ €",
-  [D("$3\\,600$ €", "PERCENTATGE_DECIMAL_MAL",
+  correcta="$360$ €",
+  distractors=[D("$3\\,600$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: $0{,}8\\,\\%=0{,}008$, no $0{,}08$; multiplica de nou "
      "$45\\,000\\cdot0{,}008$."),
@@ -435,10 +435,10 @@ Q("112b", 112, "b", B2, "A",
    D("$36$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has deixat una xifra pel camí en convertir el $0{,}8\\,\\%$ a "
      "decimal: revisa que $0{,}8\\,\\%=0{,}008$, i multiplica de nou.")],
-  ["La comissió és el $0{,}8\\,\\%$ de les vendes: "
+  pistes=["La comissió és el $0{,}8\\,\\%$ de les vendes: "
    "$0{,}008\\cdot45\\,000$.",
    "Multiplica amb cura la posició de la coma decimal."],
-  ["$0{,}008\\cdot45\\,000$",
+  resolucio=["$0{,}008\\cdot45\\,000$",
    "$360$ €"],
   ex_text=E112)
 
@@ -448,12 +448,12 @@ Q("112b", 112, "b", B2, "A",
 # =====================================================================
 
 # ---- exercici 113: dos augments del 3% seguits ----
-Q("113", 113, "", B3, "A",
-  "Un comerciant decideix apujar el preu d'una mercaderia, que era "
+Q("113", 113, "", B3, tipus="A",
+  enunciat="Un comerciant decideix apujar el preu d'una mercaderia, que era "
   "de 72 €, un $3\\,\\%$, i a la setmana següent, un $3\\,\\%$ més sobre "
   "l'últim preu. Quin és el preu final de venda?",
-  "$76{,}38$ €",
-  [D("$76{,}32$ €", "SUMA_EN_LLOC_RESTA",
+  correcta="$76{,}38$ €",
+  distractors=[D("$76{,}32$ €", "SUMA_EN_LLOC_RESTA",
      "Aquest valor surt de sumar els dos augments ($6\\,\\%$ de cop) "
      "en comptes d'aplicar-los seguits: el segon $3\\,\\%$ s'ha de "
      "calcular sobre el preu JA apujat, no sobre el preu original."),
@@ -464,12 +464,12 @@ Q("113", 113, "", B3, "A",
    D("$78{,}48$ €", "PROGRESSIO_INVENTADA",
      "No coincideix amb aplicar el factor $1{,}03$ dues vegades "
      "seguides sobre $72$: torna a fer el càlcul pas a pas.")],
-  ["Apujar un preu un $3\\,\\%$ equival a multiplicar-lo per "
+  pistes=["Apujar un preu un $3\\,\\%$ equival a multiplicar-lo per "
    "$1{,}03$.",
    "El segon augment es calcula sobre el preu JA apujat: cal "
    "multiplicar per $1{,}03$ una segona vegada, no sobre el preu "
    "original."],
-  ["Preu després del primer augment: $72\\cdot1{,}03=74{,}16$ €",
+  resolucio=["Preu després del primer augment: $72\\cdot1{,}03=74{,}16$ €",
    "Preu després del segon augment (sobre $74{,}16$ €): "
    "$74{,}16\\cdot1{,}03=76{,}3848$ €",
    "Arrodonit a cèntims, que és com s'expressen els preus: "
@@ -477,12 +477,12 @@ Q("113", 113, "", B3, "A",
   ex_text="")
 
 # ---- exercici 114: percentatge global d'increments encadenats ----
-Q("114", 114, "", B3, "A",
-  "En dues setmanes consecutives s'han aplicat al preu d'un article "
+Q("114", 114, "", B3, tipus="A",
+  enunciat="En dues setmanes consecutives s'han aplicat al preu d'un article "
   "augments del $2\\,\\%$ i del $5\\,\\%$. En quin percentatge s'ha "
   "incrementat l'article sobre el seu preu original?",
-  "$7{,}1\\,\\%$",
-  [D("$7\\,\\%$", "SUMA_EN_LLOC_RESTA",
+  correcta="$7{,}1\\,\\%$",
+  distractors=[D("$7\\,\\%$", "SUMA_EN_LLOC_RESTA",
      "Sumar $2+5$ només seria correcte si el segon augment es "
      "calculés sobre el preu ORIGINAL; com que es calcula sobre el "
      "preu ja incrementat la primera setmana, els factors "
@@ -495,25 +495,25 @@ Q("114", 114, "", B3, "A",
      "El factor global és $1{,}071$, però el percentatge d'increment "
      "és $(1{,}071-1)\\cdot100=7{,}1\\,\\%$, no el factor tal qual "
      "llegit com a percentatge.")],
-  ["Cada augment equival a multiplicar pel factor "
+  pistes=["Cada augment equival a multiplicar pel factor "
    "$1+\\frac{\\%}{100}$; com que el segon s'aplica sobre el preu ja "
    "incrementat, els factors es multipliquen entre si.",
    "Calcula $1{,}02\\cdot1{,}05$ i compara el resultat amb $1$ per "
    "trobar el percentatge d'increment."],
-  ["Factor global: $1{,}02\\cdot1{,}05=1{,}071$",
+  resolucio=["Factor global: $1{,}02\\cdot1{,}05=1{,}071$",
    "Percentatge d'increment: $(1{,}071-1)\\cdot100=7{,}1\\,\\%$ "
    "(i no simplement $2+5=7\\,\\%$, perquè el segon augment es "
    "calcula sobre una quantitat ja més gran)"],
   ex_text="")
 
 # ---- exercici 115: augment i disminució del mateix % no es compensen ----
-Q("115", 115, "", B3, "A",
-  "En una botiga apugen el preu d'un producte de 200 € un $10\\,\\%$. A "
+Q("115", 115, "", B3, tipus="A",
+  enunciat="En una botiga apugen el preu d'un producte de 200 € un $10\\,\\%$. A "
   "la setmana següent decideixen rebaixar-lo un $10\\,\\%$ del preu que "
   "té en aquell moment. Què ha passat amb el preu?",
-  "El preu final és $198$ €, $2$ € menys que el preu inicial de "
+  correcta="El preu final és $198$ €, $2$ € menys que el preu inicial de "
   "$200$ €",
-  [D("El preu torna a ser exactament $200$ €, els mateixos que a "
+  distractors=[D("El preu torna a ser exactament $200$ €, els mateixos que a "
      "l'inici", "VEREDICTE_INVERTIT",
      "Encara que l'augment i la rebaixa semblin del mateix "
      "$10\\,\\%$, no es compensen: el $10\\,\\%$ que es rebaixa es "
@@ -529,11 +529,11 @@ Q("115", 115, "", B3, "A",
      "No coincideix amb aplicar primer el factor $1{,}10$ i després "
      "el factor $0{,}90$ sobre el preu ja apujat: torna a fer els "
      "dos passos per separat.")],
-  ["Apujar un $10\\,\\%$ multiplica per $1{,}10$; rebaixar un "
+  pistes=["Apujar un $10\\,\\%$ multiplica per $1{,}10$; rebaixar un "
    "$10\\,\\%$ (sobre el preu ja apujat) multiplica per $0{,}90$.",
    "Aplica els dos factors seguits, sobre el preu que resulti de "
    "cada pas, no tots dos sobre el preu original."],
-  ["Preu després de l'augment: $200\\cdot1{,}10=220$ €",
+  resolucio=["Preu després de l'augment: $200\\cdot1{,}10=220$ €",
    "Preu després de la rebaixa (sobre $220$ €): "
    "$220\\cdot0{,}90=198$ €",
    "El preu ha quedat $2$ € per sota de l'original: augment i "
@@ -542,14 +542,14 @@ Q("115", 115, "", B3, "A",
   ex_text="")
 
 # ---- exercici 116: comparar increments en proporció, no en euros ----
-Q("116", 116, "", B3, "A",
-  "La carn de xai, durant el Nadal, va augmentar el seu preu de "
+Q("116", 116, "", B3, tipus="A",
+  enunciat="La carn de xai, durant el Nadal, va augmentar el seu preu de "
   "8,85 €/kg a 11,55 €/kg. Un altre producte que s'ha encarit ha "
   "estat el raïm, de 2,10 €/kg a 3,95 €/kg. Quin producte s'ha "
   "incrementat més en proporció?",
-  "El raïm s'ha incrementat més en proporció (uns $88{,}1\\,\\%$ "
+  correcta="El raïm s'ha incrementat més en proporció (uns $88{,}1\\,\\%$ "
   "enfront d'un $30{,}5\\,\\%$ del xai)",
-  [D("El xai, perquè ha pujat més en euros per quilo ($2{,}70$ € "
+  distractors=[D("El xai, perquè ha pujat més en euros per quilo ($2{,}70$ € "
      "enfront d'$1{,}85$ €)", "VEREDICTE_INVERTIT",
      "L'enunciat pregunta quin s'ha incrementat més EN PROPORCIÓ "
      "(percentualment), no en euros absoluts: cal comparar "
@@ -566,14 +566,14 @@ Q("116", 116, "", B3, "A",
      "l'augment relatiu: l'increment percentual és "
      "$\\frac{11{,}55-8{,}85}{8{,}85}\\approx30{,}5\\,\\%$, i encara "
      "cal comparar-lo amb el del raïm per saber quin ha pujat més.")],
-  ["Per comparar «en proporció» cal calcular el percentatge "
+  pistes=["Per comparar «en proporció» cal calcular el percentatge "
    "d'augment de cada producte respecte al seu preu INICIAL, no la "
    "diferència en euros.",
    "Calcula per separat "
    "$\\frac{11{,}55-8{,}85}{8{,}85}$ (xai) i "
    "$\\frac{3{,}95-2{,}10}{2{,}10}$ (raïm), i compara els dos "
    "resultats."],
-  [r"Xai: augment relatiu $\dfrac{11{,}55-8{,}85}{8{,}85}="
+  resolucio=[r"Xai: augment relatiu $\dfrac{11{,}55-8{,}85}{8{,}85}="
    r"\dfrac{2{,}70}{8{,}85}\approx0{,}3051\Rightarrow30{,}5\,\%$",
    r"Raïm: augment relatiu $\dfrac{3{,}95-2{,}10}{2{,}10}="
    r"\dfrac{1{,}85}{2{,}10}\approx0{,}8810\Rightarrow88{,}1\,\%$",
@@ -582,13 +582,13 @@ Q("116", 116, "", B3, "A",
   ex_text="")
 
 # ---- exercici 117: comparar dilatacions com a factor, no com a diferència ----
-Q("117", 117, "", B3, "A",
-  "En escalfar una barra de metall d'1 m a $200^\\circ$C, s'ha "
+Q("117", 117, "", B3, tipus="A",
+  enunciat="En escalfar una barra de metall d'1 m a $200^\\circ$C, s'ha "
   "dilatat fins a mesurar 1,04 m. Una barra de 60 cm d'un altre "
   "metall, en escalfar-la a la mateixa temperatura, s'ha dilatat "
   "fins a mesurar 61,9 cm. Quin metall es dilata menys?",
-  "El segon metall (el de $60$ cm) es dilata menys",
-  [D("El primer metall (l'$1$ m), perquè el seu factor de dilatació, "
+  correcta="El segon metall (el de $60$ cm) es dilata menys",
+  distractors=[D("El primer metall (l'$1$ m), perquè el seu factor de dilatació, "
      "$1{,}04$, és més petit que $61{,}9$", "COMPARA_TERMES",
      "$61{,}9$ no és un factor de dilatació: cal dividir la longitud "
      "final entre la inicial EN LES MATEIXES UNITATS "
@@ -605,24 +605,24 @@ Q("117", 117, "", B3, "A",
      "depèn de la unitat que facis servir, mentre siguis "
      "consistent en cada barra per separat: es pot comparar "
      "perfectament.")],
-  ["Per comparar la dilatació cal fixar-nos en el FACTOR pel qual es "
+  pistes=["Per comparar la dilatació cal fixar-nos en el FACTOR pel qual es "
    "multiplica la longitud original, no en l'augment absolut.",
    "Calcula per separat $\\frac{1{,}04}{1}$ i "
    "$\\frac{61{,}9}{60}$, cadascun en les seves pròpies unitats."],
-  [r"Primer metall: factor $\dfrac{1{,}04}{1}=1{,}04$",
+  resolucio=[r"Primer metall: factor $\dfrac{1{,}04}{1}=1{,}04$",
    r"Segon metall: factor $\dfrac{61{,}9}{60}\approx1{,}0317$",
    "Com que $1{,}0317<1{,}04$, el segon metall s'ha dilatat "
    "proporcionalment menys"],
   ex_text="")
 
 # ---- exercici 118: comprovar un percentatge anunciat ----
-Q("118", 118, "", B3, "A",
-  "En un envàs de galetes anuncien que conté un $25\\,\\%$ més de "
+Q("118", 118, "", B3, tipus="A",
+  enunciat="En un envàs de galetes anuncien que conté un $25\\,\\%$ més de "
   "galetes pel mateix preu. Els envasos antics pesaven 1 kg i "
   "l'envàs actual amb l'oferta pesa 1,2 kg. És certa la publicitat?",
-  "No: l'envàs només conté un $20\\,\\%$ més de galetes, no un "
+  correcta="No: l'envàs només conté un $20\\,\\%$ més de galetes, no un "
   "$25\\,\\%$",
-  [D("Sí: el pes ha passat d'$1$ kg a $1{,}2$ kg, i $1{,}2$ és "
+  distractors=[D("Sí: el pes ha passat d'$1$ kg a $1{,}2$ kg, i $1{,}2$ és "
      "exactament un $25\\,\\%$ més que $1$", "PRODUCTE_MAL",
      "Comprova-ho amb un $25\\,\\%$ real: $1\\cdot1{,}25=1{,}25$ kg, "
      "no $1{,}2$ kg. El pes anunciat no coincideix amb un increment "
@@ -637,13 +637,103 @@ Q("118", 118, "", B3, "A",
      "entendre l'enunciat), el percentatge d'augment de PES i el de "
      "NOMBRE de galetes coincideixen: no cal conèixer el pes d'una "
      "galeta per respondre.")],
-  ["Si el pes de cada galeta no canvia, un $25\\,\\%$ més de galetes "
+  pistes=["Si el pes de cada galeta no canvia, un $25\\,\\%$ més de galetes "
    "hauria de suposar exactament un $25\\,\\%$ més de pes.",
    "Comprova quin percentatge d'augment dona realment el pes: "
    "$\\frac{1{,}2-1}{1}$."],
-  [r"Un $25\,\%$ real donaria $1\cdot1{,}25=1{,}25$ kg, però "
+  resolucio=[r"Un $25\,\%$ real donaria $1\cdot1{,}25=1{,}25$ kg, però "
    r"l'envàs actual pesa només $1{,}2$ kg",
    r"Increment real: $\dfrac{1{,}2-1}{1}=0{,}20\Rightarrow20\,\%$",
    "Per tant el pes (i el nombre de galetes, si cada una pesa "
    "igual) només ha augmentat un $20\\,\\%$, no un $25\\,\\%$"],
   ex_text="")
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 354-355)
+# =====================================================================
+# «Directa i inversa» obria amb una regla de tres (6 persones, 240 g; quant
+# per a 8?) i «Percentatges» passant una fracció a tant per cent. Aquí,
+# el valor per a UNA unitat ja és a l'enunciat (només cal multiplicar o
+# dividir, i saber quina de les dues), i percentatges que es fan de cap.
+
+dificultats({
+    354: 1,  # proporcionalitat amb el valor unitari donat
+    355: 1,  # el 10 % o el 50 % d'una quantitat
+})
+
+
+E354 = ("Calcula el valor que falta. L'enunciat diu si les dues magnituds "
+        "són directament o inversament proporcionals.")
+
+Q("354a", 354, "a", B1, tipus="A",
+  enunciat=("$1$ kg de pomes costa $2$ €. Quant costen $5$ kg? (El preu és "
+            "directament proporcional als kg.)"),
+  correcta="$10$ €",
+  distractors=[D("$7$ €", "PRODUCTE_PER_SUMA",
+     "Has sumat $2+5$. Si $1$ kg costa $2$ €, $5$ kg costen cinc vegades "
+     "més: $5\\cdot2$."),
+   D("$2{,}5$ €", "FORMULA_INVERTIDA",
+     "Has dividit $5:2$. Amb més kg el preu ha de PUJAR: $5\\cdot2$."),
+   D("$0{,}4$ €", "CREUAMENT_INVERTIT",
+     "Has fet com si fos inversa ($2:5$). És directa: el doble de kg, el "
+     "doble de preu.")],
+  pistes=["Directament proporcional: si una magnitud es multiplica per $5$, "
+   "l'altra també.",
+   "$5$ kg són cinc vegades $1$ kg."],
+  resolucio=[r"$5\cdot2=10$ €"],
+  ex_text=E354)
+
+Q("354b", 354, "b", B1, tipus="A",
+  enunciat=("$1$ obrer tarda $12$ dies a fer una feina. Quants dies hi "
+            "tardaran $3$ obrers que treballen al mateix ritme? (Els dies "
+            "són inversament proporcionals als obrers.)"),
+  correcta="$4$ dies",
+  distractors=[D("$36$ dies", "CREUAMENT_INVERTIT",
+     "Has fet com si fos directa ($12\\cdot3$). Amb més obrers la feina "
+     "s'acaba ABANS: $12:3$."),
+   D("$9$ dies", "PRODUCTE_PER_SUMA",
+     "Has restat $12-3$. Amb el triple d'obrers, es tarda la tercera part: "
+     "$12:3$."),
+   D("$15$ dies", "PRODUCTE_PER_SUMA",
+     "Has sumat $12+3$. Amb més obrers no es pot tardar més.")],
+  pistes=["Inversament proporcional: si una magnitud es multiplica per $3$, "
+   "l'altra es divideix per $3$.",
+   "$3$ obrers són el triple d'$1$ obrer."],
+  resolucio=[r"$12:3=4$ dies"],
+  ex_text=E354)
+
+
+E355 = "Calcula aquest percentatge de la quantitat que es dona."
+
+Q("355a", 355, "a", B2, tipus="A",
+  enunciat=r"El $10\,\%$ de $80$",
+  correcta="$8$",
+  distractors=[D("$0{,}8$", "PERCENTATGE_DECIMAL_MAL",
+     "El $10\\,\\%$ és $0{,}1$, no $0{,}01$: es divideix per $100$, "
+     "no per $1\\,000$."),
+   D("$800$", "PERCENTATGE_DECIMAL_MAL",
+     "Has multiplicat per $10$ sense dividir per $100$: el $10\\,\\%$ "
+     "és $0{,}1$, no $10$."),
+   D("$70$", "PRODUCTE_PER_SUMA",
+     "Has restat $80-10$. El $10\\,\\%$ de $80$ és la desena part de $80$.")],
+  pistes=["El $10\\,\\%$ és la desena part.",
+   "$80:10$."],
+  resolucio=[r"$80\cdot\dfrac{10}{100}=\dfrac{800}{100}=8$"],
+  ex_text=E355)
+
+Q("355b", 355, "b", B2, tipus="A",
+  enunciat=r"El $50\,\%$ de $36$",
+  correcta="$18$",
+  distractors=[D("$1{,}8$", "PERCENTATGE_DECIMAL_MAL",
+     "El $50\\,\\%$ és $0{,}5$, no $0{,}05$: es divideix per $100$, "
+     "no per $1\\,000$."),
+   D("$72$", "FORMULA_INVERTIDA",
+     "Has dividit per $0{,}5$ (o multiplicat per $2$). El $50\\,\\%$ és la "
+     "MEITAT."),
+   D("$14$", "PRODUCTE_PER_SUMA",
+     "Has fet $50-36$. El $50\\,\\%$ de $36$ és la meitat de $36$.")],
+  pistes=["El $50\\,\\%$ és la meitat.",
+   "$36:2$."],
+  resolucio=[r"$36\cdot\dfrac{50}{100}=\dfrac{36}{2}=18$"],
+  ex_text=E355)

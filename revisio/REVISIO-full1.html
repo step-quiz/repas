@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 1</h1>
-<p class="meta">144 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">150 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Nombres enters <span class="tip">· 19 preguntes</span></h2>
+<h2>Nombres enters <span class="tip">· 21 preguntes</span></h2>
+<p class="sec"><strong>Exercici 341.</strong> Calcula aquest producte o quocient de nombres enters aplicant-hi la regla dels signes.</p>
+<div class="it"><div class="cap"><span class="cod">341a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$(-4)\cdot(+5)$</div>
+<ol class="op"><li><span class="ok">$-20$</span> — resposta correcta</li>
+<li>$20$<br><span class="err">SIGNE_PRODUCTE</span><span class="fb">Menys per més dona MENYS: els dos factors tenen signes diferents.</span></li>
+<li>$1$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat $(-4)+(+5)$. El punt vol dir MULTIPLICAR.</span></li>
+<li>$-\dfrac{4}{5}$<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has dividit. El punt vol dir multiplicar: $4\cdot5=20$, amb el signe que diu la regla.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Primer el signe: menys per més, quin signe dona?</li><li>Després el número: $4\cdot5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Signes diferents: el resultat és negatiu. $4\cdot5=20$.</li><li>$(-4)\cdot(+5)=-20$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">341b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$(-18):(-3)$</div>
+<ol class="op"><li><span class="ok">$6$</span> — resposta correcta</li>
+<li>$-6$<br><span class="err">SIGNE_QUOCIENT</span><span class="fb">Menys entre menys dona MÉS: els dos nombres tenen el mateix signe.</span></li>
+<li>$-21$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat $(-18)+(-3)$. Els dos punts volen dir DIVIDIR.</span></li>
+<li>$54$<br><span class="err">FORMULA_INVERTIDA</span><span class="fb">Has multiplicat. Els dos punts volen dir dividir: $18:3$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Primer el signe: menys entre menys, quin signe dona?</li><li>Després el número: $18:3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Signes iguals: el resultat és positiu. $18:3=6$.</li><li>$(-18):(-3)=+6$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 1.</strong> Resol les operacions següents.</p>
 <div class="it"><div class="cap"><span class="cod">1a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$(-13) \cdot (+3) - (-12) \cdot (+7)$</div>
@@ -571,7 +592,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Els fanals d'un lateral són a $12$, $24$… metres de l'inici, i els de l'altre a $18$… Tornen a quedar l'un davant de l'altre a una distància MÚLTIPLE de $12$ i de $18$ alhora: la primera vegada és el m.c.m.</li><li>$12=2^2\cdot3$ i $18=2\cdot3^2$: agafa cada factor primer amb l'exponent més gran.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Descomposicions: $12 = 2^{2}\cdot 3$ · $18 = 2\cdot 3^{2}$</li><li>Tots els factors amb el major exponent: $\operatorname{m.c.m.} = 2^{2}\cdot 3^{2}$</li><li>$\operatorname{m.c.m.} = 36$</li></ol>
 </div>
-<h2>Fraccions <span class="tip">· 41 preguntes</span></h2>
+<h2>Fraccions <span class="tip">· 43 preguntes</span></h2>
+<p class="sec"><strong>Exercici 342.</strong> Simplifica aquesta fracció fins a la fracció irreductible: divideix el numerador i el denominador pel mateix nombre.</p>
+<div class="it"><div class="cap"><span class="cod">342a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$\dfrac{6}{8}$</div>
+<ol class="op"><li><span class="ok">$\dfrac{3}{4}$</span> — resposta correcta</li>
+<li>$\dfrac{4}{3}$<br><span class="err">INVERTIDA</span><span class="fb">Has girat la fracció. El numerador continua a dalt: $6:2=3$ a dalt, $8:2=4$ a baix.</span></li>
+<li>$\dfrac{3}{8}$<br><span class="err">SIMPLIFICA_NOMES_NUMERADOR</span><span class="fb">Només has dividit el numerador. En simplificar cal dividir numerador I denominador pel mateix nombre.</span></li>
+<li>$\dfrac{4}{6}$<br><span class="err">SIMPLIFICAR_RESTANT</span><span class="fb">Has fet $6-2$ i $8-2$. Simplificar és DIVIDIR el numerador i el denominador pel mateix nombre, no restar-los. Restant canvies el valor de la fracció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca un nombre que divideixi el $6$ i el $8$ alhora.</li><li>Tots dos són parells: divideix-los per $2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{6}{8}=\dfrac{6:2}{8:2}=\dfrac{3}{4}$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">342b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$\dfrac{10}{15}$</div>
+<ol class="op"><li><span class="ok">$\dfrac{2}{3}$</span> — resposta correcta</li>
+<li>$\dfrac{3}{2}$<br><span class="err">INVERTIDA</span><span class="fb">Has girat la fracció. El numerador continua a dalt: $10:5=2$ a dalt, $15:5=3$ a baix.</span></li>
+<li>$\dfrac{2}{15}$<br><span class="err">SIMPLIFICA_NOMES_NUMERADOR</span><span class="fb">Només has dividit el numerador. En simplificar cal dividir numerador I denominador pel mateix nombre.</span></li>
+<li>$\dfrac{5}{10}$<br><span class="err">SIMPLIFICAR_RESTANT</span><span class="fb">Has fet $10-5$ i $15-5$. Simplificar és DIVIDIR el numerador i el denominador pel mateix nombre, no restar-los. Restant canvies el valor de la fracció.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Busca un nombre que divideixi el $10$ i el $15$ alhora.</li><li>Tots dos acaben en $0$ o en $5$: divideix-los per $5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{10}{15}=\dfrac{10:5}{15:5}=\dfrac{2}{3}$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 18.</strong> Digues si són equivalents els parells de fraccions següents.</p>
 <div class="it"><div class="cap"><span class="cod">18a</span><span class="tip">tipus B · dificultat 2 (directa)</span></div>
 <div class="enun">$\dfrac{6}{3}$ i $\dfrac{36}{48}$</div>
@@ -990,7 +1032,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El parèntesi dóna un nombre negatiu: restar-lo és sumar-lo.</li><li>$\dfrac{7}{8}\cdot 5 - 9 = \dfrac{35}{8} - \dfrac{72}{8} = -\dfrac{37}{8}$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Calculem cada tros: $-3\cdot\dfrac{4}{15} = -\dfrac{4}{5}$ \quad $\dfrac{7}{8}\cdot 5-9 = -\dfrac{37}{8}$</li><li>Resultat: $\dfrac{153}{40}$</li></ol>
 </div>
-<h2>Decimals <span class="tip">· 54 preguntes</span></h2>
+<h2>Decimals <span class="tip">· 56 preguntes</span></h2>
+<p class="sec"><strong>Exercici 343.</strong> Troba la fracció generatriu d&#x27;aquest nombre decimal exacte.</p>
+<div class="it"><div class="cap"><span class="cod">343a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$0{,}7$</div>
+<ol class="op"><li><span class="ok">$\dfrac{7}{10}$</span> — resposta correcta</li>
+<li>$\dfrac{7}{100}$<br><span class="err">POTENCIA_10</span><span class="fb">Hi ha UNA xifra decimal: el denominador és $10$. El denominador ha de tenir tants zeros com xifres decimals té el nombre. Compta-les una altra vegada.</span></li>
+<li>$\dfrac{7}{9}$<br><span class="err">TRACTAT_COM_PERIODIC</span><span class="fb">$\dfrac{7}{9}=0{,}777\dots$, que no és $0{,}7$. Has posat nous al denominador, però aquest decimal és exacte: s'acaba. El denominador ha de ser una potència de $10$.</span></li>
+<li>$\dfrac{10}{7}$<br><span class="err">INVERTIDA</span><span class="fb">Has girat la fracció: $\dfrac{10}{7}$ és més gran que $1$, i $0{,}7$ és més petit.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Llegeix el nombre en veu alta: «set dècimes».</li><li>Set dècimes vol dir $7$ partit per $10$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0{,}7=\dfrac{7}{10}$ (una xifra decimal: denominador $10$)</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">343b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$0{,}23$</div>
+<ol class="op"><li><span class="ok">$\dfrac{23}{100}$</span> — resposta correcta</li>
+<li>$\dfrac{23}{10}$<br><span class="err">POTENCIA_10</span><span class="fb">Hi ha DUES xifres decimals: el denominador és $100$. El denominador ha de tenir tants zeros com xifres decimals té el nombre. Compta-les una altra vegada.</span></li>
+<li>$\dfrac{23}{99}$<br><span class="err">TRACTAT_COM_PERIODIC</span><span class="fb">$\dfrac{23}{99}=0{,}2323\dots$, que no és $0{,}23$. Has posat nous al denominador, però aquest decimal és exacte: s'acaba. El denominador ha de ser una potència de $10$.</span></li>
+<li>$\dfrac{23}{1\,000}$<br><span class="err">POTENCIA_10</span><span class="fb">Hi ha dues xifres decimals, no tres. El denominador ha de tenir tants zeros com xifres decimals té el nombre. Compta-les una altra vegada.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Llegeix el nombre en veu alta: «vint-i-tres centèsimes».</li><li>Vint-i-tres centèsimes vol dir $23$ partit per $100$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$0{,}23=\dfrac{23}{100}$ (dues xifres decimals: denominador $100$)</li></ol>
+</div>
 <p class="sec"><strong>Exercici 26.</strong> Tria el nombre decimal que compleix la condició. Recorda: el PERÍODE és el grup de xifres que es repeteix; l&#x27;ANTEPERÍODE, les que hi ha entre la coma i el període.</p>
 <div class="it"><div class="cap"><span class="cod">26a</span><span class="tip">tipus B · dificultat 2 (directa)</span></div>
 <div class="enun">Periòdic pur de període $5$.</div>
@@ -1554,35 +1617,36 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="nota"><strong>Nota:</strong> Aquest exercici demana raonament: fixa't que $\dfrac{1}{9999}$ genera sempre períodes de $4$ xifres.</p>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Nombres enters <span class="err">obre pel mig</span></td><td>0</td><td>6</td><td>8</td><td>5</td><td><span class="err">directa</span></td></tr>
+<tr><td>Nombres enters</td><td>2</td><td>6</td><td>8</td><td>5</td><td>trivial</td></tr>
 <tr><td>Divisibilitat</td><td>4</td><td>17</td><td>2</td><td>7</td><td>trivial</td></tr>
-<tr><td>Fraccions <span class="err">obre pel mig</span></td><td>0</td><td>15</td><td>26</td><td>0</td><td><span class="err">directa</span></td></tr>
-<tr><td>Decimals <span class="err">obre pel mig</span></td><td>0</td><td>14</td><td>24</td><td>16</td><td><span class="err">directa</span></td></tr>
+<tr><td>Fraccions</td><td>2</td><td>15</td><td>26</td><td>0</td><td>trivial</td></tr>
+<tr><td>Decimals</td><td>2</td><td>14</td><td>24</td><td>16</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>TRACTAT_COM_EXACTE</code></td><td>46</td><td>26a, 26a, 26c, 26d, 26e, 28a, 28a, 28b, 28c, 28d, 28e, 28f, 28g, 28h…</td></tr>
 <tr><td><code>NO_RESTA_ANTEPERIODE</code></td><td>36</td><td>28a, 28b, 28c, 28d, 28e, 28f, 28g, 28i, 28j, 28l, 29a, 29b, 29c, 30b…</td></tr>
 <tr><td><code>SIGNE_FINAL</code></td><td>26</td><td>22a, 22b, 22c, 22d, 22e, 22f, 21a, 21b, 21c, 21e, 21f, 23a, 23b, 23c…</td></tr>
+<tr><td><code>POTENCIA_10</code></td><td>21</td><td>343a, 343b, 343b, 26b, 27a, 27a, 27b, 27c, 27d, 27e, 27e, 27f, 27g, 27h…</td></tr>
+<tr><td><code>TRACTAT_COM_PERIODIC</code></td><td>20</td><td>343a, 343b, 26b, 26b, 26f, 27a, 27b, 27c, 27d, 27e, 27f, 27g, 27h, 29d…</td></tr>
 <tr><td><code>PRODUCTE</code></td><td>19</td><td>6a, 6b, 6c, 7a, 7b, 7c, 9a, 9b, 9c, 9d, 10a, 10b, 10c, 10d…</td></tr>
-<tr><td><code>POTENCIA_10</code></td><td>18</td><td>26b, 27a, 27a, 27b, 27c, 27d, 27e, 27e, 27f, 27g, 27h, 27h, 28h, 29d…</td></tr>
-<tr><td><code>TRACTAT_COM_PERIODIC</code></td><td>18</td><td>26b, 26b, 26f, 27a, 27b, 27c, 27d, 27e, 27f, 27g, 27h, 29d, 29d, 29e…</td></tr>
 <tr><td><code>NOUS_I_ZEROS</code></td><td>14</td><td>28b, 28c, 28d, 28e, 28f, 28g, 28h, 28j, 28k, 28k, 28l, 30d, 30e, 30f</td></tr>
 <tr><td><code>MCD_EN_LLOC_DE_MCM</code></td><td>12</td><td>9a, 9b, 9c, 9d, 10a, 10b, 10c, 10d, 12b, 15, 16, 17</td></tr>
 <tr><td><code>JERARQUIA</code></td><td>11</td><td>1f, 3a, 3b, 4d, 24a, 24b, 24c, 24d, 25a, 25c, 25e</td></tr>
 <tr><td><code>PERIODE_MAL_IDENTIFICAT</code></td><td>11</td><td>26a, 26c, 26c, 26d, 26d, 26e, 26e, 29a, 29b, 29c, 33d</td></tr>
 <tr><td><code>RESTA_NEGATIU</code></td><td>10</td><td>1d, 2a, 2b, 2c, 4b, 4c, 4e, 22b, 22d, 23a</td></tr>
 <tr><td><code>SUMA_NUMERADORS</code></td><td>9</td><td>21a, 21b, 21c, 21d, 21e, 21f, 23c, 31a, 33e</td></tr>
+<tr><td><code>SIGNE_PRODUCTE</code></td><td>8</td><td>341a, 1a, 2a, 2b, 2d, 4d, 24f, 25d</td></tr>
 <tr><td><code>SIGNE_SUMA</code></td><td>8</td><td>3b, 3c, 22a, 22c, 22e, 21d, 23d, 23d</td></tr>
 <tr><td><code>FACTOR_NO_PRIMER</code></td><td>8</td><td>340a, 340a, 340b, 340c, 340d, 5a, 5b, 5c</td></tr>
 <tr><td><code>EL_MES_GRAN</code></td><td>8</td><td>9a, 9c, 10a, 10b, 10c, 10d, 12b, 17</td></tr>
 <tr><td><code>RAONAMENT_ADDITIU</code></td><td>8</td><td>18a, 18b, 18c, 18d, 18e, 18f, 19b, 19c</td></tr>
 <tr><td><code>PART_ENTERA_OBLIDADA</code></td><td>8</td><td>26f, 26f, 27b, 27c, 27d, 27f, 27g, 30a</td></tr>
-<tr><td><code>SIGNE_PRODUCTE</code></td><td>7</td><td>1a, 2a, 2b, 2d, 4d, 24f, 25d</td></tr>
+<tr><td><code>SIGNE_QUOCIENT</code></td><td>7</td><td>341b, 1c, 2b, 2c, 2d, 3b, 3d</td></tr>
 <tr><td><code>MCM_EN_LLOC_DE_MCD</code></td><td>7</td><td>6a, 6b, 6c, 7a, 7b, 7c, 12a</td></tr>
 <tr><td><code>ENTER_AL_NUMERADOR</code></td><td>7</td><td>22a, 22b, 22c, 22d, 22e, 22f, 23a</td></tr>
 <tr><td><code>MENYS_PARENTESI</code></td><td>7</td><td>21a, 21c, 21f, 23b, 23c, 25b, 25f</td></tr>
 <tr><td><code>PRODUCTE_CREUAT</code></td><td>7</td><td>24a, 24c, 24e, 24f, 25a, 25b, 32a</td></tr>
-<tr><td><code>SIGNE_QUOCIENT</code></td><td>6</td><td>1c, 2b, 2c, 2d, 3b, 3d</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>6</td><td>342a, 342b, 20a, 20b, 20c, 343a</td></tr>
 <tr><td><code>ENTER_MULTIPLICA_DENOMINADOR</code></td><td>6</td><td>24b, 24d, 25c, 25d, 25e, 25f</td></tr>
 <tr><td><code>CAP_ERROR</code></td><td>5</td><td>4a, 4b, 4c, 4d, 4e</td></tr>
 <tr><td><code>EXPONENT_OBLIDAT</code></td><td>5</td><td>340a, 340b, 340c, 340d, 5a</td></tr>
@@ -1590,14 +1654,17 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>CREUAMENT_INVERTIT</code></td><td>5</td><td>19a, 19b, 19c, 19d, 19d</td></tr>
 <tr><td><code>MENYS_PER_MENYS</code></td><td>4</td><td>1b, 1f, 3d, 4e</td></tr>
 <tr><td><code>SUMA</code></td><td>4</td><td>9b, 9d, 15, 16</td></tr>
+<tr><td><code>SIMPLIFICA_NOMES_NUMERADOR</code></td><td>4</td><td>342a, 342b, 20b, 20b</td></tr>
 <tr><td><code>PRODUCTES_CREUATS</code></td><td>4</td><td>18a, 18c, 18d, 18f</td></tr>
 <tr><td><code>CRITERI_FALS</code></td><td>4</td><td>18a, 18c, 18d, 18f</td></tr>
 <tr><td><code>PRODUCTE_MAL</code></td><td>4</td><td>19a, 19b, 19c, 19d</td></tr>
 <tr><td><code>MENYS_ENTRE_MENYS</code></td><td>3</td><td>1c, 1d, 1e</td></tr>
 <tr><td><code>EXPONENT_EXCES</code></td><td>3</td><td>340b, 340d, 5a</td></tr>
+<tr><td><code>SIMPLIFICAR_RESTANT</code></td><td>3</td><td>342a, 342b, 20c</td></tr>
 <tr><td><code>COMPARA_TERMES</code></td><td>3</td><td>18b, 18e, 19a</td></tr>
-<tr><td><code>INVERTIDA</code></td><td>3</td><td>20a, 20b, 20c</td></tr>
 <tr><td><code>NUMERADORS_SENSE_AJUSTAR</code></td><td>3</td><td>21b, 21d, 21e</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>2</td><td>341a, 341b</td></tr>
+<tr><td><code>FORMULA_INVERTIDA</code></td><td>2</td><td>341a, 341b</td></tr>
 <tr><td><code>SUMA_VALORS_ABSOLUTS</code></td><td>2</td><td>1c, 3a</td></tr>
 <tr><td><code>SUMA_NEGATIU</code></td><td>2</td><td>1e, 2a</td></tr>
 <tr><td><code>SIGNE_ENGLOBAT</code></td><td>2</td><td>1e, 2d</td></tr>
@@ -1609,7 +1676,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>DIVISOR_NO_MAXIM</code></td><td>2</td><td>13, 13</td></tr>
 <tr><td><code>PRODUCTES_MAL_CREUATS</code></td><td>2</td><td>18b, 18e</td></tr>
 <tr><td><code>SIMPLIFICACIO_INCOMPLETA</code></td><td>2</td><td>20a, 20a</td></tr>
-<tr><td><code>SIMPLIFICA_NOMES_NUMERADOR</code></td><td>2</td><td>20b, 20b</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>24e, 24f</td></tr>
 <tr><td><code>INFINIT_MAI_ARRIBA</code></td><td>2</td><td>33a, 33e</td></tr>
 <tr><td><code>DESPLACAMENT</code></td><td>2</td><td>34, 34</td></tr>
@@ -1637,7 +1703,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>MULTIPLE_LLUNYA</code></td><td>1</td><td>14</td></tr>
 <tr><td><code>LITERAL</code></td><td>1</td><td>14</td></tr>
 <tr><td><code>NO_SIMPLIFICABLE</code></td><td>1</td><td>20c</td></tr>
-<tr><td><code>SIMPLIFICAR_RESTANT</code></td><td>1</td><td>20c</td></tr>
 <tr><td><code>DOBLE_NEGATIU</code></td><td>1</td><td>22f</td></tr>
 <tr><td><code>PARENTESI_NO_DISTRIBUIT</code></td><td>1</td><td>23b</td></tr>
 <tr><td><code>NO_INVERTEIX</code></td><td>1</td><td>32d</td></tr>

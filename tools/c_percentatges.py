@@ -51,10 +51,10 @@ _275 = [
 ]
 for _ap, _txt, _f, _puja, _p in _275:
     _cont = F(_p, 100)
-    Q("275%s" % _ap, 275, _ap, B1, "A",
-      _txt.capitalize() + ".",
-      "$%s$" % texd(_f, 2),
-      [D("$%s$" % texd(_cont, 2), "FACTOR_PER_PERCENTATGE",
+    Q("275%s" % _ap, 275, _ap, B1, tipus="A",
+      enunciat=_txt.capitalize() + ".",
+      correcta="$%s$" % texd(_f, 2),
+      distractors=[D("$%s$" % texd(_cont, 2), "FACTOR_PER_PERCENTATGE",
          "Aquest factor et dona NOMÉS la part que puja o baixa, no la "
          "quantitat final. Per tenir el total cal %s: "
          "$%s$." % ("sumar-hi l'original" if _puja else "restar-la de l'original",
@@ -70,11 +70,11 @@ for _ap, _txt, _f, _puja, _p in _275:
          "El $%d$ és el tant per cent, no el factor. Per passar-lo a factor "
          "cal dividir-lo entre $100$ i %s a $1$."
          % (_p, "sumar-lo" if _puja else "restar-lo"))],
-      ["Un percentatge es passa a decimal dividint-lo entre $100$: "
+      pistes=["Un percentatge es passa a decimal dividint-lo entre $100$: "
        "$%d\\,\\%%\\to%s$." % (_p, texd(_cont, 2)),
        "Si la quantitat puja, el factor és $1+$ aquest decimal; si baixa, "
        "és $1-$ aquest decimal."],
-      ["$%d\\,\\%%=%s$" % (_p, texd(_cont, 2)),
+      resolucio=["$%d\\,\\%%=%s$" % (_p, texd(_cont, 2)),
        "Factor $=1%s%s=%s$" % ("+" if _puja else "-", texd(_cont, 2), texd(_f, 2))],
       ex_text=E275,
       # Abans era una `nota`, i la nota surt amb l'enunciat: deia «puja un
@@ -98,10 +98,10 @@ _276 = [
 for _ap, _q, _f, _txt, _p, _puja in _276:
     _res = _q * _f
     _part = _q * F(_p, 100)
-    Q("276%s" % _ap, 276, _ap, B1, "A",
-      "$%d$ €, i %s." % (_q, _txt),
-      "$%s$ €" % texd(_res, 2),
-      [D("$%s$ €" % texd(_part, 2), "FACTOR_PER_PERCENTATGE",
+    Q("276%s" % _ap, 276, _ap, B1, tipus="A",
+      enunciat="$%d$ €, i %s." % (_q, _txt),
+      correcta="$%s$ €" % texd(_res, 2),
+      distractors=[D("$%s$ €" % texd(_part, 2), "FACTOR_PER_PERCENTATGE",
          "Això és només el que %s ($%d\\,\\%%$ de $%d$). El resultat és la "
          "quantitat final, no la variació."
          % ("puja" if _puja else "baixa", _p, _q)),
@@ -114,9 +114,9 @@ for _ap, _q, _f, _txt, _p, _puja in _276:
          "Has sumat o restat el $%d$ directament. El $%d$ és un tant per "
          "cent, no euros: cal calcular-ne el $%d\\,\\%%$ de $%d$."
          % (_p, _p, _p, _q))],
-      ["Fes servir el factor multiplicador: $%s$." % texd(_f, 2),
+      pistes=["Fes servir el factor multiplicador: $%s$." % texd(_f, 2),
        "Multiplica $%d$ per aquest factor, tot d'un cop." % _q],
-      ["$%d\\cdot%s=%s$ €" % (_q, texd(_f, 2), texd(_res, 2))],
+      resolucio=["$%d\\cdot%s=%s$ €" % (_q, texd(_f, 2), texd(_res, 2))],
       ex_text=E276)
 
 
@@ -132,10 +132,10 @@ _277 = [
 for _ap, _final, _f, _txt, _p, _puja in _277:
     _ini = F(_final) / _f
     _mal = _final * (F(100 - _p, 100) if _puja else F(100 + _p, 100))
-    Q("277%s" % _ap, 277, _ap, B1, "A",
-      "Un article costa $%d$ € %s. Quant costava abans?" % (_final, _txt),
-      "$%s$ €" % texd(_ini, 2),
-      [D("$%s$ €" % texd(_mal, 2), "FACTOR_INVERS_OBLIDAT",
+    Q("277%s" % _ap, 277, _ap, B1, tipus="A",
+      enunciat="Un article costa $%d$ € %s. Quant costava abans?" % (_final, _txt),
+      correcta="$%s$ €" % texd(_ini, 2),
+      distractors=[D("$%s$ €" % texd(_mal, 2), "FACTOR_INVERS_OBLIDAT",
          "Has aplicat la variació contrària al preu final. Anar enrere no és "
          "%s el mateix percentatge: és DIVIDIR pel factor, "
          "$\\dfrac{%d}{%s}$." % ("restar" if _puja else "sumar", _final, texd(_f, 2))),
@@ -144,10 +144,10 @@ for _ap, _final, _f, _txt, _p, _puja in _277:
          "lluny. Per desfer una multiplicació cal dividir."),
        D("$%d$ €" % _final, "PAS_INTERMEDI_PER_RESPOSTA",
          "Aquest és el preu que ja et donaven, el d'ara.")],
-      ["El preu de partida, multiplicat pel factor $%s$, dona $%d$."
+      pistes=["El preu de partida, multiplicat pel factor $%s$, dona $%d$."
        % (texd(_f, 2), _final),
        "Per trobar el de partida, divideix: $\\dfrac{%d}{%s}$." % (_final, texd(_f, 2))],
-      ["Si $x$ és el preu de partida: $x\\cdot%s=%d$" % (texd(_f, 2), _final),
+      resolucio=["Si $x$ és el preu de partida: $x\\cdot%s=%d$" % (texd(_f, 2), _final),
        "$x=\\dfrac{%d}{%s}=%s$ €" % (_final, texd(_f, 2), texd(_ini, 2))],
       ex_text=E277,
       # Comentari i no nota: amb l'enunciat, «60 → 66 → 59,4» donava la
@@ -164,10 +164,10 @@ E278 = "Quin percentatge representa la primera quantitat de la segona?"
 _278 = [("a", 18, 60), ("b", 7, 28), ("c", 45, 300), ("d", 12, 15)]
 for _ap, _part, _tot in _278:
     _p = F(_part * 100, _tot)
-    Q("278%s" % _ap, 278, _ap, B1, "A",
-      "$%d$ de $%d$." % (_part, _tot),
-      "$%s\\,\\%%$" % pc(_p),
-      [D("$%s\\,\\%%$" % pc(F(_tot * 100, _part)), "INVERTIDA",
+    Q("278%s" % _ap, 278, _ap, B1, tipus="A",
+      enunciat="$%d$ de $%d$." % (_part, _tot),
+      correcta="$%s\\,\\%%$" % pc(_p),
+      distractors=[D("$%s\\,\\%%$" % pc(F(_tot * 100, _part)), "INVERTIDA",
          "Has dividit al revés. El percentatge és "
          "$\\dfrac{\\text{part}}{\\text{total}}\\cdot100$, i la part va a dalt."),
        D("$%s\\,\\%%$" % pc(F(_part, _tot) * 1, 4), "PERCENTATGE_DECIMAL_MAL",
@@ -176,12 +176,12 @@ for _ap, _part, _tot in _278:
        D("$%d\\,\\%%$" % (_tot - _part), "RESTA_PER_QUOCIENT",
          "Has restat les dues quantitats. Un percentatge surt d'una divisió, "
          "no d'una resta.")],
-      ["Divideix la part, $%d$, entre el total, $%d$." % (_part, _tot),
+      pistes=["Divideix la part, $%d$, entre el total, $%d$." % (_part, _tot),
        "Multiplica el resultat per $100$. Comprova que té sentit: $%d$ és %s "
        "de la meitat de $%d$, així que ha de sortir %s del $50\\,\\%%$."
        % (_part, "menys" if 2 * _part < _tot else "més", _tot,
           "menys" if 2 * _part < _tot else "més")],
-      ["$\\dfrac{%d}{%d}=%s$" % (_part, _tot, pc(F(_part, _tot), 4)),
+      resolucio=["$\\dfrac{%d}{%d}=%s$" % (_part, _tot, pc(F(_part, _tot), 4)),
        "$%s\\cdot100=%s\\,\\%%$" % (pc(F(_part, _tot), 4), pc(_p))],
       ex_text=E278)
 
@@ -199,10 +199,10 @@ for _ap, _v0, _v1 in _279:
     _var = F((_v1 - _v0) * 100, _v0)
     _puja = _v1 > _v0
     _mal = F((_v1 - _v0) * 100, _v1)
-    Q("279%s" % _ap, 279, _ap, B1, "A",
-      "De $%d$ a $%d$." % (_v0, _v1),
-      "%s del $%s\\,\\%%$" % ("Augment" if _puja else "Disminució", pc(abs(_var))),
-      [D("%s del $%s\\,\\%%$" % ("Augment" if _puja else "Disminució", pc(abs(_mal))),
+    Q("279%s" % _ap, 279, _ap, B1, tipus="A",
+      enunciat="De $%d$ a $%d$." % (_v0, _v1),
+      correcta="%s del $%s\\,\\%%$" % ("Augment" if _puja else "Disminució", pc(abs(_var))),
+      distractors=[D("%s del $%s\\,\\%%$" % ("Augment" if _puja else "Disminució", pc(abs(_mal))),
          "BASE_MAL_TRIADA",
          "Has dividit entre el valor FINAL. La variació percentual sempre es "
          "mesura respecte del valor de PARTIDA, que aquí és $%d$." % _v0),
@@ -215,9 +215,9 @@ for _ap, _v0, _v1 in _279:
          "VEREDICTE_INVERTIT",
          "El percentatge és correcte, però el sentit no: de $%d$ a $%d$ la "
          "quantitat %s." % (_v0, _v1, "puja" if _puja else "baixa"))],
-      ["Calcula primer la diferència: $%d-%d=%d$." % (_v1, _v0, _v1 - _v0),
+      pistes=["Calcula primer la diferència: $%d-%d=%d$." % (_v1, _v0, _v1 - _v0),
        "Divideix-la entre el valor de PARTIDA i multiplica per $100$."],
-      ["Diferència: $%d-%d=%d$" % (_v1, _v0, _v1 - _v0),
+      resolucio=["Diferència: $%d-%d=%d$" % (_v1, _v0, _v1 - _v0),
        "$\\dfrac{%d}{%d}\\cdot100=%s\\,\\%%$" % (_v1 - _v0, _v0, tex(_var)),
        "%s del $%s\\,\\%%$" % ("Augment" if _puja else "Disminució", pc(abs(_var)))],
       ex_text=E279)
@@ -227,10 +227,10 @@ for _ap, _v0, _v1 in _279:
 E280 = ("Una botiga fa un $20\\,\\%$ de descompte i, damunt del preu ja "
         "rebaixat, un $10\\,\\%$ més per pagar en efectiu.")
 
-Q("280a", 280, "a", B2, "A",
-  "Un article de $200$ €, quant costa al final?",
-  "$144$ €",
-  [D("$140$ €", "PERCENTATGES_SUMATS",
+Q("280a", 280, "a", B2, tipus="A",
+  enunciat="Un article de $200$ €, quant costa al final?",
+  correcta="$144$ €",
+  distractors=[D("$140$ €", "PERCENTATGES_SUMATS",
      "Has sumat els dos descomptes com si fossin un $30\\,\\%$. El segon "
      "descompte s'aplica sobre $160$ €, no sobre $200$ €: "
      "$160\\cdot0{,}9=144$."),
@@ -240,16 +240,16 @@ Q("280a", 280, "a", B2, "A",
    D("$180$ €", "FACTOR_PER_PERCENTATGE",
      "Sembla que només has aplicat el $10\\,\\%$. Els descomptes són dos, un "
      "darrere l'altre.")],
-  ["Aplica el primer descompte: $200\\cdot0{,}8$.",
+  pistes=["Aplica el primer descompte: $200\\cdot0{,}8$.",
    "Sobre el resultat, aplica el segon: $\\cdot\\,0{,}9$."],
-  ["$200\\cdot0{,}8=160$ €",
+  resolucio=["$200\\cdot0{,}8=160$ €",
    "$160\\cdot0{,}9=144$ €"],
   ex_text=E280)
 
-Q("280b", 280, "b", B2, "A",
-  "A quin descompte únic equival?",
-  "Al $28\\,\\%$",
-  [D("Al $30\\,\\%$", "PERCENTATGES_SUMATS",
+Q("280b", 280, "b", B2, tipus="A",
+  enunciat="A quin descompte únic equival?",
+  correcta="Al $28\\,\\%$",
+  distractors=[D("Al $30\\,\\%$", "PERCENTATGES_SUMATS",
      "Els percentatges encadenats no se sumen. El factor conjunt és "
      "$0{,}8\\cdot0{,}9=0{,}72$, i $1-0{,}72=0{,}28$, o sigui un "
      "$28\\,\\%$."),
@@ -259,9 +259,9 @@ Q("280b", 280, "b", B2, "A",
    D("Al $2\\,\\%$", "PRODUCTE_PER_SUMA",
      "No és la diferència entre els dos descomptes: és el resultat "
      "d'aplicar-los tots dos.")],
-  ["Multiplica els dos factors: $0{,}8\\cdot0{,}9$.",
+  pistes=["Multiplica els dos factors: $0{,}8\\cdot0{,}9$.",
    "El descompte és el que falta perquè el factor arribi a $1$."],
-  ["Factor conjunt: $0{,}8\\cdot0{,}9=0{,}72$",
+  resolucio=["Factor conjunt: $0{,}8\\cdot0{,}9=0{,}72$",
    "$1-0{,}72=0{,}28\\to28\\,\\%$",
    "Comprovació: $200\\cdot0{,}72=144$ €, el mateix d'abans"],
   ex_text=E280,
@@ -280,10 +280,10 @@ _650 = F(650)
 _amb_desc = _650 * F(88, 100)
 _final281 = _amb_desc * F(121, 100)
 
-Q("281a", 281, "a", B2, "A",
-  "Quin és el preu final que paga el client?",
-  "$%s$ €" % texd(_final281, 2),
-  [D("$%s$ €" % texd(_650 * F(121, 100) * F(88, 100) * F(1, 1) * 0 + _650 * F(109, 100), 2),
+Q("281a", 281, "a", B2, tipus="A",
+  enunciat="Quin és el preu final que paga el client?",
+  correcta="$%s$ €" % texd(_final281, 2),
+  distractors=[D("$%s$ €" % texd(_650 * F(121, 100) * F(88, 100) * F(1, 1) * 0 + _650 * F(109, 100), 2),
      "PERCENTATGES_SUMATS",
      "Sembla que has fet $21-12=9$ i has aplicat un $9\\,\\%$. Els "
      "percentatges no se sumen ni es resten entre si: cada un multiplica pel "
@@ -293,18 +293,18 @@ Q("281a", 281, "a", B2, "A",
      "afegir-l'hi."),
    D("$%s$ €" % texd(_650 * F(121, 100), 2), "TERME_OBLIDAT_OPERACIO",
      "Has aplicat l'IVA però t'has deixat el descompte.")],
-  ["Aplica primer el descompte sobre el preu sense IVA: $650\\cdot0{,}88$.",
+  pistes=["Aplica primer el descompte sobre el preu sense IVA: $650\\cdot0{,}88$.",
    "Sobre el resultat, afegeix-hi l'IVA: $\\cdot\\,1{,}21$."],
-  ["Amb descompte: $650\\cdot0{,}88=%s$ €" % texd(_amb_desc, 2),
+  resolucio=["Amb descompte: $650\\cdot0{,}88=%s$ €" % texd(_amb_desc, 2),
    "Amb IVA: $%s\\cdot1{,}21=%s$ €" % (texd(_amb_desc, 2), texd(_final281, 2))],
   ex_text=E281)
 
-Q("281b", 281, "b", B2, "B",
-  "Si la botiga apliqués primer l'IVA i després el descompte, el client "
+Q("281b", 281, "b", B2, tipus="B",
+  enunciat="Si la botiga apliqués primer l'IVA i després el descompte, el client "
   "pagaria el mateix?",
-  "Sí: multiplicar per $0{,}88$ i per $1{,}21$ dona el mateix en qualsevol "
+  correcta="Sí: multiplicar per $0{,}88$ i per $1{,}21$ dona el mateix en qualsevol "
   "ordre.",
-  [D("No: sortiria més car, perquè el descompte s'aplicaria sobre una "
+  distractors=[D("No: sortiria més car, perquè el descompte s'aplicaria sobre una "
      "quantitat més gran.", "ORDRE_DELS_FACTORS",
      "El descompte s'aplicaria sobre una quantitat més gran, sí, però també "
      "seria un descompte més gran. El producte no depèn de l'ordre: "
@@ -316,9 +316,9 @@ Q("281b", 281, "b", B2, "B",
      "ES_POT_DETERMINAR",
      "L'arrodoniment pot moure algun cèntim, però la pregunta és sobre el "
      "càlcul: amb factors, l'ordre no hi fa res.")],
-  ["Escriu les dues operacions com un producte de factors.",
+  pistes=["Escriu les dues operacions com un producte de factors.",
    "La multiplicació, canvia si en canvies l'ordre?"],
-  ["Ordre 1: $650\\cdot0{,}88\\cdot1{,}21$",
+  resolucio=["Ordre 1: $650\\cdot0{,}88\\cdot1{,}21$",
    "Ordre 2: $650\\cdot1{,}21\\cdot0{,}88$",
    "Són el mateix producte: $%s$ € en tots dos casos" % texd(_final281, 2)],
   ex_text=E281,
@@ -331,10 +331,10 @@ Q("281b", 281, "b", B2, "B",
 E282 = ("En un compte que dona un $3\\,\\%$ d'interès simple anual s'hi "
         "ingressen $2\\,400$ €.")
 
-Q("282a", 282, "a", B2, "A",
-  "Quants interessos genera en un any?",
-  "$72$ €",
-  [D("$2\\,472$ €", "PAS_INTERMEDI_PER_RESPOSTA",
+Q("282a", 282, "a", B2, tipus="A",
+  enunciat="Quants interessos genera en un any?",
+  correcta="$72$ €",
+  distractors=[D("$2\\,472$ €", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el capital final, no els interessos. Els interessos són "
      "només el que s'hi ha afegit."),
    D("$800$ €", "PERCENTATGE_MAL_CALCULAT",
@@ -343,15 +343,15 @@ Q("282a", 282, "a", B2, "A",
    D("$7{,}2$ €", "PERCENTATGE_DECIMAL_MAL",
      "T'has desplaçat un lloc: $3\\,\\%$ de $2\\,400$ és "
      "$2400\\cdot0{,}03=72$, no $2400\\cdot0{,}003$.")],
-  ["El $3\\,\\%$ de $2\\,400$ és $2400\\cdot0{,}03$.",
+  pistes=["El $3\\,\\%$ de $2\\,400$ és $2400\\cdot0{,}03$.",
    "Els interessos són la part que s'afegeix, no el total."],
-  ["$I=2400\\cdot0{,}03=72$ €"],
+  resolucio=["$I=2400\\cdot0{,}03=72$ €"],
   ex_text=E282)
 
-Q("282b", 282, "b", B2, "A",
-  "I en $5$ anys, amb interès simple?",
-  "$360$ €",
-  [D("$%s$ €" % texd(F(2400) * (F(103, 100) ** 5 - 1), 2), "SIMPLE_PER_COMPOST",
+Q("282b", 282, "b", B2, tipus="A",
+  enunciat="I en $5$ anys, amb interès simple?",
+  correcta="$360$ €",
+  distractors=[D("$%s$ €" % texd(F(2400) * (F(103, 100) ** 5 - 1), 2), "SIMPLE_PER_COMPOST",
      "Això és interès COMPOST, que és quan els interessos generen més "
      "interessos. Amb interès simple, cada any es genera el mateix: "
      "$72\\cdot5$."),
@@ -361,9 +361,9 @@ Q("282b", 282, "b", B2, "A",
      "PERCENTATGE_MAL_CALCULAT",
      "Sembla que has fet el $45\\,\\%$. Cinc anys al $3\\,\\%$ són un "
      "$15\\,\\%$ en total, no un $45\\,\\%$.")],
-  ["Amb interès simple, cada any genera el mateix que el primer.",
+  pistes=["Amb interès simple, cada any genera el mateix que el primer.",
    "Multiplica els interessos d'un any pel nombre d'anys."],
-  ["$I=2400\\cdot0{,}03\\cdot5=360$ €"],
+  resolucio=["$I=2400\\cdot0{,}03\\cdot5=360$ €"],
   ex_text=E282,
   # Sense nota: recordava què vol dir interès SIMPLE. Si l'alumne no ho
   # sap, ho ha de buscar; si ho sap, la nota li ocupa lloc.
@@ -379,10 +379,10 @@ _cap = [3000, 5000, 2000]
 _tot283 = sum(_cap)
 _ben = [F(12000 * c, _tot283) for c in _cap]
 
-Q("283a", 283, "a", B2, "A",
-  "Quant li toca al que va posar $5\\,000$ €?",
-  "$%s$ €" % texd(_ben[1], 0),
-  [D("$4\\,000$ €", "REPARTIMENT_A_PARTS_IGUALS",
+Q("283a", 283, "a", B2, tipus="A",
+  enunciat="Quant li toca al que va posar $5\\,000$ €?",
+  correcta="$%s$ €" % texd(_ben[1], 0),
+  distractors=[D("$4\\,000$ €", "REPARTIMENT_A_PARTS_IGUALS",
      "Això és repartir a parts iguals ($12000:3$). El repartiment és "
      "PROPORCIONAL: qui ha posat més, cobra més."),
    D("$5\\,000$ €", "PAS_INTERMEDI_PER_RESPOSTA",
@@ -390,18 +390,18 @@ Q("283a", 283, "a", B2, "A",
    D("$%s$ €" % texd(F(12000 * _cap[0], _tot283), 0), "PART_MAL_ASSIGNADA",
      "Aquest és el que li toca al que va posar $3\\,000$ €. Compte a quin "
      "soci correspon cada part.")],
-  ["Calcula quina fracció del capital total va posar: "
+  pistes=["Calcula quina fracció del capital total va posar: "
    "$\\dfrac{5000}{10000}$.",
    "Aplica aquesta fracció als $12\\,000$ € de benefici."],
-  ["Capital total: $3000+5000+2000=10\\,000$ €",
+  resolucio=["Capital total: $3000+5000+2000=10\\,000$ €",
    "Li correspon $\\dfrac{5000}{10000}=\\dfrac{1}{2}$ del benefici",
    "$12000\\cdot\\dfrac{1}{2}=%s$ €" % texd(_ben[1], 0)],
   ex_text=E283)
 
-Q("283b", 283, "b", B2, "A",
-  "I quin percentatge del benefici li toca al que va posar $2\\,000$ €?",
-  "El $20\\,\\%$",
-  [D("El $2\\,\\%$", "PERCENTATGE_DECIMAL_MAL",
+Q("283b", 283, "b", B2, tipus="A",
+  enunciat="I quin percentatge del benefici li toca al que va posar $2\\,000$ €?",
+  correcta="El $20\\,\\%$",
+  distractors=[D("El $2\\,\\%$", "PERCENTATGE_DECIMAL_MAL",
      "El $2$ de $2\\,000$ no és el percentatge. Cal comparar-lo amb el "
      "capital total: $\\dfrac{2000}{10000}$."),
    D("El $%s\\,\\%%$" % pc(F(100, 3), 1), "REPARTIMENT_A_PARTS_IGUALS",
@@ -409,9 +409,9 @@ Q("283b", 283, "b", B2, "A",
      "reparteix segons el que ha posat cadascú."),
    D("El $50\\,\\%$", "PART_MAL_ASSIGNADA",
      "Aquest és el percentatge del soci que va posar $5\\,000$ €.")],
-  ["Compara el que va posar amb el capital total.",
+  pistes=["Compara el que va posar amb el capital total.",
    "$\\dfrac{2000}{10000}$, passat a percentatge."],
-  ["$\\dfrac{2000}{10000}=0{,}2\\to20\\,\\%$",
+  resolucio=["$\\dfrac{2000}{10000}=0{,}2\\to20\\,\\%$",
    "Comprovació: $12000\\cdot0{,}2=2\\,400$ €, i "
    "$6000+2400+3600=12\\,000$ €"],
   ex_text=E283)
@@ -421,10 +421,10 @@ Q("283b", 283, "b", B2, "A",
 E284 = ("Un preu de $500$ € puja un $20\\,\\%$ i, al cap d'un temps, el preu "
         "nou baixa un $20\\,\\%$.")
 
-Q("284", 284, "", B2, "A",
-  "Quin és el preu final?",
-  "$480$ €: no torna als $500$ €",
-  [D("$500$ €: torna al preu de partida.", "PERCENTATGES_SUMATS",
+Q("284", 284, "", B2, tipus="A",
+  enunciat="Quin és el preu final?",
+  correcta="$480$ €: no torna als $500$ €",
+  distractors=[D("$500$ €: torna al preu de partida.", "PERCENTATGES_SUMATS",
      "El $20\\,\\%$ de pujada es calcula sobre $500$ ($+100$ €), però el "
      "$20\\,\\%$ de baixada es calcula sobre $600$ ($-120$ €). Com que les "
      "bases són diferents, no es compensen."),
@@ -434,9 +434,9 @@ Q("284", 284, "", B2, "A",
    D("$400$ €", "PERCENTATGES_SUMATS",
      "Sembla que has restat un $20\\,\\%$ del preu original. La baixada és "
      "sobre $600$ €, no sobre $500$ €.")],
-  ["Calcula el preu després de la pujada.",
+  pistes=["Calcula el preu després de la pujada.",
    "Aplica la baixada sobre AQUEST preu nou, no sobre el de partida."],
-  ["$500\\cdot1{,}2=600$ €",
+  resolucio=["$500\\cdot1{,}2=600$ €",
    "$600\\cdot0{,}8=480$ €",
    "Amb factors es veu d'un cop: $1{,}2\\cdot0{,}8=0{,}96$, o sigui un "
    "$4\\,\\%$ de baixada neta"],
@@ -445,3 +445,51 @@ Q("284", 284, "", B2, "A",
   # des de dos costats. És una observació per al professorat, no per
   # a qui està resolent l'exercici.
   )
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercici 356)
+# =====================================================================
+# El bloc obria demanant quin és el factor d'una variació. Aquí el factor
+# ja és a l'enunciat: només cal saber que s'aplica MULTIPLICANT i que el
+# resultat ja és la quantitat final, no el que puja o baixa.
+
+dificultats({
+    356: 1,  # aplicar un factor multiplicador que ja es dona
+})
+
+
+E356 = ("Calcula la quantitat final aplicant-hi el factor multiplicador que "
+        "es dona.")
+
+Q("356a", 356, "a", B1, tipus="A",
+  enunciat=r"$100$ € pugen un $25\,\%$: es multipliquen per $1{,}25$.",
+  correcta="$125$ €",
+  distractors=[D("$25$ €", "FACTOR_PER_PERCENTATGE",
+     "Això és el que PUJA. Multiplicant per $1{,}25$ ja surt la quantitat "
+     "final, amb la pujada inclosa."),
+   D("$80$ €", "FORMULA_INVERTIDA",
+     "Has dividit per $1{,}25$. Si puja, el resultat ha de ser més gran "
+     "que $100$."),
+   D("$101{,}25$ €", "PRODUCTE_PER_SUMA",
+     "Has sumat el factor. El factor es MULTIPLICA: $100\\cdot1{,}25$.")],
+  pistes=["El factor ja te'l donen: no cal calcular-lo.",
+   "$100\\cdot1{,}25$."],
+  resolucio=[r"$100\cdot1{,}25=125$ €"],
+  ex_text=E356)
+
+Q("356b", 356, "b", B1, tipus="A",
+  enunciat=r"$200$ € baixen un $10\,\%$: es multipliquen per $0{,}90$.",
+  correcta="$180$ €",
+  distractors=[D("$20$ €", "FACTOR_PER_PERCENTATGE",
+     "Això és el que BAIXA. Multiplicant per $0{,}90$ ja surt la quantitat "
+     "final, amb la rebaixa feta."),
+   D(r"$\approx222{,}22$ €", "FORMULA_INVERTIDA",
+     "Has dividit per $0{,}90$. Si baixa, el resultat ha de ser més petit "
+     "que $200$."),
+   D("$199{,}10$ €", "PRODUCTE_PER_SUMA",
+     "Has restat el factor. El factor es MULTIPLICA: $200\\cdot0{,}90$.")],
+  pistes=["El factor ja te'l donen: no cal calcular-lo.",
+   "$200\\cdot0{,}90$."],
+  resolucio=[r"$200\cdot0{,}90=180$ €"],
+  ex_text=E356)

@@ -43,9 +43,32 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 7</h1>
-<p class="meta">62 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">64 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Triangles i teorema de Pitàgores <span class="tip">· 25 preguntes</span></h2>
+<h2>Triangles i teorema de Pitàgores <span class="tip">· 27 preguntes</span></h2>
+<p class="sec"><strong>Exercici 357.</strong> Calcula la hipotenusa d&#x27;aquest triangle rectangle a partir dels dos catets. Recorda el teorema de Pitàgores: $h^2=c_1^2+c_2^2$.</p>
+<div class="it"><div class="cap"><span class="cod">357a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Catets de $6$ cm i $8$ cm.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 249 231" role="img" xmlns="http://www.w3.org/2000/svg"><title>Triangle rectangle de catets 6 cm i 8 cm.</title><g transform="translate(64.6,14.0)"><polygon points="0.0,170.0 170.0,170.0 0.0,0.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><path d="M 12.0 170.0 L 12.0 158.0 L 0.0 158.0" fill="none" stroke="currentColor" stroke-width="1.2"/><line class="fig-cota" x1="0.0" y1="172.5" x2="0.0" y2="189.5" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="170.0" y1="172.5" x2="170.0" y2="189.5" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="0.0" y1="186.0" x2="170.0" y2="186.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-4.0" y1="182.0" x2="4.0" y2="190.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="166.0" y1="182.0" x2="174.0" y2="190.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-2.5" y1="0.0" x2="-19.5" y2="0.0" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="-2.5" y1="170.0" x2="-19.5" y2="170.0" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="-16.0" y1="0.0" x2="-16.0" y2="170.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-12.0" y1="-4.0" x2="-20.0" y2="4.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-12.0" y1="166.0" x2="-20.0" y2="174.0" stroke="currentColor" stroke-width="1.1"/><line x1="170.0" y1="170.0" x2="0.0" y2="0.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="85" y="200.4" text-anchor="middle" class="fig-etq">6 cm</text><text x="-36" y="88.4" text-anchor="middle" class="fig-etq">8 cm</text><text x="92.8" y="80.6" text-anchor="middle" class="fig-etq">h</text></g></svg></div>
+<ol class="op"><li><span class="ok">$10$ cm</span> — resposta correcta</li>
+<li>$14$ cm<br><span class="err">SUMA_CATETS_SENSE_QUADRAT</span><span class="fb">Has sumat els costats directament. Pitàgores diu que es sumen els seus QUADRATS, i al final es fa l'arrel del resultat.</span></li>
+<li>$100$ cm<br><span class="err">ARREL_OBLIDADA</span><span class="fb">$100$ és $h^2$. T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.</span></li>
+<li>$\sqrt{28}\approx5{,}29$ cm<br><span class="err">CATET_HIPOTENUSA_CONFOSOS</span><span class="fb">Has restat els quadrats, que és el que es fa per trobar un CATET. Aquí es busca la hipotenusa: se sumen. Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre el costat més llarg i va sola a un costat de la igualtat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Eleva cada catet al quadrat i suma: $6^2+8^2$.</li><li>$36+64=100$. Falta l'arrel.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$h^2=6^2+8^2=36+64=100$</li><li>$h=\sqrt{100}=10$ cm</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">357b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Catets de $3$ m i $4$ m.</div>
+<div class="fig"><svg class="figura" viewBox="0 0 240 231" role="img" xmlns="http://www.w3.org/2000/svg"><title>Triangle rectangle de catets 3 m i 4 m.</title><g transform="translate(56.0,14.0)"><polygon points="0.0,170.0 170.0,170.0 0.0,0.0" fill="var(--fig-plena, #E9F0F6)" stroke="currentColor" stroke-width="2"/><path d="M 12.0 170.0 L 12.0 158.0 L 0.0 158.0" fill="none" stroke="currentColor" stroke-width="1.2"/><line class="fig-cota" x1="0.0" y1="172.5" x2="0.0" y2="189.5" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="170.0" y1="172.5" x2="170.0" y2="189.5" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="0.0" y1="186.0" x2="170.0" y2="186.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-4.0" y1="182.0" x2="4.0" y2="190.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="166.0" y1="182.0" x2="174.0" y2="190.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-2.5" y1="0.0" x2="-19.5" y2="0.0" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="-2.5" y1="170.0" x2="-19.5" y2="170.0" stroke="currentColor" stroke-width="0.9" stroke-opacity="0.65"/><line class="fig-cota" x1="-16.0" y1="0.0" x2="-16.0" y2="170.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-12.0" y1="-4.0" x2="-20.0" y2="4.0" stroke="currentColor" stroke-width="1.1"/><line class="fig-cota" x1="-12.0" y1="166.0" x2="-20.0" y2="174.0" stroke="currentColor" stroke-width="1.1"/><line x1="170.0" y1="170.0" x2="0.0" y2="0.0" stroke="var(--fig-marca, #B3453C)" stroke-width="2.5"/><text x="85" y="200.4" text-anchor="middle" class="fig-etq">3 m</text><text x="-31" y="88.4" text-anchor="middle" class="fig-etq">4 m</text><text x="92.8" y="80.6" text-anchor="middle" class="fig-etq">h</text></g></svg></div>
+<ol class="op"><li><span class="ok">$5$ m</span> — resposta correcta</li>
+<li>$7$ m<br><span class="err">SUMA_CATETS_SENSE_QUADRAT</span><span class="fb">Has sumat els costats directament. Pitàgores diu que es sumen els seus QUADRATS, i al final es fa l'arrel del resultat.</span></li>
+<li>$25$ m<br><span class="err">ARREL_OBLIDADA</span><span class="fb">$25$ és $h^2$. T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.</span></li>
+<li>$\sqrt{7}\approx2{,}65$ m<br><span class="err">CATET_HIPOTENUSA_CONFOSOS</span><span class="fb">Has restat els quadrats, que és el que es fa per trobar un CATET. Aquí es busca la hipotenusa: se sumen. Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre el costat més llarg i va sola a un costat de la igualtat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Eleva cada catet al quadrat i suma: $3^2+4^2$.</li><li>$9+16=25$. Falta l'arrel.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$h^2=3^2+4^2=9+16=25$</li><li>$h=\sqrt{25}=5$ m</li></ol>
+</div>
 <p class="sec"><strong>Exercici 119.</strong> </p>
 <div class="it"><div class="cap"><span class="cod">119</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Un triangle isòsceles té l'angle desigual de $50^\circ$. Quant mesuren els angles iguals?</div>
@@ -765,17 +788,17 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="nota"><strong>Nota interna (no es publica):</strong> Lectura presa de la nota de transcripció de r-im8.tex.</p>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Triangles i teorema de Pitàgores <span class="err">obre pel mig</span></td><td>0</td><td>8</td><td>14</td><td>3</td><td><span class="err">directa</span></td></tr>
+<tr><td>Triangles i teorema de Pitàgores</td><td>2</td><td>8</td><td>14</td><td>3</td><td>trivial</td></tr>
 <tr><td>Àrees amb el teorema de Pitàgores</td><td>3</td><td>0</td><td>7</td><td>2</td><td>trivial</td></tr>
 <tr><td>Àrees de quadrilàters i polígons regulars</td><td>4</td><td>0</td><td>11</td><td>3</td><td>trivial</td></tr>
 <tr><td>Problemes d&#x27;aplicació <span class="tip">nivell avançat</span></td><td>0</td><td>0</td><td>0</td><td>7</td><td>avançat a posta</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>SUMA_CATETS_SENSE_QUADRAT</code></td><td>22</td><td>357a, 357b, 123a, 123a, 123b, 123b, 123c, 123c, 124c, 128a, 128b, 129, 332a, 332b…</td></tr>
 <tr><td><code>ARREL_FACTOR_OBLIDAT</code></td><td>21</td><td>127a, 127b, 127c, 132, 134, 135, 133, 140a, 140b, 140c, 140d, 141a, 141b, 143a…</td></tr>
-<tr><td><code>SUMA_CATETS_SENSE_QUADRAT</code></td><td>20</td><td>123a, 123a, 123b, 123b, 123c, 123c, 124c, 128a, 128b, 129, 332a, 332b, 332c, 131…</td></tr>
 <tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>18</td><td>124a, 124b, 125, 131, 132, 134, 136, 137, 138, 130, 140b, 141a, 141b, 142…</td></tr>
 <tr><td><code>CATET_MAL_IDENTIFICAT</code></td><td>16</td><td>123d, 124a, 124b, 124c, 128b, 134, 136, 137, 140b, 142, 145c, 145c, 148a, 148b…</td></tr>
-<tr><td><code>ARREL_OBLIDADA</code></td><td>13</td><td>123a, 123b, 123c, 123d, 124c, 125, 128a, 129, 131, 130, 133, 146, 147</td></tr>
+<tr><td><code>ARREL_OBLIDADA</code></td><td>15</td><td>357a, 357b, 123a, 123b, 123c, 123d, 124c, 125, 128a, 129, 131, 130, 133, 146…</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>11</td><td>121d, 126a, 126a, 126b, 126b, 140c, 140d, 144b, 150, 150, 151</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>8</td><td>126a, 135, 136, 137, 138, 140a, 140d, 144a</td></tr>
 <tr><td><code>POTENCIA_DE_SUMA</code></td><td>7</td><td>127a, 127b, 132, 141a, 141b, 143a, 143c</td></tr>
@@ -793,6 +816,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>HIPOTENUSA_PER_AREA</code></td><td>3</td><td>332a, 332b, 332c</td></tr>
 <tr><td><code>FORMULA_INVERTIDA</code></td><td>3</td><td>333a, 333b, 140c</td></tr>
 <tr><td><code>FRACCIO_DE_CERCLE_MAL</code></td><td>3</td><td>144a, 144b, 144b</td></tr>
+<tr><td><code>CATET_HIPOTENUSA_CONFOSOS</code></td><td>2</td><td>357a, 357b</td></tr>
 <tr><td><code>SUMA_ANGLES_MAL</code></td><td>2</td><td>119, 119</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>2</td><td>120b, 124a</td></tr>
 <tr><td><code>REPARTIMENT_ANGLES_MAL</code></td><td>1</td><td>119</td></tr>

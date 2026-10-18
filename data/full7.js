@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Triangles i teorema de Pitàgores",
    "descripcio": "Angles, desigualtat triangular, triangles rectangles i teorema de Pitàgores en quadrats, rectangles i polígons.",
    "items": [
+    "357a",
+    "357b",
     "119",
     "120a",
     "120b",
@@ -99,6 +101,7 @@ window.FULL = {
  "errors": {
   "ARREL_FACTOR_OBLIDAT": "Has arribat al valor de dins de l'arrel però t'has deixat el factor que l'acompanya (sovint un $\\sqrt3$ o un $2$). Escriu la fórmula sencera abans de substituir-hi els números.",
   "ARREL_OBLIDADA": "T'has quedat amb el quadrat (o el cub) de la incògnita. De $x^2=k$ encara falta l'arrel per arribar a $x$: comprova sempre quina de les dues quantitats et demanen.",
+  "CATET_HIPOTENUSA_CONFOSOS": "Has intercanviat un catet amb la hipotenusa. La hipotenusa és sempre el costat més llarg i va sola a un costat de la igualtat.",
   "CATET_MAL_IDENTIFICAT": "El costat que busques no és el que has triat. Fes un dibuix ràpid i marca quin costat coneixes i quin has d'aïllar abans de calcular.",
   "COSTATS_MAL_TRIATS": "El criteri és el bo, però l'has aplicat als costats que no toquen: torna a mirar quins dos costats has de comparar amb quin.",
   "DIMENSIO_EXPONENT_MAL": "L'exponent no correspon a la dimensió: les àrees van al quadrat i els volums, al cub. Comprova també les unitats del resultat.",
@@ -124,6 +127,52 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "357a",
+   "ex": 357,
+   "ap": "a",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la hipotenusa d'aquest triangle rectangle a partir dels dos catets. Recorda el teorema de Pitàgores: $h^2=c_1^2+c_2^2$.",
+   "enunciat": "Catets de $6$ cm i $8$ cm.",
+   "opcions": [
+    "$14$ cm",
+    "$\\sqrt{28}\\approx5{,}29$ cm",
+    "$100$ cm",
+    "$10$ cm"
+   ],
+   "pistes": [
+    "Eleva cada catet al quadrat i suma: $6^2+8^2$.",
+    "$36+64=100$. Falta l'arrel."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgc3VtYXQgZWxzIGNvc3RhdHMgZGlyZWN0YW1lbnQuIFBpdMOgZ29yZXMgZGl1IHF1ZSBlcyBzdW1lbiBlbHMgc2V1cyBRVUFEUkFUUywgaSBhbCBmaW5hbCBlcyBmYSBsJ2FycmVsIGRlbCByZXN1bHRhdC4iLCAiSGFzIHJlc3RhdCBlbHMgcXVhZHJhdHMsIHF1ZSDDqXMgZWwgcXVlIGVzIGZhIHBlciB0cm9iYXIgdW4gQ0FURVQuIEFxdcOtIGVzIGJ1c2NhIGxhIGhpcG90ZW51c2E6IHNlIHN1bWVuLiBIYXMgaW50ZXJjYW52aWF0IHVuIGNhdGV0IGFtYiBsYSBoaXBvdGVudXNhLiBMYSBoaXBvdGVudXNhIMOpcyBzZW1wcmUgZWwgY29zdGF0IG3DqXMgbGxhcmcgaSB2YSBzb2xhIGEgdW4gY29zdGF0IGRlIGxhIGlndWFsdGF0LiIsICIkMTAwJCDDqXMgJGheMiQuIFQnaGFzIHF1ZWRhdCBhbWIgZWwgcXVhZHJhdCAobyBlbCBjdWIpIGRlIGxhIGluY8OyZ25pdGEuIERlICR4XjI9ayQgZW5jYXJhIGZhbHRhIGwnYXJyZWwgcGVyIGFycmliYXIgYSAkeCQ6IGNvbXByb3ZhIHNlbXByZSBxdWluYSBkZSBsZXMgZHVlcyBxdWFudGl0YXRzIGV0IGRlbWFuZW4uIiwgIiJdLCAiZXJyIjogWyJTVU1BX0NBVEVUU19TRU5TRV9RVUFEUkFUIiwgIkNBVEVUX0hJUE9URU5VU0FfQ09ORk9TT1MiLCAiQVJSRUxfT0JMSURBREEiLCAiIl0sICJyZXMiOiBbIiRoXjI9Nl4yKzheMj0zNis2ND0xMDAkIiwgIiRoPVxcc3FydHsxMDB9PTEwJCBjbSJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 249 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle rectangle de catets 6 cm i 8 cm.</title><g transform=\"translate(64.6,14.0)\"><polygon points=\"0.0,170.0 170.0,170.0 0.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 12.0 170.0 L 12.0 158.0 L 0.0 158.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"172.5\" x2=\"0.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"172.5\" x2=\"170.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"186.0\" x2=\"170.0\" y2=\"186.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"182.0\" x2=\"4.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"182.0\" x2=\"174.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"170.0\" x2=\"-19.5\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"166.0\" x2=\"-20.0\" y2=\"174.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line x1=\"170.0\" y1=\"170.0\" x2=\"0.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.5\"/><text x=\"85\" y=\"200.4\" text-anchor=\"middle\" class=\"fig-etq\">6 cm</text><text x=\"-36\" y=\"88.4\" text-anchor=\"middle\" class=\"fig-etq\">8 cm</text><text x=\"92.8\" y=\"80.6\" text-anchor=\"middle\" class=\"fig-etq\">h</text></g></svg>"
+  },
+  {
+   "id": "357b",
+   "ex": 357,
+   "ap": "b",
+   "bloc": "triangles",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la hipotenusa d'aquest triangle rectangle a partir dels dos catets. Recorda el teorema de Pitàgores: $h^2=c_1^2+c_2^2$.",
+   "enunciat": "Catets de $3$ m i $4$ m.",
+   "opcions": [
+    "$\\sqrt{7}\\approx2{,}65$ m",
+    "$25$ m",
+    "$5$ m",
+    "$7$ m"
+   ],
+   "pistes": [
+    "Eleva cada catet al quadrat i suma: $3^2+4^2$.",
+    "$9+16=25$. Falta l'arrel."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcmVzdGF0IGVscyBxdWFkcmF0cywgcXVlIMOpcyBlbCBxdWUgZXMgZmEgcGVyIHRyb2JhciB1biBDQVRFVC4gQXF1w60gZXMgYnVzY2EgbGEgaGlwb3RlbnVzYTogc2Ugc3VtZW4uIEhhcyBpbnRlcmNhbnZpYXQgdW4gY2F0ZXQgYW1iIGxhIGhpcG90ZW51c2EuIExhIGhpcG90ZW51c2Egw6lzIHNlbXByZSBlbCBjb3N0YXQgbcOpcyBsbGFyZyBpIHZhIHNvbGEgYSB1biBjb3N0YXQgZGUgbGEgaWd1YWx0YXQuIiwgIiQyNSQgw6lzICRoXjIkLiBUJ2hhcyBxdWVkYXQgYW1iIGVsIHF1YWRyYXQgKG8gZWwgY3ViKSBkZSBsYSBpbmPDsmduaXRhLiBEZSAkeF4yPWskIGVuY2FyYSBmYWx0YSBsJ2FycmVsIHBlciBhcnJpYmFyIGEgJHgkOiBjb21wcm92YSBzZW1wcmUgcXVpbmEgZGUgbGVzIGR1ZXMgcXVhbnRpdGF0cyBldCBkZW1hbmVuLiIsICIiLCAiSGFzIHN1bWF0IGVscyBjb3N0YXRzIGRpcmVjdGFtZW50LiBQaXTDoGdvcmVzIGRpdSBxdWUgZXMgc3VtZW4gZWxzIHNldXMgUVVBRFJBVFMsIGkgYWwgZmluYWwgZXMgZmEgbCdhcnJlbCBkZWwgcmVzdWx0YXQuIl0sICJlcnIiOiBbIkNBVEVUX0hJUE9URU5VU0FfQ09ORk9TT1MiLCAiQVJSRUxfT0JMSURBREEiLCAiIiwgIlNVTUFfQ0FURVRTX1NFTlNFX1FVQURSQVQiXSwgInJlcyI6IFsiJGheMj0zXjIrNF4yPTkrMTY9MjUkIiwgIiRoPVxcc3FydHsyNX09NSQgbSJdfQ==",
+   "figura": "<svg class=\"figura\" viewBox=\"0 0 240 231\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Triangle rectangle de catets 3 m i 4 m.</title><g transform=\"translate(56.0,14.0)\"><polygon points=\"0.0,170.0 170.0,170.0 0.0,0.0\" fill=\"var(--fig-plena, #E9F0F6)\" stroke=\"currentColor\" stroke-width=\"2\"/><path d=\"M 12.0 170.0 L 12.0 158.0 L 0.0 158.0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.2\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"172.5\" x2=\"0.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"170.0\" y1=\"172.5\" x2=\"170.0\" y2=\"189.5\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"0.0\" y1=\"186.0\" x2=\"170.0\" y2=\"186.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-4.0\" y1=\"182.0\" x2=\"4.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"166.0\" y1=\"182.0\" x2=\"174.0\" y2=\"190.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"0.0\" x2=\"-19.5\" y2=\"0.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-2.5\" y1=\"170.0\" x2=\"-19.5\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"0.9\" stroke-opacity=\"0.65\"/><line class=\"fig-cota\" x1=\"-16.0\" y1=\"0.0\" x2=\"-16.0\" y2=\"170.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"-4.0\" x2=\"-20.0\" y2=\"4.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-cota\" x1=\"-12.0\" y1=\"166.0\" x2=\"-20.0\" y2=\"174.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line x1=\"170.0\" y1=\"170.0\" x2=\"0.0\" y2=\"0.0\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.5\"/><text x=\"85\" y=\"200.4\" text-anchor=\"middle\" class=\"fig-etq\">3 m</text><text x=\"-31\" y=\"88.4\" text-anchor=\"middle\" class=\"fig-etq\">4 m</text><text x=\"92.8\" y=\"80.6\" text-anchor=\"middle\" class=\"fig-etq\">h</text></g></svg>"
+  },
   {
    "id": "119",
    "ex": 119,

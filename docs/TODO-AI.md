@@ -31,8 +31,8 @@ did not intend, stop and find out why before continuing.
 **Test:** `sh tests/executa.sh`. **Run `npm install --no-save jsdom` first**
 — see task 9, this is not optional advice.
 
-Current baseline: 183 Python tests + 189 JS checks, all green. 951 items
-across 12 sheets: 58 trivial, 257 direct, 398 chained, 238 complete.
+Current baseline: 183 Python tests + 189 JS checks, all green. 1029 items
+across 12 sheets: 136 trivial, 257 direct, 398 chained, 238 complete.
 
 ---
 
@@ -103,6 +103,20 @@ exists, which reduces (does not remove) the blast radius.
 ---
 
 ## 4. Per-page payload — the one metric moving the wrong way
+
+**Status (2026-10-18): data split done.** `tools/build.py` now also writes
+`data/fullN-index.js` (`window.FULL_INDEX`: block ids and item ids, a few kB)
+and one `data/fullN-<bloc>.js` per block (the same shape as `fullN.js`, with
+only that block's items and error labels). `practica.html` loads the index,
+then only the block of `?q=` (or the first): measured in Chromium, the data a
+practice page downloads went from 244 kB to 64 kB (sheet 1) and from 310 kB to
+110 kB (sheet 10); the whole page from 737 kB to 557 kB and 819 kB to 620 kB.
+`practica.js` takes the sheet order from `D.blocs`, so Previous/Next and «N de
+M» still span the whole sheet (each exercise is a page load). `full.html`,
+the diagnostic and the analyser still use the whole `data/fullN.js` (the hub
+needs every item's error tags). `data/fullN.js` is byte-identical to before.
+**Still open:** the 250 kB target is not reachable while every page loads
+KaTeX (~270 kB) and its fonts; that would need lazy KaTeX.
 
 **Severity:** medium, and it degrades with every content addition.
 
@@ -193,6 +207,13 @@ injecting `</script>` into the bank: the build exits 1 with the reason.
 
 ## 7. Content is fused with code
 
+**Status (2026-10-18): the cheap partial fix is done.** `Q()` is keyword-only
+after `bloc` (`def Q(qid, ex, ap, bloc, *, tipus, enunciat, …)`), and all 809
+call sites in `tools/c_*.py` were rewritten mechanically (with Python's `ast`)
+to `tipus=…, enunciat=…, correcta=…, distractors=…, pistes=…, resolucio=…`.
+Every generated file (`data/`, `revisio/`, `js/codi-taules.js`, the analyser)
+came out byte-identical. The big fix below (content as data) is still open.
+
 **Severity:** medium (architecture). ~29,000 lines of Python, mostly prose
 literals.
 
@@ -214,7 +235,13 @@ sites readable and diffs meaningful, and it is mechanical.
 
 ---
 
-## 8. 39 blocks still have no trivial-level exercise
+## 8. Blocks without a trivial-level exercise — RESOLVED
+
+*(2026-10-18: done. Exercises 341–379 add one trivial exercise, two items
+each, to every one of the 39 blocks listed below: 78 new items, 1029 in all.
+Every block now opens at level 1 except the 6 that are legitimately advanced
+(`aplicacions` ×2, `aplicacions_percentatge`, `encadenats`, `problemes` ×2).
+The section is kept because the recipe below is how the next one is added.)*
 
 **Severity:** low-medium. This is planned work, not a defect.
 
@@ -239,7 +266,7 @@ F4  notables      12 items    F3  geometriques  11 items
 1. Read `AUTHORING-GUIDE.md` §4bis for the trivial criterion. The cotton
    test: *if the student knows the definition they get it right; if not they
    get it wrong; and there is no third thing that can go wrong.*
-2. Pick the next free exercise number (highest in use is 340).
+2. Pick the next free exercise number (highest in use is 379).
 3. Add to the relevant `tools/c_<tema>.py`: a `dificultats({N: 1})` block, an
    `E<N>` instruction string, and the `Q()` calls.
 4. Reuse error labels from `tools/tax/` (256 exist). Only add a new label if
@@ -294,6 +321,16 @@ trusting a green result.** It must be jsdom 27 or later (plain `npm install
 ---
 
 ## 10. `document.write` in `full.html` and `practica.html`
+
+**Status (2026-10-18): done, with the "proper fix" below.** Neither page uses
+`document.write` any more. Each adds the data `<script>` with
+`createElement` (works from `file://`); its `onload` calls
+`RE_DADES_LLESTES()`, which sets `window.RE_DADES_OK` and fires the `re:dades`
+event. `js/hub.js` and `js/practica.js` run their body in `inicia()`, at once
+if the data is already there and on `re:dades` otherwise. The `?full=`
+validation and `RE_FULL_ABSENT()` (also on a failed load) are unchanged; the
+accessibility tests (`tests/test_a11y.js`, injection included) pass. The text
+below is the history.
 
 **Severity:** low. Currently correct and deliberate; documented in place.
 

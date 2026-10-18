@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Nombres enters",
    "descripcio": "Operacions combinades, regla dels signes i jerarquia.",
    "items": [
+    "341a",
+    "341b",
     "1a",
     "1b",
     "1c",
@@ -72,6 +74,8 @@ window.FULL = {
    "titol": "Fraccions",
    "descripcio": "Equivalència, simplificació i operacions combinades.",
    "items": [
+    "342a",
+    "342b",
     "18a",
     "18b",
     "18c",
@@ -120,6 +124,8 @@ window.FULL = {
    "titol": "Decimals",
    "descripcio": "Tipus de decimal i fracció generatriu.",
    "items": [
+    "343a",
+    "343b",
     "26a",
     "26b",
     "26c",
@@ -187,6 +193,7 @@ window.FULL = {
   "EL_MES_PETIT": "El més petit dels nombres només és el m.c.d. si divideix tots els altres. Comprova-ho abans de donar-lo per bo.",
   "ENTER_AL_NUMERADOR": "Has sumat l'enter directament al numerador. Un enter és una fracció de denominador $1$: cal reduir-lo a denominador comú abans de sumar.",
   "ENTER_MULTIPLICA_DENOMINADOR": "En multiplicar un enter per una fracció, l'enter multiplica NOMÉS el numerador; el denominador no canvia.",
+  "FORMULA_INVERTIDA": "Has dividit on la fórmula multiplica (o al revés). Escriu la fórmula sencera abans de substituir-hi els valors.",
   "INFINIT_MAI_ARRIBA": "Un decimal periòdic no «s'acosta» a un valor: ÉS aquest valor. La fracció generatriu ho demostra.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
   "JERARQUIA": "Primer les multiplicacions i divisions; després, les sumes i restes.",
@@ -208,6 +215,7 @@ window.FULL = {
   "PRODUCTES_MAL_CREUATS": "Has multiplicat numerador per numerador i denominador per denominador. Cal creuar-los: primer numerador per segon denominador.",
   "PRODUCTE_CREUAT": "Per multiplicar fraccions es fa numerador per numerador i denominador per denominador. Creuar-los és el que es fa per COMPARAR-les, no per multiplicar-les.",
   "PRODUCTE_MAL": "Has multiplicat els dos nombres que et donaven en comptes d'aïllar la incògnita amb els productes creuats.",
+  "PRODUCTE_PER_SUMA": "Has sumat on tocava multiplicar (o al revés). Torna a llegir quina operació es fa sobre les dades.",
   "RAONAMENT_ADDITIU": "Has passat d'una fracció a l'altra sumant. Dues fraccions són equivalents quan es passa d'una a l'altra MULTIPLICANT els dos termes pel mateix nombre.",
   "RESTA_NEGATIU": "Restar un nombre negatiu és sumar-ne l'oposat: $a-(-b) = a+b$.",
   "SIGNE_FINAL": "El resultat té el signe canviat. Revisa quin dels dos termes és més gran en valor absolut.",
@@ -223,6 +231,50 @@ window.FULL = {
   "TRACTAT_COM_PERIODIC": "Has posat nous al denominador, però aquest decimal és exacte: s'acaba. El denominador ha de ser una potència de $10$."
  },
  "items": [
+  {
+   "id": "341a",
+   "ex": 341,
+   "ap": "a",
+   "bloc": "enters",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquest producte o quocient de nombres enters aplicant-hi la regla dels signes.",
+   "enunciat": "$(-4)\\cdot(+5)$",
+   "opcions": [
+    "$-\\dfrac{4}{5}$",
+    "$1$",
+    "$20$",
+    "$-20$"
+   ],
+   "pistes": [
+    "Primer el signe: menys per més, quin signe dona?",
+    "Després el número: $4\\cdot5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZGl2aWRpdC4gRWwgcHVudCB2b2wgZGlyIG11bHRpcGxpY2FyOiAkNFxcY2RvdDU9MjAkLCBhbWIgZWwgc2lnbmUgcXVlIGRpdSBsYSByZWdsYS4iLCAiSGFzIHN1bWF0ICQoLTQpKygrNSkkLiBFbCBwdW50IHZvbCBkaXIgTVVMVElQTElDQVIuIiwgIk1lbnlzIHBlciBtw6lzIGRvbmEgTUVOWVM6IGVscyBkb3MgZmFjdG9ycyB0ZW5lbiBzaWduZXMgZGlmZXJlbnRzLiIsICIiXSwgImVyciI6IFsiRk9STVVMQV9JTlZFUlRJREEiLCAiUFJPRFVDVEVfUEVSX1NVTUEiLCAiU0lHTkVfUFJPRFVDVEUiLCAiIl0sICJyZXMiOiBbIlNpZ25lcyBkaWZlcmVudHM6IGVsIHJlc3VsdGF0IMOpcyBuZWdhdGl1LiAkNFxcY2RvdDU9MjAkLiIsICIkKC00KVxcY2RvdCgrNSk9LTIwJCJdfQ=="
+  },
+  {
+   "id": "341b",
+   "ex": 341,
+   "ap": "b",
+   "bloc": "enters",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula aquest producte o quocient de nombres enters aplicant-hi la regla dels signes.",
+   "enunciat": "$(-18):(-3)$",
+   "opcions": [
+    "$6$",
+    "$54$",
+    "$-6$",
+    "$-21$"
+   ],
+   "pistes": [
+    "Primer el signe: menys entre menys, quin signe dona?",
+    "Després el número: $18:3$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIG11bHRpcGxpY2F0LiBFbHMgZG9zIHB1bnRzIHZvbGVuIGRpciBkaXZpZGlyOiAkMTg6MyQuIiwgIk1lbnlzIGVudHJlIG1lbnlzIGRvbmEgTcOJUzogZWxzIGRvcyBub21icmVzIHRlbmVuIGVsIG1hdGVpeCBzaWduZS4iLCAiSGFzIHN1bWF0ICQoLTE4KSsoLTMpJC4gRWxzIGRvcyBwdW50cyB2b2xlbiBkaXIgRElWSURJUi4iXSwgImVyciI6IFsiIiwgIkZPUk1VTEFfSU5WRVJUSURBIiwgIlNJR05FX1FVT0NJRU5UIiwgIlBST0RVQ1RFX1BFUl9TVU1BIl0sICJyZXMiOiBbIlNpZ25lcyBpZ3VhbHM6IGVsIHJlc3VsdGF0IMOpcyBwb3NpdGl1LiAkMTg6Mz02JC4iLCAiJCgtMTgpOigtMyk9KzYkIl19"
+  },
   {
    "id": "1a",
    "ex": 1,
@@ -1302,6 +1354,50 @@ window.FULL = {
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJBaXjDsiDDqXMgZWwgbS5jLmQuLCBlbCBkaXZpc29yIGNvbcO6IG3DqXMgZ3Jhbi4gRWwgbS5jLm0uIMOpcyB1biBtw7psdGlwbGU6IGhhIGRlIHNlciBtw6lzIGdyYW4gbyBpZ3VhbCBxdWUgdG90cyBlbHMgbm9tYnJlcy4iLCAiRWwgbcOpcyBncmFuIG5vbcOpcyDDqXMgZWwgbS5jLm0uIHNpIMOpcyBtw7psdGlwbGUgZGUgdG90cyBlbHMgYWx0cmVzLiIsICJNdWx0aXBsaWNhci1sb3Mgc2VtcHJlIGTDs25hIHVuIG3Dumx0aXBsZSBjb23DuiwgcGVyw7Igbm8gZWwgbcOpcyBwZXRpdCAobm9tw6lzIGNvaW5jaWRlaXggc2kgZWwgbS5jLmQuIMOpcyAkMSQpLiIsICIiXSwgImVyciI6IFsiTUNEX0VOX0xMT0NfREVfTUNNIiwgIkVMX01FU19HUkFOIiwgIlBST0RVQ1RFIiwgIiJdLCAicmVzIjogWyJEZXNjb21wb3NpY2lvbnM6ICQxMiA9IDJeezJ9XFxjZG90IDMkIMK3ICQxOCA9IDJcXGNkb3QgM157Mn0kIiwgIlRvdHMgZWxzIGZhY3RvcnMgYW1iIGVsIG1ham9yIGV4cG9uZW50OiAkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDJeezJ9XFxjZG90IDNeezJ9JCIsICIkXFxvcGVyYXRvcm5hbWV7bS5jLm0ufSA9IDM2JCJdfQ=="
   },
   {
+   "id": "342a",
+   "ex": 342,
+   "ap": "a",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Simplifica aquesta fracció fins a la fracció irreductible: divideix el numerador i el denominador pel mateix nombre.",
+   "enunciat": "$\\dfrac{6}{8}$",
+   "opcions": [
+    "$\\dfrac{4}{6}$",
+    "$\\dfrac{4}{3}$",
+    "$\\dfrac{3}{8}$",
+    "$\\dfrac{3}{4}$"
+   ],
+   "pistes": [
+    "Busca un nombre que divideixi el $6$ i el $8$ alhora.",
+    "Tots dos són parells: divideix-los per $2$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZmV0ICQ2LTIkIGkgJDgtMiQuIFNpbXBsaWZpY2FyIMOpcyBESVZJRElSIGVsIG51bWVyYWRvciBpIGVsIGRlbm9taW5hZG9yIHBlbCBtYXRlaXggbm9tYnJlLCBubyByZXN0YXItbG9zLiBSZXN0YW50IGNhbnZpZXMgZWwgdmFsb3IgZGUgbGEgZnJhY2Npw7MuIiwgIkhhcyBnaXJhdCBsYSBmcmFjY2nDsy4gRWwgbnVtZXJhZG9yIGNvbnRpbnVhIGEgZGFsdDogJDY6Mj0zJCBhIGRhbHQsICQ4OjI9NCQgYSBiYWl4LiIsICJOb23DqXMgaGFzIGRpdmlkaXQgZWwgbnVtZXJhZG9yLiBFbiBzaW1wbGlmaWNhciBjYWwgZGl2aWRpciBudW1lcmFkb3IgSSBkZW5vbWluYWRvciBwZWwgbWF0ZWl4IG5vbWJyZS4iLCAiIl0sICJlcnIiOiBbIlNJTVBMSUZJQ0FSX1JFU1RBTlQiLCAiSU5WRVJUSURBIiwgIlNJTVBMSUZJQ0FfTk9NRVNfTlVNRVJBRE9SIiwgIiJdLCAicmVzIjogWyIkXFxkZnJhY3s2fXs4fT1cXGRmcmFjezY6Mn17ODoyfT1cXGRmcmFjezN9ezR9JCJdfQ=="
+  },
+  {
+   "id": "342b",
+   "ex": 342,
+   "ap": "b",
+   "bloc": "fraccions",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Simplifica aquesta fracció fins a la fracció irreductible: divideix el numerador i el denominador pel mateix nombre.",
+   "enunciat": "$\\dfrac{10}{15}$",
+   "opcions": [
+    "$\\dfrac{2}{3}$",
+    "$\\dfrac{5}{10}$",
+    "$\\dfrac{2}{15}$",
+    "$\\dfrac{3}{2}$"
+   ],
+   "pistes": [
+    "Busca un nombre que divideixi el $10$ i el $15$ alhora.",
+    "Tots dos acaben en $0$ o en $5$: divideix-los per $5$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGZldCAkMTAtNSQgaSAkMTUtNSQuIFNpbXBsaWZpY2FyIMOpcyBESVZJRElSIGVsIG51bWVyYWRvciBpIGVsIGRlbm9taW5hZG9yIHBlbCBtYXRlaXggbm9tYnJlLCBubyByZXN0YXItbG9zLiBSZXN0YW50IGNhbnZpZXMgZWwgdmFsb3IgZGUgbGEgZnJhY2Npw7MuIiwgIk5vbcOpcyBoYXMgZGl2aWRpdCBlbCBudW1lcmFkb3IuIEVuIHNpbXBsaWZpY2FyIGNhbCBkaXZpZGlyIG51bWVyYWRvciBJIGRlbm9taW5hZG9yIHBlbCBtYXRlaXggbm9tYnJlLiIsICJIYXMgZ2lyYXQgbGEgZnJhY2Npw7MuIEVsIG51bWVyYWRvciBjb250aW51YSBhIGRhbHQ6ICQxMDo1PTIkIGEgZGFsdCwgJDE1OjU9MyQgYSBiYWl4LiJdLCAiZXJyIjogWyIiLCAiU0lNUExJRklDQVJfUkVTVEFOVCIsICJTSU1QTElGSUNBX05PTUVTX05VTUVSQURPUiIsICJJTlZFUlRJREEiXSwgInJlcyI6IFsiJFxcZGZyYWN7MTB9ezE1fT1cXGRmcmFjezEwOjV9ezE1OjV9PVxcZGZyYWN7Mn17M30kIl19"
+  },
+  {
    "id": "18a",
    "ex": 18,
    "ap": "a",
@@ -2202,6 +2298,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCByZXN1bHRhdCB0w6kgZWwgc2lnbmUgY2FudmlhdC4gUmV2aXNhIHF1aW4gZGVscyBkb3MgdGVybWVzIMOpcyBtw6lzIGdyYW4gZW4gdmFsb3IgYWJzb2x1dC4iLCAiRW4gbXVsdGlwbGljYXIgdW4gZW50ZXIgcGVyIHVuYSBmcmFjY2nDsywgbCdlbnRlciBtdWx0aXBsaWNhIE5PTcOJUyBlbCBudW1lcmFkb3I7IGVsIGRlbm9taW5hZG9yIG5vIGNhbnZpYS4iLCAiRWwgc2lnbmUgJC0kIGRhdmFudCBkJ3VuIHBhcsOobnRlc2kgY2FudmlhIGVsIHNpZ25lIGRlIFRPVFMgZWxzIHRlcm1lcyBkZSBkaW5zLCBubyBub23DqXMgZGVsIHByaW1lci4iLCAiIl0sICJlcnIiOiBbIlNJR05FX0ZJTkFMIiwgIkVOVEVSX01VTFRJUExJQ0FfREVOT01JTkFET1IiLCAiTUVOWVNfUEFSRU5URVNJIiwgIiJdLCAicmVzIjogWyJDYWxjdWxlbSBjYWRhIHRyb3M6ICQtM1xcY2RvdFxcZGZyYWN7NH17MTV9ID0gLVxcZGZyYWN7NH17NX0kIFxccXVhZCAkXFxkZnJhY3s3fXs4fVxcY2RvdCA1LTkgPSAtXFxkZnJhY3szN317OH0kIiwgIlJlc3VsdGF0OiAkXFxkZnJhY3sxNTN9ezQwfSQiXX0="
+  },
+  {
+   "id": "343a",
+   "ex": 343,
+   "ap": "a",
+   "bloc": "decimals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Troba la fracció generatriu d'aquest nombre decimal exacte.",
+   "enunciat": "$0{,}7$",
+   "opcions": [
+    "$\\dfrac{7}{10}$",
+    "$\\dfrac{10}{7}$",
+    "$\\dfrac{7}{100}$",
+    "$\\dfrac{7}{9}$"
+   ],
+   "pistes": [
+    "Llegeix el nombre en veu alta: «set dècimes».",
+    "Set dècimes vol dir $7$ partit per $10$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDAsICJkaWFnIjogWyIiLCAiSGFzIGdpcmF0IGxhIGZyYWNjacOzOiAkXFxkZnJhY3sxMH17N30kIMOpcyBtw6lzIGdyYW4gcXVlICQxJCwgaSAkMHssfTckIMOpcyBtw6lzIHBldGl0LiIsICJIaSBoYSBVTkEgeGlmcmEgZGVjaW1hbDogZWwgZGVub21pbmFkb3Igw6lzICQxMCQuIEVsIGRlbm9taW5hZG9yIGhhIGRlIHRlbmlyIHRhbnRzIHplcm9zIGNvbSB4aWZyZXMgZGVjaW1hbHMgdMOpIGVsIG5vbWJyZS4gQ29tcHRhLWxlcyB1bmEgYWx0cmEgdmVnYWRhLiIsICIkXFxkZnJhY3s3fXs5fT0weyx9Nzc3XFxkb3RzJCwgcXVlIG5vIMOpcyAkMHssfTckLiBIYXMgcG9zYXQgbm91cyBhbCBkZW5vbWluYWRvciwgcGVyw7IgYXF1ZXN0IGRlY2ltYWwgw6lzIGV4YWN0ZTogcydhY2FiYS4gRWwgZGVub21pbmFkb3IgaGEgZGUgc2VyIHVuYSBwb3TDqG5jaWEgZGUgJDEwJC4iXSwgImVyciI6IFsiIiwgIklOVkVSVElEQSIsICJQT1RFTkNJQV8xMCIsICJUUkFDVEFUX0NPTV9QRVJJT0RJQyJdLCAicmVzIjogWyIkMHssfTc9XFxkZnJhY3s3fXsxMH0kICh1bmEgeGlmcmEgZGVjaW1hbDogZGVub21pbmFkb3IgJDEwJCkiXX0="
+  },
+  {
+   "id": "343b",
+   "ex": 343,
+   "ap": "b",
+   "bloc": "decimals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Troba la fracció generatriu d'aquest nombre decimal exacte.",
+   "enunciat": "$0{,}23$",
+   "opcions": [
+    "$\\dfrac{23}{10}$",
+    "$\\dfrac{23}{100}$",
+    "$\\dfrac{23}{1\\,000}$",
+    "$\\dfrac{23}{99}$"
+   ],
+   "pistes": [
+    "Llegeix el nombre en veu alta: «vint-i-tres centèsimes».",
+    "Vint-i-tres centèsimes vol dir $23$ partit per $100$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJIaSBoYSBEVUVTIHhpZnJlcyBkZWNpbWFsczogZWwgZGVub21pbmFkb3Igw6lzICQxMDAkLiBFbCBkZW5vbWluYWRvciBoYSBkZSB0ZW5pciB0YW50cyB6ZXJvcyBjb20geGlmcmVzIGRlY2ltYWxzIHTDqSBlbCBub21icmUuIENvbXB0YS1sZXMgdW5hIGFsdHJhIHZlZ2FkYS4iLCAiIiwgIkhpIGhhIGR1ZXMgeGlmcmVzIGRlY2ltYWxzLCBubyB0cmVzLiBFbCBkZW5vbWluYWRvciBoYSBkZSB0ZW5pciB0YW50cyB6ZXJvcyBjb20geGlmcmVzIGRlY2ltYWxzIHTDqSBlbCBub21icmUuIENvbXB0YS1sZXMgdW5hIGFsdHJhIHZlZ2FkYS4iLCAiJFxcZGZyYWN7MjN9ezk5fT0weyx9MjMyM1xcZG90cyQsIHF1ZSBubyDDqXMgJDB7LH0yMyQuIEhhcyBwb3NhdCBub3VzIGFsIGRlbm9taW5hZG9yLCBwZXLDsiBhcXVlc3QgZGVjaW1hbCDDqXMgZXhhY3RlOiBzJ2FjYWJhLiBFbCBkZW5vbWluYWRvciBoYSBkZSBzZXIgdW5hIHBvdMOobmNpYSBkZSAkMTAkLiJdLCAiZXJyIjogWyJQT1RFTkNJQV8xMCIsICIiLCAiUE9URU5DSUFfMTAiLCAiVFJBQ1RBVF9DT01fUEVSSU9ESUMiXSwgInJlcyI6IFsiJDB7LH0yMz1cXGRmcmFjezIzfXsxMDB9JCAoZHVlcyB4aWZyZXMgZGVjaW1hbHM6IGRlbm9taW5hZG9yICQxMDAkKSJdfQ=="
   },
   {
    "id": "26a",

@@ -199,11 +199,11 @@ def catet_tex_raw(hipotenusa, catet_conegut, aprox=True, dec=2):
 # =====================================================================
 
 # ---- exercici 119: angles d'un triangle isòsceles ----
-Q("119", 119, "", B1, "A",
-  "Un triangle isòsceles té l'angle desigual de $50^\\circ$. Quant "
+Q("119", 119, "", B1, tipus="A",
+  enunciat="Un triangle isòsceles té l'angle desigual de $50^\\circ$. Quant "
   "mesuren els angles iguals?",
-  "$65^\\circ$ cadascun",
-  [D("$130^\\circ$ cadascun", "REPARTIMENT_ANGLES_MAL",
+  correcta="$65^\\circ$ cadascun",
+  distractors=[D("$130^\\circ$ cadascun", "REPARTIMENT_ANGLES_MAL",
      "Aquest és el que sumen entre tots dos ($180^\\circ-50^\\circ$), no "
      "el que val cadascun: encara cal repartir-ho entre els dos angles "
      "iguals."),
@@ -214,10 +214,10 @@ Q("119", 119, "", B1, "A",
    D("$115^\\circ$ cadascun", "SUMA_ANGLES_MAL",
      "Aquest valor no surt de $180^\\circ-50^\\circ$ repartit entre dos: "
      "revisa la resta abans de dividir-la per $2$.")],
-  ["La suma dels tres angles d'un triangle sempre val $180^\\circ$.",
+  pistes=["La suma dels tres angles d'un triangle sempre val $180^\\circ$.",
    "Resta l'angle desigual dels $180^\\circ$ i reparteix el que quedi "
    "entre els dos angles iguals."],
-  [r"$180^\circ-50^\circ=130^\circ$ entre els dos angles iguals",
+  resolucio=[r"$180^\circ-50^\circ=130^\circ$ entre els dos angles iguals",
    r"$\dfrac{130^\circ}{2}=65^\circ$ cadascun"],
   ex_text="",
   figura=triangle_isosceles_angle(50))
@@ -226,10 +226,10 @@ Q("119", 119, "", B1, "A",
 E120 = ("Analitza, en cada cas, les mesures i esbrina amb quines es pot "
         "formar un triangle.")
 
-Q("120a", 120, "a", B1, "A",
-  "$a=8$ cm, $b=7$ cm, $c=1$ cm",
-  "No es pot formar cap triangle",
-  [D("Sí que es pot formar un triangle", "DESIGUALTAT_NO_ESTRICTA",
+Q("120a", 120, "a", B1, tipus="A",
+  enunciat="$a=8$ cm, $b=7$ cm, $c=1$ cm",
+  correcta="No es pot formar cap triangle",
+  distractors=[D("Sí que es pot formar un triangle", "DESIGUALTAT_NO_ESTRICTA",
      "Els dos costats més curts sumen exactament $7+1=8$, el mateix "
      "que el costat més llarg: la desigualtat triangular exigeix que "
      "la suma sigui ESTRICTAMENT més gran, no igual. Amb $7+1=8$ el "
@@ -243,17 +243,17 @@ Q("120a", 120, "a", B1, "A",
      "$8$ SÍ que és igual (no menor) a la suma dels altres dos, "
      "$7+1=8$: la condició ha de complir-se en estricte, i aquí just "
      "falla per igualtat.")],
-  ["La condició per formar un triangle és que la suma dels dos costats "
+  pistes=["La condició per formar un triangle és que la suma dels dos costats "
    "més curts sigui ESTRICTAMENT més gran que el costat més llarg.",
    "Compara $7+1$ amb $8$."],
-  [r"Costats més curts: $7$ i $1$. $7+1=8$, que NO és estrictament "
+  resolucio=[r"Costats més curts: $7$ i $1$. $7+1=8$, que NO és estrictament "
    r"més gran que $8$ (hi és igual): no es forma cap triangle"],
   ex_text=E120)
 
-Q("120b", 120, "b", B1, "A",
-  "$a=6$ cm, $b=6$ cm, $c=13$ cm",
-  "No es pot formar cap triangle",
-  [D("Sí que es pot formar un triangle", "DESIGUALTAT_NO_ESTRICTA",
+Q("120b", 120, "b", B1, tipus="A",
+  enunciat="$a=6$ cm, $b=6$ cm, $c=13$ cm",
+  correcta="No es pot formar cap triangle",
+  distractors=[D("Sí que es pot formar un triangle", "DESIGUALTAT_NO_ESTRICTA",
      "Els dos costats iguals sumen $6+6=12$, que és MÉS PETIT que el "
      "tercer costat ($13$): la desigualtat triangular falla clarament, "
      "no per un marge just."),
@@ -265,16 +265,16 @@ Q("120b", 120, "b", B1, "A",
    D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
      "La desigualtat triangular es comprova només amb les tres "
      "longituds donades, sense cap angle.")],
-  ["Compara la suma dels dos costats més curts amb el més llarg.",
+  pistes=["Compara la suma dels dos costats més curts amb el més llarg.",
    "$6+6$ i $13$: quin és més gran?"],
-  [r"Costats iguals: $6$ i $6$. $6+6=12<13$: no es pot formar cap "
+  resolucio=[r"Costats iguals: $6$ i $6$. $6+6=12<13$: no es pot formar cap "
    r"triangle"],
   ex_text="")
 
-Q("120c", 120, "c", B1, "A",
-  "$a=12$ cm, $b=14$ cm, $c=6$ cm",
-  "Sí que es pot formar un triangle",
-  [D("No es pot formar cap triangle", "VEREDICTE_INVERTIT",
+Q("120c", 120, "c", B1, tipus="A",
+  enunciat="$a=12$ cm, $b=14$ cm, $c=6$ cm",
+  correcta="Sí que es pot formar un triangle",
+  distractors=[D("No es pot formar cap triangle", "VEREDICTE_INVERTIT",
      "Comprova-ho: els costats més curts sumen $12+6=18$, que SÍ és "
      "més gran que $14$. La desigualtat triangular es compleix en "
      "aquest cas."),
@@ -286,9 +286,9 @@ Q("120c", 120, "c", B1, "A",
    D("No es pot saber sense conèixer els angles", "ES_POT_DETERMINAR",
      "La desigualtat triangular es comprova només amb les tres "
      "longituds donades, sense cap angle.")],
-  ["Només cal comprovar-ho amb els dos costats més curts: $12$ i $6$.",
+  pistes=["Només cal comprovar-ho amb els dos costats més curts: $12$ i $6$.",
    "Compara $12+6$ amb $14$."],
-  [r"Costats més curts: $12$ i $6$. $12+6=18>14$: es compleix la "
+  resolucio=[r"Costats més curts: $12$ i $6$. $12+6=18>14$: es compleix la "
    r"desigualtat triangular, es pot formar un triangle"],
   ex_text="")
 
@@ -296,10 +296,10 @@ Q("120c", 120, "c", B1, "A",
 E121 = ("Determina si els triangles són rectangles. En cas afirmatiu, "
         "indica la mesura de la seva hipotenusa i dels seus catets.")
 
-Q("121a", 121, "a", B1, "A",
-  "Triangle de costats 5 cm, 12 cm i 13 cm.",
-  "Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $12$ cm",
-  [D("No és rectangle", "VEREDICTE_INVERTIT",
+Q("121a", 121, "a", B1, tipus="A",
+  enunciat="Triangle de costats 5 cm, 12 cm i 13 cm.",
+  correcta="Rectangle, amb hipotenusa $13$ cm i catets $5$ cm i $12$ cm",
+  distractors=[D("No és rectangle", "VEREDICTE_INVERTIT",
      "Comprova-ho: $5^2+12^2=25+144=169$, i $13^2=169$ també. "
      "Coincideixen, així que sí que és rectangle."),
    D("Rectangle, amb hipotenusa $12$ cm i catets $5$ cm i $13$ cm",
@@ -310,17 +310,17 @@ Q("121a", 121, "a", B1, "A",
      "HIPOTENUSA_MAL_IDENTIFICADA",
      "La hipotenusa no pot repetir-se com a catet: els catets són els "
      "dos costats que NO són el més llarg, és a dir, $5$ i $12$.")],
-  ["Compara el quadrat del costat més llarg amb la suma dels quadrats "
+  pistes=["Compara el quadrat del costat més llarg amb la suma dels quadrats "
    "dels altres dos.",
    "$5^2+12^2$ i $13^2$: coincideixen?"],
-  [r"$5^2+12^2=25+144=169=13^2$: coincideix, és rectangle, amb "
+  resolucio=[r"$5^2+12^2=25+144=169=13^2$: coincideix, és rectangle, amb "
    r"hipotenusa $13$ cm i catets $5$ cm i $12$ cm"],
   ex_text=E121)
 
-Q("121b", 121, "b", B1, "A",
-  "Triangle de costats 6 cm, 8 cm i 12 cm.",
-  "No és rectangle",
-  [D("Rectangle, amb hipotenusa $12$ cm i catets $6$ cm i $8$ cm",
+Q("121b", 121, "b", B1, tipus="A",
+  enunciat="Triangle de costats 6 cm, 8 cm i 12 cm.",
+  correcta="No és rectangle",
+  distractors=[D("Rectangle, amb hipotenusa $12$ cm i catets $6$ cm i $8$ cm",
      "VEREDICTE_INVERTIT",
      "Comprova-ho: $6^2+8^2=36+64=100$, però $12^2=144$. NO "
      "coincideixen: aquest triangle no és rectangle."),
@@ -334,17 +334,17 @@ Q("121b", 121, "b", B1, "A",
      "El teorema de Pitàgores permet saber-ho només amb les tres "
      "longituds, sense mesurar cap angle: només cal comparar "
      "$6^2+8^2$ amb $12^2$.")],
-  ["Compara el quadrat del costat més llarg ($12$) amb la suma dels "
+  pistes=["Compara el quadrat del costat més llarg ($12$) amb la suma dels "
    "quadrats dels altres dos ($6$ i $8$).",
    "$6^2+8^2$ i $12^2$: coincideixen?"],
-  [r"$6^2+8^2=36+64=100$, però $12^2=144$: NO coincideix, no és "
+  resolucio=[r"$6^2+8^2=36+64=100$, però $12^2=144$: NO coincideix, no és "
    r"rectangle"],
   ex_text="")
 
-Q("121c", 121, "c", B1, "A",
-  r"Triangle de costats 5 cm, 6 cm i $\sqrt{61}$ cm.",
-  r"Rectangle, amb hipotenusa $\sqrt{61}$ cm i catets $5$ cm i $6$ cm",
-  [D("No és rectangle", "VEREDICTE_INVERTIT",
+Q("121c", 121, "c", B1, tipus="A",
+  enunciat=r"Triangle de costats 5 cm, 6 cm i $\sqrt{61}$ cm.",
+  correcta=r"Rectangle, amb hipotenusa $\sqrt{61}$ cm i catets $5$ cm i $6$ cm",
+  distractors=[D("No és rectangle", "VEREDICTE_INVERTIT",
      r"Comprova-ho: $5^2+6^2=25+36=61$, i $(\sqrt{61})^2=61$ també. "
      "Coincideixen, així que sí que és rectangle."),
    D(r"Rectangle, amb hipotenusa $6$ cm i catets $5$ cm i $\sqrt{61}$ cm",
@@ -357,17 +357,17 @@ Q("121c", 121, "c", B1, "A",
      r"El teorema de Pitàgores funciona igual amb costats irracionals: "
      r"n'hi ha prou d'elevar $\sqrt{61}$ al quadrat, que dona "
      "exactament $61$.")],
-  [r"Identifica primer el costat més llarg: com que "
+  pistes=[r"Identifica primer el costat més llarg: com que "
    r"$\sqrt{61}\approx7{,}81$ cm, és ell qui podria ser la hipotenusa.",
    r"Comprova $5^2+6^2$ contra $(\sqrt{61})^2$."],
-  [r"$5^2+6^2=25+36=61=(\sqrt{61})^2$: coincideix, és rectangle, amb "
+  resolucio=[r"$5^2+6^2=25+36=61=(\sqrt{61})^2$: coincideix, és rectangle, amb "
    r"hipotenusa $\sqrt{61}$ cm i catets $5$ cm i $6$ cm"],
   ex_text="")
 
-Q("121d", 121, "d", B1, "A",
-  "Triangle de costats 7 cm, 24 cm i 25 cm.",
-  "Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $24$ cm",
-  [D("No és rectangle", "VEREDICTE_INVERTIT",
+Q("121d", 121, "d", B1, tipus="A",
+  enunciat="Triangle de costats 7 cm, 24 cm i 25 cm.",
+  correcta="Rectangle, amb hipotenusa $25$ cm i catets $7$ cm i $24$ cm",
+  distractors=[D("No és rectangle", "VEREDICTE_INVERTIT",
      "Comprova-ho: $7^2+24^2=49+576=625$, i $25^2=625$ també. "
      "Coincideixen, així que sí que és rectangle."),
    D("Rectangle, amb hipotenusa $24$ cm i catets $7$ cm i $25$ cm",
@@ -378,19 +378,19 @@ Q("121d", 121, "d", B1, "A",
      "TERME_OBLIDAT_OPERACIO",
      "Els dos catets són els dos costats que NO fan d'hipotenusa: "
      "aquí són $7$ cm i $24$ cm, no dues vegades el mateix costat.")],
-  ["Compara el quadrat del costat més llarg amb la suma dels quadrats "
+  pistes=["Compara el quadrat del costat més llarg amb la suma dels quadrats "
    "dels altres dos.",
    "$7^2+24^2$ i $25^2$: coincideixen?"],
-  [r"$7^2+24^2=49+576=625=25^2$: coincideix, és rectangle, amb "
+  resolucio=[r"$7^2+24^2=49+576=625=25^2$: coincideix, és rectangle, amb "
    r"hipotenusa $25$ cm i catets $7$ cm i $24$ cm"],
   ex_text="")
 
 # ---- exercici 122: classificar acutangle/obtusangle ----
-Q("122", 122, "", B1, "A",
-  "Classifica en acutangle o obtusangle el triangle de costats 5 cm, "
+Q("122", 122, "", B1, tipus="A",
+  enunciat="Classifica en acutangle o obtusangle el triangle de costats 5 cm, "
   "10 cm i 8 cm.",
-  "Triangle obtusangle",
-  [D("Triangle acutangle", "VEREDICTE_INVERTIT",
+  correcta="Triangle obtusangle",
+  distractors=[D("Triangle acutangle", "VEREDICTE_INVERTIT",
      "Compara $10^2=100$ amb $5^2+8^2=89$: com que $100>89$, l'angle "
      "oposat al costat més llarg és més obert que un angle recte, així "
      "que el triangle és obtusangle, no acutangle."),
@@ -403,25 +403,25 @@ Q("122", 122, "", B1, "A",
      "Comparant el quadrat del costat més llarg amb la suma dels "
      "quadrats dels altres dos ja n'hi ha prou per classificar-lo, "
      "sense necessitat de mesurar cap angle.")],
-  ["Compara el quadrat del costat més llarg ($10$) amb la suma dels "
+  pistes=["Compara el quadrat del costat més llarg ($10$) amb la suma dels "
    "quadrats dels altres dos ($5$ i $8$).",
    "Si el quadrat del costat més llarg és més gran que la suma dels "
    "altres dos quadrats, el triangle és obtusangle; si és més petit, "
    "és acutangle; si coincideix, és rectangle."],
-  [r"$10^2=100$, $\quad 5^2+8^2=25+64=89$",
+  resolucio=[r"$10^2=100$, $\quad 5^2+8^2=25+64=89$",
    r"Com que $100>89$, el triangle és obtusangle"],
   ex_text="")
 
 # ---- exercici 123: Pitàgores en quadrats i rectangles ----
 E123 = "Calcula la longitud de $x$ en aquestes figures."
 
-Q("123a", 123, "a", B1, "A",
-  "Quadrat de costat 4 cm, $x$ és la diagonal.",
+Q("123a", 123, "a", B1, tipus="A",
+  enunciat="Quadrat de costat 4 cm, $x$ és la diagonal.",
   # La figura ACOMPANYA l'enunciat: les mesures continuen dites amb
   # paraules perquè l'exercici es pugui fer amb un lector de pantalla.
 
-  arrel_tex(32, aprox=True),
-  [D(tex(4 + 4), "SUMA_CATETS_SENSE_QUADRAT",
+  correcta=arrel_tex(32, aprox=True),
+  distractors=[D(tex(4 + 4), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat els dos costats directament ($4+4$) en lloc d'aplicar "
      "Pitàgores: cal elevar-los al quadrat, sumar-los, i fer l'arrel "
      "quadrada del resultat."),
@@ -431,17 +431,17 @@ Q("123a", 123, "a", B1, "A",
    D(tex(4 * 4), "SUMA_CATETS_SENSE_QUADRAT",
      "Aquest és el producte dels dos costats ($4\\cdot4$), no la "
      "diagonal: cal aplicar Pitàgores, $x=\\sqrt{4^2+4^2}$.")],
-  ["La diagonal d'un quadrat és la hipotenusa del triangle rectangle "
+  pistes=["La diagonal d'un quadrat és la hipotenusa del triangle rectangle "
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{4^2+4^2}$."],
-  [r"$x=%s$" % pitagores_tex_raw(4, 4)],
+  resolucio=[r"$x=%s$" % pitagores_tex_raw(4, 4)],
   figura=quadrat_diagonal(4),
   ex_text=E123)
 
-Q("123b", 123, "b", B1, "A",
-  "Quadrat de costat 10 cm, $x$ és la diagonal.",
-  arrel_tex(200, aprox=True),
-  [D(tex(10 + 10), "SUMA_CATETS_SENSE_QUADRAT",
+Q("123b", 123, "b", B1, tipus="A",
+  enunciat="Quadrat de costat 10 cm, $x$ és la diagonal.",
+  correcta=arrel_tex(200, aprox=True),
+  distractors=[D(tex(10 + 10), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat els dos costats directament ($10+10$) en lloc "
      "d'aplicar Pitàgores."),
    D(tex(200), "ARREL_OBLIDADA",
@@ -450,17 +450,17 @@ Q("123b", 123, "b", B1, "A",
    D(tex(10 * 10), "SUMA_CATETS_SENSE_QUADRAT",
      "Aquest és el producte dels dos costats ($10\\cdot10$), no la "
      "diagonal.")],
-  ["La diagonal d'un quadrat és la hipotenusa del triangle rectangle "
+  pistes=["La diagonal d'un quadrat és la hipotenusa del triangle rectangle "
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{10^2+10^2}$."],
-  [r"$x=%s$" % pitagores_tex_raw(10, 10)],
+  resolucio=[r"$x=%s$" % pitagores_tex_raw(10, 10)],
   figura=quadrat_diagonal(10),
   ex_text="")
 
-Q("123c", 123, "c", B1, "A",
-  "Rectangle de costats 5 cm i 8 cm, $x$ és la diagonal.",
-  arrel_tex(89, aprox=True),
-  [D(tex(5 + 8), "SUMA_CATETS_SENSE_QUADRAT",
+Q("123c", 123, "c", B1, tipus="A",
+  enunciat="Rectangle de costats 5 cm i 8 cm, $x$ és la diagonal.",
+  correcta=arrel_tex(89, aprox=True),
+  distractors=[D(tex(5 + 8), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat els dos costats directament ($5+8$) en lloc d'aplicar "
      "Pitàgores."),
    D(tex(89), "ARREL_OBLIDADA",
@@ -469,18 +469,18 @@ Q("123c", 123, "c", B1, "A",
    D(tex(5 * 8), "SUMA_CATETS_SENSE_QUADRAT",
      "Aquest és el producte dels dos costats ($5\\cdot8$), no la "
      "diagonal.")],
-  ["La diagonal d'un rectangle és la hipotenusa del triangle rectangle "
+  pistes=["La diagonal d'un rectangle és la hipotenusa del triangle rectangle "
    "format per dos costats consecutius.",
    "Aplica Pitàgores: $x=\\sqrt{5^2+8^2}$."],
-  [r"$x=%s$" % pitagores_tex_raw(5, 8)],
+  resolucio=[r"$x=%s$" % pitagores_tex_raw(5, 8)],
   figura=rectangle_diagonal(8, 5),
   ex_text="")
 
-Q("123d", 123, "d", B1, "A",
-  r"Rectangle de diagonal $\sqrt{117}$ cm i un costat de 9 cm, $x$ és "
+Q("123d", 123, "d", B1, tipus="A",
+  enunciat=r"Rectangle de diagonal $\sqrt{117}$ cm i un costat de 9 cm, $x$ és "
   "l'altre costat.",
-  "$6$ cm",
-  [D("$\\sqrt{117+9^2}\\approx14{,}07$ cm", "SIGNE_PITAGORES",
+  correcta="$6$ cm",
+  distractors=[D("$\\sqrt{117+9^2}\\approx14{,}07$ cm", "SIGNE_PITAGORES",
      "Coneixent la diagonal i un costat, l'altre costat s'obté RESTANT "
      "el quadrat del costat conegut al quadrat de la diagonal, no "
      "sumant-lo: $x=\\sqrt{117-9^2}$, no $\\sqrt{117+9^2}$."),
@@ -491,10 +491,10 @@ Q("123d", 123, "d", B1, "A",
    D("$\\sqrt{81}=9$ cm", "CATET_MAL_IDENTIFICAT",
      "Aquest costat no pot coincidir amb el costat ja donat ($9$ cm): "
      "cal aïllar-lo de $117-9^2$, no repetir el costat conegut.")],
-  ["La diagonal és la hipotenusa: coneixent-la i un costat, l'altre "
+  pistes=["La diagonal és la hipotenusa: coneixent-la i un costat, l'altre "
    "s'aïlla restant, no sumant.",
    "Aïlla l'altre costat: $x=\\sqrt{117-9^2}$."],
-  [r"$x=\sqrt{117-9^2}=\sqrt{117-81}=\sqrt{36}=6$ cm"],
+  resolucio=[r"$x=\sqrt{117-9^2}=\sqrt{117-81}=\sqrt{36}=6$ cm"],
   figura=rectangle_diagonal(9, 6, etq_altura="x",
                      etq_diagonal="\u221a117 cm"),
   ex_text="")
@@ -502,10 +502,10 @@ Q("123d", 123, "d", B1, "A",
 # ---- exercici 124: Pitàgores en triangles isòsceles/equilàters ----
 E124 = "Determina la longitud de $x$ en aquests triangles."
 
-Q("124a", 124, "a", B1, "A",
-  "Triangle equilàter de costat 10 cm; $x$ és l'alçada.",
-  arrel_tex(75, aprox=True),
-  [D(tex(10), "PROGRESSIO_INVENTADA",
+Q("124a", 124, "a", B1, tipus="A",
+  enunciat="Triangle equilàter de costat 10 cm; $x$ és l'alçada.",
+  correcta=arrel_tex(75, aprox=True),
+  distractors=[D(tex(10), "PROGRESSIO_INVENTADA",
      "L'alçada d'un triangle equilàter NO coincideix amb el costat: "
      "cal aplicar Pitàgores amb la semibase i el costat com a "
      "hipotenusa."),
@@ -517,21 +517,21 @@ Q("124a", 124, "a", B1, "A",
      "Aquesta és la semibase (la meitat del costat), no l'alçada: "
      "encara falta aplicar Pitàgores amb aquesta semibase i el costat "
      "com a hipotenusa.")],
-  ["L'alçada d'un triangle equilàter cau al punt mitjà de la base i "
+  pistes=["L'alçada d'un triangle equilàter cau al punt mitjà de la base i "
    "forma un triangle rectangle amb la semibase i el costat (com a "
    "hipotenusa).",
    "La semibase és $\\dfrac{10}{2}=5$ cm; aplica Pitàgores: "
    "$x=\\sqrt{10^2-5^2}$."],
-  [r"Semibase: $\dfrac{10}{2}=5$ cm",
+  resolucio=[r"Semibase: $\dfrac{10}{2}=5$ cm",
    r"$x=%s$" % catet_tex_raw(10, 5)],
   ex_text=E124,
   figura=triangle_isosceles(10, costat=10, etq_altura="x"))
 
-Q("124b", 124, "b", B1, "A",
-  r"Triangle isòsceles de base 8 cm i alçada $\sqrt{48}$ cm; $x$ és la "
+Q("124b", 124, "b", B1, tipus="A",
+  enunciat=r"Triangle isòsceles de base 8 cm i alçada $\sqrt{48}$ cm; $x$ és la "
   "longitud dels costats iguals.",
-  "$8$ cm",
-  [D(r"$\sqrt{48+4^2}\approx8{,}25$ cm", "SIGNE_PITAGORES",
+  correcta="$8$ cm",
+  distractors=[D(r"$\sqrt{48+4^2}\approx8{,}25$ cm", "SIGNE_PITAGORES",
      "El costat igual és la hipotenusa: s'obté SUMANT els quadrats de "
      "la semibase i l'alçada, i això sí és correcte aquí (no és una "
      "resta); comprova que has fet servir la semibase ($4$ cm, la "
@@ -543,21 +543,21 @@ Q("124b", 124, "b", B1, "A",
    D("$%s$ cm" % tex(4), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la semibase (la meitat de la base), no el costat "
      "igual que et demanen: encara falta aplicar Pitàgores.")],
-  ["L'alçada divideix la base pel mig: la semibase és "
+  pistes=["L'alçada divideix la base pel mig: la semibase és "
    "$\\dfrac{8}{2}=4$ cm.",
    r"El costat igual és la hipotenusa del triangle rectangle de "
    r"catets $4$ i $\sqrt{48}$: $x=\sqrt{4^2+(\sqrt{48})^2}$."],
-  [r"Semibase: $\dfrac{8}{2}=4$ cm",
+  resolucio=[r"Semibase: $\dfrac{8}{2}=4$ cm",
    r"$x=\sqrt{4^2+(\sqrt{48})^2}=\sqrt{16+48}=\sqrt{64}=8$ cm"],
   ex_text="",
   figura=triangle_isosceles(8, costat=8, altura=6.928203230275509,
                             etq_costat="x", etq_altura="√48 cm"))
 
-Q("124c", 124, "c", B1, "A",
-  "Triangle isòsceles de costats iguals 12 cm i base 7 cm; $x$ és "
+Q("124c", 124, "c", B1, tipus="A",
+  enunciat="Triangle isòsceles de costats iguals 12 cm i base 7 cm; $x$ és "
   "l'alçada.",
-  "$\\sqrt{131{,}75}\\approx11{,}48$ cm",
-  [D("$\\sqrt{144-7^2}=\\sqrt{95}\\approx9{,}75$ cm", "CATET_MAL_IDENTIFICAT",
+  correcta="$\\sqrt{131{,}75}\\approx11{,}48$ cm",
+  distractors=[D("$\\sqrt{144-7^2}=\\sqrt{95}\\approx9{,}75$ cm", "CATET_MAL_IDENTIFICAT",
      "Has fet servir la base sencera ($7$ cm) com a catet, en lloc de "
      "la SEMIBASE ($3{,}5$ cm, la meitat de $7$, ja que l'alçada cau "
      "al punt mitjà de la base)."),
@@ -568,20 +568,20 @@ Q("124c", 124, "c", B1, "A",
    D("$131{,}75$ cm", "ARREL_OBLIDADA",
      "Has calculat $12^2-3{,}5^2=131{,}75$ correctament, però t'has "
      "deixat l'arrel quadrada final.")],
-  ["La semibase és $\\dfrac{7}{2}=3{,}5$ cm; l'alçada, la semibase i "
+  pistes=["La semibase és $\\dfrac{7}{2}=3{,}5$ cm; l'alçada, la semibase i "
    "el costat igual (com a hipotenusa) formen un triangle rectangle.",
    "Aplica Pitàgores: $x=\\sqrt{12^2-3{,}5^2}$."],
-  ["Semibase: $\\dfrac{7}{2}=3{,}5$ cm",
+  resolucio=["Semibase: $\\dfrac{7}{2}=3{,}5$ cm",
    "$x=\\sqrt{12^2-3{,}5^2}=\\sqrt{144-12{,}25}=\\sqrt{131{,}75}"
    "\\approx11{,}48$ cm"],
   ex_text="",
   figura=triangle_isosceles(7, costat=12, etq_altura="x"))
 
 # ---- exercici 125: alçada de triangle equilàter donat el perímetre ----
-Q("125", 125, "", B1, "A",
-  "Troba l'altura d'un triangle equilàter de perímetre 48 cm.",
-  arrel_tex(192, aprox=True),
-  [D(arrel_tex(48 ** 2 - 24 ** 2, aprox=True),
+Q("125", 125, "", B1, tipus="A",
+  enunciat="Troba l'altura d'un triangle equilàter de perímetre 48 cm.",
+  correcta=arrel_tex(192, aprox=True),
+  distractors=[D(arrel_tex(48 ** 2 - 24 ** 2, aprox=True),
      "COSTAT_NO_CALCULAT",
      "No has calculat primer el costat a partir del perímetre "
      "($48:3=16$ cm): sembla que has fet servir el perímetre sencer "
@@ -593,11 +593,11 @@ Q("125", 125, "", B1, "A",
    D(tex(192), "ARREL_OBLIDADA",
      r"Has calculat $16^2-8^2=192$ correctament, però t'has deixat "
      r"l'arrel quadrada final.")],
-  ["Calcula primer el costat: com que el perímetre és $48$ cm i els "
+  pistes=["Calcula primer el costat: com que el perímetre és $48$ cm i els "
    "tres costats són iguals, cada costat val $\\dfrac{48}{3}=16$ cm.",
    "L'alçada, la semibase ($8$ cm) i el costat (com a hipotenusa) "
    "formen un triangle rectangle: $h=\\sqrt{16^2-8^2}$."],
-  [r"Costat: $\dfrac{48}{3}=16$ cm",
+  resolucio=[r"Costat: $\dfrac{48}{3}=16$ cm",
    r"$h=%s$" % catet_tex_raw(16, 8)],
   ex_text="",
   figura=triangle_isosceles(16, costat=16, etq_costat="?", etq_altura="?"))
@@ -605,10 +605,10 @@ Q("125", 125, "", B1, "A",
 # ---- exercici 126: perímetre de figures ----
 E126 = "Calcula el perímetre de les figures següents."
 
-Q("126a", 126, "a", B1, "A",
-  "Quadrilàter irregular de costats 25 cm, 28 cm, 18 cm i 10 cm.",
-  "$81$ cm",
-  [D("$71$ cm", "TERME_OBLIDAT_OPERACIO",
+Q("126a", 126, "a", B1, tipus="A",
+  enunciat="Quadrilàter irregular de costats 25 cm, 28 cm, 18 cm i 10 cm.",
+  correcta="$81$ cm",
+  distractors=[D("$71$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor no inclou algun dels quatre costats: suma'ls tots "
      "quatre un per un."),
    D("$630$ cm", "SUMA_EN_LLOC_RESTA",
@@ -617,17 +617,17 @@ Q("126a", 126, "a", B1, "A",
    D("$91$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor no coincideix amb la suma dels quatre costats "
      "donats: torna a sumar-los amb calma.")],
-  ["El perímetre d'un polígon és la suma de les longituds de tots els "
+  pistes=["El perímetre d'un polígon és la suma de les longituds de tots els "
    "seus costats.",
    "Suma els quatre costats: $25+28+18+10$."],
-  ["$25+28+18+10=81$ cm"],
+  resolucio=["$25+28+18+10=81$ cm"],
   ex_text=E126)
 
-Q("126b", 126, "b", B1, "A",
-  "Hexàgon còncau (en forma de fletxa) de costats 12 cm, 14 cm, 28 cm, "
+Q("126b", 126, "b", B1, tipus="A",
+  enunciat="Hexàgon còncau (en forma de fletxa) de costats 12 cm, 14 cm, 28 cm, "
   "7 cm, 16 cm i 5 cm.",
-  "$82$ cm",
-  [D("$77$ cm", "TERME_OBLIDAT_OPERACIO",
+  correcta="$82$ cm",
+  distractors=[D("$77$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor no inclou algun dels sis costats: suma'ls tots sis "
      "un per un."),
    D("$70$ cm", "TERME_OBLIDAT_OPERACIO",
@@ -636,19 +636,19 @@ Q("126b", 126, "b", B1, "A",
    D("$41$ cm", "PART_PEL_TOT",
      "Aquest valor sembla la meitat del perímetre real: el perímetre "
      "inclou els sis costats sencers, no la meitat de la suma.")],
-  ["El perímetre és la suma de tots els costats, encara que la figura "
+  pistes=["El perímetre és la suma de tots els costats, encara que la figura "
    "sigui còncava (en forma de fletxa): el criteri no canvia.",
    "Suma els sis costats: $12+14+28+7+16+5$."],
-  ["$12+14+28+7+16+5=82$ cm"],
+  resolucio=["$12+14+28+7+16+5=82$ cm"],
   ex_text="")
 
 # ---- exercici 127: apotema d'un hexàgon regular ----
 E127 = "Troba l'apotema d'un hexàgon regular el costat del qual mesura:"
 
-Q("127a", 127, "a", B1, "A",
-  "10 cm",
-  arrel_tex(75, aprox=True) + " cm",
-  [D("$%s$ cm" % tex(10), "APOTEMA_COSTAT_CONFOS",
+Q("127a", 127, "a", B1, tipus="A",
+  enunciat="10 cm",
+  correcta=arrel_tex(75, aprox=True) + " cm",
+  distractors=[D("$%s$ cm" % tex(10), "APOTEMA_COSTAT_CONFOS",
      "L'apotema d'un hexàgon regular NO coincideix amb el costat: "
      "s'obté aplicant Pitàgores a un dels sis triangles equilàters en "
      "què el centre el divideix."),
@@ -660,17 +660,17 @@ Q("127a", 127, "a", B1, "A",
      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
      "dividit per $2$.")],
-  ["L'apotema d'un hexàgon regular és l'alçada d'un dels sis triangles "
+  pistes=["L'apotema d'un hexàgon regular és l'alçada d'un dels sis triangles "
    "equilàters de costat $L$ en què el centre el divideix.",
    "Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$, amb $L=10$ cm."],
-  [r"$a=\dfrac{10\sqrt3}{2}=%s$" % arrel_tex_raw(75, aprox=True)],
+  resolucio=[r"$a=\dfrac{10\sqrt3}{2}=%s$" % arrel_tex_raw(75, aprox=True)],
   ex_text=E127,
   figura=poligon_regular(6, costat=10, apotema=8.660254, etq_apotema="?"))
 
-Q("127b", 127, "b", B1, "A",
-  "16 cm",
-  arrel_tex(192, aprox=True) + " cm",
-  [D("$%s$ cm" % tex(16), "APOTEMA_COSTAT_CONFOS",
+Q("127b", 127, "b", B1, tipus="A",
+  enunciat="16 cm",
+  correcta=arrel_tex(192, aprox=True) + " cm",
+  distractors=[D("$%s$ cm" % tex(16), "APOTEMA_COSTAT_CONFOS",
      "L'apotema d'un hexàgon regular no coincideix amb el costat: cal "
      "aplicar la fórmula $a=\\dfrac{L\\sqrt3}{2}$."),
    D("$8$ cm", "ARREL_FACTOR_OBLIDAT",
@@ -680,16 +680,16 @@ Q("127b", 127, "b", B1, "A",
      "Aquest valor no surt de la fórmula $\\dfrac{L\\sqrt3}{2}$: "
      "revisa que has multiplicat per $\\sqrt3$ (no per $3$) i has "
      "dividit per $2$.")],
-  ["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
+  pistes=["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
    "Amb $L=16$ cm: $a=\\dfrac{16\\sqrt3}{2}$."],
-  [r"$a=\dfrac{16\sqrt3}{2}=8\sqrt3=%s$" % arrel_tex_raw(192, aprox=True)],
+  resolucio=[r"$a=\dfrac{16\sqrt3}{2}=8\sqrt3=%s$" % arrel_tex_raw(192, aprox=True)],
   ex_text="",
   figura=poligon_regular(6, costat=16, apotema=13.856406, etq_apotema="?"))
 
-Q("127c", 127, "c", B1, "A",
-  "7 cm",
-  "$\\dfrac{7\\sqrt3}{2}\\approx6{,}06$ cm",
-  [D("$7$ cm", "APOTEMA_COSTAT_CONFOS",
+Q("127c", 127, "c", B1, tipus="A",
+  enunciat="7 cm",
+  correcta="$\\dfrac{7\\sqrt3}{2}\\approx6{,}06$ cm",
+  distractors=[D("$7$ cm", "APOTEMA_COSTAT_CONFOS",
      "L'apotema d'un hexàgon regular no coincideix amb el costat: cal "
      "aplicar la fórmula $a=\\dfrac{L\\sqrt3}{2}$."),
    D("$3{,}5$ cm", "ARREL_FACTOR_OBLIDAT",
@@ -699,19 +699,19 @@ Q("127c", 127, "c", B1, "A",
      "Has invertit la posició de $\\sqrt3$: la fórmula és "
      "$\\dfrac{L\\sqrt3}{2}$ (multiplicant), no "
      "$\\dfrac{L}{2\\sqrt3}$ (dividint).")],
-  ["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
+  pistes=["Fes servir la fórmula $a=\\dfrac{L\\sqrt3}{2}$.",
    "Amb $L=7$ cm: $a=\\dfrac{7\\sqrt3}{2}$."],
-  ["$a=\\dfrac{7\\sqrt3}{2}\\approx6{,}06$ cm"],
+  resolucio=["$a=\\dfrac{7\\sqrt3}{2}\\approx6{,}06$ cm"],
   ex_text="",
   figura=poligon_regular(6, costat=7, apotema=6.0621778, etq_apotema="?"))
 
 # ---- exercici 128: rombe inscrit en un rectangle ----
-Q("128a", 128, "a", B1, "A",
-  "Un rectangle té base $AB=12$ cm i altura $AC=16$ cm. Un rombe uneix "
+Q("128a", 128, "a", B1, tipus="A",
+  enunciat="Un rectangle té base $AB=12$ cm i altura $AC=16$ cm. Un rombe uneix "
   "els punts mitjans dels quatre costats del rectangle. Calcula el "
   "costat del rombe.",
-  "$10$ cm",
-  [D("$%s$ cm" % tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
+  correcta="$10$ cm",
+  distractors=[D("$%s$ cm" % tex(6 + 8), "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat directament les meitats de base i altura ($6+8$) en "
      "lloc d'aplicar Pitàgores."),
    D("$%s$ cm" % tex(100), "ARREL_OBLIDADA",
@@ -723,24 +723,24 @@ Q("128a", 128, "a", B1, "A",
      "lloc de les seves MEITATS ($6$ i $8$): el costat del rombe és "
      "la hipotenusa del triangle format pels punts mitjans, no pel "
      "rectangle sencer.")],
-  ["Cada costat del rombe és la hipotenusa d'un triangle rectangle de "
+  pistes=["Cada costat del rombe és la hipotenusa d'un triangle rectangle de "
    "catets la meitat de la base i la meitat de l'altura del rectangle.",
    "Els catets són $\\dfrac{12}{2}=6$ cm i $\\dfrac{16}{2}=8$ cm; "
    "aplica Pitàgores."],
-  ["Catets: $\\dfrac{12}{2}=6$ cm i $\\dfrac{16}{2}=8$ cm",
+  resolucio=["Catets: $\\dfrac{12}{2}=6$ cm i $\\dfrac{16}{2}=8$ cm",
    r"Costat del rombe: $%s$" % pitagores_tex_raw(6, 8, aprox=False)],
   ex_text="",
   figura=rectangle_amb_rombe(12, 16, etq_base="AB = 12 cm",
                             etq_altura="AC = 16 cm"))
 
-Q("128b", 128, "b", B1, "A",
-  "En un rectangle, dos costats consecutius es diuen $AB=12$ cm (la "
+Q("128b", 128, "b", B1, tipus="A",
+  enunciat="En un rectangle, dos costats consecutius es diuen $AB=12$ cm (la "
   "base) i $AC=16$ cm (l'altura), essent $A$, $B$ i $C$ tres dels "
   "vèrtexs del rectangle ($A$ i $B$ a la base, $C$ damunt de $A$). "
   "En el triangle rectangle $ABC$, quant valen el catet $AB$, el "
   "catet $AC$ i la hipotenusa $BC$?",
-  "$AB=12$ cm, $AC=16$ cm, $BC=20$ cm",
-  [D("$AB=12$ cm, $AC=16$ cm, $BC=28$ cm", "SUMA_CATETS_SENSE_QUADRAT",
+  correcta="$AB=12$ cm, $AC=16$ cm, $BC=20$ cm",
+  distractors=[D("$AB=12$ cm, $AC=16$ cm, $BC=28$ cm", "SUMA_CATETS_SENSE_QUADRAT",
      "$28$ surt de sumar $12+16$ directament: la hipotenusa s'obté "
      "aplicant Pitàgores ($\\sqrt{12^2+16^2}$), no sumant els catets."),
    D("$AB=12$ cm, $AC=16$ cm, $BC=\\sqrt{400}$ cm sense simplificar",
@@ -752,21 +752,21 @@ Q("128b", 128, "b", B1, "A",
      "Has intercanviat quin costat és $AB$ i quin és $AC$: l'enunciat "
      "diu explícitament que la base $AB$ és $12$ cm i l'altura $AC$ "
      "és $16$ cm.")],
-  ["Els catets del triangle rectangle $ABC$ són directament els "
+  pistes=["Els catets del triangle rectangle $ABC$ són directament els "
    "costats donats del rectangle.",
    "La hipotenusa $BC$ s'obté amb Pitàgores: "
    "$BC=\\sqrt{AB^2+AC^2}$."],
-  [r"$BC=%s$" % pitagores_tex_raw(12, 16, aprox=False)],
+  resolucio=[r"$BC=%s$" % pitagores_tex_raw(12, 16, aprox=False)],
   ex_text="",
   figura=rectangle_diagonal(12, 16, etq_base="AB = 12 cm",
                             etq_altura="AC = 16 cm", etq_diagonal="BC"))
 
 # ---- exercici 129: rectangle inscrit en circumferència ----
-Q("129", 129, "", B1, "A",
-  "Un rectangle de costats 15 cm i 20 cm està inscrit en una "
+Q("129", 129, "", B1, tipus="A",
+  enunciat="Un rectangle de costats 15 cm i 20 cm està inscrit en una "
   "circumferència. Quant mesura el radi de la circumferència?",
-  "$12{,}5$ cm",
-  [D("$25$ cm", "MEITAT_OBLIDADA",
+  correcta="$12{,}5$ cm",
+  distractors=[D("$25$ cm", "MEITAT_OBLIDADA",
      "Aquest és el DIÀMETRE de la circumferència (la diagonal del "
      "rectangle), no el radi: el radi és la meitat del diàmetre."),
    D("$%s$ cm" % tex(15 + 20), "SUMA_CATETS_SENSE_QUADRAT",
@@ -776,11 +776,11 @@ Q("129", 129, "", B1, "A",
      r"Has calculat $15^2+20^2=625$ correctament, però t'has deixat "
      r"l'arrel quadrada per trobar la diagonal (i encara faltaria "
      "dividir per $2$ per obtenir el radi).")],
-  ["Quan un rectangle està inscrit en una circumferència, la seva "
+  pistes=["Quan un rectangle està inscrit en una circumferència, la seva "
    "diagonal coincideix amb un diàmetre.",
    "Calcula primer la diagonal amb Pitàgores, $d=\\sqrt{15^2+20^2}$, "
    "i després divideix-la per $2$ per obtenir el radi."],
-  [r"Diagonal: $%s$" % pitagores_tex_raw(15, 20, aprox=False),
+  resolucio=[r"Diagonal: $%s$" % pitagores_tex_raw(15, 20, aprox=False),
    "Radi: $\\dfrac{25}{2}=12{,}5$ cm"],
   ex_text="",
   # Correcció post-lliurament (revisió externa): l'etiqueta original era
@@ -799,11 +799,11 @@ Q("129", 129, "", B1, "A",
 # r-im8.tex no arriba a cap valor numèric per a aquest ítem (vegeu la
 # nota d'exclusions al docstring del mòdul).
 
-Q("130", 130, "", B2, "A",
-  "L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual "
+Q("130", 130, "", B2, tipus="A",
+  enunciat="L'àrea d'un triangle isòsceles és $24$ m$^2$ i el costat desigual "
   "(la base) mesura $6$ m. Troba la longitud dels altres dos costats.",
-  arrel_tex(73, aprox=True) + " m",
-  [D("$8$ m", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta=arrel_tex(73, aprox=True) + " m",
+  distractors=[D("$8$ m", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada del triangle (obtinguda de l'àrea), no el "
      "costat lateral que et demanen: encara falta aplicar Pitàgores "
      "amb la semibase."),
@@ -813,22 +813,22 @@ Q("130", 130, "", B2, "A",
    D(tex(73) + " m", "ARREL_OBLIDADA",
      r"Has calculat $3^2+8^2=73$ correctament, però t'has deixat "
      r"l'arrel quadrada final.")],
-  ["Aïlla primer l'alçada a partir de l'àrea: "
+  pistes=["Aïlla primer l'alçada a partir de l'àrea: "
    "$24=\\dfrac{6\\cdot h}{2}$.",
    "L'alçada, la semibase ($3$ m) i el costat lateral (com a "
    "hipotenusa) formen un triangle rectangle: aplica Pitàgores."],
-  ["Alçada: $24=\\dfrac{6\\cdot h}{2}\\Rightarrow h=8$ m",
+  resolucio=["Alçada: $24=\\dfrac{6\\cdot h}{2}\\Rightarrow h=8$ m",
    r"Costat lateral: $%s$ m" % pitagores_tex_raw(3, 8)],
   ex_text="",
   # unitat="m": l'enunciat va en metres i la figura deia "6 cm".
   figura=triangle_isosceles(6, altura=8, costat=8.544003745, unitat="m",
                             etq_altura="?", etq_costat="?"))
 
-Q("131", 131, "", B2, "A",
-  "L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets "
+Q("131", 131, "", B2, tipus="A",
+  enunciat="L'àrea d'un triangle rectangle és $12$ cm$^2$ i un dels catets "
   "mesura $6$ cm. Calcula la longitud de la hipotenusa.",
-  "$2\\sqrt{13}\\approx7{,}21$ cm",
-  [D("$4$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$2\\sqrt{13}\\approx7{,}21$ cm",
+  distractors=[D("$4$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre catet (obtingut de l'àrea), no la hipotenusa "
      "que et demanen: encara falta aplicar Pitàgores."),
    D(tex(6 + 4) + " cm", "SUMA_CATETS_SENSE_QUADRAT",
@@ -837,20 +837,20 @@ Q("131", 131, "", B2, "A",
    D(tex(52) + " cm", "ARREL_OBLIDADA",
      r"Has calculat $6^2+4^2=52$ correctament, però t'has deixat "
      r"l'arrel quadrada final.")],
-  ["Aïlla primer l'altre catet a partir de l'àrea: "
+  pistes=["Aïlla primer l'altre catet a partir de l'àrea: "
    "$12=\\dfrac{6\\cdot c}{2}$.",
    "Un cop tinguis els dos catets, aplica Pitàgores per trobar la "
    "hipotenusa."],
-  ["Altre catet: $12=\\dfrac{6\\cdot c}{2}\\Rightarrow c=4$ cm",
+  resolucio=["Altre catet: $12=\\dfrac{6\\cdot c}{2}\\Rightarrow c=4$ cm",
    r"Hipotenusa: $%s$ cm" % pitagores_tex_raw(6, 4)],
   ex_text="",
   figura=triangle_rectangle(6, 4, etq_a="6 cm", etq_b="?",
                             etq_hip="?"))
 
-Q("132", 132, "", B2, "A",
-  "Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
-  "$225\\sqrt3\\approx389{,}71$ cm$^2$",
-  [D("$30$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+Q("132", 132, "", B2, tipus="A",
+  enunciat="Busca l'àrea d'un triangle equilàter de perímetre $90$ cm.",
+  correcta="$225\\sqrt3\\approx389{,}71$ cm$^2$",
+  distractors=[D("$30$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat del triangle ($90:3$), no l'àrea: encara "
      "cal aplicar la fórmula de l'àrea del triangle equilàter."),
    D("$900$ cm$^2$", "POTENCIA_DE_SUMA",
@@ -861,19 +861,19 @@ Q("132", 132, "", B2, "A",
      "Aquest valor no inclou el factor $\\sqrt3$ de la fórmula "
      "$A=\\dfrac{L^2\\sqrt3}{4}$: sembla que has calculat "
      "$\\dfrac{30^2}{2}$ en lloc de $\\dfrac{30^2\\sqrt3}{4}$.")],
-  ["Calcula primer el costat: $\\dfrac{90}{3}=30$ cm.",
+  pistes=["Calcula primer el costat: $\\dfrac{90}{3}=30$ cm.",
    "Fes servir la fórmula $A=\\dfrac{L^2\\sqrt3}{4}$."],
-  ["Costat: $\\dfrac{90}{3}=30$ cm",
+  resolucio=["Costat: $\\dfrac{90}{3}=30$ cm",
    "$A=\\dfrac{30^2\\sqrt3}{4}=\\dfrac{900\\sqrt3}{4}=225\\sqrt3"
    "\\approx389{,}71$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(3, costat=30, mostra_costat=False))
 
-Q("133", 133, "", B2, "A",
-  "Si l'àrea d'un triangle equilàter és $30$ cm$^2$, troba la "
+Q("133", 133, "", B2, tipus="A",
+  enunciat="Si l'àrea d'un triangle equilàter és $30$ cm$^2$, troba la "
   "longitud del seu costat.",
-  "$\\sqrt{40\\sqrt3}\\approx8{,}32$ cm",
-  [D("$\\dfrac{30^2\\sqrt3}{4}$ cm", "INVERTIDA",
+  correcta="$\\sqrt{40\\sqrt3}\\approx8{,}32$ cm",
+  distractors=[D("$\\dfrac{30^2\\sqrt3}{4}$ cm", "INVERTIDA",
      "Aquesta expressió correspon a l'ÀREA a partir del costat (la "
      "fórmula original), no al costat a partir de l'àrea: cal aïllar "
      "$L$ de la fórmula, no aplicar-la tal qual amb $30$ com si fos "
@@ -885,20 +885,20 @@ Q("133", 133, "", B2, "A",
    D("$40\\sqrt3\\approx69{,}28$ cm", "ARREL_OBLIDADA",
      "Aquest és el valor de $L^2$ (encara al quadrat), no de $L$: "
      "et falta fer l'arrel quadrada final.")],
-  ["Aïlla $L^2$ de la fórmula $A=\\dfrac{L^2\\sqrt3}{4}$: "
+  pistes=["Aïlla $L^2$ de la fórmula $A=\\dfrac{L^2\\sqrt3}{4}$: "
    "$L^2=\\dfrac{4A}{\\sqrt3}$.",
    "Amb $A=30$: $L^2=\\dfrac{120}{\\sqrt3}=40\\sqrt3$; després fes "
    "l'arrel quadrada."],
-  ["$L^2=\\dfrac{4\\cdot30}{\\sqrt3}=\\dfrac{120}{\\sqrt3}=40\\sqrt3$",
+  resolucio=["$L^2=\\dfrac{4\\cdot30}{\\sqrt3}=\\dfrac{120}{\\sqrt3}=40\\sqrt3$",
    "$L=\\sqrt{40\\sqrt3}\\approx8{,}32$ cm"],
   ex_text="",
   figura=poligon_regular(3, costat=8.32, mostra_costat=False))
 
-Q("134", 134, "", B2, "A",
-  "Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un "
+Q("134", 134, "", B2, tipus="A",
+  enunciat="Busca l'àrea d'un triangle rectangle d'hipotenusa $13$ cm, si un "
   "dels catets mesura $5$ cm.",
-  "$30$ cm$^2$",
-  [D("$12$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$30$ cm$^2$",
+  distractors=[D("$12$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre catet (obtingut amb Pitàgores), no l'àrea que "
      "et demanen: encara falta aplicar la fórmula de l'àrea del "
      "triangle."),
@@ -910,21 +910,21 @@ Q("134", 134, "", B2, "A",
      "Aquest valor sembla fet servir la hipotenusa ($13$) com si fos "
      "un catet: el segon catet s'ha d'obtenir amb Pitàgores a partir "
      "de la hipotenusa i el catet donat, $\\sqrt{13^2-5^2}$.")],
-  ["Troba primer l'altre catet amb Pitàgores: "
+  pistes=["Troba primer l'altre catet amb Pitàgores: "
    "$\\sqrt{13^2-5^2}$.",
    "L'àrea d'un triangle rectangle és "
    "$\\dfrac{\\text{catet}_1\\cdot\\text{catet}_2}{2}$."],
-  [r"Altre catet: $%s$ cm" % catet_tex_raw(13, 5, aprox=False),
+  resolucio=[r"Altre catet: $%s$ cm" % catet_tex_raw(13, 5, aprox=False),
    "Àrea: $\\dfrac{5\\cdot12}{2}=30$ cm$^2$"],
   ex_text="",
   figura=triangle_rectangle(5, 12, etq_a="5 cm", etq_b="?",
                             etq_hip="13 cm"))
 
-Q("135", 135, "", B2, "A",
-  "Calcula l'àrea d'un quadrat sabent que la seva diagonal mesura "
+Q("135", 135, "", B2, tipus="A",
+  enunciat="Calcula l'àrea d'un quadrat sabent que la seva diagonal mesura "
   "$7{,}07$ cm.",
-  "$24{,}99$ cm$^2$",
-  [D("$49{,}98$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+  correcta="$24{,}99$ cm$^2$",
+  distractors=[D("$49{,}98$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un quadrat a partir "
      "de la diagonal és $\\dfrac{d^2}{2}$, no $d^2$ sencer."),
    D("$14{,}14$ cm$^2$", "SUMA_EN_LLOC_RESTA",
@@ -934,21 +934,21 @@ Q("135", 135, "", B2, "A",
    D("$3{,}54$ cm$^2$", "INVERTIDA",
      "Aquest valor sembla la meitat de la diagonal, no l'àrea: cal "
      "elevar la diagonal al quadrat abans de dividir per $2$.")],
-  ["La diagonal d'un quadrat es relaciona amb l'àrea per "
+  pistes=["La diagonal d'un quadrat es relaciona amb l'àrea per "
    "$A=\\dfrac{d^2}{2}$ (surt d'aplicar Pitàgores als dos triangles "
    "en què la diagonal el divideix).",
    "Calcula $\\dfrac{7{,}07^2}{2}$."],
-  ["$A=\\dfrac{7{,}07^2}{2}=\\dfrac{49{,}9849}{2}\\approx24{,}99$ "
+  resolucio=["$A=\\dfrac{7{,}07^2}{2}=\\dfrac{49{,}9849}{2}\\approx24{,}99$ "
    "cm$^2$"],
   ex_text="",
   figura=quadrat_diagonal(5, etiqueta_costat="?",
                           etiqueta_diagonal="7,07 cm"))
 
-Q("136", 136, "", B2, "A",
-  "Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels "
+Q("136", 136, "", B2, tipus="A",
+  enunciat="Troba l'àrea d'un rectangle de diagonal $\\sqrt{41}$ cm i un dels "
   "costats de $4$ cm.",
-  "$20$ cm$^2$",
-  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$20$ cm$^2$",
+  distractors=[D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és l'altre costat (obtingut amb Pitàgores), no l'àrea: "
      "encara falta multiplicar els dos costats."),
    D("$\\sqrt{41}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
@@ -959,20 +959,20 @@ Q("136", 136, "", B2, "A",
      "Aquest valor surt de sumar $4$ i l'altre costat ($4+5$) en lloc "
      "de multiplicar-los: l'àrea d'un rectangle és el PRODUCTE dels "
      "dos costats, no la seva suma.")],
-  ["Troba primer l'altre costat amb Pitàgores: "
+  pistes=["Troba primer l'altre costat amb Pitàgores: "
    "$\\sqrt{41-4^2}$.",
    "L'àrea d'un rectangle és el producte dels dos costats."],
-  ["Altre costat: $\\sqrt{41-4^2}=\\sqrt{25}=5$ cm",
+  resolucio=["Altre costat: $\\sqrt{41-4^2}=\\sqrt{25}=5$ cm",
    "Àrea: $4\\cdot5=20$ cm$^2$"],
   ex_text="",
   figura=rectangle_diagonal(4, 5, etq_base="4 cm", etq_altura="?",
                             etq_diagonal="√41 cm"))
 
-Q("137", 137, "", B2, "A",
-  "Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal "
+Q("137", 137, "", B2, tipus="A",
+  enunciat="Calcula l'àrea d'un rectangle de $10$ cm de base i amb diagonal "
   "$\\sqrt{116}$ cm.",
-  "$40$ cm$^2$",
-  [D("$4$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$40$ cm$^2$",
+  distractors=[D("$4$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada (obtinguda amb Pitàgores), no l'àrea: "
      "encara falta multiplicar-la per la base."),
    D("$\\sqrt{116}$ cm$^2$", "CATET_MAL_IDENTIFICAT",
@@ -983,20 +983,20 @@ Q("137", 137, "", B2, "A",
      "Aquest valor surt de sumar la base i l'alçada ($10+4$) en lloc "
      "de multiplicar-les: l'àrea d'un rectangle és el producte dels "
      "dos costats.")],
-  ["Troba primer l'alçada amb Pitàgores: "
+  pistes=["Troba primer l'alçada amb Pitàgores: "
    "$\\sqrt{116-10^2}$.",
    "L'àrea d'un rectangle és base per alçada."],
-  ["Alçada: $\\sqrt{116-10^2}=\\sqrt{16}=4$ cm",
+  resolucio=["Alçada: $\\sqrt{116-10^2}=\\sqrt{16}=4$ cm",
    "Àrea: $10\\cdot4=40$ cm$^2$"],
   ex_text="",
   figura=rectangle_diagonal(10, 4, etq_base="10 cm", etq_altura="?",
                             etq_diagonal="√116 cm"))
 
-Q("138", 138, "", B2, "A",
-  "Determina l'àrea d'un rectangle de base $7$ cm i perímetre "
+Q("138", 138, "", B2, tipus="A",
+  enunciat="Determina l'àrea d'un rectangle de base $7$ cm i perímetre "
   "$24$ cm.",
-  "$35$ cm$^2$",
-  [D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$35$ cm$^2$",
+  distractors=[D("$5$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és l'alçada (obtinguda del perímetre), no l'àrea: "
      "encara falta multiplicar-la per la base."),
    D("$8{,}5$ cm$^2$", "INVERTIDA",
@@ -1008,10 +1008,10 @@ Q("138", 138, "", B2, "A",
      "Aquest valor surt de multiplicar la base pel perímetre sencer "
      "($7\\cdot24$), no per l'alçada: primer cal aïllar l'alçada del "
      "perímetre.")],
-  ["El perímetre és $2(\\text{base}+\\text{alçada})$: aïlla "
+  pistes=["El perímetre és $2(\\text{base}+\\text{alçada})$: aïlla "
    "l'alçada.",
    "Amb perímetre $24$ i base $7$: alçada $=\\dfrac{24}{2}-7$."],
-  ["Alçada: $\\dfrac{24}{2}-7=12-7=5$ cm",
+  resolucio=["Alçada: $\\dfrac{24}{2}-7=12-7=5$ cm",
    "Àrea: $7\\cdot5=35$ cm$^2$"],
   ex_text="",
   figura=rectangle_diagonal(7, 5, etq_base="7 cm", etq_altura="?",
@@ -1029,10 +1029,10 @@ Q("138", 138, "", B2, "A",
 
 E140 = "Troba l'àrea d'aquests trapezis isòsceles."
 
-Q("140a", 140, "a", B3, "A",
-  "Bases de $3$ cm i $10$ cm, alçada de $6$ cm.",
-  "$39$ cm$^2$",
-  [D("$78$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+Q("140a", 140, "a", B3, tipus="A",
+  enunciat="Bases de $3$ cm i $10$ cm, alçada de $6$ cm.",
+  correcta="$39$ cm$^2$",
+  distractors=[D("$78$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un trapezi és "
      "$\\dfrac{(B+b)\\cdot h}{2}$, no $(B+b)\\cdot h$ sencer."),
    D("$19$ cm$^2$", "DIVISIO_REPETIDA",
@@ -1043,17 +1043,17 @@ Q("140a", 140, "a", B3, "A",
    D("$60$ cm$^2$", "SUMA_EN_LLOC_RESTA",
      "Aquest valor surt de multiplicar només la base gran per "
      "l'alçada ($10\\cdot6$), sense tenir en compte la base petita.")],
-  ["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$, on $B$ i $b$ "
+  pistes=["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$, on $B$ i $b$ "
    "són les dues bases i $h$ l'alçada.",
    "Calcula $\\dfrac{(3+10)\\cdot6}{2}$."],
-  ["$A=\\dfrac{(3+10)\\cdot6}{2}=\\dfrac{78}{2}=39$ cm$^2$"],
+  resolucio=["$A=\\dfrac{(3+10)\\cdot6}{2}=\\dfrac{78}{2}=39$ cm$^2$"],
   ex_text=E140,
   figura=trapezi(10, 3, 6))
 
-Q("140b", 140, "b", B3, "A",
-  r"Bases de $16$ m i $24$ m, alçada de $\sqrt{164}$ m.",
-  "$40\\sqrt{41}\\approx256{,}12$ m$^2$",
-  [D("$20\\sqrt{41}\\approx128{,}06$ m$^2$", "ARREL_FACTOR_OBLIDAT",
+Q("140b", 140, "b", B3, tipus="A",
+  enunciat=r"Bases de $16$ m i $24$ m, alçada de $\sqrt{164}$ m.",
+  correcta="$40\\sqrt{41}\\approx256{,}12$ m$^2$",
+  distractors=[D("$20\\sqrt{41}\\approx128{,}06$ m$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor divideix per $2$ una vegada de més: l'àrea és "
      "$\\dfrac{(16+24)\\cdot\\sqrt{164}}{2}$, i $\\dfrac{40}{2}=20$ ja "
      "és el resultat correcte de la primera divisió, no cal tornar-la "
@@ -1065,19 +1065,19 @@ Q("140b", 140, "b", B3, "A",
      r"Aquest valor confon $\sqrt{164}$ (l'alçada) amb $164$ (el "
      "nombre sota l'arrel), i no fa servir les bases per res: revisa "
      "la fórmula de l'àrea del trapezi.")],
-  ["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
+  pistes=["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
    r"Calcula $\dfrac{(16+24)\cdot\sqrt{164}}{2}$; simplifica "
    r"$\sqrt{164}=2\sqrt{41}$ abans de multiplicar si vols."],
-  [r"$A=\dfrac{(16+24)\cdot\sqrt{164}}{2}=\dfrac{40\cdot2\sqrt{41}}{2}"
+  resolucio=[r"$A=\dfrac{(16+24)\cdot\sqrt{164}}{2}=\dfrac{40\cdot2\sqrt{41}}{2}"
    r"=40\sqrt{41}\approx256{,}12$ m$^2$"],
   ex_text="",
   figura=trapezi(24, 16, 12.806248474865697, unitat="m",
                  etq_altura="√164 m"))
 
-Q("140c", 140, "c", B3, "A",
-  "Bases de $3{,}5$ m i $4{,}13$ m, alçada de $7$ m.",
-  "$26{,}705$ m$^2$",
-  [D("$53{,}41$ m$^2$", "ARREL_FACTOR_OBLIDAT",
+Q("140c", 140, "c", B3, tipus="A",
+  enunciat="Bases de $3{,}5$ m i $4{,}13$ m, alçada de $7$ m.",
+  correcta="$26{,}705$ m$^2$",
+  distractors=[D("$53{,}41$ m$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un trapezi és "
      "$\\dfrac{(B+b)\\cdot h}{2}$."),
    D("$29{,}75$ m$^2$", "TERME_OBLIDAT_OPERACIO",
@@ -1088,17 +1088,17 @@ Q("140c", 140, "c", B3, "A",
      "Aquest valor sembla la suma de les bases dividida per l'alçada, "
      "en lloc de multiplicada: revisa la fórmula "
      "$\\dfrac{(B+b)\\cdot h}{2}$.")],
-  ["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
+  pistes=["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
    "Calcula $\\dfrac{(3{,}5+4{,}13)\\cdot7}{2}$."],
-  ["$A=\\dfrac{(3{,}5+4{,}13)\\cdot7}{2}=\\dfrac{53{,}41}{2}"
+  resolucio=["$A=\\dfrac{(3{,}5+4{,}13)\\cdot7}{2}=\\dfrac{53{,}41}{2}"
    "=26{,}705$ m$^2$"],
   ex_text="",
   figura=trapezi(4.13, 3.5, 7, unitat="m"))
 
-Q("140d", 140, "d", B3, "A",
-  "Bases de $4$ m i $14$ m, alçada de $3$ m.",
-  "$27$ m$^2$",
-  [D("$54$ m$^2$", "ARREL_FACTOR_OBLIDAT",
+Q("140d", 140, "d", B3, tipus="A",
+  enunciat="Bases de $4$ m i $14$ m, alçada de $3$ m.",
+  correcta="$27$ m$^2$",
+  distractors=[D("$54$ m$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor no divideix per $2$: l'àrea d'un trapezi és "
      "$\\dfrac{(B+b)\\cdot h}{2}$."),
    D("$21$ m$^2$", "TERME_OBLIDAT_OPERACIO",
@@ -1108,18 +1108,18 @@ Q("140d", 140, "d", B3, "A",
      "Aquest valor surt de multiplicar només la base gran per "
      "l'alçada ($14\\cdot3$), sense tenir en compte la base petita "
      "ni dividir per $2$.")],
-  ["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
+  pistes=["L'àrea d'un trapezi és $\\dfrac{(B+b)\\cdot h}{2}$.",
    "Calcula $\\dfrac{(4+14)\\cdot3}{2}$."],
-  ["$A=\\dfrac{(4+14)\\cdot3}{2}=\\dfrac{54}{2}=27$ m$^2$"],
+  resolucio=["$A=\\dfrac{(4+14)\\cdot3}{2}=\\dfrac{54}{2}=27$ m$^2$"],
   ex_text="",
   figura=trapezi(14, 4, 3, unitat="m"))
 
 E141 = "Calcula l'àrea de:"
 
-Q("141a", 141, "a", B3, "A",
-  "Un hexàgon regular de costat $2$ cm.",
-  "$6\\sqrt3\\approx10{,}39$ cm$^2$",
-  [D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+Q("141a", 141, "a", B3, tipus="A",
+  enunciat="Un hexàgon regular de costat $2$ cm.",
+  correcta="$6\\sqrt3\\approx10{,}39$ cm$^2$",
+  distractors=[D("$2\\sqrt3\\approx3{,}46$ cm$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest valor és l'apotema, no l'àrea: encara falta multiplicar "
      "pel perímetre i dividir per $2$."),
    D("$12$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1130,21 +1130,21 @@ Q("141a", 141, "a", B3, "A",
    D("$24\\sqrt3\\approx41{,}57$ cm$^2$", "POTENCIA_DE_SUMA",
      "Aquest valor no divideix per $2$: revisa la fórmula "
      "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.")],
-  ["Calcula primer l'apotema: $a=\\dfrac{L\\sqrt3}{2}=\\sqrt3$ cm "
+  pistes=["Calcula primer l'apotema: $a=\\dfrac{L\\sqrt3}{2}=\\sqrt3$ cm "
    "(amb $L=2$).",
    "L'àrea d'un polígon regular és "
    "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$, amb "
    "perímetre $=6\\cdot2=12$ cm."],
-  ["Apotema: $a=\\dfrac{2\\sqrt3}{2}=\\sqrt3$ cm",
+  resolucio=["Apotema: $a=\\dfrac{2\\sqrt3}{2}=\\sqrt3$ cm",
    "Perímetre: $6\\cdot2=12$ cm",
    "Àrea: $\\dfrac{12\\cdot\\sqrt3}{2}=6\\sqrt3\\approx10{,}39$ cm$^2$"],
   ex_text=E141,
   figura=poligon_regular(6, costat=2))
 
-Q("141b", 141, "b", B3, "A",
-  "Un octàgon regular de perímetre $48$ cm.",
-  "$72(1+\\sqrt2)\\approx173{,}82$ cm$^2$",
-  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+Q("141b", 141, "b", B3, tipus="A",
+  enunciat="Un octàgon regular de perímetre $48$ cm.",
+  correcta="$72(1+\\sqrt2)\\approx173{,}82$ cm$^2$",
+  distractors=[D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat de l'octàgon ($48:8$), no l'àrea: encara "
      "cal calcular l'apotema i aplicar la fórmula de l'àrea."),
    D("$288$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1154,22 +1154,22 @@ Q("141b", 141, "b", B3, "A",
    D("$144(1+\\sqrt2)\\approx347{,}64$ cm$^2$", "POTENCIA_DE_SUMA",
      "Aquest valor no divideix per $2$: revisa la fórmula "
      "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$.")],
-  ["Calcula primer el costat: $\\dfrac{48}{8}=6$ cm.",
+  pistes=["Calcula primer el costat: $\\dfrac{48}{8}=6$ cm.",
    "L'apotema d'un octàgon regular de costat $L$ és "
    "$\\dfrac{L}{2}(1+\\sqrt2)$; aplica després "
    "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$."],
-  ["Costat: $\\dfrac{48}{8}=6$ cm",
+  resolucio=["Costat: $\\dfrac{48}{8}=6$ cm",
    "Apotema: $\\dfrac{6}{2}(1+\\sqrt2)=3(1+\\sqrt2)\\approx7{,}24$ cm",
    "Àrea: $\\dfrac{48\\cdot3(1+\\sqrt2)}{2}=72(1+\\sqrt2)"
    "\\approx173{,}82$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(8, costat=6, mostra_costat=False))
 
-Q("142", 142, "", B3, "A",
-  "Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la "
+Q("142", 142, "", B3, tipus="A",
+  enunciat="Un hexàgon regular té el costat de $6$ cm. Troba la longitud de la "
   "diagonal que passa pel centre (la que uneix dos vèrtexs oposats).",
-  "$12$ cm",
-  [D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$12$ cm",
+  distractors=[D("$6$ cm", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el costat de l'hexàgon, no la diagonal que passa pel "
      "centre: en un hexàgon regular, aquesta diagonal val el DOBLE "
      "del costat."),
@@ -1181,12 +1181,12 @@ Q("142", 142, "", B3, "A",
      "Aquest valor és la meitat del costat, no el doble: la diagonal "
      "que passa pel centre d'un hexàgon regular val $2\\cdot L$, no "
      "$\\dfrac{L}{2}$.")],
-  ["En un hexàgon regular, el centre equidista de tots els vèrtexs "
+  pistes=["En un hexàgon regular, el centre equidista de tots els vèrtexs "
    "una distància igual al costat (l'hexàgon es descompon en 6 "
    "triangles equilàters).",
    "La diagonal que passa pel centre uneix dos vèrtexs oposats, i és "
    "per tant el doble del costat: $2\\cdot6$."],
-  ["En un hexàgon regular, la distància del centre a cada vèrtex "
+  resolucio=["En un hexàgon regular, la distància del centre a cada vèrtex "
    "coincideix amb el costat ($6$ cm), perquè el polígon es "
    "descompon en $6$ triangles equilàters",
    "La diagonal que passa pel centre és $2\\cdot6=12$ cm"],
@@ -1195,11 +1195,11 @@ Q("142", 142, "", B3, "A",
 
 E143 = "Determina l'àrea dels triangles descrits a continuació."
 
-Q("143a", 143, "a", B3, "A",
-  "Un quadrat de costat $5$ cm queda dividit en dos triangles iguals "
+Q("143a", 143, "a", B3, tipus="A",
+  enunciat="Un quadrat de costat $5$ cm queda dividit en dos triangles iguals "
   "per una diagonal. Quina és l'àrea d'un d'aquests triangles?",
-  "$12{,}5$ cm$^2$",
-  [D("$25$ cm$^2$", "PART_PEL_TOT",
+  correcta="$12{,}5$ cm$^2$",
+  distractors=[D("$25$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea del QUADRAT sencer, no d'un dels dos triangles "
      "(la meitat): encara falta dividir per $2$."),
    D("$5$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1208,21 +1208,21 @@ Q("143a", 143, "a", B3, "A",
    D("$50$ cm$^2$", "POTENCIA_DE_SUMA",
      "Aquest valor duplica l'àrea del quadrat en lloc de dividir-la "
      "per $2$: el triangle és la MEITAT del quadrat, no el doble.")],
-  ["Una diagonal divideix un quadrat en dos triangles iguals: cada "
+  pistes=["Una diagonal divideix un quadrat en dos triangles iguals: cada "
    "triangle és la meitat de l'àrea total del quadrat.",
    "Àrea del quadrat: $5^2=25$ cm$^2$; divideix-la per $2$."],
-  ["Àrea del quadrat: $5^2=25$ cm$^2$",
+  resolucio=["Àrea del quadrat: $5^2=25$ cm$^2$",
    "Àrea del triangle: $\\dfrac{25}{2}=12{,}5$ cm$^2$"],
   ex_text=E143,
   figura=quadrat_diagonal(5, etiqueta_diagonal=""))
 
-Q("143b", 143, "b", B3, "A",
-  "Un pentàgon regular de costat $4$ cm i apotema "
+Q("143b", 143, "b", B3, tipus="A",
+  enunciat="Un pentàgon regular de costat $4$ cm i apotema "
   "$a\\approx2{,}75$ cm queda dividit en cinc triangles iguals unint "
   "el centre amb cada vèrtex. Quina és l'àrea d'un d'aquests "
   "triangles?",
-  "$5{,}5$ cm$^2$",
-  [D("$27{,}5$ cm$^2$", "PART_PEL_TOT",
+  correcta="$5{,}5$ cm$^2$",
+  distractors=[D("$27{,}5$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea del PENTÀGON sencer (els $5$ triangles "
      "junts), no d'un sol triangle: divideix per $5$."),
    D("$11$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1233,19 +1233,19 @@ Q("143b", 143, "b", B3, "A",
      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
      "has calculat $4\\cdot2{,}75$ abans de dividir per $2$, no "
      "$2\\cdot1{,}375$.")],
-  ["Cada triangle té com a base el costat del pentàgon i com a "
+  pistes=["Cada triangle té com a base el costat del pentàgon i com a "
    "alçada l'apotema.",
    "Àrea del triangle: $\\dfrac{4\\cdot2{,}75}{2}$."],
-  ["$A=\\dfrac{4\\cdot2{,}75}{2}=\\dfrac{11}{2}=5{,}5$ cm$^2$"],
+  resolucio=["$A=\\dfrac{4\\cdot2{,}75}{2}=\\dfrac{11}{2}=5{,}5$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(5, costat=4, triangle_central=True))
 
-Q("143c", 143, "c", B3, "A",
-  "Un hexàgon regular de costat $3$ cm queda dividit en sis triangles "
+Q("143c", 143, "c", B3, tipus="A",
+  enunciat="Un hexàgon regular de costat $3$ cm queda dividit en sis triangles "
   "equilàters iguals unint el centre amb cada vèrtex. Quina és "
   "l'àrea d'un d'aquests triangles?",
-  "$\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ cm$^2$",
-  [D("$\\dfrac{27\\sqrt3}{2}\\approx23{,}38$ cm$^2$",
+  correcta="$\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ cm$^2$",
+  distractors=[D("$\\dfrac{27\\sqrt3}{2}\\approx23{,}38$ cm$^2$",
      "PART_PEL_TOT",
      "Aquesta és l'àrea de l'HEXÀGON sencer (els $6$ triangles "
      "junts), no d'un sol triangle: divideix-la per $6$."),
@@ -1255,21 +1255,21 @@ Q("143c", 143, "c", B3, "A",
    D("$4{,}5$ cm$^2$", "POTENCIA_DE_SUMA",
      "Aquest valor no inclou el factor $\\sqrt3$: en un triangle "
      "equilàter, l'àrea no és $\\dfrac{L^2}{2}$.")],
-  ["Els sis triangles en què el centre divideix un hexàgon regular "
+  pistes=["Els sis triangles en què el centre divideix un hexàgon regular "
    "són EQUILÀTERS de costat igual al de l'hexàgon.",
    "Àrea d'un triangle equilàter de costat $L$: "
    "$\\dfrac{L^2\\sqrt3}{4}$, amb $L=3$."],
-  ["$A=\\dfrac{3^2\\sqrt3}{4}=\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ "
+  resolucio=["$A=\\dfrac{3^2\\sqrt3}{4}=\\dfrac{9\\sqrt3}{4}\\approx3{,}90$ "
    "cm$^2$"],
   ex_text="",
   figura=poligon_regular(6, costat=3, triangle_central=True))
 
-Q("143d", 143, "d", B3, "A",
-  "Un octàgon regular de costat $3$ cm i apotema $3{,}62$ cm queda "
+Q("143d", 143, "d", B3, tipus="A",
+  enunciat="Un octàgon regular de costat $3$ cm i apotema $3{,}62$ cm queda "
   "dividit en vuit triangles iguals unint el centre amb cada vèrtex. "
   "Quina és l'àrea d'un d'aquests triangles?",
-  "$5{,}43$ cm$^2$",
-  [D("$43{,}44$ cm$^2$", "PART_PEL_TOT",
+  correcta="$5{,}43$ cm$^2$",
+  distractors=[D("$43{,}44$ cm$^2$", "PART_PEL_TOT",
      "Aquesta és l'àrea de l'OCTÀGON sencer (els $8$ triangles "
      "junts), no d'un sol triangle: divideix-la per $8$."),
    D("$10{,}86$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1279,21 +1279,21 @@ Q("143d", 143, "d", B3, "A",
    D("$2{,}715$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades: comprova que "
      "has calculat $3\\cdot3{,}62$ abans de dividir per $2$.")],
-  ["Cada triangle té com a base el costat de l'octàgon i com a "
+  pistes=["Cada triangle té com a base el costat de l'octàgon i com a "
    "alçada l'apotema.",
    "Àrea del triangle: $\\dfrac{3\\cdot3{,}62}{2}$."],
-  ["$A=\\dfrac{3\\cdot3{,}62}{2}=\\dfrac{10{,}86}{2}=5{,}43$ cm$^2$"],
+  resolucio=["$A=\\dfrac{3\\cdot3{,}62}{2}=\\dfrac{10{,}86}{2}=5{,}43$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(8, costat=3, triangle_central=True))
 
 E144 = "Calcula l'àrea de les figures següents."
 
-Q("144a", 144, "a", B3, "A",
-  "Una figura en forma de mitja lluna és la diferència entre un "
+Q("144a", 144, "a", B3, tipus="A",
+  enunciat="Una figura en forma de mitja lluna és la diferència entre un "
   "semicercle de $12$ cm de diàmetre i un semicercle interior de "
   "$6$ cm de diàmetre. Quina és la seva àrea?",
-  "$\\dfrac{27\\pi}{2}\\approx42{,}41$ cm$^2$",
-  [D("$18\\pi\\approx56{,}55$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
+  correcta="$\\dfrac{27\\pi}{2}\\approx42{,}41$ cm$^2$",
+  distractors=[D("$18\\pi\\approx56{,}55$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
      "Aquest valor no divideix per $2$: cal calcular l'àrea de "
      "CADASCUN dels dos semicercles (ja dividida per $2$ respecte "
      "del cercle complet), no la diferència dels cercles complets."),
@@ -1306,10 +1306,10 @@ Q("144a", 144, "a", B3, "A",
      "has usat radi $6$ cm (semicercle gran, diàmetre $12$) i radi "
      "$3$ cm (semicercle petit, diàmetre $6$), no els diàmetres "
      "directament.")],
-  ["L'àrea d'un semicercle de radi $r$ és $\\dfrac{\\pi r^2}{2}$.",
+  pistes=["L'àrea d'un semicercle de radi $r$ és $\\dfrac{\\pi r^2}{2}$.",
    "Resta l'àrea del semicercle petit (radi $3$ cm) de la del gran "
    "(radi $6$ cm)."],
-  ["Semicercle gran: $\\dfrac{\\pi\\cdot6^2}{2}=18\\pi$ cm$^2$",
+  resolucio=["Semicercle gran: $\\dfrac{\\pi\\cdot6^2}{2}=18\\pi$ cm$^2$",
    "Semicercle petit: $\\dfrac{\\pi\\cdot3^2}{2}=4{,}5\\pi$ cm$^2$",
    "Diferència: $18\\pi-4{,}5\\pi=13{,}5\\pi=\\dfrac{27\\pi}{2}"
    "\\approx42{,}41$ cm$^2$"],
@@ -1327,12 +1327,12 @@ Q("144a", 144, "a", B3, "A",
                "solucionari (6 cm) per tenir un valor numèric complet. "
                "Vegeu la nota de transcripció de r-im8.tex.")
 
-Q("144b", 144, "b", B3, "A",
-  "D'un cercle de $4$ cm de diàmetre es retalla un sector de "
+Q("144b", 144, "b", B3, tipus="A",
+  enunciat="D'un cercle de $4$ cm de diàmetre es retalla un sector de "
   "$90^\\circ$ (una quarta part, tipus \"Pac-Man\"). Quina és l'àrea "
   "de la part que queda?",
-  "$3\\pi\\approx9{,}42$ cm$^2$",
-  [D("$4\\pi\\approx12{,}57$ cm$^2$", "TERME_OBLIDAT_OPERACIO",
+  correcta="$3\\pi\\approx9{,}42$ cm$^2$",
+  distractors=[D("$4\\pi\\approx12{,}57$ cm$^2$", "TERME_OBLIDAT_OPERACIO",
      "Aquesta és l'àrea del cercle complet, sense retallar el "
      "sector: recorda restar la porció retallada."),
    D("$\\pi\\approx3{,}14$ cm$^2$", "FRACCIO_DE_CERCLE_MAL",
@@ -1343,11 +1343,11 @@ Q("144b", 144, "b", B3, "A",
      "Aquest valor correspon a la meitat del cercle, no a les tres "
      "quartes parts que queden després de retallar un sector de "
      "$90^\\circ$ (un quart de volta).")],
-  ["El cercle complet, de radi $2$ cm, té àrea $\\pi\\cdot2^2=4\\pi$ "
+  pistes=["El cercle complet, de radi $2$ cm, té àrea $\\pi\\cdot2^2=4\\pi$ "
    "cm$^2$.",
    "Un sector de $90^\\circ$ és $\\dfrac{90}{360}=\\dfrac14$ del "
    "cercle: la figura és les tres quartes parts restants."],
-  ["Cercle complet: $\\pi\\cdot2^2=4\\pi$ cm$^2$",
+  resolucio=["Cercle complet: $\\pi\\cdot2^2=4\\pi$ cm$^2$",
    "Àrea final (tres quarts del cercle): "
    "$\\dfrac34\\cdot4\\pi=3\\pi\\approx9{,}42$ cm$^2$"],
   ex_text="",
@@ -1365,11 +1365,11 @@ Q("144b", 144, "b", B3, "A",
                "solucionari (90°, forma de \"Pac-Man\"). Vegeu la nota de "
                "transcripció de r-im8.tex.")
 
-Q("145c", 145, "c", B3, "A",
-  "Un quadrat de costat $5$ cm té un forat circular de $2$ cm de "
+Q("145c", 145, "c", B3, tipus="A",
+  enunciat="Un quadrat de costat $5$ cm té un forat circular de $2$ cm de "
   "diàmetre. Quina és l'àrea que queda un cop tret el forat?",
-  "$25-\\pi\\approx21{,}86$ cm$^2$",
-  [D("$25-2\\pi\\approx18{,}72$ cm$^2$", "CATET_MAL_IDENTIFICAT",
+  correcta="$25-\\pi\\approx21{,}86$ cm$^2$",
+  distractors=[D("$25-2\\pi\\approx18{,}72$ cm$^2$", "CATET_MAL_IDENTIFICAT",
      "Has fet servir el diàmetre ($2$ cm) com si fos el radi a "
      "l'hora de calcular l'àrea del forat: el radi és la MEITAT del "
      "diàmetre, és a dir, $1$ cm, i l'àrea del cercle és "
@@ -1384,11 +1384,11 @@ Q("145c", 145, "c", B3, "A",
      "en lloc de restar l'àrea del cercle: cal calcular primer "
      "l'àrea del forat circular ($\\pi\\cdot r^2$), no restar-ne "
      "només la longitud del diàmetre.")],
-  ["L'àrea de la figura és l'àrea del quadrat menys l'àrea del cercle "
+  pistes=["L'àrea de la figura és l'àrea del quadrat menys l'àrea del cercle "
    "del forat.",
    "El radi del forat és la meitat del diàmetre: $\\dfrac{2}{2}=1$ "
    "cm; àrea del quadrat $5^2=25$ cm$^2$."],
-  ["Àrea del quadrat: $5^2=25$ cm$^2$",
+  resolucio=["Àrea del quadrat: $5^2=25$ cm$^2$",
    "Radi del forat: $\\dfrac{2}{2}=1$ cm; àrea del forat: "
    "$\\pi\\cdot1^2=\\pi$ cm$^2$",
    "Àrea de la figura: $25-\\pi\\approx21{,}86$ cm$^2$"],
@@ -1408,12 +1408,12 @@ Q("145c", 145, "c", B3, "A",
 # BLOC 4 — PROBLEMES D'APLICACIÓ: PITÀGORES I ÀREES (exercicis 146-151)
 # =====================================================================
 
-Q("146", 146, "", B4, "A",
-  "Una torre fa 150 m d'alçada i la seva ombra s'estén 200 m pel "
+Q("146", 146, "", B4, tipus="A",
+  enunciat="Una torre fa 150 m d'alçada i la seva ombra s'estén 200 m pel "
   "terra pla. Quina distància hi ha des del punt més alt de la torre "
   "fins a l'extrem de l'ombra?",
-  "$250$ m",
-  [D(tex(150 + 200) + " m", "SUMA_CATETS_SENSE_QUADRAT",
+  correcta="$250$ m",
+  distractors=[D(tex(150 + 200) + " m", "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat directament l'alçada i l'ombra ($150+200$) en lloc "
      "d'aplicar Pitàgores: la distància demanada és la hipotenusa "
      "d'un triangle rectangle, no la suma dels catets."),
@@ -1424,19 +1424,19 @@ Q("146", 146, "", B4, "A",
      "Aquest valor surt de restar l'ombra i l'alçada directament, "
      "sense elevar-les al quadrat ni fer l'arrel: cal aplicar "
      "Pitàgores amb els dos catets, no restar-los.")],
-  ["L'alçada de la torre i l'ombra total formen els dos catets d'un "
+  pistes=["L'alçada de la torre i l'ombra total formen els dos catets d'un "
    "triangle rectangle; la distància demanada n'és la hipotenusa.",
    "Aplica Pitàgores: $\\sqrt{150^2+200^2}$."],
-  [r"$%s$ m" % pitagores_tex_raw(150, 200, aprox=False)],
+  resolucio=[r"$%s$ m" % pitagores_tex_raw(150, 200, aprox=False)],
   ex_text="",
   figura=triangle_rectangle(200, 150, etq_a="200 m", etq_b="150 m"))
 
-Q("147", 147, "", B4, "A",
-  "Una escala de 10 m de longitud està recolzada sobre una paret. El "
+Q("147", 147, "", B4, tipus="A",
+  enunciat="Una escala de 10 m de longitud està recolzada sobre una paret. El "
   "peu de l'escala dista 6 m de la paret. A quina altura arriba "
   "l'escala sobre la paret?",
-  "$8$ m",
-  [D(tex(10 + 6) + " m", "SUMA_CATETS_SENSE_QUADRAT",
+  correcta="$8$ m",
+  distractors=[D(tex(10 + 6) + " m", "SUMA_CATETS_SENSE_QUADRAT",
      "Has sumat directament l'escala i la distància al peu "
      "($10+6$) en lloc d'aplicar Pitàgores."),
    D(tex(10 ** 2 + 6 ** 2) + " m", "SIGNE_PITAGORES",
@@ -1446,19 +1446,19 @@ Q("147", 147, "", B4, "A",
    D(tex(64) + " m", "ARREL_OBLIDADA",
      r"Has calculat $10^2-6^2=64$ correctament, però t'has deixat "
      r"l'arrel quadrada final.")],
-  ["L'escala fa d'hipotenusa; la distància del peu a la paret i "
+  pistes=["L'escala fa d'hipotenusa; la distància del peu a la paret i "
    "l'altura on arriba són els dos catets.",
    "Aplica Pitàgores: $\\sqrt{10^2-6^2}$."],
-  [r"$%s$ m" % catet_tex_raw(10, 6, aprox=False)],
+  resolucio=[r"$%s$ m" % catet_tex_raw(10, 6, aprox=False)],
   ex_text="",
   figura=triangle_rectangle(6, 8, etq_a="6 m", etq_b="?",
                             etq_hip="10 m"))
 
-Q("148a", 148, "a", B4, "A",
-  "Als costats d'un camp quadrangular s'han plantat 32 arbres, "
+Q("148a", 148, "a", B4, tipus="A",
+  enunciat="Als costats d'un camp quadrangular s'han plantat 32 arbres, "
   "separats 5 m entre ells. Quant mesura el costat del camp?",
-  "$40$ m",
-  [D("$32$ m", "CATET_MAL_IDENTIFICAT",
+  correcta="$40$ m",
+  distractors=[D("$32$ m", "CATET_MAL_IDENTIFICAT",
      "Aquest és el nombre d'arbres, no el costat: primer cal trobar "
      "el perímetre total ($32$ arbres $\\times5$ m de separació) i "
      "després dividir-lo entre els $4$ costats."),
@@ -1468,20 +1468,20 @@ Q("148a", 148, "a", B4, "A",
    D("$160$ m", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el PERÍMETRE del camp ($32\\times5$), no el costat: "
      "encara falta dividir-lo entre els $4$ costats.")],
-  ["Cada arbre marca una separació de $5$ m al voltant de tot el "
+  pistes=["Cada arbre marca una separació de $5$ m al voltant de tot el "
    "perímetre: perímetre $=32\\times5$.",
    "El camp és quadrangular (quadrat): costat "
    "$=\\dfrac{\\text{perímetre}}{4}$."],
-  ["Perímetre: $32\\times5=160$ m",
+  resolucio=["Perímetre: $32\\times5=160$ m",
    "Costat: $\\dfrac{160}{4}=40$ m"],
   ex_text="",
   figura=poligon_regular(4, costat=1, mostra_costat=False))
 
-Q("148b", 148, "b", B4, "A",
-  "Amb les mateixes dades de l'apartat anterior (32 arbres, separats "
+Q("148b", 148, "b", B4, tipus="A",
+  enunciat="Amb les mateixes dades de l'apartat anterior (32 arbres, separats "
   "5 m, camp quadrangular): quina és l'àrea del camp?",
-  "$1\\,600$ m$^2$",
-  [D("$160$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
+  correcta="$1\\,600$ m$^2$",
+  distractors=[D("$160$ m$^2$", "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquest és el perímetre del camp, no l'àrea: encara falta "
      "elevar el costat al quadrat."),
    D("$80$ m$^2$", "ARREL_FACTOR_OBLIDAT",
@@ -1491,19 +1491,19 @@ Q("148b", 148, "b", B4, "A",
      "Aquest valor eleva el perímetre al quadrat ($160^2$) en lloc "
      "del costat: primer cal trobar el costat ($160:4=40$) i després "
      "elevar-lo al quadrat.")],
-  ["El costat del camp és $40$ m (perímetre $160$ m entre $4$).",
+  pistes=["El costat del camp és $40$ m (perímetre $160$ m entre $4$).",
    "L'àrea d'un quadrat és costat al quadrat: $40^2$."],
-  ["Costat: $\\dfrac{160}{4}=40$ m",
+  resolucio=["Costat: $\\dfrac{160}{4}=40$ m",
    "Àrea: $40^2=1\\,600$ m$^2$"],
   ex_text="",
   figura=poligon_regular(4, costat=40, unitat="m"))
 
-Q("149", 149, "", B4, "A",
-  "Un senyal de trànsit d'STOP té forma d'octàgon regular, amb una "
+Q("149", 149, "", B4, tipus="A",
+  enunciat="Un senyal de trànsit d'STOP té forma d'octàgon regular, amb una "
   "altura de 90 cm (distància entre costats oposats) i un costat de "
   "37 cm. Quina és la seva àrea?",
-  "$6\\,660$ cm$^2$",
-  [D("$3\\,330$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
+  correcta="$6\\,660$ cm$^2$",
+  distractors=[D("$3\\,330$ cm$^2$", "ARREL_FACTOR_OBLIDAT",
      "Aquest valor divideix per $2$ una vegada de més: un cop tens "
      "el perímetre i l'apotema, l'àrea és "
      "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$, i ja has "
@@ -1517,23 +1517,23 @@ Q("149", 149, "", B4, "A",
    D("$1\\,665$ cm$^2$", "DIVISIO_REPETIDA",
      "Aquest valor sembla dividir per $2$ dues vegades més del "
      "compte: revisa el càlcul $\\dfrac{296\\cdot45}{2}$ pas a pas.")],
-  ["L'apotema d'un octàgon regular és la meitat de l'alçada (la "
+  pistes=["L'apotema d'un octàgon regular és la meitat de l'alçada (la "
    "distància entre dos costats oposats): $\\dfrac{90}{2}=45$ cm.",
    "Perímetre: $8\\times37$; àrea: "
    "$\\dfrac{\\text{perímetre}\\cdot\\text{apotema}}{2}$."],
-  ["Apotema: $\\dfrac{90}{2}=45$ cm",
+  resolucio=["Apotema: $\\dfrac{90}{2}=45$ cm",
    "Perímetre: $8\\times37=296$ cm",
    "Àrea: $\\dfrac{296\\times45}{2}=6\\,660$ cm$^2$"],
   ex_text="",
   figura=poligon_regular(8, costat=37, apotema=45))
 
-Q("150", 150, "", B4, "A",
-  "Cada un dels 50 pisos d'un edifici té la planta d'un hexàgon "
+Q("150", 150, "", B4, tipus="A",
+  enunciat="Cada un dels 50 pisos d'un edifici té la planta d'un hexàgon "
   "regular de costat 30 m. Si el terra té una moqueta que costa "
   "20 €/m$^2$, calcula el preu total pagat per la moqueta de "
   "l'edifici.",
-  "$2\\,338\\,268{,}59$ €",
-  [D("$46\\,765{,}37$ €", "TERME_OBLIDAT_OPERACIO",
+  correcta="$2\\,338\\,268{,}59$ €",
+  distractors=[D("$46\\,765{,}37$ €", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor sembla el cost d'un sol pis (àrea $\\times20$ €), "
      "sense multiplicar pels $50$ pisos de l'edifici."),
    D("$1\\,350\\sqrt3\\approx2\\,338{,}27$ €", "PAS_INTERMEDI_PER_RESPOSTA",
@@ -1543,11 +1543,11 @@ Q("150", 150, "", B4, "A",
      "Aquest valor és el cost total de la moqueta d'un SOL pis "
      "($20$ €/m$^2$ inclosos), sense multiplicar pels $50$ pisos de "
      "l'edifici.")],
-  ["Calcula primer l'àrea d'un pis (hexàgon regular de costat 30 m): "
+  pistes=["Calcula primer l'àrea d'un pis (hexàgon regular de costat 30 m): "
    "$A=\\dfrac{3L^2\\sqrt3}{2}$.",
    "Multiplica l'àrea d'un pis pel preu del m$^2$ i pels $50$ pisos "
    "de l'edifici."],
-  ["Àrea d'un pis: $\\dfrac{3\\cdot30^2\\sqrt3}{2}=1\\,350\\sqrt3"
+  resolucio=["Àrea d'un pis: $\\dfrac{3\\cdot30^2\\sqrt3}{2}=1\\,350\\sqrt3"
    "\\approx2\\,338{,}27$ m$^2$",
    "Cost d'un pis: $2\\,338{,}27\\times20\\approx46\\,765{,}37$ €",
    "Cost total ($50$ pisos): $46\\,765{,}37\\times50"
@@ -1555,13 +1555,13 @@ Q("150", 150, "", B4, "A",
   ex_text="",
   figura=poligon_regular(6, costat=30, unitat="m"))
 
-Q("151", 151, "", B4, "A",
-  "Un pastisser ha cobert de sucre la part superior de 200 "
+Q("151", 151, "", B4, tipus="A",
+  enunciat="Un pastisser ha cobert de sucre la part superior de 200 "
   "rosquilles: cadascuna té diàmetre exterior 6 cm i un forat central "
   "de diàmetre 5 cm. Si ha fet servir 5 kg de sucre, quants grams de "
   "sucre fan falta per cobrir cada centímetre quadrat de rosquilla?",
-  "$\\approx2{,}89$ g/cm$^2$",
-  [D("$\\approx0{,}91$ g/cm$^2$", "FACTOR_OBLIDAT",
+  correcta="$\\approx2{,}89$ g/cm$^2$",
+  distractors=[D("$\\approx0{,}91$ g/cm$^2$", "FACTOR_OBLIDAT",
      "Aquest valor sembla dividir els $5\\,000$ g entre l'àrea d'UNA "
      "sola rosquilla, no entre l'àrea total de les $200$ rosquilles."),
    D("$\\approx28{,}94$ g/cm$^2$", "TERME_OBLIDAT_OPERACIO",
@@ -1573,12 +1573,12 @@ Q("151", 151, "", B4, "A",
      "radis en calcular l'àrea de la corona circular: el radi és la "
      "MEITAT del diàmetre ($3$ cm i $2{,}5$ cm), no el diàmetre "
      "sencer ($6$ cm i $5$ cm).")],
-  ["L'àrea de la part superior d'una rosquilla és una corona "
+  pistes=["L'àrea de la part superior d'una rosquilla és una corona "
    "circular: àrea del cercle exterior (radi $3$ cm) menys la del "
    "forat (radi $2{,}5$ cm).",
    "Multiplica l'àrea d'una rosquilla per les $200$ unitats, i "
    "divideix els $5\\,000$ g de sucre entre aquesta àrea total."],
-  ["Àrea d'una rosquilla: $\\pi\\cdot3^2-\\pi\\cdot2{,}5^2"
+  resolucio=["Àrea d'una rosquilla: $\\pi\\cdot3^2-\\pi\\cdot2{,}5^2"
    "=8{,}64$ cm$^2$",
    "Àrea total ($200$ rosquilles): $8{,}64\\times200"
    "=1\\,727{,}88$ cm$^2$",
@@ -1623,87 +1623,87 @@ E332 = ("Calcula l'àrea d'aquest triangle rectangle, amb les dades "
 # que no ha llegit l'enunciat, no que no sàpiga la fórmula. El feedback
 # d'HIPOTENUSA_PER_AREA ho diu amb aquestes paraules.
 
-Q("332a", 332, "a", B2, "A",
-  r"Els catets fan $3$ cm i $4$ cm.",
-  r"$6$ cm$^2$",
-  [DT(r"$12$ cm$^2$", "MEITAT_OBLIDADA",
+Q("332a", 332, "a", B2, tipus="A",
+  enunciat=r"Els catets fan $3$ cm i $4$ cm.",
+  correcta=r"$6$ cm$^2$",
+  distractors=[DT(r"$12$ cm$^2$", "MEITAT_OBLIDADA",
       extra="Has multiplicat els catets i prou: $3\\cdot 4=12$."),
    DT(r"$7$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat $3+4$."),
    DT(r"$5$ cm$^2$", "HIPOTENUSA_PER_AREA")],
-  ["En un triangle rectangle, els dos catets ja fan de base i d'altura.",
+  pistes=["En un triangle rectangle, els dos catets ja fan de base i d'altura.",
    "$A=\\dfrac{3\\cdot 4}{2}$."],
-  [r"$A=\dfrac{b\cdot h}{2}=\dfrac{3\cdot 4}{2}=6$ cm$^2$"],
+  resolucio=[r"$A=\dfrac{b\cdot h}{2}=\dfrac{3\cdot 4}{2}=6$ cm$^2$"],
   ex_text=E332,
   figura=triangle_rectangle(3, 4, etq_hip=None, marca_hip=False))
 
-Q("332b", 332, "b", B2, "A",
-  r"Els catets fan $6$ m i $8$ m.",
-  r"$24$ m$^2$",
-  [DT(r"$48$ m$^2$", "MEITAT_OBLIDADA",
+Q("332b", 332, "b", B2, tipus="A",
+  enunciat=r"Els catets fan $6$ m i $8$ m.",
+  correcta=r"$24$ m$^2$",
+  distractors=[DT(r"$48$ m$^2$", "MEITAT_OBLIDADA",
       extra="$6\\cdot 8=48$, i encara falta dividir per $2$."),
    DT(r"$10$ m$^2$", "HIPOTENUSA_PER_AREA"),
    DT(r"$14$ m$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat $6+8$.")],
-  ["Els catets són la base i l'altura.",
+  pistes=["Els catets són la base i l'altura.",
    "$A=\\dfrac{6\\cdot 8}{2}$."],
-  [r"$A=\dfrac{6\cdot 8}{2}=\dfrac{48}{2}=24$ m$^2$"],
+  resolucio=[r"$A=\dfrac{6\cdot 8}{2}=\dfrac{48}{2}=24$ m$^2$"],
   ex_text=E332,
   figura=triangle_rectangle(6, 8, etq_hip=None, marca_hip=False, unitat="m"))
 
-Q("332c", 332, "c", B2, "A",
-  r"Els catets fan $5$ cm i $12$ cm.",
-  r"$30$ cm$^2$",
-  [DT(r"$60$ cm$^2$", "MEITAT_OBLIDADA",
+Q("332c", 332, "c", B2, tipus="A",
+  enunciat=r"Els catets fan $5$ cm i $12$ cm.",
+  correcta=r"$30$ cm$^2$",
+  distractors=[DT(r"$60$ cm$^2$", "MEITAT_OBLIDADA",
       extra="$5\\cdot 12=60$; falta la meitat."),
    DT(r"$13$ cm$^2$", "HIPOTENUSA_PER_AREA"),
    DT(r"$17$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat $5+12$.")],
-  ["Els catets fan de base i d'altura.",
+  pistes=["Els catets fan de base i d'altura.",
    "$A=\\dfrac{5\\cdot 12}{2}$."],
-  [r"$A=\dfrac{5\cdot 12}{2}=\dfrac{60}{2}=30$ cm$^2$"],
+  resolucio=[r"$A=\dfrac{5\cdot 12}{2}=\dfrac{60}{2}=30$ cm$^2$"],
   ex_text=E332,
   figura=triangle_rectangle(5, 12, etq_hip=None, marca_hip=False))
 
 
 E333 = "Calcula l'àrea d'aquestes figures, segons les dades següents."
 
-Q("333a", 333, "a", B3, "A",
-  r"Rectangle de $7$ cm de base i $4$ cm d'altura.",
-  r"$28$ cm$^2$",
-  [DT(r"$22$ cm$^2$", "PERIMETRE_PER_AREA",
+Q("333a", 333, "a", B3, tipus="A",
+  enunciat=r"Rectangle de $7$ cm de base i $4$ cm d'altura.",
+  correcta=r"$28$ cm$^2$",
+  distractors=[DT(r"$22$ cm$^2$", "PERIMETRE_PER_AREA",
       extra="$7+4+7+4=22$ és la vora, no la superfície."),
    DT(r"$14$ cm$^2$", "FORMULA_INVERTIDA",
       extra="Has dividit per $2$. El mig és de la fórmula del triangle; el "
             "rectangle no en porta."),
    DT(r"$11$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat $7+4$ en lloc de multiplicar.")],
-  ["L'àrea del rectangle és base per altura.",
+  pistes=["L'àrea del rectangle és base per altura.",
    "$A=7\\cdot 4$."],
-  [r"$A=b\cdot h=7\cdot 4=28$ cm$^2$"],
+  resolucio=[r"$A=b\cdot h=7\cdot 4=28$ cm$^2$"],
   ex_text=E333,
   figura=rectangle(7, 4))
 
-Q("333b", 333, "b", B3, "A",
-  r"Quadrat de $9$ m de costat.",
-  r"$81$ m$^2$",
-  [DT(r"$36$ m$^2$", "PERIMETRE_PER_AREA",
+Q("333b", 333, "b", B3, tipus="A",
+  enunciat=r"Quadrat de $9$ m de costat.",
+  correcta=r"$81$ m$^2$",
+  distractors=[DT(r"$36$ m$^2$", "PERIMETRE_PER_AREA",
       extra="$4\\cdot 9=36$ és el perímetre."),
    DT(r"$18$ m$^2$", "DIMENSIO_EXPONENT_MAL",
       extra="Has calculat $2\\cdot 9$. El quadrat del costat és "
             "$9\\cdot 9$, no $9+9$."),
    DT(r"$40{,}5$ m$^2$", "FORMULA_INVERTIDA",
       extra="Has dividit per $2$, i la fórmula del quadrat no ho porta.")],
-  ["Un quadrat és un rectangle amb la base i l'altura iguals.",
+  pistes=["Un quadrat és un rectangle amb la base i l'altura iguals.",
    "$A=9\\cdot 9=9^2$."],
-  [r"$A=L^2=9^2=81$ m$^2$"],
+  resolucio=[r"$A=L^2=9^2=81$ m$^2$"],
   ex_text=E333,
   figura=quadrat(9, unitat="m"))
 
-Q("333c", 333, "c", B3, "A",
-  r"Romboide de $10$ cm de base i $3$ cm d'altura.",
-  r"$30$ cm$^2$",
-  [DT(r"$15$ cm$^2$", "MEITAT_OBLIDADA",
+Q("333c", 333, "c", B3, tipus="A",
+  enunciat=r"Romboide de $10$ cm de base i $3$ cm d'altura.",
+  correcta=r"$30$ cm$^2$",
+  distractors=[DT(r"$15$ cm$^2$", "MEITAT_OBLIDADA",
       extra="Aquí passa al contrari del que és habitual: has dividit per "
             "$2$ quan NO tocava. El mig és de la fórmula del triangle; el "
             "romboide, com el rectangle, és base per altura."),
@@ -1711,27 +1711,75 @@ Q("333c", 333, "c", B3, "A",
       extra="Has sumat costats."),
    DT(r"$13$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat $10+3$ en lloc de multiplicar.")],
-  ["El romboide es converteix en un rectangle movent el triangle d'un "
+  pistes=["El romboide es converteix en un rectangle movent el triangle d'un "
    "costat a l'altre: l'àrea és base per altura.",
    "L'altura és el segment perpendicular de puntets, no el costat inclinat. "
    "$A=10\\cdot 3$."],
-  [r"$A=b\cdot h=10\cdot 3=30$ cm$^2$"],
+  resolucio=[r"$A=b\cdot h=10\cdot 3=30$ cm$^2$"],
   ex_text=E333,
   figura=romboide(10, 3),
   nota="L'altura d'un romboide és el segment perpendicular a la base "
        "(el de puntets), no el costat inclinat.")
 
-Q("333d", 333, "d", B3, "A",
-  r"Rombe de diagonals $8$ cm i $6$ cm.",
-  r"$24$ cm$^2$",
-  [DT(r"$48$ cm$^2$", "MEITAT_OBLIDADA",
+Q("333d", 333, "d", B3, tipus="A",
+  enunciat=r"Rombe de diagonals $8$ cm i $6$ cm.",
+  correcta=r"$24$ cm$^2$",
+  distractors=[DT(r"$48$ cm$^2$", "MEITAT_OBLIDADA",
       extra="$8\\cdot 6=48$; la fórmula del rombe sí que porta el mig."),
    DT(r"$14$ cm$^2$", "SUMA_CATETS_SENSE_QUADRAT",
       extra="Has sumat les diagonals."),
    DT(r"$28$ cm$^2$", "PERIMETRE_PER_AREA",
       extra="Has confós les diagonals amb els costats.")],
-  ["L'àrea del rombe és el producte de les diagonals partit per dos.",
+  pistes=["L'àrea del rombe és el producte de les diagonals partit per dos.",
    "$A=\\dfrac{8\\cdot 6}{2}$."],
-  [r"$A=\dfrac{D\cdot d}{2}=\dfrac{8\cdot 6}{2}=\dfrac{48}{2}=24$ cm$^2$"],
+  resolucio=[r"$A=\dfrac{D\cdot d}{2}=\dfrac{8\cdot 6}{2}=\dfrac{48}{2}=24$ cm$^2$"],
   ex_text=E333,
   figura=rombe(8, 6))
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercici 357)
+# =====================================================================
+# El bloc obria amb angles d'un isòsceles i la desigualtat triangular, i
+# Pitàgores hi arribava ja aplicat a diagonals de quadrats. Aquí, la
+# hipotenusa a partir de dos catets que formen una terna pitagòrica: el
+# resultat és exacte i l'única cosa que pot fallar és el teorema.
+
+dificultats({
+    357: 1,  # hipotenusa amb els dos catets donats, ternes exactes
+})
+
+
+E357 = ("Calcula la hipotenusa d'aquest triangle rectangle a partir dels dos "
+        "catets. Recorda el teorema de Pitàgores: $h^2=c_1^2+c_2^2$.")
+
+Q("357a", 357, "a", B1, tipus="A",
+  enunciat=r"Catets de $6$ cm i $8$ cm.",
+  correcta="$10$ cm",
+  distractors=[DT("$14$ cm", "SUMA_CATETS_SENSE_QUADRAT"),
+   DT("$100$ cm", "ARREL_OBLIDADA",
+      extra="$100$ és $h^2$."),
+   DT(r"$\sqrt{28}\approx5{,}29$ cm", "CATET_HIPOTENUSA_CONFOSOS",
+      extra="Has restat els quadrats, que és el que es fa per trobar un "
+            "CATET. Aquí es busca la hipotenusa: se sumen.")],
+  pistes=["Eleva cada catet al quadrat i suma: $6^2+8^2$.",
+   "$36+64=100$. Falta l'arrel."],
+  resolucio=[r"$h^2=6^2+8^2=36+64=100$", r"$h=\sqrt{100}=10$ cm"],
+  ex_text=E357,
+  figura=triangle_rectangle(6, 8, etq_a="6 cm", etq_b="8 cm", etq_hip="h"))
+
+Q("357b", 357, "b", B1, tipus="A",
+  enunciat=r"Catets de $3$ m i $4$ m.",
+  correcta="$5$ m",
+  distractors=[DT("$7$ m", "SUMA_CATETS_SENSE_QUADRAT"),
+   DT("$25$ m", "ARREL_OBLIDADA",
+      extra="$25$ és $h^2$."),
+   DT(r"$\sqrt{7}\approx2{,}65$ m", "CATET_HIPOTENUSA_CONFOSOS",
+      extra="Has restat els quadrats, que és el que es fa per trobar un "
+            "CATET. Aquí es busca la hipotenusa: se sumen.")],
+  pistes=["Eleva cada catet al quadrat i suma: $3^2+4^2$.",
+   "$9+16=25$. Falta l'arrel."],
+  resolucio=[r"$h^2=3^2+4^2=9+16=25$", r"$h=\sqrt{25}=5$ m"],
+  ex_text=E357,
+  figura=triangle_rectangle(3, 4, etq_a="3 m", etq_b="4 m", etq_hip="h",
+                            unitat="m"))

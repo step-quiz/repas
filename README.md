@@ -4,7 +4,7 @@ Lloc estàtic d'autoavaluació de matemàtiques per a alumnes que comencen 1r de
 batxillerat. HTML, CSS i JavaScript vainilla: no hi ha build, ni servidor, ni
 dependències. Obre `index.html`.
 
-**Els 12 fulls tenen banc de preguntes: 951 preguntes en total**, cobrint els
+**Els 12 fulls tenen banc de preguntes: 1029 preguntes en total**, cobrint els
 259 exercicis del material original. A sobre hi ha un tutor: un test inicial
 de 15 destreses clau que situa l'alumne i li genera un itinerari
 personalitzat d'exercicis.
@@ -13,18 +13,18 @@ personalitzat d'exercicis.
 
 | Full | Tema | Blocs | Preguntes |
 |---|---|---:|---:|
-| 1 | Nombres enters, fraccions i decimals | 4 | 144 |
-| 2 | Potències | 4 | 89 |
-| 3 | Successions i progressions | 4 | 56 |
-| 4 | Polinomis | 4 | 71 |
-| 5 | Equacions i sistemes | 5 | 99 |
-| 6 | Proporcionalitat i percentatges | 5 | 48 |
-| 7 | Teorema de Pitàgores. Àrees | 4 | 62 |
-| 8 | Teorema de Tales. Semblança | 6 | 59 |
-| 9 | Cossos geomètrics. Àrea i volum | 4 | 52 |
-| 10 | Funcions | 5 | 85 |
-| 11 | Estadística | 5 | 91 |
-| 12 | Combinatòria i probabilitat | 6 | 95 |
+| 1 | Nombres enters, fraccions i decimals | 4 | 150 |
+| 2 | Potències | 4 | 93 |
+| 3 | Successions i progressions | 4 | 60 |
+| 4 | Polinomis | 4 | 75 |
+| 5 | Equacions i sistemes | 5 | 107 |
+| 6 | Proporcionalitat i percentatges | 5 | 54 |
+| 7 | Teorema de Pitàgores. Àrees | 4 | 64 |
+| 8 | Teorema de Tales. Semblança | 6 | 69 |
+| 9 | Cossos geomètrics. Àrea i volum | 4 | 58 |
+| 10 | Funcions | 5 | 91 |
+| 11 | Estadística | 5 | 101 |
+| 12 | Combinatòria i probabilitat | 6 | 107 |
 
 ## Navegació
 
@@ -130,7 +130,11 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
                           katex@X` i copiar katex.min.{js,css},
                           contrib/auto-render.min.js i fonts/*.woff2
 
-    data/fullN.js         banc de preguntes d'un full — GENERAT, no editar
+    data/fullN.js         banc de preguntes d'un full — GENERAT, no editar.
+                          El carrega full.html
+    data/fullN-index.js   els blocs del full i els ids de cada bloc — GENERAT
+    data/fullN-<bloc>.js  el banc d'un sol bloc — GENERAT. practica.html carrega
+                          l'índex i només el bloc de l'exercici (no el full sencer)
     data/teoria.json      mapa exercici → activitat del llibre de text
     data/videos.json      mapa exercici → vídeo de l'entrega de repàs en paper
 

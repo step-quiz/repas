@@ -104,10 +104,10 @@ _260 = {
 for _ap, _v in _260.items():
     _m = mitjana(_v)
     _n, _s = len(_v), sum(_v)
-    Q("260%s" % _ap, 260, _ap, B1, "A",
-      llista_tex(_v),
-      "$%s$" % tex(_m),
-      [D("$%s$" % tex(F(_s, len(set(_v)))), "DIVIDIT_PER_VALORS_DIFERENTS",
+    Q("260%s" % _ap, 260, _ap, B1, tipus="A",
+      enunciat=llista_tex(_v),
+      correcta="$%s$" % tex(_m),
+      distractors=[D("$%s$" % tex(F(_s, len(set(_v)))), "DIVIDIT_PER_VALORS_DIFERENTS",
          "Has dividit pels valors DIFERENTS que hi ha ($%d$), no per les dades "
          "que hi ha ($%d$). A la mitjana, un valor repetit compta cada vegada "
          "que apareix." % (len(set(_v)), _n)),
@@ -117,9 +117,9 @@ for _ap, _v in _260.items():
        D("$%d$" % _s, "PAS_INTERMEDI_PER_RESPOSTA",
          "Aquesta és la suma de totes les dades: encara falta dividir-la "
          "per $%d$." % _n)],
-      ["Suma totes les dades i divideix el resultat pel nombre de dades.",
+      pistes=["Suma totes les dades i divideix el resultat pel nombre de dades.",
        "Aquí hi ha $%d$ dades i sumen $%d$." % (_n, _s)],
-      ["$\\bar{x}=\\dfrac{%s}{%d}=\\dfrac{%d}{%d}=%s$"
+      resolucio=["$\\bar{x}=\\dfrac{%s}{%d}=\\dfrac{%d}{%d}=%s$"
        % ("+".join(str(x) for x in _v), _n, _s, _n, tex(_m))],
       ex_text=E260)
 
@@ -145,10 +145,10 @@ for _ap, _v in _261.items():
     _centre = ("el valor que ocupa el lloc $%d$" % (_n // 2 + 1) if _senar
                else "la mitjana dels que ocupen els llocs $%d$ i $%d$"
                     % (_n // 2, _n // 2 + 1))
-    Q("261%s" % _ap, 261, _ap, B1, "A",
-      llista_tex(_v),
-      "$%s$" % tex(_md),
-      [D("$%s$" % tex(F(_v[_n // 2]) if _senar else F(_v[_n // 2 - 1] + _v[_n // 2], 2)),
+    Q("261%s" % _ap, 261, _ap, B1, tipus="A",
+      enunciat=llista_tex(_v),
+      correcta="$%s$" % tex(_md),
+      distractors=[D("$%s$" % tex(F(_v[_n // 2]) if _senar else F(_v[_n // 2 - 1] + _v[_n // 2], 2)),
          "MEDIANA_SENSE_ORDENAR",
          "Has agafat el valor del mig de la llista TAL COM ve. La mediana es "
          "busca sobre les dades ORDENADES: $%s$."
@@ -159,10 +159,10 @@ for _ap, _v in _261.items():
        D("$%d$" % (max(_v) - min(_v)), "RANG_PER_MEDIANA",
          "Això és el recorregut (el més gran menys el més petit), que mesura "
          "com d'esteses estan les dades, no on és el centre.")],
-      ["Ordena primer les dades de menor a major.",
+      pistes=["Ordena primer les dades de menor a major.",
        "Ordenades queden $%s$. Com que n'hi ha $%d$, la mediana és %s."
        % (",\\;".join(str(x) for x in _o), _n, _centre)],
-      ["Ordenades: $%s$" % ",\\;".join(str(x) for x in _o),
+      resolucio=["Ordenades: $%s$" % ",\\;".join(str(x) for x in _o),
        "Hi ha $%d$ dades, així que la mediana és %s: $%s$"
        % (_n, _centre, tex(_md))],
       ex_text=E261)
@@ -183,10 +183,10 @@ _262 = [
 for _ap, _v, _sol, _cas in _262:
     _md, _f = modes(_v)
     _c = Counter(_v)
-    Q("262%s" % _ap, 262, _ap, B1, "A",
-      llista_tex(_v),
-      _sol,
-      [D("$%d$" % _f, "MODA_PER_FREQUENCIA",
+    Q("262%s" % _ap, 262, _ap, B1, tipus="A",
+      enunciat=llista_tex(_v),
+      correcta=_sol,
+      distractors=[D("$%d$" % _f, "MODA_PER_FREQUENCIA",
          "Has donat quantes vegades es repeteix, no QUIN valor es repeteix. "
          "La moda és la dada, no el seu recompte."),
        D("$%s$" % tex(mediana(_v)), "MEDIANA_PER_MODA",
@@ -195,10 +195,10 @@ for _ap, _v, _sol, _cas in _262:
        D("$%d$" % max(_v), "EL_MES_GRAN",
          "El més gran de tots no té res a veure amb la moda: el que compta és "
          "quantes vegades surt cada valor, no com de gran és.")],
-      ["Compta quantes vegades apareix cada valor.",
+      pistes=["Compta quantes vegades apareix cada valor.",
        "Recompte: %s." % ", ".join("$%d$ surt %d cop%s" % (k, _c[k], "s" if _c[k] > 1 else "")
                                    for k in sorted(_c))],
-      ["Recompte: %s" % ", ".join("$%d\\to%d$" % (k, _c[k]) for k in sorted(_c)),
+      resolucio=["Recompte: %s" % ", ".join("$%d\\to%d$" % (k, _c[k]) for k in sorted(_c)),
        ("Cap valor no destaca: la distribució és amodal" if _cas == "amodal"
         else ("Hi ha dos valors amb la freqüència màxima ($%d$): la distribució "
               "és bimodal" % _f if _cas == "bimodal"
@@ -227,10 +227,10 @@ _m263, _md263 = mitjana(VIATGES), mediana(VIATGES)
 _mo263, _f263 = modes(VIATGES)
 _prod = "+".join("%d\\cdot%d" % (k, _cv[k]) for k in sorted(_cv))
 
-Q("263a", 263, "a", B1, "A",
-  "La mitjana de viatges per alumne.",
-  "$%s=%s$" % (tex(_m263), texd(_m263, 2)),
-  [D("$%s$" % tex(F(sum(sorted(_cv)), len(_cv))), "FREQUENCIA_NO_PONDERADA",
+Q("263a", 263, "a", B1, tipus="A",
+  enunciat="La mitjana de viatges per alumne.",
+  correcta="$%s=%s$" % (tex(_m263), texd(_m263, 2)),
+  distractors=[D("$%s$" % tex(F(sum(sorted(_cv)), len(_cv))), "FREQUENCIA_NO_PONDERADA",
      "Has fet la mitjana dels VALORS diferents ($1,2,3,4,5,6$) sense tenir en "
      "compte quantes vegades surt cadascun. Cada valor s'ha de multiplicar "
      "per la seva freqüència."),
@@ -239,11 +239,11 @@ Q("263a", 263, "a", B1, "A",
    D("$%d$" % sum(VIATGES), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta és la suma $\\sum x_i f_i$: encara falta dividir-la entre "
      "$N=20$.")],
-  ["Amb una taula de freqüències, la mitjana és "
+  pistes=["Amb una taula de freqüències, la mitjana és "
    "$\\bar{x}=\\dfrac{\\sum x_i f_i}{N}$.",
    "Multiplica cada valor per la seva freqüència, suma-ho tot i divideix "
    "entre $N=20$."],
-  ["$\\sum x_i f_i=%s=%d$" % (_prod, sum(VIATGES)),
+  resolucio=["$\\sum x_i f_i=%s=%d$" % (_prod, sum(VIATGES)),
    "$\\bar{x}=\\dfrac{%d}{20}=%s=%s$ viatges"
    % (sum(VIATGES), tex(_m263), texd(_m263, 2))],
   ex_text=E263)
@@ -253,10 +253,10 @@ for _k in sorted(_cv):
     _ac += _cv[_k]
     _acum.append("$F(%d)=%d$" % (_k, _ac))
 
-Q("263b", 263, "b", B1, "A",
-  "La mediana.",
-  "$%s$" % tex(_md263),
-  [D("$%s$" % tex(_m263), "MEDIANA_PER_MITJANA",
+Q("263b", 263, "b", B1, tipus="A",
+  enunciat="La mediana.",
+  correcta="$%s$" % tex(_md263),
+  distractors=[D("$%s$" % tex(_m263), "MEDIANA_PER_MITJANA",
      "Això és la mitjana. La mediana és el valor que deixa la meitat de les "
      "dades a cada banda."),
    D("$4$", "ACUMULADA_MAL_LLEGIDA",
@@ -265,29 +265,29 @@ Q("263b", 263, "b", B1, "A",
      "del valor $3$, no del $4$."),
    D("$%d$" % _f263, "MODA_PER_FREQUENCIA",
      "Aquest és el nombre de vegades que es repeteix la moda, no cap dada.")],
-  ["Amb $N=20$ (parell), la mediana és la mitjana de les dades que ocupen "
+  pistes=["Amb $N=20$ (parell), la mediana és la mitjana de les dades que ocupen "
    "els llocs $10$ i $11$.",
    "Fes servir les freqüències acumulades per veure dins de quin valor cauen "
    "aquests dos llocs: %s." % ", ".join(_acum)],
-  ["Acumulades: %s" % ", ".join(_acum),
+  resolucio=["Acumulades: %s" % ", ".join(_acum),
    "Els llocs $10$ i $11$ cauen tots dos dins del valor $3$, "
    "així que la mediana és $3$"],
   ex_text=E263)
 
-Q("263c", 263, "c", B1, "A",
-  "La moda.",
-  "$%d$" % _mo263[0],
-  [D("$%d$" % _f263, "MODA_PER_FREQUENCIA",
+Q("263c", 263, "c", B1, tipus="A",
+  enunciat="La moda.",
+  correcta="$%d$" % _mo263[0],
+  distractors=[D("$%d$" % _f263, "MODA_PER_FREQUENCIA",
      "Has donat la freqüència màxima ($%d$ alumnes), no el valor que la té." % _f263),
    D("$6$", "EL_MES_GRAN",
      "El $6$ és el nombre de viatges més alt, però només l'han fet $2$ "
      "alumnes. La moda és el valor MÉS REPETIT, no el més gran."),
    D("$%s$" % tex(_m263), "MEDIANA_PER_MODA",
      "Aquesta és la mitjana. La moda ha de ser un dels valors de la taula.")],
-  ["Busca la freqüència més alta de la taula.",
+  pistes=["Busca la freqüència més alta de la taula.",
    "Compte: la moda és el valor $x_i$ que té aquesta freqüència, no la "
    "freqüència mateixa."],
-  ["La freqüència més alta és $f_i=%d$, i li correspon el valor $x_i=%d$"
+  resolucio=["La freqüència més alta és $f_i=%d$, i li correspon el valor $x_i=%d$"
    % (_f263, _mo263[0])],
   ex_text=E263)
 
@@ -298,19 +298,19 @@ CALCAT = [37, 40, 39, 37, 38, 38, 38, 41, 42, 37, 43, 40, 38, 38, 38, 40,
 _mc, _mdc = mitjana(CALCAT), mediana(CALCAT)
 _moc, _fc = modes(CALCAT)
 
-Q("264", 264, "", B1, "B",
+Q("264", 264, "", B1, tipus="B",
   # La llista va en TEXT PLA, amb comes i espais normals. Abans s'unia amb
   # `,\;` —un espai fi de LaTeX— però fora de `$...$` no es compon: es veien
   # els caràcters «\;» literals entre cada talla. I com que era una sola
   # tirada sense espais on trencar, els 20 valors sortien de la targeta
   # (885 px havent-ne demanat 704). Mateix cas que 224 i 228.
-  "Una sabateria ha venut aquestes talles de calçat en una setmana: "
+  enunciat="Una sabateria ha venut aquestes talles de calçat en una setmana: "
   + ", ".join(str(x) for x in sorted(CALCAT)) +
   ". El botiguer ha de decidir de quina talla encarrega més parells. "
   "Quina mesura l'ajuda a decidir-ho, i quin valor surt?",
-  "La MODA: la talla $%d$, que és la que ha venut més vegades ($%d$ parells)."
+  correcta="La MODA: la talla $%d$, que és la que ha venut més vegades ($%d$ parells)."
   % (_moc[0], _fc),
-  [D("La MITJANA: la talla $%s$." % texd(_mc, 1), "MESURA_MAL_TRIADA",
+  distractors=[D("La MITJANA: la talla $%s$." % texd(_mc, 1), "MESURA_MAL_TRIADA",
      "La mitjana val $%s$, i les talles són nombres sencers: no existeix "
      "aquesta talla i no en pot encarregar cap parell. Quan les dades són "
      "categories o valors sencers que no admeten mitges, la mesura que "
@@ -323,10 +323,10 @@ Q("264", 264, "", B1, "B",
      "MESURA_MAL_TRIADA",
      "El recorregut diu quantes talles diferents abasta la venda, no quina "
      "s'ha de reposar.")],
-  ["Pensa què vol saber el botiguer: no quin és el valor central, sinó quin "
+  pistes=["Pensa què vol saber el botiguer: no quin és el valor central, sinó quin "
    "és el que es repeteix més.",
    "Compta quantes vegades apareix cada talla."],
-  ["Recompte: %s" % ", ".join("$%d\\to%d$" % (k, Counter(CALCAT)[k])
+  resolucio=["Recompte: %s" % ", ".join("$%d\\to%d$" % (k, Counter(CALCAT)[k])
                               for k in sorted(set(CALCAT))),
    "La talla més venuda és la $%d$, amb $%d$ parells: aquesta és la moda"
    % (_moc[0], _fc),
@@ -350,10 +350,10 @@ for _ap, _parts in _265:
     _tot = sum(F(n * p, 100) for _, n, p in _parts)
     _simple = mitjana([n for _, n, _p in _parts])
     _det = ", ".join("%s $%d$ (pes $%d\\,\\%%$)" % (nom, n, p) for nom, n, p in _parts)
-    Q("265%s" % _ap, 265, _ap, B1, "A",
-      _det + ".",
-      "$%s$" % texd(_tot, 2),
-      [D("$%s$" % texd(_simple, 2), "PES_IGNORAT",
+    Q("265%s" % _ap, 265, _ap, B1, tipus="A",
+      enunciat=_det + ".",
+      correcta="$%s$" % texd(_tot, 2),
+      distractors=[D("$%s$" % texd(_simple, 2), "PES_IGNORAT",
          "Has fet la mitjana de les tres notes com si totes valguessin el "
          "mateix. Cada part té el seu pes: la de $%d\\,\\%%$ compta molt més "
          "que la de $%d\\,\\%%$." % (max(p for _, _n, p in _parts),
@@ -369,11 +369,11 @@ for _ap, _parts in _265:
          "PES_MAL_APLICAT",
          "Sembla que has aplicat el mateix pes a totes les notes. Cada nota "
          "va amb el seu.")],
-      ["Passa cada pes a decimal ($50\\,\\%\\to0{,}5$) i multiplica'l per la "
+      pistes=["Passa cada pes a decimal ($50\\,\\%\\to0{,}5$) i multiplica'l per la "
        "seva nota.",
        "Suma els tres productes. Com que els pesos sumen $100\\,\\%$, el "
        "resultat ja és la nota final."],
-      ["$" + "+".join(r"%d\cdot%s" % (n, texd(F(p, 100), 2))
+      resolucio=["$" + "+".join(r"%d\cdot%s" % (n, texd(F(p, 100), 2))
                       for _, n, p in _parts) + "=%s$" % texd(_tot, 2)],
       ex_text=E265)
 
@@ -386,11 +386,11 @@ E266 = ("Un grup de $5$ amics compara quants llibres ha llegit l'últim any: "
 _base = [3, 4, 5, 6, 7]
 _ampl = _base + [60]
 
-Q("266a", 266, "a", B1, "A",
-  "Què li passa a la mitjana?",
-  "Puja de $%s$ a $%s$: gairebé es triplica."
+Q("266a", 266, "a", B1, tipus="A",
+  enunciat="Què li passa a la mitjana?",
+  correcta="Puja de $%s$ a $%s$: gairebé es triplica."
   % (tex(mitjana(_base)), texd(mitjana(_ampl), 2)),
-  [D("Es queda pràcticament igual.", "EXTREM_SENSE_EFECTE",
+  distractors=[D("Es queda pràcticament igual.", "EXTREM_SENSE_EFECTE",
      "La mitjana sí que se'n ressent, i molt: passa de $%s$ a $%s$. Com que "
      "surt de sumar-ho tot, una dada molt gran l'estira cap amunt."
      % (tex(mitjana(_base)), texd(mitjana(_ampl), 2))),
@@ -400,17 +400,17 @@ Q("266a", 266, "a", B1, "A",
    D("Baixa, perquè ara hi ha més dades.", "VEREDICTE_INVERTIT",
      "Tenir més dades no fa baixar la mitjana per si sol: depèn de si la dada "
      "nova és més gran o més petita que la mitjana que hi havia.")],
-  ["Calcula la mitjana abans i després d'afegir el $60$.",
+  pistes=["Calcula la mitjana abans i després d'afegir el $60$.",
    "Abans: $\\dfrac{25}{5}$. Després: $\\dfrac{85}{6}$."],
-  ["Abans: $\\bar{x}=\\dfrac{3+4+5+6+7}{5}=\\dfrac{25}{5}=5$",
+  resolucio=["Abans: $\\bar{x}=\\dfrac{3+4+5+6+7}{5}=\\dfrac{25}{5}=5$",
    "Després: $\\bar{x}=\\dfrac{25+60}{6}=\\dfrac{85}{6}\\approx%s$"
    % texd(mitjana(_ampl), 2)],
   ex_text=E266)
 
-Q("266b", 266, "b", B1, "A",
-  "I què li passa a la mediana?",
-  "Puja molt poc: de $5$ a $%s$." % tex(mediana(_ampl)),
-  [D("Puja tant com la mitjana.", "EXTREM_SENSE_EFECTE",
+Q("266b", 266, "b", B1, tipus="A",
+  enunciat="I què li passa a la mediana?",
+  correcta="Puja molt poc: de $5$ a $%s$." % tex(mediana(_ampl)),
+  distractors=[D("Puja tant com la mitjana.", "EXTREM_SENSE_EFECTE",
      "La mediana només mira quin valor queda al mig: que l'últim sigui $8$ o "
      "$60$ no la mou. Per això es diu que és RESISTENT als valors extrems."),
    D("Es queda exactament a $5$.", "MEDIANA_SENSE_ORDENAR",
@@ -419,10 +419,10 @@ Q("266b", 266, "b", B1, "A",
    D("Baixa a $4$.", "VEREDICTE_INVERTIT",
      "Afegir una dada per damunt de totes desplaça el centre cap amunt, no "
      "cap avall.")],
-  ["Ordena les $6$ dades i busca el centre.",
+  pistes=["Ordena les $6$ dades i busca el centre.",
    "Amb $6$ dades, la mediana és la mitjana de les que ocupen els llocs "
    "$3$ i $4$."],
-  ["Ordenades: $3,\\;4,\\;5,\\;6,\\;7,\\;60$",
+  resolucio=["Ordenades: $3,\\;4,\\;5,\\;6,\\;7,\\;60$",
    "Mediana $=\\dfrac{5+6}{2}=%s$" % tex(mediana(_ampl)),
    "La mitjana s'ha mogut $%s$ punts i la mediana només $%s$: quan hi ha "
    "valors extrems, la mediana descriu millor el grup"
@@ -449,12 +449,12 @@ _267 = [
 ]
 for _ap, _conegudes, _n, _mit in _267:
     _falta = _mit * _n - sum(_conegudes)
-    Q("267%s" % _ap, 267, _ap, B1, "A",
-      "La mitjana de $%d$ dades és $%d$. En coneixem $%d$: $%s$. Quina és "
+    Q("267%s" % _ap, 267, _ap, B1, tipus="A",
+      enunciat="La mitjana de $%d$ dades és $%d$. En coneixem $%d$: $%s$. Quina és "
       "l'altra?" % (_n, _mit, len(_conegudes),
                     ",\\;".join(str(x) for x in _conegudes)),
-      "$%d$" % _falta,
-      [D("$%d$" % (_mit * len(_conegudes) - sum(_conegudes)), "N_MAL_COMPTAT",
+      correcta="$%d$" % _falta,
+      distractors=[D("$%d$" % (_mit * len(_conegudes) - sum(_conegudes)), "N_MAL_COMPTAT",
          "Has multiplicat la mitjana per les dades que ja coneixies ($%d$), "
          "no per totes les que hi ha ($%d$)." % (len(_conegudes), _n)),
        D("$%d$" % _mit, "PAS_INTERMEDI_PER_RESPOSTA",
@@ -463,10 +463,10 @@ for _ap, _conegudes, _n, _mit in _267:
        D("$%d$" % (_mit * _n), "PAS_INTERMEDI_PER_RESPOSTA",
          "Aquesta és la suma de TOTES les dades: encara cal restar-hi les que "
          "ja coneixes.")],
-      ["Si la mitjana de $%d$ dades és $%d$, la suma de totes ha de ser "
+      pistes=["Si la mitjana de $%d$ dades és $%d$, la suma de totes ha de ser "
        "$%d\\cdot%d$." % (_n, _mit, _n, _mit),
        "Resta a aquesta suma el que ja sumen les dades conegudes."],
-      ["Suma total: $%d\\cdot%d=%d$" % (_n, _mit, _n * _mit),
+      resolucio=["Suma total: $%d\\cdot%d=%d$" % (_n, _mit, _n * _mit),
        "Suma coneguda: $%s=%d$" % ("+".join(str(x) for x in _conegudes),
                                    sum(_conegudes)),
        "Dada que falta: $%d-%d=%d$" % (_n * _mit, sum(_conegudes), _falta)],
@@ -480,10 +480,10 @@ E268 = ("Calcula el recorregut (o rang) de cada llista: la diferència entre "
 _268 = {"a": [12, 5, 9, 20, 7], "b": [3, 3, 3, 3], "c": [-4, 10, 0, 6, -1]}
 for _ap, _v in _268.items():
     _r = max(_v) - min(_v)
-    Q("268%s" % _ap, 268, _ap, B2, "A",
-      llista_tex(_v),
-      "$%d$" % _r,
-      [D("$%d$" % (max(_v) + min(_v)), "SIGNE_FINAL",
+    Q("268%s" % _ap, 268, _ap, B2, tipus="A",
+      enunciat=llista_tex(_v),
+      correcta="$%d$" % _r,
+      distractors=[D("$%d$" % (max(_v) + min(_v)), "SIGNE_FINAL",
          "El recorregut és una RESTA: el més gran menys el més petit."),
        D("$%d$" % max(_v), "PAS_INTERMEDI_PER_RESPOSTA",
          # Amb un mínim negatiu, "%d-%d" escriuria "10--4". Els parèntesis
@@ -501,9 +501,9 @@ for _ap, _v in _268.items():
         D("$%s$" % tex(mitjana(_v)), "MESURA_MAL_TRIADA",
           "Això és la mitjana, que diu on és el centre. El recorregut diu com "
           "d'esteses estan les dades."))],
-      ["Busca la dada més gran i la més petita.",
+      pistes=["Busca la dada més gran i la més petita.",
        "Aquí són $%d$ i $%d$." % (max(_v), min(_v))],
-      ["$R=x_{\\max}-x_{\\min}=%d-(%d)=%d$" % (max(_v), min(_v), _r)
+      resolucio=["$R=x_{\\max}-x_{\\min}=%d-(%d)=%d$" % (max(_v), min(_v), _r)
        if min(_v) < 0 else
        "$R=x_{\\max}-x_{\\min}=%d-%d=%d$" % (max(_v), min(_v), _r)],
       ex_text=E268,
@@ -519,10 +519,10 @@ E269 = ("Per a la llista $2,\\;4,\\;4,\\;4,\\;5,\\;5,\\;7,\\;9$, que té "
 _269 = [2, 4, 4, 4, 5, 5, 7, 9]
 _desv = [x - 5 for x in _269]
 
-Q("269a", 269, "a", B2, "A",
-  "Quant sumen les desviacions $x_i-\\bar{x}$?",
-  "$0$",
-  [D("$%d$" % sum(abs(d) for d in _desv), "VALOR_ABSOLUT_INDEGUT",
+Q("269a", 269, "a", B2, tipus="A",
+  enunciat="Quant sumen les desviacions $x_i-\\bar{x}$?",
+  correcta="$0$",
+  distractors=[D("$%d$" % sum(abs(d) for d in _desv), "VALOR_ABSOLUT_INDEGUT",
      "Això és la suma dels valors absoluts. Les desviacions van amb signe, i "
      "les negatives compensen les positives."),
    D("$%d$" % sum(_269), "PAS_INTERMEDI_PER_RESPOSTA",
@@ -530,9 +530,9 @@ Q("269a", 269, "a", B2, "A",
    D("$%d$" % sum(d * d for d in _desv), "DESVIACIONS_AL_QUADRAT",
      "Això és la suma dels quadrats de les desviacions, que és el pas "
      "següent. Aquí es demanen les desviacions tal com són.")],
-  ["Calcula $x_i-5$ per a cada dada i suma-ho tot.",
+  pistes=["Calcula $x_i-5$ per a cada dada i suma-ho tot.",
    "Fixa't en el signe de cada desviació: n'hi ha de negatives."],
-  ["Desviacions: $%s$" % ",\\;".join(("%+d" % d) for d in _desv),
+  resolucio=["Desviacions: $%s$" % ",\\;".join(("%+d" % d) for d in _desv),
    "Suma: $0$. Sempre dona zero, i per això les desviacions no serveixen "
    "directament per mesurar la dispersió: cal elevar-les al quadrat."],
   ex_text=E269,
@@ -540,10 +540,10 @@ Q("269a", 269, "a", B2, "A",
   # LITERALMENT la resposta correcta d'aquest ítem.
   )
 
-Q("269b", 269, "b", B2, "A",
-  "I quant sumen els quadrats de les desviacions, $\\sum(x_i-\\bar{x})^2$?",
-  "$%d$" % sum(d * d for d in _desv),
-  [D("$0$", "DESVIACIONS_SENSE_QUADRAT",
+Q("269b", 269, "b", B2, tipus="A",
+  enunciat="I quant sumen els quadrats de les desviacions, $\\sum(x_i-\\bar{x})^2$?",
+  correcta="$%d$" % sum(d * d for d in _desv),
+  distractors=[D("$0$", "DESVIACIONS_SENSE_QUADRAT",
      "Zero és la suma de les desviacions SENSE elevar al quadrat. En "
      "elevar-les, totes es tornen positives i ja no es compensen."),
    D("$%d$" % sum(abs(d) for d in _desv), "VALOR_ABSOLUT_INDEGUT",
@@ -552,9 +552,9 @@ Q("269b", 269, "b", B2, "A",
    D("$%s$" % tex(F(sum(d * d for d in _desv), len(_269))), "PAS_INTERMEDI_PER_RESPOSTA",
      "Aquesta ja és la variància (la suma dividida entre $N$). Aquí es demana "
      "només la suma.")],
-  ["Eleva cada desviació al quadrat abans de sumar.",
+  pistes=["Eleva cada desviació al quadrat abans de sumar.",
    "Recorda que $(-3)^2=9$, no $-9$."],
-  ["Quadrats: $%s$" % ",\\;".join(str(d * d) for d in _desv),
+  resolucio=["Quadrats: $%s$" % ",\\;".join(str(d * d) for d in _desv),
    "Suma: $%s=%d$" % ("+".join(str(d * d) for d in _desv),
                       sum(d * d for d in _desv))],
   ex_text=E269)
@@ -574,10 +574,10 @@ for _ap, _v in _270.items():
     _var = variancia(_v)
     _sd = arrel_tex(_var)
     _quads = [(F(x) - _m) ** 2 for x in _v]
-    Q("270%s" % _ap, 270, _ap, B2, "A",
-      llista_tex(_v),
-      "$\\sigma^2=%s$, $\\sigma\\approx%s$" % (tex(_var), _sd),
-      [D("$\\sigma^2=%s$, $\\sigma\\approx%s$"
+    Q("270%s" % _ap, 270, _ap, B2, tipus="A",
+      enunciat=llista_tex(_v),
+      correcta="$\\sigma^2=%s$, $\\sigma\\approx%s$" % (tex(_var), _sd),
+      distractors=[D("$\\sigma^2=%s$, $\\sigma\\approx%s$"
          % (tex(_var), texd(_var, 2)), "ARREL_OBLIDADA",
          "La desviació típica és l'ARREL de la variància, no la variància "
          "una altra vegada: $\\sigma=\\sqrt{%s}$." % tex(_var)),
@@ -588,10 +588,10 @@ for _ap, _v in _270.items():
        D("$\\sigma^2=0$, $\\sigma=0$", "DESVIACIONS_SENSE_QUADRAT",
          "Si et dona zero és que has sumat les desviacions sense elevar-les "
          "al quadrat: aquesta suma sempre val zero.")],
-      ["Calcula primer la mitjana: $\\bar{x}=%s$." % tex(_m),
+      pistes=["Calcula primer la mitjana: $\\bar{x}=%s$." % tex(_m),
        "Després $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2}{N}$, i la desviació "
        "típica és l'arrel quadrada d'això."],
-      ["$\\bar{x}=\\dfrac{%d}{%d}=%s$" % (sum(_v), _n, tex(_m)),
+      resolucio=["$\\bar{x}=\\dfrac{%d}{%d}=%s$" % (sum(_v), _n, tex(_m)),
        "$\\sum(x_i-\\bar{x})^2=%s=%s$"
        % ("+".join(tex(q) for q in _quads), tex(sum(_quads))),
        "$\\sigma^2=\\dfrac{%s}{%d}=%s$" % (tex(sum(_quads)), _n, tex(_var)),
@@ -607,10 +607,10 @@ E271 = ("Torna a les talles de calçat de l'exercici 227. La taula és: "
 
 _varc = variancia(CALCAT)
 
-Q("271a", 271, "a", B2, "A",
-  "Calcula la variància.",
-  "$%s$" % texd(_varc, 2),
-  [D("$%s$" % texd(variancia(sorted(set(CALCAT))), 2), "FREQUENCIA_NO_PONDERADA",
+Q("271a", 271, "a", B2, tipus="A",
+  enunciat="Calcula la variància.",
+  correcta="$%s$" % texd(_varc, 2),
+  distractors=[D("$%s$" % texd(variancia(sorted(set(CALCAT))), 2), "FREQUENCIA_NO_PONDERADA",
      "Has fet servir els valors diferents sense pesar-los per la seva "
      "freqüència. Cada quadrat $(x_i-\\bar{x})^2$ s'ha de multiplicar per "
      "$f_i$ abans de sumar."),
@@ -620,17 +620,17 @@ Q("271a", 271, "a", B2, "A",
    D("$%s$" % arrel_tex(_varc), "VARIANCIA_PER_DESVIACIO",
      "Això ja és la desviació típica. La variància és el valor abans de fer "
      "l'arrel.")],
-  ["Amb taula de freqüències, $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2 f_i}{N}$.",
+  pistes=["Amb taula de freqüències, $\\sigma^2=\\dfrac{\\sum(x_i-\\bar{x})^2 f_i}{N}$.",
    "Calcula $(x_i-%s)^2$ per a cada talla, multiplica'l per la seva "
    "freqüència i suma-ho tot." % texd(_mc, 1)],
-  ["$\\sum(x_i-\\bar{x})^2 f_i=%s$" % texd(_varc * 20, 1),
+  resolucio=["$\\sum(x_i-\\bar{x})^2 f_i=%s$" % texd(_varc * 20, 1),
    "$\\sigma^2=\\dfrac{%s}{20}=%s$" % (texd(_varc * 20, 1), texd(_varc, 2))],
   ex_text=E271)
 
-Q("271b", 271, "b", B2, "A",
-  "I la desviació típica?",
-  "$\\approx%s$" % arrel_tex(_varc),
-  [D("$%s$" % texd(_varc, 2), "VARIANCIA_PER_DESVIACIO",
+Q("271b", 271, "b", B2, tipus="A",
+  enunciat="I la desviació típica?",
+  correcta="$\\approx%s$" % arrel_tex(_varc),
+  distractors=[D("$%s$" % texd(_varc, 2), "VARIANCIA_PER_DESVIACIO",
      "Aquesta és la variància. La desviació típica n'és l'arrel quadrada."),
    D("$\\approx%s$" % texd(float(_varc) ** 2, 2), "ARREL_MAL_APLICADA",
      "Has elevat al quadrat en comptes de fer l'arrel: la desviació típica és "
@@ -638,9 +638,9 @@ Q("271b", 271, "b", B2, "A",
    D("$%d$" % (max(CALCAT) - min(CALCAT)), "MESURA_MAL_TRIADA",
      "Això és el recorregut. També mesura dispersió, però no és la desviació "
      "típica.")],
-  ["$\\sigma=\\sqrt{\\sigma^2}$.",
+  pistes=["$\\sigma=\\sqrt{\\sigma^2}$.",
    "Fes l'arrel quadrada de $%s$." % texd(_varc, 2)],
-  ["$\\sigma=\\sqrt{%s}\\approx%s$ talles" % (texd(_varc, 2), arrel_tex(_varc)),
+  resolucio=["$\\sigma=\\sqrt{%s}\\approx%s$ talles" % (texd(_varc, 2), arrel_tex(_varc)),
    "Vol dir que, de mitjana, les talles venudes se separen poc més d'una "
    "talla de la mitjana"],
   ex_text=E271)
@@ -655,10 +655,10 @@ E272 = ("Dos grups de $6$ alumnes han fet el mateix examen. Grup A: "
         + ", ".join(str(x) for x in _A272) + ". Grup B: "
         + ", ".join(str(x) for x in _B272) + ".")
 
-Q("272a", 272, "a", B2, "A",
-  "Compara'n les mitjanes.",
-  "Són iguals: totes dues valen $5$.",
-  [D("La del grup A és més alta.", "VEREDICTE_INVERTIT",
+Q("272a", 272, "a", B2, tipus="A",
+  enunciat="Compara'n les mitjanes.",
+  correcta="Són iguals: totes dues valen $5$.",
+  distractors=[D("La del grup A és més alta.", "VEREDICTE_INVERTIT",
      "Totes dues sumen $30$ entre $6$ alumnes: la mitjana és $5$ als dos "
      "grups."),
    D("La del grup B és més alta, perquè hi ha un $9$.", "EXTREM_SENSE_EFECTE",
@@ -666,16 +666,16 @@ Q("272a", 272, "a", B2, "A",
    D("No es poden comparar perquè les dades són diferents.", "ES_POT_DETERMINAR",
      "Es poden comparar perfectament: per això serveixen les mesures de "
      "centralització.")],
-  ["Calcula la mitjana de cada grup.",
+  pistes=["Calcula la mitjana de cada grup.",
    "Suma les notes de cada grup: totes dues sumen el mateix."],
-  ["Grup A: $\\dfrac{30}{6}=5$", "Grup B: $\\dfrac{30}{6}=5$"],
+  resolucio=["Grup A: $\\dfrac{30}{6}=5$", "Grup B: $\\dfrac{30}{6}=5$"],
   ex_text=E272)
 
-Q("272b", 272, "b", B2, "A",
-  "Quin grup és més regular, i com ho justifiques amb un número?",
-  "El grup A: té $\\sigma=0$ i el B, $\\sigma\\approx%s$."
+Q("272b", 272, "b", B2, tipus="A",
+  enunciat="Quin grup és més regular, i com ho justifiques amb un número?",
+  correcta="El grup A: té $\\sigma=0$ i el B, $\\sigma\\approx%s$."
   % arrel_tex(variancia(_B272)),
-  [D("El grup B, perquè té notes més altes.", "VEREDICTE_INVERTIT",
+  distractors=[D("El grup B, perquè té notes més altes.", "VEREDICTE_INVERTIT",
      "Ser regular vol dir que les notes s'assemblen entre si, no que siguin "
      "altes. Al grup B van de l'$1$ al $9$."),
    D("Són igual de regulars, perquè tenen la mateixa mitjana.",
@@ -686,9 +686,9 @@ Q("272b", 272, "b", B2, "A",
    D("El grup A, però no es pot posar cap número.", "ES_POT_DETERMINAR",
      "Sí que se'n pot posar: la desviació típica és exactament el número que "
      "mesura això.")],
-  ["Calcula la desviació típica de cada grup.",
+  pistes=["Calcula la desviació típica de cada grup.",
    "Al grup A totes les dades valen igual que la mitjana."],
-  ["Grup A: totes les desviacions són $0$, així que $\\sigma^2=0$ i $\\sigma=0$",
+  resolucio=["Grup A: totes les desviacions són $0$, així que $\\sigma^2=0$ i $\\sigma=0$",
    "Grup B: $\\sigma^2=%s$ i $\\sigma=\\sqrt{%s}\\approx%s$"
    % (tex(variancia(_B272)), tex(variancia(_B272)), arrel_tex(variancia(_B272))),
    "Com més petita és $\\sigma$, més agrupades estan les dades: el grup A és "
@@ -706,12 +706,12 @@ Q("272b", 272, "b", B2, "A",
 E273 = ("En un grup de persones s'han mesurat l'alçada (mitjana $170$ cm, "
         "$\\sigma=8$ cm) i el pes (mitjana $65$ kg, $\\sigma=8$ kg).")
 
-Q("273a", 273, "a", B2, "A",
-  "Les dues desviacions típiques valen $8$. Vol dir que les dues variables "
+Q("273a", 273, "a", B2, tipus="A",
+  enunciat="Les dues desviacions típiques valen $8$. Vol dir que les dues variables "
   "estan igual de disperses?",
-  "No: $8$ cm sobre una mitjana de $170$ és molt menys, en proporció, que "
+  correcta="No: $8$ cm sobre una mitjana de $170$ és molt menys, en proporció, que "
   "$8$ kg sobre una mitjana de $65$.",
-  [D("Sí, perquè totes dues valen $8$.", "CV_SENSE_DIVIDIR",
+  distractors=[D("Sí, perquè totes dues valen $8$.", "CV_SENSE_DIVIDIR",
      "La desviació típica va en les mateixes unitats que les dades, i per "
      "això no es poden comparar directament dues variables diferents. Cal "
      "mirar quant representa $\\sigma$ respecte de la seva mitjana."),
@@ -722,20 +722,20 @@ Q("273a", 273, "a", B2, "A",
    D("No es pot saber sense les dades originals.", "ES_POT_DETERMINAR",
      "Amb la mitjana i la desviació típica ja n'hi ha prou: el coeficient de "
      "variació és $\\dfrac{\\sigma}{\\bar{x}}$.")],
-  ["Pensa si $8$ cm de diferència en l'alçada d'una persona et sembla molt "
+  pistes=["Pensa si $8$ cm de diferència en l'alçada d'una persona et sembla molt "
    "o poc, i compara-ho amb $8$ kg de diferència en el pes.",
    "Per comparar dispersions de magnituds diferents es divideix "
    "$\\sigma$ entre la mitjana."],
-  ["Alçada: $\\dfrac{8}{170}\\approx%s$" % texd(F(8, 170), 4),
+  resolucio=["Alçada: $\\dfrac{8}{170}\\approx%s$" % texd(F(8, 170), 4),
    "Pes: $\\dfrac{8}{65}\\approx%s$" % texd(F(8, 65), 4),
    "El pes està relativament més dispers, tot i tenir la mateixa $\\sigma$"],
   ex_text=E273)
 
-Q("273b", 273, "b", B2, "A",
-  "Calcula el coeficient de variació de cada variable, en percentatge.",
-  "Alçada $\\approx%s\\,\\%%$, pes $\\approx%s\\,\\%%$"
+Q("273b", 273, "b", B2, tipus="A",
+  enunciat="Calcula el coeficient de variació de cada variable, en percentatge.",
+  correcta="Alçada $\\approx%s\\,\\%%$, pes $\\approx%s\\,\\%%$"
   % (texd(F(800, 170), 1), texd(F(800, 65), 1)),
-  [D("Alçada $\\approx%s\\,\\%%$, pes $\\approx%s\\,\\%%$"
+  distractors=[D("Alçada $\\approx%s\\,\\%%$, pes $\\approx%s\\,\\%%$"
      % (texd(F(17000, 8), 1), texd(F(6500, 8), 1)), "INVERTIDA",
      "Has dividit la mitjana entre la desviació típica. El coeficient de "
      "variació és $CV=\\dfrac{\\sigma}{\\bar{x}}$, no al revés."),
@@ -746,10 +746,10 @@ Q("273b", 273, "b", B2, "A",
      % (texd(F(8, 170), 3), texd(F(8, 65), 3)), "PERCENTATGE_DECIMAL_MAL",
      "Aquests són els quocients en decimal: per passar-los a percentatge "
      "encara falta multiplicar per $100$.")],
-  ["$CV=\\dfrac{\\sigma}{\\bar{x}}$, i per posar-ho en percentatge es "
+  pistes=["$CV=\\dfrac{\\sigma}{\\bar{x}}$, i per posar-ho en percentatge es "
    "multiplica per $100$.",
    "Alçada: $\\dfrac{8}{170}$. Pes: $\\dfrac{8}{65}$."],
-  ["Alçada: $CV=\\dfrac{8}{170}\\cdot100\\approx%s\\,\\%%$" % texd(F(800, 170), 1),
+  resolucio=["Alçada: $CV=\\dfrac{8}{170}\\cdot100\\approx%s\\,\\%%$" % texd(F(800, 170), 1),
    "Pes: $CV=\\dfrac{8}{65}\\cdot100\\approx%s\\,\\%%$" % texd(F(800, 65), 1),
    "El pes varia gairebé el doble, en termes relatius"],
   ex_text=E273,
@@ -763,10 +763,10 @@ Q("273b", 273, "b", B2, "A",
 E274 = ("Un conjunt de dades té mitjana $\\bar{x}=20$ i desviació típica "
         "$\\sigma=4$. Digues què passa en cada cas.")
 
-Q("274a", 274, "a", B2, "A",
-  "Sumem $5$ a totes les dades.",
-  "La mitjana passa a $25$ i la desviació típica es queda a $4$.",
-  [D("Totes dues pugen $5$: mitjana $25$ i $\\sigma=9$.",
+Q("274a", 274, "a", B2, tipus="A",
+  enunciat="Sumem $5$ a totes les dades.",
+  correcta="La mitjana passa a $25$ i la desviació típica es queda a $4$.",
+  distractors=[D("Totes dues pugen $5$: mitjana $25$ i $\\sigma=9$.",
      "CONSTANT_AFECTA_DISPERSIO",
      "Sumar el mateix a totes les dades les desplaça totes igual: les "
      "distàncies entre elles no canvien, i la dispersió tampoc."),
@@ -775,17 +775,17 @@ Q("274a", 274, "a", B2, "A",
    D("No canvia res.", "VEREDICTE_INVERTIT",
      "La mitjana sí que canvia: si totes les dades pugen $5$, el seu centre "
      "també.")],
-  ["Imagina't les dades sobre una recta i desplaça-les totes $5$ unitats.",
+  pistes=["Imagina't les dades sobre una recta i desplaça-les totes $5$ unitats.",
    "La distància entre dues dades qualssevol, canvia?"],
-  ["Nova mitjana: $20+5=25$",
+  resolucio=["Nova mitjana: $20+5=25$",
    "Les desviacions $x_i-\\bar{x}$ no canvien, perquè les dades i la mitjana "
    "s'han mogut igual: $\\sigma$ es manté a $4$"],
   ex_text=E274)
 
-Q("274b", 274, "b", B2, "A",
-  "Multipliquem totes les dades per $3$.",
-  "La mitjana passa a $60$ i la desviació típica, a $12$.",
-  [D("Mitjana $60$ i $\\sigma=4$.", "CONSTANT_AFECTA_DISPERSIO",
+Q("274b", 274, "b", B2, tipus="A",
+  enunciat="Multipliquem totes les dades per $3$.",
+  correcta="La mitjana passa a $60$ i la desviació típica, a $12$.",
+  distractors=[D("Mitjana $60$ i $\\sigma=4$.", "CONSTANT_AFECTA_DISPERSIO",
      "Multiplicar sí que canvia la dispersió: si totes les dades s'estiren "
      "pel triple, les distàncies entre elles també."),
    D("Mitjana $60$ i $\\sigma=36$.", "VARIANCIA_PER_DESVIACIO",
@@ -793,19 +793,19 @@ Q("274b", 274, "b", B2, "A",
      "desviació típica queda multiplicada per $3$: $\\sigma=12$."),
    D("Mitjana $23$ i $\\sigma=7$.", "PRODUCTE_PER_SUMA",
      "Multiplicar per $3$ no és sumar $3$.")],
-  ["Si totes les dades es multipliquen per $3$, on va a parar el centre?",
+  pistes=["Si totes les dades es multipliquen per $3$, on va a parar el centre?",
    "I les distàncies entre dades, què els passa?"],
-  ["Nova mitjana: $20\\cdot3=60$",
+  resolucio=["Nova mitjana: $20\\cdot3=60$",
    "Cada desviació queda multiplicada per $3$, i per tant $\\sigma$ també: "
    "$4\\cdot3=12$",
    "La variància, en canvi, queda multiplicada per $3^2=9$: "
    "$16\\cdot9=144=12^2$"],
   ex_text=E274)
 
-Q("274c", 274, "c", B2, "A",
-  "Afegim una dada nova que val exactament $20$.",
-  "La mitjana es queda a $20$ i la desviació típica baixa una mica.",
-  [D("No canvia res, ni la mitjana ni $\\sigma$.", "EXTREM_SENSE_EFECTE",
+Q("274c", 274, "c", B2, tipus="A",
+  enunciat="Afegim una dada nova que val exactament $20$.",
+  correcta="La mitjana es queda a $20$ i la desviació típica baixa una mica.",
+  distractors=[D("No canvia res, ni la mitjana ni $\\sigma$.", "EXTREM_SENSE_EFECTE",
      "La mitjana no es mou, això és cert. Però ara hi ha una dada més que "
      "està exactament al centre, i això fa que, de mitjana, les dades "
      "estiguin una mica menys esteses: $\\sigma$ baixa."),
@@ -814,11 +814,94 @@ Q("274c", 274, "c", B2, "A",
      "dispersió: aporta una desviació de $0$."),
    D("La mitjana baixa i $\\sigma$ es queda igual.", "VEREDICTE_INVERTIT",
      "Afegir una dada igual a la mitjana no la mou en cap direcció.")],
-  ["Quina desviació aporta una dada que val exactament el mateix que la "
+  pistes=["Quina desviació aporta una dada que val exactament el mateix que la "
    "mitjana?",
    "La suma dels quadrats no canvia, però el nombre de dades sí."],
-  ["La dada nova aporta una desviació $20-20=0$, així que "
+  resolucio=["La dada nova aporta una desviació $20-20=0$, així que "
    "$\\sum(x_i-\\bar{x})^2$ no canvia",
    "En canvi $N$ augmenta en $1$, i com que la variància és aquesta suma "
    "dividida entre $N$, la variància baixa; i amb ella, $\\sigma$"],
   ex_text=E274)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 372-373)
+# =====================================================================
+# Els dos blocs obrien amb cinc dades, desordenades a la mediana i al
+# recorregut. Aquí, tres o quatre dades ja ordenades i que sumen de cap:
+# la mitjana i el recorregut amb la definició i prou.
+
+dificultats({
+    372: 1,  # mitjana de tres dades petites
+    373: 1,  # recorregut de dades ja ordenades
+})
+
+
+E372 = ("Calcula la mitjana aritmètica d'aquestes dades. Recorda: és la suma "
+        "de totes les dades dividida pel nombre de dades.")
+
+Q("372a", 372, "a", B1, tipus="A",
+  enunciat=r"$2,\;4,\;9$",
+  correcta="$5$",
+  distractors=[D("$15$", "DIVISIO_OBLIDADA",
+     "$15$ és la suma. Falta dividir-la pel nombre de dades, $3$."),
+   D("$4$", "MEDIANA_PER_MITJANA",
+     "$4$ és la dada del mig, la mediana. La mitjana es calcula: suma i "
+     "divideix."),
+   D("$9$", "EL_MES_GRAN",
+     "$9$ és la dada més gran. La mitjana és el valor que es repartiria "
+     "igual entre totes: suma i divideix.")],
+  pistes=["Suma les tres dades.",
+   "$2+4+9=15$. Divideix per $3$."],
+  resolucio=[r"$\bar x=\dfrac{2+4+9}{3}=\dfrac{15}{3}=5$"],
+  ex_text=E372)
+
+Q("372b", 372, "b", B1, tipus="A",
+  enunciat=r"$1,\;5,\;6$",
+  correcta="$4$",
+  distractors=[D("$12$", "DIVISIO_OBLIDADA",
+     "$12$ és la suma. Falta dividir-la pel nombre de dades, $3$."),
+   D("$5$", "MEDIANA_PER_MITJANA",
+     "$5$ és la dada del mig, la mediana. La mitjana es calcula: suma i "
+     "divideix."),
+   D("$6$", "EL_MES_GRAN",
+     "$6$ és la dada més gran. La mitjana és el valor que es repartiria "
+     "igual entre totes: suma i divideix.")],
+  pistes=["Suma les tres dades.",
+   "$1+5+6=12$. Divideix per $3$."],
+  resolucio=[r"$\bar x=\dfrac{1+5+6}{3}=\dfrac{12}{3}=4$"],
+  ex_text=E372)
+
+
+E373 = ("Calcula el recorregut (o rang) d'aquestes dades, que ja estan "
+        "ordenades: la dada més gran menys la més petita.")
+
+Q("373a", 373, "a", B2, tipus="A",
+  enunciat=r"$2,\;5,\;11$",
+  correcta="$9$",
+  distractors=[D("$5$", "RANG_PER_MEDIANA",
+     "$5$ és la dada del mig. El recorregut és la distància entre els dos "
+     "extrems: $11-2$."),
+   D("$11$", "EL_MES_GRAN",
+     "$11$ és la dada més gran. Li falta restar-hi la més petita: $11-2$."),
+   D("$13$", "PRODUCTE_PER_SUMA",
+     "Has sumat els extrems. El recorregut és la seva DIFERÈNCIA: $11-2$.")],
+  pistes=["Quina és la dada més gran? I la més petita?",
+   "$11-2$."],
+  resolucio=[r"Recorregut $=11-2=9$"],
+  ex_text=E373)
+
+Q("373b", 373, "b", B2, tipus="A",
+  enunciat=r"$4,\;6,\;9,\;14$",
+  correcta="$10$",
+  distractors=[D("$7{,}5$", "RANG_PER_MEDIANA",
+     "$7{,}5$ és la mediana, el valor del mig. El recorregut és la "
+     "distància entre els dos extrems: $14-4$."),
+   D("$14$", "EL_MES_GRAN",
+     "$14$ és la dada més gran. Li falta restar-hi la més petita: $14-4$."),
+   D("$18$", "PRODUCTE_PER_SUMA",
+     "Has sumat els extrems. El recorregut és la seva DIFERÈNCIA: $14-4$.")],
+  pistes=["Quina és la dada més gran? I la més petita?",
+   "$14-4$."],
+  resolucio=[r"Recorregut $=14-4=10$"],
+  ex_text=E373)

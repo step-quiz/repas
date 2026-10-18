@@ -69,10 +69,10 @@ _295 = [
 ]
 for _ap, _m, (_x0, _y0) in _295:
     _n = F(_y0) - _m * _x0
-    Q("295%s" % _ap, 295, _ap, B1, "A",
-      "Pendent $m=%s$, punt $(%d,%d)$." % (tex(_m), _x0, _y0),
-      "$%s$" % recta_tex(_m, _n),
-      [D("$%s$" % recta_tex(_m, F(_y0)), "ORDENADA_PER_COORDENADA",
+    Q("295%s" % _ap, 295, _ap, B1, tipus="A",
+      enunciat="Pendent $m=%s$, punt $(%d,%d)$." % (tex(_m), _x0, _y0),
+      correcta="$%s$" % recta_tex(_m, _n),
+      distractors=[D("$%s$" % recta_tex(_m, F(_y0)), "ORDENADA_PER_COORDENADA",
          "Has posat la $y$ del punt com a ordenada a l'origen. El $%d$ és el "
          "valor de la funció a $x=%d$, no a $x=0$: cal aïllar $n$ de "
          "$%d=%s\\cdot%s+n$." % (_y0, _x0, _y0, tex(_m), factor(_x0))),
@@ -82,11 +82,11 @@ for _ap, _m, (_x0, _y0) in _295:
        D("$%s$" % recta_tex(F(_x0) if _x0 else F(_m) + 1, _n), "PENDENT_MAL_TRIAT",
          "El pendent és el que et donaven, $m=%s$: no es calcula, es "
          "col·loca." % tex(_m))],
-      ["Parteix de $y=mx+n$ amb el pendent que et donen: $y=%sx+n$."
+      pistes=["Parteix de $y=mx+n$ amb el pendent que et donen: $y=%sx+n$."
        % {1: "", -1: "-"}.get(_m, tex(_m)),
        "Substitueix-hi el punt i aïlla $n$: $%d=%s\\cdot%s+n$."
        % (_y0, tex(_m), factor(_x0))],
-      ["$%d=%s\\cdot(%d)+n$" % (_y0, tex(_m), _x0),
+      resolucio=["$%d=%s\\cdot(%d)+n$" % (_y0, tex(_m), _x0),
        "$n=%d-(%s)=%s$" % (_y0, tex(_m * _x0), tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
       ex_text=E295,
@@ -116,10 +116,10 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
     _m = F(_y2 - _y1, _x2 - _x1)
     _n = F(_y1) - _m * _x1
     _minv = F(_x2 - _x1, _y2 - _y1)
-    Q("296%s" % _ap, 296, _ap, B1, "A",
-      "$(%d,%d)$ i $(%d,%d)$." % (_x1, _y1, _x2, _y2),
-      "$%s$" % recta_tex(_m, _n),
-      [D("$%s$" % recta_tex(_minv, F(_y1) - _minv * _x1), "PENDENT_INVERTIT",
+    Q("296%s" % _ap, 296, _ap, B1, tipus="A",
+      enunciat="$(%d,%d)$ i $(%d,%d)$." % (_x1, _y1, _x2, _y2),
+      correcta="$%s$" % recta_tex(_m, _n),
+      distractors=[D("$%s$" % recta_tex(_minv, F(_y1) - _minv * _x1), "PENDENT_INVERTIT",
          "Has calculat $\\dfrac{\\Delta x}{\\Delta y}$. El pendent és "
          "$\\dfrac{\\Delta y}{\\Delta x}$: el que puja entre el que avança."),
        D("$%s$" % recta_tex(-_m, _n), "SIGNE_PENDENT_INVERTIT",
@@ -128,10 +128,10 @@ for _ap, (_x1, _y1), (_x2, _y2) in _296:
        D("$%s$" % recta_tex(_m, F(_y1)), "ORDENADA_PER_COORDENADA",
          "Has pres la $y$ del primer punt com a ordenada a l'origen. Només "
          "serviria si aquell punt fos a $x=0$.")],
-      ["Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
+      pistes=["Calcula el pendent: $m=\\dfrac{y_2-y_1}{x_2-x_1}$.",
        "Amb el pendent, substitueix un dels dos punts a $y=mx+n$ i aïlla "
        "$n$."],
-      ["$m=\\dfrac{%d-(%d)}{%d-(%d)}=\\dfrac{%d}{%d}=%s$"
+      resolucio=["$m=\\dfrac{%d-(%d)}{%d-(%d)}=\\dfrac{%d}{%d}=%s$"
        % (_y2, _y1, _x2, _x1, _y2 - _y1, _x2 - _x1, tex(_m)),
        "$%d=%s\\cdot(%d)+n\\;\\Longrightarrow\\;n=%s$" % (_y1, tex(_m), _x1, tex(_n)),
        "$%s$" % recta_tex(_m, _n)],
@@ -165,10 +165,10 @@ _297 = [
       "mateixa $y$. Compte: $x=\\ldots$ seria una recta vertical."]),
 ]
 for _ap, _txt, _m, _n, _pistes in _297:
-    Q("297%s" % _ap, 297, _ap, B1, "A",
-      _txt + ".",
-      "$%s$" % recta_tex(_m, _n),
-      [D("$%s$" % recta_tex(_n if _n != _m else _m + 1, _m),
+    Q("297%s" % _ap, 297, _ap, B1, tipus="A",
+      enunciat=_txt + ".",
+      correcta="$%s$" % recta_tex(_m, _n),
+      distractors=[D("$%s$" % recta_tex(_n if _n != _m else _m + 1, _m),
          "PENDENT_ORDENADA_INTERCANVIATS",
          "Has intercanviat el pendent i l'ordenada a l'origen. El pendent és "
          "el que multiplica la $x$; l'ordenada, el terme que va sol."),
@@ -182,8 +182,8 @@ for _ap, _txt, _m, _n, _pistes in _297:
          "una recta vertical, i aquella no és cap funció."
          if _m == 0 else
          "L'ordenada a l'origen té el signe canviat.")],
-      _pistes,
-      ["Pendent: $m=%s$" % tex(_m),
+      pistes=_pistes,
+      resolucio=["Pendent: $m=%s$" % tex(_m),
        "Ordenada a l'origen: $n=%s$" % tex(_n),
        "$%s$" % recta_tex(_m, _n)],
       ex_text=E297)
@@ -193,10 +193,10 @@ for _ap, _txt, _m, _n, _pistes in _297:
 E298 = ("Donada la recta $r:\\;y=2x-3$, escriu l'equació de la recta "
         "demanada.")
 
-Q("298a", 298, "a", B1, "A",
-  "La paral·lela a $r$ que passa per $(1,4)$.",
-  "$y=2x+2$",
-  [D("$y=2x-3$", "PARALLELA_MATEIXA_RECTA",
+Q("298a", 298, "a", B1, tipus="A",
+  enunciat="La paral·lela a $r$ que passa per $(1,4)$.",
+  correcta="$y=2x+2$",
+  distractors=[D("$y=2x-3$", "PARALLELA_MATEIXA_RECTA",
      "Aquesta és la recta $r$ mateixa, que no passa per $(1,4)$. Una "
      "paral·lela té el mateix pendent però una altra ordenada a l'origen."),
    D("$y=-\\dfrac{1}{2}x+\\dfrac{9}{2}$", "PARALLELA_PER_PERPENDICULAR",
@@ -205,9 +205,9 @@ Q("298a", 298, "a", B1, "A",
    D("$y=2x+4$", "ORDENADA_PER_COORDENADA",
      "Has posat el $4$ com a ordenada a l'origen, però és el valor de $y$ a "
      "$x=1$, no a $x=0$.")],
-  ["Dues rectes són paral·leles quan tenen el MATEIX pendent: $m=2$.",
+  pistes=["Dues rectes són paral·leles quan tenen el MATEIX pendent: $m=2$.",
    "Amb $m=2$, substitueix $(1,4)$ a $y=2x+n$ i aïlla $n$."],
-  ["Paral·lela $\\Rightarrow m=2$",
+  resolucio=["Paral·lela $\\Rightarrow m=2$",
    "$4=2\\cdot1+n\\;\\Longrightarrow\\;n=2$",
    "$y=2x+2$"],
   ex_text=E298,
@@ -216,10 +216,10 @@ Q("298a", 298, "a", B1, "A",
   # resposta.
   figura=grafica_recta(2, -3, punts_marcats=[(1, 4)]))
 
-Q("298b", 298, "b", B1, "A",
-  "La perpendicular a $r$ que passa per $(4,1)$.",
-  "$y=-\\dfrac{1}{2}x+3$",
-  [D("$y=2x-7$", "PARALLELA_PER_PERPENDICULAR",
+Q("298b", 298, "b", B1, tipus="A",
+  enunciat="La perpendicular a $r$ que passa per $(4,1)$.",
+  correcta="$y=-\\dfrac{1}{2}x+3$",
+  distractors=[D("$y=2x-7$", "PARALLELA_PER_PERPENDICULAR",
      "Aquesta és una PARAL·LELA a $r$. Perquè sigui perpendicular, el "
      "pendent ha de ser $-\\dfrac{1}{2}$: l'invers de $2$ i canviat de "
      "signe."),
@@ -230,9 +230,9 @@ Q("298b", 298, "b", B1, "A",
    D("$y=\\dfrac{1}{2}x-1$", "SIGNE_PENDENT_INVERTIT",
      "Has invertit el pendent però no li has canviat el signe. El producte "
      "dels pendents de dues perpendiculars ha de valer $-1$.")],
-  ["Dues rectes són perpendiculars quan el producte dels pendents val $-1$.",
+  pistes=["Dues rectes són perpendiculars quan el producte dels pendents val $-1$.",
    "Si $m_r=2$, el pendent que busques és $-\\dfrac{1}{2}$."],
-  ["Perpendicular $\\Rightarrow m=-\\dfrac{1}{2}$ (perquè "
+  resolucio=["Perpendicular $\\Rightarrow m=-\\dfrac{1}{2}$ (perquè "
    "$2\\cdot\\left(-\\dfrac{1}{2}\\right)=-1$)",
    "$1=-\\dfrac{1}{2}\\cdot4+n\\;\\Longrightarrow\\;n=3$",
    "$y=-\\dfrac{1}{2}x+3$"],
@@ -260,10 +260,10 @@ _299 = [
 for _ap, _m1, _n1, _m2, _n2 in _299:
     _x = F(_n2 - _n1, _m1 - _m2)
     _y = _m1 * _x + _n1
-    Q("299%s" % _ap, 299, _ap, B1, "A",
-      "$%s$ i $%s$." % (recta_tex(_m1, _n1), recta_tex(_m2, _n2)),
-      "$(%s,%s)$" % (tex(_x), tex(_y)),
-      [D("$(%s,%s)$" % (tex(_y), tex(_x)), "COORDENADES_INTERCANVIADES",
+    Q("299%s" % _ap, 299, _ap, B1, tipus="A",
+      enunciat="$%s$ i $%s$." % (recta_tex(_m1, _n1), recta_tex(_m2, _n2)),
+      correcta="$(%s,%s)$" % (tex(_x), tex(_y)),
+      distractors=[D("$(%s,%s)$" % (tex(_y), tex(_x)), "COORDENADES_INTERCANVIADES",
          "Has posat les coordenades al revés. Primer va la $x$ i després la "
          "$y$."),
        D("$(%s,%s)$" % (tex(_x), tex(_m2 * _x + _n2 + 1)), "SUBSTITUCIO_MAL_FETA",
@@ -274,7 +274,7 @@ for _ap, _m1, _n1, _m2, _n2 in _299:
          "Aquestes són les dues ordenades a l'origen, és a dir, on talla "
          "cada recta l'eix $Y$. El punt de tall entre elles és on les dues "
          "$y$ coincideixen.")],
-      ["Al punt de tall les dues $y$ valen el mateix: iguala les dues "
+      pistes=["Al punt de tall les dues $y$ valen el mateix: iguala les dues "
        "expressions.",
        ("Aquí $%s=%s$. %s Després substitueix la $x$ a qualsevol de les "
         "dues rectes per trobar la $y$."
@@ -284,7 +284,7 @@ for _ap, _m1, _n1, _m2, _n2 in _299:
            % (_m1.denominator * _m2.denominator)
            if _m1.denominator * _m2.denominator > 1 else
            "Passa les $x$ a un costat i els nombres a l'altre."))],
-      ["$%s=%s$" % (recta_tex(_m1, _n1).replace("y=", ""),
+      resolucio=["$%s=%s$" % (recta_tex(_m1, _n1).replace("y=", ""),
                     recta_tex(_m2, _n2).replace("y=", "")),
        "$x=%s$" % tex(_x),
        "$y=%s%s%s%s=%s$" % (_coef(_m1), factor(_x) if _m1 != 1 else tex(_x),
@@ -311,12 +311,12 @@ for _ap, _a, _b, _c in _300:
     _xv = F(-_b, 2 * _a)
     _yv = _a * _xv ** 2 + _b * _xv + _c
     _mal = F(_b, 2 * _a)
-    Q("300%s" % _ap, 300, _ap, B2, "A",
-      "$y=%s$" % (("%sx^2" % ("" if _a == 1 else ("-" if _a == -1 else tex(_a))))
+    Q("300%s" % _ap, 300, _ap, B2, tipus="A",
+      enunciat="$y=%s$" % (("%sx^2" % ("" if _a == 1 else ("-" if _a == -1 else tex(_a))))
                   + (("%s%sx" % ("+" if _b > 0 else "-", tex(abs(_b)) if abs(_b) != 1 else "")) if _b else "")
                   + (("%s%s" % ("+" if _c > 0 else "-", tex(abs(_c)))) if _c else "")),
-      "$(%s,%s)$" % (tex(_xv), tex(_yv)),
-      [D("$(%s,%s)$" % (tex(_mal), tex(_a * _mal ** 2 + _b * _mal + _c)),
+      correcta="$(%s,%s)$" % (tex(_xv), tex(_yv)),
+      distractors=[D("$(%s,%s)$" % (tex(_mal), tex(_a * _mal ** 2 + _b * _mal + _c)),
          "SIGNE_VERTEX",
          "T'has deixat el signe menys: $x_v=\\dfrac{-b}{2a}$, i aquí "
          "$b=%s$." % tex(_b)),
@@ -326,13 +326,13 @@ for _ap, _a, _b, _c in _300:
        D("$(%s,%s)$" % (tex(_xv), tex(_c)), "SUBSTITUCIO_MAL_FETA",
          "La $x$ del vèrtex és correcta, però la $y$ no és el terme "
          "independent: cal substituir $x_v$ a la funció.")],
-      ["La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
+      pistes=["La $x$ del vèrtex és $x_v=\\dfrac{-b}{2a}$.",
        "Aquí $a=%s$ i $b=%s$: $x_v=\\dfrac{-%s}{2\\cdot%s}$.%s Després "
        "substitueix la $x_v$ a la funció per trobar la $y$."
        % (tex(_a), tex(_b), factor(_b), factor(_a),
           " Compte: $a$ és negatiu, i el denominador també." if _a < 0
           else "")],
-      ["$x_v=\\dfrac{-%s}{2\\cdot%s}=%s$" % (factor(_b), factor(_a), tex(_xv)),
+      resolucio=["$x_v=\\dfrac{-%s}{2\\cdot%s}=%s$" % (factor(_b), factor(_a), tex(_xv)),
        "$y_v=%s$" % tex(_yv),
        "Vèrtex: $(%s,%s)$" % (tex(_xv), tex(_yv))],
       ex_text=E300,
@@ -353,11 +353,11 @@ for _ap, _a, _b, _c, _arrels in _301:
     _txt = ("%sx^2" % ("" if _a == 1 else tex(_a))) \
         + (("%s%sx" % ("+" if _b > 0 else "-", tex(abs(_b)) if abs(_b) != 1 else "")) if _b else "") \
         + (("%s%s" % ("+" if _c > 0 else "-", tex(abs(_c)))) if _c else "")
-    Q("301%s" % _ap, 301, _ap, B2, "A",
-      "$y=%s$" % _txt,
-      "Amb $X$: %s. Amb $Y$: $(0,%s)$."
+    Q("301%s" % _ap, 301, _ap, B2, tipus="A",
+      enunciat="$y=%s$" % _txt,
+      correcta="Amb $X$: %s. Amb $Y$: $(0,%s)$."
       % (_sx, tex(_c)) + (" (l'arrel és doble)" if len(_arrels) == 1 else ""),
-      [D("Amb $X$: %s. Amb $Y$: $(0,%s)$."
+      distractors=[D("Amb $X$: %s. Amb $Y$: $(0,%s)$."
          % (", ".join("$(%d,0)$" % -r for r in _arrels), tex(_c)),
          "SIGNE_ARRELS",
          "Els talls amb l'eix $X$ tenen el signe canviat. Comprova'ls "
@@ -370,13 +370,13 @@ for _ap, _a, _b, _c, _arrels in _301:
          "COORDENADES_INTERCANVIADES",
          "Els talls amb l'eix $X$ tenen la segona coordenada igual a $0$, no "
          "la primera: són de la forma $(x,0)$.")],
-      ["Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix "
+      pistes=["Els talls amb l'eix $X$ surten de resoldre $y=0$; el tall amb l'eix "
        "$Y$, de substituir $x=0$.",
        "Aquí $%s=0$, amb $\\Delta=%s^2-4\\cdot%s\\cdot%s=%s$. Els punts de "
        "l'eix $X$ s'escriuen $(x,0)$."
        % (_txt, factor(_b), factor(_a), factor(_c),
           tex(_b ** 2 - 4 * _a * _c))],
-      ["$%s=0$ dona $x=%s$" % (_txt, ",\\;".join(str(r) for r in _arrels)),
+      resolucio=["$%s=0$ dona $x=%s$" % (_txt, ",\\;".join(str(r) for r in _arrels)),
        "Talls amb $X$: %s" % _sx,
        "A $x=0$: $y=%s$, o sigui el punt $(0,%s)$" % (tex(_c), tex(_c))],
       ex_text=E301,
@@ -392,11 +392,11 @@ for _ap, _a, _b, _c, _arrels in _301:
 
 
 # =============================================================== Exercici 302
-Q("302a", 302, "a", B2, "A",
-  "Una paràbola té el vèrtex a $(2,-1)$ i passa per $(0,3)$. Quina és la "
+Q("302a", 302, "a", B2, tipus="A",
+  enunciat="Una paràbola té el vèrtex a $(2,-1)$ i passa per $(0,3)$. Quina és la "
   "seva equació?",
-  "$y=x^2-4x+3$",
-  [D("$y=x^2+4x+3$", "SIGNE_VERTEX",
+  correcta="$y=x^2-4x+3$",
+  distractors=[D("$y=x^2+4x+3$", "SIGNE_VERTEX",
      "Amb aquest signe el vèrtex quedaria a $x=-2$, no a $x=2$. Comprova-ho "
      "amb $x_v=\\dfrac{-b}{2a}$."),
    D("$y=(x-2)^2-1$ però amb $a=4$: $y=4x^2-16x+15$", "COEFICIENT_MAL_TRIAT",
@@ -406,9 +406,9 @@ Q("302a", 302, "a", B2, "A",
      "Sembla que has col·locat el $2$ i el $-1$ del vèrtex directament com a "
      "coeficients. El vèrtex no són els coeficients: cal fer servir la forma "
      "$y=a(x-x_v)^2+y_v$.")],
-  ["Comença per la forma de vèrtex: $y=a(x-2)^2-1$.",
+  pistes=["Comença per la forma de vèrtex: $y=a(x-2)^2-1$.",
    "Substitueix-hi el punt $(0,3)$ per trobar $a$, i després desenvolupa."],
-  ["$y=a(x-2)^2-1$",
+  resolucio=["$y=a(x-2)^2-1$",
    "Amb $(0,3)$: $3=a(0-2)^2-1=4a-1\\;\\Longrightarrow\\;a=1$",
    "$y=(x-2)^2-1=x^2-4x+4-1=x^2-4x+3$"],
   ex_text="",
@@ -417,10 +417,10 @@ Q("302a", 302, "a", B2, "A",
   # Es marquen només els dos punts donats (el vèrtex i el punt de pas).
   figura=nuvol_de_punts([(2, -1), (0, 3)], etiquetes=["vèrtex", None]))
 
-Q("302b", 302, "b", B2, "A",
-  "I una amb el vèrtex a $(-1,4)$ que passa per $(1,0)$?",
-  "$y=-x^2-2x+3$",
-  [D("$y=x^2+2x+5$", "SIGNE_COEFICIENT_PRINCIPAL",
+Q("302b", 302, "b", B2, tipus="A",
+  enunciat="I una amb el vèrtex a $(-1,4)$ que passa per $(1,0)$?",
+  correcta="$y=-x^2-2x+3$",
+  distractors=[D("$y=x^2+2x+5$", "SIGNE_COEFICIENT_PRINCIPAL",
      "Amb $a>0$ la paràbola s'obre cap amunt i el vèrtex seria un mínim. "
      "Aquí el vèrtex ($y=4$) queda per damunt del punt ($y=0$), així que ha "
      "de ser un màxim i $a$ ha de ser negatiu."),
@@ -429,9 +429,9 @@ Q("302b", 302, "b", B2, "A",
    D("$y=-4x^2-8x$", "COEFICIENT_MAL_TRIAT",
      "El coeficient $a$ surt d'imposar el punt: $0=a(1+1)^2+4=4a+4$, o sigui "
      "$a=-1$.")],
-  ["Forma de vèrtex: $y=a(x+1)^2+4$.",
+  pistes=["Forma de vèrtex: $y=a(x+1)^2+4$.",
    "Substitueix-hi $(1,0)$ i troba $a$."],
-  ["$y=a(x+1)^2+4$",
+  resolucio=["$y=a(x+1)^2+4$",
    "Amb $(1,0)$: $0=a\\cdot4+4\\;\\Longrightarrow\\;a=-1$",
    "$y=-(x+1)^2+4=-(x^2+2x+1)+4=-x^2-2x+3$"],
   ex_text="",
@@ -442,10 +442,10 @@ Q("302b", 302, "b", B2, "A",
 E303 = ("Una companyia de telèfon cobra $12$ € fixos al mes més $0{,}05$ € "
         "per minut de trucada.")
 
-Q("303a", 303, "a", B2, "A",
-  "Escriu la funció que dona el preu segons els minuts.",
-  "$y=0{,}05x+12$",
-  [D("$y=12x+0{,}05$", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("303a", 303, "a", B2, tipus="A",
+  enunciat="Escriu la funció que dona el preu segons els minuts.",
+  correcta="$y=0{,}05x+12$",
+  distractors=[D("$y=12x+0{,}05$", "PENDENT_ORDENADA_INTERCANVIATS",
      "Els has intercanviat. El que depèn dels minuts és el $0{,}05$ (per "
      "cada minut), i el $12$ es paga sempre, encara que no truquis: és "
      "l'ordenada a l'origen."),
@@ -454,17 +454,17 @@ Q("303a", 303, "a", B2, "A",
      "cada minut."),
    D("$y=0{,}05x$", "TERME_OBLIDAT_OPERACIO",
      "T'has deixat els $12$ € fixos: amb $0$ minuts la factura no és $0$.")],
-  ["Quina part de la factura no depèn dels minuts?",
+  pistes=["Quina part de la factura no depèn dels minuts?",
    "Aquesta part és el terme independent; el preu per minut és el pendent."],
-  ["Part fixa: $12$ € $\\to$ ordenada a l'origen",
+  resolucio=["Part fixa: $12$ € $\\to$ ordenada a l'origen",
    "Part variable: $0{,}05$ € per minut $\\to$ pendent",
    "$y=0{,}05x+12$"],
   ex_text=E303)
 
-Q("303b", 303, "b", B2, "A",
-  "Quant paga algú que ha parlat $340$ minuts?",
-  "$29$ €",
-  [D("$17$ €", "TERME_OBLIDAT_OPERACIO",
+Q("303b", 303, "b", B2, tipus="A",
+  enunciat="Quant paga algú que ha parlat $340$ minuts?",
+  correcta="$29$ €",
+  distractors=[D("$17$ €", "TERME_OBLIDAT_OPERACIO",
      "Has calculat només la part variable ($340\\cdot0{,}05$). Falta sumar-hi "
      "els $12$ € fixos."),
    D("$4\\,092$ €", "PENDENT_ORDENADA_INTERCANVIATS",
@@ -473,15 +473,15 @@ Q("303b", 303, "b", B2, "A",
    D("$352$ €", "PRODUCTE_PER_SUMA",
      "Has sumat els minuts als euros. Cal multiplicar-los primer pel preu "
      "per minut.")],
-  ["Substitueix $x=340$ a la funció.",
+  pistes=["Substitueix $x=340$ a la funció.",
    "$0{,}05\\cdot340+12$."],
-  ["$y=0{,}05\\cdot340+12=17+12=29$ €"],
+  resolucio=["$y=0{,}05\\cdot340+12=17+12=29$ €"],
   ex_text=E303)
 
-Q("303c", 303, "c", B2, "A",
-  "Amb quants minuts la factura arriba a $30$ €?",
-  "$360$ minuts",
-  [D("$600$ minuts", "TERME_OBLIDAT_OPERACIO",
+Q("303c", 303, "c", B2, tipus="A",
+  enunciat="Amb quants minuts la factura arriba a $30$ €?",
+  correcta="$360$ minuts",
+  distractors=[D("$600$ minuts", "TERME_OBLIDAT_OPERACIO",
      "Has fet $\\dfrac{30}{0{,}05}$ sense restar abans els $12$ € fixos, que "
      "es paguen igualment."),
    D("$1{,}5$ minuts", "INVERTIDA",
@@ -490,22 +490,22 @@ Q("303c", 303, "c", B2, "A",
    D("$18$ minuts", "PAS_INTERMEDI_PER_RESPOSTA",
      "El $18$ és el que queda després de restar la quota ($30-12$), en "
      "EUROS. Encara falta dividir-lo entre el preu per minut.")],
-  ["Planteja l'equació $0{,}05x+12=30$.",
+  pistes=["Planteja l'equació $0{,}05x+12=30$.",
    "Resta primer els $12$ i després divideix."],
-  ["$0{,}05x+12=30$",
+  resolucio=["$0{,}05x+12=30$",
    "$0{,}05x=18$",
    "$x=\\dfrac{18}{0{,}05}=360$ minuts"],
   ex_text=E303)
 
 
 # =============================================================== Exercici 304
-Q("304", 304, "", B2, "A",
-  "Es vol tancar un corral rectangular amb $40$ m de tanca, aprofitant un "
+Q("304", 304, "", B2, tipus="A",
+  enunciat="Es vol tancar un corral rectangular amb $40$ m de tanca, aprofitant un "
   "mur que ja hi ha com un dels costats llargs. Si un dels costats "
   "perpendiculars al mur fa $x$ metres, l'àrea és $A(x)=x(40-2x)$. Quina "
   "$x$ dona l'àrea més gran?",
-  "$x=10$ m, amb una àrea de $200$ m$^2$",
-  [D("$x=20$ m, amb una àrea de $400$ m$^2$", "VERTEX_PER_ARREL",
+  correcta="$x=10$ m, amb una àrea de $200$ m$^2$",
+  distractors=[D("$x=20$ m, amb una àrea de $400$ m$^2$", "VERTEX_PER_ARREL",
      "Amb $x=20$ l'altre costat val $40-40=0$: no hi ha corral. El $20$ és "
      "una de les arrels de la paràbola, on l'àrea val zero, no el vèrtex."),
    D("$x=10$ m, amb una àrea de $100$ m$^2$", "SUBSTITUCIO_MAL_FETA",
@@ -514,9 +514,9 @@ Q("304", 304, "", B2, "A",
    D("$x=40$ m", "DADES_MAL_TRIADES",
      "El $40$ és la tanca total, no un costat. Amb $x=40$ l'altre costat "
      "sortiria negatiu.")],
-  ["Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.",
+  pistes=["Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.",
    "És una paràbola amb $a<0$: el punt més alt és el vèrtex."],
-  ["$A(x)=40x-2x^2$, o sigui $a=-2$ i $b=40$",
+  resolucio=["$A(x)=40x-2x^2$, o sigui $a=-2$ i $b=40$",
    "Com que $a<0$, la paràbola s'obre cap avall i el vèrtex és un MÀXIM",
    "$x_v=\\dfrac{-40}{2\\cdot(-2)}=10$",
    "$A(10)=10\\cdot(40-20)=200$ m$^2$"],
@@ -551,26 +551,26 @@ E336 = ("Aquesta recta ja està escrita en forma d'equació explícita "
 # de manera creuada i el registre en veu dos errors amb la mateixa
 # etiqueta. Amb un sol apartat, l'encert podria ser casualitat.
 
-Q("336a", 336, "a", B1, "A",
-  r"$y=3x-2$. Quin és el pendent de la recta amb aquesta equació?",
-  "3",
-  [D("-2", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("336a", 336, "a", B1, tipus="A",
+  enunciat=r"$y=3x-2$. Quin és el pendent de la recta amb aquesta equació?",
+  correcta="3",
+  distractors=[D("-2", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $-2$ és l'ordenada a l'origen: el número que va sol, sense $x$. El "
      "pendent és el que multiplica la $x$."),
    D("2", "SIGNE_ORDENADA_INVERTIT",
      "Has agafat el terme sense $x$, i a més sense el seu signe."),
    D(r"$\dfrac{1}{3}$", "PENDENT_INVERTIT",
      "El pendent és el coeficient tal qual, no el seu invers.")],
-  ["A $y=mx+n$, el pendent és el número que va davant de la $x$.",
+  pistes=["A $y=mx+n$, el pendent és el número que va davant de la $x$.",
    "Compara $y=3x-2$ amb $y=mx+n$ terme a terme: quin número ocupa el "
    "lloc de la $m$?"],
-  [r"$y=3x-2\Rightarrow m=3$"],
+  resolucio=[r"$y=3x-2\Rightarrow m=3$"],
   ex_text=E336)
 
-Q("336b", 336, "b", B1, "A",
-  r"$y=3x-2$. Quina és l'ordenada a l'origen de la recta amb aquesta equació?",
-  "-2",
-  [D("3", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("336b", 336, "b", B1, tipus="A",
+  enunciat=r"$y=3x-2$. Quina és l'ordenada a l'origen de la recta amb aquesta equació?",
+  correcta="-2",
+  distractors=[D("3", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $3$ és el pendent. L'ordenada a l'origen és el terme que va sol, "
      "sense $x$: és el valor de $y$ quan $x=0$."),
    D("2", "SIGNE_ORDENADA_INVERTIT",
@@ -578,31 +578,31 @@ Q("336b", 336, "b", B1, "A",
    D("0", "ORDENADA_NULA_OBLIDADA",
      "L'ordenada seria $0$ si la recta passés per l'origen, i aquesta no "
      "hi passa: substitueix $x=0$ i ho veuràs.")],
-  ["L'ordenada a l'origen és el valor de $y$ quan $x=0$.",
+  pistes=["L'ordenada a l'origen és el valor de $y$ quan $x=0$.",
    "Substitueix: $y=3\\cdot 0-2$."],
-  [r"$x=0\Rightarrow y=3\cdot 0-2=-2$, o sigui $n=-2$"],
+  resolucio=[r"$x=0\Rightarrow y=3\cdot 0-2=-2$, o sigui $n=-2$"],
   ex_text=E336)
 
-Q("336c", 336, "c", B1, "A",
-  r"$y=-x+5$. Quin és el pendent de la recta amb aquesta equació?",
-  "-1",
-  [D("5", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("336c", 336, "c", B1, tipus="A",
+  enunciat=r"$y=-x+5$. Quin és el pendent de la recta amb aquesta equació?",
+  correcta="-1",
+  distractors=[D("5", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $5$ és l'ordenada a l'origen."),
    D("1", "SIGNE_PENDENT_INVERTIT",
      "El signe compta: $-x$ vol dir $-1\\cdot x$, de manera que el pendent "
      "és $-1$. Una recta amb pendent negatiu baixa."),
    D("-5", "PENDENT_MAL_TRIAT",
      "Has agafat el terme sense $x$ i li has canviat el signe.")],
-  ["Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ "
+  pistes=["Quan davant de la $x$ no hi ha cap número escrit, hi ha un $1$ "
    "implícit.",
    "El signe que hi ha davant de la $x$ també forma part del pendent."],
-  [r"$y=-x+5=-1\cdot x+5\Rightarrow m=-1$"],
+  resolucio=[r"$y=-x+5=-1\cdot x+5\Rightarrow m=-1$"],
   ex_text=E336)
 
-Q("336d", 336, "d", B1, "A",
-  r"$y=4$. Quin és el pendent de la recta amb aquesta equació?",
-  "0",
-  [D("4", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("336d", 336, "d", B1, tipus="A",
+  enunciat=r"$y=4$. Quin és el pendent de la recta amb aquesta equació?",
+  correcta="0",
+  distractors=[D("4", "PENDENT_ORDENADA_INTERCANVIATS",
      "El $4$ és l'ordenada a l'origen. La recta $y=4$ és horitzontal i passa "
      "per l'altura $4$."),
    D("No en té", "RECTA_VERTICAL_CONFOSA",
@@ -611,21 +611,21 @@ Q("336d", 336, "d", B1, "A",
      "$0$: no puja ni baixa."),
    D("1", "PENDENT_COM_NUL",
      "Si el pendent fos $1$ la recta pujaria. $y=4$ és plana.")],
-  ["A $y=mx+n$, el pendent és el número que multiplica la $x$. A $y=4$ la "
+  pistes=["A $y=mx+n$, el pendent és el número que multiplica la $x$. A $y=4$ la "
    "$x$ no hi apareix.",
    "La recta $y=4$ és horitzontal: per molt que avancis cap a la dreta, no "
    "puja ni baixa. Quant val, doncs, el pendent?"],
-  [r"$y=4=0\cdot x+4\Rightarrow m=0$"],
+  resolucio=[r"$y=4=0\cdot x+4\Rightarrow m=0$"],
   ex_text=E336)
 
 
 E337 = ("Escriu l'equació explícita de la recta, sabent el seu pendent i "
         "la seva ordenada en l'origen.")
 
-Q("337a", 337, "a", B1, "A",
-  r"$m=2$ i $n=-1$",
-  "$y=2x-1$",
-  [D("$y=-x+2$", "PENDENT_ORDENADA_INTERCANVIATS",
+Q("337a", 337, "a", B1, tipus="A",
+  enunciat=r"$m=2$ i $n=-1$",
+  correcta="$y=2x-1$",
+  distractors=[D("$y=-x+2$", "PENDENT_ORDENADA_INTERCANVIATS",
      "Has posat el pendent on va l'ordenada i a l'inrevés. El pendent "
      "multiplica la $x$."),
    D("$y=2x+1$", "SIGNE_ORDENADA_INVERTIT",
@@ -633,15 +633,15 @@ Q("337a", 337, "a", B1, "A",
    D("$y=2(x-1)$", "PARENTESI_NO_DISTRIBUIT",
      "Això no és la forma explícita, i a més val una altra cosa: "
      "$2(x-1)=2x-2$.")],
-  ["La forma explícita és $y=mx+n$: col·loca-hi cada número al seu lloc.",
+  pistes=["La forma explícita és $y=mx+n$: col·loca-hi cada número al seu lloc.",
    "$m=2$ va davant de la $x$; $n=-1$ va sol."],
-  [r"$y=mx+n=2x+(-1)=2x-1$"],
+  resolucio=[r"$y=mx+n=2x+(-1)=2x-1$"],
   ex_text=E337)
 
-Q("337b", 337, "b", B1, "A",
-  r"$m=-3$ i $n=0$",
-  "$y=-3x$",
-  [D("$y=3x$", "SIGNE_PENDENT_INVERTIT",
+Q("337b", 337, "b", B1, tipus="A",
+  enunciat=r"$m=-3$ i $n=0$",
+  correcta="$y=-3x$",
+  distractors=[D("$y=3x$", "SIGNE_PENDENT_INVERTIT",
      "El pendent és $-3$, negatiu: la recta baixa."),
    D("$y=-3x+3$", "ORDENADA_PER_COORDENADA",
      "L'ordenada és $0$, no $3$: no te l'has d'inventar a partir del "
@@ -649,20 +649,20 @@ Q("337b", 337, "b", B1, "A",
    D("$y=0$", "ORDENADA_NULA_OBLIDADA",
      "T'has quedat només amb $n$ i has perdut el pendent. Amb $n=0$ el que "
      "passa és que el terme independent desapareix, no tota la recta.")],
-  ["$n=0$ vol dir que la recta passa per l'origen.",
+  pistes=["$n=0$ vol dir que la recta passa per l'origen.",
    "Escriu $y=mx+n$ amb els dos valors. Un terme que val $0$ no cal "
    "escriure'l."],
-  [r"$y=-3x+0=-3x$ (passa per l'origen)"],
+  resolucio=[r"$y=-3x+0=-3x$ (passa per l'origen)"],
   ex_text=E337)
 
 
 E338 = ("Estudia l'equació d'una paràbola $y=ax^2+bx+c$ i respon la "
         "pregunta, sense fer cap càlcul.")
 
-Q("338a", 338, "a", B2, "A",
-  r"$y=x^2-4x+3$. Cap on obre?",
-  "Cap amunt",
-  [D("Cap avall", "CREIXEMENT_INVERTIT",
+Q("338a", 338, "a", B2, tipus="A",
+  enunciat=r"$y=x^2-4x+3$. Cap on obre?",
+  correcta="Cap amunt",
+  distractors=[D("Cap avall", "CREIXEMENT_INVERTIT",
      "Has mirat el signe de $b$ (el $-4$). El que decideix cap on obre és "
      "el signe de $a$, el coeficient de $x^2$, que aquí és $+1$."),
    D("Depèn de $c$", "COEFICIENT_MAL_TRIAT",
@@ -670,15 +670,15 @@ Q("338a", 338, "a", B2, "A",
    D("No és una paràbola", "PARABOLA_AMB_A_ZERO",
      "Sí que ho és: hi ha un terme en $x^2$ amb coeficient $1$, diferent de "
      "zero.")],
-  ["Cap on obre ho decideix un sol coeficient.",
+  pistes=["Cap on obre ho decideix un sol coeficient.",
    "Si $a>0$ obre cap amunt; si $a<0$, cap avall. Aquí $a=1$."],
-  [r"$a=1>0\Rightarrow$ obre cap amunt"],
+  resolucio=[r"$a=1>0\Rightarrow$ obre cap amunt"],
   ex_text=E338)
 
-Q("338b", 338, "b", B2, "A",
-  r"$y=-2x^2+x$. Cap on obre?",
-  "Cap avall",
-  [D("Cap amunt", "CREIXEMENT_INVERTIT",
+Q("338b", 338, "b", B2, tipus="A",
+  enunciat=r"$y=-2x^2+x$. Cap on obre?",
+  correcta="Cap avall",
+  distractors=[D("Cap amunt", "CREIXEMENT_INVERTIT",
      "Has mirat el $+x$. El que compta és el coeficient de $x^2$, que aquí "
      "és $-2$."),
    D("Depèn de $c$", "COEFICIENT_MAL_TRIAT",
@@ -686,15 +686,15 @@ Q("338b", 338, "b", B2, "A",
    D("No és una paràbola", "PARABOLA_AMB_A_ZERO",
      "Que hi falti el terme independent no la deixa de fer paràbola: el que "
      "la definiria és que $a$ fos $0$, i aquí $a=-2$.")],
-  ["Mira només el coeficient de $x^2$.",
+  pistes=["Mira només el coeficient de $x^2$.",
    "$a=-2$, que és negatiu."],
-  [r"$a=-2<0\Rightarrow$ obre cap avall"],
+  resolucio=[r"$a=-2<0\Rightarrow$ obre cap avall"],
   ex_text=E338)
 
-Q("338c", 338, "c", B2, "A",
-  r"$y=-2x^2+x$. Quant val $c$?",
-  "0",
-  [D("1", "COEFICIENT_MAL_TRIAT",
+Q("338c", 338, "c", B2, tipus="A",
+  enunciat=r"$y=-2x^2+x$. Quant val $c$?",
+  correcta="0",
+  distractors=[D("1", "COEFICIENT_MAL_TRIAT",
      "L'$1$ és la $b$: el coeficient de la $x$. La $c$ és el terme que va "
      "sol, sense $x$."),
    D("-2", "COEFICIENT_MAL_TRIAT",
@@ -703,10 +703,10 @@ Q("338c", 338, "c", B2, "A",
      "«El terme no hi apareix» i «el coeficient no existeix» no són el "
      "mateix. Si no hi surt és perquè val $0$, i cal comptar-lo com a $0$ "
      "quan s'aplica qualsevol fórmula.")],
-  ["La $c$ és el terme que no porta $x$.",
+  pistes=["La $c$ és el terme que no porta $x$.",
    "Busca a $-2x^2+x$ algun terme sense $x$. Si no n'hi ha cap, quant val "
    "el que falta?"],
-  [r"$y=-2x^2+1x+0\Rightarrow c=0$"],
+  resolucio=[r"$y=-2x^2+1x+0\Rightarrow c=0$"],
   ex_text=E338,
   # Comentari i no nota: «val 0» era la resposta.
   comentari="Un coeficient que no s'escriu no és un coeficient que no hi "
@@ -716,10 +716,10 @@ Q("338c", 338, "c", B2, "A",
 E339 = ("Troba el vèrtex de la paràbola representada per l'equació "
         "següent.")
 
-Q("339a", 339, "a", B2, "A",
-  r"$y=x^2-9$",
-  "$V(0,-9)$",
-  [D("$V(0,9)$", "SIGNE_VERTEX",
+Q("339a", 339, "a", B2, tipus="A",
+  enunciat=r"$y=x^2-9$",
+  correcta="$V(0,-9)$",
+  distractors=[D("$V(0,9)$", "SIGNE_VERTEX",
      "El signe: quan $x=0$, $y=0^2-9=-9$."),
    D("$V(9,0)$", "VERTEX_COM_COEFICIENTS",
      "Has posat el $9$ a la primera coordenada. La primera és la $x$, i "
@@ -727,31 +727,31 @@ Q("339a", 339, "a", B2, "A",
    D("$V(3,0)$", "VERTEX_PER_ARREL",
      "El $3$ és un dels punts on la paràbola talla l'eix $X$, no el "
      "vèrtex.")],
-  ["Aquí no hi ha terme en $x$, o sigui que $b=0$: el vèrtex cau damunt de "
+  pistes=["Aquí no hi ha terme en $x$, o sigui que $b=0$: el vèrtex cau damunt de "
    "l'eix $Y$.",
    "Amb $b=0$ el vèrtex és $(0,c)$. Substitueix $x=0$."],
-  [r"$b=0\Rightarrow x_V=0$; $y_V=0^2-9=-9$, o sigui $V(0,-9)$"],
+  resolucio=[r"$b=0\Rightarrow x_V=0$; $y_V=0^2-9=-9$, o sigui $V(0,-9)$"],
   ex_text=E339)
 
-Q("339b", 339, "b", B2, "A",
-  r"$y=2x^2$",
-  "$V(0,0)$",
-  [D("$V(2,0)$", "VERTEX_COM_COEFICIENTS",
+Q("339b", 339, "b", B2, tipus="A",
+  enunciat=r"$y=2x^2$",
+  correcta="$V(0,0)$",
+  distractors=[D("$V(2,0)$", "VERTEX_COM_COEFICIENTS",
      "El $2$ és el coeficient $a$, que fa la paràbola més estreta; no és "
      "cap coordenada del vèrtex."),
    D("$V(0,2)$", "VERTEX_COM_COEFICIENTS",
      "El $2$ no és l'ordenada del vèrtex: quan $x=0$, $y=2\\cdot 0^2=0$."),
    D("$V(1,2)$", "EIX_SIMETRIA_MAL_CALCULAT",
      "L'eix de simetria és $x=0$, no $x=1$.")],
-  ["No hi ha terme en $x$ ni terme independent: $b=0$ i $c=0$.",
+  pistes=["No hi ha terme en $x$ ni terme independent: $b=0$ i $c=0$.",
    "Amb $b=0$ el vèrtex és $(0,c)$, i aquí $c=0$."],
-  [r"$V(0,c)=(0,0)$: la paràbola té el vèrtex a l'origen"],
+  resolucio=[r"$V(0,c)=(0,0)$: la paràbola té el vèrtex a l'origen"],
   ex_text=E339)
 
-Q("339c", 339, "c", B2, "A",
-  r"$y=-x^2+4$",
-  "$V(0,4)$",
-  [D("$V(0,-4)$", "SIGNE_VERTEX",
+Q("339c", 339, "c", B2, tipus="A",
+  enunciat=r"$y=-x^2+4$",
+  correcta="$V(0,4)$",
+  distractors=[D("$V(0,-4)$", "SIGNE_VERTEX",
      "Compte amb el signe: quan $x=0$, $y=-0^2+4=+4$. El menys afecta la "
      "$x^2$, no el $4$."),
    D("$V(4,0)$", "VERTEX_COM_COEFICIENTS",
@@ -759,7 +759,7 @@ Q("339c", 339, "c", B2, "A",
    D("$V(2,0)$", "VERTEX_PER_ARREL",
      "El $2$ és un tall amb l'eix $X$ ($-x^2+4=0$ dona $x=\\pm 2$), no el "
      "vèrtex.")],
-  ["$b=0$: el vèrtex és a l'eix $Y$.",
+  pistes=["$b=0$: el vèrtex és a l'eix $Y$.",
    "Substitueix $x=0$: $y=-0+4$."],
-  [r"$b=0\Rightarrow x_V=0$; $y_V=-0^2+4=4$, o sigui $V(0,4)$"],
+  resolucio=[r"$b=0\Rightarrow x_V=0$; $y_V=-0^2+4=4$, o sigui $V(0,4)$"],
   ex_text=E339)

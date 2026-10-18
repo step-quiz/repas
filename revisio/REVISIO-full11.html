@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 11</h1>
-<p class="meta">91 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">101 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Variables estadístiques <span class="tip">· 12 preguntes</span></h2>
+<h2>Variables estadístiques <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 369.</strong> Tria, d&#x27;entre aquestes variables estadístiques, la que és del tipus que es demana.</p>
+<div class="it"><div class="cap"><span class="cod">369a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Quina d'aquestes variables és QUALITATIVA?</div>
+<ol class="op"><li><span class="ok">El color preferit</span> — resposta correcta</li>
+<li>L'edat en anys<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">L'edat s'expressa amb un nombre: és quantitativa.</span></li>
+<li>El nombre de germans<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">El nombre de germans és un nombre: és quantitativa.</span></li>
+<li>L'alçada en cm<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">L'alçada es mesura amb un nombre: és quantitativa.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una variable qualitativa respon amb una paraula (una qualitat), no amb un nombre.</li><li>Quina d'aquestes preguntes es respon amb una paraula?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El color preferit es respon amb una paraula (blau, verd...): és qualitativa. Les altres tres es responen amb un nombre.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">369b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Quina d'aquestes variables és QUANTITATIVA?</div>
+<ol class="op"><li><span class="ok">El nombre de mascotes que hi ha a casa</span> — resposta correcta</li>
+<li>L'esport preferit<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">L'esport preferit es respon amb una paraula: és qualitativa.</span></li>
+<li>El grup sanguini<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">El grup sanguini (A, B, AB, 0) és una categoria, no una quantitat: és qualitativa.</span></li>
+<li>La marca del mòbil<br><span class="err">QUALITATIVA_QUANTITATIVA_CONFOSES</span><span class="fb">La marca del mòbil es respon amb un nom: és qualitativa.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Una variable quantitativa respon amb un nombre.</li><li>Quina d'aquestes preguntes es respon comptant o mesurant?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El nombre de mascotes es respon amb un nombre (0, 1, 2...): és quantitativa. Les altres tres es responen amb una paraula o una categoria.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 218.</strong> Indica el tipus de variable estadística que estudiem i raona, en cada cas, si seria millor analitzar-ne una mostra o la població.</p>
 <div class="it"><div class="cap"><span class="cod">218a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">La talla de l'alumnat d'un institut de Secundària.</div>
@@ -168,7 +189,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un pes (quilograms) es pot mesurar amb qualsevol precisió decimal.</li><li>No importa que sigui un total setmanal: el que compta és si el valor pot ser decimal.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Els quilograms de carn consumits es poden mesurar amb qualsevol precisió decimal: és CONTÍNUA.</li></ol>
 </div>
-<h2>Taules de freqüències <span class="tip">· 26 preguntes</span></h2>
+<h2>Taules de freqüències <span class="tip">· 28 preguntes</span></h2>
+<p class="sec"><strong>Exercici 370.</strong> Quina és la freqüència absoluta del valor que es demana? És el nombre de vegades que apareix a la llista de dades.</p>
+<div class="it"><div class="cap"><span class="cod">370a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Dades: $2,\;3,\;2,\;5,\;2,\;3$. Valor: $2$.</div>
+<ol class="op"><li><span class="ok">$3$</span> — resposta correcta</li>
+<li>$\dfrac{1}{2}$<br><span class="err">FREQ_RELATIVA_MAL_CALCULADA</span><span class="fb">Això és la freqüència RELATIVA, $\dfrac{3}{6}$. L'absoluta és el recompte, sense dividir.</span></li>
+<li>$6$<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$6$ és el nombre total de dades. Es demana quantes vegades surt el $2$.</span></li>
+<li>$4$<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ratlla cada $2$ que trobis a la llista.</li><li>Quants n'has ratllat?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\underline{2},\;3,\;\underline{2},\;5,\;\underline{2},\;3$: el $2$ surt $3$ vegades.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">370b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">Dades: $1,\;4,\;4,\;1,\;4,\;0,\;4$. Valor: $4$.</div>
+<ol class="op"><li><span class="ok">$4$</span> — resposta correcta</li>
+<li>$\dfrac{4}{7}$<br><span class="err">FREQ_RELATIVA_MAL_CALCULADA</span><span class="fb">Això és la freqüència RELATIVA. L'absoluta és el recompte, sense dividir pel total.</span></li>
+<li>$7$<br><span class="err">TOTAL_DADES_MAL_CALCULAT</span><span class="fb">$7$ és el nombre total de dades. Es demana quantes vegades surt el $4$.</span></li>
+<li>$3$<br><span class="err">RECOMPTE_MAL_FET</span><span class="fb">Torna a comptar les dades una per una: és fàcil saltar-se'n alguna o comptar-ne alguna dues vegades en un recompte llarg.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Ratlla cada $4$ que trobis a la llista.</li><li>Quants n'has ratllat?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$1,\;\underline{4},\;\underline{4},\;1,\;\underline{4},\;0,\;\underline{4}$: el $4$ surt $4$ vegades.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 220.</strong> El nombre d&#x27;hores diàries d&#x27;estudi de 30 alumnes és: 3, 4, 3, 5, 5, 2, 1, 3, 2, 0, 1, 1, 1, 1, 2, 0, 3, 2, 2, 1, 3, 4, 5, 0, 2, 1, 2, 1, 4, 3.</p>
 <div class="it"><div class="cap"><span class="cod">220a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Quina és la freqüència absoluta del valor $x_i=1$ hora?</div>
@@ -438,7 +480,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>"Menys de dues" vol dir $0$ o $1$ assignatures suspeses: quina freqüència ho suma tot d'un cop?</li><li>La freqüència absoluta ACUMULADA d'un valor inclou tots els valors anteriors, fins aquell inclòs.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$F_1=f_0+f_1=3+6=9$: la freqüència absoluta acumulada del valor "$1$" respon exactament a la pregunta</li><li>Per tant, sí, $9$ alumnes van suspendre menys de dues assignatures</li></ol>
 </div>
-<h2>Gràfics estadístics <span class="tip">· 14 preguntes</span></h2>
+<h2>Gràfics estadístics <span class="tip">· 16 preguntes</span></h2>
+<p class="sec"><strong>Exercici 371.</strong> Calcula l&#x27;angle del sector que correspon a aquesta categoria en un gràfic de sectors. Tot el cercle són $360^\circ$.</p>
+<div class="it"><div class="cap"><span class="cod">371a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">La categoria és la meitat de les dades ($50\,\%$).</div>
+<ol class="op"><li><span class="ok">$180^\circ$</span> — resposta correcta</li>
+<li>$50^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">Has posat el percentatge com si fossin graus. L'angle de cada sector s'obté multiplicant la seva freqüència relativa pels $360^\circ$ totals de la circumferència, no per cap altre nombre.</span></li>
+<li>$90^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">$90^\circ$ és un quart de cercle. La meitat de $360^\circ$ és $180^\circ$.</span></li>
+<li>$360^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">$360^\circ$ és tot el cercle. Aquesta categoria només n'és la meitat.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La meitat de les dades és la meitat del cercle.</li><li>$360:2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{1}{2}\cdot360^\circ=180^\circ$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">371b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">La categoria és la quarta part de les dades ($25\,\%$).</div>
+<ol class="op"><li><span class="ok">$90^\circ$</span> — resposta correcta</li>
+<li>$25^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">Has posat el percentatge com si fossin graus. L'angle de cada sector s'obté multiplicant la seva freqüència relativa pels $360^\circ$ totals de la circumferència, no per cap altre nombre.</span></li>
+<li>$45^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">Has pres $180^\circ$ com si fos el cercle sencer. Tot el cercle són $360^\circ$: $360:4=90$.</span></li>
+<li>$100^\circ$<br><span class="err">SECTOR_ANGLE_MAL_CALCULAT</span><span class="fb">Has fet $25\cdot4$. Es divideix el cercle en quatre: $360:4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La quarta part de les dades és la quarta part del cercle.</li><li>$360:4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\dfrac{1}{4}\cdot360^\circ=90^\circ$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 227.</strong> La talla de calçat que fan servir 20 alumnes en una classe d&#x27;Educació Física és: $37,40,39,37,38,38,38,41,42,37,43,40,38,38,38,40,37,37,38,38$. Representa el diagrama de barres i el polígon de freqüències.</p>
 <div class="it"><div class="cap"><span class="cod">227</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">Quina talla té la freqüència absoluta més alta, i quin valor pren aquesta freqüència?</div>
@@ -586,7 +649,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Pensa si la variable "resultat d'un dau" és discreta o contínua.</li><li>L'histograma és propi de variables contínues agrupades en intervals; per a una variable discreta com aquesta, el gràfic propi és un altre.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>El resultat d'un dau és una variable discreta (valors $1$ a $6$, separats), no contínua: no correspon fer-hi un histograma, sinó un diagrama de barres</li></ol>
 </div>
-<h2>Mitjana, mediana i moda <span class="tip">· 22 preguntes</span></h2>
+<h2>Mitjana, mediana i moda <span class="tip">· 24 preguntes</span></h2>
+<p class="sec"><strong>Exercici 372.</strong> Calcula la mitjana aritmètica d&#x27;aquestes dades. Recorda: és la suma de totes les dades dividida pel nombre de dades.</p>
+<div class="it"><div class="cap"><span class="cod">372a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$2,\;4,\;9$</div>
+<ol class="op"><li><span class="ok">$5$</span> — resposta correcta</li>
+<li>$15$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">$15$ és la suma. Falta dividir-la pel nombre de dades, $3$.</span></li>
+<li>$4$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">$4$ és la dada del mig, la mediana. La mitjana es calcula: suma i divideix.</span></li>
+<li>$9$<br><span class="err">EL_MES_GRAN</span><span class="fb">$9$ és la dada més gran. La mitjana és el valor que es repartiria igual entre totes: suma i divideix.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma les tres dades.</li><li>$2+4+9=15$. Divideix per $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar x=\dfrac{2+4+9}{3}=\dfrac{15}{3}=5$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">372b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$1,\;5,\;6$</div>
+<ol class="op"><li><span class="ok">$4$</span> — resposta correcta</li>
+<li>$12$<br><span class="err">DIVISIO_OBLIDADA</span><span class="fb">$12$ és la suma. Falta dividir-la pel nombre de dades, $3$.</span></li>
+<li>$5$<br><span class="err">MEDIANA_PER_MITJANA</span><span class="fb">$5$ és la dada del mig, la mediana. La mitjana es calcula: suma i divideix.</span></li>
+<li>$6$<br><span class="err">EL_MES_GRAN</span><span class="fb">$6$ és la dada més gran. La mitjana és el valor que es repartiria igual entre totes: suma i divideix.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Suma les tres dades.</li><li>$1+5+6=12$. Divideix per $3$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$\bar x=\dfrac{1+5+6}{3}=\dfrac{12}{3}=4$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 260.</strong> Calcula la mitjana aritmètica de cada llista de dades. Si no dona exacta, deixa-la en forma de fracció.</p>
 <div class="it"><div class="cap"><span class="cod">260a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$3,\;5,\;5,\;8,\;9$</div>
@@ -819,7 +903,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Si la mitjana de $6$ dades és $12$, la suma de totes ha de ser $6\cdot12$.</li><li>Resta a aquesta suma el que ja sumen les dades conegudes.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Suma total: $6\cdot12=72$</li><li>Suma coneguda: $12+8+15+11+9=55$</li><li>Dada que falta: $72-55=17$</li></ol>
 </div>
-<h2>Recorregut i desviació típica <span class="tip">· 17 preguntes</span></h2>
+<h2>Recorregut i desviació típica <span class="tip">· 19 preguntes</span></h2>
+<p class="sec"><strong>Exercici 373.</strong> Calcula el recorregut (o rang) d&#x27;aquestes dades, que ja estan ordenades: la dada més gran menys la més petita.</p>
+<div class="it"><div class="cap"><span class="cod">373a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$2,\;5,\;11$</div>
+<ol class="op"><li><span class="ok">$9$</span> — resposta correcta</li>
+<li>$5$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">$5$ és la dada del mig. El recorregut és la distància entre els dos extrems: $11-2$.</span></li>
+<li>$11$<br><span class="err">EL_MES_GRAN</span><span class="fb">$11$ és la dada més gran. Li falta restar-hi la més petita: $11-2$.</span></li>
+<li>$13$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat els extrems. El recorregut és la seva DIFERÈNCIA: $11-2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina és la dada més gran? I la més petita?</li><li>$11-2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recorregut $=11-2=9$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">373b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$4,\;6,\;9,\;14$</div>
+<ol class="op"><li><span class="ok">$10$</span> — resposta correcta</li>
+<li>$7{,}5$<br><span class="err">RANG_PER_MEDIANA</span><span class="fb">$7{,}5$ és la mediana, el valor del mig. El recorregut és la distància entre els dos extrems: $14-4$.</span></li>
+<li>$14$<br><span class="err">EL_MES_GRAN</span><span class="fb">$14$ és la dada més gran. Li falta restar-hi la més petita: $14-4$.</span></li>
+<li>$18$<br><span class="err">PRODUCTE_PER_SUMA</span><span class="fb">Has sumat els extrems. El recorregut és la seva DIFERÈNCIA: $14-4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina és la dada més gran? I la més petita?</li><li>$14-4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Recorregut $=14-4=10$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 268.</strong> Calcula el recorregut (o rang) de cada llista: la diferència entre la dada més gran i la més petita.</p>
 <div class="it"><div class="cap"><span class="cod">268a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$12,\;5,\;9,\;20,\;7$</div>
@@ -1000,43 +1105,44 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>La dada nova aporta una desviació $20-20=0$, així que $\sum(x_i-\bar{x})^2$ no canvia</li><li>En canvi $N$ augmenta en $1$, i com que la variància és aquesta suma dividida entre $N$, la variància baixa; i amb ella, $\sigma$</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Variables estadístiques <span class="err">obre pel mig</span></td><td>0</td><td>12</td><td>0</td><td>0</td><td><span class="err">directa</span></td></tr>
-<tr><td>Taules de freqüències <span class="err">obre pel mig</span></td><td>0</td><td>7</td><td>16</td><td>3</td><td><span class="err">directa</span></td></tr>
-<tr><td>Gràfics estadístics <span class="err">obre pel mig</span></td><td>0</td><td>1</td><td>7</td><td>6</td><td><span class="err">directa</span></td></tr>
-<tr><td>Mitjana, mediana i moda <span class="err">obre pel mig</span></td><td>0</td><td>12</td><td>5</td><td>5</td><td><span class="err">directa</span></td></tr>
-<tr><td>Recorregut i desviació típica <span class="err">obre pel mig</span></td><td>0</td><td>3</td><td>7</td><td>7</td><td><span class="err">directa</span></td></tr>
+<tr><td>Variables estadístiques</td><td>2</td><td>12</td><td>0</td><td>0</td><td>trivial</td></tr>
+<tr><td>Taules de freqüències</td><td>2</td><td>7</td><td>16</td><td>3</td><td>trivial</td></tr>
+<tr><td>Gràfics estadístics</td><td>2</td><td>1</td><td>7</td><td>6</td><td>trivial</td></tr>
+<tr><td>Mitjana, mediana i moda</td><td>2</td><td>12</td><td>5</td><td>5</td><td>trivial</td></tr>
+<tr><td>Recorregut i desviació típica</td><td>2</td><td>3</td><td>7</td><td>7</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>QUALITATIVA_QUANTITATIVA_CONFOSES</code></td><td>24</td><td>369a, 369a, 369a, 369b, 369b, 369b, 218a, 218b, 218c, 218d, 218d, 218e, 218f, 218g…</td></tr>
+<tr><td><code>TOTAL_DADES_MAL_CALCULAT</code></td><td>19</td><td>370a, 370b, 220a, 220b, 226a, 221a, 221a, 221d, 222a, 222b, 224b, 224d, 225b, 234a…</td></tr>
 <tr><td><code>PERCENTATGE_MAL_CALCULAT</code></td><td>19</td><td>220c, 226a, 226b, 226b, 226c, 226d, 221a, 221d, 234a, 234b, 234b, 223a, 223a, 223a…</td></tr>
-<tr><td><code>QUALITATIVA_QUANTITATIVA_CONFOSES</code></td><td>18</td><td>218a, 218b, 218c, 218d, 218d, 218e, 218f, 218g, 218g, 219a, 219c, 219d, 219e, 224a…</td></tr>
 <tr><td><code>DISCRETA_CONTINUA_CONFOSES</code></td><td>18</td><td>218a, 218b, 218c, 218e, 219a, 219a, 219b, 219b, 219c, 219c, 219d, 219d, 219e, 219e…</td></tr>
+<tr><td><code>RECOMPTE_MAL_FET</code></td><td>17</td><td>370a, 370b, 220a, 221b, 221c, 222a, 222a, 224b, 224b, 234a, 234b, 227, 227, 227…</td></tr>
 <tr><td><code>FREQ_ABSOLUTA_ACUMULADA_CONFOSES</code></td><td>17</td><td>220a, 220b, 220c, 220c, 221b, 221c, 222b, 224c, 224d, 225b, 223c, 223c, 230a, 230b…</td></tr>
-<tr><td><code>TOTAL_DADES_MAL_CALCULAT</code></td><td>17</td><td>220a, 220b, 226a, 221a, 221a, 221d, 222a, 222b, 224b, 224d, 225b, 234a, 223b, 231…</td></tr>
-<tr><td><code>RECOMPTE_MAL_FET</code></td><td>15</td><td>220a, 221b, 221c, 222a, 222a, 224b, 224b, 234a, 234b, 227, 227, 227, 230a, 231…</td></tr>
 <tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>15</td><td>260a, 260b, 260c, 260d, 263a, 266a, 267a, 267a, 267b, 267b, 268a, 268b, 268c, 269a…</td></tr>
 <tr><td><code>F_ACUMULADA_NO_CREIXENT</code></td><td>14</td><td>220b, 221b, 221c, 221d, 222b, 224c, 224c, 224d, 225b, 230b, 230b, 234c, 234c, 228b</td></tr>
+<tr><td><code>MEDIANA_PER_MITJANA</code></td><td>12</td><td>372a, 372b, 260a, 260b, 260c, 260d, 261a, 261b, 261c, 261d, 263a, 263b</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>11</td><td>235b, 230d, 266a, 266b, 272a, 272b, 273a, 274a, 274a, 274c, 274c</td></tr>
-<tr><td><code>MEDIANA_PER_MITJANA</code></td><td>10</td><td>260a, 260b, 260c, 260d, 261a, 261b, 261c, 261d, 263a, 263b</td></tr>
+<tr><td><code>FREQ_RELATIVA_MAL_CALCULADA</code></td><td>10</td><td>370a, 370b, 226a, 226c, 226c, 226d, 226d, 230a, 230c, 230c</td></tr>
+<tr><td><code>EL_MES_GRAN</code></td><td>9</td><td>372a, 372b, 262a, 262b, 262c, 262d, 263c, 373a, 373b</td></tr>
 <tr><td><code>MOSTRA_POBLACIO_INVERTIDES</code></td><td>8</td><td>218a, 218b, 218c, 218d, 218e, 218f, 218f, 218g</td></tr>
-<tr><td><code>FREQ_RELATIVA_MAL_CALCULADA</code></td><td>8</td><td>226a, 226c, 226c, 226d, 226d, 230a, 230c, 230c</td></tr>
+<tr><td><code>SECTOR_ANGLE_MAL_CALCULAT</code></td><td>8</td><td>371a, 371a, 371a, 371b, 371b, 371b, 229, 229</td></tr>
 <tr><td><code>ES_POT_DETERMINAR</code></td><td>7</td><td>219b, 223c, 232a, 268b, 272a, 272b, 273a</td></tr>
 <tr><td><code>DIAGRAMA_HISTOGRAMA_CONFOSOS</code></td><td>6</td><td>228c, 228c, 228c, 232c, 232c, 232c</td></tr>
+<tr><td><code>DIVISIO_OBLIDADA</code></td><td>6</td><td>372a, 372b, 270a, 270b, 270c, 271a</td></tr>
+<tr><td><code>RANG_PER_MEDIANA</code></td><td>6</td><td>261a, 261b, 261c, 261d, 373a, 373b</td></tr>
 <tr><td><code>MODA_PER_FREQUENCIA</code></td><td>6</td><td>262a, 262b, 262c, 262d, 263b, 263c</td></tr>
 <tr><td><code>MESURA_MAL_TRIADA</code></td><td>6</td><td>264, 264, 264, 268a, 268c, 271b</td></tr>
 <tr><td><code>MEDIANA_SENSE_ORDENAR</code></td><td>5</td><td>261a, 261b, 261c, 261d, 266b</td></tr>
 <tr><td><code>MEDIANA_PER_MODA</code></td><td>5</td><td>262a, 262b, 262c, 262d, 263c</td></tr>
-<tr><td><code>EL_MES_GRAN</code></td><td>5</td><td>262a, 262b, 262c, 262d, 263c</td></tr>
 <tr><td><code>POLIGON_MAL_CONSTRUIT</code></td><td>4</td><td>232a, 232b, 232b, 232b</td></tr>
 <tr><td><code>DIVIDIT_PER_VALORS_DIFERENTS</code></td><td>4</td><td>260a, 260b, 260c, 260d</td></tr>
-<tr><td><code>RANG_PER_MEDIANA</code></td><td>4</td><td>261a, 261b, 261c, 261d</td></tr>
 <tr><td><code>EXTREM_SENSE_EFECTE</code></td><td>4</td><td>266a, 266b, 272a, 274c</td></tr>
 <tr><td><code>DESVIACIONS_SENSE_QUADRAT</code></td><td>4</td><td>269b, 270a, 270b, 270c</td></tr>
-<tr><td><code>DIVISIO_OBLIDADA</code></td><td>4</td><td>270a, 270b, 270c, 271a</td></tr>
+<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>3</td><td>373a, 373b, 274b</td></tr>
 <tr><td><code>SIGNE_FINAL</code></td><td>3</td><td>268a, 268b, 268c</td></tr>
 <tr><td><code>ARREL_OBLIDADA</code></td><td>3</td><td>270a, 270b, 270c</td></tr>
 <tr><td><code>VARIANCIA_PER_DESVIACIO</code></td><td>3</td><td>271a, 271b, 274b</td></tr>
 <tr><td><code>CRITERI_AGRUPACIO_MAL</code></td><td>2</td><td>235b, 235b</td></tr>
-<tr><td><code>SECTOR_ANGLE_MAL_CALCULAT</code></td><td>2</td><td>229, 229</td></tr>
 <tr><td><code>FREQUENCIA_NO_PONDERADA</code></td><td>2</td><td>263a, 271a</td></tr>
 <tr><td><code>PES_IGNORAT</code></td><td>2</td><td>265a, 265b</td></tr>
 <tr><td><code>DIVISIO_SOBRERA</code></td><td>2</td><td>265a, 265b</td></tr>
@@ -1054,5 +1160,4 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>ARREL_MAL_APLICADA</code></td><td>1</td><td>271b</td></tr>
 <tr><td><code>INVERTIDA</code></td><td>1</td><td>273b</td></tr>
 <tr><td><code>PERCENTATGE_DECIMAL_MAL</code></td><td>1</td><td>273b</td></tr>
-<tr><td><code>PRODUCTE_PER_SUMA</code></td><td>1</td><td>274b</td></tr>
 </table></html>

@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Concepte de funció",
    "descripcio": "Relacions que són o no funcions, càlcul d'imatges, i domini, recorregut i creixement llegits d'una gràfica.",
    "items": [
+    "366a",
+    "366b",
     "201a",
     "201b",
     "201c",
@@ -34,6 +36,8 @@ window.FULL = {
    "titol": "Funcions lineals i afins",
    "descripcio": "Pendent i ordenada a l'origen, creixement sense representar, i equació de la recta a partir de dos punts.",
    "items": [
+    "367a",
+    "367b",
     "207a",
     "207b",
     "207c",
@@ -109,6 +113,8 @@ window.FULL = {
    "titol": "Funcions quadràtiques",
    "descripcio": "Obertura i amplada de la paràbola, vèrtex, talls amb els eixos i eix de simetria.",
    "items": [
+    "368a",
+    "368b",
     "212a",
     "212b",
     "212c",
@@ -139,12 +145,14 @@ window.FULL = {
   "EXTREMS_OBLIDATS": "T'has deixat els extrems de l'interval. Quan el domini està limitat, els valors dels extrems compten.",
   "EXTREM_INVERTIT": "Has confós el màxim amb el mínim. Amb una paràbola ho decideix el signe de $a$: positiu, mínim; negatiu, màxim.",
   "INVERTIDA": "Has invertit la fracció. Simplificar no canvia quin terme és a dalt i quin a baix.",
+  "JERARQUIA": "Primer les multiplicacions i divisions; després, les sumes i restes.",
   "OBERTURA_INVERTIDA": "Com més gran és $|a|$, més ESTRETA és la paràbola, no més ampla: el coeficient estira la corba cap amunt.",
   "OBERTURA_I_AMPLADA_INVERTIDES": "Has invertit la relació entre el coeficient i la forma de la corba: compara dues paràboles concretes ($y=x^2$ i $y=3x^2$) i mira quina és més estreta.",
   "OPERACIO_INVERSA": "Has fet l'operació contrària a la que tocava per desfer el pas anterior.",
   "ORDENADA_NULA_OBLIDADA": "Quan la recta passa per l'origen, l'ordenada a l'origen val $0$ i el terme independent desapareix: $y=mx$.",
   "ORDENADA_PER_COORDENADA": "Has pres la $y$ d'un punt com a ordenada a l'origen. Només coincideixen si aquell punt és sobre l'eix $Y$, és a dir, si té $x=0$.",
   "ORDENADES_PER_TALL": "Has donat on talla cada recta l'eix $Y$. El punt de tall ENTRE dues rectes és on totes dues valen el mateix alhora.",
+  "PAPERS_INTERCANVIATS": "Has intercanviat les dues magnituds: torna a llegir quina depèn de quina a l'enunciat.",
   "PARABOLA_AMB_A_ZERO": "Si $a=0$ no hi ha terme en $x^2$ i allò no és cap paràbola, sinó una recta.",
   "PARALLELA_MATEIXA_RECTA": "La recta que has donat és la de partida. Una paral·lela té el mateix pendent però una altra ordenada a l'origen, o serien la mateixa recta.",
   "PARALLELA_PER_PERPENDICULAR": "Has confós paral·lela amb perpendicular. Les paral·leles comparteixen pendent; les perpendiculars el tenen invers i canviat de signe.",
@@ -186,6 +194,50 @@ window.FULL = {
   "VERTEX_PER_ARREL": "Has donat una arrel (on la funció val zero) en comptes del vèrtex (on arriba al màxim o al mínim). Són coses diferents."
  },
  "items": [
+  {
+   "id": "366a",
+   "ex": 366,
+   "ap": "a",
+   "bloc": "concepte_funcio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la imatge que es demana substituint el valor de $x$ a l'expressió de la funció.",
+   "enunciat": "$f(x)=3x+1$. Calcula $f(2)$.",
+   "opcions": [
+    "$f(2)=9$",
+    "$f(2)=\\dfrac{1}{3}$",
+    "$f(2)=7$",
+    "$f(2)=6$"
+   ],
+   "pistes": [
+    "Substitueix la $x$ per $2$.",
+    "$f(2)=3\\cdot2+1$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgZmV0ICQzXFxjZG90KDIrMSkkLiBQcmltZXIgZXMgbXVsdGlwbGljYSwgJDNcXGNkb3QyPTYkLCBpIGRlc3Byw6lzIHNlIHN1bWEgJDEkLiIsICJIYXMgcmVzb2x0ICQzeCsxPTIkLCBxdWUgw6lzIGJ1c2NhciBxdWluYSAkeCQgdMOpIGltYXRnZSAkMiQuIEVzIGRlbWFuYSBhbCByZXbDqXM6IGxhIGltYXRnZSBkZSAkeD0yJC4iLCAiIiwgIlQnaGFzIGRlaXhhdCBlbCB0ZXJtZSBpbmRlcGVuZGVudC4gRW5jYXJhIHF1ZSB2YWdpIHNvbCwgZm9ybWEgcGFydCBkZSBsYSBmdW5jacOzLiJdLCAiZXJyIjogWyJKRVJBUlFVSUEiLCAiUEFQRVJTX0lOVEVSQ0FOVklBVFMiLCAiIiwgIlRFUk1FX0lOREVQRU5ERU5UX0lHTk9SQVQiXSwgInJlcyI6IFsiJGYoMik9M1xcY2RvdDIrMT02KzE9NyQiXX0="
+  },
+  {
+   "id": "366b",
+   "ex": 366,
+   "ap": "b",
+   "bloc": "concepte_funcio",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Calcula la imatge que es demana substituint el valor de $x$ a l'expressió de la funció.",
+   "enunciat": "$f(x)=x^2-1$. Calcula $f(3)$.",
+   "opcions": [
+    "$f(3)=10$",
+    "$f(3)=9$",
+    "$f(3)=5$",
+    "$f(3)=8$"
+   ],
+   "pistes": [
+    "Substitueix la $x$ per $3$.",
+    "$f(3)=3^2-1$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbCB0ZXJtZSBpbmRlcGVuZGVudCDDqXMgJC0xJDogZXMgcmVzdGEuIFJldmlzYSBlbCBzaWduZSBkZWwgdGVybWUgaW5kZXBlbmRlbnQgKGVsIHF1ZSBubyBwb3J0YSAkeCQpOiDDqXMgZsOgY2lsIHBlcmRyZSdsIGVuIHN1bWFyIG8gcmVzdGFyLiIsICJUJ2hhcyBkZWl4YXQgZWwgdGVybWUgaW5kZXBlbmRlbnQuIEVuY2FyYSBxdWUgdmFnaSBzb2wsIGZvcm1hIHBhcnQgZGUgbGEgZnVuY2nDsy4iLCAiSGFzIGZldCAkMlxcY2RvdDMtMSQuICR4XjIkIG5vIMOpcyAkMngkOiDDqXMgJHhcXGNkb3QgeCQuIFByb3ZhLWhvIGFtYiAkeD0zJCwgcXVlIGRvbmEgJDkkIGkgbm8gJDYkLiIsICIiXSwgImVyciI6IFsiU0lHTkVfVEVSTUVfSU5ERVBFTkRFTlQiLCAiVEVSTUVfSU5ERVBFTkRFTlRfSUdOT1JBVCIsICJQT1RFTkNJQV9DT01fUFJPRFVDVEUiLCAiIl0sICJyZXMiOiBbIiRmKDMpPTNeMi0xPTktMT04JCJdfQ=="
+  },
   {
    "id": "201a",
    "ex": 201,
@@ -588,6 +640,50 @@ window.FULL = {
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJDYWRhIHRyYW0gZGUgY3JlaXhlbWVudCBpIGRlY3JlaXhlbWVudCwgaSBjYWRhIG3DoHhpbSBpIG3DrW5pbSwgZXN0YW4gaW52ZXJ0aXRzIHJlc3BlY3RlIGEgbGEgZGVzY3JpcGNpw7M6IGxhIGZ1bmNpw7MgUFVKQSBhYmFucyBkZSAkKDAsMikkICjDqXMgdW4gbcOgeGltLCBubyB1biBtw61uaW0pIGkgdG9ybmEgYSBwdWphciBkZXNwcsOpcyBkZSAkKDMsLTEpJCAow6lzIHVuIG3DrW5pbSwgbm8gdW4gbcOgeGltKS4iLCAiQ29tIHF1ZSBsYSBncsOgZmljYSB0b3JuYSBhIHB1amFyIHNlbnNlIGzDrW1pdCBkZXNwcsOpcyBkZSAkKDMsK1xcaW5mdHkpJCwgaGkgaGEgdmFsb3JzIGRlICR5JCBtw6lzIGdyYW5zIHF1ZSAkMiQgbcOpcyBlbmRhdmFudDogJCgwLDIpJCBubyDDqXMgZWwgcHVudCBtw6lzIGFsdCBkZSBUT1RBIGxhIGdyw6BmaWNhIChubyDDqXMgYWJzb2x1dCksIG5vbcOpcyBobyDDqXMgY29tcGFyYXQgYW1iIGVscyBwdW50cyBkZWwgdm9sdGFudCAow6lzIHJlbGF0aXUpLiBFbCBtYXRlaXggcGFzc2EgYW1iIGVsIG3DrW5pbS4iLCAiIiwgIkEgY2FkYSBwdW50LCBsYSBwcmltZXJhIGNvb3JkZW5hZGEgw6lzIGVsIHZhbG9yIGRlICR4JCBpIGxhIHNlZ29uYSBlbCBkZSAkeSQ6IGVscyBtw6B4aW1zIGkgbcOtbmltcyBzw7NuIGFscyBwdW50cyAkKDAsMikkIGkgJCgzLC0xKSQsIG5vICQoMiwwKSQgaSAkKC0xLDMpJC4iXSwgImVyciI6IFsiQ1JFSVhFTUVOVF9JTlZFUlRJVCIsICJSRUxBVElVX0NPTV9BQlNPTFVUIiwgIiIsICJDT09SREVOQURFU19JTlRFUkNBTlZJQURFUyJdLCAicmVzIjogWyJQdWphIGZpbnMgYWwgcHVudCAkKDAsMikkOiBjcmVpeGVudCBhICQoLVxcaW5mdHksMCkkOyBhcXVlc3QgcHVudCDDqXMgdW4gbcOgeGltLiIsICJEZXNwcsOpcyBiYWl4YSBmaW5zIGFsIHB1bnQgJCgzLC0xKSQ6IGRlY3JlaXhlbnQgYSAkKDAsMykkOyBhcXVlc3QgcHVudCDDqXMgdW4gbcOtbmltLiIsICJBIHBhcnRpciBkJ2FxdcOtIHRvcm5hIGEgcHVqYXIgc2Vuc2UgbMOtbWl0OiBjcmVpeGVudCBhICQoMywrXFxpbmZ0eSkkLiIsICJDb20gcXVlIGEgbGEgZHJldGEgbGEgZ3LDoGZpY2EgcHVqYSBzZW5zZSBsw61taXQsIGVuIGFsZ3VuIG1vbWVudCB0b3JuYSBhIHN1cGVyYXIgJHk9MiQ6IGVsIG3DoHhpbSAkKDAsMikkIG5vIMOpcyBlbCBwdW50IG3DqXMgYWx0IGRlIHRvdGEgbGEgZ3LDoGZpY2EsIG5vbcOpcyBobyDDqXMgbG9jYWxtZW50IChyZWxhdGl1KS4gSSBjb20gcXVlIGEgbCdlc3F1ZXJyYSBsYSBncsOgZmljYSB2ZSBjcmVpeGVudCBkZXMgZGUgJC1cXGluZnR5JCwgYWJhbnMgZCdhcnJpYmFyIGEgJCgwLDIpJCBqYSBoYXZpYSBwYXNzYXQgcGVyIHZhbG9ycyBwZXIgc290YSBkZSAkeT0tMSQ6IGVsIG3DrW5pbSAkKDMsLTEpJCB0YW1wb2Mgw6lzIGVsIHB1bnQgbcOpcyBiYWl4IGRlIHRvdGEgbGEgZ3LDoGZpY2EgKHRhbWLDqSDDqXMgcmVsYXRpdSkuIl19",
    "figura": "<svg class=\"figura\" viewBox=\"0 0 220 220\" role=\"img\" xmlns=\"http://www.w3.org/2000/svg\"><title>Gràfica que puja fins a un punt més alt, després baixa fins a un punt més baix, i torna a pujar.</title><line class=\"fig-graella\" x1=\"35.9\" y1=\"190.0\" x2=\"35.9\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"95.2\" y1=\"190.0\" x2=\"95.2\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"124.8\" y1=\"190.0\" x2=\"124.8\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"154.4\" y1=\"190.0\" x2=\"154.4\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"184.1\" y1=\"190.0\" x2=\"184.1\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"176.7\" x2=\"190.0\" y2=\"176.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"150.0\" x2=\"190.0\" y2=\"150.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"96.7\" x2=\"190.0\" y2=\"96.7\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"70.0\" x2=\"190.0\" y2=\"70.0\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-graella\" x1=\"30.0\" y1=\"43.3\" x2=\"190.0\" y2=\"43.3\" stroke=\"currentColor\" stroke-width=\"0.5\" opacity=\"0.18\"/><line class=\"fig-eix\" x1=\"30.0\" y1=\"123.3\" x2=\"190.0\" y2=\"123.3\" stroke=\"currentColor\" stroke-width=\"1.1\"/><line class=\"fig-eix\" x1=\"65.6\" y1=\"190.0\" x2=\"65.6\" y2=\"30.0\" stroke=\"currentColor\" stroke-width=\"1.1\"/><path d=\"M 196.0 123.3 l -6 -3 v 6 z\" fill=\"currentColor\"/><path d=\"M 65.6 24.0 l -3 6 h 6 z\" fill=\"currentColor\"/><text x=\"202\" y=\"137.333\" text-anchor=\"start\" class=\"fig-etq petita\">x</text><text x=\"67.5556\" y=\"18\" text-anchor=\"start\" class=\"fig-etq petita\">y</text><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"middle\"><text x=\"35.9\" y=\"202\">-1</text><text x=\"65.6\" y=\"202\">0</text><text x=\"95.2\" y=\"202\">1</text><text x=\"124.8\" y=\"202\">2</text><text x=\"154.4\" y=\"202\">3</text><text x=\"184.1\" y=\"202\">4</text></g><g class=\"fig-etq petita fig-etq-marc\" text-anchor=\"end\"><text x=\"24.0\" y=\"180.2\">-2</text><text x=\"24.0\" y=\"153.5\">-1</text><text x=\"24.0\" y=\"126.8\">0</text><text x=\"24.0\" y=\"100.2\">1</text><text x=\"24.0\" y=\"73.5\">2</text><text x=\"24.0\" y=\"46.8\">3</text></g><path d=\"M 30.0 118.6 L 31.3 114.7 L 32.7 111.0 L 34.0 107.4 L 35.3 104.0 L 36.7 100.8 L 38.0 97.8 L 39.3 95.0 L 40.7 92.3 L 42.0 89.8 L 43.3 87.5 L 44.7 85.3 L 46.0 83.3 L 47.3 81.5 L 48.7 79.8 L 50.0 78.2 L 51.3 76.8 L 52.7 75.5 L 54.0 74.4 L 55.3 73.4 L 56.7 72.6 L 58.0 71.8 L 59.3 71.2 L 60.7 70.8 L 62.0 70.4 L 63.3 70.2 L 64.7 70.0 L 66.0 70.0 L 67.3 70.1 L 68.7 70.3 L 70.0 70.6 L 71.3 71.0 L 72.7 71.5 L 74.0 72.0 L 75.3 72.7 L 76.7 73.4 L 78.0 74.3 L 79.3 75.2 L 80.7 76.1 L 82.0 77.2 L 83.3 78.3 L 84.7 79.5 L 86.0 80.7 L 87.3 82.1 L 88.7 83.4 L 90.0 84.8 L 91.3 86.3 L 92.7 87.8 L 94.0 89.3 L 95.3 90.9 L 96.7 92.5 L 98.0 94.2 L 99.3 95.9 L 100.7 97.6 L 102.0 99.3 L 103.3 101.1 L 104.7 102.8 L 106.0 104.6 L 107.3 106.4 L 108.7 108.2 L 110.0 110.0 L 111.3 111.8 L 112.7 113.6 L 114.0 115.4 L 115.3 117.2 L 116.7 118.9 L 118.0 120.7 L 119.3 122.4 L 120.7 124.1 L 122.0 125.8 L 123.3 127.5 L 124.7 129.1 L 126.0 130.7 L 127.3 132.2 L 128.7 133.7 L 130.0 135.2 L 131.3 136.6 L 132.7 137.9 L 134.0 139.3 L 135.3 140.5 L 136.7 141.7 L 138.0 142.8 L 139.3 143.9 L 140.7 144.8 L 142.0 145.7 L 143.3 146.6 L 144.7 147.3 L 146.0 148.0 L 147.3 148.5 L 148.7 149.0 L 150.0 149.4 L 151.3 149.7 L 152.7 149.9 L 154.0 150.0 L 155.3 150.0 L 156.7 149.8 L 158.0 149.6 L 159.3 149.2 L 160.7 148.8 L 162.0 148.2 L 163.3 147.4 L 164.7 146.6 L 166.0 145.6 L 167.3 144.5 L 168.7 143.2 L 170.0 141.8 L 171.3 140.2 L 172.7 138.5 L 174.0 136.7 L 175.3 134.7 L 176.7 132.5 L 178.0 130.2 L 179.3 127.7 L 180.7 125.0 L 182.0 122.2 L 183.3 119.2 L 184.7 116.0 L 186.0 112.6 L 187.3 109.0 L 188.7 105.3 L 190.0 101.4\" fill=\"none\" stroke=\"var(--fig-marca, #B3453C)\" stroke-width=\"2.2\"/></svg>"
+  },
+  {
+   "id": "367a",
+   "ex": 367,
+   "ap": "a",
+   "bloc": "funcions_lineals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quin és el pendent $m$ d'aquesta funció afí? Recorda: a $y=mx+n$, el pendent és el nombre que multiplica la $x$.",
+   "enunciat": "$y=5x+2$",
+   "opcions": [
+    "$m=2$",
+    "$m=5$",
+    "$m=-5$",
+    "$m=7$"
+   ],
+   "pistes": [
+    "Quin nombre va enganxat a la $x$?",
+    "El $2$ va sol: és l'ordenada a l'origen, no el pendent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBub21icmUgcXVlIE1VTFRJUExJQ0EgbGEgJHgkOyBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50LCBlbCBxdWUgdmEgc29sLiBFbHMgaGFzIGludGVyY2FudmlhdC4iLCAiIiwgIkVsIHBlbmRlbnQgY29uc2VydmEgZWwgc2lnbmUgYW1iIHF1w6ggYXBhcmVpeCBhIGwnZXhwcmVzc2nDszogbm8gY2FsIGNhbnZpYXItbCdoaSBlbiBsbGVnaXItbG8uIiwgIkhhcyBzdW1hdCAkNSsyJC4gRWwgcGVuZGVudCDDqXMgbm9tw6lzIGVsIG5vbWJyZSBxdWUgbXVsdGlwbGljYSBsYSAkeCQuIl0sICJlcnIiOiBbIlBFTkRFTlRfT1JERU5BREFfSU5URVJDQU5WSUFUUyIsICIiLCAiU0lHTkVfUEVOREVOVF9JTlZFUlRJVCIsICJQRU5ERU5UX01BTF9UUklBVCJdLCAicmVzIjogWyIkeT1cXHVuZGVyYnJhY2V7NX1fe219eCtcXHVuZGVyYnJhY2V7Mn1fe259JDogZWwgcGVuZGVudCDDqXMgJG09NSQuIl19"
+  },
+  {
+   "id": "367b",
+   "ex": 367,
+   "ap": "b",
+   "bloc": "funcions_lineals",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Quin és el pendent $m$ d'aquesta funció afí? Recorda: a $y=mx+n$, el pendent és el nombre que multiplica la $x$.",
+   "enunciat": "$y=-4x+1$",
+   "opcions": [
+    "$m=1$",
+    "$m=-3$",
+    "$m=-4$",
+    "$m=4$"
+   ],
+   "pistes": [
+    "Quin nombre va enganxat a la $x$? Compte amb el signe.",
+    "L'$1$ va sol: és l'ordenada a l'origen, no el pendent."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBwZW5kZW50IMOpcyBlbCBub21icmUgcXVlIE1VTFRJUExJQ0EgbGEgJHgkOyBsJ29yZGVuYWRhIGEgbCdvcmlnZW4gw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50LCBlbCBxdWUgdmEgc29sLiBFbHMgaGFzIGludGVyY2FudmlhdC4iLCAiSGFzIHN1bWF0ICQtNCsxJC4gRWwgcGVuZGVudCDDqXMgbm9tw6lzIGVsIG5vbWJyZSBxdWUgbXVsdGlwbGljYSBsYSAkeCQsIGFtYiBlbCBzZXUgc2lnbmUuIiwgIiIsICJFbCBwZW5kZW50IGNvbnNlcnZhIGVsIHNpZ25lIGFtYiBxdcOoIGFwYXJlaXggYSBsJ2V4cHJlc3Npw7M6IG5vIGNhbCBjYW52aWFyLWwnaGkgZW4gbGxlZ2lyLWxvLiJdLCAiZXJyIjogWyJQRU5ERU5UX09SREVOQURBX0lOVEVSQ0FOVklBVFMiLCAiUEVOREVOVF9NQUxfVFJJQVQiLCAiIiwgIlNJR05FX1BFTkRFTlRfSU5WRVJUSVQiXSwgInJlcyI6IFsiJHk9XFx1bmRlcmJyYWNley00fV97bX14K1xcdW5kZXJicmFjZXsxfV97bn0kOiBlbCBwZW5kZW50IMOpcyAkbT0tNCQuIl19"
   },
   {
    "id": "207a",
@@ -1802,6 +1898,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSAkeCQgw6lzIGNvcnJlY3RhLCBwZXLDsiBsJ8OgcmVhIG5vOiAkQSgxMCk9MTBcXGNkb3QoNDAtMjApPTEwXFxjZG90MjA9MjAwJC4iLCAiQW1iICR4PTIwJCBsJ2FsdHJlIGNvc3RhdCB2YWwgJDQwLTQwPTAkOiBubyBoaSBoYSBjb3JyYWwuIEVsICQyMCQgw6lzIHVuYSBkZSBsZXMgYXJyZWxzIGRlIGxhIHBhcsOgYm9sYSwgb24gbCfDoHJlYSB2YWwgemVybywgbm8gZWwgdsOocnRleC4iLCAiIiwgIkVsICQ0MCQgw6lzIGxhIHRhbmNhIHRvdGFsLCBubyB1biBjb3N0YXQuIEFtYiAkeD00MCQgbCdhbHRyZSBjb3N0YXQgc29ydGlyaWEgbmVnYXRpdS4iXSwgImVyciI6IFsiU1VCU1RJVFVDSU9fTUFMX0ZFVEEiLCAiVkVSVEVYX1BFUl9BUlJFTCIsICIiLCAiREFERVNfTUFMX1RSSUFERVMiXSwgInJlcyI6IFsiJEEoeCk9NDB4LTJ4XjIkLCBvIHNpZ3VpICRhPS0yJCBpICRiPTQwJCIsICJDb20gcXVlICRhPDAkLCBsYSBwYXLDoGJvbGEgcydvYnJlIGNhcCBhdmFsbCBpIGVsIHbDqHJ0ZXggw6lzIHVuIE3DgFhJTSIsICIkeF92PVxcZGZyYWN7LTQwfXsyXFxjZG90KC0yKX09MTAkIiwgIiRBKDEwKT0xMFxcY2RvdCg0MC0yMCk9MjAwJCBtJF4yJCJdfQ=="
+  },
+  {
+   "id": "368a",
+   "ex": 368,
+   "ap": "a",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Sense representar-la, digues si aquesta paràbola s'obre cap amunt o cap avall. Ho decideix el signe de $a$, el coeficient de $x^2$.",
+   "enunciat": "$y=-2x^2+3$",
+   "opcions": [
+    "Cap amunt, perquè $a=2>0$",
+    "Cap amunt, perquè $3>0$",
+    "Cap avall, perquè $a=-2<0$",
+    "No es pot saber sense dibuixar-la"
+   ],
+   "pistes": [
+    "Quin nombre multiplica la $x^2$?",
+    "Si és negatiu, la paràbola s'obre cap avall."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJFbCBjb2VmaWNpZW50IGRlICR4XjIkIMOpcyAkLTIkLCBhbWIgZWwgc2lnbmUgbWVueXMuIEVsIHNpZ25lIGRlICRhJCBubyBlbmNhaXhhIGFtYiBsYSBmb3JtYSBkZSBsYSBwYXLDoGJvbGEuIFNpICRhPjAkIHMnb2JyZSBjYXAgYW11bnQgaSBlbCB2w6hydGV4IMOpcyB1biBtw61uaW07IHNpICRhPDAkLCBjYXAgYXZhbGwgaSDDqXMgdW4gbcOgeGltLiIsICJFbCAkMyQgw6lzIGVsIHRlcm1lIGluZGVwZW5kZW50OiBkaXUgb24gdGFsbGEgbCdlaXggJFkkLCBubyBjYXAgb24gcydvYnJlLiBNYW5hIGVsIGNvZWZpY2llbnQgZGUgJHheMiQsIHF1ZSDDqXMgJC0yJC4iLCAiIiwgIk5vIGNhbCBkaWJ1aXhhciBsYSBncsOgZmljYTogZWwgc2lnbmUgZGVsIHBlbmRlbnQgamEgZGl1IHNpIGxhIGZ1bmNpw7MgY3JlaXggbyBkZWNyZWl4LCBpIGVsIGRlICRhJCBzaSBsYSBwYXLDoGJvbGEgcydvYnJlIGFtdW50IG8gYXZhbGwuIl0sICJlcnIiOiBbIlNJR05FX0NPRUZJQ0lFTlRfUFJJTkNJUEFMIiwgIlZBTE9SX0NfQ09ORk9TIiwgIiIsICJSRVBSRVNFTlRBQ0lPX0lOTkVDRVNTQVJJQSJdLCAicmVzIjogWyIkYT0tMjwwJDogbGEgcGFyw6Bib2xhIHMnb2JyZSBjYXAgYXZhbGwuIl19"
+  },
+  {
+   "id": "368b",
+   "ex": 368,
+   "ap": "b",
+   "bloc": "funcions_quadratiques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Sense representar-la, digues si aquesta paràbola s'obre cap amunt o cap avall. Ho decideix el signe de $a$, el coeficient de $x^2$.",
+   "enunciat": "$y=x^2-5x$",
+   "opcions": [
+    "No és una paràbola, perquè no té terme independent",
+    "Cap amunt, perquè $a=1>0$",
+    "Cap avall, perquè $-5<0$",
+    "No es pot saber sense dibuixar-la"
+   ],
+   "pistes": [
+    "Quin nombre multiplica la $x^2$? Si no n'hi ha cap d'escrit, és un $1$.",
+    "Si és positiu, la paràbola s'obre cap amunt."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDEsICJkaWFnIjogWyJVbmEgcGFyw6Bib2xhIG5vbcOpcyBuZWNlc3NpdGEgcXVlIGhpIGhhZ2kgdGVybWUgZW4gJHheMiQgKCRhXFxuZTAkKS4gUXVlICRjJCB2YWxndWkgJDAkIHZvbCBkaXIgcXVlIHBhc3NhIHBlciBsJ29yaWdlbi4iLCAiIiwgIkVsICQtNSQgw6lzIGVsIGNvZWZpY2llbnQgZGUgbGEgJHgkLCBubyBlbCBkZSBsYSAkeF4yJC4gRGF2YW50IGRlIGxhICR4XjIkIG5vIGhpIGhhIHJlcyBlc2NyaXQ6IHZvbCBkaXIgJGE9MSQuIiwgIk5vIGNhbCBkaWJ1aXhhciBsYSBncsOgZmljYTogZWwgc2lnbmUgZGVsIHBlbmRlbnQgamEgZGl1IHNpIGxhIGZ1bmNpw7MgY3JlaXggbyBkZWNyZWl4LCBpIGVsIGRlICRhJCBzaSBsYSBwYXLDoGJvbGEgcydvYnJlIGFtdW50IG8gYXZhbGwuIl0sICJlcnIiOiBbIlBBUkFCT0xBX0FNQl9BX1pFUk8iLCAiIiwgIlNJR05FX0NPRUZJQ0lFTlRfUFJJTkNJUEFMIiwgIlJFUFJFU0VOVEFDSU9fSU5ORUNFU1NBUklBIl0sICJyZXMiOiBbIiRhPTE+MCQ6IGxhIHBhcsOgYm9sYSBzJ29icmUgY2FwIGFtdW50LiJdfQ=="
   },
   {
    "id": "212a",

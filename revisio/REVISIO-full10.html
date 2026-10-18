@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 10</h1>
-<p class="meta">85 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">91 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Concepte de funció <span class="tip">· 18 preguntes</span></h2>
+<h2>Concepte de funció <span class="tip">· 20 preguntes</span></h2>
+<p class="sec"><strong>Exercici 366.</strong> Calcula la imatge que es demana substituint el valor de $x$ a l&#x27;expressió de la funció.</p>
+<div class="it"><div class="cap"><span class="cod">366a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$f(x)=3x+1$. Calcula $f(2)$.</div>
+<ol class="op"><li><span class="ok">$f(2)=7$</span> — resposta correcta</li>
+<li>$f(2)=9$<br><span class="err">JERARQUIA</span><span class="fb">Has fet $3\cdot(2+1)$. Primer es multiplica, $3\cdot2=6$, i després se suma $1$.</span></li>
+<li>$f(2)=6$<br><span class="err">TERME_INDEPENDENT_IGNORAT</span><span class="fb">T'has deixat el terme independent. Encara que vagi sol, forma part de la funció.</span></li>
+<li>$f(2)=\dfrac{1}{3}$<br><span class="err">PAPERS_INTERCANVIATS</span><span class="fb">Has resolt $3x+1=2$, que és buscar quina $x$ té imatge $2$. Es demana al revés: la imatge de $x=2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix la $x$ per $2$.</li><li>$f(2)=3\cdot2+1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$f(2)=3\cdot2+1=6+1=7$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">366b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$f(x)=x^2-1$. Calcula $f(3)$.</div>
+<ol class="op"><li><span class="ok">$f(3)=8$</span> — resposta correcta</li>
+<li>$f(3)=5$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">Has fet $2\cdot3-1$. $x^2$ no és $2x$: és $x\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.</span></li>
+<li>$f(3)=9$<br><span class="err">TERME_INDEPENDENT_IGNORAT</span><span class="fb">T'has deixat el terme independent. Encara que vagi sol, forma part de la funció.</span></li>
+<li>$f(3)=10$<br><span class="err">SIGNE_TERME_INDEPENDENT</span><span class="fb">El terme independent és $-1$: es resta. Revisa el signe del terme independent (el que no porta $x$): és fàcil perdre'l en sumar o restar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Substitueix la $x$ per $3$.</li><li>$f(3)=3^2-1$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$f(3)=3^2-1=9-1=8$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 201.</strong> Calcula la imatge dels valors $x=2,\ -2,\ 3,\ -3,\ 1,\ -1$ per a cada funció.</p>
 <div class="it"><div class="cap"><span class="cod">201a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$f(x)=5x^2-1$</div>
@@ -239,7 +260,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a superar-lo més endavant o més enrere; és absolut només si és el punt més alt (o baix) de TOTA la gràfica.</li><li>Els trams de creixement i decreixement canvien just a les $x$ dels dos punts, $x=0$ i $x=3$. Després, pensa si a la dreta la gràfica arriba a superar $y=2$, i si a l'esquerra baixa de $y=-1$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Puja fins al punt $(0,2)$: creixent a $(-\infty,0)$; aquest punt és un màxim.</li><li>Després baixa fins al punt $(3,-1)$: decreixent a $(0,3)$; aquest punt és un mínim.</li><li>A partir d'aquí torna a pujar sense límit: creixent a $(3,+\infty)$.</li><li>Com que a la dreta la gràfica puja sense límit, en algun moment torna a superar $y=2$: el màxim $(0,2)$ no és el punt més alt de tota la gràfica, només ho és localment (relatiu). I com que a l'esquerra la gràfica ve creixent des de $-\infty$, abans d'arribar a $(0,2)$ ja havia passat per valors per sota de $y=-1$: el mínim $(3,-1)$ tampoc és el punt més baix de tota la gràfica (també és relatiu).</li></ol>
 </div>
-<h2>Funcions lineals i afins <span class="tip">· 14 preguntes</span></h2>
+<h2>Funcions lineals i afins <span class="tip">· 16 preguntes</span></h2>
+<p class="sec"><strong>Exercici 367.</strong> Quin és el pendent $m$ d&#x27;aquesta funció afí? Recorda: a $y=mx+n$, el pendent és el nombre que multiplica la $x$.</p>
+<div class="it"><div class="cap"><span class="cod">367a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$y=5x+2$</div>
+<ol class="op"><li><span class="ok">$m=5$</span> — resposta correcta</li>
+<li>$m=2$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$; l'ordenada a l'origen és el terme independent, el que va sol. Els has intercanviat.</span></li>
+<li>$m=-5$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el signe amb què apareix a l'expressió: no cal canviar-l'hi en llegir-lo.</span></li>
+<li>$m=7$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">Has sumat $5+2$. El pendent és només el nombre que multiplica la $x$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quin nombre va enganxat a la $x$?</li><li>El $2$ va sol: és l'ordenada a l'origen, no el pendent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=\underbrace{5}_{m}x+\underbrace{2}_{n}$: el pendent és $m=5$.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">367b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$y=-4x+1$</div>
+<ol class="op"><li><span class="ok">$m=-4$</span> — resposta correcta</li>
+<li>$m=1$<br><span class="err">PENDENT_ORDENADA_INTERCANVIATS</span><span class="fb">El pendent és el nombre que MULTIPLICA la $x$; l'ordenada a l'origen és el terme independent, el que va sol. Els has intercanviat.</span></li>
+<li>$m=4$<br><span class="err">SIGNE_PENDENT_INVERTIT</span><span class="fb">El pendent conserva el signe amb què apareix a l'expressió: no cal canviar-l'hi en llegir-lo.</span></li>
+<li>$m=-3$<br><span class="err">PENDENT_MAL_TRIAT</span><span class="fb">Has sumat $-4+1$. El pendent és només el nombre que multiplica la $x$, amb el seu signe.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quin nombre va enganxat a la $x$? Compte amb el signe.</li><li>L'$1$ va sol: és l'ordenada a l'origen, no el pendent.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$y=\underbrace{-4}_{m}x+\underbrace{1}_{n}$: el pendent és $m=-4$.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 207.</strong> Indica el pendent i l&#x27;ordenada a l&#x27;origen de cada funció afí, donada per la seva expressió. Recorda que les que no tenen terme independent ($y=mx$) s&#x27;anomenen funcions lineals, i són el cas particular amb ordenada a l&#x27;origen $0$.</p>
 <div class="it"><div class="cap"><span class="cod">207a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$y=-3x+6$</div>
@@ -827,7 +869,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Desenvolupa $A(x)=x(40-2x)$ i mira quina mena de funció és.</li><li>És una paràbola amb $a<0$: el punt més alt és el vèrtex.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$A(x)=40x-2x^2$, o sigui $a=-2$ i $b=40$</li><li>Com que $a<0$, la paràbola s'obre cap avall i el vèrtex és un MÀXIM</li><li>$x_v=\dfrac{-40}{2\cdot(-2)}=10$</li><li>$A(10)=10\cdot(40-20)=200$ m$^2$</li></ol>
 </div>
-<h2>Funcions quadràtiques <span class="tip">· 13 preguntes</span></h2>
+<h2>Funcions quadràtiques <span class="tip">· 15 preguntes</span></h2>
+<p class="sec"><strong>Exercici 368.</strong> Sense representar-la, digues si aquesta paràbola s&#x27;obre cap amunt o cap avall. Ho decideix el signe de $a$, el coeficient de $x^2$.</p>
+<div class="it"><div class="cap"><span class="cod">368a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$y=-2x^2+3$</div>
+<ol class="op"><li><span class="ok">Cap avall, perquè $a=-2<0$</span> — resposta correcta</li>
+<li>Cap amunt, perquè $3>0$<br><span class="err">VALOR_C_CONFOS</span><span class="fb">El $3$ és el terme independent: diu on talla l'eix $Y$, no cap on s'obre. Mana el coeficient de $x^2$, que és $-2$.</span></li>
+<li>Cap amunt, perquè $a=2>0$<br><span class="err">SIGNE_COEFICIENT_PRINCIPAL</span><span class="fb">El coeficient de $x^2$ és $-2$, amb el signe menys. El signe de $a$ no encaixa amb la forma de la paràbola. Si $a>0$ s'obre cap amunt i el vèrtex és un mínim; si $a<0$, cap avall i és un màxim.</span></li>
+<li>No es pot saber sense dibuixar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">No cal dibuixar la gràfica: el signe del pendent ja diu si la funció creix o decreix, i el de $a$ si la paràbola s'obre amunt o avall.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quin nombre multiplica la $x^2$?</li><li>Si és negatiu, la paràbola s'obre cap avall.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=-2<0$: la paràbola s'obre cap avall.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">368b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$y=x^2-5x$</div>
+<ol class="op"><li><span class="ok">Cap amunt, perquè $a=1>0$</span> — resposta correcta</li>
+<li>Cap avall, perquè $-5<0$<br><span class="err">SIGNE_COEFICIENT_PRINCIPAL</span><span class="fb">El $-5$ és el coeficient de la $x$, no el de la $x^2$. Davant de la $x^2$ no hi ha res escrit: vol dir $a=1$.</span></li>
+<li>No és una paràbola, perquè no té terme independent<br><span class="err">PARABOLA_AMB_A_ZERO</span><span class="fb">Una paràbola només necessita que hi hagi terme en $x^2$ ($a\ne0$). Que $c$ valgui $0$ vol dir que passa per l'origen.</span></li>
+<li>No es pot saber sense dibuixar-la<br><span class="err">REPRESENTACIO_INNECESSARIA</span><span class="fb">No cal dibuixar la gràfica: el signe del pendent ja diu si la funció creix o decreix, i el de $a$ si la paràbola s'obre amunt o avall.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quin nombre multiplica la $x^2$? Si no n'hi ha cap d'escrit, és un $1$.</li><li>Si és positiu, la paràbola s'obre cap amunt.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=1>0$: la paràbola s'obre cap amunt.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 212.</strong> Sense representar-la, indica si la paràbola és més oberta cap amunt o cap avall, i si és més estreta o més ampla que $y=x^2$.</p>
 <div class="it"><div class="cap"><span class="cod">212a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$y=2x^2$</div>
@@ -971,53 +1034,57 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Traient factor comú: $x^2+2x=x(x+2)$, que dona $x=0$ i $x=-2$.</li><li>Talls amb els eixos: $(0,\ 0)$ i $(-2,\ 0)$.</li><li>L'eix de simetria passa pel punt mig de les arrels: $x=-1$.</li><li>El vèrtex és $(-1,\ -1)$, substituint $x=-1$ a l'expressió.</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Concepte de funció <span class="err">obre pel mig</span></td><td>0</td><td>8</td><td>7</td><td>3</td><td><span class="err">directa</span></td></tr>
-<tr><td>Funcions lineals i afins <span class="err">obre pel mig</span></td><td>0</td><td>10</td><td>4</td><td>0</td><td><span class="err">directa</span></td></tr>
+<tr><td>Concepte de funció</td><td>2</td><td>8</td><td>7</td><td>3</td><td>trivial</td></tr>
+<tr><td>Funcions lineals i afins</td><td>2</td><td>10</td><td>4</td><td>0</td><td>trivial</td></tr>
 <tr><td>Construir rectes</td><td>6</td><td>0</td><td>10</td><td>5</td><td>trivial</td></tr>
 <tr><td>Construir paràboles i problemes</td><td>6</td><td>0</td><td>4</td><td>9</td><td>trivial</td></tr>
-<tr><td>Funcions quadràtiques <span class="err">obre pel mig</span></td><td>0</td><td>4</td><td>4</td><td>5</td><td><span class="err">directa</span></td></tr>
+<tr><td>Funcions quadràtiques</td><td>2</td><td>4</td><td>4</td><td>5</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
+<tr><td><code>SIGNE_PENDENT_INVERTIT</code></td><td>26</td><td>367a, 367b, 207a, 207b, 207c, 207d, 208a, 208b, 208c, 208d, 208e, 208f, 209a, 209b…</td></tr>
 <tr><td><code>SIGNE_FINAL</code></td><td>25</td><td>201a, 201d, 202b, 202c, 203b, 203c, 203d, 206a, 295a, 295b, 295c, 295d, 297a, 297b…</td></tr>
-<tr><td><code>SIGNE_PENDENT_INVERTIT</code></td><td>24</td><td>207a, 207b, 207c, 207d, 208a, 208b, 208c, 208d, 208e, 208f, 209a, 209b, 209c, 209d…</td></tr>
-<tr><td><code>PENDENT_ORDENADA_INTERCANVIATS</code></td><td>18</td><td>207a, 207b, 207c, 207d, 209a, 209b, 209c, 209d, 336a, 336b, 336c, 336d, 337a, 297a…</td></tr>
+<tr><td><code>PENDENT_ORDENADA_INTERCANVIATS</code></td><td>20</td><td>367a, 367b, 207a, 207b, 207c, 207d, 209a, 209b, 209c, 209d, 336a, 336b, 336c, 336d…</td></tr>
 <tr><td><code>COORDENADES_INTERCANVIADES</code></td><td>11</td><td>206c, 299a, 299b, 299c, 300a, 300b, 300c, 300d, 301a, 301b, 301c</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>9</td><td>201a, 201c, 202a, 202b, 202c, 202d, 303a, 303b, 303c</td></tr>
 <tr><td><code>ORDENADA_PER_COORDENADA</code></td><td>9</td><td>337b, 295a, 295b, 295c, 295d, 296a, 296b, 296c, 298a</td></tr>
+<tr><td><code>REPRESENTACIO_INNECESSARIA</code></td><td>8</td><td>208a, 208b, 208c, 208d, 208e, 208f, 368a, 368b</td></tr>
 <tr><td><code>SUBSTITUCIO_MAL_FETA</code></td><td>8</td><td>299a, 299b, 299c, 300a, 300b, 300c, 300d, 304</td></tr>
 <tr><td><code>SIGNE_VERTEX</code></td><td>8</td><td>339a, 339c, 300a, 300b, 300c, 300d, 302a, 302b</td></tr>
 <tr><td><code>VEREDICTE_INVERTIT</code></td><td>7</td><td>200a, 200a, 200a, 200b, 200c, 200c, 200c</td></tr>
+<tr><td><code>PENDENT_MAL_TRIAT</code></td><td>7</td><td>367a, 367b, 336c, 295a, 295b, 295c, 295d</td></tr>
 <tr><td><code>PENDENT_COM_NUL</code></td><td>7</td><td>208a, 208b, 208c, 208d, 208e, 208f, 336d</td></tr>
+<tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>6</td><td>366b, 201a, 201b, 201c, 201d, 202a</td></tr>
 <tr><td><code>SIGNE_ORDENADA_INVERTIT</code></td><td>6</td><td>207a, 207c, 336a, 336b, 337a, 217b</td></tr>
-<tr><td><code>REPRESENTACIO_INNECESSARIA</code></td><td>6</td><td>208a, 208b, 208c, 208d, 208e, 208f</td></tr>
 <tr><td><code>COEFICIENT_MAL_TRIAT</code></td><td>6</td><td>338a, 338b, 338c, 338c, 302a, 302b</td></tr>
-<tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>5</td><td>201a, 201b, 201c, 201d, 202a</td></tr>
 <tr><td><code>DOMINI_RECORREGUT_INTERCANVIATS</code></td><td>5</td><td>203a, 203b, 203c, 203d, 206b</td></tr>
 <tr><td><code>ORDENADA_NULA_OBLIDADA</code></td><td>5</td><td>207b, 207d, 336b, 337b, 338c</td></tr>
-<tr><td><code>PENDENT_MAL_TRIAT</code></td><td>5</td><td>336c, 295a, 295b, 295c, 295d</td></tr>
 <tr><td><code>VERTEX_COM_COEFICIENTS</code></td><td>5</td><td>339a, 339b, 339b, 339c, 302a</td></tr>
 <tr><td><code>EIX_SIMETRIA_MAL_CALCULAT</code></td><td>5</td><td>339b, 216a, 216b, 216c, 216d</td></tr>
 <tr><td><code>AMPLADA_INVERTIDA</code></td><td>5</td><td>212a, 212b, 212c, 212d, 217a</td></tr>
+<tr><td><code>TERME_INDEPENDENT_IGNORAT</code></td><td>4</td><td>366a, 366b, 214a, 214b</td></tr>
+<tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>4</td><td>366b, 201c, 201d, 202d</td></tr>
 <tr><td><code>CREIXEMENT_INVERTIT</code></td><td>4</td><td>206b, 206c, 338a, 338b</td></tr>
 <tr><td><code>PUNT_ORDENADA_CONFOS</code></td><td>4</td><td>209a, 209b, 209c, 209d</td></tr>
 <tr><td><code>PENDENT_INVERTIT</code></td><td>4</td><td>336a, 296a, 296b, 296c</td></tr>
+<tr><td><code>PARABOLA_AMB_A_ZERO</code></td><td>4</td><td>338a, 338b, 368b, 217b</td></tr>
 <tr><td><code>OBERTURA_INVERTIDA</code></td><td>4</td><td>212a, 212b, 212c, 212d</td></tr>
 <tr><td><code>OBERTURA_I_AMPLADA_INVERTIDES</code></td><td>4</td><td>212a, 212b, 212c, 212d</td></tr>
 <tr><td><code>TALL_ORIGEN_OBLIDAT</code></td><td>4</td><td>216a, 216b, 216c, 216d</td></tr>
-<tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>3</td><td>201c, 201d, 202d</td></tr>
 <tr><td><code>EXTREMS_OBLIDATS</code></td><td>3</td><td>203b, 203c, 203d</td></tr>
 <tr><td><code>ORDENADES_PER_TALL</code></td><td>3</td><td>299a, 299b, 299c</td></tr>
-<tr><td><code>PARABOLA_AMB_A_ZERO</code></td><td>3</td><td>338a, 338b, 217b</td></tr>
 <tr><td><code>VERTEX_PER_ARREL</code></td><td>3</td><td>339a, 339c, 304</td></tr>
 <tr><td><code>SIGNE_ARRELS</code></td><td>3</td><td>301a, 301b, 301c</td></tr>
+<tr><td><code>SIGNE_COEFICIENT_PRINCIPAL</code></td><td>3</td><td>302b, 368a, 368b</td></tr>
 <tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>201b, 202d</td></tr>
 <tr><td><code>POTENCIA_APLICADA_MALAMENT</code></td><td>2</td><td>201b, 202a</td></tr>
 <tr><td><code>INVERTIDA</code></td><td>2</td><td>202b, 303c</td></tr>
 <tr><td><code>DOMINI_MAL_LLEGIT</code></td><td>2</td><td>200b, 200b</td></tr>
 <tr><td><code>RECTA_VERTICAL_CONFOSA</code></td><td>2</td><td>336d, 297c</td></tr>
 <tr><td><code>PARALLELA_PER_PERPENDICULAR</code></td><td>2</td><td>298a, 298b</td></tr>
-<tr><td><code>TERME_INDEPENDENT_IGNORAT</code></td><td>2</td><td>214a, 214b</td></tr>
+<tr><td><code>VALOR_C_CONFOS</code></td><td>2</td><td>368a, 215</td></tr>
 <tr><td><code>VALOR_DUPLICAT</code></td><td>2</td><td>214a, 214b</td></tr>
+<tr><td><code>JERARQUIA</code></td><td>1</td><td>366a</td></tr>
+<tr><td><code>PAPERS_INTERCANVIATS</code></td><td>1</td><td>366a</td></tr>
 <tr><td><code>OPERACIO_INVERSA</code></td><td>1</td><td>202c</td></tr>
 <tr><td><code>ASIMPTOTA_COM_LIMIT</code></td><td>1</td><td>203a</td></tr>
 <tr><td><code>RESTRICCIO_OBLIDADA</code></td><td>1</td><td>203a</td></tr>
@@ -1028,12 +1095,10 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>PARENTESI_NO_DISTRIBUIT</code></td><td>1</td><td>337a</td></tr>
 <tr><td><code>PARALLELA_MATEIXA_RECTA</code></td><td>1</td><td>298a</td></tr>
 <tr><td><code>PENDENT_NOMES_CANVIAT_DE_SIGNE</code></td><td>1</td><td>298b</td></tr>
-<tr><td><code>SIGNE_COEFICIENT_PRINCIPAL</code></td><td>1</td><td>302b</td></tr>
 <tr><td><code>PART_FIXA_VARIABLE_BARREJADES</code></td><td>1</td><td>303a</td></tr>
 <tr><td><code>PRODUCTE_PER_SUMA</code></td><td>1</td><td>303b</td></tr>
 <tr><td><code>PAS_INTERMEDI_PER_RESPOSTA</code></td><td>1</td><td>303c</td></tr>
 <tr><td><code>DADES_MAL_TRIADES</code></td><td>1</td><td>304</td></tr>
 <tr><td><code>TERMES_NO_REDUITS</code></td><td>1</td><td>217a</td></tr>
-<tr><td><code>VALOR_C_CONFOS</code></td><td>1</td><td>215</td></tr>
 <tr><td><code>COEFICIENT_A_MAL_CALCULAT</code></td><td>1</td><td>215</td></tr>
 </table></html>

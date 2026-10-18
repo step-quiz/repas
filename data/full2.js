@@ -9,6 +9,8 @@ window.FULL = {
    "titol": "Càlcul de potències",
    "descripcio": "Potències de la mateixa base i potència d'un producte o un quocient.",
    "items": [
+    "344a",
+    "344b",
     "35a",
     "35b",
     "35c",
@@ -73,6 +75,8 @@ window.FULL = {
    "titol": "Verifica, corregeix i simplifica",
    "descripcio": "Troba l'error, cert o fals, i expressa-ho com una sola potència.",
    "items": [
+    "345a",
+    "345b",
     "43a",
     "43b",
     "43c",
@@ -161,6 +165,50 @@ window.FULL = {
   "VEREDICTE_INVERTIT": "El veredicte (cert/fals, o sí/no) que has triat és l'oposat del correcte: torna a comprovar la condició amb els valors concrets de l'enunciat."
  },
  "items": [
+  {
+   "id": "344a",
+   "ex": 344,
+   "ap": "a",
+   "bloc": "basiques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Expressa aquest producte com una sola potència. Recorda: $a^m\\cdot a^n=a^{m+n}$.",
+   "enunciat": "$2^3\\cdot 2^4$",
+   "opcions": [
+    "$2^{12}$",
+    "$2^{1}$",
+    "$4^{7}$",
+    "$2^{7}$"
+   ],
+   "pistes": [
+    "Les dues potències tenen la mateixa base, $2$.",
+    "Suma els exponents: $3+4$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJFbiBtdWx0aXBsaWNhciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgZWxzIGV4cG9uZW50cyBzZSBTVU1FTiwgbm8gZXMgbXVsdGlwbGlxdWVuOiAkYV5tXFxjZG90IGFebj1hXnttK259JC4iLCAiRW4gbXVsdGlwbGljYXIgcG90w6huY2llcyBkZSBsYSBtYXRlaXhhIGJhc2UsIGVscyBleHBvbmVudHMgc2Ugc3VtZW47IHJlc3Rhci1sb3Mgw6lzIGxhIHJlZ2xhIGRlbCBxdW9jaWVudCwgbm8gbGEgZGVsIHByb2R1Y3RlLiIsICJMYSBiYXNlIMOpcyAkMiQgYWxzIGRvcyBmYWN0b3JzIGkgZXMgcXVlZGEgJDIkLiBFbiBjb21iaW5hciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgbGEgYmFzZSBlcyBxdWVkYSB0YWwgcXVhbDsgbm9tw6lzIGNhbnZpYSBsJ2V4cG9uZW50LiIsICIiXSwgImVyciI6IFsiRVhQT05FTlRTX01VTFRJUExJQ0FUUyIsICJFWFBPTkVOVFNfUkVTVEFUU19QUk9EVUNURSIsICJCQVNFX0FMVEVSQURBIiwgIiJdLCAicmVzIjogWyIkMl4zXFxjZG90Ml40PTJeezMrNH09Ml57N30kIl19"
+  },
+  {
+   "id": "344b",
+   "ex": 344,
+   "ap": "b",
+   "bloc": "basiques",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Expressa aquest producte com una sola potència. Recorda: $a^m\\cdot a^n=a^{m+n}$.",
+   "enunciat": "$5^2\\cdot 5^6$",
+   "opcions": [
+    "$25^{8}$",
+    "$5^{12}$",
+    "$5^{8}$",
+    "$5^{4}$"
+   ],
+   "pistes": [
+    "Les dues potències tenen la mateixa base, $5$.",
+    "Suma els exponents: $2+6$."
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDIsICJkaWFnIjogWyJMYSBiYXNlIMOpcyAkNSQgYWxzIGRvcyBmYWN0b3JzIGkgZXMgcXVlZGEgJDUkLiBFbiBjb21iaW5hciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgbGEgYmFzZSBlcyBxdWVkYSB0YWwgcXVhbDsgbm9tw6lzIGNhbnZpYSBsJ2V4cG9uZW50LiIsICJFbiBtdWx0aXBsaWNhciBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSwgZWxzIGV4cG9uZW50cyBzZSBTVU1FTiwgbm8gZXMgbXVsdGlwbGlxdWVuOiAkYV5tXFxjZG90IGFebj1hXnttK259JC4iLCAiIiwgIkVuIG11bHRpcGxpY2FyIHBvdMOobmNpZXMgZGUgbGEgbWF0ZWl4YSBiYXNlLCBlbHMgZXhwb25lbnRzIHNlIHN1bWVuOyByZXN0YXItbG9zIMOpcyBsYSByZWdsYSBkZWwgcXVvY2llbnQsIG5vIGxhIGRlbCBwcm9kdWN0ZS4iXSwgImVyciI6IFsiQkFTRV9BTFRFUkFEQSIsICJFWFBPTkVOVFNfTVVMVElQTElDQVRTIiwgIiIsICJFWFBPTkVOVFNfUkVTVEFUU19QUk9EVUNURSJdLCAicmVzIjogWyIkNV4yXFxjZG90NV42PTVeezIrNn09NV57OH0kIl19"
+  },
   {
    "id": "35a",
    "ex": 35,
@@ -1260,6 +1308,50 @@ window.FULL = {
    ],
    "nota": "",
    "clau": "eyJvayI6IDIsICJkaWFnIjogWyJIYXMgcGxhbnRlamF0ICQyYT05JCwgb2JsaWRhbnQtdGUgZGVsICQzJCBxdWUgamEgaGkgaGEgYWwgcHJpbWVyIG1lbWJyZS4iLCAiSGFzIHBsYW50ZWphdCAkM1xcY2RvdCAyYT05JCBlbiBsbG9jIGRlICQzKzJhPTkkLiIsICIiLCAiSGFzIHBsYW50ZWphdCBsJ2VxdWFjacOzIGEgbCdpbnJldsOpcy4iXSwgImVyciI6IFsiRkFDVE9SX09CTElEQVQiLCAiRVFVQUNJT19FWFBPTkVOVF9NVUxUSVBMSUNBVCIsICIiLCAiT1JEUkVfUkVTVEEiXSwgInJlcyI6IFsiJDMrMmE9OVxcUmlnaHRhcnJvdyAyYT02XFxSaWdodGFycm93IGE9MyQiXX0="
+  },
+  {
+   "id": "345a",
+   "ex": 345,
+   "ap": "a",
+   "bloc": "verifica",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Digues si aquesta igualtat entre potències és certa o falsa, comprovant-la amb la propietat que hi correspon.",
+   "enunciat": "$3^2\\cdot 3^5=3^{7}$",
+   "opcions": [
+    "Falsa: és $3^{3}$",
+    "Falsa: és $9^{7}$",
+    "Falsa: és $3^{10}$",
+    "Certa"
+   ],
+   "pistes": [
+    "És un producte de potències de la mateixa base.",
+    "Els exponents se sumen: quant fa $2+5$?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJSZXN0YXIgZXhwb25lbnRzIMOpcyBwZXIgRElWSURJUi4gQXF1w60gZXMgbXVsdGlwbGljYTogJDIrNT03JC4gTGEgaWd1YWx0YXQgw6lzIGNlcnRhLiIsICJMYSBiYXNlIG5vIGVzIG11bHRpcGxpY2E6IGVzIHF1ZWRhICQzJC4gTGEgaWd1YWx0YXQgw6lzIGNlcnRhLiIsICJFbiB1biBQUk9EVUNURSBkZSBwb3TDqG5jaWVzIGRlIGxhIG1hdGVpeGEgYmFzZSBlbHMgZXhwb25lbnRzIHNlIHN1bWVuOiAkMis1PTckLiBMYSBpZ3VhbHRhdCDDqXMgY2VydGEuIiwgIiJdLCAiZXJyIjogWyJFWFBPTkVOVFNfUkVTVEFUU19QUk9EVUNURSIsICJCQVNFX0FMVEVSQURBIiwgIkVYUE9ORU5UU19NVUxUSVBMSUNBVFMiLCAiIl0sICJyZXMiOiBbIiQzXjJcXGNkb3QzXjU9M157Mis1fT0zXns3fSQ6IGxhIGlndWFsdGF0IMOpcyBjZXJ0YS4iXX0="
+  },
+  {
+   "id": "345b",
+   "ex": 345,
+   "ap": "b",
+   "bloc": "verifica",
+   "tipus": "A",
+   "dif": 1,
+   "encapcalament": "Digues si aquesta igualtat entre potències és certa o falsa, comprovant-la amb la propietat que hi correspon.",
+   "enunciat": "$\\left(2^3\\right)^2=2^{5}$",
+   "opcions": [
+    "Falsa: és $2^{9}$",
+    "Certa",
+    "Falsa: és $4^{5}$",
+    "Falsa: és $2^{6}$"
+   ],
+   "pistes": [
+    "És una potència elevada a una altra potència.",
+    "Els exponents es multipliquen: quant fa $3\\cdot2$?"
+   ],
+   "nota": "",
+   "clau": "eyJvayI6IDMsICJkaWFnIjogWyJIYXMgZWxldmF0IGwnZXhwb25lbnQgYWwgcXVhZHJhdCwgJDNeMj05JC4gRWxzIGV4cG9uZW50cyBlcyBtdWx0aXBsaXF1ZW46ICQzXFxjZG90Mj02JC4iLCAiSGFzIHN1bWF0IGVscyBleHBvbmVudHMuIEVuIHVuYSBwb3TDqG5jaWEgZCd1bmEgcG90w6huY2lhIGVzIE1VTFRJUExJUVVFTjogJDNcXGNkb3QyPTYkLCBubyAkMysyPTUkLiIsICJMYSBiYXNlIG5vIGNhbnZpYTogZXMgcXVlZGEgJDIkLiBJIGVscyBleHBvbmVudHMgZXMgbXVsdGlwbGlxdWVuLiIsICIiXSwgImVyciI6IFsiUE9URU5DSUFfQVBMSUNBREFfTUFMQU1FTlQiLCAiUE9URU5DSUFfUE9URU5DSUFfU1VNQURBIiwgIkJBU0VfQUxURVJBREEiLCAiIl0sICJyZXMiOiBbIiRcXGxlZnQoMl4zXFxyaWdodCleMj0yXnszXFxjZG90Mn09Ml57Nn0kLCBubyAkMl57NX0kOiBsYSBpZ3VhbHRhdCDDqXMgZmFsc2EuIl19"
   },
   {
    "id": "43a",

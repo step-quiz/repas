@@ -9,8 +9,8 @@ strings, error feedback — is in Catalan, and must stay in Catalan. Do not
 translate the project.
 
 **Status as of this document:** written when the bank had 864 exercises and 125
-automated checks. **Updated 2026-10-17:** 951 exercises in 56 blocks across 12
-sheets, 197 with a figure; `sh tests/executa.sh` runs 532 checks (207 of them need
+automated checks. **Updated 2026-10-18:** 1029 exercises in 56 blocks across 12
+sheets, 208 with a figure; `sh tests/executa.sh` runs 532 checks (207 of them need
 `jsdom`). Parts V–IX are kept as the record of how the work was planned; Part VII
 has the current numbers, and the parallel tracks of Part IX have been carried out
 (`tools/figures/` package, `tests/test_a11y.js`, `tests/test_probabilitat_nou.py`…).
@@ -75,7 +75,9 @@ Content written for this project rather than transcribed is numbered **from
                                   │  python3 build_tot.py
                                   ▼
 ┌─ DATA ─────────────────────────────────────────────────────────────┐
-│  data/fullN.js       generated; window.FULL = {...}                │
+│  data/fullN.js       generated; window.FULL = {...} (full.html)     │
+│  data/fullN-index.js generated; window.FULL_INDEX = {blocs: ids}    │
+│  data/fullN-<bloc>.js generated; one block's items (practica.html)  │
 │  revisio/REVISIO-fullN.html  generated; proof-reading view         │
 │  js/codi-taules.js   generated; item order + difficulty + tags     │
 │  analitzador-repas.html  generated; single-file teacher tool       │
@@ -577,23 +579,23 @@ values differ.
 
 ## 7.1 The bank
 
-Recomputed from `data/fullN.js` on 2026-10-17.
+Recomputed from `data/fullN.js` on 2026-10-18.
 
 | Sheet | Topic | Blocks | Items | With figure | kB |
 |---:|---|---:|---:|---:|---:|
-| 1 | Integers, fractions, decimals | 4 | 144 | 0 | 205 |
-| 2 | Powers | 4 | 89 | 0 | 120 |
-| 3 | Sequences and progressions | 4 | 56 | 0 | 90 |
-| 4 | Polynomials | 4 | 71 | 0 | 98 |
-| 5 | Equations and systems | 5 | 99 | 0 | 138 |
-| 6 | Proportionality, percentages | 5 | 48 | 0 | 74 |
-| 7 | Pythagoras, areas | 4 | 62 | 52 | 175 |
-| 8 | Thales, similarity | 6 | 59 | 43 | 173 |
-| 9 | Solids, area and volume | 4 | 52 | 47 | 187 |
-| 10 | Functions | 5 | 85 | 40 | 271 |
-| 11 | Statistics | 5 | 91 | 0 | 155 |
-| 12 | Combinatorics, probability | 6 | 95 | 15 | 245 |
-| | **Total** | **56** | **951** | **197** | 1931 |
+| 1 | Integers, fractions, decimals | 4 | 150 | 0 | 212 |
+| 2 | Powers | 4 | 93 | 0 | 124 |
+| 3 | Sequences and progressions | 4 | 60 | 0 | 95 |
+| 4 | Polynomials | 4 | 75 | 0 | 103 |
+| 5 | Equations and systems | 5 | 107 | 0 | 148 |
+| 6 | Proportionality, percentages | 5 | 54 | 0 | 81 |
+| 7 | Pythagoras, areas | 4 | 64 | 54 | 182 |
+| 8 | Thales, similarity | 6 | 69 | 46 | 193 |
+| 9 | Solids, area and volume | 4 | 58 | 53 | 209 |
+| 10 | Functions | 5 | 91 | 40 | 278 |
+| 11 | Statistics | 5 | 101 | 0 | 167 |
+| 12 | Combinatorics, probability | 6 | 107 | 15 | 261 |
+| | **Total** | **56** | **1029** | **208** | 2053 |
 
 ## 7.2 Other numbers
 
@@ -1056,7 +1058,10 @@ the way.
 - **`ok: 0` on all 15 initial-test probes.** `diagnostic.js` shuffles the
   options at render time.
 - **`data/full1.js` is 194 kB.** Sheet 1 has 140 items each carrying options,
-  hints, worked steps and per-distractor feedback.
+  hints, worked steps and per-distractor feedback. Only `full.html` (the sheet
+  hub, which needs every item's error tags) loads it; `practica.html` loads
+  `data/fullN-index.js` and the one `data/fullN-<bloc>.js` it needs (§4 of
+  `docs/TODO-AI.md`).
 - **The apothem of 170h is 4.25 where the formula says 4.33.** Textbook
   rounding. The test tolerates 3 %.
 - **`1/20a` has three numerically equal options.** Deliberate: the statement

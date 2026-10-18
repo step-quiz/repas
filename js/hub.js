@@ -6,7 +6,15 @@
    scroll: és com hi arriba l'alumne des d'una recomanació del tutor. */
 (function () {
   "use strict";
-  if (!window.FULL) return;   /* full.html ja mostra "aquest full encara no està preparat" */
+  /* Les dades (window.FULL) arriben amb un <script> que afegeix full.html:
+     poden arribar abans o després d'aquest fitxer. S'espera l'avís
+     «re:dades» (RE_DADES_LLESTES) si encara no hi són. Si no arriben mai,
+     full.html ja mostra "aquest full encara no està preparat". */
+  if (window.RE_DADES_OK) inicia();
+  else document.addEventListener("re:dades", inicia, { once: true });
+
+  function inicia() {
+  if (!window.FULL) return;
 
   var D = window.FULL, $ = function (s) { return document.querySelector(s); };
   var blocDestacat = new URLSearchParams(location.search).get("bloc");
@@ -222,4 +230,5 @@
   }
 
   pinta();
+  }
 })();

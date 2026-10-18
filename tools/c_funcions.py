@@ -186,11 +186,11 @@ def vertex_talls_tex(talls, eix_x, vertex):
 # ---- exercici 200: relacions que són o no són funcions ----
 E200 = "Raona quines de les relacions següents corresponen a funcions."
 
-Q("200a", 200, "a", B1, "B",
-  "La mida d'una paret i la quantitat de pintura necessària per pintar-la.",
-  "SÍ és una funció: per a cada mida de paret (suposant un gruix de pintura "
+Q("200a", 200, "a", B1, tipus="B",
+  enunciat="La mida d'una paret i la quantitat de pintura necessària per pintar-la.",
+  correcta="SÍ és una funció: per a cada mida de paret (suposant un gruix de pintura "
   "fix) hi ha una única quantitat de pintura necessària.",
-  [D("NO és una funció: la mateixa mida de paret podria necessitar "
+  distractors=[D("NO és una funció: la mateixa mida de paret podria necessitar "
      "quantitats de pintura diferents segons qui la pinti.",
      "VEREDICTE_INVERTIT",
      "Fixant el gruix de la pintura (com se sobreentén en un exercici "
@@ -209,21 +209,21 @@ Q("200a", 200, "a", B1, "B",
      "La forma concreta de la paret no afecta si la relació és una "
      "funció: el que importa és que cada mida (àrea) determini una "
      "única quantitat de pintura, sigui quina sigui la forma.")],
-  ["Una relació és una funció quan a cada valor de la primera magnitud "
+  pistes=["Una relació és una funció quan a cada valor de la primera magnitud "
    "li correspon un ÚNIC valor de la segona, mai més d'un.",
    "Pensa-ho amb el gruix de la capa fixat: si saps la mida d'una paret, "
    "la quantitat de pintura queda decidida, o en podria tenir dues de "
    "diferents?"],
-  ["Fixat el gruix de la pintura, cada mida de paret determina una "
+  resolucio=["Fixat el gruix de la pintura, cada mida de paret determina una "
    "única quantitat necessària: és una funció."],
   ex_text=E200)
 
-Q("200b", 200, "b", B1, "B",
-  "Cada mes de l'any i el seu nombre de dies.",
-  "NO és una funció: el febrer no sempre té el mateix nombre de dies "
+Q("200b", 200, "b", B1, tipus="B",
+  enunciat="Cada mes de l'any i el seu nombre de dies.",
+  correcta="NO és una funció: el febrer no sempre té el mateix nombre de dies "
   "($28$ o $29$, segons l'any), així que un mateix mes té més d'un "
   "valor possible.",
-  [D("SÍ és una funció: cada mes té un únic nombre de dies, determinat "
+  distractors=[D("SÍ és una funció: cada mes té un únic nombre de dies, determinat "
      "pel calendari.",
      "DOMINI_MAL_LLEGIT",
      "Això valdria si l'enunciat fixés un any concret. Tal com està, el "
@@ -243,10 +243,10 @@ Q("200b", 200, "b", B1, "B",
      "traspàs com si no. Però l'enunciat no en fixa cap: parla dels "
      "mesos en general, i per això el febrer queda amb dos valors "
      "possibles.")],
-  ["Comprova si algun mes podria tenir dos nombres de dies diferents.",
+  pistes=["Comprova si algun mes podria tenir dos nombres de dies diferents.",
    "Fixa't en què és exactament el conjunt de partida: els dotze mesos, "
    "sense dir de quin any."],
-  ["Per ser una funció, cada element del conjunt de partida ha de tenir "
+  resolucio=["Per ser una funció, cada element del conjunt de partida ha de tenir "
    "una imatge i només una.",
    "El febrer en té dues de possibles, $28$ i $29$, perquè l'enunciat no "
    "diu de quin any parlem.",
@@ -260,11 +260,11 @@ Q("200b", 200, "b", B1, "B",
                "que es reconegui.")
 
 
-Q("200c", 200, "c", B1, "B",
-  "El radi d'una circumferència i la longitud del seu perímetre.",
-  r"SÍ és una funció: cada radi determina una única longitud de "
+Q("200c", 200, "c", B1, tipus="B",
+  enunciat="El radi d'una circumferència i la longitud del seu perímetre.",
+  correcta=r"SÍ és una funció: cada radi determina una única longitud de "
   r"perímetre, mitjançant la fórmula $L=2\pi r$.",
-  [D("NO és una funció: circumferències de radis diferents poden tenir "
+  distractors=[D("NO és una funció: circumferències de radis diferents poden tenir "
      "perímetres semblants, així que no es pot saber amb certesa.",
      "VEREDICTE_INVERTIT",
      r"Que dos perímetres siguin \emph{semblants} no és el mateix que "
@@ -280,11 +280,11 @@ Q("200c", 200, "c", B1, "B",
      r"L'aproximació de $\pi$ que es faci servir no canvia que la "
      r"relació sigui una funció: per a cada radi hi ha un únic "
      r"perímetre corresponent, exacte o aproximat.")],
-  [r"La fórmula del perímetre, $L=2\pi r$, assigna a cada radi un "
+  pistes=[r"La fórmula del perímetre, $L=2\pi r$, assigna a cada radi un "
    r"únic valor de $L$.",
    r"Prova-ho amb un radi concret, per exemple $r=3$: quants perímetres "
    r"diferents li poden correspondre?"],
-  [r"Per a cada radi $r$ hi ha un únic perímetre $L=2\pi r$: és una "
+  resolucio=[r"Per a cada radi $r$ hi ha un únic perímetre $L=2\pi r$: és una "
    r"funció."],
   ex_text=E200)
 
@@ -303,10 +303,10 @@ def _im201_dist(fn):
     return imatges_tex([(e, F(fn(e))) for e in _E201_ENTR])
 
 
-Q("201a", 201, "a", B1, "A",
-  r"$f(x)=5x^2-1$",
-  _im201(lambda x: 5 * x * x - 1),
-  [D(_im201_dist(lambda x: 5 * (2 * x) - 1), "POTENCIA_COM_PRODUCTE",
+Q("201a", 201, "a", B1, tipus="A",
+  enunciat=r"$f(x)=5x^2-1$",
+  correcta=_im201(lambda x: 5 * x * x - 1),
+  distractors=[D(_im201_dist(lambda x: 5 * (2 * x) - 1), "POTENCIA_COM_PRODUCTE",
      r"$x^2$ no és $2x$: per exemple, per $x=2$, $x^2=4$ (no $2\cdot 2=4$"
      r"... prova-ho amb $x=3$: $x^2=9\neq 6$)."),
    D(_im201_dist(lambda x: 5 * x * x), "TERME_OBLIDAT_OPERACIO",
@@ -315,12 +315,12 @@ Q("201a", 201, "a", B1, "A",
      "SIGNE_FINAL",
      r"$x^2$ sempre és positiu, tant si $x$ és positiu com negatiu: "
      r"$(-2)^2=4$, igual que $2^2=4$.")],
-  [r"Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant "
+  pistes=[r"Substitueix cada valor de $x$ a l'expressió $5x^2-1$, calculant "
    r"primer el quadrat.",
    r"Fixa't que $x$ i $-x$ tenen el mateix quadrat, $(-2)^2=2^2$: amb "
    r"aquesta funció, $f(2)$ i $f(-2)$ han de sortir iguals, i el mateix "
    r"amb $3$ i $-3$, i amb $1$ i $-1$."],
-  [r"Per a cada valor, calcula primer $x^2$ i després multiplica per "
+  resolucio=[r"Per a cada valor, calcula primer $x^2$ i després multiplica per "
    r"$5$ i resta $1$.",
    r"$f(2)=5\cdot 4-1=19$, $f(-2)=5\cdot 4-1=19$ (el quadrat elimina "
    r"el signe).",
@@ -332,10 +332,10 @@ Q("201a", 201, "a", B1, "A",
   # més que il·lustrar-la, no substituir el càlcul.
   figura=grafica_parabola(5.0, 0.0, -1.0))
 
-Q("201b", 201, "b", B1, "A",
-  r"$f(x)=2x^2-x$",
-  _im201(lambda x: 2 * x * x - x),
-  [D(_im201_dist(lambda x: 2 * x * x + x), "SUMA_EN_LLOC_RESTA",
+Q("201b", 201, "b", B1, tipus="A",
+  enunciat=r"$f(x)=2x^2-x$",
+  correcta=_im201(lambda x: 2 * x * x - x),
+  distractors=[D(_im201_dist(lambda x: 2 * x * x + x), "SUMA_EN_LLOC_RESTA",
      r"Cal RESTAR $x$, no sumar-lo: $f(x)=2x^2-x$."),
    D(_im201_dist(lambda x: 2 * (2 * x) - x), "POTENCIA_COM_PRODUCTE",
      r"$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no "
@@ -343,38 +343,38 @@ Q("201b", 201, "b", B1, "A",
    D(_im201_dist(lambda x: (2 * x) ** 2 - x), "POTENCIA_APLICADA_MALAMENT",
      r"El quadrat només afecta la $x$, no el $2x$ sencer: és $2\cdot "
      r"x^2$, no $(2x)^2$.")],
-  [r"Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: "
+  pistes=[r"Substitueix cada valor de $x$ a $2x^2-x$, respectant l'ordre: "
    r"primer el quadrat, després la resta.",
    r"Compte amb els negatius: $f(-2)=2\cdot(-2)^2-(-2)$, i restar un "
    r"nombre negatiu és sumar-lo."],
-  [r"Per a cada valor, calcula $x^2$, multiplica per $2$ i resta $x$.",
+  resolucio=[r"Per a cada valor, calcula $x^2$, multiplica per $2$ i resta $x$.",
    r"$f(2)=2\cdot 4-2=6$, $f(-2)=2\cdot 4-(-2)=10$.",
    r"$f(3)=2\cdot 9-3=15$, $f(-3)=2\cdot 9-(-3)=21$, $f(1)=1$, "
    r"$f(-1)=3$."],
   ex_text=E201)
 
-Q("201c", 201, "c", B1, "A",
-  r"$f(x)=x^2-x-1$",
-  _im201(lambda x: x * x - x - 1),
-  [D(_im201_dist(lambda x: x * x + x - 1), "SIGNE_TERME_INDEPENDENT",
+Q("201c", 201, "c", B1, tipus="A",
+  enunciat=r"$f(x)=x^2-x-1$",
+  correcta=_im201(lambda x: x * x - x - 1),
+  distractors=[D(_im201_dist(lambda x: x * x + x - 1), "SIGNE_TERME_INDEPENDENT",
      r"El terme $-x$ té signe negatiu: cal RESTAR $x$, no sumar-lo."),
    D(_im201_dist(lambda x: x * x - x), "TERME_OBLIDAT_OPERACIO",
      r"Falta restar l'$1$ final a cada imatge."),
    D(_im201_dist(lambda x: 2 * x - x - 1), "POTENCIA_COM_PRODUCTE",
      r"$x^2$ no és $2x$: comprova-ho amb $x=3$, on $x^2=9$ i no "
      r"$2\cdot 3=6$.")],
-  [r"Substitueix cada valor de $x$ a $x^2-x-1$.",
+  pistes=[r"Substitueix cada valor de $x$ a $x^2-x-1$.",
    r"Posa cada valor entre parèntesis abans de substituir, per exemple "
    r"$f(-2)=(-2)^2-(-2)-1$, i vigila el doble signe menys."],
-  [r"Per a cada valor, calcula $x^2$, resta $x$ i resta $1$.",
+  resolucio=[r"Per a cada valor, calcula $x^2$, resta $x$ i resta $1$.",
    r"$f(2)=4-2-1=1$, $f(-2)=4-(-2)-1=5$.",
    r"$f(3)=9-3-1=5$, $f(-3)=9-(-3)-1=11$, $f(1)=-1$, $f(-1)=1$."],
   ex_text=E201)
 
-Q("201d", 201, "d", B1, "A",
-  r"$f(x)=-x^2+1$",
-  _im201(lambda x: -x * x + 1),
-  [D(_im201_dist(lambda x: x * x + 1), "SIGNE_FINAL",
+Q("201d", 201, "d", B1, tipus="A",
+  enunciat=r"$f(x)=-x^2+1$",
+  correcta=_im201(lambda x: -x * x + 1),
+  distractors=[D(_im201_dist(lambda x: x * x + 1), "SIGNE_FINAL",
      r"El signe $-$ davant $x^2$ afecta sempre, també quan $x$ és "
      r"negatiu: $-(-2)^2=-4$, no $+4$."),
    D(_im201_dist(lambda x: -2 * x + 1), "POTENCIA_COM_PRODUCTE",
@@ -382,11 +382,11 @@ Q("201d", 201, "d", B1, "A",
      r"$2\cdot 3=6$."),
    D(_im201_dist(lambda x: -x * x - 1), "SIGNE_TERME_INDEPENDENT",
      r"El $+1$ final és positiu: cal SUMAR-lo, no restar-lo.")],
-  [r"Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ "
+  pistes=[r"Substitueix cada valor de $x$ a $-x^2+1$: calcula primer $x^2$ "
    r"(sempre positiu) i després canvia'n el signe.",
    r"El menys de $-x^2$ s'aplica després del quadrat: $-(-3)^2=-9$, no "
    r"$+9$. Al final, suma-hi $1$."],
-  [r"Per a cada valor, calcula $x^2$, canvia'n el signe i suma $1$.",
+  resolucio=[r"Per a cada valor, calcula $x^2$, canvia'n el signe i suma $1$.",
    r"$f(2)=-4+1=-3$, $f(-2)=-4+1=-3$ (el quadrat elimina el signe "
    r"de $x$ abans de canviar-lo).",
    r"$f(3)=-8$, $f(-3)=-8$, $f(1)=0$, $f(-1)=0$."],
@@ -404,10 +404,10 @@ def _im202(vals):
     return imatges_tex(list(zip(_E202_ENTR, vals)))
 
 
-Q("202a", 202, "a", B1, "A",
-  r"$f(x)=x^3-1$",
-  _im202([F(x) ** 3 - 1 for x in _E202_ENTR]),
-  [D(_im202([x * 3 - 1 for x in _E202_ENTR]), "POTENCIA_COM_PRODUCTE",
+Q("202a", 202, "a", B1, tipus="A",
+  enunciat=r"$f(x)=x^3-1$",
+  correcta=_im202([F(x) ** 3 - 1 for x in _E202_ENTR]),
+  distractors=[D(_im202([x * 3 - 1 for x in _E202_ENTR]), "POTENCIA_COM_PRODUCTE",
      r"$x^3$ no és $3x$: per exemple, per $x=2$, $x^3=8$ (no $3\cdot "
      r"2=6$)."),
    D(_im202([F(x) ** 3 for x in _E202_ENTR]), "TERME_OBLIDAT_OPERACIO",
@@ -415,19 +415,19 @@ Q("202a", 202, "a", B1, "A",
    D(_im202([abs(x) ** 3 - 1 for x in _E202_ENTR]),
      "POTENCIA_APLICADA_MALAMENT",
      r"El cub d'un nombre negatiu és negatiu: $(-2)^3=-8$, no $8$.")],
-  [r"Substitueix cada valor a $x^3-1$, calculant primer el cub "
+  pistes=[r"Substitueix cada valor a $x^3-1$, calculant primer el cub "
    r"(recorda que el cub d'un negatiu és negatiu).",
    r"Per exemple, $f(-1)=(-1)^3-1$: primer el cub, que conserva el "
    r"signe, i després resta $1$."],
-  [r"Per a cada valor, calcula $x^3$ i resta $1$.",
+  resolucio=[r"Per a cada valor, calcula $x^3$ i resta $1$.",
    r"$f(-2)=(-2)^3-1=-8-1=-9$, $f(-1)=-1-1=-2$, $f(0)=-1$, $f(1)=0$, "
    r"$f(2)=8-1=7$."],
   ex_text=E202)
 
-Q("202b", 202, "b", B1, "A",
-  r"$f(x)=\dfrac{1}{x^2+2}$",
-  _im202([F(1, x ** 2 + 2) for x in _E202_ENTR]),
-  [D(_im202([F(x ** 2 + 2, 1) for x in _E202_ENTR]), "INVERTIDA",
+Q("202b", 202, "b", B1, tipus="A",
+  enunciat=r"$f(x)=\dfrac{1}{x^2+2}$",
+  correcta=_im202([F(1, x ** 2 + 2) for x in _E202_ENTR]),
+  distractors=[D(_im202([F(x ** 2 + 2, 1) for x in _E202_ENTR]), "INVERTIDA",
      r"La fracció ha quedat invertida: la $f(x)$ correcta és "
      r"$\dfrac{1}{x^2+2}$, no $x^2+2$."),
    D(_im202([F(x ** 2, 1) for x in _E202_ENTR]),
@@ -438,19 +438,19 @@ Q("202b", 202, "b", B1, "A",
               for x in _E202_ENTR]), "SIGNE_FINAL",
      r"El $x^2$ del denominador és sempre positiu i se suma (no es "
      r"resta): és $x^2+2$, no $-x^2+2$.")],
-  [r"Calcula primer $x^2+2$ per a cada valor i després inverteix el "
+  pistes=[r"Calcula primer $x^2+2$ per a cada valor i després inverteix el "
    r"resultat.",
    r"Com que $x^2$ no depèn del signe de $x$, $f(-2)=f(2)$ i "
    r"$f(-1)=f(1)$: només cal calcular tres valors diferents."],
-  [r"Per a cada valor, calcula $x^2+2$ i fes-ne la fracció inversa.",
+  resolucio=[r"Per a cada valor, calcula $x^2+2$ i fes-ne la fracció inversa.",
    r"$f(-2)=\dfrac{1}{4+2}=\dfrac{1}{6}$, $f(-1)=\dfrac{1}{3}$, "
    r"$f(0)=\dfrac{1}{2}$, $f(1)=\dfrac{1}{3}$, $f(2)=\dfrac{1}{6}$."],
   ex_text=E202)
 
-Q("202c", 202, "c", B1, "A",
-  r"$f(x)=\sqrt{\dfrac{x}{2}+5}$",
-  _im202([dec_tex((x / 2 + 5) ** 0.5) for x in _E202_ENTR]),
-  [D(_im202([dec_tex((x + 5) ** 0.5) for x in _E202_ENTR]),
+Q("202c", 202, "c", B1, tipus="A",
+  enunciat=r"$f(x)=\sqrt{\dfrac{x}{2}+5}$",
+  correcta=_im202([dec_tex((x / 2 + 5) ** 0.5) for x in _E202_ENTR]),
+  distractors=[D(_im202([dec_tex((x + 5) ** 0.5) for x in _E202_ENTR]),
      "TERME_OBLIDAT_OPERACIO",
      r"Falta dividir la $x$ entre $2$ abans de sumar $5$: dins de "
      r"l'arrel hi ha $\dfrac{x}{2}+5$, no $x+5$."),
@@ -461,12 +461,12 @@ Q("202c", 202, "c", B1, "A",
    D(_im202([dec_tex(-((x / 2 + 5) ** 0.5)) for x in _E202_ENTR]),
      "SIGNE_FINAL",
      r"L'arrel quadrada d'un nombre positiu és sempre positiva.")],
-  [r"Calcula primer el que hi ha dins l'arrel ($\dfrac{x}{2}+5$) i "
+  pistes=[r"Calcula primer el que hi ha dins l'arrel ($\dfrac{x}{2}+5$) i "
    r"després fes-ne l'arrel quadrada amb la calculadora.",
    r"Per a $x=-2$, dins de l'arrel queda $\dfrac{-2}{2}+5$. Fes el "
    r"mateix amb els altres valors i arrodoneix cada arrel a dos "
    r"decimals."],
-  [r"Per a cada valor, calcula $\dfrac{x}{2}+5$ i fes-ne l'arrel "
+  resolucio=[r"Per a cada valor, calcula $\dfrac{x}{2}+5$ i fes-ne l'arrel "
    r"quadrada, arrodonint a les centèsimes.",
    r"$f(-2)=\sqrt{4}=2{,}00$, $f(-1)=\sqrt{4{,}5}\approx 2{,}12$, "
    r"$f(0)=\sqrt{5}\approx 2{,}24$, $f(1)=\sqrt{5{,}5}\approx 2{,}35$, "
@@ -476,10 +476,10 @@ Q("202c", 202, "c", B1, "A",
   # l'encapçalament ja demana.
   )
 
-Q("202d", 202, "d", B1, "A",
-  r"$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$",
-  _im202([F(x ** 2, 3) - 2 * x + F(3, 5) for x in _E202_ENTR]),
-  [D(_im202([F(x ** 2, 3) + 2 * x + F(3, 5) for x in _E202_ENTR]),
+Q("202d", 202, "d", B1, tipus="A",
+  enunciat=r"$f(x)=\dfrac{x^2}{3}-2x+\dfrac{3}{5}$",
+  correcta=_im202([F(x ** 2, 3) - 2 * x + F(3, 5) for x in _E202_ENTR]),
+  distractors=[D(_im202([F(x ** 2, 3) + 2 * x + F(3, 5) for x in _E202_ENTR]),
      "SUMA_EN_LLOC_RESTA",
      r"El terme $2x$ se RESTA, no se suma: és $-2x$."),
    D(_im202([F(x ** 2) - 2 * x + F(3, 5) for x in _E202_ENTR]),
@@ -489,12 +489,12 @@ Q("202d", 202, "d", B1, "A",
    D(_im202([F(x ** 2, 3) - 2 * x - F(3, 5) for x in _E202_ENTR]),
      "SIGNE_TERME_INDEPENDENT",
      r"El terme $\dfrac{3}{5}$ és positiu i se suma, no se resta.")],
-  [r"Substitueix cada valor a $\dfrac{x^2}{3}-2x+\dfrac{3}{5}$ i opera "
+  pistes=[r"Substitueix cada valor a $\dfrac{x^2}{3}-2x+\dfrac{3}{5}$ i opera "
    r"amb fraccions, buscant denominador comú (15) al final.",
    r"Passa els tres termes a denominador $15$: $\dfrac{x^2}{3}="
    r"\dfrac{5x^2}{15}$, $-2x=\dfrac{-30x}{15}$ i $\dfrac35=\dfrac{9}{15}$. "
    r"Així només has de sumar numeradors."],
-  [r"Calcula per separat $\dfrac{x^2}{3}$, $-2x$ i $\dfrac{3}{5}$, i "
+  resolucio=[r"Calcula per separat $\dfrac{x^2}{3}$, $-2x$ i $\dfrac{3}{5}$, i "
    r"suma-ho tot amb denominador comú $15$.",
    r"$f(-2)=\dfrac{4}{3}+4+\dfrac{3}{5}=\dfrac{20+60+9}{15}="
    r"\dfrac{89}{15}$.",
@@ -507,13 +507,13 @@ Q("202d", 202, "d", B1, "A",
 E203 = ("Indica el domini i el recorregut de cada funció, descrita per la "
         "seva gràfica.")
 
-Q("203a", 203, "a", B1, "B",
-  "Una gràfica formada per dues branques de corba que s'apropen sense "
+Q("203a", 203, "a", B1, tipus="B",
+  enunciat="Una gràfica formada per dues branques de corba que s'apropen sense "
   "arribar mai a la recta vertical $x=2$ ni a la recta horitzontal "
   "$y=0$.",
-  r"Domini: $\mathbb{R}-\{2\}$ (tots els reals excepte $2$). "
+  correcta=r"Domini: $\mathbb{R}-\{2\}$ (tots els reals excepte $2$). "
   r"Recorregut: $\mathbb{R}-\{0\}$ (tots els reals excepte $0$).",
-  [D(r"Domini: $\mathbb{R}-\{0\}$. Recorregut: $\mathbb{R}-\{2\}$.",
+  distractors=[D(r"Domini: $\mathbb{R}-\{0\}$. Recorregut: $\mathbb{R}-\{2\}$.",
      "DOMINI_RECORREGUT_INTERCANVIATS",
      r"El domini és el conjunt de valors de $x$ (l'asímptota vertical "
      r"és $x=2$) i el recorregut el de $y$ (l'asímptota horitzontal "
@@ -529,11 +529,11 @@ Q("203a", 203, "a", B1, "B",
      r"La gràfica tampoc arriba a tocar la recta $x=2$: cal excloure "
      r"aquest valor del domini, igual que s'exclou el $0$ del "
      r"recorregut.")],
-  ["Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a "
+  pistes=["Busca els valors de $x$ i de $y$ que la gràfica no arriba mai a "
    "tocar (les asímptotes): aquests són els que cal excloure.",
    "Una recta vertical diu quin valor de $x$ no s'assoleix mai (domini); "
    "una d'horitzontal, quin valor de $y$ (recorregut)."],
-  [r"La gràfica no toca mai la recta vertical $x=2$: el domini és "
+  resolucio=[r"La gràfica no toca mai la recta vertical $x=2$: el domini és "
    r"$\mathbb{R}-\{2\}$.",
    r"Tampoc toca mai la recta horitzontal $y=0$: el recorregut és "
    r"$\mathbb{R}-\{0\}$."],
@@ -549,12 +549,12 @@ Q("203a", 203, "a", B1, "B",
       # de continuïtat).
       continua_esq=True, continua_dreta=True))
 
-Q("203b", 203, "b", B1, "B",
-  "Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems "
+Q("203b", 203, "b", B1, tipus="B",
+  enunciat="Una gràfica que només existeix entre $x=-3$ i $x=4$ (extrems "
   "inclosos), i que oscil·la entre una alçada mínima de $-2$ i una "
   "màxima de $3$.",
-  r"Domini: $[-3,4]$. Recorregut: $[-2,3]$.",
-  [D(r"Domini: $[-2,3]$. Recorregut: $[-3,4]$.",
+  correcta=r"Domini: $[-3,4]$. Recorregut: $[-2,3]$.",
+  distractors=[D(r"Domini: $[-2,3]$. Recorregut: $[-3,4]$.",
      "DOMINI_RECORREGUT_INTERCANVIATS",
      r"El domini és l'interval de valors de $x$ ($-3$ a $4$) i el "
      r"recorregut el de $y$ ($-2$ a $3$): estan intercanviats."),
@@ -567,11 +567,11 @@ Q("203b", 203, "b", B1, "B",
      "SIGNE_FINAL",
      r"L'alçada mínima de la gràfica és $-2$ (per sota de l'eix "
      r"horitzontal), no $0$: el recorregut comença a $-2$.")],
-  ["El domini és l'interval de valors de $x$ on existeix la gràfica; "
+  pistes=["El domini és l'interval de valors de $x$ on existeix la gràfica; "
    "el recorregut, l'interval d'alçades ($y$) que arriba a assolir.",
    "Mira si els extrems hi són inclosos: si ho són, l'interval porta "
    "claudàtors, $[\\ ]$; si no, parèntesis, $(\\ )$."],
-  [r"La gràfica va de $x=-3$ a $x=4$, amb els extrems inclosos: domini "
+  resolucio=[r"La gràfica va de $x=-3$ a $x=4$, amb els extrems inclosos: domini "
    r"$[-3,4]$.",
    r"L'alçada oscil·la entre $-2$ i $3$, també inclosos: recorregut "
    r"$[-2,3]$."],
@@ -585,12 +585,12 @@ Q("203b", 203, "b", B1, "B",
       # afegeix cap dada nova, només l'il·lustra (auditoria, punt E).
       tancat_esq=True, tancat_dreta=True))
 
-Q("203c", 203, "c", B1, "B",
-  "Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense "
+Q("203c", 203, "c", B1, tipus="B",
+  enunciat="Una gràfica que s'estén cap a l'esquerra i cap a la dreta sense "
   "límit, amb un punt més baix a alçada $-1$ i que a partir d'aquí "
   "puja indefinidament cap als dos costats.",
-  r"Domini: $\mathbb{R}$ (tots els reals). Recorregut: $[-1,+\infty)$.",
-  [D(r"Domini: $[-1,+\infty)$. Recorregut: $\mathbb{R}$.",
+  correcta=r"Domini: $\mathbb{R}$ (tots els reals). Recorregut: $[-1,+\infty)$.",
+  distractors=[D(r"Domini: $[-1,+\infty)$. Recorregut: $\mathbb{R}$.",
      "DOMINI_RECORREGUT_INTERCANVIATS",
      r"Que la gràfica s'estengui sense límit cap a l'esquerra i la "
      r"dreta descriu el domini (valors de $x$); que tingui un punt "
@@ -605,12 +605,12 @@ Q("203c", 203, "c", B1, "B",
      r"El punt més baix, a alçada $-1$, sí forma part de la gràfica "
      r"(hi ha un mínim, no una asímptota): l'interval és tancat per "
      r"aquest costat, $[-1,+\infty)$, no obert.")],
-  ["Si la gràfica s'estén sense límit cap als dos costats "
+  pistes=["Si la gràfica s'estén sense límit cap als dos costats "
    "horitzontalment, el domini és tot $\\mathbb{R}$; fixa't en si el "
    "punt més baix forma part o no de la gràfica.",
    "El recorregut són les alçades: comença al punt més baix i va cap "
    "amunt. Decideix si aquest extrem va amb claudàtor o amb parèntesi."],
-  [r"La gràfica existeix per a qualsevol valor de $x$: domini "
+  resolucio=[r"La gràfica existeix per a qualsevol valor de $x$: domini "
    r"$\mathbb{R}$.",
    r"El valor més baix que assoleix $y$ és $-1$ (inclòs), i puja sense "
    r"límit: recorregut $[-1,+\infty)$."],
@@ -625,13 +625,13 @@ Q("203c", 203, "c", B1, "B",
       # (auditoria, punt E — l'enunciat ja diu "sense límit").
       continua_esq=True, continua_dreta=True))
 
-Q("203d", 203, "d", B1, "B",
-  "Una gràfica que només existeix per a valors de $x$ fins a $5$ "
+Q("203d", 203, "d", B1, tipus="B",
+  enunciat="Una gràfica que només existeix per a valors de $x$ fins a $5$ "
   "(inclòs, cap a l'esquerra sense límit), amb un punt més baix a "
   "alçada $0$ (quan $x=5$) i que a partir d'aquí puja indefinidament "
   "com més ens allunyem cap a l'esquerra.",
-  r"Domini: $(-\infty,5]$. Recorregut: $[0,+\infty)$.",
-  [D(r"Domini: $[0,+\infty)$. Recorregut: $(-\infty,5]$.",
+  correcta=r"Domini: $(-\infty,5]$. Recorregut: $[0,+\infty)$.",
+  distractors=[D(r"Domini: $[0,+\infty)$. Recorregut: $(-\infty,5]$.",
      "DOMINI_RECORREGUT_INTERCANVIATS",
      r"Que existeixi fins a $x=5$ descriu el domini (valors de $x$); "
      r"que tingui un punt més baix a $0$ descriu el recorregut (valors "
@@ -645,11 +645,11 @@ Q("203d", 203, "d", B1, "B",
      r"La gràfica existeix cap a l'ESQUERRA de $x=5$ (sense límit "
      r"cap a l'esquerra), no cap a la dreta: és $(-\infty,5]$, no "
      r"$[5,+\infty)$.")],
-  ["Fixa't cap a quin costat s'estén sense límit horitzontalment, i "
+  pistes=["Fixa't cap a quin costat s'estén sense límit horitzontalment, i "
    "si l'extrem $x=5$ forma part o no de la gràfica.",
    "Per al recorregut, mira les alçades: la més baixa és la del punt "
    "$x=5$, i a partir d'aquí la gràfica puja sense límit."],
-  [r"La gràfica existeix per a $x\leq 5$, amb el $5$ inclòs: domini "
+  resolucio=[r"La gràfica existeix per a $x\leq 5$, amb el $5$ inclòs: domini "
    r"$(-\infty,5]$.",
    r"El valor més baix que assoleix $y$ és $0$ (a $x=5$, inclòs), i "
    r"puja sense límit com més s'allunya cap a l'esquerra: recorregut "
@@ -667,12 +667,12 @@ Q("203d", 203, "d", B1, "B",
 E206 = ("Fes l'estudi complet (domini, recorregut, creixement/decreixement "
         "i extrems) de cada funció, descrita per la seva gràfica.")
 
-Q("206a", 206, "a", B1, "B",
-  "Una recta que travessa tot el pla, pujant sempre de manera "
+Q("206a", 206, "a", B1, tipus="B",
+  enunciat="Una recta que travessa tot el pla, pujant sempre de manera "
   "constant, sense cap tram pla ni cap màxim o mínim.",
-  r"Domini i recorregut: $\mathbb{R}$. És creixent a tot el domini. "
+  correcta=r"Domini i recorregut: $\mathbb{R}$. És creixent a tot el domini. "
   r"No té cap màxim ni mínim.",
-  [D(r"Domini i recorregut: $\mathbb{R}$. És decreixent a tot el "
+  distractors=[D(r"Domini i recorregut: $\mathbb{R}$. És decreixent a tot el "
      r"domini. No té cap màxim ni mínim.", "SIGNE_FINAL",
      r"Que pugi sempre vol dir que és CREIXENT, no decreixent: com "
      r"més gran és $x$, més gran és $y$."),
@@ -688,11 +688,11 @@ Q("206a", 206, "a", B1, "B",
      r"Una recta que travessa tot el pla sense cap límit arriba a "
      r"qualsevol valor de $y$, també als negatius: el recorregut és "
      r"tot $\mathbb{R}$, no només els positius.")],
-  ["Una recta que puja sempre sense cap tram pla és creixent a tot "
+  pistes=["Una recta que puja sempre sense cap tram pla és creixent a tot "
    "arreu i no té cap punt on deixi de pujar (cap extrem).",
    "Falten el domini i el recorregut: una recta que travessa tot el "
    "pla, a quins valors de $x$ arriba? I de $y$?"],
-  [r"La recta travessa tot el pla en totes direccions: domini i "
+  resolucio=[r"La recta travessa tot el pla en totes direccions: domini i "
    r"recorregut $\mathbb{R}$.",
    r"Puja de manera constant, sense cap tram on baixi: és creixent a "
    r"tot el domini.",
@@ -704,14 +704,14 @@ Q("206a", 206, "a", B1, "B",
   # (test_l_enunciat_es_resol_sense_veure_la_figura ho detecta).
   ex_text=E206)
 
-Q("206b", 206, "b", B1, "B",
-  "Una paràbola oberta cap amunt, amb el punt més baix al $(1,-3)$, "
+Q("206b", 206, "b", B1, tipus="B",
+  enunciat="Una paràbola oberta cap amunt, amb el punt més baix al $(1,-3)$, "
   "que baixa fins a aquest punt i després torna a pujar, estenent-se "
   "sense límit cap als dos costats.",
-  r"Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És decreixent a "
+  correcta=r"Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És decreixent a "
   r"$(-\infty,1)$ i creixent a $(1,+\infty)$. Té un mínim absolut al "
   r"punt $(1,-3)$.",
-  [D(r"Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És creixent a "
+  distractors=[D(r"Domini: $\mathbb{R}$. Recorregut: $[-3,+\infty)$. És creixent a "
      r"$(-\infty,1)$ i decreixent a $(1,+\infty)$. Té un mínim absolut "
      r"al punt $(1,-3)$.", "CREIXEMENT_INVERTIT",
      r"Abans d'arribar al punt més baix la funció BAIXA (decreix), i "
@@ -728,12 +728,12 @@ Q("206b", 206, "b", B1, "B",
      r"La paràbola s'estén sense límit horitzontalment (domini "
      r"$\mathbb{R}$) però només arriba a $y=-3$ per avall "
      r"(recorregut $[-3,+\infty)$): estan intercanviats.")],
-  ["El punt més baix d'una paràbola oberta cap amunt és sempre un "
+  pistes=["El punt més baix d'una paràbola oberta cap amunt és sempre un "
    "mínim; abans d'arribar-hi, la funció decreix, i després creix.",
    "Els trams de creixement es parteixen a la $x$ del punt més baix. Per "
    "al recorregut, quina és l'alçada més baixa que assoleix, i n'hi ha "
    "cap límit per dalt?"],
-  [r"La paràbola s'estén sense límit horitzontalment: domini "
+  resolucio=[r"La paràbola s'estén sense límit horitzontalment: domini "
    r"$\mathbb{R}$.",
    r"Mai baixa de $y=-3$ (és el punt més baix): recorregut "
    r"$[-3,+\infty)$.",
@@ -747,14 +747,14 @@ Q("206b", 206, "b", B1, "B",
       "Paràbola oberta cap amunt, que baixa fins a un punt i després "
       "torna a pujar."))
 
-Q("206c", 206, "c", B1, "B",
-  "Una gràfica que puja fins a un punt més alt en $(0,2)$, després "
+Q("206c", 206, "c", B1, tipus="B",
+  enunciat="Una gràfica que puja fins a un punt més alt en $(0,2)$, després "
   "baixa fins a un punt més baix en $(3,-1)$, i a partir d'aquí torna "
   "a pujar indefinidament.",
-  r"És creixent a $(-\infty,0)$, decreixent a $(0,3)$ i creixent a "
+  correcta=r"És creixent a $(-\infty,0)$, decreixent a $(0,3)$ i creixent a "
   r"$(3,+\infty)$. Té un màxim relatiu al punt $(0,2)$ i un mínim "
   r"relatiu al punt $(3,-1)$.",
-  [D(r"És decreixent a $(-\infty,0)$, creixent a $(0,3)$ i decreixent "
+  distractors=[D(r"És decreixent a $(-\infty,0)$, creixent a $(0,3)$ i decreixent "
      r"a $(3,+\infty)$. Té un mínim relatiu al punt $(0,2)$ i un "
      r"màxim relatiu al punt $(3,-1)$.", "CREIXEMENT_INVERTIT",
      r"Cada tram de creixement i decreixement, i cada màxim i mínim, "
@@ -775,13 +775,13 @@ Q("206c", 206, "c", B1, "B",
      r"A cada punt, la primera coordenada és el valor de $x$ i la "
      r"segona el de $y$: els màxims i mínims són als punts $(0,2)$ i "
      r"$(3,-1)$, no $(2,0)$ i $(-1,3)$.")],
-  ["Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a "
+  pistes=["Un màxim o mínim és RELATIU (no absolut) si la gràfica torna a "
    "superar-lo més endavant o més enrere; és absolut només si és el "
    "punt més alt (o baix) de TOTA la gràfica.",
    "Els trams de creixement i decreixement canvien just a les $x$ dels "
    "dos punts, $x=0$ i $x=3$. Després, pensa si a la dreta la gràfica "
    "arriba a superar $y=2$, i si a l'esquerra baixa de $y=-1$."],
-  [r"Puja fins al punt $(0,2)$: creixent a $(-\infty,0)$; aquest punt "
+  resolucio=[r"Puja fins al punt $(0,2)$: creixent a $(-\infty,0)$; aquest punt "
    r"és un màxim.",
    r"Després baixa fins al punt $(3,-1)$: decreixent a $(0,3)$; "
    r"aquest punt és un mínim.",
@@ -831,10 +831,10 @@ for _ap, (_m, _n) in _207.items():
                 r"Quan l'expressió no té cap terme independent escrit "
                 r"(com $%s$), l'ordenada a l'origen és $0$, no $1$: "
                 r"no hi ha cap terme que sumar." % _207_EXPR[_ap])
-    Q("207%s" % _ap, 207, _ap, B2, "A",
-      "$%s$" % _207_EXPR[_ap],
-      mn_tex(_m, _n),
-      [D(mn_tex(_n, _m), "PENDENT_ORDENADA_INTERCANVIATS",
+    Q("207%s" % _ap, 207, _ap, B2, tipus="A",
+      enunciat="$%s$" % _207_EXPR[_ap],
+      correcta=mn_tex(_m, _n),
+      distractors=[D(mn_tex(_n, _m), "PENDENT_ORDENADA_INTERCANVIATS",
          r"El pendent és el nombre que MULTIPLICA la $x$, i "
          r"l'ordenada a l'origen és el terme independent (sense $x$): "
          r"estan intercanviats."),
@@ -842,7 +842,7 @@ for _ap, (_m, _n) in _207.items():
          r"El pendent conserva el seu signe tal com apareix a "
          r"l'expressió: no cal canviar-lo."),
        _d3],
-      [r"El pendent és el coeficient que acompanya la $x$; l'ordenada "
+      pistes=[r"El pendent és el coeficient que acompanya la $x$; l'ordenada "
        r"a l'origen és el terme que no té $x$ (si no n'hi ha cap "
        r"d'escrit, l'ordenada és $0$).",
        (r"Compara $%s$ amb $y=mx+n$ terme a terme. El signe que hi ha "
@@ -850,7 +850,7 @@ for _ap, (_m, _n) in _207.items():
        if _n != 0 else
        (r"Compara $%s$ amb $y=mx+n$ terme a terme: quin número fa de "
         r"$m$? I quin terme hi falta?" % _207_EXPR[_ap])],
-      [r"A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.",
+      resolucio=[r"A $y=mx+n$, el pendent és $m$ i l'ordenada a l'origen és $n$.",
        r"$%s$ té $m=%s$ i $n=%s$."
        % (_207_EXPR[_ap], frac_tex(_m), frac_tex(_n))],
       ex_text=E207,
@@ -887,10 +887,10 @@ _208_P2 = {
 
 for _ap, (_expr, _m) in _208.items():
     _creix = _m > 0
-    Q("208%s" % _ap, 208, _ap, B2, "A",
-      "$%s$" % _expr,
-      "Creixent" if _creix else "Decreixent",
-      [D("Decreixent" if _creix else "Creixent", "SIGNE_PENDENT_INVERTIT",
+    Q("208%s" % _ap, 208, _ap, B2, tipus="A",
+      enunciat="$%s$" % _expr,
+      correcta="Creixent" if _creix else "Decreixent",
+      distractors=[D("Decreixent" if _creix else "Creixent", "SIGNE_PENDENT_INVERTIT",
          r"El pendent és $%s$ (%s): la funció és %s, no %s."
          % (frac_tex(_m), "positiu" if _creix else "negatiu",
             "creixent" if _creix else "decreixent",
@@ -902,10 +902,10 @@ for _ap, (_expr, _m) in _208.items():
        D("No es pot saber sense representar-la", "REPRESENTACIO_INNECESSARIA",
          r"El signe del pendent ja determina si la funció és creixent "
          r"o decreixent, sense necessitat de representar-la.")],
-      [r"A $y=mx+n$, si el pendent $m$ és positiu la funció és "
+      pistes=[r"A $y=mx+n$, si el pendent $m$ és positiu la funció és "
        r"creixent; si és negatiu, decreixent.",
        _208_P2[_ap]],
-      [r"El pendent de $%s$ és $m=%s$." % (_expr, frac_tex(_m)),
+      resolucio=[r"El pendent de $%s$ és $m=%s$." % (_expr, frac_tex(_m)),
        r"Com que $m$ és %s, la funció és %s."
        % ("positiu" if _creix else "negatiu",
           "creixent" if _creix else "decreixent")],
@@ -923,11 +923,11 @@ for _ap, (_p1, _p2) in _209.items():
     _x2, _y2 = F(_p2[0]), F(_p2[1])
     _m = (_y2 - _y1) / (_x2 - _x1)
     _n = _y1 - _m * _x1
-    Q("209%s" % _ap, 209, _ap, B2, "A",
-      r"Passa pels punts $%s$ i $%s$." % (punt_tex(_x1, _y1),
+    Q("209%s" % _ap, 209, _ap, B2, tipus="A",
+      enunciat=r"Passa pels punts $%s$ i $%s$." % (punt_tex(_x1, _y1),
                                             punt_tex(_x2, _y2)),
-      recta_tex(_m, _n),
-      [D(recta_tex(_m, _y2), "PUNT_ORDENADA_CONFOS",
+      correcta=recta_tex(_m, _n),
+      distractors=[D(recta_tex(_m, _y2), "PUNT_ORDENADA_CONFOS",
          r"L'ordenada a l'origen és el valor de $y$ del punt on "
          r"$x=0$, és a dir, del punt $%s$ (que dona $n=%s$), no del "
          r"punt $%s$."
@@ -942,13 +942,13 @@ for _ap, (_p1, _p2) in _209.items():
          r"El pendent és el coeficient que acompanya la $x$; "
          r"l'ordenada a l'origen és el terme independent: estan "
          r"intercanviats.")],
-      [r"Com que un dels punts té $x=0$, la seva $y$ ja és "
+      pistes=[r"Com que un dels punts té $x=0$, la seva $y$ ja és "
        r"directament l'ordenada a l'origen $n$; només cal calcular el "
        r"pendent $m$ amb els dos punts.",
        r"Pendent: $m=\dfrac{y_2-y_1}{x_2-x_1}$. De $%s$ a $%s$, quant "
        r"canvia la $y$ i quant avança la $x$? Resta en el mateix ordre a "
        r"dalt i a baix." % (punt_tex(_x1, _y1), punt_tex(_x2, _y2))],
-      [r"El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}="
+      resolucio=[r"El pendent és $m=\dfrac{y_2-y_1}{x_2-x_1}="
        r"\dfrac{%s-(%s)}{%s-(%s)}=%s$."
        % (frac_tex(_y2), frac_tex(_y1), frac_tex(_x2), frac_tex(_x1),
           frac_tex(_m)),
@@ -979,10 +979,10 @@ for _ap, (_expr, _a) in _212.items():
     _obert_c = "cap avall" if _a > 0 else "cap amunt"
     _ampla = "estreta" if abs(_a) > 1 else "ampla"
     _ampla_c = "ampla" if abs(_a) > 1 else "estreta"
-    Q("212%s" % _ap, 212, _ap, B3, "A",
-      "$%s$" % _expr,
-      "Oberta cap %s i més %s que $y=x^2$." % (_obert, _ampla),
-      [D("Oberta %s i més %s que $y=x^2$." % (_obert_c, _ampla),
+    Q("212%s" % _ap, 212, _ap, B3, tipus="A",
+      enunciat="$%s$" % _expr,
+      correcta="Oberta cap %s i més %s que $y=x^2$." % (_obert, _ampla),
+      distractors=[D("Oberta %s i més %s que $y=x^2$." % (_obert_c, _ampla),
          "OBERTURA_INVERTIDA",
          r"El signe de $a$ determina l'obertura: positiu és cap "
          r"amunt, negatiu cap avall. Aquí $a=%s$." % frac_tex(_a)),
@@ -996,12 +996,12 @@ for _ap, (_expr, _a) in _212.items():
          "OBERTURA_I_AMPLADA_INVERTIDES",
          r"Tant l'obertura com l'amplada estan invertides respecte a "
          r"$a=%s$." % frac_tex(_a))],
-      [r"El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor "
+      pistes=[r"El signe de $a$ (a $y=ax^2$) determina l'obertura; el valor "
        r"absolut de $a$ comparat amb $1$ determina l'amplada.",
        r"Aquí $a=%s$. Per l'amplada, compara-la amb $y=x^2$ a $x=1$: "
        r"$y=x^2$ val $1$ i aquesta, $%s$. La que s'allunya més de pressa "
        r"de l'eix $X$ és la més estreta." % (frac_tex(_a), frac_tex(_a))],
-      [r"A $%s$, $a=%s$." % (_expr, frac_tex(_a)),
+      resolucio=[r"A $%s$, $a=%s$." % (_expr, frac_tex(_a)),
        r"Com que $a$ és %s, la paràbola és oberta cap %s."
        % ("positiu" if _a > 0 else "negatiu", _obert),
        r"Com que $|a|=%s$ és %s que $1$, la paràbola és més %s que "
@@ -1017,11 +1017,11 @@ E214 = ("Calcula quin és el valor de la constant $c$ en l'expressió "
 _214 = {"a": F(-1), "b": F(2)}
 
 for _ap, _c in _214.items():
-    Q("214%s" % _ap, 214, _ap, B3, "A",
-      "Paràbola oberta cap amunt amb vèrtex en el punt $%s$."
+    Q("214%s" % _ap, 214, _ap, B3, tipus="A",
+      enunciat="Paràbola oberta cap amunt amb vèrtex en el punt $%s$."
       % punt_tex(0, _c),
-      "$c=%s$" % frac_tex(_c),
-      [D("$c=%s$" % frac_tex(-_c), "SIGNE_FINAL",
+      correcta="$c=%s$" % frac_tex(_c),
+      distractors=[D("$c=%s$" % frac_tex(-_c), "SIGNE_FINAL",
          r"El vèrtex de $y=x^2+c$ és sempre el punt $(0,c)$: si el "
          r"vèrtex donat és $%s$, el valor de $c$ és $%s$, amb el "
          r"mateix signe." % (punt_tex(0, _c), frac_tex(_c))),
@@ -1034,12 +1034,12 @@ for _ap, _c in _214.items():
          r"El vèrtex $%s$ dona directament $c=%s$, sense necessitat "
          r"de multiplicar-lo per cap altre nombre."
          % (punt_tex(0, _c), frac_tex(_c)))],
-      [r"El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt "
+      pistes=[r"El vèrtex d'una paràbola $y=x^2+c$ és sempre el punt "
        r"$(0,c)$: la segona coordenada del vèrtex ÉS el valor de "
        r"$c$.",
        r"Comprova-ho substituint $x=0$ a $y=x^2+c$: quina $y$ surt? Ha de "
        r"ser la del vèrtex, amb el seu signe."],
-      [r"Comparant $y=x^2+c$ amb $y=x^2$, sumar $c$ desplaça tota la "
+      resolucio=[r"Comparant $y=x^2+c$ amb $y=x^2$, sumar $c$ desplaça tota la "
        r"paràbola $c$ unitats amunt (si $c>0$) o avall (si $c<0$), "
        r"sense moure-la horitzontalment.",
        r"Per això el vèrtex passa de $(0,0)$ a $(0,c)$: si el vèrtex "
@@ -1053,11 +1053,11 @@ for _ap, _c in _214.items():
 
 
 # ---- exercici 215: expressió d'una paràbola des del vèrtex i un punt ----
-Q("215", 215, "", B3, "A",
-  r"Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que "
+Q("215", 215, "", B3, tipus="A",
+  enunciat=r"Paràbola oberta cap amunt, amb vèrtex en el punt $(0,1)$, que "
   r"passa pel punt $(1,2)$.",
-  "$y=x^2+1$",
-  [D("$y=x^2+2$", "VALOR_C_CONFOS",
+  correcta="$y=x^2+1$",
+  distractors=[D("$y=x^2+2$", "VALOR_C_CONFOS",
      r"El vèrtex $(0,1)$ ja diu directament que $c=1$: el $2$ és la "
      r"$y$ del punt $(1,2)$, no el valor de $c$."),
    D("$y=2x^2+1$", "COEFICIENT_A_MAL_CALCULAT",
@@ -1066,10 +1066,10 @@ Q("215", 215, "", B3, "A",
    D("$y=x^2-1$", "SIGNE_FINAL",
      r"El vèrtex $(0,1)$ té la segona coordenada positiva: $c=1$, no "
      r"$c=-1$.")],
-  [r"El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix "
+  pistes=[r"El vèrtex $(0,c)$ ja dona directament el valor de $c$; substitueix "
    r"l'altre punt a $y=ax^2+c$ per trobar $a$.",
    r"Amb $c=1$, substitueix $x=1$ i $y=2$ a $y=ax^2+1$ i aïlla $a$."],
-  [r"El vèrtex $(0,1)$ dona $c=1$: l'expressió és $y=ax^2+1$.",
+  resolucio=[r"El vèrtex $(0,1)$ dona $c=1$: l'expressió és $y=ax^2+1$.",
    r"Substituint el punt $(1,2)$: $2=a\cdot 1^2+1$, per tant $a=1$.",
    r"L'expressió és $y=x^2+1$."],
   ex_text="Calcula l'expressió algebraica de la paràbola.",
@@ -1101,10 +1101,10 @@ for _ap, (_expr, _a, _b) in _216.items():
     _d2 = vertex_talls_tex(_talls, _eix_err, (_eix_err, _vy_err))
     # distractor 3: vèrtex amb la y calculada amb signe oposat
     _d3 = vertex_talls_tex(_talls, _eix, (_eix, -_vy if _vy != 0 else F(1)))
-    Q("216%s" % _ap, 216, _ap, B3, "A",
-      "$%s$" % _expr,
-      _correcta,
-      [D(_d1, "TALL_ORIGEN_OBLIDAT",
+    Q("216%s" % _ap, 216, _ap, B3, tipus="A",
+      enunciat="$%s$" % _expr,
+      correcta=_correcta,
+      distractors=[D(_d1, "TALL_ORIGEN_OBLIDAT",
          r"Com que l'expressió no té terme independent (no hi ha "
          r"$+c$), la paràbola sempre passa per l'origen: $(0,0)$ "
          r"també és un tall amb els eixos, no només l'altra arrel."),
@@ -1116,7 +1116,7 @@ for _ap, (_expr, _a, _b) in _216.items():
          r"La $y$ del vèrtex s'obté substituint la $x$ del vèrtex a "
          r"l'expressió original: cal calcular-la, no només canviar-ne "
          r"el signe.")],
-      [r"Els talls amb l'eix $X$ són les solucions de l'equació de "
+      pistes=[r"Els talls amb l'eix $X$ són les solucions de l'equació de "
        r"segon grau (traient factor comú $x$, ja que no hi ha terme "
        r"independent); l'eix de simetria passa pel punt mig entre "
        r"aquestes dues solucions.",
@@ -1126,7 +1126,7 @@ for _ap, (_expr, _a, _b) in _216.items():
        % (_expr.replace("y=", ""),
           ("" if _a == 1 else "-" if _a == -1 else frac_tex(_a)),
           "+%s" % frac_tex(_b) if _b > 0 else "-%s" % frac_tex(-_b))],
-      [r"Traient factor comú: $%s=x(%sx%s)$, que dona $x=0$ i "
+      resolucio=[r"Traient factor comú: $%s=x(%sx%s)$, que dona $x=0$ i "
        r"$x=%s$." % (_expr.replace("y=", ""),
                        ("" if _a == 1 else "-" if _a == -1
                         else frac_tex(_a)),
@@ -1152,12 +1152,12 @@ for _ap, (_expr, _a, _b) in _216.items():
 E217 = ("Analitza com serà la gràfica d'aquestes funcions polinòmiques "
         "sense representar-les.")
 
-Q("217a", 217, "a", B3, "B",
-  r"$y=x^2-3x^2+4$",
-  r"Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola "
+Q("217a", 217, "a", B3, tipus="B",
+  enunciat=r"$y=x^2-3x^2+4$",
+  correcta=r"Reduint termes semblants, $x^2-3x^2=-2x^2$: és la paràbola "
   r"$y=-2x^2+4$, oberta cap avall, més estreta que $y=x^2$, amb "
   r"vèrtex a $(0,4)$.",
-  [D(r"És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex "
+  distractors=[D(r"És una paràbola $y=-2x^2+4x$: oberta cap avall, amb vèrtex "
      r"fora de l'eix $Y$.", "TERMES_NO_REDUITS",
      r"Els dos termes $x^2$ i $-3x^2$ són termes SEMBLANTS (tots dos "
      r"en $x^2$) i s'han de reduir junts, com un sol terme $-2x^2$; "
@@ -1174,12 +1174,12 @@ Q("217a", 217, "a", B3, "B",
      r"vèrtex a $(0,4)$.", "AMPLADA_INVERTIDA",
      r"El coeficient de $x^2$ és $-2$, i $|-2|=2>1$: la paràbola és "
      r"més ESTRETA que $y=x^2$, no més ampla.")],
-  [r"Abans de decidir de quin tipus de funció es tracta, redueix els "
+  pistes=[r"Abans de decidir de quin tipus de funció es tracta, redueix els "
    r"termes semblants: $x^2$ i $-3x^2$ són tots dos termes en $x^2$.",
    r"Un cop reduït, mira el coeficient de $x^2$: el signe diu cap on obre "
    r"i, comparat amb $1$, si és més estreta o més ampla que $y=x^2$. Sense "
    r"terme en $x$, el vèrtex és a l'eix $Y$."],
-  [r"Reduint termes semblants: $x^2-3x^2=-2x^2$, així que l'expressió "
+  resolucio=[r"Reduint termes semblants: $x^2-3x^2=-2x^2$, així que l'expressió "
    r"és $y=-2x^2+4$.",
    r"És una paràbola (té terme en $x^2$), sense terme en $x$ (per "
    r"tant simètrica respecte a l'eix $Y$).",
@@ -1192,11 +1192,11 @@ Q("217a", 217, "a", B3, "B",
   # converteix una deducció en una lectura.
   ex_text=E217)
 
-Q("217b", 217, "b", B3, "B",
-  r"$y=-x-3$",
-  r"No té cap terme en $x^2$: és una recta (no una paràbola), amb "
+Q("217b", 217, "b", B3, tipus="B",
+  enunciat=r"$y=-x-3$",
+  correcta=r"No té cap terme en $x^2$: és una recta (no una paràbola), amb "
   r"pendent $-1$ (decreixent) i ordenada a l'origen $-3$.",
-  [D(r"No té cap terme en $x^2$ escrit, però és una paràbola amb "
+  distractors=[D(r"No té cap terme en $x^2$ escrit, però és una paràbola amb "
      r"$a=0$: oberta cap avall, decreixent.", "PARABOLA_AMB_A_ZERO",
      r"Si el coeficient de $x^2$ és $0$, l'expressió deixa de ser una "
      r"paràbola: sense terme en $x^2$, és una recta (funció afí), "
@@ -1209,12 +1209,12 @@ Q("217b", 217, "b", B3, "B",
      r"l'origen $3$.", "SIGNE_ORDENADA_INVERTIT",
      r"El terme independent de $-x-3$ és $-3$ (negatiu), no $3$: la "
      r"recta talla l'eix $Y$ en $(0,-3)$.")],
-  [r"Si l'expressió no té cap terme en $x^2$, no és una paràbola: és "
+  pistes=[r"Si l'expressió no té cap terme en $x^2$, no és una paràbola: és "
    r"una recta.",
    r"Llavors mira el pendent (el número que multiplica la $x$, amb el seu "
    r"signe) i l'ordenada a l'origen (el terme sense $x$, també amb el seu "
    r"signe)."],
-  [r"$y=-x-3$ no té terme en $x^2$: és una funció afí (recta), no "
+  resolucio=[r"$y=-x-3$ no té terme en $x^2$: és una funció afí (recta), no "
    r"una paràbola.",
    r"El pendent és $-1$ (negatiu, per tant decreixent) i l'ordenada a "
    r"l'origen és $-3$."],
@@ -1223,3 +1223,113 @@ Q("217b", 217, "b", B3, "B",
   # deduir la forma de la corba del signe dels coeficients; ensenyar-la
   # converteix una deducció en una lectura.
   ex_text=E217)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 366-368)
+# =====================================================================
+# Els tres blocs obrien demanant sis imatges seguides d'una funció
+# quadràtica, el pendent I l'ordenada alhora, i l'obertura I l'amplada
+# d'una paràbola. Aquí, una sola cosa cada vegada: una imatge, el pendent, i
+# cap on s'obre la paràbola.
+
+dificultats({
+    366: 1,  # una sola imatge
+    367: 1,  # només el pendent
+    368: 1,  # només cap on s'obre la paràbola
+})
+
+
+E366 = ("Calcula la imatge que es demana substituint el valor de $x$ a "
+        "l'expressió de la funció.")
+
+Q("366a", 366, "a", B1, tipus="A",
+  enunciat=r"$f(x)=3x+1$. Calcula $f(2)$.",
+  correcta="$f(2)=7$",
+  distractors=[D("$f(2)=9$", "JERARQUIA",
+     "Has fet $3\\cdot(2+1)$. Primer es multiplica, $3\\cdot2=6$, i "
+     "després se suma $1$."),
+   DT("$f(2)=6$", "TERME_INDEPENDENT_IGNORAT"),
+   D(r"$f(2)=\dfrac{1}{3}$", "PAPERS_INTERCANVIATS",
+     "Has resolt $3x+1=2$, que és buscar quina $x$ té imatge $2$. Es "
+     "demana al revés: la imatge de $x=2$.")],
+  pistes=["Substitueix la $x$ per $2$.",
+   "$f(2)=3\\cdot2+1$."],
+  resolucio=[r"$f(2)=3\cdot2+1=6+1=7$"],
+  ex_text=E366)
+
+Q("366b", 366, "b", B1, tipus="A",
+  enunciat=r"$f(x)=x^2-1$. Calcula $f(3)$.",
+  correcta="$f(3)=8$",
+  distractors=[DT("$f(3)=5$", "POTENCIA_COM_PRODUCTE",
+      extra="Has fet $2\\cdot3-1$."),
+   DT("$f(3)=9$", "TERME_INDEPENDENT_IGNORAT"),
+   DT("$f(3)=10$", "SIGNE_TERME_INDEPENDENT",
+      extra="El terme independent és $-1$: es resta.")],
+  pistes=["Substitueix la $x$ per $3$.",
+   "$f(3)=3^2-1$."],
+  resolucio=[r"$f(3)=3^2-1=9-1=8$"],
+  ex_text=E366)
+
+
+E367 = ("Quin és el pendent $m$ d'aquesta funció afí? Recorda: a "
+        r"$y=mx+n$, el pendent és el nombre que multiplica la $x$.")
+
+Q("367a", 367, "a", B2, tipus="A",
+  enunciat=r"$y=5x+2$",
+  correcta="$m=5$",
+  distractors=[DT("$m=2$", "PENDENT_ORDENADA_INTERCANVIATS"),
+   DT("$m=-5$", "SIGNE_PENDENT_INVERTIT"),
+   D("$m=7$", "PENDENT_MAL_TRIAT",
+     "Has sumat $5+2$. El pendent és només el nombre que multiplica la $x$.")],
+  pistes=["Quin nombre va enganxat a la $x$?",
+   "El $2$ va sol: és l'ordenada a l'origen, no el pendent."],
+  resolucio=[r"$y=\underbrace{5}_{m}x+\underbrace{2}_{n}$: el pendent és $m=5$."],
+  ex_text=E367)
+
+Q("367b", 367, "b", B2, tipus="A",
+  enunciat=r"$y=-4x+1$",
+  correcta="$m=-4$",
+  distractors=[DT("$m=1$", "PENDENT_ORDENADA_INTERCANVIATS"),
+   DT("$m=4$", "SIGNE_PENDENT_INVERTIT"),
+   D("$m=-3$", "PENDENT_MAL_TRIAT",
+     "Has sumat $-4+1$. El pendent és només el nombre que multiplica la "
+     "$x$, amb el seu signe.")],
+  pistes=["Quin nombre va enganxat a la $x$? Compte amb el signe.",
+   "L'$1$ va sol: és l'ordenada a l'origen, no el pendent."],
+  resolucio=[r"$y=\underbrace{-4}_{m}x+\underbrace{1}_{n}$: el pendent és $m=-4$."],
+  ex_text=E367)
+
+
+E368 = ("Sense representar-la, digues si aquesta paràbola s'obre cap amunt "
+        "o cap avall. Ho decideix el signe de $a$, el coeficient de $x^2$.")
+
+Q("368a", 368, "a", B3, tipus="A",
+  enunciat=r"$y=-2x^2+3$",
+  correcta=r"Cap avall, perquè $a=-2<0$",
+  distractors=[D(r"Cap amunt, perquè $3>0$", "VALOR_C_CONFOS",
+     "El $3$ és el terme independent: diu on talla l'eix $Y$, no cap on "
+     "s'obre. Mana el coeficient de $x^2$, que és $-2$."),
+   DT(r"Cap amunt, perquè $a=2>0$", "SIGNE_COEFICIENT_PRINCIPAL",
+      extra="El coeficient de $x^2$ és $-2$, amb el signe menys."),
+   DT("No es pot saber sense dibuixar-la", "REPRESENTACIO_INNECESSARIA")],
+  pistes=["Quin nombre multiplica la $x^2$?",
+   "Si és negatiu, la paràbola s'obre cap avall."],
+  resolucio=[r"$a=-2<0$: la paràbola s'obre cap avall."],
+  ex_text=E368)
+
+Q("368b", 368, "b", B3, tipus="A",
+  enunciat=r"$y=x^2-5x$",
+  correcta=r"Cap amunt, perquè $a=1>0$",
+  distractors=[D(r"Cap avall, perquè $-5<0$", "SIGNE_COEFICIENT_PRINCIPAL",
+     "El $-5$ és el coeficient de la $x$, no el de la $x^2$. Davant de la "
+     "$x^2$ no hi ha res escrit: vol dir $a=1$."),
+   D("No és una paràbola, perquè no té terme independent", "PARABOLA_AMB_A_ZERO",
+     "Una paràbola només necessita que hi hagi terme en $x^2$ ($a\\ne0$). "
+     "Que $c$ valgui $0$ vol dir que passa per l'origen."),
+   DT("No es pot saber sense dibuixar-la", "REPRESENTACIO_INNECESSARIA")],
+  pistes=["Quin nombre multiplica la $x^2$? Si no n'hi ha cap d'escrit, és "
+   "un $1$.",
+   "Si és positiu, la paràbola s'obre cap amunt."],
+  resolucio=[r"$a=1>0$: la paràbola s'obre cap amunt."],
+  ex_text=E368)

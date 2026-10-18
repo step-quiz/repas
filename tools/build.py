@@ -7,7 +7,12 @@
     python3 build.py 12     compila el full 12
 
 Sortides (relatives a l'arrel del repositori, no a tools/):
-  data/fullN.js           dades del lloc (respostes ofuscades en base64)
+  data/fullN.js           dades del lloc (respostes ofuscades en base64): el
+                          full sencer, per a full.html i el diagnòstic
+  data/fullN-index.js     els blocs i els ids de cada bloc (pocs kB): practica.html
+                          el llegeix per saber quin bloc ha de carregar
+  data/fullN-<bloc>.js    el mateix que fullN.js, però només amb els ítems d'un
+                          bloc: el que carrega practica.html (docs/TODO-AI.md §4)
   revisio/REVISIO-fullN.html  clau de respostes completa, per revisar abans de publicar
 
 Cada full es compila en un procés Python separat a propòsit: lib._BANC és
@@ -642,6 +647,31 @@ def compila():
         json.dump(dades, f, ensure_ascii=False, indent=1)
         f.write(";\n")
     print("✓ %s (%.0f kB)" % (ruta, os.path.getsize(ruta) / 1024))
+
+    # Per a practica.html, que mostra un sol exercici: l'índex (quins ids té
+    # cada bloc) i un fitxer per bloc amb només els seus ítems i les etiquetes
+    # d'error que fan servir. Abans, respondre un exercici volia dir baixar el
+    # banc sencer del full (fins a 270 kB).
+    for b in blocs:
+        assert re.fullmatch(r"[a-z0-9_]+", b["id"]), "id de bloc no apte per a un nom de fitxer: %r" % b["id"]
+    index = {"full": FULL_N, "blocs": [{"id": b["id"], "items": b["items"]} for b in blocs]}
+    ruta = os.path.join(ARREL, "data", "full%d-index.js" % FULL_N)
+    with open(ruta, "w", encoding="utf-8") as f:
+        f.write("/* Generat per tools/build.py — no editeu aquest fitxer a mà. */\n")
+        f.write("window.FULL_INDEX = ")
+        json.dump(index, f, ensure_ascii=False, indent=1)
+        f.write(";\n")
+    for b in blocs:
+        del_bloc = [it for it in items if it["bloc"] == b["id"]]
+        errs_bloc = {e for it in BANC if it["bloc"] == b["id"] for d in it["distractors"] for e in [d["err"]]}
+        parcial = dict(dades, errors={e: t for e, t in errors_tex.items() if e in errs_bloc}, items=del_bloc)
+        ruta = os.path.join(ARREL, "data", "full%d-%s.js" % (FULL_N, b["id"]))
+        with open(ruta, "w", encoding="utf-8") as f:
+            f.write("/* Generat per tools/build.py — no editeu aquest fitxer a mà. */\n")
+            f.write("window.FULL = ")
+            json.dump(parcial, f, ensure_ascii=False, indent=1)
+            f.write(";\n")
+    print("✓ data/full%d-index.js i %d fitxers de bloc" % (FULL_N, len(blocs)))
     return dades
 
 

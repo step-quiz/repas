@@ -127,11 +127,11 @@ NOTA152_INT = ("Nota de transcripció d'im9.tex: la posició exacta de cada "
                "Convé confirmar-ho contra la figura original abans de "
                "publicar.")
 
-Q("152a", 152, "a", B1, "A",
-  "Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i "
+Q("152a", 152, "a", B1, tipus="A",
+  enunciat="Una secant té segments de $2{,}5$ cm i $2$ cm; l'altra, $x$ i "
   "$3$ cm (segments corresponents en el mateix ordre).",
-  "$3{,}75$ cm",
-  [D("$2{,}4$ cm", "CREUAMENT_INVERTIT",
+  correcta="$3{,}75$ cm",
+  distractors=[D("$2{,}4$ cm", "CREUAMENT_INVERTIT",
      "Has muntat la proporció amb els segments de cada secant "
      "intercanviats. Planteja $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$, no la "
      "proporció inversa."),
@@ -142,21 +142,21 @@ Q("152a", 152, "a", B1, "A",
      "Sembla que has calculat $2:2{,}5\\cdot3$ amb els termes "
      "intercanviats: revisa quin segment fa de numerador a cada "
      "secant.")],
-  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+  pistes=["Els segments es corresponen en ordre: el primer d'una secant amb el "
    "primer de l'altra, i el segon amb el segon. Aquí el $2{,}5$ va amb la $x$, i el $2$ amb el $3$.",
    "Per Tales, totes dues secants queden dividides en la mateixa "
    "proporció: $\\dfrac{2{,}5}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
-  [r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{2{,}5}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{2{,}5\cdot3}{2}$",
    "$x=3{,}75$ cm"],
   ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
   figura=tales([("A", 2.5), ("B", (3.75, "x"))], [("A'", 2), ("B'", 3)], "x"))
 
-Q("152b", 152, "b", B1, "A",
-  "Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ "
+Q("152b", 152, "b", B1, tipus="A",
+  enunciat="Una secant té segments de $2$ cm i $4$ cm; l'altra, $3$ cm i $x$ "
   "cm (segments corresponents en el mateix ordre).",
-  "$6$ cm",
-  [D("$1{,}5$ cm", "CREUAMENT_INVERTIT",
+  correcta="$6$ cm",
+  distractors=[D("$1{,}5$ cm", "CREUAMENT_INVERTIT",
      "Has intercanviat quin segment correspon a quin: planteja "
      "$\\dfrac{4}{2}=\\dfrac{x}{3}$, amb el segment MÉS gran de la "
      "primera secant ($4$) corresponent a $x$."),
@@ -167,21 +167,21 @@ Q("152b", 152, "b", B1, "A",
      "Aquest valor no surt de la proporció: comprova "
      "$x=\\dfrac{4\\cdot3}{2}$ pas a pas en lloc de repetir un "
      "segment que ja apareixia a l'enunciat.")],
-  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+  pistes=["Els segments es corresponen en ordre: el primer d'una secant amb el "
    "primer de l'altra, i el segon amb el segon. Aquí el $2$ va amb el $3$, i el $4$ amb la $x$.",
    "Per Tales, totes dues secants queden dividides en la mateixa "
    "proporció: $\\dfrac{4}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
-  [r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{4}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot3}{2}$",
    "$x=6$ cm"],
   ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
   figura=tales([("A", 2), ("B", 4)], [("A'", 3), ("B'", (6, "x"))], "x"))
 
-Q("152c", 152, "c", B1, "A",
-  "Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm "
+Q("152c", 152, "c", B1, tipus="A",
+  enunciat="Una secant té segments de $8$ cm i $4$ cm; l'altra, $x$ i $6$ cm "
   "(segments corresponents en el mateix ordre).",
-  "$12$ cm",
-  [D("$3$ cm", "CREUAMENT_INVERTIT",
+  correcta="$12$ cm",
+  distractors=[D("$3$ cm", "CREUAMENT_INVERTIT",
      "Has intercanviat quin segment correspon a quin: planteja "
      "$\\dfrac{8}{4}=\\dfrac{x}{6}$, no la proporció amb els termes "
      "invertits."),
@@ -192,21 +192,21 @@ Q("152c", 152, "c", B1, "A",
      "Sembla que has calculat $6\\cdot4:8$ amb un altre aparellament "
      "de segments: revisa quins dos segments són corresponents entre "
      "les dues secants.")],
-  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+  pistes=["Els segments es corresponen en ordre: el primer d'una secant amb el "
    "primer de l'altra, i el segon amb el segon. Aquí el $8$ va amb la $x$, i el $4$ amb el $6$.",
    "Per Tales, totes dues secants queden dividides en la mateixa "
    "proporció: $\\dfrac{8}{4}=\\dfrac{x}{6}$. Aïlla $x$."],
-  [r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{8}{4}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{8\cdot6}{4}$",
    "$x=12$ cm"],
   ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
   figura=tales([("A", 8), ("B", 4)], [("A'", (12, "x")), ("B'", 6)], "x"))
 
-Q("152e", 152, "e", B1, "A",
-  "Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i "
+Q("152e", 152, "e", B1, tipus="A",
+  enunciat="Una secant té segments de $x$ i $10$ cm; l'altra, $5$ cm i "
   "$8$ cm (segments corresponents en el mateix ordre).",
-  "$6{,}25$ cm",
-  [D("$16$ cm", "CREUAMENT_INVERTIT",
+  correcta="$6{,}25$ cm",
+  distractors=[D("$16$ cm", "CREUAMENT_INVERTIT",
      "Has intercanviat quina fracció és quina: planteja "
      "$\\dfrac{x}{10}=\\dfrac{5}{8}$, amb $x$ corresponent al segment "
      "de $5$ cm, no al de $8$ cm."),
@@ -216,21 +216,21 @@ Q("152e", 152, "e", B1, "A",
    D("$50$ cm", "TERME_OBLIDAT_OPERACIO",
      "Aquest valor surt de $10\\cdot5$ sense dividir per $8$: "
      "$x=\\dfrac{10\\cdot5}{8}$, no només el numerador.")],
-  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+  pistes=["Els segments es corresponen en ordre: el primer d'una secant amb el "
    "primer de l'altra, i el segon amb el segon. Aquí la $x$ va amb el $5$, i el $10$ amb el $8$.",
    "Per Tales, totes dues secants queden dividides en la mateixa "
    "proporció: $\\dfrac{x}{10}=\\dfrac{5}{8}$. Aïlla $x$."],
-  [r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{x}{10}=\dfrac{5}{8} \;\Longrightarrow\; "
    r"x=\dfrac{10\cdot5}{8}$",
    "$x=6{,}25$ cm"],
   ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
   figura=tales([("A", (6.25, "x")), ("B", 10)], [("A'", 5), ("B'", 8)], "x"))
 
-Q("152f", 152, "f", B1, "A",
-  "Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i "
+Q("152f", 152, "f", B1, tipus="A",
+  enunciat="Una secant té segments de $4{,}8$ cm i $2$ cm; l'altra, $x$ i "
   "$3$ cm (segments corresponents en el mateix ordre).",
-  "$7{,}2$ cm",
-  [D("$1{,}25$ cm", "CREUAMENT_INVERTIT",
+  correcta="$7{,}2$ cm",
+  distractors=[D("$1{,}25$ cm", "CREUAMENT_INVERTIT",
      "Has muntat la proporció amb els segments de cada secant "
      "intercanviats. Planteja $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$, no la "
      "proporció inversa."),
@@ -241,11 +241,11 @@ Q("152f", 152, "f", B1, "A",
      "Sembla que has dividit $2:4{,}8\\cdot3$ amb els termes "
      "intercanviats: revisa quin segment fa de numerador a cada "
      "secant.")],
-  ["Els segments es corresponen en ordre: el primer d'una secant amb el "
+  pistes=["Els segments es corresponen en ordre: el primer d'una secant amb el "
    "primer de l'altra, i el segon amb el segon. Aquí el $4{,}8$ va amb la $x$, i el $2$ amb el $3$.",
    "Per Tales, totes dues secants queden dividides en la mateixa "
    "proporció: $\\dfrac{4{,}8}{2}=\\dfrac{x}{3}$. Aïlla $x$."],
-  [r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{4{,}8}{2}=\dfrac{x}{3} \;\Longrightarrow\; "
    r"x=\dfrac{4{,}8\cdot3}{2}$",
    "$x=7{,}2$ cm"],
   ex_text=E152, nota=NOTA152, nota_interna=NOTA152_INT,
@@ -259,11 +259,11 @@ E153 = ("Dos triangles estan en posició de Tales des del vèrtex $O$, amb "
         "$OC'$ sobre una altra (amb $A,B,C$ i $A',B',C'$ en el mateix "
         "ordre a cada recta).")
 
-Q("153a", 153, "a", B1, "A",
-  "Si $OA=2$ cm, $OB=5$ cm, $OA'=2{,}6$ cm i $OC'=11{,}7$ cm, "
+Q("153a", 153, "a", B1, tipus="A",
+  enunciat="Si $OA=2$ cm, $OB=5$ cm, $OA'=2{,}6$ cm i $OC'=11{,}7$ cm, "
   "quant val $BC$?",
-  "$4$ cm",
-  [D("$9$ cm", "PROGRESSIO_INVENTADA",
+  correcta="$4$ cm",
+  distractors=[D("$9$ cm", "PROGRESSIO_INVENTADA",
      "$9$ cm és el valor de $OC$, no de $BC=OC-OB$: un cop tinguis "
      "$OC$, encara has de restar-hi $OB$."),
    D("$6{,}5$ cm", "PROGRESSIO_INVENTADA",
@@ -273,11 +273,11 @@ Q("153a", 153, "a", B1, "A",
      "Aquest valor surt d'aplicar la raó de semblança "
      "$k=\\frac{OA'}{OA}$ a $OB$ en lloc de calcular primer $OC$ i "
      "després restar-hi $OB$: $BC=OC-OB$, i $OC=\\frac{OC'}{k}$.")],
-  ["La raó entre els dos triangles és $k=\\dfrac{OA'}{OA}="
+  pistes=["La raó entre els dos triangles és $k=\\dfrac{OA'}{OA}="
    "\\dfrac{2{,}6}{2}=1{,}3$.",
    "Amb aquesta raó, $OC=\\dfrac{OC'}{k}$, i després "
    "$BC=OC-OB$."],
-  [r"$k=\dfrac{OA'}{OA}=\dfrac{2{,}6}{2}=1{,}3$",
+  resolucio=[r"$k=\dfrac{OA'}{OA}=\dfrac{2{,}6}{2}=1{,}3$",
    r"$OC=\dfrac{OC'}{k}=\dfrac{11{,}7}{1{,}3}=9$ cm",
    "$BC=OC-OB=9-5=4$ cm"],
   ex_text=E153,
@@ -298,11 +298,11 @@ Q("153a", 153, "a", B1, "A",
               [("A'", 2.6), ("B'", 6.5), ("C'", 11.7)], "BC",
               acumulat=False))
 
-Q("153b", 153, "b", B1, "A",
-  "Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val "
+Q("153b", 153, "b", B1, tipus="A",
+  enunciat="Si $OB=9$ cm, $OA'=4$ cm, $OB'=12$ cm i $OC'=18$ cm, quant val "
   "$AB$?",
-  "$6$ cm",
-  [D("$3$ cm", "PROGRESSIO_INVENTADA",
+  correcta="$6$ cm",
+  distractors=[D("$3$ cm", "PROGRESSIO_INVENTADA",
      "$3$ cm és el valor de $OA$, no de $AB=OB-OA$: un cop tinguis "
      "$OA$, encara has de restar-la de $OB$."),
    D("$13{,}5$ cm", "PROGRESSIO_INVENTADA",
@@ -312,11 +312,11 @@ Q("153b", 153, "b", B1, "A",
      "Aquest valor surt d'aplicar la raó $k$ directament a $OB$ en "
      "comptes de calcular primer $OA$ amb $k=\\frac{OB'}{OB}$ i "
      "després restar-la de $OB$: $AB=OB-OA$.")],
-  ["La raó entre els dos triangles és $k=\\dfrac{OB'}{OB}="
+  pistes=["La raó entre els dos triangles és $k=\\dfrac{OB'}{OB}="
    "\\dfrac{12}{9}=1{,}33\\overline{3}$.",
    "Amb aquesta raó, $OA=\\dfrac{OA'}{k}$, i després "
    "$AB=OB-OA$."],
-  [r"$k=\dfrac{OB'}{OB}=\dfrac{12}{9}=\dfrac{4}{3}$",
+  resolucio=[r"$k=\dfrac{OB'}{OB}=\dfrac{12}{9}=\dfrac{4}{3}$",
    r"$OA=\dfrac{OA'}{k}=4\cdot\dfrac{3}{4}=3$ cm",
    "$AB=OB-OA=9-3=6$ cm"],
   ex_text=E153,
@@ -330,11 +330,11 @@ Q("153b", 153, "b", B1, "A",
               [("A'", 4), ("B'", 12), ("C'", 18)], "AB",
               acumulat=False))
 
-Q("153c", 153, "c", B1, "A",
-  "Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant "
+Q("153c", 153, "c", B1, tipus="A",
+  enunciat="Si $OA=5$ cm, $OC=22{,}5$ cm, $OC'=36$ cm i $OB'=24$ cm, quant "
   "val $AB$?",
-  "$10$ cm",
-  [D("$8$ cm", "PROGRESSIO_INVENTADA",
+  correcta="$10$ cm",
+  distractors=[D("$8$ cm", "PROGRESSIO_INVENTADA",
      "$8$ cm és el valor de $OA'$, no de $AB=OB-OA$: un cop tinguis "
      "$OB$, encara l'has de comparar amb $OA$, no amb $OA'$."),
    D("$15$ cm", "PROGRESSIO_INVENTADA",
@@ -344,11 +344,11 @@ Q("153c", 153, "c", B1, "A",
      "Aquest valor surt d'aplicar la raó $k$ a $OA$ en comptes "
      "d'usar-la per trobar $OB$ a partir de $OB'$: "
      "$OB=\\frac{OB'}{k}$, i després $AB=OB-OA$.")],
-  ["La raó entre els dos triangles és $k=\\dfrac{OC'}{OC}="
+  pistes=["La raó entre els dos triangles és $k=\\dfrac{OC'}{OC}="
    "\\dfrac{36}{22{,}5}=1{,}6$.",
    "Amb aquesta raó, $OB=\\dfrac{OB'}{k}$, i després "
    "$AB=OB-OA$."],
-  [r"$k=\dfrac{OC'}{OC}=\dfrac{36}{22{,}5}=1{,}6$",
+  resolucio=[r"$k=\dfrac{OC'}{OC}=\dfrac{36}{22{,}5}=1{,}6$",
    r"$OB=\dfrac{OB'}{k}=\dfrac{24}{1{,}6}=15$ cm",
    "$AB=OB-OA=15-5=10$ cm"],
   ex_text=E153,
@@ -376,12 +376,12 @@ NOTA154 = ("La correspondència entre costats del triangle petit i el "
            "gran s'ha establert seguint la indicació explícita del propi "
            "enunciat, que ja diu quins costats es corresponen entre si.")
 
-Q("154a", 154, "a", B2, "A",
-  "Triangle petit de costats $3$ cm i $5$ cm; triangle gran de "
+Q("154a", 154, "a", B2, tipus="A",
+  enunciat="Triangle petit de costats $3$ cm i $5$ cm; triangle gran de "
   "costats $4$ cm (correspon al de $3$ cm) i $x$ (correspon al de "
   "$5$ cm).",
-  "$6{,}67$ cm (aproximadament)",
-  [D("$3{,}75$ cm", "CREUAMENT_INVERTIT",
+  correcta="$6{,}67$ cm (aproximadament)",
+  distractors=[D("$3{,}75$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó invertida "
      "$k=\\frac{3}{4}$ al costat de $5$ cm; la raó és "
      "$k=\\frac{4}{3}$ (del costat gran conegut al petit conegut), "
@@ -394,21 +394,21 @@ Q("154a", 154, "a", B2, "A",
      "Aquest valor surt de $5\\cdot4$ sense dividir per $3$: "
      "la raó de semblança és $\\frac{4}{3}$, i cal multiplicar-la "
      "pel costat, no només multiplicar pel numerador.")],
-  ["La raó de semblança és $k=\\dfrac{4}{3}$ (el costat de $4$ cm "
+  pistes=["La raó de semblança és $k=\\dfrac{4}{3}$ (el costat de $4$ cm "
    "correspon al de $3$ cm).",
    "Aplica aquesta raó al costat de $5$ cm: $x=5\\cdot k$."],
-  [r"$k=\dfrac{4}{3}$",
+  resolucio=[r"$k=\dfrac{4}{3}$",
    r"$x=5\cdot\dfrac{4}{3}=\dfrac{20}{3}\approx6{,}67$ cm"],
   ex_text=E154, nota=NOTA154,
   figura=parella_semblants([("", 3), ("", 5), ("", None)],
                            [("", 4), ("", "x"), ("", None)]))
 
-Q("154b", 154, "b", B2, "A",
-  "Triangle gran de costats $8$ cm, $10$ cm i $7$ cm; triangle "
+Q("154b", 154, "b", B2, tipus="A",
+  enunciat="Triangle gran de costats $8$ cm, $10$ cm i $7$ cm; triangle "
   "petit de costat $6$ cm (correspon al de $8$ cm), amb els altres "
   "dos costats desconeguts. Quant valen?",
-  "$7{,}5$ cm i $5{,}25$ cm",
-  [D("$13{,}33$ cm i $9{,}33$ cm", "CREUAMENT_INVERTIT",
+  correcta="$7{,}5$ cm i $5{,}25$ cm",
+  distractors=[D("$13{,}33$ cm i $9{,}33$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó invertida "
      "$k=\\frac{8}{6}$ als costats de $10$ i $7$ cm; la raó és "
      "$k=\\frac{6}{8}=0{,}75$ (del costat petit conegut al gran "
@@ -421,22 +421,22 @@ Q("154b", 154, "b", B2, "A",
      "Aquests valors surten de $10\\cdot6$ i $7\\cdot6$ sense "
      "dividir per $8$: la raó de semblança és $\\frac{6}{8}$, no "
      "només el $6$.")],
-  ["La raó de semblança és $k=\\dfrac{6}{8}=0{,}75$ (el costat de "
+  pistes=["La raó de semblança és $k=\\dfrac{6}{8}=0{,}75$ (el costat de "
    "$6$ cm correspon al de $8$ cm).",
    "Aplica aquesta raó als costats de $10$ cm i $7$ cm."],
-  [r"$k=\dfrac{6}{8}=0{,}75$",
+  resolucio=[r"$k=\dfrac{6}{8}=0{,}75$",
    r"$10\cdot0{,}75=7{,}5$ cm$\qquad 7\cdot0{,}75=5{,}25$ cm"],
   ex_text=E154, nota=NOTA154,
   figura=parella_semblants([("", 8), ("", 10), ("", 7)],
                            [("", 6), ("", "x"), ("", "x")]))
 
-Q("154c", 154, "c", B2, "A",
-  "Triangle gran de costat $6$ cm (desconegut als altres dos); "
+Q("154c", 154, "c", B2, tipus="A",
+  enunciat="Triangle gran de costat $6$ cm (desconegut als altres dos); "
   "triangle petit de costats $3$ cm, $5$ cm i $4$ cm, on el de $5$ "
   "cm (el més llarg) correspon al de $6$ cm. Quant valen els altres "
   "dos costats del triangle gran?",
-  "$3{,}6$ cm i $4{,}8$ cm",
-  [D("$2{,}5$ cm i $3{,}33$ cm", "CREUAMENT_INVERTIT",
+  correcta="$3{,}6$ cm i $4{,}8$ cm",
+  distractors=[D("$2{,}5$ cm i $3{,}33$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó invertida "
      "$k=\\frac{5}{6}$ als costats de $3$ i $4$ cm; la raó és "
      "$k=\\frac{6}{5}=1{,}2$ (del costat conegut del triangle "
@@ -449,24 +449,24 @@ Q("154c", 154, "c", B2, "A",
      "Aquests valors surten de $3\\cdot6$ i $4\\cdot6$ sense "
      "dividir per $5$: la raó de semblança és $\\frac{6}{5}$, no "
      "només el $6$.")],
-  ["La raó de semblança és $k=\\dfrac{6}{5}=1{,}2$ (el costat de "
+  pistes=["La raó de semblança és $k=\\dfrac{6}{5}=1{,}2$ (el costat de "
    "$6$ cm correspon al de $5$ cm, el més llarg del triangle "
    "petit).",
    "Aplica aquesta raó als altres dos costats del triangle petit "
    "($3$ cm i $4$ cm)."],
-  [r"$k=\dfrac{6}{5}=1{,}2$",
+  resolucio=[r"$k=\dfrac{6}{5}=1{,}2$",
    r"$3\cdot1{,}2=3{,}6$ cm$\qquad 4\cdot1{,}2=4{,}8$ cm"],
   ex_text=E154, nota=NOTA154,
   figura=parella_semblants([("", 5), ("", 3), ("", 4)],
                            [("", 6), ("", "x"), ("", "x")]))
 
-Q("154d", 154, "d", B2, "B",
-  "Dos triangles isòsceles tenen els costats iguals de $5$ cm "
+Q("154d", 154, "d", B2, tipus="B",
+  enunciat="Dos triangles isòsceles tenen els costats iguals de $5$ cm "
   "cadascun, amb bases respectives de $3{,}2$ cm i $2$ cm. Són "
   "semblants?",
-  "No, perquè la raó entre els costats iguals ($1$) no coincideix "
+  correcta="No, perquè la raó entre els costats iguals ($1$) no coincideix "
   "amb la raó entre les bases ($1{,}6$)",
-  [D("Sí, perquè els costats iguals mesuren el mateix ($5$ cm "
+  distractors=[D("Sí, perquè els costats iguals mesuren el mateix ($5$ cm "
      "als dos triangles)", "RAO_NOMES_UN_COSTAT",
      "Que un parell de costats coincideixi no basta: cal que "
      "TOTS els costats guardin la mateixa raó. Aquí les bases "
@@ -482,11 +482,11 @@ Q("154d", 154, "d", B2, "B",
      "Amb els tres costats de cada triangle ja n'hi ha prou per "
      "aplicar el criteri costat-costat-costat: no calen els "
      "angles per descartar la semblança.")],
-  ["Per ser semblants, TOTS els costats han de guardar la mateixa "
+  pistes=["Per ser semblants, TOTS els costats han de guardar la mateixa "
    "raó, no només alguns.",
    "Compara la raó dels costats iguals ($\\frac{5}{5}$) amb la raó "
    "de les bases ($\\frac{3{,}2}{2}$)."],
-  [r"Raó dels costats iguals: $\dfrac{5}{5}=1$",
+  resolucio=[r"Raó dels costats iguals: $\dfrac{5}{5}=1$",
    r"Raó de les bases: $\dfrac{3{,}2}{2}=1{,}6$",
    "Com que $1\\ne1{,}6$, els triangles NO són semblants."],
   ex_text=E154, nota=NOTA154,
@@ -498,13 +498,13 @@ Q("154d", 154, "d", B2, "B",
 E155 = ("Determina si aquests parells de triangles són semblants, i "
         "quin criteri s'aplica en cada cas.")
 
-Q("155a", 155, "a", B2, "B",
-  "Triangle de costats $4$ cm i $5$ cm amb angle comprès de "
+Q("155a", 155, "a", B2, tipus="B",
+  enunciat="Triangle de costats $4$ cm i $5$ cm amb angle comprès de "
   "$80^\\circ$; triangle de costats $5$ cm i $6$ cm amb angle "
   "comprès de $80^\\circ$. Són semblants?",
-  "No, perquè les raons $\\frac{5}{4}=1{,}25$ i "
+  correcta="No, perquè les raons $\\frac{5}{4}=1{,}25$ i "
   "$\\frac{6}{5}=1{,}2$ no coincideixen",
-  [D("Sí, perquè els dos triangles tenen un angle de $80^\\circ$",
+  distractors=[D("Sí, perquè els dos triangles tenen un angle de $80^\\circ$",
      "CRITERI_SEMBLANCA_INSUFICIENT",
      "Que l'angle comprès coincideixi no basta pel criteri "
      "costat-angle-costat: cal, a més, que els costats que "
@@ -519,24 +519,24 @@ Q("155a", 155, "a", B2, "B",
      "Amb dos costats i l'angle comprès ja n'hi ha prou per "
      "aplicar el criteri costat-angle-costat: no cal el tercer "
      "costat per descartar la semblança.")],
-  ["Amb dos costats i l'angle comprès conegut, aplica el criteri "
+  pistes=["Amb dos costats i l'angle comprès conegut, aplica el criteri "
    "costat-angle-costat: compara les raons dels costats que "
    "envolten l'angle de $80^\\circ$.",
    "Calcula $\\frac{5}{4}$ i $\\frac{6}{5}$ i compara-les."],
-  [r"$\dfrac{5}{4}=1{,}25 \qquad \dfrac{6}{5}=1{,}2$",
+  resolucio=[r"$\dfrac{5}{4}=1{,}25 \qquad \dfrac{6}{5}=1{,}2$",
    "Com que $1{,}25\\ne1{,}2$, els triangles NO són semblants."],
   ex_text=E155,
   figura=parella_semblants([("", 4), ("", 5), ("", None)],
                            [("", 5), ("", 6), ("", None)],
                            angle_igual=("base_esq", "base_esq")))
 
-Q("155b", 155, "b", B2, "B",
-  "Triangle de costats $11$ cm i $9{,}1$ cm amb angle comprès de "
+Q("155b", 155, "b", B2, tipus="B",
+  enunciat="Triangle de costats $11$ cm i $9{,}1$ cm amb angle comprès de "
   "$65^\\circ$; triangle de costats $9$ cm i $7$ cm amb angle "
   "comprès de $65^\\circ$. Són semblants?",
-  "No, perquè les raons $\\frac{9}{11}\\approx0{,}818$ i "
+  correcta="No, perquè les raons $\\frac{9}{11}\\approx0{,}818$ i "
   "$\\frac{7}{9{,}1}\\approx0{,}769$ no coincideixen",
-  [D("Sí, perquè els dos triangles tenen un angle de $65^\\circ$",
+  distractors=[D("Sí, perquè els dos triangles tenen un angle de $65^\\circ$",
      "CRITERI_SEMBLANCA_INSUFICIENT",
      "Que l'angle comprès coincideixi no basta pel criteri "
      "costat-angle-costat: cal, a més, que els costats que "
@@ -552,11 +552,11 @@ Q("155b", 155, "b", B2, "B",
      "Amb dos costats i l'angle comprès conegut ja n'hi ha prou "
      "per aplicar el criteri costat-angle-costat: no cal el "
      "tercer costat per descartar la semblança.")],
-  ["Amb dos costats i l'angle comprès conegut, aplica el criteri "
+  pistes=["Amb dos costats i l'angle comprès conegut, aplica el criteri "
    "costat-angle-costat: compara les raons dels costats que "
    "envolten l'angle de $65^\\circ$.",
    "Calcula $\\frac{9}{11}$ i $\\frac{7}{9{,}1}$ i compara-les."],
-  [r"$\dfrac{9}{11}\approx0{,}818 \qquad \dfrac{7}{9{,}1}\approx0{,}769$",
+  resolucio=[r"$\dfrac{9}{11}\approx0{,}818 \qquad \dfrac{7}{9{,}1}\approx0{,}769$",
    "Com que $0{,}818\\ne0{,}769$, els triangles NO són semblants "
    "pel criteri costat-angle-costat."],
   ex_text=E155,
@@ -574,11 +574,11 @@ Q("155b", 155, "b", B2, "B",
 E156 = ("Expressa mitjançant una escala numèrica (a més de l'escala "
         "gràfica, que trobaràs descrita a la resolució).")
 
-Q("156a", 156, "a", B3, "A",
-  "$1$ cm en el plànol equival a $2$ km en la realitat. Quina és "
+Q("156a", 156, "a", B3, tipus="A",
+  enunciat="$1$ cm en el plànol equival a $2$ km en la realitat. Quina és "
   "l'escala numèrica?",
-  "$1:200\\,000$",
-  [D("$1:2$", "UNITATS_NO_CONVERTIDES",
+  correcta="$1:200\\,000$",
+  distractors=[D("$1:2$", "UNITATS_NO_CONVERTIDES",
      "Falta convertir els $2$ km a centímetres perquè les dues "
      "mesures de l'escala estiguin en la mateixa unitat: "
      "$2\\text{ km}=200\\,000$ cm."),
@@ -589,20 +589,20 @@ Q("156a", 156, "a", B3, "A",
    D("$200\\,000:1$", "INVERTIDA",
      "L'escala numèrica s'escriu amb el dibuix primer i la realitat "
      "després: $1:n$, no $n:1$.")],
-  ["Converteix els $2$ km a la mateixa unitat que el $1$ cm del "
+  pistes=["Converteix els $2$ km a la mateixa unitat que el $1$ cm del "
    "dibuix: $2\\text{ km}=200\\,000$ cm.",
    "L'escala numèrica és $1:n$, amb $n$ la distància real en "
    "centímetres."],
-  [r"$2\text{ km}=200\,000$ cm",
+  resolucio=[r"$2\text{ km}=200\,000$ cm",
    r"Escala numèrica: $1:200\,000$"],
   ex_text=E156,
   figura=escala_regla(1, "cm", "2 km"))
 
-Q("156b", 156, "b", B3, "A",
-  "$1$ cm en el plànol equival a $50$ km en la realitat. Quina és "
+Q("156b", 156, "b", B3, tipus="A",
+  enunciat="$1$ cm en el plànol equival a $50$ km en la realitat. Quina és "
   "l'escala numèrica?",
-  "$1:5\\,000\\,000$",
-  [D("$1:50$", "UNITATS_NO_CONVERTIDES",
+  correcta="$1:5\\,000\\,000$",
+  distractors=[D("$1:50$", "UNITATS_NO_CONVERTIDES",
      "Falta convertir els $50$ km a centímetres perquè les dues "
      "mesures de l'escala estiguin en la mateixa unitat: "
      "$50\\text{ km}=5\\,000\\,000$ cm."),
@@ -613,23 +613,23 @@ Q("156b", 156, "b", B3, "A",
    D("$5\\,000\\,000:1$", "INVERTIDA",
      "L'escala numèrica s'escriu amb el dibuix primer i la "
      "realitat després: $1:n$, no $n:1$.")],
-  ["Converteix els $50$ km a la mateixa unitat que el $1$ cm del "
+  pistes=["Converteix els $50$ km a la mateixa unitat que el $1$ cm del "
    "dibuix: $50\\text{ km}=5\\,000\\,000$ cm.",
    "L'escala numèrica és $1:n$, amb $n$ la distància real en "
    "centímetres."],
-  [r"$50\text{ km}=5\,000\,000$ cm",
+  resolucio=[r"$50\text{ km}=5\,000\,000$ cm",
    r"Escala numèrica: $1:5\,000\,000$"],
   ex_text=E156,
   figura=escala_regla(1, "cm", "50 km"))
 
 
 # ---- exercici 158: distància real -> distància al mapa ----
-Q("158", 158, "", B3, "A",
-  "La distància real entre dues ciutats és de $450$ km. Troba la "
+Q("158", 158, "", B3, tipus="A",
+  enunciat="La distància real entre dues ciutats és de $450$ km. Troba la "
   "distància que les separa en un mapa dibuixat a escala "
   "$1:1\\,500\\,000$.",
-  "$30$ cm",
-  [D("$0{,}3$ cm", "PRODUCTE_MAL",
+  correcta="$30$ cm",
+  distractors=[D("$0{,}3$ cm", "PRODUCTE_MAL",
      "Sembla que has convertit els $450$ km a metres ($450\\,000$ "
      "m) i no a centímetres: cal $450\\text{ km}=45\\,000\\,000$ "
      "cm abans de dividir per l'escala."),
@@ -641,22 +641,22 @@ Q("158", 158, "", B3, "A",
      "Aquest valor surt de multiplicar la distància real per "
      "l'escala en comptes de dividir-hi: en una escala $1:n$, la "
      "distància al mapa és la distància real DIVIDIDA per $n$.")],
-  ["Converteix la distància real a centímetres: "
+  pistes=["Converteix la distància real a centímetres: "
    "$450\\text{ km}=45\\,000\\,000$ cm.",
    "Divideix-la per l'escala: $45\\,000\\,000:1\\,500\\,000$."],
-  [r"$450\text{ km}=45\,000\,000$ cm",
+  resolucio=[r"$450\text{ km}=45\,000\,000$ cm",
    r"$45\,000\,000:1\,500\,000=30$ cm"],
   ex_text="")
 
 
 # ---- exercici 159: mapa 1 -> distància real -> mapa 2 ----
-Q("159", 159, "", B3, "A",
-  "En representar la carretera que uneix dos pobles en un mapa "
+Q("159", 159, "", B3, tipus="A",
+  enunciat="En representar la carretera que uneix dos pobles en un mapa "
   "d'escala $1:500\\,000$, té una longitud de $6$ cm. Quina seria "
   "la longitud de la carretera si la representem en un plànol "
   "d'escala $1:60\\,000$?",
-  "$50$ cm",
-  [D("$0{,}72$ cm", "CREUAMENT_INVERTIT",
+  correcta="$50$ cm",
+  distractors=[D("$0{,}72$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'aplicar la raó de les escales invertida "
      "($60\\,000/500\\,000$ enlloc de $500\\,000/60\\,000$): a una "
      "escala amb un nombre MÉS PETIT (més detallada) li correspon "
@@ -670,11 +670,11 @@ Q("159", 159, "", B3, "A",
      "Aquest valor té un factor $10$ de més: revisa el càlcul de "
      "la distància real ($6\\cdot500\\,000=3\\,000\\,000$ cm) abans "
      "de dividir-la per $60\\,000$.")],
-  ["Calcula primer la distància real: "
+  pistes=["Calcula primer la distància real: "
    "$6\\text{ cm}\\cdot500\\,000=3\\,000\\,000$ cm.",
    "Divideix aquesta distància real per la segona escala: "
    "$3\\,000\\,000:60\\,000$."],
-  [r"Distància real: $6\cdot500\,000=3\,000\,000$ cm",
+  resolucio=[r"Distància real: $6\cdot500\,000=3\,000\,000$ cm",
    r"Al nou plànol: $3\,000\,000:60\,000=50$ cm"],
   ex_text="")
 
@@ -682,11 +682,11 @@ Q("159", 159, "", B3, "A",
 # ---- exercici 160: plànol d'habitatge, escala 1:60 ----
 E160 = "El plànol d'un habitatge està dibuixat a escala $1:60$."
 
-Q("160a", 160, "a", B3, "A",
-  "Quines dimensions reals té la cuina si en el plànol fa $4$ cm "
+Q("160a", 160, "a", B3, tipus="A",
+  enunciat="Quines dimensions reals té la cuina si en el plànol fa $4$ cm "
   "d'ample i $7$ cm de llarg?",
-  "$2{,}4$ m d'ample i $4{,}2$ m de llarg",
-  [D("$240$ m d'ample i $420$ m de llarg", "PRODUCTE_MAL",
+  correcta="$2{,}4$ m d'ample i $4{,}2$ m de llarg",
+  distractors=[D("$240$ m d'ample i $420$ m de llarg", "PRODUCTE_MAL",
      "Aquests valors tenen un factor $100$ de més: $4\\cdot60="
      "240$ cm, que cal convertir a metres dividint per $100$, no "
      "deixar-ho tal qual."),
@@ -697,19 +697,19 @@ Q("160a", 160, "a", B3, "A",
    D("$4$ m d'ample i $7$ m de llarg", "ESCALA_NO_APLICADA",
      "No has fet servir l'escala: les mesures del plànol i les "
      "reals no coincideixen a menys que l'escala fos $1:1$.")],
-  ["A l'escala $1:60$, cada centímetre del plànol correspon a "
+  pistes=["A l'escala $1:60$, cada centímetre del plànol correspon a "
    "$60$ cm reals.",
    "Multiplica les dues mesures del plànol per $60$ i converteix "
    "el resultat a metres."],
-  [r"Ample: $4\cdot60=240$ cm $=2{,}4$ m",
+  resolucio=[r"Ample: $4\cdot60=240$ cm $=2{,}4$ m",
    r"Llarg: $7\cdot60=420$ cm $=4{,}2$ m"],
   ex_text=E160)
 
-Q("160b", 160, "b", B3, "A",
-  "El passadís mesura $7{,}5$ m a la realitat. Quant fa de llarg "
+Q("160b", 160, "b", B3, tipus="A",
+  enunciat="El passadís mesura $7{,}5$ m a la realitat. Quant fa de llarg "
   "en el plànol?",
-  "$12{,}5$ cm",
-  [D("$450$ cm", "CREUAMENT_INVERTIT",
+  correcta="$12{,}5$ cm",
+  distractors=[D("$450$ cm", "CREUAMENT_INVERTIT",
      "Aquest valor surt de multiplicar per $60$ en comptes de "
      "dividir-hi: a l'escala $1:60$, la mesura AL PLÀNOL és la "
      "mesura real DIVIDIDA per $60$, no multiplicada."),
@@ -720,10 +720,10 @@ Q("160b", 160, "b", B3, "A",
    D("$7{,}5$ cm", "ESCALA_NO_APLICADA",
      "No has fet servir l'escala: les mesures del plànol i les "
      "reals no coincideixen a menys que l'escala fos $1:1$.")],
-  ["Converteix els $7{,}5$ m a centímetres: $750$ cm.",
+  pistes=["Converteix els $7{,}5$ m a centímetres: $750$ cm.",
    "Divideix-los per $60$ per passar de la mesura real a la del "
    "plànol."],
-  [r"$7{,}5\text{ m}=750$ cm",
+  resolucio=[r"$7{,}5\text{ m}=750$ cm",
    r"$750:60=12{,}5$ cm"],
   ex_text=E160)
 
@@ -733,12 +733,12 @@ Q("160b", 160, "b", B3, "A",
 # =====================================================================
 
 # ---- exercici 161: ombres d'arbres ----
-Q("161", 161, "", B4, "A",
-  "Quant mesura l'ombra projectada per un arbre de $15$ m d'altura, "
+Q("161", 161, "", B4, tipus="A",
+  enunciat="Quant mesura l'ombra projectada per un arbre de $15$ m d'altura, "
   "sabent que en aquest mateix moment un altre arbre de $8$ m "
   "d'altura projecta una ombra de $10$ m?",
-  "$18{,}75$ m",
-  [D("$12{,}5$ m", "CREUAMENT_INVERTIT",
+  correcta="$18{,}75$ m",
+  distractors=[D("$12{,}5$ m", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: com que el segon "
      "arbre és MÉS ALT, la seva ombra ha de ser MÉS LLARGA que la "
      "del primer, no més curta. Planteja "
@@ -751,12 +751,12 @@ Q("161", 161, "", B4, "A",
      "Aquest valor surt de $8\\cdot2$: comprova el càlcul complet "
      "$x=\\frac{15\\cdot10}{8}$ pas a pas en lloc d'una "
      "aproximació.")],
-  ["Al mateix moment, l'altura i l'ombra són proporcionals: cada arbre "
+  pistes=["Al mateix moment, l'altura i l'ombra són proporcionals: cada arbre "
    "amb la seva ombra. Arbre petit: $8$ m d'altura i $10$ m d'ombra. "
    "Arbre gran: $15$ m d'altura i ombra $x$.",
    "$\\dfrac{8}{10}=\\dfrac{15}{x}$. Aïlla $x$: com que l'arbre gran és "
    "més alt, la seva ombra ha de sortir més llarga."],
-  [r"$\dfrac{8}{10}=\dfrac{15}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{8}{10}=\dfrac{15}{x} \;\Longrightarrow\; "
    r"x=\dfrac{15\cdot10}{8}$",
    "$x=18{,}75$ m"],
   ex_text="",
@@ -764,12 +764,12 @@ Q("161", 161, "", B4, "A",
 
 
 # ---- exercici 162: antena amb dos cables perpendiculars (Pitàgores) ----
-Q("162", 162, "", B4, "A",
-  "Una antena està subjectada amb dos cables que formen entre ells "
+Q("162", 162, "", B4, tipus="A",
+  enunciat="Una antena està subjectada amb dos cables que formen entre ells "
   "un angle de $90^\\circ$ i mesuren $8$ i $5$ m, respectivament. A "
   "quina altura s'enganxen a l'antena?",
-  "$9{,}43$ m (aproximadament)",
-  [D("$13$ m", "SUMA_EN_LLOC_RESTA",
+  correcta="$9{,}43$ m (aproximadament)",
+  distractors=[D("$13$ m", "SUMA_EN_LLOC_RESTA",
      "Has sumat les dues longituds ($8+5$) enlloc d'aplicar el "
      "teorema de Pitàgores: com que els cables formen un angle "
      "recte, són els catets d'un triangle rectangle, i cal "
@@ -783,22 +783,22 @@ Q("162", 162, "", B4, "A",
      "Aquest valor surt de multiplicar $8\\cdot5$: el teorema de "
      "Pitàgores relaciona els QUADRATS dels catets, no el seu "
      "producte directe.")],
-  ["Com que els dos cables formen un angle de $90^\\circ$ entre "
+  pistes=["Com que els dos cables formen un angle de $90^\\circ$ entre "
    "ells, són els catets d'un triangle rectangle, i el tram "
    "d'antena entre els dos punts d'ancoratge n'és la hipotenusa.",
    "Aplica el teorema de Pitàgores: $h=\\sqrt{8^2+5^2}$."],
-  [r"$h=\sqrt{8^2+5^2}=\sqrt{64+25}=\sqrt{89}$",
+  resolucio=[r"$h=\sqrt{8^2+5^2}=\sqrt{64+25}=\sqrt{89}$",
    "$h\\approx9{,}43$ m"],
   ex_text="")
 
 
 # ---- exercici 163: ombra arbre -> ombra edifici ----
-Q("163", 163, "", B4, "A",
-  "Un arbre fa $5$ m d'altura i, a una determinada hora del dia, "
+Q("163", 163, "", B4, tipus="A",
+  enunciat="Un arbre fa $5$ m d'altura i, a una determinada hora del dia, "
   "projecta una ombra de $6$ m. Quina altura tindrà un edifici que "
   "a la mateixa hora projecta una ombra de $10$ m?",
-  "$8{,}33$ m (aproximadament)",
-  [D("$12$ m", "CREUAMENT_INVERTIT",
+  correcta="$8{,}33$ m (aproximadament)",
+  distractors=[D("$12$ m", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: planteja "
      "$\\frac{6}{5}=\\frac{10}{x}$, amb l'altura de l'arbre "
      "corresponent a la seva pròpia ombra, no a la de l'edifici."),
@@ -809,12 +809,12 @@ Q("163", 163, "", B4, "A",
    D("$6$ m", "PROGRESSIO_INVENTADA",
      "$6$ m és l'ombra de l'arbre, no l'altura de l'edifici que es "
      "demana: torna a plantejar la proporció des de zero.")],
-  ["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
+  pistes=["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
    "amb la seva ombra. Arbre: $5$ m d'altura i $6$ m d'ombra. Edifici: "
    "altura $x$ i $10$ m d'ombra.",
    "Ombra entre altura dona el mateix per als dos: "
    "$\\dfrac{6}{5}=\\dfrac{10}{x}$. Aïlla $x$."],
-  [r"$\dfrac{6}{5}=\dfrac{10}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{6}{5}=\dfrac{10}{x} \;\Longrightarrow\; "
    r"x=\dfrac{5\cdot10}{6}=\dfrac{50}{6}$",
    "$x\\approx8{,}33$ m"],
   ex_text="",
@@ -822,12 +822,12 @@ Q("163", 163, "", B4, "A",
 
 
 # ---- exercici 164: ombra pal -> ombra edifici ----
-Q("164", 164, "", B4, "A",
-  "Si un pal mesura $1$ m, i l'ombra que projecta a una "
+Q("164", 164, "", B4, tipus="A",
+  enunciat="Si un pal mesura $1$ m, i l'ombra que projecta a una "
   "determinada hora del dia és d'$1{,}5$ m, quant mesura un "
   "edifici que projecta una ombra de $6$ m a la mateixa hora?",
-  "$4$ m",
-  [D("$9$ m", "CREUAMENT_INVERTIT",
+  correcta="$4$ m",
+  distractors=[D("$9$ m", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: planteja "
      "$\\frac{1}{1{,}5}=\\frac{x}{6}$, amb l'altura del pal "
      "corresponent a la seva pròpia ombra."),
@@ -839,12 +839,12 @@ Q("164", 164, "", B4, "A",
      "Aquest valor surt de $6:1{,}5\\cdot1{,}67$, amb els termes "
      "mal aparellats: revisa la proporció "
      "$\\frac{1}{1{,}5}=\\frac{x}{6}$ pas a pas.")],
-  ["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
+  pistes=["A la mateixa hora, l'altura i l'ombra són proporcionals: cada objecte "
    "amb la seva ombra. Pal: $1$ m d'altura i $1{,}5$ m d'ombra. Edifici: "
    "altura $x$ i $6$ m d'ombra.",
    "Altura entre ombra dona el mateix per als dos: "
    "$\\dfrac{1}{1{,}5}=\\dfrac{x}{6}$. Aïlla $x$."],
-  [r"$\dfrac{1}{1{,}5}=\dfrac{x}{6} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{1}{1{,}5}=\dfrac{x}{6} \;\Longrightarrow\; "
    r"x=\dfrac{1\cdot6}{1{,}5}$",
    "$x=4$ m"],
   ex_text="",
@@ -860,14 +860,14 @@ Q("164", 164, "", B4, "A",
 NOTA165_INT = ("Simplificació ja explicitada a la nota de transcripció "
                "d'im9.tex.")
 
-Q("165", 165, "", B4, "A",
-  "Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la "
+Q("165", 165, "", B4, tipus="A",
+  enunciat="Un jugador de bàsquet d'$1{,}9$ m, situat a $6{,}25$ m de la "
   "cistella, llança la pilota per encistellar (cistella a $3{,}05$ "
   "m d'altura). Suposant una trajectòria rectilínia des del "
   "llançament fins a la cistella, a quina altura està la pilota "
   "quan va per la meitat del recorregut?",
-  "$2{,}475$ m",
-  [D("$1{,}575$ m", "ARITMETICA_PAS_INTERMEDI",
+  correcta="$2{,}475$ m",
+  distractors=[D("$1{,}575$ m", "ARITMETICA_PAS_INTERMEDI",
      "Aquest valor surt de $\\frac{3{,}05}{2}-\\frac{1{,}9}{2}$: "
      "cal partir de l'altura inicial ($1{,}9$ m) i sumar-hi la "
      "MEITAT de la diferència d'altures, no calcular la meitat de "
@@ -883,24 +883,24 @@ Q("165", 165, "", B4, "A",
      "Aquest valor és la meitat de $3{,}05$ m: no té en compte "
      "que la pilota ja parteix d'una altura inicial d'$1{,}9$ m, "
      "no de terra.")],
-  ["A mig recorregut, la pilota ha pujat la meitat de la "
+  pistes=["A mig recorregut, la pilota ha pujat la meitat de la "
    "diferència total d'altura entre el llançament i la cistella.",
    "Calcula primer la diferència d'altures "
    "($3{,}05-1{,}9$) i suma'n la meitat a l'altura inicial."],
-  [r"Diferència d'altura: $3{,}05-1{,}9=1{,}15$ m",
+  resolucio=[r"Diferència d'altura: $3{,}05-1{,}9=1{,}15$ m",
    r"$x=1{,}9+\dfrac{1{,}15}{2}=1{,}9+0{,}575$",
    "$x=2{,}475$ m"],
   ex_text="", nota_interna=NOTA165_INT)
 
 
 # ---- exercici 166: reflex d'una muntanya al riu ----
-Q("166", 166, "", B4, "A",
-  "L'Anna està situada a $5$ m de la vora d'un riu i veu "
+Q("166", 166, "", B4, tipus="A",
+  enunciat="L'Anna està situada a $5$ m de la vora d'un riu i veu "
   "reflectida una muntanya a l'aigua. Si l'Anna mesura $1{,}70$ m "
   "i el riu està a $3$ km de la muntanya, quina altura té la "
   "muntanya?",
-  "$1\\,020$ m",
-  [D("$1{,}02$ m", "PRODUCTE_MAL",
+  correcta="$1\\,020$ m",
+  distractors=[D("$1{,}02$ m", "PRODUCTE_MAL",
      "Aquest valor està en metres però la xifra correspon a "
      "quilòmetres: $1\\,020$ m equival a $1{,}02$ km, no a "
      "$1{,}02$ m; revisa la conversió de $3$ km a metres abans de "
@@ -913,11 +913,11 @@ Q("166", 166, "", B4, "A",
      "Aquest valor surt de $1{,}70\\cdot3\\,000$ sense dividir per "
      "$5$: $x=\\frac{1{,}70\\cdot3\\,000}{5}$, no només el "
      "numerador.")],
-  ["Converteix els $3$ km a metres: $3\\,000$ m.",
+  pistes=["Converteix els $3$ km a metres: $3\\,000$ m.",
    "L'altura de l'Anna i la seva distància a la vora són "
    "proporcionals a l'altura de la muntanya i la seva distància a "
    "la vora: $\\dfrac{1{,}70}{5}=\\dfrac{x}{3\\,000}$."],
-  [r"$3\text{ km}=3\,000$ m",
+  resolucio=[r"$3\text{ km}=3\,000$ m",
    r"$\dfrac{1{,}70}{5}=\dfrac{x}{3\,000} \;\Longrightarrow\; "
    r"x=\dfrac{1{,}70\cdot3\,000}{5}$",
    "$x=1\\,020$ m"],
@@ -927,13 +927,13 @@ Q("166", 166, "", B4, "A",
 
 # ---- exercici 167: altura d'edifici a partir de dues ombres i angles
 # d'elevació del sol (60° i 30°) ----
-Q("167", 167, "", B4, "A",
-  "Mesurem l'ombra d'un edifici en dos moments del dia, amb angles "
+Q("167", 167, "", B4, tipus="A",
+  enunciat="Mesurem l'ombra d'un edifici en dos moments del dia, amb angles "
   "d'elevació del sol de $60^\\circ$ i $30^\\circ$ respecte al "
   "terra. Si la distància entre els extrems de les dues ombres és "
   "de $6{,}67$ m, calcula l'altura de l'edifici.",
-  "$5{,}78$ m (aproximadament)",
-  [D("$11{,}55$ m", "PRODUCTE_MAL",
+  correcta="$5{,}78$ m (aproximadament)",
+  distractors=[D("$11{,}55$ m", "PRODUCTE_MAL",
      "Aquest valor surt de $6{,}67\\cdot\\left(\\tan60^\\circ-"
      "\\tan30^\\circ\\right)$: la diferència d'ombres es planteja "
      "amb els INVERSOS de les tangents "
@@ -949,12 +949,12 @@ Q("167", 167, "", B4, "A",
      "plantejament complet amb les tangents dels dos angles "
      "d'elevació, no una simple relació directa amb la distància "
      "entre ombres.")],
-  ["L'ombra amb el sol a $60^\\circ$ val $\\frac{h}{\\tan60^\\circ}$ "
+  pistes=["L'ombra amb el sol a $60^\\circ$ val $\\frac{h}{\\tan60^\\circ}$ "
    "i, amb el sol a $30^\\circ$ (més baix, ombra més llarga), val "
    "$\\frac{h}{\\tan30^\\circ}$.",
    "La diferència entre totes dues ombres és $6{,}67$ m: "
    "$\\frac{h}{\\tan30^\\circ}-\\frac{h}{\\tan60^\\circ}=6{,}67$."],
-  [r"$h\left(\dfrac{1}{\tan30^\circ}-\dfrac{1}{\tan60^\circ}"
+  resolucio=[r"$h\left(\dfrac{1}{\tan30^\circ}-\dfrac{1}{\tan60^\circ}"
    r"\right)=6{,}67$",
    r"$h\,(1{,}7321-0{,}5774)=6{,}67 \;\Longrightarrow\; "
    r"h\cdot1{,}1547=6{,}67$",
@@ -963,15 +963,15 @@ Q("167", 167, "", B4, "A",
 
 
 # ---- exercici 168: alineació ulls-vora del precipici-poble ----
-Q("168", 168, "", B4, "A",
-  "En Pere és a $2$ m d'un precipici i veu alineat un poble amb la "
+Q("168", 168, "", B4, tipus="A",
+  enunciat="En Pere és a $2$ m d'un precipici i veu alineat un poble amb la "
   "vora del precipici. Els seus ulls són a $1{,}6$ m d'altura i el "
   "precipici té $450$ m de profunditat. A quina distància "
   "horitzontal està el poble del precipici?",
-  "$562{,}5$ m",
+  correcta="$562{,}5$ m",
   # Els retorns d'abans no descrivien cap d'aquests tres errors: el $1{,}6$
   # no surt de cap proporció, $720=450\cdot1{,}6$ i $281{,}25=450:1{,}6$.
-  [D("$1{,}6$ m", "CREUAMENT_INVERTIT",
+  distractors=[D("$1{,}6$ m", "CREUAMENT_INVERTIT",
      "$1{,}6$ m és l'altura dels ulls d'en Pere, una dada de "
      "l'enunciat. La distància al poble ha de ser molt més gran: el "
      "triangle gran fa $450$ m de fondària."),
@@ -982,13 +982,13 @@ Q("168", 168, "", B4, "A",
      "Aquest valor surt de $\\frac{450}{1{,}6}$, sense multiplicar pels "
      "$2$ m: revisa la proporció "
      "$\\frac{1{,}6}{2}=\\frac{450}{x}$ pas a pas.")],
-  ["Hi ha dos triangles semblants amb el vèrtex a la vora del precipici. "
+  pistes=["Hi ha dos triangles semblants amb el vèrtex a la vora del precipici. "
    "El petit: l'altura dels ulls ($1{,}6$ m) i la distància d'en Pere a "
    "la vora ($2$ m). El gran: la profunditat ($450$ m) i la distància "
    "de la vora al poble ($x$).",
    "Vertical amb vertical i horitzontal amb horitzontal: "
    "$\\dfrac{1{,}6}{2}=\\dfrac{450}{x}$. Aïlla $x$."],
-  [r"$\dfrac{1{,}6}{2}=\dfrac{450}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{1{,}6}{2}=\dfrac{450}{x} \;\Longrightarrow\; "
    r"x=\dfrac{2\cdot450}{1{,}6}=\dfrac{900}{1{,}6}$",
    "$x=562{,}5$ m"],
   ex_text="",
@@ -996,12 +996,12 @@ Q("168", 168, "", B4, "A",
 
 
 # ---- exercici 169: reflex d'un edifici en un bassal ----
-Q("169", 169, "", B4, "A",
-  "Un home que té una alçada d'$1{,}75$ m veu reflectit un edifici "
+Q("169", 169, "", B4, tipus="A",
+  enunciat="Un home que té una alçada d'$1{,}75$ m veu reflectit un edifici "
   "de $52{,}5$ m sobre un bassal d'aigua que hi ha a $4$ m d'ell. "
   "A quina distància del bassal es troba l'edifici?",
-  "$120$ m",
-  [D("$1{,}75$ m", "CREUAMENT_INVERTIT",
+  correcta="$120$ m",
+  distractors=[D("$1{,}75$ m", "CREUAMENT_INVERTIT",
      "Aquest valor surt d'invertir la proporció: planteja "
      "$\\frac{1{,}75}{4}=\\frac{52{,}5}{x}$, amb l'alçada de "
      "l'home corresponent a la seva pròpia distància al bassal."),
@@ -1013,27 +1013,27 @@ Q("169", 169, "", B4, "A",
      "Aquest valor surt de $52{,}5:1{,}75$ sense multiplicar pels "
      "$4$ m: revisa la proporció "
      "$\\frac{1{,}75}{4}=\\frac{52{,}5}{x}$ pas a pas.")],
-  ["El bassal fa de mirall: hi ha dos triangles semblants amb el vèrtex "
+  pistes=["El bassal fa de mirall: hi ha dos triangles semblants amb el vèrtex "
    "al bassal. El petit: l'alçada de l'home ($1{,}75$ m) i la seva "
    "distància al bassal ($4$ m). El gran: l'alçada de l'edifici "
    "($52{,}5$ m) i la seva distància al bassal ($x$).",
    "Alçada entre distància dona el mateix als dos triangles: "
    "$\\dfrac{1{,}75}{4}=\\dfrac{52{,}5}{x}$. Aïlla $x$."],
-  [r"$\dfrac{1{,}75}{4}=\dfrac{52{,}5}{x} \;\Longrightarrow\; "
+  resolucio=[r"$\dfrac{1{,}75}{4}=\dfrac{52{,}5}{x} \;\Longrightarrow\; "
    r"x=\dfrac{4\cdot52{,}5}{1{,}75}$",
    "$x=120$ m"],
   ex_text="",
   figura=ombra(1.75, 4, 52.5, "x", "home", "edifici"))
 
-Q("155c", 155, "c", B2, "B",
-  "Triangle de costats $5$ cm i $7$ cm; triangle de costats $8$ cm "
+Q("155c", 155, "c", B2, tipus="B",
+  enunciat="Triangle de costats $5$ cm i $7$ cm; triangle de costats $8$ cm "
   "i $12{,}8$ cm (sense conèixer cap angle). Es pot assegurar que "
   "són semblants?",
-  "No es pot assegurar amb aquestes dades: les raons "
+  correcta="No es pot assegurar amb aquestes dades: les raons "
   "$\\frac{8}{5}=1{,}6$ i $\\frac{12{,}8}{7}\\approx1{,}829$ no "
   "coincideixen, però a més falta un angle o el tercer costat per "
   "aplicar un criteri amb seguretat",
-  [D("Sí, perquè tots dos triangles tenen dos costats coneguts",
+  distractors=[D("Sí, perquè tots dos triangles tenen dos costats coneguts",
      "CRITERI_SEMBLANCA_INSUFICIENT",
      "Conèixer dos costats de cadascun no basta per aplicar cap "
      "dels tres criteris de semblança: calen els tres costats "
@@ -1050,13 +1050,13 @@ Q("155c", 155, "c", B2, "B",
      "$1{,}6$ i $1{,}829$ no coincideixen, i per aplicar un "
      "criteri de semblança calen dades que aquí falten (l'angle "
      "comprès o el tercer costat).")],
-  ["Amb només dos costats de cada triangle, sense conèixer l'angle "
+  pistes=["Amb només dos costats de cada triangle, sense conèixer l'angle "
    "comprès, no n'hi ha prou per aplicar cap dels tres criteris de "
    "semblança amb seguretat.",
    "Calcula igualment les raons $\\frac{8}{5}$ i "
    "$\\frac{12{,}8}{7}$ per veure si almenys descarten la "
    "semblança pel criteri costat-angle-costat."],
-  [r"$\dfrac{8}{5}=1{,}6 \qquad \dfrac{12{,}8}{7}\approx1{,}829$",
+  resolucio=[r"$\dfrac{8}{5}=1{,}6 \qquad \dfrac{12{,}8}{7}\approx1{,}829$",
    "Les raons no coincideixen, però amb només aquesta informació "
    "no es pot afirmar que siguin semblants: calen els tres costats "
    "o un angle comprès per aplicar amb seguretat un criteri de "
@@ -1065,12 +1065,12 @@ Q("155c", 155, "c", B2, "B",
   figura=parella_semblants([("", 5), ("", 7), ("", None)],
                            [("", 8), ("", 12.8), ("", None)]))
 
-Q("155d", 155, "d", B2, "B",
-  "Triangle rectangle de catets $3$ cm i $5$ cm; triangle "
+Q("155d", 155, "d", B2, tipus="B",
+  enunciat="Triangle rectangle de catets $3$ cm i $5$ cm; triangle "
   "rectangle de catets $10$ cm i $13$ cm. Són semblants?",
-  "No, perquè les raons $\\frac{10}{3}\\approx3{,}33$ i "
+  correcta="No, perquè les raons $\\frac{10}{3}\\approx3{,}33$ i "
   "$\\frac{13}{5}=2{,}6$ no coincideixen",
-  [D("Sí, perquè tots dos són triangles rectangles",
+  distractors=[D("Sí, perquè tots dos són triangles rectangles",
      "CRITERI_SEMBLANCA_INSUFICIENT",
      "Ser rectangle només fixa un angle de $90^\\circ$ igual als "
      "dos triangles; per assegurar la semblança cal, a més, que "
@@ -1087,11 +1087,11 @@ Q("155d", 155, "d", B2, "B",
      "igual als dos triangles): amb la seva raó ja n'hi ha prou "
      "per aplicar el criteri costat-angle-costat, sense calcular "
      "cap hipotenusa.")],
-  ["En un triangle rectangle, els catets envolten l'angle recte, "
+  pistes=["En un triangle rectangle, els catets envolten l'angle recte, "
    "que és igual als dos triangles: aplica el criteri "
    "costat-angle-costat comparant la raó dels catets.",
    "Calcula $\\frac{10}{3}$ i $\\frac{13}{5}$ i compara-les."],
-  [r"$\dfrac{10}{3}\approx3{,}33 \qquad \dfrac{13}{5}=2{,}6$",
+  resolucio=[r"$\dfrac{10}{3}\approx3{,}33 \qquad \dfrac{13}{5}=2{,}6$",
    "Com que $3{,}33\\ne2{,}6$, els triangles NO són semblants pel "
    "criteri costat-angle-costat amb l'angle recte com a angle "
    "comprès."],
@@ -1105,12 +1105,12 @@ Q("155d", 155, "d", B2, "B",
       [("", 10), ("", 13), ("", None)],
       angle_igual=("base_esq", "base_esq"), angle_recte=True))
 
-Q("155e", 155, "e", B2, "B",
-  "Triangle rectangle amb un angle agut de $50^\\circ$; triangle "
+Q("155e", 155, "e", B2, tipus="B",
+  enunciat="Triangle rectangle amb un angle agut de $50^\\circ$; triangle "
   "rectangle amb un angle agut de $40^\\circ$. Són semblants?",
-  "Sí, pel criteri angle-angle-angle: els dos triangles tenen els "
+  correcta="Sí, pel criteri angle-angle-angle: els dos triangles tenen els "
   "mateixos tres angles ($90^\\circ$, $50^\\circ$ i $40^\\circ$)",
-  [D("No, perquè els angles aguts donats ($50^\\circ$ i "
+  distractors=[D("No, perquè els angles aguts donats ($50^\\circ$ i "
      "$40^\\circ$) no coincideixen", "CRITERI_SEMBLANCA_INSUFICIENT",
      "Cal calcular el TERCER angle de cada triangle abans de "
      "concloure res: $180^\\circ-90^\\circ-50^\\circ=40^\\circ$ i "
@@ -1127,12 +1127,12 @@ Q("155e", 155, "e", B2, "B",
      "els tres angles coincideixen, els triangles ja són "
      "semblants, sense necessitat de comprovar els costats a "
      "part.")],
-  ["Calcula el tercer angle de cada triangle: "
+  pistes=["Calcula el tercer angle de cada triangle: "
    "$180^\\circ-90^\\circ-50^\\circ$ i "
    "$180^\\circ-90^\\circ-40^\\circ$.",
    "Compara els tres angles de cada triangle un cop calculats "
    "tots dos tercers angles."],
-  ["Triangle amb angle agut de $50^\\circ$: té angles "
+  resolucio=["Triangle amb angle agut de $50^\\circ$: té angles "
    "$90^\\circ$, $50^\\circ$ i $180^\\circ-90^\\circ-50^\\circ="
    "40^\\circ$.",
    "Triangle amb angle agut de $40^\\circ$: té angles "
@@ -1141,3 +1141,137 @@ Q("155e", 155, "e", B2, "B",
    "Els dos triangles tenen els mateixos tres angles: SÍ són "
    "semblants, pel criteri angle-angle-angle."],
   ex_text=E155)
+
+
+# =====================================================================
+# NIVELL TRIVIAL (exercicis 358-360)
+# =====================================================================
+# Els tres blocs obrien amb decimals ($2{,}5$ cm, $6{,}67$ cm) o amb el
+# canvi d'unitats d'una escala en km. Aquí, proporcions amb una raó entera
+# que es veu de cop, i escales on el dibuix i la realitat ja van en la
+# mateixa unitat.
+
+dificultats({
+    358: 1,  # Tales amb raó entera
+    359: 1,  # raó de semblança i un costat homòleg, enters
+    360: 1,  # escriure l'escala numèrica, sense canvi d'unitats
+})
+
+
+E358 = ("Les rectes que tallen aquestes dues secants són paral·leles. Fent "
+        "servir el teorema de Tales, calcula la longitud $x$.")
+
+Q("358a", 358, "a", B1, tipus="A",
+  enunciat=("Una secant té segments de $2$ cm i $6$ cm; l'altra, $3$ cm i "
+            "$x$ (segments corresponents en el mateix ordre)."),
+  correcta="$x=9$ cm",
+  distractors=[D("$x=7$ cm", "PROGRESSIO_INVENTADA",
+     "Has sumat la mateixa quantitat ($6-2=4$, i $3+4=7$). Tales diu que "
+     "els segments són PROPORCIONALS: el $6$ és el triple del $2$, així que "
+     "la $x$ és el triple del $3$."),
+   D("$x=1$ cm", "CREUAMENT_INVERTIT",
+     "Has creuat els termes al revés: $\\dfrac{2\\cdot3}{6}$. La proporció "
+     "és $\\dfrac{6}{2}=\\dfrac{x}{3}$."),
+   D("$x=18$ cm", "PRODUCTE_MAL",
+     "Has fet $3\\cdot6$ i no has dividit per $2$: $x=\\dfrac{3\\cdot6}{2}$.")],
+  pistes=["Quantes vegades és més llarg el $6$ que el $2$?",
+   "$\\dfrac{6}{2}=\\dfrac{x}{3}$."],
+  resolucio=[r"$\dfrac{6}{2}=\dfrac{x}{3}\;\Longrightarrow\;x=\dfrac{6\cdot3}{2}=9$ cm"],
+  ex_text=E358,
+  figura=tales([("A", 2), ("B", 6)], [("A'", 3), ("B'", (9, "x"))], "x"))
+
+Q("358b", 358, "b", B1, tipus="A",
+  enunciat=("Una secant té segments de $5$ cm i $10$ cm; l'altra, $2$ cm i "
+            "$x$ (segments corresponents en el mateix ordre)."),
+  correcta="$x=4$ cm",
+  distractors=[D("$x=7$ cm", "PROGRESSIO_INVENTADA",
+     "Has sumat la mateixa quantitat ($10-5=5$, i $2+5=7$). Tales diu que "
+     "els segments són PROPORCIONALS: el $10$ és el doble del $5$, així que "
+     "la $x$ és el doble del $2$."),
+   D("$x=1$ cm", "CREUAMENT_INVERTIT",
+     "Has creuat els termes al revés: $\\dfrac{5\\cdot2}{10}$. La proporció "
+     "és $\\dfrac{10}{5}=\\dfrac{x}{2}$."),
+   D("$x=20$ cm", "PRODUCTE_MAL",
+     "Has fet $2\\cdot10$ i no has dividit per $5$: $x=\\dfrac{2\\cdot10}{5}$.")],
+  pistes=["Quantes vegades és més llarg el $10$ que el $5$?",
+   "$\\dfrac{10}{5}=\\dfrac{x}{2}$."],
+  resolucio=[r"$\dfrac{10}{5}=\dfrac{x}{2}\;\Longrightarrow\;x=\dfrac{10\cdot2}{5}=4$ cm"],
+  ex_text=E358,
+  figura=tales([("A", 5), ("B", 10)], [("A'", 2), ("B'", (4, "x"))], "x"))
+
+
+E359 = ("Aquests dos triangles són semblants. Respon la pregunta fent servir "
+        "la raó de semblança $k$, que va del triangle petit al gran.")
+
+Q("359a", 359, "a", B2, tipus="A",
+  enunciat=("Triangle petit de costats $2$, $3$ i $4$ cm; triangle gran de "
+            "costats $6$, $9$ i $12$ cm. Quina és la raó de semblança?"),
+  correcta="$k=3$",
+  distractors=[D(r"$k=\dfrac{1}{3}$", "INVERTIDA",
+     "Has dividit el petit entre el gran. Del petit al gran és gran entre "
+     "petit: $6:2$. Com que el gran és més gran, $k>1$."),
+   D("$k=4$", "RESTA_PER_QUOCIENT",
+     "Has restat $6-2$. La raó surt de DIVIDIR: $6:2$. Comprova-ho amb un "
+     "altre parell: $9-3=6$, no $4$."),
+   D("$k=6$", "DADES_MAL_TRIADES",
+     "$6$ és un costat del gran, no la raó. La raó compara dos costats "
+     "corresponents: $6:2$.")],
+  pistes=["Agafa dos costats que es corresponen: el $2$ i el $6$.",
+   "Divideix el del gran entre el del petit."],
+  resolucio=[r"$k=\dfrac{6}{2}=\dfrac{9}{3}=\dfrac{12}{4}=3$"],
+  ex_text=E359,
+  figura=parella_semblants([("", 2), ("", 3), ("", 4)],
+                           [("", 6), ("", 9), ("", 12)]))
+
+Q("359b", 359, "b", B2, tipus="A",
+  enunciat=("La raó de semblança és $k=2$. Un costat del triangle petit fa "
+            "$5$ cm. Quant fa el costat corresponent del gran?"),
+  correcta="$10$ cm",
+  distractors=[D("$7$ cm", "PRODUCTE_PER_SUMA",
+     "Has sumat $5+2$. La raó es MULTIPLICA: el gran és el doble del petit."),
+   D("$2{,}5$ cm", "FORMULA_INVERTIDA",
+     "Has dividit per $2$. Del petit al gran es multiplica: el costat ha "
+     "de sortir MÉS llarg."),
+   D("$25$ cm", "RAO_AL_QUADRAT",
+     "Has elevat al quadrat. Els costats són longituds: van amb $k$, no "
+     "amb $k^2$.")],
+  pistes=["$k=2$ vol dir que cada costat del gran és el doble del del petit.",
+   "$5\\cdot2$."],
+  resolucio=[r"$5\cdot2=10$ cm"],
+  ex_text=E359)
+
+
+E360 = ("Escriu l'escala numèrica que correspon a aquesta equivalència entre "
+        "el dibuix i la realitat.")
+
+Q("360a", 360, "a", B3, tipus="A",
+  enunciat=r"$1$ cm al plànol són $50$ cm a la realitat.",
+  correcta=r"$1:50$",
+  distractors=[DT(r"$50:1$", "ESCALA_INVERTIDA"),
+   D(r"$1:5\,000$", "POTENCIA_10",
+     "Has afegit zeros. Les dues mesures ja van en cm: l'escala és "
+     "directament $1:50$."),
+   D(r"$1:0{,}5$", "UNITATS_NO_CONVERTIDES",
+     "Has passat els $50$ cm a metres ($0{,}5$ m) i has deixat l'$1$ en cm. "
+     "Els dos nombres de l'escala han d'anar en la mateixa unitat.")],
+  pistes=["A l'escala $a:b$, el primer nombre és el dibuix i el segon, la "
+   "realitat.",
+   "Les dues mesures ja van en cm."],
+  resolucio=[r"Dibuix $1$ cm, realitat $50$ cm: escala $1:50$."],
+  ex_text=E360)
+
+Q("360b", 360, "b", B3, tipus="A",
+  enunciat=r"$1$ cm al mapa són $1\,000$ cm a la realitat.",
+  correcta=r"$1:1\,000$",
+  distractors=[DT(r"$1\,000:1$", "ESCALA_INVERTIDA"),
+   D(r"$1:10$", "UNITATS_NO_CONVERTIDES",
+     "Has passat els $1\\,000$ cm a metres ($10$ m) i has deixat l'$1$ en "
+     "cm. Els dos nombres de l'escala han d'anar en la mateixa unitat."),
+   D(r"$1:100$", "POTENCIA_10",
+     "T'has deixat un zero. Les dues mesures ja van en cm: l'escala és "
+     "directament $1:1\\,000$.")],
+  pistes=["A l'escala $a:b$, el primer nombre és el dibuix i el segon, la "
+   "realitat.",
+   "Les dues mesures ja van en cm."],
+  resolucio=[r"Dibuix $1$ cm, realitat $1\,000$ cm: escala $1:1\,000$."],
+  ex_text=E360)

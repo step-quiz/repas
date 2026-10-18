@@ -22,7 +22,7 @@ es pot llegir, doncs, des de GitHub, encara que Cloudflare no ho serveixi:
 | `revisio/REVISIO-fullN.html` | La clau de respostes completa dels 12 fulls, amb resolucions |
 | `analitzador-repas.html` | Porta el banc sencer i compon proves escrites amb solucionari |
 | `tools/_banc.json` | El mateix banc, en format còmode |
-| `data/fullN.js` | El que carrega el lloc: el camp `clau` és base64, i tres línies de consola en treuen totes les respostes |
+| `data/fullN.js` (i `data/fullN-<bloc>.js`) | El que carrega el lloc: el camp `clau` és base64, i tres línies de consola en treuen totes les respostes |
 
 **És una decisió presa, no un descuit.** Sense servidor, `data/fullN.js` ja
 porta les respostes igualment, i amagar els altres tres fitxers només

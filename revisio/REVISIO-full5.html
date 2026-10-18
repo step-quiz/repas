@@ -43,9 +43,30 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 5</h1>
-<p class="meta">99 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">107 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
-<h2>Equacions de primer grau <span class="tip">· 27 preguntes</span></h2>
+<h2>Equacions de primer grau <span class="tip">· 29 preguntes</span></h2>
+<p class="sec"><strong>Exercici 350.</strong> Resol aquesta equació de primer grau desfent l&#x27;única operació que acompanya la $x$.</p>
+<div class="it"><div class="cap"><span class="cod">350a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$x+7=12$</div>
+<ol class="op"><li><span class="ok">$x=5$</span> — resposta correcta</li>
+<li>$x=19$<br><span class="err">OPERACIO_INVERSA</span><span class="fb">El $7$ SUMA: per desfer-ho, es resta. $12-7$, no $12+7$. Has fet l'operació contrària a la que tocava per desfer el pas anterior.</span></li>
+<li>$x=-5$<br><span class="err">SIGNE_FINAL</span><span class="fb">Has fet $7-12$. És $12-7$: comprova-ho, $5+7=12$.</span></li>
+<li>$x=\dfrac{12}{7}$<br><span class="err">OPERACIO_INVERSA</span><span class="fb">El $7$ no multiplica la $x$: s'hi suma. Es desfà restant. Has fet l'operació contrària a la que tocava per desfer el pas anterior.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina operació fa el $7$ amb la $x$?</li><li>Resta $7$ als dos costats.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x=12-7=5$</li><li>Comprovació: $5+7=12$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">350b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$3x=21$</div>
+<ol class="op"><li><span class="ok">$x=7$</span> — resposta correcta</li>
+<li>$x=63$<br><span class="err">OPERACIO_INVERSA</span><span class="fb">El $3$ MULTIPLICA: per desfer-ho, es divideix. $21:3$, no $21\cdot3$. Has fet l'operació contrària a la que tocava per desfer el pas anterior.</span></li>
+<li>$x=18$<br><span class="err">OPERACIO_INVERSA</span><span class="fb">El $3$ no se suma a la $x$: la multiplica. Es desfà dividint. Has fet l'operació contrària a la que tocava per desfer el pas anterior.</span></li>
+<li>$x=\dfrac{1}{7}$<br><span class="err">INVERTIDA</span><span class="fb">Has fet $3:21$. És $21:3$: comprova-ho, $3\cdot7=21$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina operació fa el $3$ amb la $x$?</li><li>Divideix per $3$ els dos costats.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x=\dfrac{21}{3}=7$</li><li>Comprovació: $3\cdot7=21$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 76.</strong> Resol aquestes equacions.</p>
 <div class="it"><div class="cap"><span class="cod">76a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$\dfrac{x}{5} = 3$</div>
@@ -321,7 +342,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El m.c.m.$(10,1,12)=60$: multiplica tota l'equació per $60$.</li><li>Un cop sense denominadors, agrupa termes amb $x$ i números, i simplifica la fracció final al màxim.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>M.c.m.$(10,1,12)=60$: $6(4x-6)+120x=1260-15(x+1)$</li><li>$24x-36+120x=1260-15x-15 \;\Longrightarrow\; 144x-36=1245-15x$</li><li>$144x+15x=1245+36 \;\Longrightarrow\; 159x=1281 \;\Longrightarrow\; x=\dfrac{1281}{159}=\dfrac{427}{53}$</li></ol>
 </div>
-<h2>Segon grau: fórmula i discriminant <span class="tip">· 14 preguntes</span></h2>
+<h2>Segon grau: fórmula i discriminant <span class="tip">· 16 preguntes</span></h2>
+<p class="sec"><strong>Exercici 351.</strong> Calcula el discriminant d&#x27;aquesta equació de segon grau. Recorda: a $ax^2+bx+c=0$, el discriminant és $\Delta=b^2-4ac$.</p>
+<div class="it"><div class="cap"><span class="cod">351a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$x^2+5x+4=0$</div>
+<ol class="op"><li><span class="ok">$\Delta=9$</span> — resposta correcta</li>
+<li>$\Delta=41$<br><span class="err">SUMA_EN_LLOC_RESTA</span><span class="fb">Has sumat $4ac$. La fórmula el RESTA: $25-16$.</span></li>
+<li>$\Delta=-6$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$b^2=5^2=25$, no $2\cdot5=10$. $x^2$ no és $2x$: és $x\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.</span></li>
+<li>$\Delta=21$<br><span class="err">FACTOR_OBLIDAT</span><span class="fb">Has restat només el $4$. Són $4\cdot a\cdot c=4\cdot1\cdot4=16$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquí $a=1$, $b=5$ i $c=4$.</li><li>$\Delta=5^2-4\cdot1\cdot4$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=1,\ b=5,\ c=4$</li><li>$\Delta=5^2-4\cdot1\cdot4=25-16=9$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">351b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$x^2-6x+5=0$</div>
+<ol class="op"><li><span class="ok">$\Delta=16$</span> — resposta correcta</li>
+<li>$\Delta=-56$<br><span class="err">PARITAT_EXPONENT</span><span class="fb">$(-6)^2=+36$, no $-36$. Revisa la paritat de l'exponent: amb exponent parell, una base negativa dóna resultat positiu; amb exponent senar, el resultat es queda negatiu.</span></li>
+<li>$\Delta=56$<br><span class="err">SUMA_EN_LLOC_RESTA</span><span class="fb">Has sumat $4ac$. La fórmula el RESTA: $36-20$.</span></li>
+<li>$\Delta=-32$<br><span class="err">POTENCIA_COM_PRODUCTE</span><span class="fb">$b^2=(-6)^2=36$, no $2\cdot(-6)=-12$. $x^2$ no és $2x$: és $x\cdot x$. Prova-ho amb $x=3$, que dona $9$ i no $6$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquí $a=1$, $b=-6$ i $c=5$.</li><li>$\Delta=(-6)^2-4\cdot1\cdot5$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=1,\ b=-6,\ c=5$</li><li>$\Delta=(-6)^2-4\cdot1\cdot5=36-20=16$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 80.</strong> Resol les equacions de segon grau aplicant-hi la fórmula general.</p>
 <div class="it"><div class="cap"><span class="cod">80a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$x^2-5x+6=0$</div>
@@ -464,7 +506,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>No cal resoldre l'equació: només calcula el discriminant $\Delta=b^2-4ac$ i mira'n el signe.</li><li>Aquí $\Delta=(-3)^2-4\cdot 7\cdot 1$: compte amb els signes. Després: $\Delta>0$, dues solucions; $\Delta=0$, una (doble); $\Delta<0$, cap de real.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=7,\ b=-3,\ c=1$: $\Delta=(-3)^2-4\cdot7\cdot1=9-28=-19$</li><li>$\Delta<0$ $\Rightarrow$ Cap solució real</li></ol>
 </div>
-<h2>Segon grau: factor comú i factorització <span class="tip">· 22 preguntes</span></h2>
+<h2>Segon grau: factor comú i factorització <span class="tip">· 24 preguntes</span></h2>
+<p class="sec"><strong>Exercici 352.</strong> Resol aquesta equació, que ja està factoritzada. Un producte val zero quan algun dels seus factors val zero.</p>
+<div class="it"><div class="cap"><span class="cod">352a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$x(x-4)=0$</div>
+<ol class="op"><li><span class="ok">$x=0,\ 4$</span> — resposta correcta</li>
+<li>$x=4$<br><span class="err">AILLAMENT_INCOMPLET</span><span class="fb">T'has deixat una solució: el primer factor, $x$, també pot valer zero. Comprova-ho: $0\cdot(0-4)=0$.</span></li>
+<li>$x=0,\ -4$<br><span class="err">SIGNE_ARRELS</span><span class="fb">De $x-4=0$ surt $x=4$, no $-4$. Les arrels tenen el signe canviat. Comprova-les substituint-les: han de fer que la funció valgui $0$.</span></li>
+<li>$x=-4$<br><span class="err">SIGNE_ARRELS</span><span class="fb">T'has deixat la solució $x=0$, i de $x-4=0$ surt $x=4$, no $-4$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Hi ha dos factors: $x$ i $(x-4)$.</li><li>Iguala cada factor a zero: $x=0$, i $x-4=0$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x=0$ o bé $x-4=0\Rightarrow x=4$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">352b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$(x-3)(x+1)=0$</div>
+<ol class="op"><li><span class="ok">$x=3,\ -1$</span> — resposta correcta</li>
+<li>$x=-3,\ 1$<br><span class="err">SIGNE_ARRELS</span><span class="fb">Les arrels tenen el signe canviat. Comprova-les substituint-les: han de fer que la funció valgui $0$.</span></li>
+<li>$x=3$<br><span class="err">AILLAMENT_INCOMPLET</span><span class="fb">T'has deixat una solució: el segon factor també pot valer zero, amb $x=-1$.</span></li>
+<li>$x=3,\ 1$<br><span class="err">SIGNE_ARRELS</span><span class="fb">De $x+1=0$ surt $x=-1$, no $1$. Comprova-ho: $1+1=2\ne0$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Hi ha dos factors: $(x-3)$ i $(x+1)$.</li><li>Iguala cada factor a zero.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x-3=0\Rightarrow x=3$ o bé $x+1=0\Rightarrow x=-1$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 82.</strong> Resol.</p>
 <div class="it"><div class="cap"><span class="cod">82a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$x^2-7x=0$</div>
@@ -688,7 +751,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>El terme independent ja és una fracció: pots deixar l'equació tal qual i aplicar la fórmula directament amb $c=\frac{13}{4}$.</li><li>Aplica la fórmula general amb $a=1,\ b=-7,\ c=\frac{13}{4}$.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$a=1,\ b=-7,\ c=\dfrac{13}{4}$: $\Delta=(-7)^2-4\cdot1\cdot\dfrac{13}{4}=49-13=36$</li><li>$\sqrt{36}=6$: $x=\dfrac{7\pm6}{2}$</li><li>$x=\dfrac{13}{2}$ o $x=\dfrac{1}{2}$</li></ol>
 </div>
-<h2>Sistemes d'equacions <span class="tip">· 25 preguntes</span></h2>
+<h2>Sistemes d'equacions <span class="tip">· 27 preguntes</span></h2>
+<p class="sec"><strong>Exercici 353.</strong> Comprova si el parell de valors donat és solució d&#x27;aquest sistema substituint-lo a les dues equacions.</p>
+<div class="it"><div class="cap"><span class="cod">353a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$\left.\begin{array}{r}x+y=5\\ x-y=1\end{array}\right\}\qquad x=3,\ y=2$</div>
+<ol class="op"><li><span class="ok">Sí: compleix les dues equacions</span> — resposta correcta</li>
+<li>No: només compleix la primera<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">Torna a fer la segona: $3-2=1$. També es compleix.</span></li>
+<li>No: només compleix la segona<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">Torna a fer la primera: $3+2=5$. També es compleix.</span></li>
+<li>No: no en compleix cap<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">$3+2=5$ i $3-2=1$: es compleixen totes dues.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Posa $x=3$ i $y=2$ a la primera equació. Dona $5$?</li><li>Fes el mateix a la segona. Dona $1$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Primera: $3+2=5$ ✓</li><li>Segona: $3-2=1$ ✓</li><li>Compleix totes dues: és solució.</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">353b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$\left.\begin{array}{r}x+y=6\\ 2x-y=1\end{array}\right\}\qquad x=4,\ y=2$</div>
+<ol class="op"><li><span class="ok">No: compleix la primera però no la segona</span> — resposta correcta</li>
+<li>Sí: compleix les dues equacions<br><span class="err">VEREDICTE_INVERTIT</span><span class="fb">Has comprovat només la primera. A la segona, $2\cdot4-2=6$, i no $1$. Per ser solució ha de complir TOTES dues equacions.</span></li>
+<li>No: no en compleix cap<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">Torna a fer la primera: $4+2=6$. Aquesta sí que es compleix.</span></li>
+<li>No: compleix la segona però no la primera<br><span class="err">SUBSTITUCIO_MAL_FETA</span><span class="fb">És al revés: $4+2=6$ es compleix, i $2\cdot4-2=6\ne1$ no.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Posa $x=4$ i $y=2$ a la primera equació. Dona $6$?</li><li>Fes el mateix a la segona: $2\cdot4-2$. Dona $1$?</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>Primera: $4+2=6$ ✓</li><li>Segona: $2\cdot4-2=6\ne1$ ✗</li><li>No compleix la segona: no és solució del sistema.</li></ol>
+</div>
 <p class="sec"><strong>Exercici 85.</strong> Resol pel mètode més adequat.</p>
 <div class="it"><div class="cap"><span class="cod">85a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$\left.\begin{array}{r}x+y=2\\ x-y=6\end{array}\right\}$</div>
@@ -1067,18 +1151,18 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$2\cdot(2n)+3n=8{,}75 \;\Longrightarrow\; 4n+3n=8{,}75$</li><li>$7n=8{,}75 \;\Longrightarrow\; n=1{,}25$</li><li>El bitllet d'adult val el doble: $2\cdot1{,}25=2{,}5$ €</li></ol>
 </div>
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
-<tr><td>Equacions de primer grau <span class="err">obre pel mig</span></td><td>0</td><td>10</td><td>12</td><td>5</td><td><span class="err">directa</span></td></tr>
-<tr><td>Segon grau: fórmula i discriminant <span class="err">obre pel mig</span></td><td>0</td><td>7</td><td>7</td><td>0</td><td><span class="err">directa</span></td></tr>
-<tr><td>Segon grau: factor comú i factorització <span class="err">obre pel mig</span></td><td>0</td><td>15</td><td>7</td><td>0</td><td><span class="err">directa</span></td></tr>
-<tr><td>Sistemes d&#x27;equacions <span class="err">obre pel mig</span></td><td>0</td><td>8</td><td>16</td><td>1</td><td><span class="err">directa</span></td></tr>
+<tr><td>Equacions de primer grau</td><td>2</td><td>10</td><td>12</td><td>5</td><td>trivial</td></tr>
+<tr><td>Segon grau: fórmula i discriminant</td><td>2</td><td>7</td><td>7</td><td>0</td><td>trivial</td></tr>
+<tr><td>Segon grau: factor comú i factorització</td><td>2</td><td>15</td><td>7</td><td>0</td><td>trivial</td></tr>
+<tr><td>Sistemes d&#x27;equacions</td><td>2</td><td>8</td><td>16</td><td>1</td><td>trivial</td></tr>
 <tr><td>Problemes amb equacions i sistemes <span class="tip">nivell avançat</span></td><td>0</td><td>0</td><td>0</td><td>11</td><td>avançat a posta</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
-<tr><td><code>SIGNE_FINAL</code></td><td>79</td><td>76a, 76b, 76c, 76d, 76e, 76f, 77a, 77b, 77c, 77d, 75b, 75e, 75f, 78a…</td></tr>
+<tr><td><code>SIGNE_FINAL</code></td><td>80</td><td>350a, 76a, 76b, 76c, 76d, 76e, 76f, 77a, 77b, 77c, 77d, 75b, 75e, 75f…</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>27</td><td>77b, 77c, 75a, 75b, 75d, 75e, 75f, 78d, 78e, 79a, 79c, 79d, 83e, 84b…</td></tr>
 <tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>25</td><td>85a, 85b, 85c, 85d, 85e, 85f, 85g, 85h, 86a, 86b, 86c, 86d, 86e, 86f…</td></tr>
+<tr><td><code>VEREDICTE_INVERTIT</code></td><td>20</td><td>80a, 80b, 80c, 80e, 80f, 81a, 81b, 81c, 81c, 81d, 81e, 81e, 81f, 81g…</td></tr>
 <tr><td><code>FACTOR_COMU_INCOMPLET</code></td><td>19</td><td>77d, 82a, 82b, 82c, 82d, 82e, 82f, 82g, 82h, 82i, 83a, 83a, 83b, 83b…</td></tr>
-<tr><td><code>VEREDICTE_INVERTIT</code></td><td>18</td><td>80a, 80b, 80c, 80e, 80f, 81a, 81b, 81c, 81c, 81d, 81e, 81e, 81f, 81g…</td></tr>
 <tr><td><code>SIGNE_QUOCIENT</code></td><td>11</td><td>80a, 80c, 80d, 80e, 80g, 83c, 84c, 84d, 84f, 84g, 99</td></tr>
 <tr><td><code>SIGNE_PRODUCTE</code></td><td>11</td><td>80b, 80f, 81a, 81b, 81c, 81d, 81e, 81f, 81f, 81g, 81g</td></tr>
 <tr><td><code>FACTOR_COMU_MAL_DIVIDIT</code></td><td>11</td><td>82a, 82b, 82c, 82d, 82e, 82f, 82g, 82h, 82i, 85a, 85b</td></tr>
@@ -1086,23 +1170,29 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>MENYS_PARENTESI</code></td><td>7</td><td>75b, 75c, 75d, 78d, 78f, 79b, 84d</td></tr>
 <tr><td><code>DENOMINADOR_NO_ELIMINAT</code></td><td>6</td><td>76a, 76b, 76c, 76d, 76e, 76f</td></tr>
 <tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>6</td><td>77d, 75c, 75f, 78b, 78f, 79e</td></tr>
+<tr><td><code>PARITAT_EXPONENT</code></td><td>6</td><td>351b, 80b, 80f, 81a, 81b, 81d</td></tr>
 <tr><td><code>PROGRESSIO_INVENTADA</code></td><td>6</td><td>90, 92, 97, 98, 99, 99</td></tr>
-<tr><td><code>PARITAT_EXPONENT</code></td><td>5</td><td>80b, 80f, 81a, 81b, 81d</td></tr>
 <tr><td><code>ORDRE_MULTIPLICACIO_DIVISIO</code></td><td>5</td><td>80c, 80e, 80g, 92, 96</td></tr>
+<tr><td><code>OPERACIO_INVERSA</code></td><td>4</td><td>350a, 350a, 350b, 350b</td></tr>
+<tr><td><code>AILLAMENT_INCOMPLET</code></td><td>4</td><td>75d, 352a, 352b, 83f</td></tr>
 <tr><td><code>GRAUS_MAL_AGRUPATS</code></td><td>4</td><td>75e, 78e, 79b, 79c</td></tr>
 <tr><td><code>SIMPLIFICACIO_INCOMPLETA</code></td><td>4</td><td>78a, 80d, 84f, 86f</td></tr>
 <tr><td><code>DISTRIBUCIO_INCOMPLETA</code></td><td>4</td><td>79a, 79d, 84a, 84b</td></tr>
+<tr><td><code>SIGNE_ARRELS</code></td><td>4</td><td>352a, 352a, 352b, 352b</td></tr>
+<tr><td><code>SUBSTITUCIO_MAL_FETA</code></td><td>4</td><td>353a, 353a, 353b, 353b</td></tr>
 <tr><td><code>DESPLACAMENT_INDEX</code></td><td>4</td><td>90, 93, 94, 98</td></tr>
 <tr><td><code>PRODUCTE_CREUAT</code></td><td>3</td><td>77a, 75c, 80a</td></tr>
 <tr><td><code>ARITMETICA_PAS_INTERMEDI</code></td><td>3</td><td>77c, 78b, 84g</td></tr>
 <tr><td><code>QUADRAT_INCOMPLET</code></td><td>3</td><td>83d, 83e, 84e</td></tr>
 <tr><td><code>ORDRE_DIVISIONS</code></td><td>3</td><td>84c, 84f, 84g</td></tr>
 <tr><td><code>EQUACIO_NO_SIMPLIFICADA</code></td><td>3</td><td>88b, 88d, 89b</td></tr>
-<tr><td><code>AILLAMENT_INCOMPLET</code></td><td>2</td><td>75d, 83f</td></tr>
+<tr><td><code>INVERTIDA</code></td><td>2</td><td>350b, 77a</td></tr>
 <tr><td><code>NUMERADORS_SENSE_AJUSTAR</code></td><td>2</td><td>78a, 78c</td></tr>
+<tr><td><code>SUMA_EN_LLOC_RESTA</code></td><td>2</td><td>351a, 351b</td></tr>
+<tr><td><code>POTENCIA_COM_PRODUCTE</code></td><td>2</td><td>351a, 351b</td></tr>
+<tr><td><code>FACTOR_OBLIDAT</code></td><td>2</td><td>351a, 86c</td></tr>
 <tr><td><code>POTENCIA_DE_SUMA</code></td><td>2</td><td>83a, 83b</td></tr>
 <tr><td><code>ORDRE_RESTA</code></td><td>2</td><td>94, 97</td></tr>
-<tr><td><code>INVERTIDA</code></td><td>1</td><td>77a</td></tr>
 <tr><td><code>PARENTESI_NO_DISTRIBUIT</code></td><td>1</td><td>75a</td></tr>
 <tr><td><code>JERARQUIA</code></td><td>1</td><td>75a</td></tr>
 <tr><td><code>GRAU_PRODUCTE_MAL</code></td><td>1</td><td>78b</td></tr>
@@ -1110,7 +1200,6 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <tr><td><code>SIMPLIFICACIO_PARCIAL</code></td><td>1</td><td>79e</td></tr>
 <tr><td><code>IGUALTAT_NOTABLE_SIGNE</code></td><td>1</td><td>83d</td></tr>
 <tr><td><code>ORDRE_ARREL_DIVISIO</code></td><td>1</td><td>84e</td></tr>
-<tr><td><code>FACTOR_OBLIDAT</code></td><td>1</td><td>86c</td></tr>
 <tr><td><code>EXPONENT_SENSE_DESPLACAR</code></td><td>1</td><td>92</td></tr>
 <tr><td><code>EXPONENT_MULTIPLICAT</code></td><td>1</td><td>94</td></tr>
 <tr><td><code>ARREL_OBLIDADA</code></td><td>1</td><td>96</td></tr>

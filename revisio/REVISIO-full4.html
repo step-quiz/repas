@@ -43,7 +43,7 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 :root{--fig-plena:#E9F0F6;--fig-marca:#B3453C}
 </style>
 <h1>Clau de respostes — Full 4</h1>
-<p class="meta">71 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
+<p class="meta">75 preguntes · generades i verificades amb Python/SymPy · pendents de revisió humana.</p>
 <div class="avis"><strong>Com revisar-ho.</strong> Cada resposta correcta s'ha calculat amb aritmètica exacta de fraccions, no s'ha escrit a mà, i cap distractor coincideix amb la resposta correcta (comprovat al build). El que convé revisar és: (1) que la interpretació de l'enunciat sigui la que volíeu, sobretot als ítems marcats amb nota; (2) que els distractors siguin errors que realment cometen els vostres alumnes; (3) el to i la claredat del feedback i de les pistes.</div>
 <h2>Operacions amb polinomis <span class="tip">· 20 preguntes</span></h2>
 <p class="sec"><strong>Exercici 327.</strong> Fes les operacions amb aquests polinomis i simplifica el resultat.</p>
@@ -538,7 +538,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>La segona casella de la fila inferior és $\square\cdot(-4)$: iguala-la a $8$ i aïlla $\square$.</li><li>Amb $\square=-2$, completa la resta de la taula de Ruffini com sempre.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>De $\square\cdot(-4)=8$ surt $\square=-2$; amb aquesta arrel, quocient $-2x^{2}+8x-32$ i residu $125$</li></ol>
 </div>
-<h2>Igualtats notables <span class="tip">· 12 preguntes</span></h2>
+<h2>Igualtats notables <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 348.</strong> Desenvolupa aquesta igualtat notable. Recorda: $(a+b)^2=a^2+2ab+b^2$ i $(a-b)^2=a^2-2ab+b^2$.</p>
+<div class="it"><div class="cap"><span class="cod">348a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$(x+3)^2$</div>
+<ol class="op"><li><span class="ok">$x^2+6x+9$</span> — resposta correcta</li>
+<li>$x^2+9$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">T'has deixat el terme del mig, el doble producte $2\cdot x\cdot3$. Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat del primer, el doble producte, i el quadrat del segon. Revisa que hi són tots.</span></li>
+<li>$x^2+3x+9$<br><span class="err">IGUALTAT_NOTABLE_DOBLE_OBLIDAT</span><span class="fb">Al quadrat d'una suma o d'una resta, el terme del mig és el DOBLE producte, $2ab$, no només $ab$.</span></li>
+<li>$x^2-6x+9$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">Aquí és una SUMA: el terme del mig és positiu. Revisa el signe del terme del mig: $(a-b)^2=a^2-2ab+b^2$, amb el terme del mig NEGATIU, a diferència de $(a+b)^2$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquí $a=x$ i $b=3$.</li><li>$x^2+2\cdot x\cdot3+3^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(x+3)^2=x^2+2\cdot x\cdot3+3^2=x^2+6x+9$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">348b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$(x-5)^2$</div>
+<ol class="op"><li><span class="ok">$x^2-10x+25$</span> — resposta correcta</li>
+<li>$x^2+10x+25$<br><span class="err">IGUALTAT_NOTABLE_SIGNE</span><span class="fb">Revisa el signe del terme del mig: $(a-b)^2=a^2-2ab+b^2$, amb el terme del mig NEGATIU, a diferència de $(a+b)^2$.</span></li>
+<li>$x^2-25$<br><span class="err">QUADRAT_INCOMPLET</span><span class="fb">Has elevat cada terme al quadrat i t'has deixat el doble producte. A més, $(-5)^2=+25$. Per reconèixer un quadrat perfecte calen els TRES termes: el quadrat del primer, el doble producte, i el quadrat del segon. Revisa que hi són tots.</span></li>
+<li>$x^2-5x+25$<br><span class="err">IGUALTAT_NOTABLE_DOBLE_OBLIDAT</span><span class="fb">Al quadrat d'una suma o d'una resta, el terme del mig és el DOBLE producte, $2ab$, no només $ab$.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Aquí $a=x$ i $b=5$, i és el quadrat d'una RESTA.</li><li>$x^2-2\cdot x\cdot5+5^2$.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$(x-5)^2=x^2-2\cdot x\cdot5+5^2=x^2-10x+25$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 71.</strong> Factoritza, reconeixent-hi una igualtat notable.</p>
 <div class="it"><div class="cap"><span class="cod">71a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$x^2-16$</div>
@@ -662,7 +683,28 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Identifica el «primer terme» comú i el «segon» que canvia de signe: aquí són $(a+b)$ i $c$.</li><li>Segueix el patró de l'enunciat: el primer terme al quadrat menys el segon al quadrat. El primer terme, $(a+b)$, es deixa sencer, sense desenvolupar.</li></ol>
 <p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$[(a+b)+c]\cdot[(a+b)-c]=(a+b)^2-c^2$ (desenvolupat del tot: $a^2+2ab+b^2-c^2$)</li></ol>
 </div>
-<h2>Factor comú i simplificació <span class="tip">· 12 preguntes</span></h2>
+<h2>Factor comú i simplificació <span class="tip">· 14 preguntes</span></h2>
+<p class="sec"><strong>Exercici 349.</strong> Treu factor comú en aquesta expressió: escriu-la com el factor que es repeteix multiplicat per un parèntesi.</p>
+<div class="it"><div class="cap"><span class="cod">349a</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$5x+10$</div>
+<ol class="op"><li><span class="ok">$5(x+2)$</span> — resposta correcta</li>
+<li>$5(x+10)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">El $10$ també s'ha de dividir per $5$. En treure factor comú, cada terme s'ha de dividir pel factor comú: algun terme de dins del parèntesi no s'ha dividit correctament.</span></li>
+<li>$2(x+5)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">Si desfàs el parèntesi, $2(x+5)=2x+10$, que no és $5x+10$. El factor comú és el $5$.</span></li>
+<li>$15x$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">$5x$ i $10$ no són termes semblants (un porta $x$ i l'altre no): no es poden sumar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quin nombre divideix el $5$ i el $10$ alhora?</li><li>Divideix cada terme per $5$ i posa el resultat dins del parèntesi.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$5x=5\cdot x$ i $10=5\cdot2$</li><li>$5x+10=5(x+2)$</li></ol>
+</div>
+<div class="it"><div class="cap"><span class="cod">349b</span><span class="tip">tipus A · dificultat 1 (trivial)</span></div>
+<div class="enun">$x^2+7x$</div>
+<ol class="op"><li><span class="ok">$x(x+7)$</span> — resposta correcta</li>
+<li>$x(x^2+7)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">$x^2$ dividit per $x$ és $x$, no $x^2$. En treure factor comú, cada terme s'ha de dividir pel factor comú: algun terme de dins del parèntesi no s'ha dividit correctament.</span></li>
+<li>$x(x+7x)$<br><span class="err">FACTOR_COMU_MAL_DIVIDIT</span><span class="fb">$7x$ dividit per $x$ és $7$: la $x$ ja és fora del parèntesi.</span></li>
+<li>$8x^3$<br><span class="err">GRAUS_MAL_AGRUPATS</span><span class="fb">$x^2$ i $7x$ no són termes semblants (tenen graus diferents): no es poden sumar.</span></li>
+</ol>
+<p class="sec"><strong>Pistes:</strong></p><ol class="res"><li>Quina lletra es repeteix als dos termes?</li><li>Divideix cada terme per $x$ i posa el resultat dins del parèntesi.</li></ol>
+<p class="sec"><strong>Resolució:</strong></p><ol class="res"><li>$x^2=x\cdot x$ i $7x=x\cdot7$</li><li>$x^2+7x=x(x+7)$</li></ol>
+</div>
 <p class="sec"><strong>Exercici 73.</strong> Treu factor comú.</p>
 <div class="it"><div class="cap"><span class="cod">73a</span><span class="tip">tipus A · dificultat 2 (directa)</span></div>
 <div class="enun">$3x^2-4x$</div>
@@ -788,32 +830,32 @@ td,th{border:1px solid #D8DFE8;padding:.3rem .5rem;text-align:left}
 <h2>Graduació per bloc</h2><table><tr><th>Bloc</th><th>1 trivial</th><th>2 directa</th><th>3 encadenada</th><th>4 completa</th><th>Obre a</th></tr>
 <tr><td>Operacions amb polinomis</td><td>6</td><td>0</td><td>10</td><td>4</td><td>trivial</td></tr>
 <tr><td>Divisió de polinomis i regla de Ruffini</td><td>5</td><td>1</td><td>11</td><td>10</td><td>trivial</td></tr>
-<tr><td>Igualtats notables <span class="err">obre pel mig</span></td><td>0</td><td>6</td><td>4</td><td>2</td><td><span class="err">directa</span></td></tr>
-<tr><td>Factor comú i simplificació <span class="err">obre pel mig</span></td><td>0</td><td>4</td><td>0</td><td>8</td><td><span class="err">directa</span></td></tr>
+<tr><td>Igualtats notables</td><td>2</td><td>6</td><td>4</td><td>2</td><td>trivial</td></tr>
+<tr><td>Factor comú i simplificació</td><td>2</td><td>4</td><td>0</td><td>8</td><td>trivial</td></tr>
 </table>
 <h2>Catàleg d'errors utilitzats</h2><table><tr><th>Etiqueta</th><th>Vegades</th><th>Preguntes</th></tr>
 <tr><td><code>RUFFINI_SIGNE_ARREL</code></td><td>22</td><td>330a, 330b, 330b, 330c, 331a, 66a, 66b, 66c, 66d, 66e, 68a, 68b, 68c, 67a…</td></tr>
 <tr><td><code>DIVISIO_QUOCIENT_RESIDU_CANVIATS</code></td><td>18</td><td>65a, 65b, 66a, 66b, 66c, 66d, 66e, 68a, 68b, 68c, 68d, 67a, 67c, 67e…</td></tr>
 <tr><td><code>PARENTESI_NO_DISTRIBUIT_POLI</code></td><td>14</td><td>327c, 327d, 62b, 62b, 62c, 62c, 62d, 62d, 63a, 63b, 63c, 63d, 63e, 63f</td></tr>
+<tr><td><code>QUADRAT_INCOMPLET</code></td><td>14</td><td>348a, 348b, 71a, 71b, 71c, 71e, 71f, 70a, 70b, 70c, 70c, 70d, 72a, 72b</td></tr>
 <tr><td><code>DISTRIBUCIO_INCOMPLETA</code></td><td>13</td><td>328a, 328a, 328b, 64a, 64a, 64b, 64b, 64c, 64c, 64d, 64d, 73b, 73b</td></tr>
-<tr><td><code>QUADRAT_INCOMPLET</code></td><td>12</td><td>71a, 71b, 71c, 71e, 71f, 70a, 70b, 70c, 70c, 70d, 72a, 72b</td></tr>
+<tr><td><code>IGUALTAT_NOTABLE_SIGNE</code></td><td>13</td><td>348a, 348b, 71d, 71d, 71e, 71f, 70b, 74a, 74b, 74c, 74d, 74g, 74g</td></tr>
 <tr><td><code>SIGNE_TERME_INDEPENDENT</code></td><td>11</td><td>62a, 63a, 63b, 63c, 63d, 63e, 63f, 64a, 64b, 64c, 64d</td></tr>
-<tr><td><code>IGUALTAT_NOTABLE_SIGNE</code></td><td>11</td><td>71d, 71d, 71e, 71f, 70b, 74a, 74b, 74c, 74d, 74g, 74g</td></tr>
 <tr><td><code>TERME_OBLIDAT_OPERACIO</code></td><td>10</td><td>327a, 62a, 62a, 62b, 62d, 329b, 65a, 65b, 68a, 73b</td></tr>
+<tr><td><code>GRAUS_MAL_AGRUPATS</code></td><td>10</td><td>327a, 62c, 65a, 71d, 71e, 71f, 72a, 72b, 349a, 349b</td></tr>
 <tr><td><code>RUFFINI_QUOCIENT_GRAU</code></td><td>10</td><td>331a, 66a, 66b, 66c, 66d, 66e, 68b, 67a, 67b, 67c</td></tr>
+<tr><td><code>FACTOR_COMU_MAL_DIVIDIT</code></td><td>9</td><td>349a, 349a, 349b, 349b, 73a, 73a, 73c, 73d, 73d</td></tr>
 <tr><td><code>FACTOR_COMU_INCOMPLET</code></td><td>9</td><td>73a, 73c, 73d, 74a, 74b, 74c, 74d, 74e, 74f</td></tr>
-<tr><td><code>GRAUS_MAL_AGRUPATS</code></td><td>8</td><td>327a, 62c, 65a, 71d, 71e, 71f, 72a, 72b</td></tr>
 <tr><td><code>ORDRE_RESTA</code></td><td>8</td><td>327c, 327d, 63a, 63b, 63c, 63d, 63e, 63f</td></tr>
 <tr><td><code>GRAU_PRODUCTE_MAL</code></td><td>8</td><td>328a, 71b, 70d, 70d, 74a, 74b, 74c, 74d</td></tr>
 <tr><td><code>RUFFINI_PAS_MAL</code></td><td>8</td><td>331a, 68d, 67b, 67d, 69a, 69b, 69c, 69d</td></tr>
 <tr><td><code>DIFERENCIA_QUADRATS_MAL</code></td><td>8</td><td>71a, 71a, 71b, 71c, 71c, 74e, 74f, 74h</td></tr>
 <tr><td><code>FACTOR_COMU_SIGNE</code></td><td>6</td><td>68c, 68d, 67d, 73c, 74g, 74h</td></tr>
-<tr><td><code>FACTOR_COMU_MAL_DIVIDIT</code></td><td>5</td><td>73a, 73a, 73c, 73d, 73d</td></tr>
+<tr><td><code>IGUALTAT_NOTABLE_DOBLE_OBLIDAT</code></td><td>5</td><td>348a, 348b, 70a, 70a, 70b</td></tr>
 <tr><td><code>SIGNE_SUMA</code></td><td>4</td><td>327a, 327b, 327c, 327d</td></tr>
 <tr><td><code>RUFFINI_RESIDU_COM_QUOCIENT</code></td><td>4</td><td>330a, 330c, 65b, 69a</td></tr>
 <tr><td><code>EXPONENTS_SUMATS_QUOCIENT</code></td><td>3</td><td>327b, 329a, 329b</td></tr>
 <tr><td><code>TERME_INDEPENDENT_IGNORAT</code></td><td>3</td><td>330a, 330b, 330c</td></tr>
-<tr><td><code>IGUALTAT_NOTABLE_DOBLE_OBLIDAT</code></td><td>3</td><td>70a, 70a, 70b</td></tr>
 <tr><td><code>SUMA_PER_DIFERENCIA_MAL</code></td><td>3</td><td>70c, 72a, 72b</td></tr>
 <tr><td><code>FACTORITZACIO_DESFETA</code></td><td>3</td><td>74e, 74f, 74h</td></tr>
 <tr><td><code>EXPONENT_SENSE_DESPLACAR</code></td><td>2</td><td>329a, 329b</td></tr>

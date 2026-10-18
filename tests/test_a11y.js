@@ -462,7 +462,8 @@ seccio("practica.html — el grup d'opcions segueix accessible amb teclat despr�
   d.getElementById("mostra").click();
   const caixa = d.getElementById("opcions");
   const opcions = [...caixa.children];
-  const k = w.RE.clau(w.FULL.items[0]);
+  // No items[0]: el primer ítem del bloc és el trivial (341a), no el 1a.
+  const k = w.RE.clau(w.FULL.items.filter(it => it.id === "1a")[0]);
   const dolenta = opcions.find(c => +c.dataset.orig !== k.ok);
   dolenta.click();
   d.getElementById("comprova").click();
