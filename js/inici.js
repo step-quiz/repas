@@ -123,6 +123,45 @@
   }
   pintaTutor();
 
+  /* ---- avís dels exercicis oberts que venen d'un codi recuperat ----
+     En recuperar la feina des d'un codi, els exercicis que l'alumna tenia
+     oberts sense respondre es tornen a posar com a "vist" (marcats `rec`).
+     No compten per a res, però si no se li diu, no sap que hi són ni on.
+     L'avís és a la portada, a dalt de tot i amb un botó per exercici, i
+     desapareix sol a mesura que els respon (deixen de ser "vist"). Només
+     avisa dels recuperats: qui ha passat exercicis amb «Següent» sense
+     respondre no en veu res, per no omplir la portada de soroll. */
+  function pintaRecuperats() {
+    var cont = $("#recuperats");
+    if (!cont) return;
+    var perFull = [], total = 0;
+    FULLS.forEach(function (f) {
+      var ordre = (window.RE_TAULES && RE_TAULES.fulls[f.n] && RE_TAULES.fulls[f.n].items) || [];
+      var ll = RE.nomesOberts(f.n).filter(function (e) { return e.it && e.it.rec; })
+        .sort(function (a, b) { return ordre.indexOf(a.id) - ordre.indexOf(b.id); });
+      if (ll.length) { perFull.push({ f: f, ll: ll }); total += ll.length; }
+    });
+    if (!total) { cont.hidden = true; cont.innerHTML = ""; return; }
+    var esc = function (t) {
+      return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    };
+    cont.innerHTML =
+      '<h2 id="recuperats-titol">' + (total === 1
+        ? "Tens 1 exercici obert que encara no has respost"
+        : "Tens " + total + " exercicis oberts que encara no has respost") + "</h2>" +
+      '<p class="petit">Els vas deixar oberts abans de recuperar la teva feina des del codi. ' +
+      "No compten com a fets fins que els responguis. Clica'n un per anar-hi:</p>" +
+      perFull.map(function (g) {
+        return '<div class="recuperats-full"><strong>Full ' + g.f.n + " \u00b7 " + esc(g.f.titol) + "</strong>" +
+          '<div class="xips">' + g.ll.map(function (e) {
+            return '<a class="xip" href="practica.html?full=' + g.f.n + "&q=" +
+              encodeURIComponent(e.id) + '">' + esc(e.id) + "</a>";
+          }).join("") + "</div></div>";
+      }).join("");
+    cont.hidden = false;
+  }
+  pintaRecuperats();
+
   /* ---- exercicis a mitges i cercador per codi (js/amitges.js) ---- */
   if (window.RE_MITGES) {
     RE_MITGES.pinta($("#amitges"), { max: 3 });

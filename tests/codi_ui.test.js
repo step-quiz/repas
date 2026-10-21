@@ -179,4 +179,81 @@ seccio("Recuperar un codi: els «vist» no són feina, però es poden localitzar
   });
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+seccio("La portada (index.html) avisa dels exercicis oberts d'un codi recuperat");
+{
+  const CODI = "RC4F5-30CCJ-KR07N-46XP0-00000-00000-00000-00000-10500-00000-00000-00000-00009-C4000-00000-00000-00000-00000-00000-DAQPB-3JWH0-00000-00000-00000-00000-00000-00HYE-N0000-00027-00000-00000-00000-00000-00000-BQ53B-14C14-Z1014-00000-2M010-00910-01011-02103-14C11-D12P2-0022C-DB";
+  /* index.html de debò: els mateixos scripts, en el mateix ordre. `abans`
+     es crida just abans d'inici.js, per deixar-hi el navegador a punt. */
+  function portada(abans) {
+    const html = fs.readFileSync(path.join(ARREL, "index.html"), "utf8");
+    const dom = new JSDOM(html, { url: "https://repas.exemple/", runScripts: "outside-only" });
+    const scripts = [...html.matchAll(/<script src="([^"]+)"/g)].map(m => m[1]);
+    scripts.forEach(src => {
+      if (/inici\.js$/.test(src)) { if (abans) abans(dom.window); }
+      dom.window.eval(fs.readFileSync(path.join(ARREL, src), "utf8"));
+    });
+    return { w: dom.window, d: dom.window.document };
+  }
+  function recuperaA(w) {
+    w.confirm = () => true;
+    w.RE_CODI_UI.obre();
+    w.document.getElementById("re-codi-rec-camp").value = CODI;
+    w.document.getElementById("re-codi-rec-tot").onclick();
+  }
+
+  const { d } = portada(recuperaA);
+  const bloc = d.getElementById("recuperats");
+
+  prova("la portada pinta l'avís, visible, quan hi ha oberts recuperats", () => {
+    assert.ok(bloc, "falta #recuperats a index.html");
+    assert.strictEqual(bloc.hidden, false);
+    assert.ok(/Tens 5 exercicis oberts que encara no has respost/.test(bloc.textContent), bloc.textContent);
+  });
+  prova("l'avís és el primer element de la portada, per sobre de tot", () => {
+    const main = d.querySelector("main");
+    const fills = [...main.children].filter(e => e.tagName !== "P" || !e.classList.contains("cimera"));
+    assert.strictEqual(fills[0].id, "recuperats", fills[0].id);
+  });
+  prova("diu a quin full és cada un, amb el títol del tema", () => {
+    assert.ok(/Full 1 · Nombres enters, fraccions i decimals/.test(bloc.textContent), bloc.textContent);
+    assert.ok(/Full 2 · Potències/.test(bloc.textContent) && /Full 3 · Successions i progressions/.test(bloc.textContent));
+  });
+  prova("porta un botó per exercici que hi va directament", () => {
+    const h = [...bloc.querySelectorAll("a.xip")].map(a => a.getAttribute("href")).sort();
+    assert.strictEqual(JSON.stringify(h), JSON.stringify([
+      "practica.html?full=1&q=1e", "practica.html?full=1&q=1f", "practica.html?full=1&q=340b",
+      "practica.html?full=2&q=43a", "practica.html?full=3&q=59a"].sort()));
+  });
+  prova("dins de cada full, els exercicis surten en l'ordre del full", () => {
+    const f1 = [...bloc.querySelectorAll(".recuperats-full")][0];
+    const ids = [...f1.querySelectorAll("a.xip")].map(a => a.textContent);
+    assert.strictEqual(JSON.stringify(ids), JSON.stringify(["1e", "1f", "340b"]));
+  });
+  prova("qui no ha recuperat res (ni té «vist» de passada) no veu cap avís", () => {
+    const b = portada().d.getElementById("recuperats");
+    assert.strictEqual(b.hidden, true);
+    const c = portada(w => { w.RE.visita(1, "1e"); w.RE.visita(1, "1f"); }).d.getElementById("recuperats");
+    assert.strictEqual(c.hidden, true, "un «vist» de passada no ha d'avisar");
+    assert.strictEqual(c.innerHTML, "");
+  });
+  prova("l'avís va minvant a mesura que respon, i desapareix quan els ha respost tots", () => {
+    const parcial = portada(w => { recuperaA(w); w.RE.intent(1, "1e", true); }).d.getElementById("recuperats");
+    assert.ok(/Tens 4 exercicis oberts/.test(parcial.textContent), parcial.textContent);
+    assert.ok(!parcial.querySelector('a[href$="q=1e"]'), "1e ja està respost");
+    const tot = portada(w => {
+      recuperaA(w);
+      [[1, "1e"], [1, "1f"], [1, "340b"], [2, "43a"], [3, "59a"]].forEach(([f, id]) => w.RE.intent(f, id, true));
+    }).d.getElementById("recuperats");
+    assert.strictEqual(tot.hidden, true);
+  });
+  prova("amb 1 de sol, parla en singular", () => {
+    const u = portada(w => {
+      recuperaA(w);
+      [[1, "1e"], [1, "1f"], [1, "340b"], [2, "43a"]].forEach(([f, id]) => w.RE.intent(f, id, true));
+    }).d.getElementById("recuperats");
+    assert.ok(/Tens 1 exercici obert que encara no has respost/.test(u.textContent), u.textContent);
+  });
+}
+
 process.exit(resum() ? 0 : 1);

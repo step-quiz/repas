@@ -304,6 +304,14 @@ button{font:inherit;font-family:var(--cos)}
        tocables fan 44 px o més, i el toc dona resposta amb :active;
      · teclat: cada fila és un sol enllaç tabulable, i la creu és un botó
        a part amb el seu nom («Treu el 145b de la llista»). */
+/* Avís de la portada: exercicis oberts que venen d'un codi recuperat. */
+.recuperats{background:var(--ambre-suau);border:1px solid #EBD3A3;border-left:4px solid var(--ambre);
+  border-radius:10px;padding:.85rem 1rem;margin-bottom:1rem}
+.recuperats[hidden]{display:none}
+.recuperats h2{font-size:1.06rem;margin:0 0 .3rem;color:#6B4200}
+.recuperats p{margin:.2rem 0 .6rem;line-height:1.45}
+.recuperats-full{margin-top:.6rem}
+.recuperats-full strong{font-size:.95rem}
 .amitges{background:var(--ambre-suau);border:1px solid #EBD3A3;border-left:4px solid var(--ambre);
   border-radius:12px;padding:.9rem 1rem 1rem;margin:.9rem 0 1.4rem}
 .amitges h2{font-size:1.06rem;margin-bottom:.7rem}

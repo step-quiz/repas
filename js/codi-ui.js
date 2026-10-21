@@ -318,12 +318,14 @@ window.RE_CODI_UI = (function () {
              Es recupera tal com era, com a "vist" i sense `tancat` ni `imp`:
              així no queda bloquejat com a resolt, l'alumna el pot fer amb
              nota, i surt al desplegable «Oberts sense respondre» de la pàgina
-             del full, que és on el buscarà. El missatge diu quins són. Si
+             del full. `rec` el marca com a recuperat d'un codi: és el que fa
+             que la portada (js/inici.js) li avisi a l'alumna; els "vist" de
+             passada no en porten i no avisen de res. El missatge diu quins són. Si
              aquí ja hi ha res d'aquest exercici (un resultat de debò o un
              "vist" propi), no es toca. */
           if (it.estat === "vist") {
             if (!actual[it.id] || !actual[it.id].estat) {
-              window.RE.apunta(f.n, it.id, { estat: "vist" });
+              window.RE.apunta(f.n, it.id, { estat: "vist", rec: 1 });
               oberts++;
               llistaOberts.push({ full: f.n, id: it.id });
             }

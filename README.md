@@ -279,12 +279,17 @@ s'encalla la classe i si el codi és autèntic.
   rebutja: no es recupera un estat que no es pot donar per bo.
   Els exercicis que el codi porta com a *oberts sense respondre* (`vist`) no
   són feina feta: no compten al botó **Codi** ni a l'analitzador. Es
-  recuperen tal com eren (sense `tancat`, per poder-los fer amb nota) i el
-  missatge els llista full per full, amb el títol del tema i **un enllaç
-  directe a cada exercici** (*«Full 5 · Equacions i sistemes: 77b, 77c,
-  80a»*), perquè l'alumne no hagi de recordar-ne el full. Després els troba
-  també al desplegable **«Oberts sense respondre»** de la pàgina de cada full.
-  El primer número del missatge és el mateix que mostra el botó.
+  recuperen tal com eren (sense `tancat`, per poder-los fer amb nota; amb la
+  marca `rec`) i s'avisa en dos llocs:
+  - **A la portada (`index.html`), a dalt de tot**, un quadre ambre *«Tens 5
+    exercicis oberts que encara no has respost»* amb el full i el tema de
+    cadascun i un botó per exercici que hi va directament. Desapareix sol a
+    mesura que els respon. Només avisa dels recuperats (`rec`): qui ha passat
+    exercicis amb «Següent» sense respondre no en veu res.
+  - Al missatge de la finestra del codi, amb els mateixos enllaços, i al
+    desplegable **«Oberts sense respondre»** de la pàgina de cada full.
+
+  El primer número del missatge és el mateix que mostra el botó **Codi**.
 
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
