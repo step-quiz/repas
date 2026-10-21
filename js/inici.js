@@ -130,10 +130,20 @@
      L'avís és a la portada, a dalt de tot i amb un botó per exercici, i
      desapareix sol a mesura que els respon (deixen de ser "vist"). Només
      avisa dels recuperats: qui ha passat exercicis amb «Següent» sense
-     respondre no en veu res, per no omplir la portada de soroll. */
-  function pintaRecuperats() {
-    var cont = $("#recuperats");
-    if (!cont) return;
+     respondre no en veu res, per no omplir la portada de soroll.
+
+     Però el codi no distingeix un exercici treballat d'un de passat amb
+     «Següent»: tots dos hi viatgen com a "vist". Qui recupera un codi en un
+     altre ordinador pot trobar-se'n trenta. Per això se n'ensenyen
+     MAX_RECUPERATS (la resta, darrere de «Mostra'ls tots») i «Ja ho sé, treu
+     l'avís» treu la marca `rec`: els exercicis continuen oberts i surten al
+     desplegable «Oberts sense respondre» del full, però la portada calla.
+
+     `RE_INICI.pintaRecuperats` la crida també codi-ui.js just després de
+     recuperar un codi, perquè l'avís surti sense haver de recarregar. */
+  var MAX_RECUPERATS = 6;
+
+  function recuperats() {
     var perFull = [], total = 0;
     FULLS.forEach(function (f) {
       var ordre = (window.RE_TAULES && RE_TAULES.fulls[f.n] && RE_TAULES.fulls[f.n].items) || [];
@@ -141,10 +151,30 @@
         .sort(function (a, b) { return ordre.indexOf(a.id) - ordre.indexOf(b.id); });
       if (ll.length) { perFull.push({ f: f, ll: ll }); total += ll.length; }
     });
+    return { perFull: perFull, total: total };
+  }
+
+  /* Treu la marca `rec` sense tocar res més (ni `ts`, que és la data de
+     l'última escriptura de debò). */
+  function oblidaRecuperats(perFull) {
+    perFull.forEach(function (g) {
+      var p = RE.llegeix(g.f.n);
+      g.ll.forEach(function (e) { if (p.items[e.id]) delete p.items[e.id].rec; });
+      RE.desa(g.f.n, p);
+    });
+  }
+
+  function pintaRecuperats() {
+    var cont = $("#recuperats");
+    if (!cont) return;
+    var r = recuperats(), perFull = r.perFull, total = r.total;
     if (!total) { cont.hidden = true; cont.innerHTML = ""; return; }
     var esc = function (t) {
       return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     };
+    /* Els primers MAX_RECUPERATS es veuen; la resta (i els fulls que només
+       en tenen d'amagats) porten `hidden` fins que es demanen. */
+    var vistos = 0, amagats = total > MAX_RECUPERATS ? total - MAX_RECUPERATS : 0;
     cont.innerHTML =
       '<h2 id="recuperats-titol">' + (total === 1
         ? "Tens 1 exercici obert que encara no has respost"
@@ -152,15 +182,40 @@
       '<p class="petit">Els vas deixar oberts abans de recuperar la teva feina des del codi. ' +
       "No compten com a fets fins que els responguis. Clica'n un per anar-hi:</p>" +
       perFull.map(function (g) {
-        return '<div class="recuperats-full"><strong>Full ' + g.f.n + " \u00b7 " + esc(g.f.titol) + "</strong>" +
-          '<div class="xips">' + g.ll.map(function (e) {
-            return '<a class="xip" href="practica.html?full=' + g.f.n + "&q=" +
-              encodeURIComponent(e.id) + '">' + esc(e.id) + "</a>";
-          }).join("") + "</div></div>";
-      }).join("");
+        var xips = g.ll.map(function (e) {
+          var amaga = vistos++ >= MAX_RECUPERATS;
+          return '<a class="xip"' + (amaga ? " hidden" : "") + ' href="practica.html?full=' + g.f.n + "&q=" +
+            encodeURIComponent(e.id) + '">' + esc(e.id) + "</a>";
+        }).join("");
+        var totAmagat = vistos - g.ll.length >= MAX_RECUPERATS;
+        return '<div class="recuperats-full"' + (totAmagat ? " hidden" : "") + "><strong>Full " + g.f.n +
+          " \u00b7 " + esc(g.f.titol) + "</strong>" + '<div class="xips">' + xips + "</div></div>";
+      }).join("") +
+      '<div class="recuperats-acc">' +
+      (amagats ? '<button type="button" class="btn buit" id="recuperats-mes">Mostra\'ls tots (' +
+        amagats + " m\u00e9s)</button>" : "") +
+      '<button type="button" class="btn buit" id="recuperats-treu">Ja ho s\u00e9, treu l\'av\u00eds</button></div>' +
+      '<p class="petit">Si treus l\'av\u00eds, els exercicis continuen oberts: els trobar\u00e0s a ' +
+      "\u00abOberts sense respondre\u00bb, dins de la p\u00e0gina de cada full.</p>";
     cont.hidden = false;
+
+    var mes = $("#recuperats-mes");
+    if (mes) mes.onclick = function () {
+      var nous = [].slice.call(cont.querySelectorAll("[hidden]"));
+      nous.forEach(function (e) { e.hidden = false; });
+      mes.parentNode.removeChild(mes);
+      /* El botó desapareix: el focus va al primer exercici que s'acaba de
+         mostrar, perquè qui navega amb teclat no torni al principi. */
+      var primer = nous.filter(function (e) { return e.tagName === "A"; })[0];
+      if (primer) primer.focus();
+    };
+    $("#recuperats-treu").onclick = function () {
+      oblidaRecuperats(perFull);
+      pintaRecuperats();
+    };
   }
   pintaRecuperats();
+  window.RE_INICI = { pintaRecuperats: pintaRecuperats };
 
   /* ---- exercicis a mitges i cercador per codi (js/amitges.js) ---- */
   if (window.RE_MITGES) {

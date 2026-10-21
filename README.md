@@ -284,12 +284,25 @@ s'encalla la classe i si el codi és autèntic.
   - **A la portada (`index.html`), a dalt de tot**, un quadre ambre *«Tens 5
     exercicis oberts que encara no has respost»* amb el full i el tema de
     cadascun i un botó per exercici que hi va directament. Desapareix sol a
-    mesura que els respon. Només avisa dels recuperats (`rec`): qui ha passat
-    exercicis amb «Següent» sense respondre no en veu res.
+    mesura que els respon. Només avisa dels recuperats (`rec`): en el
+    navegador on es treballa, qui passa exercicis amb «Següent» sense
+    respondre no en veu res.
   - Al missatge de la finestra del codi, amb els mateixos enllaços, i al
     desplegable **«Oberts sense respondre»** de la pàgina de cada full.
 
-  El primer número del missatge és el mateix que mostra el botó **Codi**.
+  El codi, però, no distingeix un exercici treballat d'un de passat amb
+  «Següent»: tots dos hi viatgen com a `vist`. Per això, després de recuperar
+  un codi en un altre ordinador, l'avís de la portada pot portar molts
+  exercicis que l'alumne només va obrir. Per no omplir-la:
+  - se n'ensenyen **6**, i la resta va darrere de **«Mostra'ls tots (N més)»**;
+  - **«Ja ho sé, treu l'avís»** treu la marca `rec`. Els exercicis continuen
+    oberts i surten a «Oberts sense respondre», però la portada ja no en diu
+    res, tampoc en recarregar.
+
+  En recuperar, el botó **Codi** i l'avís de la portada s'actualitzen
+  immediatament, sense recarregar. El primer número del missatge és el mateix
+  que mostra el botó **Codi**. A la pàgina d'un full, la llista d'exercicis
+  només s'actualitza en recarregar, i el missatge ho diu.
 
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i

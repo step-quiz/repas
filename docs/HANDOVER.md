@@ -423,7 +423,11 @@ ordenats per `tvis` (o `ts` per als registres antics); `RE.nomesOberts(full)`
 dona els `vist` sense cap senyal. `RE.descartaAMitges()` desa `amd`/`amt`
 (quan i quant temps portava); `RE.recuperaAMitges()` ho desfà. La interfície
 —la llista de la portada i del full, i el cercador per codi— és a
-`js/amitges.js` (`window.RE_MITGES`). Cap d'aquests camps entra al codi de
+`js/amitges.js` (`window.RE_MITGES`). Els `vist` que venen d'un codi recuperat
+porten `rec`: l'avís de dalt de la portada (`#recuperats`, a `inici.js`,
+exposat com a `window.RE_INICI.pintaRecuperats` perquè `codi-ui.js` el
+repinti en recuperar) ensenya els 6 primers, té «Mostra'ls tots» i «Ja ho sé,
+treu l'avís», que esborra `rec`. Cap d'aquests camps entra al codi de
 verificació: `codi.js` només llegeix `estat`, `npis`, `tf`, `rep`, `errs` i
 `imp`.
 
@@ -632,7 +636,7 @@ l'alumne espera del botó.
 
 | Clau | Propietari | Contingut |
 |---|---|---|
-| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full. Per ítem, a més de l'estat: `tact` (s actius), `tvis` (última visita), `opc` (opcions mostrades), `sseg` (sortit amb «Següent» sense respondre), `amd`/`amt` (tret de «a mitges») |
+| `repas-eso:full<N>` | `RE` (`nucli.js`) | `{v, items: {id: {estat, ...}}}`, una per full. Per ítem, a més de l'estat: `tact` (s actius), `tvis` (última visita), `opc` (opcions mostrades), `sseg` (sortit amb «Següent» sense respondre), `amd`/`amt` (tret de «a mitges»), `imp` (recuperat d'un codi, amb resultat), `rec` (`vist` recuperat d'un codi: el que avisa la portada; «Ja ho sé, treu l'avís» l'esborra) |
 | `repas-eso:diagnostic` | `RE_DIAG` | `{ts, versio: 2, respostes: [{prova, estat, encert}]}` — `encert` és `null` si no es va comprovar |
 | `repas-eso:itinerari` | `RE_ITI` | `{ts, ruta: [{full, bloc, blocTitol, tema, id}]}` — sense estat |
 
