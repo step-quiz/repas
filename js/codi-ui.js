@@ -285,8 +285,11 @@ window.RE_CODI_UI = (function () {
     if (!camp) return;
     var estat = document.getElementById("re-codi-rec-estat");
 
-    function diu(txt, mal) {
-      estat.textContent = txt;
+    function esc(t) {
+      return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+    function diu(txt, mal, html) {
+      if (html) estat.innerHTML = txt; else estat.textContent = txt;
       estat.style.color = mal ? "#A32B22" : "var(--apagat,#6B7480)";
     }
 
@@ -304,7 +307,7 @@ window.RE_CODI_UI = (function () {
         "Aix\u00f2 esborrar\u00e0 el progr\u00e9s que hi ha en aquest navegador i hi "
         + "posar\u00e0 el del codi. Vols continuar?")) return;
 
-      var posats = 0, saltats = 0, oberts = 0;
+      var posats = 0, saltats = 0, oberts = 0, llistaOberts = [];
       p.fulls.forEach(function (f) {
         if (!nomesBuits) window.RE.esborra(f.n);
         var actual = window.RE.llegeix(f.n).items || {};
@@ -312,14 +315,21 @@ window.RE_CODI_UI = (function () {
           if (!it.estat) return;
           /* "vist" vol dir només obert, sense respondre: no és feina feta i no
              compta enlloc (ni al botó, ni a RE_CODI.resum, ni a l'analitzador).
-             Recuperar-lo amb `tancat` el deixaria bloquejat com a resolt, i
-             l'alumna ja no el podria fer amb nota; i comptar-lo al missatge
-             feia dir «14 recuperats» quan el botó en mostrava 9. */
-          if (it.estat === "vist") { oberts++; return; }
-          /* I a l'inrevés: un "vist" d'aquest navegador tampoc és feina, i no
-             ha d'impedir que el codi hi posi el resultat de debò. */
-          var aqui = actual[it.id] && actual[it.id].estat;
-          if (nomesBuits && aqui && aqui !== "vist") { saltats++; return; }
+             Es recupera tal com era, com a "vist" i sense `tancat` ni `imp`:
+             així no queda bloquejat com a resolt, l'alumna el pot fer amb
+             nota, i surt al desplegable «Oberts sense respondre» de la pàgina
+             del full, que és on el buscarà. El missatge diu quins són. Si
+             aquí ja hi ha res d'aquest exercici (un resultat de debò o un
+             "vist" propi), no es toca. */
+          if (it.estat === "vist") {
+            if (!actual[it.id] || !actual[it.id].estat) {
+              window.RE.apunta(f.n, it.id, { estat: "vist" });
+              oberts++;
+              llistaOberts.push({ full: f.n, id: it.id });
+            }
+            return;
+          }
+          if (nomesBuits && actual[it.id] && actual[it.id].estat && actual[it.id].estat !== "vist") { saltats++; return; }
           /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
              que compti com a ja resolt: recuperar la feina no ha de tornar a
              obrir tots els exercicis com si s'haguessin de fer. */
@@ -347,16 +357,37 @@ window.RE_CODI_UI = (function () {
         window.RE.desaMeta(g);
       }
 
+      /* Un enllaç per exercici, agrupats per full i amb el títol del tema:
+         l'alumne no ha de recordar «Full 5», n'hi ha prou amb clicar. El
+         missatge desapareix en recarregar, així que els enllaços són la
+         manera de no perdre'ls. */
+      var perFull = {};
+      llistaOberts.forEach(function (o) { (perFull[o.full] = perFull[o.full] || []).push(o.id); });
+      var avisOberts = "";
+      if (oberts) {
+        avisOberts = " " + oberts + " exercici" + (oberts === 1 ? " estava obert" : "s estaven oberts")
+          + " sense respondre. Clica'n un per anar-hi:<br>"
+          + Object.keys(perFull).map(function (n) {
+            var t = window.RE_TAULES.fulls[n], tit = t && t.titol
+              ? t.titol.replace(/^Full\s+\d+\s*[\u2014\u2013-]\s*/, "") : "";
+            return "<b>Full " + esc(n) + (tit ? " \u00b7 " + esc(tit) : "") + ":</b> "
+              + perFull[n].map(function (id) {
+                return '<a href="practica.html?full=' + encodeURIComponent(n) + "&amp;q="
+                  + encodeURIComponent(id) + '">' + esc(id) + "</a>";
+              }).join(", ");
+          }).join("<br>")
+          + "<br>Tamb\u00e9 els trobar\u00e0s a \u00abOberts sense respondre\u00bb, dins de la p\u00e0gina de cada full.";
+      }
+
       if (!posats && !saltats) {
-        diu(oberts ? "Aquest codi només porta exercicis oberts sense respondre: no hi ha cap feina per recuperar."
-                   : "Aquest codi no porta cap exercici fet.", true);
+        diu(oberts ? "Aquest codi no porta cap exercici fet." + avisOberts
+                   : "Aquest codi no porta cap exercici fet.", !oberts, true);
         return;
       }
       diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
         + (posats === 1 ? "" : "s")
         + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
-        + (oberts ? " (" + oberts + " oberts sense respondre, que no es recuperen)" : "")
-        + ". Recarrega la p\u00e0gina per veure-ho.");
+        + "." + avisOberts + "<br>Recarrega la p\u00e0gina perqu\u00e8 el comptador del bot\u00f3 s'actualitzi.", false, true);
     }
 
     document.getElementById("re-codi-rec-afegeix").onclick = function () { aplica(true); };

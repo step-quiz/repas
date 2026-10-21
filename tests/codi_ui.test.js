@@ -97,7 +97,7 @@ seccio("El botó Codi diu la feina, sense trams");
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-seccio("Recuperar un codi: els «vist» no són feina");
+seccio("Recuperar un codi: els «vist» no són feina, però es poden localitzar");
 {
   /* Codi real d'una alumna: 14 exercicis amb estat, dels quals 5 són «vist»
      (oberts sense respondre). El botó en comptava 9 i el missatge en deia 14. */
@@ -113,24 +113,56 @@ seccio("Recuperar un codi: els «vist» no són feina");
   const msg = recupera(w, d, true);
 
   prova("el missatge diu 9 recuperats (els que compten al botó), no 14", () => {
-    assert.ok(/^9 exercicis recuperats/.test(msg), msg);
-    assert.ok(/5 oberts sense respondre/.test(msg), msg);
+    assert.ok(/^9 exercicis recuperats\./.test(msg), msg);
+  });
+  prova("el missatge diu QUINS són els 5 oberts, full per full, amb el tema", () => {
+    const t = d.getElementById("re-codi-rec-estat").textContent;
+    assert.ok(/5 exercicis estaven oberts sense respondre/.test(t), t);
+    assert.ok(/Full 1 · Nombres enters, fraccions i decimals: 1e, 1f, 340b/.test(t), t);
+    assert.ok(/Full 2 · Potències: 43a/.test(t) && /Full 3 · Successions i progressions: 59a/.test(t), t);
+  });
+  prova("cada exercici obert és un enllaç directe que porta a aquell exercici", () => {
+    const hrefs = Array.from(d.querySelectorAll("#re-codi-rec-estat a")).map(a => a.getAttribute("href")).sort();
+    assert.strictEqual(JSON.stringify(hrefs), JSON.stringify([
+      "practica.html?full=1&q=1e", "practica.html?full=1&q=1f", "practica.html?full=1&q=340b",
+      "practica.html?full=2&q=43a", "practica.html?full=3&q=59a"].sort()));
   });
   prova("el número del missatge coincideix amb el del botó", () => {
-    w.document.getElementById("re-codi-btn") && w.document.getElementById("re-codi-btn").remove();
+    d.getElementById("re-codi-btn") && d.getElementById("re-codi-btn").remove();
     w.RE_CODI_UI.munta();
     const n = d.getElementById("re-codi-btn").textContent.replace(/\D/g, "");
     assert.strictEqual(n, "9");
   });
-  prova("els «vist» no es desen com a tancats: es poden fer amb nota", () => {
+  prova("els «vist» no es desen com a tancats ni com a importats", () => {
     const it = w.RE.llegeix(1).items["1e"];
-    assert.ok(!it || !it.tancat, JSON.stringify(it));
+    assert.ok(it && it.estat === "vist", JSON.stringify(it));
+    assert.ok(!it.tancat && !it.imp, JSON.stringify(it));
   });
-  prova("els exercicis amb feina sí que es recuperen", () => {
+  prova("i són els que llista el desplegable «Oberts sense respondre» del full", () => {
+    /* Per JSON: els arrays de jsdom són d'un altre realm que els de Node. */
+    const ids = n => JSON.stringify(Array.from(w.RE.nomesOberts(n)).map(e => e.id).sort());
+    assert.strictEqual(ids(1), JSON.stringify(["1e", "1f", "340b"]));
+    assert.strictEqual(ids(2), JSON.stringify(["43a"]));
+    assert.strictEqual(ids(3), JSON.stringify(["59a"]));
+  });
+  prova("l'alumna els pot fer amb nota: un intent encertat tanca l'exercici com a net", () => {
+    const r = w.RE.intent(1, "1e", true);
+    assert.strictEqual(r.repas, false);
+    assert.strictEqual(w.RE.llegeix(1).items["1e"].estat, "net");
+  });
+  prova("els exercicis amb feina sí que es recuperen, tancats i marcats com a importats", () => {
     const p = w.RE.llegeix(1).items;
     assert.strictEqual(p["1a"].estat, "net");
+    assert.ok(p["1a"].tancat && p["1a"].imp);
     assert.strictEqual(p["26a"].estat, "fallat");
     assert.strictEqual(w.RE.llegeix(2).items["321a"].estat, "segon");
+  });
+  prova("un resultat de debò d'aquí no el trepitja un «vist» del codi", () => {
+    const o = obreLloc();
+    o.w.RE.apunta(1, "1e", { estat: "net", tancat: 1 });
+    const m = recupera(o.w, o.d, true);
+    assert.strictEqual(o.w.RE.llegeix(1).items["1e"].estat, "net", m);
+    assert.ok(/4 exercicis estaven oberts/.test(m), m);
   });
   prova("un «vist» d'aquest navegador no impedeix recuperar el resultat de debò", () => {
     const o = obreLloc();
@@ -138,6 +170,12 @@ seccio("Recuperar un codi: els «vist» no són feina");
     const m = recupera(o.w, o.d, true);
     assert.strictEqual(o.w.RE.llegeix(1).items["1a"].estat, "net", m);
     assert.ok(/^9 exercicis recuperats/.test(m), m);
+  });
+  prova("«Substitueix-ho tot» dona el mateix: 9 recuperats i 5 oberts", () => {
+    const o = obreLloc();
+    o.w.confirm = () => true;
+    const m = recupera(o.w, o.d, false);
+    assert.ok(/^9 exercicis recuperats\./.test(m) && /5 exercicis estaven oberts/.test(m), m);
   });
 }
 

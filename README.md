@@ -277,11 +277,14 @@ s'encalla la classe i si el codi és autèntic.
   **afegir només el que falti** (segura, no toca res del que ja hi ha) o
   **substituir-ho tot** (amb confirmació). Un codi amb el control trencat es
   rebutja: no es recupera un estat que no es pot donar per bo.
-  Només es recupera la feina feta: els exercicis que el codi porta com a
-  *oberts sense respondre* (`vist`) no es tornen a escriure, perquè no compten
-  enlloc i, tancats, ja no es podrien fer amb nota. El missatge final diu
-  quants se n'han recuperat i quants s'han deixat, i el primer número és el
-  mateix que mostra el botó **Codi**.
+  Els exercicis que el codi porta com a *oberts sense respondre* (`vist`) no
+  són feina feta: no compten al botó **Codi** ni a l'analitzador. Es
+  recuperen tal com eren (sense `tancat`, per poder-los fer amb nota) i el
+  missatge els llista full per full, amb el títol del tema i **un enllaç
+  directe a cada exercici** (*«Full 5 · Equacions i sistemes: 77b, 77c,
+  80a»*), perquè l'alumne no hagi de recordar-ne el full. Després els troba
+  també al desplegable **«Oberts sense respondre»** de la pàgina de cada full.
+  El primer número del missatge és el mateix que mostra el botó.
 
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
