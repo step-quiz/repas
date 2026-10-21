@@ -304,13 +304,22 @@ window.RE_CODI_UI = (function () {
         "Aix\u00f2 esborrar\u00e0 el progr\u00e9s que hi ha en aquest navegador i hi "
         + "posar\u00e0 el del codi. Vols continuar?")) return;
 
-      var posats = 0, saltats = 0;
+      var posats = 0, saltats = 0, oberts = 0;
       p.fulls.forEach(function (f) {
         if (!nomesBuits) window.RE.esborra(f.n);
         var actual = window.RE.llegeix(f.n).items || {};
         f.items.forEach(function (it) {
           if (!it.estat) return;
-          if (nomesBuits && actual[it.id] && actual[it.id].estat) { saltats++; return; }
+          /* "vist" vol dir només obert, sense respondre: no és feina feta i no
+             compta enlloc (ni al botó, ni a RE_CODI.resum, ni a l'analitzador).
+             Recuperar-lo amb `tancat` el deixaria bloquejat com a resolt, i
+             l'alumna ja no el podria fer amb nota; i comptar-lo al missatge
+             feia dir «14 recuperats» quan el botó en mostrava 9. */
+          if (it.estat === "vist") { oberts++; return; }
+          /* I a l'inrevés: un "vist" d'aquest navegador tampoc és feina, i no
+             ha d'impedir que el codi hi posi el resultat de debò. */
+          var aqui = actual[it.id] && actual[it.id].estat;
+          if (nomesBuits && aqui && aqui !== "vist") { saltats++; return; }
           /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
              que compti com a ja resolt: recuperar la feina no ha de tornar a
              obrir tots els exercicis com si s'haguessin de fer. */
@@ -338,10 +347,15 @@ window.RE_CODI_UI = (function () {
         window.RE.desaMeta(g);
       }
 
-      if (!posats && !saltats) { diu("Aquest codi no porta cap exercici fet.", true); return; }
+      if (!posats && !saltats) {
+        diu(oberts ? "Aquest codi només porta exercicis oberts sense respondre: no hi ha cap feina per recuperar."
+                   : "Aquest codi no porta cap exercici fet.", true);
+        return;
+      }
       diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
         + (posats === 1 ? "" : "s")
         + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
+        + (oberts ? " (" + oberts + " oberts sense respondre, que no es recuperen)" : "")
         + ". Recarrega la p\u00e0gina per veure-ho.");
     }
 

@@ -96,4 +96,49 @@ seccio("El botó Codi diu la feina, sense trams");
   });
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+seccio("Recuperar un codi: els «vist» no són feina");
+{
+  /* Codi real d'una alumna: 14 exercicis amb estat, dels quals 5 són «vist»
+     (oberts sense respondre). El botó en comptava 9 i el missatge en deia 14. */
+  const CODI = "RC4F5-30CCJ-KR07N-46XP0-00000-00000-00000-00000-10500-00000-00000-00000-00009-C4000-00000-00000-00000-00000-00000-DAQPB-3JWH0-00000-00000-00000-00000-00000-00HYE-N0000-00027-00000-00000-00000-00000-00000-BQ53B-14C14-Z1014-00000-2M010-00910-01011-02103-14C11-D12P2-0022C-DB";
+  function recupera(w, d, nomesBuits) {
+    w.RE_CODI_UI.obre();
+    d.getElementById("re-codi-rec-camp").value = CODI;
+    d.getElementById(nomesBuits ? "re-codi-rec-afegeix" : "re-codi-rec-tot").onclick();
+    return d.getElementById("re-codi-rec-estat").textContent;
+  }
+  const { w, d } = obreLloc();
+  w.confirm = () => true;
+  const msg = recupera(w, d, true);
+
+  prova("el missatge diu 9 recuperats (els que compten al botó), no 14", () => {
+    assert.ok(/^9 exercicis recuperats/.test(msg), msg);
+    assert.ok(/5 oberts sense respondre/.test(msg), msg);
+  });
+  prova("el número del missatge coincideix amb el del botó", () => {
+    w.document.getElementById("re-codi-btn") && w.document.getElementById("re-codi-btn").remove();
+    w.RE_CODI_UI.munta();
+    const n = d.getElementById("re-codi-btn").textContent.replace(/\D/g, "");
+    assert.strictEqual(n, "9");
+  });
+  prova("els «vist» no es desen com a tancats: es poden fer amb nota", () => {
+    const it = w.RE.llegeix(1).items["1e"];
+    assert.ok(!it || !it.tancat, JSON.stringify(it));
+  });
+  prova("els exercicis amb feina sí que es recuperen", () => {
+    const p = w.RE.llegeix(1).items;
+    assert.strictEqual(p["1a"].estat, "net");
+    assert.strictEqual(p["26a"].estat, "fallat");
+    assert.strictEqual(w.RE.llegeix(2).items["321a"].estat, "segon");
+  });
+  prova("un «vist» d'aquest navegador no impedeix recuperar el resultat de debò", () => {
+    const o = obreLloc();
+    o.w.RE.visita(1, "1a");
+    const m = recupera(o.w, o.d, true);
+    assert.strictEqual(o.w.RE.llegeix(1).items["1a"].estat, "net", m);
+    assert.ok(/^9 exercicis recuperats/.test(m), m);
+  });
+}
+
 process.exit(resum() ? 0 : 1);

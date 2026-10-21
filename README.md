@@ -277,6 +277,11 @@ s'encalla la classe i si el codi és autèntic.
   **afegir només el que falti** (segura, no toca res del que ja hi ha) o
   **substituir-ho tot** (amb confirmació). Un codi amb el control trencat es
   rebutja: no es recupera un estat que no es pot donar per bo.
+  Només es recupera la feina feta: els exercicis que el codi porta com a
+  *oberts sense respondre* (`vist`) no es tornen a escriure, perquè no compten
+  enlloc i, tancats, ja no es podrien fer amb nota. El missatge final diu
+  quants se n'han recuperat i quants s'han deixat, i el primer número és el
+  mateix que mostra el botó **Codi**.
 
 El format està documentat a dalt de `js/codi.js`, que és alhora el generador i
 el lector: les dues meitats viuen al mateix fitxer perquè no puguin divergir, i
