@@ -127,11 +127,12 @@ seccio("Recuperar un codi: els «vist» no són feina, però es poden localitzar
       "practica.html?full=1&q=1e", "practica.html?full=1&q=1f", "practica.html?full=1&q=340b",
       "practica.html?full=2&q=43a", "practica.html?full=3&q=59a"].sort()));
   });
-  prova("el número del missatge coincideix amb el del botó", () => {
-    d.getElementById("re-codi-btn") && d.getElementById("re-codi-btn").remove();
-    w.RE_CODI_UI.munta();
+  prova("el número del missatge coincideix amb el del botó, que s'actualitza sense recarregar", () => {
     const n = d.getElementById("re-codi-btn").textContent.replace(/\D/g, "");
     assert.strictEqual(n, "9");
+  });
+  prova("fora de la portada, diu que cal recarregar per veure-ho a la llista d'exercicis", () => {
+    assert.ok(/Recarrega la pàgina per veure-ho a la llista d'exercicis/.test(msg), msg);
   });
   prova("els «vist» no es desen com a tancats ni com a importats", () => {
     const it = w.RE.llegeix(1).items["1e"];
@@ -253,6 +254,58 @@ seccio("La portada (index.html) avisa dels exercicis oberts d'un codi recuperat"
       [[1, "1e"], [1, "1f"], [1, "340b"], [2, "43a"]].forEach(([f, id]) => w.RE.intent(f, id, true));
     }).d.getElementById("recuperats");
     assert.ok(/Tens 1 exercici obert que encara no has respost/.test(u.textContent), u.textContent);
+  });
+
+  /* El codi no distingeix un exercici treballat d'un de passat amb
+     «Següent»: qui recupera pot trobar-se'n molts. */
+  function molts(w, n) {
+    w.RE_TAULES.fulls[4].items.slice(0, n).forEach(id => w.RE.apunta(4, id, { estat: "vist", rec: 1 }));
+  }
+  const visibles = b => [...b.querySelectorAll("a.xip")].filter(a => !a.closest("[hidden]"));
+
+  prova("amb molts, se n'ensenyen 6 i la resta va darrere de «Mostra'ls tots»", () => {
+    const { d: d2 } = portada(w => molts(w, 10));
+    const b = d2.getElementById("recuperats");
+    assert.ok(/Tens 10 exercicis oberts/.test(b.textContent), b.textContent);
+    assert.strictEqual(visibles(b).length, 6);
+    const mes = d2.getElementById("recuperats-mes");
+    assert.ok(mes && /Mostra'ls tots \(4 més\)/.test(mes.textContent), mes && mes.textContent);
+    mes.onclick();
+    assert.strictEqual(visibles(b).length, 10);
+    assert.ok(!d2.getElementById("recuperats-mes"), "el botó ha de desaparèixer");
+    assert.strictEqual(d2.activeElement, visibles(b)[6], "el focus va al primer que s'ha mostrat");
+  });
+  prova("amb 6 o menys, no hi ha «Mostra'ls tots»", () => {
+    assert.ok(!d.getElementById("recuperats-mes"));
+    assert.strictEqual(visibles(bloc).length, 5);
+  });
+  prova("«Ja ho sé, treu l'avís» el treu, i no torna en recarregar", () => {
+    const o = portada(w => molts(w, 10));
+    o.d.getElementById("recuperats-treu").onclick();
+    const b = o.d.getElementById("recuperats");
+    assert.strictEqual(b.hidden, true);
+    const p = o.w.RE.llegeix(4).items, id = o.w.RE_TAULES.fulls[4].items[0];
+    assert.ok(p[id].estat === "vist" && !p[id].rec, JSON.stringify(p[id]));
+    /* Els exercicis continuen oberts: surten al desplegable del full. */
+    assert.strictEqual(o.w.RE.nomesOberts(4).length, 10);
+    /* «Recarregar»: una portada nova amb el mateix localStorage. */
+    const html = fs.readFileSync(path.join(ARREL, "index.html"), "utf8");
+    const dom2 = new JSDOM(html, { url: "https://repas.exemple/", runScripts: "outside-only" });
+    dom2.window.localStorage.setItem("repas-eso:full4", o.w.localStorage.getItem("repas-eso:full4"));
+    [...html.matchAll(/<script src="([^"]+)"/g)].forEach(m =>
+      dom2.window.eval(fs.readFileSync(path.join(ARREL, m[1]), "utf8")));
+    assert.strictEqual(dom2.window.document.getElementById("recuperats").hidden, true);
+  });
+  prova("recuperant des de la portada, l'avís i el botó surten sense recarregar", () => {
+    const o = portada();
+    assert.strictEqual(o.d.getElementById("recuperats").hidden, true);
+    recuperaA(o.w);
+    const b = o.d.getElementById("recuperats");
+    assert.strictEqual(b.hidden, false);
+    assert.ok(/Tens 5 exercicis oberts/.test(b.textContent), b.textContent);
+    assert.strictEqual(o.d.getElementById("re-codi-btn").textContent.replace(/\D/g, ""), "9");
+    const msg = o.d.getElementById("re-codi-rec-estat").textContent;
+    assert.ok(!/Recarrega/.test(msg), msg);
   });
 }
 

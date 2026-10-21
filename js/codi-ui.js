@@ -381,15 +381,25 @@ window.RE_CODI_UI = (function () {
           + "<br>Tamb\u00e9 els trobar\u00e0s a \u00abOberts sense respondre\u00bb, dins de la p\u00e0gina de cada full.";
       }
 
+      /* El botó i l'avís de la portada es tornen a pintar ara mateix: abans
+         calia recarregar, i qui no ho feia veia el comptador vell. La resta
+         de la pàgina d'un full (la graella d'exercicis) sí que necessita
+         recarregar, i només llavors es diu. */
+      refrescaBoto();
+      var aPortada = !!(window.RE_INICI && window.RE_INICI.pintaRecuperats);
+      if (aPortada) window.RE_INICI.pintaRecuperats();
+      var recarrega = aPortada ? ""
+        : "<br>Recarrega la p\u00e0gina per veure-ho a la llista d'exercicis.";
+
       if (!posats && !saltats) {
-        diu(oberts ? "Aquest codi no porta cap exercici fet." + avisOberts
+        diu(oberts ? "Aquest codi no porta cap exercici fet." + avisOberts + recarrega
                    : "Aquest codi no porta cap exercici fet.", !oberts, true);
         return;
       }
       diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
         + (posats === 1 ? "" : "s")
         + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
-        + "." + avisOberts + "<br>Recarrega la p\u00e0gina perqu\u00e8 el comptador del bot\u00f3 s'actualitzi.", false, true);
+        + "." + avisOberts + recarrega, false, true);
     }
 
     document.getElementById("re-codi-rec-afegeix").onclick = function () { aplica(true); };
