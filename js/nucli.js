@@ -165,6 +165,8 @@ window.RE = (function () {
       intents: nint, pistes: npis, tancat: tancat ? 1 : 0
     };
     if (!it.tf && (!it.estat || it.estat === "vist")) dades.tf = Date.now();
+    /* L'opció triada ja s'ha comprovat: deixa de ser «triada i pendent». */
+    dades.tri = undefined;
     apunta(full, id, dades);
     return { estat: estat, repas: false, tancat: tancat };
   }
@@ -335,6 +337,15 @@ window.RE = (function () {
     toca(full, id, function (it) { it.opc = 1; it.tvis = Date.now(); });
   }
 
+  /* L'alumne ha triat una opció i encara no l'ha comprovada. Es desa
+     `tri`: l'índex de l'opció ORIGINAL (`ordre[pos]`), no la lletra, perquè
+     les opcions es barregen a cada visita. Si tanca la pestanya o abaixa la
+     tapa abans de comprovar, en tornar la troba marcada. `intent()` l'esborra
+     en comprovar. Implica `opc`: no es pot triar sense veure les opcions. */
+  function marcaTriada(full, id, orig) {
+    toca(full, id, function (it) { it.tri = orig; it.opc = 1; it.tvis = Date.now(); });
+  }
+
   /* L'alumne ha sortit de l'exercici amb «Següent exercici» (o la fletxa →)
      sense haver-lo respost. Només serveix per al text de la llista. */
   function marcaSeguent(full, id) {
@@ -343,12 +354,13 @@ window.RE = (function () {
 
   /* Per què un exercici és a mitges, en una frase que va darrere de
      «No l'has acabat:». Se'n tria UNA, la del pas més avançat que va fer:
-     les opcions són a un toc de respondre; la pista, a dos; «Següent» vol
-     dir que va passar de llarg; i si no hi ha res d'això, només el va llegir
-     (prou estona per comptar, vegeu LLINDAR). */
+     l'opció triada és a un toc de respondre; les opcions, a dos; la pista, a
+     tres; «Següent» vol dir que va passar de llarg; i si no hi ha res d'això,
+     només el va llegir (prou estona per comptar, vegeu LLINDAR). */
   function motiuAMitges(it) {
     it = it || {};
     if (it.estat === "fallat") return "has fallat el primer intent i et queda el segon";
+    if (typeof it.tri === "number") return "has triat una opció, però no l'has comprovada";
     if (it.opc) return "has demanat «Mostra'm les opcions», però no has respost";
     if (it.npis) return "has demanat pista, però no has respost";
     if (it.sseg) return "has clicat «Següent exercici» sense respondre";
@@ -437,7 +449,7 @@ window.RE = (function () {
     meta: meta, desaMeta: desaMeta, sumaMeta: sumaMeta, rellotge: rellotge,
     clau: clau, mapa: mapa, mat: mat, ETIQ: ETIQ,
     LLINDAR: LLINDAR, MAX_VISITA: MAX_VISITA, cronoExercici: cronoExercici, esAMitges: esAMitges, aMitges: aMitges, nomesOberts: nomesOberts,
-    visita: visita, marcaOpcions: marcaOpcions, marcaSeguent: marcaSeguent,
+    visita: visita, marcaOpcions: marcaOpcions, marcaTriada: marcaTriada, marcaSeguent: marcaSeguent,
     motiuAMitges: motiuAMitges,
     descartaAMitges: descartaAMitges, recuperaAMitges: recuperaAMitges
   };

@@ -222,6 +222,22 @@
     var enc = $("#encap");
     if (enc && enc.parentNode) enc.parentNode.insertBefore(d, enc.nextSibling);
   }
+  /* L'opció que havia triat i no va comprovar (`tri`, desada per
+     RE.marcaTriada). Com que les opcions es barregen a cada visita, la
+     lletra d'ara pot ser una altra: es diu la d'ara. Es deixa marcada més
+     avall, quan ja hi ha els botons. */
+  var triPrevia = !repas && typeof reg.tri === "number" ? ordre.indexOf(reg.tri) : -1;
+  var textTri = triPrevia >= 0
+    ? "<br>Havies triat una opció i no l'has comprovada: te l'he deixada marcada (ara és la <strong>"
+      + LLETRES[triPrevia] + "</strong>). Comprova-la o canvia-la."
+    : "";
+  /* Quan hi va ser i quanta estona («ahir a les 18:42 · 6 min»), el mateix
+     que diu la llista «Exercicis no acabats»: ajuda a trobar a la llibreta
+     on el va resoldre. `reg` es va llegir ABANS de RE.visita, així que
+     `tvis` encara és la visita anterior, no aquesta. */
+  var quanHiVa = !repas && window.RE_MITGES && (reg.tvis || reg.ts)
+    ? RE_MITGES.detall({ quan: reg.tvis || reg.ts, it: reg }) : "";
+  var textQuan = quanHiVa ? "<br><span class=\"apagat\">L'última vegada: " + quanHiVa + ".</span>" : "";
   if (repas) {
     avisEstat("Aquest exercici ja el vas <strong>" + (RE.ETIQ[reg.estat] || "fer") +
       "</strong>. Tornar-hi va molt bé, però el registre ja no canvia: "
@@ -231,12 +247,13 @@
       (intents ? intents + (intents === 1 ? " intent" : " intents") : "") +
       (intents && pistes ? " i " : "") +
       (pistes ? pistes + (pistes === 1 ? " pista" : " pistes") : "") +
-      ". Compten igual que si no haguessis marxat.");
-  } else if (RE.esAMitges(reg)) {
+      ". Compten igual que si no haguessis marxat." + textTri + textQuan);
+  } else if (RE.esAMitges(reg) || triPrevia >= 0) {
     /* Hi havia estat treballant però no va respondre: és just el cas que
        l'alumne busca. El mateix text que a la llista «a mitges», perquè qui
        hi arriba des d'allà es retrobi. */
-    avisEstat("<strong>No l'has acabat:</strong><br>" + RE.motiuAMitges(reg), "petit avis-amitges");
+    avisEstat("<strong>No l'has acabat:</strong><br>" + RE.motiuAMitges(reg) + textTri + textQuan,
+      "petit avis-amitges");
   }
 
   /* ---- pistes ---- */
@@ -300,6 +317,7 @@
       triada = pos;
       marca(pos);
       $("#comprova").disabled = false;
+      if (!repas) RE.marcaTriada(D.full, item.id, orig);
     };
     caixa.appendChild(b);
   });
@@ -337,6 +355,15 @@
     var op = $("#opcions");
     if (op.scrollIntoView) op.scrollIntoView({ behavior: "smooth", block: "center" });
   };
+
+  /* Torna on era: opcions a la vista i la que havia triat, marcada (sense
+     comprovar: això ho ha de fer l'alumne). Si aquella opció ja no es pot
+     triar, no es marca res. */
+  if (triPrevia >= 0 && caixa.children[triPrevia] && !caixa.children[triPrevia].disabled) {
+    $("#mostra").hidden = true;
+    $("#zona-resposta").hidden = false;
+    caixa.children[triPrevia].onclick();
+  }
 
   /* ---- comprovació ---- */
   $("#comprova").onclick = function () {

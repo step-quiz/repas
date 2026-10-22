@@ -265,6 +265,25 @@ prova("fallat amb un intent: «has fallat el primer intent i et queda el segon»
   assert.strictEqual(RE.motiuAMitges({ estat: "fallat", nint: 1, opc: 1 }),
     "has fallat el primer intent i et queda el segon");
 });
+prova("opció triada: «has triat una opció, però no l'has comprovada» (mana sobre les opcions)", () => {
+  assert.strictEqual(RE.motiuAMitges({ estat: "vist", opc: 1, tri: 0, npis: 1 }),
+    "has triat una opció, però no l'has comprovada");
+});
+prova("triar una opció desa `tri` (l'opció original) i `opc`, i fa l'exercici a mitges", () => {
+  net();
+  RE.visita(FULL, IDS[0]);
+  RE.marcaTriada(FULL, IDS[0], 2);
+  const it = RE.item(FULL, IDS[0]);
+  assert.strictEqual(it.tri, 2);
+  assert.strictEqual(it.opc, 1);
+  assert.ok(RE.esAMitges(it));
+});
+prova("en comprovar, `tri` desapareix del registre", () => {
+  RE.intent(FULL, IDS[0], true);
+  const it = RE.item(FULL, IDS[0]);
+  assert.ok(!("tri" in it), JSON.stringify(it));
+  assert.strictEqual(it.estat, "net");
+});
 prova("«Següent» queda anotat al registre", () => {
   net();
   RE.visita(FULL, IDS[0]);
@@ -280,7 +299,7 @@ prova("els camps nous no entren a recull() ni a genera()", () => {
   posa(FULL, IDS[1], { estat: "net", nint: 1, npis: 0, tancat: 1, tf: 1700000000000, ts: 1 });
   posa(FULL, IDS[2], { estat: "fallat", nint: 1, tf: 1700000000000, ts: 1 });
   const abans = JSON.stringify(CODI.recull());
-  posa(FULL, IDS[0], { tact: 300, opc: 1, tvis: 99, sseg: 1 });
+  posa(FULL, IDS[0], { tact: 300, opc: 1, tvis: 99, sseg: 1, tri: 2 });
   posa(FULL, IDS[2], { tact: 45, tvis: 98, amd: 97, amt: 45 });
   const despres = JSON.stringify(CODI.recull());
   assert.strictEqual(despres, abans);
@@ -483,6 +502,65 @@ async function obre(pagina, query, estat) {
     prova("«Deixa'l per a més tard» després de «Següent»: marxa i anota «Següent»", () => {
       assert.strictEqual(anades.length, 1);
       assert.strictEqual(w.RE.item(7, "120c").sseg, 1);
+    });
+    tanca();
+  }
+
+  seccio("practica.html: en tornar, l'opció triada hi és i diu quan hi va ser");
+  {
+    /* Primera visita: tria una opció i tanca la pestanya, sense comprovar. */
+    const a = await obre("practica.html", "?full=7&q=120a");
+    a.d.getElementById("mostra").click();
+    const triadaA = a.d.querySelectorAll("#opcions .opcio")[1];
+    triadaA.click();
+    const orig = +triadaA.dataset.orig;
+    prova("triar una opció la desa al registre (l'opció original, no la lletra)", () => {
+      assert.strictEqual(a.w.RE.item(7, "120a").tri, orig);
+    });
+    const desat = JSON.parse(a.w.localStorage.getItem("repas-eso:full7"));
+    a.tanca();
+    /* L'última visita, ahir: així el text diu «ahir a les …». */
+    const ahir = new Date(); ahir.setDate(ahir.getDate() - 1); ahir.setHours(18, 42, 0, 0);
+    desat.items["120a"].tvis = ahir.getTime();
+    desat.items["120a"].tact = 360;
+
+    const { w, d, tanca } = await obre("practica.html", "?full=7&q=120a", { "repas-eso:full7": desat });
+    const ops = [...d.querySelectorAll("#opcions .opcio")];
+    const marcada = ops.find(b => b.getAttribute("aria-checked") === "true");
+    prova("les opcions ja es veuen i la que havia triat hi és marcada", () => {
+      assert.strictEqual(d.getElementById("zona-resposta").hidden, false);
+      assert.ok(marcada, "cap opció marcada");
+      assert.strictEqual(+marcada.dataset.orig, orig);
+      assert.strictEqual(d.getElementById("comprova").disabled, false);
+    });
+    const avis = d.querySelector(".avis-amitges");
+    prova("l'avís diu que l'havia triada, amb la lletra d'ara", () => {
+      const lletra = marcada.querySelector(".lletra").textContent;
+      assert.ok(avis, "falta l'avís «No l'has acabat»");
+      assert.ok(/has triat una opció, però no l'has comprovada/.test(avis.textContent), avis.textContent);
+      assert.ok(new RegExp("ara és la " + lletra + "\\b").test(avis.textContent), avis.textContent);
+    });
+    prova("i diu quan hi va ser i quanta estona: «ahir a les 18:42 · 6 min»", () => {
+      assert.ok(/L'última vegada: ahir a les 18:42 · 6 min\./.test(avis.textContent), avis.textContent);
+    });
+    prova("no compta com a comprovada: el registre no canvia d'estat", () => {
+      assert.strictEqual(w.RE.item(7, "120a").estat, "vist");
+      assert.strictEqual(w.RE.item(7, "120a").nint, undefined);
+    });
+    d.getElementById("comprova").click();
+    prova("en comprovar-la, `tri` desapareix", () => {
+      assert.ok(!("tri" in w.RE.item(7, "120a")));
+    });
+    tanca();
+  }
+  {
+    /* Un exercici ja tancat: és repàs, no es restaura cap tria. */
+    const { d, tanca } = await obre("practica.html", "?full=7&q=120a", {
+      "repas-eso:full7": { v: 1, tfv: 1, items: { "120a": { estat: "net", tancat: 1, nint: 1, tri: 0 } } }
+    });
+    prova("en un exercici ja fet no es marca res ni es mostren les opcions", () => {
+      assert.strictEqual(d.getElementById("zona-resposta").hidden, true);
+      assert.ok(!/L'última vegada/.test(d.body.textContent));
     });
     tanca();
   }
