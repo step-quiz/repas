@@ -73,12 +73,14 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
   fulls i del més recent al més antic. Cada fila porta el full i el bloc,
   el motiu concret, i quan va ser («ahir a les 18:42 ·
   4 min»). Els motius, del pas més avançat al menys (se'n mostra un):
-  «has fallat el primer intent i et queda el segon», «has demanat «Mostra'm
+  «has fallat el primer intent i et queda el segon», «has triat una opció,
+  però no l'has comprovada», «has demanat «Mostra'm
   les opcions», però no has respost», «has demanat pista, però no has
   respost», «has clicat «Següent exercici» sense respondre» i «has llegit
   l'enunciat, però no has fet res més» (`RE.motiuAMitges()`). A dalt de
   l'exercici, quan s'hi torna, surt el mateix motiu precedit de «No l'has
-  acabat:». A la pàgina del full, els
+  acabat:», i quan hi va ser i quanta estona («L'última vegada: ahir a les
+  18:42 · 6 min»), per trobar-lo a la llibreta. A la pàgina del full, els
   d'aquell full; i al mapa, amb casella pròpia (½). Una creu el treu de la llista
   (amb «Desfés»); si s'hi torna a treballar 40 s més, hi torna a sortir.
 - **«Continua on ho vas deixar»** porta a l'exercici a mitges més recent del
@@ -87,11 +89,16 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
   un exercici a mitges (o amb una opció triada i no comprovada) veu, una sola
   vegada, un avís dins de la targeta: «Respon ara» o «Deixa'l per a més tard».
   No bloqueja res: el segon clic ja marxa. Qui només fulleja no veu res.
+- **L'opció triada no es perd.** Triar una opció la desa (`tri`, l'opció
+  original: les opcions es barregen a cada visita). Si l'alumne tanca la
+  pestanya o abaixa la tapa sense comprovar, en tornar troba les opcions a la
+  vista i aquella marcada, amb la lletra d'ara («ara és la C»). Comprovar-la
+  continua sent cosa seva; en fer-ho, `tri` s'esborra.
 - **Cercador per codi.** A la portada, «Tens el codi d'un exercici apuntat a la
   llibreta?»: escrivint `121b` s'hi va directament; amb `121` s'ofereixen els
   apartats.
-- **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `sseg`,
-  `tvis`, `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
+- **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `tri`,
+  `sseg`, `tvis`, `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
   `tests/test_amitges.js`.
 
 ## Estructura de fitxers
