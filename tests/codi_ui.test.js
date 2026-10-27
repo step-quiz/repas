@@ -213,7 +213,7 @@ seccio("La portada (index.html) avisa dels exercicis oberts d'un codi recuperat"
   });
   prova("l'avís és el primer element de la portada, per sobre de tot", () => {
     const main = d.querySelector("main");
-    const fills = [...main.children].filter(e => e.tagName !== "HEADER");
+    const fills = [...main.children].filter(e => e.tagName !== "H1" && !e.classList.contains("portada-barra"));
     assert.strictEqual(fills[0].id, "recuperats", fills[0].id);
   });
   prova("diu a quin full és cada un, amb el títol del tema", () => {

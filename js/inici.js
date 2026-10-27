@@ -90,35 +90,19 @@
     var cont = $("#tutor");
     if (!d) {
       cont.innerHTML =
-        '<a class="tutor-targeta" href="diagnostic.html">' +
-          '<h3 class="tutor-titol">Test inicial</h3>' +
-          '<p class="petit apagat" style="margin:.35rem 0 0">Fes un test curt de 15 preguntes ' +
-          "i et diem quins blocs et convé repassar primer.</p>" +
-        "</a>";
+        '<a class="tutor-targeta" href="diagnostic.html" ' +
+        'title="Un test curt de 15 preguntes: et diem quins blocs et convé repassar primer">' +
+        '<span class="tutor-titol">Test inicial</span></a>';
       return;
     }
-    var analisi = RE_DIAG.analitza(d);
-    var reco = RE_DIAG.recomanacio(analisi);
+    /* Ja fet: el mateix botó porta a la diagnosi (resultat.html), on també es
+       pot tornar a fer el test. */
+    var reco = RE_DIAG.recomanacio(RE_DIAG.analitza(d));
     var noms = reco.map(function (b) { return b.titol; }).join(", ");
+    var tip = reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.";
     cont.innerHTML =
-      '<a class="tutor-targeta" href="resultat.html">' +
-        '<h3 class="tutor-titol">Test inicial</h3>' +
-        '<p class="petit apagat" style="margin:.35rem 0 0">' +
-          (reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.") +
-        "</p>" +
-      "</a>" +
-      '<button type="button" class="link-refer-test petit" id="refes-index">Tornar a fer el test</button>';
-
-    /* Oferim sempre l'opció de refer el test des de la pantalla inicial,
-       no només des de resultat.html: mateix comportament (confirmació abans
-       d'esborrar) que el botó equivalent de resultat.js, per coherència. */
-    $("#refes-index").onclick = function () {
-      if (confirm("Vols refer el test inicial? El resultat anterior s'esborrarà.")) {
-        RE_DIAG.esborra();
-        RE_ITI.esborra();
-        location.href = "diagnostic.html";
-      }
-    };
+      '<a class="tutor-targeta" href="resultat.html" title="' + tip.replace(/"/g, "&quot;") + '">' +
+      '<span class="tutor-titol">Test inicial</span></a>';
   }
   pintaTutor();
 

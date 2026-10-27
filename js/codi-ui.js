@@ -56,6 +56,9 @@ window.RE_CODI_UI = (function () {
        la dreta, en comptes de tapar-la. */
     ".embolcall{padding-top:3.2rem}",
     ".embolcall>.cimera:first-child{padding-right:6.5rem}",
+    /* Si la pàgina té una barra pròpia (#re-barra, a la portada), el botó hi va
+       dins en lloc de fix a la cantonada. */
+    "#re-barra #re-codi-btn{position:static}",
     "@media(max-width:520px){#re-codi-btn{top:.5rem;right:.5rem;padding:.4rem .7rem;font-size:12px}",
     "#re-codi-fin{margin-top:2.5rem}",
     ".embolcall{padding-top:2.8rem}.embolcall>.cimera:first-child{padding-right:5.5rem}}"
@@ -439,7 +442,7 @@ window.RE_CODI_UI = (function () {
       (x.fets ? ' <span style="opacity:.75;font-weight:500">' + x.fets + "</span>" : "");
     b.title = "Obt\u00e9n el codi per enviar al professorat";
     b.onclick = obre;
-    document.body.appendChild(b);
+    (document.getElementById("re-barra") || document.body).appendChild(b);
   }
 
   if (document.readyState === "loading") {
