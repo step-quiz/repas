@@ -133,8 +133,15 @@ window.RE_DESA = (function () {
       if (guardat) { sessionStorage.removeItem(CLAU_MSG); diu(guardat, false, true); }
     } catch (e) { /* res */ }
 
+    /* Tick verd-oliva al botó Desa mentre la feina d'ara ja és desada (baixada,
+       copiada o carregada); desapareix quan hi ha feina nova. */
+    function marcaBoto() {
+      $("desa-baixa").classList.toggle("desat", feines() > 0 && !senseDesar());
+    }
+    marcaBoto();
+
     $("desa-baixa").onclick = function () {
-      if (desa()) diu("Fitxer baixat. Mira a la carpeta Baixades (o Descàrregues).", false);
+      if (desa()) { diu("", false); marcaBoto(); }
       else diu("Encara no has fet cap exercici: no hi ha res a desar.", true);
     };
 
@@ -165,6 +172,7 @@ window.RE_DESA = (function () {
       var començat = copia(function (ok) {
         if (!ok) { diu("No he pogut copiar el codi. Prova el botó Desa.", true); return; }
         bCopia.classList.add("fet");
+        marcaBoto();
         etCopia.textContent = "Codi copiat";
         clearTimeout(tempsCopiat);
         tempsCopiat = setTimeout(function () {
