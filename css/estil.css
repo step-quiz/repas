@@ -4,7 +4,7 @@
 :root{
   --paper:#F7F8FA; --tinta:#16202E; --graf:#C8D4E3; --blau:#2455A4;
   --verd:#17795E; --ambre:#B06B00; --vermell:#C4362F; --card:#FFF;
-  --vora:#DDE4EC; --apagat:#5A6B80;
+  --fosc:#3B4553; --vora:#DDE4EC; --apagat:#5A6B80;
   --verd-suau:#E4F3EC; --ambre-suau:#FFF6E5; --vermell-suau:#FBEDEC; --blau-suau:#E8EFF9;
   --display:"Bricolage Grotesque",system-ui,sans-serif;
   --cos:"Figtree",system-ui,-apple-system,sans-serif;
@@ -47,6 +47,7 @@ body{
 a{color:var(--blau)}
 h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0}
 h1{font-size:1.72rem;font-weight:800;letter-spacing:-.02em}
+#titol-full{font-size:1.2rem}
 h2{font-size:1.06rem;font-weight:700}
 .cimera{font:600 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--blau)}
 .apagat{color:var(--apagat)}
@@ -54,8 +55,8 @@ h2{font-size:1.06rem;font-weight:700}
 .targeta{background:var(--card);border:1px solid var(--vora);border-radius:12px;
   padding:1.05rem 1.15rem;box-shadow:0 1px 2px rgba(22,32,46,.05)}
 button{font:inherit;font-family:var(--cos)}
-.btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--tinta);
-  background:var(--tinta);color:#fff;border-radius:9px;padding:.62rem 1.05rem;
+.btn{display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--fosc);
+  background:var(--fosc);color:#fff;border-radius:9px;padding:.62rem 1.05rem;
   font-weight:600;cursor:pointer;transition:transform .12s,filter .12s}
 @media (hover:hover){.btn:hover{filter:brightness(1.15)}} .btn:active{transform:translateY(1px)}
 .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none}
@@ -118,7 +119,7 @@ button{font:inherit;font-family:var(--cos)}
 .barra{height:5px;background:var(--vora);border-radius:3px;overflow:hidden;margin-top:.35rem}
 .barra i{display:block;height:100%;background:var(--verd)}
 .barra-sup{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
-.codi{font:700 12px/1 var(--mono);background:var(--tinta);color:#fff;padding:.28rem .45rem;border-radius:5px}
+.codi{font:700 12px/1 var(--mono);background:var(--fosc);color:#fff;padding:.28rem .45rem;border-radius:5px}
 .encap{color:var(--apagat);font-size:.9rem;margin:0 0 .5rem}
 .enunciat{font-size:1.2rem;line-height:1.5;margin:.2rem 0 .3rem}
 .pistes{margin:.85rem 0 0;display:grid;gap:.5rem}
@@ -485,3 +486,20 @@ button{font:inherit;font-family:var(--cos)}
 @media(max-width:900px){.portada .fulls{grid-template-columns:repeat(auto-fill,minmax(175px,1fr))}}
 @media(max-width:520px){.portada-barra{top:.5rem;right:.5rem}
   .portada-titol{font-size:1.12rem}.embolcall.portada>.portada-titol{padding-right:0}}
+
+/* ---- botons «← Tots els fulls» / «← Full N» (full.html, practica.html) ---- */
+.tornar-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.55rem 1.1rem;
+  font:700 1.02rem/1.2 var(--cos);color:var(--blau);text-decoration:none;background:var(--card);
+  border:1.5px solid var(--vora);border-radius:999px;box-shadow:0 1px 3px rgba(22,32,46,.08);
+  transition:background .12s,border-color .12s,box-shadow .12s,font-size .12s}
+@media (hover:hover){.tornar-btn:hover{background:#E4E6E9;border-color:#000;box-shadow:0 0 0 2px #000;
+  font-size:1.12rem;color:var(--tinta)}}
+.barra-sup{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem}
+
+/* ---- Desa / Carrega / Copia a les altres pàgines: fila compacta a la barra de dalt ---- */
+.desa-compacta{display:flex;gap:.4rem;flex-wrap:wrap}
+.desa-compacta .desa-btn{flex-direction:row;min-height:2.4rem;width:auto;min-width:0;flex:none;
+  padding:.3rem .7rem;font-size:.82rem;gap:.4rem;border-radius:999px}
+.desa-compacta .desa-btn svg{width:1.15rem;height:1.15rem}
+.desa-compacta .desa-btn .tick{position:static;width:1.1rem;height:1.1rem}
+.desa-msg-pag{margin:.4rem 0 0;text-align:right}

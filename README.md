@@ -284,7 +284,11 @@ s'encalla la classe i si el codi és autèntic.
   (`js/desa-local.js`, que reutilitza el codi de verificació com a fitxer de
   rescat):
   - **Desa el codi** (disquet): baixa el codi en un fitxer de text datat (repas-AAAA-MM-DD.txt).
-    Mentre la feina d'ara ja és desada, el botó mostra un tick i fons verd-oliva.
+    Mentre la feina d'ara ja és desada, el botó mostra un tick, fons verd-oliva
+    i el text **«Codi desat al PC»**.
+  - **A totes les pàgines.** Els tres botons també hi són a `full.html`,
+    `practica.html`, etc., en versió compacta a la barra de dalt (`js/desa-local.js`
+    els munta si la pàgina no els porta escrits).
   - **Carrega el codi** (carpeta oberta): tria un fitxer i en posa la feina al
     navegador. És **sempre el mode «afegeix»** (només omple els exercicis que
     aquí no tenen estat; mai no n'esborra ni en trepitja cap), per això no

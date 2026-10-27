@@ -11,8 +11,8 @@ window.RE_CODI_UI = (function () {
 
   var CSS = [
     "#re-codi-btn{position:fixed;top:.75rem;right:.75rem;z-index:9998;",
-    "display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--tinta,#1F2933);",
-    "background:var(--tinta,#1F2933);color:#fff;border-radius:999px;padding:.45rem .85rem;",
+    "display:inline-flex;align-items:center;gap:.4rem;border:1px solid var(--fosc,#3B4553);",
+    "background:var(--fosc,#3B4553);color:#fff;border-radius:999px;padding:.45rem .85rem;",
     "font:600 13px system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;cursor:pointer;",
     "box-shadow:0 2px 10px rgba(31,41,51,.18)}",
     "#re-codi-btn:hover{filter:brightness(1.18)}",
@@ -33,7 +33,7 @@ window.RE_CODI_UI = (function () {
     "background:var(--fons,#FBFAF8);border:1px solid var(--vora,#E4E1DB);border-radius:9px;",
     "letter-spacing:.02em;margin:.75rem 0}",
     "#re-codi-fin .re-acc{display:flex;gap:.5rem;flex-wrap:wrap}",
-    "#re-codi-fin .re-btn{border:1px solid var(--tinta,#1F2933);background:var(--tinta,#1F2933);",
+    "#re-codi-fin .re-btn{border:1px solid var(--fosc,#3B4553);background:var(--fosc,#3B4553);",
     "color:#fff;border-radius:9px;padding:.5rem .85rem;font:600 14px system-ui,sans-serif;cursor:pointer}",
     "#re-codi-fin .re-btn.buit{background:transparent;color:var(--tinta,#1F2933);border-color:var(--vora,#E4E1DB)}",
     "#re-codi-fin .re-petit{font-size:13px;color:var(--apagat,#6B7480)}",

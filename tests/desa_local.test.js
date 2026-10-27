@@ -25,8 +25,8 @@ try {
 const { assert, seccio, prova, resum } = require("./arnes.js");
 const ARREL = path.join(__dirname, "..");
 
-async function obreLloc() {
-  const html = fs.readFileSync(path.join(ARREL, "index.html"), "utf8")
+async function obreLloc(pagina) {
+  const html = pagina || fs.readFileSync(path.join(ARREL, "index.html"), "utf8")
     .replace(/<script[^>]*><\/script>/g, "");
   const dom = new JSDOM(html, { url: "https://repas.exemple/", runScripts: "outside-only" });
   const w = dom.window;
@@ -67,6 +67,26 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
     });
   }
 
+  seccio("Els tres botons també hi són a les altres pàgines (full, pràctica…)");
+  {
+    const { w, d } = await obreLloc('<!doctype html><html><body><main class="embolcall"><div class="barra-sup"><a href="index.html">← Tots els fulls</a></div></main></body></html>');
+    prova("es munten, compactes, dins de la barra de dalt", () => {
+      const f = d.querySelector(".barra-sup #desa-fila.desa-compacta");
+      assert.ok(f, "falta la fila");
+      ["desa-baixa", "desa-obre", "desa-copia"].forEach(id => assert.ok(d.getElementById(id), id));
+    });
+    fes(w, 3);
+    d.getElementById("desa-baixa").click();
+    prova("i fan el mateix: desar mostra el tick i el text nou", () => {
+      assert.strictEqual(w.__baixats.length, 1);
+      assert.strictEqual(d.getElementById("desa-baixa").textContent.trim(), "Codi desat al PC");
+    });
+    const { d: d2 } = await obreLloc('<!doctype html><html><body><main class="embolcall"><h1>Sense barra</h1></main></body></html>');
+    prova("si la pàgina no té barra de dalt, se'n crea una", () => {
+      assert.ok(d2.querySelector("main > .barra-sup #desa-baixa"));
+    });
+  }
+
   seccio("Desa: baixa el codi en un fitxer");
   {
     const { w, d } = await obreLloc();
@@ -82,8 +102,9 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
       assert.ok(/^repas-\d{4}-\d{2}-\d{2}\.txt$/.test(w.__nomBaixat), w.__nomBaixat);
     });
     const text = await llegeixBlob(w, w.__baixats[0]);
-    prova("el botó Desa mostra el tick (classe desat) un cop baixat el fitxer", () => {
+    prova("el botó Desa mostra el tick (classe desat) i el text «Codi desat al PC»", () => {
       assert.ok(d.getElementById("desa-baixa").classList.contains("desat"));
+      assert.strictEqual(d.getElementById("desa-baixa").textContent.trim(), "Codi desat al PC");
       assert.strictEqual(d.getElementById("desa-msg").hidden, true);
     });
     prova("el fitxer és un codi íntegre amb els 7 exercicis", () => {

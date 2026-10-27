@@ -115,7 +115,41 @@ window.RE_DESA = (function () {
   /* ── els botons de la portada ─────────────────────────────────────────── */
   var tempsCopiat = 0;
 
+  /* A les pàgines que no són la portada, els tres botons no hi són escrits a
+     mà: es munten aquí, en versió compacta, a la barra de dalt (.barra-sup) o,
+     si la pàgina no en té, en una de nova al principi. Mateixos ids i mateix
+     comportament que a la portada. */
+  var SVG_DESA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 3v5h7V3"/><rect x="7" y="13" width="10" height="8" rx="1"/></svg>' +
+    '<svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12"/><path d="M6.5 12.5l3.8 3.8 7.2-8"/></svg>';
+  var SVG_OBRE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V6a1 1 0 0 1 1-1h5l2 2h8a1 1 0 0 1 1 1v2"/><path d="M3 19l3-8a1 1 0 0 1 1-.7h14.2a.8.8 0 0 1 .76 1.07L19 19z"/></svg>';
+  var SVG_COPIA = '<svg class="ico-copia" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="12" rx="1.5"/><path d="M15 9V4.5A1.5 1.5 0 0 0 13.5 3h-8A1.5 1.5 0 0 0 4 4.5v10A1.5 1.5 0 0 0 5.5 16H9"/></svg>' +
+    '<svg class="ico-fet" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>';
+
+  function muntaFilaCompacta() {
+    var main = document.querySelector("main") || document.body;
+    var barra = document.querySelector(".barra-sup");
+    if (!barra) {
+      barra = document.createElement("div");
+      barra.className = "barra-sup";
+      main.insertBefore(barra, main.firstChild);
+    }
+    var fila = document.createElement("div");
+    fila.className = "desa-fila desa-compacta";
+    fila.id = "desa-fila";
+    fila.innerHTML =
+      '<button type="button" class="desa-btn" id="desa-baixa" title="Desa el codi en un fitxer a l\'ordinador">' + SVG_DESA + "<span>Desa el codi</span></button>" +
+      '<button type="button" class="desa-btn" id="desa-obre" title="Carrega el codi des d\'un fitxer de l\'ordinador">' + SVG_OBRE + "<span>Carrega el codi</span></button>" +
+      '<button type="button" class="desa-btn" id="desa-copia" title="Copia el codi al porta-retalls">' + SVG_COPIA + '<span id="desa-copia-et" aria-live="polite">Copia el codi</span></button>' +
+      '<input type="file" id="desa-fitxer" accept=".txt,text/plain" hidden>';
+    barra.appendChild(fila);
+    var msg = document.createElement("p");
+    msg.id = "desa-msg"; msg.className = "desa-msg petit desa-msg-pag"; msg.hidden = true;
+    msg.setAttribute("role", "status");
+    barra.parentNode.insertBefore(msg, barra.nextSibling);
+  }
+
   function munta() {
+    if (!$("desa-fila")) muntaFilaCompacta();
     var fila = $("desa-fila");
     if (!fila) return;
     var msg = $("desa-msg"), fitxer = $("desa-fitxer");
@@ -123,7 +157,7 @@ window.RE_DESA = (function () {
 
     function diu(txt, mal, html) {
       if (html) msg.innerHTML = txt; else msg.textContent = txt;
-      msg.className = "desa-msg petit" + (mal ? " mal" : "");
+      msg.className = "desa-msg petit" + (fila.classList.contains("desa-compacta") ? " desa-msg-pag" : "") + (mal ? " mal" : "");
       msg.hidden = !txt;
     }
 
@@ -136,9 +170,13 @@ window.RE_DESA = (function () {
     /* Tick verd-oliva al botó Desa mentre la feina d'ara ja és desada (baixada,
        copiada o carregada); desapareix quan hi ha feina nova. */
     function marcaBoto() {
-      $("desa-baixa").classList.toggle("desat", feines() > 0 && !senseDesar());
+      var desat = feines() > 0 && !senseDesar();
+      $("desa-baixa").classList.toggle("desat", desat);
+      $("desa-baixa").querySelector("span").textContent = desat ? "Codi desat al PC" : "Desa el codi";
     }
     marcaBoto();
+    /* A les pàgines d'exercicis la feina canvia sense recarregar. */
+    setInterval(marcaBoto, 2000);
 
     $("desa-baixa").onclick = function () {
       if (desa()) { diu("", false); marcaBoto(); }
