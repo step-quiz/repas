@@ -283,8 +283,9 @@ s'encalla la classe i si el codi és autèntic.
   portada hi ha tres botons grans, pensats per fer-los servir cada dia
   (`js/desa-local.js`, que reutilitza el codi de verificació com a fitxer de
   rescat):
-  - **Desa en local** (disquet): baixa el codi en un fitxer de text datat (repas-AAAA-MM-DD.txt).
-  - **Carrega codi** (carpeta oberta): tria un fitxer i en posa la feina al
+  - **Desa el codi** (disquet): baixa el codi en un fitxer de text datat (repas-AAAA-MM-DD.txt).
+    Mentre la feina d'ara ja és desada, el botó mostra un tick i fons verd-oliva.
+  - **Carrega el codi** (carpeta oberta): tria un fitxer i en posa la feina al
     navegador. És **sempre el mode «afegeix»** (només omple els exercicis que
     aquí no tenen estat; mai no n'esborra ni en trepitja cap), per això no
     demana confirmació ni avisa de res. La portada es recarrega i diu quants

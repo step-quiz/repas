@@ -56,13 +56,13 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
   seccio("La portada porta els tres botons");
   {
     const { d } = await obreLloc();
-    prova("Desa en local, Carrega codi i Copia el codi, amb la seva icona", () => {
+    prova("Desa el codi, Carrega el codi i Copia el codi, amb la seva icona", () => {
       ["desa-baixa", "desa-obre", "desa-copia"].forEach(id => {
         const b = d.getElementById(id);
         assert.ok(b && b.querySelector("svg"), id);
       });
-      assert.ok(/Desa en local/.test(d.getElementById("desa-baixa").textContent));
-      assert.ok(/Carrega codi/.test(d.getElementById("desa-obre").textContent));
+      assert.ok(/Desa el codi/.test(d.getElementById("desa-baixa").textContent));
+      assert.ok(/Carrega el codi/.test(d.getElementById("desa-obre").textContent));
       assert.ok(/Copia el codi/.test(d.getElementById("desa-copia").textContent));
     });
   }
@@ -82,6 +82,10 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
       assert.ok(/^repas-\d{4}-\d{2}-\d{2}\.txt$/.test(w.__nomBaixat), w.__nomBaixat);
     });
     const text = await llegeixBlob(w, w.__baixats[0]);
+    prova("el botó Desa mostra el tick (classe desat) un cop baixat el fitxer", () => {
+      assert.ok(d.getElementById("desa-baixa").classList.contains("desat"));
+      assert.strictEqual(d.getElementById("desa-msg").hidden, true);
+    });
     prova("el fitxer és un codi íntegre amb els 7 exercicis", () => {
       const p = w.RE_CODI.llegeix(text);
       assert.ok(p.ok && p.integre, JSON.stringify(p.error));
