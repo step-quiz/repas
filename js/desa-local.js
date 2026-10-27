@@ -169,17 +169,26 @@ window.RE_DESA = (function () {
 
     /* Tick verd-oliva al botó Desa mentre la feina d'ara ja és desada (baixada,
        copiada o carregada); desapareix quan hi ha feina nova. */
+    /* El tick surt cridaner (classe «desat») els 2 primers segons després de
+       desar i després es queda discret («desat-discret»: fons transparent i un
+       tick petit i pàl·lid). Si la pàgina s'obre amb la feina ja desada, surt
+       directament en la versió discreta. */
+    var cridaner = 0;
     function marcaBoto() {
-      var desat = feines() > 0 && !senseDesar();
-      $("desa-baixa").classList.toggle("desat", desat);
-      $("desa-baixa").querySelector("span").textContent = desat ? "Codi desat al PC" : "Desa el codi";
+      var b = $("desa-baixa"), desat = feines() > 0 && !senseDesar();
+      var fort = desat && Date.now() < cridaner;
+      b.classList.toggle("desat", fort);
+      b.classList.toggle("desat-discret", desat && !fort);
+      b.querySelector("span").textContent = desat ? "Codi desat al PC" : "Desa el codi";
+      if (fort) setTimeout(marcaBoto, cridaner - Date.now() + 20);
     }
+    function marcaBotoNou() { cridaner = Date.now() + 2000; marcaBoto(); }
     marcaBoto();
     /* A les pàgines d'exercicis la feina canvia sense recarregar. */
     setInterval(marcaBoto, 2000);
 
     $("desa-baixa").onclick = function () {
-      if (desa()) { diu("", false); marcaBoto(); }
+      if (desa()) { diu("", false); marcaBotoNou(); }
       else diu("Encara no has fet cap exercici: no hi ha res a desar.", true);
     };
 
@@ -210,7 +219,7 @@ window.RE_DESA = (function () {
       var començat = copia(function (ok) {
         if (!ok) { diu("No he pogut copiar el codi. Prova el botó Desa.", true); return; }
         bCopia.classList.add("fet");
-        marcaBoto();
+        marcaBotoNou();
         etCopia.textContent = "Codi copiat";
         clearTimeout(tempsCopiat);
         tempsCopiat = setTimeout(function () {

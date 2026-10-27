@@ -107,6 +107,12 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
       assert.strictEqual(d.getElementById("desa-baixa").textContent.trim(), "Codi desat al PC");
       assert.strictEqual(d.getElementById("desa-msg").hidden, true);
     });
+    await espera(2200);
+    prova("als 2 segons el tick passa a discret: fons transparent, mateix text", () => {
+      const b = d.getElementById("desa-baixa");
+      assert.ok(!b.classList.contains("desat") && b.classList.contains("desat-discret"));
+      assert.strictEqual(b.textContent.trim(), "Codi desat al PC");
+    });
     prova("el fitxer és un codi íntegre amb els 7 exercicis", () => {
       const p = w.RE_CODI.llegeix(text);
       assert.ok(p.ok && p.integre, JSON.stringify(p.error));
