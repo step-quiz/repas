@@ -410,3 +410,28 @@ button{font:inherit;font-family:var(--cos)}
 @media (max-width:460px){
   .avis-sortida .accions .btn{flex:1 1 100%;justify-content:center}
 }
+
+/* ---- còpia de seguretat: Desa / Carrega / Copia (index.html, js/desa-local.js) ---- */
+.desa{margin:1rem 0 0}
+.desa-titol{font-size:.95rem;margin-bottom:.5rem}
+.desa-fila{display:flex;gap:.6rem;flex-wrap:wrap}
+.desa-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;
+  flex:1 1 0;min-width:6.5rem;min-height:4.6rem;padding:.6rem .5rem;cursor:pointer;
+  background:var(--card);color:var(--tinta);border:1px solid var(--vora);border-radius:12px;
+  font-weight:600;font-size:.88rem;line-height:1.2;text-align:center;touch-action:manipulation;
+  box-shadow:0 1px 2px rgba(22,32,46,.05);transition:background .15s,border-color .15s,color .15s}
+@media (hover:hover){.desa-btn:hover{border-color:var(--tinta)}}
+.desa-btn:active{transform:translateY(1px)}
+.desa-btn svg{width:1.7rem;height:1.7rem;fill:none;stroke:currentColor;stroke-width:1.7;
+  stroke-linecap:round;stroke-linejoin:round}
+.desa-btn .ico-fet{display:none}
+.desa-btn.fet{background:var(--verd-suau);border-color:var(--verd);color:var(--verd)}
+.desa-btn.fet .ico-copia{display:none}
+.desa-btn.fet .ico-fet{display:block}
+.desa-ajuda{margin:.5rem 0 0;line-height:1.4}
+.desa-msg{margin:.5rem 0 0;line-height:1.45;color:var(--verd)}
+.desa-msg.mal{color:var(--vermell)}
+#desa-avis{position:fixed;left:50%;bottom:1rem;transform:translateX(-50%);z-index:10000;
+  width:min(30rem,calc(100% - 1.6rem));background:var(--ambre-suau);border:1px solid #EBD3A3;
+  color:#6B4200;border-radius:12px;padding:.8rem 1rem;box-shadow:0 8px 30px rgba(22,32,46,.25)}
+#desa-avis p{margin:0 0 .6rem;line-height:1.4;font-size:.92rem}

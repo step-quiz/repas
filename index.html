@@ -20,6 +20,32 @@
        quan torna l'endemà. -->
   <section class="amitges" id="amitges" hidden></section>
 
+  <!-- Còpia de seguretat de la feina (js/desa-local.js). Els Chromebook de
+       molts alumnes esborren les dades locals cada nit: Desa/Carrega/Copia
+       fan servir el codi de verificació com a fitxer de rescat. -->
+  <section class="desa" aria-labelledby="desa-titol">
+    <h2 id="desa-titol" class="desa-titol">La teva feina</h2>
+    <div class="desa-fila" id="desa-fila">
+      <button type="button" class="desa-btn" id="desa-baixa" title="Desa el codi en un fitxer a l'ordinador">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 3v5h7V3"/><rect x="7" y="13" width="10" height="8" rx="1"/></svg>
+        <span>Desa en local</span>
+      </button>
+      <button type="button" class="desa-btn" id="desa-obre" title="Carrega el codi des d'un fitxer de l'ordinador">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19V6a1 1 0 0 1 1-1h5l2 2h8a1 1 0 0 1 1 1v2"/><path d="M3 19l3-8a1 1 0 0 1 1-.7h14.2a.8.8 0 0 1 .76 1.07L19 19z"/></svg>
+        <span>Carrega codi</span>
+      </button>
+      <button type="button" class="desa-btn" id="desa-copia" title="Copia el codi al porta-retalls">
+        <svg class="ico-copia" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="12" rx="1.5"/><path d="M15 9V4.5A1.5 1.5 0 0 0 13.5 3h-8A1.5 1.5 0 0 0 4 4.5v10A1.5 1.5 0 0 0 5.5 16H9"/></svg>
+        <svg class="ico-fet" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-6.5"/></svg>
+        <span id="desa-copia-et" aria-live="polite">Copia el codi</span>
+      </button>
+      <input type="file" id="desa-fitxer" accept=".txt,text/plain" hidden>
+    </div>
+    <p class="desa-ajuda petit apagat">Alguns Chromebook esborren les dades cada nit. Abans de
+      plegar, prem <b>Desa en local</b>; l'endemà prem <b>Carrega codi</b> i tria el fitxer.</p>
+    <p class="desa-msg petit" id="desa-msg" role="status" aria-live="polite" hidden></p>
+  </section>
+
   <div id="tutor"></div>
 
   <h1>Escull un full i una activitat</h1>
@@ -49,6 +75,7 @@
 <script src="js/codi-taules.js"></script>
 <script src="js/codi.js"></script>
 <script src="js/codi-ui.js"></script>
+<script src="js/desa-local.js"></script>
 <script src="js/amitges.js"></script>
 <script src="js/inici.js"></script>
 </body>

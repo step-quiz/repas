@@ -48,6 +48,7 @@ SymPy (`pip install sympy`).
 | `test_registre.js` | 20 | El registre és d'una sola direcció: cap trampa no el renta |
 | `calendari.test.js` | 16 | La feina demanada (10–20) i les dates de mostra; el lloc ja no parla de trams |
 | `codi_ui.test.js` | 6 | El que el botó Codi diu a l'alumne: quants exercicis porta i quants se'n demanen, sense trams |
+| `desa_local.test.js` | 17 | Desa, Carrega (sempre «afegeix») i Copia la feina, i l'avís en tancar sense haver desat |
 | `mini_examen*.test.js` | — | Quatre bateries del mini-examen estàndard |
 | `teoria.test.js` | 3 | Els enllaços al llibre (se salten sense el repositori del llibre al costat) |
 | `video.test.js` | 19 | El mapa de vídeos i els botons Teoria / Vídeo pintats de debò |
