@@ -74,8 +74,9 @@
     if (f.disponible) {
       var n = fets(f.n), pct = Math.round(100 * n / f.total);
       var etiqueta = n === 1 ? "activitat resolta" : "activitats resoltes";
-      cos += '<div class="barra"><i style="width:' + pct + '%"></i></div>' +
-             '<div class="meta">' + n + " " + etiqueta + "</div>";
+      cos += '<div class="barra"><i style="width:' + pct + '%"></i></div>';
+      /* Amb 0 resoltes no s'escriu res: la barra buida ja ho diu. */
+      if (n) cos += '<div class="meta">' + n + " " + etiqueta + "</div>";
     } else {
       cos += '<span class="pastilla">Properament</span>';
     }
