@@ -1,7 +1,7 @@
 /* Generat per tools/build.py — no editeu aquest fitxer a mà. */
 window.FULL = {
  "full": 9,
- "titol": "Full 9 — Cossos geomètrics. Àrea i volum",
+ "titol": "Full 9 — Cossos geomètrics",
  "subtitol": "Àrea total de prismes, piràmides, cilindres, cons i l'esfera, i càlcul de volums en problemes aplicats.",
  "blocs": [
   {

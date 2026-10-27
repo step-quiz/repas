@@ -139,7 +139,7 @@ FULLS = {
         ],
     },
     7: {
-        "titol": "Full 7 — Teorema de Pitàgores. Àrees",
+        "titol": "Full 7 — Teorema de Pitàgores",
         "subtitol": "Triangles i teorema de Pitàgores, àrees de triangles, "
                     "quadrilàters i polígons regulars, i problemes "
                     "d'aplicació.",
@@ -160,7 +160,7 @@ FULLS = {
         ],
     },
     8: {
-        "titol": "Full 8 — Teorema de Tales. Semblança",
+        "titol": "Full 8 — Teorema de Tales",
         "subtitol": "Teorema de Tales, triangles semblants, escales i "
                     "aplicacions de la semblança a problemes d'altures i "
                     "distàncies inaccessibles.",
@@ -186,7 +186,7 @@ FULLS = {
         ],
     },
     9: {
-        "titol": "Full 9 — Cossos geomètrics. Àrea i volum",
+        "titol": "Full 9 — Cossos geomètrics",
         "subtitol": "Àrea total de prismes, piràmides, cilindres, cons i "
                     "l'esfera, i càlcul de volums en problemes aplicats.",
         "moduls": ["c_cossos"],

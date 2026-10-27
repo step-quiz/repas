@@ -9,7 +9,12 @@
 </head>
 <body>
 <main class="embolcall">
-  <p class="cimera">Repàs de Matemàtiques</p>
+  <!-- Capçalera: el Test inicial (l'omple js/inici.js) a l'esquerra del botó
+       Codi, que és fix a dalt a la dreta, i el títol de la portada. -->
+  <header class="portada-cap">
+    <div id="tutor"></div>
+    <h1 class="portada-titol">Repàs de Matemàtiques</h1>
+  </header>
 
   <!-- Exercicis oberts sense respondre que venen d'un codi recuperat: els
        pinta js/inici.js. Amagat si no n'hi ha cap. -->
@@ -23,8 +28,7 @@
   <!-- Còpia de seguretat de la feina (js/desa-local.js). Els Chromebook de
        molts alumnes esborren les dades locals cada nit: Desa/Carrega/Copia
        fan servir el codi de verificació com a fitxer de rescat. -->
-  <section class="desa" aria-labelledby="desa-titol">
-    <h2 id="desa-titol" class="desa-titol">La teva feina</h2>
+  <section class="desa" aria-label="La teva feina: desa, carrega i copia el codi">
     <div class="desa-fila" id="desa-fila">
       <button type="button" class="desa-btn" id="desa-baixa" title="Desa el codi en un fitxer a l'ordinador">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l4 4v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8 3v5h7V3"/><rect x="7" y="13" width="10" height="8" rx="1"/></svg>
@@ -41,31 +45,12 @@
       </button>
       <input type="file" id="desa-fitxer" accept=".txt,text/plain" hidden>
     </div>
-    <p class="desa-ajuda petit apagat">Alguns Chromebook esborren les dades cada nit. Abans de
-      plegar, prem <b>Desa en local</b>; l'endemà prem <b>Carrega codi</b> i tria el fitxer.</p>
     <p class="desa-msg petit" id="desa-msg" role="status" aria-live="polite" hidden></p>
   </section>
 
-  <div id="tutor"></div>
+  <h2 class="portada-sub">Escull un full i una activitat</h2>
 
-  <h1>Escull un full i una activitat</h1>
-
-  <form class="cerca" id="cerca" role="search" autocomplete="off" novalidate>
-    <label for="cerca-codi" class="cerca-etiqueta">Tens el codi d'un exercici apuntat a la llibreta?</label>
-    <div class="cerca-fila">
-      <input id="cerca-codi" name="codi" type="text" placeholder="p. ex. 121b"
-             autocapitalize="off" autocorrect="off" spellcheck="false"
-             enterkeyhint="go" maxlength="16">
-      <button class="btn" type="submit">Vés-hi</button>
-    </div>
-    <p class="cerca-resposta petit" aria-live="polite" hidden></p>
-  </form>
-
-  <div class="fulls" id="fulls" style="margin-top:1.2rem"></div>
-
-  <p class="petit apagat" style="margin-top:2.4rem">
-    El progrés de cada full es desa només en aquest navegador.
-  </p>
+  <div class="fulls" id="fulls"></div>
 </main>
 <script src="js/calendari.js"></script>
 <script src="js/nucli.js"></script>

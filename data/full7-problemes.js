@@ -1,7 +1,7 @@
 /* Generat per tools/build.py — no editeu aquest fitxer a mà. */
 window.FULL = {
  "full": 7,
- "titol": "Full 7 — Teorema de Pitàgores. Àrees",
+ "titol": "Full 7 — Teorema de Pitàgores",
  "subtitol": "Triangles i teorema de Pitàgores, àrees de triangles, quadrilàters i polígons regulars, i problemes d'aplicació.",
  "blocs": [
   {

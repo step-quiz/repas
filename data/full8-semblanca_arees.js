@@ -1,7 +1,7 @@
 /* Generat per tools/build.py — no editeu aquest fitxer a mà. */
 window.FULL = {
  "full": 8,
- "titol": "Full 8 — Teorema de Tales. Semblança",
+ "titol": "Full 8 — Teorema de Tales",
  "subtitol": "Teorema de Tales, triangles semblants, escales i aplicacions de la semblança a problemes d'altures i distàncies inaccessibles.",
  "blocs": [
   {
