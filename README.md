@@ -94,9 +94,9 @@ qui passa deu exercicis amb «Següent» en té deu de vistos.
   pestanya o abaixa la tapa sense comprovar, en tornar troba les opcions a la
   vista i aquella marcada, amb la lletra d'ara («ara és la C»). Comprovar-la
   continua sent cosa seva; en fer-ho, `tri` s'esborra.
-- **Cercador per codi.** A la portada, «Tens el codi d'un exercici apuntat a la
-  llibreta?»: escrivint `121b` s'hi va directament; amb `121` s'ofereixen els
-  apartats.
+- **Cercador per codi.** Es va treure de la portada (ningú no el feia servir).
+  La funció `RE_MITGES.cerca` continua a `js/amitges.js`: `121b` dona l'exercici
+  i `121` els apartats.
 - **El codi de verificació no canvia.** Els camps nous (`tact`, `opc`, `tri`,
   `sseg`, `tvis`, `amd`, `amt`) no entren al codi ni a l'analitzador. Proves a
   `tests/test_amitges.js`.

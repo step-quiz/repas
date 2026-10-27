@@ -47,9 +47,9 @@
     { n: 4, titol: "Polinomis", total: total(4, 59), disponible: true },
     { n: 5, titol: "Equacions i sistemes", total: total(5, 99), disponible: true },
     { n: 6, titol: "Proporcionalitat i percentatges", total: total(6, 21), disponible: true },
-    { n: 7, titol: "Teorema de Pitàgores. Àrees", total: total(7, 55), disponible: true },
-    { n: 8, titol: "Teorema de Tales. Semblança", total: total(8, 32), disponible: true },
-    { n: 9, titol: "Cossos geomètrics. Àrea i volum", total: total(9, 43), disponible: true },
+    { n: 7, titol: "Teorema de Pitàgores", total: total(7, 55), disponible: true },
+    { n: 8, titol: "Teorema de Tales", total: total(8, 32), disponible: true },
+    { n: 9, titol: "Cossos geomètrics", total: total(9, 43), disponible: true },
     { n: 10, titol: "Funcions", total: total(10, 45), disponible: true },
     { n: 11, titol: "Estadística", total: total(11, 52), disponible: true },
     { n: 12, titol: "Combinatòria i probabilitat", total: total(12, 67), disponible: true }
@@ -91,8 +91,7 @@
     if (!d) {
       cont.innerHTML =
         '<a class="tutor-targeta" href="diagnostic.html">' +
-          '<span class="pastilla pastilla-blau">Nou</span>' +
-          '<h3 class="tutor-titol">No saps per on començar?</h3>' +
+          '<h3 class="tutor-titol">Test inicial</h3>' +
           '<p class="petit apagat" style="margin:.35rem 0 0">Fes un test curt de 15 preguntes ' +
           "i et diem quins blocs et convé repassar primer.</p>" +
         "</a>";
@@ -103,7 +102,7 @@
     var noms = reco.map(function (b) { return b.titol; }).join(", ");
     cont.innerHTML =
       '<a class="tutor-targeta" href="resultat.html">' +
-        '<h3 class="tutor-titol">Segons el teu test inicial</h3>' +
+        '<h3 class="tutor-titol">Test inicial</h3>' +
         '<p class="petit apagat" style="margin:.35rem 0 0">' +
           (reco.length ? "Et convé repassar: " + noms + "." : "Dominaves prou bé tots els blocs provats.") +
         "</p>" +

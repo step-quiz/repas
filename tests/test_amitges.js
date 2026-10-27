@@ -644,18 +644,13 @@ async function obre(pagina, query, estat) {
     prova("la secció queda amagada", () => {
       assert.strictEqual(d.getElementById("amitges").hidden, true);
     });
-    const inp = d.getElementById("cerca-codi");
-    inp.value = "121";
-    d.getElementById("cerca").dispatchEvent(new d.defaultView.Event("submit", { cancelable: true }));
-    prova("el cercador amb «145» ofereix els apartats com a enllaços", () => {
-      const r = d.querySelector(".cerca-resposta");
-      assert.strictEqual(r.hidden, false);
-      assert.ok(r.querySelectorAll("a.xip").length >= 2);
+    prova("la portada ja no porta el cercador per codi", () => {
+      assert.strictEqual(d.getElementById("cerca"), null);
     });
-    inp.value = "zz";
-    d.getElementById("cerca").dispatchEvent(new d.defaultView.Event("submit", { cancelable: true }));
-    prova("amb un codi que no existeix ho diu", () => {
-      assert.ok(/No hi ha cap exercici/.test(d.querySelector(".cerca-resposta").textContent));
+    const M = d.defaultView.RE_MITGES;
+    prova("la funció cerca continua: «121» ofereix els apartats i «zz» no existeix", () => {
+      assert.strictEqual(M.cerca("121").tipus, "molts");
+      assert.strictEqual(M.cerca("zz").tipus, "res");
     });
     tanca();
   }
