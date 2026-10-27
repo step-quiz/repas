@@ -32,7 +32,7 @@
   if (idx < 0) {
     document.getElementById("main").innerHTML =
       '<div class="barra-sup"><a href="full.html?full=' + D.full +
-      '" class="petit">← ' + D.titol + "</a></div>" +
+      '" class="tornar-btn">← ' + D.titol + "</a></div>" +
       "<h1>Aquest exercici no és en aquest full</h1>" +
       '<p class="apagat" style="margin:.6rem 0 1.4rem">L\'enllaç demana ' +
       "l'exercici <strong>" + String(qid).replace(/[<&]/g, "") +
@@ -168,7 +168,6 @@
     surt($("#tornar").href, "tornar");
   });
   $("#codi").textContent = item.id;
-  $("#situacio").textContent = bloc.titol + " · " + (idx + 1) + " de " + ids.length;
   $("#encap").textContent = item.encapcalament;
   $("#enunciat").innerHTML = item.enunciat;
   /* La figura va DESPRÉS de l'enunciat, no al lloc: l'enunciat ha de poder
