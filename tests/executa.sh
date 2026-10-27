@@ -66,6 +66,10 @@ echo "── JavaScript: el botó Codi diu la feina, sense trams ─────
 node tests/codi_ui.test.js || fallades=1
 
 echo
+echo "── JavaScript: Desa, Carrega i Copia la feina ────────────────"
+node tests/desa_local.test.js || fallades=1
+
+echo
 echo "── JavaScript: mini-examen de 3 setmanes ─────────────────────"
 # El repartiment per trams i el sorteig són funcions pures i corren sempre.
 for t in tests/mini_examen.test.js tests/mini_examen_historial.test.js; do

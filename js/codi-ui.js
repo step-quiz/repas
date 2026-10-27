@@ -195,7 +195,10 @@ window.RE_CODI_UI = (function () {
     var cop = document.getElementById("re-codi-copia");
     if (cop) cop.onclick = function () {
       var b = this;
-      function be() { b.textContent = "Copiat"; setTimeout(function () { b.textContent = "Copia el codi"; }, 2500); }
+      function be() {
+        if (window.RE_DESA) window.RE_DESA.marcaDesat();
+        b.textContent = "Copiat"; setTimeout(function () { b.textContent = "Copia el codi"; }, 2500);
+      }
       function manual() {
         /* Sense perm\u00eds de porta-retalls (fitxer local, navegador antic) es
            selecciona el text i Ctrl+C sempre funciona. */
@@ -280,127 +283,135 @@ window.RE_CODI_UI = (function () {
          És l'opció segura i la que gairebé sempre es vol.
        · "Substitueix-ho tot" -- esborra i escriu el que digui el codi.
          Demana confirmació perquè és destructiva. */
+  /* Fa la recuperació en si: llegeix el codi, el valida i el posa al navegador.
+     `diu(text, mal, html)` pinta el missatge; qui crida decideix on. Retorna
+     {ok, posats, saltats, oberts}. Compartida pel desplegable de la finestra del
+     codi i pels botons de la portada (js/desa-local.js). */
+  function esc(t) {
+    return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function recupera(brut, nomesBuits, diu) {
+    brut = String(brut || "").trim();
+    if (!brut) { diu("Enganxa primer un codi.", true); return { ok: false }; }
+    var p = window.RE_CODI.llegeix(brut);
+    if (!p.ok) { diu(p.error || "Aquest codi no es pot llegir.", true); return { ok: false }; }
+    if (!p.integre) {
+      diu("El codi es llegeix, per\u00f2 el control no quadra: s'ha copiat "
+        + "a mitges o li falta algun car\u00e0cter. Torna a copiar-lo sencer.", true);
+      return { ok: false };
+    }
+    if (!nomesBuits && !window.confirm(
+      "Aix\u00f2 esborrar\u00e0 el progr\u00e9s que hi ha en aquest navegador i hi "
+      + "posar\u00e0 el del codi. Vols continuar?")) return { ok: false };
+
+    var posats = 0, saltats = 0, oberts = 0, llistaOberts = [];
+    p.fulls.forEach(function (f) {
+      if (!nomesBuits) window.RE.esborra(f.n);
+      var actual = window.RE.llegeix(f.n).items || {};
+      f.items.forEach(function (it) {
+        if (!it.estat) return;
+        /* "vist" vol dir només obert, sense respondre: no és feina feta i no
+           compta enlloc (ni al botó, ni a RE_CODI.resum, ni a l'analitzador).
+           Es recupera tal com era, com a "vist" i sense `tancat` ni `imp`:
+           així no queda bloquejat com a resolt, l'alumna el pot fer amb
+           nota, i surt al desplegable «Oberts sense respondre» de la pàgina
+           del full. `rec` el marca com a recuperat d'un codi: és el que fa
+           que la portada (js/inici.js) li avisi a l'alumna; els "vist" de
+           passada no en porten i no avisen de res. El missatge diu quins són. Si
+           aquí ja hi ha res d'aquest exercici (un resultat de debò o un
+           "vist" propi), no es toca. */
+        if (it.estat === "vist") {
+          if (!actual[it.id] || !actual[it.id].estat) {
+            window.RE.apunta(f.n, it.id, { estat: "vist", rec: 1 });
+            oberts++;
+            llistaOberts.push({ full: f.n, id: it.id });
+          }
+          return;
+        }
+        if (nomesBuits && actual[it.id] && actual[it.id].estat && actual[it.id].estat !== "vist") { saltats++; return; }
+        /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
+           que compti com a ja resolt: recuperar la feina no ha de tornar a
+           obrir tots els exercicis com si s'haguessin de fer. */
+        /* Si el codi porta la data del primer intent, es recupera: sense
+           ella, la feina recuperada no comptaria per a cap tram. L'ordre
+           dins del dia es conserva sumant-hi l'ordre del codi en ms. */
+        var dades = { estat: it.estat === "pistes" ? "pista" : it.estat, imp: 1, tancat: 1 };
+        if (it.estat === "pistes") dades.npis = 2;
+        if (it.feta) dades.tf = it.feta.getTime() + (it.ordre || 0);
+        window.RE.apunta(f.n, it.id, dades);
+        posats++;
+      });
+    });
+
+    /* Es desa d'on ve. No per desconfiança: recuperar la pròpia feina és
+       l'ús normal d'això i el més freqüent. Però el codi que surti d'aquest
+       navegador ha de poder dir que una part de la feina ve d'un altre
+       lloc, perquè si no, importar el codi d'un company és exactament
+       indistingible d'haver-la fet. L'analitzador ho creua amb els codis
+       que ja té i, si l'origen és un codi del mateix alumne, no diu res. */
+    if (posats) {
+      var g = window.RE.meta();
+      g.imp = (g.imp || 0) + 1;
+      g.orig = window.RE_CODI.empremta(p);
+      window.RE.desaMeta(g);
+    }
+
+    /* Un enllaç per exercici, agrupats per full i amb el títol del tema:
+       l'alumne no ha de recordar «Full 5», n'hi ha prou amb clicar. El
+       missatge desapareix en recarregar, així que els enllaços són la
+       manera de no perdre'ls. */
+    var perFull = {};
+    llistaOberts.forEach(function (o) { (perFull[o.full] = perFull[o.full] || []).push(o.id); });
+    var avisOberts = "";
+    if (oberts) {
+      avisOberts = " " + oberts + " exercici" + (oberts === 1 ? " estava obert" : "s estaven oberts")
+        + " sense respondre. Clica'n un per anar-hi:<br>"
+        + Object.keys(perFull).map(function (n) {
+          var t = window.RE_TAULES.fulls[n], tit = t && t.titol
+            ? t.titol.replace(/^Full\s+\d+\s*[\u2014\u2013-]\s*/, "") : "";
+          return "<b>Full " + esc(n) + (tit ? " \u00b7 " + esc(tit) : "") + ":</b> "
+            + perFull[n].map(function (id) {
+              return '<a href="practica.html?full=' + encodeURIComponent(n) + "&amp;q="
+                + encodeURIComponent(id) + '">' + esc(id) + "</a>";
+            }).join(", ");
+        }).join("<br>")
+        + "<br>Tamb\u00e9 els trobar\u00e0s a \u00abOberts sense respondre\u00bb, dins de la p\u00e0gina de cada full.";
+    }
+
+    /* El botó i l'avís de la portada es tornen a pintar ara mateix: abans
+       calia recarregar, i qui no ho feia veia el comptador vell. La resta
+       de la pàgina d'un full (la graella d'exercicis) sí que necessita
+       recarregar, i només llavors es diu. */
+    refrescaBoto();
+    var aPortada = !!(window.RE_INICI && window.RE_INICI.pintaRecuperats);
+    if (aPortada) window.RE_INICI.pintaRecuperats();
+    var recarrega = aPortada ? ""
+      : "<br>Recarrega la p\u00e0gina per veure-ho a la llista d'exercicis.";
+
+    if (!posats && !saltats) {
+      diu(oberts ? "Aquest codi no porta cap exercici fet." + avisOberts + recarrega
+                 : "Aquest codi no porta cap exercici fet.", !oberts, true);
+      return { ok: true, posats: posats, saltats: saltats, oberts: oberts };
+    }
+    diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
+      + (posats === 1 ? "" : "s")
+      + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
+      + "." + avisOberts + recarrega, false, true);
+    return { ok: true, posats: posats, saltats: saltats, oberts: oberts };
+  }
+
   function muntaRecuperacio() {
     var camp = document.getElementById("re-codi-rec-camp");
     if (!camp) return;
     var estat = document.getElementById("re-codi-rec-estat");
 
-    function esc(t) {
-      return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-    }
     function diu(txt, mal, html) {
       if (html) estat.innerHTML = txt; else estat.textContent = txt;
       estat.style.color = mal ? "#A32B22" : "var(--apagat,#6B7480)";
     }
 
-    function aplica(nomesBuits) {
-      var brut = camp.value.trim();
-      if (!brut) { diu("Enganxa primer un codi.", true); return; }
-      var p = window.RE_CODI.llegeix(brut);
-      if (!p.ok) { diu(p.error || "Aquest codi no es pot llegir.", true); return; }
-      if (!p.integre) {
-        diu("El codi es llegeix, per\u00f2 el control no quadra: s'ha copiat "
-          + "a mitges o li falta algun car\u00e0cter. Torna a copiar-lo sencer.", true);
-        return;
-      }
-      if (!nomesBuits && !window.confirm(
-        "Aix\u00f2 esborrar\u00e0 el progr\u00e9s que hi ha en aquest navegador i hi "
-        + "posar\u00e0 el del codi. Vols continuar?")) return;
-
-      var posats = 0, saltats = 0, oberts = 0, llistaOberts = [];
-      p.fulls.forEach(function (f) {
-        if (!nomesBuits) window.RE.esborra(f.n);
-        var actual = window.RE.llegeix(f.n).items || {};
-        f.items.forEach(function (it) {
-          if (!it.estat) return;
-          /* "vist" vol dir només obert, sense respondre: no és feina feta i no
-             compta enlloc (ni al botó, ni a RE_CODI.resum, ni a l'analitzador).
-             Es recupera tal com era, com a "vist" i sense `tancat` ni `imp`:
-             així no queda bloquejat com a resolt, l'alumna el pot fer amb
-             nota, i surt al desplegable «Oberts sense respondre» de la pàgina
-             del full. `rec` el marca com a recuperat d'un codi: és el que fa
-             que la portada (js/inici.js) li avisi a l'alumna; els "vist" de
-             passada no en porten i no avisen de res. El missatge diu quins són. Si
-             aquí ja hi ha res d'aquest exercici (un resultat de debò o un
-             "vist" propi), no es toca. */
-          if (it.estat === "vist") {
-            if (!actual[it.id] || !actual[it.id].estat) {
-              window.RE.apunta(f.n, it.id, { estat: "vist", rec: 1 });
-              oberts++;
-              llistaOberts.push({ full: f.n, id: it.id });
-            }
-            return;
-          }
-          if (nomesBuits && actual[it.id] && actual[it.id].estat && actual[it.id].estat !== "vist") { saltats++; return; }
-          /* `imp` marca l'exercici com a recuperat d'un codi, i `tancat` fa
-             que compti com a ja resolt: recuperar la feina no ha de tornar a
-             obrir tots els exercicis com si s'haguessin de fer. */
-          /* Si el codi porta la data del primer intent, es recupera: sense
-             ella, la feina recuperada no comptaria per a cap tram. L'ordre
-             dins del dia es conserva sumant-hi l'ordre del codi en ms. */
-          var dades = { estat: it.estat === "pistes" ? "pista" : it.estat, imp: 1, tancat: 1 };
-          if (it.estat === "pistes") dades.npis = 2;
-          if (it.feta) dades.tf = it.feta.getTime() + (it.ordre || 0);
-          window.RE.apunta(f.n, it.id, dades);
-          posats++;
-        });
-      });
-
-      /* Es desa d'on ve. No per desconfiança: recuperar la pròpia feina és
-         l'ús normal d'això i el més freqüent. Però el codi que surti d'aquest
-         navegador ha de poder dir que una part de la feina ve d'un altre
-         lloc, perquè si no, importar el codi d'un company és exactament
-         indistingible d'haver-la fet. L'analitzador ho creua amb els codis
-         que ja té i, si l'origen és un codi del mateix alumne, no diu res. */
-      if (posats) {
-        var g = window.RE.meta();
-        g.imp = (g.imp || 0) + 1;
-        g.orig = window.RE_CODI.empremta(p);
-        window.RE.desaMeta(g);
-      }
-
-      /* Un enllaç per exercici, agrupats per full i amb el títol del tema:
-         l'alumne no ha de recordar «Full 5», n'hi ha prou amb clicar. El
-         missatge desapareix en recarregar, així que els enllaços són la
-         manera de no perdre'ls. */
-      var perFull = {};
-      llistaOberts.forEach(function (o) { (perFull[o.full] = perFull[o.full] || []).push(o.id); });
-      var avisOberts = "";
-      if (oberts) {
-        avisOberts = " " + oberts + " exercici" + (oberts === 1 ? " estava obert" : "s estaven oberts")
-          + " sense respondre. Clica'n un per anar-hi:<br>"
-          + Object.keys(perFull).map(function (n) {
-            var t = window.RE_TAULES.fulls[n], tit = t && t.titol
-              ? t.titol.replace(/^Full\s+\d+\s*[\u2014\u2013-]\s*/, "") : "";
-            return "<b>Full " + esc(n) + (tit ? " \u00b7 " + esc(tit) : "") + ":</b> "
-              + perFull[n].map(function (id) {
-                return '<a href="practica.html?full=' + encodeURIComponent(n) + "&amp;q="
-                  + encodeURIComponent(id) + '">' + esc(id) + "</a>";
-              }).join(", ");
-          }).join("<br>")
-          + "<br>Tamb\u00e9 els trobar\u00e0s a \u00abOberts sense respondre\u00bb, dins de la p\u00e0gina de cada full.";
-      }
-
-      /* El botó i l'avís de la portada es tornen a pintar ara mateix: abans
-         calia recarregar, i qui no ho feia veia el comptador vell. La resta
-         de la pàgina d'un full (la graella d'exercicis) sí que necessita
-         recarregar, i només llavors es diu. */
-      refrescaBoto();
-      var aPortada = !!(window.RE_INICI && window.RE_INICI.pintaRecuperats);
-      if (aPortada) window.RE_INICI.pintaRecuperats();
-      var recarrega = aPortada ? ""
-        : "<br>Recarrega la p\u00e0gina per veure-ho a la llista d'exercicis.";
-
-      if (!posats && !saltats) {
-        diu(oberts ? "Aquest codi no porta cap exercici fet." + avisOberts + recarrega
-                   : "Aquest codi no porta cap exercici fet.", !oberts, true);
-        return;
-      }
-      diu(posats + " exercici" + (posats === 1 ? "" : "s") + " recuperat"
-        + (posats === 1 ? "" : "s")
-        + (saltats ? " (" + saltats + " ja els tenies fets aqu\u00ed i no s'han tocat)" : "")
-        + "." + avisOberts + recarrega, false, true);
-    }
+    function aplica(nomesBuits) { recupera(camp.value, nomesBuits, diu); }
 
     document.getElementById("re-codi-rec-afegeix").onclick = function () { aplica(true); };
     document.getElementById("re-codi-rec-tot").onclick = function () { aplica(false); };
@@ -435,5 +446,12 @@ window.RE_CODI_UI = (function () {
     document.addEventListener("DOMContentLoaded", munta);
   } else { munta(); }
 
-  return { munta: munta, obre: obre, eliminaTot: eliminaTot };
+  /* El codi d'ara mateix, o null si encara no hi ha cap exercici fet. */
+  function codiActual() {
+    if (!comptes().fets) return null;
+    return window.RE_CODI.genera(window.RE_CODI.recull(null));
+  }
+
+  return { munta: munta, obre: obre, eliminaTot: eliminaTot, comptes: comptes,
+           codiActual: codiActual, recupera: recupera };
 })();

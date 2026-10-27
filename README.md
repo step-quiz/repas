@@ -129,6 +129,7 @@ A l'arrel només hi ha el lloc que es publica i el que cal per treballar-hi.
     js/calendari.js       la feina demanada per examen (10-20) i dates de mostra
     js/codi.js            codi de verificació: generació I lectura
     js/codi-ui.js         el panell del codi que veu l'alumne
+    js/desa-local.js      Desa / Carrega / Copia la feina i l'avís en tancar
     js/codi-taules.js     GENERAT — taules del codi (ordre d'ítems i etiquetes)
     css/estil.css         tot l'estil del lloc
     vendor/katex/         KaTeX servit en local (no CDN): un filtre de centre
@@ -275,6 +276,29 @@ s'encalla la classe i si el codi és autèntic.
   entremig. Aquesta pestanya en mostra l'**activitat** —constància (setmanes
   amb feina nova), volum, encert, pistes i millora, estandarditzats per
   dificultat— però **ja no en treu cap nota**: la nota és només la del tram.
+
+- **Desa, Carrega i Copia (còpia de seguretat diària).** Alguns Chromebook
+  són "congelats" i cada nit esborren tota la informació local, dades del
+  navegador incloses: el progrés (`localStorage`) es perd. A dalt de la
+  portada hi ha tres botons grans, pensats per fer-los servir cada dia
+  (`js/desa-local.js`, que reutilitza el codi de verificació com a fitxer de
+  rescat):
+  - **Desa en local** (disquet): baixa el codi en un fitxer de text datat (repas-AAAA-MM-DD.txt).
+  - **Carrega codi** (carpeta oberta): tria un fitxer i en posa la feina al
+    navegador. És **sempre el mode «afegeix»** (només omple els exercicis que
+    aquí no tenen estat; mai no n'esborra ni en trepitja cap), per això no
+    demana confirmació ni avisa de res. La portada es recarrega i diu quants
+    exercicis s'han recuperat.
+  - **Copia el codi** (portapapers): copia el codi; la icona es posa verda i
+    diu **«Codi copiat»** uns segons.
+  - **Avís en tancar.** Si hi ha feina que no s'ha desat, baixat o copiat des
+    de l'últim canvi, en tancar la finestra el navegador pregunta si hi vols
+    sortir (el text és del navegador, no es pot canviar) i, si l'alumne es
+    queda, apareix un recordatori amb el botó **Desa el codi**. Funciona a
+    totes les pàgines amb el botó Codi. No molesta en anar d'una pàgina del
+    lloc a una altra (un clic o una tecla just abans compta com a navegació
+    pròpia). La marca de «desat» és a `localStorage` (`repas-eso:desat`): si
+    el navegador l'esborra, tampoc no hi ha feina, i no hi ha cap avís fals.
 
 - **Recuperar el progrés.** El progrés viu al `localStorage` d'un navegador. En
   un carro de Chromebooks compartits, o amb una política que esborra les dades
