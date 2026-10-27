@@ -108,7 +108,7 @@ const sortida = (w) => { const e = new w.Event("beforeunload", { cancelable: tru
       assert.strictEqual(d.getElementById("desa-msg").hidden, true);
     });
     await espera(2200);
-    prova("als 2 segons el tick passa a discret: fons transparent, mateix text", () => {
+    prova("als 2 segons el tick passa a discret: fons blanc, mateix text", () => {
       const b = d.getElementById("desa-baixa");
       assert.ok(!b.classList.contains("desat") && b.classList.contains("desat-discret"));
       assert.strictEqual(b.textContent.trim(), "Codi desat al PC");

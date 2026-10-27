@@ -170,7 +170,7 @@ window.RE_DESA = (function () {
     /* Tick verd-oliva al botó Desa mentre la feina d'ara ja és desada (baixada,
        copiada o carregada); desapareix quan hi ha feina nova. */
     /* El tick surt cridaner (classe «desat») els 2 primers segons després de
-       desar i després es queda discret («desat-discret»: fons transparent i un
+       desar i després es queda discret («desat-discret»: fons blanc i un
        tick petit i pàl·lid). Si la pàgina s'obre amb la feina ja desada, surt
        directament en la versió discreta. */
     var cridaner = 0;
